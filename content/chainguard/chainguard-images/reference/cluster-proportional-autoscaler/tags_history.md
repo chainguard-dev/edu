@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cluster-proportional-autoscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 2nd      | `sha256:b5481aee4b7e3a478232560a478f0f3ee14cdabdafdefc9e586ded902a1aa70a` |
-|  `latest`     | May 2nd      | `sha256:37aaa2ceadba0126b6129c39185e380a8bd56e0c83717a62c92c53f3595cfbe1` |
+|  `latest`     | May 9th      | `sha256:6cd588b9f0cd0ff8235cc6cf42cfdd3a42c71e8f3d33a0ade4d847117c9d477f` |
+|  `latest-dev` | May 9th      | `sha256:a1bad6fd753178d233cf25e7d4398b1c0442e766047db3f3e35a53c7f2901314` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1` `1.8` `latest` `1.8.11`                 | May 2nd      | `sha256:a8ce35c5618963753eb7134945b3b082ef82c5833a4717945d6a81edb045e959` |
-|  `latest-dev` `1-dev` `1.8-dev` `1.8.11-dev` | May 2nd      | `sha256:d133794e22a8f08cfa74f6304747e7a220674a669d1fbe0614bc63f4cfb8a759` |
+|  `1-dev` `1.8-dev` `1.8.11-dev` `latest-dev` | May 9th      | `sha256:237243e2c1300f693b74c627b7ae8b72da0c893b9238762724d92c1bc73dd902` |
+|  `1.8` `1` `latest` `1.8.11`                 | May 9th      | `sha256:f0a74cdc4a56fb7e71a2956c521348a86a09bbbe062277668d027765f508b6bf` |
 

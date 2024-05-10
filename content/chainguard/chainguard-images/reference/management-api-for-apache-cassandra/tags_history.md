@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the management-api-for-apache-cassandra Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-07 00:45:47
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 6th      | `sha256:4edb0d901dc05845db9585034c619477c98b8290ee49d5815296511a298ad02a` |
-|  `latest`     | May 6th      | `sha256:a2f18e73978459f04deb79df07c2182ea483b9310e927dd35e001df05e7be921` |
+|  `latest-dev` | May 9th      | `sha256:622b2d7aebdc7c2c11085951c33403de6fadb1ed63593171ba221b6982daced2` |
+|  `latest`     | May 9th      | `sha256:ac0aaacfb60e088500f6ed162d5e6227fbb6ea6d661d10da3afa7382d684046d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.1-dev` `latest-dev` `0-dev` `0.1.74-dev` | May 6th      | `sha256:a633cfabe954f4a1e5cad48709b75e36987f379b3b40f393f0cf06103ae057f3` |
-|  `0` `0.1.74` `0.1` `latest`                 | May 6th      | `sha256:a0c648a248ba0a48eee22fb9046b638484d7a032309a2d66181843951effa27d` |
+|  `0.1.74-dev` `0-dev` `latest-dev` `0.1-dev` | May 9th      | `sha256:d12c4a86876946a67e0b740c29e1c563ce751e550cb85c0c499ff9fef85d3c62` |
+|  `0.1.74` `latest` `0` `0.1`                 | May 9th      | `sha256:e5ae019481293cd6df3b53ceedf3d3fd1f645cea1d0f2a3b3f4cee8e152d87bb` |
 

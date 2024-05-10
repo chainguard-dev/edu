@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gotenberg Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8` `8.5.0` `latest` `8.5`                 | May 2nd      | `sha256:e62e673fe5447061a805150f2e71c1b70613268693da4ece3e95c2a91843b860` |
-|  `8-dev` `latest-dev` `8.5-dev` `8.5.0-dev` | May 2nd      | `sha256:c59d1c28e42c2d302826be5af2130af15875ff8bcdeed8792d662cc4770a5559` |
+|  `8.5` `8.5.0` `8` `latest`                 | May 8th      | `sha256:8e940241e8a130512c93860770a82b4c36ca86d0b7f9cbf60ca2ab78354d509c` |
+|  `latest-dev` `8.5.0-dev` `8.5-dev` `8-dev` | May 8th      | `sha256:e1380ce253e50bce6aa88336a152c418bc44ce874ed32ade9ff7364a0957d8fd` |
 |  `8.4-dev` `8.4.0-dev`                      | April 29th   | `sha256:3d252a4047c12a04cf0fbfdc6c9e25549b742dbcd0edd42db3a11ee953f943a8` |
 |  `8.4.0` `8.4`                              | April 29th   | `sha256:0b2e64f8ed8a0f4e08adc6b24397b65eedf7afeb6758ee0e227896f4ee096706` |
 |  `8.3.0` `8.3`                              | April 11th   | `sha256:be8a5857e12f52277522e59cabebcb4fe28c554761fb2ec16f6d1fed6be79e73` |

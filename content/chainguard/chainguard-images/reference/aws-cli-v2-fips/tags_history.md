@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-cli-v2-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-06 00:43:57
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.15.44` `latest` `2.15` `2`                 | May 3rd      | `sha256:5d2a0ab866e067190eb1e7f2c9ab5be4a745ff0030deff2e78472352492bdaf3` |
-|  `2.15-dev` `2-dev` `2.15.44-dev` `latest-dev` | May 3rd      | `sha256:03bd4b63ef0d6a161543a4dc29c0d33c771dd3aafcaa3494e6bb60874cf4b85a` |
+|  `2.15.46-dev` `2.15-dev` `2-dev` `latest-dev` | May 8th      | `sha256:3973174b4efdcb1534d849b1c2d3bcfe66df431641432ab1d4047456b9fd9a2b` |
+|  `2.15.46` `latest` `2.15` `2`                 | May 8th      | `sha256:32a4fadb8df3a7c641d83c40503dc1c76fae19899238153f8ef4a7037fb25ccf` |
+|  `2.15.45`                                     | May 7th      | `sha256:2a1b8ef1a1beadbc917c7a8904e64aad694d129d3e45de2e17ab442c625c9a5e` |
+|  `2.15.45-dev`                                 | May 7th      | `sha256:faea3dcada84a5c20152465f2f6b47d8b6e1f99eb6840573dae482e3c8ee61fc` |
+|  `2.15.44`                                     | May 3rd      | `sha256:5d2a0ab866e067190eb1e7f2c9ab5be4a745ff0030deff2e78472352492bdaf3` |
+|  `2.15.44-dev`                                 | May 3rd      | `sha256:03bd4b63ef0d6a161543a4dc29c0d33c771dd3aafcaa3494e6bb60874cf4b85a` |
 |  `2.15.43`                                     | May 2nd      | `sha256:576549d0a80dba9a750a7141e5e047a27a9b81ef6a6f0211facd21f72c7444bb` |
 |  `2.15.43-dev`                                 | May 2nd      | `sha256:15e77de33f55910299f0ac214cb831ca2e72cba867da56d0ccd781573207f1fa` |
 |  `2.15.42-dev`                                 | May 1st      | `sha256:249ec68d5e83d0584a9286b275ec8611db5393848f1fe138efeea45cd8a37ed1` |

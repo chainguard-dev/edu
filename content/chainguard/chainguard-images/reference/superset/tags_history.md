@@ -3,8 +3,8 @@ title: "superset Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the superset Chainguard Image"
-date: 2024-05-06 00:43:57
-lastmod: 2024-05-06 00:43:57
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 3rd      | `sha256:3c61dea383a1fea4dbe5259e1c5e58a35166bb831bde7b7d9cf05d76a347ee20` |
-|  `latest`     | May 3rd      | `sha256:b0b292cbf401adadf51164edb853676876069b453e67b6dd651cbdaa3891da5c` |
+|  `latest-dev` | May 8th      | `sha256:cd73ff8f1765e05c29c486fb45f8e83689181a937b668852b91ea44dbd45fc1d` |
+|  `latest`     | May 8th      | `sha256:7388b1b001eefe0dc40e2cf7bba93f0a37a4dee99a5ac865391cc30c790fc35c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4` `latest` `4.0.0` `4.0`                 | May 4th      | `sha256:cf42caccc1e4f13e2795ebc6f9985d4f58cc16c2b9e466444e9b34852d548e9a` |
-|  `4-dev` `latest-dev` `4.0.0-dev` `4.0-dev` | May 4th      | `sha256:3473b4560a7e5b24c76cf624d91828278b9b4291b35887cbc4329c04bb701ab9` |
+|  `4.0.0` `4.0` `4` `latest`                 | May 7th      | `sha256:a4679527e3b1074f7821a5682473af159335126ce0aaec4710fbb13c7bc600eb` |
+|  `latest-dev` `4.0-dev` `4-dev` `4.0.0-dev` | May 7th      | `sha256:6bed2fa4c594b61ca93adb2c93fb6bab0e8e08c5fa9bab9822eadf833b88baf8` |
 

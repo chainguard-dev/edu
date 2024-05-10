@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-trillian-createdb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 2nd      | `sha256:1a6d570ebec546cd6f4109288cc4d5fcf587937ef2e113d1dc764a96bd10ec41` |
-|  `latest`     | May 2nd      | `sha256:408c6d2b8d1e074774b427bac64f1a9d4d261ac87e13e6c43bc9dae446013df4` |
+|  `latest`     | May 8th      | `sha256:45ba01125c038f46f7000affe9448c7de566ae7bd28c8f0bb07539c62d1f148b` |
+|  `latest-dev` | May 8th      | `sha256:5e5305ee90f2d1ee48e8dbc6f3505a64210bfd519101f158452883526c940688` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6` `0.6.17` `latest` `0`                 | May 2nd      | `sha256:b8231a5adbb56654f29553b0bf8beb6ef45f73d4f2da071a0849f4c756a87ca4` |
-|  `0.6-dev` `latest-dev` `0-dev` `0.6.17-dev` | May 2nd      | `sha256:73495fbb48eab5b0e800d6ab586343a93b098526f901a26420477ab5d18830a8` |
+|  `0.6` `0` `latest` `0.6.17`                 | May 8th      | `sha256:999c4696536c0b3e7cc8395c3faecdd5ff26ab1689a156d041ac1c3f44cedfe2` |
+|  `0-dev` `0.6-dev` `0.6.17-dev` `latest-dev` | May 8th      | `sha256:075dd1b2c7b10dd5706b3a642089f31e51216b2f9f188d1581af2f14515e880f` |
 

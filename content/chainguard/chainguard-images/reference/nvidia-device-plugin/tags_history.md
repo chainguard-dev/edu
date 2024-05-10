@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nvidia-device-plugin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-06 00:43:57
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 2nd      | `sha256:b070f51d32032333fd78df2857b67a73d0319cc99c80bc3b4f8e77729d29f634` |
-|  `latest`     | May 2nd      | `sha256:56c5f49a369bbaf5838f4adefcebb814ebaef5c3d2f43c69522073d790aecae5` |
+|  `latest-dev` | May 9th      | `sha256:ca7d4e28958c7e30af9d8fcfb3ad8187a1fc2d26c504a25e35d159484a0d2a1d` |
+|  `latest`     | May 9th      | `sha256:4285f382100bbddbbe690f3a64988c508c9a757664faad9345dac845923d8489` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.15.0-dev` `0-dev` `0.15-dev` | May 2nd      | `sha256:68218119a98efdfe247cdbba34b7266f35b107295a4fa4877a198df225f5a379` |
-|  `0.15` `latest` `0.15.0` `0`                 | May 2nd      | `sha256:0d49b90f1543b2126bfdc8f87f0037c2db781ef3c2afbd194af2857c52b3ad27` |
+|  `0.15.0` `0` `0.15` `latest`                 | May 9th      | `sha256:6592b32160b83add720aa42efd95a81178cba53b238c0d6ad91b2663b767eb23` |
+|  `0-dev` `0.15.0-dev` `latest-dev` `0.15-dev` | May 9th      | `sha256:076d6c659cbba0f89e16b306831b36019f80c148f406e5e064a394879856355e` |
 |  `0.14-dev` `0.14.5-dev`                      | April 11th   | `sha256:a3cfc958818ae96d6c6c5bc3121bc10d910ea18eb53c80df91b939a1526acd90` |
 

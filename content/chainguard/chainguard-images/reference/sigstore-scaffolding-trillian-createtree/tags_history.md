@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-trillian-createtree Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 2nd      | `sha256:70559aa3604e240916741df0212fcc4e9ff05bb224bad236e27994797f90c97c` |
-|  `latest-dev` | May 2nd      | `sha256:6cbe5d11d6d753eec8a2505826d92501a2d8199154a78f68d937b51cfcabe76e` |
+|  `latest-dev` | May 8th      | `sha256:69edaad4ddfc2fcac6f9af6c1a541683dbf1a509ccfc330620943abdf8a9ae64` |
+|  `latest`     | May 8th      | `sha256:72d86582ac778c7e6ccd9ccaa97522df09185796a61b29fb6ba8b52794be9bdd` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `0.6.17` `0.6` `latest`                 | May 2nd      | `sha256:fe291fc68a532af6260068a8f0d371c19998cf5db972f1efb384a77eb482b055` |
-|  `0.6-dev` `0.6.17-dev` `latest-dev` `0-dev` | May 2nd      | `sha256:1af947ec06094799c70e77f8bfc96129548b31df02da0182d611d8f091989d70` |
+|  `0.6-dev` `latest-dev` `0.6.17-dev` `0-dev` | May 8th      | `sha256:aa83d7e9d9fc723f54a2a396aed1cd974243095ef909eadf56dc4a663e38374b` |
+|  `latest` `0.6.17` `0.6` `0`                 | May 8th      | `sha256:678722316d989ad327e0906e26a1371fdbbfa0dfe936c662ef83a193958a7449` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dask-gateway Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 2nd      | `sha256:ef134b842ad169f1920caad1b88f1739d7b880934575d63cf0b2eb7ef4697d8e` |
-|  `latest-dev` | May 2nd      | `sha256:6565598d02ae95559c825cdda3dcf95a275fe16fe80896c5906d3875b2dba437` |
+|  `latest`     | May 8th      | `sha256:6de287061f973d761168d0412a503a03c406c092c60c4525a94367696318a5ad` |
+|  `latest-dev` | May 8th      | `sha256:fd13d2897dcf8bdda02f22adb9dbba94ceb11c51303abc6580c90b141c0a322b` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                              | Last Changed | Digest                                                                    |
 |------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2024-dev` `2024.1-dev` `latest-dev` `2024.1.0-dev` | May 2nd      | `sha256:2a4694ea97b2e8f836178ca57e85eb724e5200e496d2323904cae5f0fd0bdf7e` |
-|  `2024.1` `2024.1.0` `2024` `latest`                 | May 2nd      | `sha256:585d6e7abe5433028d7681198058287d41f476c9a8c1b9781179ac354d2e07b9` |
+|  `2024.1` `2024` `2024.1.0` `latest`                 | May 9th      | `sha256:420594fde7dda429bdad50b8ff1e23e81a936b5296fba27d9fcbab77a694a0be` |
+|  `latest-dev` `2024.1-dev` `2024-dev` `2024.1.0-dev` | May 9th      | `sha256:6adaed4a26bbade613ce0ae058a2d3e77f294188764538642492dd458737855c` |
 

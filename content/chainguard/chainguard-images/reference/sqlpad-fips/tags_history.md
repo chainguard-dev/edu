@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sqlpad-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7-dev` `7.4-dev` `latest-dev` `7.4.1-dev` | May 2nd      | `sha256:4e9483f0a81cc0fc7bb56240e6161ee45f73fd4e43a558ab80627406e70949bd` |
-|  `latest` `7` `7.4.1` `7.4`                 | May 2nd      | `sha256:bdec6bf00e2368a8ffd087eabc2281d3c27b6f329f8e1a21dcf7d2076e40c237` |
+|  `7-dev` `7.4-dev` `latest-dev` `7.4.1-dev` | May 7th      | `sha256:069722f0b208f03b63567731adafc0a7e17226c4254796884770adc62a508b36` |
+|  `7.4.1` `latest` `7` `7.4`                 | May 7th      | `sha256:a90204868eccda2c656adc1e5e41481fa9c778d742d4e50a5d736c639668c0c3` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-getoidctoken Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 2nd      | `sha256:db3152ed15c66d78a8da01105b112502ccf6ed25fd6a03cd5c369fdb7f752f90` |
-|  `latest`     | May 2nd      | `sha256:70d62c72d494ec97c8b519321e47c2b02ab16fd1960dbd781dca3de339b3a918` |
+|  `latest`     | May 8th      | `sha256:ca7cdfa22ae3f1cb828162fe4efdadca0e26c2318ea13cfd32f25d25d39e1640` |
+|  `latest-dev` | May 8th      | `sha256:520fd61cebc181975dffb7a0662bd463eb8266c7ab03161c86c39dbbd44d7d60` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `0.6.17` `0.6` `latest`                 | May 2nd      | `sha256:5f90c2469026f4250fdb82d79461de3c1ff1e5d74accfe46b36e8a1620353fd0` |
-|  `0-dev` `0.6.17-dev` `0.6-dev` `latest-dev` | May 2nd      | `sha256:d3669985ac8d48a9815a2ea2faa5eff296703ce9cf19e9c9198a9021c480a799` |
+|  `0.6-dev` `0-dev` `latest-dev` `0.6.17-dev` | May 8th      | `sha256:6c3e086e6dc8f238707c0976e6b25c7b4a73b70ed0d543b4e33d7bd0d3acca1f` |
+|  `latest` `0.6.17` `0` `0.6`                 | May 8th      | `sha256:0ea637d078c84c6b35f33ad76da380c863680a3c3cdbcfc1855beb1c12622cf7` |
 

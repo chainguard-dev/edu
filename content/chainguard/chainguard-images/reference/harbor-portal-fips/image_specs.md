@@ -3,8 +3,8 @@ title: "harbor-portal-fips Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public harbor-portal-fips Chainguard Image."
-date: 2024-05-03 00:45:55
-lastmod: 2024-05-03 00:45:55
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -65,7 +65,7 @@ The table shows package distribution across variants.
 | `libxcrypt`                       | X          | X      |
 | `ncurses`                         | X          |        |
 | `ncurses-terminfo-base`           | X          |        |
-| `nginx-mainline`                  | X          | X      |
+| `nginx-stable`                    | X          | X      |
 | `openssl-config-fipshardened`     | X          | X      |
 | `openssl-provider-fips`           | X          | X      |
 | `pcre`                            | X          | X      |

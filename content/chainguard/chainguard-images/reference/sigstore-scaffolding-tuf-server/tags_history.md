@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-tuf-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 2nd      | `sha256:7521defc540eea1179d01c4d366cc4f04600d1f627ab52ce8987a79b2bb7a2c7` |
-|  `latest`     | May 2nd      | `sha256:5a60f9dca2de627daacc5f88a59626c1e872d6fc1073f82f5640d1d665739f9e` |
+|  `latest`     | May 8th      | `sha256:09d4d0adc5627a9f4d589f306d3daf8e826657fb226181b3c379e9b625be9452` |
+|  `latest-dev` | May 8th      | `sha256:64a3083e24a02d3c51e5331196fbbf3083eaf46e8ff085287c38e30049c829c3` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `0.6.17` `latest` `0.6`                 | May 2nd      | `sha256:14cc3734bbc42e39974be4498c78289fc1191266756d5e17f72fc8b91095312a` |
-|  `0-dev` `latest-dev` `0.6.17-dev` `0.6-dev` | May 2nd      | `sha256:3a64551ea14043fb4d59b154a6d2333118c05d804a0c55d7005e3a4328b42d53` |
+|  `0.6-dev` `latest-dev` `0.6.17-dev` `0-dev` | May 8th      | `sha256:c3652e5533b4915b963d9899949d319f8720f0d668270ee1ef352f274936ad3b` |
+|  `0` `latest` `0.6` `0.6.17`                 | May 8th      | `sha256:1b85e208420b13a01199fbe005e43c463c59984f40a4c1cfbc5993e7bf1d6a7f` |
 

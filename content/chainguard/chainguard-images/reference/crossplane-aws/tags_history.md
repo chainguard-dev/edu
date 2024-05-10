@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crossplane-aws Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-06 00:43:57
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 3rd      | `sha256:50f8d795ef4d7c758e1aeef824c12943d436177e96cdbb7812b364fac1c98d92` |
-|  `latest-dev` | May 3rd      | `sha256:3a1f89252387f582e480a2b5bffc8816df0ff4b9658355bfda31e35096a477ff` |
+|  `latest-dev` | May 9th      | `sha256:dd86a5cb6977db7ed941f18dcdeedd4b035925b761aa80fd18b7cf6551f0001c` |
+|  `latest`     | May 9th      | `sha256:61705c478eb32ed0f10efbf836eeadb7d7559a154dc42a5eb7de4a1468dd329d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                     | Last Changed | Digest                                                                    |
 |-----------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.4.0` `1.4` `1` `latest` | May 3rd      | `sha256:97f4bcf39254f755290ae8371eaccce242b5068d37b2c1a856c5f9d589ed5858` |
+|  `1` `latest` `1.4.0` `1.4` | May 9th      | `sha256:1ab858d7be5196d7f6df95e71e800e2243f83043b81c65669475e2705c91903b` |
 |  `1.3.1` `1.3`              | April 23rd   | `sha256:232749271b0869cb6243c0aa1bdcebe343397d0b0252400733dcf6522dfb8dd5` |
 
