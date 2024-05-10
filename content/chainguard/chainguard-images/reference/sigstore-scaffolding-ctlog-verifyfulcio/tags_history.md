@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-ctlog-verifyfulcio Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 2nd      | `sha256:4514cc9565d0c55f5b06e70b17d390b966d43dcf4c56786b703e6162807efa28` |
-|  `latest`     | May 2nd      | `sha256:1643479eeb742f6a41038bcad1bf6f9e9f669c48ce4f32550b7c3dec6b26b708` |
+|  `latest`     | May 8th      | `sha256:278103fb897fd59d213b19425f8124fe946bd8f62a1432b2d21989140d1c7153` |
+|  `latest-dev` | May 8th      | `sha256:61504655384e5927a724c1e444fd30dc7fd1183216c40ff2070ed479ebe36157` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6` `0` `latest` `0.6.17`                 | May 2nd      | `sha256:dad77ed28bdb2f02b1a12b5ef0cb41bd71cb8fbd3624244ae22b19194b22e3fe` |
-|  `0.6-dev` `latest-dev` `0.6.17-dev` `0-dev` | May 2nd      | `sha256:f19df3a618af4da8ea28ccef3b63cd05ab31ed7bfbcc84d42acb8912e5312e95` |
+|  `0` `0.6` `0.6.17` `latest`                 | May 8th      | `sha256:c207041abf24935f8947f96f778eceff63b4f9dca3f7e70633d54d79ea755fd1` |
+|  `0.6.17-dev` `0.6-dev` `latest-dev` `0-dev` | May 8th      | `sha256:8fc89e49411c62370b5501912d1fab010b3550597ab71a59a8886247a1648a87` |
 

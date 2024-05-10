@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dotnet-sdk-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-06 00:43:57
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -41,8 +41,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `8.0-dev` `8.0.4-dev` `latest-dev` `8-dev` | May 2nd      | `sha256:e86151e3fbe7289104fd2517885acf0fc7f95098528e095bd5649f42ade5d1a3` |
 |  `8.0.4` `8` `latest` `8.0`                 | May 2nd      | `sha256:b10f1b994aec1830a36078db08870cbd434c903996775869f2f5141632e46384` |
 |  `7.0.117`                                  | May 2nd      | `sha256:b374a1bd9eaaca024eb19f86249f30992f93a9f30357aaa3114dbba2317c6da8` |
-|  `6.0.128`                                  | April 9th    | `sha256:5a011a7996bca1892dc6cd9e887c2f3a77cef5cd11ebb97233be3b4f1bc8b370` |
-|  `6.0.128-dev`                              | April 9th    | `sha256:b6d491444d28162ab5daa1d3cf66541230120800e139c68a1d91638c8a11efbe` |
-|  `8.0.3`                                    | April 9th    | `sha256:eac5eef93db07bc60ad1272bde4ce13ecad39ce9dd59ab240679e3d1250aca2b` |
-|  `8.0.3-dev`                                | April 9th    | `sha256:5872af48ee43fba7576782ea08ff9c816fc9aee94e90017480e1a8faf0ca578c` |
 

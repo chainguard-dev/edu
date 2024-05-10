@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-fulcio-createcerts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 2nd      | `sha256:7275ff9bd5de0c71398f2c35592e115214bbcc30819984f8b46c080952d3426b` |
-|  `latest-dev` | May 2nd      | `sha256:cca5a371f6a9027a9c3fa6c04e34aaa8ae72200ac4b0dfd2bfd90b29a092813e` |
+|  `latest-dev` | May 8th      | `sha256:e8a41f262821ffb95a9e532d375b9f28c0d0e1457c26de1d741885555eb68b99` |
+|  `latest`     | May 8th      | `sha256:5d25eedf63eac98f66b52d64c2d7032fa6767a86e6077e914d8ecc520fea2d38` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6` `latest` `0.6.17` `0`                 | May 2nd      | `sha256:0382439402e105e7d917fb8ade3f2b8844662a51698f03c9cbf0b162a4cb73a5` |
-|  `latest-dev` `0.6-dev` `0-dev` `0.6.17-dev` | May 2nd      | `sha256:ff7dbdadd2ee50b1b1e4a92eff89a0f34c33d0a1abc21333e96a84b640d41b1a` |
+|  `0.6` `0` `0.6.17` `latest`                 | May 8th      | `sha256:136d7b4ebe072ac4ee3c2c35a76c737ae33853f52939af8e8f6709e6c495fb59` |
+|  `0-dev` `latest-dev` `0.6.17-dev` `0.6-dev` | May 8th      | `sha256:84ac8990728a0e95e508c647fa8a688ba9fb3dabac24da41b8c9c8dc7703f516` |
 

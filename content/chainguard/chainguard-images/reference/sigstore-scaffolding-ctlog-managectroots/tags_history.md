@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-ctlog-managectroots Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 2nd      | `sha256:2c5c6c948ec7f5a19b6b85a2f635b83d1f1a276bf7db3c19fdf23631d5c33c1e` |
-|  `latest`     | May 2nd      | `sha256:9d72f65e69711cb62cf600b0d6fe55abfc18aaaa92f6d50b754c8b826a835074` |
+|  `latest`     | May 8th      | `sha256:1b8a41ddc1e86cd60ad606107ba7712ad9dae926275e9dfa303ad1ce24608797` |
+|  `latest-dev` | May 8th      | `sha256:3508396b4abc091bc4ac2f9f991dcc207ccc0cfd52552c27cb07c38c47e962b7` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6-dev` `latest-dev` `0-dev` `0.6.17-dev` | May 2nd      | `sha256:12659ff0606a60ef20831ab08a9e2d01ec135a1cf06ae2f136e6f3a7667d2254` |
-|  `0.6.17` `latest` `0` `0.6`                 | May 2nd      | `sha256:8669ef885dc1a8ee01919b5740452e721caeb17a0f59d490ac5bf5a4fd62fc8b` |
+|  `latest` `0.6` `0.6.17` `0`                 | May 8th      | `sha256:8f79d607ae5fa7fbb569e8a60c778aa72c710fe048853006d74b29b4ba4ab78f` |
+|  `0.6-dev` `latest-dev` `0-dev` `0.6.17-dev` | May 8th      | `sha256:c61bd15ac75bcedc569197a1ecdd4b8fb6d77a501979f1eea16631d02d5ccd93` |
 

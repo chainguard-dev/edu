@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the doppler-kubernetes-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 2nd      | `sha256:c9d90cf62fa17d00ad247e48182561cd82e49df01c5ab2f93c5720bb4e5da29b` |
-|  `latest`     | May 2nd      | `sha256:3f2c490543a64ff91743edd83074f431b736910161fcb55c99858cfdc7872abb` |
+|  `latest-dev` | May 8th      | `sha256:a81c24d6eaa3b3aa92bb3397dd6b30c62e76109a2275f833cab20ee16d68835e` |
+|  `latest`     | May 8th      | `sha256:686062eda18b5e89d759526579b33274a31cfc8c217f1877496bdd7fadc0e938` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.5.0` `1` `latest` `1.5`                 | May 2nd      | `sha256:69abd7624096c4bf33e32f595efae1cd898d45e26810a4858d497c4466ee4e1e` |
-|  `latest-dev` `1.5.0-dev` `1.5-dev` `1-dev` | May 2nd      | `sha256:b4bc911cfcd64b053c232b0b1e62acf2f8f532c86a8dcdebf5c4c8a1df6c1672` |
+|  `1.5` `latest` `1.5.1` `1`                 | May 9th      | `sha256:b2d849b713f949e4b3eda86374bd8ea0fd23897e5dbf6ff3ba3ebfe7faa41735` |
+|  `1-dev` `1.5.1-dev` `1.5-dev` `latest-dev` | May 9th      | `sha256:6c61addeb03f7aca044c025944b3fa6ef211e45b6d745e8ced62bd0165995384` |
+|  `1.5.0-dev`                                | May 7th      | `sha256:f320f96df7e10ed3a3ac862985946184067e6f09ac1fbc5d1bc2ee902ec4db53` |
+|  `1.5.0`                                    | May 7th      | `sha256:15712ffd4468fd30bec27c9bbcb7808e676f734cdd82140af2e1d81bfec8a2d0` |
 

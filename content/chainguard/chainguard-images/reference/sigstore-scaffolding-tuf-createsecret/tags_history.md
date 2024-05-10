@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-tuf-createsecret Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 2nd      | `sha256:cdd4cb8a81c0ad2335e723e4408a3242317b1f759ee0b7c9aaf0b6337824204c` |
-|  `latest`     | May 2nd      | `sha256:d8605297efd02187316dbd20e9722562237df966f01cc096c24a9dbceb3f64e0` |
+|  `latest`     | May 8th      | `sha256:134c6fc057d2ab99be74a82f163cf952fcd2f71afaec45faa9a433a33c124cf4` |
+|  `latest-dev` | May 8th      | `sha256:1b3fa0aea80295fcfec88b29cf7683d6ebe90d7f5bd56c261e5692a939b73e06` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.6` `0` `0.6.17`                 | May 2nd      | `sha256:319730f62759ce06da91a706713bd3c2a0985df75a35e5435c62121b79c02576` |
-|  `latest-dev` `0.6-dev` `0.6.17-dev` `0-dev` | May 2nd      | `sha256:472ab478f138078600eeece6d06558240f122609eb5cb1ab98bbbb8701d6fb5d` |
+|  `0.6.17` `latest` `0.6` `0`                 | May 8th      | `sha256:14a1443322b244394b5a69595a715dc1721ece54261e0887433bde283bbf54cc` |
+|  `latest-dev` `0-dev` `0.6.17-dev` `0.6-dev` | May 8th      | `sha256:3eca45d5541dfdd99fc8eb83ce171ee15131dcfe0b85373a8f12bdcf07569ae9` |
 
