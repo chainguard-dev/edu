@@ -2,6 +2,7 @@
 title: "How To Compare Chainguard Images with chainctl"
 linktitle: "Compare Images with chainctl"
 aliases: 
+- /chainguard/chainguard-images/comparing-images/
 - /chainguard/chainguard-images/comparing-images/comparing-images/
 - /chainguard/chainguard-images/using-the-image-diff-api
 - /chainguard/chainguard-images/comparing-images/using-the-image-diff-api/
