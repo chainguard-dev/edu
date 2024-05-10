@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the karpenter-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.36.1` `0` `0.36`                 | May 2nd      | `sha256:fe07e7b48db62fa6b6e7e7c2372bb6b9d29666e4090d649a3d1ce0f59db612a1` |
-|  `0.35` `0.35.4`                              | May 2nd      | `sha256:3c9a6e0f887c5588e06204336e48e1911b2f29fcf7491f56626aa14e56da9dc0` |
-|  `0.36-dev` `0-dev` `0.36.1-dev` `latest-dev` | May 2nd      | `sha256:300bb3cc20eb8befba410adae67d517064c2eabfba6ca5e821b829c7c7a383bc` |
-|  `0.35-dev` `0.35.4-dev`                      | May 2nd      | `sha256:0c770563453f2ec52f23a253f0e066bc18b894e56555a16bc023f00e5a53e68c` |
+|  `0.35.4-dev` `0.35-dev`                      | May 9th      | `sha256:4c7f6c57ecdfd4ef847f0a39129d352fdb1c34b7e4c8fbeefb0dfbab14207ccf` |
+|  `0.36.1` `0` `latest` `0.36`                 | May 9th      | `sha256:fc16df499372e91a2835a78e73677d168a2ebb04d74179bf12f070950c74077c` |
+|  `latest-dev` `0-dev` `0.36.1-dev` `0.36-dev` | May 9th      | `sha256:9eb33d8e4dde5355ae9ec439d4de2a6ef769bca43195a773f2e76ac3ed480bef` |
+|  `0.35` `0.35.4`                              | May 9th      | `sha256:35e202796dbe32707444e54f2c47b7ea2dbc90a678e2b783b4b8e0724392d66d` |
 |  `0.36.0`                                     | April 24th   | `sha256:2caf11ab11710929c6dcf988d2a8dd69d096423fbe182755355ca7151ea8a9cb` |
 |  `0.36.0-dev`                                 | April 24th   | `sha256:f82f319f8581a9f6f6a58bb8f82022b70e2ef3fd75d5f4ef70145a92bcfe13d3` |
 

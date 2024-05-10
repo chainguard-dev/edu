@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public gotenberg Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -42,6 +42,7 @@ The table shows package distribution across variants.
 | `argon2`                   | X          | X      |
 | `at-spi2-core`             | X          | X      |
 | `bash`                     | X          |        |
+| `binutils`                 | X          | X      |
 | `boost`                    | X          | X      |
 | `boost-atomic`             | X          | X      |
 | `boost-chrono`             | X          | X      |
@@ -88,6 +89,7 @@ The table shows package distribution across variants.
 | `fontconfig-config`        | X          | X      |
 | `freetype`                 | X          | X      |
 | `fribidi`                  | X          | X      |
+| `gcc`                      | X          | X      |
 | `gdbm`                     | X          | X      |
 | `git`                      | X          |        |
 | `glib`                     | X          | X      |
@@ -101,12 +103,14 @@ The table shows package distribution across variants.
 | `gpgme`                    | X          | X      |
 | `graphite2`                | X          | X      |
 | `harfbuzz`                 | X          | X      |
+| `isl`                      | X          | X      |
 | `lcms2`                    | X          | X      |
 | `ld-linux`                 | X          | X      |
 | `libacl1`                  | X          | X      |
 | `libassuan`                | X          | X      |
 | `libatk-1.0`               | X          | X      |
 | `libatk-bridge-2.0`        | X          | X      |
+| `libatomic`                | X          | X      |
 | `libattr1`                 | X          | X      |
 | `libblkid`                 | X          | X      |
 | `libbrotlicommon1`         | X          | X      |
@@ -124,6 +128,8 @@ The table shows package distribution across variants.
 | `libfontconfig1`           | X          | X      |
 | `libgcc`                   | X          | X      |
 | `libgcrypt`                | X          | X      |
+| `libgo`                    | X          | X      |
+| `libgomp`                  | X          | X      |
 | `libgpg-error`             | X          | X      |
 | `libidn2`                  | X          | X      |
 | `libjpeg-turbo`            | X          | X      |
@@ -139,6 +145,7 @@ The table shows package distribution across variants.
 | `libreoffice`              | X          | X      |
 | `libssl3`                  | X          | X      |
 | `libstdc++`                | X          | X      |
+| `libstdc++-dev`            | X          | X      |
 | `libtasn1`                 | X          | X      |
 | `libunistring`             | X          | X      |
 | `libuuid`                  | X          | X      |
@@ -164,7 +171,9 @@ The table shows package distribution across variants.
 | `mesa`                     | X          | X      |
 | `mesa-gbm`                 | X          | X      |
 | `mesa-glapi`               | X          | X      |
+| `mpc`                      | X          | X      |
 | `mpdecimal`                | X          | X      |
+| `mpfr`                     | X          | X      |
 | `msttcorefonts-installer`  | X          | X      |
 | `ncurses`                  | X          | X      |
 | `ncurses-terminfo-base`    | X          | X      |
@@ -174,6 +183,7 @@ The table shows package distribution across variants.
 | `pdftk`                    | X          | X      |
 | `perl`                     | X          | X      |
 | `pixman`                   | X          | X      |
+| `posix-cc-wrappers`        | X          | X      |
 | `python-3.11`              | X          | X      |
 | `python-3.11-base`         | X          | X      |
 | `qpdf`                     | X          | X      |

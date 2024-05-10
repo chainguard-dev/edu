@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rabbitmq Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | May 2nd      | `sha256:1c07ab6e0075df438dc820653b8378bdef0065d219839b19b24dd42a645432b3` |
+|  `latest` | May 8th      | `sha256:3933c73d83ff8364e498433baef6edd2fbbce25dcd0bb9e646e976f277227219` |
 
 
 ### Private/Dedicated Registry
@@ -36,8 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `3.13.2` `3.13` `3` `latest`                 | May 8th      | `sha256:d5f1f92520f7e5a2642f9ba90e2ad07ff9f4fe2256738949b324f073d34b41d5` |
 |  `3.13-dev` `3.13.2-dev` `3-dev` `latest-dev` | May 2nd      | `sha256:112615356f55ff4b7bd69283ad2343d6cebabb2c984daba18250117f00ed0fed` |
-|  `3.13` `latest` `3` `3.13.2`                 | May 2nd      | `sha256:02451357de4ce0a0a04c26e0c39b6187221d4a7de7bad9d12892d12d4a213432` |
 |  `3.13.1-dev`                                 | April 30th   | `sha256:073daac6c9b280fab1bb924171255fcd7e5adaff292b4601692d5757228a9156` |
 |  `3.13.1`                                     | April 30th   | `sha256:baa758a91251ad3f500e2f61ef07a0f942c136880c1919d9849adaabb492504e` |
 |  `3.12.13` `3.12`                             | April 30th   | `sha256:f227d7cbeb62e0ce8d26704c17f5015d99ac7c6a796d8787ae7ecc785c2cf57a` |

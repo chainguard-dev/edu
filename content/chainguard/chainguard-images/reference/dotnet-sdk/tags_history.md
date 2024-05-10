@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dotnet-sdk Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-06 00:43:57
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -45,8 +45,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `7.0.117`                                  | May 2nd      | `sha256:1a5e747b9d4f2aaea1be27829eda172bcca4c915bf294a18f220c3c9a11ab0bd` |
 |  `7.0.117-dev`                              | May 2nd      | `sha256:c43aff27ad5193d6206edefe2d02bc48d478103c73be2ef20ee41eda64ac187a` |
 |  `6` `6.0.129` `6.0`                        | May 2nd      | `sha256:ba835bc25d691e54179d3c10e2d2acbbf1c2fa0948dfcf3e17c4a74c54a14a2e` |
-|  `8.0.3`                                    | April 9th    | `sha256:fc3f0eabacc5dbc45aa1b3f1f77d4d46592cab07334db444229d9b56f7989389` |
-|  `6.0.128-dev`                              | April 9th    | `sha256:0a5417fd83e963e34ac2fea5158bfe10eedd55b34665f5d5a097f2fda83f1047` |
-|  `8.0.3-dev`                                | April 9th    | `sha256:00cb7163f87b10ee95f192ed62451f6f9dd5fecf7efa880300b5f5f3558f37e2` |
-|  `6.0.128`                                  | April 9th    | `sha256:ef81e423922d23d88e4c24734221d2783888c7723af05ba94b88118bc420d35a` |
 

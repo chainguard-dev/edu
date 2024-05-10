@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the apko Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | May 2nd      | `sha256:3d1130008b94eca0cc9c468a5762d7c2cb51a470d410ec2f04600f5bbdb45b68` |
+|  `latest` | May 9th      | `sha256:38168e3027df8f02119b62ed1e9a96f15c89472a57ead1d789c2cc3503801f26` |
 
 
 ### Private/Dedicated Registry
@@ -36,7 +36,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.14` `0` `0.14.0`                 | May 2nd      | `sha256:857591209be92ee752023e02ab0170faab1b512ac69cc3ad07abb34c124aeb87` |
-|  `latest-dev` `0.14.0-dev` `0.14-dev` `0-dev` | May 2nd      | `sha256:ca0980160157f24c7cc04f3d81cf5c24d3125ccfd49410fdd343a94830fad993` |
+|  `0-dev` `0.14-dev` `0.14.1-dev` `latest-dev` | May 9th      | `sha256:fa059a1f6c2fda618449bb03c99d00b22162e894dc5d28f4504189fdce1ffbb0` |
+|  `0.14.1` `0.14` `0` `latest`                 | May 9th      | `sha256:bdb4a4abe1ebaa0fd48a2c4029b491e0737cd1c78774624179f795620ac0183d` |
+|  `0.14.0`                                     | May 8th      | `sha256:45d6c24438e99cd5908dd0dafcad14d7f3d4a4a79942f63e7b1a9ed71c8110c2` |
+|  `0.14.0-dev`                                 | May 8th      | `sha256:c339b942980abc3d9e6a3484240e836f8d75d927c2be855284ef3dd0b87e8204` |
 |  `0.7.3` `0.7`                                | April 28th   | `sha256:69c495e889693510a586e5d9268e419c2b3e9816568a499502498a808f4b27d5` |
 

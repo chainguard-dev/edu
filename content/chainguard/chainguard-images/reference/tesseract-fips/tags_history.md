@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tesseract-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-06 00:43:57
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `5` `5.3` `latest` `5.3.4`                 | May 3rd      | `sha256:09f9569d9fdaf7a23feb17fc40580a1265fc139d73cce3bbd8035d8a0c8d6ccd` |
-|  `5-dev` `latest-dev` `5.3.4-dev` `5.3-dev` | May 3rd      | `sha256:ff3c44c4dfd3a7cbfb4d2a0a0a40f510d45dbd649aab4453ac3a12bd0fa624fb` |
+|  `latest` `5.3` `5.3.4` `5`                 | May 8th      | `sha256:899f138dd3b313151f97af864157c45eb83c98285d9f93ee8f617b3df7beadd4` |
+|  `5.3-dev` `5-dev` `5.3.4-dev` `latest-dev` | May 8th      | `sha256:9b4ca27df841b7191e6314c382dd4ec23c3f501c46cd10604dcdb0194f4161c8` |
 

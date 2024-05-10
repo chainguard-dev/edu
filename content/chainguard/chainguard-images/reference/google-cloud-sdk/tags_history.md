@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the google-cloud-sdk Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,7 +36,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                           | Last Changed | Digest                                                                    |
 |---------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `469.0-dev` `469.0.0-dev` `469-dev` | May 2nd      | `sha256:f9786f58e460bdce03fd7a77327c3a8b67ba85c7093c1621e486413302ba83b1` |
-|  `469.0.0` `469.0` `469` `latest`                 | May 2nd      | `sha256:338ba92007fc314355aeb8ef334ef1400fd4bf78a16224d1ce548e20d3590474` |
+|  `469.0.0-dev` `latest-dev` `469.0-dev` `469-dev` | May 7th      | `sha256:998271f436c578b7c3dbe9b7ab28eaa79d24e67ad12ed9ec0e2afe38d56cba0e` |
+|  `latest` `469.0` `469.0.0` `469`                 | May 7th      | `sha256:1c26a314281b70e63633e864d349798f4f97168fc2cfe715bc3b817ee901eb3d` |
 |  `426.0.0` `426.0` `426`                          | April 18th   | `sha256:02ac50ec53644759f3fdae06050c3aba42818d6a4517defc7facb20e01208c19` |
 

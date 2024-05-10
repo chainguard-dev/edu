@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the go-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,12 +33,16 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.20-dev` `1.20.14-dev`                     | May 2nd      | `sha256:2149833ba3434414f8e7fd84e3c3a4f36fb61964777ac5c789a8e16ac17cb472` |
-|  `1.19-dev` `1.19.13-dev`                     | May 2nd      | `sha256:e171767cca0488b36c0268375cea43ef0e26daae7003a437d6668abbaceb8916` |
-|  `1` `1.22.2` `latest` `1.22`                 | May 2nd      | `sha256:bd54893238b922e6f92cbb23cd6391fcac28b0dceb54bba0504df0bb71cea875` |
-|  `1.21-dev` `1.21.9-dev`                      | May 2nd      | `sha256:29d286ce6183a033f46f5178e0fe456347429c264f1a86bb35ce36c04f9bc832` |
-|  `1.20` `1.20.14`                             | May 2nd      | `sha256:8d417334f6453246075481b7d121c4481d7365fcf7bbca39d7206618ffa8f71e` |
-|  `1.22.2-dev` `1.22-dev` `latest-dev` `1-dev` | May 2nd      | `sha256:eb5668c4cd97d6735323d95771422f430e6aa09803963e80a536a3cde44c7435` |
-|  `1.19.13` `1.19`                             | May 2nd      | `sha256:6638c8950dd0b2b43cba39592b84e4a7fa88f828bd55a0a483e619283b0d6b26` |
-|  `1.21` `1.21.9`                              | May 2nd      | `sha256:f11c0ec6f242dbe3e60bbde11d9849b569799a42fd1df5946a18b761611e03a9` |
+|  `1.19.13-dev` `1.19-dev`                     | May 8th      | `sha256:480c5e563f0c5e114a73da1546272fd3684855ea28542e3593b19ae3cce25d38` |
+|  `1.20-dev` `1.20.14-dev`                     | May 8th      | `sha256:3cbbc05838bbcd382ca37e1193d9b1f96d979f9fbabf4544928ddd44d8529a37` |
+|  `1.20.14` `1.20`                             | May 8th      | `sha256:0b183b2a7eca159469d3f97f15650cf90e86c756239f62564182a45be5246c3a` |
+|  `1.22.3` `1.22` `latest` `1`                 | May 8th      | `sha256:654c3e40d360ad0671ec9aa40a5b1637b72867485fdf47f824c45d225d58e245` |
+|  `latest-dev` `1-dev` `1.22.3-dev` `1.22-dev` | May 8th      | `sha256:a0b7b95f0891e27f5318f83a0bced964adc4ac9184ad9ece61d14572dea1110d` |
+|  `1.19.13` `1.19`                             | May 8th      | `sha256:925e1bdaf5fbdcb76d36590127c82698f851638ef8e2e12429f3203772ce4d95` |
+|  `1.21.10-dev` `1.21-dev`                     | May 8th      | `sha256:640bf32a9c929d3eceda4240c0ee8debf2ea5383bcd12909966afb8a1d5502ea` |
+|  `1.21` `1.21.10`                             | May 8th      | `sha256:3a82ec95608a887d3de952412e51d813e3f60a6ab7b054a4ea4a639ff0219d98` |
+|  `1.22.2`                                     | May 2nd      | `sha256:bd54893238b922e6f92cbb23cd6391fcac28b0dceb54bba0504df0bb71cea875` |
+|  `1.21.9-dev`                                 | May 2nd      | `sha256:29d286ce6183a033f46f5178e0fe456347429c264f1a86bb35ce36c04f9bc832` |
+|  `1.22.2-dev`                                 | May 2nd      | `sha256:eb5668c4cd97d6735323d95771422f430e6aa09803963e80a536a3cde44c7435` |
+|  `1.21.9`                                     | May 2nd      | `sha256:f11c0ec6f242dbe3e60bbde11d9849b569799a42fd1df5946a18b761611e03a9` |
 
