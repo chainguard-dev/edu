@@ -1,27 +1,24 @@
 ---
-title: "Notification of Kubernetes Registry Deprecation"
+title: "Verify Signed Chainguard Images"
+aliases: 
+- /open-source/sigstore/policy-controller/using-policy-controller-to-verify-signed-chainguard-images/
 type: "article"
-description: "Get ready for the Kubernetes registry deprecation using Chainguard Enforce"
-lead: "The old Kubernetes registry will be deprecated and frozen in April 2023"
-date: 2023-03-19T13:11:29+08:29
-lastmod: 2023-03-19T13:11:29+08:29
-draft: true
+description: "Using Policy Controller to Verify Signed Chainguard Images"
+lead: "Verify Chainguard Images with Policy Controller"
+date: 2023-02-22T13:11:29+08:29
+lastmod: 2024-05-10T13:11:29+08:29
+draft: false
+tags: ["policy-controller", "Procedural", "Policy", "Chainguard Images"]
 images: []
 menu:
   docs:
     parent: "policy-controller"
-weight: 002
+weight: 006
 toc: true
 terminalImage: policy-controller-base:latest
 ---
 
-As of March 20, 2023, the Kubernetes project will be changing registries, from it k8s.gcr.io registry to a community-owned registry at registry.k8s.io. Pull requests to the previous registry will be redirected to the new one, and, on April 3, 2023, the old registry will be deprecated and frozen. You can read more about this on the Kubernetes blogpost, "[k8s.gcr.io Image Registry Will Be Frozen From the 3rd of April 2023](https://kubernetes.io/blog/2023/02/06/k8s-gcr-io-freeze-announcement/)."
-
-In order to avoid using Kubernetes images from the deprecated registry, you will need to update pipelines to the new registry. Chainguard Enforce can help you fix workloads so that you can ensure you are using images from the new registry by using a new policy Chainguard created to support organizations who will need to be aware of this registry migration.
-
-In this document, you can review the policy, and you can demo the use of the policy by following the guide below.
-
-## Policy to 
+This guide demonstrates how to use the [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) to verify image signatures before admitting an image into a Kubernetes cluster. In this guide, you will create a `ClusterImagePolicy` that checks for a keyless Cosign image signature, and then test the admission controller by running a signed `nginx` image.
 
 ## Prerequisites
 
@@ -31,7 +28,7 @@ To follow along with this guide outside of the terminal that is embedded on this
 * **kubectl** — to work with your cluster. Install `kubectl` for your operating system by following the official [Kubernetes kubectl documentation](https://kubernetes.io/docs/tasks/tools/#kubectl).
 * [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) installed in your cluster. Follow our [How To Install Sigstore Policy Controller](/open-source/sigstore/policy-controller/how-to-install-policy-controller/) guide if you do not have it installed, and be sure to label any namespace that you intend to use with the `policy.sigstore.dev/include=true` label.
 
-If you are using the terminal that is embedded on this page, then all the prerequisites are installed for you. Note that it may take a minute or two for the Kubernetes cluster to finish provisioning. If you receive any errors while running commands, retry them after waiting a few seconds.
+If you are using the terminal that is embedded on this page, then all the prerequsites are installed for you. Note that it make take a minute or two for the Kubernetes cluster to finish provisioning. If you receive any errors while running commands, retry them after waiting a few seconds.
 
 Once you have everything in place you can continue to the first step and confirm that the Policy Controller is working as expected.
 
@@ -85,9 +82,6 @@ nano /tmp/cip.yaml
 Copy the following policy to the `/tmp/cip.yaml` file:
 
 ```yaml
-# Copyright 2022 Chainguard, Inc.
-# SPDX-License-Identifier: Apache-2.0
-
 apiVersion: policy.sigstore.dev/v1beta1
 kind: ClusterImagePolicy
 metadata:
@@ -151,11 +145,3 @@ kubectl delete pod nginx
 ```
 
 To learn more about how the Policy Controller uses Cosign to verify and admit images, review the [Cosign](https://docs.sigstore.dev/cosign/overview/) Sigstore documentation.
-
-## Options for Continuous Verification
-
-While it is useful to use the Policy Controller to manage admission into a cluster, once a workload is running any vulnerability or policy violations that occur after containers are running will not be detected.
-
-[Chainguard Enforce](/chainguard/chainguard-enforce/concepts/understanding-continuous-verification/) is designed to address this issue by continuously verifying whether a container or cluster contains any vulnerabilities or policy violations over time. This includes what packages are deployed, SBOMs (software bills of materials), provenance, signature data, and more.
-
-If you're interested in learning more about Chainguard Enforce, you can request access to the product by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs).

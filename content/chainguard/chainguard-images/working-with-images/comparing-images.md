@@ -2,11 +2,14 @@
 title: "How To Compare Chainguard Images with chainctl"
 linktitle: "Compare Images with chainctl"
 aliases: 
-- /chainguard/chainguard-images/comparing-images
+- /chainguard/chainguard-images/comparing-images/
+- /chainguard/chainguard-images/comparing-images/comparing-images/
+- /chainguard/chainguard-images/using-the-image-diff-api
+- /chainguard/chainguard-images/comparing-images/using-the-image-diff-api/
 type: "article"
 description: "An overview of how to use the chainctl images diff command to compare two Chainguard Images."
 date: 2023-08-30T11:07:52+02:00
-lastmod: 2023-08-30T11:07:52+02:00
+lastmod: 2024-05-10T11:07:52+02:00
 draft: false
 tags: ["Chainguard Images", "Product", ]
 images: []

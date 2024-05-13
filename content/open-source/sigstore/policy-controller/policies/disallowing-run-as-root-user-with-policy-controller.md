@@ -1,9 +1,11 @@
 ---
-title: "Disallowing Privileged Pods"
+title: "Disallowing Run as Root User"
+aliases:
+- /open-source/sigstore/policy-controller/disallowing-run-as-root-user-with-policy-controller/
 type: "article"
-description: "Using Policy Controller to prevent running privileged pods"
+description: "Using Policy Controller to prevent running pods as root"
 date: 2023-03-02T13:11:29+08:29
-lastmod: 2023-03-02T13:11:29+08:29
+lastmod: 2024-05-10T13:11:29+08:29
 draft: false
 tags: ["policy-controller", "Procedural", "Policy"]
 images: []
@@ -15,7 +17,7 @@ toc: true
 terminalImage: policy-controller-base:latest
 ---
 
-This guide demonstrates how to use the [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) to prevent running containers with elevated privileges. You will create a `ClusterImagePolicy` that uses the [CUE](https://cuelang.org/) language to examine a pod spec, and only allow admission into a cluster if the pod is running without the `privileged: true` setting.
+This guide demonstrates how to use the [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) to prevent running containers as the `root` user in a Kubernetes cluster. You will create a `ClusterImagePolicy` that uses the [CUE](https://cuelang.org/) language to examine a pod spec, and only allow admission into a cluster if the pod is running as a non-root user.
 
 ## Prerequisites
 
@@ -64,7 +66,7 @@ Error from server (BadRequest): admission webhook "policy.sigstore.dev" denied t
 cgr.dev/chainguard/nginx@sha256:628a01724b84d7db2dc3866f645708c25fab8cce30b98d3e5b76696291d65c4a
 ```
 
-In the next step, you will define a policy that only admits unprivileged pods and apply it to your cluster.
+In the next step, you will define a policy that ensures pods do not run as the root user and apply it to your cluster.
 
 ## Step 2 — Creating a `ClusterImagePolicy`
 
@@ -82,7 +84,7 @@ Copy the following policy to the `/tmp/cip.yaml` file:
 apiVersion: policy.sigstore.dev/v1beta1
 kind: ClusterImagePolicy
 metadata:
-  name: privileged-containers-cue
+  name: disallow-runasuser-root-cue
 spec:
   match:
   - version: "v1"
@@ -97,23 +99,23 @@ spec:
       spec: {
         initContainers: [...{
           securityContext: {
-            privileged: false
+            runAsUser: != 0
           }
         }]
         containers: [...{
           securityContext: {
-            privileged: false
+            runAsUser: != 0
           }
         }]
         ephemeralContainers: [...{
           securityContext: {
-            privileged: false
+            runAsUser: != 0
           }
         }]
       }
 ```
 
-This policy will ensure that any kind of container in a pod spec will only be admitted if the `privileged` setting is not set, or is set to `false`.
+This policy will ensure that any kind of container in a pod spec will only be admitted if the user is not root.
 
 Save the file and then apply the policy:
 
@@ -124,16 +126,16 @@ kubectl apply -f /tmp/cip.yaml
 You will receive output showing the policy is created:
 
 ```
-clusterimagepolicy.policy.sigstore.dev/privileged-containers-cue
+clusterimagepolicy.policy.sigstore.dev/disallow-runasuser-root-cue
 ```
 
-Next you will test the policy with a failing pod spec. Once you have confirmed that the admission controller is rejecting pods running with privileges, you'll create a pod that runs without elevated privileges and admit it into your cluster.
+Next you will test the policy with a failing pod spec. Once you have confirmed that the admission controller is rejecting pods running as root, you'll create a pod that runs as a non-root user and admit it into your cluster.
 
 ## Step 3 — Testing a `ClusterImagePolicy`
 
 Now that you have a policy defined, you can test that it successfully rejects or accepts admission requests.
 
-Use `nano` or your preferred editor to create a new file `/tmp/pod.yaml` and copy in the following pod spec that runs with elevated privileges:
+Use `nano` or your preferred editor to create a new file `/tmp/pod.yaml` and copy in the following pod spec that runs as root:
 
 ```
 apiVersion: v1
@@ -145,7 +147,8 @@ spec:
   - name: "app"
     image: docker.io/ubuntu
     securityContext:
-      privileged: true
+      # Violates restricted-capabilities
+      runAsUser: 0
 ```
 
 Apply the pod spec and check for the Policy Controller admission denied message:
@@ -155,16 +158,17 @@ kubectl apply -f /tmp/pod.yaml
 ```
 
 ```
-Error from server (BadRequest): error when creating "pod.yaml": admission webhook "policy.sigstore.dev" denied the request: validation failed: failed policy: privileged-containers-cue: spec.containers[0].image
-index.docker.io/library/ubuntu@sha256:2adf22367284330af9f832ffefb717c78239f6251d9d0f58de50b86229ed1427 failed evaluating cue policy for ClusterImagePolicy: failed to evaluate the policy with error: spec.containers.0.securityContext.privileged: conflicting values false and true
+Error from server (BadRequest): error when creating "/tmp/pod.yaml": admission webhook "policy.sigstore.dev" denied the request: validation failed: failed policy: disallow-runasuser-root-cue: spec.containers[0].image
+index.docker.io/library/ubuntu@sha256:2adf22367284330af9f832ffefb717c78239f6251d9d0f58de50b86229ed1427 failed evaluating cue policy for ClusterImagePolicy: failed to evaluate the policy with error: spec.containers.0.securityContext.runAsUser: invalid value 0 (out of bound !=0)
 ```
+
 
 The first line shows the error message and the failing `ClusterImagePolicy` name. The second line contains the image ID, along with the specific CUE error message showing the policy violation.
 
-Edit the `/tmp/pod.yaml` file and change the `privileged` setting to `false`:
+Edit the `/tmp/pod.yaml` file and change the `runAsUser` setting to use a non-root user:
 
 ```
-    privileged: false
+    - runAsUser: 65532
 ```
 
 Save and apply the spec:
@@ -179,18 +183,10 @@ The pod will be admitted into the cluster with the following message:
 pod/yolo created
 ```
 
-Since the pod spec now ensures the container does not have elevated privileges, the Policy Controller evaluates the pod spec against the CUE policy and admits the pod into the cluster.
+Since the pod spec now uses a non-root user to run its processes, the Policy Controller evaluates the pod spec against the CUE policy and admits the pod into the cluster.
 
 Delete the pod once you're done experimenting with it:
 
 ```
 kubectl delete pod yolo
 ```
-
-## Options for Continuous Verification
-
-While it is useful to use the Policy Controller to manage admission into a cluster, once a workload is running any vulnerability or policy violations that occur after containers are running will not be detected.
-
-[Chainguard Enforce](/chainguard/chainguard-enforce/concepts/understanding-continuous-verification/) is designed to address this issue by continuously verifying whether a container or cluster contains any vulnerabilities or policy violations over time. This includes what packages are deployed, SBOMs (software bills of materials), provenance, signature data, and more.
-
-If you're interested in learning more about Chainguard Enforce, you can request access to the product by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs).

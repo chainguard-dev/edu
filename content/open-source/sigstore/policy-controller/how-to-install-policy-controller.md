@@ -1,10 +1,12 @@
 ---
 title: "How to Install Sigstore Policy Controller"
+aliases: 
+- /open-source/sigstore/policy-controller/enforce-sbom-attestation-with-policy-controller/
 type: "article"
 description: "Install the Sigstore Policy Controller into a Kubernetes Cluster"
 lead: "Installing Sigstore Policy Controller"
 date: 2023-02-21T13:11:29+08:29
-lastmod: 2023-02-21T13:11:29+08:29
+lastmod: 2024-05-10T13:11:29+08:29
 draft: false
 tags: ["policy-controller", "Procedural"]
 images: []
@@ -185,14 +187,6 @@ kubectl delete pod nginx
 ```
 
 To learn more about how the Policy Controller admits images, review the [Admission of images page](https://docs.sigstore.dev/policy-controller/overview/#admission-of-images) Sigstore documentation.
-
-## Options for Continuous Verification
-
-While it is useful to use the Policy Controller to manage admission into a cluster, once a workload is running any vulnerability or policy violations that occur after containers are running will not be detected.
-
-[Chainguard Enforce](/chainguard/chainguard-enforce/concepts/understanding-continuous-verification/) is designed to address this issue by continuously verifying whether a container or cluster contains any vulnerabilities or policy violations over time. This includes what packages are deployed, SBOMs (software bills of materials), provenance, signature data, and more.
-
-If you're interested in learning more about Chainguard Enforce, you can request access to the product by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs).
 
 ## Appendix — Resource Types
 
