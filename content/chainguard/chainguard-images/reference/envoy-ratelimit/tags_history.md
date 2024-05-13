@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the envoy-ratelimit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 2nd      | `sha256:035d33ccd143bbb0cbd1da13385a44df89da1e4dac8718c42c07795f46281672` |
-|  `latest-dev` | May 2nd      | `sha256:486861b06c453de7b01508378dd08b86921ad9a2ded2e8426b13adc3e2411cd5` |
+|  `latest-dev` | May 10th     | `sha256:039be4e30df76f2c2584a0b169993bc6e6dfd5151e1a9388e4e23f69cfd9bf09` |
+|  `latest`     | May 10th     | `sha256:89bcd6aecbb5438a43c2d1c7be8225eb343cb362ec8f3f661460e461e113d0d8` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)               | Last Changed | Digest                                                                    |
 |-----------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` | May 9th      | `sha256:7c3f585588e62ffa1246287c948ba1806270ba4f391ae04531a25b9871c14dc7` |
-|  `0` `latest`         | May 9th      | `sha256:7e28faa271cf95b04919c7100921286fa5e3bb8cf072f9fc024019b057e9c59e` |
+|  `0` `latest`         | May 10th     | `sha256:c027a9174a644e1de6607326c4fd3ac594f644f0a893665a43eecfcf893ae65e` |
+|  `latest-dev` `0-dev` | May 10th     | `sha256:9ced3ae2ea8ff4cf616e73f12bfd6fb05fd84df6039af8d7971f878902d3c6fc` |
 

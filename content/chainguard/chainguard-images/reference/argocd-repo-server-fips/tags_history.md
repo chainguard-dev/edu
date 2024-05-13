@@ -3,8 +3,8 @@ title: "argocd-repo-server-fips Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the argocd-repo-server-fips Chainguard Image"
-date: 2024-05-03 00:45:55
-lastmod: 2024-05-03 00:45:55
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.9.14-dev` `2.9-dev`                       | May 2nd      | `sha256:73b2243ed45ccdb27a5808d00c2d9825f8eddcf08dfb63a707b34d961aa0f94d` |
-|  `2.9.14` `2.9`                               | May 2nd      | `sha256:cd931b4bfc5f4054a9975e17ab8168e018cc62fcbf4193d0bce39f638843ee1b` |
-|  `2.8` `2.8.18`                               | May 2nd      | `sha256:2411d35889e829ad1bb780076ec3a7cd6d577b180810ea704a3feb11f8570184` |
-|  `2.10-dev` `latest-dev` `2-dev` `2.10.9-dev` | May 2nd      | `sha256:5b84aaa043f9ac6f7409ea6a6898a4559e9f04f699fe57e52392dab8f9b2d4be` |
-|  `2` `latest` `2.10.9` `2.10`                 | May 2nd      | `sha256:1bda2ee3fff21dbff086f98cced650bb48d900cc5d821184b1cc8331bea0dea7` |
-|  `2.8.18-dev` `2.8-dev`                       | May 2nd      | `sha256:a0c051b54781113202573e1e44a1f30ba4584fd6ba3a98c915771f889a60d82e` |
+|  `latest-dev` `2.10.9-dev` `2-dev` `2.10-dev` | May 10th     | `sha256:6168297e3c77dbddfe28c18e7148ef9851fa816c9c4d8ca94f550eea10b67c48` |
+|  `2.8.18-dev` `2.8-dev`                       | May 10th     | `sha256:770f91b78929f2dcced11714a87b5536e2a51b5386a6ac9bd5b3d4225da0d0d9` |
+|  `2.10` `2` `latest` `2.10.9`                 | May 10th     | `sha256:7e7e690a07de29608d1e2d226fbdba733e8250668df50a9a58b20e13e44b7df3` |
+|  `2.9.14` `2.9`                               | May 10th     | `sha256:dc0999d9da3e30be3b2f985e9801e242507bd3ebaacfcfe32cd8b1e8c8781698` |
+|  `2.9.14-dev` `2.9-dev`                       | May 10th     | `sha256:115664fb14df118df1aa323b818a51e674efef7d64a8112f6cdd96ac541eed09` |
+|  `2.8` `2.8.18`                               | May 10th     | `sha256:4d8ee83039cc2e2882c3c6fb528a2c74256530c8486d1f0ad4ec88434aaaa0e9` |
 

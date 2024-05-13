@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-rekor-createsecret-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.6` `0` `0.6.17`                 | May 2nd      | `sha256:f695bddc02fd8557d26e7b3258c42c6041aae5496b34214bf2f10c92aae0e206` |
-|  `0-dev` `latest-dev` `0.6-dev` `0.6.17-dev` | May 2nd      | `sha256:db0d8d965051c7400d75e9b9dc969531ca3890d51959926cabd3507fdb4d6053` |
+|  `0` `0.6.17` `latest` `0.6`                 | May 11th     | `sha256:c13588e0b6462f9d3d7da3ef63609a6f9c496e70951a0f060dcc095e4a19d661` |
+|  `0.6.17-dev` `latest-dev` `0.6-dev` `0-dev` | May 11th     | `sha256:ad883689e0b352a58eefb5e74222d57956bd1f4d41b46b8c5108f1881f48182f` |
 

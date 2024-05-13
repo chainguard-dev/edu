@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-ctlog-createctconfig Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 8th      | `sha256:b8448bccf4bc05538e745e13ba60b6268a24c4867643bebfa49be4e7508c57b7` |
-|  `latest-dev` | May 8th      | `sha256:4e82f60fcc94f0cb00cbc1b9500d22ff3a4ea91f1eb70dc3cba80b1812ae1edc` |
+|  `latest`     | May 10th     | `sha256:bedd32aa44fe35e6bb17eb7de787e5e8e1312742f39b09667babfe1a875617ce` |
+|  `latest-dev` | May 10th     | `sha256:a0159be2f026f28dc6a69ead18d86fa2f49bc62e5bcb0de2bee7be1f2b630719` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.6-dev` `latest-dev` `0.6.17-dev` | May 8th      | `sha256:2903a139bc4324875e6711f07519839a5cd663beb385b59268fe67e815563c84` |
-|  `latest` `0` `0.6` `0.6.17`                 | May 8th      | `sha256:dcb60f3e0861c99cd05147f0340a8eff904412dfb8275e01c873527b0ac79ee7` |
+|  `0.6-dev` `0.6.17-dev` `0-dev` `latest-dev` | May 10th     | `sha256:c694c95090ddc7bdb0ef2659a6aee9f48ba214041427323b4d5dd25d0848fab7` |
+|  `0` `0.6.17` `0.6` `latest`                 | May 10th     | `sha256:300c30d9989b75729996e5f6132e485e27c13dd14a611ae6994f795e9bf01acb` |
 

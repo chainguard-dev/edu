@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the argo-exec Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 8th      | `sha256:024b6a2f97b1c92c9e8c39591d31c21eb31cd006ffe302eff27c317b8bad6c50` |
-|  `latest-dev` | May 8th      | `sha256:5028565a7a6c4b4390a754e7be90cacf2d117b7d2776543e82d6c2698e8a0e55` |
+|  `latest-dev` | May 10th     | `sha256:ba183ce8717ce2d7c856bb19d151efb9bbee6f67b9f08d73e2c00d102e7d7086` |
+|  `latest`     | May 10th     | `sha256:8d86bfca902665e212fdbac174ac268714b01e5b334dd2b63c1b6d5ccf8c2949` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.5.6-dev` `latest-dev` `3-dev` `3.5-dev` | May 8th      | `sha256:1e1364ad1df0d952ba4e93dd69a8a178f7a0769707f803fd8c47194053ba2161` |
-|  `latest` `3.5.6` `3` `3.5`                 | May 8th      | `sha256:96cd9978dc47e511a3d0d7c4ca38ace9ab63aed232a5394c0725ba0d9e51e8d3` |
-|  `3.5.5-dev`                                | April 11th   | `sha256:9d6462317e3aaed4645c3ad9452c88966b83662ccdec8c8a4ed836c2d6b4e520` |
+|  `3.5.6-dev` `3.5-dev` `latest-dev` `3-dev` | May 10th     | `sha256:a777270e35e0b6180f4b6dd452e5b6541a4207461c493b493202f4c77ee1cdfd` |
+|  `3.5` `3` `latest` `3.5.6`                 | May 10th     | `sha256:270452830da0c7f9cd36c4015aa5a807a2f7f3c77f36278936e5e98303fe3f15` |
 

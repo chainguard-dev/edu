@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the az Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 8th      | `sha256:4cd790de3e326f47c8cc857c8508993622726d98c5e2183760140cc3849a8b2b` |
-|  `latest`     | May 8th      | `sha256:4af835a432bcac3b68bfd22d131919e1c82a45db8718b5ceee2f00f747228e7d` |
+|  `latest-dev` | May 10th     | `sha256:7474a1e7d4df5c8b5789d6c4c1c49ce164fd64641e67b4aea9619480591f4bbb` |
+|  `latest`     | May 10th     | `sha256:b3587d22941ee0f76c8d48af1cf47454d4f328141b2d1c9f4c822ee83f9b94e4` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.60.0-dev` `2-dev` `2.60-dev` `latest-dev` | May 7th      | `sha256:d04d3b509a0c7c2bc2a8ae3781964f60ad3edc9df4f45d2f752f1ae996be32ce` |
-|  `2.60.0` `2` `latest` `2.60`                 | May 7th      | `sha256:31f1251b58930aa33d88207f957203b2375cc18fdcdcb062e3e44395ff1acb19` |
+|  `2.60-dev` `latest-dev` `2-dev` `2.60.0-dev` | May 10th     | `sha256:1e68e28a5456275cca68de4ecb8fe1557915ab4e594a31f92a41372119247684` |
+|  `2` `2.60.0` `latest` `2.60`                 | May 10th     | `sha256:337577dc8e80badf696cefe56f1ee4a030560c3fbd33644717f963559a6b0949` |
 |  `2.59-dev` `2.59.0-dev`                      | April 29th   | `sha256:2dae57e4903bb057f1152588ee958d5d9c4f06ca45a96a69942c18b79fce858a` |
 |  `2.59.0` `2.59`                              | April 25th   | `sha256:3940fcf63420f9c47bb62f711da794643fe351ec83de9e84d5be4f55f4b20ede` |
 

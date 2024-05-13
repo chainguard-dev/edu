@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-policy-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-06 00:43:57
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 2nd      | `sha256:f0dd31e3ff2cba81dca3f1988f917b715b94ea2c5eb93628736fe21b2f5cb133` |
-|  `latest`     | May 2nd      | `sha256:1b89a22bf6e046c58e7c22baea2914df5f03b4b97037a193943f2a9196b8f132` |
+|  `latest-dev` | May 10th     | `sha256:55ba1b7113e54997fde7b61aad7b3bb9d0ef0a5f7355ae1422b09df4ac895584` |
+|  `latest`     | May 10th     | `sha256:ed6a60335e2e5d4ff9c71edd458e73663d8b7593345452ee9e7ffae0cf2a42be` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.9.0-dev` `0-dev` `0.9-dev` `latest-dev` | May 2nd      | `sha256:eac0f158c4fbd550aa9cc16ec69c2af1588b7ac098c52b8fbc48f36aedd67d13` |
-|  `0` `0.9.0` `0.9` `latest`                 | May 2nd      | `sha256:fde2263e86c5906cf8d8a087f7d845f9e8adf77eee66cdf36dfed9d89b606f71` |
-|  `0.8.4-dev` `0.8-dev`                      | April 11th   | `sha256:a2dd36e249326d43cec3f44ddca2a657ab03e74a33ec770ddd9074321e6cd2f7` |
+|  `0.9.0-dev` `latest-dev` `0.9-dev` `0-dev` | May 10th     | `sha256:9e9380070b4ad6fb8951333e3f283b312fa5b6d8941ecaf00b36af27f8442b4d` |
+|  `0.9` `0.9.0` `0` `latest`                 | May 10th     | `sha256:43bb4ebaf9fd298f5fd6a19ee08d183394510648b0b458d5e563dabc92ae845f` |
 

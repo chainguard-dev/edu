@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rabbitmq-messaging-topology-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 8th      | `sha256:1e5e2cead228f17d1f4b9cef8724b2d1f833051161e3f11b97ebd15d3317c527` |
-|  `latest`     | May 8th      | `sha256:cee1180f64d192d1ca5fbc4fb589db49e5a7be570df94cb6c55c7912730a20a7` |
+|  `latest`     | May 10th     | `sha256:ef15f33f2a3eaffbaf7e37d4596033af498673c45c4a01fff13911aac0c4e461` |
+|  `latest-dev` | May 10th     | `sha256:243c06e5af7545992afdde2e273a6d3e6fd2224e34433561d7bec26fa23d3213` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.14.0` `1.14` `1` `latest`                 | May 8th      | `sha256:3e3a671f11d5ce0d9caffd3c1e7cf9359c69b320a476f82a491d37543620ccba` |
-|  `1.14-dev` `1-dev` `1.14.0-dev` `latest-dev` | May 8th      | `sha256:33ea515cf3ee7d14a324b65c8195fde6df7f97b7169e73140b49e32970ebde14` |
+|  `latest-dev` `1.14.1-dev` `1-dev` `1.14-dev` | May 10th     | `sha256:c98f9de23940ece9482351ea6064db72fda33d1f9e3688b0f7ab7b7916aeb729` |
+|  `1.14.1` `1.14` `1` `latest`                 | May 10th     | `sha256:00276d9449dcde5929a4a67c73f71a403e6b705f55f7f7b91584eef5e8c4462f` |
+|  `1.14.0`                                     | May 8th      | `sha256:3e3a671f11d5ce0d9caffd3c1e7cf9359c69b320a476f82a491d37543620ccba` |
+|  `1.14.0-dev`                                 | May 8th      | `sha256:33ea515cf3ee7d14a324b65c8195fde6df7f97b7169e73140b49e32970ebde14` |
 |  `1.13-dev` `1.13.0-dev`                      | May 7th      | `sha256:e60f59fcc2d931845704f932d0c18e6426f3511a2a3368fd7e6d10a06a754f22` |
 |  `1.13.0` `1.13`                              | May 7th      | `sha256:a1a1e314ea02758a7e848b991f84e846c0d41c843eb10014fea1bbd5be1f677c` |
 

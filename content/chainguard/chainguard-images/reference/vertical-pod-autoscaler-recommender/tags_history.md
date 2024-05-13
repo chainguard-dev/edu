@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vertical-pod-autoscaler-recommender Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 8th      | `sha256:20a352f0f55910056d09be212f1fe687115d2e86b31fb3956a663fe8347c63f1` |
-|  `latest`     | May 8th      | `sha256:5c3847f97962381989c285e35c64eeff141b798a06585d879b0b6bea6d749891` |
+|  `latest`     | May 10th     | `sha256:d615ff1908737934abd1c263d73ae63fe87a15ce6d8016ca535cc24f26f981d4` |
+|  `latest-dev` | May 10th     | `sha256:f1436a43c6bcdc7bc3d906b3df62b094decdbc574e8d2c6c3a8d3b6e78bd66f4` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.1.1-dev` `1.1-dev` `1-dev` | May 7th      | `sha256:6f78b505a80bbadbd731385222a7d119afe06c01ef3cb43b8e9a1bc15815b3b6` |
-|  `1.1` `1.1.1` `1` `latest`                 | May 7th      | `sha256:e1a87faa964a5e64f211f179c43f4449b82c8d7b5c6140732cc4736c94d12e57` |
+|  `latest-dev` `1.1.1-dev` `1.1-dev` `1-dev` | May 10th     | `sha256:68aca99a971d57fe9d9dd1edc4a44e24d24b6d94781e61a6744e16c8e0f4a3bc` |
+|  `latest` `1.1.1` `1` `1.1`                 | May 10th     | `sha256:fc91b9217deeed180b0a163485ab2b5c0e0dd9170bb6a05262e63cbfc5c846bc` |
 |  `1.1.0-dev`                                | April 21st   | `sha256:d523d588ada7297449c224c5865ca6af2c36837329a9e5e59676505e19206e99` |
 |  `1.1.0`                                    | April 21st   | `sha256:9767715c084867dc6e56304a36e6f75c95688ebbf198c49a63c36aa6c6c9b14a` |
 

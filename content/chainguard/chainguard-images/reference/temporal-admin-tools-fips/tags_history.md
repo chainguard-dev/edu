@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the temporal-admin-tools-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.23` `1` `latest` `1.23.1`                 | May 8th      | `sha256:cd9982e01fec6735ca362ef2b2fa7ae2403f1db8dfd67be82152108f1df21d1f` |
-|  `latest-dev` `1-dev` `1.23.1-dev` `1.23-dev` | May 8th      | `sha256:d300c5301d81ccaf9d74ee374be33b2d59091a3192f95162ee12d763fc70cbd8` |
+|  `1.23.1` `1.23` `latest` `1`                 | May 11th     | `sha256:87279a5c5122129374f1ae76c504242163b6202eaf2f0e8084a72b5a0f38b252` |
+|  `1.23-dev` `latest-dev` `1.23.1-dev` `1-dev` | May 11th     | `sha256:c6129345ec483678d4864d3ab6d71f5c3ffbf4a0d2952c474f24b3fa4fbfd52e` |
 |  `1.23.0-dev`                                 | April 30th   | `sha256:6ccadf80e7df727f9ad3e0319b2157e063e9fd367d4b109caf6c6d60b3fba9c2` |
 |  `1.23.0`                                     | April 30th   | `sha256:9622f3e1552d2387355b132b30daec49bcbdd90a99fc5db22e0d6c7b79d0a67c` |
 

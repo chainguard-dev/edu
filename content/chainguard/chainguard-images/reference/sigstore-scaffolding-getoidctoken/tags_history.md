@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-getoidctoken Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 8th      | `sha256:ca7cdfa22ae3f1cb828162fe4efdadca0e26c2318ea13cfd32f25d25d39e1640` |
-|  `latest-dev` | May 8th      | `sha256:520fd61cebc181975dffb7a0662bd463eb8266c7ab03161c86c39dbbd44d7d60` |
+|  `latest-dev` | May 10th     | `sha256:1ae19673875a7b793f2b40a6185f2627b26495603c12014b841fd3845af962df` |
+|  `latest`     | May 10th     | `sha256:37779febc4a6c6826307eccc7ba1ec0d3135bb2898f01f38d8b21861229ec910` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6-dev` `0-dev` `latest-dev` `0.6.17-dev` | May 8th      | `sha256:6c3e086e6dc8f238707c0976e6b25c7b4a73b70ed0d543b4e33d7bd0d3acca1f` |
-|  `latest` `0.6.17` `0` `0.6`                 | May 8th      | `sha256:0ea637d078c84c6b35f33ad76da380c863680a3c3cdbcfc1855beb1c12622cf7` |
+|  `0.6.17` `0` `0.6` `latest`                 | May 10th     | `sha256:850bcbfc2b2a90b3cffbca8b7a957891a9119f31844df1792d28cf266846c4f9` |
+|  `0.6.17-dev` `0.6-dev` `0-dev` `latest-dev` | May 10th     | `sha256:b4ea2e8914b9df78d20505dc0c47b568563ee732cebeb64e6fd839d8e1e8bb92` |
 

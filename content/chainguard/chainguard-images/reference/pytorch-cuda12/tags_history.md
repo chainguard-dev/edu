@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the pytorch-cuda12 Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 8th      | `sha256:d6ad6a6196bccb4445710517a37911441b436cb19f19ef91a22054b972272955` |
-|  `latest-dev` | May 8th      | `sha256:0e19a3381b3a8f277a74c490868dbbc4d84e200916a5bb1bfb9b17023c22dd3a` |
+|  `latest`     | May 11th     | `sha256:81f03abdbfed2ef121bf15106358cb764072eb3134bb6d90b0ad6ee02fb6fbf0` |
+|  `latest-dev` | May 11th     | `sha256:a6ee80f9fb9eac0f2ee1954b9486e74e973ed3d9650e3c512ee331f42fc7e7b8` |
 
 
 ### Private/Dedicated Registry

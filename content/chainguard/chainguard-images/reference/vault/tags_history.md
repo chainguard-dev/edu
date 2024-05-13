@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vault Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-06 00:43:57
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,13 +37,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.14-dev` `1-dev` `latest-dev` `1.14.12-dev` | May 3rd      | `sha256:dfbe132d38b0b4837e2fb4beef57f07c93b0f36e25d904d7ad9213f450a1fd28` |
-|  `1.14` `1.14.12` `1` `latest`                 | May 3rd      | `sha256:b32dd6ba68957051b7591840e53973f2cdc41ba7cb4d3d8fc45a8081f1320240` |
+|  `latest` `1.14` `1.14.12` `1`                 | May 11th     | `sha256:a8438e99661e6014d57551b5d58338a03b3f17936b28b058626a7a6318d4900b` |
+|  `1.14-dev` `latest-dev` `1-dev` `1.14.12-dev` | May 11th     | `sha256:189e2abade1e478d087483b4f49a74a7caa930ac6e5e775ec4d592b2c2f4c7c6` |
 |  `1.13.13-dev` `1.13-dev`                      | May 3rd      | `sha256:b08668d553fce9f554218dffbd116e2cf54903011244a4b8d3dcc3eb5e66d9df` |
 |  `1.13` `1.13.13`                              | May 3rd      | `sha256:83ec106752437bf8ca5b3afd6fae5180bf72a5a7725257a6bff96281a54106dd` |
 |  `1.14.11`                                     | April 26th   | `sha256:baa430d699817105639b081708b5bf3326f161308f97e5089e11851ec37c9dc9` |
 |  `1.14.11-dev`                                 | April 26th   | `sha256:44281a4b321973f4480aa4be95bb23a048b8386caa19056b0786b9c180f5e0c7` |
-|  `1.14.10-dev`                                 | April 11th   | `sha256:cd051dd1c2ac090d69efc06da6cdb48fc7f2ee2d7e35a03992384ee5e32971af` |
 |  `1.13.1`                                      | April 25th   | `sha256:4fa1f7cd2a3553f8f19748120b51c9ceea5f2735e67d9ee88bfd16b65513f275` |
 |  `1.13.1-dev`                                  | April 25th   | `sha256:8b7f0986cd7d2835c2d3362b1d68e5e9d9837aff3ffeb3a308c3c1d379eb6ef7` |
 

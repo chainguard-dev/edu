@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the velero-restore-helper Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 8th      | `sha256:31f1ff3ea21412de6cead1944e79bb933f3c899f4c6c4c15e68fbd29932ad846` |
-|  `latest`     | May 8th      | `sha256:5980ed59443c317db447679b5c04ec5c10ad04422d202c8875917d11f500cae9` |
+|  `latest-dev` | May 10th     | `sha256:0abf9b883ec1574e9cdbaa4ab355f8c6c4691554c59c6fa7e5ad73f8b5ec5a2b` |
+|  `latest`     | May 10th     | `sha256:a8a6648acbc68ee3739c53890ba132de5447b345eebaf2f8f10171f019f98899` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.13-dev` `1.13.2-dev` `latest-dev` `1-dev` | May 8th      | `sha256:d8892d7913a2b1e1e708d03ea7c2f8c988b2c634de20fd880a6a669ecc49827d` |
-|  `1` `1.13` `1.13.2` `latest`                 | May 8th      | `sha256:ff2e562731880d6691d58c197c9813b87e219a8a2b8e338968fc63a03fd706f5` |
-|  `1.13.1-dev`                                 | April 11th   | `sha256:be76a6131d706d0695ac3f6967b1e107c20bf9f0d3afc4752307f84b94941760` |
-|  `1.13.1`                                     | April 11th   | `sha256:01084c3fb51f1cd1453b30b91f82c0cd08702c54e13c3cccddc3780eeb4aff5e` |
+|  `latest` `1` `1.13` `1.13.2`                 | May 10th     | `sha256:861a89275441fe95574dc926c1176cc3e1bdbfbdc164c0182b38903426c4b938` |
+|  `1-dev` `1.13-dev` `1.13.2-dev` `latest-dev` | May 10th     | `sha256:6419c66f8750051a061988d01ae72f329f80198efa765f1b162962bfe993afc1` |
 

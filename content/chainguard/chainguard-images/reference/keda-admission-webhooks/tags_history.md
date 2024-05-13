@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the keda-admission-webhooks Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,10 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.13.1` `2.13`                              | May 9th      | `sha256:2bcb94843e627e9a2b6ca5b9c1c5fcae6f0acac5f25a0b85b72b15cbd98076ba` |
-|  `2.13.1-dev` `2.13-dev`                      | May 9th      | `sha256:31ab7a359377accc9191c99cb42c0bda4a2609d3a994a02f9e6a7276f5aa7c17` |
-|  `latest-dev` `2-dev` `2.14.0-dev` `2.14-dev` | May 2nd      | `sha256:69989d5f637759102d300c260ed77bac213c4ed5d9e98e9c65f3a7d6b08373a3` |
-|  `latest` `2.14.0` `2` `2.14`                 | May 2nd      | `sha256:21b621e6b3e37aa3412a4716e98e0d5b64758cc83c0d254c8fdbc9b41d3cc722` |
+|  `2.13.1` `2.13`                              | May 11th     | `sha256:aa91ae0402dca66bf58c33aff7234741f46049e0c22f0a5881de6ff99b00d5e5` |
+|  `2.13-dev` `2.13.1-dev`                      | May 11th     | `sha256:4c1a7549296d845fd06ad75eba1ca15d10d81afd036e0f58a03da8d51ed56f02` |
+|  `latest-dev` `2-dev` `2.14.0-dev` `2.14-dev` | May 10th     | `sha256:ed16c128118f8b8787a7e1eb81b13e0988c5b66a2ae2690827ca1e9cbd36d0eb` |
+|  `2.14` `2.14.0` `2` `latest`                 | May 10th     | `sha256:f7bcb5ca58bff961a531d55315e36b831f6c2ac86998f7e2f969d07868254484` |
 |  `2.10.1-dev` `2.10-dev`                      | May 2nd      | `sha256:46aa31ea6bef44bc982a9b540c341321fc26291ad7d46181b75f3c2f9d55e143` |
 |  `2.10.1` `2.10`                              | May 2nd      | `sha256:a02b36b059510c7cfbc5fba4c8273831ae4223256ec37599b2e425d16f3d497b` |
 
