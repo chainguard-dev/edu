@@ -1,9 +1,11 @@
 ---
 title: "Disallowing Unsafe sysctls"
+aliases: 
+- /open-source/sigstore/policy-controller/disallowing-unsafe-sysctls-with-policy-controller/
 type: "article"
 description: "Use Policy Controller to limit pods to safe sysctls"
 date: 2023-03-01T13:11:29+08:29
-lastmod: 2023-03-01T13:11:29+08:29
+lastmod: 2024-05-10T13:11:29+08:29
 draft: false
 tags: ["policy-controller", "Procedural", "Policy"]
 images: []
@@ -184,11 +186,3 @@ Delete the pod once you're done experimenting with it:
 ```
 kubectl delete pod yolo
 ```
-
-## Options for Continuous Verification
-
-While it is useful to use the Policy Controller to manage admission into a cluster, once a workload is running any vulnerability or policy violations that occur after containers are running will not be detected.
-
-[Chainguard Enforce](/chainguard/chainguard-enforce/concepts/understanding-continuous-verification/) is designed to address this issue by continuously verifying whether a container or cluster contains any vulnerabilities or policy violations over time. This includes what packages are deployed, SBOMs (software bills of materials), provenance, signature data, and more.
-
-If you're interested in learning more about Chainguard Enforce, you can request access to the product by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs).

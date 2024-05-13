@@ -3,11 +3,11 @@ title: "Rego Policies"
 aliases:
 - /chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-rego-policies/
 type: "article"
-description: "Writing Rego-based policies for Chainguard Enforce"
+description: "Writing Rego-based policies for Sigstore Policy Controller"
 date: 2023-01-12T15:56:52-07:00
-lastmod: 2023-01-12T15:56:52-07:00
+lastmod: 2024-05-10T15:56:52-07:00
 draft: false
-tags: ["Enforce", "Product", "Procedural", "Policy", "Reference", "SBOM"]
+tags: ["Open Source", "Procedural", "Policy", "Reference", "SBOM"]
 menu:
   docs:
     parent: "policies"
@@ -15,13 +15,11 @@ weight: 010
 toc: true
 ---
 
-Chainguard Enforce supports the [Rego Policy Language](https://www.openpolicyagent.org/docs/latest/policy-language/), which is a declarative policy language that is used to evaluate structured input data such as Kubernetes manifests and JSON documents. This feature enables users to apply policies that can evaluate Kubernetes admission requests and object metadata to make comprehensive decisions about the workloads that are admitted to their clusters. Rego support also enables users to enhance existing cloud-native policies by adding additional software supply chain security checks all within Chainguard Enforce.
+The [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) supports the [Rego Policy Language](https://www.openpolicyagent.org/docs/latest/policy-language/), which is a declarative policy language that is used to evaluate structured input data such as Kubernetes manifests and JSON documents. This feature enables users to apply policies that can evaluate Kubernetes admission requests and object metadata to make comprehensive decisions about the workloads that are admitted to their clusters. Rego support also enables users to enhance existing cloud-native policies by adding additional software supply chain security checks.
 
-There are several Rego policy templates that you can customize within the [Chainguard Enforce Policy Catalog](https://console.enforce.dev/policies/catalog). If you would like to write one from scratch, or learn more about how to use this format, you can follow this guide. 
+If you would like to write a Rego policy from scratch, or learn more about how to use this format, you can follow this guide. 
 
 ## Rego Policy Template
-
-The [Chainguard Enforce Policy Catalog](https://console.enforce.dev/policies/catalog) includes a blank Rego policy template that you can use to build your own policy. 
 
 ```bash
 # Copyright 2022 Chainguard, Inc.
@@ -62,17 +60,17 @@ The Rego policy itself is definied within the `policy` section. The first requir
 * `includeTypeMeta:` allows access to the top level fields in the manifest, such as the `kind` and `apiVersion`.
 * `fetchConfigFile:` fetches the OCI config file from the registry, which contains metadata about the image in the registry.
 
-Rego policies in Enforce must specify `type: rego` and the `data` field must contain `package sigstore`. 
+Rego policies must specify `type: rego` and the `data` field must contain `package sigstore`. 
 
 For the policy to pass, the `isCompliant` field must evaluate to `true` within the curly braces. The `isCompliant` Boolean is set to `false` by default, and the logic in the braces must flip the boolean to `true` for the policy to pass. 
 
 If you define multiple conditions within the `isCompliant` braces, these can be combined using the `AND` keyword to the Boolean logic, meaning that each condition must pass for `isCompliant` to resolve to `true`. You can also define multiple evaluations (meaning, multiple sets of `isCompliant` braces) in the same policy. You would combine these in your policy with the `OR` keyword, meaning that if _any_ of the stated conditions evaluate to `true`, then the `isCompliant` Boolean will _also_ be `true`.
 
-This same structure must be present in all Rego-based policies in Enforce.
+This same structure must be present in all Rego-based policies.
 
 ## Rego Policy to Check Metadata Labels
 
-You can set a Rego policy in Chainguard Enforce to ensure that it is compliant with certain labels within your metadata. 
+You can set a Rego policy to ensure that it is compliant with certain labels within your metadata. 
 
 For example, within the production environment (with the "production" label) you can ensure that the compliance team is the approver.
 
@@ -152,7 +150,7 @@ This Rego policy shows a method of declaring a variable and using it to count up
 
 ## Rego Policy that Checks Maximum Age of Images
 
-This example Rego policy checks the maximum age (in days) allowed for an image running in your cluster. Enforce measures this through the `created` field of a container image's configuration. This ensures that your images are regularly updated and maintained.
+This example Rego policy checks the maximum age (in days) allowed for an image running in your cluster. Policy Controller measures this through the `created` field of a container image's configuration. This ensures that your images are regularly updated and maintained.
 
 Note that some build tools may fail this check due to using a fixed time (like the Unix epoch) for creation in their reproducible builds. However, many of these tools support specifying `SOURCE_DATE_EPOCH`, which aligns creation time with the date of the source commit.
 
@@ -207,9 +205,9 @@ This example `attestations` block requires clusters to have a vulnerability repo
           }
 ```
 
-Here, the custom error message reads `Not found expected predicate type 'chainguard.dev/attestation/vuln/v1'`. Rather than returning the default error, Chainguard Enforce will return this string as a custom error message.
+Here, the custom error message reads `Not found expected predicate type 'chainguard.dev/attestation/vuln/v1'`. Rather than returning the default error, Policy Controller will return this string as a custom error message.
 
-Notice, too, that the previous example defines a `warnMsg` variable. Enforce will only return a warning message to the caller if the policy in question is in `warn` mode, so in that case it was left as an empty string.
+Notice, too, that the previous example defines a `warnMsg` variable. Policy Controller will only return a warning message to the caller if the policy in question is in `warn` mode, so in that case it was left as an empty string.
 
 The following `attestations` block is similar to the previous one, but this time it defines the `warnMsg` variable to be used as a custom warning message.
 
@@ -238,8 +236,4 @@ Defining custom error and warning messages with Rego can help with troubleshooti
 
 ## Learn More
 
-Within the [Chainguard Enforce Policy Catalog](https://console.enforce.dev/policies/catalog), you have access to more Rego policy templates that you can use directly or modify. These include enforcing SBOM attestation, enforcing a signed vulnerability attestation, and disallowing host namespaces.  
-
 To understand more about the Rego policy format, you can review the [Rego Policy Reference](https://www.openpolicyagent.org/docs/latest/policy-reference/) which includes details on assignment and equality, arrays, objects, sets, and rules. 
-
-Request access to Chainguard Enforce by selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs).

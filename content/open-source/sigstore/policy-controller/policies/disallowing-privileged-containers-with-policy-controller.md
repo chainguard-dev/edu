@@ -1,9 +1,11 @@
 ---
-title: "Disallowing Non-Default Capabilities"
+title: "Disallowing Privileged Pods"
+aliases:
+- /open-source/sigstore/policy-controller/disallowing-privileged-containers-with-policy-controller/
 type: "article"
-description: "Using Policy Controller to prevent running pods with extra capabilities"
+description: "Using Policy Controller to prevent running privileged pods"
 date: 2023-03-02T13:11:29+08:29
-lastmod: 2023-03-02T13:11:29+08:29
+lastmod: 2024-05-10T13:11:29+08:29
 draft: false
 tags: ["policy-controller", "Procedural", "Policy"]
 images: []
@@ -15,7 +17,7 @@ toc: true
 terminalImage: policy-controller-base:latest
 ---
 
-This guide demonstrates how to use the [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) to prevent running containers with extra capabilities. You will create a `ClusterImagePolicy` that uses the [CUE](https://cuelang.org/) language to examine a pod spec, and only allow admission into a cluster if the pod is running with one or many [Linux capabilities](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-capabilities-for-a-container) from defined set of safe capabilities flags.
+This guide demonstrates how to use the [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) to prevent running containers with elevated privileges. You will create a `ClusterImagePolicy` that uses the [CUE](https://cuelang.org/) language to examine a pod spec, and only allow admission into a cluster if the pod is running without the `privileged: true` setting.
 
 ## Prerequisites
 
@@ -64,7 +66,7 @@ Error from server (BadRequest): admission webhook "policy.sigstore.dev" denied t
 cgr.dev/chainguard/nginx@sha256:628a01724b84d7db2dc3866f645708c25fab8cce30b98d3e5b76696291d65c4a
 ```
 
-In the next step, you will define a policy that ensures pods only run with safe capabilities and apply it to your cluster.
+In the next step, you will define a policy that only admits unprivileged pods and apply it to your cluster.
 
 ## Step 2 — Creating a `ClusterImagePolicy`
 
@@ -82,7 +84,7 @@ Copy the following policy to the `/tmp/cip.yaml` file:
 apiVersion: policy.sigstore.dev/v1beta1
 kind: ClusterImagePolicy
 metadata:
-  name: non-default-capabilities-cue
+  name: privileged-containers-cue
 spec:
   match:
   - version: "v1"
@@ -94,53 +96,26 @@ spec:
     includeSpec: true
     type: "cue"
     data: |
-      #Allowed: "AUDIT_WRITE" |
-                "CHOWN" |
-                "DAC_OVERRIDE" |
-                "FOWNER" |
-                "FSETID" |
-                "KILL" |
-                "MKNOD" |
-                "NET_BIND_SERVICE" |
-                "SETFCAP" |
-                "SETGID" |
-                "SETPCAP" |
-                "SETUID" |
-                "SYS_CHROOT"
       spec: {
         initContainers: [...{
           securityContext: {
-            capabilities: {
-              add: [...#Allowed]
-            }
+            privileged: false
           }
         }]
         containers: [...{
           securityContext: {
-            capabilities: {
-              add: [...#Allowed]
-            }
+            privileged: false
           }
         }]
         ephemeralContainers: [...{
           securityContext: {
-            capabilities: {
-              add: [...#Allowed]
-            }
+            privileged: false
           }
         }]
       }
 ```
 
-The Policy Controller will check each type of container's definition (`initContainers`, `containers`, and `ephemeralContainers`) in a pod spec for any added capabilities. The controller will only admit a pod if the added capabilities are in the `#Allowed` set.
-
-The set of allowed capabilities is defined in this portion of the CUE policy and can be added to or changed to match your specific workload's needs:
-
-```
-#Allowed: "AUDIT_WRITE" |
-                "CHOWN" |
-. . .
-```
+This policy will ensure that any kind of container in a pod spec will only be admitted if the `privileged` setting is not set, or is set to `false`.
 
 Save the file and then apply the policy:
 
@@ -151,10 +126,10 @@ kubectl apply -f /tmp/cip.yaml
 You will receive output showing the policy is created:
 
 ```
-clusterimagepolicy.policy.sigstore.dev/non-default-capabilities-cue
+clusterimagepolicy.policy.sigstore.dev/privileged-containers-cue
 ```
 
-Next you will test the policy with a failing pod spec. Once you have confirmed that the admission controller is rejecting pods running with privileges, you'll create a pod that runs without unnecessary capabilities and admit it into your cluster.
+Next you will test the policy with a failing pod spec. Once you have confirmed that the admission controller is rejecting pods running with privileges, you'll create a pod that runs without elevated privileges and admit it into your cluster.
 
 ## Step 3 — Testing a `ClusterImagePolicy`
 
@@ -172,12 +147,7 @@ spec:
   - name: "app"
     image: docker.io/ubuntu
     securityContext:
-      capabilities:
-        add:
-        # Violates restricted-capabilities
-        - NET_ADMIN
-        drop:
-        - ALL
+      privileged: true
 ```
 
 Apply the pod spec and check for the Policy Controller admission denied message:
@@ -187,18 +157,16 @@ kubectl apply -f /tmp/pod.yaml
 ```
 
 ```
-Error from server (BadRequest): error when creating "pod.yaml": admission webhook "policy.sigstore.dev" denied the request: validation failed: failed policy: non-default-capabilities-cue: spec.containers[0].image
-index.docker.io/library/ubuntu@sha256:2adf22367284330af9f832ffefb717c78239f6251d9d0f58de50b86229ed1427 failed evaluating cue policy for ClusterImagePolicy: failed to evaluate the policy with error: spec.containers.0.securityContext.capabilities.add.0: 12 errors in empty disjunction: (and 12 more errors)
+Error from server (BadRequest): error when creating "pod.yaml": admission webhook "policy.sigstore.dev" denied the request: validation failed: failed policy: privileged-containers-cue: spec.containers[0].image
+index.docker.io/library/ubuntu@sha256:2adf22367284330af9f832ffefb717c78239f6251d9d0f58de50b86229ed1427 failed evaluating cue policy for ClusterImagePolicy: failed to evaluate the policy with error: spec.containers.0.securityContext.privileged: conflicting values false and true
 ```
 
 The first line shows the error message and the failing `ClusterImagePolicy` name. The second line contains the image ID, along with the specific CUE error message showing the policy violation.
 
-Edit the `/tmp/pod.yaml` file and remove or edit the `add` portion of the `capabilities` section. If there are no extra capabilities then the section should look like the following:
+Edit the `/tmp/pod.yaml` file and change the `privileged` setting to `false`:
 
 ```
-    capabilities:
-        drop:
-        - ALL
+    privileged: false
 ```
 
 Save and apply the spec:
@@ -213,7 +181,7 @@ The pod will be admitted into the cluster with the following message:
 pod/yolo created
 ```
 
-Since the pod spec now ensures the container does not have and extra capabilities, or only those from the `#Allowed` set, the Policy Controller evaluates the pod spec against the CUE policy and admits the pod into the cluster.
+Since the pod spec now ensures the container does not have elevated privileges, the Policy Controller evaluates the pod spec against the CUE policy and admits the pod into the cluster.
 
 Delete the pod once you're done experimenting with it:
 
@@ -221,10 +189,3 @@ Delete the pod once you're done experimenting with it:
 kubectl delete pod yolo
 ```
 
-## Options for Continuous Verification
-
-While it is useful to use the Policy Controller to manage admission into a cluster, once a workload is running any vulnerability or policy violations that occur after containers are running will not be detected.
-
-[Chainguard Enforce](/chainguard/chainguard-enforce/concepts/understanding-continuous-verification/) is designed to address this issue by continuously verifying whether a container or cluster contains any vulnerabilities or policy violations over time. This includes what packages are deployed, SBOMs (software bills of materials), provenance, signature data, and more.
-
-If you're interested in learning more about Chainguard Enforce, you can request access to the product by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs).

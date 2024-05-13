@@ -3,11 +3,11 @@ title: "Example Policies"
 aliases: 
 - /chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-policy-examples/
 type: "article"
-description: "Chainguard Enforce for Kubernetes policy recipes"
+description: "Policy recipes"
 date: 2022-07-15T15:22:20+01:00
-lastmod: 2022-11-29T15:22:20+01:00
+lastmod: 2024-05-10T13:11:29+08:29
 draft: false
-tags: ["Enforce", "Product", "Procedural", "Policy", "Reference", "SBOM"]
+tags: ["Open Source", "Procedural", "Policy", "policy-controller", "Reference", "SBOM"]
 images: []
 menu:
   docs:
@@ -16,21 +16,11 @@ weight: 075
 toc: true
 ---
 
-Chainguard Enforce for Kubernetes allows users to create their own security policies that they can enforce in their clusters. Here are a few example policies to help you get started. You can also review the [policy catalogue](https://console.enforce.dev/policies/catalog) in the Chainguard Enforce Console.
+The [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) allows users to create their own security policies that they can be enforced on Kuberenetes clusters. Here are a few example policies to help you get started. 
 
 You may also review the [Sigstore Policy Controller documentation](https://docs.sigstore.dev/policy-controller/overview). In particular, we encourage you to review the Policy Controller documentation relating to the [Admission of images](https://docs.sigstore.dev/policy-controller/overview/#admission-of-images) to learn how to admit images through the cluster image policy.
 
-## Applying a policy
-
-To apply a policy to a cluster, you can use the `chainctl` command. Be sure to replace `$POLICY` with the name of your policy, and `$GROUP` with the name of your group.
-
-```sh
-chainctl policies apply -f $POLICY.yaml --group=$GROUP
-```
-
-Alternately, you can follow our guide on [How to Create Policies in the Chainguard Enforce UI](/chainguard/chainguard-enforce/policies/chainguard-policies-ui/).
-
-## Policy enforcing signed containers from Chainguard Images
+## Policy enforcing signed containers
 
 ```
 apiVersion: policy.sigstore.dev/v1beta1
@@ -39,8 +29,8 @@ metadata:
   name: signed-keyless
 spec:
   images:
-    - glob: cgr.dev/chainguard/**
-    - glob: ghcr.io/chainguard-images/**
+    # All images
+    - glob: "**"
   authorities:
     - keyless:
         url: https://fulcio.sigstore.dev
@@ -48,13 +38,32 @@ spec:
         url: https://rekor.sigstore.dev
 ```
 
+Examples using Chainguard Images from the Chainguard Registry or the GitHub Container Registry, respectively:
+
+```
+...
+  images:
+    - glob: cgr.dev/chainguard/**
+    - glob: ghcr.io/chainguard-images/**
+...
+```
+
 An example using Docker Hub images:
 
 ```
 ...
   images:
-  - glob: "index.docker.io/*"
-  - glob: "index.docker.io/*/*"
+    - glob: "index.docker.io/*"
+    - glob: "index.docker.io/*/*"
+...
+```
+
+An example using Google Cloud Registry:
+
+```
+...
+  images:
+    - glob: gcr.io/your-image-here/*
 ...
 ```
 
@@ -67,7 +76,7 @@ metadata:
   name: enforce-signer-oidc
 spec:
   images:
-    - glob: gcr.io/your-image-here/*
+    - glob: "**"
   authorities:
     - keyless:
         identities: # <<<-- REPLACE the following with your OIDC provider & subject --> #
@@ -133,7 +142,6 @@ cosign attest --yes --type spdxjson \
   --key keys/cosign.key \
   "${IMAGE}"
 ```
-
 
 ## Policy enforcing that releases are signed by GitHub Actions
 

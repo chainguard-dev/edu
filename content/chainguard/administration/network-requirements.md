@@ -1,16 +1,16 @@
 ---
 title: "Network Requirements"
 linktitle: "Network Requirements"
-lead: "Using Chainguard Images and Enforce with firewalls, access control lists, and proxies"
+lead: "Using Chainguard Images with firewalls, access control lists, and proxies"
 type: "article"
-description: "Using Chainguard Images and Enforce with firewalls, access control lists, and proxies"
+description: "Using Chainguard Images with firewalls, access control lists, and proxies"
 date: 2023-09-08T08:49:31+00:00
-lastmod: 2024-03-28T15:22:20+01:00
+lastmod: 2024-05-06T15:22:20+01:00
 draft: false
 aliases:
   - /chainguard/chainguard-images/reference/network-requirements/
   - /chainguard/chainguard-enforce/reference/network-requirements/
-tags: ["Chainguard Images", "Chainguard Enforce", "Product", "Reference"]
+tags: ["Chainguard Images", "Product", "Reference"]
 images: []
 toc: true
 weight: 001
@@ -33,7 +33,6 @@ This table lists the DNS hostnames, associated ports, and protocols that will ne
 | dl.enforce.dev          | 443  | HTTPS    | `chainctl` downloads                            |
 | issuer.enforce.dev      | 443  | HTTPS    | Registry STS (Security Token Service)           |
 | packages.wolfi.dev      | 443  | HTTPS    | Package repository (Developer Images)           |
-| packages.cgr.dev        | 443  | HTTPS    | Package repository (Production Images)          |
 
 ## Chainguard Images Third-party Hosts
 
@@ -41,13 +40,8 @@ This table lists the third-party DNS hostnames, associated ports, and protocols 
 
 | Hostname                                                  | Port | Protocol | Notes                        |
 | --------------------------------------------------------- | ---- | -------- | ---------------------------- |
-| ghcr.io                                                   | 443  | HTTPS    | Used for wolfi development   |
-| \*.r2.cloudflarestorage.com                               | 443  | HTTPS    | Blob storage for cgr.dev     |
 | 9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com | 443  | HTTPS    | Blob storage for cgr.dev     |
 | chainguardhelp.zendesk.com                                | 443  | HTTPS    | Support access for customers |
-| storage.googleapis.com                                    | 443  | HTTPS    | `chainctl` downloads         |
-
-You can use either the single `9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com` host or the wildcard `*.rc.cloudflarestorage.com` hostname in your firewall and proxy configurations. However, the `9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com` hostname may change at some point in the future.
 
 ## Ingress and Egress
 
