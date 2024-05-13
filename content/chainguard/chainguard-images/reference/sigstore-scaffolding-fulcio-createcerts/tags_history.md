@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-fulcio-createcerts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 8th      | `sha256:e8a41f262821ffb95a9e532d375b9f28c0d0e1457c26de1d741885555eb68b99` |
-|  `latest`     | May 8th      | `sha256:5d25eedf63eac98f66b52d64c2d7032fa6767a86e6077e914d8ecc520fea2d38` |
+|  `latest-dev` | May 10th     | `sha256:4a9119ca9497a159b580c36374b3776225829f4c6b37ae63e7767d881428ffb0` |
+|  `latest`     | May 10th     | `sha256:a4899e9ed527853d5048a6332cd396a7346a8d48e19c42f113f13019a4e39c20` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6` `0` `0.6.17` `latest`                 | May 8th      | `sha256:136d7b4ebe072ac4ee3c2c35a76c737ae33853f52939af8e8f6709e6c495fb59` |
-|  `0-dev` `latest-dev` `0.6.17-dev` `0.6-dev` | May 8th      | `sha256:84ac8990728a0e95e508c647fa8a688ba9fb3dabac24da41b8c9c8dc7703f516` |
+|  `0.6` `0.6.17` `0` `latest`                 | May 10th     | `sha256:23060e76acd27d6dc2967562dbe9203d71c8c3591635ca33a2f5a3b9c670a17a` |
+|  `latest-dev` `0.6.17-dev` `0-dev` `0.6-dev` | May 10th     | `sha256:1c85b5f93905e76cc3705b0f76b00eaa400da884cb2ba0b33ca615739e64c0db` |
 

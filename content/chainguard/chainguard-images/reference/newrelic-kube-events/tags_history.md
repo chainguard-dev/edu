@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-kube-events Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,13 +37,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.9.3-dev` `1.9-dev` `1-dev`              | May 10th     | `sha256:904eb06d23f87a92adbf72e4a6cd06cd2227bdb87fa965da576a2ed71332effa` |
+|  `1.9` `1.9.3` `1`                          | May 10th     | `sha256:233354636e5fc199dcc376689e9c97ef3c2967a4ad2192df1d17e1ec382d5127` |
 |  `2.9.6` `2.9` `latest` `2`                 | May 9th      | `sha256:6cdad3c2f6b38110d937f754b948db32601efceb2125bc6466e4c3f3fecc41f2` |
 |  `2.9.6-dev` `2-dev` `2.9-dev` `latest-dev` | May 9th      | `sha256:910d56428103c2f2060ee515fc877ac17af91ba2e2bdf3ea110b96ee8627541b` |
-|  `1.9.3-dev` `1-dev` `1.9-dev`              | May 8th      | `sha256:36b608dcccd7b2eec06a46bc5bc80850e7bd391ebf293ab4ff426e0e22754e6b` |
-|  `1.9` `1.9.3` `1`                          | May 8th      | `sha256:3b3da4aaff60e8c136f64322125308505b663887c1faf9e55770ef626d21598a` |
 |  `2.9.5-dev`                                | April 23rd   | `sha256:403599375e4ce78392515e773df44c2992291d7f7a9ccf08ec60e3b91e196019` |
 |  `2.9.5`                                    | April 23rd   | `sha256:04afb13a00cb0c271160b0eaeed1decd1a8786bdbbeeae2c3ce386e882f9deb6` |
 |  `2.9.4-dev`                                | April 21st   | `sha256:a2ad562351991576c904f11b24243e133aa6be1be9a2d3884b5cad021a2e0281` |
 |  `2.9.4`                                    | April 21st   | `sha256:420047ef962751a974a54fffc09448ef80c778a26207963ab9c3ac480559058d` |
-|  `2.9.3-dev`                                | April 11th   | `sha256:75dff826049c146616914e91775acb0ae723c851ecd28590277b979b39b01ebe` |
 

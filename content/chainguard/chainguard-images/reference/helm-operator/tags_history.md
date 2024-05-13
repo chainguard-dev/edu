@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the helm-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.34.1` `latest` `1` `1.34`                 | May 7th      | `sha256:822c3155a5be52c0914d729cd1ecd767d8803e897d79411071f53f751a59d004` |
-|  `1-dev` `1.34-dev` `latest-dev` `1.34.1-dev` | May 7th      | `sha256:d27d3f9fd33e457f507caa5a9f3eb86842c8b1196c1d94105d5e2f8b3c3370b1` |
+|  `1.34.1` `latest` `1.34` `1`                 | May 10th     | `sha256:efc7e0133f59678fc08c831a4afcbc3f8ea7dea09c23ef523e32e0f37e1302d1` |
+|  `1.34-dev` `1-dev` `latest-dev` `1.34.1-dev` | May 10th     | `sha256:e38df355b1ca788cf27339ffc3ffef022b50b5be2cf230cb56b79bed846e0111` |
 

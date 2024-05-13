@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jenkins Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,13 +37,11 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                           | Last Changed | Digest                                                                    |
 |-----------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `2.456` `2`             | May 7th      | `sha256:a7a127bb3eed860cb52565089ad1b8d83873f496bba9be45b653ade397e0933f` |
-|  `2.456-dev` `2-dev` `latest-dev` | May 7th      | `sha256:ec7c9453a852b2c4c5dc6a8e6d640fe8d1d43d7b168a9a72075eb9b17ee3acb1` |
+|  `2.456-dev` `2-dev` `latest-dev` | May 10th     | `sha256:a3d3bc7bd1122aa6ec965e2d66a5bf114bd68f5b3145724dc1593e29894f1afb` |
+|  `2.456` `2` `latest`             | May 10th     | `sha256:772b67d5fee21f4c34b13597f3eb7cbfba142623529932f5615611b34b22da18` |
 |  `2.455-dev`                      | April 30th   | `sha256:c6c70361a2cc0bf7f3b801ca93281127280a1c7559105f7959bd825706ae763d` |
 |  `2.455`                          | April 30th   | `sha256:003a795dbe4a264d127bd667bd2fdfe0397e336c1125b76d927ee701f7c5c4ab` |
 |  `2.454-dev`                      | April 20th   | `sha256:f4bc0160f5c72dd1ee78c6c017fefa5b2f6c8fa211fdc4cd17d9b848923e09ee` |
 |  `2.454`                          | April 19th   | `sha256:752e073a71752fe1b05aa614ae6ead697e9002f8c3147e18a72008f2c795c2f1` |
-|  `2.453-dev`                      | April 11th   | `sha256:5622376414d7b82bcc18ea801b64e760df1879bf7724ab912b0ec6f5e41ba896` |
-|  `2.453`                          | April 11th   | `sha256:5b8dba7e104c6ffdc0e8d0268113d2caeb7373a0d1535e019fcf7ad2855b4cf1` |
 |  `2.400`                          | April 18th   | `sha256:bd8d42b081d23f5d2ebc04bea7272c42858b40b37c9c4a2dacd89a184373056a` |
 

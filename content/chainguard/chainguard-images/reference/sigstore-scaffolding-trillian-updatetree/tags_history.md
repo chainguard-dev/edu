@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-trillian-updatetree Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 8th      | `sha256:9c3db84505b1a51ba435bd8ac90ee543da30a911925d463536c80c7b4981634b` |
-|  `latest-dev` | May 8th      | `sha256:4d8e7882148083d403929b8c8d231d216427e47db24e82c38944f28496bb3436` |
+|  `latest`     | May 10th     | `sha256:1420646b32347136827018f9ed19e1b035b9a9b2b2988f95b8e0c01c52f8cb87` |
+|  `latest-dev` | May 10th     | `sha256:66d2f680a82cd3a723def286825fe1c502426ea8448aacc1bb51fad6dd21c5f6` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.6-dev` `0-dev` `0.6.17-dev` | May 8th      | `sha256:305359cbba1d415e485f21c4290dfa6e06e327517847b3a8e182a704207944ed` |
-|  `latest` `0.6.17` `0` `0.6`                 | May 8th      | `sha256:c2d8cf331cdfe6c13193d0285a2b30d4b452c52aafe4bdd02620de0ac0507941` |
+|  `0.6.17-dev` `0-dev` `0.6-dev` `latest-dev` | May 10th     | `sha256:5c13129c863df302f4d077f04c7d5dd95b027a4b2049761f1e03cd26f3bae1ca` |
+|  `0` `latest` `0.6` `0.6.17`                 | May 10th     | `sha256:fe0b02dd2f9a7896f059ddf069b76d57e96eadbb15e7ba51855be046437c9127` |
 

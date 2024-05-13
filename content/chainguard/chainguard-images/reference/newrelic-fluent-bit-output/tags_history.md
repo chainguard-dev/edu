@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-fluent-bit-output Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.19.2-dev` `1.19-dev` | May 9th      | `sha256:a9b648fd72b277dfd36e98b099607cf8149c37c140cf89063e637bc023bb5dab` |
-|  `1.19.2` `latest` `1` `1.19`                 | May 9th      | `sha256:6ef67a376ba94b9648cfc36d8be392436d9e0e45f4bb7f3f2f025af0eb8e1e8b` |
+|  `1.19` `1` `latest` `1.19.2`                 | May 11th     | `sha256:c0677dd44209499fa3f5e82a8a9473eee0ec57cec3b8061d0a1e7df55ba80b35` |
+|  `1.19-dev` `latest-dev` `1.19.2-dev` `1-dev` | May 11th     | `sha256:a2aace149a5d22ee0c54dac76853d1bdbd9ee535d83cb63a6e23427b99030777` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for rabbitmq-messaging-topology-operator Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for rabbitmq-messaging-topology-operator Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                 |
-|------------------------------|------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                                                                                   |
-| `cgr.dev/chainguard-private` | 1, 1-dev, 1.13, 1.13-dev, 1.13.0, 1.13.0-dev, 1.14, 1.14-dev, 1.14.0, 1.14.0-dev, latest, latest-dev |
+| Registry                     | Tags                                                                                                                     |
+|------------------------------|--------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                       |
+| `cgr.dev/chainguard-private` | 1, 1-dev, 1.13, 1.13-dev, 1.13.0, 1.13.0-dev, 1.14, 1.14-dev, 1.14.0, 1.14.0-dev, 1.14.1, 1.14.1-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

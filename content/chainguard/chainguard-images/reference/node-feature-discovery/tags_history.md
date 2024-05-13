@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node-feature-discovery Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0.14-dev` `0.14.6-dev`                      | May 10th     | `sha256:4b92c621552d5b649af3943a2a922db980f2b96b3ab6a1f24b7d93f71007bd41` |
+|  `0.14` `0.14.6`                              | May 10th     | `sha256:9d743e0acaf7e8216d182a0b3f7535e0b0d49070622f8ff091ddf2431a020cdc` |
 |  `0.15` `0.15.4` `latest` `0`                 | May 9th      | `sha256:63666cbd3b4f9a3fc2b358a9a48831e530e21577fd1e5d2191f0c74912e8a39a` |
 |  `0-dev` `latest-dev` `0.15.4-dev` `0.15-dev` | May 9th      | `sha256:fda43cdf29482f9dfc2d82bc9bcd6a73be82b325d7da835d1393333ebf9f8320` |
-|  `0.14` `0.14.6`                              | May 8th      | `sha256:a9034f896061e223aca3d5023c57d1b7e6d126a12efb79d4657bc6abc5541cbc` |
-|  `0.14.6-dev` `0.14-dev`                      | May 8th      | `sha256:6e68cd8bd4e6f0d960cc43fe28845fc8c645aa0d0ea0ae3983e944b92350e23f` |
 

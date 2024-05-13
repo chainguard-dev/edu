@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-06 00:43:57
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,11 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.73-dev` `0.73.2-dev` `0-dev` `latest-dev` | May 2nd      | `sha256:22c09e3d1f16f8fe7e5ade28093c5a6854b2865931b1986cb0c10a5da3a92453` |
-|  `latest` `0.73.2` `0.73` `0`                 | May 2nd      | `sha256:b88f4398aed3f5fad312f627a6c8c4f835be28532376e6931ef029fa422eac77` |
-|  `0.73.1`                                     | April 11th   | `sha256:56ab4edaae8f90eade5728ffd8296c69918aaae2c792708c65d08f462c9e83aa` |
-|  `0.73.1-dev`                                 | April 11th   | `sha256:85d55617f6bf5e6b8e5f26bd91449a5c866a2ee04976631d7b37b59a3a8ad6e7` |
-|  `0.73.0-dev`                                 | April 11th   | `sha256:05ea426ac99dee74344f0ba8bfd7620899a8e45f35e3d4930a459ae9a799e90f` |
+|  `latest-dev` `0.73.2-dev` `0-dev` `0.73-dev` | May 10th     | `sha256:50c8853c844e863ff423c8dfb983b4ca426727607d73c120230365e6bf8beb0e` |
+|  `0.73.2` `0` `latest` `0.73`                 | May 10th     | `sha256:9c9823f248adbc013044761ae6dcc12ef3873fa3789d5478d4046bffc5893b00` |
 |  `0.65.0`                                     | May 5th      | `sha256:01357056682816b64a8ebbc7df9bf7a65531d7b04c3964b6d991f9e8c3e4a91f` |
 |  `0.64.1` `0.64`                              | May 4th      | `sha256:0ce575cd2fe2a4fb44ecb732aa66058283bc0757313c0515f39fe489a2dd735b` |
 |  `0.64.0`                                     | April 23rd   | `sha256:e946e9596aa4e5edcdc4aa9fdc1802a472eef0419084844303446c9c0db0fe23` |

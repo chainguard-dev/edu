@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the argo-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 8th      | `sha256:31c39b9c4b7bba0db80bbede80bdce60abfff81356fda7043e8da86ece337861` |
-|  `latest`     | May 8th      | `sha256:7e0ed12679cdf601bec61c5df62d69d54735ab90129a9d598d14e63c4ead8830` |
+|  `latest-dev` | May 10th     | `sha256:79b3e1dfe4a16bfe0c4941be1d4eec62b532939503027619a3fc215500852a0d` |
+|  `latest`     | May 10th     | `sha256:ade74ef5c69af278546a8d49942c60f5ea040579bbd3f6a0049eddcd137bbd80` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `3` `3.5.6` `3.5`                 | May 8th      | `sha256:aaa0d980d199307cd665bf8dcc9fde47e07b7fae2d8dcc829e7f30ddf43ac63a` |
-|  `3.5.6-dev` `latest-dev` `3.5-dev` `3-dev` | May 8th      | `sha256:a22a456e1947a87494289482355b47a81d06322c7c83f8140bc12c874b3506aa` |
-|  `3.5.5-dev`                                | April 11th   | `sha256:220a4514ddfc1dad7b1e9cfe05a99559bcbd4fd9af0642c6da5015adb6dd54af` |
+|  `latest` `3.5.6` `3` `3.5`                 | May 10th     | `sha256:34a730ae26c854890daccbeda1da42abed68a88174f1d4f009379a53d64bd74a` |
+|  `latest-dev` `3.5.6-dev` `3.5-dev` `3-dev` | May 10th     | `sha256:aaee8410d5c73ed6f9cd389fedda168d5b28e830b113fb980835b5ef3bd33ded` |
 

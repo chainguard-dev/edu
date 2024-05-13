@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the paranoia Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.2` `0` `latest` `0.2.1`                 | May 2nd      | `sha256:b4f7add722ecca116b7126cbf927f375960ce1a6ac230582b4729b6a561e8474` |
-|  `0.2.1-dev` `0-dev` `0.2-dev` `latest-dev` | May 2nd      | `sha256:fd68ef1fe7a52e9e73b79056b7ca6be2b0973cd2ac5875ec06a1dbce2e36caec` |
+|  `latest-dev` `0.2-dev` `0.2.1-dev` `0-dev` | May 10th     | `sha256:8ebfa220f27829a23aa9db7b0fb3654c78f1b1df19010138590fea096b637808` |
+|  `0.2` `latest` `0.2.1` `0`                 | May 10th     | `sha256:7dc914a06db70265068081d8d5ee60d7d7d71686bcdd55da1bfcbf2714c6a916` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-external-snapshot-validation-webhook Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                  | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `6.3.0` `6` `6.3.0-r5-eks-1-23-33` `6.3.0-eks-1-23-33` `6-eks-1-23-33` `latest` `6.3` `6.3-eks-1-23-33`                                 | May 2nd      | `sha256:1087123eb6f26663252946e792e790b7af5d571915eec415bc02bd9444da77c8` |
-|  `6.3.0-r5-eks-1-23-33-dev` `6.3.0-dev` `6.3-dev` `6.3-eks-1-23-33-dev` `6-dev` `latest-dev` `6-eks-1-23-33-dev` `6.3.0-eks-1-23-33-dev` | May 2nd      | `sha256:c23baef63577a19ccad9f08d00821bab2ccf33886b610c431434724dbb8fd4a9` |
+|  `latest-dev` `6.3.0-dev` `6-eks-1-23-33-dev` `6.3.0-r6-eks-1-23-33-dev` `6-dev` `6.3-eks-1-23-33-dev` `6.3.0-eks-1-23-33-dev` `6.3-dev` | May 10th     | `sha256:69a08e46be5700e0cf62aace58ea9a5684c2cf944c4be4fcedf2ff5aa0137f91` |
+|  `6` `6.3.0-r6-eks-1-23-33` `latest` `6-eks-1-23-33` `6.3.0-eks-1-23-33` `6.3` `6.3.0` `6.3-eks-1-23-33`                                 | May 10th     | `sha256:f7620e6a4bcb7bf39c6ba5c4742b4e4723313726b447b29e17a4310a07cb8cce` |
+|  `6.3.0-r5-eks-1-23-33-dev`                                                                                                              | May 2nd      | `sha256:c23baef63577a19ccad9f08d00821bab2ccf33886b610c431434724dbb8fd4a9` |
+|  `6.3.0-r5-eks-1-23-33`                                                                                                                  | May 2nd      | `sha256:1087123eb6f26663252946e792e790b7af5d571915eec415bc02bd9444da77c8` |
 |  `6.3.0-r4-eks-1-23-33-dev`                                                                                                              | April 21st   | `sha256:d123d99392ffb0ff97f153eb5764bf9351a63c9077f518888e2b744362b6d894` |
 |  `6.3.0-r4-eks-1-23-33`                                                                                                                  | April 21st   | `sha256:1032ea0d3c8e65b62562be309c4152dbd1fe6f1dc02e94675d7d45d97aaa735f` |
 
