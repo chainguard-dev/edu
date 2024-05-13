@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-trillian-createdb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 8th      | `sha256:45ba01125c038f46f7000affe9448c7de566ae7bd28c8f0bb07539c62d1f148b` |
-|  `latest-dev` | May 8th      | `sha256:5e5305ee90f2d1ee48e8dbc6f3505a64210bfd519101f158452883526c940688` |
+|  `latest`     | May 10th     | `sha256:ba31c9f68220f5281460aa9cd415b99afc081398bac5288186175448cd3de1eb` |
+|  `latest-dev` | May 10th     | `sha256:f625082d9b622c1278e8fc9ac2e4758b37b3f8cb068ea5779f8f84b8f6e6ca26` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6` `0` `latest` `0.6.17`                 | May 8th      | `sha256:999c4696536c0b3e7cc8395c3faecdd5ff26ab1689a156d041ac1c3f44cedfe2` |
-|  `0-dev` `0.6-dev` `0.6.17-dev` `latest-dev` | May 8th      | `sha256:075dd1b2c7b10dd5706b3a642089f31e51216b2f9f188d1581af2f14515e880f` |
+|  `0.6.17` `0` `0.6` `latest`                 | May 10th     | `sha256:618aefb13ca964b448459f8d02ba140311525f42f40aa24ebc3adf6ff972099a` |
+|  `0.6.17-dev` `latest-dev` `0-dev` `0.6-dev` | May 10th     | `sha256:a3f5bef016aaea8f85cd68df53f3671d8f760bb9d3771fc30db9134f14912b79` |
 

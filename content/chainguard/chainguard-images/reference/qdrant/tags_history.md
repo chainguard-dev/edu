@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the qdrant Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 8th      | `sha256:805ce66956f535526fc1f0dfbbb62a6c5958042f44898908826ea75746cd37ca` |
-|  `latest`     | May 8th      | `sha256:655ab98f0c5f7d9d224f4e98d6c064979ac8f64facabc698199e1526c9f90d49` |
+|  `latest-dev` | May 10th     | `sha256:bf075a74afb33ca8af84bcc4e395b85d932faa3b68489dbe090e0bb8cd46a811` |
+|  `latest`     | May 10th     | `sha256:22f5021c2a4a2702ee84b124e3cec82586c2649b1f1a20d24ee5a474fb8d0be6` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.9.1-dev` `1.9-dev` `1-dev` `latest-dev` | May 8th      | `sha256:62f127fa5e1c4ac647029e285aa8cec3afb5d01f0f7b8c634955dc85cdf8db72` |
-|  `1` `latest` `1.9.1` `1.9`                 | May 8th      | `sha256:e73c6d4fdcf750f4352fa9395414514459719231f0f1716de883b407a9a3df05` |
+|  `1.9.2` `latest` `1` `1.9`                 | May 10th     | `sha256:359b77bde3242ed8c4cfc866cbeeb0ea9aa7dfab54706f26c6a94b50fe34a692` |
+|  `1-dev` `latest-dev` `1.9.2-dev` `1.9-dev` | May 10th     | `sha256:1afc8612e5d988ce99147320a455273b074dff659a7fe13c7eea3253df6ef770` |
+|  `1.9.1-dev`                                | May 8th      | `sha256:62f127fa5e1c4ac647029e285aa8cec3afb5d01f0f7b8c634955dc85cdf8db72` |
+|  `1.9.1`                                    | May 8th      | `sha256:e73c6d4fdcf750f4352fa9395414514459719231f0f1716de883b407a9a3df05` |
 |  `1.9.0-dev`                                | May 2nd      | `sha256:6f4a8b69cc11d44adc4acc71d4e3debeee768b8cf4b0682d1f29985522360224` |
 |  `1.9.0`                                    | May 2nd      | `sha256:e93d66bb3e9fe92e6f4ca881a549e3f8f94b25ac9f98b9241fd09ea1771002e2` |
 |  `1.8-dev` `1.8.4-dev`                      | April 21st   | `sha256:717cae0b0841e00d2b8fe637fcfaaa3a41be9b84ae50d4006632239a2152552a` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-tsa-createcertchain Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 8th      | `sha256:0da879743a356f3216cdafc35fa1cda2ed8afe03309a9bcb073cad39b89f8990` |
-|  `latest-dev` | May 8th      | `sha256:3160912c18a9449801009119477a6c9f6b4ae6e000dda80a54e7995a844425e0` |
+|  `latest`     | May 10th     | `sha256:22b9e1ea54310f6b856d301940c23b43c75f8bb976fc1d3553d788cb1a6064c4` |
+|  `latest-dev` | May 10th     | `sha256:a47e3a64b595117b4db1a7e6bd46560dcd8817db01b683436ae5a8959d02e506` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6.17-dev` `0.6-dev` `0-dev` `latest-dev` | May 8th      | `sha256:65d308ccb0893c15ec0c8b137e35c535d6fbd0d0994e67c73a10c44bb1af342c` |
-|  `0.6.17` `0.6` `latest` `0`                 | May 8th      | `sha256:663e8a525658e40b7c02f64a848524f7e1ddea058375babd8af6d136aefef8b8` |
+|  `latest` `0.6.17` `0` `0.6`                 | May 10th     | `sha256:3c1eecc28a524ab10e93f596637f46ed10cd789267275a78ace56cc8c8fb5a71` |
+|  `0.6.17-dev` `0.6-dev` `latest-dev` `0-dev` | May 10th     | `sha256:0bae256e4f4af7acf34b84b6da22694cfcb9f943288dfa4ca25fbc91868f21de` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-06 00:43:57
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,14 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                  | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.0-dev` `4.0.0-dev` `4-dev` `4.0-eks-1-25-33-dev` `latest-dev` `4.0.0-r4-eks-1-25-33-dev` `4.0.0-eks-1-25-33-dev` `4-eks-1-25-33-dev` | May 2nd      | `sha256:7d22a47baa2320bf0fa0e27a82de81e0d94aed31a3dda9e2323b9f8d98310fca` |
-|  `3.6.0` `3.6.0-eks-1-23-33` `3-eks-1-23-33` `3` `3.6.0-r5-eks-1-23-33` `3.6` `3.6-eks-1-23-33`                                          | May 2nd      | `sha256:443b0c93babe42b64dc5bce4944616dc7dbccbff8c1a95526cdd6e31b4ad7ce5` |
-|  `3.6.0-r5-eks-1-23-33-dev` `3.6.0-eks-1-23-33-dev` `3-dev` `3-eks-1-23-33-dev` `3.6-dev` `3.6-eks-1-23-33-dev` `3.6.0-dev`              | May 2nd      | `sha256:341f66554f0f175226ac8c29a70191469aebce55f5b432eb8512628843b4c5ee` |
-|  `latest` `4.0-eks-1-25-33` `4.0.0` `4.0.0-eks-1-25-33` `4.0.0-r4-eks-1-25-33` `4.0` `4` `4-eks-1-25-33`                                 | May 2nd      | `sha256:2cca40ca539464afcc340127f51dc21112c715cfedff4fc42db108068b8259ef` |
+|  `4.0-eks-1-25-33` `4.0.0` `4.0` `4-eks-1-25-33` `4.0.0-eks-1-25-33` `latest` `4` `4.0.0-r5-eks-1-25-33`                                 | May 10th     | `sha256:2b11a64539e7404dad12eb557ad6d9a8346f9164a14a228ffbbf8d1e5dc6a28d` |
+|  `4.0.0-eks-1-25-33-dev` `4.0-dev` `4.0.0-r5-eks-1-25-33-dev` `4.0-eks-1-25-33-dev` `4-dev` `latest-dev` `4.0.0-dev` `4-eks-1-25-33-dev` | May 10th     | `sha256:ce85a78961aaf456dd53b3e4f0a9f46dacb042d44e9df2512cc464287f0ecd66` |
+|  `3-eks-1-23-33-dev` `3.6.0-dev` `3.6-dev` `3.6-eks-1-23-33-dev` `3.6.0-eks-1-23-33-dev` `3.6.0-r6-eks-1-23-33-dev` `3-dev`              | May 10th     | `sha256:28bb2ac0e626c51fb5b08a2a69e0fc55cb0606583a4d143df0587b62a14be357` |
+|  `3` `3.6.0` `3.6-eks-1-23-33` `3.6.0-r6-eks-1-23-33` `3-eks-1-23-33` `3.6` `3.6.0-eks-1-23-33`                                          | May 10th     | `sha256:da8246ae9438dd6c7a72709dabea970814a16542a6e8b71a15691c2095c5f568` |
+|  `3.6.0-r5-eks-1-23-33-dev`                                                                                                              | May 2nd      | `sha256:341f66554f0f175226ac8c29a70191469aebce55f5b432eb8512628843b4c5ee` |
+|  `3.6.0-r5-eks-1-23-33`                                                                                                                  | May 2nd      | `sha256:443b0c93babe42b64dc5bce4944616dc7dbccbff8c1a95526cdd6e31b4ad7ce5` |
+|  `4.0.0-r4-eks-1-25-33-dev`                                                                                                              | May 2nd      | `sha256:7d22a47baa2320bf0fa0e27a82de81e0d94aed31a3dda9e2323b9f8d98310fca` |
+|  `4.0.0-r4-eks-1-25-33`                                                                                                                  | May 2nd      | `sha256:2cca40ca539464afcc340127f51dc21112c715cfedff4fc42db108068b8259ef` |
 |  `3.6.0-r4-eks-1-23-33-dev`                                                                                                              | April 20th   | `sha256:ebd072040419030ba393cbeb29b068c06931af56f705274dd116dfaf5187473f` |
 |  `4.0.0-r3-eks-1-25-33-dev`                                                                                                              | April 20th   | `sha256:017970ca0961f69e30b5e26f378978bdaf8b7d6cb6af505a1212abd4bfbf4b32` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the velero Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 8th      | `sha256:7e3a2513174e3c701850c6f7746e2ff991bd87fcea4404897c9cc492310bbc43` |
-|  `latest-dev` | May 8th      | `sha256:0648d1cbe45ea51bf39b27db524caede7fb2f3174200bb76f4934261a472a861` |
+|  `latest-dev` | May 10th     | `sha256:ec37bb2e52bf502589f7de97db0a9b5c828ef6188a5422d4214c4fdd22934e34` |
+|  `latest`     | May 10th     | `sha256:5e48b14102a09cad4be56f3df340912a2d4d0569f8fb06b380e22c4c64713822` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.13.2-dev` `1.13-dev` `1-dev` `latest-dev` | May 8th      | `sha256:b8ce6863d328e6c32e2e5152fc25c87bd821719945da2639e46ae348299316d4` |
-|  `1` `latest` `1.13.2` `1.13`                 | May 8th      | `sha256:ec3569ae96d27b9dc53163d747012d4314adbc3f61ff38881e4399e83132b114` |
-|  `1.13.1`                                     | April 11th   | `sha256:ecaaa35afc398d0d51919ddc02d92a4468412db2167d45ff303b0a3192d01650` |
-|  `1.13.1-dev`                                 | April 11th   | `sha256:3915071decc82caab74ed7639ce8e07d7eea7b46d4464f8bdebd37583fe40dcb` |
+|  `1.13-dev` `latest-dev` `1-dev` `1.13.2-dev` | May 10th     | `sha256:2bc1d04f32f6d022b59ec77e0621564f7c844791c9eab9012090d8889591eace` |
+|  `1.13` `1` `latest` `1.13.2`                 | May 10th     | `sha256:a5324bc49b4970e6066b468be8a586553082ee3db6ebd51a3b75b5c44dd82349` |
 

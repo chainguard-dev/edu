@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-tuf-createsecret Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 8th      | `sha256:134c6fc057d2ab99be74a82f163cf952fcd2f71afaec45faa9a433a33c124cf4` |
-|  `latest-dev` | May 8th      | `sha256:1b3fa0aea80295fcfec88b29cf7683d6ebe90d7f5bd56c261e5692a939b73e06` |
+|  `latest`     | May 10th     | `sha256:7fec97f5eddc232acbaeeff2f22f40b73d037d3a80cdcdb4a60b7478fd10989a` |
+|  `latest-dev` | May 10th     | `sha256:75b7b35440f623dd9992df90fb93ef875e3e006dfece0424e13639da44681f2a` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6.17` `latest` `0.6` `0`                 | May 8th      | `sha256:14a1443322b244394b5a69595a715dc1721ece54261e0887433bde283bbf54cc` |
-|  `latest-dev` `0-dev` `0.6.17-dev` `0.6-dev` | May 8th      | `sha256:3eca45d5541dfdd99fc8eb83ce171ee15131dcfe0b85373a8f12bdcf07569ae9` |
+|  `0.6-dev` `0.6.17-dev` `0-dev` `latest-dev` | May 10th     | `sha256:bd65f5fb0556e9ae16af2732f210c5d6d7a8ddf4b4a2d6fe26fff5730443e091` |
+|  `0` `0.6` `0.6.17` `latest`                 | May 10th     | `sha256:cbf8ca1179f464992bbc4f6a8144ebe1d9f5f3dd2b27db2ea1d105a99a0a61c1` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the velero-plugin-for-csi Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-06 00:43:57
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 2nd      | `sha256:905d667f9caaf334af569c65bc9f3d0f9ea8282abd498434a78829a97154bf72` |
-|  `latest`     | May 2nd      | `sha256:8c1d712e2438b835f47dd96b8d0764433ff79a054434035f37dedb309630fb68` |
+|  `latest`     | May 10th     | `sha256:46250e6cd14ce5db4109161a68d7a69f77aeb08f3eeb33ed7632dd975bde28b8` |
+|  `latest-dev` | May 10th     | `sha256:8006adcd3e72e768ce53b81eb1811a42f5fba04729a02342673194f795ad8f62` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.7.1-dev` `0.7-dev` `0-dev` | May 3rd      | `sha256:e127371e9e62bb3696365d93314f175e493f44c479b9c8b71e59787b2d04f54b` |
-|  `0.7.1` `latest` `0` `0.7`                 | May 3rd      | `sha256:b01e25019a303c262629d4b7a99cc26cf10d65b754dafee00485992f637ea52d` |
-|  `0.7.0-dev`                                | April 11th   | `sha256:4d15648f0bc4e926b8e50ddcdd5360fb361666518bc8321b1eb4aeebbb4f8e08` |
+|  `0.7.1-dev` `0.7-dev` `latest-dev` `0-dev` | May 10th     | `sha256:f91bd775afe40f1016aca1d8c9f510397140006a85e6e2536cf728688e689863` |
+|  `0.7.1` `0.7` `0` `latest`                 | May 10th     | `sha256:5c85b365ee16c931bc8f5022c38ef7a817e3a02e46d63c8a3f2f73b204a089f6` |
 

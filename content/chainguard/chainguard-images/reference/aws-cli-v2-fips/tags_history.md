@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-cli-v2-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.15.46-dev` `2.15-dev` `2-dev` `latest-dev` | May 8th      | `sha256:3973174b4efdcb1534d849b1c2d3bcfe66df431641432ab1d4047456b9fd9a2b` |
-|  `2.15.46` `latest` `2.15` `2`                 | May 8th      | `sha256:32a4fadb8df3a7c641d83c40503dc1c76fae19899238153f8ef4a7037fb25ccf` |
+|  `2.15` `2` `latest` `2.15.48`                 | May 10th     | `sha256:7ef4293b1c4cd4a85656bc96d2fd10bcfec52f9edcdd1179ece7b0f77ee708f7` |
+|  `2.15.48-dev` `latest-dev` `2.15-dev` `2-dev` | May 10th     | `sha256:6d3b8d2c4d64b1955017f205f4edafe77f9a8bf0ae315be23010a461f5d15b51` |
+|  `2.15.47-dev`                                 | May 10th     | `sha256:88f3fe367b9d4a63d430c91a4eb71fc491574d31d94b63e4a26d481f7f80b8c0` |
+|  `2.15.47`                                     | May 10th     | `sha256:26deb8e6a8dbf42e523f6d31602651e24b941d618816fcdf714cbd12dd0f0415` |
+|  `2.15.46-dev`                                 | May 8th      | `sha256:3973174b4efdcb1534d849b1c2d3bcfe66df431641432ab1d4047456b9fd9a2b` |
+|  `2.15.46`                                     | May 8th      | `sha256:32a4fadb8df3a7c641d83c40503dc1c76fae19899238153f8ef4a7037fb25ccf` |
 |  `2.15.45`                                     | May 7th      | `sha256:2a1b8ef1a1beadbc917c7a8904e64aad694d129d3e45de2e17ab442c625c9a5e` |
 |  `2.15.45-dev`                                 | May 7th      | `sha256:faea3dcada84a5c20152465f2f6b47d8b6e1f99eb6840573dae482e3c8ee61fc` |
 |  `2.15.44`                                     | May 3rd      | `sha256:5d2a0ab866e067190eb1e7f2c9ab5be4a745ff0030deff2e78472352492bdaf3` |
@@ -49,10 +53,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `2.15.40`                                     | April 21st   | `sha256:d1016fe620baf66f5c64021bd4faba9fecf6762f498c3731b4bf7c32d560a61d` |
 |  `2.15.39`                                     | April 18th   | `sha256:c28f28962c18aaef18ef96f8f6a84dcadc8bd2b73cb5742a468beeae42278f15` |
 |  `2.15.39-dev`                                 | April 18th   | `sha256:67a0606fd48f2c10185e317cd1f8c1faace51db7237d1bd50ba96dc1aeacadec` |
-|  `2.15.38-dev`                                 | April 13th   | `sha256:41ce20fe511b8e0ced4c26d154f18f8ca773c11f6b706db2d9f815bde82e406d` |
-|  `2.15.38`                                     | April 13th   | `sha256:e107cef13e9495d5a090a3915ae1f987e6af085f2b73f2d69588800a11ea1d96` |
-|  `2.15.37-dev`                                 | April 11th   | `sha256:a14f04d2fccd2846109e56ce9af802e782eeaf7769a8673047cdbaf4a1a1b8f3` |
-|  `2.15.37`                                     | April 11th   | `sha256:a7f74adba5c86efec8cede935260327ebcb1ed75b773b76a21de93d61325de53` |
-|  `2.15.36-dev`                                 | April 10th   | `sha256:48db8ff2aac72438ba2aae8f670229185493e3351c7c0765f41f0fcafed5ff23` |
-|  `2.15.36`                                     | April 10th   | `sha256:57fc738c1beb48695c307f1b184cc14fc1dea3c279cbf7a48e83758e993b2046` |
 

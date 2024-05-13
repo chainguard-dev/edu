@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the thanos-operator-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-06 00:43:57
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.3` `0.3.7` `0` `latest`                 | May 3rd      | `sha256:a10b99b14362e438ddbc837d2a4532ad3624120e92514850fcb73e3d65507a76` |
-|  `latest-dev` `0-dev` `0.3.7-dev` `0.3-dev` | May 3rd      | `sha256:9423fdf35730bb12b7150a11581fd5c4eed49e2716103c88d7928bc058174c54` |
+|  `0.3.7` `0` `latest` `0.3`                 | May 11th     | `sha256:a5546b03f4f97f9c64147ab634811f0739697641e66e4480c57fef3d7d35b520` |
+|  `latest-dev` `0-dev` `0.3.7-dev` `0.3-dev` | May 11th     | `sha256:e13c4067d706c261c9faac166167a24fd6546722081e930115bdccf742024d53` |
 

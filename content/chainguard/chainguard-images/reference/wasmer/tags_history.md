@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the wasmer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-06 00:43:57
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 2nd      | `sha256:d49ec7d440e1db01501e8ed3d3fed3d63bb244851e1632d305ee604281f6826d` |
-|  `latest-dev` | May 2nd      | `sha256:4245cbafd4ff4836aeda320237a80510816c431b731e1bee9cd466b825cee795` |
+|  `latest-dev` | May 11th     | `sha256:d20297d67e63b98e8e30888f4f713ff174985b908cd426e3d3602e45d26c7b1f` |
+|  `latest`     | May 11th     | `sha256:52680395866edb523c8c92007f552734eb6199fd6169a63a7211b076fdc04d2d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.2-dev` `4.2.8-dev` `latest-dev` `4-dev` | May 3rd      | `sha256:2363d7c1e288d03c13c533e375d188b2adf1aed3b21f91ba09dfd03bfa621b58` |
-|  `latest` `4.2.8` `4` `4.2`                 | May 3rd      | `sha256:5033b15804248bc1f85e6aeb33d4832530e32e0ca87cff49b2b73069501007a6` |
+|  `4.3.0` `4` `latest` `4.3`                 | May 11th     | `sha256:61298a6b2ec7cece4e2e9eb5ffd6edd117c19e77066758c665278668a86477f2` |
+|  `4.3-dev` `4.3.0-dev` `latest-dev` `4-dev` | May 11th     | `sha256:61e4ace6556b401e853bc5e598017cf970287de5e488ea8e04d544ec02b76b70` |
+|  `4.2-dev` `4.2.8-dev`                      | May 3rd      | `sha256:2363d7c1e288d03c13c533e375d188b2adf1aed3b21f91ba09dfd03bfa621b58` |
+|  `4.2.8` `4.2`                              | May 3rd      | `sha256:5033b15804248bc1f85e6aeb33d4832530e32e0ca87cff49b2b73069501007a6` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the traefik-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-06 00:43:57
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,12 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `3` `3.0` `3.0.0`                 | May 3rd      | `sha256:895fc86164f1012c90192ac893ab69d84b47985433ed0b40fb8ae72239201518` |
-|  `3-dev` `3.0-dev` `latest-dev` `3.0.0-dev` | May 3rd      | `sha256:bdb6419bb9cc2b2710313b29d4d1bc7490b2f79ca0008eb63e23a30fbb37856d` |
+|  `3.0` `latest` `3.0.0` `3`                 | May 10th     | `sha256:08b40f9413947f70d52b728095e5396311f80bad494f5660110cee841bb3f448` |
+|  `3.0.0-dev` `3.0-dev` `3-dev` `latest-dev` | May 10th     | `sha256:3dd8fb7cf8a75cb71fecd3d00c296734ef62c54deb8ed54cb9b02b57045c142e` |
 |  `2.11.2-dev` `2-dev` `2.11-dev`            | April 30th   | `sha256:ab22fdcebb96f3250959fd71aa231662e38caee5a550a75d0b310c1bdda2e6c8` |
 |  `2` `2.11` `2.11.2`                        | April 21st   | `sha256:05974897f108b68b0d74ec243879c760666d6a88596ffb098ad585a2af77ae2f` |
-|  `2.11.1`                                   | April 11th   | `sha256:408981f3517836229cd7015d6818f0563c5c336bd1c12af4eb47c9325c78009c` |
-|  `2.11.1-dev`                               | April 11th   | `sha256:5688406b68d5a38ff887149561ec45ef0646094d671c85b1c6e275ccb3dc7373` |
-|  `2.11.0-dev`                               | April 10th   | `sha256:7c93354ea7b9cbf8408d0a8be4aab1f7d9e28c7b094f1b8b516d1a20582ffc56` |
-|  `2.11.0`                                   | April 10th   | `sha256:066f19e96ccc2edb57b22aa5467a8ef12e4300051ba0c435d6d56d01e0d09b60` |
 

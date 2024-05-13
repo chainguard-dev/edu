@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dask-gateway-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 8th      | `sha256:32fd12b313485922d9f09b9f7a1a7befca4dfe6da7aa6a6018d3418667dcabe2` |
-|  `latest-dev` | May 8th      | `sha256:4dccc23d00ea339fa0f76528aa8553190964d6a7b7394723127a2a9d91acc002` |
+|  `latest`     | May 10th     | `sha256:c5b81508a6a4abba62ec32d9ea07d155d25aea0cf62689523dd54a36f2fc20a7` |
+|  `latest-dev` | May 10th     | `sha256:2f94d33546f07f4b5ca98ff79c9d020d1e6d6d6fcc4f6fb5aedb30cac40a4f33` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                              | Last Changed | Digest                                                                    |
 |------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2024.1-dev` `2024-dev` `2024.1.0-dev` | May 9th      | `sha256:4cfda14b8a69e5f74c2d37dd110649cb660249f73990bf63f6fcf8f0898709c0` |
-|  `2024.1.0` `2024` `2024.1` `latest`                 | May 9th      | `sha256:4d9f227b00abec160bc4d1162b291afecfad4f27ac947f4df8f3826d786b43aa` |
+|  `2024.1.0-dev` `2024.1-dev` `latest-dev` `2024-dev` | May 10th     | `sha256:29161344e6585e5b8a3791ce8c016c4672c6d170695d490a11b4d6e3f70194e6` |
+|  `2024.1.0` `2024.1` `latest` `2024`                 | May 10th     | `sha256:751418ab9e33a98e6a24e48100bbaa2612dcf2fb6658e47ed02b8684288845b7` |
 

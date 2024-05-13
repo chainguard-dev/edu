@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-cloudsqlproxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 8th      | `sha256:579f69e5c0d8845350a98bb2398fd5b325c883459fd6857769b8ec84f2ac2337` |
-|  `latest`     | May 8th      | `sha256:2cbd08e4776931013b3c6defabc7d7e8f652c90df10c3ace63b992434aa2d873` |
+|  `latest-dev` | May 10th     | `sha256:54b11f0314f4a1f4f25fe3e87555d6608b98101f2f5226950f4a7a1c2ec8b4e3` |
+|  `latest`     | May 10th     | `sha256:170e3f67b9e82d6e3405a8867abc045bf7c1f88407e813bf5a515da4f40a7a18` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6.17` `0.6` `0` `latest`                 | May 9th      | `sha256:095ac341aae97ab67936d206b530f25ba78d81d3dd1c5358e6dd2eec06993395` |
-|  `0.6.17-dev` `0.6-dev` `latest-dev` `0-dev` | May 9th      | `sha256:3ff33bbf9f8203fc0ab90555a107eca9163a5710b46bfde28ce3f38278537fb9` |
+|  `0` `0.6` `latest` `0.6.17`                 | May 10th     | `sha256:74c5923183cf52e476f07811e289a756becd79f0d116ae9b45e455e9e3128e06` |
+|  `latest-dev` `0.6-dev` `0-dev` `0.6.17-dev` | May 10th     | `sha256:0fe061b5aea8884e0e2cd66c906f2bd3927d8fcc5d558136ecef78da9c5d32f8` |
 

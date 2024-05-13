@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-cli-v2 Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 8th      | `sha256:1a5c96b04b0279ab54f04a1f36dc64d2c2bf65ed8c288f9796ca5c9d65dd0d66` |
-|  `latest`     | May 8th      | `sha256:e1046774da920b4a51180e0a2b02e598cd0fadb799c312bbc5c53df1210f35b7` |
+|  `latest`     | May 11th     | `sha256:1f2ecc76aa34d041b4bafdd27035cab16c010c5f72b189589d9a56b76ba65400` |
+|  `latest-dev` | May 11th     | `sha256:3e56ef26a8e3057f9ce27590a88440a769e90e8e899798baa9dec32fcd5484d8` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.15.46` `2` `2.15` `latest`                 | May 8th      | `sha256:9cadf3551e3959ba97d155a8e22c2a64aef05a2f3c6bae67cf0e23cd9159d548` |
-|  `2.15.46-dev` `latest-dev` `2-dev` `2.15-dev` | May 8th      | `sha256:80aac69e9f2be6b326ec5855dfa6d1837504c45bad4a0dc80a11664b33dccc8d` |
+|  `2.15.48-dev` `2-dev` `2.15-dev` `latest-dev` | May 10th     | `sha256:40e8aed8ea334712d90134d00ca585e8c4a5d4d89a803ffc74985d6917c823e1` |
+|  `2.15` `2.15.48` `latest` `2`                 | May 10th     | `sha256:1c6af0016a8c72b9c5bc277023cbf75e16395ef35ce6a7ae953069a5eee2c047` |
+|  `2.15.47`                                     | May 10th     | `sha256:c7d59a28e2a3c72dba7ab92f6d35dc3b8252c821648e1e2f4c72edebea4a19e2` |
+|  `2.15.47-dev`                                 | May 10th     | `sha256:ed7384ea15985b49dfecbe0546883eba1de0c1fddde78341df82d28fdc33c36e` |
+|  `2.15.46`                                     | May 8th      | `sha256:9cadf3551e3959ba97d155a8e22c2a64aef05a2f3c6bae67cf0e23cd9159d548` |
+|  `2.15.46-dev`                                 | May 8th      | `sha256:80aac69e9f2be6b326ec5855dfa6d1837504c45bad4a0dc80a11664b33dccc8d` |
 |  `2.15.45`                                     | May 7th      | `sha256:e3af0913ae22e3f6854fb984b222bc3d821fbed7aee2c550b1031b805df8ad63` |
 |  `2.15.45-dev`                                 | May 7th      | `sha256:5ef09f8955b341d2bbb48b381af8345d217523d1827534d6eb34d055f63b1797` |
 |  `2.15.44`                                     | May 3rd      | `sha256:0a8cbb77853b7846daaa14a13c3d44e3a0ed56503aa754a3abd02fff1073c897` |
@@ -53,8 +57,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `2.15.40-dev`                                 | April 21st   | `sha256:54d540174e3903b682291d0aa2889f797810fbca16906d88280bd3c8a814fa27` |
 |  `2.15.39`                                     | April 18th   | `sha256:b1f8fdd7907ec2b966856d30d11958452fa0d825b38a705a626dc4dfd6ee860e` |
 |  `2.15.39-dev`                                 | April 18th   | `sha256:30349fb4f99d6c2f2a1e8083816dad78378d14f25fdf60442d3e3904354728ff` |
-|  `2.15.38-dev`                                 | April 13th   | `sha256:115be1a09dcbd4873f1a2d4695a23231335ff6b9e2fdcddeacac18d11cf70024` |
-|  `2.15.38`                                     | April 13th   | `sha256:2cdeb6bbb2a1a0a0a336cd2ae5d91a84d4d4a5c762c1098c4cf694cd33e27cc5` |
-|  `2.15.37-dev`                                 | April 11th   | `sha256:4d358535d20c30143598867feebd57ba754e90d4af0be202f33afec6640366bf` |
-|  `2.15.37`                                     | April 10th   | `sha256:e6bb3abf322d6174a3e099575ec734ae30ee344d1d3c3b8827dab16cf8cd0267` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nodetaint Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0` `0.0.4` `0.0`                 | May 9th      | `sha256:5a1924ecab09d49c45087207b6e756611a790ebf9a16bce1b72578038ed11c4e` |
-|  `0.0-dev` `latest-dev` `0-dev` `0.0.4-dev` | May 9th      | `sha256:0e4af293f614279c6089cccdfd4215ed2a0a183b597d728c42d703b9febb9815` |
+|  `0.0` `0` `latest` `0.0.4`                 | May 10th     | `sha256:773b16bdd197451597c254ebc9aa7b92c08a33a0164853ee1e2b50c52db9c4ed` |
+|  `0.0.4-dev` `0.0-dev` `0-dev` `latest-dev` | May 10th     | `sha256:cb35550e37cd15e157629ce854778339ad0d4689da9e25fe842cb82525c71abf` |
 

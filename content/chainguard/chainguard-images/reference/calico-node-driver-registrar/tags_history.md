@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the calico-node-driver-registrar Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-06 00:43:57
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | May 2nd      | `sha256:5f845b297767aa9fa712704c15994c75632ed23155c2b2cdc5228ca03729111f` |
+|  `latest` | May 11th     | `sha256:62a24bd8797bef93fa6f2ca5ba744cffb8af353011fead66a9809501a474c7b9` |
 
 
 ### Private/Dedicated Registry
@@ -36,7 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                          | Last Changed | Digest                                                                    |
 |----------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `v2.10-dev` `v2.10.1-dev` `2.10-dev` `v2-dev` `latest-dev` `2.10.1-dev` `2-dev` | May 2nd      | `sha256:e01f397b71b82ae95a2a0de88e9fee2cabe7a553e19a7b1866ca4189af0d0a95` |
-|  `3.27.3` `2.10` `v2.10` `2.10.1` `v2` `3.27` `v2.10.1` `2` `latest` `3`         | May 2nd      | `sha256:8fd8012bf0dc3c262438a56f1f72059c8296f20ec2d752f0f5721c8457c6f577` |
-|  `v2.10.0-dev` `2.10.0-dev`                                                      | April 11th   | `sha256:0ec65c33744747745d27bc5695896703ba69d38b1ef573e965f1c5f54ba7c898` |
+|  `2.10-dev` `v2.10-dev` `v2.10.1-dev` `latest-dev` `v2-dev` `2.10.1-dev` `2-dev` | May 10th     | `sha256:014d6dcbb9e8ba8df8404dabd378a023eb69743a6b16423eec76d023328a63e5` |
+|  `2` `2.10.1` `latest` `3.27.3` `v2` `v2.10` `3` `3.27` `2.10` `v2.10.1`         | May 10th     | `sha256:e01f47bc9b74efc787c110507099f911119ade19527e2bd4d2c9e39176b993bc` |
 

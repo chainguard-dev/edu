@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-k8s-events-forwarder Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,10 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.43.2-dev` `1.43-dev`                      | May 10th     | `sha256:1fe1b616abb54c0822b70b05ef1e052c6eb95c5755ffd6913c39ad2134867224` |
+|  `1.43` `1.43.2`                              | May 10th     | `sha256:2749900a8ed2177308c7e0786b54a03a7913f19cdfc64adad6a30619d990020c` |
 |  `latest-dev` `1.52.1-dev` `1-dev` `1.52-dev` | May 9th      | `sha256:b65253c037b0628b20ae57c5d13f84db5ef0bd441e257fc492fee8507ee489a5` |
 |  `1.52` `latest` `1` `1.52.1`                 | May 9th      | `sha256:3cca5f4ccfaabb5e1d5b9c8bc93fe12713b06279a99b1b44d168329ccb5905f7` |
-|  `1.43-dev` `1.43.2-dev`                      | May 8th      | `sha256:fe8942a46777bc9533b6eaab4a18dd080946cfd536b6267d73625f702ae12f6f` |
-|  `1.43` `1.43.2`                              | May 8th      | `sha256:f41cbf426b9d719454cf6205c6dc283a66bbe211649a9cb143c599dac3b73a4e` |
 |  `1.52.0`                                     | May 2nd      | `sha256:87a5485cbcfda7af62259042fa2327334b8e0bcc8baffb42d3f5f21380ff1e85` |
 |  `1.52.0-dev`                                 | May 2nd      | `sha256:1c9de48ebbe22b408f198bce08a6e1c0eab61f9941be97596623a3cc79f6178a` |
 

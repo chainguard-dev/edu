@@ -1,3 +1,10 @@
+# 2024-05-13
+New images added:
+
+- mlflow-bitnami
+
+A total of **608** documents were updated.
+
 # 2024-05-10
 New images added:
 

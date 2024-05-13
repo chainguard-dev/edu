@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the velero-plugin-for-aws Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-06 00:43:57
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 2nd      | `sha256:43390364551c2208d7619e59acabc1ce18fc4090e9f33b475ff0daba8f94fee2` |
-|  `latest`     | May 2nd      | `sha256:8f92ec61607cd4bdafac5b7cff38c3ac6834fae45019a1ac5fd7352c8968a3f7` |
+|  `latest-dev` | May 10th     | `sha256:47120bcf5723e10cdba053870282ac018a3e440b918a784fe4c672ab8e1e7b31` |
+|  `latest`     | May 10th     | `sha256:fb7eb4eccbe0afa753f60607d96604f9e8195dbfaea7a56a50a8a6d8900384b7` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.9.2-dev` `1.9-dev` `1-dev` | May 3rd      | `sha256:f4b38bbfba9782fdc42284bc607dca46d00cf1cfec0bc258a0882e0fd583c30e` |
-|  `1.9.2` `1.9` `latest` `1`                 | May 3rd      | `sha256:03cad197ab6db7ff8f6f91abc8e01b0accab8a55e72e8b103bc536aee117ee3c` |
-|  `1.9.1-dev`                                | April 11th   | `sha256:3da785d400fa1665a3a626da7c15067eb9fe7e10ae3741e8a720934e2045093a` |
+|  `latest` `1` `1.9.2` `1.9`                 | May 10th     | `sha256:3b4b4c5b0bc1ef507fbddbc695def9339ec814f5ab7069eb8c97907b196cc6b1` |
+|  `latest-dev` `1.9-dev` `1.9.2-dev` `1-dev` | May 10th     | `sha256:31d1ee937c268e746127da2bb987c71202671ac630f414bf7c2b551393ff0376` |
 

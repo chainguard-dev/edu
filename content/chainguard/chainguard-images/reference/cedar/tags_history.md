@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cedar Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -39,5 +39,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
 |  `latest-dev` `3.1-dev` `3.1.3-dev` `3-dev` | May 2nd      | `sha256:908f064b39f2a79ab566be93eee110b734a5c5311cd036210cc9d7daf622a1a5` |
 |  `3.1` `3` `latest` `3.1.3`                 | May 2nd      | `sha256:047960a37aba801d40e77bf80a1c78b2f3911ec431a123f78fe63312f7ba720a` |
-|  `3.1.2-dev`                                | April 11th   | `sha256:5598d4652d7472e1dba0feceebca077a41aba293a39e4dcc28d5dbd0b70dc7b9` |
 

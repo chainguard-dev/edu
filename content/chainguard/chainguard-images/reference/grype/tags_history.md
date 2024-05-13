@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grype Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-07 00:45:47
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `0.77.3` `0.77` `latest`                 | May 6th      | `sha256:cf5555960dda9d5c42913436857e0b45e5cb04197aed0ffb195d058b1b11d8d8` |
-|  `0.77.3-dev` `0.77-dev` `0-dev` `latest-dev` | May 6th      | `sha256:13c477619866da8df72af793326f4dcad47dea796cf537556ea4515336af40b3` |
+|  `0` `0.77` `latest` `0.77.4`                 | May 11th     | `sha256:c69d40ed52b3cf825d23dc4b3c53f481820337070f24856cfd0289c4e83216b8` |
+|  `0.77.4-dev` `0-dev` `latest-dev` `0.77-dev` | May 11th     | `sha256:c64ee81e24c92b62e01a7c640ea209696d56383b60872f478cab05da92312049` |
+|  `0.77.3-dev`                                 | May 10th     | `sha256:e1b42bc5ed7bef8e05a4d586278175e3f9da60a1c117aa6609273b339f1d3190` |
+|  `0.77.3`                                     | May 10th     | `sha256:1983c77db21053d04fcd3ff46f40db5fbfaa3852b77f1932dab0873f909a18c8` |
 |  `0.77.2`                                     | May 2nd      | `sha256:5110e7eb6eb7aad915a9e6f743e949d4ebef5d8d6e4d67862bd7021a5d0e30d7` |
 |  `0.77.2-dev`                                 | May 2nd      | `sha256:bba1ddf52bae26bcae36d01809103548c4d7bb62ef2a76129b8f57a945c1f362` |
 |  `0.77.1-dev`                                 | May 1st      | `sha256:0f9ee9c83dc3b8920cf49bc2a145ee9d09f8da647bf024583cbd5a5daf328a8e` |
@@ -47,5 +49,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `0.77.0`                                     | April 21st   | `sha256:0a1622f25939eb8b7218266f5372711ae7c171504538c7cc24cfbe0ce2a6e8fc` |
 |  `0.76.0` `0.76`                              | April 16th   | `sha256:b6e387080410e11d2fd0a2d92947a3ce7a2d8b2827d81a61c7cbc5f376ea8ab6` |
 |  `0.76.0-dev` `0.76-dev`                      | April 16th   | `sha256:6c91a94c3963e4bab3afad1cc5a2cd048dc56b7e74f48c940648a4fec3380925` |
-|  `0.75-dev` `0.75.0-dev`                      | April 11th   | `sha256:0f3838a53ddca6eb00961b3ed8d95c908453c019432f956416205b6aae95c35d` |
 

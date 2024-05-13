@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gitlab-shell Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 2nd      | `sha256:b0b06e074822471257ef3700c9db92a34ea20ce44a67a887ffc82a75791cb4a0` |
-|  `latest`     | May 2nd      | `sha256:3e085af71ebd83833f1088b5864a708df3a31381a2f40ee560f2d63fc89cc62d` |
+|  `latest-dev` | May 10th     | `sha256:afc4c69a61374f540d3a7bee3cb69b8ac336d9d5e6a98cccd0bddcd0e6311ce7` |
+|  `latest`     | May 10th     | `sha256:ccf4cfbaa65736784f64fb00c8355d27a1b071b3acab08f050f2f496ac7c5b9d` |
 

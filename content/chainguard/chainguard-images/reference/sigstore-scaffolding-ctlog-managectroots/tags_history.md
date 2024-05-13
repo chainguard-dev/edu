@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-ctlog-managectroots Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 8th      | `sha256:1b8a41ddc1e86cd60ad606107ba7712ad9dae926275e9dfa303ad1ce24608797` |
-|  `latest-dev` | May 8th      | `sha256:3508396b4abc091bc4ac2f9f991dcc207ccc0cfd52552c27cb07c38c47e962b7` |
+|  `latest`     | May 10th     | `sha256:bbc6c8c80909a0ca98b0b4a2130eec0f8dd58d4e0f9cfab51b762fc67a8c431a` |
+|  `latest-dev` | May 10th     | `sha256:c5657162f733934c3c1df7d7a50d802653acce09bb6ad79936c750a4d1b6274e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.6` `0.6.17` `0`                 | May 8th      | `sha256:8f79d607ae5fa7fbb569e8a60c778aa72c710fe048853006d74b29b4ba4ab78f` |
-|  `0.6-dev` `latest-dev` `0-dev` `0.6.17-dev` | May 8th      | `sha256:c61bd15ac75bcedc569197a1ecdd4b8fb6d77a501979f1eea16631d02d5ccd93` |
+|  `0.6-dev` `0-dev` `0.6.17-dev` `latest-dev` | May 10th     | `sha256:409296adb0c597d007024f954168185dcbcafa7c857a27538f01e91faad93ad2` |
+|  `0.6` `latest` `0` `0.6.17`                 | May 10th     | `sha256:919fc75ec691baea60c3924747fee471e47f3c87a3a815c07f51f39b3d94e851` |
 

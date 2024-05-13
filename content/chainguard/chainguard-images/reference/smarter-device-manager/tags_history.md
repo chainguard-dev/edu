@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the smarter-device-manager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 2nd      | `sha256:5f68eef1760177165c5df63eda03768cd001b6e6b1d2ddccc727427585fdd978` |
-|  `latest`     | May 2nd      | `sha256:3488c6d0b082f5d48a5f21c04ae29b7c67aa8c87c9bf0b8ff978dd025111d739` |
+|  `latest`     | May 10th     | `sha256:299571484d2599dc844fda1fc41047b2d703c70b172a0a2ced0de5eb9ebffdbb` |
+|  `latest-dev` | May 10th     | `sha256:20f418f06d3b995328b3063e06656e7d7089fbe382e27b806af18c614b1ccfc3` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.20.11-dev` `latest-dev` `1.20-dev` `1-dev` | May 2nd      | `sha256:a2ddaead52daa649fb150ac027072d62a8370aace75f2093e3a0268c18317d42` |
-|  `1` `latest` `1.20.11` `1.20`                 | May 2nd      | `sha256:e3c384153b37970961fd8f6953ca109bd6fa6ba9452e9ccdd787e48f2e5fc225` |
+|  `latest` `1` `1.20.11` `1.20`                 | May 10th     | `sha256:07ca7408496f4e445e20c71e44df9d999b0088baa29f6ad0a044433fb0171cf9` |
+|  `1-dev` `latest-dev` `1.20.11-dev` `1.20-dev` | May 10th     | `sha256:de6b4380287f08e0b445358f2049d44eb524126624b299b1dee94b93b7898f8f` |
 

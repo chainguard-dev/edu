@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grafana-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,12 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `10.4` `latest` `10.4.2` `10`                 | May 9th      | `sha256:e1b4a4cc7d5b2b4ddd1f2e88233c048e806a533b76d008667d0321c1f7157daa` |
-|  `10.3-dev` `10.3.5-dev`                       | May 9th      | `sha256:c981a4cc2c6f73d73a656bf0b8a119248832e9970857a19364cb59da6b01ff06` |
-|  `10.3` `10.3.5`                               | May 9th      | `sha256:a6428a42f81ebd7b0500c9c7795b00c0452666436c30271170e7df088751bfda` |
-|  `10-dev` `latest-dev` `10.4.2-dev` `10.4-dev` | May 9th      | `sha256:2f39a344bc8f4456ce2e0ace098ca63c1f5bafd2fb127d1e12abc7eb24d00b57` |
-|  `9.5` `9` `9.5.18`                            | May 2nd      | `sha256:5d746e6addb6260bdbbf3f2311d8f92aaf88a902067ac8d24f6fb3c2c39d5a0e` |
-|  `9-dev` `9.5-dev` `9.5.18-dev`                | May 2nd      | `sha256:aa36f0aa4ea2c73145d2be66752713c01046e40478beb8fec5d71652b03e6979` |
-|  `10.4.1`                                      | April 11th   | `sha256:e6a4e5b04790a3c0a3b9b728ef878d8aeb4a56b4fbf15781789950d9ed57cbb5` |
-|  `10.4.1-dev`                                  | April 11th   | `sha256:fed41c5996d9174ef34d0d698a7fd0c78a4efebb2fede1bab4b96fa2c6db3789` |
+|  `10.4.2` `10.4` `latest` `10`                 | May 11th     | `sha256:91f6e98e02a0c98dd286199e17a930c5546786e757a0b86c13f5311cd6ea03f3` |
+|  `9-dev` `9.5.18-dev` `9.5-dev`                | May 11th     | `sha256:3253c08f5a7bb657dc8759519af352b37a23a9d51d798abd8222aac713f738d1` |
+|  `10-dev` `latest-dev` `10.4-dev` `10.4.2-dev` | May 11th     | `sha256:2c74bd70db0938869e4d232da200c2dd21e17f7126d1d7b1db455e1bf1902906` |
+|  `10.3-dev` `10.3.5-dev`                       | May 11th     | `sha256:8a8f8c0b16eb68fbe8727b703e4edfe943ad5e1d01e0b7cbc6134773764101ec` |
+|  `10.3` `10.3.5`                               | May 11th     | `sha256:5b3d374910d6f7819a6cf11ba6e707db6839640fea7b06fcf1c321005f3ec5f4` |
+|  `9.5` `9` `9.5.18`                            | May 11th     | `sha256:f763974a55da0cc1e8403a9361aafbc073d340ec0940df5a6149f6368e08f4ba` |
 

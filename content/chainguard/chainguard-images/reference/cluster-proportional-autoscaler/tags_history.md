@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cluster-proportional-autoscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-13 00:45:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 9th      | `sha256:6cd588b9f0cd0ff8235cc6cf42cfdd3a42c71e8f3d33a0ade4d847117c9d477f` |
-|  `latest-dev` | May 9th      | `sha256:a1bad6fd753178d233cf25e7d4398b1c0442e766047db3f3e35a53c7f2901314` |
+|  `latest`     | May 10th     | `sha256:364c1e0e6453cc16c426090a2b0929c85b4d84dd7451989e0099169f751d4208` |
+|  `latest-dev` | May 10th     | `sha256:81e77078145ce0f6d4942429f22d15b2475506ecb77ce6f3b235088272bb991a` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.8-dev` `1.8.11-dev` `latest-dev` | May 9th      | `sha256:237243e2c1300f693b74c627b7ae8b72da0c893b9238762724d92c1bc73dd902` |
-|  `1.8` `1` `latest` `1.8.11`                 | May 9th      | `sha256:f0a74cdc4a56fb7e71a2956c521348a86a09bbbe062277668d027765f508b6bf` |
+|  `latest-dev` `1-dev` `1.8-dev` `1.8.11-dev` | May 10th     | `sha256:b26b7c684eccb9a96608f0f828dc46f2d07f4672d711d4b852e8a4ce41cfebc0` |
+|  `1.8.11` `1.8` `1` `latest`                 | May 10th     | `sha256:f3dee39b0be4930fc927d5c1f1a0e5e9ff064eb91bb4e9aa5db41ee2c6ec3363` |
 
