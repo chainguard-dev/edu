@@ -14,7 +14,7 @@ toc: true
 
 This guide is a high-level overview for migrating an existing containerized Python application to Chainguard Images. 
 
-Chainguard Images are built on [Wolfi](/open-source/wolfi/), a distroless Linux image designed for security and a reduced attack surface. Chainguard Images are smaller and have [low to no CVE](/chainguard/chainguard-images/vuln-comparison/python/). Our Chainguard Images for Python are built nightly for extra freshness, so they're always up-to-date with the latest remediations.
+Chainguard Images are built on [Wolfi](/open-source/wolfi/), a [distroless](https://edu.chainguard.dev/software-security/videos/distroless/) Linux distribution designed for security and a reduced attack surface. Chainguard Images are smaller and have [low to no CVE](/chainguard/chainguard-images/vuln-comparison/python/). Our Chainguard Images for Python are built nightly for extra freshness, so they're always up-to-date with the latest remediations.
 
 {{< details "What is Distroless?" >}}
 {{< blurb/distroless >}}
