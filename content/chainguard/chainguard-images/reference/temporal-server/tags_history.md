@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the temporal-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-13 00:45:28
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 13th     | `sha256:ca37b74318e58a1e18f6c17c451017b146043830408a4b2506493f6179e04e3d` |
 |  `latest`     | May 10th     | `sha256:efab1693a052f34209a6a5c2ec247da9f6c19e4b6f0b5428b77f450620e5f60e` |
-|  `latest-dev` | May 10th     | `sha256:c4cae18c5e5f896f532bbffe1f87cec64c113bba60a5299273f211d5c5454464` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.23.1-dev` `1.23-dev` | May 10th     | `sha256:fe65e6d3163dbd237c7401f3d32cd704d9d7fa2d3289054ad211af6fd33082f2` |
+|  `1.23-dev` `1-dev` `1.23.1-dev` `latest-dev` | May 13th     | `sha256:9ec88846c3bd5b7c2e3918da7ef7ed2c9cb6f67d97f72dcbeeb76c90c57b3002` |
 |  `latest` `1.23` `1.23.1` `1`                 | May 10th     | `sha256:f7fd2d1c245f860d454832ee8a813f8c586359cec1678ba6d2b9131d7ed9bc10` |
 |  `1.23.0-dev`                                 | April 30th   | `sha256:3a5b227d7c6f66338dab932014d629e55ab0f36c750cc80b47609ce011051f47` |
 |  `1.23.0`                                     | April 30th   | `sha256:08da365637bf7ce5246c0018bf571d489251c6b0bd6a2bc5bfe9628f0cc34f8c` |

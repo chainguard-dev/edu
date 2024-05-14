@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vector Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 8th      | `sha256:125612aafd0900483014b5edf00868832566fa7bab6736eeda84dace9fc68d21` |
-|  `latest`     | May 8th      | `sha256:75633a47bcf7f72733c19483e562ef21a5e9f567696c31b510e41daeb03d3188` |
+|  `latest`     | May 13th     | `sha256:5dd320f35d944f0f54b174c3b834f16ecafc57acc40e66465bb5e99ac4a6aaea` |
+|  `latest-dev` | May 13th     | `sha256:299e2a36e8eb01a79eafc8a2464d7f873a8e4493f3195dc5fd7847ff87849012` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.38.0-dev` `0-dev` `latest-dev` `0.38-dev` | May 8th      | `sha256:2709cb5716c73650880fe51e614dd6ffb3c3c98ac7ad5c59b38f25bb86e55991` |
-|  `latest` `0` `0.38.0` `0.38`                 | May 8th      | `sha256:c5e4ee77d7178bcc673ee3446b0451c509831f4396acdffb53fc4f03fbe3f703` |
+|  `0.38.0-dev` `0.38-dev` `latest-dev` `0-dev` | May 13th     | `sha256:e30a0ad670f2802e658996146608219157985517319802098a460fb7a7706c3b` |
+|  `0.38` `0` `latest` `0.38.0`                 | May 13th     | `sha256:400226f1fde61db7df9a363e97d58ddf4410e8256aff56510688113b036177cf` |
 |  `0.37` `0.37.1`                              | May 3rd      | `sha256:84b8eabc428f5c6271470e13c0a857ced9eae51a216b9b8e642b28b0572554f5` |
 |  `0.37.1-dev` `0.37-dev`                      | May 3rd      | `sha256:303be0396f96fd9fb68e864aa54d2fb26286186cb117522816d4ed8eb19f0cf1` |
 

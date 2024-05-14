@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-operator-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-13 00:45:28
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0-dev` `latest-dev` `0.73-dev` `0.73.2-dev` | May 13th     | `sha256:aa38d88c237dc3b9a7d5dcbd46b7f720136825cf152071d7cb807b09adc845b1` |
 |  `0.73` `0` `0.73.2` `latest`                 | May 11th     | `sha256:7f86edf1d667c0cf1dbd42268c3b9cbd456dc8e8e3fbaadd87b34ec7263d0bf0` |
-|  `latest-dev` `0-dev` `0.73-dev` `0.73.2-dev` | May 11th     | `sha256:904cf29f209c11f035eb1ce340f9714c0987525cf6acddae0093fe0fc4935a4a` |
 |  `0.73.1-dev`                                 | April 21st   | `sha256:01c14d6f0f49ee2f9445fea134cb67edcc189dabc0041bd3459a5b5c0a8d6c4d` |
 |  `0.73.1`                                     | April 21st   | `sha256:54a79ac9ae0b84af773026d763869faea5a19724cbd4ad1ab9ae6ce8397b7311` |
 

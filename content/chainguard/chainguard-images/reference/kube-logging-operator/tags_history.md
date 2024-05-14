@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-logging-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-13 00:45:28
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,10 +36,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `4.1.0-dev` `4.1-dev`                      | May 13th     | `sha256:ad604e8ef9fbc4983c6c761481f136e71fd9555a95f48c1f3fee28f537e59122` |
+|  `4-dev` `4.6-dev` `latest-dev` `4.6.0-dev` | May 13th     | `sha256:dba06ccf89bceb580dd6058fd2a7f856b7b35f5097394f6ae17af9d6e0465699` |
+|  `3.17.11-dev` `3.17-dev` `3-dev`           | May 13th     | `sha256:38a97eca1d7fe3f472ac77c54a0a1700de271e4740be9d5d4bcf69b168a80078` |
 |  `3.17.11` `3.17` `3`                       | May 11th     | `sha256:bb240f53318f91e4b09b80425804ffaced82a32953dfa73898be466ce832dde9` |
-|  `3.17-dev` `3-dev` `3.17.11-dev`           | May 11th     | `sha256:949a0816331ab8bd33026879a1afa24053c72ae1891de5f0d9293117f0d2679d` |
 |  `4.1.0` `4.1`                              | May 11th     | `sha256:3050728cb278927c336815399a161f22344a2accb2ab4e3cabeff1bb8c263424` |
-|  `4.1-dev` `4.1.0-dev`                      | May 11th     | `sha256:d8d4cc62b7936358e02d1275e9d9e9373f936709ddc1c48287cb4b0bf2e358ce` |
-|  `4.6-dev` `4.6.0-dev` `latest-dev` `4-dev` | May 10th     | `sha256:64b542f549a7be8dd6b527604898358303e50faf3486f1ce3d472238480d449a` |
 |  `latest` `4.6.0` `4` `4.6`                 | May 10th     | `sha256:629d26bccbaa3bf19d596ba9b648825ce6e1c059f1b7f4c0568bfaad2aee66de` |
 

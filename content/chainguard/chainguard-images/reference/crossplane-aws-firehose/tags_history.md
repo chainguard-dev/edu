@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crossplane-aws-firehose Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-13 00:45:28
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 10th     | `sha256:a7fbd697e551caebe3d790326a413659855814fc80cfa8f3102b7c2417a5a50d` |
+|  `latest-dev` | May 13th     | `sha256:29cad06a84b77a9afcfdbd30ded69834eb5fb679ea5635f197de5b844a634e58` |
 |  `latest`     | May 10th     | `sha256:88e80b83afa1b1a37b8fa2ce9df2aebf17a079a1a94d5952b0c743317e9ffcd9` |
 
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-webhook-certgen-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-13 00:45:28
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1-dev` `1.10-dev` `1.10.1-dev` `latest-dev` | May 13th     | `sha256:7c6768dec5abfe52730a7d93269279741d5846cd59773068a5d24578552438c8` |
 |  `1` `1.10` `latest` `1.10.1`                 | May 10th     | `sha256:b0b99dbed43e384d76249caab1973a66e09e383dc99f316d76da9129d74f35e9` |
-|  `latest-dev` `1.10.1-dev` `1.10-dev` `1-dev` | May 10th     | `sha256:c2cea4a03baf1db217c8332c30d49488e01055664c82da05c2340b91aeefc64b` |
 

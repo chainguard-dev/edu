@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mongodb-exporter-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-13 00:45:28
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.40-dev` `0.40.0-dev` `0-dev` | May 10th     | `sha256:a218e2e86b25fb86457d01e995e111918420b63b71a1b2f06f0d6e6c05f6ccb8` |
+|  `0.40.0-dev` `latest-dev` `0.40-dev` `0-dev` | May 13th     | `sha256:5782e613cd1353ab6bbc6f88570c9d63f0c355c243f6237f1ea631d4d6a5baa1` |
+|  `0.37-dev` `0.37.0-dev`                      | May 13th     | `sha256:5a340e8789084b048ed97db877e4d8bfc2815301437ba24cc7610f40d65e128c` |
 |  `0.40.0` `latest` `0` `0.40`                 | May 10th     | `sha256:324b218f4e67c819160cd905436f746b148e034b627be02f58417b6c13372486` |
 |  `0.37` `0.37.0`                              | May 10th     | `sha256:1dae105fb40dd125d878ca754bbb0bd541bf268dcb3edf40f3868f55756c56f5` |
-|  `0.37-dev` `0.37.0-dev`                      | May 10th     | `sha256:b5bdfdd7b4d635804a54349f1eafa122160379f1aba5dd4720317ad2767d5ee3` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the velero-restore-helper Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-13 00:45:28
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 10th     | `sha256:0abf9b883ec1574e9cdbaa4ab355f8c6c4691554c59c6fa7e5ad73f8b5ec5a2b` |
-|  `latest`     | May 10th     | `sha256:a8a6648acbc68ee3739c53890ba132de5447b345eebaf2f8f10171f019f98899` |
+|  `latest-dev` | May 13th     | `sha256:c00b3b457d150424afa2284680d8ce5f844da5c6da7307c4182da15f248317a6` |
+|  `latest`     | May 13th     | `sha256:f0ac99269260b4a5992da10ba3f4cf7a2926c8c7ad48da7a47246722f78fe27c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1` `1.13` `1.13.2`                 | May 10th     | `sha256:861a89275441fe95574dc926c1176cc3e1bdbfbdc164c0182b38903426c4b938` |
-|  `1-dev` `1.13-dev` `1.13.2-dev` `latest-dev` | May 10th     | `sha256:6419c66f8750051a061988d01ae72f329f80198efa765f1b162962bfe993afc1` |
+|  `latest` `1.13` `1.13.2` `1`                 | May 13th     | `sha256:8a3a4833376ef8c1aad4dc537f793dfaf0d1b9400c261b348c31adf54f863aee` |
+|  `latest-dev` `1.13-dev` `1.13.2-dev` `1-dev` | May 13th     | `sha256:c4dc46ecec9f61482e2f4137529b2aa7243bee9ceec2072b44919be041a1a587` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-sidecarlogresults Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-13 00:45:28
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 10th     | `sha256:0166ccf6f14271ee42e1478db5c29b8bc4737342a58054a21c9e3d44e237494a` |
+|  `latest-dev` | May 13th     | `sha256:ad91fad9b3bc291b66abe9e5ec1258f314d502e753f418aa5085bc152253e098` |
 |  `latest`     | May 10th     | `sha256:81c8ff6ffeec38d23069a2d314a2e976da886683d9bb44d3e63d7d876b45fc41` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0.59-dev` `latest-dev` `0-dev` `0.59.0-dev` | May 13th     | `sha256:98711210a076baa7a3479a5ed4b42bdb30522cbefe6b3359fcf905bac992923f` |
 |  `0` `latest` `0.59.0` `0.59`                 | May 10th     | `sha256:6ab4a1d55461e554587b14ac016afdc6473171278c3d507c8ec59bef6392d62c` |
-|  `0-dev` `0.59.0-dev` `0.59-dev` `latest-dev` | May 10th     | `sha256:785c5d59410c090aede3db56eced4f58bec44a4932afe92b49225a246c0d8217` |
 |  `0.58` `0.58.0`                              | April 21st   | `sha256:2994e0d78bae5e7dcfe2c35138aaa2e96b81bb78d92d540e2aabbf846828b2ed` |
 |  `0.58.0-dev` `0.58-dev`                      | April 21st   | `sha256:bf37efefa96ccde2fe0841b45e98b82a0bfaf46c1e871f43636ee438b207293c` |
 

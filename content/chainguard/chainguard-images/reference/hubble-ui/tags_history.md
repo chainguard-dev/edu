@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the hubble-ui Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-13 00:45:28
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,5 +33,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                       | Last Changed | Digest                                                                    |
 |-------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.13.0` `0.13` `0` | May 10th     | `sha256:172c94fc92aaf6ef3be25c61e0e8f77ecd2f22605a4247d39f121944f9fe17a8` |
+|  `latest` `0.13.0` `0.13` `0` | May 13th     | `sha256:4298f52905ec826d1f28b198a3cc271594d024533fda7f77a5a4b2f39535b45c` |
 

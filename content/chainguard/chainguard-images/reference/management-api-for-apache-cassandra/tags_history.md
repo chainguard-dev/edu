@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the management-api-for-apache-cassandra Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-13 00:45:28
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 9th      | `sha256:622b2d7aebdc7c2c11085951c33403de6fadb1ed63593171ba221b6982daced2` |
-|  `latest`     | May 9th      | `sha256:ac0aaacfb60e088500f6ed162d5e6227fbb6ea6d661d10da3afa7382d684046d` |
+|  `latest-dev` | May 13th     | `sha256:298c2282c42e87e05641ce7b2a0debb71872e218d41e470df4ac98b82ace95fe` |
+|  `latest`     | May 13th     | `sha256:b98b28d6f8158557051f74f303404196a2cad124f3c116c3d7ee1e1c87a2b588` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `0.1` `latest` `0.1.74`                 | May 10th     | `sha256:076093adaf454a9f870379f8380ca01170f9c639921f3ab2e864e68a3137fe0d` |
-|  `0.1-dev` `latest-dev` `0-dev` `0.1.74-dev` | May 10th     | `sha256:9b89597b546fdee0c45a68b1b225bf1f0f07e9eb3eacdd7836cb7b0a59384430` |
+|  `latest-dev` `0.1.74-dev` `0.1-dev` `0-dev` | May 14th     | `sha256:778a450461115858b37e058595df8a447a9ed724dddf8c164cf853114f040fd6` |
+|  `0.1.74` `0.1` `latest` `0`                 | May 14th     | `sha256:91575953cab77c71e77be234082b09698c946abc3c02ab77e735c6e48996a77a` |
 
