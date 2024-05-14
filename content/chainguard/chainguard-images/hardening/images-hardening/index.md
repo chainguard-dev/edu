@@ -1,7 +1,7 @@
 ---
 title: "Chainguard Images Hardening"
 linktitle: "Hardening"
-description: "Conceptual articles outlining how Chainguard Images are hardened and tested"
+description: "Conceptual article outlining how Chainguard Images are hardened and tested"
 type: "article"
 date: 2024-05-13T08:49:15+00:00
 lastmod: 2024-05-13T08:49:15+00:00
