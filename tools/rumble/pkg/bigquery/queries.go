@@ -11,14 +11,14 @@ const (
 
 	AllVulnsQuery = `
 SELECT DISTINCT vulnerability
-FROM insights_ds.vulnerabilities
-`
+FROM ` + "`" + `cloudevents_scan_recorder_grype.dev_scan-results_grype_vulns` + "`" + ``
+
 
 	AffectedImagesQuery = `
 SELECT s1.image, s1.time as time,
-FROM insights_ds.vulnerabilities
+FROM ` + "`" + `cloudevents_scan_recorder_grype.dev_scan-results_grype_vulns` + "`" + `
 AS s2
-INNER JOIN ` + "`" + `insights_ds.image-scan-summary` + "`" + `
+INNER JOIN ` + "`" + `cloudevents_scan_recorder_grype.dev_scan-results_grype_summary` + "`" + `
 AS s1
 ON s1.id = s2.scan_id
 WHERE s2.vulnerability = @vulnerability
@@ -43,7 +43,7 @@ SELECT
 	unknown_cve_count as unknown_cve_cnt,
 	low_cve_count + med_cve_count + high_cve_count + crit_cve_count + unknown_cve_count AS tot_cve_cnt,
 	digest
-FROM ` + "`" + `insights_ds.image-scan-summary` + "`" + `
+FROM ` + "`" + `cloudevents_scan_recorder_grype.dev_scan-results_grype_summary` + "`" + `
 WHERE DATE(time) BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY) AND CURRENT_DATE()
 AND scanner = "grype"
 AND image NOT LIKE "cgr.dev/chainguard-private/%"
@@ -59,9 +59,9 @@ WITH ruuuumble AS (
 		s2.installed as version,
 		s2.type,
 		s2.severity
-	FROM insights_ds.vulnerabilities
+	FROM ` + "`" + `cloudevents_scan_recorder_grype.dev_scan-results_grype_vulns` + "`" + `
 	AS s2
-	INNER JOIN ` + "`" + "insights_ds.image-scan-summary" + "`" + `
+	INNER JOIN ` + "`" + "cloudevents_scan_recorder_grype.dev_scan-results_grype_summary" + "`" + `
 	AS s1
 	ON s1.id = s2.scan_id
 	WHERE s1.image = @theirs
