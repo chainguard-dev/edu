@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mariadb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 2nd      | `sha256:88ce6575b4ccdd0752d2ded0b576c04f91d052fc54206d415f8240a52635f929` |
-|  `latest`     | May 2nd      | `sha256:cc03b67cc842e77365416bbb3204539f6ed6df89b357cfd6caf8ba2f16fca04a` |
+|  `latest-dev` | May 13th     | `sha256:44bbd11743308193b54f47431fc77118dbb7245ad6f99116163c716389a0c8f8` |
+|  `latest`     | May 13th     | `sha256:a76df6851bcd5fe880d6e92e17dee3a970db537b54f3badfd6d38aff6d3ffa40` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                          | Last Changed | Digest                                                                    |
 |--------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `10.11` `10.11.7` `latest` `10`                 | May 2nd      | `sha256:f214b7c337ab6e66ec91f3b43092bfcfe6fde67ec9503b0018c88019906fd1cf` |
-|  `10-dev` `latest-dev` `10.11-dev` `10.11.7-dev` | May 2nd      | `sha256:26e5b19c700680b5ec5a3d903b8ccc07a720ecde44d7e96d22a93cedc7f3d26d` |
+|  `10.11.7` `10` `latest` `10.11`                 | May 13th     | `sha256:ce5862dc6bfe28aa2e72d08600bd55f76056e15665ddcc809aa83a648fd72154` |
+|  `10.11.7-dev` `latest-dev` `10.11-dev` `10-dev` | May 13th     | `sha256:082d3768a9b8b8273eae6a4ead091d361e5742fe1910c379b6eb38d118bc2af5` |
 

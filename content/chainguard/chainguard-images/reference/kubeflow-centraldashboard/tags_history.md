@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-centraldashboard Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.8.0-dev` `1-dev` `latest-dev` `1.8-dev` | May 2nd      | `sha256:1a3c08d3461d5ff28ba8e7128503cd43c98e7bfa89428084aaa298134efa1a62` |
-|  `latest` `1.8` `1` `1.8.0`                 | May 2nd      | `sha256:3b03f58c6ca06ac8ca1adc2cefa6203eb56c2e60a62813277a69481e5d66306a` |
+|  `1.8-dev` `1.8.0-dev` `1-dev` `latest-dev` | May 13th     | `sha256:aa581d6922714545a152f9f80301ce68e89a792168e6720fbfe9ef481e4ee91c` |
+|  `1` `latest` `1.8` `1.8.0`                 | May 13th     | `sha256:e9aaadde51a4180dd437bbb6cf7aa37159b0fe6c35de42e7234410e2d800a328` |
 

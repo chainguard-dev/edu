@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubewatch Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-13 00:45:28
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 2nd      | `sha256:e063a9d70d31e9acb47a1baf299bdd52ad1a850889b47d27738b8a056258397c` |
-|  `latest`     | May 2nd      | `sha256:f2873ca89aaf0b415f63e568d654ee52feda37656320269bd56f5b36286dfef8` |
+|  `latest-dev` | May 13th     | `sha256:9356d6a6d90198d466013c41066a879c95405017a9c8cee94379d2d20c47cd90` |
+|  `latest`     | May 13th     | `sha256:31d81bc8baab320e3e6bb59a294d98f542acb00ca71f10ebb9649f3bf0bb5000` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2-dev` `2.6-dev` `latest-dev` `2.6.0-dev` | May 13th     | `sha256:49a88d91a9a09d2afaa914c90dd53e4d46fbbf179c25134ea8ba2c5e748fa275` |
 |  `2.6.0` `latest` `2` `2.6`                 | May 10th     | `sha256:8c3f841e945c0cfdde68ae94d77f88f72abe260847b323d0d826ee243ba9b6d0` |
-|  `latest-dev` `2.6-dev` `2-dev` `2.6.0-dev` | May 10th     | `sha256:3b70981b7d361ed97990024aa62c48d1c1b286d9c3dd67ba7e0982f13fce8ebe` |
 |  `2.5.0-dev` `2.5-dev`                      | April 30th   | `sha256:2b2b1ad2fcf6aa504ce03ca74c9dd7c52145617bd0acd9774d9fd495dd135e03` |
 |  `2.5.0` `2.5`                              | April 24th   | `sha256:6345d0bcd6c021e082664a5bb63e255852fd318a6b8132f94407c7d3c8466425` |
 

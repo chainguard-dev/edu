@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public calico-csi Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ This page shows detailed information about the Chainguard **calico-csi** Image.
 | CMD          | not specified                          | not specified                          |
 | Workdir      | not specified                          | not specified                          |
 | Has apk?     | yes                                    | no                                     |
-| Has a shell? | yes                                    | no                                     |
+| Has a shell? | yes                                    | yes                                    |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/calico-csi/tags_history/) for the full list of available tags.
 
@@ -38,7 +38,7 @@ The table shows package distribution across variants.
 |                          | latest-dev | latest |
 |--------------------------|------------|--------|
 | `apk-tools`              | X          |        |
-| `bash`                   | X          |        |
+| `bash`                   | X          | X      |
 | `busybox`                | X          |        |
 | `ca-certificates-bundle` | X          | X      |
 | `calico-pod2daemon`      | X          | X      |
@@ -60,8 +60,8 @@ The table shows package distribution across variants.
 | `libssl3`                | X          |        |
 | `libunistring`           | X          |        |
 | `libxcrypt`              | X          |        |
-| `ncurses`                | X          |        |
-| `ncurses-terminfo-base`  | X          |        |
+| `ncurses`                | X          | X      |
+| `ncurses-terminfo-base`  | X          | X      |
 | `wget`                   | X          |        |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          |        |

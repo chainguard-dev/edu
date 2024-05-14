@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the wave Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 13th     | `sha256:6eee4c94505935047dd3a8dd5ac6e4f104d952b33f0dc3737b23a07d13eed051` |
 |  `latest`     | May 8th      | `sha256:850b9df63cb1f90164b669a8d2b8576cd7f2599c64bc4d43d0673a6af35d830d` |
-|  `latest-dev` | May 8th      | `sha256:b43d3fd0698299d61e046175527491e31ab6be73b05b3ec7b508b08374690a79` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0-dev` `latest-dev` `0.8-dev` `0.8.0-dev` | May 13th     | `sha256:9b74891b45d9a06deba2c4cbb9540c3a248d08612356d1abdb3da2fbbb8f936d` |
 |  `0.8` `latest` `0.8.0` `0`                 | May 8th      | `sha256:bcd64078cbd853aa25d8d9864d2fe9a5f313b2b54a1ce6c07b614cb4560b5018` |
-|  `0.8-dev` `0.8.0-dev` `0-dev` `latest-dev` | May 8th      | `sha256:ef7964826319e464d306d17b56858a2ec7aa43f585220251546105626df14feb` |
 |  `0.6-dev` `0.6.0-dev`                      | May 2nd      | `sha256:158a975d03fba7387789bfe35d0985d72443572ed6b97431ea6b0a285921adea` |
 |  `0.6.0` `0.6`                              | May 2nd      | `sha256:a1a651c505dad63fd64723d2baf8b268c313c02a49439990f7353ad517a111ad` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-fluentd-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-13 00:45:28
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,6 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.18.2-dev` `1-dev` `1.18-dev` `latest-dev` | May 10th     | `sha256:4ab951245b62b3c98b5a4603c6ef7f70c2672cab43735420dd22f5aacf8c6e81` |
-|  `latest` `1.18.2` `1.18` `1`                 | May 10th     | `sha256:dc81e2815926b5a2f84b0bf332ad17149e38ee76477507da39a9bcdb0ba45e72` |
+|  `1.18` `latest` `1.18.2` `1`                 | May 13th     | `sha256:79a5468220bb279854ce76f39c3d170d700b226b4745e81205a23dd69da21611` |
+|  `latest-dev` `1.18-dev` `1-dev` `1.18.2-dev` | May 13th     | `sha256:bf192889ba72ca84bfa904e62e5e43ed5dbc4b8eff7884c53cd1621e6f02d0b0` |
 

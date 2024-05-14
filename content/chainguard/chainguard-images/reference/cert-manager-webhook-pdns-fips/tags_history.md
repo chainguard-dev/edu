@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-webhook-pdns-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2-dev` `2.5.1-dev` `latest-dev` `2.5-dev` | May 13th     | `sha256:4fe534caf2d9c3c33259815aedbcf91ece5bd8711baa0b84028a14167237e5f1` |
 |  `latest` `2.5.1` `2.5` `2`                 | May 2nd      | `sha256:43f9682ea7bc19b2555c1ed477b239d811776058a36dcfd096d47bc377b2adf6` |
-|  `2.5-dev` `2-dev` `2.5.1-dev` `latest-dev` | May 2nd      | `sha256:f59d6dd12bb843c44b15b65f11b28708f4e908bae1821d0cc27ef494c38294c2` |
 

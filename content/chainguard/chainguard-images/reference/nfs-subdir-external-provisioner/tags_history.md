@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nfs-subdir-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-13 00:45:28
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 9th      | `sha256:40bd5b10db89cd22154704282f83e748abd188784cd052ef718a23ab31a3a625` |
-|  `latest`     | May 9th      | `sha256:13e851b7048b90cdf2e3b08a53c4cbc4ba30b24131cc98e85472e9eb151a3725` |
+|  `latest-dev` | May 13th     | `sha256:3a7bf04a682f94cf42048e2d081f84700856cb428530cffce2e6af9b3afd0202` |
+|  `latest`     | May 13th     | `sha256:8fd7546e7b654ef1acf88566e9c6247c678358a8be7db144b6899695d679236f` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4` `4.0` `latest` `4.0.18`                 | May 10th     | `sha256:7d7cf2f46f4db10c524375965169659610352607c8d397990a4a7908a5aeb551` |
-|  `4.0.18-dev` `4-dev` `latest-dev` `4.0-dev` | May 10th     | `sha256:e62768b9a378f2f7069d5d1fcc192b417ee5b657c21c9f1343eb78c0110c230f` |
+|  `latest-dev` `4.0-dev` `4.0.18-dev` `4-dev` | May 13th     | `sha256:edd6ddec616d34fa1b4a433f1b4476336fea35adea7ec39c4823e1ba202ec3ba` |
+|  `latest` `4` `4.0` `4.0.18`                 | May 13th     | `sha256:34e173fe8ca27f29ae4ed8be9e74bc6e5fe75d083f81c53a1f5c73a111353fa1` |
 

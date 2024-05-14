@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public kots Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -59,8 +59,8 @@ The table shows package distribution across variants.
 | `kubectl-1.26`           | X      |
 | `kubectl-1.27`           | X      |
 | `kubectl-1.28`           | X      |
-| `kubectl-1.29`           | X      |
-| `kubectl-1.29-default`   | X      |
+| `kubectl-1.30`           | X      |
+| `kubectl-1.30-default`   | X      |
 | `kustomize`              | X      |
 | `ld-linux`               | X      |
 | `libbrotlicommon1`       | X      |
