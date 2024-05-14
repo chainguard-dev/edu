@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the calico-node-driver-registrar Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-13 00:45:28
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -34,8 +34,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                                                          | Last Changed | Digest                                                                    |
-|----------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.10-dev` `v2.10-dev` `v2.10.1-dev` `latest-dev` `v2-dev` `2.10.1-dev` `2-dev` | May 10th     | `sha256:014d6dcbb9e8ba8df8404dabd378a023eb69743a6b16423eec76d023328a63e5` |
-|  `2` `2.10.1` `latest` `3.27.3` `v2` `v2.10` `3` `3.27` `2.10` `v2.10.1`         | May 10th     | `sha256:e01f47bc9b74efc787c110507099f911119ade19527e2bd4d2c9e39176b993bc` |
+| Tag (s)                                                                                  | Last Changed | Digest                                                                    |
+|------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `v2-dev` `v2.10-dev` `v2.10.1-dev` `2.10-dev` `2.10.1-dev` `latest-dev` `2-dev`         | May 13th     | `sha256:4a8503acb26b344a2eff591269661228f2937240ae37ecb42f949c97af35d571` |
+|  `3.28` `3.28.0` `2` `2.10.1` `latest` `3.27.3` `v2` `v2.10` `3` `3.27` `2.10` `v2.10.1` | May 13th     | `sha256:e01f47bc9b74efc787c110507099f911119ade19527e2bd4d2c9e39176b993bc` |
 

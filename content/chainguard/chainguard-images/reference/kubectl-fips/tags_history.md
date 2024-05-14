@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubectl-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-13 00:45:28
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,11 +33,11 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.29.4-dev` `1-dev` `1.29-dev` | May 9th      | `sha256:dd56e2e797df434ef194b189b9e9cb86074e79f811618604cbef4ad0fcf69a9b` |
+|  `1.29-dev` `1.29.4-dev` `latest-dev` `1-dev` | May 13th     | `sha256:1e2140ea76af503d7b3b45a80e3cc4a0c9f34804a17b57fd9f990f79240580a1` |
+|  `1.28-dev` `1.28.9-dev`                      | May 13th     | `sha256:a9761b5ea87a3c27dcab3e195a57414cb67858ba8b0c46dec8dd644982bdf5e1` |
+|  `1.27-dev` `1.27.13-dev`                     | May 13th     | `sha256:86f9abca64a51f3f3c8691ff7ebef5408705b550e95e822124f43ec0661900d2` |
 |  `1` `1.29.4` `1.29` `latest`                 | May 9th      | `sha256:4371c1cac1460443d6fad89404a7910276a8a1015cb1cf2a25fa764938cee504` |
 |  `1.28.9` `1.28`                              | May 9th      | `sha256:bf165009e2bdb017536e20cefab10056d4505e3e85dd4f414919e1a78b0291eb` |
 |  `1.27` `1.27.13`                             | May 9th      | `sha256:4952776687cd7439f37512c9509c76297d420a6c84000b6a7f285b37059c4cae` |
-|  `1.27-dev` `1.27.13-dev`                     | May 9th      | `sha256:2d2f0cc4468f01170345302a3a7db904fd9ab2ee1502a72d30080de073750d09` |
-|  `1.28-dev` `1.28.9-dev`                      | May 9th      | `sha256:38a8c5d4743fdace9760d64ad8b01f8dbc340e570180742af1171ad3c924099b` |
 |  `1.28.8-dev`                                 | April 20th   | `sha256:1afc6e7f2b980249ad207ebc483b3d738111727d60c18047529c25265ea7813d` |
 

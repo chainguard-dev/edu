@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jitsucom-ingest Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-13 00:45:28
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.6.0-dev` `latest-dev` `2.6-dev` `2-dev` | May 10th     | `sha256:361aa8e79de0432f10b9adbd8074eac5d2bb4e7eabf353059f20133dd4286def` |
+|  `2.6.0-dev` `latest-dev` `2-dev` `2.6-dev` | May 13th     | `sha256:3c0d52939d8f0a0fcc4de1fbf322860f4247276281021fb1c5c47d9a13ad6894` |
 |  `2` `latest` `2.6.0` `2.6`                 | May 10th     | `sha256:6208d8f2b8254ad65ebb8ea86435c3f9b9354a2353be46c26292deef7d503cc2` |
 

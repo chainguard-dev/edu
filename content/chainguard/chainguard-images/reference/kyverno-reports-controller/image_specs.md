@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public kyverno-reports-controller Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -40,7 +40,7 @@ The table shows package distribution across variants.
 | `ca-certificates-bundle`     | X      |
 | `chainguard-baselayout`      | X      |
 | `glibc-locale-posix`         | X      |
-| `kubectl-1.29`               | X      |
+| `kubectl-1.30`               | X      |
 | `kubectl-latest`             | X      |
 | `kyverno-reports-controller` | X      |
 | `wolfi-baselayout`           | X      |

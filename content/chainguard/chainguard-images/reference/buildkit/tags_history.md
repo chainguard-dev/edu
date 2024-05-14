@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the buildkit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)            | Last Changed | Digest                                                                    |
 |--------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-root-dev` | May 8th      | `sha256:b2f40a7bc65484e43483b45596b7170a8af9dcf43a62552ae41134aa3f90dec5` |
+|  `latest-root-dev` | May 13th     | `sha256:590a7ad45b5c1907e9228769321a2e7965cb1b0856b87a98803052c4a6e1a850` |
 |  `latest-root`     | May 8th      | `sha256:35ee4ac0bdd4c12a1f6268c4e44780adee9ad910abb4f8d1f67349a9adb5283d` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` `0-dev` `0.13-dev` `0.13.2-dev` | May 13th     | `sha256:8dfb402b855c43459f9266ece4f23486f1a527c52ac0ffecdad1a40f00ccf3cf` |
 |  `latest` `0` `0.13.2` `0.13`                 | May 8th      | `sha256:c2c04a6327974bb3270017d79a7285f871dbb40a236529dd39bdcb96961d96a0` |
-|  `latest-dev` `0.13-dev` `0.13.2-dev` `0-dev` | May 8th      | `sha256:2e0cf8900fd4166976c79cadbbff3ab31a2d46e7591849463eb0fea73b84d15e` |
 |  `0.13.1`                                     | April 25th   | `sha256:54d7ef9f620df47c729766de5bdd8cf35a346c745369fedbe2f0a14c934ca238` |
 |  `0.13.1-dev`                                 | April 25th   | `sha256:1d339d3636ee6b86c3d7a70f5ed6896b974f26e50858cca844b2ae5c962a7597` |
 

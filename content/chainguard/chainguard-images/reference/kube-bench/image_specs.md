@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public kube-bench Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -47,8 +47,8 @@ The table shows package distribution across variants.
 | `glibc-locale-posix`     | X          | X      |
 | `kube-bench`             | X          | X      |
 | `kube-bench-configs`     | X          | X      |
-| `kubectl-1.29`           | X          | X      |
-| `kubectl-1.29-default`   | X          | X      |
+| `kubectl-1.30`           | X          | X      |
+| `kubectl-1.30-default`   | X          | X      |
 | `ld-linux`               | X          | X      |
 | `libbrotlicommon1`       | X          |        |
 | `libbrotlidec1`          | X          |        |

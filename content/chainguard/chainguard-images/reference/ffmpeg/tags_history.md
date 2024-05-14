@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ffmpeg Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 13th     | `sha256:e492043165056d5703f90e589bc889dcfc09edc8601bbb53520d308547046d10` |
 |  `latest`     | May 2nd      | `sha256:32d72180340a316d02d638cc4281ed366935fa1f18536afbc2067b9fdda3093f` |
-|  `latest-dev` | May 2nd      | `sha256:7d033ef791aea155d3b12373bca8ddaac2c4c642a18596e55ea25b85cb4da0d7` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                         | Last Changed | Digest                                                                    |
 |---------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.0-dev` `7-dev` `latest-dev` | May 2nd      | `sha256:f3ceab87f6787f2b481ccf319c3d2b9794b90c075f75aa30641fe3ed6fbf479c` |
+|  `latest-dev` `7.0-dev` `7-dev` | May 13th     | `sha256:c9f50fc18a9ffac31846fba8ffd007030958bff6a62cf0a0909bade7a03cdb1d` |
 |  `7.0` `7` `latest`             | May 2nd      | `sha256:d52956eb70338a639ea3b8a0257287fac4811db78315a86700ecab36fbf4c7ae` |
 |  `6.1-dev` `6-dev` `6.1.1-dev`  | April 20th   | `sha256:f2a133849ff5625439ced9df6dfa1199fd32b8945a1c76002ee67b4634b2e796` |
 

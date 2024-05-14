@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public node-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-04-29 00:53:42
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ This page shows detailed information about the Chainguard **node-fips** Image.
 | CMD          | `--help`        | `--help`        |
 | Workdir      | `/app`          | `/app`          |
 | Has apk?     | yes             | no              |
-| Has a shell? | yes             | no              |
+| Has a shell? | yes             | yes             |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/node-fips/tags_history/) for the full list of available tags.
 
@@ -41,7 +41,7 @@ The table shows package distribution across variants.
 | `bash`                        | X          |        |
 | `binutils`                    | X          |        |
 | `build-base`                  | X          |        |
-| `busybox`                     | X          |        |
+| `busybox`                     | X          | X      |
 | `c-ares`                      | X          | X      |
 | `ca-certificates-bundle`      | X          | X      |
 | `chainguard-baselayout`       | X          | X      |
@@ -61,7 +61,7 @@ The table shows package distribution across variants.
 | `libbrotlidec1`               | X          | X      |
 | `libbrotlienc1`               | X          | X      |
 | `libbz2-1`                    | X          |        |
-| `libcrypt1`                   | X          |        |
+| `libcrypt1`                   | X          | X      |
 | `libcrypto3`                  | X          | X      |
 | `libcurl-openssl4`            | X          |        |
 | `libev`                       | X          | X      |
@@ -79,7 +79,7 @@ The table shows package distribution across variants.
 | `libstdc++-dev`               | X          |        |
 | `libunistring`                | X          |        |
 | `libuv`                       | X          | X      |
-| `libxcrypt`                   | X          |        |
+| `libxcrypt`                   | X          | X      |
 | `libxcrypt-dev`               | X          |        |
 | `linux-headers`               | X          |        |
 | `make`                        | X          |        |

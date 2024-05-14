@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the influxdb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-13 00:45:28
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,12 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2` `latest` `2.7` `2.7.5`                 | May 12th     | `sha256:4d0858c778a6deb7a8c4810f678f158d44e008f23ecde4ea984f599b01f0dcde` |
-|  `2.7.5-dev` `2.7-dev` `latest-dev` `2-dev` | May 12th     | `sha256:0f02f529658c08e1b6cfe0b9bc421175ecebdee694984f24aed9b7ab1de4554e` |
+|  `2.7-dev` `2.7.5-dev` `latest-dev` `2-dev` | May 13th     | `sha256:c1e078336bdaa02bb1bcfa105295a2851a859ec78089f33b6819bbe705f99f4c` |
+|  `2.7.5` `latest` `2` `2.7`                 | May 13th     | `sha256:d160367b3c0926db83be30b388f44a552ccafa00d36f3ceaa8151584e39d387d` |
 |  `2.7.4-dev`                                | April 16th   | `sha256:b1cfbb75363b170664a1b0caa5cee0503941914eab711cd892db917a134cbc06` |
 |  `2.7.4`                                    | April 16th   | `sha256:131ca5dd9dbcfb91f7f1702dcb487a2e5d764b3ca4261c56ec93f97b7647468b` |
-|  `2.7.3`                                    | April 13th   | `sha256:efd21ca953afc981576ae3d789468b10a9e78e6770591da7895bdd7fc5f57eae` |
-|  `2.7.3-dev`                                | April 13th   | `sha256:36f90c0b5c71bcc05d6345a09c11e6c4858f6b26d19874f8c8a65557be94a3e5` |
 |  `2.7.0-dev`                                | April 27th   | `sha256:8010a5bd4f42fdf112b072d563a4aca28195ba81f383919cad600b75b539953f` |
 |  `2.7.0`                                    | April 27th   | `sha256:8bc8be1c00b8da700bca9293a2d274e98b44ef37c64d1b9ab2a9c15078a27947` |
 

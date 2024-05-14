@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the confluent-kafka Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-13 00:45:28
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 11th     | `sha256:6613868d43d9fd48af742369f888a08e62552f8255725741412348f5478362d9` |
-|  `latest`     | May 10th     | `sha256:3c2cfc567be76d735111219f5030162dbc380123ed416677ecf5453c81397ae6` |
+|  `latest-dev` | May 13th     | `sha256:801450375276d7cbe69e19f285649d941bc4b0abb268b85f6544fb4b14bd0ead` |
+|  `latest`     | May 13th     | `sha256:73c8f9542798f0bbf3af121ee6a8d60a4a37ae32ba57e6c43ce1a4e1bddae6d7` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                     | Last Changed | Digest                                                                    |
 |-------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.8.0` `7` `7.8.0.103` `7.8` `latest`                     | May 10th     | `sha256:72a577333981ae6318b8c1815a5cb0e7583176a379f984b40484bac274d337bc` |
-|  `7.8-dev` `latest-dev` `7.8.0.103-dev` `7-dev` `7.8.0-dev` | May 10th     | `sha256:83def0a53276f8f5e4211c35b15ccab6151e1caa9eafe973c4ae98c62a830542` |
+|  `latest-dev` `7.8.0-dev` `7-dev` `7.8.0.103-dev` `7.8-dev` | May 13th     | `sha256:fedd8a79caed0dc6a851161c48dfcd5d686de6e1d7c2f5ba8aa904d1451b745b` |
+|  `7.8.0.103` `7` `latest` `7.8` `7.8.0`                     | May 13th     | `sha256:dd1701fa3da5896f5a11ef2aa7aca96e385d1aa8ef15cc6979b2dd9658633443` |
 |  `7.8.0.9`                                                  | May 2nd      | `sha256:1965d0048e0f94a54575340b782fbcbc8c7781db83ee1ce6c464e2cd19c8f48b` |
 |  `7.8.0.9-dev`                                              | May 2nd      | `sha256:2bdb11936d70f2db2fc5fcd506bfffc9b2a6153e596e5d06496cbc37f99b6573` |
 

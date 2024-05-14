@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mysqld-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-13 00:45:28
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 2nd      | `sha256:f56f5086d17b3860ba00dfa4993d0befd2e4ad854ecb9087998e0de8fbab6ef5` |
-|  `latest-dev` | May 2nd      | `sha256:d6e028d238ecf5569222cfe8adc3b72ddbc352c21a206eaeab5b94cbca319888` |
+|  `latest-dev` | May 13th     | `sha256:edc1a59435fdffdbc7161fb5de134a4e23ca6ea02dff817acdab8b15ba55c992` |
+|  `latest`     | May 13th     | `sha256:dd4ec0eb5631841bb603ea82d3c2053fac7e9402b1dd59189d105082c0f37d3c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.15.1-dev` `0.15-dev` | May 10th     | `sha256:1e413f0b244c4e3bf534d74f3ed21ece439b04fa6c9c30bbbc15e653c8353640` |
-|  `latest` `0.15` `0.15.1` `0`                 | May 10th     | `sha256:2e2e014a325653ccf78094a37c9b2f0db5a2dd843cb56b918f4be6797721c719` |
+|  `0` `latest` `0.15.1` `0.15`                 | May 13th     | `sha256:f0bdc43e0d36cae7c9890b285de3ee5bddc6b06ed1afad5a985e1c49301f479e` |
+|  `0.15.1-dev` `0.15-dev` `latest-dev` `0-dev` | May 13th     | `sha256:52d65eb797d8c61cf3c91db955075fc82ab12934f15367d164bae30576b52ef1` |
 

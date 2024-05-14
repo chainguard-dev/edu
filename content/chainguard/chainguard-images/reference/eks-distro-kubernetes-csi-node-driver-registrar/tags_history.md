@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-node-driver-registrar Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-13 00:45:28
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                  | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2.10.0-r5-eks-1-25-33-dev` `2.10-eks-1-25-33-dev` `2.10.0-dev` `2-eks-1-25-33-dev` `2.10-dev` `2.10.0-eks-1-25-33-dev`                 | May 13th     | `sha256:530dcafd1af6e370fc00f9b982f5746063dc5666777cdc153137e27f9ad1ade7` |
+|  `2.9.0-r8-eks-1-23-33-dev` `2-dev` `2.9-eks-1-23-33-dev` `2.9.0-dev` `2-eks-1-23-33-dev` `2.9.0-eks-1-23-33-dev` `latest-dev` `2.9-dev` | May 13th     | `sha256:532abd0cc84c180429ccc270e12a43b74ee2ee948be10ae4f95be50ccf0f85f2` |
 |  `2.9.0-eks-1-23-33` `2.9.0` `2.9.0-r8-eks-1-23-33` `2-eks-1-23-33` `2.9` `latest` `2` `2.9-eks-1-23-33`                                 | May 10th     | `sha256:186c722a7c0bdf8f503439908ec29de3dbc708acb581611b0a58e98e58b5ced0` |
-|  `2.10.0-eks-1-25-33-dev` `2-eks-1-25-33-dev` `2.10.0-dev` `2.10-eks-1-25-33-dev` `2.10-dev` `2.10.0-r5-eks-1-25-33-dev`                 | May 10th     | `sha256:e3a2e8d5abd77d3e1b80af62fd3f0130487b37efb5b1d5b08213098771d9fd12` |
 |  `2-eks-1-25-33` `2.10` `2.10.0` `2.10.0-eks-1-25-33` `2.10-eks-1-25-33` `2.10.0-r5-eks-1-25-33`                                         | May 10th     | `sha256:4831136da3573a869120383a3e3e84ca895bf9959a1e7fd64304dba5d7e9fde2` |
-|  `latest-dev` `2-eks-1-23-33-dev` `2.9.0-r8-eks-1-23-33-dev` `2-dev` `2.9.0-eks-1-23-33-dev` `2.9-dev` `2.9.0-dev` `2.9-eks-1-23-33-dev` | May 10th     | `sha256:34cbc13b95242972793e8c70fe9866d4674e57a8a75508ddd4b148d2ea4c39b5` |
 |  `2.9.0-r7-eks-1-23-33-dev`                                                                                                              | May 2nd      | `sha256:d0e30cc27ea87cb43183824a672aca69fab0675d620e874494113d9bbffcfbb7` |
 |  `2.10.0-r4-eks-1-25-33-dev`                                                                                                             | May 2nd      | `sha256:8c3cce113a02466a683d44b51d3a6eab28e5e40c1f2cc0f5ad268497f4e7cc5c` |
 |  `2.9.0-r7-eks-1-23-33`                                                                                                                  | May 2nd      | `sha256:4150b68c745cbd75638ff659505cd2cf35dd5dba4c9730d1ea39feb78abbd198` |

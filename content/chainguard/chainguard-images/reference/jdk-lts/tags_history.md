@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jdk-lts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-13 00:45:28
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 10th     | `sha256:3fc9784ef2cd18eab5c6a3eb60585611b6acb409b810a704b5a37a54c053aa61` |
+|  `latest`     | May 13th     | `sha256:4d09bd0e270db50131d76b816106b308c5c63060d2e60650e3c8d548ce5af6a8` |
 |  `latest-dev` | April 17th   | `sha256:78003a57667a673d2dcbd6d6cdfe8352098c97649085836183b19a8a7bb586a0` |
 

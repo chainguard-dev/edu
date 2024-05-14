@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crane Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 13th     | `sha256:773bb28a7a970f55ddb9df5d9574c070a29be0093ac521f93c7dc8cdfc8342db` |
 |  `latest`     | May 9th      | `sha256:0a3d69409cb0f6d229f64ea90478ca87ac1af0e235665abd205014db2aac769e` |
-|  `latest-dev` | May 9th      | `sha256:8c2f7477a910c24bbcce01a795abb4398dad68a86a1846aa86f0c39367dc9fa2` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.19-dev` `0.19.1-dev` `0-dev` | May 9th      | `sha256:7f993f46d105f399c677b2770c0410f6de1299e816791a09a3ee4da5baec153a` |
+|  `0.19.1-dev` `0-dev` `latest-dev` `0.19-dev` | May 13th     | `sha256:cabe63d8891433ab28b2aed81f6104d65ea382326ef3fbd845cfe1f5477e1b29` |
 |  `0.19` `latest` `0` `0.19.1`                 | May 9th      | `sha256:443a0e12a9f51b2448c4611b1bd06b1e4b768d459065e0d66f4dda0aa12968a2` |
 |  `0.14.0` `0.14`                              | May 6th      | `sha256:d02e486fbe6d7c753bbe6effd354b679accea3ed87096fad4448c76562b0b5a2` |
 |  `0.14.0-dev` `0.14-dev`                      | May 5th      | `sha256:d71c34a72a2f9fc4128806593adfee2b5e090fca5b2ddf68f4cd04dab7085427` |

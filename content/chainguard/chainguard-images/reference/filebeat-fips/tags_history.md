@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the filebeat-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-13 00:45:28
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8.13.3-dev` `8-dev` `latest-dev` `8.13-dev` | May 10th     | `sha256:e05446b18b02e9b0bed7bec1b46f335c77c42f0977723c4c8b2fe0d69dc9a526` |
-|  `7.17-dev` `7-dev` `7.17.21-dev`             | May 10th     | `sha256:453faeb175343d9087c55de1e431be4810c4504af43362add9f1432ba412ffd5` |
-|  `8.13.3` `latest` `8` `8.13`                 | May 10th     | `sha256:735ee46d395958e7c97e6c0ed3a05f4b3758ddc8171bc42d7cd2daa9819d8f34` |
-|  `7.17` `7.17.21` `7`                         | May 10th     | `sha256:0f1a36b0fc174b3ce69ba68d1e77d31cd956306b31882c4fa3a15a56179e0700` |
+|  `8.13.3` `8.13` `8` `latest`                 | May 13th     | `sha256:a75e1fbe29eef557f56113b31d6ac98f1b075e3a92c2dcb0171ee38b30282977` |
+|  `7.17.21-dev` `7-dev` `7.17-dev`             | May 13th     | `sha256:e466b476d20d20f9b4f02a63f3540e9b3b2a8b63a467ed4e9dc91b93d8dd785f` |
+|  `latest-dev` `8.13.3-dev` `8-dev` `8.13-dev` | May 13th     | `sha256:66a4ba80204ba0324f242e493b2b87011cc7303ed38acae90362a533b8846327` |
+|  `7.17.21` `7.17` `7`                         | May 13th     | `sha256:25bb3a782bc962c11e1fb210da7305895e16ec62b70c3a446b30ce35c573cf0d` |
 |  `8.13.2-dev`                                 | May 2nd      | `sha256:bd32489430ab5ec529cfa17dd9ca9273161b34cc3e473fd5385d66456200ea1b` |
 |  `7.17.20`                                    | May 2nd      | `sha256:02437354cd754ad19a67850b99e8a2496b4b3c4b8615be04455967ca5a62d386` |
 |  `7.17.20-dev`                                | May 2nd      | `sha256:ea61899b3340c2597d7c17891ed4171abb119d0a8371c011d95ebe72a4bddf09` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-elasticsearch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-13 00:45:28
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 2nd      | `sha256:6baa6c539c7520cf11135048e4b22022b87e944fedb7bfb35990a92f19be4c70` |
-|  `latest-dev` | May 2nd      | `sha256:c75243972fb57596a9e4b216a2ca4ea943af6515cad69c4b4fba42578df57a09` |
+|  `latest`     | May 13th     | `sha256:7381d31baf81065ca2cadc4aae7fad9640667ffd91432eb674dd8e620ea03141` |
+|  `latest-dev` | May 13th     | `sha256:4bd15beab2e05824107d1cbc6a6a582cb25139f09043532664898b5dbf82448b` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1.7.0` `1.7` `1`                 | May 10th     | `sha256:8dbf0c0a1334e062364d6dbe2238ee7e02d34249efdcc3ee891f29adc5da24db` |
-|  `1.7-dev` `1-dev` `1.7.0-dev` `latest-dev` | May 10th     | `sha256:3230d99bbdbdee1a9fb68647fb8be0f0e23d6a827600cf207c1723033a530df7` |
+|  `1-dev` `1.7.0-dev` `latest-dev` `1.7-dev` | May 13th     | `sha256:7c30b2327a4549d2d19d6950720481415677ee544f456e11bfd0385b9a959841` |
+|  `latest` `1.7.0` `1` `1.7`                 | May 13th     | `sha256:51dc753547912b3587f54da550834dd5f9fe066ddef97ff7572076c2837ab598` |
 

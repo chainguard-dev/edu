@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-13 00:45:28
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 2nd      | `sha256:da8389cf9b615e0b3d4594dae49070e798633801235e23eaf54eb89014380ebd` |
-|  `latest`     | May 2nd      | `sha256:8427f4f8f8b5ead044b55bc395f48c92f07f83f0afe2efe3dea3eba1a4cb7202` |
+|  `latest-dev` | May 13th     | `sha256:48d7ddf5fc67897f9c1a1edeb5f742f06641490b704a35480f6ff448c46c6ca0` |
+|  `latest`     | May 13th     | `sha256:1cd3af949e5922211ac83a1f238fa7918aff8d6a3c995eb35469113590cbce0c` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2` `latest` `2.51.2` `2.51`                 | May 10th     | `sha256:892f37ebd01e3e5ea9c403f6a780b857b16dc806cf9dd84c8907b34dd6aeea46` |
-|  `2.51.2-dev` `2-dev` `2.51-dev` `latest-dev` | May 10th     | `sha256:b506d04a2f18195f1639a200af1caa6141a196c9301285f75e66becab6f81914` |
+|  `2.52` `2` `latest` `2.52.0`                 | May 13th     | `sha256:0dfa19ece5cadf7bdf2c699e4bb27c170535f7d64fabaff4bbf7756631d681ea` |
+|  `2.52.0-dev` `2.52-dev` `latest-dev` `2-dev` | May 13th     | `sha256:94bd937792b5f4d4250de7737bd849a6d7d0780ed1cdacc100982afb81145d8f` |
+|  `2.51.2-dev` `2.51-dev`                      | May 10th     | `sha256:b506d04a2f18195f1639a200af1caa6141a196c9301285f75e66becab6f81914` |
+|  `2.51.2` `2.51`                              | May 10th     | `sha256:892f37ebd01e3e5ea9c403f6a780b857b16dc806cf9dd84c8907b34dd6aeea46` |
 |  `2.43.0`                                     | May 5th      | `sha256:e87632e1eb82d9d946f6123c0b97ff547c72697152075073e71033067be30e98` |
 

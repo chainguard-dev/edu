@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nvidia-container-toolkit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 9th      | `sha256:7b7d3680dfaae360b53eaef10c4023360f3500b3acad4db63fe914f72ab47c02` |
-|  `latest`     | May 9th      | `sha256:5919d3bfe74bfcc46c1db9c0e62a977efcc0da76c4b89cdaa9b7ca0e32d2bb81` |
+|  `latest`     | May 13th     | `sha256:7c51de52cfa6d481306810b32854a0af2b8a0cdb4675e3e56603a3ec35235963` |
+|  `latest-dev` | May 13th     | `sha256:c6d36da995ed644fd8be3571d6e1b1842dfe5d4e52b09832a1ed577640a8ef00` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.15` `1.15.0` `latest` `1`                 | May 9th      | `sha256:5aabc2e472fadd64538a3cf78ce400e63f056268bb806ac2232e4e76578ffbc5` |
-|  `1-dev` `latest-dev` `1.15-dev` `1.15.0-dev` | May 9th      | `sha256:011d27c20600bae0b4a4715442b4e18da8b3a9a482c80f83b7b0c78afe1329a3` |
+|  `1.15.0` `1` `latest` `1.15`                 | May 13th     | `sha256:3e33d4d2fd266d49133ec0eb300aac0e43d6b46b0f7aa29da7f4ce70dd7b4819` |
+|  `latest-dev` `1-dev` `1.15.0-dev` `1.15-dev` | May 13th     | `sha256:4c62be3f571a9b186ddffc2c93393535733c8d939d91364f3f65be48b9ac8f0a` |
 

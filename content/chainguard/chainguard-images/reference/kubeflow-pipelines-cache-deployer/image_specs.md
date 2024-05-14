@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public kubeflow-pipelines-cache-deployer Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -45,7 +45,7 @@ The table shows package distribution across variants.
 | `git`                                      | X          |        |
 | `glibc`                                    | X          | X      |
 | `glibc-locale-posix`                       | X          | X      |
-| `kubectl-1.29`                             | X          | X      |
+| `kubectl-1.30`                             | X          | X      |
 | `kubectl-latest`                           | X          | X      |
 | `kubeflow-pipelines-cache-deployer`        | X          | X      |
 | `kubeflow-pipelines-cache-deployer-compat` | X          | X      |

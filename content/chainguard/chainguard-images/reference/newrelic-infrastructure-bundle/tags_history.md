@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-infrastructure-bundle Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-13 00:45:28
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 9th      | `sha256:acb881ff2e1f50685f1a984738be351779d57914b13b9d654e24ccea96bdc9dd` |
-|  `latest`     | May 9th      | `sha256:3cfd558829e494d6cb9d397dbcbbd5296a220fab989fc19e9206145c70957656` |
+|  `latest-dev` | May 13th     | `sha256:d39649ecb6adc36b88d64293c482e1b1c9129e607421e0c856c29aa4c34ee4c8` |
+|  `latest`     | May 13th     | `sha256:acece4d8a5f8085a63d5133a8b3256475f31992376c0287514a2db3e08bdbd9d` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.2-dev` `3-dev` `latest-dev` `3.2.41-dev` | May 10th     | `sha256:72c8ca6fd22695eed3adc59fbb53dc3b85aed2ae95cf9765d4ee17c6f7f7b0b6` |
-|  `3` `3.2` `latest` `3.2.41`                 | May 10th     | `sha256:f079535de634e99f8d4049612254c3f87198ca5b2f25d113b8843ce805aca5e1` |
+|  `3.2` `3` `latest` `3.2.41`                 | May 13th     | `sha256:d540df7c680450c08a8d567dac0538a1680f92dd82f8ff9bf27030e23878231c` |
+|  `3.2.41-dev` `3.2-dev` `3-dev` `latest-dev` | May 13th     | `sha256:b4cf9dd5b87b60bdc3beaf31fe17cf36384dbda7b6ae5be9c31767d14d37d972` |
 |  `3.2.40-dev`                                | May 8th      | `sha256:98b90b20a828887acd3ffc1eb014339470534fc4f64429cbb1748db97090859c` |
 |  `3.2.40`                                    | May 8th      | `sha256:afd1eb5d335eefb180ce131486fd794e515596ee5370444f09e2734f2d58dda3` |
 |  `3.2.39-dev`                                | May 2nd      | `sha256:749845915904296ee7af5f2b183166d985e6440a415fb9d833514296436b000a` |

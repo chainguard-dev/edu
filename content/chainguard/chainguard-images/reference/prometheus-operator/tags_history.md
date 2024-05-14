@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-13 00:45:28
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 2nd      | `sha256:3efb5df7fbe309459ea858af753d84402adf6e2ce5fe2cfd34e4521bd0e216b3` |
-|  `latest-dev` | May 2nd      | `sha256:2f97d9d27087a41d132d44814070e5cbdd9880be9d94155000b0fe3288cf26cd` |
+|  `latest`     | May 13th     | `sha256:5b9f17f08cb0e5fb276948d62901227477d1360de7d5d2cbc10be95be6b0a852` |
+|  `latest-dev` | May 13th     | `sha256:03a16f44169ab7e6f061578f18d838f1eb7f7f5e2515f984c8df91c0ce2af508` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.73.2-dev` `0-dev` `0.73-dev` | May 10th     | `sha256:50c8853c844e863ff423c8dfb983b4ca426727607d73c120230365e6bf8beb0e` |
+|  `0.73-dev` `0.73.2-dev` `latest-dev` `0-dev` | May 13th     | `sha256:219099e2e084994fee2fbdabd5b2ded04e9862132d38ff37905863b45097c860` |
 |  `0.73.2` `0` `latest` `0.73`                 | May 10th     | `sha256:9c9823f248adbc013044761ae6dcc12ef3873fa3789d5478d4046bffc5893b00` |
 |  `0.65.0`                                     | May 5th      | `sha256:01357056682816b64a8ebbc7df9bf7a65531d7b04c3964b6d991f9e8c3e4a91f` |
 |  `0.64.1` `0.64`                              | May 4th      | `sha256:0ce575cd2fe2a4fb44ecb732aa66058283bc0757313c0515f39fe489a2dd735b` |

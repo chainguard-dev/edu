@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opentofu Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-13 00:45:28
+lastmod: 2024-05-14 00:46:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 8th      | `sha256:7183486530aa7abb1fdbb293b7e9bf92bbec7a6cd64a85b177761b71b4536ae8` |
-|  `latest`     | May 8th      | `sha256:f0d475a463a7cddbfe518064f460e47ee896e2be1a08b411354dcbc0386fdc3f` |
+|  `latest`     | May 13th     | `sha256:bbd952586b66aa82e59e60f6032deafe080da126575eb022934fee64e5e272dd` |
+|  `latest-dev` | May 13th     | `sha256:bc0e48b935a7974be58de314fe4bdcf446035d1aedfc0426654e582434df6880` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.7.1-dev` `latest-dev` `1.7-dev` `1-dev` | May 13th     | `sha256:c7aa23ad4357cbc39e82607afbd79d31648d5f4f1c06f193de2e3181caf6e04e` |
 |  `1.7.1` `1` `1.7` `latest`                 | May 10th     | `sha256:1dd6044085b51e6269b70faa6aa4c348852262c0e53fb3d8a5ab8f7c53fe2f5b` |
-|  `latest-dev` `1.7-dev` `1.7.1-dev` `1-dev` | May 10th     | `sha256:69e30491b2e96e213c0bbc53edbf696acf130c965cb3164a2ed1dde1a8d27515` |
 |  `1.7.0-dev`                                | May 2nd      | `sha256:a10a134b9c6ddaa7949e7340d478d6e2cafe32c1590824115c19c3755328d2a3` |
 |  `1.7.0`                                    | May 2nd      | `sha256:c576d39d585735c7a0fa3b15bf5a5044fd028df6b1385b76f7a44d041ae1c9f4` |
 |  `1.6-dev` `1.6.2-dev`                      | April 30th   | `sha256:1a4d7c915e454428249e26b788354d8260f3db94db0894b857656c884af8d47f` |
