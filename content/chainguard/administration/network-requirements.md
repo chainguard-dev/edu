@@ -5,7 +5,7 @@ lead: "Using Chainguard Images with firewalls, access control lists, and proxies
 type: "article"
 description: "Using Chainguard Images with firewalls, access control lists, and proxies"
 date: 2023-09-08T08:49:31+00:00
-lastmod: 2024-05-06T15:22:20+01:00
+lastmod: 2024-05-14T15:22:20+01:00
 draft: false
 aliases:
   - /chainguard/chainguard-images/reference/network-requirements/
@@ -27,6 +27,7 @@ This table lists the DNS hostnames, associated ports, and protocols that will ne
 | Hostname                | Port | Protocol | Notes                                           |
 | ----------------------- | ---- | -------- | ----------------------------------------------- |
 | cgr.dev                 | 443  | HTTPS    | Main image registry                             |
+| console.chainguard.dev  | 443  | HTTPS    | Chainguard dashboard                            |
 | console.enforce.dev     | 443  | HTTPS    | Chainguard dashboard                            |
 | console-api.enforce.dev | 443  | HTTPS    | Registry API endpoint                           |
 | enforce.dev             | 443  | HTTPS    | Registry authentication                         |
