@@ -150,8 +150,7 @@ Chainguard Images are built with security in mind, from the ground up. They incl
 ```bash
 $ grype nvcr.io/nvidia/nemo:24.03.01.framework
 ```
-
-```grype
+{{< opendetails "Grype Overview" >}}
  ✔ Vulnerability DB                [updated]  
  ✔ Loaded image                    nvcr.io/nvidia/nemo:24.03.01.fram  
  ✔ Parsed image                    sha256:f7c7f1bc716000b6633d59684e4a
@@ -163,7 +162,8 @@ $ grype nvcr.io/nvidia/nemo:24.03.01.framework
  ✔ Scanned for vulnerabilities     [333 vulnerability matches]  
    ├── by severity: 1 critical, 22 high, 382 medium, 152 low, 43 negli
    └── by status:   228 fixed, 372 not-fixed, 267 ignored 
-```
+{{< /opendetails >}}
+
 {{< details "Itemized CVEs" >}}
 <table style="table-layout:fixed;width:100%;">
   <thead>
@@ -2831,7 +2831,7 @@ $ grype nvcr.io/nvidia/nemo:24.03.01.framework
 
 That's one critical, 22 high, 382 medium, and 152 low CVEs. Now let's compare with the NeMo Chainguard Image:
 
-```grype
+{{< opendetails "Grype Overview" >}}
  ✔ Vulnerability DB                [no update available]  
  ✔ Loaded image                       cgr.dev/chainguard/nemo:latest
  ✔ Parsed image                    sha256:3d20cbc0bc2cea2e0e15b982bb6f
@@ -2843,7 +2843,146 @@ That's one critical, 22 high, 382 medium, and 152 low CVEs. Now let's compare wi
  ✔ Scanned for vulnerabilities     [16 vulnerability matches]  
    ├── by severity: 0 critical, 3 high, 7 medium, 1 low, 0 negligible 
    └── by status:   11 fixed, 5 not-fixed, 0 ignored 
-```
+{{< /opendetails >}}
+
+{{< details "Itemized CVEs" >}}
+<table style="table-layout:fixed;width:100%;">
+  <thead>
+    <tr>
+      <th>NAME</th>
+      <th>INST</th>
+      <th>FIXED-IN</th>
+      <th>TYPE</th>
+      <th>VULN</th>
+      <th>SEVERITY</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Jinja2</td>
+      <td>3.1.3</td>
+      <td>3.1.4</td>
+      <td>python</td>
+      <td>GHSA-h75v-3vvj-5mfj</td>
+      <td>Medium</td>
+    </tr>
+    <tr>
+      <td>Werkzeug</td>
+      <td>3.0.1</td>
+      <td>3.0.3</td>
+      <td>python</td>
+      <td>GHSA-2g68-c3qc-8985</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <td>aiohttp</td>
+      <td>3.9.3</td>
+      <td>3.9.4</td>
+      <td>python</td>
+      <td>GHSA-5m98-qgg9-wh84</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <td>aiohttp</td>
+      <td>3.9.3</td>
+      <td>3.9.4</td>
+      <td>python</td>
+      <td>GHSA-7gpw-8wmc-pm8g</td>
+      <td>Medium</td>
+    </tr>
+    <tr>
+      <td>black</td>
+      <td>19.10b0</td>
+      <td>24.3.0</td>
+      <td>python</td>
+      <td>GHSA-fj7x-q9j7-g6q6</td>
+      <td>Medium</td>
+    </tr>
+    <tr>
+      <td>glibc</td>
+      <td>2.39-r3</td>
+      <td>apk</td>
+      <td>CVE-2024-33602</td>
+      <td>Unknown</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>glibc</td>
+      <td>2.39-r3</td>
+      <td>apk</td>
+      <td>CVE-2024-33601</td>
+      <td>Unknown</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>glibc</td>
+      <td>2.39-r3</td>
+      <td>apk</td>
+      <td>CVE-2024-33600</td>
+      <td>Unknown</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>glibc</td>
+      <td>2.39-r3</td>
+      <td>apk</td>
+      <td>CVE-2024-33599</td>
+      <td>Unknown</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>idna</td>
+      <td>3.6</td>
+      <td>3.7</td>
+      <td>python</td>
+      <td>GHSA-jjg7-2v4v-x38h</td>
+      <td>Medium</td>
+    </tr>
+    <tr>
+      <td>onnx</td>
+      <td>1.15.0</td>
+      <td>1.16.0</td>
+      <td>python</td>
+      <td>GHSA-whh8-fjgc-qp73</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <td>onnx</td>
+      <td>1.15.0</td>
+      <td>1.16.0</td>
+      <td>python</td>
+      <td>GHSA-h8wv-9h96-m4hr</td>
+      <td>Medium</td>
+    </tr>
+    <tr>
+      <td>pillow</td>
+      <td>10.2.0</td>
+      <td>10.3.0</td>
+      <td>python</td>
+      <td>GHSA-44wm-f244-xhp3</td>
+      <td>Medium</td>
+    </tr>
+    <tr>
+      <td>python-3.11</td>
+      <td>3.11.9-r2</td>
+      <td>apk</td>
+      <td>CVE-2024-4030</td>
+      <td>Unknown</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>tqdm</td>
+      <td>4.66.2</td>
+      <td>4.66.3</td>
+      <td>python</td>
+      <td>GHSA-g7vv-2v7x-gj9p</td>
+      <td>Low</td>
+    </tr>
+  </tbody>
+</table>
+{{< /details >}}
+
+
 
 ## Notes on the Script
 
@@ -2861,22 +3000,5 @@ A few other notes on the script:
 - The script checks whether CUDA is available. If CUDA is not available, the script will run on CPU.
 - The Tacotron2 model was trained at 22050 Hz. The script uses the `write` function from [scipy.io](https://docs.scipy.org/doc/scipy/reference/io.html) to write the audio to file, setting the rate to 22050.
 
-
-
-
-
-
-
-
-
-
-
-To fine-tune a model for image classification as we did here, you can replace the provided training and validation data with your own. The script examines the number of folders in the training set to determine the targeted number of classes. The folder names are used as class labels. We used 40 training and 20 validation images for each class, but a ratio of 5:1 training to validation may also produce good results. 
-
-By fine-tuning a pretrained model, we took advantage of transfer learning, meaning that the pretrained model (resnet18) was already trained on inputs with relevance to our classification task. Because we used transfer learning, the relatively small amount of input data was still sufficient for good accuracy in our fine-tuned model. If you're working with a large amount of input data, you might consider using a larger pretrained model, such as resnet34. In addition, if training using significantly more data or training using limited computation relative to the task, you may consider the more efficient convolutional neural network as fixed feature extractor approach, which trains only one attached layer rather than updates the original model.
-
-PyTorch maintains a [set of guides](https://pytorch.org/tutorials/) that are frequently updated. These provide a good starting point when undertaking a new project in PyTorch. If you're new to the field of deep learning, the book [Deep Learning for Coders with Fastai and PyTorch](https://course.fast.ai/Resources/book.html) hosts [freely available materials on GitHub](https://github.com/fastai/fastbook.0).
-
-
-
+## Further Resources
 
