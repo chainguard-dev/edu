@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public guacamole-server Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -61,9 +61,9 @@ The table shows package distribution across variants.
 | `harfbuzz`                | X          | X      |
 | `ld-linux`                | X          | X      |
 | `libasyncns`              | X          | X      |
-| `libavcodec60`            | X          | X      |
-| `libavformat60`           | X          | X      |
-| `libavutil58`             | X          | X      |
+| `libavcodec61`            | X          | X      |
+| `libavformat61`           | X          | X      |
+| `libavutil59`             | X          | X      |
 | `libblkid`                | X          | X      |
 | `libbrotlicommon1`        | X          | X      |
 | `libbrotlidec1`           | X          | X      |
@@ -97,8 +97,8 @@ The table shows package distribution across variants.
 | `libsndfile`              | X          | X      |
 | `libssh2`                 | X          | X      |
 | `libssl3`                 | X          | X      |
-| `libswresample4`          | X          | X      |
-| `libswscale7`             | X          | X      |
+| `libswresample5`          | X          | X      |
+| `libswscale8`             | X          | X      |
 | `libtelnet`               | X          | X      |
 | `libtheora`               | X          | X      |
 | `libunistring`            | X          |        |

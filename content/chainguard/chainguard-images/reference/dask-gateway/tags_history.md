@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dask-gateway Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-14 00:46:23
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 14th     | `sha256:09e87a4772e24b55abd02822fdbf8761673a2f2c4764f902d9b7776c6d702f7f` |
 |  `latest`     | May 13th     | `sha256:ec48a35c29bc5d7ff3118cb6d009c60666b7e27afac6292faf87c90921cc2324` |
-|  `latest-dev` | May 13th     | `sha256:e7317501e82a76d09b54685fcd32d7f3a8d91b598720d2de61410d6314b7456d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                              | Last Changed | Digest                                                                    |
 |------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2024-dev` `2024.1.0-dev` `2024.1-dev` | May 13th     | `sha256:a6681445fc4670284cf3a95c6c33aba82ca9fe8b7a97fc6be56bf6507f80e27e` |
+|  `2024.1.0-dev` `latest-dev` `2024.1-dev` `2024-dev` | May 14th     | `sha256:37c26dda4b318fc99aae6524d27bc8ca367e3f3b21787aaf55860a2b88b1c8ee` |
 |  `2024.1.0` `latest` `2024` `2024.1`                 | May 13th     | `sha256:ad1a0b06736e95a65833e70fa38f2f02cd69e07b1a5874cd59a45f0ab39b4666` |
 

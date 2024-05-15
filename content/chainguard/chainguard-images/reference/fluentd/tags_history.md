@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the fluentd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-14 00:46:23
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -39,8 +39,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                      | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-splunk-dev` `1.16-splunk-dev` `1.16.5-r0-splunk-dev` `1.16.5-splunk-dev` | May 13th     | `sha256:66e2010183c510e0cdb6f9be54557252b7c839581a72ac97a34515a906f417d6` |
+|  `1.16.5-r0-splunk-dev` `1-splunk-dev` `1.16-splunk-dev` `1.16.5-splunk-dev` | May 14th     | `sha256:2cc043d14255027a8e2bd3ae2085293603709547bf825ed95c85e0ea624ab592` |
+|  `1.16.5-dev` `1-dev` `1.16-dev` `latest-dev`                                | May 14th     | `sha256:806cc2d0de154dbd69abea9a1df87c334c8b808fbf548f420ade0ff0ce845098` |
 |  `1.16-splunk` `1.16.5-splunk` `1-splunk` `1.16.5-r0-splunk`                 | May 13th     | `sha256:108a45f2731a99a830b1467f2132e8379aac4bf18f4808e51863c5d252292e61` |
-|  `1.16.5-dev` `latest-dev` `1-dev` `1.16-dev`                                | May 13th     | `sha256:3cb0ef074df346a0071dd000abb753c261401abf70da27f4719a0fd21acf3c1c` |
 |  `latest` `1.16` `1.16.5` `1`                                                | May 13th     | `sha256:0c6d2bb8277db0bb672e66a151ca3d14fd0d2b53eb63842ee0c0e7a2fbce6ea8` |
 

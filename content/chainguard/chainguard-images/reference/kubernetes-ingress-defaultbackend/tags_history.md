@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-ingress-defaultbackend Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-14 00:46:23
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 13th     | `sha256:aebbdde741288618270c61fade3255034efb4a0c9c1c3b0666b5a0a08dbe3d4d` |
+|  `latest-dev` | May 14th     | `sha256:7089fc95dc05dfbd5e9a341ba3818718e843cb2ac9d5a6b32b5354b62409ef84` |
 |  `latest`     | May 8th      | `sha256:631a5c07c8ddccc626cdd3e3dc1afbd070629b1161e0855a3d23c2ce00e0f01b` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.29-dev` `1-dev` `1.29.1-dev` | May 13th     | `sha256:c2cae00d007714072f13b0b9fa34e3c7a52be0be00355027f93571ea94976a63` |
+|  `1.29-dev` `latest-dev` `1.29.1-dev` `1-dev` | May 14th     | `sha256:94ef084fbcb6c48963ce36f8749172704aaf71631b1b5b0f0d3358825b48fd2f` |
 |  `1.29.1` `1` `latest` `1.29`                 | May 8th      | `sha256:b6c4de343ee5ccf3ba47f4eac30c62995fc9908d98cf8a78910dc0bc999803c6` |
 |  `1.29.0-dev`                                 | May 2nd      | `sha256:57c0a027a33dfb865591f30d47e49f118ee02886f90666e09705a5518ab94668` |
 |  `1.29.0`                                     | May 2nd      | `sha256:6b96e3c05ba7bd4cd6733c2f77bf69aa761ff39fde399abc3ac28fdc8d28648a` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the timestamp-authority-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-14 00:46:23
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 13th     | `sha256:ec6a99c080369a50187f47c74648913ecb8d51403aeb813de91a38aba23225b6` |
+|  `latest-dev` | May 14th     | `sha256:3ef76e5a43aaa73b1538f3e9a98e8a0b9502a417cb48452f4527f99d66cbeb9f` |
 |  `latest`     | May 10th     | `sha256:8506af41d3b139593c5d86c07ad8437d91bb904551359310ca4110f39ec226ac` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.2-dev` `1.2.2-dev` | May 13th     | `sha256:0c2dae7f782b5512df230f8d3f7d1b24135b397815682c8beaca0226cd2c2dc7` |
+|  `1.2-dev` `latest-dev` `1-dev` `1.2.2-dev` | May 14th     | `sha256:75a8452355a16305bee75a6859c5c6e9120932aed7fbad7e5a1af7c58867f8f8` |
 |  `1.2` `1` `latest` `1.2.2`                 | May 10th     | `sha256:7b59e4fe65b91073b722c74cd0f1ad16df7d37fd4b890c280b9f41c255e21841` |
 

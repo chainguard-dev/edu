@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cosign Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-14 00:46:23
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 13th     | `sha256:df4a19f5e8774c1e93e66604e52e1f21001be42dda0c78ae6d2efda61bb69da3` |
+|  `latest-dev` | May 14th     | `sha256:55e91b70d645a0a02e079fd7f8671ec7cdb518b85312cb6ff2afcbff0dd2cc2e` |
 |  `latest`     | May 13th     | `sha256:76811e01b592cf518801e3d6bb490f9a1ff8831ab9142411c010ccd11176da70` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2-dev` `latest-dev` `2.2-dev` `2.2.4-dev` | May 14th     | `sha256:5b5f1f576cffa99f6ae78195e00ce54f99fa03efa0999b06730d8d50325c1018` |
 |  `2` `2.2` `latest` `2.2.4`                 | May 13th     | `sha256:13d8cac50b538a54161b4d2813edeb6cb28c4b0ed5a3fd951011eac6f9000cef` |
-|  `2.2.4-dev` `latest-dev` `2-dev` `2.2-dev` | May 13th     | `sha256:40e1290e9b788a2ec60b52a08d96f86c67545fa30ddbb9a3e63a0d8bb3782b7d` |
 |  `2.0.1-dev`                                | April 25th   | `sha256:0f8ffca811eab50fbca70379a3316113075cc46b8a09e880f7d831bdb66f689e` |
 |  `2.0.1`                                    | April 25th   | `sha256:1418e13c3479d1a8d068325a97a4a4fbf437d12cb6d5fbfb7160c2f40a239e0b` |
 

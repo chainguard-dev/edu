@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the chromium Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-14 00:46:23
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 13th     | `sha256:3fa9bd49b7a860cfa861ae99cba04af5cce5aad149d0312101ffa8ba249a7ffe` |
-|  `latest`     | May 13th     | `sha256:a942add3523fe127dfc1b61930d4dc2f752bfb68381efe639f58cdb8925fbbb4` |
+|  `latest-dev` | May 14th     | `sha256:18094715a4517b0127aa85dc29fbaa75d2c60e59a70646bb2522bf258ebe8c8b` |
+|  `latest`     | May 14th     | `sha256:b2a9b6b3375c621f202fbed5499856c83e4a51d78a1af52d1e6bd205b3225b48` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                   | Last Changed | Digest                                                                    |
 |---------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `124.0.6367.201-dev` `124.0.6367-dev` `124-dev` `124.0-dev` `latest-dev` | May 13th     | `sha256:7a4b2cfcd3c2bbb60f218931fc6dd11a98455fbc0768d1de30f39c4f7a5b662a` |
-|  `124` `124.0` `latest` `124.0.6367` `124.0.6367.201`                     | May 13th     | `sha256:b5104ce5f54b887c5be6430a371743a5fe28d43c41e0bba433dbfc67874943e0` |
+|  `124.0.6367` `124` `124.0` `latest` `124.0.6367.201`                     | May 14th     | `sha256:a571ee37601bf08a9c5710d52a53a27d71d6aadbadf9782112c64c0a5f143d73` |
+|  `124.0-dev` `latest-dev` `124.0.6367.201-dev` `124.0.6367-dev` `124-dev` | May 14th     | `sha256:d802075119672e7cf697773f5c9ffe24cd81bfaec5b121cc0d3056b32fcc6f1c` |
 |  `124.0.6367.91`                                                          | May 13th     | `sha256:c617a48badfea0fc2de964f68b2b3f66631376abb3664717e8647860f4e37d76` |
 |  `124.0.6367.91-dev`                                                      | May 13th     | `sha256:88b671360027f791d2489e8c5ac2a2bcda24207f1126b59f64f02e4bf2adf16e` |
 |  `124.0.6367.60-dev`                                                      | April 26th   | `sha256:e3e8fa4482fcb120b39dac8477afb7c5f225f7bfe09930a28ee9b5a8e13f834f` |

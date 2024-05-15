@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-dns-node-cache Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-14 00:46:23
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | April 24th   | `sha256:40c8f68b43973a9604599fb2769c5a427b4e99fe059191ed06cb358834f99120` |
+|  `latest` | May 14th     | `sha256:b7b14ec7540b110250c275e1fcacee303fba86f90113e7ccdd05688a4166b8f1` |
 
 
 ### Private/Dedicated Registry
@@ -36,8 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.23-dev` `latest-dev` `1.23.0-dev` `1-dev` | May 13th     | `sha256:92aaf778dc1a51d7863ad53eb0fc3b3384401981c7cf712b0c1943fa0a8ba6a8` |
-|  `1.17.4-dev` `1.17-dev`                      | May 13th     | `sha256:0df63089b9b83f2d2500614aed6dd096319824336575f3d512dbc01d40ef4446` |
+|  `1.23-dev` `1-dev` `latest-dev` `1.23.0-dev` | May 14th     | `sha256:8b230ade62ac5adcf3a93df9606d168ee14974e7b7c39618a3b3b9bd4436ef04` |
+|  `1.17.4-dev` `1.17-dev`                      | May 14th     | `sha256:491b17637a066c13406dbe8c9e135f9b66bb047d8baf429b781d05e390cea36b` |
 |  `1.23.0` `latest` `1.23` `1`                 | May 10th     | `sha256:cd3fd8ea54bc049b9a29a3e801850d2034e6740be200aeb042a6774c512e7b7f` |
 |  `1.17.4` `1.17`                              | May 9th      | `sha256:a4acc13111b86ff482de4b36f2dd6223742123ee0ff1dd4e283cd61e2f5c1d24` |
 

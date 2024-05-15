@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-infrastructure-k8s Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-14 00:46:23
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.13-dev` `latest-dev` `2.13.15-dev` | May 13th     | `sha256:ca02c667daf903339cb2535347991505d7559cd6fad93b5e7f768837c04b976f` |
-|  `latest` `2` `2.13.15` `2.13`                 | May 13th     | `sha256:16190c74c941a3baf590b35859a470acedb563a78bf5ca23fccb063895463043` |
+|  `2-dev` `2.13-dev` `latest-dev` `2.13.15-dev` | May 14th     | `sha256:271a0b059f332fc62354ea8928213f8bea5262496aba73439fdada65a266222b` |
+|  `2` `latest` `2.13.15` `2.13`                 | May 14th     | `sha256:15b4450e9e629c4ca0052413c2eac26875a68b01723f89731c8e6dae9b0c7d8d` |
 

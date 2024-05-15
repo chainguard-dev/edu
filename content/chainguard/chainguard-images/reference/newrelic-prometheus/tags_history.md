@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-prometheus Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-14 00:46:23
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 13th     | `sha256:a9f8d449eccf127fff5bc49fc5e2ce04d32c5862aa3e1538e2bc13f15a0b6a33` |
+|  `latest-dev` | May 14th     | `sha256:4f34fab2e5139a54dc5fea62192fb2d71d85eac4b45ca5bbb0762613154f8502` |
 |  `latest`     | May 13th     | `sha256:134d2e4dde642c7f4a64a3b97b15ab7dc8855e0f47cad64f12980a1960a8c466` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2-dev` `latest-dev` `2.21.1-dev` `2.21-dev` | May 14th     | `sha256:7d6624659b95920e05c6b5500d4b241f73cf9125b43a164a9996cc098160419c` |
 |  `latest` `2` `2.21` `2.21.1`                 | May 13th     | `sha256:3ade96b2b269f1456b4ccde619aa5ef5e169e5eb0bc420348e36c1cfcb961576` |
-|  `2-dev` `2.21.1-dev` `2.21-dev` `latest-dev` | May 13th     | `sha256:d26d20593cb69b27d9d3ff6c3feb585f28e786694043151bae6a0d2ef4cbb6fb` |
 |  `2.21.0`                                     | May 1st      | `sha256:fe724b41f779ad42ee7b38ff973485cc4b080941a824bc8a85d33e29e1300a45` |
 |  `2.21.0-dev`                                 | May 1st      | `sha256:24b57692adb673c78f4e7109e17087c3121cff053960e02ffa60e1a864e25afc` |
 

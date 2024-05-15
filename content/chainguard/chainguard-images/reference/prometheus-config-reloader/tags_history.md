@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-config-reloader Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-14 00:46:23
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 13th     | `sha256:c1987e3c5409693538a11223cdb1f5ab4e768c981ed5a564640e424c7c191ff4` |
+|  `latest-dev` | May 14th     | `sha256:6259d60559fd5cc4662618134e7c240e059bfef57a4e67ce1651f388abc9341b` |
 |  `latest`     | May 13th     | `sha256:79bcd68cdfc0f4579b379e53f2620dbb6792563c941c0cddd5b54ca8dca44002` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.73.2-dev` `latest-dev` `0-dev` `0.73-dev` | May 13th     | `sha256:106ac2ca9f1f9c93bac5a9362bee0a5e472f422fbd1ef9a9db261fe69fce1c6d` |
+|  `0.73-dev` `latest-dev` `0-dev` `0.73.2-dev` | May 14th     | `sha256:550372bbee2c7720af4ac89a32c929af3824fea697d1c08b95d177f326c706a2` |
 |  `latest` `0` `0.73.2` `0.73`                 | May 10th     | `sha256:440791061fd9c8fd545d757d0b870d4207c3f10504313018939e22ca61e6538d` |
 |  `0.65.0`                                     | May 6th      | `sha256:bcb5a6eee2a3b9ffd37c3a72572c32916119844c4a52b8178fa163f2dcd87f44` |
 |  `0.65.0-dev`                                 | May 5th      | `sha256:a90b1f49349b64b3862616e27b06a47c8cf382526d7b45f4d85c1b1b3f446596` |

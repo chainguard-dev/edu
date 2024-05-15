@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k8s-sidecar Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-14 00:46:23
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.26` `1.26.2` `1` `latest`                 | May 13th     | `sha256:3ac5c59f8f3895522af592f515c6317be85ef3203f1216bb7fb4ad7e472f5cd2` |
-|  `1-dev` `1.26.2-dev` `1.26-dev` `latest-dev` | May 13th     | `sha256:4428eafb48f3cb326301b515d5e2faa7be1c56756a1a42532e9f69ee67f987af` |
+|  `1-dev` `1.27-dev` `1.27.1-dev` `latest-dev` | May 14th     | `sha256:d4a598b7673a7860279a15ed59b91a4590db4420c8cf57439cc2387f061f7672` |
+|  `latest` `1.27` `1.27.1` `1`                 | May 14th     | `sha256:be6670657728fc10437ab11d790525452abcff208ccefc986f7c65eff0dd5a3d` |
+|  `1.27.0-dev`                                 | May 14th     | `sha256:a44289ff3dea88c1e8432d5d1aca8f000bf3a0632de02c694ca55dcd97b0f149` |
+|  `1.27.0`                                     | May 14th     | `sha256:e5e51554acc86fa2eb61cfc2a1c8d3a9e4dfc1ab6b11a70f55945fb2d427b2c4` |
+|  `1.26` `1.26.2`                              | May 13th     | `sha256:3ac5c59f8f3895522af592f515c6317be85ef3203f1216bb7fb4ad7e472f5cd2` |
+|  `1.26.2-dev` `1.26-dev`                      | May 13th     | `sha256:4428eafb48f3cb326301b515d5e2faa7be1c56756a1a42532e9f69ee67f987af` |
 |  `1.26.1-dev`                                 | May 2nd      | `sha256:af5976619d32fac8181ae3bf1ea96a2edb30019309bfa3760400484deeaba0a0` |
 |  `1.26.1`                                     | May 2nd      | `sha256:39a5f9fc7ffda1f998c207f4df69c9681485b0f8d970322ef1dc74224d5ea547` |
 |  `1.23.3` `1.23`                              | May 8th      | `sha256:fe96ba7ae678a61eb1c422fab8bca71d4faa1f520ba35a441789856488e89ebb` |
