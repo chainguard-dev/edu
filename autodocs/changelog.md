@@ -1,3 +1,12 @@
+# 2024-05-15
+New images added:
+
+- gpu-feature-discovery
+- grafana-mimir
+- keycloak-operator
+
+A total of **693** documents were updated.
+
 # 2024-05-14
 New images added:
 

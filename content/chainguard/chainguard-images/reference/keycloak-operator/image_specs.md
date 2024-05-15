@@ -1,0 +1,84 @@
+---
+title: "keycloak-operator Image Details"
+type: "article"
+unlisted: true
+description: "Detailed information about the public keycloak-operator Chainguard Image."
+date: 2024-05-15 00:39:35
+lastmod: 2024-05-15 00:39:35
+draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
+images: []
+weight: 550
+toc: true
+---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/keycloak-operator/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/keycloak-operator/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/keycloak-operator/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/keycloak-operator/provenance_info/" >}}
+{{</ tabs >}}
+
+This page shows detailed information about the Chainguard **keycloak-operator** Image.
+
+|              | latest-dev                                                                              | latest                                                                                  |
+|--------------|-----------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| Default User | `keycloak`                                                                              | `keycloak`                                                                              |
+| Entrypoint   | `java -Djava.util.logging.manager=org.jboss.logmanager.LogManager -jar quarkus-run.jar` | `java -Djava.util.logging.manager=org.jboss.logmanager.LogManager -jar quarkus-run.jar` |
+| CMD          | not specified                                                                           | not specified                                                                           |
+| Workdir      | `/opt/keycloak`                                                                         | `/opt/keycloak`                                                                         |
+| Has apk?     | yes                                                                                     | no                                                                                      |
+| Has a shell? | yes                                                                                     | no                                                                                      |
+
+Check the [tags history page](/chainguard/chainguard-images/reference/keycloak-operator/tags_history/) for the full list of available tags.
+
+## Packages Included
+The table shows package distribution across variants.
+
+|                            | latest-dev | latest |
+|----------------------------|------------|--------|
+| `apk-tools`                | X          |        |
+| `bash`                     | X          |        |
+| `busybox`                  | X          |        |
+| `ca-certificates`          | X          | X      |
+| `ca-certificates-bundle`   | X          | X      |
+| `chainguard-baselayout`    | X          | X      |
+| `fontconfig-config`        | X          | X      |
+| `freetype`                 | X          | X      |
+| `git`                      | X          |        |
+| `glibc`                    | X          | X      |
+| `glibc-locale-posix`       | X          | X      |
+| `java-cacerts`             | X          | X      |
+| `java-common`              | X          | X      |
+| `keycloak-operator`        | X          | X      |
+| `keycloak-operator-compat` | X          | X      |
+| `ld-linux`                 | X          | X      |
+| `libbrotlicommon1`         | X          | X      |
+| `libbrotlidec1`            | X          | X      |
+| `libbz2-1`                 | X          | X      |
+| `libcrypt1`                | X          |        |
+| `libcrypto3`               | X          | X      |
+| `libcurl-openssl4`         | X          |        |
+| `libexpat1`                | X          | X      |
+| `libffi`                   | X          | X      |
+| `libfontconfig1`           | X          | X      |
+| `libidn2`                  | X          |        |
+| `libnghttp2-14`            | X          |        |
+| `libpcre2-8-0`             | X          |        |
+| `libpng`                   | X          | X      |
+| `libpsl`                   | X          |        |
+| `libssl3`                  | X          |        |
+| `libtasn1`                 | X          | X      |
+| `libunistring`             | X          |        |
+| `libxcrypt`                | X          |        |
+| `ncurses`                  | X          |        |
+| `ncurses-terminfo-base`    | X          |        |
+| `openjdk-17-default-jvm`   | X          | X      |
+| `openjdk-17-jre`           | X          | X      |
+| `openjdk-17-jre-base`      | X          | X      |
+| `p11-kit`                  | X          | X      |
+| `p11-kit-trust`            | X          | X      |
+| `wget`                     | X          |        |
+| `wolfi-baselayout`         | X          | X      |
+| `zlib`                     | X          | X      |
+

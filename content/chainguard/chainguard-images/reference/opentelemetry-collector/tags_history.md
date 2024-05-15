@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opentelemetry-collector Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-14 00:46:23
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 13th     | `sha256:8dd12f4d678b184b1ad6032c6afca411d1c506eb35d903491fad964ebc3455c4` |
+|  `latest-dev` | May 14th     | `sha256:6ba0f725fda6e886e736b4c8ab87f3c4b51efe4128f7f41e27a8e11dfc80e156` |
 |  `latest`     | May 13th     | `sha256:2a996c3982d67a6924e4ec9067df194776d41b6391ddcbcd3833b09cc9dd4539` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                         | Last Changed | Digest                                                                    |
 |-------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.100.0-dev` `0.100-dev` `0-dev` | May 13th     | `sha256:4b08f4332a67f570a4726c24ad03058a899761a48731eeb222e5f1dddb4be1ab` |
+|  `0.100-dev` `latest-dev` `0.100.0-dev` `0-dev` | May 14th     | `sha256:9a036831488d4391eb549377730832cf980da5f9715857208a6f5b3499bc0b72` |
 |  `0.100.0` `0.100` `0` `latest`                 | May 10th     | `sha256:22ab8d4290b3dd012dec32244d23b51f548d5a493dac7cf14adb8032454323dc` |
 |  `0.99.0-dev` `0.99-dev`                        | May 2nd      | `sha256:426134a7a289f9afe3b728103cacdb83437bb707653aada28f57fe1248380c7a` |
 |  `0.99` `0.99.0`                                | May 2nd      | `sha256:fd4edcdf64de8cfda943de5887d3a77d78c9fb9eeabceb281e38b693064dffbc` |

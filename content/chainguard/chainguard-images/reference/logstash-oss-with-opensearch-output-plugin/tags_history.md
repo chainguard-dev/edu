@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the logstash-oss-with-opensearch-output-plugin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-14 00:46:23
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 14th     | `sha256:e2885d9ec0fe9365a43cf20f9c44325217fea88ea0048cfa7ae1fe604e64dcf7` |
 |  `latest`     | May 13th     | `sha256:828672cc9145e50d5795fc166ad12bc366e4918e79d9f477a86f2814e8bf6b69` |
-|  `latest-dev` | May 13th     | `sha256:97762d73c18ce33e54d34f4aed8d2fa7dd26a8477d129da9bc2dbaa1b9d37841` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8.13.3-dev` `latest-dev` `8.13-dev` `8-dev` | May 13th     | `sha256:bd27fa9171a033a8337965432903ea8ae8f2a9e875a708ec4af2b808965b03b5` |
+|  `8.13-dev` `latest-dev` `8.13.3-dev` `8-dev` | May 14th     | `sha256:5ad29b000773578c8e6ca1615daa3c30d8ae152398c063aa591c3ad5e55c4677` |
 |  `latest` `8.13.3` `8.13` `8`                 | May 13th     | `sha256:18e5d1b3adde312de00d3840d68619154d58bb64a2949f1607be1d989c4a28aa` |
 |  `8.13.2-dev`                                 | May 2nd      | `sha256:ab9b3bd53a3f3fda6753ae7b20ad98abed45e6ec5b8e8a3717cdcdfd9290da5d` |
 |  `8.13.2`                                     | May 2nd      | `sha256:7860dd81657042a641440deedc79e58181820c7923fda0f50cb152c74e086a5b` |

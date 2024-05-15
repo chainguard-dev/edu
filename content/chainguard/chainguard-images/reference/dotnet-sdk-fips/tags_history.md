@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dotnet-sdk-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-14 00:46:23
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.0.118-dev` `7.0-dev` `7-dev`            | May 13th     | `sha256:b71606997891aa0ddfefa971e4a0a46e063ce73be75cfa38555bc24ee358d747` |
+|  `8.0.4-dev` `8.0-dev` `8-dev` `latest-dev` | May 14th     | `sha256:25fc24fb03a28f131ed888bf2823b563bbe3be15e1c874c8395411b8969ff595` |
+|  `7.0.118-dev` `7.0-dev` `7-dev`            | May 14th     | `sha256:5c517ff4281279267417b15772fca4d709adee9006e0fbc95fe8f945236ae8d4` |
+|  `6.0.129-dev` `6-dev` `6.0-dev`            | May 14th     | `sha256:8fca25959e2775c9c2ba290ced79272cf7ca4fe2107d4678b7271801cee1de22` |
 |  `6.0` `6` `6.0.129`                        | May 13th     | `sha256:d263c982a21d226d1bec5b3d0c7bdac131e20721f3d9e630d331030dbd60875a` |
-|  `8-dev` `8.0.4-dev` `8.0-dev` `latest-dev` | May 13th     | `sha256:2abe74ac97e0c12f73be08d6d1af168ab14a44e68178ed09bf21e33be9624944` |
-|  `6.0.129-dev` `6-dev` `6.0-dev`            | May 13th     | `sha256:803bdd8588921298b3ca4197e86061d6755a7ec123f301a976faf6fc23033ac5` |
 |  `7` `7.0.118` `7.0`                        | May 13th     | `sha256:109b4db70274bf6b3723517b14bef0059413a2a1c6472f6e9e9f44f6b16e1232` |
 |  `latest` `8.0` `8.0.4` `8`                 | May 13th     | `sha256:585ab29f8a96b46f0ad676c59da0a6d55cb0b5bd93a248ec8f3cf081ff5d7eda` |
 |  `7.0.117-dev`                              | May 2nd      | `sha256:64e3b3d7dcf72170c2b1e2e231cba48cb4b8561f43021a0cdd09514f936cc959` |

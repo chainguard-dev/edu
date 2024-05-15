@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the docker-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-14 00:46:23
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 13th     | `sha256:90e932f8ae298a79a135614f2f2c158a4fead26fee3ca82098eda05471d6d4af` |
+|  `latest-dev` | May 14th     | `sha256:3b7438f370eca2bce252483db9fd843043eaec43b4cfe44a2363da833a8dd3a7` |
 |  `latest`     | May 10th     | `sha256:d7ed3c99a52958e745fc43592d2d79fb9fcd5129b815a9d74cc14f382724c56f` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `24-dev` `24.0.6-dev` `24.0-dev` | May 13th     | `sha256:a11175f99ee7389ccda9e7b656ddd19439bf0f43f7f9b64f7924e76a478a3d5c` |
+|  `24-dev` `24.0.6-dev` `24.0-dev` `latest-dev` | May 14th     | `sha256:2829063d13a88eaadbd6a2d6751b5b0108c12400b1ff7eaa11c60d5cf3369349` |
 |  `latest` `24.0.6` `24` `24.0`                 | May 10th     | `sha256:d0105321e68d1f8f323bd24e2113eb115c14a5fbbf52108bcda372c17c0a39fc` |
 

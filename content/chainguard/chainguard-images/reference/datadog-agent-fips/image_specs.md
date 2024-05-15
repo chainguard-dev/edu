@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public datadog-agent-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -24,8 +24,8 @@ This page shows detailed information about the Chainguard **datadog-agent-fips**
 |              | latest-dev           | latest               |
 |--------------|----------------------|----------------------|
 | Default User | `root`               | `root`               |
-| Entrypoint   | `/bin/entrypoint.sh` | `/bin/entrypoint.sh` |
-| CMD          | not specified        | not specified        |
+| Entrypoint   | not specified        | not specified        |
+| CMD          | `/bin/entrypoint.sh` | `/bin/entrypoint.sh` |
 | Workdir      | not specified        | not specified        |
 | Has apk?     | yes                  | no                   |
 | Has a shell? | yes                  | yes                  |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the karpenter-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-14 00:46:23
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.35-dev` `0.35.4-dev`                      | May 13th     | `sha256:9d21a5ee33f2f3565309f6e8ce6d426e429ccfbe859c6a9f1f4240349df61a1a` |
-|  `0.36-dev` `latest-dev` `0-dev` `0.36.1-dev` | May 13th     | `sha256:f03eefe392fed027a65d5ee251b90719f139862ee6d58d0dc9b8917abdf071b3` |
+|  `0.36-dev` `0.36.1-dev` `latest-dev` `0-dev` | May 14th     | `sha256:e54ee5110b1651c17bfbf008dcdbc22af54666ef80870f5c45db3133e2d3c00e` |
+|  `0.35.4-dev` `0.35-dev`                      | May 14th     | `sha256:a5172d76593e1ff5d94224be1b5a1f8e421dab868f07566d997bd2766ba6d652` |
 |  `0.36.1` `0` `latest` `0.36`                 | May 9th      | `sha256:fc16df499372e91a2835a78e73677d168a2ebb04d74179bf12f070950c74077c` |
 |  `0.35` `0.35.4`                              | May 9th      | `sha256:35e202796dbe32707444e54f2c47b7ea2dbc90a678e2b783b4b8e0724392d66d` |
 |  `0.36.0`                                     | April 24th   | `sha256:2caf11ab11710929c6dcf988d2a8dd69d096423fbe182755355ca7151ea8a9cb` |
