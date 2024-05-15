@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jitsucom-bulker Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-14 00:46:23
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.6.0-dev` `latest-dev` `2-dev` `2.6-dev` | May 13th     | `sha256:51cbdf55e25f184ebddc6bc2c53cf5a640dfe67fa15588ff7f828575192c7af7` |
+|  `2.6-dev` `2-dev` `2.6.0-dev` `latest-dev` | May 14th     | `sha256:135f1075f542e9ad7b200626bef58b27a31c49c9f869b98d873fcb29e63ef000` |
 |  `2.6` `2` `latest` `2.6.0`                 | May 10th     | `sha256:316ebf29315a68c522b0e4bedc5cd4d3ef8ff34c19aa3c95ab24271124be6609` |
 

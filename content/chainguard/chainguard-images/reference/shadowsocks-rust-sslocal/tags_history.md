@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the shadowsocks-rust-sslocal Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-14 00:46:23
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 14th     | `sha256:edc86f932675c1f000b5bfea7d9270caa6060628ac34b2b294b089584f92e088` |
 |  `latest`     | May 13th     | `sha256:9790a68332c02de44a84a6eb4863f9abbea2b3aabe4914e75fbce0d55cf29eb7` |
-|  `latest-dev` | May 13th     | `sha256:61420545f3e03f0fa409aae3c478b66d82129700f542d43ac313fcb25d52e526` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.18-dev` `latest-dev` `1.18.4-dev` `1-dev` | May 13th     | `sha256:71c75e699b0003a62adc62579bfa2404ce52818ed3d4f0c7a48f8936e620f37e` |
+|  `1.18.4-dev` `1.18-dev` `latest-dev` `1-dev` | May 14th     | `sha256:76d5ad1b02709845f3414a9d1e75da8df9cc84fca73844b02e04a1ddbdb51bcb` |
 |  `1.18.4` `1` `latest` `1.18`                 | May 13th     | `sha256:b9056b1272ba26ddbc238996ef4f44b0c49ed79f03bdd158b5a69e1922d84a63` |
 |  `1.18.3`                                     | May 2nd      | `sha256:c3e3b4970e89566faa3c2566c25d5a56d4ff0ed549e4cf0f7e23d418dac1aa1c` |
 |  `1.18.3-dev`                                 | May 2nd      | `sha256:0b63633f2f809bab39ca6e8c307ecbb1ff65552de5d29b649f7bd7b26cdaad30` |

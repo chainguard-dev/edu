@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k8sgpt-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-14 00:46:23
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.1.4-dev` `0-dev` `0.1-dev` `latest-dev` | May 13th     | `sha256:3d7ac0ae7b428c8c84e6bd1245feb5bc3b25b133648d39eb83e8c12cef291265` |
+|  `0.1.4-dev` `0-dev` `latest-dev` `0.1-dev` | May 14th     | `sha256:efb9b1aa8248c31b09b3c459a5dbb74007352b4ae28b14c0370b9e5bd103218d` |
 |  `0` `latest` `0.1.4` `0.1`                 | May 10th     | `sha256:7f4e36103d8fef98674cb427520b1fd7ae8b838d41392830950c9ea52180a59e` |
 |  `0.1.3-dev`                                | May 2nd      | `sha256:deb97e611e6a77f43c731db0c1ba621c88361a0848fe9eb1802e5fa0b4f8ff6f` |
 |  `0.1.3`                                    | May 2nd      | `sha256:e79fb6805d44fa67640110ef0ee16576e726a21d1b97eef18b1657b3f9e09f0f` |

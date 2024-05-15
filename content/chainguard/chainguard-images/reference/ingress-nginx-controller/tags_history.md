@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ingress-nginx-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-14 00:46:23
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,10 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1` `1.10` `latest` `1.10.1`                 | May 13th     | `sha256:1a3f960ef63511d1a954752b92c5698c1c509bc9510b52e4b4e4f64b6627b342` |
-|  `1.9-dev` `1.9.6-dev`                        | May 13th     | `sha256:a776b28f685304f2b118185eb63c100b8dc1a92e1775efd8f304ba9ebd483c67` |
-|  `1.9` `1.9.6`                                | May 13th     | `sha256:74dd81fff9e8dcae466c5b12ea88f4c48ef7dfe02a096503aa022eca5139ba7c` |
-|  `1-dev` `latest-dev` `1.10.1-dev` `1.10-dev` | May 13th     | `sha256:c173ca4be97ddc354b0df2167c3632c4fa0d08c91b6a5f4524c25c040ea6182b` |
+|  `1` `latest` `1.10.1` `1.10`                 | May 14th     | `sha256:69d8ee1980703e5fc3927a11ab62ca48effc3307260799af3476a486d548e834` |
+|  `1.9.6` `1.9`                                | May 14th     | `sha256:b15843095228dac610c3243742378243651be3ac951daee6a313cdc4a734d5c3` |
+|  `1.10-dev` `1-dev` `1.10.1-dev` `latest-dev` | May 14th     | `sha256:790aa7fa2187b6517d214e428d05a5d8502908c4c11e1e77d513aa10d63dfa00` |
+|  `1.9.6-dev` `1.9-dev`                        | May 14th     | `sha256:17bfe119154b03ff279c367f40ee432d0426716e0db8a25f22d6d388eb97eaac` |
 |  `1.10.0-dev`                                 | April 20th   | `sha256:27f7a69e168ba4b48506041601641dafb87118758ef4b408eb01c0e6867d5553` |
 |  `1.10.0`                                     | April 20th   | `sha256:2a323e07711fb6b5f9f201d89610035cebaf5be7ef2466d92efc8a8031dcfb71` |
 

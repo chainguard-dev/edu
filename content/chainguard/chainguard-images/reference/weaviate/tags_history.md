@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the weaviate Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-14 00:46:23
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 13th     | `sha256:564230dec63868be5592a76c605425052b0c400bed1fc9e80d73143ce55ad9b0` |
+|  `latest-dev` | May 14th     | `sha256:2978c18ac510a323d00120d6180859c37d443872e7006fe4c4393ef8098a1534` |
 |  `latest`     | May 11th     | `sha256:75a1f3bda1933e33678bcd31246d0c7fdc201d7aa07fe81e0d0a32437542d021` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.25.0-dev` `latest-dev` `1-dev` `1.25-dev` | May 13th     | `sha256:2f0ac614f7039535355603d8a48eec9f9f9077e10b9a57d63b2e4406efb8c46a` |
+|  `1.25.0-dev` `1.25-dev` `1-dev` `latest-dev` | May 14th     | `sha256:432a871833cacaeb7f8cab42c778dd90120e5cd6f3469701e3422ca0fdc16d10` |
 |  `1.25.0` `1` `latest` `1.25`                 | May 11th     | `sha256:5923f8f7e703b62983e5fa77f7692423b6eb7e448353e058a0af0c727607c2cc` |
 |  `1.24-dev` `1.24.11-dev`                     | May 8th      | `sha256:410fdc7e7f417ccbcef8e1e12e1f2c8955f31058f6dc978282f0e3150ab61868` |
 |  `1.24.11` `1.24`                             | May 8th      | `sha256:29e84568168f5bdaf47da54909435dcdfcc408e081ee87a4617037adeceff347` |

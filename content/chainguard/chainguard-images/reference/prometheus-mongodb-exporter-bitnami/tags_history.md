@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mongodb-exporter-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-14 00:46:23
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.37-dev` `0.37.0-dev`                      | May 13th     | `sha256:7b8d9e0cb1b84ae0d92ef9709fd92d41038cf49008745b0cf449c21fd3b1e90a` |
+|  `latest-dev` `0-dev` `0.40-dev` `0.40.0-dev` | May 14th     | `sha256:a633a61c63f0b4392b47edddf987b97042d86d53d6a5948ea2d1d294937675ca` |
+|  `0.37-dev` `0.37.0-dev`                      | May 14th     | `sha256:a611559f3b6382a50ba3c81f9ab8c4f6256d305d491e0bfe470a831ee71fa512` |
 |  `0.37` `0.37.0`                              | May 13th     | `sha256:75ac138e34a76aa5f12bbe71041386ef379047b6e4cbf05226eb6b58d97f5197` |
 |  `0` `0.40.0` `0.40` `latest`                 | May 13th     | `sha256:cbd3fd3c2361d23455789aea6baeea983f17cb63c1eb2e54d23cc387504472b1` |
-|  `0.40.0-dev` `0.40-dev` `0-dev` `latest-dev` | May 13th     | `sha256:3d15abf9072c0885c504129d60a8c92596f5aa61d99d8ee7bdaa6597d4b32c08` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public ffmpeg Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -48,25 +48,26 @@ The table shows package distribution across variants.
 | `glibc`                  | X          | X      |
 | `glibc-locale-posix`     | X          | X      |
 | `ld-linux`               | X          | X      |
-| `libavcodec60`           | X          | X      |
-| `libavdevice60`          | X          | X      |
-| `libavfilter9`           | X          | X      |
-| `libavformat60`          | X          | X      |
-| `libavutil58`            | X          | X      |
+| `libavcodec61`           | X          | X      |
+| `libavdevice61`          | X          | X      |
+| `libavfilter10`          | X          | X      |
+| `libavformat61`          | X          | X      |
+| `libavutil59`            | X          | X      |
 | `libbrotlicommon1`       | X          |        |
 | `libbrotlidec1`          | X          |        |
 | `libcrypt1`              | X          |        |
-| `libcrypto3`             | X          |        |
+| `libcrypto3`             | X          | X      |
 | `libcurl-openssl4`       | X          |        |
 | `libexpat1`              | X          |        |
 | `libidn2`                | X          |        |
 | `libnghttp2-14`          | X          |        |
 | `libogg`                 | X          | X      |
 | `libpcre2-8-0`           | X          |        |
+| `libpostproc58`          | X          | X      |
 | `libpsl`                 | X          |        |
-| `libssl3`                | X          |        |
-| `libswresample4`         | X          | X      |
-| `libswscale7`            | X          | X      |
+| `libssl3`                | X          | X      |
+| `libswresample5`         | X          | X      |
+| `libswscale8`            | X          | X      |
 | `libtheora`              | X          | X      |
 | `libunistring`           | X          |        |
 | `libxcrypt`              | X          |        |

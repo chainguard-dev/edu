@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the harbor-db-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-14 00:46:23
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.9-dev` `2.9.4-dev`                        | May 13th     | `sha256:42df919838938d4c9d2ce30c77717f8aad9dca8a2eb3d5185ae3563ede4005df` |
+|  `2.8-dev` `2.8.6-dev`                        | May 14th     | `sha256:1ff6c76576b396553ecb4aba1318867254ccae6b329768e14fdb63461af79ac6` |
+|  `2.10.2-dev` `latest-dev` `2.10-dev` `2-dev` | May 14th     | `sha256:1ab3d440137bf14988a03671bf7f94a31b114a45914634a42527d4fd4a6298d2` |
+|  `2.9-dev` `2.9.4-dev`                        | May 14th     | `sha256:d4d8f116a7c772a0146db6ebce001545e685968062e2de6db9ec8ad716ce85f5` |
 |  `latest` `2` `2.10.2` `2.10`                 | May 13th     | `sha256:0c999fb3290c00ec3fc06bbdbfc0a91a18a4e3b9a9d2d235369d99c4abc8b104` |
-|  `2.10.2-dev` `2-dev` `2.10-dev` `latest-dev` | May 13th     | `sha256:c07539017aad638e76d5b101d950ce6bfb4f9835ecc6443e63418a83100e3057` |
 |  `2.9` `2.9.4`                                | May 13th     | `sha256:473ce8e747fcd7aab504bb5cc6b7c1b249958df26a209a378cb31ab26c72e7d2` |
-|  `2.8-dev` `2.8.6-dev`                        | May 13th     | `sha256:b3e67250aaacae9254bbda7b95286049d564c5144c4950362ae6bb59e843fcf0` |
 |  `2.8` `2.8.6`                                | May 13th     | `sha256:8710aef00ea822da4823b1b29818ea607af72776527fa8aec5f5b7ec248bbbea` |
 

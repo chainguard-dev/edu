@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the stakater-reloader Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-14 00:46:23
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 13th     | `sha256:34bfa6432c0ced16840c91dbb40ce09c9f3177664ac81687d34775bdad6ca4d4` |
+|  `latest-dev` | May 14th     | `sha256:c9a56cb4fb89b89f01ce28da875ab6ea912c6cf1744e7fff534167e6ebb0fed7` |
 |  `latest`     | May 13th     | `sha256:0ff13945fddb67082749c848bba81244d83406ccfc98c721c153d7e10418783b` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.0-dev` `1.0.95-dev` | May 13th     | `sha256:64b1f84cf93857e0160f9e2c5717fa103db6af0e7b695bba6f315b50e2313ede` |
+|  `1.0-dev` `1.0.95-dev` `latest-dev` `1-dev` | May 14th     | `sha256:8489a02828f2e2e284ab1cebce0e9051954f663b30b5253c07fd39cd4d9f5b5c` |
 |  `1` `latest` `1.0` `1.0.95`                 | May 13th     | `sha256:c329fb1d2617d5590e9620c620f9559a309913ef4f1a4ae7bea2f50b40f2615e` |
 |  `1.0.94`                                    | May 10th     | `sha256:074c312da8adbe2d43e1bb4f9acb57844873603729382df766b3ebd7b7c2be43` |
 |  `1.0.94-dev`                                | May 10th     | `sha256:82a389d4826ff1242b46fc2e5ab52137d90f097832e8bf9eb3951978bd72262b` |
@@ -59,6 +59,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.0.82`                                    | April 24th   | `sha256:2f39e7c473503b0134fb13c15101f1bbc924ebb490e4b97035998fa84c9eec92` |
 |  `1.0.80`                                    | April 22nd   | `sha256:e31c0b13f2b3217284a10dc34a935c35b672f0155d14d084a7cf10bbc991b4aa` |
 |  `1.0.80-dev`                                | April 22nd   | `sha256:9e0d6a3586219e579ce6806a2d6bb76a56187330a01d1e198086b21fdd4c3441` |
-|  `1.0.79-dev`                                | April 14th   | `sha256:2c600c54d8c974649b2cd14fc3dce9428cdca7710b1bad186f30ae4471480670` |
-|  `1.0.79`                                    | April 14th   | `sha256:860e73d3b7bfba5f0faf732ee323c5f5ca809eaa18411def0f754159f80cb3d1` |
 

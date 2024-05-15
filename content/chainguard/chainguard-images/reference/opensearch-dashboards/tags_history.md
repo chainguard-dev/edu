@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opensearch-dashboards Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-14 00:46:23
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 2nd      | `sha256:b94e85543ccc6464dc2a2e0bfd130893c2fcf2c3e7d09c86f36f1921b760d4db` |
-|  `latest`     | May 2nd      | `sha256:528015245d7c414dceddeacdc4448188a014a0c5757d3c70b8f4700ddd6b526c` |
+|  `latest-dev` | May 14th     | `sha256:2d281e5d3289c6606faa9f76bb49ec3eabfca6260824454df168e25a8081142e` |
+|  `latest`     | May 14th     | `sha256:8cd329bd6082cd36a524233860512de6888e8ea44e9adae71104c96afa11fece` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.13-dev` `2.13.0-dev` `latest-dev` `2-dev` | May 13th     | `sha256:29134461bcd98f3c95ab7d0a74b7ba24c0627a9089e89e7c433166651e504cfe` |
-|  `2` `2.13` `2.13.0` `latest`                 | May 13th     | `sha256:6a3127becf1be51654dc3b4f9fd2e0cc294c65886167f8aa2c68ba1c6d2688f1` |
+|  `2.13.0` `2` `2.13` `latest`                 | May 14th     | `sha256:98166cab8cc49884cc49953b4354ad0dc941ebe6be2abde6a09b3038ff8bc96b` |
+|  `2.13-dev` `2.13.0-dev` `latest-dev` `2-dev` | May 14th     | `sha256:226fb6c14632fd5c729b759c3a6c2b03b1921c4404b49329fc307e61e80f67e7` |
 

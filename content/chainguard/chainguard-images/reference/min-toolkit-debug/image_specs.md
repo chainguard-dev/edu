@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public min-toolkit-debug Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -136,12 +136,12 @@ The table shows package distribution across variants.
 | `python-3.12`             | X      |
 | `python-3.12-base`        | X      |
 | `readline`                | X      |
+| `redis-7.2`               | X      |
 | `socat`                   | X      |
 | `sqlite-libs`             | X      |
 | `strace`                  | X      |
 | `sysstat`                 | X      |
 | `tcptraceroute`           | X      |
-| `valkey`                  | X      |
 | `wolfi-baselayout`        | X      |
 | `xz`                      | X      |
 | `yq`                      | X      |

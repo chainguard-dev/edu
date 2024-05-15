@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the metacontroller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-14 00:46:23
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 13th     | `sha256:d1e347da8c5b759940b72c158704fb05169643819c2a61024fcd3bc58c4b72b8` |
+|  `latest-dev` | May 14th     | `sha256:2084ae6994866e09074043a11cecf954e985f01efd801f4b5c11e647742811ba` |
 |  `latest`     | May 9th      | `sha256:65a7ccc6dfb516cfabbec6332070c2c8424fb128de914c6ed644b504a75cecf9` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `4.11.12-dev` `4-dev` `4.11-dev` | May 13th     | `sha256:555fe3c66db740e8256b2fd87354c8dd7641d87bde2afadf0160726dcf2aa3df` |
+|  `latest-dev` `4.11.12-dev` `4-dev` `4.11-dev` | May 14th     | `sha256:6f60734b520df2dbcd694558cae3fef4948613bf03b169898eaae52c7d7131f2` |
 |  `4.11` `latest` `4` `4.11.12`                 | May 9th      | `sha256:e8ca753fde8268269aee43e9a6d3d69efcae50cd80aa8e4c550d53f64a2a4eff` |
 |  `4.11.11-dev`                                 | May 7th      | `sha256:b80237e605b8495989c5cbcb62ce9be9f31a1f576f9551af4a5679a150c67b00` |
 |  `4.11.11`                                     | May 7th      | `sha256:f0497a298dae653bc7f3389d74666938e3e5f8186ee1a7e4c893d7b5633c28b5` |

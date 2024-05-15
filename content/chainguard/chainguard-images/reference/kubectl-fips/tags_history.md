@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubectl-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-14 00:46:23
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,9 +33,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.29-dev` `1.29.4-dev` `latest-dev` `1-dev` | May 13th     | `sha256:1e2140ea76af503d7b3b45a80e3cc4a0c9f34804a17b57fd9f990f79240580a1` |
-|  `1.28-dev` `1.28.9-dev`                      | May 13th     | `sha256:a9761b5ea87a3c27dcab3e195a57414cb67858ba8b0c46dec8dd644982bdf5e1` |
-|  `1.27-dev` `1.27.13-dev`                     | May 13th     | `sha256:86f9abca64a51f3f3c8691ff7ebef5408705b550e95e822124f43ec0661900d2` |
+|  `latest-dev` `1-dev` `1.29.4-dev` `1.29-dev` | May 14th     | `sha256:a1c1c168bab615121b585f605c7a855c6a7c1fb2af0453edc4a1dafdfe550f13` |
+|  `1.27.13-dev` `1.27-dev`                     | May 14th     | `sha256:b22852452731bbeaa8007808fd299d67751429e21ae13cfcce73c4c47d0209d4` |
+|  `1.28-dev` `1.28.9-dev`                      | May 14th     | `sha256:45f8b3ee417a51cd50f0bef4a8e9360619d9d99116c615d29795e67bd988cf83` |
 |  `1` `1.29.4` `1.29` `latest`                 | May 9th      | `sha256:4371c1cac1460443d6fad89404a7910276a8a1015cb1cf2a25fa764938cee504` |
 |  `1.28.9` `1.28`                              | May 9th      | `sha256:bf165009e2bdb017536e20cefab10056d4505e3e85dd4f414919e1a78b0291eb` |
 |  `1.27` `1.27.13`                             | May 9th      | `sha256:4952776687cd7439f37512c9509c76297d420a6c84000b6a7f285b37059c4cae` |

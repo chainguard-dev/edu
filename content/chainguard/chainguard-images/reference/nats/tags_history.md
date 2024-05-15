@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nats Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-14 00:46:23
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 13th     | `sha256:478c13af62c1cb1ce74b35cfbbe23401e452eeaee60c52e7f2ef1ca219eb7ccb` |
+|  `latest-dev` | May 14th     | `sha256:ee6ff52f5c680a809f4a1e3dc5852667a6ff2917db020014f5b4436565bb1ea2` |
 |  `latest`     | May 9th      | `sha256:e5df36dfccb7bc87b50b21fb679385419a93d393a8158fc450501582a790eaba` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.10.14-dev` `2.10-dev` `2-dev` | May 13th     | `sha256:dd029af661dec8a080b5583704ef5d282e73559b2796081c8279f6a772b8fa93` |
+|  `2.10-dev` `2-dev` `latest-dev` `2.10.14-dev` | May 14th     | `sha256:7ba0714520f8bb1e1e3af0f3ba888055214cc07d211d41292c8522a6f2731af1` |
 |  `2.10` `2.10.14` `2` `latest`                 | May 9th      | `sha256:b0892c46c9dc36b41e0f79da58dc4853df303a2ead85a9de15a974f333508fbf` |
 

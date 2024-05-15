@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gha-runner-scale-set-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-14 00:46:23
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.9.1-dev` `0.9-dev` `0-dev` `latest-dev` | May 13th     | `sha256:609cbf84130c347bdd05834bb3b662ace49fa457ca748d94b6784a0179e8488f` |
+|  `0-dev` `latest-dev` `0.9-dev` `0.9.1-dev` | May 14th     | `sha256:63ebf02907510d8f983447e2964db681d9c8a027cb95476ade7b7ce8d0d19d3e` |
 |  `latest` `0` `0.9` `0.9.1`                 | May 10th     | `sha256:cf68f5b047dfe060a957fbbb29c2379005aeee09f1d3168bd5d1dc63550522d4` |
 

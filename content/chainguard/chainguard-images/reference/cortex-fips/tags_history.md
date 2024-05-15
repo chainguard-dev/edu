@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cortex-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-14 00:46:23
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.17.0-dev` `latest-dev` `1.17-dev` `1-dev` | May 13th     | `sha256:0f7d1718d3c6355a11980db628e9c035b9a4baaa9659b45549db1fa788d186d7` |
+|  `1.17.0-dev` `1-dev` `latest-dev` `1.17-dev` | May 14th     | `sha256:cf59e126ac8e99d95cebb0cf7438240a0142eb2cb2d13bd916445d2d5da72b53` |
 |  `1` `1.17.0` `1.17` `latest`                 | May 10th     | `sha256:fa854d90870bdc555786021674f674a230765ddbc1556ed68574a3068b643255` |
 |  `1.16.1-dev` `1.16-dev`                      | May 1st      | `sha256:01ce56b09eb4eb8b15c1ce271b2148c40a2d04c50bad86a48bb6b0e4d5c2e249` |
 |  `1.16` `1.16.1`                              | May 1st      | `sha256:b7640093588d6f75f4e02c275d39a4dee046190d7969f7b2668b6be0adafa1c1` |

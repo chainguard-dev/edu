@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kyverno-policy-reporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-14 00:46:23
+lastmod: 2024-05-15 00:39:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 14th     | `sha256:9c406a0e57473096443436a0d1613d55ac1e20af781bcf12d2298cb98465070d` |
 |  `latest`     | May 13th     | `sha256:227f2b28ac908d5d416ace59c1f8fc15eb1f90d0ab162aa28c384f8ce6e0e8ec` |
-|  `latest-dev` | May 13th     | `sha256:42e24f748ae77aa9eda3768d4785c9939bd515077a4a83e4b6e5a964db0d4194` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.19-dev` `2-dev` `2.19.0-dev` `latest-dev` | May 13th     | `sha256:2f81e2ebba0295690a7d455a310b597275477c9367db72685f5ce2beb0d1ee89` |
+|  `latest-dev` `2-dev` `2.19-dev` `2.19.0-dev` | May 14th     | `sha256:fe5b97e89296f992139e39a68112c256e00813262385c777852f54d47a8dbe9b` |
 |  `2` `2.19` `latest` `2.19.0`                 | May 13th     | `sha256:036a0809f110228dfe86228161930518d395b46973b14d480543edc14c52867e` |
 |  `2.18.2` `2.18`                              | May 10th     | `sha256:e6eb18a0e1d7720edf26bb4d064277c026f3465d9cced1904b8b60451ed8ea0c` |
 |  `2.18.2-dev` `2.18-dev`                      | May 10th     | `sha256:bc7576d874daefb429d99ef5bb8ad00287f89aa074a18b38167ded996ef8ad55` |
