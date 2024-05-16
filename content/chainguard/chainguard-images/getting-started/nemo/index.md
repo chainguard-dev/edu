@@ -3,10 +3,10 @@ title: "Getting Started with the NVIDIA NeMo Chainguard Image"
 type: "article"
 linktitle: "NeMo"
 aliases: 
-- /chainguard/chainguard-images/getting-started/getting-started-nemo
+- /chainguard/chainguard-images/getting-started/nemo
 description: "Get started with the Chainguard Image for NVIDIA's NeMo framework for generative deep learning"
-date: 2024-04-25:08:00+02:00
-lastmod: 2024-04-25:08:00+00:00
+date: 2024-05-16:08:00+02:00
+lastmod: 2024-05-16:08:00+02:00
 tags: ["Chainguard Images", "Products"]
 draft: false
 images: []
@@ -17,7 +17,7 @@ weight: 612
 toc: true
 ---
 
-[NVIDIA NeMo](https://github.com/NVIDIA/NeMo) is a deep learning framework for building conversational AI models that provides standalone module collections for Automatic Speech Recognition (ASR), Natural Language Processing (NLP), and Text-to-Speech (TTS) tasks. The [NeMo Chainguard Image](/chainguard/chainguard-images/reference/nemo/) provides a comparatively lightweight NeMo environment with low to no CVEs, making it ideal for both training and production inference. The NeMo Chainguard Image is designed to work with the [CUDA 12](https://developer.nvidia.com/about-cuda) parallel computing platform, and is suited to workloads that take advantage of connected GPU.
+[NVIDIA NeMo](https://github.com/NVIDIA/NeMo) is a deep learning framework for building conversational AI models that provides standalone module collections for Automatic Speech Recognition (ASR), Natural Language Processing (NLP), and Text-to-Speech (TTS) tasks. The [NeMo Chainguard Image](/chainguard/chainguard-images/reference/nemo/) is a comparatively lightweight NeMo environment with low to no CVEs, making it ideal for both training and production inference. The NeMo Chainguard Image is designed to work with the [CUDA 12](https://developer.nvidia.com/about-cuda) parallel computing platform, and is suited to workloads that take advantage of connected GPU.
 
 {{< details "What is Deep Learning?" >}}
 {{< blurb/deep-learning >}}
@@ -75,17 +75,17 @@ NeMo is a generative AI toolkit and framework with a focus on conversational AI 
 
 NeMo is built on [PyTorch Lightning](https://lightning.ai/docs/pytorch/stable/), a high-level interface to PyTorch with a focus on scalability, and uses the [Hydra](https://hydra.cc/) library for configuration management.
 
-Since NeMo is a framework with many collections of modules suitable for a whide variety of projects, we've chosen an example task, generative text to speech, requiring the use of two TTS modules. This is an appropriate example of a task that might be run as part of a larger production application.
+Since NeMo is a framework with many collections of modules suitable for a wide variety of projects, we've chosen an example task, generative text to speech, requiring the use of two TTS modules. This is an appropriate example of a task that might be run as part of a larger production application.
 
 ## Text to Speech (TTS) Example
 
 In this section, we'll run a script that uses the NeMo Chainguard Image to:
 
-- Take a message in plain text
+- Start with a message in plain text
 - Transform it into a set of phonemes
 - Generate a spectrogram (waveform representation) using a NeMo-provided spectrogram model
 - Transform the spectrogram values into audio using a NeMo-provided vocoder (human voice) model
-- Write the resulting audio to a .wav file at a set rate
+- Write the resulting audio to a `.wav` file at a set rate
 
 First, let's create a folder to work in on your host machine:
 
@@ -122,7 +122,7 @@ $ docker run -it --rm \
   -c "python /home/nonroot/nemo-test/tts.py"
 ```
 
-If your host machine does not hav attached GPUs and you'd like to run the above on your CPU, omit the `  --gpus all \` line. Since we're using pretrained models to perform text to speech, this example will only take a few minutes using a CPU only. However, other tasks such as model training and finetuning may take significantly longer without connected GPUs.
+If your host machine does not have attached GPUs and you'd like to run the above on your CPU, omit the `  --gpus all \` line. Since we're using pretrained models to perform text to speech, this example will only take a few minutes using a CPU only. However, other tasks such as model training and finetuning may take significantly longer without connected GPUs.
 
 Note that NeMo collections are large, and initial imports can take up to a minute depending on your environment. The script may appear to hang during that time.
 
@@ -2999,6 +2999,15 @@ A few other notes on the script:
 
 - The script checks whether CUDA is available. If CUDA is not available, the script will run on CPU.
 - The Tacotron2 model was trained at 22050 Hz. The script uses the `write` function from [scipy.io](https://docs.scipy.org/doc/scipy/reference/io.html) to write the audio to file, setting the rate to 22050.
+- In this script, we used pretrained models to create the phonemes and audio output. These models can be finetuned with your own speech data to customize the results. NVIDIA hosts a [tutorial on finetuning TTS models with NeMo](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/tutorials/tts-finetune-nemo.html).
+
+
+
 
 ## Further Resources
 
+- NVIDIA provides a wide variety of [NeMo Tutorials](https://docs.nvidia.com/nemo-framework/user-guide/latest/nemotoolkit/starthere/tutorials.html) that are a strong entry point for working with the framework to accomplish specific tasks.
+- NVIDIA's [NeMo Playbooks](https://docs.nvidia.com/nemo-framework/user-guide/latest/playbooks/index.html) provide a basis for more advanced tasks and configurations and address running workloads on different platforms and orchestration tooling.
+- The [NeMo Collections](https://docs.nvidia.com/nemo-framework/user-guide/latest/nemotoolkit/collections.html) organizes reference documentation for NeMo collections and modules.
+- The [NVIDIA NGC model catalog](https://catalog.ngc.nvidia.com/models?filters=&orderBy=weightPopularDESC&query=&page=&pageSize=) can be searched to find models suitable for specific tasks, and each model's overview page provides a useful reference with sample code.
+- This [NVIDIA Conversational AI publications page](https://research.nvidia.com/labs/conv-ai/publications) collects papers that use the NeMo framework, showcasing cutting-edge generative deep learning using NeMo
