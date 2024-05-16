@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gha-runner-scale-set-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:8f3952d840dae9dbecc6e4f448a5fe739688f4441fbd497e7cb7d5127f5d73fb` |
-|  `latest`     | April 19th   | `sha256:a8748278628c8a9bba53d766e0a47c1c2e051a758b622e6720fbd2e8d3265ec2` |
+|  `latest-dev` | May 15th     | `sha256:ea69d79ae939b5fc225ef02ddeac8eaee406d4e860573e4f4541231545425edc` |
+|  `latest`     | May 15th     | `sha256:0555fbcb197604d6c14b05da8031f2e7315d756ee89c84881a8fcc6b8bd7e5ad` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.9-dev` `0.9.1-dev` | May 14th     | `sha256:63ebf02907510d8f983447e2964db681d9c8a027cb95476ade7b7ce8d0d19d3e` |
-|  `latest` `0` `0.9` `0.9.1`                 | May 10th     | `sha256:cf68f5b047dfe060a957fbbb29c2379005aeee09f1d3168bd5d1dc63550522d4` |
+|  `0` `0.9` `latest` `0.9.1`                 | May 15th     | `sha256:b5f6f2cf40f200e756464ea3902ae2e550eb0586b6cbf71f108032731ccc91a5` |
+|  `latest-dev` `0.9.1-dev` `0-dev` `0.9-dev` | May 15th     | `sha256:925f7d1e6021635e9ab26f8c28cee55702dcd314609885aff9e15e607431df48` |
 

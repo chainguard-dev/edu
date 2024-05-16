@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-pushgateway-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,6 +35,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.4.3-dev` `1-dev` `1.4-dev` `latest-dev` | May 14th     | `sha256:2792f5c31fb26ab72f2dd5dc444b79297a7dcdedaf578ce63536981cdb5dda01` |
-|  `latest` `1.4.3` `1` `1.4`                 | May 13th     | `sha256:6a484c269381c6bc7af544cf956492776bbfd4e5c226778fa4794ff18ae6ebef` |
+|  `1.4.3` `1.4` `latest` `1`                 | May 15th     | `sha256:b60eae0bcf869da1722b985fa0f829dfcb827dc6acd7a94111b1a746ac84d149` |
+|  `latest-dev` `1.4.3-dev` `1.4-dev` `1-dev` | May 15th     | `sha256:292ece04d1413e85a1961396343ca105d7fe2cec69deb92f1ff3c65e95181e67` |
 

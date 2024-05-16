@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-state-metrics Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:1b409e1f5b15be645462e16c0fe0b26cb7386c236fffd4682a385371ac404fcc` |
-|  `latest`     | April 24th   | `sha256:3292d967983625e2e0231526e9468d969e8e85edc46aa4711e9c1fb26d4d2b37` |
+|  `latest-dev` | May 15th     | `sha256:f10b51d4a2fd9e294a83afc82452bd6bc54e1c8e82039f2ce43406dc6e61e091` |
+|  `latest`     | May 15th     | `sha256:e0a54f2a2729727c89cd7af9e26892588cf11656ebead913e11f7ce9a16d62fa` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `latest-dev` `2.12.0-dev` `2.12-dev` | May 14th     | `sha256:a0844f40ff0daf6462ea00a8eda3b7f4f183d9ba7d8f70c56c2ad5633bf4c565` |
-|  `latest` `2` `2.12.0` `2.12`                 | May 10th     | `sha256:469b584d1a9ba8bf1b2ee8488cb502e26141edf291c720781b5b9365cc8003e1` |
+|  `2.12.0-dev` `2-dev` `latest-dev` `2.12-dev` | May 15th     | `sha256:737641e036bb04c35fa14f142d2db15c4fd1a559c32c0afd19383b92aa8ec53c` |
+|  `2.12` `latest` `2.12.0` `2`                 | May 15th     | `sha256:845e2c878be7dd53675e4a7404de705b0d24ca4686570ec098039f163286343d` |
 

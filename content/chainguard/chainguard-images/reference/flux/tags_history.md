@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:3ddc1f76772d9db3e8d452ff589a8e7d8a3fdd784afe16a9f3ac3def8cddbe87` |
-|  `latest`     | April 22nd   | `sha256:2d635659cb9400074874ccd330d1a3a7d72e58e2392bb6f8334202c5068c278c` |
+|  `latest`     | May 15th     | `sha256:c9dc12154cee09f0da2912f0cfa0967efcc03e327dc8edb74dca75198aa7e348` |
+|  `latest-dev` | May 15th     | `sha256:556d5317750a32cc687af1e60be15d481c9e66fc37ae0e93b68e55b6d997b92d` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.3.0-dev` `2.3-dev` `2-dev` | May 14th     | `sha256:acdb0dbbb78fcb337935f21e0d9470289869b0e7d1431679a25b5e767eb6062b` |
-|  `latest` `2` `2.3.0` `2.3`                 | May 13th     | `sha256:9710f16034ca0f6e8b7d8a907e162aac91639cd5f1172494bc28ed0343c02455` |
+|  `2.3` `latest` `2` `2.3.0`                 | May 15th     | `sha256:6deb3ef9dd256323957ccb8733a55005c5014a97a8987bb3f78f35d597b62f78` |
+|  `latest-dev` `2-dev` `2.3.0-dev` `2.3-dev` | May 15th     | `sha256:8bc02cef37b13ab1cfb3d00eb3bba8c4750716b8bac6c6e95254b4db18881982` |
 |  `2.2.3` `2.2`                              | May 2nd      | `sha256:8cfe941351304bf758f74f25831dd5def0ee2616fe89f1f42d8326edb8180352` |
 |  `2.2.3-dev` `2.2-dev`                      | May 2nd      | `sha256:fb040a1798a4c30e8c3abe5905f62da9f2721931d9505e4ceef40f53165488e3` |
 

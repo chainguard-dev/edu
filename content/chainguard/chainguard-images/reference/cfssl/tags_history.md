@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cfssl Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 14th     | `sha256:3de17602adee36cdfb8bd73deb77a87adbf8546758fc47ac6cc97ac5cbba01ed` |
-|  `latest`     | May 9th      | `sha256:bf4e10c8c50d2f743eb9417edfafae8a455089242225ab886f37f981f06edd78` |
+|  `latest-dev` | May 15th     | `sha256:cb49c078701d400af2fc471920a4f468f9a8155cc3999f5b66858fc741ae67eb` |
+|  `latest`     | May 15th     | `sha256:cd30987e78324229c0aef4e84cbee82651d430f18c17400e87caa539fdf46e70` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.6.5-dev` `1.6-dev` `latest-dev` `1-dev` | May 14th     | `sha256:c16b972230c9d423adcf5faf3a69aa8cfd3589578980ef7711af044baec0a6ec` |
-|  `1.6` `latest` `1` `1.6.5`                 | May 9th      | `sha256:73d2740de6d6062dff4b307e343bd1dd603942f811686932d6da2264979522ea` |
+|  `latest-dev` `1.6-dev` `1.6.5-dev` `1-dev` | May 15th     | `sha256:b52bb1253d2d872f4ab31d6fe4733e26cb1d1b192a7ecabb5e1d38e888dee096` |
+|  `1.6` `1.6.5` `latest` `1`                 | May 15th     | `sha256:08e37fbf8a1261d0876801eb9c9070943c8ef8691150cf9dd3de279125a5308b` |
 

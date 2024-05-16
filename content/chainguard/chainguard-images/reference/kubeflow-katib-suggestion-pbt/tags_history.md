@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-pbt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:527a530351e8074a66f66cd06cfc4f48932c155792708a7a5e1f1dbf2018775d` |
-|  `latest`     | April 25th   | `sha256:4f31f12cf743fff0f89f7717c60798c045821746dd046c9ade5d930c8efcf45b` |
+|  `latest`     | May 15th     | `sha256:7275937d193e3be08f6f3b5138c602199780c62f8e2c9b80fe80c695a0c8082c` |
+|  `latest-dev` | May 15th     | `sha256:b96aa9c54846109cc8c9c600fd98a838aa9b38792a88b14aec2d357a4d59af79` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0-dev` `0.16-dev` `0-dev` `latest-dev` | May 14th     | `sha256:0a4e09529d981283dcba1b772467c7c4b6eb56429ecb2d4b1053e20357211fe0` |
-|  `0.16` `0` `0.16.0` `latest`                 | May 13th     | `sha256:abd39429a1fa7743c81cc1e5df395d77c1e2d07b1629a3f5310b288d6b5c1e23` |
+|  `latest` `0.16` `0` `0.16.0`                 | May 15th     | `sha256:3c641dc721abb60407a185b433fa484e80c20f439a4f2359145086739ffe4ea2` |
+|  `latest-dev` `0.16-dev` `0-dev` `0.16.0-dev` | May 15th     | `sha256:79340dca9a959ca9d3d17d2446b036506f73c43cc252fdf96a8661ef90541bd8` |
 

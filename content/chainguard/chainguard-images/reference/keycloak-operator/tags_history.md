@@ -3,8 +3,8 @@ title: "keycloak-operator Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the keycloak-operator Chainguard Image"
-date: 2024-05-15 00:39:35
-lastmod: 2024-05-15 00:39:35
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,13 +26,17 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-Currently, there are no Developer versions of this image available.
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 15th     | `sha256:076334dd3de233b02c28b99303e802462c547d6a3c070bfe190db290f082ef96` |
+|  `latest`     | May 15th     | `sha256:9511d208f37a469fc6165473228cbafef3fb55f92df0949f2057e4a15bd41541` |
+
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `24.0.4` `24` `24.0` `latest`                 | May 14th     | `sha256:a80c3f7286603f8e1b4d82c35982b670ea3bd6131c276311d6c9e0ef7cf4c216` |
-|  `latest-dev` `24.0-dev` `24-dev` `24.0.4-dev` | May 14th     | `sha256:28155e8cff05a86f4eaf50da3e89e6a49b92715d983d9f53df73052d8ca929ae` |
+|  `latest-dev` `24-dev` `24.0-dev` `24.0.4-dev` | May 15th     | `sha256:3a8f953690a7967f0a784a29b0e8b7c32e49afeb13ae29cce9c06d6c3a0b3b3b` |
+|  `latest` `24` `24.0.4` `24.0`                 | May 15th     | `sha256:1f9ed91e9e0cbca44ec0df50357f6f5eca52385dbcf0c5c04d2fba510af5bc1d` |
 

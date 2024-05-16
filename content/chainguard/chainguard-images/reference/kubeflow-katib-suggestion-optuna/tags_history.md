@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-optuna Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:4e6c0a01df1e7ba997667fb413edf0475fa0fd2bd471bc833240dc418317355d` |
-|  `latest`     | April 25th   | `sha256:6d113896f8f4c4f3807c4a74633b67bda2d74590b9c2a43f9562262eabd2d652` |
+|  `latest-dev` | May 15th     | `sha256:ab97d806d4b80153af1abb9f781b314af9e56367f8ad73a4fcae5907b3514da0` |
+|  `latest`     | May 15th     | `sha256:a30c4eb2dd6362e51115ed1d40ae2415962bf1df77351df49bf8a0c0ec13fef1` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.16.0-dev` `0-dev` `0.16-dev` | May 14th     | `sha256:de5ccb0311141aed130a2abb98875596fc2279e38db51f218bbb912c52cfe03d` |
-|  `0` `latest` `0.16.0` `0.16`                 | May 13th     | `sha256:2bed1cc3841dd293a529230a3070b2061d40cb33ae333fcf6092f20671b82b27` |
+|  `latest-dev` `0-dev` `0.16-dev` `0.16.0-dev` | May 15th     | `sha256:5ff6b498b9f75f8151383dee31bb40193d9d19d44fdb621fda6934b64f5bd3ac` |
+|  `0` `latest` `0.16` `0.16.0`                 | May 15th     | `sha256:83704b44b1b61f852283fc2b03e2c220353f25a719211bf3a0e53f6dfd9aaa26` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-hyperopt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:da905680dc1b01edbf11f09bd3c6554ed2f2d7229e3a442fa77fd99195f27511` |
-|  `latest`     | April 25th   | `sha256:0f3589367fe1aecaf3d9b4beb0e69508d970cf858df802ac1727f795b3cca172` |
+|  `latest-dev` | May 15th     | `sha256:03b4584d4c98a12bc075e344df4dee1ff92527bdb04c6f057a923ad0c1ffa6f4` |
+|  `latest`     | May 15th     | `sha256:f054892b6e435302db530d9cbbed687788148aaed756f362cab93b7443ebd057` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16-dev` `0-dev` `latest-dev` `0.16.0-dev` | May 14th     | `sha256:62162b3d47c8c1e889c0edab408b22d476ff0b9c84d0e4486b3c5c3f14f3063d` |
-|  `0.16` `latest` `0.16.0` `0`                 | May 13th     | `sha256:72198fe62d7d9816e499ecb651bef33d98e5ce0e146c726a6b7fc593a9b0662d` |
+|  `latest-dev` `0.16-dev` `0-dev` `0.16.0-dev` | May 15th     | `sha256:d4a9dde4715bc0df5c8416bdd4541db1d3e4a2f69203852adc3b4f4c16b56750` |
+|  `0` `latest` `0.16.0` `0.16`                 | May 15th     | `sha256:34e4a2b66e59d1dcf2098661d8767a6746d613c6766c38032f46e1cee9c132c9` |
 

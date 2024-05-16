@@ -3,8 +3,8 @@ title: "Provenance Information for grafana-mimir Images"
 type: "article"
 unlisted: true
 description: "Provenance information for grafana-mimir Chainguard Image"
-date: 2024-05-15 00:39:35
-lastmod: 2024-05-15 00:39:35
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 | Registry                     | Tags                                                             |
 |------------------------------|------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | No public tags are available for this image.                     |
+| `cgr.dev/chainguard`         | latest, latest-dev                                               |
 | `cgr.dev/chainguard-private` | 2, 2-dev, 2.12, 2.12-dev, 2.12.0, 2.12.0-dev, latest, latest-dev |
 
 

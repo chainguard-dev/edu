@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for gcc-glibc Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 | Registry                     | Tags                                                                                               |
 |------------------------------|----------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest                                                                                             |
+| `cgr.dev/chainguard`         | latest, latest-dev                                                                                 |
 | `cgr.dev/chainguard-private` | 12, 12.2, 12.2.0, 13, 13-dev, 13.1, 13.1.0, 13.2, 13.2-dev, 13.2.0, 13.2.0-dev, latest, latest-dev |
 
 

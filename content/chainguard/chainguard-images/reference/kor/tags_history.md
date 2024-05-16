@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kor Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | April 22nd   | `sha256:1cf9dd349a6a0af670766196a6cfe5e6b2f2cf8e46751f0320932e73b419ee48` |
+|  `latest` | May 15th     | `sha256:30fa6dd519e980e3e5dd9b74051a28cea1531efee86dfa724928ca276eb9e376` |
 
 
 ### Private/Dedicated Registry
@@ -36,8 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.4-dev` `0.4.0-dev` `0-dev` `latest-dev` | May 14th     | `sha256:dc56bf77597116decf57b27db29622459a78783880d259402892d35e99d1a1bc` |
-|  `latest` `0.4.0` `0.4` `0`                 | May 13th     | `sha256:6e9473f802403d821a38208c3067a542daca42de0bb9cff44d27431841372a71` |
+|  `latest` `0.4.0` `0` `0.4`                 | May 15th     | `sha256:4d88f3e2c6aff151869ca6f38860902bab9b8fca15ac9ecfcbb988e9496bc18c` |
+|  `0.4-dev` `0.4.0-dev` `0-dev` `latest-dev` | May 15th     | `sha256:5ad2745e4fd99a7abaa5d3da8ff3463c16aed377cd0464251522dbb3b2ce9cf6` |
 |  `0.3-dev` `0.3.8-dev`                      | May 10th     | `sha256:19624067f5c5c79c2dd3b776745af1ccb77d1e8bf3b8b69fcd375282324eb1a2` |
 |  `0.3` `0.3.8`                              | May 10th     | `sha256:77885d672c300e454145bc6508c5c02638bc17cf667aeaef189e2f05d0486ecc` |
 |  `0.3.7-dev`                                | April 29th   | `sha256:167183ef31cacd1d77368e080d7ce5579dc5ef75d48ffd3005b746d3821f909c` |

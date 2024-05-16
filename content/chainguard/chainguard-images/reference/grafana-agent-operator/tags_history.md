@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grafana-agent-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:0e65a30e25fd7f12348db8c56e308ac3b94fb18faa07f197daf7f534bfe7b911` |
-|  `latest`     | April 22nd   | `sha256:48ee33a1624468ed9214ab8bf800d9a0d4894219da1613ce3a9de86a9d052fa6` |
+|  `latest`     | May 15th     | `sha256:b7f1fcdcea6aa2fc712cd51d5c3a16e127fddb75382362dbe9c32751adf85078` |
+|  `latest-dev` | May 15th     | `sha256:bde7c8af28c204ab10199db8c50647ec490afa2d00fa8bc0713ce2e0e105d843` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.40-dev` `0-dev` `0.40.4-dev` `latest-dev` | May 14th     | `sha256:b70f6cfaeb9c7da149a0647df8c058899ede5f02ccdc2c7bcb1b8daa5c46cc40` |
-|  `0.40.4` `latest` `0.40` `0`                 | May 10th     | `sha256:e9f99587d8fbd1ece2952feef80a101a80216d748ae466352ce722b8ff12f9e1` |
+|  `latest` `0` `0.40.5` `0.40`                 | May 15th     | `sha256:4deb0bb0fcca2e1299eab68b4a75770ffb26dfb73918d9f1e8cbca55ddd81227` |
+|  `0-dev` `latest-dev` `0.40.5-dev` `0.40-dev` | May 15th     | `sha256:e39b6f93beff2f881e854ad467ced7b8c2e6e97743dd6739fe838cba55203e39` |
+|  `0.40.4-dev`                                 | May 15th     | `sha256:2e6d3e2bf332787898d7bc08562b257a63db6a1a5350c1e1664dcaf87684bd89` |
+|  `0.40.4`                                     | May 15th     | `sha256:c91e4271ce904e0bacc265b30a590e4c25c309945c1ba8e86b813e5c0d9621d4` |
 

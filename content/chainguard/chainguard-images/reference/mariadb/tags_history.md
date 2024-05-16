@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mariadb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 14th     | `sha256:4ce673a00fa75b012870865049d1c6453457a70eb64c7ecb1e04ce796f255557` |
-|  `latest`     | May 13th     | `sha256:a76df6851bcd5fe880d6e92e17dee3a970db537b54f3badfd6d38aff6d3ffa40` |
+|  `latest-dev` | May 15th     | `sha256:633f9c8bf899ee127c9f0ade50daff194733f5c0781ddeb9d5d905fe98d7eeba` |
+|  `latest`     | May 15th     | `sha256:283d2db7dd5cc1439aa802a886b958f6d8df5b597f605e1ebc41d7a7d432e64a` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                          | Last Changed | Digest                                                                    |
 |--------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `10.11-dev` `10-dev` `10.11.7-dev` `latest-dev` | May 14th     | `sha256:ca3593733ab71a4335673abf62447250739a9d67361d0eba384d9f5d66e7d1cc` |
-|  `10.11.7` `10` `latest` `10.11`                 | May 13th     | `sha256:ce5862dc6bfe28aa2e72d08600bd55f76056e15665ddcc809aa83a648fd72154` |
+|  `10` `latest` `10.11` `10.11.7`                 | May 15th     | `sha256:61255d753963751979da41e413cfeae339c142fa010c6b9e43eaee68c82dea5a` |
+|  `10.11-dev` `10-dev` `10.11.7-dev` `latest-dev` | May 15th     | `sha256:f58d1b89bb3ab02384be0a70bae7ac4da1dfc9d9e41e338fec0dbb7371a177c2` |
 

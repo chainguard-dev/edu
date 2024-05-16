@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-pushgateway Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 14th     | `sha256:a3b64a605566fed98aa67aaaca8522289b82b1eb64d7cb485c001a9f495aa6f5` |
+|  `latest-dev` | May 15th     | `sha256:107a5d35132ce3de80649912de6fc9b7097f8cdb9759120479703e4042bd7fbc` |
 |  `latest`     | May 13th     | `sha256:50729fa38091faab2ed034f5131e88bf1217c7180debed867a342b061c78b4a5` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.8-dev` `1-dev` `1.8.0-dev` | May 14th     | `sha256:edccc7af2974948a1c3be0f8baa969806f0159715a9ac18ef06d65ea4a9b86d2` |
-|  `1` `1.8.0` `latest` `1.8`                 | May 10th     | `sha256:387901a665203c570608a47fa699e655fd30ecf6e754a14a3551ca44d1441b73` |
+|  `1-dev` `1.8.0-dev` `latest-dev` `1.8-dev` | May 15th     | `sha256:6c5ec61c2db38498ef40cde99864f7786072c045bc09081cbae27e6f88bab6ec` |
+|  `1.8.0` `latest` `1.8` `1`                 | May 15th     | `sha256:c322f8f182e4750a49fbb9dc7cf5b8f3ab6f3db301511e5ca2f2c5a8b1a6ef73` |
 

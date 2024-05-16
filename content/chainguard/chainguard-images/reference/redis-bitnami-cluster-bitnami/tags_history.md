@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the redis-bitnami-cluster-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 14th     | `sha256:75254b71fef8876c368e7ac4c899dcfd0d128c93a37a342d82e1498775a0915c` |
-|  `latest`     | May 13th     | `sha256:dcc83901a829af8cf7e6364548ac5743bb5ed0da85f71c49dfe4cc2756a246f7` |
+|  `latest-dev` | May 15th     | `sha256:5ca364573c3e40f9b6a866e23de39e21ea0c1c519d665ec1056d560f98d58595` |
+|  `latest`     | May 15th     | `sha256:8c853e731e7cc67aa0b1d200c5cea01185bd7f4d3b1f93735b97524424eb2e7c` |
 
 
 ### Private/Dedicated Registry

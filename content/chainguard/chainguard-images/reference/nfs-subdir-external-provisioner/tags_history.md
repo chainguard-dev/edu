@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nfs-subdir-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 14th     | `sha256:8d068671b23dc829d12a24116d681a2858a75e4311bdf8567b32cf94309a3888` |
-|  `latest`     | May 13th     | `sha256:8fd7546e7b654ef1acf88566e9c6247c678358a8be7db144b6899695d679236f` |
+|  `latest`     | May 15th     | `sha256:68c666019470a71cd7e2cc296e25ed9dbd93bd789afff044fd3a384de24abef1` |
+|  `latest-dev` | May 15th     | `sha256:33a6a8e3d8fee6b6464c63f23abd49e4257233256f093022052780f924167794` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4-dev` `4.0.18-dev` `latest-dev` `4.0-dev` | May 14th     | `sha256:a89e0d0f605a40d4d4cef03f31088b2d2a8451fba7a4a3cb9388cb027b751ff3` |
-|  `latest` `4` `4.0` `4.0.18`                 | May 13th     | `sha256:34e173fe8ca27f29ae4ed8be9e74bc6e5fe75d083f81c53a1f5c73a111353fa1` |
+|  `4.0-dev` `4-dev` `latest-dev` `4.0.18-dev` | May 15th     | `sha256:b685e9b2ff02612725195b41722b574f22d94873549a4c7765843d7563a93d67` |
+|  `4` `4.0.18` `4.0` `latest`                 | May 15th     | `sha256:f6fb63669b8dfd2ed0451a4122a38f99a7758642cbff0d21edf7d3ae48173056` |
 

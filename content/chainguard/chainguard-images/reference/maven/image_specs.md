@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public maven Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,7 @@ The table shows package distribution across variants.
 
 |                          | latest-dev | latest |
 |--------------------------|------------|--------|
+| `alsa-lib`               | X          | X      |
 | `apk-tools`              | X          |        |
 | `bash`                   | X          |        |
 | `busybox`                | X          | X      |
@@ -45,6 +46,7 @@ The table shows package distribution across variants.
 | `chainguard-baselayout`  | X          | X      |
 | `fontconfig-config`      | X          | X      |
 | `freetype`               | X          | X      |
+| `giflib`                 | X          | X      |
 | `git`                    | X          |        |
 | `glibc`                  | X          | X      |
 | `glibc-locale-en`        | X          | X      |
@@ -62,6 +64,7 @@ The table shows package distribution across variants.
 | `libffi`                 | X          | X      |
 | `libfontconfig1`         | X          | X      |
 | `libidn2`                | X          |        |
+| `libjpeg-turbo`          | X          | X      |
 | `libnghttp2-14`          | X          |        |
 | `libpcre2-8-0`           | X          |        |
 | `libpng`                 | X          | X      |
@@ -69,7 +72,15 @@ The table shows package distribution across variants.
 | `libssl3`                | X          |        |
 | `libtasn1`               | X          | X      |
 | `libunistring`           | X          |        |
+| `libx11`                 | X          | X      |
+| `libxau`                 | X          | X      |
+| `libxcb`                 | X          | X      |
 | `libxcrypt`              | X          | X      |
+| `libxdmcp`               | X          | X      |
+| `libxext`                | X          | X      |
+| `libxi`                  | X          | X      |
+| `libxrender`             | X          | X      |
+| `libxtst`                | X          | X      |
 | `maven`                  | X          | X      |
 | `ncurses`                | X          |        |
 | `ncurses-terminfo-base`  | X          |        |
@@ -79,6 +90,7 @@ The table shows package distribution across variants.
 | `openjdk-21-jre-base`    | X          | X      |
 | `p11-kit`                | X          | X      |
 | `p11-kit-trust`          | X          | X      |
+| `ttf-dejavu`             | X          | X      |
 | `wget`                   | X          |        |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          | X      |
