@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-rekor-createsecret Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 2nd      | `sha256:15590025aaf89bbfd33dabc81afa77ef289420ede61fb66deba0ec62e24cdde2` |
-|  `latest-dev` | May 2nd      | `sha256:07f1f2d80ca04c61dd72d908d0fbbf4a77c7e9c2e303d3b0153197445ce38564` |
+|  `latest`     | May 8th      | `sha256:97b23dda46994f740b4ba526102f5ecc9ed5769fa311cad3389414c6b87f9a0e` |
+|  `latest-dev` | May 8th      | `sha256:feb2891b8ec80db7685e9fed3cdb80a12fc8fd61219ba81c09572c974aa0a724` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0` `0.6` `0.6.17`                 | May 2nd      | `sha256:ba030680efad3c55945586ea01cc868df3ec7ac299782393f71fbc1b5556d6f8` |
-|  `latest-dev` `0.6-dev` `0-dev` `0.6.17-dev` | May 2nd      | `sha256:236c9ee73334131e43aea41e46938b94391175bddc28cdc212e00eab76420412` |
+|  `latest-dev` `0-dev` `0.6.17-dev` `0.6-dev` | May 8th      | `sha256:efc0aedef12048d6f2a5a4f54066b48c6d08da8708808cec4efb5485064010dc` |
+|  `latest` `0.6` `0.6.17` `0`                 | May 8th      | `sha256:625a1103d36fb3c6cb96b18a372009e598ba41a9f7af79a7020b1ab423f49e5c` |
 

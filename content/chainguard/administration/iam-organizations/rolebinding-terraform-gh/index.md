@@ -4,18 +4,18 @@ linktitle: "GitHub Team Role-binding"
 description: "Procedural tutorial outlining how to use Terraform to create Chainguard role-bindings for members of a GitHub team."
 type: "article"
 date: 2023-06-10T08:48:45+00:00
-lastmod: 2024-04-03T15:22:20+01:00
+lastmod: 2024-05-09T08:48:45+00:00
 draft: false
 tags: ["Product", "Procedural"]
 images: []
 weight: 050
 ---
 
-There may be cases where an organization will want multiple users to have access to the same Chainguard organization. Chainguard allows you to grant other users access to Chainguard by [generating an invite link or code](/chainguard/chainguard-enforce/iam-groups/how-to-manage-iam-groups-in-chainguard-enforce/#inviting-others-to-a-group).
+There may be cases where an organization will want multiple users to have access to the same Chainguard organization. Chainguard allows you to grant other users access to Chainguard by [generating an invite link or code](/chainguard/administration/iam-organizations/how-to-manage-iam-organizations-in-chainguard/#inviting-others-to-an-organization).
 
 In addition, you can now grant access to users using Terraform and identity providers like GitHub, GitLab, and Google. You can also manage access through these providers' existing group structures, like GitHub Teams or GitLab Groups. Granting access through Terraform helps to reduce the risk of unwanted users gaining access to Chainguard.
 
-This guide outlines one method of using Terraform to grant members of a GitHub team access to the resources managed by a Chainguard group. It also highlights a few other Terraform configurations you can use to manage role-bindings in the Chainguard platform. Although this guide is specific to GitHub, the same approach can be used for other systems.
+This guide outlines one method of using Terraform to grant members of a GitHub team access to the resources managed by a Chainguard organization. It also highlights a few other Terraform configurations you can use to manage role-bindings in the Chainguard platform. Although this guide is specific to GitHub, the same approach can be used for other systems.
 
 
 ## Prerequisites
@@ -83,10 +83,10 @@ Following that, you will need to provide Terraform with your GitHub personal acc
 export GITHUB_TOKEN=<your GitHub token>
 ```
 
-Lastly, the Chainguard role-bindings that this guide's Terraform configuration will create must all be tied to a group. Create another variable named `CHAINGUARD_GROUP` with the following command, replacing `<UIDP of target Chainguard IAM group>` with the UIDP of the Chainguard IAM group you want to tie the role-bindings to. You can find the UIDPs for all your Chainguard IAM groups by running `chainctl iam groups ls -o table`.
+Lastly, the Chainguard role-bindings that this guide's Terraform configuration will create must all be tied to an organization. Create another variable named `CHAINGUARD_ORG` with the following command, replacing `<UIDP of target Chainguard IAM organization>` with the UIDP of the Chainguard IAM organization you want to tie the role-bindings to. You can find the UIDP for your Chainguard IAM organization by running `chainctl iam organizations ls -o table`.
 
 ```sh
-export CHAINGUARD_GROUP="<UIDP of target Chainguard IAM group>"
+export CHAINGUARD_ORG="<UIDP of target Chainguard IAM organization>"
 ```
 
 Following that, you will have everything you need in place to set up the Terraform configuration.
@@ -94,7 +94,7 @@ Following that, you will have everything you need in place to set up the Terrafo
 
 ## Creating your Terraform Configuration
 
-As mentioned previously, we will be using Terraform to create role-bindings for each user in a GitHub team, giving them access to resources associated with a given Chainguard group. This guide outlines how to create two Terraform configuration files that, together, will produce a set of such role-bindings.
+As mentioned previously, we will be using Terraform to create role-bindings for each user in a GitHub team, giving them access to resources associated with a given Chainguard organization. This guide outlines how to create two Terraform configuration files that, together, will produce a set of such role-bindings.
 
 To help explain both files' purposes, we will go over what they do and how to create each one individually.
 
@@ -206,12 +206,12 @@ The final block puts all this information together to create the role-bindings f
 resource "chainguard_rolebinding" "cg-binding" {
   for_each = data.chainguard_identity.team_ids
   identity = each.value.id
-  group    = "$CHAINGUARD_GROUP"
+  group    = "$CHAINGUARD_ORG"
   role     = data.chainguard_role.viewer.items[0].id
 }
 ```
 
-This `resource` block iterates through the list of Chainguard identities, assigns each one to the IAM group specified by the `group` argument, and binds each identity to the `viewer` role. Here, the `group` argument is set to the `CHAINGUARD_GROUP` variable you created at the start of this guide.
+This `resource` block iterates through the list of Chainguard identities, assigns each one to the IAM organization specified by the `group` argument, and binds each identity to the `viewer` role. Here, the `group` argument is set to the `CHAINGUARD_ORG` variable you created at the start of this guide.
 
 Create the `rolebindings.tf` file with the following command.
 
@@ -240,7 +240,7 @@ data "chainguard_role" "viewer" {
 resource "chainguard_rolebinding" "cg-binding" {
   for_each = data.chainguard_identity.team_ids
   identity = each.value.id
-  group    = "$CHAINGUARD_GROUP"
+  group    = "$CHAINGUARD_ORG"
   role     = data.chainguard_role.viewer.items[0].id
 }
 EOF
@@ -299,7 +299,7 @@ After pressing `ENTER`, the command will complete.
 Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
 ```
 
-Following this, any members of your GitHub team for whom you've created role-bindings will be able to view the resources associated with the Chainguard group you specified. To do so, they need to log in to the Chainguard platform, either by logging into the [Chainguard Console](https://console.enforce.dev/) or with the following command.
+Following this, any members of your GitHub team for whom you've created role-bindings will be able to view the resources associated with the Chainguard organization you specified. To do so, they need to log in to the Chainguard platform, either by logging into the [Chainguard Console](https://console.enforce.dev/) or with the following command.
 
 ```sh
 chainctl auth login
@@ -309,7 +309,7 @@ After navigating to the Console or running the login command, they will be prese
 
 ![Screenshot of the default Chainguard login flow. It includes the Inky logo above the words "Welcome. Log in to Chainguard to continue to Chainguard." Below this are three buttons, one reading "Continue with Google", one reading "Continue with GitHUb", and a third reading "Continue with GitLab".](login-flow.png)
 
-There, they must click the **Continue with GitHub** button to continue logging in under their GitHub account. Chainguard will immediately recognize their GitHub account because it is tied to the role-binding you created in the previous step, and they will be able to view the resources associated with the Chainguard group specified in your Terraform configuration.
+There, they must click the **Continue with GitHub** button to continue logging in under their GitHub account. Chainguard will immediately recognize their GitHub account because it is tied to the role-binding you created in the previous step, and they will be able to view the resources associated with the Chainguard organization specified in your Terraform configuration.
 
 
 ## Optional Configurations
@@ -326,7 +326,7 @@ data "chainguard_roles" "editor" {
 resource "chainguard_rolebinding" "cg-binding" {
   for_each = toset(data.chainguard_identity.team_ids)
   identity = each.value.id
-  group	= "$CHAINGUARD_GROUP"
+  group	= "$CHAINGUARD_ORG"
   role     = data.chainguard_roles.editor.items[0].id
 }
 ```

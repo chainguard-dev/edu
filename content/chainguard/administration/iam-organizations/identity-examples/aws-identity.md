@@ -7,7 +7,7 @@ lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by an AWS role."
 type: "article"
 date: 2023-11-28T08:48:45+00:00
-lastmod: 2023-12-07T08:48:45+00:00
+lastmod: 2024-05-09T08:48:45+00:00
 draft: false
 tags: ["Chainguard Images", "Product", "Procedural"]
 images: []
@@ -124,13 +124,13 @@ Next, you can create the `chainguard.tf` file.
 resource "chainguard_group" "example-group" {
   name   	 = "example-group"
   description = <<EOF
-    This group simulates an end-user group, which the AWS role identity
+    This organization simulates an end-user organization, which the AWS role identity
     can interact with via the identity in aws.tf.
   EOF
 }
 ```
 
-This section creates a Chainguard IAM group named `example-group`, as well as a description of the group. This will serve as some data for the identity to access when we test it out later on.
+This section creates a Chainguard IAM organization named `example-group`, as well as a description of the organization. This will serve as some data for the identity to access when we test it out later on.
 
 Then we'll define a Chainguard identity that can be assumed by the AWS role created in `lambda.tf` above:
 
@@ -269,7 +269,7 @@ if err != nil {
 The resulting token, `cgtok`, can be used to authenticate requests to Chainguard API calls:
 
 ```go
-// Use the token to list repos in the group.
+// Use the token to list repos in the organization.
 clients, err := registry.NewClients(ctx, env.APIEndpoint, cgtok)
 if err != nil {
   return "", fmt.Errorf("creating clients: %w", err)
@@ -289,10 +289,10 @@ To remove the resources Terraform created, you can run the `terraform destroy` c
 terraform destroy
 ```
 
-This will destroy the role-binding, and the identity created in this guide. However, you'll need to destroy the `example-group` group yourself with `chainctl`. It will also delete all the AWS resources defined earlier in `chainguard.tf` and `lambda.tf`.
+This will destroy the role-binding, and the identity created in this guide. However, you'll need to destroy the `example-group` organization yourself with `chainctl`. It will also delete all the AWS resources defined earlier in `chainguard.tf` and `lambda.tf`.
 
 ```sh
-chainctl iam groups rm example-group
+chainctl iam organizations rm example-group
 ```
 
 You can then remove the working directory to clean up your system.

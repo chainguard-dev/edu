@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the metacontroller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 2nd      | `sha256:19a66462bdcc8e21f3fbfb558e70cc63a08ba989964b19c194e5c83cedd109a2` |
-|  `latest`     | May 2nd      | `sha256:4d69b45d1da232ed3520a21ef181e5080d0f0c79f287ad1c813c0cca91ad393c` |
+|  `latest-dev` | May 9th      | `sha256:35ece86588f1c4a51ee1617f2cbb453494c528bc51eba19411f4a0d9fad0761b` |
+|  `latest`     | May 9th      | `sha256:65a7ccc6dfb516cfabbec6332070c2c8424fb128de914c6ed644b504a75cecf9` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.11.11-dev` `4.11-dev` `4-dev` `latest-dev` | May 2nd      | `sha256:f9612e857ea909f465639a070e38c157fe172098ed8601898974f1dc5cbad342` |
-|  `latest` `4.11` `4` `4.11.11`                 | May 2nd      | `sha256:4dcd77a185eb3dcf19511101b183e238de339557dcd1218b0a1c4d0ae2e9f259` |
+|  `latest-dev` `4.11-dev` `4.11.12-dev` `4-dev` | May 9th      | `sha256:440ad2e5948857756772e97e4b4f1a442ea69bc483cb7c7258a02031bdcdfca9` |
+|  `4.11` `latest` `4` `4.11.12`                 | May 9th      | `sha256:e8ca753fde8268269aee43e9a6d3d69efcae50cd80aa8e4c550d53f64a2a4eff` |
+|  `4.11.11-dev`                                 | May 7th      | `sha256:b80237e605b8495989c5cbcb62ce9be9f31a1f576f9551af4a5679a150c67b00` |
+|  `4.11.11`                                     | May 7th      | `sha256:f0497a298dae653bc7f3389d74666938e3e5f8186ee1a7e4c893d7b5633c28b5` |
 

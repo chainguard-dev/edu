@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public crossplane-aws-s3 Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-04-18 00:43:55
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -46,6 +46,5 @@ The table shows package distribution across variants.
 | `terraform-1.8`                   | X      |
 | `terraform-compat`                | X      |
 | `terraform-local-provider-config` | X      |
-| `terraform-provider-aws`          | X      |
 | `wolfi-baselayout`                | X      |
 

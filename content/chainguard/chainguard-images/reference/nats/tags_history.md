@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nats Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-06 00:43:57
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 2nd      | `sha256:22268596f76255df7fd44b3a39f694b57e18bde09012790557295b28b1285795` |
-|  `latest`     | May 2nd      | `sha256:b272a9df1348227ecddccb8a4be29b5d54bacb4fce91ceb5b008c623c4e9b2ac` |
+|  `latest-dev` | May 9th      | `sha256:4755367bca523028fc53aa5ffde8d8b6ef353d1820d1cbb421f4386c47590b9f` |
+|  `latest`     | May 9th      | `sha256:e5df36dfccb7bc87b50b21fb679385419a93d393a8158fc450501582a790eaba` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `latest-dev` `2.10.14-dev` `2.10-dev` | May 2nd      | `sha256:72a5b7e3da3a9eede638b15a74c09643aec6c79f8f18466dd8fd1377c29b0af8` |
-|  `2.10` `2` `2.10.14` `latest`                 | May 2nd      | `sha256:5c9ef7deaf63fbb1be1dad2a3ed2e12a77596e661f1643e107b69e7ba4fb53c5` |
+|  `2.10-dev` `latest-dev` `2.10.14-dev` `2-dev` | May 9th      | `sha256:2b054645013a4d6d4214d3227befdebf924d44227c81478cb36010f044ef3880` |
+|  `2.10` `2.10.14` `2` `latest`                 | May 9th      | `sha256:b0892c46c9dc36b41e0f79da58dc4853df303a2ead85a9de15a974f333508fbf` |
 |  `2.10.12-dev`                                 | April 11th   | `sha256:2c126766434b41af0a74859938041cd2109d5cd2b54ee03aaaa52393a8fe07fd` |
 

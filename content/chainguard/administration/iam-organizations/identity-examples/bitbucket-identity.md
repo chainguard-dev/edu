@@ -7,7 +7,7 @@ lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by a Bitbucket workflow."
 type: "article"
 date: 2023-05-17T08:48:45+00:00
-lastmod: 2023-12-07T08:48:45+00:00
+lastmod: 2024-05-09T08:48:45+00:00
 draft: false
 tags: ["Chainguard Images", "Product", "Procedural"]
 images: []
@@ -72,7 +72,7 @@ data "chainguard_group" "group" {
 }
 ```
 
-This section looks up a Chainguard IAM group named `my-customer.biz`. This will contain the identity — which will be created by the `bitbucket.tf` file — to access when we test it out later on.
+This section looks up a Chainguard IAM organization named `my-customer.biz`. This will contain the identity — which will be created by the `bitbucket.tf` file — to access when we test it out later on.
 
 Now you can move on to creating the rest of our Terraform configuration files, `bitbucket.tf`.
 
@@ -127,7 +127,7 @@ data "chainguard_role" "viewer" {
 }
 ```
 
-The final section grants this role to the identity on the group.
+The final section grants this role to the identity.
 
 ```
 resource "chainguard_rolebinding" "view-stuff" {
@@ -231,12 +231,12 @@ Now you can add the commands for testing the identity like `chainctl images repo
           # Assume the bitbucket pipeline identity
           - ./chainctl auth login --identity-token $BITBUCKET_STEP_OIDC_TOKEN --identity %bitbucket-identity%
           - ./chainctl images repos list
-          - docker pull cgr.dev/<group>/<repo>:<tag>
+          - docker pull cgr.dev/<organization>/<repo>:<tag>
 ```
 
 Once you commit the `bitbucket-pipelines.yml` file the pipeline will run.
 
-Assuming everything works as expected, your pipeline will be able to assume the identity and run the `chainctl images repos list` command, listing repos available to the group.
+Assuming everything works as expected, your pipeline will be able to assume the identity and run the `chainctl images repos list` command, listing repos available to the organization.
 
 ```
 . . .
@@ -256,7 +256,7 @@ data "chainguard_roles" "editor" {
 }
 ```
 
-You can also edit the pipeline itself to change its behavior. For example, instead of listing the repos the identity has access to, you could have the workflow inspect the groups.
+You can also edit the pipeline itself to change its behavior. For example, instead of listing the repos the identity has access to, you could have the workflow inspect the organizations.
 
 ```
           - ./chainctl images repos list
@@ -273,7 +273,7 @@ To remove the resources Terraform created, you can run the `terraform destroy` c
 terraform destroy
 ```
 
-This will destroy the role-binding, and the identity created in this guide. It will not delete the group.
+This will destroy the role-binding, and the identity created in this guide. It will not delete the organization.
 
 You can then remove the working directory to clean up your system.
 

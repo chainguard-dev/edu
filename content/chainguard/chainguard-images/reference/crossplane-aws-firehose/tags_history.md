@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crossplane-aws-firehose Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-06 00:43:57
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 3rd      | `sha256:ffaeb3c002efa19c36a2569630cc1c0d843c3ff280d59bb8f6e8857b587f3c90` |
-|  `latest-dev` | May 3rd      | `sha256:3507757f4fc85e0b5d99482fc205a76060077e97ccbea1620977f27e752fd2b6` |
+|  `latest-dev` | May 9th      | `sha256:3b0c9a8dcb878e80dcb1ccb5a9c2680b1404c9ad64359eef9e7b7f93f6d893f4` |
+|  `latest`     | May 9th      | `sha256:d1441bfa61c072ff3d80559266076141c2b24bf33094273cd0e49683539183ed` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                     | Last Changed | Digest                                                                    |
 |-----------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1.4.0` `1.4` `1` | May 3rd      | `sha256:65bbd2fa17e9fa79b91bc682e1a7d3fab644f19e771e507e3310f9ebbc1608f2` |
+|  `1` `latest` `1.4.0` `1.4` | May 9th      | `sha256:079dfc990a6456d34c8f7408459d52950f440022a9f483788ab536930247e234` |
 |  `1.3.1` `1.3`              | April 23rd   | `sha256:3b279e078e56350313d2667db28f9f191d8cb5fdcb7008e8c9cc8b596a91085b` |
 

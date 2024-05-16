@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-logging-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,10 +36,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.17-dev` `3-dev` `3.17.11-dev`           | May 2nd      | `sha256:5991025d19ca26b57fa8f42daa8ce1b347f9afe35f01f16ff78554f4a8d28f18` |
-|  `4.1` `4.1.0`                              | May 2nd      | `sha256:31dd56a78f31c97279b1a4ae5777a6096b89a885ac90ac25c68e1a6bd0dc1aab` |
+|  `4.1.0` `4.1`                              | May 9th      | `sha256:373867b6e1c67730efa7b967315856cafd89f5172eca9759e88c7e3bed389d38` |
+|  `3.17-dev` `3-dev` `3.17.11-dev`           | May 9th      | `sha256:8d2734422e5bc0978451e3278251f3bf7a34aba633b23aaa24f6842c555184de` |
+|  `3.17` `3.17.11` `3`                       | May 9th      | `sha256:053cac472da793eb0702a135b0ff0ba515244da801e743ceaa686178037d05c0` |
+|  `4.1-dev` `4.1.0-dev`                      | May 9th      | `sha256:2e7c6c1cd58eb69596d7683e1c9a1070c608a75faa7c9b6eb98435dd18372d10` |
 |  `4.6.0` `4` `4.6` `latest`                 | May 2nd      | `sha256:1d4e47e9e8984e9a749e001b111bbe7b5fc14b7e521a4535d7fe225bef349874` |
 |  `4.6.0-dev` `latest-dev` `4.6-dev` `4-dev` | May 2nd      | `sha256:518e27cbe1bd5df05534e5f76ad4bb2a042a95fae0cfbc38129ea6920dd5a23f` |
-|  `4.1.0-dev` `4.1-dev`                      | May 2nd      | `sha256:4fc107b842fe45227a0c772dd3abf883a6305b79b3274e939bbc9247f732b6f8` |
-|  `3.17` `3.17.11` `3`                       | May 2nd      | `sha256:1ac0ed1ee22a4501b84f0964657685bbe886aa6ad44951bea43a0613c1b0c784` |
 

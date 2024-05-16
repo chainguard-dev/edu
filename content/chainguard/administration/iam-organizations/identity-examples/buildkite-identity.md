@@ -7,7 +7,7 @@ lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by a Buildkite workflow."
 type: "article"
 date: 2023-05-17T08:48:45+00:00
-lastmod: 2023-12-07T08:48:45+00:00
+lastmod: 2024-05-09T08:48:45+00:00
 draft: false
 tags: ["Chainguard Images", "Product", "Procedural"]
 images: []
@@ -73,7 +73,7 @@ data "chainguard_group" "group" {
 }
 ```
 
-This section looks up a Chainguard IAM group named `my-customer.biz`. This will contain the identity — which will be created by the `buildkite.tf` file — to access when we test it out later on.
+This section looks up a Chainguard IAM organization named `my-customer.biz`. This will contain the identity — which will be created by the `buildkite.tf` file — to access when we test it out later on.
 
 Now you can move on to creating the last of our Terraform configuration files, `buildkite.tf`.
 
@@ -125,7 +125,7 @@ data "chainguard_role" "viewer" {
 }
 ```
 
-The final section grants this role to the identity on the group.
+The final section grants this role to the identity.
 
 ```
 resource "chainguard_rolebinding" "view-stuff" {
@@ -214,10 +214,10 @@ From there, click the **Edit Steps** button to add the following commands to a s
 	./chainctl auth login --identity-token $token --identity <your buildkite identity>
   ./chainctl auth configure-docker --identity-token $token --identity <your buildkite identity>
   ./chainctl images repos list
-  docker pull cgr.dev/<group>/<repo>:<tag>
+  docker pull cgr.dev/<organization>/<repo>:<tag>
 ```
 
-These commands will cause your Buildkite pipeline to download `chainctl` and make it executable. It will then sign in to Chainguard using the Buildkite identity you generated previously. If this workflow can successfully assume the identity, then it will be able to execute the `chainctl images repos list` command and retrieve the list of repos available to the group.
+These commands will cause your Buildkite pipeline to download `chainctl` and make it executable. It will then sign in to Chainguard using the Buildkite identity you generated previously. If this workflow can successfully assume the identity, then it will be able to execute the `chainctl images repos list` command and retrieve the list of repos available to the organization.
 
 There are a couple ways you can add commands to an existing Buildkite pipeline, so follow whatever procedure works best for you.
 
@@ -246,7 +246,7 @@ steps:
 
 Click the **Save and Build** button. Ensure that your Buildkite agent is running, and then wait a few moments for the pipeline to finish building.
 
-Assuming everything works as expected, your pipeline will be able to assume the identity and run the `chainctl images repos list` command, returning the images available to the group. Then it will pull an image from the group's repository.
+Assuming everything works as expected, your pipeline will be able to assume the identity and run the `chainctl images repos list` command, returning the images available to the organization. Then it will pull an image from the organization's repository.
 
 ```
 ...
@@ -266,10 +266,10 @@ data "chainguard_roles" "editor" {
 }
 ```
 
-You can also edit the pipeline itself to change its behavior. For example, instead of listing repos, you could have the workflow inspect the groups.
+You can also edit the pipeline itself to change its behavior. For example, instead of listing repos, you could have the workflow inspect the organization.
 
 ```
-chainctl iam groups ls
+chainctl iam organizations ls
 ```
 
 Of course, the Buildkite pipeline will only be able to perform certain actions on certain resources, depending on what kind of access you grant it.
@@ -283,7 +283,7 @@ To remove the resources Terraform created, you can run the `terraform destroy` c
 terraform destroy
 ```
 
-This will destroy the role-binding and the identity created in this guide. It will not delete the group.
+This will destroy the role-binding and the identity created in this guide. It will not delete the organization.
 
 You can then remove the working directory to clean up your system.
 

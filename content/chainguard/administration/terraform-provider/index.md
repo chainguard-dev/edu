@@ -4,7 +4,7 @@ linktitle: "Terraform Provider"
 type: "article"
 description: "An introduction to working with the Chainguard Terraform provider"
 date: 2024-01-28T15:56:52-07:00
-lastmod: 2024-01-28T15:56:52-07:00
+lastmod: 2024-05-09T08:48:45+00:00
 draft: false
 tags: ["Product", "Overview"]
 images: []
@@ -74,13 +74,13 @@ You can find more information about authenticating with the Chainguard Terraform
 
 Terraform was designed to allow users to manage various resources declaratively. In practice, this means that you define the state you want your resources to be in and then you let Terraform and the provider handle the details of bringing that state to reality. 
 
-Resources on the Chainguard platform are organized in a hierarchical structure of folder-like groups, with an organization's group at the root, though most users will only need to work at the organization level.
+Resources on the Chainguard platform are organized in a hierarchical structure consisting of [**Organizations** and **Folders**](/chainguard/administration/iam-organizations/overview-of-chainguard-iam-model/#organizations-and-folders). An organization is a customer or group of customers working with the same Chainguard resources, while a folder is a collection of resources within a Chainguard organization. Most users will only need to work at the organization level.
 
 ![Diagram outlining hierarchical structure of Chainguard resources. The diagram has two halves: one labeled "Organization" and another labeled "Chainguard". Under Organization is a box labeled "Tags" with an arrow pointing toward another box labeled "Repos." Under both halves is a box labeled "Role Bindings" which has four arrows pointing from it. Two arrows point to boxes (labeled "Identities" and "Custom Roles") under Organization and the other two point to boxes (labeled "User Identities" and "roles) under Chainguard.](tf-diagram.png)
 
-All user-managed resources are defined in relation to some parent group. This means developers need to be able to reference their organization's group throughout their configuration. We'll outline two ways to define this kind of reference: using local values and data sources.
+All user-managed resources are defined in relation to the organization to which they belong. This means developers need to be able to reference their organization throughout their configuration. We'll outline two ways to define this kind of reference: using local values and data sources. For more details on referencing an organization, please refer to the [`chainguard_group` resource documentation](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/resources/group) for more information.
 
-> **Note:** This section specifically outlines how to define organization group references. There may be times when you need to reference a group other than your organization in your Terraform code. Refer to the [`chainguard_group` resource documentation](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/resources/group) for more information.
+> **Note:** Chainguard organizations were previously called "groups," with a "root group" representing what is now referred to as an organization and "subgroups" referring to folders. As of this writing, the Chainguard Terraform provider still refers to "groups" instead of organizations. To align with our other [IAM resources](/chainguard/administration/iam-organizations/), this document uses the new nomenclature wherever possible.
 
 ### Defining local values
 
@@ -89,10 +89,10 @@ The Terraform configuration language allows you to define *local values* which a
 If you are familiar with `chainctl`, you can find your organization's ID with the following command:
 
 ```shell
-chainctl iam groups list -o table
+chainctl iam organizations list -o table
 ```
 
-Once you've copied the UIDP of your root or organization group (the 40-digit long hex string listed in the `ID` column of the previous command's output), you can use it to create a local variable in Terraform:
+Once you've copied the UIDP of your organization (the 40-digit long hex string listed in the `ID` column of the previous command's output), you can use it to create a local variable in Terraform:
 
 ```
 locals {
@@ -104,15 +104,15 @@ Throughout your Terraform code, you can refer to this value as `local.org_id`. I
 
 ### Using data sources
 
-*Data sources* allow Terraform to access and use information that was defined outside ofWe'll outline two ways to define this kind of reference: using local values and data sources. a Terraform configuration. The available data sources for Chainguard resources are [groups](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/data-sources/group), [identities](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/data-sources/identity), and [roles](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/data-sources/role).
+*Data sources* allow Terraform to access and use information that was defined outside ofWe'll outline two ways to define this kind of reference: using local values and data sources. The available data sources for Chainguard resources are [groups](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/data-sources/group), [identities](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/data-sources/identity), and [roles](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/data-sources/role).
 
-If you know the exact name of your organization's group, you can use a data resource to query the API for it:
+If you know the exact name of your organization, you can use a data resource to query the API for it:
 
 ```
 data "chainguard_group" "org" {
   # This indicates the group is an organization.
   parent_id = "/"
-  name  	= "[organization group name]"
+  name  	= "[organization name]"
 }
 ```
 
@@ -210,5 +210,5 @@ After applying this Terraform configuration, any user whose GitHub ID was includ
 
 The [Chainguard Terraform provider documentation](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs) includes examples of how you can use it to manage your Chainguard resources.
 
-For more information on setting up custom identity providers, we encourage you to check out our documentation on setting up [custom IDPs](/chainguard/administration/custom-idps/custom-idps/), as well as our examples for [Okta](/chainguard/administration/custom-idps/okta/), [Ping Identity](/chainguard/administration/custom-idps/ping-id/), and [Azure Active Directory](/chainguard/administration/custom-idps/azure-ad/). Additionally, [our tutorial](/chainguard/administration/iam-groups/rolebinding-terraform-gh/) on using the Terraform provider to grant members of a GitHub team access to the resources managed by a Chainguard group provides more context and information to the method outlined in this guide.
+For more information on setting up custom identity providers, we encourage you to check out our documentation on setting up [custom IDPs](/chainguard/administration/custom-idps/custom-idps/), as well as our examples for [Okta](/chainguard/administration/custom-idps/okta/), [Ping Identity](/chainguard/administration/custom-idps/ping-id/), and [Azure Active Directory](/chainguard/administration/custom-idps/azure-ad/). Additionally, [our tutorial](/chainguard/administration/iam-groups/rolebinding-terraform-gh/) on using the Terraform provider to grant members of a GitHub team access to the resources managed by a Chainguard organization provides more context and information to the method outlined in this guide.
 

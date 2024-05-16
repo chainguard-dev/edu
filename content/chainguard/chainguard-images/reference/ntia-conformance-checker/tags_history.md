@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ntia-conformance-checker Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 2nd      | `sha256:46f785b261fdf1223ca63f9df16475dfaa3354af23e906516c09eb86248e28d5` |
-|  `latest`     | May 2nd      | `sha256:47dd9f457e8bd148e2cdbbf837d462b34ef032f6c3a2e9aaeab9747ffff56711` |
+|  `latest-dev` | May 8th      | `sha256:32f6b1cfbaa1b25f1d5b37821eee0b21ab746519612f64df89697bde8f9e5f64` |
+|  `latest`     | May 8th      | `sha256:d9ac604c3be19ffa0458fb75a4454cb418f444dc25f218e8df58afada76ef2a2` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.0-dev` `2-dev` `2.0.0-dev` | May 2nd      | `sha256:1650f43846d90f2285d404b226960e3e62e4b083d8047bb30c4666f16527afcf` |
-|  `latest` `2.0.0` `2.0` `2`                 | May 2nd      | `sha256:ff68aff081f45b8705109f7a61fe55bd53d9754bde89d66df4b3cbb527980a6b` |
+|  `2-dev` `2.0.0-dev` `2.0-dev` `latest-dev` | May 7th      | `sha256:101592162f96192e1ee7e897a7baeb07c77d57abd45659785d79de624de65ecd` |
+|  `2` `2.0` `latest` `2.0.0`                 | May 7th      | `sha256:f09280e46c3df04dddc426d5ef5e8f4391d8fb0472011358b4a6f03083014695` |
 |  `1-dev` `1.1.0-dev` `1.1-dev`              | April 29th   | `sha256:8a897abdccbd876fe381ae412e2061af9a7c54847424464bca81f62079a1cb94` |
 |  `1.1.0` `1.1` `1`                          | April 25th   | `sha256:5c255ca95538b8098395e09604c1fded6cdd50f1fd6cd47b3d00fbf36eba9f31` |
 

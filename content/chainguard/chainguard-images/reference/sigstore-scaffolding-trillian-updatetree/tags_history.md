@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-trillian-updatetree Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-10 00:43:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 2nd      | `sha256:9ae335a0d46010aa7803b5ac210dd7c5a1687346a37f5d9adba32a6d3360c966` |
-|  `latest`     | May 2nd      | `sha256:360dc9a3594014a3a2a8910d53638a77eb91ff2f73cd3326c221a9f7f870bedf` |
+|  `latest`     | May 8th      | `sha256:9c3db84505b1a51ba435bd8ac90ee543da30a911925d463536c80c7b4981634b` |
+|  `latest-dev` | May 8th      | `sha256:4d8e7882148083d403929b8c8d231d216427e47db24e82c38944f28496bb3436` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.6` `0.6.17` `0`                 | May 2nd      | `sha256:ababf5b7edb3458ad5eb480a067daa4b036e9600783d9808af82e2356f2d500d` |
-|  `0.6.17-dev` `0-dev` `latest-dev` `0.6-dev` | May 2nd      | `sha256:cab0a1bfca88f7e2901432ef36ff03bd553c7467f90eb095cddcf0a9de33633b` |
+|  `latest-dev` `0.6-dev` `0-dev` `0.6.17-dev` | May 8th      | `sha256:305359cbba1d415e485f21c4290dfa6e06e327517847b3a8e182a704207944ed` |
+|  `latest` `0.6.17` `0` `0.6`                 | May 8th      | `sha256:c2d8cf331cdfe6c13193d0285a2b30d4b452c52aafe4bdd02620de0ac0507941` |
 
