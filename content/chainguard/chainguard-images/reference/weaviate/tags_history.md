@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the weaviate Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 14th     | `sha256:2978c18ac510a323d00120d6180859c37d443872e7006fe4c4393ef8098a1534` |
-|  `latest`     | May 11th     | `sha256:75a1f3bda1933e33678bcd31246d0c7fdc201d7aa07fe81e0d0a32437542d021` |
+|  `latest`     | May 15th     | `sha256:3530eacbb087e21630ac50f1361aa9f5f4365314a261d0c0da2ba26a0d2a142c` |
+|  `latest-dev` | May 15th     | `sha256:9d6f828d52ed182d2d3ae2ad5364d09942c3841c001b0766bc6b8a6993e10e0e` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.25.0-dev` `1.25-dev` `1-dev` `latest-dev` | May 14th     | `sha256:432a871833cacaeb7f8cab42c778dd90120e5cd6f3469701e3422ca0fdc16d10` |
-|  `1.25.0` `1` `latest` `1.25`                 | May 11th     | `sha256:5923f8f7e703b62983e5fa77f7692423b6eb7e448353e058a0af0c727607c2cc` |
+|  `1-dev` `1.25.0-dev` `1.25-dev` `latest-dev` | May 15th     | `sha256:48eb0e2f6b15c1863ce9e166be81141e6d5c01bb2a8552dc77903e0ebfeea837` |
+|  `latest` `1.25.0` `1.25` `1`                 | May 15th     | `sha256:de1f9bda8cd425f44d61f3bd0d41e23638ae8a688e2da41e15dc783b9729ebc0` |
 |  `1.24-dev` `1.24.11-dev`                     | May 8th      | `sha256:410fdc7e7f417ccbcef8e1e12e1f2c8955f31058f6dc978282f0e3150ab61868` |
 |  `1.24.11` `1.24`                             | May 8th      | `sha256:29e84568168f5bdaf47da54909435dcdfcc408e081ee87a4617037adeceff347` |
 |  `1.24.10`                                    | May 3rd      | `sha256:4f3a9a8022982fa22b57fd895d7ea2c439d40f2731e59b7d288cb0134a832162` |

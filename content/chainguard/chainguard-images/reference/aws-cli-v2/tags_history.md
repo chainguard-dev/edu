@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-cli-v2 Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 14th     | `sha256:3e970e61cea1d61bafa9a383483d55317c997dfc3b7bd2a08397c37052aa1d2e` |
-|  `latest-dev` | May 14th     | `sha256:bede1eddb8f40b16266de3aca639f8fe68e7d10d2cfa780b0017ce371d3779f3` |
+|  `latest-dev` | May 15th     | `sha256:8d1926446be4b54e63b723bb2720c2637962dbe541530d35a030fa3ff359a32d` |
+|  `latest`     | May 15th     | `sha256:a5af9ca3a0df39ab61c66f6d31b6f1ecfeb31d145fe8e766a34dbffefbf98c0e` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.15` `2` `latest` `2.15.49`                 | May 14th     | `sha256:be4ef1c4dc1f1acadf82a02687e3c7f94bfdd1a8e7dc818f89afe44e2f36ded8` |
-|  `2.15-dev` `2-dev` `latest-dev` `2.15.49-dev` | May 14th     | `sha256:908b982661b48ee58806be897108e7ef911abeeefc6a6e919beb2446f20c95bd` |
+|  `2.15-dev` `latest-dev` `2.15.49-dev` `2-dev` | May 15th     | `sha256:b682d47c40074fb1ed7a2601e115b3eb891764f3427d03b28a9fb19cecfb92c8` |
+|  `2.15.49` `2` `latest` `2.15`                 | May 15th     | `sha256:7234616fe4796cb16d35917cc8b10aec9af4fe948b5518920e3e10b8d3016aa2` |
 |  `2.15.48-dev`                                 | May 14th     | `sha256:ec5f1c4717f4fa7b384246ee5252b41a2be0151cae954fdb9a19229da7cc7174` |
 |  `2.15.48`                                     | May 10th     | `sha256:1c6af0016a8c72b9c5bc277023cbf75e16395ef35ce6a7ae953069a5eee2c047` |
 |  `2.15.47`                                     | May 10th     | `sha256:c7d59a28e2a3c72dba7ab92f6d35dc3b8252c821648e1e2f4c72edebea4a19e2` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-earlystopping-medianstop Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:09e743c7779973edb65f99698409efa703f63b52e0f9df646c849f649fe0daac` |
-|  `latest`     | April 25th   | `sha256:02f022fdd2d2c36550e155b803d7e74e5c54ce9f3353faddee53c3fa0e194d33` |
+|  `latest-dev` | May 15th     | `sha256:5a1cbdc55672913bbf6bb92e7a51f3c0851ba5c2f55a978f6978598c9a5babee` |
+|  `latest`     | May 15th     | `sha256:ea67905f567d1727fa9cbb2c28e3c02355ab51810ffc7b4c67ed3d9b101c3f60` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.16.0-dev` `0.16-dev` `0-dev` | May 14th     | `sha256:b25de37237d3b1f7a7d18861e3c7c2c49968c5f40a37048087b452eb0b807c19` |
-|  `latest` `0` `0.16` `0.16.0`                 | May 13th     | `sha256:badd1d7679c0e0e85e708052dab1576feb1b7de389db7e3751db55f248868ac0` |
+|  `0.16.0` `0.16` `0` `latest`                 | May 15th     | `sha256:774e5cd8d36415f47c9d6b6965c7c20de2e1ea7df334833fb72ef3ca8ccd3d92` |
+|  `latest-dev` `0.16.0-dev` `0.16-dev` `0-dev` | May 15th     | `sha256:cbf5a426a94271fc69fdd6e2b8e6ce1aac35a2e7a998ac98d8a99081a2c40e11` |
 

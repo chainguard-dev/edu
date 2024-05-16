@@ -3,8 +3,8 @@ title: "grafana-mimir Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the grafana-mimir Chainguard Image"
-date: 2024-05-15 00:39:35
-lastmod: 2024-05-15 00:39:35
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,13 +26,17 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-Currently, there are no Developer versions of this image available.
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 15th     | `sha256:7522d221a0aa48b67598c85ad3a1e991ca7f8980a6d44f81aa336eff58614f80` |
+|  `latest`     | May 15th     | `sha256:c5de74906676c019dac4cf866775fca5a90983ab7c5f1118fb6c41507c0feebe` |
+
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.12-dev` `2.12.0-dev` `latest-dev` | May 14th     | `sha256:ea0c7051e005f262ce5f3d2bb350fccfe38ec548a03f67fa071e8a756474c14c` |
-|  `2.12.0` `latest` `2.12` `2`                 | May 14th     | `sha256:6a630d7f03ffcc0e6abbc9f8e27e0eb6bffa6055c8486bb3c92abb1df62231b7` |
+|  `latest` `2.12.0` `2` `2.12`                 | May 15th     | `sha256:494e39e5ab62564566932adebc4351b1c01f8a00a0c784ae23ae598835b0b2a0` |
+|  `2.12-dev` `2-dev` `latest-dev` `2.12.0-dev` | May 15th     | `sha256:ca3f2a88056145f077ba6e6bfe097bfad6563f6288c92b08d81ecdf693386b20` |
 

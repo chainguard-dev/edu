@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vault-k8s Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 14th     | `sha256:e10b990a00514d4aae8732d2b0b756fda4c6534bba4ddd7b46b0b90c8921ec5f` |
-|  `latest`     | May 10th     | `sha256:9f71bfe48743327e994a13aa1009199ee664c1bdb00575cf9fcfe682351bc4e1` |
+|  `latest-dev` | May 15th     | `sha256:5e43c4c2a34cff1f8e5309e964ceb2c84f33860962e0274b8ff1d6b51ef2ed52` |
+|  `latest`     | May 15th     | `sha256:6562a7097e453c54498486b538d96bec8c0df34d66141496b94787110864e41e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.4-dev` `1-dev` `latest-dev` `1.4.1-dev` | May 14th     | `sha256:90c0ec55dad74b037bcba7c60db473d0d772823708ea408792452dfce8bd119d` |
-|  `1.4.1` `1.4` `1` `latest`                 | May 10th     | `sha256:d6ae299cfebada5acc79b484e3f249dab6cb65633265f54922e80b723a8fbb43` |
+|  `1.4-dev` `latest-dev` `1-dev` `1.4.1-dev` | May 15th     | `sha256:adae232f2432b5e5a536d8afd4585972a15ac74298d860a7268f16b1e87385f3` |
+|  `1.4.1` `1` `latest` `1.4`                 | May 15th     | `sha256:4319eb92db28f9412561df043ed42a62ac828cd0c8ac4296ae35be289629bdf7` |
 

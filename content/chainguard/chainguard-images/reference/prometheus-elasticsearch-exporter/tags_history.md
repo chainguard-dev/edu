@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-elasticsearch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 14th     | `sha256:c7531dd2cf2ee3c0cd349e8a83a2a25b5758b52c2a71d5f1193ad198a65190b3` |
-|  `latest`     | May 13th     | `sha256:7381d31baf81065ca2cadc4aae7fad9640667ffd91432eb674dd8e620ea03141` |
+|  `latest-dev` | May 15th     | `sha256:4de76a039f38ab8a3148ac4723ad807647ec7f5ed7cab187450a645f20c65c97` |
+|  `latest`     | May 15th     | `sha256:d44db15a5f570d9829c53d209f91a2227793d64ec07aceb9e694e57c65c84db4` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.7.0-dev` `latest-dev` `1-dev` `1.7-dev` | May 14th     | `sha256:1861356945c3617b021c39ac611b7afd19f4b6b9308ffecd73d8582dc47e9594` |
-|  `latest` `1.7.0` `1` `1.7`                 | May 13th     | `sha256:51dc753547912b3587f54da550834dd5f9fe066ddef97ff7572076c2837ab598` |
+|  `1` `latest` `1.7.0` `1.7`                 | May 15th     | `sha256:b727ae8a79c0800a91e50fdb9801991ea768dfdcc9051183a9c02b8a81c78ba5` |
+|  `1-dev` `latest-dev` `1.7-dev` `1.7.0-dev` | May 15th     | `sha256:487c76812f356a014291a462b7ed6b1be85519c56f5122573a207475e1d4e0f9` |
 

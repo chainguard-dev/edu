@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the coredns Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 14th     | `sha256:5e151516038e49788f29bc7745f4e0699323f75fc9f04145b208db19cfb90f71` |
+|  `latest-dev` | May 15th     | `sha256:69246eb5dd480ade366870ed12d5545a912a88717399d3fbe34d0c6ab218fcae` |
 |  `latest`     | May 9th      | `sha256:065d39a9204511e11b9764eb3d94ab46d4a4ab9f0d5a218de7c1e28f8741c783` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.11-dev` `1.11.3-dev` `latest-dev` `1-dev` | May 14th     | `sha256:8562f3321804e81dd2ff6e211c82ff45db9b8a0467eea7b89cc303980615f016` |
-|  `1.11.3` `1` `1.11` `latest`                 | May 9th      | `sha256:3538a4382474b2c6f9bf8d31ae6a9fcdb7957f551898fe6b245f6c316181a973` |
+|  `1.11-dev` `1.11.3-dev` `1-dev` `latest-dev` | May 15th     | `sha256:f4b4e58c8451ee91cc7602c317674a1ef83ecd1e959f2c3adf8c0ab7a70538e7` |
+|  `1.11.3` `1` `1.11` `latest`                 | May 15th     | `sha256:58bb9456d0bc13c6369c0b13f62699c212ca3942c79255da937e45d0f9052543` |
 |  `1.11.1-dev`                                 | May 1st      | `sha256:111ad277db9408c1cdd2bb93de36ad16d4c8f04019b1b9f13a3db43d5ef7b821` |
 |  `1.11.1`                                     | May 1st      | `sha256:3a55dbb06f7bd431efc52cf0f8455a5e49f55f8a893dd6820a0d9290de4ab3ce` |
 

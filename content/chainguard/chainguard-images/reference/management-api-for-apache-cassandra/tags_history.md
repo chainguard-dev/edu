@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the management-api-for-apache-cassandra Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 14th     | `sha256:1d6a12d3531390113538430a18f2f57447241dfd64590da001d7353ad004d3b8` |
-|  `latest-dev` | May 14th     | `sha256:28bc6a01fb66e019b301733875806498edc9dde3152d4fdc0751485bf60f5bb5` |
+|  `latest-dev` | May 15th     | `sha256:dc6812e3aa64f8346f994c77090f989545ff2aa9eea5b4a4efbdf73ddbdc6b63` |
+|  `latest`     | May 15th     | `sha256:0951742c7e3fe74ddf05488defcb534ec1d19094bd2366cc23fe9515802fda5f` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.1.74-dev` `0.1-dev` | May 14th     | `sha256:412dd5c2ae1db85b5f380c82113d7fff372268eac458547348dc485c846a73ef` |
-|  `latest` `0.1` `0.1.74` `0`                 | May 14th     | `sha256:9c4b7fccf1eb52d0b9fce7d5bf47bf793911098c1b71c640bcde4e08d48eee6c` |
+|  `latest` `0` `0.1.74` `0.1`                 | May 15th     | `sha256:fad1f1fb0d93874aa743324e819d47368a48513195890248fc9c2f3917b1a71a` |
+|  `0.1-dev` `0.1.74-dev` `0-dev` `latest-dev` | May 15th     | `sha256:e445cec35273c6aebd6eb6f48ad837a3be73f765cc06fb763b9e825e77eed0f4` |
 

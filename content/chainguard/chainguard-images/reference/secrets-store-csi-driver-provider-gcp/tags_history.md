@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the secrets-store-csi-driver-provider-gcp Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 14th     | `sha256:913c02ffd5ecf2718f01061677ef452e7bcb7a7da406b2cadac5af1aea5d0658` |
-|  `latest`     | May 8th      | `sha256:7650a292109c579a8ffa7d55ec0740109b5e0811708aca4ea78e89075b4238e9` |
+|  `latest`     | May 15th     | `sha256:bfe195681014a8b3e650f79becf10451159cb3d585c872d6fe7322bd8bf8418a` |
+|  `latest-dev` | May 15th     | `sha256:618e45fb4f11a1347c0c3200dc8b2c35a2a76e38dd4508e3517cc3e143af0f0a` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.5-dev` `1-dev` `1.5.0-dev` `latest-dev` | May 14th     | `sha256:c54340af58e25c29b335729e3e964a7056febad4d6a5a19e755efec496124498` |
-|  `1.5` `1` `1.5.0` `latest`                 | May 8th      | `sha256:c71d133aa4a557a4073499759f942fc4b0b21b508cf95f39b6cb0e5d6c564b9b` |
+|  `1.5.0-dev` `latest-dev` `1.5-dev` `1-dev` | May 15th     | `sha256:d779131e85ebb114d089b138ae6906710648a123e175c7791fc8641794b72dc4` |
+|  `latest` `1.5.0` `1.5` `1`                 | May 15th     | `sha256:c24bbf29bd7768712a5bbeb2a46ef608bd9cf859354f7e15accc41c29fcd3524` |
 

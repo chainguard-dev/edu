@@ -3,8 +3,8 @@ title: "gpu-feature-discovery Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the gpu-feature-discovery Chainguard Image"
-date: 2024-05-15 00:39:35
-lastmod: 2024-05-15 00:39:35
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,13 +26,17 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-Currently, there are no Developer versions of this image available.
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | May 15th     | `sha256:f319c29fcd7effac4388d09bef38740c168222b5a06ea815adca5d369665e0c7` |
+|  `latest-dev` | May 15th     | `sha256:066fc7230695dd09888aca12ff99b109c57f420d8aded8e0e00f09e65cd195e4` |
+
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.8.2-dev` `0.8-dev` | May 14th     | `sha256:3773b25e334b065e64104077f7bea287e1f1672eb3d9d1699aa3f206f176e399` |
-|  `0` `latest` `0.8` `0.8.2`                 | May 14th     | `sha256:50d924915927d818ad8cf00c84ba2039e2c715ebb14fb201b59f439fb7a508cb` |
+|  `0.8.2-dev` `latest-dev` `0.8-dev` `0-dev` | May 15th     | `sha256:faa001bd1bc51608680e60cd27fe132af6e3cf17d0b4f9f32a3a094afeb7aa7d` |
+|  `latest` `0` `0.8` `0.8.2`                 | May 15th     | `sha256:212fc38277753f7c0946571289481f199144165b04b4bb3671104820b1f38843` |
 

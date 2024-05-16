@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the octo-sts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,11 +28,15 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 14th     | `sha256:a27f6531e043f09cc924f15b78a9f78a94729f7e9b2284b759893d62a0cf5b38` |
+|  `latest-dev` | May 15th     | `sha256:14b6bd3b7bff0b14c8a15853f83a2969d7f83dc4bef4ca16f5136b92385ec0d1` |
 |  `latest`     | May 13th     | `sha256:33b0eac71e3a7828da6828a68029a01d30096429b410cc24abe8b79ed0f843cc` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-Currently, there are no Production versions of this image available.
+| Tag (s)                                     | Last Changed | Digest                                                                    |
+|---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest` `0` `0.1.0` `0.1`                 | May 15th     | `sha256:d211dadfc2981092d626b8000b673630a2ade55deb357872155c963572d57394` |
+|  `0-dev` `latest-dev` `0.1-dev` `0.1.0-dev` | May 15th     | `sha256:1d902c32da48648ba91f0c5b8ff888322a2e0997daf80e55c33d718162c78239` |
+

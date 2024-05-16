@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-postgres-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 14th     | `sha256:be8c210d7eb6da131dfcd30da464494832314fbc2972b576e2bcd92defc09d78` |
-|  `latest`     | May 13th     | `sha256:5b012a3097ba9c5a915594643e3e06b8f6622dbe89a31fe072c6b6725d1e7c58` |
+|  `latest-dev` | May 15th     | `sha256:a73731bd5d4153fb821bc0b4819001d990eed6c012ee146eb3a72f817e326dd3` |
+|  `latest`     | May 15th     | `sha256:9cf5476e20e7e02044398c33dd9200855937d37aa040a91fb37c13c82319f0ca` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.15.0-dev` `0.15-dev` | May 14th     | `sha256:1d73e023a939f0e8322bf2807749eebd431dcf94373d286ebd73618a8e56c898` |
-|  `0` `latest` `0.15.0` `0.15`                 | May 13th     | `sha256:3211a30fbe30b2c4cde351dff107b61c132a23a18a564818d459c07ba81a4e84` |
+|  `0.15.0` `0.15` `latest` `0`                 | May 15th     | `sha256:8c9a1e43a0a25a574a5003e321791a440436d94a4dbcf004f6e51bab17f6809a` |
+|  `latest-dev` `0.15.0-dev` `0-dev` `0.15-dev` | May 15th     | `sha256:2baf6f336553125e24cc6079de0a4de6b3d5d9f191072a760fb6c2acd1b48732` |
 |  `0.12.0` `0.12`                              | May 9th      | `sha256:10658cf2a2c4dfa3b7e75a203d1951763ceede45cd3ff2d1ae06668e8c1a701a` |
 

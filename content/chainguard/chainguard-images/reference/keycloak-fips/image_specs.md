@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public keycloak-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-04-24 00:53:13
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -53,6 +53,7 @@ The table shows package distribution across variants.
 | `glibc-locale-posix`            | X          | X      |
 | `java-cacerts`                  | X          | X      |
 | `java-common`                   | X          | X      |
+| `keycloak-compat`               | X          | X      |
 | `keycloak-fips`                 | X          | X      |
 | `ld-linux`                      | X          | X      |
 | `libbrotlicommon1`              | X          | X      |

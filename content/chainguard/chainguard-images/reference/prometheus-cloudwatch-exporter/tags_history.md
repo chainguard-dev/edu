@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-cloudwatch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 14th     | `sha256:1487417e643c91b58d315547318f9e70ec3b174db108ecb1f8fe89a1d05672bd` |
-|  `latest`     | May 13th     | `sha256:c15de2bf30b98825e90a2d3d6c3984556f31c6167dbcd398320c3f4c7696fa17` |
+|  `latest`     | May 15th     | `sha256:81bbb07d4016c03cb51b250882ec9819a1cb4789107b894180988e88c7b0e3af` |
+|  `latest-dev` | May 15th     | `sha256:18ef7a74e523a3e895e427e7e8193021dd566e0130028c9b0fff1bfcff60ec51` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.15.5-dev` `0-dev` `0.15-dev` `latest-dev` | May 14th     | `sha256:ab3b0b8f3684aaa4168085531d9566b509b7867b31320f9e7cfe05e15c080206` |
-|  `latest` `0.15.5` `0.15` `0`                 | May 13th     | `sha256:279d89ede838aa245482ed39392876d7cdb91d7aefcf7f64aee3dd8d5160a7cc` |
+|  `0-dev` `0.15.5-dev` `0.15-dev` `latest-dev` | May 15th     | `sha256:801b2a0c4f49158071c0e7d065d00c62c202cc0206a4cbe69222c5b89d81131a` |
+|  `0.15.5` `0` `0.15` `latest`                 | May 15th     | `sha256:5f58ea828db6a554eba016e14980c4d8b5386aabeed46712995d5ec7384a2a21` |
 

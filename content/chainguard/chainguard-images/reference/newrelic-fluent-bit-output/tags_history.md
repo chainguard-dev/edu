@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-fluent-bit-output Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 14th     | `sha256:34c4f7bb28bbf85dbe19303505a27159b51f4a8c4c801b2c026f463d8ebc1a60` |
-|  `latest`     | May 13th     | `sha256:9b35e45b28bda7211d138cce6b9fc5c57c6fab28a281ac11989e969ee5e7bdc8` |
+|  `latest-dev` | May 15th     | `sha256:62206506d17c4bfcf8566d45ba2c5a284f8935d2282d4567d65ff1c14b508bf4` |
+|  `latest`     | May 15th     | `sha256:92ea31a85270a113ba493ce5c16350b8ff5f32db5542255824ffd9ee3950f253` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.19.2-dev` `1.19-dev` `1-dev` | May 14th     | `sha256:0303cbbf8865285d3317bbe919c5ea470c40339804957d74d5e5bcec5a20f80d` |
-|  `1.19` `1` `latest` `1.19.2`                 | May 11th     | `sha256:c0677dd44209499fa3f5e82a8a9473eee0ec57cec3b8061d0a1e7df55ba80b35` |
+|  `1.19-dev` `1-dev` `latest-dev` `1.19.2-dev` | May 15th     | `sha256:684b1a08e8e4f7ec0b19295ea61c68e55e54fa9dc1db0b58f0bd29b377bf52e3` |
+|  `1` `latest` `1.19.2` `1.19`                 | May 15th     | `sha256:ae54c84d6e0b5ab68662d21a916932e5f6ea89baeb7a6ae5bb39ab983ec8e0d0` |
 

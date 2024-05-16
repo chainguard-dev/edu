@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-webhook-pdns Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 14th     | `sha256:f717f06b088240a14437eb54a4724cb485e1ebb713cdb1deeb366fa77f106cd4` |
+|  `latest-dev` | May 15th     | `sha256:cb266d42b53abe1cddacb6e94036066aad6ea2028b0e3c33de6f8ee2e4a289a3` |
 |  `latest`     | May 9th      | `sha256:9ec38305d0a54763ec0dc81d35f42c83adfef93c3d893c391ed1cd7f01d62487` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.5-dev` `2.5.1-dev` `latest-dev` | May 14th     | `sha256:ddef5aa55d9f09f8b4b6d71523c0f3f66f1ea010d743139de14c220bdf8225f4` |
-|  `2` `2.5` `latest` `2.5.1`                 | May 9th      | `sha256:68d1195444d0d103aeeba0056e1c8e5f28e328d87c7a52ff4e9ddcaad61d617e` |
+|  `2` `2.5.1` `2.5` `latest`                 | May 15th     | `sha256:c902c684f25459c6ff096359d15004751349cf4dd821f7d1a3b16f38e04a7932` |
+|  `2-dev` `2.5-dev` `2.5.1-dev` `latest-dev` | May 15th     | `sha256:d165c9cd3aeaa07690711ef44fb89ff5abc3211aec7bcc03d06fdb64b4a8db9e` |
 

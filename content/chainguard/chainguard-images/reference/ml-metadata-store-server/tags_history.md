@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ml-metadata-store-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 14th     | `sha256:f42ad585ff879895adb622486654ad509668d69dba716889fb7b8c599d9ef196` |
-|  `latest`     | May 2nd      | `sha256:083d3c67a34d3b91116f7420eb4c0867aa1349ccbf9b2d91a46e0e08eadf6a4d` |
+|  `latest`     | May 15th     | `sha256:36f90623e426d557f89a385bc1619894ff4e13a88aec8fad434f60c3dc0f467c` |
+|  `latest-dev` | May 15th     | `sha256:5608596c1d2720b41ce6746c614c20ffd1a55e2a58f87eeee7ac7a4b100a8c0b` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.14.0-dev` `1.14-dev` | May 14th     | `sha256:252f49c0ca928edf3716831562367c956d5484fd43dfe2f22cc6ddd4862eef20` |
-|  `1` `1.14` `1.14.0` `latest`                 | May 2nd      | `sha256:4540be770c2be20dfb130a7592a33b31216aa3386f15528ef81485aa6bae8742` |
+|  `1-dev` `1.14-dev` `latest-dev` `1.14.0-dev` | May 15th     | `sha256:d7549850323afacfce46bbefa3c6033786d0594b1aacb3138980a70e0c1629c8` |
+|  `1.14` `1` `1.14.0` `latest`                 | May 15th     | `sha256:7b78ced1186ee04d0bdcc9365925d40fb590b23ef0ec95681cbc92bf49243222` |
 

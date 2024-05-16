@@ -4,8 +4,8 @@ linktitle: "grafana-mimir"
 type: "article"
 layout: "single"
 description: "Overview: grafana-mimir Chainguard Image"
-date: 2024-05-15 00:39:35
-lastmod: 2024-05-15 00:39:35
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -34,7 +34,7 @@ A minimal Wolfi-based image for Grafana Mimir, providing horizontally scalable, 
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard-private/grafana-mimir:latest
+docker pull cgr.dev/chainguard/grafana-mimir:latest
 ```
 
 
