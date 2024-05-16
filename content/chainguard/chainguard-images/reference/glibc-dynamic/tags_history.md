@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the glibc-dynamic Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:d6ab560426560afbabcc205af0d39188bbdbcbb8d6830627bbb09d25209ed799` |
-|  `latest`     | April 22nd   | `sha256:6dff3d81e2edaa0ef48ea87b808c34c4b24959169d9ad317333bdda4ec3c4002` |
+|  `latest`     | May 15th     | `sha256:663e3dd9d4c09141cc0a8a534662bc286318ad9102e9824121d97b332627713b` |
+|  `latest-dev` | May 15th     | `sha256:301d73380d334c8065a89c24ecd9c3cc42a251d4cafe4103f1c56d89af182b45` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `13.2.0-dev` `13-dev` `13.2-dev` `latest-dev` | May 14th     | `sha256:7fc5720c88e6affca1f3fe9404199ae70a66bd1be19e8134cf97c73788b0f80a` |
-|  `13.2` `latest` `13` `13.2.0`                 | May 2nd      | `sha256:7caf1123145749376a2c87fe274900d88e5a0bd88596d65c3e68b5389604fa19` |
+|  `latest-dev` `13.2.0-dev` `13.2-dev` `13-dev` | May 15th     | `sha256:082efa19641e1cd4046e3fcef266f0269ab66e693be07f90381dfffde606a295` |
+|  `13.2.0` `13` `latest` `13.2`                 | May 15th     | `sha256:573e209e8f511cdf6a24394d489ddb8eff8600a6d89364e3b49f6159a90a25ae` |
 

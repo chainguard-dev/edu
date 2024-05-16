@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the trust-manager-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,8 +31,10 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                     | Last Changed | Digest                                                                    |
-|---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.9-dev` `0.9.2-dev` `0-dev` | May 14th     | `sha256:f31ffb7de4673de077ad20cc75386428ad35b83c41877cf9d7ce6f484f093ffa` |
-|  `0.9` `0.9.2` `0` `latest`                 | May 10th     | `sha256:45496c7bd7203cdaef9c54d07174fc77124a22fb4d079f9f6f4a979aab9af6fe` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0.10.0-dev` `0.10-dev` `latest-dev` `0-dev` | May 15th     | `sha256:74c84e9ed5cccfa33e2a636505292c4cbe15e9c5fcc4d0681948f38a48441ecc` |
+|  `0` `0.10` `latest` `0.10.0`                 | May 15th     | `sha256:3bf52c81a227adc9533777d9ee12a01f4cb7c08556a7214db011bdf7a850676f` |
+|  `0.9.2-dev` `0.9-dev`                        | May 15th     | `sha256:382fe7f132b665807d3160b9de34e01a48d6bbf7df91e7c813f1b6047fef584f` |
+|  `0.9.2` `0.9`                                | May 15th     | `sha256:700fa5729c01b6014f3fb6ce254c47238aae89230b1b8037b4bf56ee291ec3aa` |
 

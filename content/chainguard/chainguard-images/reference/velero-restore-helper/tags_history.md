@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the velero-restore-helper Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 14th     | `sha256:c3758623306ada9affffe1445351fcc66e9fa306d385b5df47384a8eaab75a69` |
-|  `latest`     | May 13th     | `sha256:f0ac99269260b4a5992da10ba3f4cf7a2926c8c7ad48da7a47246722f78fe27c` |
+|  `latest-dev` | May 15th     | `sha256:75fa7e433e669b90f26fd95630d6874c3a2cfc31ed6282500f50c7ff4b876ca4` |
+|  `latest`     | May 15th     | `sha256:739ffc7841dd895042c5bc0d2c9dd67f08545243acb0a6eb6503dafd34281b6d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.13.2-dev` `1.13-dev` `latest-dev` `1-dev` | May 14th     | `sha256:f5aac9cfac3ead89f844181a02047bcee41d24283450da5fd3e716c4a0ad589e` |
-|  `latest` `1.13` `1.13.2` `1`                 | May 13th     | `sha256:8a3a4833376ef8c1aad4dc537f793dfaf0d1b9400c261b348c31adf54f863aee` |
+|  `latest` `1.13.2` `1.13` `1`                 | May 15th     | `sha256:f1fb4276de9b657c9f2ca1494a94c8b9a0a05de830396abe02fede3542e75603` |
+|  `1.13-dev` `1.13.2-dev` `latest-dev` `1-dev` | May 15th     | `sha256:4a18eecabff3e09921232875b76a3d14a5f8f122139bd778273d63a4d5632e2c` |
 

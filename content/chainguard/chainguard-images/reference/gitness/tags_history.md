@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gitness Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:c2c5a09c6de8b85a91d5feee41666a250eb5f6b0a7c9c69308324570a751156b` |
-|  `latest`     | April 29th   | `sha256:5c98b9279ba7cc2e091fae356e47e3b63579c2d8fd6f58a802f6a493caac9b7d` |
+|  `latest`     | May 15th     | `sha256:fd39d3ff1553b22406dcf27ef39cfe8ee9f36948ef3174edaa1985c134a59371` |
+|  `latest-dev` | May 15th     | `sha256:96253ec934ad8504f61f42edde6e8d0401f045d9293b2d3e11e482efbaeefe94` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                           | Last Changed | Digest                                                                    |
 |---------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.0` `latest` `3.0.0_beta6` `3`                 | May 14th     | `sha256:7379179444df0a3b33e78f96aee1b84cff4e5b62556f8e7e94cecc4f9bbc99ef` |
-|  `3.0-dev` `3.0.0_beta6-dev` `3-dev` `latest-dev` | May 14th     | `sha256:5b70618045d59486146e3d22582a10062329e9f5d4d741153786978dbf42b86f` |
+|  `latest` `3.0` `3.0.0_beta6` `3`                 | May 15th     | `sha256:f63144008e6d68ba0d217dd3bd7a90ca705418db1137aa0aeb88843437dcb1ac` |
+|  `3.0-dev` `3.0.0_beta6-dev` `3-dev` `latest-dev` | May 15th     | `sha256:199f21b20bfbbb42fa9c4cbd2be2f4a124a8fc67e3e99a2a4afaf6155c2be4ac` |
 

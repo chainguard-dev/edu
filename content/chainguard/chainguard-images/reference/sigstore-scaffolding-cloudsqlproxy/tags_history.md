@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-cloudsqlproxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 14th     | `sha256:dc82006fbab2753ff2f9d909119ecfe65b9971a97ac5be7bea41271f590c64bf` |
-|  `latest`     | May 10th     | `sha256:170e3f67b9e82d6e3405a8867abc045bf7c1f88407e813bf5a515da4f40a7a18` |
+|  `latest-dev` | May 15th     | `sha256:484bb77fb131b480fc4afb49cb74dfadde61bce3b4cae15df957dc14a8d93ff1` |
+|  `latest`     | May 15th     | `sha256:3a210db485db1da0782d30556052a2a326ab42e554517de2a1868bc81a525473` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6-dev` `latest-dev` `0-dev` `0.6.17-dev` | May 14th     | `sha256:fe017a26464debd99cdb018bcbb9c6c91ce12311fc9f3294639f995a44bb0378` |
-|  `0` `0.6` `latest` `0.6.17`                 | May 10th     | `sha256:74c5923183cf52e476f07811e289a756becd79f0d116ae9b45e455e9e3128e06` |
+|  `0-dev` `latest-dev` `0.6.17-dev` `0.6-dev` | May 15th     | `sha256:2c0a9f816244cb842111f3c1772c691a65d45c94e909bebc1964db43d85a4146` |
+|  `0.6` `latest` `0.6.17` `0`                 | May 15th     | `sha256:d3dd0bdc108b3af78f2c1e810e6e70dae453cfe8cda34138d159d5edd0594743` |
 

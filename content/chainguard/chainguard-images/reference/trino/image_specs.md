@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public trino Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,7 @@ The table shows package distribution across variants.
 
 |                                    | latest-dev | latest |
 |------------------------------------|------------|--------|
+| `alsa-lib`                         | X          | X      |
 | `apk-tools`                        | X          |        |
 | `bash`                             | X          | X      |
 | `busybox`                          | X          | X      |
@@ -47,6 +48,7 @@ The table shows package distribution across variants.
 | `fontconfig-config`                | X          | X      |
 | `freetype`                         | X          | X      |
 | `gdbm`                             | X          | X      |
+| `giflib`                           | X          | X      |
 | `git`                              | X          |        |
 | `glibc`                            | X          | X      |
 | `glibc-locale-posix`               | X          | X      |
@@ -64,6 +66,7 @@ The table shows package distribution across variants.
 | `libfontconfig1`                   | X          | X      |
 | `libgcc`                           | X          | X      |
 | `libidn2`                          | X          | X      |
+| `libjpeg-turbo`                    | X          | X      |
 | `libnghttp2-14`                    | X          | X      |
 | `libpcre2-8-0`                     | X          |        |
 | `libpng`                           | X          | X      |
@@ -72,7 +75,15 @@ The table shows package distribution across variants.
 | `libstdc++`                        | X          | X      |
 | `libtasn1`                         | X          | X      |
 | `libunistring`                     | X          | X      |
+| `libx11`                           | X          | X      |
+| `libxau`                           | X          | X      |
+| `libxcb`                           | X          | X      |
 | `libxcrypt`                        | X          | X      |
+| `libxdmcp`                         | X          | X      |
+| `libxext`                          | X          | X      |
+| `libxi`                            | X          | X      |
+| `libxrender`                       | X          | X      |
+| `libxtst`                          | X          | X      |
 | `mpdecimal`                        | X          | X      |
 | `ncurses`                          | X          | X      |
 | `ncurses-terminfo-base`            | X          | X      |
@@ -93,6 +104,7 @@ The table shows package distribution across variants.
 | `trino-plugin-memory`              | X          | X      |
 | `trino-plugin-tpcds`               | X          | X      |
 | `trino-plugin-tpch`                | X          | X      |
+| `ttf-dejavu`                       | X          | X      |
 | `wget`                             | X          |        |
 | `wolfi-baselayout`                 | X          | X      |
 | `xz`                               | X          | X      |

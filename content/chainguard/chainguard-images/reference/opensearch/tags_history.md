@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opensearch Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 14th     | `sha256:03168ce490d82f37abef14d7bb098cbbc20a08f7a448a3bf0ca6dfa280fa8f9e` |
-|  `latest`     | May 14th     | `sha256:f50bd20a9cf018b4460d35a7feb53919cd6a141100608862184ca42e35147671` |
+|  `latest`     | May 15th     | `sha256:b0ecbc49df3f9c18b2719b85067850e0f532352e5b74dc2797bf854cd0448db7` |
+|  `latest-dev` | May 15th     | `sha256:4479a8281224e6cc7132750c000f22e7856d47084b429fee364b0d62da8d6f0c` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2-dev` `2.13-dev` `2.13.0-dev` | May 14th     | `sha256:1298726cfa72222f27e4959f90bfcf0b5bc3a373dc62e2b8d02aa9942f389097` |
-|  `2.13` `2` `latest` `2.13.0`                 | May 13th     | `sha256:d2cead3fda216bd9fb800c3b3c4ec9b57d576a12a0a714d0fb073cbc55155a81` |
+|  `2.13.0` `2` `2.13` `latest`                 | May 15th     | `sha256:342f35c82cb8f4537e00c08f95719b9a5fc14fe2adfa7e2ad168fedb76e322dd` |
+|  `2-dev` `latest-dev` `2.13-dev` `2.13.0-dev` | May 15th     | `sha256:1f0caf99ae6a479eb17107b918a67ba60bc7fb9c316d70140d5cbbb952ab989a` |
 |  `2.6.0` `2.6`                                | May 2nd      | `sha256:6291150db87a9456ffb624ed47023b69fc81767b1c2436d205e51f942fca5baa` |
 |  `2.6.0-dev` `2.6-dev`                        | May 1st      | `sha256:a8e1bf5c32d5e4e3e49e9052d0c5f267611efa00ffe4c4b25fa776d98d4f6841` |
 

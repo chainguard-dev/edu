@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-downscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:e1a1d0d9feefdaff1dc994f566a3087ea53aa90aa0682ee694f143d673b4a0a6` |
-|  `latest`     | April 25th   | `sha256:f89ca9560e0b47b056729593e731c294abd24ca2a819bd370f5d3848469aa1d1` |
+|  `latest-dev` | May 15th     | `sha256:5b3f249093212b7c3f423d47443fde5a573b205150bad253e3164c44b61692c9` |
+|  `latest`     | May 15th     | `sha256:5687b140666e6f6aff56c0cd9d5654a7a595f09e54417598fb3c1e488cafbdf2` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `23.2-dev` `23-dev` `latest-dev` `23.2.0-dev` | May 14th     | `sha256:d6e813bf5edbc73a206a945c7a6abd45e538c47be7588215154972a14f60acec` |
-|  `23.2` `latest` `23.2.0` `23`                 | May 13th     | `sha256:e8f0189a9baafbdaa844aeb9a3d8cfdbd0128997e199a135974a3a52742a8203` |
+|  `latest` `23` `23.2` `23.2.0`                 | May 15th     | `sha256:8c84c430937001a8604ef6bd03aae80b9372040e8d6fcd10b3e58c76ec66d7f7` |
+|  `23.2.0-dev` `23.2-dev` `latest-dev` `23-dev` | May 15th     | `sha256:c6d5287c00aa76f3a5f36a75ec323df6ad9166a4596eb6123f5ae08281219972` |
 

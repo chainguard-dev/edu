@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-db-manager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:49fc924bda7503fcdd9b2b22d196047e301c531b5be0fb3ee61fd5a859b465a5` |
-|  `latest`     | April 21st   | `sha256:f82d77492dd1aef8725e888100ab002ac8c833c5c0e323bb0851ec05519c7bd6` |
+|  `latest-dev` | May 15th     | `sha256:59aac7170d1ce60815b3a20704e172b92fb8b7ddf6028d8d7a3191eddf84a03d` |
+|  `latest`     | May 15th     | `sha256:7c4ea460ec4ad1dc7d079d52fa163c3531b817538e9664c007e8b007d15750dd` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16-dev` `0.16.0-dev` `latest-dev` `0-dev` | May 14th     | `sha256:500889b63831587645b1784ce1cc9c52b30a5583a23ec401b96683ce2a852a81` |
-|  `0.16` `0.16.0` `0` `latest`                 | May 13th     | `sha256:9be6cd6335cb4ce2fb8896d47be61e76aac46bc74f7f15f71e3db5ccad556c78` |
+|  `0.16` `0.16.0` `0` `latest`                 | May 15th     | `sha256:fb9307ad65741e47fc82fbe6d021bf709d8a74b75b40ee114173c35465f2597e` |
+|  `0.16.0-dev` `0-dev` `0.16-dev` `latest-dev` | May 15th     | `sha256:01c854bdab989001d6cc5859473573dbcca61fbd9d04dd23d13bdb002b9b8aa1` |
 

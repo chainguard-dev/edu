@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-hyperband Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:345c693aed86c0a5ed98de750a9e2b9142689e09d485415ca2671b1e3928272b` |
-|  `latest`     | April 25th   | `sha256:f2dfda0fd26a902a4fe96cb8d4310f490bf879ee37373005a9ab868d27ffb5f1` |
+|  `latest`     | May 15th     | `sha256:ba3af27e1b8213794149cd027a504cc2c342a268e618db5666a0c695dd4bb41e` |
+|  `latest-dev` | May 15th     | `sha256:45ca30b3e31dfc0f3acc7b4ff6e036e74f39791e31ced60bfb3eb3ed0d5a7604` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.16-dev` `0.16.0-dev` `latest-dev` | May 14th     | `sha256:12743a801f12f6db403264a7c5c1c36028ad1185d39f1d649b7ea487f9956ea1` |
-|  `latest` `0` `0.16` `0.16.0`                 | May 13th     | `sha256:eb43502026037d71b2e555cb465b2761cdf5e942e395d4e4766f32368899c746` |
+|  `0-dev` `0.16.0-dev` `0.16-dev` `latest-dev` | May 15th     | `sha256:5d9f8044b55b59ff13b3e9976251f0d8533aa63ed8bc418641a7534c8d659f23` |
+|  `latest` `0.16.0` `0.16` `0`                 | May 15th     | `sha256:07137d750b54fda85c39a0ae3644ecf203f9ddde3e51abd082886c6a43a6a226` |
 

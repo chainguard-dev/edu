@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-snapshot-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:86686b7574c3e863eab8ebf6618a9f96c7d85dda63a0ce9ad6de809bb4f6638b` |
-|  `latest`     | April 21st   | `sha256:fcf21ad78ee3ac60b8a5b862549c5666f31e446ed361ed02219223a5c8c73d08` |
+|  `latest-dev` | May 15th     | `sha256:8e36eb04a6dacaa77f7d878e21ad57f0bf042b07190278cf1fe347388ef52268` |
+|  `latest`     | May 15th     | `sha256:172cb5ec449f181b9c7b23dc19b23ace19910bcccb05ee2de562660e5f157dc8` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `7.0.2-dev` `7.0-dev` `7-dev` | May 14th     | `sha256:7d93a6913b778fc72b14a438a73c298ee9fc5c6fc075d388165f16ea2171e4c8` |
-|  `7` `latest` `7.0.2` `7.0`                 | May 10th     | `sha256:7b07cf6a57ffb1ff4b965af116e179f694ce1cca21555856fc2c65b29b8baa60` |
+|  `7-dev` `7.0.2-dev` `7.0-dev` `latest-dev` | May 15th     | `sha256:83a53f642339d37d8faa3ae934cc13f5138d817fbb2b19b3033951331b4dfc38` |
+|  `7.0` `7.0.2` `latest` `7`                 | May 15th     | `sha256:7da1af1525199fbab0e02e134005ebdb162815dd73a3ec2ad0f36b3fc5fe7d3b` |
 

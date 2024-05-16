@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opensearch-dashboards Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 14th     | `sha256:2d281e5d3289c6606faa9f76bb49ec3eabfca6260824454df168e25a8081142e` |
-|  `latest`     | May 14th     | `sha256:8cd329bd6082cd36a524233860512de6888e8ea44e9adae71104c96afa11fece` |
+|  `latest`     | May 15th     | `sha256:f54f8927fa2991b4547083cb7284372b422e685d145a1fa73b0a40d852a6ab77` |
+|  `latest-dev` | May 15th     | `sha256:3911209d04975f3c7f0118dd0f33f635d7778c5df9eb8c97738e8d524650c990` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.13.0` `2` `2.13` `latest`                 | May 14th     | `sha256:98166cab8cc49884cc49953b4354ad0dc941ebe6be2abde6a09b3038ff8bc96b` |
-|  `2.13-dev` `2.13.0-dev` `latest-dev` `2-dev` | May 14th     | `sha256:226fb6c14632fd5c729b759c3a6c2b03b1921c4404b49329fc307e61e80f67e7` |
+|  `2` `2.13` `2.13.0` `latest`                 | May 15th     | `sha256:2b6f24728cc0dffeb72849e5d370d5403dec898bf626ec3d1a5e700d79ca814b` |
+|  `latest-dev` `2-dev` `2.13-dev` `2.13.0-dev` | May 15th     | `sha256:178a30af9dc82ea2780086f073ae703106c8cbbd0ea171929eedc4b0b5f7f6b2` |
 

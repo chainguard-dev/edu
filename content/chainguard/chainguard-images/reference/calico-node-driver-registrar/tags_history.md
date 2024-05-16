@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the calico-node-driver-registrar Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -34,8 +34,9 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                                                                  | Last Changed | Digest                                                                    |
-|------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.10.1-dev` `2.10-dev` `v2.10.1-dev` `v2.10-dev` `v2-dev` `2-dev`         | May 14th     | `sha256:d607e86f9941cc1b21cabce88062ef25648b132d3efcb5d38c5d2d0885dba523` |
-|  `3.28` `3.28.0` `2` `2.10.1` `latest` `3.27.3` `v2` `v2.10` `3` `3.27` `2.10` `v2.10.1` | May 13th     | `sha256:e01f47bc9b74efc787c110507099f911119ade19527e2bd4d2c9e39176b993bc` |
+| Tag (s)                                                                          | Last Changed | Digest                                                                    |
+|----------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `v2.10-dev` `2.10.1-dev` `2.10-dev` `v2.10.1-dev` `2-dev` `latest-dev` `v2-dev` | May 15th     | `sha256:78010c0284f460527640bac85339bff2f07ae31eccd3c0422cd6548c4c860405` |
+|  `3.28` `v2.10.1` `2.10` `latest` `2.10.1` `3` `v2.10` `2` `v2` `3.28.0`         | May 15th     | `sha256:ef6cd0d955f296a1341845057657060ae8f6d4ef575437fddf9dbac7433c5eed` |
+|  `3.27.3` `3.27`                                                                 | May 10th     | `sha256:e01f47bc9b74efc787c110507099f911119ade19527e2bd4d2c9e39176b993bc` |
 

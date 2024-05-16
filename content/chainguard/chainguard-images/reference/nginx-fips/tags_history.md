@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nginx-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.25-dev` `1.25.5-dev` `latest-dev` `1-dev` | May 14th     | `sha256:c379c9bdb450cdadfc1470e65c400e1331d245cc3b9eccd2e5c77b2b91c1a7db` |
-|  `1.26.0-dev` `1.26-dev`                      | May 14th     | `sha256:2cd17626004574f764cfa620de8085c38598d189ef8d878b4c7ec69fda1793dd` |
-|  `1.25` `1.25.5` `latest` `1`                 | May 13th     | `sha256:94c30ac4d7549af1e16b198ac60e7cff6231ac7e03887925bfc35ed71f959906` |
-|  `1.26.0` `1.26`                              | May 13th     | `sha256:c40cad5b1026c72dd785f5f76cbe5f3a2a77da0fa194558b4a19414b661e8791` |
+|  `1` `1.25` `latest` `1.25.5`                 | May 15th     | `sha256:a828a5ee6fa0d46ba144d9a1385d863d76788417ecfea8a1636967d3d10c498f` |
+|  `1.26.0` `1.26`                              | May 15th     | `sha256:ff6b6c8394f7c0cc79203c493315ab1dc667d35d3a6185dfc9ffdc368ab34ed2` |
+|  `1-dev` `1.25-dev` `latest-dev` `1.25.5-dev` | May 15th     | `sha256:f23dcee047ef22f8c86b389674dce9f6f9a4ef2a86cedcd88184aa9cdee40364` |
+|  `1.26-dev` `1.26.0-dev`                      | May 15th     | `sha256:e2c5a717f481a533c9646f028958644e8c2fe8b5c321c3e7baf5b75475e88a0f` |
 |  `1.24` `1.24.0`                              | May 2nd      | `sha256:098ca8d0496423c3b7ed7c0781f584b228ca50e04ed26c3f190da75b14db1955` |
 |  `1.24-dev` `1.24.0-dev`                      | May 2nd      | `sha256:4482b9d624b6587fc2aa62d1816b1fdef98c101ad9b6ee6fadbe5a4626502119` |
 |  `1.25.4`                                     | April 16th   | `sha256:256b352ef01dae87ce7f2561f87e5609551e53feaa2c516de70260c899934754` |

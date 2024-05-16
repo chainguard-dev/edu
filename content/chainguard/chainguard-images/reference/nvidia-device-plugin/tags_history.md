@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nvidia-device-plugin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 14th     | `sha256:c5bc93f3b8a3e55f6b6048ceb2bb7d273a58f0b08daee828a296cc54bfe4c8f6` |
-|  `latest`     | May 9th      | `sha256:4285f382100bbddbbe690f3a64988c508c9a757664faad9345dac845923d8489` |
+|  `latest`     | May 15th     | `sha256:737d6c4fe58b02e76ae27d1b1ac4d3f8967c11c76fd6c8d76a58940cdf6827bc` |
+|  `latest-dev` | May 15th     | `sha256:08620b5cc981789f86fc10808e04883ae32a3054a19aea4d48c0cd2b0be1d282` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.15.0-dev` `0.15-dev` | May 14th     | `sha256:44ec079fdc897b07ef9888353676edee2c98111684bb46ba4e7258e541c9081a` |
-|  `0.15.0` `0` `0.15` `latest`                 | May 9th      | `sha256:6592b32160b83add720aa42efd95a81178cba53b238c0d6ad91b2663b767eb23` |
+|  `0.15` `0.15.0` `0` `latest`                 | May 15th     | `sha256:4fa0edcd43e87c1bb0c398a6255e6f410d6a271e8191a3f36bcc61ab54999c2c` |
+|  `latest-dev` `0-dev` `0.15-dev` `0.15.0-dev` | May 15th     | `sha256:c3a68297d22ba6fbed2c66afa9bfeced5ecca362897a348322f7f9c23d578824` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-prometheus Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 14th     | `sha256:4f34fab2e5139a54dc5fea62192fb2d71d85eac4b45ca5bbb0762613154f8502` |
-|  `latest`     | May 13th     | `sha256:134d2e4dde642c7f4a64a3b97b15ab7dc8855e0f47cad64f12980a1960a8c466` |
+|  `latest`     | May 15th     | `sha256:1a9727881940925ce89aa11c8a57a8bc83a9b38634115a1acfbf931117517abf` |
+|  `latest-dev` | May 15th     | `sha256:1077b13332f279f163ffa8e0c712e65b9c161d00a39ba320418d48e4f7c82d0c` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `latest-dev` `2.21.1-dev` `2.21-dev` | May 14th     | `sha256:7d6624659b95920e05c6b5500d4b241f73cf9125b43a164a9996cc098160419c` |
-|  `latest` `2` `2.21` `2.21.1`                 | May 13th     | `sha256:3ade96b2b269f1456b4ccde619aa5ef5e169e5eb0bc420348e36c1cfcb961576` |
+|  `latest` `2.21.2` `2` `2.21`                 | May 15th     | `sha256:d19a34652d9166d1383f5e78e062bf2269b950dcf4b72944e329211223556079` |
+|  `2.21.2-dev` `latest-dev` `2.21-dev` `2-dev` | May 15th     | `sha256:006085f25c3aadcb092f78fb4b4a3794ecdbe37bef2100b22ed79f18609f6a3c` |
+|  `2.21.1`                                     | May 15th     | `sha256:f22e9f123d28cc3531ca064523509cdb484f2aacf1bcb3a00f23f3daf92eb8b9` |
+|  `2.21.1-dev`                                 | May 15th     | `sha256:215f098b7ab9a298d6dc642c2f2445bb278f92e80df7f7b6e0c4e15dbec13248` |
 |  `2.21.0`                                     | May 1st      | `sha256:fe724b41f779ad42ee7b38ff973485cc4b080941a824bc8a85d33e29e1300a45` |
 |  `2.21.0-dev`                                 | May 1st      | `sha256:24b57692adb673c78f4e7109e17087c3121cff053960e02ffa60e1a864e25afc` |
 

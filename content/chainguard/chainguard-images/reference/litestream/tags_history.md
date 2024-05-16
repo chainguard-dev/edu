@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the litestream Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 14th     | `sha256:01f58d4efd23938b9f68e9c87199c238ccf75e998894a8ddf67e02bb6def7cb4` |
+|  `latest-dev` | May 15th     | `sha256:454522abec7750010145bd13c838f40e9b66e85361b4344f061de4b2190782c5` |
 |  `latest`     | May 2nd      | `sha256:c1b0b2566c2d8c3c6d9486b876c3cf1595c09478f2c565b7f37693479fc77c41` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.3.13-dev` `0.3-dev` `0-dev` `latest-dev` | May 14th     | `sha256:cd393997d1c89924dc23c3d66637184a03150ad97467e19918c05cddbec76f97` |
-|  `0.3.13` `0.3` `latest` `0`                 | May 2nd      | `sha256:0c8e0b8b90c2698f00a128c571c9ccd0908b238e6f477b560363815a39013f8b` |
+|  `0.3` `0.3.13` `latest` `0`                 | May 15th     | `sha256:568fc8d35c6dbbe6e1f0a83de7436fb7bca99c127e697c266bd3aee1a3a9849c` |
+|  `0.3.13-dev` `0.3-dev` `0-dev` `latest-dev` | May 15th     | `sha256:2e57d291873e44062a6ef47321adbafa85ce63241c773589361a6b11d6209f8c` |
 

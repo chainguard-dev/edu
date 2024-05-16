@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kyverno-policy-reporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 14th     | `sha256:9c406a0e57473096443436a0d1613d55ac1e20af781bcf12d2298cb98465070d` |
+|  `latest-dev` | May 15th     | `sha256:645d728ba735de69c482a60f1b0e44cdad50b8d99fa223c103bf98311473ed63` |
 |  `latest`     | May 13th     | `sha256:227f2b28ac908d5d416ace59c1f8fc15eb1f90d0ab162aa28c384f8ce6e0e8ec` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2-dev` `2.19-dev` `2.19.0-dev` | May 14th     | `sha256:fe5b97e89296f992139e39a68112c256e00813262385c777852f54d47a8dbe9b` |
-|  `2` `2.19` `latest` `2.19.0`                 | May 13th     | `sha256:036a0809f110228dfe86228161930518d395b46973b14d480543edc14c52867e` |
+|  `latest` `2` `2.19` `2.19.0`                 | May 15th     | `sha256:8abf987b6ccc687ec1a9777e82fc503469a7ca45608aedf26fc54d50fb02fcc2` |
+|  `2.19-dev` `2.19.0-dev` `2-dev` `latest-dev` | May 15th     | `sha256:42234e1b720ad9983faa139bc46a6ee4165911200ff3b51132c81aaf9b2de0ca` |
 |  `2.18.2` `2.18`                              | May 10th     | `sha256:e6eb18a0e1d7720edf26bb4d064277c026f3465d9cced1904b8b60451ed8ea0c` |
 |  `2.18.2-dev` `2.18-dev`                      | May 10th     | `sha256:bc7576d874daefb429d99ef5bb8ad00287f89aa074a18b38167ded996ef8ad55` |
 

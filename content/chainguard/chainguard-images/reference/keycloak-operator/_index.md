@@ -4,8 +4,8 @@ linktitle: "keycloak-operator"
 type: "article"
 layout: "single"
 description: "Overview: keycloak-operator Chainguard Image"
-date: 2024-05-15 00:39:35
-lastmod: 2024-05-15 00:39:35
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -34,7 +34,7 @@ A Kubernetes Operator based on the Operator SDK for installing and managing Keyc
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard-private/keycloak-operator:latest
+docker pull cgr.dev/chainguard/keycloak-operator:latest
 ```
 
 

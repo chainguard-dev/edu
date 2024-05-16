@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k8ssandra-operator-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.16.0-dev` `1-dev` `1.16-dev` | May 14th     | `sha256:e38f468a6e38a7141927f459d7a3985b1955b49416a25c4a5f6ef142362aab08` |
-|  `1.16` `1` `1.16.0` `latest`                 | May 11th     | `sha256:de5692c5c447b0126eb03882a408b50262fc6a91116956d8ebd40bc94795d6b9` |
+|  `1` `latest` `1.16` `1.16.0`                 | May 15th     | `sha256:8f894f786e7c3fcba2542366e8b1557c9ba1036140eab04855eb6aa7b2e3ac1d` |
+|  `1.16.0-dev` `1-dev` `latest-dev` `1.16-dev` | May 15th     | `sha256:3f1956db6cf45d11eba86f7bfbff69707c17e13aa9dfb9312fe6c83b2c01c399` |
 |  `1.15.0-dev` `1.15-dev`                      | May 2nd      | `sha256:cc9115807573013c5a6c00186b7d2ad94e2206416939fc9be1ee3fd345b3c3ef` |
 |  `1.15.0` `1.15`                              | May 2nd      | `sha256:6ea27b234ce7b0b0c1f5fe0da8bac022dbed91729598c86dc8e2ba8a48663eaa` |
 

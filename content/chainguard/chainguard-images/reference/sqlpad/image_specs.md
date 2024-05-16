@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public sqlpad Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ This page shows detailed information about the Chainguard **sqlpad** Image.
 | CMD          | not specified                              | not specified                              |
 | Workdir      | `/usr/app/sqlpad-server`                   | `/usr/app/sqlpad-server`                   |
 | Has apk?     | yes                                        | no                                         |
-| Has a shell? | yes                                        | no                                         |
+| Has a shell? | yes                                        | yes                                        |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/sqlpad/tags_history/) for the full list of available tags.
 
@@ -38,7 +38,7 @@ The table shows package distribution across variants.
 |                          | latest-dev | latest |
 |--------------------------|------------|--------|
 | `apk-tools`              | X          |        |
-| `bash`                   | X          |        |
+| `bash`                   | X          | X      |
 | `busybox`                | X          |        |
 | `c-ares`                 | X          | X      |
 | `ca-certificates-bundle` | X          | X      |
@@ -65,8 +65,8 @@ The table shows package distribution across variants.
 | `libunistring`           | X          |        |
 | `libuv`                  | X          | X      |
 | `libxcrypt`              | X          |        |
-| `ncurses`                | X          |        |
-| `ncurses-terminfo-base`  | X          |        |
+| `ncurses`                | X          | X      |
+| `ncurses-terminfo-base`  | X          | X      |
 | `nodejs-18`              | X          | X      |
 | `sqlpad`                 | X          | X      |
 | `sqlpad-compat`          | X          | X      |

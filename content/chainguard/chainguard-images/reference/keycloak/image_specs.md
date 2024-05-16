@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public keycloak Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -51,6 +51,7 @@ The table shows package distribution across variants.
 | `java-cacerts`           | X          | X      |
 | `java-common`            | X          | X      |
 | `keycloak`               | X          | X      |
+| `keycloak-compat`        | X          | X      |
 | `ld-linux`               | X          | X      |
 | `libbrotlicommon1`       | X          | X      |
 | `libbrotlidec1`          | X          | X      |

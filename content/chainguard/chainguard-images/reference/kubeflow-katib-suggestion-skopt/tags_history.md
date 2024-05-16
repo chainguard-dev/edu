@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-skopt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:a83593915b8df4109100401e880d1284e8e36ffa45454676b141be46fa0aaf82` |
-|  `latest`     | April 25th   | `sha256:f54465973c2d4be900ba3d18e82a85cd3de0944217a96a1bb075f18a66e83bf5` |
+|  `latest-dev` | May 15th     | `sha256:26b2cd2836bedd74167bcd9a499af10ea4df3bf843e99ca0401cce5ffa455d1e` |
+|  `latest`     | May 15th     | `sha256:32a29db0e68ea7d469f8a9021fef06da5991b4f8251fdfe4fbd0a9a1a5530801` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16-dev` `0.16.0-dev` `0-dev` `latest-dev` | May 14th     | `sha256:6dd95de36034be7c4463d48d8c4b274424483bba614037547c62fdbafac5a794` |
-|  `0.16` `0.16.0` `0` `latest`                 | May 13th     | `sha256:1c68c6c150a23ee96999c16a9386acfdda4b03d08bde6813359b4742301d186f` |
+|  `0.16.0-dev` `latest-dev` `0.16-dev` `0-dev` | May 15th     | `sha256:12d4010ba67a937e3db9ef7b557bbaa31d8a1e7b8be908226ff9781b5e32bf9b` |
+|  `0.16.0` `0.16` `0` `latest`                 | May 15th     | `sha256:e009cb1fddd7320006735780491d46b5bb5d9b933613ef82c157e8e05f285ae2` |
 

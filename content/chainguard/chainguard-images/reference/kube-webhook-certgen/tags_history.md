@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-webhook-certgen Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:2159b80440c1a25ad2e9ef517afdca92945d7045c8f1b209300ceb4f282f821a` |
-|  `latest`     | April 23rd   | `sha256:688033af1802ddbb06cb7720c1fe03dd7d86703fcfc3c5d6145dd356595ab649` |
+|  `latest`     | May 15th     | `sha256:97395626f947247ad68abc65dbea019203b334d0eac6e1833eda449cef15e0d5` |
+|  `latest-dev` | May 15th     | `sha256:09426bffd072577a58ff4cce9094a499d4474384567f8978b4e8bc598a7eff87` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.10-dev` `latest-dev` `1-dev` `1.10.1-dev` | May 14th     | `sha256:1b283e86f8281bf32f729ea506c3ee1f8ccbb8c1004902314a214cf8e921dafc` |
-|  `1.10` `1` `1.10.1` `latest`                 | May 11th     | `sha256:574db1834787a509b8dc4357adab26fd7cae58ce25972ad3d526923be414243f` |
+|  `1` `1.10` `latest` `1.10.1`                 | May 15th     | `sha256:f4d67a4e06b694232753b9e7efba3b96d172b9b06556b86a85e5ecf00611c5c6` |
+|  `1.10.1-dev` `1-dev` `latest-dev` `1.10-dev` | May 15th     | `sha256:6cc1f52958522b43f077bcbacb452a0dfedb62cba05c53b39acd9ed3a1781539` |
 |  `1.10.0-dev`                                 | April 20th   | `sha256:66427d8be3761dc572fe5856538fe3098e132e538d6dc758fcd334b8bc62899d` |
 |  `1.10.0`                                     | April 17th   | `sha256:330eb43a5a28c70f7544b9b8040343ad3dbf1231c8612d21735e999682350ba4` |
 

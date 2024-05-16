@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nvidia-container-toolkit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 14th     | `sha256:8f35da5131d2a096d6086f7406baa72cc08a28c7eb1189dc6de38b2f0bfa9c87` |
-|  `latest`     | May 13th     | `sha256:7c51de52cfa6d481306810b32854a0af2b8a0cdb4675e3e56603a3ec35235963` |
+|  `latest-dev` | May 15th     | `sha256:b6169aecbe3ce405a79659b8c7ed1cadc8d75a4fe6940be85a0795a0aa694398` |
+|  `latest`     | May 15th     | `sha256:c387c1667924428dcd0e58fbd869e2e76b9d17e8b85df7a7fda7b6d5e13836ef` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.15.0-dev` `1.15-dev` | May 14th     | `sha256:a501d04fb8682f1ea726fe1572c5295fd3d6892e704b9e8a2e66063208318d64` |
-|  `1.15.0` `1` `latest` `1.15`                 | May 13th     | `sha256:3e33d4d2fd266d49133ec0eb300aac0e43d6b46b0f7aa29da7f4ce70dd7b4819` |
+|  `1.15` `latest` `1.15.0` `1`                 | May 15th     | `sha256:7d4d14176dec62ae6ba50293b3b7aac2064344e0edf93ced2a4d8fbc7c0a6fb3` |
+|  `1-dev` `1.15-dev` `latest-dev` `1.15.0-dev` | May 15th     | `sha256:fca8d2622b76585da3b2cec7f49c9f041c3598efbe17db019bf7b1bfccedb80c` |
 

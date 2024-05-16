@@ -1,3 +1,11 @@
+# 2024-05-16
+New images added:
+
+- fluent-bit-plugin-loki
+- grafana-rollout-operator
+
+A total of **751** documents were updated.
+
 # 2024-05-15
 New images added:
 

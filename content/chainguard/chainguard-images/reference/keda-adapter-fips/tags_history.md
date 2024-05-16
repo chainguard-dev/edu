@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the keda-adapter-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.14.0-dev` `2.14-dev` `2-dev` | May 14th     | `sha256:ec63cfb9864ee53586ab89a4cec343901f6d1e36cdee513487bd4b552997bd06` |
-|  `latest` `2` `2.14` `2.14.0`                 | May 13th     | `sha256:e3ac7cec35e8efac1072bbe3f9c84a29e545f82e3993003c602ce15311ccd623` |
+|  `2.14` `2` `2.14.0` `latest`                 | May 15th     | `sha256:514a52755cfc666e0f80a2fc8b0819a3771d4671ba8acb67a25eebbe6399b3b7` |
+|  `2.14.0-dev` `latest-dev` `2.14-dev` `2-dev` | May 15th     | `sha256:fd32442278198c695019d292a9c00ff347a8c032d8c83a803770380bc0f5e4c1` |
 |  `2.13-dev` `2.13.1-dev`                      | April 29th   | `sha256:a4875abe44da5a90d3c6c8f2599cc7a4056b9d028f5403b4c6518dccccc76ee5` |
 |  `2.13.1` `2.13`                              | April 24th   | `sha256:baa9ab6de6dfc0ff2996c52d4f138b77b20c3f51eecabd20292075a882abe4b8` |
 

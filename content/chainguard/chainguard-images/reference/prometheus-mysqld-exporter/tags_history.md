@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mysqld-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-16 00:37:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 14th     | `sha256:83f8e0c878179b2fbd903dc62c641457c740d3431eabc84616eb96d888f86065` |
-|  `latest`     | May 13th     | `sha256:dd4ec0eb5631841bb603ea82d3c2053fac7e9402b1dd59189d105082c0f37d3c` |
+|  `latest`     | May 15th     | `sha256:aae05648dfb983788383859fa2e978cf6a22e53048cc479ead16dad1cd8b9236` |
+|  `latest-dev` | May 15th     | `sha256:43c672468581e854a4a761e46cc2e500a635d352a1f263363db89196193f8b2a` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.15-dev` `0.15.1-dev` `0-dev` | May 14th     | `sha256:4683b0718262d4b25e1bcb21c84500a5094bf88502caad0a70007bf7872870ae` |
-|  `0` `latest` `0.15.1` `0.15`                 | May 13th     | `sha256:f0bdc43e0d36cae7c9890b285de3ee5bddc6b06ed1afad5a985e1c49301f479e` |
+|  `0.15-dev` `latest-dev` `0.15.1-dev` `0-dev` | May 15th     | `sha256:5d86c1fc35bd80cf855bedab2f7d9dcec5dd81fa5acfc454e260b0730271f54b` |
+|  `latest` `0` `0.15` `0.15.1`                 | May 15th     | `sha256:a57f9b62d2f6536df72489bf65483bea5338d9e2e519c6361a3bdd1fc749304b` |
 
