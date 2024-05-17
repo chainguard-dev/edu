@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the istio-proxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:6e8ceaa442841c4b910f1cf1dd79dc4f5bd4cb25762169fba9d1ec75e51398f9` |
-|  `latest`     | April 23rd   | `sha256:46292cd3b473ffb87ad8bcd56b14752259b741e322ec366634e60737f128968b` |
+|  `latest-dev` | May 16th     | `sha256:edb964da02ba8d89e18fcdd67ab66663b1cf41228b40e4fca10137f04c9d1553` |
+|  `latest`     | May 16th     | `sha256:b96214e870ca5e9aaab07c45d782662d81deea4be1f7880d054ad8c9fb9b8e3c` |
 
 
 ### Private/Dedicated Registry

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-envoy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 15th     | `sha256:9fb58add3eecc0f690c627daf0d59ee296ea0a0f81f99c486cf03358e7610623` |
+|  `latest-dev` | May 16th     | `sha256:30482653aecbbfd738fe73d285adc1022e927e19cf6a51c9629ce3cda62bd0e8` |
 |  `latest`     | May 15th     | `sha256:f2718bf5235c176018753ea3ba5de66a86f4db0fa22dd5f89477e7adce414f65` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.1.0-dev` `2.1-dev` `latest-dev` `2-dev` | May 15th     | `sha256:aef70f44e83531b69b5d2fb6b6ce8e9cf76783809ba5e476abbc98e78148c8b3` |
+|  `latest-dev` `2-dev` `2.1.0-dev` `2.1-dev` | May 16th     | `sha256:eb9c0bc84d054334ac8625c6fedae770ffd545b49ff97ff673569fe6d8989a1e` |
 |  `2` `latest` `2.1.0` `2.1`                 | May 15th     | `sha256:dbbfdb634d243551befb9b4e42fe514d43993c36d544949a29617d3a6ba3d076` |
 |  `2.0.5` `2.0`                              | April 24th   | `sha256:2a04f56381ae8d00ce6991979bdbe5800747ee4bbc22d1757944d9497af35d9f` |
 |  `2.0-dev` `2.0.5-dev`                      | April 24th   | `sha256:b459ea0d0e466bf04ae4ab09a11ed83084efcef1a377edebe641adc7500cc7f2` |

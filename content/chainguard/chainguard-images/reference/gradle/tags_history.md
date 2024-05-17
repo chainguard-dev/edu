@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gradle Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,9 +36,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `openjdk-17-8.7-dev` `openjdk-17-8-dev` `openjdk-17-8.7.0-dev` `openjdk-17-dev`              | May 16th     | `sha256:019ade7f072a6845c3ae4c8ef156e7137f83bd4ae586c9a7701d739330e4899a` |
+|  `openjdk-21-8.7-dev` `latest-dev` `openjdk-21-8.7.0-dev` `openjdk-21-8-dev` `openjdk-21-dev` | May 16th     | `sha256:a561923f7d4a041d0e4c38126aac7c688fe197e31e4f61d408d6879ffd5c53f9` |
 |  `openjdk-21-8.7.0` `openjdk-21-8` `latest` `openjdk-21` `openjdk-21-8.7`                     | May 15th     | `sha256:5a58ad98f891ece63353955270553bf4f22370ba9b6b728a55a2f8f062d8e0f9` |
-|  `openjdk-21-8.7.0-dev` `openjdk-21-8.7-dev` `latest-dev` `openjdk-21-dev` `openjdk-21-8-dev` | May 15th     | `sha256:fbda22ea62263ff23f36e80d8fb167d3fd691e8513d2ad99ec589e8627528416` |
 |  `openjdk-17-8.7.0` `openjdk-17-8` `openjdk-17` `openjdk-17-8.7`                              | May 15th     | `sha256:323fe41ceffc9af9032b4b16b58c74e6ca29e8e6784d179d58368e533a5a0fff` |
-|  `openjdk-17-8-dev` `openjdk-17-8.7.0-dev` `openjdk-17-8.7-dev` `openjdk-17-dev`              | May 15th     | `sha256:42c5a69cdf1d2cbd56ff2f3f33909855f1917d999539d22cb1da2b172751795d` |
 |  `8.0.2` `8.0`                                                                                | April 27th   | `sha256:078793fd8f61815bf28eccefc651f9125f127b1221e1d353e3d6f4ee18e3f7bb` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the stakater-reloader Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 15th     | `sha256:7aa54c66d4f80f5ac3f7030f2634ab974f704c34f5f566fc9b323eae275be61c` |
+|  `latest-dev` | May 16th     | `sha256:1d56bff1a7858e51dfd4afe9237ec3fb1338beb3aad913b48726f21b3b6bfeeb` |
 |  `latest`     | May 15th     | `sha256:6467c5e0801b7e6f1e628f110ed17be4dfde980b89c22323f80c8ff8e8bd0a57` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.0-dev` `1.0.97-dev` | May 15th     | `sha256:218dead02383f9bbbaa7a20146f47d29bc887970393ad89fc240b812c30bcf09` |
+|  `latest-dev` `1.0-dev` `1-dev` `1.0.97-dev` | May 16th     | `sha256:c8e1a7bf4ed39bbb1040165c3faa69561c13bab9efdfc501cb7104449dddd36e` |
 |  `1` `latest` `1.0.97` `1.0`                 | May 15th     | `sha256:15296160732153b29f44c74b6c401ea67549da9ea25b58152d777d9809086429` |
 |  `1.0.95-dev`                                | May 15th     | `sha256:dbd2200150539b30feddac49981acc352f9a922a0e8164c70000614deee02a36` |
 |  `1.0.95`                                    | May 15th     | `sha256:ba81e9cd4b9cbaa40f2ab3ef8196fb85549065e4dfe55e109ab1764089eb1e30` |

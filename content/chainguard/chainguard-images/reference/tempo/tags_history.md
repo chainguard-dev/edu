@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tempo Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 16th     | `sha256:75f263dc4b02d1705965bf025e1d5f916defa650da053267d14a7d4350b22bcf` |
 |  `latest`     | May 15th     | `sha256:12e7a454a21a884ea0112b0d9ff3c75d21514cbc005cefbce05fbe9861bf8d4e` |
-|  `latest-dev` | May 15th     | `sha256:d265a5d1a229cfd4f6ab5588f1a1a99d49aebf2e8321f35cfe04deade2462e7a` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2-dev` `latest-dev` `2.4-dev` `2.4.2-dev` | May 16th     | `sha256:dcb5fd9a98dff4e09d9f6d1e83abb6e04c8fa28f27ac02cc800b8407452738ee` |
 |  `latest` `2` `2.4.2` `2.4`                 | May 15th     | `sha256:43665aa15a191c61d9a19ee089ed4f8671350366c0f9bed007fab90a02b4c821` |
-|  `latest-dev` `2.4.2-dev` `2.4-dev` `2-dev` | May 15th     | `sha256:8d9e3c2404b58bcaff9315f514911b38b8ae5ee785724716f783c13dd468afec` |
 |  `2.4.1-dev`                                | May 15th     | `sha256:d5522660ed56ef2ac12016391a90a39ac8d958b438ded2238d7544f5682c7daf` |
 |  `2.4.1`                                    | May 15th     | `sha256:6d0c6d0b03dc5c414d971f28ecb00e0c9966c5d858e3844b6fe073570cc55e7b` |
 

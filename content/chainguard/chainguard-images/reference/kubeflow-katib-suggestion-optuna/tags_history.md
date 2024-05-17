@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-optuna Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 15th     | `sha256:ab97d806d4b80153af1abb9f781b314af9e56367f8ad73a4fcae5907b3514da0` |
-|  `latest`     | May 15th     | `sha256:a30c4eb2dd6362e51115ed1d40ae2415962bf1df77351df49bf8a0c0ec13fef1` |
+|  `latest-dev` | May 16th     | `sha256:b5d440131fa2cf9b16620e6928a6ee0d9cea67f42fbe0f80218a6722bf6143d3` |
+|  `latest`     | May 16th     | `sha256:34a17e612316c230f698798bc1be645a382d110f68cedb3ce81021cce57e7a40` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.16-dev` `0.16.0-dev` | May 15th     | `sha256:5ff6b498b9f75f8151383dee31bb40193d9d19d44fdb621fda6934b64f5bd3ac` |
-|  `0` `latest` `0.16` `0.16.0`                 | May 15th     | `sha256:83704b44b1b61f852283fc2b03e2c220353f25a719211bf3a0e53f6dfd9aaa26` |
+|  `0.16.0` `latest` `0` `0.16`                 | May 16th     | `sha256:0c20f964cbdd0c6a0c1468f5cc9363b2e0cc43415efeef45fec5760ddf9ee5fd` |
+|  `0.16.0-dev` `0-dev` `0.16-dev` `latest-dev` | May 16th     | `sha256:acf2b312a26cb1f696d61e13ebc1d69404746f8c4c857e99deea8ddf80794b0c` |
 

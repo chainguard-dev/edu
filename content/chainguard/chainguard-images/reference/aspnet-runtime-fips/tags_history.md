@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aspnet-runtime-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,13 +33,13 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.0.119-dev` `7-dev` `7.0-dev`            | May 15th     | `sha256:876295d27c5e284bcd29b4654f94af88bdc8fdcc7fc474714c9915fa348f8476` |
+|  `8-dev` `8.0-dev` `8.0.5-dev` `latest-dev` | May 16th     | `sha256:b9d6626abee323aa6a170b627351f489ad6a8aed810c16c9264c48c56974afab` |
+|  `6-dev` `6.0.130-dev` `6.0-dev`            | May 16th     | `sha256:b7caa01493736722912433ec53db729e56133c4c3aa891a6908c825b3814bf10` |
+|  `7.0-dev` `7-dev` `7.0.119-dev`            | May 16th     | `sha256:4980d328ef135f42f158c67246a3579c5e647d2043e31f75562d6d9f7d133895` |
 |  `7.0` `7.0.119` `7`                        | May 15th     | `sha256:1bb6e0c7e35d251d2847b816083aef5db91153b086b05174d95baa4f5132567c` |
 |  `6.0.130` `6` `6.0`                        | May 15th     | `sha256:4ee42e8126689381f3b82ce1f4d944da4340783e1f43a0882e5f7a1a37185af8` |
-|  `6.0-dev` `6-dev` `6.0.130-dev`            | May 15th     | `sha256:71cc97d9370e0542564674bd8520f120ae3962dcc5183f9afef53d66fe920f1d` |
 |  `latest` `8` `8.0.5` `8.0`                 | May 15th     | `sha256:52c94ecf4e3843e2db19a7e661cbafde993ad4bc46599da971655c0604fac224` |
 |  `7.0.118-dev`                              | May 15th     | `sha256:c16331095f59a82c5fd0662e790b70f984f306956f1f171d26c96396ecf06b13` |
-|  `8.0.5-dev` `latest-dev` `8-dev` `8.0-dev` | May 15th     | `sha256:2fcc555059770dee089c59535ca90f656e766a2f471f678669294739a37bc5ef` |
 |  `6.0.129-dev`                              | May 15th     | `sha256:237f4aa769e894d4b9a00005aff0f31eeb9119786532a507728c510d962bf15a` |
 |  `6.0.129`                                  | May 15th     | `sha256:3fc4c6e297f8912632999c2ef25afd361cae79096746e7c28dd17568f2d75ac1` |
 |  `7.0.118`                                  | May 15th     | `sha256:a5ad1e58f119cbcbada625f37e4de4c1dc688b8d9c602ce1ca8d0c5d6aa58af8` |

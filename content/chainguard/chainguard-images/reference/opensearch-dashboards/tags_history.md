@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opensearch-dashboards Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 15th     | `sha256:f54f8927fa2991b4547083cb7284372b422e685d145a1fa73b0a40d852a6ab77` |
-|  `latest-dev` | May 15th     | `sha256:3911209d04975f3c7f0118dd0f33f635d7778c5df9eb8c97738e8d524650c990` |
+|  `latest-dev` | May 16th     | `sha256:5cd58a0304078a538bf67f1989bfbb3613f13dc34714e0b7094e3e042d47ef1b` |
+|  `latest`     | May 16th     | `sha256:5df40f5fc8e0422228d7379732d51b2dede018976d167707e56c31c83f3c0a9d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2` `2.13` `2.13.0` `latest`                 | May 15th     | `sha256:2b6f24728cc0dffeb72849e5d370d5403dec898bf626ec3d1a5e700d79ca814b` |
-|  `latest-dev` `2-dev` `2.13-dev` `2.13.0-dev` | May 15th     | `sha256:178a30af9dc82ea2780086f073ae703106c8cbbd0ea171929eedc4b0b5f7f6b2` |
+|  `2.13.0` `2` `2.13` `latest`                 | May 16th     | `sha256:7bae6dab57358d74f8b2dc13ddb5ff45b209ce85a8317875070cef3084751cef` |
+|  `2-dev` `2.13-dev` `latest-dev` `2.13.0-dev` | May 16th     | `sha256:27aba3e530c6433cb8888f9c1e7d98a4278305975f06c0bc2898c7d08e35d670` |
 

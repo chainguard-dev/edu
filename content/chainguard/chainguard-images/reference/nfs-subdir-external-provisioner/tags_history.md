@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nfs-subdir-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 15th     | `sha256:68c666019470a71cd7e2cc296e25ed9dbd93bd789afff044fd3a384de24abef1` |
-|  `latest-dev` | May 15th     | `sha256:33a6a8e3d8fee6b6464c63f23abd49e4257233256f093022052780f924167794` |
+|  `latest-dev` | May 16th     | `sha256:c0690f3c78ca1037cf09c13f29e950c13969c4a6a3d24c21adcbda86d8872e0d` |
+|  `latest`     | May 16th     | `sha256:b3dfbd715e5dfc23fa99feba41042634a66ea997d116d08050117366910a4140` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.0-dev` `4-dev` `latest-dev` `4.0.18-dev` | May 15th     | `sha256:b685e9b2ff02612725195b41722b574f22d94873549a4c7765843d7563a93d67` |
-|  `4` `4.0.18` `4.0` `latest`                 | May 15th     | `sha256:f6fb63669b8dfd2ed0451a4122a38f99a7758642cbff0d21edf7d3ae48173056` |
+|  `latest` `4.0` `4` `4.0.18`                 | May 16th     | `sha256:41735de72913708ccf9665c4336e57d1141abfba73f2375e933ac2c68b5ee827` |
+|  `4-dev` `4.0-dev` `latest-dev` `4.0.18-dev` | May 16th     | `sha256:94b6b1ed7873a066b46f95c2977284b6dfa2bca1bf96ea973fc89b8d95c5ee53` |
 

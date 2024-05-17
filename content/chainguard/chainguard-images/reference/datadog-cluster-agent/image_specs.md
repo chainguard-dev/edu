@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public datadog-cluster-agent Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -71,6 +71,4 @@ The table shows package distribution across variants.
 | `wget`                             | X          |        |
 | `wolfi-baselayout`                 | X          | X      |
 | `zlib`                             | X          |        |
-| `openssl-config-fipshardened`      |            | X      |
-| `openssl-provider-fips`            |            | X      |
 

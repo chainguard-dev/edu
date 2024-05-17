@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the argo-exec-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3` `3.5.6` `3.5` `latest`                 | May 15th     | `sha256:87d84b590792ed3edd7758b8c7792105c4e36ab19f489327a50049f67db01d1b` |
-|  `3.5.6-dev` `3-dev` `3.5-dev` `latest-dev` | May 15th     | `sha256:8f85d1b5ae96ed91bc172aa82fb354a8cf7812e22bf77e3c8c80b31e3d30979e` |
+|  `3.5` `latest` `3` `3.5.6`                 | May 16th     | `sha256:ffa5d2a7711e395f1226902a2b260b31d09e9b254a6eb6c3b2887f24122b014f` |
+|  `latest-dev` `3.5.6-dev` `3-dev` `3.5-dev` | May 16th     | `sha256:3d6a47164954c24c2ae3a38e5dbec6587179ca2e7c8510f03b1e72147d10dea8` |
 

@@ -1,3 +1,12 @@
+# 2024-05-17
+New images added:
+
+- jitsucom-console
+- jitsucom-rotor
+- tempo-fips
+
+A total of **693** documents were updated.
+
 # 2024-05-16
 New images added:
 
