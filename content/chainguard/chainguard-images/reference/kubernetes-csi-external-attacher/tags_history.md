@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-attacher Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 16th     | `sha256:842191ad21b6236128b0984a06d7e3728bade02c90219e6fc54b0c1acabd13d6` |
 |  `latest`     | May 15th     | `sha256:9199a3a66b8196483fef0b957f79c74642fffba33ad4498d8f71bcaa9165f4f4` |
-|  `latest-dev` | May 15th     | `sha256:2ca2a6cc29f679c835ab4ea9390ff4494049dc18794959ca90ae6112f27acda1` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.4-dev` `4-dev` `4.4.4-dev` `latest-dev` | May 15th     | `sha256:a0fcc215f11ed6e9554fa7967ac0983f390744ccd7553afd2eb669f5d95c8dc8` |
+|  `4.4.4-dev` `latest-dev` `4-dev` `4.4-dev` | May 16th     | `sha256:d9976bd890f2b12669d4420043e194ef7b53c3caa030ddb69a9b2ab66d390dbd` |
+|  `4.3-dev` `4.3.0-dev`                      | May 16th     | `sha256:5b88a6a69a0b04f3c1c4fb446877a59d9ee24efbc55eb396b772771fd4bcfe1e` |
 |  `4` `4.4` `latest` `4.4.4`                 | May 15th     | `sha256:3f13cd6fbf73f4342eb75e891f9fbef4c96b431bff12f3f431293dd8ec8e1f00` |
 |  `4.3` `4.3.0`                              | May 15th     | `sha256:55347da692509af5be57f8af52798090def07be324897cbdf47240b06befc309` |
-|  `4.3.0-dev` `4.3-dev`                      | May 15th     | `sha256:d5029371e56051c6687ed1765738e144fc5a71e6c6a2161ebbc778ad893b516e` |
 

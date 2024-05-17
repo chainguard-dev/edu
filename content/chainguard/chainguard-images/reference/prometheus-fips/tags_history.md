@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2-dev` `latest-dev` `2.52.0-dev` `2.52-dev` | May 16th     | `sha256:85c2095ce8e19180152e5df8f2f813c7389d14de53b179556d8a11e0993b5c1b` |
+|  `2.45.5-dev` `2.45-dev`                      | May 16th     | `sha256:cf7dffcb4fe083a428b697b816863f6fcea7faf7a0698f07c99258d7e620868c` |
+|  `2.38-dev` `2.38.0-dev`                      | May 16th     | `sha256:962a1616f8258aaa646c760bd67c1f5c2a712e17acf542a84a8f3846dfdfcc7b` |
 |  `2.38` `2.38.0`                              | May 15th     | `sha256:7bd128e5b5358e98e1faa6ec0ff135461dcc487a14a2540a504830f0b6583704` |
-|  `2.52-dev` `2.52.0-dev` `2-dev` `latest-dev` | May 15th     | `sha256:ac52d91b435fda5b7b21fd4e2a8fc1f7cca4cc70d9c41e28af78390d9f692b06` |
-|  `2.45-dev` `2.45.5-dev`                      | May 15th     | `sha256:a9de1feea09e7b8ef5044b070db32fb2a686cdead73e38c1b3696dc07a1006ce` |
-|  `2.38.0-dev` `2.38-dev`                      | May 15th     | `sha256:faadd1786998331b48472e31086b7f1f46326c49a0f2fbbe51dd1cf83ced7c9c` |
 |  `latest` `2` `2.52` `2.52.0`                 | May 15th     | `sha256:4ebe50ed4607dccdbb66d2275e6607b9c4565a9f1c29390bfde0f2e8553068ae` |
 |  `2.45.5` `2.45`                              | May 15th     | `sha256:adb86ff2dd26c11e457228b9799ed77aba43db4ae5409c5358ee2e1a0c236bb5` |
 |  `2.51` `2.51.2`                              | May 10th     | `sha256:e179c4104b8cccdd8da7b368766b8d9315e1fbf3b3ee73d78be95e784a140453` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the zookeeper-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                   | Last Changed | Digest                                                                    |
 |-----------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.9-dev` `3-dev` `3.9.2.0-dev` `3.9.2-dev` `latest-dev` | May 15th     | `sha256:62a0f0e98a5b77b3ec6dcd4bcc314b8f2c1980d4d223f839e624640efc37737e` |
-|  `3.8.4.0` `3.8` `3.8.4`                                  | May 15th     | `sha256:fee1166aa2bc7498aa6ba20a0600dc71b2604e04425c70c3dca06ed3640bf99d` |
-|  `3.9.2` `3.9` `3` `latest` `3.9.2.0`                     | May 15th     | `sha256:7de29dd699f3c081489bf7e934808e9ed2731afaa982169358866333b549285d` |
-|  `3.8-dev` `3.8.4-dev` `3.8.4.0-dev`                      | May 15th     | `sha256:1cceab8a4323891591f863de81b120165f080c3a1496f7f7eeb5d52b7842c453` |
+|  `3.8.4.0` `3.8.4` `3.8`                                  | May 16th     | `sha256:5688d6c5f66713a28b7eb8c9251459a1788fe5008c9385ff18c9261df178a11c` |
+|  `latest-dev` `3.9-dev` `3-dev` `3.9.2-dev` `3.9.2.0-dev` | May 16th     | `sha256:f12cc862e220365bcce380be71c799a4cf3f44e49f479ff07fc3bb3965f62217` |
+|  `latest` `3.9.2.0` `3` `3.9.2` `3.9`                     | May 16th     | `sha256:6e3323fc56a5520df931c3e4db6836f8f026264beeb1c562aa6ec623fbe8c902` |
+|  `3.8.4-dev` `3.8.4.0-dev` `3.8-dev`                      | May 16th     | `sha256:918426314bfdf5662dfd97b1721f7820801e80d0fdaa27327c57aff145cccb66` |
 

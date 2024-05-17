@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-skopt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 15th     | `sha256:26b2cd2836bedd74167bcd9a499af10ea4df3bf843e99ca0401cce5ffa455d1e` |
-|  `latest`     | May 15th     | `sha256:32a29db0e68ea7d469f8a9021fef06da5991b4f8251fdfe4fbd0a9a1a5530801` |
+|  `latest-dev` | May 16th     | `sha256:6dc4d70573fa708a7f5283be93758e942c37868685eb1af21a271dd5d6d3d151` |
+|  `latest`     | May 16th     | `sha256:bffad7ad0c6ec0d938566a7d8fb29e1c36b18ee0716d8e2843cdb34c4b7794fa` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0-dev` `latest-dev` `0.16-dev` `0-dev` | May 15th     | `sha256:12d4010ba67a937e3db9ef7b557bbaa31d8a1e7b8be908226ff9781b5e32bf9b` |
-|  `0.16.0` `0.16` `0` `latest`                 | May 15th     | `sha256:e009cb1fddd7320006735780491d46b5bb5d9b933613ef82c157e8e05f285ae2` |
+|  `0` `latest` `0.16` `0.16.0`                 | May 16th     | `sha256:f1057ef2985908db56649253cfe1b70dfab0763015df0b1ac55f3eb56d26648d` |
+|  `0.16.0-dev` `0.16-dev` `latest-dev` `0-dev` | May 16th     | `sha256:4a3fac8234d1c5a3e02225a4a22daa940e5e7ba0fb876ef95d26387d447b5880` |
 

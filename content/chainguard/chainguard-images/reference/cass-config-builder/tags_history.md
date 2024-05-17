@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cass-config-builder Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 15th     | `sha256:4f95b6f091d17b5506bc707cae16eb80ccf2bc753802391e097c766e5b552848` |
-|  `latest`     | May 15th     | `sha256:a86d06867a597ab0d6df95154a3dbe1f3f8225ee705296bdbfac072ac389b933` |
+|  `latest`     | May 16th     | `sha256:a2d3f16fbaaddef63ed881e105bd7bb7c2794537ac5e98579b9d918ae5e1bc8a` |
+|  `latest-dev` | May 16th     | `sha256:aa0dc49dc10de78890ec0c5c51421a77fc3443d4d4abb0f44825bd9fc76d0b09` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1` `1.0` `latest` `1.0.10`                 | May 15th     | `sha256:c223b2b3260c3b4afb0fa192dcea0980a0204af9e9d0cf12637d139f5bd7b307` |
-|  `latest-dev` `1.0.10-dev` `1.0-dev` `1-dev` | May 15th     | `sha256:88c5e46c30847adcbf32b39008f8d25f8647d6d7a106d22c667d99097b449238` |
-|  `1.0.8-dev`                                 | April 16th   | `sha256:cec7472804492ac128f8ac3204e4ccd407990a84e87d32244e7de712754047ae` |
-|  `1.0.8`                                     | April 16th   | `sha256:d6570c34ec321648c96162ad9c3fa2cb0d3f946ebe961fdcbbb8502c2dae6a60` |
+|  `1.0.10` `latest` `1.0` `1`                 | May 16th     | `sha256:e084ca03a8d836e77e7d090b830e3fd5e06aaed976ea97f635f29ac597bd9495` |
+|  `1-dev` `latest-dev` `1.0.10-dev` `1.0-dev` | May 16th     | `sha256:18aee8de54ec4f1ca99e0915276e1496451162a18a3a4b601d4eda23ed8b8419` |
 

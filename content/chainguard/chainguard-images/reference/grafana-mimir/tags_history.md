@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grafana-mimir Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 15th     | `sha256:7522d221a0aa48b67598c85ad3a1e991ca7f8980a6d44f81aa336eff58614f80` |
+|  `latest-dev` | May 16th     | `sha256:f181653c893be33a753d90c3a2714cc6a0865a80db46b6540ef6aebd2894c804` |
 |  `latest`     | May 15th     | `sha256:c5de74906676c019dac4cf866775fca5a90983ab7c5f1118fb6c41507c0feebe` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2-dev` `2.12-dev` `latest-dev` `2.12.0-dev` | May 16th     | `sha256:32bb274cd6fab2502b598c102387cb08a5788f6ec0b882f3ae51a9a464e24cc7` |
 |  `latest` `2.12.0` `2` `2.12`                 | May 15th     | `sha256:494e39e5ab62564566932adebc4351b1c01f8a00a0c784ae23ae598835b0b2a0` |
-|  `2.12-dev` `2-dev` `latest-dev` `2.12.0-dev` | May 15th     | `sha256:ca3f2a88056145f077ba6e6bfe097bfad6563f6288c92b08d81ecdf693386b20` |
 

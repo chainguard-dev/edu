@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public jre-lts Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -83,4 +83,16 @@ The table shows package distribution across variants.
 | `wget`                   | X          |        |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          | X      |
+| `alsa-lib`               |            | X      |
+| `giflib`                 |            | X      |
+| `libjpeg-turbo`          |            | X      |
+| `libx11`                 |            | X      |
+| `libxau`                 |            | X      |
+| `libxcb`                 |            | X      |
+| `libxdmcp`               |            | X      |
+| `libxext`                |            | X      |
+| `libxi`                  |            | X      |
+| `libxrender`             |            | X      |
+| `libxtst`                |            | X      |
+| `ttf-dejavu`             |            | X      |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-autoscaler-addon-resizer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 15th     | `sha256:df59a7bf93fbfa0f2fa0fa3063f814b12e0dedeadbcb6b20d24f21261a551006` |
+|  `latest-dev` | May 16th     | `sha256:4428d4234091d7067e8b567a1a5c0f96c01428f45e7b616721b75ba5bbb66e08` |
 |  `latest`     | May 15th     | `sha256:09a90bb128be9c04300c1372ff1ec4936b8798405cc46dc3865fead0815f7cf7` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` `1.8.21-dev` `1.8-dev` `1-dev` | May 16th     | `sha256:f53fce0ef37f6a38549154a216ea30b0048762c9c2483a8d9c56cacc9137e861` |
 |  `1` `latest` `1.8` `1.8.21`                 | May 15th     | `sha256:fc93c61894437e75fd8df64e340c65acb44f090b1a4a457e92d3d06e311821d8` |
-|  `1.8.21-dev` `1.8-dev` `latest-dev` `1-dev` | May 15th     | `sha256:e79750e42db2adbe6aef7a01c08263c0546b32b09dfe2fd7b6b568ab994647cd` |
 |  `1.8.20`                                    | May 15th     | `sha256:375562317fed402f92bbc946bb53a7a2583144c871561dd022575c066654d526` |
 |  `1.8.20-dev`                                | May 15th     | `sha256:f83b528ae18abbe5b7aac41b1475107602835b0de36c7378780236acbb51bef5` |
 

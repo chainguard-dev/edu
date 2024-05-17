@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-webhook-certgen Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,17 +28,11 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 16th     | `sha256:3773d366ef488a175aea91baafa6e6110280ff402c26193580bed08824dd6eda` |
 |  `latest`     | May 15th     | `sha256:97395626f947247ad68abc65dbea019203b334d0eac6e1833eda449cef15e0d5` |
-|  `latest-dev` | May 15th     | `sha256:09426bffd072577a58ff4cce9094a499d4474384567f8978b4e8bc598a7eff87` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                       | Last Changed | Digest                                                                    |
-|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1` `1.10` `latest` `1.10.1`                 | May 15th     | `sha256:f4d67a4e06b694232753b9e7efba3b96d172b9b06556b86a85e5ecf00611c5c6` |
-|  `1.10.1-dev` `1-dev` `latest-dev` `1.10-dev` | May 15th     | `sha256:6cc1f52958522b43f077bcbacb452a0dfedb62cba05c53b39acd9ed3a1781539` |
-|  `1.10.0-dev`                                 | April 20th   | `sha256:66427d8be3761dc572fe5856538fe3098e132e538d6dc758fcd334b8bc62899d` |
-|  `1.10.0`                                     | April 17th   | `sha256:330eb43a5a28c70f7544b9b8040343ad3dbf1231c8612d21735e999682350ba4` |
-
+Currently, there are no Production versions of this image available.

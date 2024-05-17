@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-hyperband Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 15th     | `sha256:ba3af27e1b8213794149cd027a504cc2c342a268e618db5666a0c695dd4bb41e` |
-|  `latest-dev` | May 15th     | `sha256:45ca30b3e31dfc0f3acc7b4ff6e036e74f39791e31ced60bfb3eb3ed0d5a7604` |
+|  `latest`     | May 16th     | `sha256:abccb7d426f185c460a7777c9fdbd5bfe53173e0a713aac14e2c96eb25b11b23` |
+|  `latest-dev` | May 16th     | `sha256:1ba74529947dc85dd83aa0f74d54b84a8451035ad2e9d08749930513eaee1cf5` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.16.0-dev` `0.16-dev` `latest-dev` | May 15th     | `sha256:5d9f8044b55b59ff13b3e9976251f0d8533aa63ed8bc418641a7534c8d659f23` |
-|  `latest` `0.16.0` `0.16` `0`                 | May 15th     | `sha256:07137d750b54fda85c39a0ae3644ecf203f9ddde3e51abd082886c6a43a6a226` |
+|  `0.16-dev` `latest-dev` `0-dev` `0.16.0-dev` | May 16th     | `sha256:43bf0bd54b8b3651406dc3b4af1c269d14cdebfc81ea6e539740336f1a9d1b86` |
+|  `0.16` `0` `latest` `0.16.0`                 | May 16th     | `sha256:d2e6b72484446e4a31e19d800bd67a637bbcb8fc8d32daf23109843e4068f70e` |
 

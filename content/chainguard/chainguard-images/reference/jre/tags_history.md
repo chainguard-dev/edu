@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jre Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 15th     | `sha256:874b9fc024a9a50e753d4665cfabd601bada5591bddefff360dcb545a8100fb9` |
+|  `latest-dev` | May 16th     | `sha256:44dfe607c30bc696b2d237a2d8f961014eee1dc247218a026ff762be5e1e3166` |
 |  `latest`     | May 15th     | `sha256:e1cd12b0f1584269370ce15eed8e8dd47c8f7a666f3bfbaed7f71ac1c6b0c761` |
 
 
@@ -53,6 +53,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `openjdk-15.0` `openjdk-15` `openjdk-15.0.10.5` `openjdk-15.0.10`                 | May 10th     | `sha256:a219de1dbb06c53d9d11390dbfc0f3005adb78f259b6f5b4b85bfd4943798f1a` |
 |  `openjdk-22.0` `latest` `openjdk-22.0.1` `openjdk-22`                             | May 10th     | `sha256:57400d410ae71aee7a621acdeb024cade196e93fec3df4861e9e6b4f93cd2725` |
 |  `openjdk-16.0` `openjdk-16.0.2.7` `openjdk-16.0.2` `openjdk-16`                   | May 10th     | `sha256:7c1461ba6016c745c1d1d652377149c448ee3e3544178b0121ef0de55f7ff16f` |
+|  `openjdk11.0.19.5` `openjdk11.0.19`                                               | May 16th     | `sha256:677dee78db811af812e1bb2bd33c1f247a5a4e0418169c194d965fc618768bba` |
+|  `openjdk11.0.19.5-dev` `openjdk11.0.19-dev`                                       | May 16th     | `sha256:30327ab04c691b2d4f2bfa4391531384ea89b4e204cc65b90eee78a5cbc83156` |
 |  `openjdk17.0.7.5-dev`                                                             | April 21st   | `sha256:d25a9f37fd4ae0a8aa5f0bb7675c9dfaa033e45ac0e4deb4a14e45aee3a4a62b` |
 |  `openjdk17.0.7.5`                                                                 | April 21st   | `sha256:eeb678140e97079f4d1e554fa3575831329e78e1382605249ea8ea5558a96d11` |
 |  `openjdk11.0.18-dev`                                                              | April 19th   | `sha256:1aa1a3510171eadd787e4a20ae76bef2ff04485d355e01dac1ddef5dbe70a2f2` |
