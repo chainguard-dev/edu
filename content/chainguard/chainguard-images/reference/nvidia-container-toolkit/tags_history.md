@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nvidia-container-toolkit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 15th     | `sha256:b6169aecbe3ce405a79659b8c7ed1cadc8d75a4fe6940be85a0795a0aa694398` |
-|  `latest`     | May 15th     | `sha256:c387c1667924428dcd0e58fbd869e2e76b9d17e8b85df7a7fda7b6d5e13836ef` |
+|  `latest-dev` | May 16th     | `sha256:76feb45534c22f38837b2c78e4f227cf409d46e5affbed2dd331e64a0e1221d8` |
+|  `latest`     | May 16th     | `sha256:daa614aedd1e66eef48b372792bacf3e8b73944335dc5df78cd2fab24ab66867` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.15` `latest` `1.15.0` `1`                 | May 15th     | `sha256:7d4d14176dec62ae6ba50293b3b7aac2064344e0edf93ced2a4d8fbc7c0a6fb3` |
-|  `1-dev` `1.15-dev` `latest-dev` `1.15.0-dev` | May 15th     | `sha256:fca8d2622b76585da3b2cec7f49c9f041c3598efbe17db019bf7b1bfccedb80c` |
+|  `1.15.0` `latest` `1.15` `1`                 | May 16th     | `sha256:089df645d7c81c1ea58b94e9d24ebaeffa35965494a89adc72e6a59cd5ea2706` |
+|  `latest-dev` `1-dev` `1.15-dev` `1.15.0-dev` | May 16th     | `sha256:2d4f2d49a3dc8a1f58b9b70e6350e1cbda5ccebd06b24f46a61d6f7ef9be3ac0` |
 

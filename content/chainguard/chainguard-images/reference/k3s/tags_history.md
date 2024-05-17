@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k3s Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 15th     | `sha256:2452e2232afe29ed9256431408973e00c464b9f7dd55666103c5078ab00cdcd0` |
+|  `latest-dev` | May 16th     | `sha256:eaaa7d4208a39bdf6070bb1a2f6585c0e10e70a1673a199bfa9c2ccbd74333e1` |
 |  `latest`     | May 15th     | `sha256:03a31d4b07451bb1b37d34751d8fe766ff090d61ba634332b27d0551a7fb9715` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.30.0-dev` `1-dev` `latest-dev` `1.30-dev` | May 14th     | `sha256:43814da976df60fa63a12abe9364e34620e7d9118fdd8b8f456818e790f409c6` |
-|  `1.30.0` `1.30` `latest` `1`                 | May 13th     | `sha256:55812e406885c9b9df6228e7538d0729a817c7c841957d88cf47d315dc994af5` |
+|  `1.30.0` `1` `1.30` `latest`                 | May 16th     | `sha256:93bdc2e8eb1522ddb1cae7cd77f46aa92e871eaf20e5b6f9d0a6a93b07914787` |
+|  `1.30.0-dev` `1-dev` `latest-dev` `1.30-dev` | May 16th     | `sha256:7b7051769cc3e1f99679f15bd16a583b77c9265c6eebe4ff51a497b2c3e1d533` |
 |  `1.29-dev` `1.29.4-dev`                      | May 10th     | `sha256:4c379598438191e888381509da4a3224e38a191c05933a9770f2392ed01019cc` |
 |  `1.29` `1.29.4`                              | May 10th     | `sha256:8861a492fbaa9b7cfc5585b7ae4528f8872bf96f527c3abb10db83e6d700998a` |
 |  `1.29.3-dev`                                 | May 2nd      | `sha256:e88dc01fc63356ccb3f1f1059325151039ef335aa1169786c264464cdd147bce` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ntpd-rs Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 15th     | `sha256:11b39359a732420c1dfcf964b650fd66f9f6cbc3d2a63fb11de1de48821a0b53` |
+|  `latest-dev` | May 16th     | `sha256:5674171672a04de25178ccfcee97b4c763d725ccbdbe5263af1ed55ec398257f` |
 |  `latest`     | May 15th     | `sha256:4107d4156ed3ef1a0aa480a4175239794af6830826e1b251e8b210dd54bda433` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.1-dev` `1.1.2-dev` `latest-dev` | May 15th     | `sha256:f4cdcb7ae74e09cc596da9c27e4e1ef33ba4abb24a7a124c587a22996631232b` |
+|  `1-dev` `1.1.2-dev` `1.1-dev` `latest-dev` | May 16th     | `sha256:3c5e12b10126eb814c7fb9b88542620a9eb333e1ef8d28059d8c9e8049e55dc4` |
 |  `1` `1.1.2` `1.1` `latest`                 | May 15th     | `sha256:0d6e14a5264e637dc6e5410f611f05e1a24a73412982e5efcb26c210e5622cf1` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-downscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 15th     | `sha256:5b3f249093212b7c3f423d47443fde5a573b205150bad253e3164c44b61692c9` |
-|  `latest`     | May 15th     | `sha256:5687b140666e6f6aff56c0cd9d5654a7a595f09e54417598fb3c1e488cafbdf2` |
+|  `latest`     | May 16th     | `sha256:3f5e77d18b960a29dc8661bc26a2b705f5393e28c1d20c8c51e9e1c5637490a6` |
+|  `latest-dev` | May 16th     | `sha256:8e9afd39e9b1adaf81d25fd2ab109598682ba293293a3595072ec82d33bf2ff5` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `23` `23.2` `23.2.0`                 | May 15th     | `sha256:8c84c430937001a8604ef6bd03aae80b9372040e8d6fcd10b3e58c76ec66d7f7` |
-|  `23.2.0-dev` `23.2-dev` `latest-dev` `23-dev` | May 15th     | `sha256:c6d5287c00aa76f3a5f36a75ec323df6ad9166a4596eb6123f5ae08281219972` |
+|  `23.2.0` `23.2` `latest` `23`                 | May 16th     | `sha256:94d3a9332a20c98edf9ffcd8a6113127fab30fea7f8a62de89d633a9249dd7b0` |
+|  `latest-dev` `23.2.0-dev` `23.2-dev` `23-dev` | May 16th     | `sha256:1257b948af46799382ed08c1cade905f4bbbbfe7b2749c123fb25afcb6e613cc` |
 

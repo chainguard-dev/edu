@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the weaviate Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 16th     | `sha256:b8f4f334502293ac8962f40a2b84fd1afc0f2e643ef8c017d6e31791d845a03b` |
 |  `latest`     | May 15th     | `sha256:3530eacbb087e21630ac50f1361aa9f5f4365314a261d0c0da2ba26a0d2a142c` |
-|  `latest-dev` | May 15th     | `sha256:9d6f828d52ed182d2d3ae2ad5364d09942c3841c001b0766bc6b8a6993e10e0e` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.25.0-dev` `1.25-dev` `latest-dev` | May 15th     | `sha256:48eb0e2f6b15c1863ce9e166be81141e6d5c01bb2a8552dc77903e0ebfeea837` |
+|  `1.25-dev` `latest-dev` `1.25.0-dev` `1-dev` | May 16th     | `sha256:2d47c377d05d4b72112828943f3548b1a01a88151ad5eb14ead3abb42c201f30` |
 |  `latest` `1.25.0` `1.25` `1`                 | May 15th     | `sha256:de1f9bda8cd425f44d61f3bd0d41e23638ae8a688e2da41e15dc783b9729ebc0` |
 |  `1.24-dev` `1.24.11-dev`                     | May 8th      | `sha256:410fdc7e7f417ccbcef8e1e12e1f2c8955f31058f6dc978282f0e3150ab61868` |
 |  `1.24.11` `1.24`                             | May 8th      | `sha256:29e84568168f5bdaf47da54909435dcdfcc408e081ee87a4617037adeceff347` |

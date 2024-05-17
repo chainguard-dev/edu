@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the atlantis Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 16th     | `sha256:ecd38660c8b4e28def8ce2d9595a9b208e04d5748f51135eaf39f6645ff91898` |
 |  `latest`     | May 15th     | `sha256:9c923370549d95e68777e43c747b4d736a73b9764d22fa23289a3265d78c9538` |
-|  `latest-dev` | May 15th     | `sha256:783fb522250f6faeb6ffb668fda7f7383f2cc95db7856b1be300e73d73325a1b` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0.27.3-dev` `latest-dev` `0-dev` `0.27-dev` | May 16th     | `sha256:45ad384bd50c2e1289d013908670c6abf7773717a36bfabcc952e370a011e1a6` |
 |  `0` `0.27.3` `0.27` `latest`                 | May 15th     | `sha256:9310d8f586aa7355429457e97dbbfc171c029628a75d343144d547bb66f49e1c` |
-|  `0.27-dev` `0-dev` `0.27.3-dev` `latest-dev` | May 15th     | `sha256:22dc53d7b966c79464c267c97a5633976aed518bca2c01390b02660baeaf2c97` |
 |  `0.27.2-dev`                                 | April 25th   | `sha256:8d85981f8891f48eb2440e2e34401cd1af66041d5196a5f2899234f6a8f0e13b` |
 |  `0.27.2`                                     | April 25th   | `sha256:10672a0ed2cef73bcbf064b9753736e499daef75147742535812cc1cd957286d` |
 

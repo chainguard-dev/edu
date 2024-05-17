@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-kubernetes Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 15th     | `sha256:d97208dcd2d0517be6914aed78364e0c4845a04555ac87b1e5ee9d7bc4c05f43` |
+|  `latest-dev` | May 16th     | `sha256:151913edf7e2be5d5ce2843688ba836d12e617e8fbea7f9aa68c335f60411f36` |
 |  `latest`     | May 15th     | `sha256:6d8588715b2267b9dad1f0f5fdda6720abec20e4e3a08ae1fe99a17513db48c4` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `3.28-dev` `3-dev` `3.28.6-dev` | May 15th     | `sha256:5f7ae41977a51a59cbf40a8d1e12dc04c7cb86823fe5d72302954ad2580f6e0f` |
+|  `3.28-dev` `3.28.6-dev` `3-dev` `latest-dev` | May 16th     | `sha256:a8b011fc13f3afb61905fd0879d198c00ea3322350a91310c03e92e90f7e482c` |
 |  `latest` `3.28` `3` `3.28.6`                 | May 15th     | `sha256:a076836c577810552293b8b3a6022f2922d3c0cef7d04d92ed8bbb8315a60c48` |
 |  `3.28.5-dev`                                 | May 9th      | `sha256:dcd04252a4e396670e3d3d6b92065f0079ad5020aa98d956292b5817240cd95c` |
 |  `3.28.5`                                     | May 9th      | `sha256:ca081ce55344221f0e35d51cd759b3108699d2e3b449adf68721556de360b49d` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the istio-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:bcbe8f1ae9e93ad1698e0ae9fe1b37d1f3180986fe3f7d514ae521b90dd7eb63` |
-|  `latest`     | April 22nd   | `sha256:465e2a9de9155e5835a8efc6a188ee38ea406308b1ef4f80bbc9e1155c1c3175` |
+|  `latest-dev` | May 16th     | `sha256:7dabd8f87111703667a680f5da80f151c8911e1222967ae7751d2d93eae491e1` |
+|  `latest`     | May 16th     | `sha256:4e9a62ed47b7ef972b20e75b73bd58d802796b5bffafdf24170109a30171000b` |
 
 
 ### Private/Dedicated Registry

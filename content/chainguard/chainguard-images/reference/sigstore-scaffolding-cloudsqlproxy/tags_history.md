@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-cloudsqlproxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 15th     | `sha256:484bb77fb131b480fc4afb49cb74dfadde61bce3b4cae15df957dc14a8d93ff1` |
-|  `latest`     | May 15th     | `sha256:3a210db485db1da0782d30556052a2a326ab42e554517de2a1868bc81a525473` |
+|  `latest`     | May 16th     | `sha256:9d92646df349db79e9e91df7a315485e61ffd33198e8ea2f02b6f4f207431d99` |
+|  `latest-dev` | May 16th     | `sha256:a73c634059cbd149a6a44c70136652a7f82288658ddf8b7b608371479555fe8c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.6.17-dev` `0.6-dev` | May 15th     | `sha256:2c0a9f816244cb842111f3c1772c691a65d45c94e909bebc1964db43d85a4146` |
-|  `0.6` `latest` `0.6.17` `0`                 | May 15th     | `sha256:d3dd0bdc108b3af78f2c1e810e6e70dae453cfe8cda34138d159d5edd0594743` |
+|  `0.6` `0` `0.6.17` `latest`                 | May 16th     | `sha256:7f37ffd12a6a25b3f95468e41df69cf8c45046a5370cc29e0667bd5a4ed6a692` |
+|  `0.6-dev` `0.6.17-dev` `latest-dev` `0-dev` | May 16th     | `sha256:e52a178bd4ffa87cf96de9669ea89014ec9a73a45005ee897facda04450e23a4` |
 

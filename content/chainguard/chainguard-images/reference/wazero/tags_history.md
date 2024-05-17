@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the wazero Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 15th     | `sha256:ea2a41211cca90523dbc3b9baf2082c4833c4b4247f192f353047f3ae32fdf72` |
+|  `latest-dev` | May 16th     | `sha256:befcb1e88a080adfca166a21e413cf0de3b05871c377a73319d3f720f4ac675f` |
 |  `latest`     | May 13th     | `sha256:eea3e49e14d4083f0a0760babfcda857710527b0b4eef4ee9dfd64e8168fd255` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.7.2-dev` `1.7-dev` `1-dev` `latest-dev` | May 16th     | `sha256:9fc22e9bfaa606a95cd2efaf798b3fba776d74a379226daaeee5f2610493a283` |
 |  `latest` `1.7.2` `1` `1.7`                 | May 15th     | `sha256:b9aac191a5983dd1f4a92bccb64e517e05f7a7a4a7762aec63f556ea9312f603` |
-|  `latest-dev` `1-dev` `1.7-dev` `1.7.2-dev` | May 15th     | `sha256:e47d397fb5e31b8b9c9bbee49be4085b1d710b5d3bf2813ff5a9a3c4a2453da0` |
 |  `1.7.1-dev`                                | May 8th      | `sha256:ef3d5afc152ec35d30a95380e03eb0612675081c5e1146200d5a4ed9010b89e6` |
 |  `1.7.1`                                    | May 8th      | `sha256:f24499e05fe5f466f1c3760f9e24101c083042c9a91af401022ba6d200398022` |
 

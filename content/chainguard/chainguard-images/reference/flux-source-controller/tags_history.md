@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-source-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 16th     | `sha256:5e1f2d1e05d2de66dda6cae45e272871bc7fbf9871bf0a60c69698c883802cd7` |
 |  `latest`     | May 15th     | `sha256:1d90e81607c1f064dc98a107a69f87f3c3acacf16d002dddd5ef27e5ae8ac8f8` |
-|  `latest-dev` | May 15th     | `sha256:7aa73f5eaaae5f7e21ce387bfa39beeb63d58122e391fc78ff22cf4252035cd2` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.3-dev` `1-dev` `1.3.0-dev` `latest-dev` | May 15th     | `sha256:ecef35c0764ed63e669ff8f0f81922b841de7e5216f01e8e1d17201f3004ddda` |
+|  `1.3.0-dev` `1-dev` `1.3-dev` `latest-dev` | May 16th     | `sha256:610d24673055471d16126fcecc4e86f9895d223884806cb99d566d6e7d919d25` |
 |  `1` `latest` `1.3.0` `1.3`                 | May 15th     | `sha256:297d3868b7a42346165a5e719f439de4e348d7fdaf95d48022323f1c8513bc2b` |
 |  `1.2.5` `1.2`                              | May 2nd      | `sha256:c8416e1daafd1ab88fc1db9c031630f5aa843a7849013ab4f18a14ed817f4f99` |
 |  `1.2.5-dev` `1.2-dev`                      | May 2nd      | `sha256:7524bb9043c030361bf6ace2a4fef152ad860ec8cc35da0dfcba53b118642f7f` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-hyperopt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 15th     | `sha256:03b4584d4c98a12bc075e344df4dee1ff92527bdb04c6f057a923ad0c1ffa6f4` |
-|  `latest`     | May 15th     | `sha256:f054892b6e435302db530d9cbbed687788148aaed756f362cab93b7443ebd057` |
+|  `latest`     | May 16th     | `sha256:d58ce1f522372f083eee5ae5b3ccc91c70cd923a52809b66421b2d489ea317ca` |
+|  `latest-dev` | May 16th     | `sha256:1cdf78ac39ec5fa4d283de90bfbc31c9f99d67ab227420cf50ecd6adbeb28cc5` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.16-dev` `0-dev` `0.16.0-dev` | May 15th     | `sha256:d4a9dde4715bc0df5c8416bdd4541db1d3e4a2f69203852adc3b4f4c16b56750` |
-|  `0` `latest` `0.16.0` `0.16`                 | May 15th     | `sha256:34e4a2b66e59d1dcf2098661d8767a6746d613c6766c38032f46e1cee9c132c9` |
+|  `0.16.0-dev` `0.16-dev` `0-dev` `latest-dev` | May 16th     | `sha256:9dff6c634397a91764f2f4eb316ede171a5391ffd5950662907a30c7d576d2d7` |
+|  `0` `latest` `0.16.0` `0.16`                 | May 16th     | `sha256:e818b6ee2e5758efcc09a4c9800273bf47784fc549a5900c96a45837503afd2f` |
 

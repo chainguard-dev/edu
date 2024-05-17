@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the management-api-for-apache-cassandra Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 15th     | `sha256:dc6812e3aa64f8346f994c77090f989545ff2aa9eea5b4a4efbdf73ddbdc6b63` |
-|  `latest`     | May 15th     | `sha256:0951742c7e3fe74ddf05488defcb534ec1d19094bd2366cc23fe9515802fda5f` |
+|  `latest-dev` | May 16th     | `sha256:15b847fbf4ffeab916b089f60b626cf3ff83d11a79f1f59ce150999f7f978499` |
+|  `latest`     | May 16th     | `sha256:3c0c6291c7746784babf16e057021ea80e0098fa5cc2faa229bf9fb1679cf437` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0` `0.1.74` `0.1`                 | May 15th     | `sha256:fad1f1fb0d93874aa743324e819d47368a48513195890248fc9c2f3917b1a71a` |
-|  `0.1-dev` `0.1.74-dev` `0-dev` `latest-dev` | May 15th     | `sha256:e445cec35273c6aebd6eb6f48ad837a3be73f765cc06fb763b9e825e77eed0f4` |
+|  `0.1.74-dev` `latest-dev` `0-dev` `0.1-dev` | May 16th     | `sha256:f7a16ca5344d1eebd1f40272ead1aafdfef1652c8368ff90164c2a093ff82192` |
+|  `latest` `0.1.74` `0` `0.1`                 | May 16th     | `sha256:26c9cdb43394db850183498112c9a451a98e3f6289e1a7104e5f0fe9401fdbf1` |
 

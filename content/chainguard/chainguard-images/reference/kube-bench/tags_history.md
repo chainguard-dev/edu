@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-bench Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | May 15th     | `sha256:b611739097ebf6a3632f252746577d19d87a024e5e206c7795efcd94a8b7dced` |
+|  `latest` | May 16th     | `sha256:61b0a292d98bd3d3cd980f52239ac0eb8d0d15371ae5f048df245946a9f858da` |
 
 
 ### Private/Dedicated Registry
@@ -36,8 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.7-dev` `0-dev` `0.7.3-dev` | May 15th     | `sha256:4379f0374e2eb49f039860799ba2e392f2591f6afd7900f67962006ab8622ccc` |
-|  `0` `0.7.3` `0.7` `latest`                 | May 15th     | `sha256:0a542feb1191de2bfedc6f392151c2db91ebf5a10c2c4a7be04b5480a262c6d2` |
+|  `0.7.3` `0.7` `latest` `0`                 | May 16th     | `sha256:2689b8185729033bac9a1d85df3dfedc16646d2f4a25708bfda9fa9ee962f745` |
+|  `0.7.3-dev` `0-dev` `0.7-dev` `latest-dev` | May 16th     | `sha256:bba543493e5c00c2d72fe437745318b799ffac83f3a5d7234801102b31ac061c` |
 |  `0.7.2`                                    | April 17th   | `sha256:72cd831656da0c233f97bb7196391ae067c4ce701fe4a91fb0521d4342eedb7f` |
 |  `0.7.2-dev`                                | April 17th   | `sha256:3de2967beb6703d7689f324866ce78c3cc10eb4ff2f19067d23239be70a5e5ad` |
 

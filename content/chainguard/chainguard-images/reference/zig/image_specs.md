@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public zig Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -46,10 +46,10 @@ The table shows package distribution across variants.
 | `glibc`                  | X          | X      |
 | `glibc-locale-posix`     | X          | X      |
 | `ld-linux`               | X          | X      |
-| `libLLVM-16`             | X          | X      |
+| `libLLVM-17`             | X          | X      |
 | `libbrotlicommon1`       | X          |        |
 | `libbrotlidec1`          | X          |        |
-| `libclang-cpp-16`        | X          | X      |
+| `libclang-cpp-17`        | X          | X      |
 | `libcrypt1`              | X          | X      |
 | `libcrypto3`             | X          |        |
 | `libcurl-openssl4`       | X          |        |
@@ -65,7 +65,6 @@ The table shows package distribution across variants.
 | `libunistring`           | X          |        |
 | `libxcrypt`              | X          | X      |
 | `libxml2`                | X          | X      |
-| `llvm-lld-16`            | X          | X      |
 | `ncurses`                | X          |        |
 | `ncurses-terminfo-base`  | X          |        |
 | `wget`                   | X          |        |

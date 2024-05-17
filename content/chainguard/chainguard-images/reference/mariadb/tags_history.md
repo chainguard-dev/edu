@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mariadb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 15th     | `sha256:633f9c8bf899ee127c9f0ade50daff194733f5c0781ddeb9d5d905fe98d7eeba` |
-|  `latest`     | May 15th     | `sha256:283d2db7dd5cc1439aa802a886b958f6d8df5b597f605e1ebc41d7a7d432e64a` |
+|  `latest-dev` | May 16th     | `sha256:c73bd2070766f5c6c41882368e6bd2e180b345ceb20f67ce8fad52dd98901d21` |
+|  `latest`     | May 16th     | `sha256:5b94b100b190d1a961181cb03a170eafca417185119459cd0b5f6382f11ef588` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                          | Last Changed | Digest                                                                    |
 |--------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `10` `latest` `10.11` `10.11.7`                 | May 15th     | `sha256:61255d753963751979da41e413cfeae339c142fa010c6b9e43eaee68c82dea5a` |
-|  `10.11-dev` `10-dev` `10.11.7-dev` `latest-dev` | May 15th     | `sha256:f58d1b89bb3ab02384be0a70bae7ac4da1dfc9d9e41e338fec0dbb7371a177c2` |
+|  `10.11.7` `10.11` `10` `latest`                 | May 16th     | `sha256:d78069d3a9d0d43539f9d4de0d2a4805e4ae70b29324647a7cb07ef8404e6c79` |
+|  `10-dev` `latest-dev` `10.11.7-dev` `10.11-dev` | May 16th     | `sha256:d542d8db608d111285da441aec2980b4e1b3b528c54850f1fd55e83783ccf94a` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-pbt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-05-17 00:44:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 15th     | `sha256:7275937d193e3be08f6f3b5138c602199780c62f8e2c9b80fe80c695a0c8082c` |
-|  `latest-dev` | May 15th     | `sha256:b96aa9c54846109cc8c9c600fd98a838aa9b38792a88b14aec2d357a4d59af79` |
+|  `latest-dev` | May 16th     | `sha256:31d157283948a25de31aa6632c94d011878e718056aa7e850f657d63ea9a1ffd` |
+|  `latest`     | May 16th     | `sha256:7d202c6c4ceb1b66ba6bc4c50d8efe0c7b6a4813de9626534c9f3c659a1c7768` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.16` `0` `0.16.0`                 | May 15th     | `sha256:3c641dc721abb60407a185b433fa484e80c20f439a4f2359145086739ffe4ea2` |
-|  `latest-dev` `0.16-dev` `0-dev` `0.16.0-dev` | May 15th     | `sha256:79340dca9a959ca9d3d17d2446b036506f73c43cc252fdf96a8661ef90541bd8` |
+|  `latest` `0.16.0` `0.16` `0`                 | May 16th     | `sha256:a91d2296876292b5724dfa8062e93f67cf1c352cb90839d436ae735bbe59737f` |
+|  `latest-dev` `0-dev` `0.16.0-dev` `0.16-dev` | May 16th     | `sha256:f52fbba456c2ef53b55c44b229a02b455b00c2117183008ada37f06aebfecba9` |
 
