@@ -1,7 +1,7 @@
 ---
-title: "Getting Started with the NGINX Chainguard Image"
+title: "Getting Started with the nginx Chainguard Image"
 type: "article"
-description: "Tutorial on how to get started with the NGINX Chainguard Image"
+description: "Tutorial on how to get started with the nginx Chainguard Image"
 date: 2023-01-09T11:07:52+02:00
 lastmod: 2023-01-19T11:07:52+02:00
 tags: ["Chainguard Images", "Products"]
@@ -43,7 +43,7 @@ brew install nginx
 
 Alternatively, you can install nginx using another method [found here](https://nginx.org/en/docs/install.html).
 
-For this tutorial, you will be copying code to files you create locally. You can find this code throughout the demo or you can find a complete collection of files at the associated [GitHub repository here](https://github.com/chainguard-dev/edu-images-demos/tree/main/nginx).
+For this tutorial, you will be copying code to files you create locally. You can find this code throughout the demo here, or you can find a complete collection of files at the [demo GitHub repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/nginx).
 
 With nginx installed, create a directory for your app. In this guide we'll call the directory `nginxdemo`:
 
@@ -91,7 +91,7 @@ The following HTML file displays an image of Inky, our mascot, alongside a fun o
 
 Copy this code to your `index.html` file, save, and close it.
 
-Next, create a CSS file named `stylesheet.css` using the text editor of your choice, and copy in the following code.
+Next, create a CSS file named `stylesheet.css` using the text editor of your choice, and copy in the following code. This will give our page a bit of color.
 
 ```css
 /*
@@ -138,7 +138,7 @@ nano nginx.conf
 
 Copy the following code into the configuration file. Be sure to update line 30 in the configuration to reference the path to the `data` directory you created in a previous step.
 
-```
+```nginx
 worker_processes  1;
 
 events {
@@ -187,7 +187,7 @@ Create a new file named `mime.types` using a text editor of your choice. We will
 nano mime.types
 ```
 
-Copy and paste the following code into your `mime.types` file. This file will allow NGINX to handle our `inky.png` file when rendering the webserver. 
+Copy and paste the following code into your `mime.types` file. This file will allow nginx to handle our `inky.png` file when rendering the webserver. 
 
 ```
 types {
@@ -200,27 +200,16 @@ types {
 
 Save and close the file when you are finished editing it.
 
-Navigate back to the `nginxdemo` directory you created earlier. Create a new subdirectory titled `logs`. This directory is where NGINX will output any error logs it generates.
-
-```shell
-mkdir logs && cd $_
-```
-Within this new `logs` directory, create the `access.log` file. NGINX will populate this file later if need be.
-
-```shell
-mkfile b access.log
-```
-
-Copy the filepath to your `nginx.conf` file you created earlier. Replacing `<filepath>` with this copied path, execute the following command to initialize the NGINX server:
+Copy the filepath to your `nginx.conf` file you created earlier. Replacing `<filepath>` with this copied path, execute the following command to initialize the nginx server:
 ```shell
 nginx -c <filepath>
 ```
 
 To view the local webserver, navigate to `localhost:8080` in your web browser of choice. You should see a simple landing page with a picture of Inky and a fun fact about the Wolfi octopus.
 
-If you make any changes to the files NGINX is serving, run `nginx -s reload` in your terminal to allow the changes to render. When you are finished with your application, run `nginx -s quit` to allow NGINX to safely exit.
+If you make any changes to the files nginx is serving, run `nginx -s reload` in your terminal to allow the changes to render. When you are finished with your application, run `nginx -s quit` to allow nginx to safely exit.
 
-
+<!-- New content -->
 ## Step 2: Creating the Dockerfile
 
 To make sure our final image is _distroless_ while still being able to install dependencies with Composer, our build will consist of **two** stages: first, we'll build the application using the `dev` image variant, a Wolfi-based image that includes Composer and other useful tools for development.
