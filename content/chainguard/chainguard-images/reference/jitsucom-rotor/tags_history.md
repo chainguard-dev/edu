@@ -3,8 +3,8 @@ title: "jitsucom-rotor Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the jitsucom-rotor Chainguard Image"
-date: 2024-05-17 00:44:46
-lastmod: 2024-05-17 00:44:46
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 16th     | `sha256:231dfeb70567f83c51a03e8b9e95b95c33d97a51c7a37e71fd8f24ff0b5b5b0f` |
-|  `latest-dev` | May 16th     | `sha256:55115e67e384b1495d5b91605dde582fa5083f72eec37f0eeda53d977e6e5455` |
+|  `latest`     | May 17th     | `sha256:0d00c08695890739bb162110830f5d17ce076444dd78c1fc4be1157ed58c5023` |
+|  `latest-dev` | May 17th     | `sha256:66c0516e412bc5e870756c8b35e43d178a44bb961ed45e68b5d5cb00e4ff611b` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `2.6.0` `2.6` `2`                 | May 16th     | `sha256:220ab8e0c893c4883cb865616fb119bb2e7f76e97cce4473689e7a3f45cf62c3` |
-|  `2.6-dev` `2.6.0-dev` `2-dev` `latest-dev` | May 16th     | `sha256:f5d41b1849f355341d2ff76b2a538a2a341f2b57c8697ef90370547b3762ebe6` |
+|  `2.6.0` `2` `2.6` `latest`                 | May 19th     | `sha256:fac4d2e1b23591efd0fa44f413b9c9fa8dcb69c5fec8076df54115cd52bceab7` |
+|  `2.6-dev` `2-dev` `2.6.0-dev` `latest-dev` | May 19th     | `sha256:966642582b10c94836b08a73127c33a7bcc06a8bcffb5acacdc6c9a52fb905d6` |
 

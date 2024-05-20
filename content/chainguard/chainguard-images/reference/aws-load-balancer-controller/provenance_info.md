@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for aws-load-balancer-controller Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-25 00:49:44
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for aws-load-balancer-controller Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                                                                                                                                     |
-|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                                                                       |
-| `cgr.dev/chainguard-private` | 2, 2-dev, 2.4, 2.4-dev, 2.4.5, 2.4.5-dev, 2.5, 2.5-dev, 2.5.2, 2.5.2-dev, 2.5.3, 2.5.3-dev, 2.5.4, 2.5.4-dev, 2.6, 2.6-dev, 2.6.0, 2.6.0-dev, 2.6.1, 2.6.1-dev, 2.6.2, 2.6.2-dev, 2.7, 2.7-dev, 2.7.0, 2.7.0-dev, 2.7.1, 2.7.1-dev, 2.7.2, 2.7.2-dev, latest, latest-dev |
+| Registry                     | Tags                                                                                                                                                                                                                                                                                                     |
+|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                                                                                                       |
+| `cgr.dev/chainguard-private` | 2, 2-dev, 2.4, 2.4-dev, 2.4.5, 2.4.5-dev, 2.5, 2.5-dev, 2.5.2, 2.5.2-dev, 2.5.3, 2.5.3-dev, 2.5.4, 2.5.4-dev, 2.6, 2.6-dev, 2.6.0, 2.6.0-dev, 2.6.1, 2.6.1-dev, 2.6.2, 2.6.2-dev, 2.7, 2.7-dev, 2.7.0, 2.7.0-dev, 2.7.1, 2.7.1-dev, 2.7.2, 2.7.2-dev, 2.8, 2.8-dev, 2.8.0, 2.8.0-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

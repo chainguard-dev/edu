@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nvidia-device-plugin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:6d4d959fc6ccfad1d252bc1652a1457368c3256f1e8e6ef4947d87333e9c64dc` |
-|  `latest`     | May 15th     | `sha256:737d6c4fe58b02e76ae27d1b1ac4d3f8967c11c76fd6c8d76a58940cdf6827bc` |
+|  `latest`     | May 17th     | `sha256:aa9a983402df5be13ae26ed9418c8728c21800bbbac76a3e882057457841fe86` |
+|  `latest-dev` | May 17th     | `sha256:d2001896788b119c551fb0580963e4532bdef88ce58a4e7e8c932fcea752d3da` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.15-dev` `0.15.0-dev` `0-dev` `latest-dev` | May 16th     | `sha256:89f272c1aedfcbf17708045da47a8007803ccad41ffe87b5ab0a7d8bd8f3770d` |
-|  `0.15` `0.15.0` `0` `latest`                 | May 15th     | `sha256:4fa0edcd43e87c1bb0c398a6255e6f410d6a271e8191a3f36bcc61ab54999c2c` |
+|  `0.15.0-dev` `0-dev` `latest-dev` `0.15-dev` | May 19th     | `sha256:d6b3e1582d4ab924255d87930f33e0a3c3ea13189e4ffe5f099d5e0125462564` |
+|  `0` `0.15.0` `0.15` `latest`                 | May 17th     | `sha256:97970208556a34ed8df40ef1c16e51cf0dabe36e7dbe7e639ba0f33080161d32` |
 

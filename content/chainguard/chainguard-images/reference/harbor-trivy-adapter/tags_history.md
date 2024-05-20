@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the harbor-trivy-adapter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:3c6ec89b0bcf7284aaec664fa839e293db2a3a3b51e60b9c8b5ba391ca6d121e` |
-|  `latest`     | May 15th     | `sha256:8ee68e203022f2a3de90f7810b0da2c2f26d142a8e89b3e4e165c48fab803811` |
+|  `latest-dev` | May 17th     | `sha256:7763225cb64a73b2ac21b664ccd2e7abec4cb6d596baf273de596bc74f902db8` |
+|  `latest`     | May 17th     | `sha256:7292e27244d6d70eac55184f462280e6d77d2d3960457a157737ce1d5d7a3887` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.31.1-dev` `latest-dev` `0.31-dev` `0-dev` | May 16th     | `sha256:1dab3f6a1b463dfc140fda41c630c32a4889fbeac8db951a8b3acc1037a04c78` |
-|  `0.31.1` `latest` `0.31` `0`                 | May 15th     | `sha256:44bb34db3ab7791645e9556493351b3960089f1e13898438b2eb578b248356c6` |
+|  `latest-dev` `0-dev` `0.31.1-dev` `0.31-dev` | May 19th     | `sha256:6ca4a53ba444db135223cf90503e68520d55548a09585a4800005256d13e22cd` |
+|  `latest` `0.31.1` `0` `0.31`                 | May 17th     | `sha256:fedb3d31f4af6066df3f45b3d83eae7e25b366d02e53db58903cf38fc58b21c7` |
 |  `0.31.0-dev`                                 | May 1st      | `sha256:3337779ce190fac671a711a4f07e80cf8beec01904bcaf1fca17c232d3408a49` |
 |  `0.31.0`                                     | May 1st      | `sha256:316188e87a17445b53af109605c6c5725ee232f27bbd8d0f6cadf127342b8092` |
 

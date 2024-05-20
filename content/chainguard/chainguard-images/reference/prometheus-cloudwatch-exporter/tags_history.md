@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-cloudwatch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:cd8e40699bae331fff76f2b5b6d5a9aeb6225b597cebfa690b1db19d959ea9c2` |
-|  `latest`     | May 15th     | `sha256:81bbb07d4016c03cb51b250882ec9819a1cb4789107b894180988e88c7b0e3af` |
+|  `latest-dev` | May 17th     | `sha256:fcdf5244d91c0aca8df3dc8b305444e06476253490f40ccbef489b42d9436d99` |
+|  `latest`     | May 17th     | `sha256:b8a578f8a9e2822235d2ca1be27d667ebd6163cd71bb8d667efe51d2e1e1d53b` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.15-dev` `0-dev` `latest-dev` `0.15.5-dev` | May 16th     | `sha256:5354b8145b98a8508b6102bc21c20199750ea4d7216c5cbe707ec61e7967c44c` |
-|  `0.15.5` `0` `0.15` `latest`                 | May 15th     | `sha256:5f58ea828db6a554eba016e14980c4d8b5386aabeed46712995d5ec7384a2a21` |
+|  `0-dev` `0.15.5-dev` `latest-dev` `0.15-dev` | May 19th     | `sha256:e417dc99b204cb2ff3e0cec924b90d8f09fa6eb3c19bf90214e668b706b1cc1a` |
+|  `latest` `0.15.5` `0` `0.15`                 | May 17th     | `sha256:8381d259419e5cb5f5ed134098015e055986e91d3c494b1af77ab1523c4862bc` |
 

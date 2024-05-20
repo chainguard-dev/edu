@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rabbitmq-cluster-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 15th     | `sha256:a49e54a2cf20fcf4e439ba74e1d0af7e23ed2648dcffdcb9e19bd372815acc36` |
-|  `latest`     | May 13th     | `sha256:0fff53b5770545270e7a68f1c0b52aa026d802e2315c5cee16851a13637dcfd8` |
+|  `latest-dev` | May 17th     | `sha256:62d35d50687b680ad95b0f9f26937ba67c0cb0a57ef9ec8456ee52e7644ec9d0` |
+|  `latest`     | May 17th     | `sha256:3dd4c43ba66987eb4c2e238aedcb1d89ed1d6ae796b186a330c30ef979c6d169` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.9.0-dev` `2.9-dev` `2-dev` | May 16th     | `sha256:c213d96748cea06a76b129dbf24c30f611d0a78bf0e6e13d36dce14f4baf6855` |
-|  `2` `2.9` `latest` `2.9.0`                 | May 15th     | `sha256:e01254e591e3bf12a71aa73ec151eb960731d68705f53ae552fc37a72686bf4e` |
+|  `2.9-dev` `2-dev` `latest-dev` `2.9.0-dev` | May 19th     | `sha256:629596000358d086be78b141ed76ca2efdd769df28757075339d29c0014e94a8` |
+|  `2` `2.9` `2.9.0` `latest`                 | May 17th     | `sha256:62dadb97a99407fc0ff2e46556184fb3f1e11d7d9de719cf97436f93ec2b9c6f` |
 |  `2.8.0` `2.8`                              | May 10th     | `sha256:92b88e15a5dc978222fdc09acb32f1177d8b7a45e2915ea9a29856cc67ba4e45` |
 |  `2.8.0-dev` `2.8-dev`                      | May 10th     | `sha256:c968983d5f4aca4df06caa4b54a3038f7747d71a308d709b953a593eacbcde9d` |
 

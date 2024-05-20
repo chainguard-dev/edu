@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-snapshot-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:aef6bc69b95379d40a22db89014c443d64bd640fa58c223b15ed153145ae45e9` |
-|  `latest`     | May 15th     | `sha256:172cb5ec449f181b9c7b23dc19b23ace19910bcccb05ee2de562660e5f157dc8` |
+|  `latest-dev` | May 17th     | `sha256:1b282545d3b8d8772c79c9a5ac466135044cfda95c41846cd45b1605ad00e766` |
+|  `latest`     | May 17th     | `sha256:ec6a0a63f30337570c4b999e61201b32b01962bb8e3290a10e832b9662cf1354` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.0-dev` `7-dev` `7.0.2-dev` `latest-dev` | May 16th     | `sha256:add08e9a7f27c0a2a7ca62dc577d34ee1f3384c8b592d8d92ad145cfc3624e6c` |
-|  `7.0` `7.0.2` `latest` `7`                 | May 15th     | `sha256:7da1af1525199fbab0e02e134005ebdb162815dd73a3ec2ad0f36b3fc5fe7d3b` |
+|  `7.0-dev` `7-dev` `latest-dev` `7.0.2-dev` | May 19th     | `sha256:41768059675fdcaa6dfd8c7113225110d31f823cfbaaa82c63ee79984d9706a5` |
+|  `latest` `7.0` `7` `7.0.2`                 | May 17th     | `sha256:64f758bdefb959d2e8d90dd23a34f9e6086680744d251e0d3568f0ee9ec7606c` |
 

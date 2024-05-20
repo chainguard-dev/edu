@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jdk-lts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,15 +28,14 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:695e9d064a0e684795ea794d16bef79d5dce930ea2b7591c2e269f33e1344bb0` |
-|  `latest`     | May 15th     | `sha256:36dd56b24d6a112160216d552aac21f7ef143c2a4ef8565c13052d0da0fbe4bb` |
+|  `latest-dev` | May 17th     | `sha256:c94d9d5a7bb384040742ddffd867475b632ff0abc400ab2da63b1bc2a6fe3951` |
+|  `latest`     | May 17th     | `sha256:19e968beab6a2b002329eeb4365f764a49a05b21942c174849bd5b2dc2640271` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 13th     | `sha256:4d09bd0e270db50131d76b816106b308c5c63060d2e60650e3c8d548ce5af6a8` |
-|  `latest-dev` | April 17th   | `sha256:78003a57667a673d2dcbd6d6cdfe8352098c97649085836183b19a8a7bb586a0` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | May 17th     | `sha256:928be86423d0fe7e26c2767b70c14452936f1db928ef1fba63e6b9fb47927c1d` |
 

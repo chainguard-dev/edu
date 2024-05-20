@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the smarter-device-manager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:077ecd57b4883e3fbe38dd701f25e97e224e14d421ae724d63f76ca80e8a757c` |
-|  `latest`     | May 10th     | `sha256:299571484d2599dc844fda1fc41047b2d703c70b172a0a2ced0de5eb9ebffdbb` |
+|  `latest-dev` | May 17th     | `sha256:382cbf5a58c3c3f3245fbf1b2277538e4375a0b073a6aab557de93f004677cb7` |
+|  `latest`     | May 17th     | `sha256:df2d555de7dfab24033dfce1182901d7a29cfca916b19ce80ca6f1ebbc8869f8` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.20.11-dev` `1.20-dev` `1-dev` `latest-dev` | May 16th     | `sha256:285d7d0d291fafb76cbcc7ae580abc8f27ca6ce809dfa35cd8c033820aa03eb9` |
-|  `latest` `1.20` `1.20.11` `1`                 | May 15th     | `sha256:5c3c35577320e82c727deb53973aba4c1206d36d5bc8a002d379b80671599842` |
+|  `latest-dev` `1.20.11-dev` `1.20-dev` `1-dev` | May 19th     | `sha256:1e7b7faf0780dd1085841dcbca09dcc3e4798bca35567bea71da37906340fe60` |
+|  `1` `1.20` `latest` `1.20.11`                 | May 17th     | `sha256:c7a13540495b6cb82b6ade611ede223f7703c7bc2ba623b774eddc37a9a20790` |
 

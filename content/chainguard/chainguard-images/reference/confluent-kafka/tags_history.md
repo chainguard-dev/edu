@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the confluent-kafka Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:ae5832e6e096e3491a1c45735d7df34fab0b73ff781d31be8bedae00c637f000` |
-|  `latest`     | May 16th     | `sha256:28ed7705d13f9081555cd17a12ae4cee1e98a08df7ad8dc368f6a73a0277c6a0` |
+|  `latest-dev` | May 17th     | `sha256:b88d5e69b88debf728b66bac185a4c3f5c5b563bd0e89bfb6a1845c23fbf9f21` |
+|  `latest`     | May 17th     | `sha256:65d126cccdce5f5065bd02697a2fb0298e26cbaff2cebca60fe89e8dcf6309bb` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                     | Last Changed | Digest                                                                    |
 |-------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.8.0-dev` `7-dev` `7.8-dev` `latest-dev` `7.8.0.103-dev` | May 16th     | `sha256:457c25829d86420ba16f7dcf2b763ee8a3f9aae1375aca24186a6fb9a6f22eab` |
-|  `7.8` `7.8.0` `latest` `7.8.0.103` `7`                     | May 16th     | `sha256:c9672ea45fdda73da351fa16be689ae34fd2f262d4c3c296783bfd2bb29f2391` |
+|  `latest-dev` `7.8.0.103-dev` `7.8.0-dev` `7-dev` `7.8-dev` | May 19th     | `sha256:1f8b5e32dc530ab5799915dbc2f3c1bd82eb4efa790a29dac655b2d4f5db5646` |
+|  `latest` `7.8.0.103` `7` `7.8` `7.8.0`                     | May 17th     | `sha256:eb4e53b243f8c2a18ac5b65ab0f9d6e196abb46ef88c3ac804c9ee51b83a4eeb` |
 |  `7.8.0.9`                                                  | May 2nd      | `sha256:1965d0048e0f94a54575340b782fbcbc8c7781db83ee1ce6c464e2cd19c8f48b` |
 |  `7.8.0.9-dev`                                              | May 2nd      | `sha256:2bdb11936d70f2db2fc5fcd506bfffc9b2a6153e596e5d06496cbc37f99b6573` |
 

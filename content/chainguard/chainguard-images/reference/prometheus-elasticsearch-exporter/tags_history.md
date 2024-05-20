@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-elasticsearch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:e4719ccdb72377ac70d2ffe7d05c009ec97be6a56e78f50959578a8da7f7dc0f` |
-|  `latest`     | May 15th     | `sha256:d44db15a5f570d9829c53d209f91a2227793d64ec07aceb9e694e57c65c84db4` |
+|  `latest`     | May 17th     | `sha256:a6b702860f3eb206514eee5e065c58363d2d1a5bd4b32cdad36b690dd1d4199a` |
+|  `latest-dev` | May 17th     | `sha256:fecfb3cb9f9b04713770a2ae61457285cc9702e4cc642254a3270638cada7537` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.7.0-dev` `1.7-dev` | May 16th     | `sha256:b8c9523fe3378a0f9201c5a376b2965cf5de1bf9b7f37819188b432f540b52b4` |
-|  `1` `latest` `1.7.0` `1.7`                 | May 15th     | `sha256:b727ae8a79c0800a91e50fdb9801991ea768dfdcc9051183a9c02b8a81c78ba5` |
+|  `1.7-dev` `1-dev` `latest-dev` `1.7.0-dev` | May 19th     | `sha256:abf7adfdbecc86725650669d50c40e6415f42a19e9c8407daadaac81339fa15f` |
+|  `1.7.0` `1.7` `1` `latest`                 | May 17th     | `sha256:63585601e19a86e4d2c92c2e9c8ddc4b805db4874d28e33ec70103fba9ec4333` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mysqld-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:2dc4372ee422b158762ef81a387e71ef358eba3e16598b41a36b820b667d9887` |
-|  `latest`     | May 15th     | `sha256:aae05648dfb983788383859fa2e978cf6a22e53048cc479ead16dad1cd8b9236` |
+|  `latest-dev` | May 17th     | `sha256:d0bbfce441f655edfd8d50896fb7671b8d0b97d49ea996636116e7ad118d5777` |
+|  `latest`     | May 17th     | `sha256:98bfa839f1f4522bd59e7991b0fc920d89e9174f38ced70ed18810e95f5814e0` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.15-dev` `0.15.1-dev` | May 16th     | `sha256:286a4ded3d56e8bd36f28a31b71f8e24032e2e516e73ff1cebe63189fab51dd7` |
-|  `latest` `0` `0.15` `0.15.1`                 | May 15th     | `sha256:a57f9b62d2f6536df72489bf65483bea5338d9e2e519c6361a3bdd1fc749304b` |
+|  `latest-dev` `0-dev` `0.15-dev` `0.15.1-dev` | May 19th     | `sha256:b752ab34c18222b0aa9fb0f3d42e44807054ef7ee5bbd88242409e35508048fc` |
+|  `0.15.1` `0.15` `0` `latest`                 | May 17th     | `sha256:388ec1b153781f14f85ea764a2521da9047e043d458d1e13115eea77ec4ef30e` |
 

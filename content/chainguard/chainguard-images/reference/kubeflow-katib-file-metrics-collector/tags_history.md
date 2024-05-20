@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-file-metrics-collector Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:6aece65ead73d180d3b471eeb281c230c25ef99c6e7375e07a47136b14bcfe0f` |
-|  `latest`     | May 15th     | `sha256:b83c751048ccd9528a5ad732afa28433df1c1354682c3e9924af65ef12e315a8` |
+|  `latest`     | May 17th     | `sha256:eec136492886b50ccb2152177ac53d536057cbbc4704add3ed1ece17adee41df` |
+|  `latest-dev` | May 17th     | `sha256:b0b732dd37f9173804219ea2d260dde7ed973c774ba461333bb311de79fd04ac` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.16.0-dev` `0.16-dev` `0-dev` | May 16th     | `sha256:0a924daa055198d62696e3926df7698309578906429817541bf00383d80aa412` |
-|  `0.16` `0.16.0` `latest` `0`                 | May 15th     | `sha256:586d3e1c28cc090146182f79547cbf54f2b751259cc5a79080a29eaa1ff1a878` |
+|  `0.16-dev` `latest-dev` `0-dev` `0.16.0-dev` | May 19th     | `sha256:38f4252da3bb69ca57db49e96781e6c6421cdeff6c607ab1d68045beb2df019c` |
+|  `latest` `0.16` `0` `0.16.0`                 | May 17th     | `sha256:caa8e310dfa4eba7acd73cfe622c6ba1b13f99069b7b0a5a86c1cfa8c678878e` |
 

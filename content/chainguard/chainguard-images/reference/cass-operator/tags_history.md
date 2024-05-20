@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cass-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:94a02781dc08420c37bd52ea03fb0d24c81c4ecbfbb1697daad59ac1a839b8e1` |
-|  `latest`     | May 10th     | `sha256:be4f7c1e86c202339b38713deaae84215a5969fe740d9657d971b902d5202735` |
+|  `latest-dev` | May 17th     | `sha256:b8abbede34593df8d5989855a79aa5d300d8721a0ebfbed9bd286e213b0983d7` |
+|  `latest`     | May 17th     | `sha256:208a95f8d6f0aa9fa602b28adb8f6e7c864a437bf0bdf5c612ddb1df04f90e1d` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.20.0-dev` `1.20-dev` `1-dev` | May 16th     | `sha256:c7b7edb939a8066111a09a95162e73a439ff07db8ba530f77aabc328810f471a` |
-|  `latest` `1` `1.20.0` `1.20`                 | May 15th     | `sha256:7764687370c45ddadd0d2087402c3f3c7be1f46a12f83bfcd30b861565e5062c` |
+|  `1-dev` `1.20-dev` `1.20.0-dev` `latest-dev` | May 19th     | `sha256:e7ac3c191ab4842cf3198fd2518a2fa80cd43ffdfac08cf18312fd5725505549` |
+|  `1.20.0` `1` `1.20` `latest`                 | May 17th     | `sha256:b178edd25bf99cd4c7aa828e08e0abea0cb27a19d1e90e454c7c9cf33c6d7144` |
 |  `1.19` `1.19.1`                              | May 2nd      | `sha256:cfe219a26fae6e1932beab7ceeb8b74757521f496a2d1c514f172ca950e11ad4` |
 |  `1.19.1-dev` `1.19-dev`                      | May 2nd      | `sha256:ec049a0aa668f1d5e5165c90601092cea46d388a56f887b77eee730f3c895e13` |
 

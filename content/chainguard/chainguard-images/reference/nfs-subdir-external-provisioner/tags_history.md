@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nfs-subdir-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:c0690f3c78ca1037cf09c13f29e950c13969c4a6a3d24c21adcbda86d8872e0d` |
-|  `latest`     | May 16th     | `sha256:b3dfbd715e5dfc23fa99feba41042634a66ea997d116d08050117366910a4140` |
+|  `latest-dev` | May 17th     | `sha256:a74b8e73a0d38e646352db679faef7ec3b1772143b702d75d7825340b2ae1bc3` |
+|  `latest`     | May 17th     | `sha256:2d532edffea41f889c94badba319763b8431469d30c81e68aaf9b0ddb445490d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `4.0` `4` `4.0.18`                 | May 16th     | `sha256:41735de72913708ccf9665c4336e57d1141abfba73f2375e933ac2c68b5ee827` |
-|  `4-dev` `4.0-dev` `latest-dev` `4.0.18-dev` | May 16th     | `sha256:94b6b1ed7873a066b46f95c2977284b6dfa2bca1bf96ea973fc89b8d95c5ee53` |
+|  `4-dev` `latest-dev` `4.0-dev` `4.0.18-dev` | May 19th     | `sha256:24622e228522672e384d3efec84729418f975527ce821af89bed4cbbd878df55` |
+|  `4.0.18` `4.0` `4` `latest`                 | May 17th     | `sha256:2d5068d40f9cc94421ac52db9ac629a9f29589baf14ac27430f5b1db11bd7535` |
 

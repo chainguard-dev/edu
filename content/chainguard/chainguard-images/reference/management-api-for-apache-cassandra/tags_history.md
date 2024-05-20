@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the management-api-for-apache-cassandra Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:15b847fbf4ffeab916b089f60b626cf3ff83d11a79f1f59ce150999f7f978499` |
-|  `latest`     | May 16th     | `sha256:3c0c6291c7746784babf16e057021ea80e0098fa5cc2faa229bf9fb1679cf437` |
+|  `latest-dev` | May 17th     | `sha256:e7663214cd9f1145456ec05d9b66acfcd0e675d8534bfc2d9141b54cbf06002b` |
+|  `latest`     | May 17th     | `sha256:143edbaf8446def271a79beb2d32b7346b2f327916ed038ecba2e54ea2aea7d6` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.1.74-dev` `latest-dev` `0-dev` `0.1-dev` | May 16th     | `sha256:f7a16ca5344d1eebd1f40272ead1aafdfef1652c8368ff90164c2a093ff82192` |
-|  `latest` `0.1.74` `0` `0.1`                 | May 16th     | `sha256:26c9cdb43394db850183498112c9a451a98e3f6289e1a7104e5f0fe9401fdbf1` |
+|  `0` `0.1` `0.1.74` `latest`                 | May 19th     | `sha256:c69b1f748217e4b376ae6427fab45492fe04e9fd81cc516446430b5e0570d367` |
+|  `0.1.74-dev` `0-dev` `latest-dev` `0.1-dev` | May 19th     | `sha256:7ce98e04b9039275794951ce0755896ef0f77cd28c5bdf5dad59877ed1b6e765` |
 

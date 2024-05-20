@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nodetaint Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:86ac59f392358f883bdf5e00713b7797c213c80f61464bf510109143fb006a26` |
-|  `latest`     | May 13th     | `sha256:be47d698093c8d3d2fb9c6e7cbe36f8f0a0b4b7171750c8dca512a8ebc96c1b7` |
+|  `latest`     | May 17th     | `sha256:e9be47968bd901efc2baeba6aed8676ee224f10682afda46407d9f5a30e25c7a` |
+|  `latest-dev` | May 17th     | `sha256:174174ce92d66f823c0f4d6ae419e8cd068501d1f0fc92ba89dda0ae2374f1a4` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.0.4-dev` `0.0-dev` | May 16th     | `sha256:8adc12dce55fe4d15fcdb61095962b74aa9148440000cae4ebe7807194f01ec2` |
-|  `0.0` `0` `0.0.4` `latest`                 | May 15th     | `sha256:9c6f5b04730cc0f0997da6e19fa65e6587966c891bfe5707c10835800bae615f` |
+|  `latest-dev` `0-dev` `0.0.4-dev` `0.0-dev` | May 19th     | `sha256:e984ba6eedf1b2060d017bb834f7a0c1e01271868806a1a03200d347e4c67456` |
+|  `0` `0.0.4` `latest` `0.0`                 | May 17th     | `sha256:6d2b96178c6c96e97c4b888386a4d4287f2f93c212b904d5291d6cc8cff1fd18` |
 

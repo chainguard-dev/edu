@@ -1,3 +1,14 @@
+# 2024-05-20
+New images added:
+
+- airflow
+- apache-nifi
+- flink
+- kibana
+- rabbitmq-default-user-credential-updater
+
+A total of **772** documents were updated.
+
 # 2024-05-17
 New images added:
 

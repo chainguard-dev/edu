@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the laravel Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,15 +28,14 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:133b6375d552f258bbcf6f16139d79f47af5cc1bdf6bf1df2f516576c49601b3` |
-|  `latest`     | May 16th     | `sha256:b2bdb52696a9fa2e4dcdbb2681598c00304d3fc5d0b0d7e40a79b901183e4ac8` |
+|  `latest-dev` | May 17th     | `sha256:b1992ddc641c7d6f3ad6d7d176b729844c280cf80d181dc1ed8e1841d7494dab` |
+|  `latest`     | May 17th     | `sha256:077f140192f5f0e6b673d4b222777976a2256dc0f8d6f4539277083ddd9980b2` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 16th     | `sha256:7e0959f2878433238d48182e3795d9e8ae3e916abe6a3b523c4b388abefb2424` |
-|  `latest-dev` | April 17th   | `sha256:8469f4ee5104f0624d3a865b80b453dab28943930877da68451ac80e0b9b8abd` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | May 19th     | `sha256:8d7fd0e19042efc09be28b093fb3c87ac870c97069e8b80eb8ba8fe7260b7135` |
 

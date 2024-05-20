@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-goptuna Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:0aaa517344ee83d3a222050e3869ea401b65457e150712b42f4c2d870147eb42` |
-|  `latest`     | May 15th     | `sha256:ec27ff81a4b1bfdfbe3742313cce31c54afc704388c77e90d72fb8b6a1d2a154` |
+|  `latest-dev` | May 17th     | `sha256:5a41d250f5895ae2fe9fbe2b690a7e5fb4bc812b67f247fa252af41c8779df61` |
+|  `latest`     | May 17th     | `sha256:0ee10c9c174dfc205fb1c62d341aa3384868cc679acf71f1dd15211c6f9bb4ac` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.16-dev` `0.16.0-dev` | May 16th     | `sha256:d64cd8b89bb71a468b35e0283268e68bce6762ad8d8bd27005ca024c73cdd6a1` |
-|  `0.16.0` `0` `0.16` `latest`                 | May 15th     | `sha256:9edd6017f665a26cc8d52eac59e765b5b39a79ddfbd1b488148c9df391a3a78c` |
+|  `0-dev` `0.16.0-dev` `0.16-dev` `latest-dev` | May 19th     | `sha256:3882d0555b2bd610807d4dda7e7914fb87798982291786e98c069973315b66ba` |
+|  `0.16` `0` `0.16.0` `latest`                 | May 17th     | `sha256:af48f563360876fd12035db6df277b89510b58460414777460c6c445b1e17c39` |
 

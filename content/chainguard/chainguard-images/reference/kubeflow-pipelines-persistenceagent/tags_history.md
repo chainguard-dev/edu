@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-persistenceagent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:51447566f2da49857af3c30e93ad7a0ecf2e9f3734d218608c99979d1ca0dc72` |
-|  `latest`     | May 15th     | `sha256:90716a25fa168af0570930804b1327a69c29a937900c47415155766b141eb21f` |
+|  `latest`     | May 17th     | `sha256:8312590e3baebf676b47b696c429c4a9b4f42ab5664ec4d7f233d7d54928413c` |
+|  `latest-dev` | May 17th     | `sha256:1581c913db7d3be9a5ffc45ed6ac5e8900043205b1e289be55a09d557d8beddd` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.1-dev` `2.1.0-dev` `2-dev` `latest-dev` | May 16th     | `sha256:391bbc3e2305985bcf8e9a41b19a91e1005b7f31b8a365e48b1c13ca2d297755` |
-|  `2.1` `2.1.0` `2` `latest`                 | May 15th     | `sha256:6cf626c9024329d16bc95d2329d942534b37e0c2a4a7fe14317b52c8c0d811f4` |
+|  `2.1.0-dev` `2.1-dev` `latest-dev` `2-dev` | May 19th     | `sha256:8c47ddab4237876133d90edaef8aa9b424b14fbaf88d36d365ffa463589fadc1` |
+|  `2.1` `latest` `2.1.0` `2`                 | May 17th     | `sha256:9b79d7719861e0dc9a28bc3278699305e0d79d483e8d4420e55a814082ff29b2` |
 |  `2.0-dev` `2.0.5-dev`                      | April 24th   | `sha256:889183e0009b46079f10f43aff47e0165033bd08a604d0b1d325274a5ea7a3a1` |
 |  `2.0` `2.0.5`                              | April 24th   | `sha256:a433a47c91bfc778f5770d4c8d4b44be68f1e19f11db1e7f0db19c16e1f20200` |
 

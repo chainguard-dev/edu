@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opensearch-dashboards Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:5cd58a0304078a538bf67f1989bfbb3613f13dc34714e0b7094e3e042d47ef1b` |
-|  `latest`     | May 16th     | `sha256:5df40f5fc8e0422228d7379732d51b2dede018976d167707e56c31c83f3c0a9d` |
+|  `latest-dev` | May 17th     | `sha256:cc2c006f0337f4458c00fc8d9b9181712fd7029136a5c411b907f0716383b704` |
+|  `latest`     | May 17th     | `sha256:eb6a3d7f31e42cf14bac03044b6e0bb161a834ade380cddeb9c1aba4f85ffef8` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.13.0` `2` `2.13` `latest`                 | May 16th     | `sha256:7bae6dab57358d74f8b2dc13ddb5ff45b209ce85a8317875070cef3084751cef` |
-|  `2-dev` `2.13-dev` `latest-dev` `2.13.0-dev` | May 16th     | `sha256:27aba3e530c6433cb8888f9c1e7d98a4278305975f06c0bc2898c7d08e35d670` |
+|  `latest` `2.13` `2.13.0` `2`                 | May 17th     | `sha256:f0fa7b6f4cdfce34ecb9d56a405773ebecfb2ab54caa5a1c42ab7c5f0d406c7a` |
+|  `latest-dev` `2.13-dev` `2-dev` `2.13.0-dev` | May 17th     | `sha256:d0e61e3493bcb15df12bd2eb2bfd866467d680be62e35db7a05b040b7e040c3a` |
 

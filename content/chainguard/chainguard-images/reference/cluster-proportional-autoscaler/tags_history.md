@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cluster-proportional-autoscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:a0ac08831a5887bbd8ba4c52d96290abd13181d4e6e529bf94af634779849be7` |
-|  `latest`     | May 10th     | `sha256:364c1e0e6453cc16c426090a2b0929c85b4d84dd7451989e0099169f751d4208` |
+|  `latest-dev` | May 17th     | `sha256:73e7b59e4015fb91175845880b4c5677e0d86436d36e280e81100c1d3981c567` |
+|  `latest`     | May 17th     | `sha256:e4ab52ea5fddd62dd9c75448f2d201b1e34431397e13a8c26f26c4da5964cfec` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.8-dev` `1-dev` `latest-dev` `1.8.11-dev` | May 16th     | `sha256:7794a53ce84c315dab1d75e88d4582245ac981381a5917ffde6b0397cdcb9282` |
-|  `1` `latest` `1.8.11` `1.8`                 | May 15th     | `sha256:f42612da9f31a19a4da04afb4e15a2dbfe61f0ce2ffeff71c3bd6c38e6f78734` |
+|  `1-dev` `latest-dev` `1.8-dev` `1.8.11-dev` | May 19th     | `sha256:4381f49ae349c7eb8d8357cf42470bef37e9da8eaa23520f61d1ea019f3e8371` |
+|  `1` `1.8` `latest` `1.8.11`                 | May 17th     | `sha256:81d1d75c6a99e3e31b52a6e839dd38b42bcccc5a5143d5f037babfd044340bde` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the curl Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:62564e267bacac6c1233e5e2f5cecfbe5c98d12f4d715107e5c44407da5f6451` |
-|  `latest`     | May 15th     | `sha256:0a140b847abc7cee4b15cfc2ed8c0346524e2808323a85ca0784e268d0c02106` |
+|  `latest-dev` | May 17th     | `sha256:f56af825ab710e037660147eb2394837f3f72c9e1d1d9079c4273f2d8a8313e7` |
+|  `latest`     | May 17th     | `sha256:e184de8127b81c3fb1b63e9b7e0d0cf422bb8a837b20f2a7dd8d4878c43b71fa` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8.7-dev` `8.7.1-dev` `latest-dev` `8-dev` | May 16th     | `sha256:0bfe2284e1cbf01374a0a1712f378279cb7352b0d52f9b1c20dba36031338334` |
-|  `8.7.1` `8.7` `latest` `8`                 | May 15th     | `sha256:90b036112533e275822b56fd19fc57523bbeb22ef19920ef743fb108c22e616b` |
+|  `latest-dev` `8.7-dev` `8.7.1-dev` `8-dev` | May 19th     | `sha256:6f65bbf3776b3bf93aec7e4275031710e83b62f380e6bbd7a8342a9439b5e698` |
+|  `8` `8.7.1` `8.7` `latest`                 | May 19th     | `sha256:046f30afc9e2803eda76e2fc3236ff983965fc2ea5cd9a8591f2c2004d869df0` |
+|  `8.0.1` `8.0`                              | May 17th     | `sha256:8e90fcbe3f0c1644d7ee0124a5777485581d3c46149fafcf077fec4799088c84` |
 
