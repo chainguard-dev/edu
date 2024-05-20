@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-cli-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.37.0-dev` `0-dev` `latest-dev` `0.37-dev` | May 16th     | `sha256:c49c01b857edf24878b7d2c04d46f1327b35e9b3bfc78ba352c4ac8123701ee0` |
-|  `0.37` `latest` `0` `0.37.0`                 | May 15th     | `sha256:90903bf8b1ae2b0ff8570e771465559f90fc6786f333bf0280377505070ad08b` |
+|  `0-dev` `0.37.0-dev` `0.37-dev` `latest-dev` | May 19th     | `sha256:4dcf036ab4484d06d8815465d0d379fab92c895cc8b40c900ee177d67a748454` |
+|  `0.37.0` `0` `0.37` `latest`                 | May 17th     | `sha256:c56fb2441d56810afa03d3c35720202caceb654e4bc99fbe76a0ba081b1166d1` |
 |  `0.36.0-dev` `0.36-dev`                      | May 10th     | `sha256:8728a379a1d83e75b2c39ceff91ca05990dcdfeebb3f84ef74f5cda19fc791ce` |
 |  `0.36` `0.36.0`                              | May 10th     | `sha256:b93f463582b2f05d8d093905ac7ec735a268da8960749caaff99f162ee2542db` |
 

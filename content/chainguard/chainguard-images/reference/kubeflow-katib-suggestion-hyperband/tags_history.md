@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-hyperband Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 16th     | `sha256:abccb7d426f185c460a7777c9fdbd5bfe53173e0a713aac14e2c96eb25b11b23` |
-|  `latest-dev` | May 16th     | `sha256:1ba74529947dc85dd83aa0f74d54b84a8451035ad2e9d08749930513eaee1cf5` |
+|  `latest-dev` | May 17th     | `sha256:528e94d32e3d463cbe95679af6c92253eb6223cf0113b48adc38e085949c1028` |
+|  `latest`     | May 17th     | `sha256:e706939d23a9e84e776ab8d0df0860bb3269fd63bf46b6f5478ad7f45a17f429` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16-dev` `latest-dev` `0-dev` `0.16.0-dev` | May 16th     | `sha256:43bf0bd54b8b3651406dc3b4af1c269d14cdebfc81ea6e539740336f1a9d1b86` |
-|  `0.16` `0` `latest` `0.16.0`                 | May 16th     | `sha256:d2e6b72484446e4a31e19d800bd67a637bbcb8fc8d32daf23109843e4068f70e` |
+|  `0-dev` `0.16-dev` `0.16.0-dev` `latest-dev` | May 19th     | `sha256:40383d10f7745d06743edb8885358159a032e0ae28cdfac8fcfa4dd169f5d446` |
+|  `latest` `0` `0.16.0` `0.16`                 | May 17th     | `sha256:d58007859b08f3c8ccf0c0312ebd962d0e72f4c801179000ed0ddd770f7fa92f` |
 

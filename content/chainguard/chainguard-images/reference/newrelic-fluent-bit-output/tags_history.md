@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-fluent-bit-output Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:da6c5829a570fe3d0f93497362f5bf76a12f71693dbbaa1fccdcc12cc0a1d8ff` |
-|  `latest`     | May 15th     | `sha256:92ea31a85270a113ba493ce5c16350b8ff5f32db5542255824ffd9ee3950f253` |
+|  `latest-dev` | May 17th     | `sha256:71678de5a182b4cf515211e6993d79e0d738d5aa1cc004ac5db180a161e95d14` |
+|  `latest`     | May 17th     | `sha256:21d628607352411084677ea2d5615d5f55c54d4ad03f4514191ad3b33939b8ba` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.19.2-dev` `latest-dev` `1.19-dev` `1-dev` | May 16th     | `sha256:0a4980a94db0288d2e9b9725f6eb160812d84d3de28d6059f9e3b6ec03fed7c5` |
-|  `1` `latest` `1.19.2` `1.19`                 | May 15th     | `sha256:ae54c84d6e0b5ab68662d21a916932e5f6ea89baeb7a6ae5bb39ab983ec8e0d0` |
+|  `1.19-dev` `latest-dev` `1.19.2-dev` `1-dev` | May 19th     | `sha256:fe72fba7b7bbc532ec36a24d3eed6e104283548f428bbe881506b9bca221fd25` |
+|  `1.19` `1.19.2` `1` `latest`                 | May 17th     | `sha256:221d69298df9dbde5df65f2424937d7fe8e0a480023ffb94f1dfd4941c30d04f` |
 

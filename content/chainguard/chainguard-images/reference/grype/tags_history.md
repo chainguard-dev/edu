@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grype Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:6cf2ab6f1d0b78028a5527fcf5dd1a6174707ac184c0d2d97bda8cd2732843a0` |
-|  `latest`     | May 15th     | `sha256:9ba307ba02c0b267b79e47caffffe34cb5256dd93a1eb1197e4ee53a6bcfdb47` |
+|  `latest-dev` | May 17th     | `sha256:d851e7d7e78ba7627811a558198aae58bca367d7ec284e31f5e1f1be619156b8` |
+|  `latest`     | May 17th     | `sha256:e6865fca7be3c7bde6dbb060174074eee4dfc019ae20090af130fb51f276195c` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.77.4-dev` `0.77-dev` | May 16th     | `sha256:92d41faad718e7c60269b63863d4f8cc1e1ee6e832da5088698193c034692a0e` |
-|  `0.77` `latest` `0` `0.77.4`                 | May 15th     | `sha256:dae0fb1234b7e9782cf0ce64a80c8a6e7f5f9eb20355159b8f3b447f309068bd` |
+|  `0.77.4-dev` `0-dev` `0.77-dev` `latest-dev` | May 19th     | `sha256:5b0c4e229683914ee90fa7e54999c9173e3a0e2710dbf1682a627351f96244a3` |
+|  `0.77.4` `0` `latest` `0.77`                 | May 17th     | `sha256:bbe74432aa17517461094c1421d12d8dd18886e23a2bd73aaeee9ef874b18ca8` |
 |  `0.77.3-dev`                                 | May 10th     | `sha256:e1b42bc5ed7bef8e05a4d586278175e3f9da60a1c117aa6609273b339f1d3190` |
 |  `0.77.3`                                     | May 10th     | `sha256:1983c77db21053d04fcd3ff46f40db5fbfaa3852b77f1932dab0873f909a18c8` |
 |  `0.77.2`                                     | May 2nd      | `sha256:5110e7eb6eb7aad915a9e6f743e949d4ebef5d8d6e4d67862bd7021a5d0e30d7` |

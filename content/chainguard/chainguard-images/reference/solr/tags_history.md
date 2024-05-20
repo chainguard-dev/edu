@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the solr Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:741bec4c3f87cce8e71026768b32f69da629f760601841500308e10b699f5928` |
-|  `latest`     | May 16th     | `sha256:79e9215c5705d9c0de4a35d41759f2bfb5e86a2b600a163742624719f88072a5` |
+|  `latest-dev` | May 17th     | `sha256:fbc766b7f7bafa7ac41864879bb2f98865f82acd9f35d2acf0807a523025e887` |
+|  `latest`     | May 17th     | `sha256:cb2f540ed5bc28d39c26bb34e28124b35bef2d4e84d47f2c1ec03e261cdbbbb2` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `9.6.0` `latest` `9.6` `9`                 | May 16th     | `sha256:ea50d6f0095ac467b51d0aa6a79da2a6e8cbdb3f56b41ef569558849531d8b85` |
-|  `9-dev` `latest-dev` `9.6.0-dev` `9.6-dev` | May 16th     | `sha256:5b478efd982cb5561b68cb6f23c7591aae46e9c27afdf35e54810fc2ec8c6a26` |
+|  `9-dev` `9.6.0-dev` `9.6-dev` `latest-dev` | May 19th     | `sha256:a68b5f4a7dbb1a45e8ed6acbc32bd956cd3c046276da27a0c5a6f02323218832` |
+|  `9` `latest` `9.6.0` `9.6`                 | May 17th     | `sha256:991ba1f41620e209f086d56be3c9a0581925f30bdddf5acdec05a0b2ebe4e985` |
 |  `9.5-dev` `9.5.0-dev`                      | April 21st   | `sha256:c7436186749be66ec467c4fba2ebbe4193914432446ca7487a2f07a86509d264` |
 |  `9.5` `9.5.0`                              | April 21st   | `sha256:62b39c928f7821496c394ce7cd0272485da54d9c6bb37db3c66fa2048772cee0` |
 

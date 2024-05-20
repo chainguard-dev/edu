@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the secrets-store-csi-driver-provider-gcp Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:bebf5aaed737b5f667ce13e6e11a3b3019bc82a121fd5b5b84fe3f5f9cd07d12` |
-|  `latest`     | May 15th     | `sha256:bfe195681014a8b3e650f79becf10451159cb3d585c872d6fe7322bd8bf8418a` |
+|  `latest-dev` | May 17th     | `sha256:36c5c3e9159053ce3e57d9fec1b99e4e6139ad56976009f968d1012267425ce8` |
+|  `latest`     | May 17th     | `sha256:3b48ed3a2ab337e6eeac30e0a5013fbf80e94366a752a8ac6d8c0f03f0d398cd` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.5.0-dev` `1.5-dev` `1-dev` | May 16th     | `sha256:f176ec1b1caa346835b83c5f02102dca910855bd99ea2d061f29b4e842d86311` |
-|  `latest` `1.5.0` `1.5` `1`                 | May 15th     | `sha256:c24bbf29bd7768712a5bbeb2a46ef608bd9cf859354f7e15accc41c29fcd3524` |
+|  `1.5-dev` `1-dev` `latest-dev` `1.5.0-dev` | May 19th     | `sha256:48a66be8594707785fdc635d492c81957eb21a65298cd2b305270448bc9f2630` |
+|  `1` `latest` `1.5` `1.5.0`                 | May 17th     | `sha256:7336e4ea13528c5e384511d2bb1161fadfaf72373c150c75264e3ad2d9424ac3` |
 

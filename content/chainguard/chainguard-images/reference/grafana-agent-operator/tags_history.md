@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grafana-agent-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:afa241aa1e0fb905398e1187cdc2944d208204b062da1ea17574c4bd924e23a5` |
-|  `latest`     | May 15th     | `sha256:b7f1fcdcea6aa2fc712cd51d5c3a16e127fddb75382362dbe9c32751adf85078` |
+|  `latest`     | May 17th     | `sha256:1e19c3988889282fbae8669fdc3da508f4158429029c860275a2029e76ab0598` |
+|  `latest-dev` | May 17th     | `sha256:58feab312098acd5161b280c1d29baeb7af7e2f439fb15d9082af78820b344d2` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.40.5-dev` `latest-dev` `0.40-dev` | May 16th     | `sha256:b41ed7e85680c34e39aa3274ac0cbb9d32d04f43d2ec14f946163e2f185bbc02` |
-|  `latest` `0` `0.40.5` `0.40`                 | May 15th     | `sha256:4deb0bb0fcca2e1299eab68b4a75770ffb26dfb73918d9f1e8cbca55ddd81227` |
+|  `0.40.5-dev` `latest-dev` `0.40-dev` `0-dev` | May 19th     | `sha256:5d5ac0a7536cbb2efe5964446b5b5f66b6cadb843d121da70188ca3211dad603` |
+|  `0.40` `0` `0.40.5` `latest`                 | May 17th     | `sha256:db8fdfb3cfc543fd6e57e42b6c00cb8680933aff6c734c3caeeb4e78d8081eb8` |
 |  `0.40.4-dev`                                 | May 15th     | `sha256:2e6d3e2bf332787898d7bc08562b257a63db6a1a5350c1e1664dcaf87684bd89` |
 |  `0.40.4`                                     | May 15th     | `sha256:c91e4271ce904e0bacc265b30a590e4c25c309945c1ba8e86b813e5c0d9621d4` |
 

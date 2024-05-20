@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the octo-sts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:b09aabc84dbe309f5fc93a7a36af6639193a1cdf509952191c8d986eddb8cd25` |
-|  `latest`     | May 13th     | `sha256:33b0eac71e3a7828da6828a68029a01d30096429b410cc24abe8b79ed0f843cc` |
+|  `latest-dev` | May 18th     | `sha256:128fc6d3afd267008ede3a5ab0a37c521ae2670f4f7710c7ab791b74df8cfb3f` |
+|  `latest`     | May 18th     | `sha256:ea28f959dbf25f79e5b35359662d84459d21ec326a9a30e14014afdd4dbc640f` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.1-dev` `0.1.0-dev` `latest-dev` | May 16th     | `sha256:a8dac5c67d584ca88a32794915738ed01132fbe4a304eb901ebef0413e9293db` |
-|  `latest` `0` `0.1.0` `0.1`                 | May 15th     | `sha256:d211dadfc2981092d626b8000b673630a2ade55deb357872155c963572d57394` |
+|  `latest-dev` `0-dev` `0.2.0-dev` `0.2-dev` | May 19th     | `sha256:c2a589b70ae2d3fc671e3271ecf7b7147a9d63d109c895de2e014a6863c2ed3b` |
+|  `0.2.0` `0` `0.2` `latest`                 | May 18th     | `sha256:2e224cb2b7b9e1dd8ca77e5e720eee0ebceeffd6c715fb6eb445180e00cf2598` |
+|  `0.1` `0.1.0`                              | May 17th     | `sha256:0ddf02893e4bd2de7632a03cbfd0e39a103429ffd7fbc8e825d61b53d62df6e8` |
+|  `0.1.0-dev` `0.1-dev`                      | May 17th     | `sha256:6ec4d2c7a4f5492d5a8c93cd257309092c6abe41d13f39e26e51d4dc68bec509` |
 

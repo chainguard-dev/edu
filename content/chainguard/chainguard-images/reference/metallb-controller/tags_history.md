@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the metallb-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:a29ee0def47088709fed244fcddb21f2db6bceb2de81fabbf6489f7370eb9201` |
-|  `latest`     | May 13th     | `sha256:feff14de9eb13a178bca5fba6373f60311754060bb2d34321ea9c2db409405ce` |
+|  `latest-dev` | May 17th     | `sha256:cd22a9aac3b512852b99c90a04e0f476d4d3b77066c776e2bf7000b5270ffe8b` |
+|  `latest`     | May 17th     | `sha256:4659cc842b04a2670bbe5bf8fdef403aa433b28df953ba437b9e8cb35be5e275` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.14-dev` `0-dev` `0.14.5-dev` `latest-dev` | May 16th     | `sha256:c764bfb331ebd16e71f76f8dc1a4a6b05d66090316de952d6daf0d4d2fe6918e` |
-|  `0` `latest` `0.14.5` `0.14`                 | May 15th     | `sha256:414c8b0d99a2b0b34912587dead4e6f6285b1aae7cb24ebf4b00ea1ac7f1ab01` |
+|  `0-dev` `latest-dev` `0.14-dev` `0.14.5-dev` | May 19th     | `sha256:762483c17f46476d80df62f3cb0ba685d9833af0367af983662d214a982f132f` |
+|  `latest` `0.14` `0` `0.14.5`                 | May 17th     | `sha256:121bce1cf9fb8db99f9d6bdf2367b16b5e4eae4b1048d9e0e4a1358f1be27f6e` |
 

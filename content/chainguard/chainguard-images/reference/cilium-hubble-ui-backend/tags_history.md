@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-hubble-ui-backend Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:f04a17c779fb21906841416c6ce9d8ac3dacb77967599c582287dfce2a91a284` |
-|  `latest`     | May 10th     | `sha256:50344876517a8995baa76ee9950a74220ee18e2840c608d1a5d20185c0ceb44a` |
+|  `latest`     | May 17th     | `sha256:de277fd4a005668b260d532b9894b35104a93d353ac9d29bf559085e077f279e` |
+|  `latest-dev` | May 17th     | `sha256:6b0abe74f6230131e1a442636fafd0ae6fce9832ff3d8412aa4be3f7c5eca241` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.13.0-dev` `0.13-dev` `0-dev` `latest-dev` | May 16th     | `sha256:970b13bb62381515dfa1f11ee6a7de762e2e91e54d60ceb6f9a08b2d47a31ad3` |
-|  `0.13.0` `0.13` `latest` `0`                 | May 15th     | `sha256:e2930b998e5f59630dc5d66e0c66fc461eab2b222dbaf5db1763ebbd5c10c2dd` |
+|  `0-dev` `0.13.0-dev` `latest-dev` `0.13-dev` | May 19th     | `sha256:aeaf4e9a8d58e6ca8b3169aef9903c731a91e37f71f3d00ca0442f8ed1a9ce62` |
+|  `0.13` `0.13.0` `0` `latest`                 | May 17th     | `sha256:736ac379e2e240dd326432b3f0cda2a1ecb92d8556e1e9f347e50fc7771d7e17` |
 

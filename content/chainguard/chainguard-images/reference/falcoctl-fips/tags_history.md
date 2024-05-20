@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the falcoctl-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.4-dev` `0.4.0-dev`                      | May 16th     | `sha256:c4d2a5d3c013abc6560238487453fd629f9a7ef146aff884b5744b6414cb6ca3` |
-|  `latest-dev` `0.7.3-dev` `0-dev` `0.7-dev` | May 16th     | `sha256:41310369f7160c9814869866f10adc90ca7356f37b114463724d2f7dc453871b` |
-|  `0.7.3` `0.7` `latest` `0`                 | May 15th     | `sha256:5ae8fe110a4735925778b381e5e2ff87bee9062daa6fb667eb676aafdc5469d0` |
-|  `0.4` `0.4.0`                              | May 15th     | `sha256:290ed92968bd3c747c7142f6faf412c3c033e7a74589f3ca540598c477089bcf` |
+|  `0-dev` `latest-dev` `0.7.3-dev` `0.7-dev` | May 19th     | `sha256:3d9768b02840833fa50b211fcb4f2d5be6be3b5f5cde0b72540986aa7a22491f` |
+|  `0.4-dev` `0.4.0-dev`                      | May 19th     | `sha256:3566ab934832a61280d77cab329d5762fd95fbacc1b8abf5a561406b7b51c0f8` |
+|  `latest` `0.7` `0` `0.7.3`                 | May 17th     | `sha256:125053bb19e2b057263d89648895f4c5854be9eb144d72868c833ce1cb19837b` |
+|  `0.4.0` `0.4`                              | May 17th     | `sha256:f183af622205e711b5536785ca49a21f3988df7eaed7fa07eafeeb2722628da1` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the temporal-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 16th     | `sha256:bc2d242131a516ff4ecb3e39dd87f9ab4e32460e41c0bf345107a3898f244598` |
-|  `latest-dev` | May 16th     | `sha256:a7b06ce087897d5d21a0a0dccfc806caa1099fc029c4797759a82bce88f31902` |
+|  `latest`     | May 17th     | `sha256:faa79300a3b3d48637ac514d1095a1cd78ab296de9f7de3543afcb8a078fa504` |
+|  `latest-dev` | May 17th     | `sha256:0827ad1e2cd8748766a26fd488cf9b4547885936c02cac59aeaaaacdc987e84f` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.23` `1.23.1` `latest` `1`                 | May 16th     | `sha256:742e0bb35944b3ddac096889cd782aeac7cb384af7b29cabf78db929544e9b15` |
-|  `1-dev` `1.23-dev` `1.23.1-dev` `latest-dev` | May 16th     | `sha256:c1f2397d2bd81c529e489bc37bc04e82f34365a6825d387a4ca5c133cde7ec72` |
+|  `1.23.1-dev` `1-dev` `1.23-dev` `latest-dev` | May 19th     | `sha256:f70e4510aad321f68c538f721b2960e296a3bbab25a9d621a103b466d7efba1a` |
+|  `1.23.1` `latest` `1` `1.23`                 | May 17th     | `sha256:342aeeff5f1b997548e5573ac84e804ca52d2850bd47c72091fd09e6c645907a` |
 |  `1.23.0-dev`                                 | April 30th   | `sha256:3a5b227d7c6f66338dab932014d629e55ab0f36c750cc80b47609ce011051f47` |
 |  `1.23.0`                                     | April 30th   | `sha256:08da365637bf7ce5246c0018bf571d489251c6b0bd6a2bc5bfe9628f0cc34f8c` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cedar Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:9a1e18fa705c31094b455fd8de1585de9d02d8da84f66baa593de793529cdbba` |
-|  `latest`     | May 15th     | `sha256:bd5e7bae49f6450c191bac36ac82919ee100a10e15278bdce34b2322943cfe1b` |
+|  `latest`     | May 17th     | `sha256:c2c6412a384b5060f06109dd0378c7b8051a8c12dbd920ff8042fb16cfc1de09` |
+|  `latest-dev` | May 17th     | `sha256:9e4cc3b07a0125dc60cbb4448cc74966e73e3541fe20b7c72683ff0bb2b81ed6` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3-dev` `3.1.3-dev` `3.1-dev` `latest-dev` | May 16th     | `sha256:07440d7f88613991e993330508159dc7b30ee1a6871fc76b534438ffd5b07208` |
-|  `3` `3.1.3` `3.1` `latest`                 | May 15th     | `sha256:93d0d44c1c45dcfbb119703d08d8fd23d5f56241f0d9bfd22104ff9604a2c948` |
+|  `3-dev` `latest-dev` `3.2.0-dev` `3.2-dev` | May 19th     | `sha256:d7fcf2fe37458beccf33d8e9d82f2c768b259f005389d2eb0e1868b8f3c1168a` |
+|  `3.2` `latest` `3` `3.2.0`                 | May 17th     | `sha256:d1e830af9c4ca1798997feb39662667d045d9195d7da7ff1e0189ff4c9e05239` |
+|  `3.1-dev` `3.1.3-dev`                      | May 17th     | `sha256:d7a120d87da00785bdc6ba6ea050bc525af9ff8abd434be3c0933c988f4a5705` |
+|  `3.1` `3.1.3`                              | May 17th     | `sha256:dec8944295c36250d1256e880a602d11f3698e9306579fcf71ddf39c24812acc` |
 

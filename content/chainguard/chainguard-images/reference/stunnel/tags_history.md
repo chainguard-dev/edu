@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the stunnel Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:3b372bed3f7fcae67da443cbae8772208602f3330ccf21fc595b45f856387303` |
-|  `latest`     | May 15th     | `sha256:0c602e5ae4f37669e5bf2bf8cd2205e4da86ced9a751a0ce4d234936196c7843` |
+|  `latest`     | May 17th     | `sha256:f1695ee5f40e27f5278da92a4d50095e2d68ff2faa0aebe6ba34ab30fdf0f68d` |
+|  `latest-dev` | May 17th     | `sha256:b8d368d95da3e09ac63224fa22e445fa500044ee32adc640da4ac9a01465ddd9` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                          | Last Changed | Digest                                                                    |
 |----------------------------------|--------------|---------------------------------------------------------------------------|
-|  `5.72-dev` `5-dev` `latest-dev` | May 16th     | `sha256:fc095959d900cd903d4d537e6919bf5aa1a303fdf6740618d80af311f671bf64` |
-|  `5.72` `5` `latest`             | May 15th     | `sha256:f127b7369cf85e8e4f3281d7ff95b39ba67c522ceadf9c6f4b09d4dfe714ecb3` |
+|  `5.72-dev` `5-dev` `latest-dev` | May 19th     | `sha256:38b676cbd0ebd8876f3a044ff45ea94282a0d672f138239878b7207864683024` |
+|  `5` `latest` `5.72`             | May 17th     | `sha256:db3c5574f8bb402f93e0ceb49a41e3fe3e0a8c67c190454cd3fd9a23e44b63bf` |
 

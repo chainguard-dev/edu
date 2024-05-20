@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mlflow-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.12` `2` `2.12.2` `latest`                 | May 16th     | `sha256:4fd5bb6f58db54d31d28e776020d87714276ecd88aed0ce8aa357e3d9fba964c` |
-|  `2.12-dev` `latest-dev` `2.12.2-dev` `2-dev` | May 16th     | `sha256:c84a4de68e0445537910e57bcbb5cd2ae2f5d412b83091bb278ca9df32f38923` |
+|  `latest-dev` `2-dev` `2.12.2-dev` `2.12-dev` | May 19th     | `sha256:fb6209e2253b80c160ea1781957dda2ff983f1416f46c72736bedc01a87a2adb` |
+|  `2.12` `2` `2.12.2` `latest`                 | May 19th     | `sha256:78f68ad9156cda5dfcad9d8770eeb3008940160f03f50245fd6b4209c9386caf` |
 |  `2.12.1-dev`                                 | May 10th     | `sha256:2249045da3edfd28752e3c203817cd5aa8617685e06bc0fb65c9553d2bf7d9b6` |
 |  `2.12.1`                                     | May 10th     | `sha256:302c2fa99e4fe24b89981ba3c715c6504a6a3c23c008e26ab1ca414cbef8c7d8` |
 
