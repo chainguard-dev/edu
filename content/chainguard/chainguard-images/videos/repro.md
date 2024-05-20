@@ -2,7 +2,8 @@
 title: "Reproducibility and Chainguard Images"
 linktitle: "Reproducibility and Chainguard Images"
 lead: ""
-description: "The importance of reproducibility and how Chainguard Images can be easily reproduced."
+description: "This video explains the importance of reproducibility and how to reproduce any
+Chainguard image from an attestation."
 type: "article"
 date: 2024-05-20T12:21:01+00:00
 lastmod: 2024-05-20T12:21:01+00:00
