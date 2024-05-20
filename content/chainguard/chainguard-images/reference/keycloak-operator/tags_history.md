@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the keycloak-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:3ed487edb0f4faa9f86e85431be15878e0bc405358e29af144e6be675367ac45` |
-|  `latest`     | May 15th     | `sha256:9511d208f37a469fc6165473228cbafef3fb55f92df0949f2057e4a15bd41541` |
+|  `latest-dev` | May 17th     | `sha256:91728abe847915088b5c30bc1eb793725e59208865c2d4205412f7125893cf20` |
+|  `latest`     | May 17th     | `sha256:1b2f656ee13bea836e4c4f6fa69e0e8bcb994fcec197604aca229460b0039251` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `24.0-dev` `24.0.4-dev` `latest-dev` `24-dev` | May 16th     | `sha256:5bdbbfbbdf409fc33600bf1f3fd2782524550c8543f1c8e20260ac63a8dcfdd9` |
-|  `latest` `24` `24.0.4` `24.0`                 | May 15th     | `sha256:1f9ed91e9e0cbca44ec0df50357f6f5eca52385dbcf0c5c04d2fba510af5bc1d` |
+|  `24.0-dev` `latest-dev` `24.0.4-dev` `24-dev` | May 19th     | `sha256:f63e5c146725487968a79b63bf7eb026b902f276d671fd52a77909203a73e453` |
+|  `latest` `24.0` `24` `24.0.4`                 | May 17th     | `sha256:c4bd3b988f90019203d559e19ed5009c47cc10bff90275f933ef763ada4862f0` |
 

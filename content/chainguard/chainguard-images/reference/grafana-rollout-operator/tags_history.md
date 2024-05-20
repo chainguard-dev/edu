@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grafana-rollout-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:5dca5f3c00c7c86d0a7856176f7a249d7ab31d9025c12996fe02a92df982b53b` |
-|  `latest`     | May 15th     | `sha256:6d16a13333cc4c61535f4af79ad9d7328a534687a201d97f7774c8890eba467b` |
+|  `latest`     | May 17th     | `sha256:58cd25388c7d6a1985f3bc3433ef5c84adbecc51fe2c1676d4a23aa7ae7e111d` |
+|  `latest-dev` | May 17th     | `sha256:35ab358586ecae54f2f6f1dc0dcb8d6d75fd59915c1807cad1af0e1f1bc8b0fe` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.14-dev` `0.14.0-dev` | May 16th     | `sha256:d208d4b20c6d02c8e8754af44a5febb384c158260249388c9b184eb2c0d1ba2b` |
-|  `0` `0.14.0` `0.14` `latest`                 | May 15th     | `sha256:2d2b92054c99283b0ffd88b4ad150a1c2ab7703c0689721a90b2cd1cbe48c062` |
+|  `0-dev` `latest-dev` `0.14.0-dev` `0.14-dev` | May 19th     | `sha256:7cb3fada77d6f8a1c1a16acc16de6cd0367edff1fb1dcc2887702030e53a7143` |
+|  `0.14.0` `0` `latest` `0.14`                 | May 17th     | `sha256:9b0b394f1efd4f061a844c103f76d9489f6589a648832d3d2a990eb11d720248` |
 

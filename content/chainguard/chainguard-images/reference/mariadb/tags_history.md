@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mariadb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:c73bd2070766f5c6c41882368e6bd2e180b345ceb20f67ce8fad52dd98901d21` |
-|  `latest`     | May 16th     | `sha256:5b94b100b190d1a961181cb03a170eafca417185119459cd0b5f6382f11ef588` |
+|  `latest-dev` | May 17th     | `sha256:4e45c53d7b5108acd3c66436d1193842eb7c932fc85717febd3238d5e2ccb7f9` |
+|  `latest`     | May 17th     | `sha256:b927b84644b37be79eafcd0e8f1234782cd2c5c67a88c7ee29c987d6e5ee8507` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                          | Last Changed | Digest                                                                    |
 |--------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `10.11.7` `10.11` `10` `latest`                 | May 16th     | `sha256:d78069d3a9d0d43539f9d4de0d2a4805e4ae70b29324647a7cb07ef8404e6c79` |
-|  `10-dev` `latest-dev` `10.11.7-dev` `10.11-dev` | May 16th     | `sha256:d542d8db608d111285da441aec2980b4e1b3b528c54850f1fd55e83783ccf94a` |
+|  `latest-dev` `10-dev` `10.11.7-dev` `10.11-dev` | May 19th     | `sha256:ccfb38a644f47372439dfc591af37cd45213329b12e4ffcabe014a69f68acf8b` |
+|  `10.11` `latest` `10.11.7` `10`                 | May 17th     | `sha256:62a05c917cd1b4693484beffd7a2cade5ef17931fc3d98243cdea1cea3cb0e70` |
 

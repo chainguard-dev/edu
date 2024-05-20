@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:aa95e89c80c75b3d97716ccaaa8267496ef1d600657d69c095a85548cd4a715d` |
-|  `latest`     | May 15th     | `sha256:882ab4bd1599ea2dbac59c0454db5aea130a760e18d1fdf7715b9987ab2fc73f` |
+|  `latest-dev` | May 17th     | `sha256:a0314289715966388b7feb9deac29bd09b7ca52a42fc99f98c169083bc02010d` |
+|  `latest`     | May 17th     | `sha256:b5eae8e92376aafd60990fb02c676c449153fe3edf7c96d1e2d41d7035d7c913` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4-dev` `latest-dev` `4.0-dev` `4.0.1-dev` | May 16th     | `sha256:122548404756b4883956c1a2577a904f6a0616a7be4338cc4c7127e2f8005cce` |
-|  `latest` `4.0` `4` `4.0.1`                 | May 15th     | `sha256:5f705e482b2c2d8f2ac14d411500a796c8edbca593df7b84b7f59a0b94279bde` |
+|  `4.0-dev` `4-dev` `4.0.1-dev` `latest-dev` | May 19th     | `sha256:c0c9ea135baf67071199319942e7690dd8ac9366af486b4d0c99bd33fd8fc6f0` |
+|  `4.0` `4` `latest` `4.0.1`                 | May 17th     | `sha256:4cb2c1941303fe4cd3535b5cd78590ea627181b4dd933fe7940dfefe2bca3865` |
 

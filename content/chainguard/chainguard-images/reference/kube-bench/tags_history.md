@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-bench Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | May 16th     | `sha256:61b0a292d98bd3d3cd980f52239ac0eb8d0d15371ae5f048df245946a9f858da` |
+|  `latest` | May 17th     | `sha256:4dbc8fa5ff30cd8eb09e24630e6fa363f6921080dbbe162b569011dc0533f107` |
 
 
 ### Private/Dedicated Registry
@@ -36,8 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.7.3` `0.7` `latest` `0`                 | May 16th     | `sha256:2689b8185729033bac9a1d85df3dfedc16646d2f4a25708bfda9fa9ee962f745` |
-|  `0.7.3-dev` `0-dev` `0.7-dev` `latest-dev` | May 16th     | `sha256:bba543493e5c00c2d72fe437745318b799ffac83f3a5d7234801102b31ac061c` |
-|  `0.7.2`                                    | April 17th   | `sha256:72cd831656da0c233f97bb7196391ae067c4ce701fe4a91fb0521d4342eedb7f` |
-|  `0.7.2-dev`                                | April 17th   | `sha256:3de2967beb6703d7689f324866ce78c3cc10eb4ff2f19067d23239be70a5e5ad` |
+|  `0-dev` `latest-dev` `0.7.3-dev` `0.7-dev` | May 19th     | `sha256:12b3bd35822e90d20d575b1cf5d90b063e6f19b9e6f3395e43eda8afcaf2a6b2` |
+|  `latest` `0.7` `0` `0.7.3`                 | May 17th     | `sha256:60784495d99c431d0bf156a401791eb93b3c15c46d128e510644910db8411cbf` |
 

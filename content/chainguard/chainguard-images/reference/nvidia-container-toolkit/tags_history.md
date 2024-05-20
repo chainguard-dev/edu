@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nvidia-container-toolkit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:76feb45534c22f38837b2c78e4f227cf409d46e5affbed2dd331e64a0e1221d8` |
-|  `latest`     | May 16th     | `sha256:daa614aedd1e66eef48b372792bacf3e8b73944335dc5df78cd2fab24ab66867` |
+|  `latest-dev` | May 17th     | `sha256:34d5fdc772c92cd2265f9e88bfd096eab1b848d4337b92037987326bb5f6f11a` |
+|  `latest`     | May 17th     | `sha256:3d7bd181a5e067393ad19be1088dfd18ddea664c6340fc34cbbdde768567fa88` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.15.0` `latest` `1.15` `1`                 | May 16th     | `sha256:089df645d7c81c1ea58b94e9d24ebaeffa35965494a89adc72e6a59cd5ea2706` |
-|  `latest-dev` `1-dev` `1.15-dev` `1.15.0-dev` | May 16th     | `sha256:2d4f2d49a3dc8a1f58b9b70e6350e1cbda5ccebd06b24f46a61d6f7ef9be3ac0` |
+|  `1-dev` `1.15.0-dev` `latest-dev` `1.15-dev` | May 19th     | `sha256:d355ae6974bb5e68125a5c31387354e6b576a4951d45b1a809dc645483399c80` |
+|  `1.15.0` `latest` `1` `1.15`                 | May 17th     | `sha256:973fb3302e845905eab6a215e14b3c4853dcaf48b5111255e0289919e40fd9e5` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:7944963b61e109e769131f25408fbfcbd695c6162dc22e8f5d0dcd1304387423` |
-|  `latest`     | May 15th     | `sha256:63b2449f99dee64fa86eaaede0c7125b5d6b4b3d8b2b8056200129e1f036cd4d` |
+|  `latest-dev` | May 17th     | `sha256:cd76e5c36da37830586c8fc8a1e6e76eb71fd53e62439bdafe8c797ce8a72417` |
+|  `latest`     | May 17th     | `sha256:0cb08b4c1ab89bda4077c44fee0ebc65d57fdafe7dda48759b8adaa0e8a6fc57` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.16-dev` `latest-dev` `0.16.0-dev` | May 16th     | `sha256:bfce4286572d2c9115ea84c4a0b6be7c214ea685d1f499d818f9b3ab6b7bebe6` |
-|  `0` `latest` `0.16` `0.16.0`                 | May 15th     | `sha256:f78721561c4fd330873cd4f78b5bb2fff06c45daebac9ee5a559617f94dbf417` |
+|  `0-dev` `latest-dev` `0.16.0-dev` `0.16-dev` | May 19th     | `sha256:964cd3f99cde075cb8da6bd3aa46e44feacb4f31dec629c4b893fcf0ebae4ea1` |
+|  `0.16.0` `latest` `0` `0.16`                 | May 17th     | `sha256:95f0de9c7fd1264db0be59e391c5e903f8d066336f08734a8bc3bb629d27f5db` |
 

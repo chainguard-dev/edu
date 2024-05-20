@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ml-metadata-store-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:787ecaf87a6067930b6b9f8d32437fdba629337fb8d14115e8e71cb602774631` |
-|  `latest`     | May 15th     | `sha256:36f90623e426d557f89a385bc1619894ff4e13a88aec8fad434f60c3dc0f467c` |
+|  `latest-dev` | May 17th     | `sha256:97decb9e78e660f8a1063e5752135e808feab6f492107ba928917f8b1f40c9e9` |
+|  `latest`     | May 17th     | `sha256:50f818164510b43ccdf3c9bb96c461c6463bc202f982e7d365420e09bfcc5ec4` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.14.0-dev` `1.14-dev` `1-dev` `latest-dev` | May 16th     | `sha256:0c7ccf71a95e91a98bf926ff1be5402449df150637f449d8d9060063a6a8e556` |
-|  `1.14` `1` `1.14.0` `latest`                 | May 15th     | `sha256:7b78ced1186ee04d0bdcc9365925d40fb590b23ef0ec95681cbc92bf49243222` |
+|  `latest-dev` `1.14.0-dev` `1.14-dev` `1-dev` | May 19th     | `sha256:d2ea45a9e98dd1b36b4461fd909c086162016de9721605839a2a0acc6271d76f` |
+|  `1` `1.14.0` `1.14` `latest`                 | May 17th     | `sha256:2794ee61c0ea8eb3aec109a93fad2c8dfdd85a96eda7aa1c0a5d8ea65fb9d840` |
 

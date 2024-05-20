@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-prometheus-configurator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:436d782a0806ffd86968f612ff5a0902f8e6a2fe7e6cbb2cb68ed0f5e0859751` |
-|  `latest`     | May 9th      | `sha256:8ca4554ac2119b2a8ea9fd6b4ab3ed8c0578a0ffc610ce8a5795af7daab2e3ae` |
+|  `latest-dev` | May 17th     | `sha256:d9fec2362cbef187ce7ea040057081761e040d820c2ca0f8bd1d6b5a712c90d1` |
+|  `latest`     | May 17th     | `sha256:15bf55be11012e6373490ffef07eb24e935dc373a9be6ba58f81880b6c2670fa` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.16.0-dev` `1-dev` `1.16-dev` | May 16th     | `sha256:1c83d9228a2de1e8eb9444167c41b0c70874d4106cf1101dd676323c76c27e85` |
-|  `latest` `1.16.0` `1.16` `1`                 | May 15th     | `sha256:f6de8203807f0b78405f6e18a49ed0709c4f787c2efdbc4d7ac9113f15f51647` |
+|  `1.16.0-dev` `latest-dev` `1.16-dev` `1-dev` | May 19th     | `sha256:ea689bb2e12db7f1c5b6ec0b2c1d430d48057c44e50f3e2cdb62bdf16b1a67d0` |
+|  `1` `1.16.0` `latest` `1.16`                 | May 17th     | `sha256:80b4bb1ee3a4b309615e7a5ecfed364b13739470a28fb042bee5224d3b0e04f9` |
 |  `1.15-dev` `1.15.0-dev`                      | April 21st   | `sha256:28b5c114c8137d7f6e7b1c138ac8de5f7cbe0e111a0dedb33ab5f0827123c242` |
 |  `1.15` `1.15.0`                              | April 21st   | `sha256:224d774815b5ef1012dfda9cecdeae009cd22a352fb11799da7e6c0616983e4a` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-hyperopt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 16th     | `sha256:d58ce1f522372f083eee5ae5b3ccc91c70cd923a52809b66421b2d489ea317ca` |
-|  `latest-dev` | May 16th     | `sha256:1cdf78ac39ec5fa4d283de90bfbc31c9f99d67ab227420cf50ecd6adbeb28cc5` |
+|  `latest-dev` | May 17th     | `sha256:5889a29c615b226bf4429f51ed6ae340ce68ead9587904318bb5f85f4a291a5b` |
+|  `latest`     | May 17th     | `sha256:54d987bbb5ea1687a2518e14e51e207a90485b733a1027d574d76f06edfdcac4` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0-dev` `0.16-dev` `0-dev` `latest-dev` | May 16th     | `sha256:9dff6c634397a91764f2f4eb316ede171a5391ffd5950662907a30c7d576d2d7` |
-|  `0` `latest` `0.16.0` `0.16`                 | May 16th     | `sha256:e818b6ee2e5758efcc09a4c9800273bf47784fc549a5900c96a45837503afd2f` |
+|  `0-dev` `0.16.0-dev` `latest-dev` `0.16-dev` | May 19th     | `sha256:359598f1d50a3b4591ce5236fed846f760a53908bd00e1ab5d1f3ee1d31a50c4` |
+|  `0` `0.16` `latest` `0.16.0`                 | May 17th     | `sha256:5ec5142a1198e1bcbef71edf15abe2e62b7a92c503339a7b240304680b9b3664` |
 

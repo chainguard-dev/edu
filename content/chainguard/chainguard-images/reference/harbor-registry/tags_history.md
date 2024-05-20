@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the harbor-registry Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:fc666318302e9f54351968197fd11d0c27c8775fba2f6b3cbf678c65b19519be` |
-|  `latest`     | May 15th     | `sha256:72a126fe9836660805fa80ea57b9655e493b50b9ea53e508ad02284f3e08e4d8` |
+|  `latest-dev` | May 17th     | `sha256:e4480ac064eaafab0f115d9fb6cfa1949e6beb71b5694d51e16d3ef7b4d1afea` |
+|  `latest`     | May 17th     | `sha256:eff205ec2a1fb4530020e97aaef43b98c3c3da3d5aa5090a60ebef87a2c61aaa` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                            | Last Changed | Digest                                                                    |
 |----------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3-dev` `3.0-dev` `latest-dev` `3.0.0_alpha1-dev` | May 16th     | `sha256:b26a1b322efa4c0d193fdf06cd4212349cb9893c6c28854edf4c5b35c5555162` |
-|  `3.0.0_alpha1` `3` `latest` `3.0`                 | May 15th     | `sha256:97143756888751ee6caaedad4429b04971f6ef60bdc4d7682966aa3ec439af09` |
+|  `3.0.0_alpha1-dev` `3-dev` `latest-dev` `3.0-dev` | May 19th     | `sha256:6e7a4517441a3184dc3282e50f3b711dc48d3cb856c5dfe3a994937d11405236` |
+|  `3.0.0_alpha1` `3.0` `3` `latest`                 | May 17th     | `sha256:0f9a607101cb258671d256a4eafecd81e33887f4d66b2c22df1c1dc0b64c3d4d` |
 

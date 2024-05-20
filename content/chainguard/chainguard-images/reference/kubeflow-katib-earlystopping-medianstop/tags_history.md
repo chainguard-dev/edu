@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-earlystopping-medianstop Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 16th     | `sha256:bde2a9cef8ea4fa4b2bb34469ba751e1f3f36d5739b598b085fd4578fe786549` |
-|  `latest-dev` | May 16th     | `sha256:c0afbf55deac5ea31c706994e76723a2f99b0bc95f59e7edd6c6d3d1e88291ba` |
+|  `latest`     | May 17th     | `sha256:9826ba64b7abb4e64d42b46dd47894e70652f97c60e78d7a0b39318a73e0a589` |
+|  `latest-dev` | May 17th     | `sha256:aceed0b77908387e77c811fe2dd6e1d3d15e81daa04fabc9d5ffe47999380da2` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16` `0` `latest` `0.16.0`                 | May 16th     | `sha256:73a68cc687f7e84fe305a7eaa31459d47069128e907fe763e413b1ec2fc31dc6` |
-|  `0.16.0-dev` `0-dev` `latest-dev` `0.16-dev` | May 16th     | `sha256:f821505af0774db906c006401c304d952a031390f1f0429e4043da23d7ed676e` |
+|  `0-dev` `latest-dev` `0.16.0-dev` `0.16-dev` | May 19th     | `sha256:5149e8e2f67a15350c5b04c1129c5bcca3e289a42ff534da639e0d4c14b931c5` |
+|  `0.16` `latest` `0.16.0` `0`                 | May 17th     | `sha256:3896339aee72882cb00bb0fcacb2142f0ab9dee0feb33c704e3caf220b765018` |
 

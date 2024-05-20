@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the velero-restore-helper Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:0232a132e61c81a4bab2e3e2d9e5cadac8f265a7478a0de2842bef840d47a2a3` |
-|  `latest`     | May 15th     | `sha256:739ffc7841dd895042c5bc0d2c9dd67f08545243acb0a6eb6503dafd34281b6d` |
+|  `latest-dev` | May 17th     | `sha256:dd98f95eeadfba8047a0316598200cd504690f5b57300265892704d6cb08194d` |
+|  `latest`     | May 17th     | `sha256:3d81691b0aa170a6edfbe224f23ae14cf72eba119bdebc6cb500d15131c785cb` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.13.2-dev` `latest-dev` `1.13-dev` `1-dev` | May 16th     | `sha256:e9f17f3a35ebdc2e6dddc267432a30e9751b0608f3d523475e1d92efe1dc071f` |
-|  `latest` `1.13.2` `1.13` `1`                 | May 15th     | `sha256:f1fb4276de9b657c9f2ca1494a94c8b9a0a05de830396abe02fede3542e75603` |
+|  `1-dev` `1.13.2-dev` `1.13-dev` `latest-dev` | May 19th     | `sha256:2f8d61b23ca47eca92ed3f6583f41d3de4901d1c4cc5a5d98d32c6dbce494d6c` |
+|  `latest` `1.13.2` `1.13` `1`                 | May 17th     | `sha256:eab85e564908ee4fbb7cb7735e78ddff6db6f2208bd599f4d4e489406715972b` |
 

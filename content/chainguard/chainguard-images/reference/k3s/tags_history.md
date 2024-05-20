@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k3s Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:eaaa7d4208a39bdf6070bb1a2f6585c0e10e70a1673a199bfa9c2ccbd74333e1` |
-|  `latest`     | May 15th     | `sha256:03a31d4b07451bb1b37d34751d8fe766ff090d61ba634332b27d0551a7fb9715` |
+|  `latest`     | May 17th     | `sha256:43276dcfa00a08e50eebbfb8a7d2882e1236aa622f9f39c3c87bac46420cfb2d` |
+|  `latest-dev` | May 17th     | `sha256:c0d456beff91842eb68a8deec5d548d02473464b7e3bcffe4da117957d16874e` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.30.0` `1` `1.30` `latest`                 | May 16th     | `sha256:93bdc2e8eb1522ddb1cae7cd77f46aa92e871eaf20e5b6f9d0a6a93b07914787` |
-|  `1.30.0-dev` `1-dev` `latest-dev` `1.30-dev` | May 16th     | `sha256:7b7051769cc3e1f99679f15bd16a583b77c9265c6eebe4ff51a497b2c3e1d533` |
+|  `latest-dev` `1.30.0-dev` `1.30-dev` `1-dev` | May 19th     | `sha256:eead371331258af94141147448f02118588b0d32f6e75ccfc488fd668cec7219` |
+|  `1` `latest` `1.30.0` `1.30`                 | May 17th     | `sha256:e959afb3aa4ac95265b7dada13ba34db4b753cb7c66ff2ca8ef080ccb56d351d` |
 |  `1.29-dev` `1.29.4-dev`                      | May 10th     | `sha256:4c379598438191e888381509da4a3224e38a191c05933a9770f2392ed01019cc` |
 |  `1.29` `1.29.4`                              | May 10th     | `sha256:8861a492fbaa9b7cfc5585b7ae4528f8872bf96f527c3abb10db83e6d700998a` |
 |  `1.29.3-dev`                                 | May 2nd      | `sha256:e88dc01fc63356ccb3f1f1059325151039ef335aa1169786c264464cdd147bce` |

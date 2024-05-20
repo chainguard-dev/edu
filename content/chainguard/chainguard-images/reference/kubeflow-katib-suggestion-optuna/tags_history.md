@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-optuna Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 16th     | `sha256:b5d440131fa2cf9b16620e6928a6ee0d9cea67f42fbe0f80218a6722bf6143d3` |
-|  `latest`     | May 16th     | `sha256:34a17e612316c230f698798bc1be645a382d110f68cedb3ce81021cce57e7a40` |
+|  `latest-dev` | May 17th     | `sha256:fd05eb4ce5493ad9b2d46936581c567733a5567e6cd70dac186e3cf924cf16dc` |
+|  `latest`     | May 17th     | `sha256:29235636bba54500b877a15784578bfbe7df6e9b976116d3afe4a80e066d3dfe` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0` `latest` `0` `0.16`                 | May 16th     | `sha256:0c20f964cbdd0c6a0c1468f5cc9363b2e0cc43415efeef45fec5760ddf9ee5fd` |
-|  `0.16.0-dev` `0-dev` `0.16-dev` `latest-dev` | May 16th     | `sha256:acf2b312a26cb1f696d61e13ebc1d69404746f8c4c857e99deea8ddf80794b0c` |
+|  `0.16-dev` `latest-dev` `0-dev` `0.16.0-dev` | May 19th     | `sha256:4611d1171d1f3209297b843c442af21361b842266d6df05222ce3a0077df715f` |
+|  `0.16` `0.16.0` `latest` `0`                 | May 17th     | `sha256:45adea8a4dbb092db9031b35fe82497176943a8a0cea385373fbaed1a211a794` |
 

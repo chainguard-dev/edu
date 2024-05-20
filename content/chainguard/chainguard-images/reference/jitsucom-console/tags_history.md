@@ -3,8 +3,8 @@ title: "jitsucom-console Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the jitsucom-console Chainguard Image"
-date: 2024-05-17 00:44:46
-lastmod: 2024-05-17 00:44:46
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 16th     | `sha256:a4fb61448d61ec0424be7141e39597ffd01d745a607f7f7f1996c9f61b3584ca` |
-|  `latest-dev` | May 16th     | `sha256:2c2f68c4ce0dfde22dc6fd663ec4bf01a4dab265fb4f5c46ab65d937f7e83bc8` |
+|  `latest-dev` | May 17th     | `sha256:6fd3e7721e4f72cd6f4789a03d048d7b3e7aec07e2a69b3f94c2364cf0d58a54` |
+|  `latest`     | May 17th     | `sha256:bb20670e32c66a10c36d1949282bdb9c7e2bdb8f3edd8331c4c74f1b3420b440` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.6` `2` `2.6.0` `latest`                 | May 16th     | `sha256:ef5adb4ac9d8d9e482439b171473ebbf441a71e64852748c940d76e089445d23` |
-|  `2.6-dev` `2.6.0-dev` `latest-dev` `2-dev` | May 16th     | `sha256:afed936c1392fbbd106f88c3b0aa7f110ac76c8304381ec9d61a482ba1eab6e3` |
+|  `2.6.0` `2` `2.6` `latest`                 | May 19th     | `sha256:3540793fbfa29c6db71d072be6d68513e02d374dde7fad9c4cee9a0f3026e9ab` |
+|  `2.6-dev` `2-dev` `2.6.0-dev` `latest-dev` | May 19th     | `sha256:3a1d9fa0ddd948bf0f88ba20cf1eb4ee5988075c41eafeb069f47a743ab48da2` |
 

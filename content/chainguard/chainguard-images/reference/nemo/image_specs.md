@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public nemo Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -71,6 +71,7 @@ The table shows package distribution across variants.
 | `libnghttp2-14`          | X          |        |
 | `libogg`                 | X          | X      |
 | `libpcre2-8-0`           | X          |        |
+| `libpng`                 | X          | X      |
 | `libpostproc58`          | X          | X      |
 | `libpsl`                 | X          |        |
 | `libssl3`                | X          | X      |
@@ -84,6 +85,16 @@ The table shows package distribution across variants.
 | `ncurses`                | X          | X      |
 | `ncurses-terminfo-base`  | X          | X      |
 | `nemo`                   | X          | X      |
+| `nvidia-cuda-cudart-12`  | X          | X      |
+| `nvidia-cuda-nvrtc-12.3` | X          | X      |
+| `nvidia-cuda-nvtx-12`    | X          | X      |
+| `nvidia-cudnn-8`         | X          | X      |
+| `nvidia-libcublas-12`    | X          | X      |
+| `nvidia-libcufft-12`     | X          | X      |
+| `nvidia-libcurand-12`    | X          | X      |
+| `nvidia-libcusolver-12`  | X          | X      |
+| `nvidia-libcusparse-12`  | X          | X      |
+| `nvidia-libnvjitlink-12` | X          | X      |
 | `openmp-17`              | X          | X      |
 | `openmp-17-dev`          | X          | X      |
 | `python-3.11`            | X          | X      |

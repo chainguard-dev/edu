@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the calico-kube-controllers-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-17 00:44:46
+lastmod: 2024-05-20 00:48:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                          | Last Changed | Digest                                                                    |
 |----------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `v3-dev` `latest-dev` `v3.27-dev` `v3.27.3-dev` `3-dev` `3.27.3-dev` `3.27-dev` | May 16th     | `sha256:09ea770385fc1949ed03985fad0c1c5fb82571a94e6395c354543502024871d8` |
-|  `v3.27.3` `latest` `v3.27` `3` `3.27` `v3` `3.27.3`                             | May 16th     | `sha256:616471eddf9f5074d6dd0cbf80a653c12f87b1f4a85d89e2890b7a6f0f3c4092` |
+|  `v3.27.3-dev` `3-dev` `3.27.3-dev` `latest-dev` `v3-dev` `v3.27-dev` `3.27-dev` | May 19th     | `sha256:90daf13ec34a4841af2d7daf01dbd4551a39ddede00a7c0884139954e2c9f01b` |
+|  `v3.27` `3.27` `3.27.3` `v3.27.3` `latest` `3` `v3`                             | May 17th     | `sha256:d41205a907891a4ddca640069123125ac3b11e377935e33456065ba58b551f2f` |
 |  `3.27.2-dev` `v3.27.2-dev`                                                      | April 20th   | `sha256:f50faafaab71c84ae2f9d3d9a0293cc82c7fd254ee54c2cb7bb0ddfb4e40c4fc` |
 
