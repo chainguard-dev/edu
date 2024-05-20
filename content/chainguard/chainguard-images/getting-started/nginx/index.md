@@ -1,6 +1,7 @@
 ---
 title: "Getting Started with the nginx Chainguard Image"
 type: "article"
+linktitle: "nginx"
 description: "Tutorial on how to get started with the nginx Chainguard Image"
 date: 2023-01-09T11:07:52+02:00
 lastmod: 2023-01-19T11:07:52+02:00
@@ -9,17 +10,16 @@ draft: false
 images: []
 menu:
   docs:
-	parent: "getting-started"
+    parent: "getting-started"
 weight: 610
 toc: true
 ---
- <!-- This is outdated -->
+
 The nginx images maintained by Chainguard are a mix of development and production distroless images that are suitable for building and running nginx workloads.
 
-Because nginx applications typically require the installation of third-party dependencies via Composer, using a pure distroless image for building your application would not work. In cases like this, you'll need to implement a [multi-stage Docker build](https://docs.docker.com/build/building/multi-stage/) that uses one of the `-dev` images to set up the application.
+In this guide, we'll create a demo application using nginx to serve static content to a local port on your machine. Then we will use the nginx Chainguard Image to build and execute the demo.
 
-In this guide, we'll set up a distroless container image based on Wolfi as a runtime to execute a command-line nginx application.
-<!-- Update the above -->
+You will need to have nginx installed on your machine to follow along. If you do not already have nginx installed, you can do so using Homebrew or by using another method [found here](https://nginx.org/en/docs/install.html).
 
 {{< details "What is distroless" >}}
 {{< blurb/distroless >}}
@@ -35,15 +35,9 @@ In this guide, we'll set up a distroless container image based on Wolfi as a run
 
 ## Step 1: Setting up a Demo Application
 
-We'll start by creating a basic nginx application to serve as a demo. This app will instantiate a local webserver to display HTML in your browser. You will need to have nginx installed on your machine to follow along. If you do not already have nginx installed, you can do so using Homebrew:
+We'll start by creating a basic nginx application to serve as a demo. This app will serve static content to a local web server. 
 
-```shell
-brew install nginx
-```
-
-Alternatively, you can install nginx using another method [found here](https://nginx.org/en/docs/install.html).
-
-For this tutorial, you will be copying code to files you create locally. You can find this code throughout the demo here, or you can find a complete collection of files at the [demo GitHub repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/nginx).
+For this tutorial, you will be copying code to files you create locally. You can find the demo code throughout this tutorial, or you can find the complete demo at the [demo GitHub repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/nginx).
 
 With nginx installed, create a directory for your app. In this guide we'll call the directory `nginxdemo`:
 
@@ -57,7 +51,7 @@ Within this directory, we will create a `data` directory to contain our content 
 mkdir data && cd $_
 ```
 
-Using a text editor of your choice, create a new file `index.html` for the HTML content that will be served. In our case, we will use `nano`.
+Using a text editor of your choice, create a new file `index.html` for the HTML content that will be served. In our case, we will use `nano` as our editor.
 
 ```shell
 nano index.html
@@ -77,12 +71,13 @@ The following HTML file displays an image of Inky, our mascot, alongside a fun o
 
 <h1>NGINX Demo Application</h1>
 
-<i><h2>from the <a href="https://edu.chainguard.dev/" target="_blank">Chainguard Academy</a></h2></i>
+<h2>from the <a href="https://edu.chainguard.dev/" target="_blank">Chainguard Academy</a></h2>
 
 <img src="inky.png" class="corners" width="250px">
 
 <i><h3>Did you know?</h3></i>
-<p>The Wolfi octopus is the world's smallest octopus, weighing in on average at less than a gram! They are found near the coastlines of the west Pacific Ocean.</p>
+<p>The Wolfi octopus is the world's smallest octopus, weighing in on average at less than a gram!</p>
+<p>They are found near the coastlines of the west Pacific Ocean.</p>
 
 </body>
 
@@ -91,11 +86,17 @@ The following HTML file displays an image of Inky, our mascot, alongside a fun o
 
 Copy this code to your `index.html` file, save, and close it.
 
-Next, create a CSS file named `stylesheet.css` using the text editor of your choice, and copy in the following code. This will give our page a bit of color.
+Next, create a CSS file named `stylesheet.css` using the text editor of your choice, for instance `nano`.
+
+```shell
+nano stylesheet.css
+```
+
+Copy the following code to your `stylesheet.css` file. 
 
 ```css
 /*
-Chainguard Academy NGINX demo application
+Chainguard Academy nginx demo application
 */
 
 body {
@@ -130,13 +131,13 @@ Next, you will pull down the `inky.png` file using `curl`. Always [inspect the U
 curl -O https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/734e6171ee69f0e0dbac95e6ebc1759ac18bf00a/nginx/data/inky.png
 ```
 
-Now, return to the `nginxdemo` directory you created. Here we will create the `nginx.conf` configuration file used by NGINX to run the local webserver. We will demonstrate this using `nano`.
+Now, return to the `nginxdemo` directory you created. Here we will create the `nginx.conf` configuration file used by nginx to run the local webserver. We will demonstrate this using `nano`.
 
 ```shell
 nano nginx.conf
 ```
 
-Copy the following code into the configuration file. Be sure to update line 30 in the configuration to reference the path to the `data` directory you created in a previous step.
+Copy the following code into the configuration file. Be sure to update the file path in the `location` directive in the configuration to reference the path from root to the `data` directory you created in a previous step.
 
 ```nginx
 worker_processes  1;
@@ -150,12 +151,6 @@ http {
     include       mime.types;
     default_type  application/octet-stream;
 
-    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
-                      '$status $body_bytes_sent "$http_referer" '
-                      '"$http_user_agent" "$http_x_forwarded_for"';
-
-    access_log  logs/access.log  main;
-
     sendfile        on;
 
     keepalive_timeout  65;
@@ -165,7 +160,6 @@ http {
         listen 8080;
         server_name localhost;
         charset koi8-r;
-        access_log  logs/host.access.log  main;
 
         location / {
             root /Users/username/nginxdemo/data; # Update file path accordingly
@@ -187,9 +181,9 @@ Create a new file named `mime.types` using a text editor of your choice. We will
 nano mime.types
 ```
 
-Copy and paste the following code into your `mime.types` file. This file will allow nginx to handle our `inky.png` file when rendering the webserver. 
+Copy and paste the following code into your `mime.types` file. This file will allow nginx to handle the HTML, CSS, and png files we created when rendering the webserver. 
 
-```
+```nginx
 types {
     text/html                                        html htm shtml;
     text/css                                         css;
@@ -198,16 +192,19 @@ types {
 
 ```
 
-Save and close the file when you are finished editing it.
+Save and close the `mime.types` file when you are finished editing it.
 
 Copy the filepath to your `nginx.conf` file you created earlier. Replacing `<filepath>` with this copied path, execute the following command to initialize the nginx server:
+
 ```shell
 nginx -c <filepath>
 ```
 
-To view the local webserver, navigate to `localhost:8080` in your web browser of choice. You should see a simple landing page with a picture of Inky and a fun fact about the Wolfi octopus.
+To view the HTML content, navigate to `localhost:8080` in your web browser of choice. You should see a simple landing page with a picture of Inky and a fun fact about the Wolfi octopus.
 
 If you make any changes to the files nginx is serving, run `nginx -s reload` in your terminal to allow the changes to render. When you are finished with your application, run `nginx -s quit` to allow nginx to safely exit.
+
+
 
 <!-- New content -->
 ## Step 2: Creating the Dockerfile
@@ -228,7 +225,7 @@ nano Dockerfile
 ```
 The following Dockerfile will:
 
-1. Start a new build stage based on the `php:latest-dev` image and call it `builder`;
+1. Start a new build stage based on the `nginx:latest` image and call it `builder`;
 2. Copy files from the current directory to the `/app` location in the container;
 3. Enter the `/app` directory and run `composer install` to install any dependencies;
 4. Start a new build stage based on the `php:latest` image;
