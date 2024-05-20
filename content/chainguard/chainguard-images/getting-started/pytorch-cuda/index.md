@@ -40,8 +40,8 @@ Run the below command to pull the image, run it with GPU access, and start a Pyt
 ```bash
 docker run --rm -it \
  --gpus all \
-r.dev/chainguard/pytorch-cuda12:latest \
- python
+ cgr.dev/chainguard/pytorch-cuda12:latest \
+ -c python
 ```
 
 Running the above for the first time may take a few minutes to pull the pytorch-cuda12 Chainguard Image, currently 3.3GB. Once the image runs, you will be interacting with a Python interpreter in the running container. Enter the following commands at the prompt to check the availability of your GPU.
