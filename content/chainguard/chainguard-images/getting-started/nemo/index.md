@@ -17,7 +17,7 @@ weight: 612
 toc: true
 ---
 
-[NVIDIA NeMo](https://github.com/NVIDIA/NeMo) is a deep learning framework for building conversational AI models that provides standalone module collections for Automatic Speech Recognition (ASR), Natural Language Processing (NLP), and Text-to-Speech (TTS) tasks. The [NeMo Chainguard Image](/chainguard/chainguard-images/reference/nemo/) is a comparatively lightweight NeMo environment with low to no CVEs, making it ideal for both training and production inference. The NeMo Chainguard Image is designed to work with the [CUDA 12](https://developer.nvidia.com/about-cuda) parallel computing platform, and is suited to workloads that take advantage of connected GPU.
+[NVIDIA NeMo](https://github.com/NVIDIA/NeMo) is a deep learning framework for building conversational AI models that provides standalone module collections for Automatic Speech Recognition (ASR), Natural Language Processing (NLP), and Text-to-Speech (TTS) tasks. The [NeMo Chainguard Image](/chainguard/chainguard-images/reference/nemo/) is a comparatively lightweight NeMo environment with low to no CVEs, making it ideal for both training and production inference. The NeMo Chainguard Image is designed to work with the [CUDA 12](https://developer.nvidia.com/about-cuda) parallel computing platform, and is suited to workloads that take advantage of connected GPUs.
 
 {{< details "What is Deep Learning?" >}}
 {{< blurb/deep-learning >}}
@@ -27,13 +27,23 @@ In this getting started guide, we will use the NeMo Chainguard Image to generate
 
 This guide is primarily designed for use in an environment with access to one or more NVIDIA GPUs. However, NVIDIA NeMo is built on [PyTorch Lightning](https://lightning.ai/docs/pytorch/stable/), which supports a wide variety of [accelerators](https://pytorch-lightning.readthedocs.io/en/1.1.8/accelerators.html), or interfaces to categories of processing units (CPU, GPU, TPU) or high-level clustering mechanisms such as [Distributed Data Parallel](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html). Some consideration will be given to alternative computing environments such as CPU in this tutorial.
 
-## Testing Access to GPUs
-
-In our first step, we'll run the NeMo Chainguard Image interactively and determine whether the environment has access to connected GPUs.
+## Prerequisites
 
 If Docker Engine (or Docker Desktop) is not already installed, follow the [instructions for installing Docker Engine on your host machine](https://docs.docker.com/engine/install/). 
 
-Use the below command to pull the image, run it with GPU access, and start a Python interpreter inside the running container.
+To take advantage of connected GPUs, you'll need to install CUDA Toolkit on your host machine.
+
+{{< details "Installing CUDA Toolkit" >}}
+{{< blurb/cuda >}}
+{{< /details >}}
+
+This tutorial can be followed without connected GPUs or CUDA Toolkit. To run commands in this tutorial on CPU, omit the `  --gpus all` flag when executing container commands. Keep in mind that some functionality within NeMo (such as training models) will take significantly longer on CPU.
+
+## Testing Access to GPUs
+
+We'll start by running the NeMo Chainguard Image interactively and determine whether the environment has access to connected GPUs.
+
+Use the following command to pull the image, run it with GPU access, and start a Python interpreter inside the running container.
 
 ```bash
 docker run -it --rm \
@@ -44,9 +54,9 @@ docker run -it --rm \
   cgr.dev/chainguard/nemo:latest
 ```
 
-These options allow access to connected GPU, allocate more shared memory to the container, and put an upper bound on container memory use. 
+These options allow access to all available GPUs, allocate a custom amount of shared memory (8 GB) to the container, and set an upper bound on container memory use.
 
-Running the above for the first time may take a few minutes to pull the NeMo Chainguard Image, currently 4.05 GB. Once the image runs, you will be interacting with a bash shell in the running container. Enter the following commands at the prompt to check the availability of your GPU.
+Running this command for the first time may take a few minutes, since it will download  the NeMo Chainguard Image to your host machine. Once the image is pulled and the command runs successfully, you will be interacting with a bash shell in the running container. Enter the following commands at the prompt to check the availability of your GPU.
 
 ```
 $ python
@@ -99,19 +109,14 @@ Next, let's download our [tts.py](https://github.com/chainguard-dev/nemo-example
 curl https://raw.githubusercontent.com/chainguard-dev/nemo-examples/main/tts.py > tts.py
 ```
 
-You should now be in a working directory with `tts.py`.
-
-```bash
-$ ls
-tts.py
-```
+You should now be in a working directory containing only one file, `tts.py`.
 
 We'll be mounting this folder in our container as a volume, which will allow us to both pass in our script and extract our output.
 
 We'll now start a container based on our NeMo Chainguard Image, mount the current working directory containing our `tts.py` script inside the container as a volume, and run the script in the container:
 
 ```bash
-$ docker run -it --rm \
+docker run -it --rm \
   --gpus all \
   --user root \
   --shm-size=8g \
@@ -121,19 +126,23 @@ $ docker run -it --rm \
   cgr.dev/chainguard/nemo:latest \
   -c "python /home/nonroot/nemo-test/tts.py"
 ```
+Note that we ran the above script as root. This allows us to share the script and output `.wav` file between the host and container. Remember not to run your image as root in a production environment.
 
-If your host machine does not have attached GPUs and you'd like to run the above on your CPU, omit the `  --gpus all \` line. Since we're using pretrained models to perform text to speech, this example will only take a few minutes using a CPU only. However, other tasks such as model training and finetuning may take significantly longer without connected GPUs.
+If your host machine does not have attached GPUs and you'd like to run the above on your CPU, omit the `  --gpus all \` line. The script tests for availability of the CUDA platform and sets the accelerator to CPU if CUDA is not detected, so the script will also function on CPU. 
 
-Note that NeMo collections are large, and initial imports can take up to a minute depending on your environment. The script may appear to hang during that time.
+Since we're using pretrained models to perform text to speech, this example will only take a few minutes using a CPU only. However, other tasks such as model training and finetuning may take significantly longer without connected GPUs. 
+
+Note that NeMo collections are large, and initial imports can take up to a minute depending on your environment. The script may appear to hang during that time. 
 
 After imports are complete, you should see a large amount of output as NeMo pulls models and works through the steps in the script (tokenizing, generating a spectrogram, generating audio, and writing audio to disk). On completion, the script outputs a `test.wav` file. Because we mounted a volume, this file should now be present in the working directory of your host machine.
 
 ```bash
-$ ls
-test.wav  tts.py
+ls
 ```
 
-Note that we ran the above script as root. This allows us to share the script and output `.wav` file between the host and container. Remember not to run your image as root in a production environment.
+```
+test.wav  tts.py
+```
 
 The `test.wav` file should contain audio similar to this output:
 
@@ -148,7 +157,7 @@ Chainguard Images are built with security in mind, from the ground up. They incl
 ### Official NeMo
 
 ```bash
-$ grype nvcr.io/nvidia/nemo:24.03.01.framework
+grype nvcr.io/nvidia/nemo:24.03.01.framework
 ```
 {{< opendetails "Grype Overview" >}}
  ✔ Vulnerability DB                [updated]  
@@ -2982,11 +2991,9 @@ That's one critical, 22 high, 382 medium, and 152 low CVEs. Now let's compare wi
 </table>
 {{< /details >}}
 
+## Final Considerations and Next Steps
 
-
-## Notes on the Script
-
-In this section, we'll review the TTS script run in the above steps, highlighting some common options and approaches and a few ways the script might be adapted to other use cases. The NeMo framework has extensive functionality for a variety of applications in generative AI, so this section will only provide a high-level overview and a few recommendations for next steps.
+This section will consider next steps for applying the NVIDIA NeMo Chainguard Image to other tasks in conversational AI.
 
 In the [tts.py](https://github.com/chainguard-dev/nemo-examples/blob/main/tts.py) script run above, we used two models provided by NeMo, both contained within the TTS collection. 
 
@@ -2995,16 +3002,9 @@ In the [tts.py](https://github.com/chainguard-dev/nemo-examples/blob/main/tts.py
 
 The former model allows us to convert plain text into a spectrogram, or a representation of a waveform. The second model generates audio from the spectrogram. Note that NVIDIA's model overview pages provide useful background information, tags, and sample code. You can search the [full NGC model catalog](https://catalog.ngc.nvidia.com/models?filters=&orderBy=weightPopularDESC&query=&page=&pageSize=) to find pretrained models for use with NeMo.
 
-A few other notes on the script:
+In this script, we used pretrained models to create the phonemes and audio output. These models can be finetuned with your own speech data to customize the results. NVIDIA hosts a [tutorial on finetuning TTS models with NeMo](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/tutorials/tts-finetune-nemo.html).
 
-- The script checks whether CUDA is available. If CUDA is not available, the script will run on CPU.
-- The Tacotron2 model was trained at 22050 Hz. The script uses the `write` function from [scipy.io](https://docs.scipy.org/doc/scipy/reference/io.html) to write the audio to file, setting the rate to 22050.
-- In this script, we used pretrained models to create the phonemes and audio output. These models can be finetuned with your own speech data to customize the results. NVIDIA hosts a [tutorial on finetuning TTS models with NeMo](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/tutorials/tts-finetune-nemo.html).
-
-
-
-
-## Further Resources
+The following resources may give a starting point for further explorations with the NeMo Chainguard Image:
 
 - NVIDIA provides a wide variety of [NeMo Tutorials](https://docs.nvidia.com/nemo-framework/user-guide/latest/nemotoolkit/starthere/tutorials.html) that are a strong entry point for working with the framework to accomplish specific tasks.
 - NVIDIA's [NeMo Playbooks](https://docs.nvidia.com/nemo-framework/user-guide/latest/playbooks/index.html) provide a basis for more advanced tasks and configurations and address running workloads on different platforms and orchestration tooling.
