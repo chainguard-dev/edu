@@ -4,7 +4,7 @@ type: "article"
 linktitle: "nginx"
 description: "Tutorial on how to get started with the nginx Chainguard Image"
 date: 2023-01-09T11:07:52+02:00
-lastmod: 2023-01-19T11:07:52+02:00
+lastmod: 2024-05-20T14:49:27+00:00
 tags: ["Chainguard Images", "Products"]
 draft: false
 images: []
@@ -17,9 +17,9 @@ toc: true
 
 The nginx images maintained by Chainguard are a mix of development and production distroless images that are suitable for building and running nginx workloads.
 
-In this guide, we'll create a demo application using nginx to serve static content to a local port on your machine. Then we will use the nginx Chainguard Image to build and execute the demo.
+In this guide, we'll create a demo application using nginx to serve static content to a local port on your machine. Then we will use the nginx Chainguard Image to build and execute the demo in a containerized environment.
 
-You will need to have nginx installed on your machine to follow along. If you do not already have nginx installed, you can do so using Homebrew or by using another method [found here](https://nginx.org/en/docs/install.html).
+You will need to have nginx installed on your machine to follow along.
 
 {{< details "What is distroless" >}}
 {{< blurb/distroless >}}
@@ -45,13 +45,13 @@ With nginx installed, create a directory for your app. In this guide we'll call 
 mkdir ~/nginxdemo/ && cd $_
 ```
 
-Within this directory, we will create a `data` directory to contain our content hosted by the webserver.
+Within this directory, we will create a `data` directory to contain our content to be hosted by the web server.
 
 ```shell
 mkdir data && cd $_
 ```
 
-Using a text editor of your choice, create a new file `index.html` for the HTML content that will be served. In our case, we will use `nano` as our editor.
+Using a text editor of your choice, create a new file `index.html` for the HTML content that will be served. We will use `nano` as an example.
 
 ```shell
 nano index.html
@@ -59,7 +59,7 @@ nano index.html
 
 The following HTML file displays an image of Inky, our mascot, alongside a fun octopus fact.
 
-```html
+```HTML
 <!DOCTYPE html>
 <html>
 <head>
@@ -86,7 +86,7 @@ The following HTML file displays an image of Inky, our mascot, alongside a fun o
 
 Copy this code to your `index.html` file, save, and close it.
 
-Next, create a CSS file named `stylesheet.css` using the text editor of your choice, for instance `nano`.
+Next, create a CSS file named `stylesheet.css` using the text editor of your choice. We'll use `nano` to demonstrate.
 
 ```shell
 nano stylesheet.css
@@ -94,7 +94,7 @@ nano stylesheet.css
 
 Copy the following code to your `stylesheet.css` file. 
 
-```css
+```CSS
 /*
 Chainguard Academy nginx demo application
 */
@@ -137,7 +137,7 @@ Now, return to the `nginxdemo` directory you created. Here we will create the `n
 nano nginx.conf
 ```
 
-Copy the following code into the configuration file. Be sure to update the file path in the `location` directive in the configuration to reference the path from root to the `data` directory you created in a previous step.
+Copy the following code into the configuration file you created. In the `location` directive, be sure to update the configuration to reference the path from root to the `data` directory you created in a previous step.
 
 ```nginx
 worker_processes  1;
