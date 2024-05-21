@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crossplane-aws-rds Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 20th     | `sha256:924d239689ee182e1dd8af5ef9fd20dc6818114b9a37e1adb591881c72294841` |
 |  `latest`     | May 17th     | `sha256:0e6ca2c7ff8539fc7fe36fa0fdd5febc7e94d40848387ee3e5133aa792c4d72d` |
-|  `latest-dev` | May 17th     | `sha256:0e0e4a2ee900bc774b1995078f13101d6bb15c16b0c26aa153e5f96d0a2e88b2` |
 
 
 ### Private/Dedicated Registry

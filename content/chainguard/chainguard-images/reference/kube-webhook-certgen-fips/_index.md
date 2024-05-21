@@ -4,8 +4,8 @@ linktitle: "kube-webhook-certgen-fips"
 type: "article"
 layout: "single"
 description: "Overview: kube-webhook-certgen-fips Chainguard Image"
-date: 2024-05-10 00:43:45
-lastmod: 2024-05-10 00:43:45
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,7 +26,7 @@ toc: true
 
 
 <!--overview:start-->
-Tools to help with self signed cert generation for Kubernetes test environment
+Generates certificates and updates Kubernetes webhooks, integrating with Helm to simplify Kubernetes job execution.
 <!--overview:end-->
 
 ## Download this Image
@@ -38,5 +38,41 @@ docker pull cgr.dev/chainguard-private/kube-webhook-certgen-fips:latest
 ```
 
 
-<!--body:start--><!--body:end-->
+<!--body:start-->
+
+## Forked version, maintained by ingress-nginx project!
+NOTE: this is the ingress-nginx projects fork of `kube-webhook-certgen`. The
+[original project](https://github.com/jet/kube-webhook-certgen) is no longer
+maintained.
+
+## Prometheus operator
+Below is an example of how to deploy the prometheus operator, which utilizes
+this image.
+
+First, add the helm operator:
+
+```bash
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+```
+
+Then, use the following Terraform configuration to deploy the Prometheus
+Operator. Note, we're utilizing the[Chainguard prometheus operator image](https://github.com/chainguard-images/images/tree/main/images/prometheus-operator),
+as well as the Chainguard kube-webhook-certgen image:
+
+```bash
+helm install prometheus-operator prometheus-community/kube-prometheus-stack \
+  --set prometheusOperator.image.registry=cgr.dev \
+  --set prometheusOperator.image.repository=chainguard/prometheus-operator \
+  --set prometheusOperator.image.tag=latest
+  --set prometheusOperator.admissionWebhooks.patch.image.registry=cgr.dev \
+  --set prometheusOperator.admissionWebhooks.patch.image.repository=chainguard/kube-webhook-certgen \
+  --set prometheusOperator.admissionWebhooks.patch.image.tag=latest
+```
+
+For more information, refer to the following resources:
+- [prometheus operator docs](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack)
+- [kube-webhook-certgen docs](https://github.com/kubernetes/ingress-nginx/tree/main/images/kube-webhook-certgen)
+
+<!--body:end-->
 

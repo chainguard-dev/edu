@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ingress-nginx-controller-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.10.1-dev` `latest-dev` `1.10-dev` | May 17th     | `sha256:58770df23451dfa69beed9fea511c059476d4889efd83cfc0615b48c544d3e70` |
-|  `latest` `1.10.1` `1.10` `1`                 | May 17th     | `sha256:7cca16b4656ef2d0851c702561f21318c4651bd0670e64ab7acbce63278766c1` |
-|  `1.9.6` `1.9`                                | May 17th     | `sha256:72d553a5f77489e590ea30d0be30495c93342e771dfde83702b39c1d61af04e8` |
-|  `1.9-dev` `1.9.6-dev`                        | May 17th     | `sha256:08d35230182ea67ea759d6688e4bb66a0259606f2d12cdbbdcc2ccd05b4d564f` |
+|  `1.9.6` `1.9`                                | May 20th     | `sha256:886642475ff2136e92f6318612f002c253a688bceec75b064f3fb78fd71f87ff` |
+|  `1` `1.10` `latest` `1.10.1`                 | May 20th     | `sha256:de90c1aa1a20c4d60bdaae8eec2430078fddf7f26234349a3727ca53314e2efe` |
+|  `1.10-dev` `latest-dev` `1.10.1-dev` `1-dev` | May 20th     | `sha256:9a7f413e5c372dede4f632db29a417e109a1de4f7cb1b80452aef11a25ea2c55` |
+|  `1.9.6-dev` `1.9-dev`                        | May 20th     | `sha256:742bae3b16dff52b672f21ea93cc96f4616617e789afb2ed15144133a858751d` |
 |  `1.10.0-dev`                                 | April 23rd   | `sha256:3d899f98c05f0bfef6afc61f6e42d7bc11eafc01ecb91f98a780daa4737d754f` |
 |  `1.10.0`                                     | April 23rd   | `sha256:79943bb025cdc5523c95372f425b1f895ea899ad686fa76439ced5896799f95d` |
 

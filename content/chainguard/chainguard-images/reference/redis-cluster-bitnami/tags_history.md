@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the redis-cluster-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,10 +35,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `7` `7.2.5` `7.2` `latest`                 | May 20th     | `sha256:316c444f1d398829128f1b1bd6fb4fb4eb968c4015ae3cd51ed49c38965f4eb4` |
+|  `7-dev` `7.2-dev` `latest-dev` `7.2.5-dev` | May 20th     | `sha256:685d34f59fc78ee644056612f440ceecf1000087127847ef3bf1fa86df36a750` |
 |  `7.0-dev` `7.0.15-dev`                     | May 19th     | `sha256:95151d2a107d844d2aea0f708a0ae689899022a9852502cbeb1db97f9512164d` |
 |  `6-dev` `6.2.14-dev` `6.2-dev`             | May 19th     | `sha256:5eafb632ef327e97db9553d7568edb1a93b50a4a729862b238d7a10d464b04bc` |
-|  `7-dev` `7.2-dev` `7.2.4-dev` `latest-dev` | May 19th     | `sha256:d9e92b4545a999d84b37377effb835e7e49040a81f0fdca6346bd7f1316d2e3b` |
-|  `latest` `7` `7.2.4` `7.2`                 | May 17th     | `sha256:64c14828ac769990e0ad0618fa043d6175ddccd6af3e10533c599a71aadbd437` |
+|  `7.2.4-dev`                                | May 19th     | `sha256:d9e92b4545a999d84b37377effb835e7e49040a81f0fdca6346bd7f1316d2e3b` |
 |  `7.0` `7.0.15`                             | May 17th     | `sha256:e9faf7c5edf6b7925b61ac96b7e5d76ee353f8e0dc86365e6d3f87205524c0c7` |
 |  `6.2` `6` `6.2.14`                         | May 17th     | `sha256:4711e51d125824b70a2b12fdc3296279c8da9cae9d49584b3e0cb29b733da5cf` |
+|  `7.2.4`                                    | May 17th     | `sha256:64c14828ac769990e0ad0618fa043d6175ddccd6af3e10533c599a71aadbd437` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-fulcio-createcerts-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,8 +31,10 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                      | Last Changed | Digest                                                                    |
-|----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6.17-dev` `latest-dev` `0-dev` `0.6-dev` | May 19th     | `sha256:594da857972dd6385cb68e0d3cfa8d1b78c49cb10198690ff668e1f0b2b6fd58` |
-|  `0.6` `latest` `0.6.17` `0`                 | May 17th     | `sha256:5a334024bd2a6b73ae79b06d3ae2b7f27c4eebe0ffdfcd2cf0b78fa3ea03ce4f` |
+| Tag (s)                                     | Last Changed | Digest                                                                    |
+|---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0-dev` `0.7.1-dev` `0.7-dev` `latest-dev` | May 20th     | `sha256:1794cc135ae1376258387e9be5c39731d5507a540bd21d16b334619aafc07730` |
+|  `0` `0.7.1` `0.7` `latest`                 | May 20th     | `sha256:f03152aadfc7fc044416fb5e5517b386e06d9476a56f8d6f1bc507f876bb888e` |
+|  `0.6.17-dev` `0.6-dev`                     | May 19th     | `sha256:594da857972dd6385cb68e0d3cfa8d1b78c49cb10198690ff668e1f0b2b6fd58` |
+|  `0.6` `0.6.17`                             | May 17th     | `sha256:5a334024bd2a6b73ae79b06d3ae2b7f27c4eebe0ffdfcd2cf0b78fa3ea03ce4f` |
 

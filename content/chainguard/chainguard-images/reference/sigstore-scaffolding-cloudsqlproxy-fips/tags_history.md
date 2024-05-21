@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-cloudsqlproxy-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,8 +31,10 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                      | Last Changed | Digest                                                                    |
-|----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6-dev` `0.6.17-dev` `0-dev` `latest-dev` | May 19th     | `sha256:968505b765dd26c15b10e3ea2857efeb307d3a3f389936945d6fdd04ab9c722d` |
-|  `0.6` `latest` `0.6.17` `0`                 | May 17th     | `sha256:9aedfa98f183f16a094656579fa47cb6c9c02f99686ce08079cb6f00e593bb58` |
+| Tag (s)                                     | Last Changed | Digest                                                                    |
+|---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0.7.1` `0` `latest` `0.7`                 | May 20th     | `sha256:26818fba7cab2a889852f4ee31504e7e49b93365e3280e41efd935e07e65a0f9` |
+|  `0.7-dev` `latest-dev` `0-dev` `0.7.1-dev` | May 20th     | `sha256:1b7d6b31b8608925e0a815e01d37c58087f765a163af01a0ba239ab32a393c47` |
+|  `0.6-dev` `0.6.17-dev`                     | May 19th     | `sha256:968505b765dd26c15b10e3ea2857efeb307d3a3f389936945d6fdd04ab9c722d` |
+|  `0.6` `0.6.17`                             | May 17th     | `sha256:9aedfa98f183f16a094656579fa47cb6c9c02f99686ce08079cb6f00e593bb58` |
 

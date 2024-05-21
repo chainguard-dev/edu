@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-rekor-createsecret-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,8 +31,10 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                      | Last Changed | Digest                                                                    |
-|----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.6-dev` `0.6.17-dev` `0-dev` | May 19th     | `sha256:c5c2b3112c1440dcfaef6012b5a2c7599645171f2e4bc1d71bfcf0fe53bc3bca` |
-|  `latest` `0.6.17` `0` `0.6`                 | May 17th     | `sha256:7e55a6c18c94fef7b13aa85cc0c0b760d335704d020859c3181450fdbfc38377` |
+| Tag (s)                                     | Last Changed | Digest                                                                    |
+|---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest` `0.7` `0` `0.7.1`                 | May 20th     | `sha256:48dddc82cb85fa7980c3331afaa064982860e44acdfbcbae827cb12966f17e04` |
+|  `0.7-dev` `0-dev` `latest-dev` `0.7.1-dev` | May 20th     | `sha256:8bd3e3b01f65b1b42074cd79d251155ec5b8c55fcc10dbd306ac8647fb64c593` |
+|  `0.6-dev` `0.6.17-dev`                     | May 19th     | `sha256:c5c2b3112c1440dcfaef6012b5a2c7599645171f2e4bc1d71bfcf0fe53bc3bca` |
+|  `0.6.17` `0.6`                             | May 17th     | `sha256:7e55a6c18c94fef7b13aa85cc0c0b760d335704d020859c3181450fdbfc38377` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kafka Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 17th     | `sha256:281d5091ddf0bc18728b9943cd78734e359c8ab9836d4f47e2f1204ce8d40a5f` |
+|  `latest-dev` | May 20th     | `sha256:b5f1b2fb1850ec44658f0c7d0b375691e8cce68e892f5d31f1429dd434deb706` |
 |  `latest`     | May 17th     | `sha256:fd82baabebcca249a553c5a1ba195297b7f17b35ed9c5a0024b07915618ae432` |
 
 

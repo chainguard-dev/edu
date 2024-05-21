@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-webhook Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 17th     | `sha256:1c66ddb487c3985a38f56cd4b3a703667ae9c008bb67b283532dc6ca797689e7` |
+|  `latest-dev` | May 20th     | `sha256:0760edc366159de0d2737f6c2487bc28772c09fadeb5e5e7cf93c5ca49e70da9` |
 |  `latest`     | May 17th     | `sha256:c8424b817667a2e2d85809b8c5906e87c67ae56a93a108ed857d82cc765e2318` |
 
 
@@ -49,6 +49,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.13.5`                                     | April 21st   | `sha256:0b54327940f4b742cbe00807ecbdfd18b7d317dbba2a4d8c5656bd7353aeefaa` |
 |  `1.14.4`                                     | April 21st   | `sha256:387574c67892aa6e72b0b726cdad81192eede7f849b6019e67a4635f3c19dac1` |
 |  `1.12.9`                                     | April 21st   | `sha256:777d552cf9d387bf6edd88ffd805d4e7b923935b6ac7617a10ffbd52978de7e8` |
+|  `1.11.2-dev`                                 | May 20th     | `sha256:a7e56ac9c898c092ce56c6bf71683fcba9bf00710f290b190c1d850a354b64b3` |
+|  `1.11.2`                                     | May 20th     | `sha256:1c774f3b398c818dc2fd704607fa7726f528e06835b4ca275e4b5fb1bc082e84` |
 |  `1.11.1`                                     | May 9th      | `sha256:9c97b74244cb1488683f19c3e639628674575ad2c0e6c6f13aad5e6d86e4a5e4` |
 |  `1.11.1-dev`                                 | May 9th      | `sha256:4c61873c612f9cedffe87f010be17f8514abf790c89c5e0be656d2f5014f4999` |
 

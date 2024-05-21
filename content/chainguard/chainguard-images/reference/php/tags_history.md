@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the php Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,10 +28,10 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)           | Last Changed | Digest                                                                    |
 |-------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev`     | May 17th     | `sha256:7e2d97f9d83bf425dd14854909d3c5b92a6db41e2b4ea87f5712ababe54677ed` |
-|  `latest`         | May 17th     | `sha256:1c4fcb4d8953d8c6d2a85060f98249a73171b367c9c23cd10a960e848550ff49` |
-|  `latest-fpm-dev` | May 17th     | `sha256:c1b16032fcfcf6d2a26a4a5dac80a0eaf4452c5cd1d34033c0445cfd01b1ece6` |
-|  `latest-fpm`     | May 17th     | `sha256:614fab232503936b814639c7f4a56f137a4346ce9fdcf0838322a4a75fc20c96` |
+|  `latest-fpm-dev` | May 20th     | `sha256:5e4830d2a3572e9fd33d9abb9657a5e877896ae7c1607833446e6018c7c518a8` |
+|  `latest-dev`     | May 20th     | `sha256:52cd8d3a0549cdf936e626dfe910ed22fd4f7776e8541d8e0f6cdfe7ecb734fb` |
+|  `latest-fpm`     | May 20th     | `sha256:4d6275888df179a322890842bcd11b933fb60f33be00264fa81d00c79135eaa4` |
+|  `latest`         | May 20th     | `sha256:2c8a8cc786a7bb134bc6f2d54927da20bbdbd6f7c1955effdb19be1ba6b0b24d` |
 
 
 ### Private/Dedicated Registry

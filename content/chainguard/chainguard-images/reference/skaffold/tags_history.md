@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the skaffold Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 17th     | `sha256:d1680e401549effef4efea0053e1ff3268e5244ddbb4176b11079b56209b6e83` |
+|  `latest-dev` | May 20th     | `sha256:041869efc422df927518c0425ee1e8a2f3ba0a51b04099af726c30063ea719b8` |
 |  `latest`     | May 17th     | `sha256:2ac0b49b2a1e55fd8e64bb17cdd7d03b92e134ad341d90ba28fd09acf99fc4b0` |
 
 

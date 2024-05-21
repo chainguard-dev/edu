@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opensearch-dashboards Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 17th     | `sha256:cc2c006f0337f4458c00fc8d9b9181712fd7029136a5c411b907f0716383b704` |
-|  `latest`     | May 17th     | `sha256:eb6a3d7f31e42cf14bac03044b6e0bb161a834ade380cddeb9c1aba4f85ffef8` |
+|  `latest-dev` | May 20th     | `sha256:c168203e9c65f21cb89d5460e5432376a20cac354291d67217ceccba018b7dc4` |
+|  `latest`     | May 20th     | `sha256:51c6c029e99b82bb6d9c8f11dc259fb530690777eef9fb21f6b7a14b4cb20c33` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `2.13` `2.13.0` `2`                 | May 17th     | `sha256:f0fa7b6f4cdfce34ecb9d56a405773ebecfb2ab54caa5a1c42ab7c5f0d406c7a` |
-|  `latest-dev` `2.13-dev` `2-dev` `2.13.0-dev` | May 17th     | `sha256:d0e61e3493bcb15df12bd2eb2bfd866467d680be62e35db7a05b040b7e040c3a` |
+|  `2.13-dev` `2-dev` `latest-dev` `2.13.0-dev` | May 20th     | `sha256:179e67ab2a30c76f941929b6d7bd830e85293b7371bd986115d72740b3ccf6b3` |
+|  `2` `latest` `2.13.0` `2.13`                 | May 20th     | `sha256:3b45fd3ada05cb0f098b2572c69c85b464a9f9c3770342ca72c74a8786baf47f` |
 

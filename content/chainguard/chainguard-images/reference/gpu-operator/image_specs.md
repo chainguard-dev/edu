@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public gpu-operator Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-14 00:46:23
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -48,7 +48,7 @@ The table shows package distribution across variants.
 | `gpu-operator`           | X          | X      |
 | `kubectl-1.30`           | X          | X      |
 | `kubectl-1.30-default`   | X          | X      |
-| `ld-linux`               | X          | X      |
+| `ld-linux`               | X          |        |
 | `libbrotlicommon1`       | X          |        |
 | `libbrotlidec1`          | X          |        |
 | `libcrypt1`              | X          |        |

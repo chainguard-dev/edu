@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the redis-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `7.2.5` `latest` `7.2` `7`                 | May 20th     | `sha256:5cf59b7c56969ba139bee48ffddb2691ee84a7cabe527962a866cb01b3b70dc7` |
+|  `latest-dev` `7-dev` `7.2-dev` `7.2.5-dev` | May 20th     | `sha256:e65aa6c430d9d22a6c5b4ce28b770f0a7b6c1a52fe3c64cadbdc90fe42007f9f` |
 |  `7.0-dev` `7.0.15-dev`                     | May 19th     | `sha256:51e1b866efc153d4ec214ed00c85b1015c532a29cc5976b10f437388e1319014` |
 |  `6.2.14-dev` `6-dev` `6.2-dev`             | May 19th     | `sha256:ebf9cf4ed03432cdb6e2725cdee2ce98aaecc769e2dc943927fd23255c99aa9e` |
-|  `7-dev` `7.2-dev` `latest-dev` `7.2.4-dev` | May 19th     | `sha256:54dd031f91dae3edd3049cb620207a00aff232e5098ade663f3722e339459881` |
+|  `7.2.4-dev`                                | May 19th     | `sha256:54dd031f91dae3edd3049cb620207a00aff232e5098ade663f3722e339459881` |
 |  `6` `6.2.14` `6.2`                         | May 17th     | `sha256:c8ca236dd0c21b3de99eb9d85543e23e697ee2cdd43bec411bace4456ff1871f` |
-|  `7.2.4` `7.2` `latest` `7`                 | May 17th     | `sha256:839d7931ea0a2825f8a06f56fec439b3286ad317a8ef9e506f40b3a305ca7e2a` |
+|  `7.2.4`                                    | May 17th     | `sha256:839d7931ea0a2825f8a06f56fec439b3286ad317a8ef9e506f40b3a305ca7e2a` |
 |  `7.0.15` `7.0`                             | May 17th     | `sha256:50c89844a6ca5c318f3b3e8cc7bb01cb8ed6a4b8d517438e9da0ec975caca796` |
 
