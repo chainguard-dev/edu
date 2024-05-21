@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nginx Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 20th     | `sha256:a43c733aa66a216836c5aba42dc42a94e0b1c89985292ae0e946a02abfaea9fc` |
 |  `latest`     | May 17th     | `sha256:76a280e5e5da0e07ada2f12a25c27fa7a188bed0fd2f8f991069e043d2c40b48` |
-|  `latest-dev` | May 17th     | `sha256:f08aacefc4e319526c91df986317123b4d8e26b1d769dd5dae4107510fadf452` |
 
 
 ### Private/Dedicated Registry

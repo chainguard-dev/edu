@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the calico-cni Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | May 17th     | `sha256:510a3d1aced65f9bf8e4c067eb8a52813461399525e87ad5238a94b7ea7b4536` |
+|  `latest` | May 20th     | `sha256:849f9595aa974bf4ea550c7c5911db16dc89bc8d6a4636fef4609ebaf4640227` |
 
 
 ### Private/Dedicated Registry
@@ -36,8 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                          | Last Changed | Digest                                                                    |
 |----------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.28-dev` `v3-dev` `3-dev` `v3.28.0-dev` `latest-dev` `3.28.0-dev` `v3.28-dev` | May 19th     | `sha256:d1c1e3e927a480a1c19357e20af80489929b090f737dcb788f78f0ddcab40ad0` |
-|  `latest` `3.28.0` `v3.28` `3.28` `3` `v3.28.0` `v3`                             | May 17th     | `sha256:e76c34fa5562199ad5409f45a83403618dd75d473a3b374b578c6c2752fdb700` |
+|  `v3.28.0-dev` `v3.28-dev` `3-dev` `3.28-dev` `v3-dev` `latest-dev` `3.28.0-dev` | May 20th     | `sha256:d14e8e95f64871df92941a3298c83ec7ddfc8ba2422d2c8a12b49dd1b2124546` |
+|  `latest` `v3` `3.28` `v3.28` `v3.28.0` `3` `3.28.0`                             | May 20th     | `sha256:6d065e9075406cf067043cca31fe1523a8e052f1acd2bb59ab6129f48c014a5e` |
 |  `v3.27.3-dev` `3.27.3-dev` `3.27-dev` `v3.27-dev`                               | May 10th     | `sha256:f26c892b018e78cc6e180f079bbd88a5c1af451a4bf573d4ae8a0420cf9f8d8e` |
 |  `v3.27` `3.27` `3.27.3` `v3.27.3`                                               | May 10th     | `sha256:14f08ce1515e2ba35c7ca595d424b9884a64f574fcb0a7c54b412ae7824d0326` |
 

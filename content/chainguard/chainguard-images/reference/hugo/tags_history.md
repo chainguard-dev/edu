@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the hugo Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 17th     | `sha256:dfb15920fa23cb3f667696b625fee51ff5567653e49b51ea0786fb46eaefac68` |
+|  `latest-dev` | May 20th     | `sha256:9eea35f3ceb513ffa3ab5e6623242fa2bff236013573ec49aeea0bf71f197b32` |
 |  `latest`     | May 17th     | `sha256:638d7e63e069484d34c0298a9349db5556b7440d498d61196a95b5a48ffa2e2b` |
 
 
@@ -51,5 +51,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `0.125.4`                                      | May 1st      | `sha256:a6749015824391b4a39f79f3f447feb38afd7f875f9a5db80d25bbdc3d0ca438` |
 |  `0.125.3`                                      | April 24th   | `sha256:f9d0a796fbd74d9f502c74e4b52b4e410bc092e0aff76e976eddc0e4e34d7fee` |
 |  `0.125.3-dev`                                  | April 24th   | `sha256:d8e4e682996d1490af2ad9db02257a082d327d9448d14a9e909517062dc13c3b` |
-|  `0.125.1-dev`                                  | April 20th   | `sha256:ee087b45d01e1070b7addfc95aeb59bd18ca0f652eaaf2b28735b3ba38ca9f7d` |
 

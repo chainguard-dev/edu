@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crossplane Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 17th     | `sha256:1f96521ec983f4c7f7b1d5027818d420313ce16617ecb9da66c1f5d4ab3490c1` |
+|  `latest-dev` | May 20th     | `sha256:4b2a8143bb29b4069138dbe4fc73588459044d59e365c06865a51fc78064efbb` |
 |  `latest`     | May 17th     | `sha256:caf20e350416f74669f97b6ac6a54c91b993aec780be15468503b317bae3cb55` |
 
 

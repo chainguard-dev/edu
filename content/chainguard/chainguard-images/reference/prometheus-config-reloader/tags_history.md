@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-config-reloader Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 20th     | `sha256:0a86aec0382c85d253757b9b4602464586cf68b091dee7bc57ff5b43b068a3ac` |
 |  `latest`     | May 17th     | `sha256:c1d6f3192bf47a2682a05dc8693ea56fd1a81d843cc8d8582bc1d0d962467d78` |
-|  `latest-dev` | May 17th     | `sha256:6581182244d2fbcf224c12115c745c533453f8893e7102041fe8d00aeaf0e95b` |
 
 
 ### Private/Dedicated Registry

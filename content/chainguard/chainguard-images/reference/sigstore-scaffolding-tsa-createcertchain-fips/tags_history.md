@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-tsa-createcertchain-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,8 +31,10 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                      | Last Changed | Digest                                                                    |
-|----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.6-dev` `0.6.17-dev` `latest-dev` | May 19th     | `sha256:b3927e99eaec1321997f5bd9b0cc44df275236df2f874b1cf5f6efcf2b1986cb` |
-|  `0.6.17` `0` `0.6` `latest`                 | May 17th     | `sha256:ca1dc427c6db05ecfb4c4c6409c43ee3e3fe06ab1cfe5bac6d9fae6a0bf1f8e9` |
+| Tag (s)                                     | Last Changed | Digest                                                                    |
+|---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0-dev` `0.7-dev` `latest-dev` `0.7.1-dev` | May 20th     | `sha256:b36265eeaaab47f9374a8be16854b17e3b7eb53d4c017d7f3881c4580a94a4e2` |
+|  `0.7.1` `0` `latest` `0.7`                 | May 20th     | `sha256:df704b2b3475374c4843239d84ac693e303a5dc73bab9aa474305d0ecabd5a16` |
+|  `0.6-dev` `0.6.17-dev`                     | May 19th     | `sha256:b3927e99eaec1321997f5bd9b0cc44df275236df2f874b1cf5f6efcf2b1986cb` |
+|  `0.6.17` `0.6`                             | May 17th     | `sha256:ca1dc427c6db05ecfb4c4c6409c43ee3e3fe06ab1cfe5bac6d9fae6a0bf1f8e9` |
 

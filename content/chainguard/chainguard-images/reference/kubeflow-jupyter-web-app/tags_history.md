@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-jupyter-web-app Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 20th     | `sha256:b665782ef03faf9e494d8e26bc66dd1110238b7f9dfc7a3aaeb29e54c5c47d75` |
 |  `latest`     | May 17th     | `sha256:8edb22e7d0f1f4ba257d94efbe49266219ef9d34ec8fdf62c794916f53efc8e6` |
-|  `latest-dev` | May 17th     | `sha256:aa3601af2db0bd6861b3505500e558d624852665acb1163a3691106bdb786e5a` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.8.0-dev` `latest-dev` `1.8-dev` | May 17th     | `sha256:d41b733ab52f8fd7653d42e0c83af18c253035aec0370f044a18ebc8c7d82372` |
+|  `1.8.0-dev` `1.8-dev` `1-dev` `latest-dev` | May 20th     | `sha256:db3fbbae9b60abb193b8ef7befa911458127b5f3ade5624c8e54d0d6750b7a3d` |
 |  `1` `1.8.0` `1.8` `latest`                 | May 17th     | `sha256:bd6cb67f43ecf17841e2c8bdb4141899ce5739f33545688e2a3329d88e60194e` |
 

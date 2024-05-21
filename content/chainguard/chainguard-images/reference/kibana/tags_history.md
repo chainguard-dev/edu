@@ -3,8 +3,8 @@ title: "kibana Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the kibana Chainguard Image"
-date: 2024-05-20 00:48:18
-lastmod: 2024-05-20 00:48:18
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 20th     | `sha256:4f02c2ca8947fbb200d5359aeca5f414dfbce7a4bb3530aa61f3aa0a0cb71498` |
 |  `latest`     | May 17th     | `sha256:fcc33a7d954a2c81edc82912aed3d6274de3c72c30490e232f1ec897de5e9b9e` |
-|  `latest-dev` | May 17th     | `sha256:beb2ce9dcfffca1e28cd0b8f3a8adb7ac839318e1a0a583f5b9c565f4d54b9ba` |
 
 
 ### Private/Dedicated Registry

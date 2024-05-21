@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vector Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 17th     | `sha256:aeddb83867a25f7f29238678799fcb580afa584821eea848bd4f17933c41984b` |
+|  `latest-dev` | May 20th     | `sha256:a3e76ec22a9fd7bc2b700fec690c69a470d6dbdae4fc591f2ad84248e2507578` |
 |  `latest`     | May 17th     | `sha256:ec090dd16271a2719681b8bb2bd6d57577e8eb899e504ebb60e3cc1151b6f307` |
 
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gpu-feature-discovery Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 17th     | `sha256:7a2f84494e671dcdfbe5508e2d79d230706569f64ee9538ec63244cd667c3b21` |
+|  `latest-dev` | May 20th     | `sha256:b6c184f2cdf07ee6b07ff41de7fe1da4dc9dc9391ce056d5ddd582b2dbaeb0bb` |
 |  `latest`     | May 17th     | `sha256:588a635d6356a7a239f41c0a6917ee2b083845f8bb4ef7f973386282ec515bec` |
 
 

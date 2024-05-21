@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-state-metrics Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 17th     | `sha256:489458ac21bff6b0e61fdd4a24e039b62ebd8574eb9588f73405bb22c0666c80` |
+|  `latest-dev` | May 20th     | `sha256:0579740208404bd2349504335b5dbaeb09b1bb58234cb7fbdd999f39c05a5c04` |
 |  `latest`     | May 17th     | `sha256:b56374d3f66102ddffb0b63f7dab9e2e0e4916e98eed062b7b455eb2ab223d7f` |
 
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-trillian-createdb-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,8 +31,10 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                      | Last Changed | Digest                                                                    |
-|----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.6-dev` `0.6.17-dev` | May 19th     | `sha256:82d667c85b75e3b07ef01bc227102e1643512b83d4764cc484ff4a408f6faab3` |
-|  `0.6` `0.6.17` `0` `latest`                 | May 17th     | `sha256:26c85a54bbb2fe352bbfe70268953aa963681d055d4944ec8b90b7074fd84e2d` |
+| Tag (s)                                     | Last Changed | Digest                                                                    |
+|---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` `0.7.1-dev` `0.7-dev` `0-dev` | May 20th     | `sha256:eec06c7ec24185321d9e102468682e2ae50433a29763c128ff49f619fc902650` |
+|  `0.7` `latest` `0.7.1` `0`                 | May 20th     | `sha256:9f46d0525d76d23c49eb1909ce35d906d8569645dd09a37c3fd3972bbb8fb151` |
+|  `0.6-dev` `0.6.17-dev`                     | May 19th     | `sha256:82d667c85b75e3b07ef01bc227102e1643512b83d4764cc484ff4a408f6faab3` |
+|  `0.6` `0.6.17`                             | May 17th     | `sha256:26c85a54bbb2fe352bbfe70268953aa963681d055d4944ec8b90b7074fd84e2d` |
 

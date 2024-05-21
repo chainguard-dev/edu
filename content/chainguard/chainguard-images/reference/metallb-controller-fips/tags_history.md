@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the metallb-controller-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,5 +35,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
 |  `0.14-dev` `0.14.5-dev` `latest-dev` `0-dev` | May 19th     | `sha256:9e5306375dc8ebfe7ad66559c871d87c8d48ed36c487cd5b25c47c5111456435` |
 |  `0.14` `latest` `0.14.5` `0`                 | May 17th     | `sha256:3904a157bcc72e6316f0cff1f0c89a212c98bbc2c0aad1539414f0deaeb746aa` |
-|  `0.14.4-dev`                                 | April 20th   | `sha256:3dda86d63db195cdc567b113f9bf5fd542d84b81401f0e4996fbb76f9187137a` |
 

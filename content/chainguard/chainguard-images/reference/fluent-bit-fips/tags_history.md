@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the fluent-bit-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.0.3-dev` `3-dev` `latest-dev` `3.0-dev` | May 19th     | `sha256:3d9ae5ea6aaa7f927c15697febb41f9b630e58601515e357406fb2523b9baf93` |
-|  `2-dev` `2.2.2-dev` `2.2-dev`              | May 19th     | `sha256:e64d631b18546c06e40f74c7d5b57f86b600a9600a3eaf7391ecffe8d7234b14` |
-|  `2.2.2` `2.2` `2`                          | May 17th     | `sha256:45de76bdcdbaeff906f663ecfb8d98376211be9c553a0f4419d02cd83b593048` |
-|  `latest` `3.0` `3.0.3` `3`                 | May 17th     | `sha256:f24c91aae3e206e6432f4eaa77455f0a2c7280010be5d80f2c2b841ac96f7dd2` |
+|  `2.2-dev` `2.2.2-dev` `2-dev`              | May 20th     | `sha256:172ce0a41619f858fc01f13535ac36cb0e337edbbeba30a6927a015790742c81` |
+|  `2.2` `2.2.2` `2`                          | May 20th     | `sha256:7f20b56a97269cbae1c10e7c40b48e99a14633e5452db68da4ed9ba3a988de4d` |
+|  `3.0` `latest` `3` `3.0.3`                 | May 20th     | `sha256:18643f1097e5a710540882d0d3fb51f1fd7976219ec98aa103cf35a27f975e94` |
+|  `3.0.3-dev` `latest-dev` `3.0-dev` `3-dev` | May 20th     | `sha256:6e0406d98b64dbdea707eac869f9e042e889c8ab06b27222a88d14e33e7dc373` |
 |  `3.0.2`                                    | April 26th   | `sha256:abbd254f19ecc288fdf991de749baf5d9c3fac54ba4d72dabde7c86cd1c2d4d4` |
 |  `3.0.2-dev`                                | April 26th   | `sha256:cc0fcfafc1665ac7963acb4bf80d766e7c6ae959533204454514988ce8275272` |
 

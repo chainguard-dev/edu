@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-persistenceagent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 20th     | `sha256:d69d439ea70282c09b9c1355c2f875c9db35f3b19eb5d59b0e2c3a5eedbb5752` |
 |  `latest`     | May 17th     | `sha256:8312590e3baebf676b47b696c429c4a9b4f42ab5664ec4d7f233d7d54928413c` |
-|  `latest-dev` | May 17th     | `sha256:1581c913db7d3be9a5ffc45ed6ac5e8900043205b1e289be55a09d557d8beddd` |
 
 
 ### Private/Dedicated Registry

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-attacher Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 17th     | `sha256:b6314251fe7e6d52d23eeb1709290e554e4c87b634b7f4f96fd1f073a89c7a06` |
+|  `latest-dev` | May 20th     | `sha256:26f3294239ad61c47f6c401e8c0546d23e533f28bef0f367df801464f80fd95b` |
 |  `latest`     | May 17th     | `sha256:52378d6d47e6b25d2d399daf2288e7ac0ce128dbbb6dd990960d6b219f314d09` |
 
 

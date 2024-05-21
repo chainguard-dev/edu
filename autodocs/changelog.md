@@ -1,3 +1,10 @@
+# 2024-05-21
+New images added:
+
+- calico-apiserver
+
+A total of **539** documents were updated.
+
 # 2024-05-20
 New images added:
 

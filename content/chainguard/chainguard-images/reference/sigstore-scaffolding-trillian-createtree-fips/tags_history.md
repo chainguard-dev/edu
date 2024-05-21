@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-trillian-createtree-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,8 +31,10 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                      | Last Changed | Digest                                                                    |
-|----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.6-dev` `0.6.17-dev` `0-dev` | May 19th     | `sha256:2dede3764070b2d6feac7be589cac8a3043e72e3b3111124933b642d4e0cfd2a` |
-|  `0.6.17` `0` `0.6` `latest`                 | May 17th     | `sha256:5f6a122d389a327916fe004f54ad5be6c57d5f09c637ad0e07b15ebd125939e8` |
+| Tag (s)                                     | Last Changed | Digest                                                                    |
+|---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0.7` `0` `latest` `0.7.1`                 | May 20th     | `sha256:e75ab2dcf44160c6860eba7f095fef54cdedba3b43f3b601eeb0cfc01b69c32b` |
+|  `0-dev` `0.7.1-dev` `latest-dev` `0.7-dev` | May 20th     | `sha256:21133ff59d993e87ff66a893eecfeb8d6cb4000a534633ad77ecc4feea55d752` |
+|  `0.6-dev` `0.6.17-dev`                     | May 19th     | `sha256:2dede3764070b2d6feac7be589cac8a3043e72e3b3111124933b642d4e0cfd2a` |
+|  `0.6.17` `0.6`                             | May 17th     | `sha256:5f6a122d389a327916fe004f54ad5be6c57d5f09c637ad0e07b15ebd125939e8` |
 

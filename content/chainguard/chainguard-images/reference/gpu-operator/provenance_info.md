@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for gpu-operator Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for gpu-operator Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                           |
-|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                                   |
-| `cgr.dev/chainguard-private` | 23, 23-dev, 23.6, 23.6-dev, 23.6.1, 23.6.1-dev, 23.9, 23.9-dev, 23.9.0, 23.9.0-dev, 23.9.1, 23.9.1-dev, 23.9.2, 23.9.2-dev, latest, latest-dev |
+| Registry                     | Tags                                                                                                                                                                                           |
+|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                                                                                   |
+| `cgr.dev/chainguard-private` | 23, 23-dev, 23.6, 23.6-dev, 23.6.1, 23.6.1-dev, 23.9, 23.9-dev, 23.9.0, 23.9.0-dev, 23.9.1, 23.9.1-dev, 23.9.2, 23.9.2-dev, 24, 24-dev, 24.3, 24.3-dev, 24.3.0, 24.3.0-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

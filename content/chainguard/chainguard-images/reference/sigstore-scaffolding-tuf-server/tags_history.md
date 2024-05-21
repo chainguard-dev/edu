@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-tuf-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 19th     | `sha256:306abcca70ceefe65d642b89288a99482e329f4c570312cdbf044f1df28d007d` |
+|  `latest-dev` | May 20th     | `sha256:d237400436adc4f397add13ecf795bc933d2409abc0acae983372c5f673b75f7` |
 |  `latest`     | May 19th     | `sha256:c7b66e97153e89cc7598081a2b35f2f9d0e1c4592401ea9e9f3a4dc2a464bf59` |
 
 

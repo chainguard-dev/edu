@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the maven Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,12 +28,12 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)                        | Last Changed | Digest                                                                    |
 |--------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` `openjdk-21-dev` | May 20th     | `sha256:d79bc68e13bd21aa12c10bef971b11a316afb77b1212c93680611acb6846d781` |
+|  `openjdk-11-dev`              | May 20th     | `sha256:f8015fe94d281afbeeb0c39a414f8d3ee3a59faf8c4d5ee02097d779ce808081` |
+|  `openjdk-17-dev`              | May 20th     | `sha256:dc4e40fffb23ecde896826dddfe9a8a64eb388dda8480ac6e5dc5b68b1f4e508` |
 |  `latest` `openjdk-21`         | May 17th     | `sha256:af751a0107840326abb34e693580365aa31421f77fcea40bf903bb541a16c3d5` |
-|  `latest-dev` `openjdk-21-dev` | May 17th     | `sha256:819d7deca501c99aec1cedb92e2c014dc198d796ea56d6a956bde024ed438cd7` |
 |  `openjdk-11`                  | May 17th     | `sha256:9dc74655b718a3f85f22c1af34e283366ca4003be37f89e301b94c2e06e6afe1` |
 |  `openjdk-17`                  | May 17th     | `sha256:fdf8e7a163276f6071b5863eaae0fe90f5fc0ebd327bb17617176c7db6e5de5e` |
-|  `openjdk-17-dev`              | May 17th     | `sha256:4379c9c62d85b0a5d9f3f7bb6f7a357ef8eaf22c97143ea0cc359453ad6602ca` |
-|  `openjdk-11-dev`              | May 17th     | `sha256:c6628f4a49e994fee07e7e93433aee70f198d35d60babd899df00ae9a0678358` |
 
 
 ### Private/Dedicated Registry

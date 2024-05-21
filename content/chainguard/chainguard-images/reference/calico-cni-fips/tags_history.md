@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the calico-cni-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                          | Last Changed | Digest                                                                    |
 |----------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3-dev` `3.27.3-dev` `3.27-dev` `v3.27-dev` `latest-dev` `v3.27.3-dev` `v3-dev` | May 19th     | `sha256:0a1db087e08110de8f857e1e1cbafc6a44ae205fc5a384968c35ad1ad2860deb` |
-|  `v3.27.3` `3` `v3.27` `latest` `3.27` `v3` `3.27.3`                             | May 17th     | `sha256:04dbda3f573ed20dff695a61509b1f7cfec5327940713635efcc68cc6d40cde9` |
-|  `3.27.2` `v3.27.2`                                                              | April 20th   | `sha256:f51389b8b4484a530a40d7b6f80d97966802d906c26b5e554308fc83808a9b02` |
-|  `3.27.2-dev` `v3.27.2-dev`                                                      | April 20th   | `sha256:587cf76a7544314dcdb8ca21267c1a2ebfa64f04539bcf123b58837770b3f096` |
+|  `v3` `3` `v3.28` `v3.28.0` `latest` `3.28.0` `3.28`                             | May 20th     | `sha256:4a858ac6e231332e2334925f4c5ee7e899d64e6ab1f2008f8a3defc5f8453a4e` |
+|  `3.28-dev` `3.28.0-dev` `v3.28.0-dev` `v3-dev` `v3.28-dev` `3-dev` `latest-dev` | May 20th     | `sha256:f2d5af3b6d8d569aff8ac48f2f46c20033a2edd3f60b972e76458fa36ed11680` |
+|  `3.27.3-dev` `3.27-dev` `v3.27-dev` `v3.27.3-dev`                               | May 19th     | `sha256:0a1db087e08110de8f857e1e1cbafc6a44ae205fc5a384968c35ad1ad2860deb` |
+|  `v3.27.3` `v3.27` `3.27` `3.27.3`                                               | May 17th     | `sha256:04dbda3f573ed20dff695a61509b1f7cfec5327940713635efcc68cc6d40cde9` |
 

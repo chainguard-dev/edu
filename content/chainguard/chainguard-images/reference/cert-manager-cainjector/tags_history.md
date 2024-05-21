@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-cainjector Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 17th     | `sha256:70aec3c122d9ab36a694c7595c2695bb354994da2e95bc4ac5a20019e79321d7` |
+|  `latest-dev` | May 20th     | `sha256:d0b7768b3dd536f6c7128f5e2ba3ff8f8e4791512136ea27f5ac113bc6f46b28` |
 |  `latest`     | May 17th     | `sha256:16fc15a20dc7197714681a61e074fceb2d93e38e26bdc4c6229b30f68ab10f7f` |
 
 
@@ -49,6 +49,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.14.4-dev`                                 | April 21st   | `sha256:44583bc88facd15c55629707167174dd5149bd4bf6a1216ce0212de8af06ebca` |
 |  `1.13.5`                                     | April 21st   | `sha256:4ec5584e6321c03428326a24d70626f20af7adefc1bc995ed769c38225dc5488` |
 |  `1.12.9`                                     | April 21st   | `sha256:b172b6367f7041017ac274f430b9f120ce1dd68b3df2dfafabd2ef3e36e6d5de` |
+|  `1.11.2-dev`                                 | May 20th     | `sha256:1d402bdf57c94a070edfcffaee3dcc947206c295b86505b6426428c7ef733570` |
+|  `1.11.2`                                     | May 20th     | `sha256:77b3005ea44dd918e0cf211f820b8a53679f1e5cf1f178b160a51941f4851174` |
 |  `1.11.1`                                     | May 9th      | `sha256:f4ed200b8bfa50224fffa0354e3686d5f2fc17c4f51d966eb43d10faef081fe6` |
 |  `1.11.1-dev`                                 | May 9th      | `sha256:944e5e36cb6d3819ba9b8e2a7ffa3be5a9677e21de92c22529186bdf7c90ef0a` |
 

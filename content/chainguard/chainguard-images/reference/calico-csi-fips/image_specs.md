@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public calico-csi-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ This page shows detailed information about the Chainguard **calico-csi-fips** Im
 | CMD          | not specified                          | not specified                          |
 | Workdir      | not specified                          | not specified                          |
 | Has apk?     | yes                                    | no                                     |
-| Has a shell? | yes                                    | no                                     |
+| Has a shell? | yes                                    | yes                                    |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/calico-csi-fips/tags_history/) for the full list of available tags.
 
@@ -38,7 +38,7 @@ The table shows package distribution across variants.
 |                               | latest-dev | latest |
 |-------------------------------|------------|--------|
 | `apk-tools`                   | X          |        |
-| `bash`                        | X          |        |
+| `bash`                        | X          | X      |
 | `busybox`                     | X          |        |
 | `ca-certificates-bundle`      | X          | X      |
 | `calico-fips-pod2daemon`      | X          | X      |
@@ -60,8 +60,8 @@ The table shows package distribution across variants.
 | `libssl3`                     | X          | X      |
 | `libunistring`                | X          |        |
 | `libxcrypt`                   | X          |        |
-| `ncurses`                     | X          |        |
-| `ncurses-terminfo-base`       | X          |        |
+| `ncurses`                     | X          | X      |
+| `ncurses-terminfo-base`       | X          | X      |
 | `openssl-config-fipshardened` | X          | X      |
 | `openssl-provider-fips`       | X          | X      |
 | `wget`                        | X          |        |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the management-api-for-apache-cassandra Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 17th     | `sha256:e7663214cd9f1145456ec05d9b66acfcd0e675d8534bfc2d9141b54cbf06002b` |
-|  `latest`     | May 17th     | `sha256:143edbaf8446def271a79beb2d32b7346b2f327916ed038ecba2e54ea2aea7d6` |
+|  `latest`     | May 20th     | `sha256:998529ee92b4739162f01c68e253ee991242f107e33c8cda68b51e87447b9c24` |
+|  `latest-dev` | May 20th     | `sha256:9b5c3a89dee553c5ea40b4238a466c97f6ed143d7d68bcd958f72a8bbf4bb62c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `0.1` `0.1.74` `latest`                 | May 19th     | `sha256:c69b1f748217e4b376ae6427fab45492fe04e9fd81cc516446430b5e0570d367` |
-|  `0.1.74-dev` `0-dev` `latest-dev` `0.1-dev` | May 19th     | `sha256:7ce98e04b9039275794951ce0755896ef0f77cd28c5bdf5dad59877ed1b6e765` |
+|  `0.1.74` `0` `0.1` `latest`                 | May 20th     | `sha256:e1c0d993c3d284bac3f1c2eeba99f804552f2fcaabda9e11c9d59d9d53d02435` |
+|  `0.1.74-dev` `0-dev` `latest-dev` `0.1-dev` | May 20th     | `sha256:0fe61f88ad7cd680c24b7d041bf34c7b8fced0b9c068f4d1db1188d94d795f7b` |
 

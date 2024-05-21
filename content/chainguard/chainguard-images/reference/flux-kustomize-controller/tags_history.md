@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-kustomize-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 17th     | `sha256:21154e35ddbc0d23d2c92e2d1d50c0bed474b089216f35dc5c1061aded9c2d2e` |
-|  `latest`     | May 17th     | `sha256:92e52531847f217855a6e80d0f781d569fd6ce0e6de5fb14561eaf31d00cfe2a` |
+|  `latest-dev` | May 20th     | `sha256:3767fee229a0cff6c29e7baf1d0c627ccaacab78cddef6f9d29ff98959dcf67f` |
+|  `latest`     | May 20th     | `sha256:d5db1b0f1e3333910bc866fe486f7913a6e9445a85d094f54631307908f8a824` |
 
 
 ### Private/Dedicated Registry

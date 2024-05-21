@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the istio-pilot-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -39,7 +39,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.21.2` `1` `latest` `1.21`                 | May 17th     | `sha256:372a67c7b9223cbb35ca5a9d3c85401065bf463f3c0599ff79ffd7c907d5132d` |
 |  `1.19-dev` `1.19.10-dev`                     | May 2nd      | `sha256:41f73b66598c08ca0e84d10f3089c0363f7a8152a50b74b3b03a60c61e17fbfe` |
 |  `1.19.10` `1.19`                             | May 2nd      | `sha256:b5eb35e5b7fd0ff94793f3e9d7c5259c744fa1f9fa002f1b3601d670588dbb74` |
-|  `1.19.9-dev`                                 | April 20th   | `sha256:23299468ec7b10557d2969a867dad025adb1752c2d44471b54e7d96b3cb0e047` |
-|  `1.21.1-dev`                                 | April 20th   | `sha256:05191a907548d5de96903817235462228acc25a3984f165cc654b7f966f5c07e` |
-|  `1.20.5-dev`                                 | April 20th   | `sha256:2bebc1cb435bec31f2d823af4ad1eb535c55c7a180c3bb190c5d011980329518` |
 

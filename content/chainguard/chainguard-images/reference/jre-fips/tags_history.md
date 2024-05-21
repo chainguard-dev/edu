@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jre-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -39,5 +39,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `openjdk-11.0` `openjdk-11.0.23` `openjdk-11`             | May 17th     | `sha256:c9b47d3c2b810f63df377290d3460cd093e376109f3d1247d2631cc531c42a6f` |
 |  `openjdk-17.0.10`                                         | April 24th   | `sha256:884d731376572380ed3d384355b3d9f8f9ba1c55136df402ce8d0529555d7d96` |
 |  `openjdk-17.0.10-dev`                                     | April 24th   | `sha256:e3a9dd5e10f05eaea3161e5524709260a2d9eb41771b5a26aa9f76831b9dd47f` |
-|  `openjdk-11.0.22-dev`                                     | April 20th   | `sha256:198cc153cc9bad2c0e563d9dbd0bd563470d7777a5dcc05cabbc46531fab1582` |
 
