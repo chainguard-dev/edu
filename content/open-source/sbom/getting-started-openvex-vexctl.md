@@ -5,7 +5,7 @@ description: "Using vexctl to manage vulnerability communications"
 lead: "A guide to SBOM quality"
 type: "article"
 date: 2023-01-30T15:21:01+02:00
-lastmod: 2023-01-30T15:21:01+02:00
+lastmod: 2024-05-21T15:21:01+02:00
 draft: false
 tags: ["SBOM", "VEX", "Procedural"]
 images: []
@@ -124,19 +124,26 @@ The first document is `document1.vex.json`:
 
 ```json
 {
-    "id": "my-vexdoc",
-	"format": "text/vex+json",
-	"author": "John Doe",
-	"role": "vex issuer",	
-	"statements": [
+  "@context": "https://openvex.dev/ns/v0.2.0",
+  "@id": "https://openvex.dev/docs/public/vex-0f3be8817faafa24e4bfb3d17eaf619efb1fe54923b9c42c57b156a936b91431",
+  "author": "John Doe",
+  "role": "Senior Trusted VEX Issuer",
+  "version": 1,
+  "statements": [
+    {
+      "vulnerability": {
+        "name": "CVE-1234-5678"
+      },
+      "products": [
         {
-            "timestamp": "2022-12-22T16:36:43-05:00",
-            "products": ["pkg:apk/wolfi/bash@1.0.0"],
-            "vulnerability": "CVE-1234-5678",
-            "status": "under_investigation",
-            "status_notes": ""
+          "@id": "pkg:apk/wolfi/bash@1.0.0"
         }
-    ]
+      ],
+      "status": "under_investigation",
+      "timestamp": "2023-12-05T05:04:34.77929922Z"
+    }
+  ],
+  "timestamp": "2023-12-05T05:04:34.77929844Z"
 }
 ```
 
@@ -144,18 +151,26 @@ The second document is `document2.vex.json`:
 
 ```json
 {
-    "id": "my-vexdoc",
-	"format": "text/vex+json",
-	"author": "John Doe",
-	"role": "vex issuer",	
-    "statements": [
+  "@context": "https://openvex.dev/ns/v0.2.0",
+  "@id": "https://openvex.dev/docs/public/vex-3cd938c9a706eba0915883640116cfe813f7d59150cf758b8c869b4926a7cf11",
+  "author": "John Doe",
+  "role": "Senior Trusted VEX Issuer",
+  "version": 1,
+  "statements": [
+    {
+      "vulnerability": {
+        "name": "CVE-1234-5678"
+      },
+      "products": [
         {
-            "timestamp": "2022-12-22T20:56:05-05:00",
-            "products": ["pkg:apk/wolfi/bash@1.0.0"],
-            "vulnerability": "CVE-1234-5678",
-            "status": "fixed"
+          "@id": "pkg:apk/wolfi/bash@1.0.0"
         }
-    ]
+      ],
+      "status": "fixed",
+      "timestamp": "2023-12-05T05:06:38.099731287Z"
+    }
+  ],
+  "timestamp": "2023-12-05T05:06:38.099730576Z"
 }
 ```
 
