@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the boring-registry Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 20th     | `sha256:497ebe358e1c0a47d534e2c323c80ec6552746c25a9999b0c4412cd60ebee28f` |
 |  `latest`     | May 17th     | `sha256:fb43fdc0f8bb4947d46ef1900e1e737720c979791cae4334560d79b719d97596` |
-|  `latest-dev` | May 17th     | `sha256:a42078b4a93f2ef1799545e327298c2b16109cd0570e41c6c184bbde25d12811` |
 
 
 ### Private/Dedicated Registry

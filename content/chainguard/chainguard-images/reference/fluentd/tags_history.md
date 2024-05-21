@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the fluentd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)              | Last Changed | Digest                                                                    |
 |----------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-splunk-dev` | May 17th     | `sha256:e272196e3262a2c033107fd560338d8ee0b89c02833ad1c86abb4ca209615bb7` |
-|  `latest-dev`        | May 17th     | `sha256:77b70978c22318473910bdd115bfc846159930c8536ea6c0bd7878f3ca72f7a7` |
+|  `latest-splunk-dev` | May 20th     | `sha256:46cd3580a22b9e76e51f6324357076c9cd1aa07bbeb7b3be7857a123a9a2745b` |
+|  `latest-dev`        | May 20th     | `sha256:3d11546bc0d32eeb5028c9a4274008e145c6d706e8d494c740cb493bf231724f` |
 |  `latest`            | May 17th     | `sha256:f38b1e332a42b5759554e94bb800ba9db8b3c14631f89486c26bcb395798c771` |
 |  `latest-splunk`     | May 17th     | `sha256:4ee6efb2258c6bc30bb49b0665d34ec5335300818792f59f35ee2b9169c6b23e` |
 

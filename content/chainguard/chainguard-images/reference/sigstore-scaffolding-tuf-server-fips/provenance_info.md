@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for sigstore-scaffolding-tuf-server-fips Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for sigstore-scaffolding-tuf-server-fips Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                                                                                     |
-|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                                                                                                             |
-| `cgr.dev/chainguard-private` | 0, 0-dev, 0.6, 0.6-dev, 0.6.10, 0.6.10-dev, 0.6.12, 0.6.12-dev, 0.6.13, 0.6.13-dev, 0.6.14, 0.6.14-dev, 0.6.16, 0.6.16-dev, 0.6.17, 0.6.17-dev, 0.6.7, 0.6.7-dev, 0.6.8, 0.6.8-dev, 0.6.9, 0.6.9-dev, latest, latest-dev |
+| Registry                     | Tags                                                                                                                                                                                                                                                     |
+|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                                                                                                                                             |
+| `cgr.dev/chainguard-private` | 0, 0-dev, 0.6, 0.6-dev, 0.6.10, 0.6.10-dev, 0.6.12, 0.6.12-dev, 0.6.13, 0.6.13-dev, 0.6.14, 0.6.14-dev, 0.6.16, 0.6.16-dev, 0.6.17, 0.6.17-dev, 0.6.7, 0.6.7-dev, 0.6.8, 0.6.8-dev, 0.6.9, 0.6.9-dev, 0.7, 0.7-dev, 0.7.1, 0.7.1-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

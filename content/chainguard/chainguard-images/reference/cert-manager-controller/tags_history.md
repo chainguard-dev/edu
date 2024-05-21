@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 17th     | `sha256:8d68e52f53ab1da0d2eb77e03eb1f191d591637a5760c26bd04129bab89fca96` |
+|  `latest-dev` | May 20th     | `sha256:ee098e9a1ab4381a3072da98a269e3de73494c29d60defdf9233f9cce8f9ce19` |
 |  `latest`     | May 17th     | `sha256:75b383cdb62ec234e9133afeeeea7147e989ae9676a0e58257d9994bb52de8db` |
 
 
@@ -49,6 +49,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.14.4-dev`                                 | April 21st   | `sha256:c46c170c746e3cc0832c24b922266c9e609f4b451fe79994307f4d25800b6297` |
 |  `1.14.4`                                     | April 21st   | `sha256:f97bc21b88679ce6f2cb1adce98f226019baff343b72b3b87ca5e56655265b5b` |
 |  `1.13.5`                                     | April 21st   | `sha256:92a0c3bd1eb117d75e032ba390ecde6086d92af22e54a92f8689d8c738a5b52e` |
+|  `1.11.2-dev`                                 | May 20th     | `sha256:6c5fa008b3c3dbeac07fd62fb0705ee27db341824c2fe8c5eb91b3605215c0f6` |
+|  `1.11.2`                                     | May 20th     | `sha256:900ee2ec9d95e0345931d2866a2bbed6a3ab439a744acf361ae299a2aa26ec9b` |
 |  `1.11.1-dev`                                 | May 9th      | `sha256:8b62b8ca65654d5b9f161e4e9e483b1ef0a27530fb0fbe338b682359976a135e` |
 |  `1.11.1`                                     | May 9th      | `sha256:e7a2b6b481c12f73617a3cbb6626fc82e5088e2977703dc9a5685c7626a308fe` |
 

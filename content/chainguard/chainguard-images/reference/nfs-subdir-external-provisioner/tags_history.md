@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nfs-subdir-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 17th     | `sha256:a74b8e73a0d38e646352db679faef7ec3b1772143b702d75d7825340b2ae1bc3` |
-|  `latest`     | May 17th     | `sha256:2d532edffea41f889c94badba319763b8431469d30c81e68aaf9b0ddb445490d` |
+|  `latest-dev` | May 20th     | `sha256:cdcd772a2e80c8d7a085b0eeb509ccdd6c4d204bcee849400097f45b7b686780` |
+|  `latest`     | May 20th     | `sha256:b05d5ce8fd9446a4d231b2042e236c6c138cb2122a6a07868c4750b104ae53fb` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4-dev` `latest-dev` `4.0-dev` `4.0.18-dev` | May 19th     | `sha256:24622e228522672e384d3efec84729418f975527ce821af89bed4cbbd878df55` |
-|  `4.0.18` `4.0` `4` `latest`                 | May 17th     | `sha256:2d5068d40f9cc94421ac52db9ac629a9f29589baf14ac27430f5b1db11bd7535` |
+|  `4.0.18` `4.0` `latest` `4`                 | May 20th     | `sha256:9cb2de98424caa0659611422b55bea0cec0c3daaa557f69cc97da5811f34e968` |
+|  `4.0.18-dev` `4-dev` `latest-dev` `4.0-dev` | May 20th     | `sha256:dae59ec6a95a12e7a0273555aeaf3874c2d79f31614e1a8f512a8f046d3434d9` |
 

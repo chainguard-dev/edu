@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nvidia-container-toolkit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 17th     | `sha256:34d5fdc772c92cd2265f9e88bfd096eab1b848d4337b92037987326bb5f6f11a` |
-|  `latest`     | May 17th     | `sha256:3d7bd181a5e067393ad19be1088dfd18ddea664c6340fc34cbbdde768567fa88` |
+|  `latest`     | May 20th     | `sha256:f4232279e25dc128364eaddef08e6ad3cd2d0ebaf175a64ac2326edf123e41ea` |
+|  `latest-dev` | May 20th     | `sha256:372613092dbbbed6db934b6e7a3dc8d1f363d71dce9416639ea6f1855c95e810` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.15.0-dev` `latest-dev` `1.15-dev` | May 19th     | `sha256:d355ae6974bb5e68125a5c31387354e6b576a4951d45b1a809dc645483399c80` |
-|  `1.15.0` `latest` `1` `1.15`                 | May 17th     | `sha256:973fb3302e845905eab6a215e14b3c4853dcaf48b5111255e0289919e40fd9e5` |
+|  `1.15.0-dev` `1.15-dev` `latest-dev` `1-dev` | May 20th     | `sha256:227a1bb0ed30d10f568b082aa7b9d70ddd68c2e955aefa245aa88fbcbfd2a166` |
+|  `latest` `1.15.0` `1` `1.15`                 | May 20th     | `sha256:1405212e8a001be7f2fc2b576970c3d116dce1c0ba852058102cab845f1b3ede` |
 

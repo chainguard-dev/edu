@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-ctlog-managectroots-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,8 +31,10 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                      | Last Changed | Digest                                                                    |
-|----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.6.17-dev` `latest-dev` `0.6-dev` | May 19th     | `sha256:afde30e8976e26a8a6afea2d998305f54f2cd90acd39cc2b1778adcaaf545268` |
-|  `0.6` `0` `latest` `0.6.17`                 | May 17th     | `sha256:db00ce37e215d5d9c91764cf0d1bce58ff4cde17306936f1c2e0ae9b8b2c50de` |
+| Tag (s)                                     | Last Changed | Digest                                                                    |
+|---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest` `0` `0.7.1` `0.7`                 | May 20th     | `sha256:9663f026cbc1744bdd916fe3d2d47980358b42d6426ac3a9afa02e6c52b18ad3` |
+|  `0.7-dev` `0-dev` `latest-dev` `0.7.1-dev` | May 20th     | `sha256:88875b359b36966f12666caf6d705a52a6b34c725b8ca5ad7dbf584ea78722e3` |
+|  `0.6.17-dev` `0.6-dev`                     | May 19th     | `sha256:afde30e8976e26a8a6afea2d998305f54f2cd90acd39cc2b1778adcaaf545268` |
+|  `0.6` `0.6.17`                             | May 17th     | `sha256:db00ce37e215d5d9c91764cf0d1bce58ff4cde17306936f1c2e0ae9b8b2c50de` |
 

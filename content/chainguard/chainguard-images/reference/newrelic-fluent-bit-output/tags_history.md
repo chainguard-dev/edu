@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-fluent-bit-output Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 17th     | `sha256:71678de5a182b4cf515211e6993d79e0d738d5aa1cc004ac5db180a161e95d14` |
-|  `latest`     | May 17th     | `sha256:21d628607352411084677ea2d5615d5f55c54d4ad03f4514191ad3b33939b8ba` |
+|  `latest-dev` | May 20th     | `sha256:566f2109e73002f6cedf342120b3a459e7526d641c45deb2c509b1535043267d` |
+|  `latest`     | May 20th     | `sha256:7517c61b6afe30809af442f1a32572a2a3d43897a2a6383a5a20dd19561dce5b` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.19-dev` `latest-dev` `1.19.2-dev` `1-dev` | May 19th     | `sha256:fe72fba7b7bbc532ec36a24d3eed6e104283548f428bbe881506b9bca221fd25` |
-|  `1.19` `1.19.2` `1` `latest`                 | May 17th     | `sha256:221d69298df9dbde5df65f2424937d7fe8e0a480023ffb94f1dfd4941c30d04f` |
+|  `latest-dev` `1.19.2-dev` `1.19-dev` `1-dev` | May 20th     | `sha256:3ddb403f58842a264aaf1e502caa23ebff6357b41620f7c6162afd70c323479f` |
+|  `1.19.2` `1.19` `latest` `1`                 | May 20th     | `sha256:4935bfee1605a30360bf81a3549fdcf9148287c0eff6355d858d850d207c94f8` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k3s Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-21 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 20th     | `sha256:99f7b9eee714287cf080c2b8e6b6edf1648e2f4360a38a4aff447b227ee9bc8f` |
 |  `latest`     | May 17th     | `sha256:43276dcfa00a08e50eebbfb8a7d2882e1236aa622f9f39c3c87bac46420cfb2d` |
-|  `latest-dev` | May 17th     | `sha256:c0d456beff91842eb68a8deec5d548d02473464b7e3bcffe4da117957d16874e` |
 
 
 ### Private/Dedicated Registry
