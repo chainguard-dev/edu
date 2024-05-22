@@ -2,12 +2,12 @@
 title: "Debugging Distroless Images with Kubectl Debug and CDebug"
 linktitle: "Debugging with Kubectl and CDebug"
 lead: ""
-description: "This video explains how to use the Kubectl and CDebug tools to investigate
+description: "This video explains how to use the Kubectl and cdebug tools to investigate
 failing containers. It focuses on how to debug distroless images with no shell
 where traditional 'exec' commands don't work."
 type: "article"
 date: 2024-05-21T15:21:01+00:00
-lastmod: 2024-05-21T15:21:01+00:00
+lastmod: 2024-05-22T15:21:01+00:00
 draft: false
 images: []
 menu:
@@ -22,7 +22,7 @@ toc: true
 ## Tools used in this video
 
 * [kubectl](https://kubernetes.io/docs/reference/kubectl/)
-* [CDebug](https://github.com/iximiuz/cdebug)
+* [cdebug](https://github.com/iximiuz/cdebug)
 
 ## Transcript
 
@@ -126,7 +126,7 @@ And what we want is we want our debug container to also run as the same user.
 
 So how can we do that?
 
-So in this case we've used alpine image but we can change to use different image.
+So in this case we've used alpine image but we can change to use a different image.
 
 So I could also create a dockerfile and with a USER statement it changes the user.
 
@@ -194,7 +194,7 @@ So I can look at the file but in this case I can't edit it.
 
 But still a pretty good result all I had to do is pass the `--user` flag.
 
-Okay so that was both cdebug and `kubectl debug` which are both great utilities for debugging distro containers.
+Okay so that was both cdebug and `kubectl debug` which are both great utilities for debugging distroless containers.
 
 Please do try them out and let me know how you get on.
 
