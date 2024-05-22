@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the karpenter-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.36-dev` `0-dev` `0.36.2-dev` | May 19th     | `sha256:17a54f73cdafc124bb00fce4d7b05af47167808461663d8eb092688c1a3ba97c` |
-|  `0.35-dev` `0.35.5-dev`                      | May 19th     | `sha256:aa47305b88b3b8618008a0284dd11eb74312ad21d5a0fca5a6dddbf28547ea39` |
-|  `0` `latest` `0.36` `0.36.2`                 | May 19th     | `sha256:c87ae9c573ac3967a4db816b2db8785ac0884f7324766b56c27d05c2942fe513` |
-|  `0.35.5` `0.35`                              | May 18th     | `sha256:27a68a7dd335385c307a22a060594b1ae258d22db6f72d3b6ac3daa979c65a7d` |
+|  `0.35.5` `0.35`                              | May 21st     | `sha256:c603b16b09aa83b5bbe2b3fdcfb3209dbcefb006464c8bf448c5f9afab0ac785` |
+|  `0-dev` `latest-dev` `0.36.2-dev` `0.36-dev` | May 21st     | `sha256:1edd20f2e23492e8ea0c295d8798fc01e35f0b1875567e18d4ce99c2fcfbe48b` |
+|  `latest` `0` `0.36.2` `0.36`                 | May 21st     | `sha256:e75df89a87a4e44dce1de83b3bc9079365255cac865bfde778074772486f51b0` |
+|  `0.35.5-dev` `0.35-dev`                      | May 21st     | `sha256:3cd1bc9a095c003f22508a2ac46dfaac8417a8b447ae77615e7074489118b2d0` |
 |  `0.36.1-dev`                                 | May 17th     | `sha256:bbc108e1b4113cea1508a181f33451c8570f91e72ce346326aed799e69adfb3a` |
 |  `0.35.4`                                     | May 17th     | `sha256:3158d4aa90deaf32594bb5c542ba712479206d1f4af3fd7e1997fa04d7ca82e9` |
 |  `0.35.4-dev`                                 | May 17th     | `sha256:f4e4c92249e8a62915e9ad72515cab5d55003f7537932571a011820b95a9edb5` |

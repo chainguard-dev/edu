@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mysqld-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:301ff38f1e0d20a2509e609415bb8414ec0f2ffb9557cb59bc329c54add9c7be` |
-|  `latest`     | May 17th     | `sha256:98bfa839f1f4522bd59e7991b0fc920d89e9174f38ced70ed18810e95f5814e0` |
+|  `latest-dev` | May 21st     | `sha256:eee48e767414b076ae6926be016df4c15038e4d32e967e7363eeacd26110ab27` |
+|  `latest`     | May 21st     | `sha256:d6b4746a373b5e1e934ad894534d7146307b8242140837efa3d8eb687da95cbe` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.15-dev` `0.15.1-dev` | May 19th     | `sha256:b752ab34c18222b0aa9fb0f3d42e44807054ef7ee5bbd88242409e35508048fc` |
-|  `0.15.1` `0.15` `0` `latest`                 | May 17th     | `sha256:388ec1b153781f14f85ea764a2521da9047e043d458d1e13115eea77ec4ef30e` |
+|  `latest-dev` `0.15-dev` `0-dev` `0.15.1-dev` | May 21st     | `sha256:fa5e12b1ed742dd0181363ca217cafa58174a56f49190847ce27d9e9246ab1bf` |
+|  `0.15.1` `0` `latest` `0.15`                 | May 21st     | `sha256:0038d07cda9da594fe6c58bd460e58a89c89c01896f8d49f6b8c85893f01bbf8` |
 

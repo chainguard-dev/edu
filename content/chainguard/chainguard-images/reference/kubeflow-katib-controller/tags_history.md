@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:641c233f95ddbe4beddfc3ff55607906a7d46a6a739d201fdf16e877747d4f2e` |
-|  `latest`     | May 17th     | `sha256:0cb08b4c1ab89bda4077c44fee0ebc65d57fdafe7dda48759b8adaa0e8a6fc57` |
+|  `latest-dev` | May 21st     | `sha256:c2f59c278642b68b3f1704d46517a592dbbc85febf488e2daab93b564a7f79af` |
+|  `latest`     | May 21st     | `sha256:8599e506d35399c4dd83d477bc478513c089f7616e436c4a5777bdd4f9d2d59a` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.16.0-dev` `0.16-dev` | May 19th     | `sha256:964cd3f99cde075cb8da6bd3aa46e44feacb4f31dec629c4b893fcf0ebae4ea1` |
-|  `0.16.0` `latest` `0` `0.16`                 | May 17th     | `sha256:95f0de9c7fd1264db0be59e391c5e903f8d066336f08734a8bc3bb629d27f5db` |
+|  `0.16.0-dev` `latest-dev` `0.16-dev` `0-dev` | May 21st     | `sha256:5b81f8033b8d53b308ee645fc5030c75462b5bf801632fb8054ec82f8c621d7c` |
+|  `0.16.0` `0.16` `0` `latest`                 | May 21st     | `sha256:aa5ecfe0a26ff8d947ad442e82fe98054d864d520aa6406228e41c186f27b4f8` |
 

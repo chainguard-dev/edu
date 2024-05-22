@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crossplane-aws-iam Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                     | Last Changed | Digest                                                                    |
 |-----------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.4` `1` `latest` `1.4.0` | May 17th     | `sha256:f2e1fe16ccca74ba559ddc057e2347337ea5b62c948e1db8095b9145c1b5239a` |
+|  `1.4` `1` `latest` `1.4.0` | May 22nd     | `sha256:94fe799d8805892ff3c20739f83fde16a7c251b4ad1f85abf5538deb6ec81abf` |
 |  `1.3.1` `1.3`              | April 23rd   | `sha256:b46fccb6d38e58b41f3ffc0c86006b40b76708ad658f1e9d700703a323d98810` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jitsucom-syncctl Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:892ab8c8899f24811ad2898f4e6c99417f3eb9b40cc3c57bfd7fa574aac8d826` |
-|  `latest`     | May 17th     | `sha256:d743d56e88bc8d5443d9cb54f17c04c6616e7af6ad56576a63b405ad866df96c` |
+|  `latest-dev` | May 21st     | `sha256:c1b17ca7423dc2afe82ce8d2e8e04c4870cf485ceb2da4a58628be1d485ea95f` |
+|  `latest`     | May 21st     | `sha256:adec36b90e976f173f6eab7bb2b2a05f5083bf4f71bf0431694a54ddf5f6e8c0` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.6-dev` `2.6.0-dev` `latest-dev` `2-dev` | May 20th     | `sha256:9c394bd01a36676cd7f5359ebf40445b14ca87a357f2e6c1f3a1beeb49dcaded` |
-|  `2.6` `2` `latest` `2.6.0`                 | May 17th     | `sha256:3061ffb594dfc05098451df1ec930e5ac33c0b69fb07817577273ac1553376b7` |
+|  `2` `latest` `2.6` `2.6.0`                 | May 21st     | `sha256:852bccbb3eb2df89df163ad58ae0076d9bf9a23cf19aed0a5b872c6252241aa6` |
+|  `2.6-dev` `2.6.0-dev` `latest-dev` `2-dev` | May 21st     | `sha256:185fcf17ded05bfb8680ffceda57850d75921cf4db0d33ea077f4cf0ce16f721` |
 

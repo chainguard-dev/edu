@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rabbitmq-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `3-dev` `3.13.2-dev` `3.13-dev` | May 19th     | `sha256:5e7ddecec82e0a9043105a8c09532cb4ec9922f64241d691e121658761e78ad7` |
-|  `3.13.2` `latest` `3.13` `3`                 | May 17th     | `sha256:f355cdc427618bd9e6844c14ed95319f14fb4845a2cb3813de7d1aa7c4ad842a` |
+|  `3.13.2-dev` `latest-dev` `3-dev` `3.13-dev` | May 21st     | `sha256:68f2fee4f0992326014a56608d19c0217bf84352e0f2732d1a2ec9bd8bd2300d` |
+|  `3.13` `3` `3.13.2` `latest`                 | May 21st     | `sha256:5443363bcef8bb308105d301beec44f0b180089ca3a3b0ff8222d18ef93afd75` |
 |  `3.13.1-dev`                                 | April 30th   | `sha256:8d95882a41b14a0c8b71c29ea4f130a77706960ab531a5a66a87ae888a0effa0` |
 |  `3.13.1`                                     | April 30th   | `sha256:dddceccc84ce4568e72f039bfd71819c0927a13fc43268230468f30ab883aa0b` |
-|  `3.12.13` `3.12`                             | April 21st   | `sha256:36a22928aac31c07e9614ba2761edeaea3af4bf34a887c2b4e42dc3ed50e9716` |
-|  `3.12-dev` `3.12.13-dev`                     | April 21st   | `sha256:a5bcdfbd3107e93023387b76ea43dbda4f7eb3e55dcd0edbba2a500ec96857bd` |
 

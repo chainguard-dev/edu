@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the wazero Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:7b251d682b12ba91d79376c42e501e662e8295d9b3a71308536ed41cdd4d2571` |
-|  `latest`     | May 17th     | `sha256:644aa2f80e084b3ccfa07282ef01252425da28c7f117c7a3220e8466c7d452fc` |
+|  `latest`     | May 21st     | `sha256:17d548a9ccc39c5fdea42b0cbd14dd2e57a19018201bf7230b67be244830d852` |
+|  `latest-dev` | May 21st     | `sha256:c9cd934b1872bf1ca3c2e46446659e6f1c8fb05cbaea4c906072d7634dfb4176` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.7-dev` `1-dev` `latest-dev` `1.7.2-dev` | May 19th     | `sha256:8030f1102be33252922385febaa81e1cc64ee793d4e82097cce9509bd2b8162d` |
-|  `1.7` `1` `latest` `1.7.2`                 | May 17th     | `sha256:0d8c4a10714e163085d8493ef83b0e5c087fc37df77ae86c8e329a0afadfdbbb` |
+|  `1` `latest` `1.7.2` `1.7`                 | May 21st     | `sha256:2c6f25b727ffb135db37a6d3d44c479921d00b6f02275fa9cf78bd382277e249` |
+|  `latest-dev` `1.7-dev` `1-dev` `1.7.2-dev` | May 21st     | `sha256:baf3277232f1ba79e82c52d19076694d48d5d3a6394e05756bfd44f5aab3955d` |
 |  `1.7.1-dev`                                | May 8th      | `sha256:ef3d5afc152ec35d30a95380e03eb0612675081c5e1146200d5a4ed9010b89e6` |
 |  `1.7.1`                                    | May 8th      | `sha256:f24499e05fe5f466f1c3760f9e24101c083042c9a91af401022ba6d200398022` |
 

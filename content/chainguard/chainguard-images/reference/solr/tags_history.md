@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the solr Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `9-dev` `9.6.0-dev` `9.6-dev` `latest-dev` | May 19th     | `sha256:a68b5f4a7dbb1a45e8ed6acbc32bd956cd3c046276da27a0c5a6f02323218832` |
-|  `9` `latest` `9.6.0` `9.6`                 | May 17th     | `sha256:991ba1f41620e209f086d56be3c9a0581925f30bdddf5acdec05a0b2ebe4e985` |
-|  `9.5-dev` `9.5.0-dev`                      | April 21st   | `sha256:c7436186749be66ec467c4fba2ebbe4193914432446ca7487a2f07a86509d264` |
-|  `9.5` `9.5.0`                              | April 21st   | `sha256:62b39c928f7821496c394ce7cd0272485da54d9c6bb37db3c66fa2048772cee0` |
+|  `9` `9.6.0` `latest` `9.6`                 | May 21st     | `sha256:1656bb7c473be7eda88e3e85c559c98ec48aa5900e96dd822074abb242d7e34e` |
+|  `9.6.0-dev` `9-dev` `latest-dev` `9.6-dev` | May 21st     | `sha256:c7832d2e0f583824bb4e79a02aa42fe1c24e7d4fdf50d82513433af64180e3df` |
 

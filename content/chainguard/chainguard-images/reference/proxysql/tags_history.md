@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the proxysql Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 20th     | `sha256:81b30afbc2e84b8a61139143194080e123cdbb6435db92fc6883dda560b823ce` |
-|  `latest-dev` | May 20th     | `sha256:14f33f79c6ed6c18b443a50475b6f2c2992a7c68746e53203db472848b027dad` |
+|  `latest-dev` | May 21st     | `sha256:d32cf652de78baf24dfac8c561d45b92c23eae8e8c1fb389ad2e05f8e677bcf3` |
+|  `latest`     | May 21st     | `sha256:3ec9a68e52818ddcb1fdaff257e155231563d90ff98ab1d45c22323aee38cb15` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.6.3` `2` `2.6` `latest`                 | May 20th     | `sha256:4308f67a3f7c34c4b372d7c63273ba0d33b9c24e639fe8ac62922266b20794b7` |
-|  `2-dev` `latest-dev` `2.6-dev` `2.6.3-dev` | May 20th     | `sha256:206f1c5f8d9d3cbd1f9576043bbf5d6888228c2d831fcfc7f8d4f365dfa4988d` |
+|  `2` `2.6.3` `2.6` `latest`                 | May 21st     | `sha256:889098e0828e0949c6861f50d6d50e1fb3436eff44d8cf565344c87d38c70b7b` |
+|  `2.6.3-dev` `2-dev` `2.6-dev` `latest-dev` | May 21st     | `sha256:fcf8d562033c4683f0b125f43da5148d9d2510d422ab5a5249b26ee4fe56dbf3` |
 |  `2.6.2-dev`                                | May 19th     | `sha256:548096417f60bcad3301c9a740d7ab278a3f39f57856a0e691dffb60277dab71` |
 |  `2.6.2`                                    | May 17th     | `sha256:374f1b2d90e39170772cfc8346a177bd31273fb9386353bdb208c31cba008d63` |
 

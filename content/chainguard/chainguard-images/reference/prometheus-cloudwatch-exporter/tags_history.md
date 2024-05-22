@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-cloudwatch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:90dbdab67d429ee90fb836f1957393deaf262e25f2085332799910c80a596d7b` |
-|  `latest`     | May 17th     | `sha256:b8a578f8a9e2822235d2ca1be27d667ebd6163cd71bb8d667efe51d2e1e1d53b` |
+|  `latest`     | May 21st     | `sha256:a4e44fd8bb0358f1682f0a042f1e941e53e73e15b44a39225cdd44706b279016` |
+|  `latest-dev` | May 21st     | `sha256:4cd8dab651014b3c04261ca79852f547a123576d930c8f8b1f3094ae5e90660c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.15.5-dev` `latest-dev` `0.15-dev` | May 19th     | `sha256:e417dc99b204cb2ff3e0cec924b90d8f09fa6eb3c19bf90214e668b706b1cc1a` |
-|  `latest` `0.15.5` `0` `0.15`                 | May 17th     | `sha256:8381d259419e5cb5f5ed134098015e055986e91d3c494b1af77ab1523c4862bc` |
+|  `0.15.5` `latest` `0.15` `0`                 | May 21st     | `sha256:8b4f1b9b37bc540e3a4b178da675ffb34580054f0912b4a4198194778fc09573` |
+|  `0.15.5-dev` `0-dev` `latest-dev` `0.15-dev` | May 21st     | `sha256:8cd567e0dbeb822f148e45a175ce4231c5ba3aac8cddc3370a1b30c6cc514e65` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-earlystopping-medianstop Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:a8633e9376f0b381b49f419ba2478f015b9e06acf7ce86a94d1365ac0d9be0c7` |
-|  `latest`     | May 17th     | `sha256:9826ba64b7abb4e64d42b46dd47894e70652f97c60e78d7a0b39318a73e0a589` |
+|  `latest-dev` | May 21st     | `sha256:b8b7536194475a3b1adbfcf0b68a76d98658793cbb903b09e134df2f1deedf7c` |
+|  `latest`     | May 21st     | `sha256:8f3e030b1e059cb8606321f8fd11c04fa02b194aca78b87f256108fadf6f3191` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.16.0-dev` `0.16-dev` | May 19th     | `sha256:5149e8e2f67a15350c5b04c1129c5bcca3e289a42ff534da639e0d4c14b931c5` |
-|  `0.16` `latest` `0.16.0` `0`                 | May 17th     | `sha256:3896339aee72882cb00bb0fcacb2142f0ab9dee0feb33c704e3caf220b765018` |
+|  `0.16.0` `0` `0.16` `latest`                 | May 21st     | `sha256:4908015597e36da7849e132f3ac7bcd2e737d63a9ecb0ff579c9e02896b48ee1` |
+|  `latest-dev` `0.16.0-dev` `0-dev` `0.16-dev` | May 21st     | `sha256:856c450de6b8469dcf1735c71668eae08194e7c18f416116619ac364d4a1a588` |
 

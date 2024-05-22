@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the istio-install-cni-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.21-dev` `1-dev` `latest-dev` `1.21.2-dev` | May 19th     | `sha256:d405bb735e4efe1961a06f53a7656c0fd8d2d9dbd77167212054af1e3666213a` |
-|  `1.20-dev` `1.20.6-dev`                      | May 19th     | `sha256:eee69451db8ff0154f340cf7d194563b08a1d12f707d54de5bed605aea13a8f3` |
-|  `1.21.2` `latest` `1.21` `1`                 | May 17th     | `sha256:fff70acdf41c6af599d31c6685e7a0d485ab3864d4ab2244f3a4f6107c97ed64` |
-|  `1.20` `1.20.6`                              | May 17th     | `sha256:743182b651afcd091840da76767d631f0e2f07eed9e65d0a72ac2bcfb73f92d3` |
+|  `1.21-dev` `1.21.2-dev` `latest-dev` `1-dev` | May 21st     | `sha256:3bb2f3fa5e98ecb0a2971658ffad8c8278841f0edb14dbfb83b33e11b77e9a37` |
+|  `1.20.6` `1.20`                              | May 21st     | `sha256:866a5cc75cddb930ef8617768b5083fefa93095571278497c8e345c8074b076c` |
+|  `1.21.2` `latest` `1` `1.21`                 | May 21st     | `sha256:e832a54ba0c3015ce333c9836378550cbecdc6a6b11cfdbca87bf7dcd5419919` |
+|  `1.20.6-dev` `1.20-dev`                      | May 21st     | `sha256:3c6ca1d33e4881e6bb74e0480252e378245cbc81059d649a76a1ab23bc062084` |
 |  `1.19.10` `1.19`                             | May 2nd      | `sha256:3ccadf088cb791fa476d085080ef3d893ab5c91159ec2985e4aa6206b8a52fb2` |
 |  `1.19.10-dev` `1.19-dev`                     | May 2nd      | `sha256:ed6c6dd4a75c326ef85bb40cf2cf273c7525a3c6a1da157d238f2cb197209161` |
 

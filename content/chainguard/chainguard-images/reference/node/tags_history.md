@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,9 +28,9 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)                  | Last Changed | Digest                                                                    |
 |--------------------------|--------------|---------------------------------------------------------------------------|
-|  `next-dev` `latest-dev` | May 20th     | `sha256:2672e46b0e542369abbba46154233c3609e0343df2a840d5fad4116da2ae8397` |
-|  `next`                  | May 20th     | `sha256:0eeb80c65ce41bd0c6b98fcd8a21c26b61a946b3ced8b9e3344dc91a8266ee73` |
-|  `latest`                | May 20th     | `sha256:02b7b0b97af3a3cc8d3c6316d6003620343637517f3099db6beb1a1671a4a9a7` |
+|  `latest-dev` `next-dev` | May 21st     | `sha256:bfb3d7d5bf3c6cba13c957ed31fa57669fe6d4e20104ac1bdf40e6ca335cb858` |
+|  `next`                  | May 21st     | `sha256:911313940c00bf663640312a621ba51f680bccc989cae8dd7026934733762248` |
+|  `latest`                | May 21st     | `sha256:65217f5e41f2113b45dc2b12b917b71bffd4f6bde001b1bb0f433782a0063d73` |
 
 
 ### Private/Dedicated Registry
@@ -38,15 +38,17 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                   | Last Changed | Digest                                                                    |
 |-----------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `next-dev` `22-dev` `latest-dev` `22.2.0-dev` `22.2-dev` | May 19th     | `sha256:592d105e0d1b6555c0a421204615258c3d700e5a71cb7c2ace198799645274bf` |
-|  `20.13.1` `20.13` `20`                                   | May 19th     | `sha256:acdb307190236be5e645dee3e4a1eff2673078bc78642c6cf6f770aa2d6b5ec0` |
-|  `next`                                                   | May 19th     | `sha256:f29b6a8d570d1d5e84b17a1786ba116b2a4371d931e48e6aeb9ed2889d878a55` |
-|  `18.20` `18.20.2` `18`                                   | May 19th     | `sha256:40733764fe090c9bcd1e943818bdd975d5ee17e7a4d579f320c7a363ae8f6f74` |
-|  `21.7.3` `21.7` `21`                                     | May 19th     | `sha256:188ebc8c4ec9074cf19f54ef50d8e5834acefd0e92609e28ed6afa9aeef0d4ce` |
-|  `22.2.0` `latest` `22` `22.2`                            | May 19th     | `sha256:43d34fab124067545907403717ed17d998b90b575e1ba200adbdc8be1e6e1cd7` |
-|  `20.13-dev` `20.13.1-dev` `20-dev`                       | May 19th     | `sha256:00096498fcb9dd258e7bb55ca3c743ef2db2eb353cb8096bf1c1e3ca437c5ce0` |
-|  `18.20-dev` `18.20.2-dev` `18-dev`                       | May 19th     | `sha256:da6f70486bb6dbca23f0e3a322dfd052e57c8a8ecf44e6778b13029f3eaa7066` |
-|  `21-dev` `21.7-dev` `21.7.3-dev`                         | May 19th     | `sha256:e30d03edfc7914eadff19cc2a914127727b409c36919aa824b60e37ee4d22edd` |
+|  `20-dev` `20.13-dev` `20.13.1-dev`                       | May 21st     | `sha256:dcb2efc17cb1017daefddd6400ac33939283fb606d32cbe20bd8b9b59a969b0d` |
+|  `22.2` `latest` `22.2.0` `22`                            | May 21st     | `sha256:fa6641cd98385d3480287603d597174126bf39434c00a4f052ffb4da00771469` |
+|  `21-dev` `21.7.3-dev` `21.7-dev`                         | May 21st     | `sha256:8ae9dac656f12023aa8a57858b3e3363e10bbfaecb5b3e2152fb76c1c7bee77b` |
+|  `20.13.1` `20.13` `20`                                   | May 21st     | `sha256:ca9461bd676f90047bb97bf69ea17523ae60b5575faa964ded0fbe96241e0c99` |
+|  `18-dev` `18.20-dev` `18.20.3-dev`                       | May 21st     | `sha256:a2af3024d464e592d6895dcda1203c3329211553609ba46f45d5ac0f513bec48` |
+|  `22.2-dev` `latest-dev` `22.2.0-dev` `next-dev` `22-dev` | May 21st     | `sha256:16036ffdd7c87e5e44f97926442fe4265232a107cc86d5fc56d70ed0b5017a9c` |
+|  `21` `21.7` `21.7.3`                                     | May 21st     | `sha256:d2934ff192022b5b1e45d441dd8d63b3b6471785564abaa8628f98692f2201df` |
+|  `18.20.3` `18` `18.20`                                   | May 21st     | `sha256:4b94683dc965e76ce2afe1bc16c946d05c95403aa632f79d976644ae1db54684` |
+|  `next`                                                   | May 21st     | `sha256:8602b5df058dd6dc4775741d29e0de4e767d6312ba40fe2f458599397a6a873b` |
+|  `18.20.2`                                                | May 19th     | `sha256:40733764fe090c9bcd1e943818bdd975d5ee17e7a4d579f320c7a363ae8f6f74` |
+|  `18.20.2-dev`                                            | May 19th     | `sha256:da6f70486bb6dbca23f0e3a322dfd052e57c8a8ecf44e6778b13029f3eaa7066` |
 |  `22.1-dev` `22.1.0-dev`                                  | May 15th     | `sha256:7f1549a91f56d8d8d27b871f7ae5f693157ac7be75bfd941d1dff48f84104600` |
 |  `22.1.0` `22.1`                                          | May 15th     | `sha256:3587f6a3b187af7a03c09c41bd21a7f7fc75c5f07108299d3aec281c6ffbae76` |
 |  `20.13.0-dev`                                            | May 8th      | `sha256:62ca60aa7ac471aa4aea21a8ebc3a9a69f652fbc5ab1f22dfe423fb4c4e53e9a` |

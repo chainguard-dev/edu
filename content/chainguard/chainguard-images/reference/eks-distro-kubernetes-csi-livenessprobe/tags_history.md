@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-livenessprobe Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,16 +33,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.11-eks-1-23-33-dev` `2.11.0-dev` `2.11.0-r5-eks-1-23-33-dev` `2-eks-1-23-33-dev` `2.11-dev` `2.11.0-eks-1-23-33-dev`                      | May 19th     | `sha256:bb411521b8ca21d8e686bee30071511184be7089ad24c2cee26306a841f1ec66` |
-|  `2.12.0-dev` `2.12.0-r6-eks-1-25-33-dev` `latest-dev` `2-dev` `2.12-eks-1-25-33-dev` `2.12.0-eks-1-25-33-dev` `2.12-dev` `2-eks-1-25-33-dev` | May 19th     | `sha256:aa56eef202a0b8f5ab49c2f6c8efa59c8f86abb2314e13a03afce7f93fd25c4b` |
-|  `2.12.0-r6-eks-1-25-33` `2.12.0-eks-1-25-33` `2.12` `2` `2-eks-1-25-33` `2.12.0` `latest` `2.12-eks-1-25-33`                                 | May 17th     | `sha256:448979e6861cde06fca6cc91bf5b4ea7af2232b95f61f037d09010bd0475dcbd` |
-|  `2.11.0-r5-eks-1-23-33` `2.11` `2.11.0` `2.11.0-eks-1-23-33` `2.11-eks-1-23-33` `2-eks-1-23-33`                                              | May 17th     | `sha256:7ef9fb509a1966562213438546be4003224ec4b8204472209567041b687c5190` |
+|  `2.11.0-eks-1-23-33` `2-eks-1-23-33` `2.11-eks-1-23-33` `2.11.0-r5-eks-1-23-33` `2.11.0` `2.11`                                              | May 21st     | `sha256:04c4bab5d99737afe99eb4fe2446817bbdb2ec998bbde228473bae7c54ad6314` |
+|  `2.12.0-eks-1-25-33` `2.12` `2.12.0` `2-eks-1-25-33` `2.12-eks-1-25-33` `2` `2.12.0-r6-eks-1-25-33` `latest`                                 | May 21st     | `sha256:01193bcd92f7f3a966a03fc17aa90ef9b076fe98ac16d2c0e1152ea8b1031626` |
+|  `2-dev` `2.12.0-eks-1-25-33-dev` `2.12.0-dev` `2.12-eks-1-25-33-dev` `2.12-dev` `latest-dev` `2-eks-1-25-33-dev` `2.12.0-r6-eks-1-25-33-dev` | May 21st     | `sha256:a6fa9db2fd56c16ea42f621eadb1e0d62c2c3833717234c01f7fddfa3f8f5fa3` |
+|  `2.11-dev` `2.11.0-eks-1-23-33-dev` `2.11.0-r5-eks-1-23-33-dev` `2.11-eks-1-23-33-dev` `2-eks-1-23-33-dev` `2.11.0-dev`                      | May 21st     | `sha256:55db5d72bb4cfe3751e84d6edc0a249b7d174de732f5f59797ee7a61f91e83e9` |
 |  `2.12.0-r5-eks-1-25-33-dev`                                                                                                                  | May 2nd      | `sha256:cbc166b6275cc36873ae59e5c2de0593955798354564e7585bb8f4d547842a96` |
 |  `2.12.0-r5-eks-1-25-33`                                                                                                                      | May 2nd      | `sha256:0304dc666678b1f2023821d1f8663586a8dbb94b8318e597c5803ad0270092e0` |
 |  `2.11.0-r4-eks-1-23-33-dev`                                                                                                                  | May 2nd      | `sha256:d039a23696b06fd00dafc7de3d8075502789503478e397b505653de086cdf5a6` |
 |  `2.11.0-r4-eks-1-23-33`                                                                                                                      | May 2nd      | `sha256:9421ca1578289a2f805a6f64195bc3127eb973a6fdbe5bcfc8c42dacd4758028` |
-|  `2.11.0-r3-eks-1-23-33-dev`                                                                                                                  | April 21st   | `sha256:7c1f417171d8bbb3205214406c21a127445ba65f72bf09d0ab3de1990dc46b77` |
-|  `2.11.0-r3-eks-1-23-33`                                                                                                                      | April 21st   | `sha256:6c9228da9e1c11371b1dd0eaf997d6674f18e6c9f3909ce0c4b6abf8be7dee4d` |
-|  `2.12.0-r4-eks-1-25-33`                                                                                                                      | April 21st   | `sha256:2a6fd07b5cbe6849b22cfd87c729a14ed4066a7c4d8ba7ed7ecc3d2b380a14d8` |
-|  `2.12.0-r4-eks-1-25-33-dev`                                                                                                                  | April 21st   | `sha256:d05e646c3a4c094e6388744908d0a03d4f4ffbc66e9defefb15e59a966c79424` |
 

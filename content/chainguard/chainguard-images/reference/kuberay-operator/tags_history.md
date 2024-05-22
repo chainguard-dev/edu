@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kuberay-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:d903744772f22d9bc3a64f022a4bd2ef40268754e519d65001a187afc85f8b0a` |
-|  `latest`     | May 17th     | `sha256:da8bd19f32ce934f82773894840166688c9820f5616faf8ba662cf1546eb114d` |
+|  `latest-dev` | May 21st     | `sha256:4579da25ebc7408dc247e9020958a7085b62a1b3b052587825e7229817366e49` |
+|  `latest`     | May 21st     | `sha256:627013cdca8e9092b74976011f3efcafee1788fa847994c3794912564fba8659` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.0-dev` `1.0.0-dev` `latest-dev` | May 19th     | `sha256:c88035f7aa74ebc2690465918a1ab238481705bd1b0814c91f7efc16d3ed7ade` |
-|  `1.0.0` `1` `latest` `1.0`                 | May 17th     | `sha256:f211f0232101efb07b9565b25fc967de95401b953b04ad6b37137043ebcc51f8` |
+|  `1.0.0-dev` `1-dev` `1.0-dev` `latest-dev` | May 21st     | `sha256:e0867841b24c92cc3c3b10c5fed36753af99c0490effc5f6e640419f97717ed5` |
+|  `1` `1.0.0` `1.0` `latest`                 | May 21st     | `sha256:a694ff5ce5bfc14175efe34cff869e27d50187c8e038496242dbead6f34c0b91` |
 

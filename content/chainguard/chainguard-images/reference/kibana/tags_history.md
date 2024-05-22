@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kibana Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:4f02c2ca8947fbb200d5359aeca5f414dfbce7a4bb3530aa61f3aa0a0cb71498` |
-|  `latest`     | May 17th     | `sha256:fcc33a7d954a2c81edc82912aed3d6274de3c72c30490e232f1ec897de5e9b9e` |
+|  `latest`     | May 21st     | `sha256:d35ae68cd003d9fc6942db50506477e84255b3480b68cab4e467b220ba309dba` |
+|  `latest-dev` | May 21st     | `sha256:b2511132ee02e91c119d13d5bfb7c0a356c0e42d97fcf5e7ec90bef8a6b1816f` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.17-dev` `7-dev` `7.17.21-dev`             | May 19th     | `sha256:6f7ea3263164c9c5fed91f43ece160d4b9ee4cf1a6087fbad3c3368c99ca7574` |
-|  `8-dev` `8.13.4-dev` `8.13-dev` `latest-dev` | May 19th     | `sha256:5f0cdd1a8e27ddb93efd9f637bf7dc0e1467daa1fadd13cde1cf2c9f56a5bccb` |
-|  `7.17` `7.17.21` `7`                         | May 18th     | `sha256:6c4a37eaaae6d742adcb29dc1198a0eea9a74d6f8eedc9babc360730bc0dd92c` |
-|  `8.13.4` `latest` `8.13` `8`                 | May 17th     | `sha256:fd0e0e4785fa3dbe3cb066227c74d199825d8ae78b72177252d7a508c3e44a1f` |
+|  `7-dev` `7.17-dev` `7.17.21-dev`             | May 21st     | `sha256:c6a746cecef2c6d4c569e5680fda4d41efa41ff45b19673285cd7dce15c29e64` |
+|  `8` `8.13` `8.13.4` `latest`                 | May 21st     | `sha256:1a5acb9386d6cf46a54bd168d8b9960b6ba973c5e6f9a0bb71ce825e88e9517f` |
+|  `7` `7.17` `7.17.21`                         | May 21st     | `sha256:15ed2913f2506a6a2d6eb2f31e4b4c4eda4fadaf8f9159ba4609b86caf5cd0de` |
+|  `8.13-dev` `8.13.4-dev` `latest-dev` `8-dev` | May 21st     | `sha256:93c16d42f20de84a920d7089148f1e7b3657afd11deadb760d7c33c6e910dbcc` |
 

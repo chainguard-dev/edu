@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-webhook-certgen Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:cc76efb4cb9fb3807db5e33f38d738431aa97ca6c6b8f898884a959b8bcb3550` |
-|  `latest`     | May 17th     | `sha256:d088ad065bbf49a090d6860e5aea9a31c2c0eed57af92c594d03a07af4ca879d` |
+|  `latest`     | May 21st     | `sha256:ec3dbc14cebbb3768bcbc571cacb40c56bad1a37d78ddd07009b1e0c7e633533` |
+|  `latest-dev` | May 21st     | `sha256:93a401bb81003a9f4399f3e55b0e479d18df9fa34754a6abd6d0f421053e7063` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.10.1-dev` `1-dev` `latest-dev` `1.10-dev` | May 19th     | `sha256:7f367a8ec22cb383f075324a6d0c9dd3967442b32adb8ba7167ddc009e8ec92b` |
-|  `latest` `1.10.1` `1` `1.10`                 | May 17th     | `sha256:25cf747e466f04b811641eca4a2fa16e0d4015ca2b453757a0d7312b9c5623e3` |
+|  `1.10.1` `1.10` `latest` `1`                 | May 21st     | `sha256:1a78b7217b824971c2a537b70f6ccef496e8423dd0673dbbedbeb787fdb3dbcb` |
+|  `latest-dev` `1.10.1-dev` `1.10-dev` `1-dev` | May 21st     | `sha256:06ddab1638501ff6b3845920069cdf3cb840918add294ba9f11840febf2d74cf` |
 

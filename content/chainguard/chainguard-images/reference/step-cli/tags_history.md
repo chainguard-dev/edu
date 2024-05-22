@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the step-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:f54e65aed047ed72068ebf52993e803fe6f9848ed2e7f748759293840e199681` |
-|  `latest`     | May 17th     | `sha256:590f989e091a54e5849b70827bf906630634651242d11f1aece6f5caa4931da4` |
+|  `latest`     | May 21st     | `sha256:a54c148981ef47ba23d9cbac4767e36252da71667233a177ff094ca04a3e8140` |
+|  `latest-dev` | May 21st     | `sha256:0f7172373efe1a203f75396fef212254962046bdff311843c85a295b73d7438b` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.26.1-dev` `0.26-dev` `latest-dev` `0-dev` | May 19th     | `sha256:e61f5e0b6f59b1f9bc94451b8d7653c32c36e47207c145388beee71617c06df2` |
-|  `0.26` `latest` `0.26.1` `0`                 | May 17th     | `sha256:c47028faff2045a1af021513b7d494e74f08a5065445adff369a7d444266f43a` |
-|  `0.26.0-dev`                                 | April 21st   | `sha256:c58861a16bbf5286470f8608892591da684289394dbebd736841a0cbc9f1dcfa` |
-|  `0.26.0`                                     | April 21st   | `sha256:5f8d80635bbc72c9eae0d69c4cbdd7b0d515cad0980eaa77c466136cc70434d8` |
+|  `0` `0.26` `latest` `0.26.1`                 | May 21st     | `sha256:48e2dfee4d83c0e6f2b90ab4d5190068ac5598998602a6761c65ab7bce0b86bd` |
+|  `0.26.1-dev` `0.26-dev` `0-dev` `latest-dev` | May 21st     | `sha256:679cca1844ac3598a4afae272b6c971421cfcb9c23526777accd797f78b758d8` |
 

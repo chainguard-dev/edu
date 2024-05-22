@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the secrets-store-csi-driver-provider-gcp Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:5ff6446697d3c837ae9e005aa46e41259d91e9e148e1c9a462995de5e2c8ef1b` |
-|  `latest`     | May 17th     | `sha256:3b48ed3a2ab337e6eeac30e0a5013fbf80e94366a752a8ac6d8c0f03f0d398cd` |
+|  `latest-dev` | May 21st     | `sha256:dabfead9759f82c1242811859ad4a0c835f1d5202de750cac08bac4039cd6810` |
+|  `latest`     | May 21st     | `sha256:4307909810bb2af2bf30fd46bd355b1769b8d7d0544c33293969af5ed758cb7a` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.5-dev` `1-dev` `latest-dev` `1.5.0-dev` | May 19th     | `sha256:48a66be8594707785fdc635d492c81957eb21a65298cd2b305270448bc9f2630` |
-|  `1` `latest` `1.5` `1.5.0`                 | May 17th     | `sha256:7336e4ea13528c5e384511d2bb1161fadfaf72373c150c75264e3ad2d9424ac3` |
+|  `latest` `1` `1.5.0` `1.5`                 | May 21st     | `sha256:5753710dd5eb982f9e17b5a596ef7e0aa12478ad6ddba2bd6265d7475d7554a5` |
+|  `1.5.0-dev` `latest-dev` `1-dev` `1.5-dev` | May 21st     | `sha256:857e54c7ce1ee9a583f597342a4422de2557ee7962067b482b5a63b44f3a3b2a` |
 

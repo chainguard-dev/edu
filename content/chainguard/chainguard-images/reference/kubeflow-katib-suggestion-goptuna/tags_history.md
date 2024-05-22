@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-goptuna Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:c843d818eacdc6aa1dc3aeb5a03da9e210e496dc55a763003b5a2e02f0baf61f` |
-|  `latest`     | May 17th     | `sha256:0ee10c9c174dfc205fb1c62d341aa3384868cc679acf71f1dd15211c6f9bb4ac` |
+|  `latest`     | May 21st     | `sha256:e810bf4615bc906e99c4e04e500dca762c70f8cb82307790fb9c478816ccba07` |
+|  `latest-dev` | May 21st     | `sha256:454483a6532bb19ffc31afddd48241948ae32d44794fb993dd938b041e4bfcfb` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.16.0-dev` `0.16-dev` `latest-dev` | May 19th     | `sha256:3882d0555b2bd610807d4dda7e7914fb87798982291786e98c069973315b66ba` |
-|  `0.16` `0` `0.16.0` `latest`                 | May 17th     | `sha256:af48f563360876fd12035db6df277b89510b58460414777460c6c445b1e17c39` |
+|  `0.16.0` `latest` `0.16` `0`                 | May 21st     | `sha256:3627f86a46e4c903835a0e19e6275cd8047d844133b98fb59a9ec48d2ad9cd3b` |
+|  `0-dev` `latest-dev` `0.16.0-dev` `0.16-dev` | May 21st     | `sha256:4373809dd81b53499f116cca28200288dedc9aeb2b15fd97ac9b59ec17de87cc` |
 

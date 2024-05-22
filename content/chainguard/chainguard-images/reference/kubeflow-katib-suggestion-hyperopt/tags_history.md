@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-hyperopt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:928a8d0b6ec0cb96995df185892395aea381e7e6ea953c08e61e5f46984f1436` |
-|  `latest`     | May 17th     | `sha256:54d987bbb5ea1687a2518e14e51e207a90485b733a1027d574d76f06edfdcac4` |
+|  `latest-dev` | May 21st     | `sha256:1615c0102b4f7a124d150c7b00d603f93b7cc3557c35befee58ef039925de882` |
+|  `latest`     | May 21st     | `sha256:6c8b90434409ec8136495a52b0ce72a48ac221224235c41f9c5dae4187a54945` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.16.0-dev` `latest-dev` `0.16-dev` | May 19th     | `sha256:359598f1d50a3b4591ce5236fed846f760a53908bd00e1ab5d1f3ee1d31a50c4` |
-|  `0` `0.16` `latest` `0.16.0`                 | May 17th     | `sha256:5ec5142a1198e1bcbef71edf15abe2e62b7a92c503339a7b240304680b9b3664` |
+|  `latest` `0` `0.16` `0.16.0`                 | May 21st     | `sha256:adeb85e29dd6d5f36daa0f86879bf4307857a6f5eabd95915ccbd1cb242b151e` |
+|  `latest-dev` `0.16-dev` `0-dev` `0.16.0-dev` | May 21st     | `sha256:826d80fd890789aa8b90772fb0d7f27667de1db8fdfd95a18e7b3fbf5093a8c4` |
 

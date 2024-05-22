@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the glibc-dynamic Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:d466b5a9a49df0c1fa65b94fcbf01184a712a69e03ad37228380a8b8dc88cb41` |
-|  `latest`     | May 17th     | `sha256:5992cb1b65c19a68f941f0bfca09df63aac7206f94809648f30e9491d5e96c6b` |
+|  `latest-dev` | May 21st     | `sha256:ba15c73429c57a2cae6503fe94bb8828792e36c33ede68f9cc19942d45410443` |
+|  `latest`     | May 21st     | `sha256:f74e4803c121ac05ee18b475f412d9cf10302587592ce625ea94e2751b57237d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `13.2.0-dev` `13.2-dev` `latest-dev` `13-dev` | May 19th     | `sha256:f6de3676ea141f055a76da714285d2a588280cc4cb074564b78883ca6f2d4dda` |
-|  `13` `latest` `13.2.0` `13.2`                 | May 17th     | `sha256:9a4ba619763d608068283316f0a94ef33bda24aa867ff4ad18efc4505326a2d8` |
+|  `latest-dev` `13.2-dev` `13.2.0-dev` `13-dev` | May 21st     | `sha256:7c2e68ed9b3418fae354c8867ea2689fa40c61670b0b380c05e24d8903bbbe38` |
+|  `latest` `13.2.0` `13.2` `13`                 | May 21st     | `sha256:7c36ebce9dc462c01f22128b5330e0973effea6f10f5161edb36f23387c2b286` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-external-attacher Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,16 +33,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                  | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4-eks-1-23-33-dev` `4.4.0-dev` `4.4-eks-1-23-33-dev` `4.4-dev` `4.4.0-eks-1-23-33-dev` `4.4.0-r5-eks-1-23-33-dev`                      | May 19th     | `sha256:05b5634c47eb0bf95bd599b7ed13f54376828ce3548d95a81b0b963fd29ae79c` |
-|  `4.5.0-dev` `4.5-dev` `4-eks-1-25-33-dev` `4-dev` `4.5.0-r6-eks-1-25-33-dev` `4.5.0-eks-1-25-33-dev` `4.5-eks-1-25-33-dev` `latest-dev` | May 19th     | `sha256:a26cd1170494b4af476130954f5e396092624ff7a64f8e177a390eb27e5056db` |
-|  `4-eks-1-25-33` `4.5` `latest` `4.5.0-eks-1-25-33` `4.5-eks-1-25-33` `4` `4.5.0-r6-eks-1-25-33` `4.5.0`                                 | May 17th     | `sha256:53ba3f4127db5c86ac709b88ee1d41430561db4687920834d6f5c82ec7592d6f` |
-|  `4-eks-1-23-33` `4.4.0` `4.4` `4.4-eks-1-23-33` `4.4.0-eks-1-23-33` `4.4.0-r5-eks-1-23-33`                                              | May 17th     | `sha256:7cab5b735bf60098a1168358603968cab3619ae1d8ac470e537dc3fc86e868ff` |
+|  `4.4` `4-eks-1-23-33` `4.4.0-r5-eks-1-23-33` `4.4-eks-1-23-33` `4.4.0` `4.4.0-eks-1-23-33`                                              | May 21st     | `sha256:f37299953a05ae861d22b5aa8c754618453840cfbc0e70fe02c64972d0a8c1f6` |
+|  `4-eks-1-25-33-dev` `4.5-eks-1-25-33-dev` `4.5.0-dev` `4.5-dev` `4.5.0-eks-1-25-33-dev` `latest-dev` `4-dev` `4.5.0-r6-eks-1-25-33-dev` | May 21st     | `sha256:61d6e654755963e3ab1ad6c17dabb5ebaf9f79448ece40fd62c5cbde690129b6` |
+|  `4.4.0-r5-eks-1-23-33-dev` `4.4-eks-1-23-33-dev` `4.4.0-dev` `4-eks-1-23-33-dev` `4.4.0-eks-1-23-33-dev` `4.4-dev`                      | May 21st     | `sha256:de8294fbb2dac8c4cdf5268e12a2a4b7ba0d2f32a919d66488b3e7524392bdca` |
+|  `4-eks-1-25-33` `latest` `4.5-eks-1-25-33` `4` `4.5.0` `4.5.0-r6-eks-1-25-33` `4.5.0-eks-1-25-33` `4.5`                                 | May 21st     | `sha256:5b7b398f32f812a6bc5c52b0b22fee9e456ac6217e778c0f5fd14438a0e0d81f` |
 |  `4.4.0-r4-eks-1-23-33-dev`                                                                                                              | May 2nd      | `sha256:f194a264edcb4781ea35180a9f3f5f19ec1026eea04b739e5f0b16169e286dcd` |
 |  `4.4.0-r4-eks-1-23-33`                                                                                                                  | May 2nd      | `sha256:cc71727db77cdf7f30940a99b426ca5b7d8e282b707e05aca4dc2cf7702f2fc8` |
 |  `4.5.0-r5-eks-1-25-33-dev`                                                                                                              | May 2nd      | `sha256:dbfb30512148161bef401e866c7cc3519cac865f91b3e31f977c98e5ba18ba38` |
 |  `4.5.0-r5-eks-1-25-33`                                                                                                                  | May 2nd      | `sha256:26add736a399a5b7c5941b6a4972025bbb10c98121d39281f69acbfd7c6f183a` |
-|  `4.4.0-r3-eks-1-23-33-dev`                                                                                                              | April 21st   | `sha256:e162e8502835288b3d467b64f7c735fce30a427a0f9f1b6a826f85f389705a84` |
-|  `4.4.0-r3-eks-1-23-33`                                                                                                                  | April 21st   | `sha256:be7a929e909a31c7fb8c4e2511b8ca7827b0984031de3373e72f6f99fb8a305d` |
-|  `4.5.0-r4-eks-1-25-33-dev`                                                                                                              | April 21st   | `sha256:6aaa33d1fc99ade85dd49aa2445c4efb23be40c75f6dafdeb8cbd431580aee68` |
-|  `4.5.0-r4-eks-1-25-33`                                                                                                                  | April 21st   | `sha256:c6e5956eb338b0286c264a18ac3a25165915c813bc6c261227870f45cd00913a` |
 

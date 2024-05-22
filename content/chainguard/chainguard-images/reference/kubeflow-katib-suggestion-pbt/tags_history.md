@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-pbt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:8613abdf8ea51f11b4bb3e7eec4d32a2bcb51e08bda11c13822df0a1165d5abc` |
-|  `latest`     | May 17th     | `sha256:66b75c69cf1dc68c5a4d21a99abe7456436a5d0b05e3476878fcb4514a6e54cc` |
+|  `latest-dev` | May 21st     | `sha256:1b643ed0a448a847e66f8870ae73770cf246eebf67243f156484609867aea69d` |
+|  `latest`     | May 21st     | `sha256:f1f45fe71250e3e85b3252022e631147a36110917d3d3c00cacf00946872650c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.16-dev` `latest-dev` `0.16.0-dev` | May 19th     | `sha256:1c08483a2cb8d2525a5dfe28ee257de3b38f93729c5d68c6795a63f178b24069` |
-|  `latest` `0` `0.16.0` `0.16`                 | May 17th     | `sha256:b75e1a8becbe8ea14c8c020ce84cb2cc82c1e7c9f518c89c1d7cef25153fdfd9` |
+|  `latest-dev` `0.16-dev` `0.16.0-dev` `0-dev` | May 21st     | `sha256:ae9131a53a03b5ee0d103cb6b0ba2013ebbaf39c2b8e085627b82d31bc001bf2` |
+|  `0.16.0` `0` `latest` `0.16`                 | May 21st     | `sha256:c4b226c3536f9fa9493fa43ba7ca2567ba8ee4b40824b684421d9a8d404fe691` |
 

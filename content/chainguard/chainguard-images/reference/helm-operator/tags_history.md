@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the helm-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:78b75077c96ac440b8d159ec4b02c71223bbaa19d563ef38a1d3d92df4d62c4d` |
-|  `latest`     | May 17th     | `sha256:9775f26ad99a22432965d3e6b512c1e1811f6bae39aab7e4e8eccac51d87b488` |
+|  `latest-dev` | May 21st     | `sha256:e065daa7ec0c731f9c5be9c3da25905182fb726f0a29de7718c229736dd33ecc` |
+|  `latest`     | May 21st     | `sha256:c939f2f69c90233a59ce058c0af573ae6c691654f55885e68ff86945b3e8709e` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.34-dev` `1.34.2-dev` `latest-dev` `1-dev` | May 19th     | `sha256:76f92226ccbadecbfcc3a4ba986bf965c5192d1961d081e1a3c21df4485376be` |
-|  `1.34` `latest` `1.34.2` `1`                 | May 17th     | `sha256:2c01590e6fd902fb73cb1942c6f6cb8a26f5f5d146125a6802d0eb5446f85cd7` |
+|  `1.34-dev` `latest-dev` `1-dev` `1.34.2-dev` | May 21st     | `sha256:8bb01935d924f894a1c28e7346ffca6b5bb742c755f7f72ec9bbd713ea2941f4` |
+|  `1` `1.34.2` `latest` `1.34`                 | May 21st     | `sha256:e5d21137496a46d7c4171b44c60a8ffce6e594498dd913e7e833e585131c4185` |
 |  `1.34.1-dev`                                 | May 15th     | `sha256:dff611e943370ac4421d05173af8dcb62a2a9fdc7d3945415e2d99b189f5ecf1` |
 |  `1.34.1`                                     | May 15th     | `sha256:83c2a038d6e1f68adab1203e762aab26bb02e66f3d48f4fac1933126f388282e` |
 

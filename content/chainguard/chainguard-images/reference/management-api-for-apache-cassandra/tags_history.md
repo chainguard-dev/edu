@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the management-api-for-apache-cassandra Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 20th     | `sha256:998529ee92b4739162f01c68e253ee991242f107e33c8cda68b51e87447b9c24` |
-|  `latest-dev` | May 20th     | `sha256:9b5c3a89dee553c5ea40b4238a466c97f6ed143d7d68bcd958f72a8bbf4bb62c` |
+|  `latest-dev` | May 21st     | `sha256:d38ef18537f1ef30352d7c2bf26339b0d86aa0748ca526a3744eea1194bd7eb3` |
+|  `latest`     | May 21st     | `sha256:3c7e4c588efd129a0104ef78005a78864ad35f6a3921447acebfa608b444519d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.1.74` `0` `0.1` `latest`                 | May 20th     | `sha256:e1c0d993c3d284bac3f1c2eeba99f804552f2fcaabda9e11c9d59d9d53d02435` |
-|  `0.1.74-dev` `0-dev` `latest-dev` `0.1-dev` | May 20th     | `sha256:0fe61f88ad7cd680c24b7d041bf34c7b8fced0b9c068f4d1db1188d94d795f7b` |
+|  `0.1.74-dev` `0.1-dev` `0-dev` `latest-dev` | May 21st     | `sha256:90b04583012b5f794df87e339a084dc5e0f6195de104fa0805fdba1fbb53f723` |
+|  `0` `0.1` `0.1.74` `latest`                 | May 21st     | `sha256:82ff35336181af911ab74057bdb0c6245db3b94189e62307d8a5f01d3e760241` |
 

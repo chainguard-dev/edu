@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nvidia-device-plugin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:281b305e7e3756fe8861a17e8bc33b9563b2c9dc3e8e9f95c87265f879e8c4bc` |
-|  `latest`     | May 17th     | `sha256:aa9a983402df5be13ae26ed9418c8728c21800bbbac76a3e882057457841fe86` |
+|  `latest-dev` | May 21st     | `sha256:ee1daa73f26b3501e41eed2f5b5815adfd6cef54e4be6d13d57d633c7f3e709c` |
+|  `latest`     | May 21st     | `sha256:d568a17fb7e9c64f03f4e231229b27a38d85bac065139955e11d470ac3ee55f3` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.15.0-dev` `0-dev` `latest-dev` `0.15-dev` | May 19th     | `sha256:d6b3e1582d4ab924255d87930f33e0a3c3ea13189e4ffe5f099d5e0125462564` |
-|  `0` `0.15.0` `0.15` `latest`                 | May 17th     | `sha256:97970208556a34ed8df40ef1c16e51cf0dabe36e7dbe7e639ba0f33080161d32` |
+|  `0.15` `0` `0.15.0` `latest`                 | May 21st     | `sha256:3ed60bf61ece48ac73ee11377178114fcd2d4e715cbe94e6df215a4d0151ab54` |
+|  `latest-dev` `0-dev` `0.15.0-dev` `0.15-dev` | May 21st     | `sha256:6d3087c7824fc64e86f3017ddee33bb8ee357004dc1ca7c8a6ec9eb1511b4929` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cluster-proportional-autoscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:bfdb2e54f93ee19e7dd8287f7287b0e848a720eaa766a22ba2b7c7423a3e2b6f` |
-|  `latest`     | May 17th     | `sha256:e4ab52ea5fddd62dd9c75448f2d201b1e34431397e13a8c26f26c4da5964cfec` |
+|  `latest`     | May 21st     | `sha256:9e6ea0fce8e027560da5f33b4026d8b531d26eae65c6ab1624d5bed0f0d081ed` |
+|  `latest-dev` | May 21st     | `sha256:3d5d8580c9da6c6bba8db1314f8da4bb34206648d8bc8933364c35a227f138dd` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.8-dev` `1.8.11-dev` | May 19th     | `sha256:4381f49ae349c7eb8d8357cf42470bef37e9da8eaa23520f61d1ea019f3e8371` |
-|  `1` `1.8` `latest` `1.8.11`                 | May 17th     | `sha256:81d1d75c6a99e3e31b52a6e839dd38b42bcccc5a5143d5f037babfd044340bde` |
+|  `1.8-dev` `1.8.11-dev` `latest-dev` `1-dev` | May 21st     | `sha256:64aa8fe08a281245d587feb37e511e789afb4913a555cdda15c6055a9cb3cc9f` |
+|  `latest` `1.8.11` `1` `1.8`                 | May 21st     | `sha256:55cc969086df8e5b83fc28e3522583bec7155da1f9aaee47781850b5e38e4443` |
 

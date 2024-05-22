@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the stakater-reloader Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:2056bb33b8b8b37f294e09f208506fb45c4b5e1f242d3fd194aa0aeda7611b7f` |
-|  `latest`     | May 17th     | `sha256:08a431b7d4aaf5eee6422a7b4c2c5437eb2d8320aa7bc02e67d9d2b40a4b7634` |
+|  `latest`     | May 21st     | `sha256:bfa8323c0456dbe1db4ec84e674ae77edec479d78dd384199df0496eaaf17c29` |
+|  `latest-dev` | May 21st     | `sha256:8bbd19f4a272655c1e47eafe0389d061ac978105b00563206578c53253168194` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.0-dev` `1-dev` `1.0.97-dev` | May 19th     | `sha256:cbfdd8ae60a034e80da59646c7e746461e8086f58bd75d49979d4c87b22bc2eb` |
-|  `1` `latest` `1.0.97` `1.0`                 | May 17th     | `sha256:c6a51f6cd16386ca796574bb2f6ab3184f73c9f3f44dee6b13be6fb7ac1ec1d7` |
+|  `1.0` `1` `1.0.97` `latest`                 | May 21st     | `sha256:1ed2f8f44513505a80af85b7c0c25fb2918d22caa048de4360805e81cb66ece7` |
+|  `1.0.97-dev` `1.0-dev` `latest-dev` `1-dev` | May 21st     | `sha256:ede7ffb967306c65d0cbed47f335ecd0bd851dd253342d9ad16084e4f7a7f7c8` |
 |  `1.0.95-dev`                                | May 15th     | `sha256:dbd2200150539b30feddac49981acc352f9a922a0e8164c70000614deee02a36` |
 |  `1.0.95`                                    | May 15th     | `sha256:ba81e9cd4b9cbaa40f2ab3ef8196fb85549065e4dfe55e109ab1764089eb1e30` |
 |  `1.0.94`                                    | May 10th     | `sha256:074c312da8adbe2d43e1bb4f9acb57844873603729382df766b3ebd7b7c2be43` |

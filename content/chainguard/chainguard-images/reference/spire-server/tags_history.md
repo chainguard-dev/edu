@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the spire-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:b2f3bc3dfcebfb872f3e4c7fe65505d5644d6d3adec972da3894c53ead256e7e` |
-|  `latest`     | May 17th     | `sha256:f7a34b4464bff426121d90de0619e6aef72b6b85b58a3e4dd20993e6de3f44b6` |
+|  `latest`     | May 21st     | `sha256:fb6bbb1b1b095de2c1ec2f973fc03e81364a8084c1b1f3414dbb9cb21fab3783` |
+|  `latest-dev` | May 21st     | `sha256:de64281298d8296979fa231e41913b9b486c7e010aa393cde51442966bdcfe9d` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.9.6-dev` `1.9-dev` `1-dev` `latest-dev` | May 19th     | `sha256:e2c479ba108eccee33db6fa37f6481abb067abe0e10c0915eb69427fc139ae87` |
-|  `latest` `1.9` `1` `1.9.6`                 | May 17th     | `sha256:e5c7705614fb72e4f24ed7e745f6304daf442b76980b255547c711b90a322ef7` |
+|  `1.9.6-dev` `latest-dev` `1.9-dev` `1-dev` | May 21st     | `sha256:3b8c4915cba9df3e33244e6bce1138f0db72cecd4a2e4395df14ae367c42aaba` |
+|  `1` `1.9.6` `latest` `1.9`                 | May 21st     | `sha256:a787b4fdd49bfd2ad9876f4e7d059ec6971a6478ed7b1b8f2e0de4d896c6a14d` |
 |  `1.9.5-dev`                                | May 14th     | `sha256:3f436c964f64f8e46e1116fecac6aa7268e22b3c5eecb84d4020f157c33cbea2` |
 |  `1.9.5`                                    | May 10th     | `sha256:91e31ef4297bf6d76bf10b9b8c5018a51f0faf2fe83dc351a6ad43d1b1da5cb0` |
 |  `1.9.4`                                    | May 2nd      | `sha256:6444ed1701152dbe33754fe7116c1213f20b673fc50095f32e5a04491c515eaf` |

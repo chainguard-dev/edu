@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:1cb82c49f032121e776f22087f09512084e7d32058627513f272ee567a9a314f` |
-|  `latest`     | May 17th     | `sha256:b5eae8e92376aafd60990fb02c676c449153fe3edf7c96d1e2d41d7035d7c913` |
+|  `latest-dev` | May 21st     | `sha256:4cc8b55d870ceb5a6c6582bc96f9cd19dbbaefb9977f0e03df9a1b17f05264e8` |
+|  `latest`     | May 21st     | `sha256:8a6d7857b81d143a4eb7aaa64f4c8e3805171e70599bf110e9b2be9798bb79ed` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.0-dev` `4-dev` `4.0.1-dev` `latest-dev` | May 19th     | `sha256:c0c9ea135baf67071199319942e7690dd8ac9366af486b4d0c99bd33fd8fc6f0` |
-|  `4.0` `4` `latest` `4.0.1`                 | May 17th     | `sha256:4cb2c1941303fe4cd3535b5cd78590ea627181b4dd933fe7940dfefe2bca3865` |
+|  `4` `4.0.1` `4.0` `latest`                 | May 21st     | `sha256:797db5809fb123cfa3a3159d3bb1ff7ecf49c1333b7b515e22c3553c1769846c` |
+|  `4-dev` `4.0-dev` `4.0.1-dev` `latest-dev` | May 21st     | `sha256:dcfa85f6bc0da5ca4b7f34a7e946c1d53ec1110ec7523e9a9ad40ef02d4d3c73` |
 

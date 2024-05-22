@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node-lts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,9 +28,9 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)                  | Last Changed | Digest                                                                    |
 |--------------------------|--------------|---------------------------------------------------------------------------|
-|  `next-dev` `latest-dev` | May 20th     | `sha256:ad9f0ae9bf910a2d36a39968de76b13d2626056cfae7adc65b075b7e489142ec` |
-|  `latest`                | May 20th     | `sha256:5ac3e578a4cc5176fc45cb18798296c65ffc578b56829ea18f430365a4fa5113` |
-|  `next`                  | May 20th     | `sha256:37d031210562776353013d24432fdbea08de4f61cdaeae98e1a88b0c37811b16` |
+|  `next-dev` `latest-dev` | May 21st     | `sha256:02e1bf6ae2f31955c355daee451a521243955f7a6c48d7b8cd46c10187b8ea78` |
+|  `next`                  | May 21st     | `sha256:b3258cca67b81161d83c0efcd8ad70a5523b340376d239915c8b927c87ed5dc0` |
+|  `latest`                | May 21st     | `sha256:4f3a934523ec278c04e71f7ad5b5f2dbe57bdb9b1862a3afe60f4d83dfb471ad` |
 
 
 ### Private/Dedicated Registry
@@ -38,9 +38,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                     | Last Changed | Digest                                                                    |
 |-------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `20.13.1-dev` `20-dev` `next-dev` `latest-dev` `20.13-dev` | May 19th     | `sha256:249a42ca1080fbafe5221aadf96d4b87efa35b3fcefb551c1ae1b75e03c04331` |
-|  `latest` `20.13` `20.13.1` `20`                            | May 19th     | `sha256:832aa8e43d836b1cd0a0efd97d61e07f35fdf18dd24fa7d168f7d425af1f4fcd` |
-|  `next`                                                     | May 19th     | `sha256:57aa08f0be80c87d372fc1bdea83b2a83d401cb9ada0fb69bfb677b7f828358c` |
+|  `latest` `20.13.1` `20` `20.13`                            | May 21st     | `sha256:d6482bb51ee38f8774752037e821f20c0fbf7bf841cad00989048ecf673f4711` |
+|  `20.13.1-dev` `next-dev` `latest-dev` `20.13-dev` `20-dev` | May 21st     | `sha256:2a1f7d06c670c065a754878c6be61bfe2f5692d9060d3464cffe21788d3e6940` |
+|  `next`                                                     | May 21st     | `sha256:07b584f9abce52609149f46c3cdae9d9839d44a2206977e3c040ffae711c674c` |
 |  `20.13.0-dev`                                              | May 8th      | `sha256:2360a32e40e19b859f6d47a78ff722b6e3533260547e961a24aae47ad2603aa1` |
 |  `20.13.0`                                                  | May 7th      | `sha256:9e605246896ec5e57b3ca2c840df46d2736a52d8093823a237437374d1c1c788` |
 |  `20.12-dev` `20.12.2-dev`                                  | May 2nd      | `sha256:e8836f7cb1c3a413655996eb25cda5e87fe8950b6af44ff77a39f0ca39b32bd0` |

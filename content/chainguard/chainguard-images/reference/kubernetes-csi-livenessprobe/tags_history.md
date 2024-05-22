@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-livenessprobe Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:a9fb905ea0b4cc7aaef068136a367f3de28fb984e19188485544ffa2726fda9e` |
-|  `latest`     | May 17th     | `sha256:bae5a5a381ff7a3253cbb48ddcfbb2beb75745bc65c414dae6c7f75c5bc016d5` |
+|  `latest`     | May 21st     | `sha256:7c8aafc9cc072d36510aac5c404c6e681537c0ac518cde4bcca53461f0dc0cf4` |
+|  `latest-dev` | May 21st     | `sha256:b808d8800ab63b2f33bf1deda926bb47f524f44fbdc95a77f39af6bf507ca237` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.12-dev` `2.12.0-dev` `latest-dev` | May 19th     | `sha256:93ad50912ea3fa67ed3c41b8a4f26cc9bfa76ee77135ca9a7c56d7fe4f5b0292` |
-|  `2.12.0` `latest` `2` `2.12`                 | May 17th     | `sha256:7615310e962790eb8d6f3dade358c9d5c6842ab92aefb24d2f097024edb1269f` |
+|  `2.12.0` `latest` `2.12` `2`                 | May 21st     | `sha256:68e036ad5a4bfc88bdd867ac10f345cb3a512c8dc5531a931ebf48fe00824c1f` |
+|  `2.12.0-dev` `latest-dev` `2-dev` `2.12-dev` | May 21st     | `sha256:05efd3b1b1d7cef962a23eb3e081aa4db361cea0011d02d1c2d00aff25f5049a` |
 

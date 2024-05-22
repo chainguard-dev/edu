@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grafana-rollout-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:7e7854fc841c9e2de610b770cdc6c967bcc7ad7c0228e051dda291f1f1d2f033` |
-|  `latest`     | May 17th     | `sha256:58cd25388c7d6a1985f3bc3433ef5c84adbecc51fe2c1676d4a23aa7ae7e111d` |
+|  `latest`     | May 21st     | `sha256:4edebd6652690951d9291a236a4e4a97842d4c7163779c5b71c9928e5f4a2fc4` |
+|  `latest-dev` | May 21st     | `sha256:47f984aced42376022eb1e9036ac4cb0d5e834ba93f352f3564e57adf4a9ad00` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.14.0-dev` `0.14-dev` | May 19th     | `sha256:7cb3fada77d6f8a1c1a16acc16de6cd0367edff1fb1dcc2887702030e53a7143` |
-|  `0.14.0` `0` `latest` `0.14`                 | May 17th     | `sha256:9b0b394f1efd4f061a844c103f76d9489f6589a648832d3d2a990eb11d720248` |
+|  `latest-dev` `0.14-dev` `0-dev` `0.14.0-dev` | May 21st     | `sha256:a33e195318ee898ff413096a367c3ed60664e77f9b054652c5c5ee5b60d66aad` |
+|  `0.14` `0.14.0` `latest` `0`                 | May 21st     | `sha256:5660603e67ffb45def79625f173f76cc2f0cd97510b35aea37a13fd99ecdbf6b` |
 

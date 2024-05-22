@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public guacamole-server Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -59,6 +59,7 @@ The table shows package distribution across variants.
 | `gsm`                     | X          | X      |
 | `guacamole-server`        | X          | X      |
 | `harfbuzz`                | X          | X      |
+| `lame-libs`               | X          | X      |
 | `ld-linux`                | X          | X      |
 | `libasyncns`              | X          | X      |
 | `libavcodec61`            | X          | X      |
@@ -119,8 +120,8 @@ The table shows package distribution across variants.
 | `libxinerama`             | X          | X      |
 | `libxkb`                  | X          | X      |
 | `libxrender`              | X          | X      |
-| `ncurses`                 | X          |        |
-| `ncurses-terminfo-base`   | X          |        |
+| `ncurses`                 | X          | X      |
+| `ncurses-terminfo-base`   | X          | X      |
 | `netcat-openbsd`          | X          | X      |
 | `openssl-provider-legacy` | X          | X      |
 | `opus`                    | X          | X      |
