@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-elasticsearch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:5fe045cb1d2d2e8240816005ce417aa44f17ec56819495ffb26596875dd2254a` |
-|  `latest`     | May 17th     | `sha256:a6b702860f3eb206514eee5e065c58363d2d1a5bd4b32cdad36b690dd1d4199a` |
+|  `latest-dev` | May 21st     | `sha256:82f74d525134c0241cf753ac6780f73b411b69b094424a930d5f58fa0756f8f9` |
+|  `latest`     | May 21st     | `sha256:1bae29de789c5c355798ec7896b1bf230da76387ddde6adf4f6b42050e43fe98` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.7-dev` `1-dev` `latest-dev` `1.7.0-dev` | May 19th     | `sha256:abf7adfdbecc86725650669d50c40e6415f42a19e9c8407daadaac81339fa15f` |
-|  `1.7.0` `1.7` `1` `latest`                 | May 17th     | `sha256:63585601e19a86e4d2c92c2e9c8ddc4b805db4874d28e33ec70103fba9ec4333` |
+|  `1.7.0` `1` `latest` `1.7`                 | May 21st     | `sha256:3329ae3bd22cdb2342432d2c6f629ca429b8ce33e5c6b4d9a07222e642eab1a1` |
+|  `latest-dev` `1-dev` `1.7-dev` `1.7.0-dev` | May 21st     | `sha256:7b70b5a1579e77d660782eaf996c50dbfc93876d518441901a314e57e05835a2` |
 

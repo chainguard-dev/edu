@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gitness Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 20th     | `sha256:5ac6563e4181f594060721114550d684a6c05dc2a4e11f49b81203d3b76a9103` |
-|  `latest-dev` | May 20th     | `sha256:a2d9a6bc7c86e0968572c695a035297d8361d620cf4e8295ed710bd4d310d787` |
+|  `latest`     | May 21st     | `sha256:b49e18b5f09a6ed2649d0b6c2cd82e612961fd6090403a91f6fb4f4891092908` |
+|  `latest-dev` | May 21st     | `sha256:d18aeb72b76454bbf82a42c8c8608f0535987ddf53046974f9f3441ba8b7bf52` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                           | Last Changed | Digest                                                                    |
 |---------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `3.0.0_beta6-dev` `3-dev` `3.0-dev` | May 19th     | `sha256:775c998b5fffff6b5ca057eaa25a57ac91c42c32ec456c5e3dacd9ee957302d6` |
-|  `3.0.0_beta6` `3` `latest` `3.0`                 | May 19th     | `sha256:523ba073133f389c8b03cbabb7e1bed9e573dcf0787f924a4d5d96e53d3114f5` |
+|  `3` `3.0.0_beta6` `3.0` `latest`                 | May 21st     | `sha256:29fb4d65a710d3421fc850cb1512ce423c84e5389afb0fc8be33bc584adae998` |
+|  `3.0-dev` `3.0.0_beta6-dev` `3-dev` `latest-dev` | May 21st     | `sha256:1c9f7271ecbbfb1e5db4681cab24e7dd4f759eba0cbecf8c84f09dfbc6d3a9f5` |
 

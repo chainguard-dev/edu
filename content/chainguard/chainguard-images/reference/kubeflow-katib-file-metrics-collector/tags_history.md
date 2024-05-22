@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-file-metrics-collector Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:0a979e6751a2a1bc8c922efbf71f7e823bde1e344794c31f281264c3f7534af7` |
-|  `latest`     | May 17th     | `sha256:eec136492886b50ccb2152177ac53d536057cbbc4704add3ed1ece17adee41df` |
+|  `latest`     | May 21st     | `sha256:3985bd828f4f8226bd7918ddbe2229d425e79b8823a9e042308ae290d8e5b4ff` |
+|  `latest-dev` | May 21st     | `sha256:1bac38a202892e6f8908f1c71516f0381fa3dee87628a0cdafef97403463064d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16-dev` `latest-dev` `0-dev` `0.16.0-dev` | May 19th     | `sha256:38f4252da3bb69ca57db49e96781e6c6421cdeff6c607ab1d68045beb2df019c` |
-|  `latest` `0.16` `0` `0.16.0`                 | May 17th     | `sha256:caa8e310dfa4eba7acd73cfe622c6ba1b13f99069b7b0a5a86c1cfa8c678878e` |
+|  `latest` `0.16.0` `0` `0.16`                 | May 21st     | `sha256:6d1c8053aedcea38c5a531fba6b98ab7cb01050b6ae4b36a89b9c2b90e982b8f` |
+|  `0-dev` `latest-dev` `0.16.0-dev` `0.16-dev` | May 21st     | `sha256:15654c8105dd97b1f3b9a37137c29e6650b20b9c05fb712e484e54eb3fd7cb1f` |
 

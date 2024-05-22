@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the elasticsearch Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                       | Last Changed | Digest                                                                    |
 |-------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.17.21` `7` `7.17`         | May 17th     | `sha256:f92139f791b221f4ec82ded4ded5ab14dc7f38e308995b7757f5b243824202f7` |
-|  `8.13.4` `8.13` `latest` `8` | May 17th     | `sha256:fc87c1585a24282d90e291b2a68cee34bbaf464bb283b8ab11a452bfaa3b6f16` |
+|  `8.13.4` `8.13` `latest` `8` | May 22nd     | `sha256:105a1558aa1f8c996441765c7627786c1ea121e8e99a51dc3fb0a03eb157126e` |
+|  `7.17` `7` `7.17.21`         | May 22nd     | `sha256:17c33953f87baa3815c1877104acbbf0d85f429f4f984f71c1efe4510aff607d` |
 |  `8.13.3`                     | May 15th     | `sha256:39b9a15f4339c600e90591814b5fb8b546f8259cd718a0a9f331aafa355f1ca0` |
 |  `7.17.20`                    | May 2nd      | `sha256:8d39882ee115061be2680e725da6f5badba0a4cc8c635c6a67c5491d65a90044` |
 |  `8.13.2`                     | May 2nd      | `sha256:fde14168c6c0bb45278d1538e511e4d7619b4d71624637c2ceba59ac55b06b5b` |

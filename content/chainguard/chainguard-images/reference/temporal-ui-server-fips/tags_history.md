@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the temporal-ui-server-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,12 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.27.1-dev` `2-dev` `2.27-dev` | May 19th     | `sha256:fcb2fa8aafdbefa551464729ed813fc754ea33d09d5c884dfbf98daf85bad7cc` |
-|  `2.27` `2.27.1` `2` `latest`                 | May 17th     | `sha256:b55605f73de445c9bd1c39e1d0073dafd51878263a345e3ca98dd5ffbf7261db` |
+|  `2.27` `2.27.1` `2` `latest`                 | May 21st     | `sha256:c5355c86ffebc4a38e4ad70efaa9b82f9e1875beeaf4d28865a3da8ee2b202de` |
+|  `2-dev` `2.27-dev` `2.27.1-dev` `latest-dev` | May 21st     | `sha256:2c3ffa50efba24eed8159569549c0b3f9c9a4a278c26fb02116a5c8bafbe80b9` |
 |  `2.27.0-dev`                                 | May 11th     | `sha256:102b6b0ae5b54ba30b76dd60f36909550572acf0aafe981d09f71106e89dcecf` |
 |  `2.27.0`                                     | May 11th     | `sha256:1c2765d1151f9c4db59188086be74d1bb928257b90d7a553be5d71dfcb3f53cd` |
 |  `2.26` `2.26.2`                              | May 2nd      | `sha256:71c27d63bc6ba304e00a123f74f58cb1dd7f902f439e7aae87b7e4d27b9bb7f8` |
 |  `2.26.2-dev` `2.26-dev`                      | May 2nd      | `sha256:d69cc3951fc377f4496b4164dca7758f4e30a324b0480adbaaa0eb4fdda0014b` |
-|  `2.26.1`                                     | April 21st   | `sha256:e45461dc6a7ec87fdec1caa6fe24e9fa9d670480c80cf59062acc02460e58d31` |
-|  `2.26.1-dev`                                 | April 21st   | `sha256:a8340fdc6eb6fee5a1111f4dd8092b3cd2596affe9a77f9b67b639d52794222e` |
 

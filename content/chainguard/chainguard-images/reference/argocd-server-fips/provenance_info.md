@@ -3,8 +3,8 @@ title: "Provenance Information for argocd-server-fips Images"
 type: "article"
 unlisted: true
 description: "Provenance information for argocd-server-fips Chainguard Image"
-date: 2024-05-03 00:45:55
-lastmod: 2024-05-03 00:45:55
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for argocd-server-fips Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                 |
-|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                         |
-| `cgr.dev/chainguard-private` | 2, 2-dev, 2.10, 2.10-dev, 2.10.9, 2.10.9-dev, 2.8, 2.8-dev, 2.8.18, 2.8.18-dev, 2.9, 2.9-dev, 2.9.14, 2.9.14-dev, latest, latest-dev |
+| Registry                     | Tags                                                                                                                                                                           |
+|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                                                                   |
+| `cgr.dev/chainguard-private` | 2, 2-dev, 2.10, 2.10-dev, 2.10.10, 2.10.10-dev, 2.10.9, 2.10.9-dev, 2.8, 2.8-dev, 2.8.18, 2.8.18-dev, 2.8.19, 2.8.19-dev, 2.9, 2.9-dev, 2.9.14, 2.9.14-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

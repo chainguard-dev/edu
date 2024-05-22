@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-load-balancer-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:b9a9bb71ade1a720e3e20f106d382233693e7d31d1a6db18e198c7fe62d83db4` |
-|  `latest`     | May 17th     | `sha256:026856d990fa8d765b54f2dc9e2f6ee44858cbb43cea109ed4645fd660dfc456` |
+|  `latest-dev` | May 21st     | `sha256:2f034df107a71c4ff35818b93df1e657c4f43a40cdbf7b9e7a6f730b78ce8ca6` |
+|  `latest`     | May 21st     | `sha256:82c0c45e80b55c113303ca8f2b1fd54eef1ae344959804abaf45d46f88e572c1` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.8.0-dev` `latest-dev` `2.8-dev` `2-dev` | May 19th     | `sha256:ebd8f1d91ea159cb7e84fe0b9fbf3ebe3ecfd41e916bc2f1330d2972fca5c236` |
-|  `2` `latest` `2.8.0` `2.8`                 | May 17th     | `sha256:b166ce5cccc8b60d100ca630a0a40d1c4cf31042d92a028c161218ccf76ff1a9` |
+|  `2-dev` `2.8-dev` `latest-dev` `2.8.0-dev` | May 21st     | `sha256:95e1de204323cd0d6faef243a10a2ae6e3a13049b7f3f9dfbe0d3f51976b527f` |
+|  `2.8.0` `2.8` `2` `latest`                 | May 21st     | `sha256:fd9e0373e02ebd72c4584610df0d4e76631b008951a52b7d9891ee1d0dd8c11c` |
 |  `2.7.2-dev` `2.7-dev`                      | May 16th     | `sha256:14b39e414cec60c8db6ce3b0c394030a78e603129d1904d388a10f1fd6e82808` |
 |  `2.7.2` `2.7`                              | May 15th     | `sha256:97de6dbc636c42d0aa290639c807d85b833a48e5da9630be8ed4d32a3ae4b800` |
 

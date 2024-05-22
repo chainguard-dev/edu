@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the influxdb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:4f15d4e1ed91aa368cf42343766469019ac3c9d35362148435bc520b2064b061` |
-|  `latest`     | May 17th     | `sha256:88b60363593629d010a70aeaeb871bb68a3c1f7f792737423de335ecc543de9d` |
+|  `latest`     | May 21st     | `sha256:e1de2f2dac00536da2efe8082df83d224195ee25cd0d192842474baa260160ab` |
+|  `latest-dev` | May 21st     | `sha256:80efaebc440ed03f75d4bdb2722c1a460d145131f740970fc8a5c3e0ab02532d` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.7.5-dev` `2-dev` `2.7-dev` `latest-dev` | May 19th     | `sha256:e72c8e794b2c9582d5016245bee82060db651e540dda8dcc2978ad6b648b8fbb` |
-|  `2.7.5` `2.7` `latest` `2`                 | May 17th     | `sha256:ac0f328cc9ec765106cceec1b24942bf2e2caaa77a56407ae6277e4a14f500e6` |
+|  `latest` `2` `2.7.5` `2.7`                 | May 21st     | `sha256:9e35d0a21a47f71479a201ccefa44cea59762041ecae40aaf1d7e6a3852592ce` |
+|  `2.7.5-dev` `latest-dev` `2.7-dev` `2-dev` | May 21st     | `sha256:ba1e6d41df5c48e06007787cd37d8c7e1d686f0ebd070688f7387617b97c167d` |
 |  `2.7.0-dev`                                | April 27th   | `sha256:8010a5bd4f42fdf112b072d563a4aca28195ba81f383919cad600b75b539953f` |
 |  `2.7.0`                                    | April 27th   | `sha256:8bc8be1c00b8da700bca9293a2d274e98b44ef37c64d1b9ab2a9c15078a27947` |
 

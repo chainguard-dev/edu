@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the spark-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `3.5-dev` `3-dev` `3.5.1-dev` | May 19th     | `sha256:edd33d0812d430d661e16a28ef894881bf6ac107d19f84a2e9945e574b74a7ff` |
-|  `3.4.3-dev` `3.4-dev`                      | May 19th     | `sha256:f17d52294edd1ca1dff1ef0b1a5d17f156fe4e7e5411df4638ba39f1429cb68d` |
-|  `3` `latest` `3.5` `3.5.1`                 | May 17th     | `sha256:959101c62a28dc5f8cc201ada4a9f52dc3ca3039ead40e23506ce9819f5bc280` |
-|  `3.4` `3.4.3`                              | May 17th     | `sha256:b4d83c083786b3ed0b5fba3cd14d4db8e877c6241f9bf74b16279610e59eaa52` |
+|  `3.5.1-dev` `latest-dev` `3.5-dev` `3-dev` | May 21st     | `sha256:a14fcfdc893b906469adbb89fb303de119c841764647cd34371f645d96945f6e` |
+|  `3.4` `3.4.3`                              | May 21st     | `sha256:8e4190ed0d34d417ef1a356e7512343c583e4e48e299542e1af6e4de2914d6d9` |
+|  `3` `latest` `3.5.1` `3.5`                 | May 21st     | `sha256:6103cdcb78f35ba09d6d7531290204edaba2b115a8db933576d5ca4fbaf90b0a` |
+|  `3.4-dev` `3.4.3-dev`                      | May 21st     | `sha256:b3cef0a6b8e4f0c99f5911e3bb16added6a4d6b3e93a4026c1efbeaac8c86f47` |
 

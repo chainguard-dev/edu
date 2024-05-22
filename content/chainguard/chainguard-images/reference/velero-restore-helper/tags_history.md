@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the velero-restore-helper Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:785ff95b273374bd46b535660b3cf70e53aaa86b20aafd172b8dc5ed1ccfe255` |
-|  `latest`     | May 17th     | `sha256:3d81691b0aa170a6edfbe224f23ae14cf72eba119bdebc6cb500d15131c785cb` |
+|  `latest-dev` | May 21st     | `sha256:5618a1499d90d72151f3eb6ddfe6b0d6caa5abb5a2bf7a79a6f2c53689fea8f1` |
+|  `latest`     | May 21st     | `sha256:5d1f1187efe94d34a1b54dd40281729324407ade4032639f962b52303a498295` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.13.2-dev` `1.13-dev` `latest-dev` | May 19th     | `sha256:2f8d61b23ca47eca92ed3f6583f41d3de4901d1c4cc5a5d98d32c6dbce494d6c` |
-|  `latest` `1.13.2` `1.13` `1`                 | May 17th     | `sha256:eab85e564908ee4fbb7cb7735e78ddff6db6f2208bd599f4d4e489406715972b` |
+|  `1` `1.13.2` `1.13` `latest`                 | May 21st     | `sha256:9b664b1756e76213935d4e1ae4a0e1498da079473d8627b20cfab0e7b6fa02ab` |
+|  `1.13-dev` `latest-dev` `1.13.2-dev` `1-dev` | May 21st     | `sha256:1a3488d7219ed960246f6e8fc1e748e47b793e465c35bd6583f3259965211b9f` |
 

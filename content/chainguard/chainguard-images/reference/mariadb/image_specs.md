@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public mariadb Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -49,6 +49,7 @@ The table shows package distribution across variants.
 | `libaio`                      | X          | X      |
 | `libbrotlicommon1`            | X          |        |
 | `libbrotlidec1`               | X          |        |
+| `libbz2-1`                    | X          | X      |
 | `libcrypt1`                   | X          | X      |
 | `libcrypto3`                  | X          | X      |
 | `libcurl-openssl4`            | X          |        |
@@ -67,6 +68,7 @@ The table shows package distribution across variants.
 | `mariadb-11.2-oci-entrypoint` | X          | X      |
 | `ncurses`                     | X          | X      |
 | `ncurses-terminfo-base`       | X          | X      |
+| `perl`                        | X          | X      |
 | `pwgen`                       | X          | X      |
 | `tzdata`                      | X          | X      |
 | `wget`                        | X          |        |

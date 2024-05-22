@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-blackbox-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:97ea9977d0fa0f83ea3c206d48172a5df780f1ccd83656d74ddc3d9a49b08a03` |
-|  `latest`     | May 17th     | `sha256:ed1b0f83596d2b7827fe41d49162af908429f5674b8def20558a11b2c55fdf19` |
+|  `latest-dev` | May 21st     | `sha256:38681fd121fcb25c362b30f5a33e70a3b5bb3d00326a6c353a5d77d4095fae7b` |
+|  `latest`     | May 21st     | `sha256:2929bb863d94a1fb7a25efb400c7baa1789e1c6917748e9a434f985c6dc414af` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.25.0-dev` `0-dev` `latest-dev` `0.25-dev` | May 19th     | `sha256:706261208a3191f28758ad06d76ef94a88b17add20e5d9a60676b60b07379686` |
-|  `latest` `0` `0.25.0` `0.25`                 | May 17th     | `sha256:e56812e176549acfc3ae95d6327b2f81a0e2ec87632fce9ba39bc767122aba58` |
+|  `0.25` `0` `latest` `0.25.0`                 | May 21st     | `sha256:d9509f6fc7fc560b813be272042881a4d4a86ebb7fb2f4b9c1fbcf3fa969d5d2` |
+|  `0.25.0-dev` `0-dev` `0.25-dev` `latest-dev` | May 21st     | `sha256:cafe414d671fcd2ccb935015edef4bb8529e1a981ba2a3d219692ef6e1f893ec` |
 

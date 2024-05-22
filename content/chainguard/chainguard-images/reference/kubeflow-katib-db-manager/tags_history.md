@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-db-manager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:73c6018076ae6489970e6250fd9b01ce96a74915898ad9782a91b6adbed13d0c` |
-|  `latest`     | May 17th     | `sha256:5fb49b02be520713804d4612dc965b4abcb8b4d644220798870974f6037e0347` |
+|  `latest-dev` | May 21st     | `sha256:e0f4ca6b699d7fb4c6c91393f3e6cd0a63ac00e2ba5100459540e411afca61ca` |
+|  `latest`     | May 21st     | `sha256:1dae41522ec52034da9796a0ff90af06726376cc404d8b2f19fd5b8ac214989a` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.16.0-dev` `0.16-dev` `0-dev` | May 19th     | `sha256:fd2d3c1d30746febabe81777ee003a67e7ca432b0d7edec3193835dcee686d7d` |
-|  `0.16` `0.16.0` `latest` `0`                 | May 17th     | `sha256:ffd4807b94d8caf2b4fc211ab334ca002e3777f90926256ad535ee9dad69b119` |
+|  `0` `0.16` `latest` `0.16.0`                 | May 21st     | `sha256:47104d9de206b95336a2a4e1f3dff53da66f07bc16a2bd4fc5a5563f58871274` |
+|  `0-dev` `latest-dev` `0.16.0-dev` `0.16-dev` | May 21st     | `sha256:530746f478f9a440264da103014777f73960080c4b1ca81ba3d817e3de52ea31` |
 

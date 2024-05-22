@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-downscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:75e25e818520778a976de91d5d5a627836c1f6a560481201e8ed00333a43e711` |
-|  `latest`     | May 17th     | `sha256:5bd2dc175ba0058bae2bf735adc7dfb5473eaace713cfbd43ac88eca9cec40d6` |
+|  `latest-dev` | May 21st     | `sha256:55a530200284c31fa568a4b22014152a002237f9518a0fb6a0264f714d9916eb` |
+|  `latest`     | May 21st     | `sha256:6ae1b357e7adcb483695dcab1b80671f90845b7938e38ebaa0c92feec8281b03` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `23.2-dev` `23.2.0-dev` `latest-dev` `23-dev` | May 20th     | `sha256:1b5b29e3a2e1a1f8d73da83c56f8c1465db535b908fd11f986c4cb088412a86f` |
-|  `23` `latest` `23.2.0` `23.2`                 | May 20th     | `sha256:0784a2cb82aa8cf9393becf53406f0df6970f5a257bbaf1a1047d7cc99fbac49` |
+|  `latest-dev` `23.2.0-dev` `23.2-dev` `23-dev` | May 21st     | `sha256:2087c86a1f335920c59543d38d8716c8229a9cc6ae2cc3b3672f7156b0f62992` |
+|  `latest` `23.2.0` `23` `23.2`                 | May 21st     | `sha256:6fd42d499ee32dfeb44fb0ba86192a29c87d7d0b99dec63ccaeb55d980e116d4` |
 

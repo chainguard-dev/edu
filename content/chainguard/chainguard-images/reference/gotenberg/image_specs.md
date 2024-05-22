@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public gotenberg Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -142,7 +142,7 @@ The table shows package distribution across variants.
 | `libpcre2-8-0`             | X          | X      |
 | `libpng`                   | X          | X      |
 | `libpsl`                   | X          | X      |
-| `libreoffice`              | X          | X      |
+| `libreoffice-24`           | X          | X      |
 | `libssl3`                  | X          | X      |
 | `libstdc++`                | X          | X      |
 | `libstdc++-dev`            | X          | X      |
