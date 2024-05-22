@@ -2,7 +2,7 @@
 title: "Reproducibility and Chainguard Images"
 linktitle: "Reproducibility and Chainguard Images"
 lead: ""
-description: "This video explains the importance of reproducibility and how to reproduce any
+description: "This video explains the importance of reproducibility and how to recreate any
 Chainguard image from an attestation."
 type: "article"
 date: 2024-05-20T12:21:01+00:00
@@ -21,7 +21,7 @@ toc: true
 ## Clarification
 
 In this video we mention needing to keep copies of old APKs in order to be able to recreate images.
-This wasn't fully accuate -- in fact we do keep all our previously issued APKs, so you can build
+This wasn't fully accurate — in fact we do keep all our previously issued APKs, so you can build
 images from months (and in the future, years) ago without issue. We currently retain all of these
 package versions indefinitely (only servicing latest), but in the future we may age things out just
 to manage the size of the index.
@@ -47,7 +47,7 @@ cosign verify-attestation \
 Building the image:
 
 ```
-apk publish latest.apko.json ttl.sh/nginx-repro
+apko publish latest.apko.json ttl.sh/nginx-repro
 
 ```
 
