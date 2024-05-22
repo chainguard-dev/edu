@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-hubble-ui-backend Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:adc1969bfaee22245eeed4858b287b56baad4a167384b99dd5dff113bad92a97` |
-|  `latest`     | May 17th     | `sha256:de277fd4a005668b260d532b9894b35104a93d353ac9d29bf559085e077f279e` |
+|  `latest`     | May 21st     | `sha256:9d185572bc30a694fb1dcd0e380c4d5c7433041432103aead679d804c19a91e2` |
+|  `latest-dev` | May 21st     | `sha256:0c58d52fc9ea0c1453561ddb234240ecd71d8e0a4ed3470d978a8f0b6b9650c0` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.13.0-dev` `latest-dev` `0.13-dev` | May 19th     | `sha256:aeaf4e9a8d58e6ca8b3169aef9903c731a91e37f71f3d00ca0442f8ed1a9ce62` |
-|  `0.13` `0.13.0` `0` `latest`                 | May 17th     | `sha256:736ac379e2e240dd326432b3f0cda2a1ecb92d8556e1e9f347e50fc7771d7e17` |
+|  `0.13.0` `0.13` `0` `latest`                 | May 21st     | `sha256:f8487776d5aebf421cd71f7632f909bd0d21a2cbb1802214cf85d3dda9605ca5` |
+|  `0.13.0-dev` `latest-dev` `0-dev` `0.13-dev` | May 21st     | `sha256:3cbd8a6705aa92f8ec957bafa515901bf00a867e2f44175c2674c447a115550d` |
 

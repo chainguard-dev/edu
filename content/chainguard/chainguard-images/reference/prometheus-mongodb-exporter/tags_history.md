@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mongodb-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:b2cc2bcedd436f9a4b3c9410418d29ed661e9c85e464043032913afd2c68a09b` |
-|  `latest`     | May 17th     | `sha256:ffa8d2b95d32c5a1951b19b8d9ff7fece97d779d04ec16ed9f6368552e0b91ec` |
+|  `latest`     | May 21st     | `sha256:f6231624933c2d2070fcf9b49a9458e83148055008bfd343333b19f9629b9b45` |
+|  `latest-dev` | May 21st     | `sha256:e435d6e875e098fc455789d6235b0581ab0406d88f5cbaa99414d40bc66510fd` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.40.0-dev` `latest-dev` `0.40-dev` `0-dev` | May 19th     | `sha256:0c750e719cc8619bb856764ab93bcdc14b32ad5275b4cbf906e565737e6f0353` |
-|  `latest` `0.40.0` `0.40` `0`                 | May 17th     | `sha256:507ca09995d5966aa09d7ef90f20f5d50ae838bca2cd5d7a211add06d77fe4c1` |
+|  `0.40-dev` `0-dev` `0.40.0-dev` `latest-dev` | May 21st     | `sha256:d28a91de5666dccbab41e855dd03a589bc367d8ae72907a12d7dac48f062741a` |
+|  `latest` `0.40` `0` `0.40.0`                 | May 21st     | `sha256:2e3c43e629567111a8a1c949ddc83cd4a6dc58669e32682cdf1db9f3a2c653c2` |
 

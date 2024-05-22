@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the keycloak-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:213c064a9ab222f83e316447f1840ebefea9e8416b92428b7084534b9fd13d46` |
-|  `latest`     | May 17th     | `sha256:1b2f656ee13bea836e4c4f6fa69e0e8bcb994fcec197604aca229460b0039251` |
+|  `latest-dev` | May 21st     | `sha256:60efff7d347f3b52ab6b1a92f7436f1e9877908b6aa2c8fdd0125e222d706190` |
+|  `latest`     | May 21st     | `sha256:6e0bf2d686c0858bdd5abaab0cc7adaba5c72f39a0363dd12d6e09e7b8cdfaf1` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `24.0-dev` `latest-dev` `24.0.4-dev` `24-dev` | May 19th     | `sha256:f63e5c146725487968a79b63bf7eb026b902f276d671fd52a77909203a73e453` |
-|  `latest` `24.0` `24` `24.0.4`                 | May 17th     | `sha256:c4bd3b988f90019203d559e19ed5009c47cc10bff90275f933ef763ada4862f0` |
+|  `24` `latest` `24.0.4` `24.0`                 | May 21st     | `sha256:5c6574408c174b471a704172b97a55a8647867c81478d4609cc9056676a7e04a` |
+|  `24.0-dev` `latest-dev` `24.0.4-dev` `24-dev` | May 21st     | `sha256:f6c65f6d9f6f6b6af00ce6373493d3d91c167ccab0814c451f694e76b1056b60` |
 

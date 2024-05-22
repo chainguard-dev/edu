@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the postgres-helm-compat Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:5ab8f50576184e79e59638746db69684e97ba446191a63327682ae2a18ee2db4` |
-|  `latest`     | May 19th     | `sha256:ed231926b387adb84338ae80f726a704391283b5dc61779633339ef0fedf7ab0` |
+|  `latest`     | May 21st     | `sha256:2ab7139cb3f2cd4b75b8fba64425ccc04146b85e435177ab9d1d83ffbbac00e2` |
+|  `latest-dev` | May 21st     | `sha256:d69318fa18fb0ee925304f7c054f178486385de23e61e35882b5efe4dbfcd35e` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                           | Last Changed | Digest                                                                    |
 |-----------------------------------|--------------|---------------------------------------------------------------------------|
-|  `15.7-dev` `15-dev` `latest-dev` | May 19th     | `sha256:9bc57f3c4cbc4342c00be0f18f2a404159f1eb41d008fee108c1fb2df3f10920` |
-|  `15` `latest` `15.7`             | May 17th     | `sha256:4e0eb6c3b9bc3ba2d441ba40799c905c7c78f98f634192f577d40443aa66db6e` |
+|  `15` `latest` `15.7`             | May 21st     | `sha256:9d7e49cea54a5f603b4af4fcba93f74dded1b40e9cabdfce210109df664eb341` |
+|  `latest-dev` `15.7-dev` `15-dev` | May 21st     | `sha256:de0591f364c1b9d440591cb46ebff848aa26df0a6dfa9fe8bc58235238ed14bf` |
 |  `15.6-dev`                       | May 6th      | `sha256:aec4c7236bb8083a8b5b424874dbca21038ac9278c4aec8cadd63396372907b8` |
 |  `15.6`                           | May 6th      | `sha256:512925bcfa3b6ad85a028befa79ae14c42e8f83256ec15ff3e59551b5a21edf4` |
 

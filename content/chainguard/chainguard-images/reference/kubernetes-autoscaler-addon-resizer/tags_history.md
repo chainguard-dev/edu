@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-autoscaler-addon-resizer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:1362a523b8350888448cad00f62c0f4357d67949a742eef4d8efdf7c5086ace8` |
-|  `latest`     | May 17th     | `sha256:277844fa3fe4bc3db41a0570593e10d64286ee26dc89f46d3a1d0d121e3b449e` |
+|  `latest`     | May 21st     | `sha256:3fabdc150fd08dcc6f72a255e393561af3660a6c42f026257d82f93fa1c8ed13` |
+|  `latest-dev` | May 21st     | `sha256:b1bf5e33990d8d9cb034967f133ea9c6393c1ee8160d60dda3c320fed998209e` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.8-dev` `1.8.21-dev` `latest-dev` | May 19th     | `sha256:e908f328e9923753999ccabe49a8b10e4ad90551cbdf0ef22539818910888d01` |
-|  `1` `latest` `1.8.21` `1.8`                 | May 17th     | `sha256:243ce3cb547ec753d62675d251418850c636432bf7594f6adf25f5441600767b` |
+|  `1.8` `1.8.21` `1` `latest`                 | May 21st     | `sha256:9954c72f7b43fc7d8e5bce7b0e7ae1c525288411223678c4222c397d83d2dd5c` |
+|  `1.8.21-dev` `latest-dev` `1-dev` `1.8-dev` | May 21st     | `sha256:b231c27ba46330380e4cf8c8ef7fc72aef03de4d10e6a4ef5289a601ac159fe8` |
 |  `1.8.20`                                    | May 15th     | `sha256:375562317fed402f92bbc946bb53a7a2583144c871561dd022575c066654d526` |
 |  `1.8.20-dev`                                | May 15th     | `sha256:f83b528ae18abbe5b7aac41b1475107602835b0de36c7378780236acbb51bef5` |
 

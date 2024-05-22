@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nvidia-container-toolkit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 20th     | `sha256:f4232279e25dc128364eaddef08e6ad3cd2d0ebaf175a64ac2326edf123e41ea` |
-|  `latest-dev` | May 20th     | `sha256:372613092dbbbed6db934b6e7a3dc8d1f363d71dce9416639ea6f1855c95e810` |
+|  `latest`     | May 21st     | `sha256:cc0125405cb60d1022eb6526663dea333df0e93795fbf09507897524e824ad22` |
+|  `latest-dev` | May 21st     | `sha256:d180d6688906bbac3a169906ab05a82a26dac7211b746cb141cf8395bc2d09c7` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.15.0-dev` `1.15-dev` `latest-dev` `1-dev` | May 20th     | `sha256:227a1bb0ed30d10f568b082aa7b9d70ddd68c2e955aefa245aa88fbcbfd2a166` |
-|  `latest` `1.15.0` `1` `1.15`                 | May 20th     | `sha256:1405212e8a001be7f2fc2b576970c3d116dce1c0ba852058102cab845f1b3ede` |
+|  `1.15` `1` `1.15.0` `latest`                 | May 21st     | `sha256:0c3854d7e54f72fb7744cb5d46b02819ef724600765d0bb9b516cea38006d674` |
+|  `1.15-dev` `1-dev` `1.15.0-dev` `latest-dev` | May 21st     | `sha256:fa50961b4cce0c9f97978ce0d37d2430393d13f95f30015f23e7a9b6ffc375d2` |
 

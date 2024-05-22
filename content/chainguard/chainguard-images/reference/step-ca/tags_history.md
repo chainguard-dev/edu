@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the step-ca Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:6d09df8623d0e32a0bb339de31b3d36c14c5e06aa37e439d8cb3e5a000857245` |
-|  `latest`     | May 17th     | `sha256:864158c6fd3bb110f872805e3ab539764b8a303f6896368146fec5fb5c27025c` |
+|  `latest`     | May 21st     | `sha256:8677b03cd162fadb776eb76399c4808f82b4a0f17bec28f21d675c679fffe169` |
+|  `latest-dev` | May 21st     | `sha256:0b3853e073493a4c577d96123de331874d487ce9026b31b3f09dc123107e484b` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.26-dev` `latest-dev` `0.26.1-dev` `0-dev` | May 19th     | `sha256:8002b65e72a8574fd7e83f4a2dc990156c7e8273a5548f9180dd9f01c5f5f3d0` |
-|  `0.26.1` `0.26` `0` `latest`                 | May 17th     | `sha256:3163250ad5d52964f3d8bfcc49e0e2f1bb81fd5f23c58f1884c920e6bf9f38f0` |
-|  `0.26.0`                                     | April 21st   | `sha256:9bb95f68d840dd7265936d5a15da28c69cf2b850d5923ba1267f19f41cf6581c` |
-|  `0.26.0-dev`                                 | April 21st   | `sha256:bf9064cbb1cde5a2505930b7569c91c7a8c7b21a09aceea8e732c7f1681d2024` |
+|  `latest-dev` `0.26.1-dev` `0-dev` `0.26-dev` | May 21st     | `sha256:b6d236115f18144d559c1b021bbba26eee06a4b6eff64db5ee1bde64132ed9f4` |
+|  `0.26.1` `0` `latest` `0.26`                 | May 21st     | `sha256:a80db105692ea59057862650e636206bc979fd90f024eca46d1135b47bbb0cd2` |
 

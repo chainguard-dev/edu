@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public cilium-agent Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -60,6 +60,7 @@ The table shows package distribution across variants.
 | `kmod`                              | X          | X      |
 | `ld-linux`                          | X          | X      |
 | `libLLVM-15`                        | X          | X      |
+| `libLLVM-17`                        | X          | X      |
 | `libblkid`                          | X          | X      |
 | `libbrotlicommon1`                  | X          |        |
 | `libbrotlidec1`                     | X          |        |
@@ -88,8 +89,7 @@ The table shows package distribution across variants.
 | `libxcrypt`                         | X          | X      |
 | `libxml2`                           | X          | X      |
 | `libzstd1`                          | X          | X      |
-| `llvm15`                            | X          | X      |
-| `llvm15-tools`                      | X          | X      |
+| `llvm17`                            | X          | X      |
 | `mount`                             | X          | X      |
 | `ncurses`                           | X          | X      |
 | `ncurses-terminfo-base`             | X          | X      |

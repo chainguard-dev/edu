@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the php Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,10 +28,10 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)           | Last Changed | Digest                                                                    |
 |-------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-fpm-dev` | May 20th     | `sha256:5e4830d2a3572e9fd33d9abb9657a5e877896ae7c1607833446e6018c7c518a8` |
-|  `latest-dev`     | May 20th     | `sha256:52cd8d3a0549cdf936e626dfe910ed22fd4f7776e8541d8e0f6cdfe7ecb734fb` |
-|  `latest-fpm`     | May 20th     | `sha256:4d6275888df179a322890842bcd11b933fb60f33be00264fa81d00c79135eaa4` |
-|  `latest`         | May 20th     | `sha256:2c8a8cc786a7bb134bc6f2d54927da20bbdbd6f7c1955effdb19be1ba6b0b24d` |
+|  `latest-fpm`     | May 21st     | `sha256:37218ad1d0cb8d737fe49936fae484953f35bb3530d0c05822fe0638b77c5130` |
+|  `latest-fpm-dev` | May 21st     | `sha256:2b210b4268b88a2063bc3beef79e7f7ac13ee377c43eef621329d8e4590c5c05` |
+|  `latest-dev`     | May 21st     | `sha256:bd1a357f12edbfdc71489367f4729f7aaae7eb8d15e51180e54d2dd4f6bfd6ee` |
+|  `latest`         | May 21st     | `sha256:43981185c8aed8866d3fd4caf476ba52004a34318812dcb5071de1786083000b` |
 
 
 ### Private/Dedicated Registry
@@ -39,10 +39,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                          | Last Changed | Digest                                                                    |
 |----------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8.2-dev` `8.2.19-dev` `8-dev` `latest-dev`                                     | May 19th     | `sha256:db7184f402e4f158f8d7bcaafffa4a930314ed404b0d1cdae64c23bd461e6f08` |
-|  `8.2` `8.2.19` `8` `latest`                                                     | May 19th     | `sha256:fde6d7a485c71482bea01bd23a77b6f8a3c16afcd864e67a0f265d42c7b6c929` |
-|  `8.2-fpm-dev` `8.2.19-fpm-dev` `8-fpm-dev` `latest-fpm-dev` `8.2.19-r0-fpm-dev` | May 19th     | `sha256:3a13ad5f5e886756c9352fe471349d4e45bfc362628bfe9a151ebe3853232f1c` |
-|  `8-fpm` `latest-fpm` `8.2-fpm` `8.2.19-fpm` `8.2.19-r0-fpm`                     | May 19th     | `sha256:9287796165cdae07fbe5ab63be37f62f67b2f30245f231b1c1628521e2399a62` |
+|  `8.2-fpm-dev` `8-fpm-dev` `latest-fpm-dev` `8.2.19-fpm-dev` `8.2.19-r0-fpm-dev` | May 21st     | `sha256:10f815080e50bfc40c04483a913c06ebb8e5ad844e6002b84fcaca7f175ebf02` |
+|  `8.2-fpm` `8.2.19-r0-fpm` `8-fpm` `8.2.19-fpm` `latest-fpm`                     | May 21st     | `sha256:c64e64f27c08789b7ab126f62d07bc936a7d0986e2fa3fcfd335e245c9135861` |
+|  `latest-dev` `8.2-dev` `8.2.19-dev` `8-dev`                                     | May 21st     | `sha256:6c64bf96a0a3b5e086d15d5598efed6e3d380db3c5b30f338d472523939fc740` |
+|  `8` `8.2` `latest` `8.2.19`                                                     | May 21st     | `sha256:17e96ddad9306702047d1c04820ab9229b7e11ab1417bc4e99ac96f1fb6bfff6` |
 |  `8.2.18-r1-fpm-dev` `8.2.18-fpm-dev`                                            | May 7th      | `sha256:7b596caadfff5ff01389a7df1455eaed17072eee8838d70550acdecff0075224` |
 |  `8.2.18-r1-fpm` `8.2.18-fpm`                                                    | May 7th      | `sha256:88262d169bb4fa9888e8364897f11640f42183ecbf12aa9c5726ac8cba147adb` |
 |  `8.2.18-dev`                                                                    | May 5th      | `sha256:c4bf3f6bed8e450f78244915b8758515fc6986feb9c9d128db900700ee32d666` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rabbitmq-default-user-credential-updater Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:f361d654df16a364e7ada2c4a9d2ccf08893692584eb2ce085bb44fc44e42c30` |
-|  `latest`     | May 17th     | `sha256:0887e2e903e828fb81a9e4292ea2b8de8275a21b2687a48194dfe4262a2f222c` |
+|  `latest`     | May 21st     | `sha256:f3b88fdfb890cbb116f307e49703dc3c0141a2eca260c4db30dca6ae60f1bfe0` |
+|  `latest-dev` | May 21st     | `sha256:a379cb886a24c1d436c7638f8109bef39f8afb01c1b7e19e876e3de9325820f9` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.0-dev` `1.0.4-dev` `1-dev` `latest-dev` | May 19th     | `sha256:4dbdc001ec5e078e29e9fe58dc0a89261e68c2c0e0297d94a77bccac3d3ce32e` |
-|  `1.0` `1.0.4` `1` `latest`                 | May 17th     | `sha256:aaba32e176b6942482679de2def50683f14396a0c7b8e06532f55615a0fd0b04` |
+|  `1-dev` `1.0-dev` `1.0.4-dev` `latest-dev` | May 21st     | `sha256:aa097e3fcd32c7cbb6c5eb1aac3f4ceb66f69e4f1a90862cb15aa500449db500` |
+|  `1` `latest` `1.0.4` `1.0`                 | May 21st     | `sha256:59f78061cfb17b2b3ca70a747cff80bd8c58c1256a172e331b349f5dd60fe89f` |
 

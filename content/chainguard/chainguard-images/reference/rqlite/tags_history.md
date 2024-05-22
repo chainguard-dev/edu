@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rqlite Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:848e1c6ed2ce2c7136480c8d3d15189ff6d87ad90a8050f0d3b2a581babdb0fc` |
-|  `latest`     | May 17th     | `sha256:b987c4cc9817dfc7bd1efa3ae960656531b960d939427c31ae3dc744080e0dda` |
+|  `latest`     | May 21st     | `sha256:2af29bd0b55d4adaa683dfcc8b64668a19f9c42120467bb9f794d437279681e7` |
+|  `latest-dev` | May 21st     | `sha256:7593e89827009248186aed28bc9c9f2ab93f69620063b5110f4f701a62c9d05b` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8.24.7-dev` `latest-dev` `8.24-dev` `8-dev` | May 19th     | `sha256:d803cf6c0d6e143a1dc791e019856c6a7c5ce5577045343f4f875f2c92d66a3c` |
-|  `8.24.7` `latest` `8.24` `8`                 | May 17th     | `sha256:21e26c2a52327103d3a84dfa4e9ed2c7e742e02d8405a32678a8ca2439e5aea7` |
+|  `latest` `8.24.7` `8.24` `8`                 | May 21st     | `sha256:952f45802c3e06f7f81e21114a4575145bc294fd06235901f001f15643b4601d` |
+|  `8.24.7-dev` `8-dev` `latest-dev` `8.24-dev` | May 21st     | `sha256:a3ad5a26dd054e3039040346e3d49633defd71132c56626ea328a94668d804af` |
 |  `8.24.3`                                     | May 10th     | `sha256:861b6e07b46f9f1d74713150abbf530bfebd7ce377dacf23008cc4d1fe149aed` |
 |  `8.24.3-dev`                                 | May 10th     | `sha256:5a5b6f5991c00b0e64546a6f45eee9d00f4b890b0491bda2c24e47dfaf5f18d1` |
 |  `8.24.2-dev`                                 | May 8th      | `sha256:c924deab4ec1710299c96588bf5b6f593f74f947dd1cfe6ab9e3edf84d69d6f7` |
@@ -49,6 +49,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `8.23.3`                                     | April 23rd   | `sha256:13414f9029ce8566f5105df7d8ba9bfe94305e46dfa41db17d8fd92c573c2897` |
 |  `8.23.2`                                     | April 22nd   | `sha256:9128d9a5efc4bc4ef69c5513ceac8e7c2ddeaf786d4b00083bcdf39a312457a5` |
 |  `8.23.2-dev`                                 | April 22nd   | `sha256:48e27d26c427aaa4220cdf834c7ad8c6782541187065fee08e5effb8fb845214` |
-|  `8.23.1`                                     | April 21st   | `sha256:395eca9ae6980e9142d20a72fb9bdd31f62e65c9240d3db1d1f78d68087bfdf2` |
-|  `8.23.1-dev`                                 | April 21st   | `sha256:78dd1859eaf86551a1b2da613b3fb563b700ebab91c04aded2542351281db861` |
 

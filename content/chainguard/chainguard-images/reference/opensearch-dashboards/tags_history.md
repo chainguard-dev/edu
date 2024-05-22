@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opensearch-dashboards Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:c168203e9c65f21cb89d5460e5432376a20cac354291d67217ceccba018b7dc4` |
-|  `latest`     | May 20th     | `sha256:51c6c029e99b82bb6d9c8f11dc259fb530690777eef9fb21f6b7a14b4cb20c33` |
+|  `latest`     | May 21st     | `sha256:6d6e7c1b0d30a6a7d4902bda9c92efdf5ee6d403df485ff65e3c2b18864797c3` |
+|  `latest-dev` | May 21st     | `sha256:2a825187d23527ced3ddfed359407d1f9bcb3874f33a06dbecd064b5ea78a082` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.13-dev` `2-dev` `latest-dev` `2.13.0-dev` | May 20th     | `sha256:179e67ab2a30c76f941929b6d7bd830e85293b7371bd986115d72740b3ccf6b3` |
-|  `2` `latest` `2.13.0` `2.13`                 | May 20th     | `sha256:3b45fd3ada05cb0f098b2572c69c85b464a9f9c3770342ca72c74a8786baf47f` |
+|  `2.13` `latest` `2` `2.13.0`                 | May 21st     | `sha256:a8ce6f9dd4b642c667cfb40f2d0a01db392e6094e16627751772082d254da461` |
+|  `2.13.0-dev` `latest-dev` `2-dev` `2.13-dev` | May 21st     | `sha256:a45205051e774e5501e5e1aa6e427d1c8f97024e550da33635a4eea72365c2e6` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the filebeat-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8.13` `8.13.4` `8` `latest`                 | May 20th     | `sha256:07c5405a901c145b49bb9fcde432746be19fbbda604d8f9b726a641b5db4501b` |
-|  `7-dev` `7.17.21-dev` `7.17-dev`             | May 20th     | `sha256:53019892dcd64d0aa31d289e212c5537ae849216cc69dcef5e020569d78d6b93` |
-|  `8-dev` `latest-dev` `8.13.4-dev` `8.13-dev` | May 20th     | `sha256:c6d76714f4adf2c96711ce1a34f20be542a5511f0879e2ef22bdc810d4edcf56` |
-|  `7` `7.17` `7.17.21`                         | May 20th     | `sha256:247badbecec0577981464a256bae89ab5b44c21509b729a08f9d9fbc45d23cc8` |
+|  `7` `7.17` `7.17.21`                         | May 21st     | `sha256:1c77059b604878422005a91cbe2dd77ef6f158fcd29a8f786f6714e9cd18f264` |
+|  `8.13` `latest` `8.13.4` `8`                 | May 21st     | `sha256:8da2d88599939704309df4e4e2b7c1eaef380cc4e402e0240a8ccfe27786d821` |
+|  `7-dev` `7.17-dev` `7.17.21-dev`             | May 21st     | `sha256:3d7ecc0f05141f85c0fbe5b743a599d7c9fa2298dca69483e21ce54eb0a2f0fc` |
+|  `latest-dev` `8.13-dev` `8-dev` `8.13.4-dev` | May 21st     | `sha256:1d9aa03d0b41873f7a328038c146562d910426ab8c23c1bd3db85852babbc5f2` |
 |  `8.13.3-dev`                                 | May 14th     | `sha256:05beb050a694fe9d3d1803c2a8611ba6ec4fd6fa2360024bac3fe5dd19f33d69` |
 |  `8.13.3`                                     | May 14th     | `sha256:dd3e29105b6ea70d7c37d07c543a5cbb0468e4f5974ac5585a028af21914633c` |
 |  `8.13.2-dev`                                 | May 2nd      | `sha256:bd32489430ab5ec529cfa17dd9ca9273161b34cc3e473fd5385d66456200ea1b` |

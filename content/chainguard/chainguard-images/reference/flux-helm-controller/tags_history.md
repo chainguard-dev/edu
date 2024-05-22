@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-helm-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:3f647e622957cda07a624f04c958ea18cd69ff7a216cdffd2651359581588a53` |
-|  `latest`     | May 17th     | `sha256:245ea390231fcf59d0c5a18aa5e5e228232adfa1976466852a388307968acfde` |
+|  `latest`     | May 21st     | `sha256:a2068daf47a4c7184a0069ad251d374c9f004a2592b7345caf134e50ae2b9269` |
+|  `latest-dev` | May 21st     | `sha256:4f6c20742de492eff96505dc693972571f49d4c533f6bf45b2b2722a41797a5c` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.0-dev` `1.0.1-dev` `latest-dev` `1-dev` | May 19th     | `sha256:23c4e887fd15bba08d245a4427819d875cbdc6444c0786997b4cb46e63094cd3` |
-|  `1.0` `1.0.1` `latest` `1`                 | May 17th     | `sha256:954dac768e71ca26b8a56219096f16b3bad0d94eda6ffa14fabce1c958e46395` |
+|  `1.0.1-dev` `1.0-dev` `latest-dev` `1-dev` | May 21st     | `sha256:d5576b08959f1fa1e73cb8f3dcda84ea08e0a67e189b5066105e73d0b12dff9e` |
+|  `latest` `1.0` `1.0.1` `1`                 | May 21st     | `sha256:0e35d0365221364f5e12c8a1989c59c2733cbc02bae505d6f7bef06aa53d1b34` |
 |  `0.37.4` `0.37` `0`                        | May 2nd      | `sha256:28ee3a58f7999c83da112f6748b80a8c1c2b4043d96f95a6617cd92db0afeef5` |
 |  `0-dev` `0.37.4-dev` `0.37-dev`            | May 2nd      | `sha256:199d939852865ad088a8e2e654d9f4141fb60076b57e2b665c97039e4a49b1e9` |
 

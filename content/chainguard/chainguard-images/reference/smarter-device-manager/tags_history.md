@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the smarter-device-manager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:c49cf7c94fb0d787992b37d81ce0dfdf25c586b62d0270dc09ecec5af763783d` |
-|  `latest`     | May 17th     | `sha256:df2d555de7dfab24033dfce1182901d7a29cfca916b19ce80ca6f1ebbc8869f8` |
+|  `latest`     | May 21st     | `sha256:712430f0fe36402e337b04ce4e6e90a1a43b7550f65e0dc62a0b93aeeefb0143` |
+|  `latest-dev` | May 21st     | `sha256:41640452133b4f512574810a84a7f4e8b7619ff9a9dba0fdeb71c77c97e4a39c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.20.11-dev` `1.20-dev` `1-dev` | May 19th     | `sha256:1e7b7faf0780dd1085841dcbca09dcc3e4798bca35567bea71da37906340fe60` |
-|  `1` `1.20` `latest` `1.20.11`                 | May 17th     | `sha256:c7a13540495b6cb82b6ade611ede223f7703c7bc2ba623b774eddc37a9a20790` |
+|  `latest` `1.20` `1.20.11` `1`                 | May 21st     | `sha256:7b5edb2a8e925d0fa22136a1aa28b79dff2710e3149956ff1296e5c8a9be1113` |
+|  `latest-dev` `1.20-dev` `1.20.11-dev` `1-dev` | May 21st     | `sha256:70aaec0d41fe623c7afb0f0b35547eb4fa2254f30b3674280ddc78c7ef954f31` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ip-masq-agent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:cc77ab59f8a5761da061306c92bd1c800f644ca77f870d8da0832bde9f3f5f3c` |
-|  `latest`     | May 17th     | `sha256:b6f9793d5b8d436fd206ab8bd4e65a7972261902bd9c42021ebed86d2f12e3aa` |
+|  `latest`     | May 21st     | `sha256:7295cce28f12a301c423c3096606ceac6488152b82982800b397ae56c95258e1` |
+|  `latest-dev` | May 21st     | `sha256:71b005a8d9efe6d9ab7773560ade371dea0ea7170bdab4549ed7d1577501039c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.9.3-dev` `2.9-dev` `2-dev` `latest-dev` | May 19th     | `sha256:3ea231896fd25b80226514f1b866af420689982c83e12dbdf5457c7a708a5245` |
-|  `latest` `2` `2.9` `2.9.3`                 | May 17th     | `sha256:64bcdaaf34582954b5f8049192540dd336cfbe332526af185a3480b9db5c3e49` |
+|  `2.9.3-dev` `2.9-dev` `2-dev` `latest-dev` | May 21st     | `sha256:79570e5ca66a470443133e438412b389c67ff47c8f0215e4a36e7abfd59be879` |
+|  `2` `latest` `2.9` `2.9.3`                 | May 21st     | `sha256:0ce12e00746f11e4813f6387eb96b2ff91976d6ba79bf23f719bd879d102caf5` |
 

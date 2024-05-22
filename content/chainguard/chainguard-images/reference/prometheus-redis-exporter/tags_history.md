@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-redis-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:f3555fff32a76900ff2079f97526974264038f89a6cc59d6fa5903035c785c2c` |
-|  `latest`     | May 17th     | `sha256:83006a4644c41fce8ad0051196ae081bc2bb7fee09fdc1e8068a4c2db4608a8d` |
+|  `latest`     | May 21st     | `sha256:acff6b6dde64af7de1d50b7d95fd63a3721d631cb901b4975cd52ad862e31e69` |
+|  `latest-dev` | May 21st     | `sha256:cb538b91a8251de187c5fdfabfcb3b05350b849200158e669d567d8194958b70` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.59-dev` `1-dev` `1.59.0-dev` | May 19th     | `sha256:4d347408521f48ce0d2ecad4463ce8f67437d37f5f9865faaf21631cce0c5a52` |
-|  `latest` `1.59` `1` `1.59.0`                 | May 17th     | `sha256:24928118e620c6589f9f92d171217ff7c1925fb8c573e15dad873d4fec94adae` |
+|  `1.59.0-dev` `latest-dev` `1-dev` `1.59-dev` | May 21st     | `sha256:dc6ed2412eb2171101674566b59e7c5cfa7fb169e97817e50b8fe18a04feebf3` |
+|  `1.59.0` `latest` `1` `1.59`                 | May 21st     | `sha256:05203a6844ed31ecff381210d633551d0a9cc3738240d93ff45829f15454f8bf` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for cilium-agent Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for cilium-agent Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                                                                                                                                                     |
-|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                                                                                       |
-| `cgr.dev/chainguard-private` | 1, 1-dev, 1.14, 1.14-dev, 1.14.3, 1.14.3-dev, 1.14.4, 1.14.4-dev, 1.14.5, 1.14.5-dev, 1.14.6, 1.14.6-dev, 1.14.7, 1.14.7-dev, 1.14.8, 1.14.8-dev, 1.14.9, 1.14.9-dev, 1.15, 1.15-dev, 1.15.0, 1.15.0-dev, 1.15.1, 1.15.1-dev, 1.15.3, 1.15.3-dev, 1.15.4, 1.15.4-dev, latest, latest-dev |
+| Registry                     | Tags                                                                                                                                                                                                                                                                                                         |
+|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                                                                                                           |
+| `cgr.dev/chainguard-private` | 1, 1-dev, 1.14, 1.14-dev, 1.14.3, 1.14.3-dev, 1.14.4, 1.14.4-dev, 1.14.5, 1.14.5-dev, 1.14.6, 1.14.6-dev, 1.14.7, 1.14.7-dev, 1.14.8, 1.14.8-dev, 1.14.9, 1.14.9-dev, 1.15, 1.15-dev, 1.15.0, 1.15.0-dev, 1.15.1, 1.15.1-dev, 1.15.3, 1.15.3-dev, 1.15.4, 1.15.4-dev, 1.15.5, 1.15.5-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

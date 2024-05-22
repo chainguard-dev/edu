@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opentelemetry-collector-contrib-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-20 00:48:18
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                         | Last Changed | Digest                                                                    |
 |-------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.100-dev` `0.100.0-dev` `0-dev` `latest-dev` | May 19th     | `sha256:0e67894fd1beaa24e0385c82640604d9aca9e712206b3715bfe5d8ff9cd16390` |
-|  `0.100.0` `0` `latest` `0.100`                 | May 17th     | `sha256:5f77a0cd81af2f02efef96c57a203e5957c22376690260ff69c33da6f8d4dd4b` |
+|  `0.101.0` `latest` `0.101` `0`                 | May 21st     | `sha256:d59c39d7c32ecb362930c31c48b7b2e8be4647a1bc75ad565078e2fbb967f771` |
+|  `0.101-dev` `latest-dev` `0-dev` `0.101.0-dev` | May 21st     | `sha256:d62fcdf72fa7cb42c79d53f91e13d44b890c36b7c4535e5bc3aee0a76833cf46` |
+|  `0.100-dev` `0.100.0-dev`                      | May 21st     | `sha256:98aefd5208fcba8519c1832390c8efd4ad02f816fe9edb860c2b7c58de55035d` |
+|  `0.100.0` `0.100`                              | May 21st     | `sha256:7815169d4b21f8e65d48794f9158991869a63020fa9e33c3fe9e9c9077ae6187` |
 |  `0.99.0` `0.99`                                | May 6th      | `sha256:a848205ecba7628e9d0dec0e4fff0d77562a05cc150efbedc35f317ea25c7882` |
 |  `0.99.0-dev` `0.99-dev`                        | May 6th      | `sha256:d9db8e98628eb514690f7354a40c158326f1817b97b371613c8d6c07b91244a1` |
-|  `0.98.0` `0.98`                                | April 22nd   | `sha256:8191366db780021c331e9e2b4e7da5dc64b8ac0287a5575944ffd6d97c605ba0` |
-|  `0.98-dev` `0.98.0-dev`                        | April 22nd   | `sha256:04cdd3a4122a8213bbeabeb7dc7574d4976a312f1b1f661420516d7e9bda71aa` |
 

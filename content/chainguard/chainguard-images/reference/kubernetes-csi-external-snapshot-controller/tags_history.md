@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-snapshot-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:8f21c41ea91ed08f8923d783e352e4744b1f5eb7bfb406efc9137b027d185d25` |
-|  `latest`     | May 17th     | `sha256:ec6a0a63f30337570c4b999e61201b32b01962bb8e3290a10e832b9662cf1354` |
+|  `latest-dev` | May 21st     | `sha256:dffc757895d36bceb0be3a8bc7581eea88e7fe71bcbfc6436afaf571af5d3011` |
+|  `latest`     | May 21st     | `sha256:9111034de88f994761f08bc0ac8566bfefff0795acce58fd4b35ba6cf525f813` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.0-dev` `7-dev` `latest-dev` `7.0.2-dev` | May 19th     | `sha256:41768059675fdcaa6dfd8c7113225110d31f823cfbaaa82c63ee79984d9706a5` |
-|  `latest` `7.0` `7` `7.0.2`                 | May 17th     | `sha256:64f758bdefb959d2e8d90dd23a34f9e6086680744d251e0d3568f0ee9ec7606c` |
+|  `latest` `7.0` `7.0.2` `7`                 | May 21st     | `sha256:f1a6d01058808bbd90555c90ca7a5ea8b4c19a639d2ff2a318f319dbf0abafc7` |
+|  `7-dev` `7.0-dev` `latest-dev` `7.0.2-dev` | May 21st     | `sha256:5357ef1ae037953dd60c94e88c9c9f2aae8ef85defb1242ddb63d7c1c33b5e97` |
 

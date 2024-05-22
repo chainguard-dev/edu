@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ml-metadata-store-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:a11bca78cf95336b6b07a82775d8a7f71e80bc67cfa1e45f7c9ab13b8757f816` |
-|  `latest`     | May 17th     | `sha256:50f818164510b43ccdf3c9bb96c461c6463bc202f982e7d365420e09bfcc5ec4` |
+|  `latest`     | May 21st     | `sha256:2f218b3eb46e5eed35098ace657d4e6d411fc1bbc5236849c0bf73e8f0771aa5` |
+|  `latest-dev` | May 21st     | `sha256:78172c5f7c5f9bfc54aec2f8c4c882fa67c4646e6464b9739ba28f26b4b09171` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.14.0-dev` `1.14-dev` `1-dev` | May 19th     | `sha256:d2ea45a9e98dd1b36b4461fd909c086162016de9721605839a2a0acc6271d76f` |
-|  `1` `1.14.0` `1.14` `latest`                 | May 17th     | `sha256:2794ee61c0ea8eb3aec109a93fad2c8dfdd85a96eda7aa1c0a5d8ea65fb9d840` |
+|  `latest-dev` `1.14-dev` `1.14.0-dev` `1-dev` | May 21st     | `sha256:45f3802109a742adc98c63eb53c4d05edbceff3741361008e3964bfdca8d1c5c` |
+|  `latest` `1.14` `1` `1.14.0`                 | May 21st     | `sha256:847a79683e5f3287e0b390c8d4298a8ecc388cbc6f1f338635107c78f54a2021` |
 

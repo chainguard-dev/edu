@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gcc-glibc Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-22 00:47:17
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:50d4cc63a98f03d2eb24c0efe9ad54b6dc22f563c149e5f76aeaaefb4a38beb6` |
-|  `latest`     | May 17th     | `sha256:cb759c86a43c939b4c576327c7ce0a7c7d6632fd539e5943e6a473a669c9c36f` |
+|  `latest-dev` | May 21st     | `sha256:927d1ab76dd76d3ac7954b105409c3bf45a9136edbcdd77476b52780f2a6cbaf` |
+|  `latest`     | May 21st     | `sha256:7d56a3fc097201cddfcb2ed326ce830dfdae42c46235f4956b4405c46aab1ad9` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `13.2-dev` `13-dev` `13.2.0-dev` | May 19th     | `sha256:9b0940ef37d2be87f35de954e23a77065ac3126a2cf4dd233f2b1cc9c38d1f73` |
-|  `13.2.0` `13.2` `13` `latest`                 | May 17th     | `sha256:1702084c1d6623824cda930b19c8657896f4910cdcd277d831432f184e8278e9` |
+|  `13.2` `13.2.0` `latest` `13`                 | May 21st     | `sha256:88559dffb0b15a37ab32deccf70d1728d3ca2ce2e2b2fdfb3b3f1b5955ed71a7` |
+|  `13.2-dev` `latest-dev` `13.2.0-dev` `13-dev` | May 21st     | `sha256:fe39e4ce4586c9bee5be53200b01a7a3ae9b6301443f9aad1ba53dcf04f187f6` |
 |  `12.2.0` `12.2` `12`                          | May 2nd      | `sha256:b4ef6a3728403bd9d844ecd944fe5e116aca5f767cef3f44c7d3320a7635a093` |
 
