@@ -1,9 +1,17 @@
-{{ if or .Prev .Next -}}
+<h1>Prev</h1>
+<p>
+{{ .PrevInSection }}
+</p>
+  <h1>Next</h1>
+<p>
+{{ .NextInSection }}
+  </p>
+
+{{ if or .PrevInSection .NextInSection -}}
 <div class="docs-navigation">
-	<!-- https://www.feliciano.tech/blog/custom-sort-hugo-single-pages/ -->
-	{{ $pages := where site.RegularPages "Section" .Section -}}
-	{{ with $pages.Next . -}}
-		<a class="docs-navigation-button docs-navigation-button-previous" href="{{ .RelPermalink }}">
+
+  {{ with .NextInSection }}
+  <a class="docs-navigation-button docs-navigation-button-previous" href="{{ .RelPermalink }}">
 			<div class="chevron-rotator">
 				<svg xmlns="http://www.w3.org/2000/svg" width="10" height="15" viewBox="0 0 10 6" fill="none">
 					<path d="M1.06199 5.729L0.291992 4.938L4.99999 0.229004L9.70799 4.938L8.93799 5.729L4.99999 1.792L1.06199 5.729Z" fill="currentColor"/>
@@ -13,7 +21,9 @@
 			<span class="next-in-line">Prev&nbsp;&nbsp;</span>
 		</a>
 	{{ end -}}
-	{{ with $pages.Prev . -}}
+<!-- end previous -->
+
+  {{ with .PrevInSection }}
 		<a class="docs-navigation-button docs-navigation-button-next" href="{{ .RelPermalink }}">
 			<span class="next-in-line">{{ .Title }}</span>
 			<span class="next-in-line">&nbsp;&nbsp;Next</span>
@@ -23,6 +33,8 @@
 				</svg>
 			</div>
 		</a>
-	{{ end -}}
+	{{ end -}}                
+
+
 </div>
-{{ end -}}
+  {{ end }}
