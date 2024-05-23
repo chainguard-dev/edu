@@ -25,7 +25,7 @@ To follow along with this guide, it is assumed that you have the following tools
 
 * `chainctl`, the Chainguard command-line interface. You can install this by following our guide on [How to Install `chainctl`](/chainguard/administration/how-to-install-chainctl/).
 * `terraform` to configure a Google Cloud service account, IAM permissions, and deploy the Cloud Run service.
-* A Google Cloud account with a project running. Your project must have the following APIs enabled:
+* A Google Cloud account with a project running. The example application assumes that your project has the following APIs enabled:
     * [Cloud DNS API](https://cloud.google.com/dns/docs/overview/)
     * [BigQuery API](https://cloud.google.com/bigquery/docs/reference/rest)
     * [BigQuery Data Transfer API](https://cloud.google.com/bigquery/docs/reference/datatransfer/rest)
@@ -41,6 +41,7 @@ As mentioned in the introduction, this guide is meant to serve as a companion to
 
 This application will record data  whenever an Image gets pulled from a specified organization's private [Chainguard Registry](/chainguard/chainguard-registry/overview/). It does this by leveraging GCP Cloud Run, Cloud Pub/Sub and Cloud Storage to efficiently buffer events before loading into BigQuery.
 
+```mermaid
 flowchart LR
     A(((Chainguard))) -- events --> B["Cloud Run Trampoline\n(public URL)"]
     B -- validated + filtered --> C[Cloud Run Broker Ingress]
@@ -50,8 +51,11 @@ flowchart LR
     E -- writes every 3m --> F[Cloud Storage]
     F -- loads every 15m --> G[(BigQuery)]
     end
+```
 
-![]()
+[![i think this is alt text?](https://mermaid.ink/img/pako:eNpNkTFPwzAQhf-K5SkRrRBCLB2QSNIiJAZoyxQzOPElserY0dluVVX979hJoHg6nd_77vl8obURQFe0UeZUdxwd2RdMk3BekiTJOy516zmKNE3JckngCNrZUD2TrGQ0V8YLsvWa7JH3g1FSA2M6GXylZE2-tu8po98TL4v-I1dScAeC3JFGKgcYykjLyxsrQ3MAJG-6RbB2tltftciHjgwoj4FANLiTwcN0m0f4ONV2I68o_-J9-Op-56uYq_JNE0fGVDO3iM4AtzXKCkbv-l-WLdQGBeCsXkf1CaUDG3eBZ_LYj57N7Nk5g7yFWb6JcmW4-FU_PE3y1zLJZPvpQy-dtaAFXdAesOdShB-5xDajroMeGF2FUvDwXMr0Nei4d2Z31jVdOfSwoH6Iay0kD0vqp-b1B1XEmCs?type=png)](https://mermaid.live/edit#pako:eNpNkTFPwzAQhf-K5SkRrRBCLB2QSNIiJAZoyxQzOPElserY0dluVVX979hJoHg6nd_77vl8obURQFe0UeZUdxwd2RdMk3BekiTJOy516zmKNE3JckngCNrZUD2TrGQ0V8YLsvWa7JH3g1FSA2M6GXylZE2-tu8po98TL4v-I1dScAeC3JFGKgcYykjLyxsrQ3MAJG-6RbB2tltftciHjgwoj4FANLiTwcN0m0f4ONV2I68o_-J9-Op-56uYq_JNE0fGVDO3iM4AtzXKCkbv-l-WLdQGBeCsXkf1CaUDG3eBZ_LYj57N7Nk5g7yFWb6JcmW4-FU_PE3y1zLJZPvpQy-dtaAFXdAesOdShB-5xDajroMeGF2FUvDwXMr0Nei4d2Z31jVdOfSwoH6Iay0kD0vqp-b1B1XEmCs)
+
+![diagram](mermaid-diagram-2024-05-22-232315.png)
 
 This means that records may not be published immediately, with a delay of up to 18 minutes end-to-end. With that said, the application should be able to handle bursts of requests gracefully without dropping events. When no events are being received, the Cloud Run services will scale to zero and incur no cost. During bursts of events, services will scale up as needed.
 
@@ -172,7 +176,7 @@ After you or someone else with access to the organization repo pulls an Image fr
 You can find this table in the Google Cloud Platform from the BigQuery explorer. In the Explorer's left-hand navigation, click on the name of your project in the drop-down menu, then click `cloudevents_pull_event_recorder` dataset to find the `dev_chainguard_registry_pull_v1` table.
 
 
-![Screenshot of the BigQuery Explorer interface for a project named "cg-academy-example". It shows the "dev_chainguard_registry_pull_v1" table open to the "Preview" tab with three rows visible. The top row shows a "repository" value of "chainguard.edu/python" and a "tag" value of "3.11.9," indicating that this pull data relates to someone pulling version 3.11.9 of the python image.]()
+![Screenshot of the BigQuery Explorer interface for a project named "cg-academy-example". It shows the "dev_chainguard_registry_pull_v1" table open to the "Preview" tab with three rows visible. The top row shows a "repository" value of "chainguard.edu/python" and a "tag" value of "3.11.9," indicating that this pull data relates to someone pulling version 3.11.9 of the python image.](gcp-bigquery-example.png)
 
 As mentioned previously, be aware that records may not be published immediately, with a delay of up to 18 minutes end-to-end. With that said, the application should be able to handle bursts of requests gracefully without dropping events.
 
