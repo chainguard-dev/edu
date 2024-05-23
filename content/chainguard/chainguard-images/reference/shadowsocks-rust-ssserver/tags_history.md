@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the shadowsocks-rust-ssserver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 21st     | `sha256:dbb0b7e937c1d9448fce97cf09fd9c3b3c6f7c26241ef4dc6bb095e7801fe316` |
+|  `latest-dev` | May 22nd     | `sha256:64aa44f17f9dcab89b8eea0ba442b345236c9f35905b328e0d1749fe18be7d3f` |
 |  `latest`     | May 21st     | `sha256:a3046212d0ad22cd73d5835445a24895c639a740b6af3ead7b855fff668502b5` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.18.4-dev` `1.18-dev` | May 21st     | `sha256:b109e6be6d8148f8b2275144024166bddd0973334b7ef7348acf6d0b3a909f30` |
+|  `1.18.4-dev` `1-dev` `latest-dev` `1.18-dev` | May 22nd     | `sha256:6eb5f81b63c0b48ce0c2d887056efefed3662f933c7dc38b5ba678785805acf2` |
 |  `1` `1.18.4` `latest` `1.18`                 | May 21st     | `sha256:bd75f447f95cb588b230195b7e3e160b8039d0062bd346877dda358f55c44a37` |
 |  `1.18.3-dev`                                 | May 2nd      | `sha256:d47c05244dc77cc8b0de1208ace54ed42c011ab1247a5289718a6d3ce925bd49` |
 |  `1.18.3`                                     | May 2nd      | `sha256:c75fc1826377f3ff26fe1fec616c231021bfaf00ff82be92cc02a46061e48701` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nginx-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.26.0-dev` `1.26-dev`                      | May 21st     | `sha256:f93a9c11a039ddee1bf94f1e11688ebd6274f82ff97277176b4209be5bc231cc` |
-|  `latest-dev` `1-dev` `1.25.5-dev` `1.25-dev` | May 21st     | `sha256:1eb319e85ea671391077c7a9f6475873a1c6f2ef3022d3a6249e75518076847d` |
+|  `1-dev` `latest-dev` `1.25.5-dev` `1.25-dev` | May 22nd     | `sha256:2188a4c3738c3684b8fd6896a7e80ad87d73f10522be42b4940949646db5a758` |
+|  `1.26.0-dev` `1.26-dev`                      | May 22nd     | `sha256:71d6e9d4819a94406730389f59749f09b0092d482106e79e6328e78d1a128e55` |
 |  `1.26.0` `1.26`                              | May 21st     | `sha256:9b8d1f0545a05e484f27d12375e254cd2e5de731c9f6af94a62839b5702b17e6` |
 |  `1.25` `latest` `1.25.5` `1`                 | May 21st     | `sha256:70fd907587862968d548abb1ec398bc85e88c01738c29f98b918f4ce3eaed7c3` |
 |  `1.24` `1.24.0`                              | May 2nd      | `sha256:098ca8d0496423c3b7ed7c0781f584b228ca50e04ed26c3f190da75b14db1955` |

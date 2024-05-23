@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 22nd     | `sha256:7a4e06c4057244df1c4aad4df9c83218e459eaa8169ba3682f921393f3277ead` |
 |  `latest`     | May 21st     | `sha256:3677398d7b20ff3f53fdd4d11eed1b7305c5c019e910447d2978322e8617924c` |
-|  `latest-dev` | May 21st     | `sha256:f0ff07114b14f2c574333b7bf941bc2debd3ba61ba4ef8e4afa5174edff8db89` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` `2.3-dev` `2-dev` `2.3.0-dev` | May 22nd     | `sha256:d6c9e5d10ac3172c5044718acc5c563b4c93629573182021907cf9da25e3ba15` |
 |  `latest` `2` `2.3` `2.3.0`                 | May 21st     | `sha256:45922d344e0e87820d5673ee12daeda0a4ea43d5896d39960206c266b444271c` |
-|  `2.3-dev` `latest-dev` `2.3.0-dev` `2-dev` | May 21st     | `sha256:5c3cd4ada7bfd6bbd83719033f979ab58f522b9b81941dd6aa3fe5fcb4dcabf3` |
 |  `2.2.3` `2.2`                              | May 2nd      | `sha256:8cfe941351304bf758f74f25831dd5def0ee2616fe89f1f42d8326edb8180352` |
 |  `2.2.3-dev` `2.2-dev`                      | May 2nd      | `sha256:fb040a1798a4c30e8c3abe5905f62da9f2721931d9505e4ceef40f53165488e3` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nvidia-container-toolkit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 21st     | `sha256:cc0125405cb60d1022eb6526663dea333df0e93795fbf09507897524e824ad22` |
-|  `latest-dev` | May 21st     | `sha256:d180d6688906bbac3a169906ab05a82a26dac7211b746cb141cf8395bc2d09c7` |
+|  `latest-dev` | May 22nd     | `sha256:9ce639f974ec8da496a33b8f0f577a642979128ced111b1d45927f5c9285d1bb` |
+|  `latest`     | May 22nd     | `sha256:a0cc859c1898e04c3a785bea1e8a8650391201849de0147eb9bbc9c4e66cd483` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.15` `1` `1.15.0` `latest`                 | May 21st     | `sha256:0c3854d7e54f72fb7744cb5d46b02819ef724600765d0bb9b516cea38006d674` |
-|  `1.15-dev` `1-dev` `1.15.0-dev` `latest-dev` | May 21st     | `sha256:fa50961b4cce0c9f97978ce0d37d2430393d13f95f30015f23e7a9b6ffc375d2` |
+|  `latest` `1.15` `1` `1.15.0`                 | May 22nd     | `sha256:3125a3d01c56e63f605a1c14085c57b9206502d103f3c1b7b6301717a3a64de2` |
+|  `1.15.0-dev` `1-dev` `1.15-dev` `latest-dev` | May 22nd     | `sha256:19f4d899b228aefa048caf312ad19387a3bbecbf0253f68c16b5f99aa6f2a08c` |
 

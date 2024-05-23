@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for curl Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for curl Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                                                                                                                  |
-|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                                                    |
-| `cgr.dev/chainguard-private` | 8, 8-dev, 8.0, 8.0.1, 8.1, 8.1.0, 8.1.1, 8.1.2, 8.2, 8.2.0, 8.2.1, 8.3, 8.3-dev, 8.3.0, 8.3.0-dev, 8.4, 8.4-dev, 8.4.0, 8.4.0-dev, 8.5, 8.5-dev, 8.5.0, 8.5.0-dev, 8.6, 8.6-dev, 8.6.0, 8.6.0-dev, 8.7, 8.7-dev, 8.7.1, 8.7.1-dev, latest, latest-dev |
+| Registry                     | Tags                                                                                                                                                                                                                                                                                  |
+|------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                                                                                    |
+| `cgr.dev/chainguard-private` | 8, 8-dev, 8.0, 8.0.1, 8.1, 8.1.0, 8.1.1, 8.1.2, 8.2, 8.2.0, 8.2.1, 8.3, 8.3-dev, 8.3.0, 8.3.0-dev, 8.4, 8.4-dev, 8.4.0, 8.4.0-dev, 8.5, 8.5-dev, 8.5.0, 8.5.0-dev, 8.6, 8.6-dev, 8.6.0, 8.6.0-dev, 8.7, 8.7-dev, 8.7.1, 8.7.1-dev, 8.8, 8.8-dev, 8.8.0, 8.8.0-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

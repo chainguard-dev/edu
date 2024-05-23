@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-ctlog-createctconfig Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:9c5930b6d9b7207194546c67851dc17c063f6b7e7453ec1e41efd52b01e461cc` |
-|  `latest`     | May 19th     | `sha256:a4f4bb007b14fe00c9299c7405b148f092add2dc5b1bda7ea757a1c09fe3dfe3` |
+|  `latest-dev` | May 22nd     | `sha256:fddad0f96d58496a9ae8c6d3526bc6dbebbbd3ad8307630f3d2ff08c6c6c393f` |
+|  `latest`     | May 22nd     | `sha256:c5fc4dd2bebdcc5afc6e4450693d93996b39f85a000cc1504564abe73b4e4632` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0.7.1-dev` `latest-dev` `0.7-dev` `0-dev` | May 22nd     | `sha256:bc8dd0e0c892c7ef4bf610beb3bdae9e0afd7ebadf9fd5285700a27e05063549` |
 |  `0.7.1` `0` `0.7` `latest`                 | May 21st     | `sha256:ec59c57c655ab158547ec0cac05d65204dd51dd2531f76c745d320cabed6feb1` |
-|  `0.7-dev` `0.7.1-dev` `latest-dev` `0-dev` | May 21st     | `sha256:17690d7e6030197f2ce70af6f80a8f65ad41c16dce5e59d7665173344aad90b1` |
 |  `0.6.17-dev` `0.6-dev`                     | May 17th     | `sha256:b70bad917662a5579bd7500d99d4d2a7714947f1de4676710c22ae27c2b06614` |
 |  `0.6.17` `0.6`                             | May 17th     | `sha256:8d8ec6316c6a0551a536a22ff6e4bd9e36fceb364992577c4304fd6a593195cb` |
 

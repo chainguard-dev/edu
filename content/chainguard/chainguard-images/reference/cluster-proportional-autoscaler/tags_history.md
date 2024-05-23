@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cluster-proportional-autoscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 22nd     | `sha256:5ac9875a693a00f429477017b8710ef76f106501c38eac8b62f38a3476799fa2` |
 |  `latest`     | May 21st     | `sha256:9e6ea0fce8e027560da5f33b4026d8b531d26eae65c6ab1624d5bed0f0d081ed` |
-|  `latest-dev` | May 21st     | `sha256:3d5d8580c9da6c6bba8db1314f8da4bb34206648d8bc8933364c35a227f138dd` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.8-dev` `1.8.11-dev` `latest-dev` `1-dev` | May 21st     | `sha256:64aa8fe08a281245d587feb37e511e789afb4913a555cdda15c6055a9cb3cc9f` |
+|  `1.8-dev` `1-dev` `1.8.11-dev` `latest-dev` | May 22nd     | `sha256:8103e439086ab5ec03b05cff3c1a051ad1052b7af5477637dee1c48c5fea5ac5` |
 |  `latest` `1.8.11` `1` `1.8`                 | May 21st     | `sha256:55cc969086df8e5b83fc28e3522583bec7155da1f9aaee47781850b5e38e4443` |
 

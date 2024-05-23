@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-autoscaler-addon-resizer-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.8-dev` `1.8.21-dev` `latest-dev` | May 21st     | `sha256:9b6006fe1776e43d74e94e6489eb2c37dc84259eccc6b49fe95910732a2240c0` |
+|  `1.8-dev` `latest-dev` `1.8.21-dev` `1-dev` | May 22nd     | `sha256:140e623a6461221d0b962a46b8e55e8813f15857d0317ee057c405f77dbca294` |
 |  `1.8.21` `1.8` `1` `latest`                 | May 21st     | `sha256:c0b1fa705b263911b2a321861e24804b459f557da87c8b468af3b3804d60a6e7` |
 |  `1.8.20`                                    | May 15th     | `sha256:b1960b0b4086099c48fe77b98c5c2aaca0b414fe8b50ce909d881dd5e335951f` |
 |  `1.8.20-dev`                                | May 15th     | `sha256:8db3e9fa2940c3a051c447b90cef6a5e143be11d6cee3fa3becc0a06a077a6c3` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rabbitmq-default-user-credential-updater Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 22nd     | `sha256:a1075f32794b9d1fb86af10ef1ef5c2522b99f49445858f42b6b82a709b04b4f` |
 |  `latest`     | May 21st     | `sha256:f3b88fdfb890cbb116f307e49703dc3c0141a2eca260c4db30dca6ae60f1bfe0` |
-|  `latest-dev` | May 21st     | `sha256:a379cb886a24c1d436c7638f8109bef39f8afb01c1b7e19e876e3de9325820f9` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.0-dev` `1.0.4-dev` `latest-dev` | May 21st     | `sha256:aa097e3fcd32c7cbb6c5eb1aac3f4ceb66f69e4f1a90862cb15aa500449db500` |
+|  `1.0-dev` `1.0.4-dev` `1-dev` `latest-dev` | May 22nd     | `sha256:aa3de59d6c6e5b7321d4114efe7b494e0e0b7d3ca901936554a10854fffd5581` |
 |  `1` `latest` `1.0.4` `1.0`                 | May 21st     | `sha256:59f78061cfb17b2b3ca70a747cff80bd8c58c1256a172e331b349f5dd60fe89f` |
 

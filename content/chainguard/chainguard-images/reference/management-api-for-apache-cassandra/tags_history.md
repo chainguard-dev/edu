@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the management-api-for-apache-cassandra Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 21st     | `sha256:d38ef18537f1ef30352d7c2bf26339b0d86aa0748ca526a3744eea1194bd7eb3` |
-|  `latest`     | May 21st     | `sha256:3c7e4c588efd129a0104ef78005a78864ad35f6a3921447acebfa608b444519d` |
+|  `latest-dev` | May 22nd     | `sha256:5353b63d678f1a495a37a691f9d2bd71b6f8a666bc4492db514e1b79e21e58c9` |
+|  `latest`     | May 22nd     | `sha256:2423b52b2e7798d6c3531361af948734b3d1b013f5871e5737fc0bd34bc20964` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.1.74-dev` `0.1-dev` `0-dev` `latest-dev` | May 21st     | `sha256:90b04583012b5f794df87e339a084dc5e0f6195de104fa0805fdba1fbb53f723` |
-|  `0` `0.1` `0.1.74` `latest`                 | May 21st     | `sha256:82ff35336181af911ab74057bdb0c6245db3b94189e62307d8a5f01d3e760241` |
+|  `0.1` `latest` `0.1.74` `0`                 | May 22nd     | `sha256:9255884f1103785c6707b2a620b80c92348055dfd82067d2d5a01b7a8efd0346` |
+|  `0.1.74-dev` `latest-dev` `0-dev` `0.1-dev` | May 22nd     | `sha256:53d078952f5d00180703c355658a48fc587f29a7634662ab8f0f535f927943f6` |
 

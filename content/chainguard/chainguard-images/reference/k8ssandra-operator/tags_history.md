@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k8ssandra-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 22nd     | `sha256:43eb9c6e74e132c15162bdb35ee63e9812514a8192e8a0589bff87ef63ffe473` |
 |  `latest`     | May 21st     | `sha256:9c2556b256d0da7b12b62dfda4ccc14e0df3b64edf8e19fc9792219910390f80` |
-|  `latest-dev` | May 21st     | `sha256:0307a327ab2ea4dd93f8a8f7c398592266f47b8498f91eb8561b9b3cd4b9adac` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.16-dev` `1.16.0-dev` `latest-dev` | May 21st     | `sha256:6e082c8084ce36035edbeae3bf4b3d1108c895eb449493952e9393a9a1a4c05c` |
+|  `1.16.0-dev` `1.16-dev` `1-dev` `latest-dev` | May 22nd     | `sha256:bf8fb2878b33a175915dc204dab27afa20e2d78d87395d2f19d3d9a31af892b5` |
 |  `latest` `1.16` `1.16.0` `1`                 | May 21st     | `sha256:f5618d55a5fd16f56e689640a6f866f1ac84d711ada0bbe5ef55eab612a18caf` |
 |  `1.15.0` `1.15`                              | May 7th      | `sha256:abba7f688ae3be2a8608c30b8c12d6cb3537729bcee42b1d95987746eb34c58a` |
 |  `1.15-dev` `1.15.0-dev`                      | May 7th      | `sha256:96e760dcfd148ce43c859ce0b864f90eb73f659ba9a2dbf2ffba034fc32979e3` |

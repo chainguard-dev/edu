@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-fluent-bit-output Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 21st     | `sha256:16c03ea8e669666fc4bc5b38a4ebb940f4ab11a2782270082e8f72db78e3ec8e` |
+|  `latest-dev` | May 22nd     | `sha256:f6781da4a44b026e7ff3f26d1051368cb8bb872e291b940bc46ccc0ae030ab11` |
 |  `latest`     | May 21st     | `sha256:2feb04ab5712cbe16352caa4d19bdc050aa5dbede93a8efd83d1d0c15a0e478c` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.19-dev` `1-dev` `1.19.2-dev` | May 21st     | `sha256:c01ae06840c5be796cd5df793f3fdc2028803fcd8126b391c461822dd6993a53` |
+|  `1-dev` `latest-dev` `1.19-dev` `1.19.2-dev` | May 22nd     | `sha256:432635e918ea08c3ee02325e73a6dd22d1cae58c9eb643fb914bbdf9ce420e73` |
 |  `latest` `1.19` `1.19.2` `1`                 | May 21st     | `sha256:1fd2828d71423dd4bb67dde8c0b2cc5bcade5768fc8e0ff16c80521ab4227122` |
 
