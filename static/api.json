@@ -90,7 +90,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/googlerpcStatus"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -122,7 +122,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/googlerpcStatus"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -574,6 +574,10 @@
                 "role": {
                   "description": "role is the Role UIDP the invited identity will be role-bound to the group with.",
                   "type": "string"
+                },
+                "singleUse": {
+                  "description": "if single_use is set to true, then the invite will be deleted after a user joins the group.",
+                  "type": "boolean"
                 },
                 "ttl": {
                   "description": "expiration, timestamp this invite becomes no longer valid.",
@@ -1301,275 +1305,6 @@
         ]
       }
     },
-    "/iam/v1/policies": {
-      "get": {
-        "operationId": "Policies_List",
-        "parameters": [
-          {
-            "description": "id is the exact UIDP of the record.",
-            "in": "query",
-            "name": "id",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
-            "in": "query",
-            "name": "uidp.ancestorsOf",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
-            "in": "query",
-            "name": "uidp.descendantsOf",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "children_of are groups reachable by directly proceeding from parent to children.",
-            "in": "query",
-            "name": "uidp.childrenOf",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
-            "in": "query",
-            "name": "uidp.inRoot",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "description": "name is the exact name of the record.",
-            "in": "query",
-            "name": "name",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/iamPolicyList"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "tags": [
-          "Policies"
-        ]
-      }
-    },
-    "/iam/v1/policies/{id}": {
-      "delete": {
-        "operationId": "Policies_Delete",
-        "parameters": [
-          {
-            "description": "id is the exact UIDP of the record.",
-            "in": "path",
-            "name": "id",
-            "pattern": ".+",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "properties": {}
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "tags": [
-          "Policies"
-        ]
-      },
-      "put": {
-        "operationId": "Policies_Update",
-        "parameters": [
-          {
-            "description": "id is identifier of this specific policy.",
-            "in": "path",
-            "name": "id",
-            "pattern": ".+",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "properties": {
-                "createdAt": {
-                  "description": "created_at is the timestamp for when the policy was created.",
-                  "format": "date-time",
-                  "type": "string"
-                },
-                "description": {
-                  "description": "description, human readable description of policy.",
-                  "type": "string"
-                },
-                "document": {
-                  "description": "document, YAML encoded policy document.",
-                  "type": "string"
-                },
-                "enforcedVersion": {
-                  "$ref": "#/definitions/iamPolicyVersion",
-                  "description": "enforced_version contains information about the enforced version of this policy.\nWhen used as a return value, Policy.name, Policy.description, and Policy.document are all copies of\nthe respective fields in enforced_version for backwards compatibility. enforced_version may be empty for\nlegacy policies without versions.\nWhen used for Create or Update, set enforced_version.label to set an optional version label."
-                },
-                "name": {
-                  "description": "name, human readable name of policy.\nThis field is populated from the document and any existing value will be ignored for Create/Update.",
-                  "type": "string"
-                },
-                "updatedAt": {
-                  "description": "updated_at is the timestamp when the current version of the policy was last updated.",
-                  "format": "date-time",
-                  "type": "string"
-                }
-              },
-              "type": "object"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/iamPolicy"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "tags": [
-          "Policies"
-        ]
-      }
-    },
-    "/iam/v1/policies/{parentId}": {
-      "post": {
-        "operationId": "Policies_Create",
-        "parameters": [
-          {
-            "description": "parent_id, The Group UIDP path under which the new policy is associated.",
-            "in": "path",
-            "name": "parentId",
-            "pattern": ".+",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Policy is the policy to create;",
-            "in": "body",
-            "name": "policy",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/iamPolicy"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/iamPolicy"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "tags": [
-          "Policies"
-        ]
-      }
-    },
-    "/iam/v1/policyVersions/{policyId}": {
-      "get": {
-        "operationId": "Policies_ListVersions",
-        "parameters": [
-          {
-            "description": "policy_id is the identifier of the policy to list versions of.",
-            "in": "path",
-            "name": "policyId",
-            "pattern": ".+",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/iamPolicyVersionList"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "tags": [
-          "Policies"
-        ]
-      }
-    },
-    "/iam/v1/policyVersions/{versionId}": {
-      "post": {
-        "operationId": "Policies_ActivateVersion",
-        "parameters": [
-          {
-            "description": "version_id is the identifier of the policy version to enforce.",
-            "in": "path",
-            "name": "versionId",
-            "pattern": ".+",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/iamPolicy"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "tags": [
-          "Policies"
-        ]
-      }
-    },
     "/iam/v1/rolebindings": {
       "get": {
         "operationId": "RoleBindings_List",
@@ -1955,201 +1690,6 @@
         ]
       }
     },
-    "/iam/v1/sigstore": {
-      "get": {
-        "operationId": "SigstoreService_List",
-        "parameters": [
-          {
-            "description": "id is the exact UIDP of the record.",
-            "in": "query",
-            "name": "id",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
-            "in": "query",
-            "name": "uidp.ancestorsOf",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
-            "in": "query",
-            "name": "uidp.descendantsOf",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "children_of are groups reachable by directly proceeding from parent to children.",
-            "in": "query",
-            "name": "uidp.childrenOf",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
-            "in": "query",
-            "name": "uidp.inRoot",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "description": "name is the exact name of the record.",
-            "in": "query",
-            "name": "name",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/iamSigstoreList"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "tags": [
-          "SigstoreService"
-        ]
-      }
-    },
-    "/iam/v1/sigstore/{id}": {
-      "delete": {
-        "operationId": "SigstoreService_Delete",
-        "parameters": [
-          {
-            "description": "id is the exact UIDP of the record.",
-            "in": "path",
-            "name": "id",
-            "pattern": ".+",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "properties": {}
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "tags": [
-          "SigstoreService"
-        ]
-      },
-      "put": {
-        "operationId": "SigstoreService_Update",
-        "parameters": [
-          {
-            "description": "id is identifier of this specific sigstore instance.",
-            "in": "path",
-            "name": "id",
-            "pattern": ".+",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "properties": {
-                "certificateAuthority": {
-                  "$ref": "#/definitions/iamCertificateAuthority",
-                  "title": "certificate authority for this instance of sigstore"
-                },
-                "description": {
-                  "description": "description, human-readable description of the sigstore instance.",
-                  "type": "string"
-                },
-                "hostname": {
-                  "title": "unique hostname of this sigstore instance",
-                  "type": "string"
-                },
-                "name": {
-                  "description": "name, human-readable name of the sigstore instance.",
-                  "type": "string"
-                }
-              },
-              "type": "object"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/iamSigstore"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "tags": [
-          "SigstoreService"
-        ]
-      }
-    },
-    "/iam/v1/sigstore/{parentId}": {
-      "post": {
-        "operationId": "SigstoreService_Create",
-        "parameters": [
-          {
-            "description": "parent_id, The Group UIDP path under which the new sigstore instance is associated.",
-            "in": "path",
-            "name": "parentId",
-            "pattern": ".+",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Sigstore is the sigstore instance to create;",
-            "in": "body",
-            "name": "sigstore",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/iamSigstore"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/iamSigstore"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "tags": [
-          "SigstoreService"
-        ]
-      }
-    },
     "/ping/v1/ping": {
       "get": {
         "operationId": "PingService_Ping",
@@ -2305,9 +1845,9 @@
                   "description": "readme is raw Markdown file contents describing the repo.",
                   "type": "string"
                 },
-                "syncConfig": {
+                "sync_config": {
                   "$ref": "#/definitions/registrySyncConfig",
-                  "description": "(optional) Repository sync configuration. If enabled, images are synced from the source to this repo.\nNOTE: This property can only be set by Chainguard."
+                  "title": "(optional) Repository sync configuration. If enabled, images are synced from the source to this repo.\nNOTE: This property can only be set by Chainguard.\nNote: the json_name defaults to \"syncConfig\" which causes our eventing\nsystem to not work properly (since the protobuf name is \"sync_config\")"
                 }
               },
               "type": "object"
@@ -2402,6 +1942,53 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/registryDiffImageResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      }
+    },
+    "/registry/v1/repos/{repoId}/digests/{digest}/imageconfig": {
+      "get": {
+        "operationId": "Registry_GetImageConfig",
+        "parameters": [
+          {
+            "description": "The UIDP of the image repo to get config for.",
+            "in": "path",
+            "name": "repoId",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The digest of the image to get config for.",
+            "in": "path",
+            "name": "digest",
+            "pattern": "[^/]+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The architecture to get config for.",
+            "in": "query",
+            "name": "arch",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryImageConfig"
             }
           },
           "default": {
@@ -2992,461 +2579,6 @@
         ]
       }
     },
-    "/tenant/v1/clusters": {
-      "get": {
-        "operationId": "Clusters_List",
-        "parameters": [
-          {
-            "description": "id is the exact UID of the record.",
-            "in": "query",
-            "name": "id",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "active_since is the timestamp after which returned clusters should have been active.\nThis applies to both cluster registration and when it was \"last seen\".",
-            "format": "date-time",
-            "in": "query",
-            "name": "activeSince",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
-            "in": "query",
-            "name": "uidp.ancestorsOf",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
-            "in": "query",
-            "name": "uidp.descendantsOf",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "children_of are groups reachable by directly proceeding from parent to children.",
-            "in": "query",
-            "name": "uidp.childrenOf",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
-            "in": "query",
-            "name": "uidp.inRoot",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "description": "remote_id is the remote ID of this cluster.",
-            "in": "query",
-            "name": "remoteId",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "name is the exact name of the cluster.",
-            "in": "query",
-            "name": "name",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/tenantClusterList"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/googlerpcStatus"
-            }
-          }
-        },
-        "tags": [
-          "Clusters"
-        ]
-      },
-      "post": {
-        "operationId": "Clusters_Discover",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/tenantClusterDiscoveryRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/tenantClusterDiscoveryResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/googlerpcStatus"
-            }
-          }
-        },
-        "tags": [
-          "Clusters"
-        ]
-      }
-    },
-    "/tenant/v1/clusters/{cluster}/records": {
-      "get": {
-        "operationId": "Records_List",
-        "parameters": [
-          {
-            "description": "cluster is specified if restricting to a given cluster id.\nThis field is required.",
-            "in": "path",
-            "name": "cluster",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "id is the exact UID of the record.",
-            "in": "query",
-            "name": "id",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
-            "in": "query",
-            "name": "uidp.ancestorsOf",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
-            "in": "query",
-            "name": "uidp.descendantsOf",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "children_of are groups reachable by directly proceeding from parent to children.",
-            "in": "query",
-            "name": "uidp.childrenOf",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
-            "in": "query",
-            "name": "uidp.inRoot",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "description": "image is specified if a specific Record is desired.",
-            "in": "query",
-            "name": "image",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "predicate specifies to fetch Records where either there's no\nLastRefreshed for this predicate type, or if it needs to be refreshed.",
-            "in": "query",
-            "name": "predicate",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "active_since is the timestamp after which returned records should have been active.\nThis applies to when an image was \"last seen\".",
-            "format": "date-time",
-            "in": "query",
-            "name": "activeSince",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/tenantRecordList"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "tags": [
-          "Records"
-        ]
-      }
-    },
-    "/tenant/v1/clusters/{id}": {
-      "delete": {
-        "operationId": "Clusters_Delete",
-        "parameters": [
-          {
-            "description": "id is the exact UIDP of the record.",
-            "in": "path",
-            "name": "id",
-            "pattern": ".+",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "properties": {}
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/googlerpcStatus"
-            }
-          }
-        },
-        "tags": [
-          "Clusters"
-        ]
-      },
-      "put": {
-        "operationId": "Clusters_Update",
-        "parameters": [
-          {
-            "description": "id, The Cluster UIDP under which this Cluster resides.",
-            "in": "path",
-            "name": "id",
-            "pattern": ".+",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "properties": {
-                "activity": {
-                  "additionalProperties": {
-                    "$ref": "#/definitions/tenantClusterActivity"
-                  },
-                  "description": "activity is a mapping from \"Source\" URLs to an activity record summarizing\nrecent activity from this source.",
-                  "type": "object"
-                },
-                "affinity": {
-                  "$ref": "#/definitions/tenantClusterLocation",
-                  "description": "affinity specifies a scheduling preference for where to run the managed agent.\nOther factors, such as the provider may be taken into account when choosing a\nhost cluster."
-                },
-                "agentVersion": {
-                  "description": "agent_version holds the version of the Chainguard agent last reported by the cluster.",
-                  "type": "string"
-                },
-                "authInfo": {
-                  "$ref": "#/definitions/ClusterAuthInfo",
-                  "description": "auth_info holds authentication details for connecting to KinD in test scenarios."
-                },
-                "description": {
-                  "description": "a short description of this cluster.",
-                  "type": "string"
-                },
-                "enforcerOptions": {
-                  "$ref": "#/definitions/tenantClusterEnforcerOptions",
-                  "title": "EnforcerOptions contains additional Enforcer configuration settings.\n+optional"
-                },
-                "group": {
-                  "$ref": "#/definitions/iamGroup",
-                  "title": "group the cluster resides in"
-                },
-                "hostCluster": {
-                  "description": "host_cluster surfaces the opaque identifier for the Chainguard cluster hosting\nthis agent.",
-                  "type": "string"
-                },
-                "info": {
-                  "$ref": "#/definitions/ClusterInfo",
-                  "description": "info contains the cluster information from the kubeconfig context."
-                },
-                "issuer": {
-                  "description": "issuer is the identity issuer tied to this cluster.",
-                  "type": "string"
-                },
-                "lastSeen": {
-                  "description": "last_seen tracks the timestamp at which this cluster was last seen.",
-                  "format": "date-time",
-                  "type": "string"
-                },
-                "managedName": {
-                  "description": "managed_name is the unique name we have given to this cluster's managed agent.\nThis field is output-only, and is populated only when this cluster is \"managed\".",
-                  "type": "string"
-                },
-                "name": {
-                  "description": "name of the cluster.",
-                  "type": "string"
-                },
-                "profiles": {
-                  "description": "profiles specifies the root set of tenant configurations that we want to run\non this cluster.",
-                  "items": {
-                    "type": "string"
-                  },
-                  "type": "array"
-                },
-                "provider": {
-                  "$ref": "#/definitions/ClusterProvider",
-                  "description": "provider holds the flavor of cluster provider, which is used to determine how we\nauthenticate with the cluster."
-                },
-                "registered": {
-                  "description": "registered tracks the timestamp at which this cluster was registered.",
-                  "format": "date-time",
-                  "type": "string"
-                },
-                "remoteId": {
-                  "description": "remote_id is the remote ID of this cluster.",
-                  "type": "string"
-                },
-                "status": {
-                  "$ref": "#/definitions/tenantClusterStatus",
-                  "description": "status contains the managed cluster's status."
-                },
-                "version": {
-                  "description": "version holds the Kubernetes version last reported by the cluster.",
-                  "type": "string"
-                }
-              },
-              "type": "object"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/tenantCluster"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/googlerpcStatus"
-            }
-          }
-        },
-        "tags": [
-          "Clusters"
-        ]
-      }
-    },
-    "/tenant/v1/clusters/{parentId}": {
-      "post": {
-        "operationId": "Clusters_Create",
-        "parameters": [
-          {
-            "description": "parent_id, The Group under which this Cluster resides.",
-            "in": "path",
-            "name": "parentId",
-            "pattern": ".+",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Cluster is the definition of the managed cluster to create.",
-            "in": "body",
-            "name": "cluster",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/tenantCluster"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/tenantCluster"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/googlerpcStatus"
-            }
-          }
-        },
-        "tags": [
-          "Clusters"
-        ]
-      }
-    },
-    "/tenant/v1/risks": {
-      "get": {
-        "operationId": "Risks_List",
-        "parameters": [
-          {
-            "description": "id is the exact UID of the record.",
-            "in": "query",
-            "name": "id",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
-            "in": "query",
-            "name": "uidp.ancestorsOf",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
-            "in": "query",
-            "name": "uidp.descendantsOf",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "children_of are groups reachable by directly proceeding from parent to children.",
-            "in": "query",
-            "name": "uidp.childrenOf",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
-            "in": "query",
-            "name": "uidp.inRoot",
-            "required": false,
-            "type": "boolean"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/tenantRiskList"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "tags": [
-          "Risks"
-        ]
-      }
-    },
     "/tenant/v1/vulnreports": {
       "get": {
         "operationId": "VulnReports_List",
@@ -3681,129 +2813,22 @@
       },
       "type": "object"
     },
-    "ChangedImageConfigVolume": {
-      "type": "object"
-    },
     "ChangedImageConfigVolumeDiff": {
       "properties": {
         "added": {
           "additionalProperties": {
-            "$ref": "#/definitions/ChangedImageConfigVolume"
+            "$ref": "#/definitions/registryChangedImageConfigVolume"
           },
           "type": "object"
         },
         "removed": {
           "additionalProperties": {
-            "$ref": "#/definitions/ChangedImageConfigVolume"
+            "$ref": "#/definitions/registryChangedImageConfigVolume"
           },
           "type": "object"
         }
       },
       "type": "object"
-    },
-    "ClusterAuthInfo": {
-      "description": "This is based off of k8s.io/client-go/tools/clientcmd/api/v1.AuthInfo\nThis should only ever be used with KinD clusters during testing, it WILL\nNOT be stored securely.",
-      "properties": {
-        "clientCertificateData": {
-          "description": "client_certificate_data contains PEM-encoded data from a client cert file for TLS.",
-          "format": "byte",
-          "type": "string"
-        },
-        "clientKeyData": {
-          "description": "client_key_data contains PEM-encoded data from a client key file for TLS.",
-          "format": "byte",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "ClusterDiscoveryResponseResult": {
-      "properties": {
-        "account": {
-          "type": "string"
-        },
-        "eligible": {
-          "$ref": "#/definitions/ResultEligible",
-          "description": "eligible clusters are able to be directly enrolled as\nagentless tenants immediately.  This message contains\nall of the information needed to enroll this cluster."
-        },
-        "enrolled": {
-          "$ref": "#/definitions/ResultEnrolled",
-          "description": "enrolled clusters are clusters that have already been\nenrolled as agentless tenants."
-        },
-        "location": {
-          "$ref": "#/definitions/tenantClusterLocation"
-        },
-        "name": {
-          "type": "string"
-        },
-        "needsWork": {
-          "$ref": "#/definitions/ResultNeedsWork",
-          "description": "needs_work clusters can be modified in some way so\nthat they are supported by our Agentless infrastructure."
-        },
-        "provider": {
-          "$ref": "#/definitions/ClusterProvider"
-        },
-        "unsupported": {
-          "$ref": "#/definitions/ResultUnsupported",
-          "description": "unsupported clusters cannot be enrolled with our\nAgentless cluster support."
-        }
-      },
-      "type": "object"
-    },
-    "ClusterInfo": {
-      "properties": {
-        "CertificateAuthorityData": {
-          "format": "byte",
-          "title": "CertificateAuthorityData contains PEM-encoded certificate authority certificates.\nOverrides CertificateAuthority",
-          "type": "string"
-        },
-        "server": {
-          "description": "Server is the address of the kubernetes cluster (https://hostname:port).",
-          "type": "string"
-        }
-      },
-      "title": "This is based off of k8s.io/client-go/tools/clientcmd/api/v1.Cluster\nThis can be extracted from kubectl for a named cluster (replace CLUSTER_NAME) with:\n  kubectl config view \\\n    --flatten -o jsonpath='{.clusters[?(@.name == \"CLUSTER_NAME\")].cluster}'",
-      "type": "object"
-    },
-    "ClusterProfilesResponseProfile": {
-      "properties": {
-        "dependencies": {
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
-        "description": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "ClusterProvider": {
-      "default": "UNKNOWN",
-      "description": " - CLOUD_RUN: GCP Services (10+)\n - ECS: AWS Services (20+)\n - KIND: For testing.",
-      "enum": [
-        "UNKNOWN",
-        "GKE",
-        "EKS",
-        "CLOUD_RUN",
-        "ECS",
-        "APP_RUNNER",
-        "KIND"
-      ],
-      "type": "string"
-    },
-    "ClusterStatusState": {
-      "default": "UNKNOWN",
-      "enum": [
-        "UNKNOWN",
-        "Ready",
-        "NotReady"
-      ],
-      "type": "string"
     },
     "ComponentGraphEdge": {
       "properties": {
@@ -3994,6 +3019,10 @@
       },
       "type": "object"
     },
+    "ImageConfigExposedPort": {
+      "description": "ExposedPorts a set of ports to expose from a container running this image.",
+      "type": "object"
+    },
     "PackagesDiffChangedPackageReference": {
       "properties": {
         "current": {
@@ -4007,102 +3036,6 @@
         }
       },
       "type": "object"
-    },
-    "RecommendationReplaceArtifact": {
-      "properties": {
-        "from": {
-          "type": "string"
-        },
-        "to": {
-          "description": "Target artifact that may be able to resolve this Risk.",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "RecordStatusResult": {
-      "default": "UNKNOWN",
-      "enum": [
-        "UNKNOWN",
-        "PASS",
-        "FAIL"
-      ],
-      "type": "string"
-    },
-    "ResultEligible": {
-      "properties": {
-        "info": {
-          "$ref": "#/definitions/ClusterInfo"
-        }
-      },
-      "type": "object"
-    },
-    "ResultEnrolled": {
-      "properties": {
-        "id": {
-          "description": "id is the UIDP of the tenant Cluster.",
-          "type": "string"
-        },
-        "info": {
-          "$ref": "#/definitions/ClusterInfo"
-        },
-        "profiles": {
-          "description": "profiles contains the set of profiles that this\ncluster was enrolled with.",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "ResultNeedsWork": {
-      "properties": {
-        "steps": {
-          "description": "steps holds the set of changes the user needs to make in order\nfor the cluster to become eligible.",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "ResultUnsupported": {
-      "properties": {
-        "reason": {
-          "description": "reason holds the reason the cluster is not currently supported.",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "RiskDetails": {
-      "properties": {
-        "missingData": {
-          "$ref": "#/definitions/RiskMissingData"
-        }
-      },
-      "type": "object"
-    },
-    "RiskMissingData": {
-      "properties": {
-        "type": {
-          "$ref": "#/definitions/RiskMissingDataType",
-          "title": "What kind of data is missing (e.g. signature, sbom, policy, etc.)"
-        }
-      },
-      "type": "object"
-    },
-    "RiskMissingDataType": {
-      "default": "UNKNOWN",
-      "enum": [
-        "UNKNOWN",
-        "SIGNATURE",
-        "SBOM",
-        "POLICY"
-      ],
-      "type": "string"
     },
     "RoleBindingListBinding": {
       "properties": {
@@ -4120,7 +3053,11 @@
           "type": "string"
         },
         "email": {
-          "description": "email of the bound identity.",
+          "description": "verified email of the bound identity.",
+          "type": "string"
+        },
+        "emailUnverified": {
+          "description": "unverified email of the bound identity.",
           "type": "string"
         },
         "group": {
@@ -4435,25 +3372,9 @@
     },
     "authRegistrationRequest": {
       "properties": {
-        "clusterDescription": {
-          "description": "cluster_description is an optional description to give the cluster\nwhen one is registered as part of the registration flow.",
-          "type": "string"
-        },
-        "clusterId": {
-          "description": "cluster_id is an optional cluster id, which simultaneously registers\na Cluster with the Identity.  This path must specify an invite code, so\nwe know where in the IAM hierarchy to link the cluster.",
-          "type": "string"
-        },
-        "clusterName": {
-          "description": "cluster_name is an optional name to give the cluster when one is\nregistered as part of the registration flow.",
-          "type": "string"
-        },
         "code": {
           "title": "code is an optional encoded invite code, which allows us to register\nthe caller's identity as a member of a particular group as a particular\nrole.\n+optional",
           "type": "string"
-        },
-        "enforcerOptions": {
-          "$ref": "#/definitions/tenantClusterEnforcerOptions",
-          "description": "enforcer_options defines the enforcer options."
         },
         "identityId": {
           "title": "identity_id is an optional identity id. If the user already exists, this\nby-passes identity registration and continues on to cluster registration\n(if applicable)",
@@ -4618,24 +3539,6 @@
       },
       "type": "object"
     },
-    "googlerpcStatus": {
-      "properties": {
-        "code": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "details": {
-          "items": {
-            "$ref": "#/definitions/protobufAny"
-          },
-          "type": "array"
-        },
-        "message": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
     "iamAccountAssociations": {
       "properties": {
         "amazon": {
@@ -4688,28 +3591,6 @@
           "$ref": "#/definitions/AccountAssociationsStatusState"
         },
         "reason": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "iamCertificateAuthority": {
-      "properties": {
-        "googleCa": {
-          "$ref": "#/definitions/iamGoogleCA",
-          "title": "google_ca is the Google Certificate Authority service"
-        },
-        "kmsCa": {
-          "$ref": "#/definitions/iamKMSCA",
-          "title": "kmsca is a KMS-based CA that requires a root cert and KMS signing key"
-        }
-      },
-      "type": "object"
-    },
-    "iamGoogleCA": {
-      "properties": {
-        "ref": {
-          "title": "ref is a unique reference to the Google CA service in the format\nprojects/\u003cproject\u003e/locations/\u003clocation\u003e/\u003cname\u003e",
           "type": "string"
         }
       },
@@ -4879,123 +3760,6 @@
       },
       "type": "object"
     },
-    "iamKMSCA": {
-      "properties": {
-        "certChain": {
-          "title": "cert_chain is the root certificate and (optional) chain\nin PEM-encoded format",
-          "type": "string"
-        },
-        "keyRef": {
-          "title": "key_ref is a unique reference to the signing key used for this CA\nmost likely a KMS key prefixed with gcpkms://, awskms://, azurekms:// etc\nand the relevant resource name",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "iamPolicy": {
-      "properties": {
-        "createdAt": {
-          "description": "created_at is the timestamp for when the policy was created.",
-          "format": "date-time",
-          "type": "string"
-        },
-        "description": {
-          "description": "description, human readable description of policy.",
-          "type": "string"
-        },
-        "document": {
-          "description": "document, YAML encoded policy document.",
-          "type": "string"
-        },
-        "enforcedVersion": {
-          "$ref": "#/definitions/iamPolicyVersion",
-          "description": "enforced_version contains information about the enforced version of this policy.\nWhen used as a return value, Policy.name, Policy.description, and Policy.document are all copies of\nthe respective fields in enforced_version for backwards compatibility. enforced_version may be empty for\nlegacy policies without versions.\nWhen used for Create or Update, set enforced_version.label to set an optional version label."
-        },
-        "id": {
-          "description": "id is identifier of this specific policy.",
-          "type": "string"
-        },
-        "name": {
-          "description": "name, human readable name of policy.\nThis field is populated from the document and any existing value will be ignored for Create/Update.",
-          "type": "string"
-        },
-        "updatedAt": {
-          "description": "updated_at is the timestamp when the current version of the policy was last updated.",
-          "format": "date-time",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "iamPolicyAuthor": {
-      "properties": {
-        "email": {
-          "description": "email is the email address of the author, if known.",
-          "type": "string"
-        },
-        "id": {
-          "description": "id is the UID of the author identity.",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "iamPolicyList": {
-      "properties": {
-        "items": {
-          "items": {
-            "$ref": "#/definitions/iamPolicy"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "iamPolicyVersion": {
-      "properties": {
-        "author": {
-          "$ref": "#/definitions/iamPolicyAuthor",
-          "description": "author is information about the identity that created/updated this version of the policy, if known."
-        },
-        "createdAt": {
-          "description": "created_at is the timestamp from when this version was created.",
-          "format": "date-time",
-          "type": "string"
-        },
-        "description": {
-          "description": "description, human-readable description of policy.",
-          "type": "string"
-        },
-        "document": {
-          "description": "document, YAML encoded policy document.",
-          "type": "string"
-        },
-        "id": {
-          "description": "id is the identifier of this specific policy version.",
-          "type": "string"
-        },
-        "label": {
-          "description": "label is a human-readable identifier for this version of the policy.",
-          "type": "string"
-        },
-        "name": {
-          "description": "name, human-readable name of policy.",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "iamPolicyVersionList": {
-      "properties": {
-        "items": {
-          "items": {
-            "$ref": "#/definitions/iamPolicyVersion"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
     "iamRole": {
       "properties": {
         "capabilities": {
@@ -5073,44 +3837,13 @@
       ],
       "type": "string"
     },
-    "iamSigstore": {
-      "properties": {
-        "certificateAuthority": {
-          "$ref": "#/definitions/iamCertificateAuthority",
-          "title": "certificate authority for this instance of sigstore"
-        },
-        "description": {
-          "description": "description, human-readable description of the sigstore instance.",
-          "type": "string"
-        },
-        "hostname": {
-          "title": "unique hostname of this sigstore instance",
-          "type": "string"
-        },
-        "id": {
-          "description": "id is identifier of this specific sigstore instance.",
-          "type": "string"
-        },
-        "name": {
-          "description": "name, human-readable name of the sigstore instance.",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "iamSigstoreList": {
-      "properties": {
-        "items": {
-          "items": {
-            "$ref": "#/definitions/iamSigstore"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
     "iamStoredGroupInvite": {
       "properties": {
+        "createdAt": {
+          "description": "created_at is the timestamp for when the invite was created.",
+          "format": "date-time",
+          "type": "string"
+        },
         "email": {
           "description": "email is the email address that is allowed to accept this invite code. If blank,\nanyone with the invite code an accept.",
           "type": "string"
@@ -5131,6 +3864,10 @@
         "role": {
           "$ref": "#/definitions/iamRole",
           "description": "role is the role the invited identity will be role-bound to the group with."
+        },
+        "singleUse": {
+          "description": "single_use indicates whether or not the invite will be deleted after a user joins the group.",
+          "type": "boolean"
         }
       },
       "type": "object"
@@ -5208,6 +3945,9 @@
       },
       "type": "object"
     },
+    "registryChangedImageConfigVolume": {
+      "type": "object"
+    },
     "registryDiffImageResponse": {
       "properties": {
         "config": {
@@ -5229,12 +3969,73 @@
       },
       "type": "object"
     },
+    "registryImageConfig": {
+      "properties": {
+        "cmd": {
+          "description": "Cmd defines the default arguments to the entrypoint of the container.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "entrypoint": {
+          "description": "Entrypoint defines a list of arguments to use as the command to execute when the container starts.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "env": {
+          "description": "Env is a list of environment variables to be used in a container.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "exposedPorts": {
+          "additionalProperties": {
+            "$ref": "#/definitions/ImageConfigExposedPort"
+          },
+          "type": "object"
+        },
+        "labels": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Labels contains arbitrary metadata for the container.",
+          "type": "object"
+        },
+        "stopSignal": {
+          "description": "StopSignal contains the system call signal that will be sent to the container to exit.",
+          "type": "string"
+        },
+        "user": {
+          "description": "User defines the username or UID which the process in the container should run as.",
+          "type": "string"
+        },
+        "volumes": {
+          "additionalProperties": {
+            "$ref": "#/definitions/registryImageConfigVolume"
+          },
+          "description": "Volumes is a set of directories describing where the process is likely write data specific to a container instance.",
+          "type": "object"
+        },
+        "workingDir": {
+          "description": "WorkingDir sets the current working directory of the entrypoint process in the container.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "registryImageConfigDiff": {
       "properties": {
         "changed": {
           "$ref": "#/definitions/registryChangedImageConfig"
         }
       },
+      "type": "object"
+    },
+    "registryImageConfigVolume": {
       "type": "object"
     },
     "registryManifestMetadata": {
@@ -5380,9 +4181,9 @@
           "description": "readme is raw Markdown file contents describing the repo.",
           "type": "string"
         },
-        "syncConfig": {
+        "sync_config": {
           "$ref": "#/definitions/registrySyncConfig",
-          "description": "(optional) Repository sync configuration. If enabled, images are synced from the source to this repo.\nNOTE: This property can only be set by Chainguard."
+          "title": "(optional) Repository sync configuration. If enabled, images are synced from the source to this repo.\nNOTE: This property can only be set by Chainguard.\nNote: the json_name defaults to \"syncConfig\" which causes our eventing\nsystem to not work properly (since the protobuf name is \"sync_config\")"
         }
       },
       "type": "object"
@@ -5418,6 +4219,11 @@
     },
     "registrySyncConfig": {
       "properties": {
+        "expiration": {
+          "description": "When the catalog syncer should stop syncing from the source repository.",
+          "format": "date-time",
+          "type": "string"
+        },
         "source": {
           "description": "Repo ID to sync from.",
           "type": "string"
@@ -5610,310 +4416,6 @@
       },
       "type": "object"
     },
-    "tenantCluster": {
-      "properties": {
-        "activity": {
-          "additionalProperties": {
-            "$ref": "#/definitions/tenantClusterActivity"
-          },
-          "description": "activity is a mapping from \"Source\" URLs to an activity record summarizing\nrecent activity from this source.",
-          "type": "object"
-        },
-        "affinity": {
-          "$ref": "#/definitions/tenantClusterLocation",
-          "description": "affinity specifies a scheduling preference for where to run the managed agent.\nOther factors, such as the provider may be taken into account when choosing a\nhost cluster."
-        },
-        "agentVersion": {
-          "description": "agent_version holds the version of the Chainguard agent last reported by the cluster.",
-          "type": "string"
-        },
-        "authInfo": {
-          "$ref": "#/definitions/ClusterAuthInfo",
-          "description": "auth_info holds authentication details for connecting to KinD in test scenarios."
-        },
-        "description": {
-          "description": "a short description of this cluster.",
-          "type": "string"
-        },
-        "enforcerOptions": {
-          "$ref": "#/definitions/tenantClusterEnforcerOptions",
-          "title": "EnforcerOptions contains additional Enforcer configuration settings.\n+optional"
-        },
-        "group": {
-          "$ref": "#/definitions/iamGroup",
-          "title": "group the cluster resides in"
-        },
-        "hostCluster": {
-          "description": "host_cluster surfaces the opaque identifier for the Chainguard cluster hosting\nthis agent.",
-          "type": "string"
-        },
-        "id": {
-          "description": "id, The Cluster UIDP under which this Cluster resides.",
-          "type": "string"
-        },
-        "info": {
-          "$ref": "#/definitions/ClusterInfo",
-          "description": "info contains the cluster information from the kubeconfig context."
-        },
-        "issuer": {
-          "description": "issuer is the identity issuer tied to this cluster.",
-          "type": "string"
-        },
-        "lastSeen": {
-          "description": "last_seen tracks the timestamp at which this cluster was last seen.",
-          "format": "date-time",
-          "type": "string"
-        },
-        "managedName": {
-          "description": "managed_name is the unique name we have given to this cluster's managed agent.\nThis field is output-only, and is populated only when this cluster is \"managed\".",
-          "type": "string"
-        },
-        "name": {
-          "description": "name of the cluster.",
-          "type": "string"
-        },
-        "profiles": {
-          "description": "profiles specifies the root set of tenant configurations that we want to run\non this cluster.",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
-        "provider": {
-          "$ref": "#/definitions/ClusterProvider",
-          "description": "provider holds the flavor of cluster provider, which is used to determine how we\nauthenticate with the cluster."
-        },
-        "registered": {
-          "description": "registered tracks the timestamp at which this cluster was registered.",
-          "format": "date-time",
-          "type": "string"
-        },
-        "remoteId": {
-          "description": "remote_id is the remote ID of this cluster.",
-          "type": "string"
-        },
-        "status": {
-          "$ref": "#/definitions/tenantClusterStatus",
-          "description": "status contains the managed cluster's status."
-        },
-        "version": {
-          "description": "version holds the Kubernetes version last reported by the cluster.",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "tenantClusterActivity": {
-      "properties": {
-        "controllerName": {
-          "description": "controller_name is the name of the Controller CRD which was the source of this\nactivity on the tenant cluster.",
-          "type": "string"
-        },
-        "lastSeen": {
-          "description": "last_seen tracks the timestamp at which this source was last active.",
-          "format": "date-time",
-          "type": "string"
-        },
-        "namespace": {
-          "description": "namespace is the namespace in which the source of this cluster activity lives.",
-          "type": "string"
-        },
-        "profile": {
-          "description": "profile is the Chainguard profile to which the source of this activity belongs.",
-          "type": "string"
-        },
-        "specHash": {
-          "description": "spec_hash is the hash of the Controller or Webhook CRD's spec, which forms a\nloose form of versioning.",
-          "type": "string"
-        },
-        "webhookName": {
-          "description": "webhook_name is the name of the Webhook CRD which was the source of this\nactivity on the tenant cluster.",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "tenantClusterCIDRResponse": {
-      "properties": {
-        "cidrBlocks": {
-          "description": "cidr_blocks specifies the cidr blocks enforce uses to communicate with clusters.",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "tenantClusterConfigRequestEnforcerOptions": {
-      "properties": {
-        "enableCipCache": {
-          "title": "+optional",
-          "type": "boolean"
-        },
-        "namespaceEnforcementMode": {
-          "$ref": "#/definitions/tenantClusterConfigRequestNamespaceEnforcementMode",
-          "title": "+optional"
-        },
-        "webhookFailOpen": {
-          "title": "+optional",
-          "type": "boolean"
-        }
-      },
-      "type": "object"
-    },
-    "tenantClusterConfigRequestNamespaceEnforcementMode": {
-      "default": "OptOut",
-      "enum": [
-        "OptOut",
-        "OptIn"
-      ],
-      "type": "string"
-    },
-    "tenantClusterConfigResponse": {
-      "properties": {
-        "mcpConfig": {
-          "format": "byte",
-          "type": "string"
-        },
-        "profiles": {
-          "items": {
-            "type": "string"
-          },
-          "title": "profiles includes the full set of profiles returned (including transitive\ndependencies of the input profiles)",
-          "type": "array"
-        },
-        "tenantConfig": {
-          "format": "byte",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "tenantClusterDiscoveryRequest": {
-      "properties": {
-        "id": {
-          "description": "id is the exact UIDP of the group to impersonate to search for clusters.",
-          "type": "string"
-        },
-        "profiles": {
-          "description": "profiles includes the set of profiles to perform discovery for,\nwhich may impact eligibility (some profiles may not be supported\non some providers).",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
-        "providers": {
-          "description": "providers is the list of providers to perform discovery on.",
-          "items": {
-            "$ref": "#/definitions/ClusterProvider"
-          },
-          "type": "array"
-        },
-        "states": {
-          "description": "states is a collection of the states to return, or all if\nnone are specified.",
-          "items": {
-            "$ref": "#/definitions/tenantClusterDiscoveryRequestState"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "tenantClusterDiscoveryRequestState": {
-      "default": "UNKNOWN",
-      "enum": [
-        "UNKNOWN",
-        "UNSUPPORTED",
-        "NEEDS_WORK",
-        "ELIGIBLE",
-        "ENROLLED"
-      ],
-      "type": "string"
-    },
-    "tenantClusterDiscoveryResponse": {
-      "properties": {
-        "results": {
-          "items": {
-            "$ref": "#/definitions/ClusterDiscoveryResponseResult"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "tenantClusterEnforcerOptions": {
-      "properties": {
-        "enableCipCache": {
-          "title": "+optional",
-          "type": "boolean"
-        },
-        "namespaceEnforcementMode": {
-          "$ref": "#/definitions/tenantClusterNamespaceEnforcementMode",
-          "title": "+optional"
-        },
-        "webhookFailOpen": {
-          "title": "+optional",
-          "type": "boolean"
-        }
-      },
-      "type": "object"
-    },
-    "tenantClusterList": {
-      "properties": {
-        "items": {
-          "items": {
-            "$ref": "#/definitions/tenantCluster"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "tenantClusterLocation": {
-      "default": "AUTO",
-      "enum": [
-        "AUTO",
-        "US_EAST",
-        "US_CENTRAL",
-        "US_WEST"
-      ],
-      "title": "- US_EAST: Use 1xx for US",
-      "type": "string"
-    },
-    "tenantClusterNamespaceEnforcementMode": {
-      "default": "OptOut",
-      "enum": [
-        "OptOut",
-        "OptIn"
-      ],
-      "type": "string"
-    },
-    "tenantClusterProfilesResponse": {
-      "properties": {
-        "profile": {
-          "items": {
-            "$ref": "#/definitions/ClusterProfilesResponseProfile"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "tenantClusterStatus": {
-      "properties": {
-        "message": {
-          "type": "string"
-        },
-        "ready": {
-          "$ref": "#/definitions/ClusterStatusState"
-        },
-        "reason": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
     "tenantComponentGraph": {
       "properties": {
         "edges": {
@@ -5964,20 +4466,6 @@
       },
       "type": "object"
     },
-    "tenantPackage": {
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "purl": {
-          "type": "string"
-        },
-        "version": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
     "tenantPackage2": {
       "properties": {
         "description": {
@@ -5997,162 +4485,6 @@
         },
         "version": {
           "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "tenantRecommendation": {
-      "properties": {
-        "description": {
-          "description": "Output only. Free form text describing how this can be resolved.",
-          "readOnly": true,
-          "type": "string"
-        },
-        "documentationUrl": {
-          "description": "Output only. Chainguard EDU link for more details on this Recommendation.",
-          "readOnly": true,
-          "type": "string"
-        },
-        "replace": {
-          "$ref": "#/definitions/RecommendationReplaceArtifact"
-        }
-      },
-      "type": "object"
-    },
-    "tenantRecord": {
-      "properties": {
-        "cluster": {
-          "description": "cluster identifies the specific cluster for the record.",
-          "type": "string"
-        },
-        "id": {
-          "title": "id holds the UIDP for this image's record",
-          "type": "string"
-        },
-        "image": {
-          "description": "image is the container image for the record.",
-          "type": "string"
-        },
-        "lastRefreshed": {
-          "additionalProperties": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "description": "last_refreshed will hold a PredicateType =\u003e Last time it was successfully\nrefreshed.",
-          "type": "object"
-        },
-        "lastSeen": {
-          "description": "last_seen is the last time we've seen this image anywhere on this cluster.",
-          "format": "date-time",
-          "type": "string"
-        },
-        "sboms": {
-          "items": {
-            "$ref": "#/definitions/tenantSbom"
-          },
-          "type": "array"
-        },
-        "status": {
-          "additionalProperties": {
-            "$ref": "#/definitions/tenantRecordStatus"
-          },
-          "description": "status is a map from analysis type (e.g. \"sbom\", \"vuln\") =\u003e RecordStatus to indidate success/failure,\nthe analysis timestamp, as well as any diagnostic message in case of failures.",
-          "type": "object"
-        }
-      },
-      "type": "object"
-    },
-    "tenantRecordList": {
-      "properties": {
-        "items": {
-          "items": {
-            "$ref": "#/definitions/tenantRecord"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "tenantRecordStatus": {
-      "properties": {
-        "diagnostic": {
-          "type": "string"
-        },
-        "lastChecked": {
-          "format": "date-time",
-          "type": "string"
-        },
-        "result": {
-          "$ref": "#/definitions/RecordStatusResult"
-        }
-      },
-      "type": "object"
-    },
-    "tenantRisk": {
-      "properties": {
-        "description": {
-          "description": "Output only. Free form text describing this Risk.",
-          "readOnly": true,
-          "type": "string"
-        },
-        "details": {
-          "$ref": "#/definitions/RiskDetails",
-          "description": "What kind of risk is this? Lack of signatures, vulnerability, SBOM quality, etc."
-        },
-        "documentationUrl": {
-          "description": "Output only. Chainguard EDU link for more details on this Risk.",
-          "readOnly": true,
-          "type": "string"
-        },
-        "groupId": {
-          "description": "Grouping identifier to associate Risks in the same UIDP\nto each other.",
-          "type": "string"
-        },
-        "id": {
-          "title": "Risk ID (UIDP resource + unique ID)",
-          "type": "string"
-        },
-        "inputs": {
-          "description": "List of UIDPs that were used to determine this Risk.",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
-        "lastSeen": {
-          "description": "Output only. When Enforce last saw this Risk.",
-          "format": "date-time",
-          "readOnly": true,
-          "type": "string"
-        },
-        "recommendations": {
-          "description": "Optional. Chainguard's recommendation(s) for how to resolve this Risk.",
-          "items": {
-            "$ref": "#/definitions/tenantRecommendation"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "tenantRiskList": {
-      "properties": {
-        "items": {
-          "items": {
-            "$ref": "#/definitions/tenantRisk"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "tenantSbom": {
-      "properties": {
-        "packages": {
-          "items": {
-            "$ref": "#/definitions/tenantPackage"
-          },
-          "type": "array"
         }
       },
       "type": "object"
@@ -6397,16 +4729,10 @@
       "name": "IdentityProviders"
     },
     {
-      "name": "Policies"
-    },
-    {
       "name": "Roles"
     },
     {
       "name": "RoleBindings"
-    },
-    {
-      "name": "SigstoreService"
     },
     {
       "name": "SecurityTokenService"
@@ -6419,15 +4745,6 @@
     },
     {
       "name": "Attestations"
-    },
-    {
-      "name": "Clusters"
-    },
-    {
-      "name": "Records"
-    },
-    {
-      "name": "Risks"
     },
     {
       "name": "Sboms"
