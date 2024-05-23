@@ -17,7 +17,7 @@ toc: true
 
 The [Laravel Chainguard Image](https://edu.chainguard.dev/chainguard/chainguard-images/reference/laravel/overview/) is a container image that has the tooling necessary to develop, build, and execute [Laravel](https://laravel.com) applications, including required extensions. Laravel is a full-stack PHP framework that enables developers to build complex applications using modern tools and techniques that help streamline the development process.
 
-In this guide, we'll set up a demo application and create a Dockerfile to build and execute the demo using the Laravel Chainguard Image as base.
+In this guide, we'll set up a demo application and demonstrate how you can use Chainguard images to  develop, build, and run Laravel applications on development and production environments.
 
 This tutorial requires Docker to be installed on your local machine.
 
