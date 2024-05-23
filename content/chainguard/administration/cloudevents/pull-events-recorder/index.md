@@ -14,7 +14,7 @@ weight: 10
 toc: true
 ---
 
-When you interact with certain Chainguard resources, it will emit [CloudEvents](/chainguard/administration/cloudevents/events-reference/) that you or an application can subscribe to. This allows you to do things like receive alerts when a new repository is created in your organization's registry or learn when your organization's private Images are being downloaded. 
+When you interact with certain Chainguard resources, it will emit [CloudEvents](/chainguard/administration/cloudevents/events-reference/) that you or an application can subscribe to. This allows you to do things like receive alerts when a new repository is created in your organization's registry or learn when a user downloads one or more of your organization's private Images. 
 
 This tutorial is meant to serve as a companion to the [CloudEvents recorder](https://github.com/chainguard-dev/platform-examples/tree/main/event-recorder) example application. It will guide you through setting up infrastructure to listen to Chainguard Image pull events and store them in BigQuery for later analysis.
 
@@ -24,7 +24,7 @@ This tutorial is meant to serve as a companion to the [CloudEvents recorder](htt
 To follow along with this guide, it is assumed that you have the following tools and programs set up and ready to use.
 
 * `chainctl`, the Chainguard command-line interface. You can install this by following our guide on [How to Install `chainctl`](/chainguard/administration/how-to-install-chainctl/).
-* `terraform` to configure a Google Cloud service account, IAM permissions, and deploy the Cloud Run service.
+* [`terraform`](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) to configure a Google Cloud service account, IAM permissions, and deploy the Cloud Run service.
 * A Google Cloud account with a project running. The example application assumes that your project has the following APIs enabled:
     * [Cloud DNS API](https://cloud.google.com/dns/docs/overview/)
     * [BigQuery API](https://cloud.google.com/bigquery/docs/reference/rest)
@@ -37,11 +37,11 @@ To follow along with this guide, it is assumed that you have the following tools
 
 ## How the sample application works
 
-As mentioned in the introduction, this guide is meant to serve as a companion to the [`events-recorder` application](https://github.com/chainguard-dev/platform-examples/tree/main/event-recorder) in our public [Platform Examples repository](https://github.com/chainguard-dev/platform-examples/). 
+As mentioned in the introduction, this guide is meant to serve as a companion to the [`event-recorder` application](https://github.com/chainguard-dev/platform-examples/tree/main/event-recorder) in our public [Platform Examples repository](https://github.com/chainguard-dev/platform-examples/). 
 
 This application will record data  whenever an Image gets pulled from a specified organization's private [Chainguard Registry](/chainguard/chainguard-registry/overview/). It does this by leveraging GCP Cloud Run, Cloud Pub/Sub and Cloud Storage to efficiently buffer events before loading into BigQuery.
 
-![diagram](mermaid-diagram-2024-05-22-232315.png)
+![Flowchart diagram showing how the example application works. At the beginning, Chainguard emits events which are sent to a Cloud Run trampoline at a public URL. After being validated and filtered, the event data passes into a private network to a cloud run broker Ingress which publishes it to a buffered Cloud Pub/Sub. A Cloud Run recorder subscribes to this data and every 3 minutes writes it to a Cloud Storage instance. Every 15 minutes, the event data is loaded from this Cloud Storage instance into BigQuery.](events-recorder-diagram.png)
 
 This means that records may not be published immediately, with a delay of up to 18 minutes end-to-end. With that said, the application should be able to handle bursts of requests gracefully without dropping events. When no events are being received, the Cloud Run services will scale to zero and incur no cost. During bursts of events, services will scale up as needed.
 
@@ -62,7 +62,7 @@ To set up the sample application, you can create a Terraform configuration file 
 mkdir ~/gcr-pull-data && cd $_
 ```
 
-After navigating into the new directory you can begin creating a Terraform configuration named `main.tf`. We'll go through each line of this file one by one.
+After navigating into the new directory you can begin creating a Terraform configuration named `main.tf`.
 
 This configuration will consist of a single module. For the purposes of this example, we will call it `event-recorder`. This module's `source` value will be the [`iac` folder](https://github.com/chainguard-dev/platform-examples/tree/main/event-recorder/iac) from the application code in the examples repository.
 
@@ -71,32 +71,22 @@ module "event recorder" {
   source = "github.com/chainguard-dev/platform-examples//event-recorder/iac"
 ```
 
-The next section specifies the GCP project ID where the application resources will reside.
+The next few lines specify the GCP project ID where the application resources will reside, the region where the application's subnetwork will be created, and the UIDP of the Chainguard IAM organization whose private Registry we expect to receive events from.
 
 ```
   project_id = "<GCP project ID>"
-```
-
-Following that, the configuration specifies the region where the application's subnetwork will be created.
-
-```
   region 	= "us-central1"
-```
-
-Lastly, it specifies the UIDP of the Chainguard IAM organization associated with the private Reigstry from which we expect to receive events.
-
-```
   group = "<organization-id>"
 }
 ```
 
-If you don't know your organization's UIDP, you can retrieve it the following command.
+If you don't know your organization's UIDP, you can retrieve it the following `chainctl` command.
 
 ```sh
 chainctl iam organizations list -o table
 ```
 
-You can create this file with a command like the following.
+Once you know all of the relevant details, you can create this file with a command like the following.
 
 ```sh
 cat > main.tf <<EOF
@@ -151,20 +141,19 @@ After running the commands in the previous section, Terraform will have created 
 
 You can now test that the application is working correctly by pulling one or more images from your organization's repository and waiting for the event data from these pulls to appear in your BigQuery dashboard. 
 
-As an example, if your organization has access to the `python` Image, you could pull it with a command like the following.
+As an example, if your organization has access to minor versions of the `python` Image, you could pull such an Image with a command like the following.
 
 ```sh
-docker pull cgr.dev/<chainguard.organization>/python:latest
+docker pull cgr.dev/<chainguard.organization>/python:3.11.9
 ```
 
 After you or someone else with access to the organization repo pulls an Image from the repository, data relating to that pull will appear in the specified GCP project's BigQuery dashboard. The Terraform configuration creates a BigQuery dataset named `cloudevents_pull_event_recorder` with a table named `dev_chainguard_registry_pull_v1`. 
 
 You can find this table in the Google Cloud Platform from the BigQuery explorer. In the Explorer's left-hand navigation, click on the name of your project in the drop-down menu, then click `cloudevents_pull_event_recorder` dataset to find the `dev_chainguard_registry_pull_v1` table.
 
-
 ![Screenshot of the BigQuery Explorer interface for a project named "cg-academy-example". It shows the "dev_chainguard_registry_pull_v1" table open to the "Preview" tab with three rows visible. The top row shows a "repository" value of "chainguard.edu/python" and a "tag" value of "3.11.9," indicating that this pull data relates to someone pulling version 3.11.9 of the python image.](gcp-bigquery-example.png)
 
-As mentioned previously, be aware that records may not be published immediately, with a delay of up to 18 minutes end-to-end. With that said, the application should be able to handle bursts of requests gracefully without dropping events.
+As mentioned previously, be aware that records may not be published immediately, with a delay of up to 18 minutes end-to-end. 
 
 
 ## Removing sample resources
