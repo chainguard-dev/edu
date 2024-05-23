@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-image-reflector-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 22nd     | `sha256:4e96a46befdc27385a0bd3dbaf5187747f2a3e44ecb1815c9c688bbfd1961213` |
 |  `latest`     | May 21st     | `sha256:888eccacab4599e0afe8da59a5f1310e667f1c5135da0f700a0cdb4b96539f58` |
-|  `latest-dev` | May 21st     | `sha256:2691971e57212e47a75090c1c791fdba9630a15657af01eeee19cc82acfd3714` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.32.0-dev` `0.32-dev` | May 21st     | `sha256:918f36ad30426005947babd6388dd243f209d3987c0d79e1c384c9cca8485ad6` |
+|  `0.32.0-dev` `0-dev` `latest-dev` `0.32-dev` | May 22nd     | `sha256:fbdcb3b9abd7b1741664f190f487057c0e7d6b15035519ebbaeaad66605f283e` |
 |  `0.32` `latest` `0` `0.32.0`                 | May 21st     | `sha256:f7a89b54480e1cb921b4c840a3bbc960201b83987b77d6144680f094c4a3971e` |
 |  `0.31` `0.31.2`                              | May 2nd      | `sha256:835e2efd00e32fb265b4d539d20bf671125585b19edb951e910daff43ef1b34b` |
 |  `0.31-dev` `0.31.2-dev`                      | May 2nd      | `sha256:da2f57d575490e4fc5fc559a3a84677d83ad2a39241bfb065a89c48b8b7b8687` |

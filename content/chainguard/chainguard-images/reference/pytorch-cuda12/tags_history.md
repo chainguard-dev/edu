@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the pytorch-cuda12 Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:02c04352f00b88c0e3f4688afda7e9733a9f9b18ea9e529c15f648bab274aab6` |
-|  `latest`     | May 17th     | `sha256:335607bc05c203202e46a2f4b9000043fbacda8d30603e3f75b9b850fbd2be3d` |
+|  `latest-dev` | May 22nd     | `sha256:9497ea0162789d5eacb4aa09cc5a035af34359006c865b2c62f644b8309443af` |
+|  `latest`     | May 22nd     | `sha256:c84502e1bd56d5a4048c65bbbb03158c8c0a1d4cbb86ae1bfa57b2817c0ed453` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.3.0-dev` `2-dev` `2.3-dev` | May 22nd     | `sha256:ab76850ec6b512b5867b12a6d25388b8a9c63403d28d52b697b274492173de80` |
+|  `latest-dev` `2-dev` `2.3.0-dev` `2.3-dev` | May 22nd     | `sha256:57b1301bec3b76d5c766b2b1e1aa5eb8a6108e880a31771d543deb1ede47fb29` |
 |  `2.3.0` `2.3` `2` `latest`                 | May 22nd     | `sha256:5a143e92f72469b9a323250018a35e5af997f3cc52df37fcf1f7dabb53d19773` |
 

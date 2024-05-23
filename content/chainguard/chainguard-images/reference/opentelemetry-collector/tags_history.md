@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opentelemetry-collector Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 22nd     | `sha256:0306ec3aa61f625d7a75571f9d318b159f71d755d20133082e833242e82bcec8` |
 |  `latest`     | May 21st     | `sha256:fe8a786fbe602b85904fb6361e7fa445dbd3e09cce98dd3187370b0d95e708af` |
-|  `latest-dev` | May 21st     | `sha256:2ae0f6570ec2738fa92da140a8c816544c1a9f00b588ce5b2762e76b8f3568bf` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                         | Last Changed | Digest                                                                    |
 |-------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.101-dev` `0.101.0-dev` `0-dev` | May 21st     | `sha256:3444902c98ca0a22878ee80b0bcac6b1e76040556b2a79b8361bfdb3552e3e74` |
+|  `0.101.0-dev` `0-dev` `latest-dev` `0.101-dev` | May 22nd     | `sha256:4c1d699677aecbe36457e505cfa7b0fba0c366446dbb78fda8bf99d3612ade47` |
 |  `0` `latest` `0.101.0` `0.101`                 | May 21st     | `sha256:f0990f67b70dc528df4200cae301963c18d202ffe6924da01eccb1b3e56ece75` |
 |  `0.100-dev` `0.100.0-dev`                      | May 19th     | `sha256:62e7da8d25d5746dd92d883ce3a61a3a37037cb296e57e6bb5af447fb76a0b50` |
 |  `0.100` `0.100.0`                              | May 17th     | `sha256:5a965a8cc362879883a514a4fc84c31b59a88ffbbc110c17d054c87c8a404566` |

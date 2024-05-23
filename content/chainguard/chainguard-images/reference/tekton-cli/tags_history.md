@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 22nd     | `sha256:bc2c26375d0cac43c8298b90d8b3735fd4a5b1efffad668f3173d8034997c834` |
 |  `latest`     | May 21st     | `sha256:ff3c363b022f9062a4abf52fc1b4532797fb02a80ea3629d4d4e8ed503a076f8` |
-|  `latest-dev` | May 21st     | `sha256:7dce079b242a76bc6d8df57994f300da783fa1c1b8e98aeeb51849e203319697` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.37-dev` `0-dev` `0.37.0-dev` `latest-dev` | May 21st     | `sha256:61004a43c2338be0238e4a1a5a665b85f696b37a73f290dca1d743611beab764` |
+|  `latest-dev` `0.37-dev` `0.37.0-dev` `0-dev` | May 22nd     | `sha256:0d6c6f5337347996eea522d6e04e54face060632e942ac875e6480936e312ed5` |
 |  `latest` `0.37.0` `0.37` `0`                 | May 21st     | `sha256:8f9a9101dbb661c900f31522a91aaea0137c3f85d191f0ba544fd9562339dcc7` |
 |  `0.36.0` `0.36`                              | May 10th     | `sha256:be0e47acf606f9344fd1015e17d18c345f6f8177264e772f3fd2d8973a0d285f` |
 |  `0.36-dev` `0.36.0-dev`                      | May 10th     | `sha256:bee13c0e0f8db635f7c7db33aa1545b3d4d04b09f732808aa73b44fa8d4a58b4` |

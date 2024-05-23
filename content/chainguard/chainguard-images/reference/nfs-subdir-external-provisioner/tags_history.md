@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nfs-subdir-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 21st     | `sha256:e88e348c34e644d7cc28ac51f993689c8839aab11a090bb9e72e68d9bba31fb1` |
-|  `latest`     | May 21st     | `sha256:63e1d47b39726234f3fa2816843ce6c5144e8e9a0c94e55dd9de8a52e01ba11a` |
+|  `latest-dev` | May 22nd     | `sha256:2aeaae1a573ce3e0b245701dcde1d60e4a1c645bd900a026268a53482bf5f10c` |
+|  `latest`     | May 22nd     | `sha256:7fe82351ff76c06a31f218cfda069a3fcd8a6cecea854244e312af70cbade2c2` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.0.18-dev` `4.0-dev` `4-dev` `latest-dev` | May 21st     | `sha256:0509c66b552e6448035349ebfc1a30d20c534b025af20687147235a663dd4946` |
-|  `latest` `4` `4.0` `4.0.18`                 | May 21st     | `sha256:11be89d51e2b36a4f40aaecf535da981f6041fd0e4414e19f7a2ac7dd948c8a9` |
+|  `4` `latest` `4.0` `4.0.18`                 | May 22nd     | `sha256:5572f4d18e1d2fbfdc955aa7179d3e43a9b48da4db9bbc0e2db62c992c5a5dff` |
+|  `4-dev` `4.0-dev` `latest-dev` `4.0.18-dev` | May 22nd     | `sha256:314035b6ee739bfb5177b4b0307b1ccd9ed7fdb984f5b9499a887278877cdffa` |
 

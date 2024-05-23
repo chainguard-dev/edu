@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k8s-sidecar Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 21st     | `sha256:91a5b9b22da4d97d6aa5d38336867179918405e988eed8b4974fb09ac04d4210` |
-|  `latest`     | May 21st     | `sha256:383ac728297a015e9b5b7918f9801b65ca2013ebce2dee820fd045988c338fd5` |
+|  `latest-dev` | May 22nd     | `sha256:cf6ba658a1f20c03a0c7f9a5718bbe1fc0407324a31059ef9d9a59041a5afa89` |
+|  `latest`     | May 22nd     | `sha256:049606d1f31fae89f613a06d9a2768f3370a33e18e0537345be567784d411777` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1` `1.27` `latest` `1.27.1`                 | May 21st     | `sha256:4e4236cdd21886e1dfa2d2a434ecf1bcf1f16168aa8d5cb98ff6ccf33d2c2473` |
-|  `latest-dev` `1-dev` `1.27.1-dev` `1.27-dev` | May 21st     | `sha256:4a75efadb3fc83b4eee3a2164f04cf0e6a85c774f44ac06ad8bdd206bcadc314` |
+|  `1.27.2` `latest` `1.27` `1`                 | May 22nd     | `sha256:4483b261ea21304119114245e90ab457daaeef31fb55200e4847d8824f34c5b2` |
+|  `1.27-dev` `1-dev` `latest-dev` `1.27.2-dev` | May 22nd     | `sha256:c7a26333449c19f850f810ceea450ad7a709cb2e67d5e1ea9a41c42a6e63bf0d` |
+|  `1.27.1-dev`                                 | May 21st     | `sha256:4a75efadb3fc83b4eee3a2164f04cf0e6a85c774f44ac06ad8bdd206bcadc314` |
+|  `1.27.1`                                     | May 21st     | `sha256:4e4236cdd21886e1dfa2d2a434ecf1bcf1f16168aa8d5cb98ff6ccf33d2c2473` |
 |  `1.27.0-dev`                                 | May 14th     | `sha256:a44289ff3dea88c1e8432d5d1aca8f000bf3a0632de02c694ca55dcd97b0f149` |
 |  `1.27.0`                                     | May 14th     | `sha256:e5e51554acc86fa2eb61cfc2a1c8d3a9e4dfc1ab6b11a70f55945fb2d427b2c4` |
 |  `1.26` `1.26.2`                              | May 13th     | `sha256:3ac5c59f8f3895522af592f515c6317be85ef3203f1216bb7fb4ad7e472f5cd2` |

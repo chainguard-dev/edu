@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vertical-pod-autoscaler-recommender Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 21st     | `sha256:66d31bb01f1652d9018e64dc27db18daf30536d2ab90192d3840e0f2dc2deb8f` |
+|  `latest-dev` | May 22nd     | `sha256:a02946a8d041817571afa51d216315c85ca7f70466af283fb969f3b97c084ad6` |
 |  `latest`     | May 21st     | `sha256:172bc5d7e50c4f706dd564ce54e6232d8d417de9c9035909e9232ccadac11b62` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.1-dev` `latest-dev` `1.1.2-dev` | May 21st     | `sha256:a2eb4fad3b7a78e067d53e1ea645d11009159b801129942096937e135b86f1d1` |
+|  `latest-dev` `1.1.2-dev` `1-dev` `1.1-dev` | May 22nd     | `sha256:a047e5934bf9b32d675098d11580fd6d6f0f339958fb8fa750bc097b424b41e1` |
 |  `1.1.2` `1.1` `1` `latest`                 | May 21st     | `sha256:fb0d9a9204274d07281c352f10f85e662eeefbba05b3f7a404b8fc5a306c7e3d` |
 |  `1.1.1-dev`                                | May 16th     | `sha256:5765218b67d0b93cdb4527ded6c75b0c224e32abdc518f28b8128fd02f237a50` |
 |  `1.1.1`                                    | May 15th     | `sha256:25b9578d58ee19c9b2c72aa26964e6ec629f248611c696ba46c42bd683a0ed80` |

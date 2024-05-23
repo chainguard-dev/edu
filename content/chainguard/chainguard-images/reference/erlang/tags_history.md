@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the erlang Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 22nd     | `sha256:c5143eeab48ebd8ada4d58101df51bd2020e61b2a53413d9e16cd07609ff2fd3` |
 |  `latest`     | May 21st     | `sha256:e91c50d996b59dd7a961821801389f71bd08c95890272dbb9653b403624ee7e9` |
-|  `latest-dev` | May 21st     | `sha256:773eb2b8b26492a7dfb33d785c0e9ee4ecf278f5bfac72b609e8ec7a8e135478` |
 
 
 ### Private/Dedicated Registry
@@ -37,9 +37,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                           | Last Changed | Digest                                                                    |
 |---------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `26.2-dev` `26.2.5-dev` `26-dev` `latest-dev`    | May 21st     | `sha256:28385f651d30c20cad5ad574fe7656992cca9e3dcce1045ceb929293c8e8645e` |
+|  `25.3.2-dev` `25.3.2.12-dev` `25-dev` `25.3-dev` | May 22nd     | `sha256:4c19cd445329b81c467f781449073370a796aa57cdf4cd3a463ef6cc0d881613` |
+|  `26.2.5-dev` `latest-dev` `26.2-dev` `26-dev`    | May 22nd     | `sha256:814173697a799e8dedc6d9f20c305148513c93fa9929023b1b645fcc62a0d7c3` |
 |  `26` `latest` `26.2` `26.2.5`                    | May 21st     | `sha256:7db54d03a4d28c77f728c0d12e4ae7758ba9d8b3fcf584dd58059c289e1737cd` |
-|  `25-dev` `25.3.2.12-dev` `25.3.2-dev` `25.3-dev` | May 21st     | `sha256:fae0f2fa5a73d8227430bdea585cfcc54f7e7e08c2137e3d0c302e3ae05a8569` |
 |  `25` `25.3.2.12` `25.3.2` `25.3`                 | May 21st     | `sha256:a0a27c1530a6ad1c490d9f4587e10ad2b3b6461072bba9238876d21943b6223a` |
 |  `25.3.2.11`                                      | May 2nd      | `sha256:ab3a27dc662d5336b85d792bbc882401285528bff5ad844b9122e6586efbb403` |
 |  `25.3.2.11-dev`                                  | May 2nd      | `sha256:83295bb7d4216f6267d767486135d825a8b5cfbf1e0155779b35d12f9aac1ef4` |

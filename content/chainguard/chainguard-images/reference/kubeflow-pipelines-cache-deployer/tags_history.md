@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-cache-deployer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 22nd     | `sha256:4f76ffe6c0291e93a361a4b5c63ff3fbc754a7491e57317d5328e7a69e9bf9ff` |
 |  `latest`     | May 21st     | `sha256:d897ff92d09d96a7be36a40bed73999fb5ca2d51b498ffc23cc5f4ada0db6696` |
-|  `latest-dev` | May 21st     | `sha256:cd4b0d2b43feeaaf8ee6101b8beb03c78abddbf74f2c28cf4c54b13460ffdce1` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2.1.0-dev` `latest-dev` `2.1-dev` `2-dev` | May 22nd     | `sha256:e215ee259d87703348d59130a27abc258db4ce20811bbc9039fedb9c49320c3a` |
 |  `2.1` `2.1.0` `2` `latest`                 | May 21st     | `sha256:0459eca1ae0441f2bfb11372eb082643b02909dff9c3110187905478f8990d3f` |
-|  `2.1.0-dev` `2-dev` `2.1-dev` `latest-dev` | May 21st     | `sha256:22362174e42c59f30ea3bb5c9b494689f13d911bc3b357b7936dcd19cc59a450` |
 |  `2.0.5` `2.0`                              | April 24th   | `sha256:051e60ededdc37ad40e14c2cf3340556a5a006a8dce940ba3cea9a4ac58e15dd` |
 |  `2.0-dev` `2.0.5-dev`                      | April 24th   | `sha256:270c173502ad34cbb68474b3df308614d5987050db81b31ddcdccf7cb4b7a0ac` |
 

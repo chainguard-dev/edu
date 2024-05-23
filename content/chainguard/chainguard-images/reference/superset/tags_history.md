@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the superset Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 22nd     | `sha256:35daf0b9a270ff7e7e87556e67e7944b5fe0b551cadb121e46224a8a4468caf5` |
 |  `latest`     | May 21st     | `sha256:26f0e0f626e3b9f26fbabc47483e4ec8858ff149f6f51ce126c3544ab05c7d56` |
-|  `latest-dev` | May 21st     | `sha256:ff5a310dc407640b34247be1edbfe1df146443bc96c75242d6d908dc1e9426ba` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.0.1-dev` `4.0-dev` `4-dev` `latest-dev` | May 21st     | `sha256:2497ad3c26eb08165ec8f5d41d06ec67d4e60cf02ad4b77ac31111f492728e07` |
+|  `4.0.1-dev` `latest-dev` `4-dev` `4.0-dev` | May 22nd     | `sha256:85aab05145d773a799f08b15ce7898dea2470eac19b8d6f4f24fc728963e4044` |
 |  `latest` `4.0` `4` `4.0.1`                 | May 21st     | `sha256:0efbdae8bf50a75f6fb2f5c94ae5b0ff4e874484fe4b9feff9aa65e07580bc67` |
 |  `4.0.0-dev`                                | May 14th     | `sha256:674ad4627e2d255d58657ccccf274618af343a2154fe6431c113e3b8189dbd95` |
 |  `4.0.0`                                    | May 13th     | `sha256:b82921f99bf739979746a773282ed9233747b59a8d4bce11c2b172b0f187834e` |

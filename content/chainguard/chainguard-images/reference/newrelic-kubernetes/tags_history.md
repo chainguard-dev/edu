@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-kubernetes Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 21st     | `sha256:92e2ddb35011d062ef2c9631daf961eb8545bb7f27884089733411f88be2395a` |
+|  `latest-dev` | May 22nd     | `sha256:40d9c1d7b3ef65ca3989ac4bc2ff0874a3344b29ea6290443008179cc350ef67` |
 |  `latest`     | May 21st     | `sha256:a5553cc78440b3ea1c6ce5dea8d9c8519d45391d982997b5c6228e2eb4e5d188` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `3.28.7-dev` `3.28-dev` `latest-dev` `3-dev` | May 22nd     | `sha256:f79c83f5a6089fe5f6e2db77d6f21e257385cba532fc7ba7b902242965692570` |
 |  `3` `latest` `3.28` `3.28.7`                 | May 21st     | `sha256:3a40f42c5fa599765a25457a96300615acd27393abbd5fd49d06af6483483406` |
-|  `3.28.7-dev` `3-dev` `3.28-dev` `latest-dev` | May 21st     | `sha256:160c7c0cb444404c1be4801fb9b17e72c7029cace3ffc4dd07a1f5f1a0ff3aa9` |
 |  `3.28.6-dev`                                 | May 19th     | `sha256:4fd70febd7871e86873f79488babec1a8db556fa9c66dc4c13ec72b418c0a28f` |
 |  `3.28.6`                                     | May 19th     | `sha256:d7ac65a0a0c434647bc47d1385512bb8a5d125c393e8264001bc60288e1f2dec` |
 |  `3.28.5-dev`                                 | May 9th      | `sha256:dcd04252a4e396670e3d3d6b92065f0079ad5020aa98d956292b5817240cd95c` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-persistenceagent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 22nd     | `sha256:40a7845dc6fa366e20356516953e46759f86d00356ff8241a816b2d1453aea98` |
 |  `latest`     | May 21st     | `sha256:e0c2d6d9a26c6832ee0d013bdd0edea2f87875f8c53515990c603fdbab656704` |
-|  `latest-dev` | May 21st     | `sha256:a2e0f153eb0ddb3ccdc856bb0b6076d6e7122d0a5a223650494b371c35d9643c` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2.1.0-dev` `2-dev` `latest-dev` `2.1-dev` | May 22nd     | `sha256:31c32ea0763425be8d4aa1de2adf913700f3ad0c16e8f8676fb86bcaaa89b9f3` |
 |  `2` `2.1` `2.1.0` `latest`                 | May 21st     | `sha256:f34bef22bb57a3410172fc079eee41b7190a3352ae4557f12d5e79868b9d3914` |
-|  `2.1.0-dev` `latest-dev` `2.1-dev` `2-dev` | May 21st     | `sha256:e9fdbc29b0b6588aab29353bf465059dc8f49e4930195aadec4376ac8b29accd` |
 |  `2.0-dev` `2.0.5-dev`                      | April 24th   | `sha256:889183e0009b46079f10f43aff47e0165033bd08a604d0b1d325274a5ea7a3a1` |
 |  `2.0` `2.0.5`                              | April 24th   | `sha256:a433a47c91bfc778f5770d4c8d4b44be68f1e19f11db1e7f0db19c16e1f20200` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-external-snapshot-validation-webhook Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                  | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `6.3.0-dev` `6.3-eks-1-23-33-dev` `6.3.0-eks-1-23-33-dev` `6.3-dev` `6-eks-1-23-33-dev` `6-dev` `6.3.0-r6-eks-1-23-33-dev` `latest-dev` | May 21st     | `sha256:febe6c082940b8674b8f39745d259232eb6ae5e5591f1b2e594c26f14fd84843` |
+|  `6.3.0-eks-1-23-33-dev` `6-dev` `6-eks-1-23-33-dev` `6.3-eks-1-23-33-dev` `6.3.0-dev` `latest-dev` `6.3-dev` `6.3.0-r6-eks-1-23-33-dev` | May 22nd     | `sha256:25d5836a19adc933fe243019efb97517013b2d54d2184a30914baf76e555f44f` |
 |  `6.3-eks-1-23-33` `6` `6.3.0` `latest` `6.3.0-eks-1-23-33` `6.3` `6.3.0-r6-eks-1-23-33` `6-eks-1-23-33`                                 | May 21st     | `sha256:1b6606e6d20329189820e53f87851222210b29c95e42e883a2985e38a11ac0eb` |
 |  `6.3.0-r5-eks-1-23-33-dev`                                                                                                              | May 2nd      | `sha256:c23baef63577a19ccad9f08d00821bab2ccf33886b610c431434724dbb8fd4a9` |
 |  `6.3.0-r5-eks-1-23-33`                                                                                                                  | May 2nd      | `sha256:1087123eb6f26663252946e792e790b7af5d571915eec415bc02bd9444da77c8` |

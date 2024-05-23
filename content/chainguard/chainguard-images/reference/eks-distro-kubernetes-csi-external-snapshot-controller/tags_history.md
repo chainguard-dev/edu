@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-external-snapshot-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                  | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `6.3.0-eks-1-23-33-dev` `6.3-dev` `6-dev` `6-eks-1-23-33-dev` `6.3-eks-1-23-33-dev` `latest-dev` `6.3.0-r6-eks-1-23-33-dev` `6.3.0-dev` | May 22nd     | `sha256:000d1d2f62a423363a4ae84c525d7abc3a48a6de30b19e1a3703cde816d29973` |
 |  `6.3.0-eks-1-23-33` `latest` `6-eks-1-23-33` `6.3.0-r6-eks-1-23-33` `6` `6.3-eks-1-23-33` `6.3.0` `6.3`                                 | May 21st     | `sha256:17a3bd7e469476719d4980734a8cb5b47b2e975ed89806f8d8d9f4069774da64` |
-|  `latest-dev` `6-dev` `6-eks-1-23-33-dev` `6.3.0-dev` `6.3-eks-1-23-33-dev` `6.3.0-eks-1-23-33-dev` `6.3-dev` `6.3.0-r6-eks-1-23-33-dev` | May 21st     | `sha256:0d6ecc17bcf4ea8085c89b4ee87eb6b9efd10e060dc20bca15651e0b012db364` |
 |  `6.3.0-r5-eks-1-23-33-dev`                                                                                                              | May 2nd      | `sha256:c9ded8783d53494cabf99e89386bc5edc277093533654e5a6bbc19c4480daee5` |
 |  `6.3.0-r5-eks-1-23-33`                                                                                                                  | May 2nd      | `sha256:258caae197d8bd6ac03e208ff98b1193bb1b5538583cf4c3b8b44077a7e667b1` |
 

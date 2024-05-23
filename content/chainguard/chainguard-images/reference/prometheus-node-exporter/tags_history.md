@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-node-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 21st     | `sha256:5e9fe23ebae2f28300c41e9574fa7698268578b3e0e246b4588819ace0bdab36` |
-|  `latest`     | May 21st     | `sha256:2bc086ed782cb4f9b200b70cf590c88dd9783c45266cf1c9dacd0706e6ce76f3` |
+|  `latest-dev` | May 22nd     | `sha256:22f5b131fd4f316742a8cd709a8ffca68d54171b5d5eb0e06afeaa7006194983` |
+|  `latest`     | May 22nd     | `sha256:204cb5f82403e3c67e1e69e7a998d01e3bdbfd9c5ddac5b6a72e296ccb889bd6` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` `1.8-dev` `1.8.1-dev` `1-dev` | May 22nd     | `sha256:ac5d5d2fa6f3c3fe419411ef75a914fc38dfa1f87a2e2147ede8a62abbf8cf64` |
 |  `1.8` `latest` `1.8.1` `1`                 | May 21st     | `sha256:345ceacf0772fe437303c524eb4b8656905d5f4fdb63bcb7b3b5599e73e770ba` |
-|  `1.8.1-dev` `latest-dev` `1.8-dev` `1-dev` | May 21st     | `sha256:2e2f4da40f750a7fffab396014f0dfb40268e8706f4eac2e09b8e47f88ade92f` |
 |  `1.8.0-dev`                                | May 21st     | `sha256:d1a1947d2751563472d2485fb74e31a217e179d57c29bc7130b950c74e7f57cd` |
 |  `1.8.0`                                    | May 21st     | `sha256:44221353c2a01958fc7a662a3c652d5d4c3e67198d4aae8e20d31df0233b38fb` |
 

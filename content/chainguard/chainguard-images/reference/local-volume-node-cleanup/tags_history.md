@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the local-volume-node-cleanup Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 21st     | `sha256:8d0103e696768f5b5ca7b0dbd14953710bd334681dbf646a7c7c6c5c9de24843` |
+|  `latest-dev` | May 22nd     | `sha256:9e3d8b810bb5434830b0c1cea41e6c86a5875e8b100c29f1d0820f96b525519e` |
 |  `latest`     | May 21st     | `sha256:a11b9615f5502e8ebba9dc2c67395fc500fdb7cd8d6fdfa37de1994756f15229` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.7.0-dev` `2.7-dev` `2-dev` `latest-dev` | May 21st     | `sha256:0ba7120a1a2e2945fa6855f7b9f2bc57b4f755943626f51ea61cc5d655e3d642` |
+|  `2.7.0-dev` `2-dev` `latest-dev` `2.7-dev` | May 22nd     | `sha256:5f7c75471930d2ed80ebcc89c384c290f30c047c58a91e83e7b413566261821b` |
 |  `2.7.0` `2` `2.7` `latest`                 | May 21st     | `sha256:5864608ad44b0fcef5a648e209db85a89b6dddffed6bcf667c3dd1be090cf2fe` |
 

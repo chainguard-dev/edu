@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cass-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 22nd     | `sha256:639a50f65298e320e1d960c8e214678e5539729c012d2f0fcedfb9a0f4c234ba` |
 |  `latest`     | May 21st     | `sha256:a68536d5790297cd306a118b50b223637a4873fa322d5ec5c9a1c2fef49358bc` |
-|  `latest-dev` | May 21st     | `sha256:08ee3dfdf138e569a4aae7de7e3cb44845e763d0d8dbb32759df83781c1ec95b` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.20.0-dev` `1-dev` `latest-dev` `1.20-dev` | May 21st     | `sha256:c64e6c8bd893f860492379420a7b795075565eac056dd11ef2a8d24b850c139d` |
+|  `1-dev` `1.20.0-dev` `latest-dev` `1.20-dev` | May 22nd     | `sha256:a4fe07f70b5692afb88400fa2b401b420f2f23b3795de5879d55bb5b2649fe5a` |
 |  `1` `1.20` `latest` `1.20.0`                 | May 21st     | `sha256:e61842cddf26be8431d8f8de8186c94263c8a23e22342e13ecfbf0914c251d6b` |
 |  `1.19` `1.19.1`                              | May 2nd      | `sha256:cfe219a26fae6e1932beab7ceeb8b74757521f496a2d1c514f172ca950e11ad4` |
 |  `1.19.1-dev` `1.19-dev`                      | May 2nd      | `sha256:ec049a0aa668f1d5e5165c90601092cea46d388a56f887b77eee730f3c895e13` |

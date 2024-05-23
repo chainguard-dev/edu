@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-nas-darts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16-dev` `latest-dev` `0.16.0-dev` `0-dev` | May 21st     | `sha256:74b03848f959f445d611585702adc9e99d234b652da90ef8ae89d4c07bce2d83` |
+|  `0-dev` `0.16-dev` `latest-dev` `0.16.0-dev` | May 22nd     | `sha256:abd685f49c806ccfe6469e3ad2f258ca8e7dbc91fab593c058ad3a862b9c56b7` |
 |  `0.16.0` `0.16` `0` `latest`                 | May 21st     | `sha256:d4fd61bc66b1b275fc10ac710b6141485f1fcebf9dbddf826dd2fc97a2e18798` |
 

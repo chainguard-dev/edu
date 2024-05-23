@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the hugo Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 21st     | `sha256:aef1c69b7e0cbab19fec261af87e6b6c15217ad2372b893fb684c01c5992d8fa` |
+|  `latest-dev` | May 22nd     | `sha256:fb6e185cabb71a3f83d298f569cdfca46793b63d176da8c09def938a689827c7` |
 |  `latest`     | May 21st     | `sha256:e7318dc1d89bf2b9717feb2265c5355c85cf4e4508bb78649f478eec541123ec` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                         | Last Changed | Digest                                                                    |
 |-------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.126-dev` `0-dev` `0.126.1-dev` `latest-dev` | May 21st     | `sha256:1b6dc9e7b2a7248169df9d7e0fc758200ba8fd9faab38d1ae0d1eb8cc64651ea` |
+|  `0.126-dev` `0-dev` `latest-dev` `0.126.1-dev` | May 22nd     | `sha256:1423dfcc018ee48b016e425525564dfb756249a99b9e2b5a92da98ef0059da85` |
 |  `latest` `0` `0.126` `0.126.1`                 | May 21st     | `sha256:b22dcd5c91916c65535310044998bdf9cc1e7a29acce81aa28e3a368853154f6` |
 |  `0.126.0`                                      | May 15th     | `sha256:4a5726fd36a5c122c93ad5d56071a64a0e9bc2062077720ce1445e8b5cc650cb` |
 |  `0.126.0-dev`                                  | May 15th     | `sha256:6a999c78d4c97fbea48328ab0c4a31a7f40594a0c87ea85f349a17839094c7c5` |

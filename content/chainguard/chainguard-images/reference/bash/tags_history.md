@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the bash Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | May 21st     | `sha256:9ae8958a52e2eac0b6bc0f59bc173d6c739f9d1acda17c08ccdd2ad4aa6e3ee5` |
+|  `latest` | May 22nd     | `sha256:5a3ad24ea1ceb58452d274f34ddac04e70955f9d7ec8bbd6f2c78b57de3f4466` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `5` `5.2` `latest` `5.2.21`                 | May 21st     | `sha256:02ad976a1c1c50a710356ee0c287cb4de85142cf30ae6fd9eecb105fd7fa447a` |
-|  `latest-dev` `5.2-dev` `5-dev` `5.2.21-dev` | May 21st     | `sha256:435af648d5dddc51f77144814c95cd8d290d43d62b369fd4ad08a0d8f8bfc000` |
+|  `latest` `5` `5.2` `5.2.21`                 | May 22nd     | `sha256:312ff48046ff540f992f11a429d57fec35a64f497f8abe7977569cf49dece264` |
+|  `latest-dev` `5.2.21-dev` `5-dev` `5.2-dev` | May 22nd     | `sha256:5e9c5bc45b6d5e51c063e6c7f6f4b48adeca1b2ce0786c6ed06e09d8249c95ea` |
 

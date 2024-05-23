@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-visualization-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 21st     | `sha256:959354547abb2ea172e07bb4b53dd98f0ad05338ce809967bd593417345cb33d` |
+|  `latest-dev` | May 22nd     | `sha256:9365ec0ce4067e7f4f3bc528bb08c055745f5ad282a4366226bd83b4f85ed695` |
 |  `latest`     | May 21st     | `sha256:d396e4fcff7b724d035da2cefde0770b0d8011795a2c8721b5a66adfb088551f` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.2.0-dev` `2.2-dev` `2-dev` `latest-dev` | May 21st     | `sha256:131951aa725d43a7cb4811e9d13c4952afe8c1f5152b5bc1f96e8316408d2e1e` |
+|  `2.2-dev` `latest-dev` `2.2.0-dev` `2-dev` | May 22nd     | `sha256:cad60645d8ffe8c55718b5fdd95affab41d17623cfd3fe35d77563d053455f39` |
 |  `2.2` `2` `2.2.0` `latest`                 | May 21st     | `sha256:f5dd83d2cc33d850da87711f24bc71f6e74bb300f1f6e7d17d79a9be3ed38dd1` |
 |  `2.1-dev` `2.1.0-dev`                      | May 13th     | `sha256:c7fcde7c5c140ed229aaebe8793d026c739a927f7eb2d50c39b908e51bd9631c` |
 |  `2.1.0` `2.1`                              | May 13th     | `sha256:b6929ef1e09303329746d1a1316096b1f8c76d59ccf5e9e86ab5516c715b42c4` |

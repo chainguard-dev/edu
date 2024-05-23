@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for tekton-controller Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-04-29 00:53:42
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for tekton-controller Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                                                                                                                                                                                                             |
-|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                                                                                                                                               |
-| `cgr.dev/chainguard-private` | 0, 0-dev, 0.49, 0.49-dev, 0.49.0, 0.49.0-dev, 0.50, 0.50-dev, 0.50.0, 0.50.0-dev, 0.50.1, 0.50.1-dev, 0.51, 0.51-dev, 0.51.0, 0.51.0-dev, 0.52, 0.52-dev, 0.52.0, 0.52.0-dev, 0.56, 0.56-dev, 0.56.0, 0.56.0-dev, 0.57, 0.57-dev, 0.57.0, 0.57.0-dev, 0.58, 0.58-dev, 0.58.0, 0.58.0-dev, 0.59, 0.59-dev, 0.59.0, 0.59.0-dev, latest, latest-dev |
+| Registry                     | Tags                                                                                                                                                                                                                                                                                                                                                                                 |
+|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                                                                                                                                                                                   |
+| `cgr.dev/chainguard-private` | 0, 0-dev, 0.49, 0.49-dev, 0.49.0, 0.49.0-dev, 0.50, 0.50-dev, 0.50.0, 0.50.0-dev, 0.50.1, 0.50.1-dev, 0.51, 0.51-dev, 0.51.0, 0.51.0-dev, 0.52, 0.52-dev, 0.52.0, 0.52.0-dev, 0.56, 0.56-dev, 0.56.0, 0.56.0-dev, 0.57, 0.57-dev, 0.57.0, 0.57.0-dev, 0.58, 0.58-dev, 0.58.0, 0.58.0-dev, 0.59, 0.59-dev, 0.59.0, 0.59.0-dev, 0.60, 0.60-dev, 0.60.0, 0.60.0-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-cli-v2-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `latest-dev` `2.15-dev` `2.15.55-dev` | May 21st     | `sha256:f1b07d9b6275b163612e4546d98319edaff6716e9264d9a488c34bccd1166d51` |
-|  `latest` `2.15` `2` `2.15.55`                 | May 21st     | `sha256:64ccce64e2ded82e2f2d9d228145850178a1bc74e7a76c786e9e118ea37ec74e` |
+|  `2.15.56` `2.15` `2` `latest`                 | May 22nd     | `sha256:0fcf95e63200c0e31b2d62e2a9253c55d613a47fe74d99124ead35eb2ddae3bc` |
+|  `2.15-dev` `latest-dev` `2.15.56-dev` `2-dev` | May 22nd     | `sha256:58c3996447eec2e91b3296b16525fbeb01f48e8a16532d9f78cc190266a3c9ac` |
+|  `2.15.55-dev`                                 | May 22nd     | `sha256:56c7560a18a75bc905efa69dc1fd98570022ef7b563da0d9502e21141ebb46e7` |
+|  `2.15.55`                                     | May 22nd     | `sha256:af4c90f3843cfe40738df37614cc000327bcae7da50b92cf5a282492f1aff230` |
 |  `2.15.54`                                     | May 21st     | `sha256:e2c6a7bba91bb3ee084c7488e4b0f73682d72763d436b68281548df07793782b` |
 |  `2.15.54-dev`                                 | May 21st     | `sha256:92d626fcd91a35a7d7e72d5c9386c3fa2139485944d0b6bfb2eb75e432442d8f` |
 |  `2.15.53-dev`                                 | May 19th     | `sha256:95ab24261dd25eaff8a8097c269182e9722cf482f4c2132491f5c69421efb248` |
