@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the redis-sentinel-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,9 +35,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `7.2-dev` `7-dev` `7.2.5-dev` | May 21st     | `sha256:3e6b62cc915f415be78347e454d9ccf9ecaa7972c1677396f66ea1346eccef78` |
-|  `6.2.14-dev` `6-dev` `6.2-dev`             | May 21st     | `sha256:cfec3bb9156a8c97ab62ef5fc1eba45ce7448aa4f209bca85e9cb0804f703ad4` |
-|  `7.0.15-dev` `7.0-dev`                     | May 21st     | `sha256:a69ee05c9bb233a884761778d4dfbd4a912a9d24009be1c613e4992d847da64d` |
+|  `7.0-dev` `7.0.15-dev`                     | May 22nd     | `sha256:05086f0b0ec2a6cef0682c9a906ba6772ee45bc8fcd26561650c3e16e819eb83` |
+|  `6.2.14-dev` `6.2-dev` `6-dev`             | May 22nd     | `sha256:32b1ae61221f727a5175165a96303c76354258ad44b57f704420ea5689eec309` |
+|  `latest-dev` `7.2.5-dev` `7.2-dev` `7-dev` | May 22nd     | `sha256:ab9610f0f7d1ba6e5907ca0152898899612b16e6b054a70528108a3185a3be88` |
 |  `6.2` `6` `6.2.14`                         | May 21st     | `sha256:27750c7c5ae1cc992bc5f34951e2e9d15d28eedf9fa23c1b4b8c533b2d5b5316` |
 |  `7.2` `7.2.5` `latest` `7`                 | May 21st     | `sha256:283518da04af7aad2b0410efd0770ab6bf32f2620612bb9c869d07fd8afa4dd6` |
 |  `7.0.15` `7.0`                             | May 21st     | `sha256:786e30e45f8bb3b253820761ec51012c55dc66ad82a4d9ae276b33704f8175a0` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the shadowsocks-rust-sslocal Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 21st     | `sha256:0e1e67dff0b939ea5a7a1075c3cd848ee3b96ee389da878c1474466ac142a48a` |
+|  `latest-dev` | May 22nd     | `sha256:5886c600fb6fcf67820a1878dcf7b473172c2381a5572d79e6226d45773707d3` |
 |  `latest`     | May 21st     | `sha256:68dd4fe51b6081794a35e33b74509bcc8282e4aa45f345dbcebdf34fa3509a87` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.18-dev` `latest-dev` `1.18.4-dev` `1-dev` | May 21st     | `sha256:d4a7e53962f64588089ed4c14536946a57da012ac739dd524e30b14c40f0ea81` |
+|  `1-dev` `1.18-dev` `latest-dev` `1.18.4-dev` | May 22nd     | `sha256:370ea7a57919b9b173983307da859996c7a9d5e292d8d8dedd2af827ad2f277f` |
 |  `latest` `1.18.4` `1.18` `1`                 | May 21st     | `sha256:d2f5093caa67a851ce0418c6469fade781b138035d9012e63f639d0bfb6baf77` |
 |  `1.18.3`                                     | May 2nd      | `sha256:c3e3b4970e89566faa3c2566c25d5a56d4ff0ed549e4cf0f7e23d418dac1aa1c` |
 |  `1.18.3-dev`                                 | May 2nd      | `sha256:0b63633f2f809bab39ca6e8c307ecbb1ff65552de5d29b649f7bd7b26cdaad30` |

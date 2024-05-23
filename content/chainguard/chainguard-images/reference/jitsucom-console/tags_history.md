@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jitsucom-console Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 21st     | `sha256:e44afcdf1d9e5eef9d7f6fa3db6801da674c325f698ded46092d142b1fd13f01` |
-|  `latest`     | May 21st     | `sha256:09dc081c7322cfe7cec3f60473740bd9c3d8a805b17bb82774a4d47f6f3cccd0` |
+|  `latest-dev` | May 22nd     | `sha256:fb946dc0207342d25a375ec3dd63ea40e95b78f6383f89e34b2b2909969de81d` |
+|  `latest`     | May 22nd     | `sha256:626ae0ffada7f7b1973a72fb770f8c782211b3d2fe2fc659b08ca704356705ae` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.6.0` `2` `latest` `2.6`                 | May 21st     | `sha256:32eb70c32affec32e3da7da65c6f9f5c8b048e60cc2e169c368909ff79240bfb` |
-|  `2.6-dev` `2.6.0-dev` `2-dev` `latest-dev` | May 21st     | `sha256:1273d47b6004f244703719dea6cf52a782aba3261cae5c32df8ad6d9cf13d568` |
+|  `latest` `2.6` `2.6.0` `2`                 | May 22nd     | `sha256:216b5c16bf07a2bbb192840c25dfe943ad65465ad2871e70b92bffb154cc6b96` |
+|  `2.6.0-dev` `2.6-dev` `2-dev` `latest-dev` | May 22nd     | `sha256:9cf60df1ba982cc1d6cf322d367b6aabd581c89b0c1f96bd5d239a0b8003388a` |
 

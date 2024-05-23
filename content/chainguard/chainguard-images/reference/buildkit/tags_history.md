@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the buildkit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)            | Last Changed | Digest                                                                    |
 |--------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-root-dev` | May 22nd     | `sha256:2abe1361463869fd3c45ecd8b55d05608af5004eb13da32d99e7ccabbdb0d223` |
 |  `latest-root`     | May 21st     | `sha256:a7f56c4875fdabaa7039c3a5e30ff109b18a1770fcfb5d39a8b7a5896a963bfc` |
-|  `latest-root-dev` | May 21st     | `sha256:5d8fd1e2dfd041b2f2ffd7ed5c58e8a50e62abbc81fd21196d4642659513a58c` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.13.2-dev` `0.13-dev` | May 21st     | `sha256:30ff4f7ba721049b417e8bdf992de06b2de3d3d62a74d4d890033f65895de8ec` |
+|  `0.13.2-dev` `0-dev` `latest-dev` `0.13-dev` | May 22nd     | `sha256:5db13dd622afba4762a5dc093618c3b1fce8e74b3b316c4cb3871515b45d8eca` |
 |  `latest` `0.13.2` `0` `0.13`                 | May 21st     | `sha256:70f3aaca3a8f49ed84bead2552bfd541763626a518201f5269d9898eefa65d71` |
 |  `0.13.1`                                     | April 25th   | `sha256:54d7ef9f620df47c729766de5bdd8cf35a346c745369fedbe2f0a14c934ca238` |
 |  `0.13.1-dev`                                 | April 25th   | `sha256:1d339d3636ee6b86c3d7a70f5ed6896b974f26e50858cca844b2ae5c962a7597` |

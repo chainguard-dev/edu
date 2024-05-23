@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: busybox Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -39,6 +39,16 @@ docker pull cgr.dev/chainguard/busybox:latest
 
 
 <!--body:start-->
+## Upcoming Changes
+
+On July 15, 2024 the `busybox:latest` image will move from a Alpine base to a Wolfi base,
+in-line with all other images in our registry. We do not expect this to cause breakages, but
+encourage all users to test and verify the new version.
+
+You can test today by migrating to the `cgr.dev/chainguard/busybox:latest-glibc` image. From July 15, the `:latest` and `:latest-glibc` will point to the same image.
+
+Full details are in [this blog post](https://www.chainguard.dev/unchained/changes-to-static-git-and-busybox-developer-images-2).
+
 ## Usage
 
 Chainguard offers two different variations of the `busybox` Image. Both contain the BusyBox software but are built against different variants of `libc`:

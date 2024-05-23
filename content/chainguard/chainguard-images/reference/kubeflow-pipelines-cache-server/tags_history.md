@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-cache-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 21st     | `sha256:53edfc6483a06d4020a10e3117a93bbc1d703293d870dfd99b08c6c3e3a3ef7f` |
+|  `latest-dev` | May 22nd     | `sha256:38c7c5b1593e046e49130fbafda34a0be5f77dec397c9ce4d9328888655dba60` |
 |  `latest`     | May 21st     | `sha256:dad9a72935fb635fc6c7f1403ad072509cced63b562752636f369ceb1ad29d7f` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2.1-dev` `2-dev` `latest-dev` `2.1.0-dev` | May 22nd     | `sha256:159da12fa97bf34cf7668ae633a94abe1f258499d5fef35fda92b19dc8fc43bf` |
 |  `2.1` `latest` `2` `2.1.0`                 | May 21st     | `sha256:655da1f88491b0aa585797e482e95b447df0bbddbc517faca47fc1af151fb957` |
-|  `latest-dev` `2.1.0-dev` `2.1-dev` `2-dev` | May 21st     | `sha256:fd12e1212320ba51980e499018ec59d468097b4e74273f429f634f5f56a8f86d` |
 |  `2.0` `2.0.5`                              | April 24th   | `sha256:cd0aa87e3992ca078700cba0130702d67c57fe4ae426c2034e37f897048e1fb5` |
 |  `2.0.5-dev` `2.0-dev`                      | April 24th   | `sha256:e7bceb01979321f47e8224683e95634da570325d0b1c4b2bbfff600338514995` |
 

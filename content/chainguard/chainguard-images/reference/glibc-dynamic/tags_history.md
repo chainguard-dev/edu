@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the glibc-dynamic Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 21st     | `sha256:ba15c73429c57a2cae6503fe94bb8828792e36c33ede68f9cc19942d45410443` |
+|  `latest-dev` | May 22nd     | `sha256:682bc0af5eed52b3863396b08f9707d49b2fd209814a9e03ecd81e8f81e7ce0e` |
 |  `latest`     | May 21st     | `sha256:f74e4803c121ac05ee18b475f412d9cf10302587592ce625ea94e2751b57237d` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `13.2-dev` `13.2.0-dev` `13-dev` | May 21st     | `sha256:7c2e68ed9b3418fae354c8867ea2689fa40c61670b0b380c05e24d8903bbbe38` |
+|  `13-dev` `latest-dev` `13.2-dev` `13.2.0-dev` | May 22nd     | `sha256:3215ebc8a960bdfbe16e59e287ec925a3ce3ec3a2d7424b2ef9a3b2e47d4752e` |
 |  `latest` `13.2.0` `13.2` `13`                 | May 21st     | `sha256:7c36ebce9dc462c01f22128b5330e0973effea6f10f5161edb36f23387c2b286` |
 

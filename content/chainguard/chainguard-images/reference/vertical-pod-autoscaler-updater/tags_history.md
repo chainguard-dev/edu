@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vertical-pod-autoscaler-updater Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 22nd     | `sha256:b968ce005758de20435970ef4f0dd312e65cbb29da3e9e3dddf8bc41c76a90d9` |
 |  `latest`     | May 21st     | `sha256:9b76452307c2134da5993d9ed80090921ebf197e8d722ff4f78c883e846d3df9` |
-|  `latest-dev` | May 21st     | `sha256:ef9f1fa3dd4fe2acc3dd9ee1b2a15ba8b2d7888f87ed87b9161221bc1b3862de` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.1.2-dev` `latest-dev` `1.1-dev` `1-dev` | May 21st     | `sha256:1d0412f0f2fdabc6476757b2765d07e3011ec63f282e034f5d524d687fcc4bfe` |
+|  `1-dev` `latest-dev` `1.1-dev` `1.1.2-dev` | May 22nd     | `sha256:cf1de768b2adac474285f568ce39d0873d5848899c92cba706212f101d054bd2` |
 |  `1` `1.1` `latest` `1.1.2`                 | May 21st     | `sha256:778f6f9ca3cf81da6f25162d67d1fe08be148dca4c32331fbabe84b911d531f5` |
 |  `1.1.1-dev`                                | May 16th     | `sha256:b85b95bddbd8210e60697527e803e59d2effeea02b9bf8e5bd61a938e1da32c2` |
 |  `1.1.1`                                    | May 15th     | `sha256:8fa146b779ce243c5d3f1303ed967cb551633857bfb1d1ed94b23e3a090df847` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gitlab-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 20th     | `sha256:880c2c619e135bbbb1c3a2bbc1a25934f0988cc7fd193a4059582cdcfd3ad9f5` |
-|  `latest`     | May 20th     | `sha256:ffe418461c7a15c55e08af50cdbbe2e925babd2df1cd18c4b661ff5076e06ba0` |
+|  `latest-dev` | May 22nd     | `sha256:494b17aba3026768999b3fe2542b828f957b58f34719ab7b3410ac27ca16503c` |
+|  `latest`     | May 22nd     | `sha256:1b9d0b0c760cae6a17e2afe319816e4c4b2ac7d534873da74a84a953f3f15b17` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 21st     | `sha256:a4628fc19f3da37fb1a138f04edc7c01a8884e9a7272558033ee5437021775e1` |
-|  `latest-dev` | May 21st     | `sha256:cc4ffdc2e272f174598dbfbe72a2b2d73d2c2b5f86eec332c9538edf8bb3312b` |
+|  `latest`     | May 22nd     | `sha256:afa2ddb5f7135d2c14b2a0bf2ee1a2e164206546a544226bab157a4ef1c8eb4c` |
+|  `latest-dev` | May 22nd     | `sha256:11c229da8fc96b82592ce7317adde6339625839c90f9c81f45467e860286487c` |
 

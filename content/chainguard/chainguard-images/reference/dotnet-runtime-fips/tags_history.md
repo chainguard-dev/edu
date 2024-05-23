@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dotnet-runtime-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,12 +33,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `8.0.5-dev` `8-dev` `8.0-dev` | May 21st     | `sha256:a818799e8780999b37e07f8bd906b5c3a345b5fc982e14bf95e0feeffe29fc4a` |
+|  `7.0.119-dev` `7.0-dev` `7-dev`            | May 22nd     | `sha256:2e361c130540dae84623199792673346ef94847b3eec44d8ded13627c10a37e9` |
+|  `latest-dev` `8.0-dev` `8-dev` `8.0.5-dev` | May 22nd     | `sha256:2beb388e0479426093d5329d1606f52c69614d9983dcf6bd4dd895ff074f4b42` |
+|  `6-dev` `6.0.130-dev` `6.0-dev`            | May 22nd     | `sha256:90c273c67a6cfd7054241b4c5efc25db9fc1ceb7c65e060a2b4e9da2f509af99` |
 |  `8.0.5` `8.0` `8` `latest`                 | May 21st     | `sha256:b8b5cae3db8446035ab0b69df2763eca43cf62140e32a22dc40b0716ccf96286` |
-|  `7.0.119-dev` `7-dev` `7.0-dev`            | May 21st     | `sha256:6221fa04a6f0eaf9e2ede40e0e052eaff5b7ffa7556b546630caf0b5086aa3ab` |
 |  `7.0.119` `7` `7.0`                        | May 21st     | `sha256:3ce2564fbfffcbaa809decfe95e9fc87dc9b4969826a3dfe301f91381769a813` |
 |  `6.0.130` `6.0` `6`                        | May 21st     | `sha256:1a87028115f8478256c9c1fbf49ad908c4e3435d23a3acee073efe8d65072f6b` |
-|  `6.0.130-dev` `6.0-dev` `6-dev`            | May 21st     | `sha256:517c0a1c66da7020937e58235705e05d9212892503f4aaee467e26308e764e97` |
 |  `6.0.129`                                  | May 15th     | `sha256:1e6e34d794bc249aaa5824daa6d02f24f3b351056518a45450764a1537db0988` |
 |  `7.0.118-dev`                              | May 15th     | `sha256:dc05596aee5dacc0fbe1d71a74b05fc445c9b6ffeab89e02787290c54d95e500` |
 |  `7.0.118`                                  | May 15th     | `sha256:9b877e64f6d4546e2f2557461f66ddff17d4142d55e480dec341fc90d61b1299` |

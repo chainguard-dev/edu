@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-scheduledworkflow Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 21st     | `sha256:1715d89b77424875f0f1ae8711dac7ce59cb3e7fe630fd05933dd3b8b4c638a5` |
+|  `latest-dev` | May 22nd     | `sha256:9931c630d53021f7c98698cacfe842b1389818bfe82d1cf8ff3a1d8a3c83ce03` |
 |  `latest`     | May 21st     | `sha256:b01be893da7e164f97134933e59cff4f5f24caa0b866c1eba8572d2a3c96d8c5` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.1.0-dev` `2-dev` `2.1-dev` | May 21st     | `sha256:45ccbbb28ca81759dd0c33f8bb39f0a056029c42ed75227031ab586fba4bcd8b` |
+|  `2.1.0-dev` `latest-dev` `2-dev` `2.1-dev` | May 22nd     | `sha256:60e7ab50c3a5e1ffbb0f13637dc6c3d852caa3ea2ec1d4786740f19478dda224` |
 |  `latest` `2` `2.1.0` `2.1`                 | May 21st     | `sha256:d69b84101e272e81608435480e3fec7f502ce66388bbd92c5144f49d8fb5f0f5` |
 |  `2.0` `2.0.5`                              | April 24th   | `sha256:fb94d98b942e5ab3dcba0be5cee24458460c3ffc775b87aedf9e1ffc14a96206` |
 |  `2.0.5-dev` `2.0-dev`                      | April 24th   | `sha256:de8f78557e544bb79baeae17eb775112aa62f320baeb149cb29956fd3d9453d4` |

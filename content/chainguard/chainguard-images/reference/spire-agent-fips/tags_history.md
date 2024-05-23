@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the spire-agent-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-23 00:45:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1-dev` `latest-dev` `1.9.6-dev` `1.9-dev` | May 22nd     | `sha256:622225f439fcc98543c2e2b11cb367eea51c37d1d7dbdc69766db0ed7aa27781` |
 |  `1.9` `1` `1.9.6` `latest`                 | May 21st     | `sha256:37cf5f805142185a7a5339b288b380a2ab18689bbbd7b89ffb0c92219cf0e9fb` |
-|  `1.9.6-dev` `1-dev` `1.9-dev` `latest-dev` | May 21st     | `sha256:18b3e6f391a6565ab5470b4edb7745f6af2bbd2598be3ee9918c11e6e39168c0` |
 |  `1.9.5`                                    | May 15th     | `sha256:528a93fbe9f7373bda62760dd6b39adb99fdf95d30eae5f19828e285b5fc54e5` |
 |  `1.9.5-dev`                                | May 15th     | `sha256:0c63c84d126a926c18b002ac1340c035a679f622d072b3865b66f517de1de794` |
 |  `1.9.4-dev`                                | May 2nd      | `sha256:37888c5989ff4a51c9654829e264a82a7531a2bfb43c090dd85e58d94a9f730d` |
