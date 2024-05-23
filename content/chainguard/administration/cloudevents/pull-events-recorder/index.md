@@ -41,8 +41,6 @@ As mentioned in the introduction, this guide is meant to serve as a companion to
 
 This application will record data  whenever an Image gets pulled from a specified organization's private [Chainguard Registry](/chainguard/chainguard-registry/overview/). It does this by leveraging GCP Cloud Run, Cloud Pub/Sub and Cloud Storage to efficiently buffer events before loading into BigQuery.
 
-![i think this is alt text?](https://mermaid.ink/img/pako:eNpNkTFPwzAQhf-K5SkRrRBCLB2QSNIiJAZoyxQzOPElserY0dluVVX979hJoHg6nd_77vl8obURQFe0UeZUdxwd2RdMk3BekiTJOy516zmKNE3JckngCNrZUD2TrGQ0V8YLsvWa7JH3g1FSA2M6GXylZE2-tu8po98TL4v-I1dScAeC3JFGKgcYykjLyxsrQ3MAJG-6RbB2tltftciHjgwoj4FANLiTwcN0m0f4ONV2I68o_-J9-Op-56uYq_JNE0fGVDO3iM4AtzXKCkbv-l-WLdQGBeCsXkf1CaUDG3eBZ_LYj57N7Nk5g7yFWb6JcmW4-FU_PE3y1zLJZPvpQy-dtaAFXdAesOdShB-5xDajroMeGF2FUvDwXMr0Nei4d2Z31jVdOfSwoH6Iay0kD0vqp-b1B1XEmCs?type=png)
-
 ![diagram](mermaid-diagram-2024-05-22-232315.png)
 
 This means that records may not be published immediately, with a delay of up to 18 minutes end-to-end. With that said, the application should be able to handle bursts of requests gracefully without dropping events. When no events are being received, the Cloud Run services will scale to zero and incur no cost. During bursts of events, services will scale up as needed.
