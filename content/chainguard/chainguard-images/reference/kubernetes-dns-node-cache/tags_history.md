@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-dns-node-cache Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | May 21st     | `sha256:ca35ed664954b012723c716fb48b4e6020eef6ccae2aed3aeb4b73a2b9f9b3a4` |
+|  `latest` | May 23rd     | `sha256:4e068abd1b8a7ca364b394c26da9c559d4e2dfbdf4c5468bb5c7719c879c3642` |
 
 
 ### Private/Dedicated Registry
@@ -36,8 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.23-dev` `1-dev` `latest-dev` `1.23.0-dev` | May 22nd     | `sha256:dcca9fbde132bab0aa5ce5a2fc9c40b42a603994ec2bc6e297d33885e7d28b60` |
-|  `latest` `1` `1.23` `1.23.0`                 | May 21st     | `sha256:3393ac3de1d3313bd6675123d718c07a2887789d57def2da6127156d0430a588` |
+|  `1.23` `1.23.0` `1` `latest`                 | May 23rd     | `sha256:4fa5ff0ee80661c7286578878314d5d58711d471921ddaf75a4a58a4970cec34` |
+|  `1.23-dev` `1-dev` `latest-dev` `1.23.0-dev` | May 23rd     | `sha256:a1589218e24f30e5223c71b35aaf912c269f71046f2157f746aac8a35ed46312` |
 |  `1.17.4-dev` `1.17-dev`                      | May 15th     | `sha256:dcedb84a191fa9b01a9e92a9c63be25d0c648673c298b07f6605593b476a4227` |
 |  `1.17` `1.17.4`                              | May 15th     | `sha256:90a46c1fa520296cab4a9a351bfb48ee483496d5dbbbee26c78fcd142aada361` |
 

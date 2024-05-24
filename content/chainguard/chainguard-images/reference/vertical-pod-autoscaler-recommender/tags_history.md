@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vertical-pod-autoscaler-recommender Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:a02946a8d041817571afa51d216315c85ca7f70466af283fb969f3b97c084ad6` |
-|  `latest`     | May 21st     | `sha256:172bc5d7e50c4f706dd564ce54e6232d8d417de9c9035909e9232ccadac11b62` |
+|  `latest-dev` | May 23rd     | `sha256:cd0d5f69f8aa8e5087d404496e296d68c1ac2fbe0e8a264185020b75b1dac673` |
+|  `latest`     | May 23rd     | `sha256:feffa8c080b365d385c70b97713638e14b76ec3cc9e5724fc563ead85e115089` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.1.2-dev` `1-dev` `1.1-dev` | May 22nd     | `sha256:a047e5934bf9b32d675098d11580fd6d6f0f339958fb8fa750bc097b424b41e1` |
-|  `1.1.2` `1.1` `1` `latest`                 | May 21st     | `sha256:fb0d9a9204274d07281c352f10f85e662eeefbba05b3f7a404b8fc5a306c7e3d` |
+|  `1.1-dev` `1.1.2-dev` `latest-dev` `1-dev` | May 23rd     | `sha256:7bf93e5a3d38133a878b624315b12f8645ec563417b75c699643ab13f082a548` |
+|  `1` `latest` `1.1` `1.1.2`                 | May 23rd     | `sha256:093121d17c1dfd3fab7e94821befbaeff6b6404d77cf6457192dc70f23ea1633` |
 |  `1.1.1-dev`                                | May 16th     | `sha256:5765218b67d0b93cdb4527ded6c75b0c224e32abdc518f28b8128fd02f237a50` |
 |  `1.1.1`                                    | May 15th     | `sha256:25b9578d58ee19c9b2c72aa26964e6ec629f248611c696ba46c42bd683a0ed80` |
 

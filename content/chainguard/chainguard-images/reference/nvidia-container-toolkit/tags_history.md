@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nvidia-container-toolkit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:9ce639f974ec8da496a33b8f0f577a642979128ced111b1d45927f5c9285d1bb` |
-|  `latest`     | May 22nd     | `sha256:a0cc859c1898e04c3a785bea1e8a8650391201849de0147eb9bbc9c4e66cd483` |
+|  `latest`     | May 23rd     | `sha256:2ad287194c7287f7d0ba8770f3a132ae1bcdae5ff0dd46caa65194edc33765e6` |
+|  `latest-dev` | May 23rd     | `sha256:faa5dd640b9f5f9fa327407bf5dbe6fba7b3e7859af8aa26a174a417737639ad` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1.15` `1` `1.15.0`                 | May 22nd     | `sha256:3125a3d01c56e63f605a1c14085c57b9206502d103f3c1b7b6301717a3a64de2` |
-|  `1.15.0-dev` `1-dev` `1.15-dev` `latest-dev` | May 22nd     | `sha256:19f4d899b228aefa048caf312ad19387a3bbecbf0253f68c16b5f99aa6f2a08c` |
+|  `1-dev` `1.15.0-dev` `latest-dev` `1.15-dev` | May 23rd     | `sha256:86da862ce065e5005a0c538e9cb7e2e7b430a645a03b08b5f47ff0d80dd49809` |
+|  `latest` `1.15` `1` `1.15.0`                 | May 23rd     | `sha256:cffdcbaf7fd5df49e22ce3583ae741c60b81150e2a3fb86a76fc91e1ad31d977` |
 

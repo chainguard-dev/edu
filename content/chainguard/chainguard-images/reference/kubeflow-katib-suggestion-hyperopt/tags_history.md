@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-hyperopt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:b8159590413cebb02b4305862e43a2685143953ca475c65bf306dc715092cd7b` |
-|  `latest`     | May 21st     | `sha256:6c8b90434409ec8136495a52b0ce72a48ac221224235c41f9c5dae4187a54945` |
+|  `latest`     | May 23rd     | `sha256:adc92ab091a419677a71b4323e0846bc52368124508914962e85be8deead48d6` |
+|  `latest-dev` | May 23rd     | `sha256:e2d4fbe81a0c2b1ee97de4ffb184627824da9ef220f661e76e5bcc6c5952d98e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0-dev` `latest-dev` `0-dev` `0.16-dev` | May 22nd     | `sha256:3d5da9ec4e9bc8a9c6eaf5ef0c9682714d896386d6ff0073c15bc12258cf6132` |
-|  `latest` `0` `0.16` `0.16.0`                 | May 21st     | `sha256:adeb85e29dd6d5f36daa0f86879bf4307857a6f5eabd95915ccbd1cb242b151e` |
+|  `latest` `0.16` `0.16.0` `0`                 | May 24th     | `sha256:81a4ebd932a63d84095e62ec701d76e6aa4309287ec49512a3b936319a2e3d0b` |
+|  `latest-dev` `0.16-dev` `0.16.0-dev` `0-dev` | May 24th     | `sha256:007b3f58cae1fb8a50d689f9b77774abf3aaafe0af69d43d93797961d384a9ca` |
 

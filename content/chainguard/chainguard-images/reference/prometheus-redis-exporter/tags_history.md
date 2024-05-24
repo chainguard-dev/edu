@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-redis-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:5ecbef62b1edcb1637cfd17afdf9320680a1c8de9267fbe4c9671057b54b7d3b` |
-|  `latest`     | May 21st     | `sha256:acff6b6dde64af7de1d50b7d95fd63a3721d631cb901b4975cd52ad862e31e69` |
+|  `latest`     | May 23rd     | `sha256:1d5e00abaf588dc790beca0ea81c0bab53bbaa2c8cd7bf38dee52a298a0ef4c9` |
+|  `latest-dev` | May 23rd     | `sha256:5296604abe9edc87d7cda7b78f920adc8049cfa11e57cf7a6681ff9b8dbf3d0e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.59.0-dev` `1.59-dev` `latest-dev` | May 22nd     | `sha256:ea987e757d65289d68a417c902f503e9f5092a4e1b693188ad05ed2d439694b5` |
-|  `1.59.0` `latest` `1` `1.59`                 | May 21st     | `sha256:05203a6844ed31ecff381210d633551d0a9cc3738240d93ff45829f15454f8bf` |
+|  `1.59-dev` `1.59.0-dev` `latest-dev` `1-dev` | May 23rd     | `sha256:cad5fd5db8a6d7223e7dad0134be846f2906a92bc7e9884da8a0615e7550ca23` |
+|  `1.59.0` `1.59` `1` `latest`                 | May 23rd     | `sha256:0911f00e6aa5d742ebec5322d539e2a2c5388bbaf489ebf74d7d0b4d494e5761` |
 

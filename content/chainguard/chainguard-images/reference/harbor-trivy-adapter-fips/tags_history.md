@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the harbor-trivy-adapter-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.31` `latest` `0.31.2` `0`                 | May 22nd     | `sha256:6db806ff3fa6e411e78eb695eb3adf91d5d937c8ee92b6a7dbad777a9efb8828` |
-|  `0-dev` `latest-dev` `0.31-dev` `0.31.2-dev` | May 22nd     | `sha256:b9f56baa4d711a452484c65f6b393eeec630ba1ebd476a9050760f55ee904122` |
+|  `0-dev` `0.31.2-dev` `latest-dev` `0.31-dev` | May 23rd     | `sha256:75e433733c7246531a32cfc63d7f469310b74db5827b54d687295c34372c5e9a` |
+|  `0` `latest` `0.31.2` `0.31`                 | May 23rd     | `sha256:3505714df1587bec01108b30821cac8acfab790081da3d46dfbdd73514583304` |
 |  `0.31.1-dev`                                 | May 19th     | `sha256:6896137fd934b912aea0f3367cf1062dc5427ae1d383b323f88ac5f1be1596a7` |
 |  `0.31.1`                                     | May 17th     | `sha256:7b24577ff39e9901fbca33b1626cd92fdb88616f634dfc5cec0aa1fbae66aa3e` |
 

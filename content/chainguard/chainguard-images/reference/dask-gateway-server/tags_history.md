@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dask-gateway-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:857d407aed54be3662afb04ca4d4d362d0c791d1e22978649c89cca33d5cebe0` |
-|  `latest`     | May 21st     | `sha256:24b117e4cdf154b5f1673325a724f06803fa5f31a3d28f56793cc57b0ceaedca` |
+|  `latest-dev` | May 23rd     | `sha256:64f7920d0a38284366b9d759af6a312ace4abf2bb49f273e5a09616dd07658a6` |
+|  `latest`     | May 23rd     | `sha256:c66fbe070be2f01b181259dfc0a131bdbc6a9168c1e81d7c56b0d14b081daa4a` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                              | Last Changed | Digest                                                                    |
 |------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2024-dev` `2024.1-dev` `2024.1.0-dev` | May 22nd     | `sha256:c41160a37b2a94cdc773384b74c1e51f98f635bb3b4d63fec2080ea7b3ecc012` |
-|  `2024.1.0` `2024.1` `latest` `2024`                 | May 21st     | `sha256:997b63d0f880d02617a16dbfda9f841da7136b2fded47140cc682b7c8ea6a737` |
+|  `latest-dev` `2024.1-dev` `2024-dev` `2024.1.0-dev` | May 23rd     | `sha256:22cc67b46bc2be4b2012685fdfbad8d256f663370978b7e906948f24c14aacf0` |
+|  `2024.1` `latest` `2024` `2024.1.0`                 | May 23rd     | `sha256:b5ee4050f6b64a7bb76d27b62236270df114140a6667e7d0ba02be17128e2006` |
 

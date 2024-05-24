@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the zookeeper Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 22nd     | `sha256:4f86d1affc817fbface52ec455b63628ff222fafa901e0363ed6fc7146be18fb` |
-|  `latest-dev` | May 22nd     | `sha256:43b7006df53046688c3cbb85687d9d7a29219dc309192e4684b39514f4709346` |
+|  `latest-dev` | May 23rd     | `sha256:6ee156d4f6e9a50440b8bd6a37f924ae7a347a29adcd86742c3df4939e617b76` |
+|  `latest`     | May 23rd     | `sha256:ef0737a6f202f0011bc3e8b5e36b9269a936697668a9fca63c1006f5027457f7` |
 
 
 ### Private/Dedicated Registry

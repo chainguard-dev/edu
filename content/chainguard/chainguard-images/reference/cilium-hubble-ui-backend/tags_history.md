@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-hubble-ui-backend Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:e691e45cf2cfc1c3f604b627d5fb1d5850f69edbd9abd92c0c5b09633aef474b` |
-|  `latest`     | May 21st     | `sha256:9d185572bc30a694fb1dcd0e380c4d5c7433041432103aead679d804c19a91e2` |
+|  `latest-dev` | May 23rd     | `sha256:3a4523981a567397e85ec5c23c756c8c49cb1d82449b1840feae7ab128c62828` |
+|  `latest`     | May 23rd     | `sha256:ece216a270bc533322211da3fe75aa4da3e5381a59547c5376068544e487c6a2` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.13.0-dev` `latest-dev` `0.13-dev` | May 22nd     | `sha256:9542ccf7076178e51ab5523407f9da7ed50e0942a9ce6517149cd29bda8b0d84` |
-|  `0.13.0` `0.13` `0` `latest`                 | May 21st     | `sha256:f8487776d5aebf421cd71f7632f909bd0d21a2cbb1802214cf85d3dda9605ca5` |
+|  `0.13-dev` `0-dev` `latest-dev` `0.13.0-dev` | May 23rd     | `sha256:5acab73b5bdb7bd0461f7d51b07b1c203cf830fffdd69c82b4f9f552602d4ad3` |
+|  `0.13` `0` `0.13.0` `latest`                 | May 23rd     | `sha256:6b3c595b01c7aeeed4a54b25d86a08daa8492f8d3251619d708e433a52503db2` |
 

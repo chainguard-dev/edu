@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the smarter-device-manager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:3880036aa8f79b4363a7682ed077affd63da421b3931da0a294b9b628705848f` |
-|  `latest`     | May 21st     | `sha256:712430f0fe36402e337b04ce4e6e90a1a43b7550f65e0dc62a0b93aeeefb0143` |
+|  `latest-dev` | May 23rd     | `sha256:67280c5d86cb7c55994f9994ebf0264aa2e4fc5b345967cf0b997e08bfef0a26` |
+|  `latest`     | May 23rd     | `sha256:b1440a5186d69a2f025985ed2d03117a7665b1cdf84a244b66806d33c7b915e5` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.20.11-dev` `1.20-dev` `1-dev` | May 22nd     | `sha256:d44187279be41375526d5f61d5ca83a11d0d4c45471278461e263b7a8210e9e7` |
-|  `latest` `1.20` `1.20.11` `1`                 | May 21st     | `sha256:7b5edb2a8e925d0fa22136a1aa28b79dff2710e3149956ff1296e5c8a9be1113` |
+|  `latest-dev` `1-dev` `1.20.11-dev` `1.20-dev` | May 23rd     | `sha256:dd1e5fb6956e0c0fd65bb78cbd7165dc795f6da157d825644bf77515f534348b` |
+|  `1` `1.20` `1.20.11` `latest`                 | May 23rd     | `sha256:b60ae6230d8bcf7ebecce4c16b3a2c5799154883a93111fd1b19fc58d01ac297` |
 

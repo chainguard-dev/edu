@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the keycloak-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:7b663038392c225f31876b78b12717735df317a7bddd5c3d63761a3b95d90bc5` |
-|  `latest`     | May 21st     | `sha256:6e0bf2d686c0858bdd5abaab0cc7adaba5c72f39a0363dd12d6e09e7b8cdfaf1` |
+|  `latest-dev` | May 23rd     | `sha256:835ea24d485275c2a46383437389ba8b34dc6c39dc163fec944d72908fc19065` |
+|  `latest`     | May 23rd     | `sha256:60fb05f6c3e7e7b59d7096eec4c9885b9aae057db13604f111b8e69053c54c9e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `24.0.4-dev` `24-dev` `24.0-dev` `latest-dev` | May 22nd     | `sha256:2826844d8e0ae85d8ba914995531806bfb3af3816c1c843c5c9c2485856cc542` |
-|  `24` `latest` `24.0.4` `24.0`                 | May 21st     | `sha256:5c6574408c174b471a704172b97a55a8647867c81478d4609cc9056676a7e04a` |
+|  `24.0.4` `24` `24.0` `latest`                 | May 23rd     | `sha256:372bc084344f770ddd6e3675bdabb11ac0a8099ec88ffbf964d2d6b71fa6ef7a` |
+|  `24.0-dev` `24-dev` `latest-dev` `24.0.4-dev` | May 23rd     | `sha256:a7b84c983c957de666506fe82a29d018e0356ccddc137c312ed371547c86b82c` |
 

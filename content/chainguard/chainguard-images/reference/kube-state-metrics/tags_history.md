@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-state-metrics Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:ce4e3a6d1fb9bfd1d0d9a01fc1a998c498550ea813d832be4f85061824247b09` |
-|  `latest`     | May 21st     | `sha256:018e960e2188de5527a5789c6ee12bdd5ddff50755db02cd7a5dcc12f30168d7` |
+|  `latest`     | May 23rd     | `sha256:25b531089c3b7d1f47bd35111516204e2f908e41f86fa746b43e643adb74fe61` |
+|  `latest-dev` | May 23rd     | `sha256:559a2e63bb330f395a7efe5d43df4cc5e41c462cb1da61751a52e1814b1f14ad` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.12.0-dev` `2-dev` `2.12-dev` | May 22nd     | `sha256:a4f02e1b9d667d90e0a0998f333a7946e039e4cd3bdee760815fe5c9b824c537` |
-|  `latest` `2.12` `2.12.0` `2`                 | May 21st     | `sha256:631270cec55a7bd1c135d475f25d7b02bfd9767de566ef57d0fe17ea00add924` |
+|  `2.12.0-dev` `2-dev` `2.12-dev` `latest-dev` | May 23rd     | `sha256:a9c01a6b6b1f9f3f7d9440c7efe15ccaa2e982422f964b09fdc0e17bb1d3c81d` |
+|  `latest` `2.12` `2` `2.12.0`                 | May 23rd     | `sha256:cae03e52d6e6c795c2e5935409ad0dc70596ed0b9166ab0096a8186a8cdf4a17` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-db-manager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:670e3e61185d0f9446cd4e027b9b840ec7be85361760f51dbd300320e7f5673e` |
-|  `latest`     | May 21st     | `sha256:1dae41522ec52034da9796a0ff90af06726376cc404d8b2f19fd5b8ac214989a` |
+|  `latest`     | May 23rd     | `sha256:4397ccdad15d0ce89b85cdaa4ccdaa2f5238f63c916c53b4c836ac10aa5fd8be` |
+|  `latest-dev` | May 23rd     | `sha256:4d8ab948076b47d6f534abf555ffdc0a98355be7d5db55c74de92e31dcdb5629` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.16-dev` `0.16.0-dev` `0-dev` | May 22nd     | `sha256:a6973119b51bbc368f46ea6e489db04499894f44b24e0b68889734260ae746ca` |
-|  `0` `0.16` `latest` `0.16.0`                 | May 21st     | `sha256:47104d9de206b95336a2a4e1f3dff53da66f07bc16a2bd4fc5a5563f58871274` |
+|  `0.16-dev` `0-dev` `0.16.0-dev` `latest-dev` | May 24th     | `sha256:8995e28e95afb33c5a3a24d4e31dc8eacdf9b1440deeb10defe7631dd5b7e12f` |
+|  `latest` `0` `0.16` `0.16.0`                 | May 23rd     | `sha256:198125ed3ee81ac142b71d49f9537c81658fd34ea48efeb27b0806eb622447b0` |
 

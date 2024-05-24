@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the laravel Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:aa5560b764467c0eace97bd53593c5cd8f1e8e40cf6b1bee38437745c0c0a8ba` |
-|  `latest`     | May 22nd     | `sha256:377d5e65f13edd512b53dcaaa1124672572c45ce70683be6d2c16d3a41658b96` |
+|  `latest`     | May 23rd     | `sha256:9d5925cde4ed3475f7b54116ee87b4a9368714b9efa60f03a1203af63b7be6c3` |
+|  `latest-dev` | May 23rd     | `sha256:79147910c1f53197718b2ebdd8155f9c6be04ffda2510a068e7949d401c2eef1` |
 
 
 ### Private/Dedicated Registry
@@ -37,5 +37,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | May 22nd     | `sha256:2a1c7a7f6e72a19dd5db4a2c3f72907d10407baaa286492ee1a3b01b55a177c9` |
+|  `latest` | May 23rd     | `sha256:8a2199d7d3a692875cc2ddc4b7782a1c840044fbfacd33da95b839719ed5c624` |
 

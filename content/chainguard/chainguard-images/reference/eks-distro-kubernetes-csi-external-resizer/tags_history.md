@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-external-resizer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                  | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.10-eks-1-25-33-dev` `1-eks-1-25-33-dev` `1.10-dev` `1.10.0-dev` `1.10.0-r6-eks-1-25-33-dev` `1.10.0-eks-1-25-33-dev`                 | May 22nd     | `sha256:645d3bdb948ba2033868c71f3bea05d29270a84ce95f362770d69513f46f0d13` |
-|  `1-dev` `1.9.0-r9-eks-1-23-33-dev` `latest-dev` `1.9-dev` `1.9.0-eks-1-23-33-dev` `1.9.0-dev` `1-eks-1-23-33-dev` `1.9-eks-1-23-33-dev` | May 22nd     | `sha256:d83e8c86190871bf080c8886e4a3ac2a849cc3ea95d244770cb1b8b3f5a23698` |
-|  `1` `latest` `1-eks-1-23-33` `1.9-eks-1-23-33` `1.9.0-eks-1-23-33` `1.9` `1.9.0` `1.9.0-r9-eks-1-23-33`                                 | May 21st     | `sha256:3044357d182640187c464fe9945a679e52d467c7a257bbe23e2927b6ffbfa60f` |
-|  `1.10` `1.10-eks-1-25-33` `1.10.0-eks-1-25-33` `1-eks-1-25-33` `1.10.0-r6-eks-1-25-33` `1.10.0`                                         | May 21st     | `sha256:c11a9967c9f47cfaa84c2fd29c4b114aad9079fd9e80304283d3587cb9e06e74` |
+|  `1-dev` `1.9.0-dev` `latest-dev` `1.9-dev` `1.9.0-r9-eks-1-23-33-dev` `1.9-eks-1-23-33-dev` `1-eks-1-23-33-dev` `1.9.0-eks-1-23-33-dev` | May 23rd     | `sha256:1bb95391c7ac7282f5d938787400e93bea51c04478561f07e933d5432c5f7382` |
+|  `1.10-eks-1-25-33-dev` `1-eks-1-25-33-dev` `1.10-dev` `1.10.0-r7-eks-1-25-33-dev` `1.10.0-eks-1-25-33-dev` `1.10.0-dev`                 | May 23rd     | `sha256:523e3052368b685d8a37d442701536b2fdd7cc9e31c10888882257e42d043490` |
+|  `1.10.0-eks-1-25-33` `1.10.0-r7-eks-1-25-33` `1.10.0` `1.10` `1.10-eks-1-25-33` `1-eks-1-25-33`                                         | May 23rd     | `sha256:1dbb7f57b3bc7264137861bd7188c82a9df2e2a23a24afe7b56ab50060f590ed` |
+|  `1.10.0-r6-eks-1-25-33-dev`                                                                                                             | May 23rd     | `sha256:19650b5f453511ec9e0dd7769b0cbd14ab62ecbfae7b1757e2f7c301d30168e5` |
+|  `1.10.0-r6-eks-1-25-33`                                                                                                                 | May 23rd     | `sha256:edf7060793ac96cd80558f3ead271dfc5125ca0bb682948e54faffe9fa8ede45` |
+|  `1` `1.9` `1.9.0-r9-eks-1-23-33` `1.9.0-eks-1-23-33` `1.9.0` `latest` `1-eks-1-23-33` `1.9-eks-1-23-33`                                 | May 23rd     | `sha256:47ee6d0aa59d7d995f0bebd7e4790303109de0f5368e957710eef818633af701` |
 |  `1.9.0-r8-eks-1-23-33-dev`                                                                                                              | May 2nd      | `sha256:05b94ea41dd29de97d73f3e25e99df80f3834b8d8b303ede1c3adf0bcf4c8b67` |
 |  `1.10.0-r5-eks-1-25-33-dev`                                                                                                             | May 2nd      | `sha256:b90b58a0d10b0d430a164ad7aa8d17457c919f1ed5bd2db9b05c90cad16b2679` |
 |  `1.9.0-r8-eks-1-23-33`                                                                                                                  | May 2nd      | `sha256:a75fc44c2b43b356bc0b09b221cc59cd27527e1cf1610e0da185f8ca8ad84391` |

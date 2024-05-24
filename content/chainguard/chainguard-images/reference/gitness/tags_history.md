@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gitness Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:4addadd197a86dd33b9e73724239eb51248fe59dbe8a2f3cf7c5494430f72ef9` |
-|  `latest`     | May 22nd     | `sha256:ba205f87347e855f5e4d6ba90acef06a00fce45e9cdb64a56ee0885a15210ed7` |
+|  `latest`     | May 23rd     | `sha256:52633521725d319c5ca8ac18be9e125dfeb978d965525a11d73f1391e932a0f9` |
+|  `latest-dev` | May 23rd     | `sha256:ea5f592aaed24691d2c8c6495cf21a7c147405a3061daa11584fc4137ca9f22d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                           | Last Changed | Digest                                                                    |
 |---------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.0.0_beta6` `3` `3.0` `latest`                 | May 22nd     | `sha256:24e1468714b91b822a3674b1f24f5ec79e6b54c218d9367a6ef75b00bb585db7` |
-|  `latest-dev` `3.0-dev` `3.0.0_beta6-dev` `3-dev` | May 22nd     | `sha256:a659bcc22e35d574116b27188ede7fc4b3e6767714c0e1fd4af04ae72b065e3c` |
+|  `3.0.0_beta6` `3` `3.0` `latest`                 | May 23rd     | `sha256:a2ad75cc0560081c3f24385e74fba714944964fa53e42f1e713f99690da41ad6` |
+|  `3.0.0_beta6-dev` `3-dev` `3.0-dev` `latest-dev` | May 23rd     | `sha256:2baef1d94e4272eae3a40c7cff7f067270f9744b2ca351b136cd800bcc2c5c5e` |
 

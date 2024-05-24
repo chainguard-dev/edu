@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the thanos Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:f555210d65a7026130b1f871d528c94f0b133a4af91f7ae34c59e35714a93226` |
-|  `latest`     | May 21st     | `sha256:12e4854c7910d2fabb9257278588328ec5559a9fb5d176032b81a4f971fdb69b` |
+|  `latest-dev` | May 23rd     | `sha256:d2d3274f35423ea31f9aab42cc03f77ce6aff4ca0a4783dc1fe309a9fad249ac` |
+|  `latest`     | May 23rd     | `sha256:032b4c8f56f1ab110556644cf570f3a61e43edbc01ff190363b7fca93892bc4a` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.35.0-dev` `0.35-dev` | May 22nd     | `sha256:e96b91db70497edd3c9956806f8cd6fedca922ef6361340c66e28ba47a808fcf` |
-|  `latest` `0.35` `0.35.0` `0`                 | May 21st     | `sha256:04dbc5e28fdd4b32a5274f678581cd28f911dfed81fe910d87ec8501b6cfcdf1` |
+|  `latest-dev` `0.35-dev` `0.35.0-dev` `0-dev` | May 23rd     | `sha256:215a55267215be9aebdb97bdb699f36078f6a0b5610dda614e9d24aa7a7e502b` |
+|  `0.35.0` `0` `0.35` `latest`                 | May 23rd     | `sha256:5256c9e55d20bda53f7d8410d78d445995a3dc3527c48d6102b251309f4a5efa` |
 |  `0.34-dev` `0.34.1-dev`                      | May 1st      | `sha256:bc4457daef079582667615f1d9b4ae49e626c2ed8400260a3fdfccc7d6bfbef9` |
 |  `0.34` `0.34.1`                              | May 1st      | `sha256:efcc79424bc30dfa0dde1b7f336a7d9658add724dd8eab8e627d04aa740bd49f` |
 

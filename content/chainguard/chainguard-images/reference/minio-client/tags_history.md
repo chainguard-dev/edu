@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the minio-client Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:16587bf3dd3d9797a6e676206416ba8a5fbcc78a896ee006436fcec9d27957da` |
-|  `latest`     | May 21st     | `sha256:48917bc0750f93dfc5dab8458458bda6879ac62c635a4d5684ec6afc46dfcfa3` |
+|  `latest-dev` | May 23rd     | `sha256:ff0f517dd0fa85bc45b0824bbe19a83ac4da0d401ab20942618aa5d3e72a5df3` |
+|  `latest`     | May 23rd     | `sha256:c406557c1b11a73a6fed5ec93fc9b1f40f4df98604132575ed3c243a9a6c6481` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)               | Last Changed | Digest                                                                    |
 |-----------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` | May 22nd     | `sha256:575ad83caa5cbcde081632855ed16881a3df4c62baf4275977a3c0030e24a4c1` |
-|  `0` `latest`         | May 21st     | `sha256:7a59b0ad17a934070dd621dc507b37ddbacc2de95d5186efa455ad1c32f4cd99` |
+|  `0-dev` `latest-dev` | May 23rd     | `sha256:7df22c4aae01b45961f62f7a3709a3dfacff6e71d7c84e23e051d5a5656d90f1` |
+|  `0` `latest`         | May 23rd     | `sha256:df8b4a24ba796f365732652bba9cd9b4a012ebf793b8c8fa30e33cb4f98a9bba` |
 

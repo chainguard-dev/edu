@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public kyverno-cleanup-controller-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -41,7 +41,7 @@ The table shows package distribution across variants.
 | `chainguard-baselayout`           | X      |
 | `glibc`                           | X      |
 | `glibc-locale-posix`              | X      |
-| `kubectl-1.29`                    | X      |
+| `kubectl-1.30`                    | X      |
 | `kubectl-latest`                  | X      |
 | `kyverno-cleanup-controller-fips` | X      |
 | `ld-linux`                        | X      |

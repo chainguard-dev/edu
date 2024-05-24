@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the harbor-trivy-adapter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 22nd     | `sha256:cfc9b19ecef22ab86486e83d485c7feab66e1ac44fe4f56238b3e58205d931f7` |
-|  `latest-dev` | May 22nd     | `sha256:54d4523c3e7fbbf41d5b48a16b5236d73339bd9bf280ce8f2ac3418a590a14bf` |
+|  `latest`     | May 23rd     | `sha256:3fba3f0f8e580b1400707bd3c1bb9b7147cb0362f6d05f354ef5f5681aec81b6` |
+|  `latest-dev` | May 23rd     | `sha256:37d724b16231cda5b8da19a54e45affd5b4bcdb9f3e2b452b440bb89ce4c7bd9` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.31.2-dev` `latest-dev` `0.31-dev` | May 22nd     | `sha256:3ccc3012bf780ac6e9308510142a638ec3c2365869465fff6929a01cbcdb320e` |
-|  `latest` `0.31.2` `0.31` `0`                 | May 22nd     | `sha256:c562dfeea7c628f39f0626b007a2dfda679ac7e81950dbbe47762e34ed4fbc95` |
+|  `latest-dev` `0.31-dev` `0-dev` `0.31.2-dev` | May 23rd     | `sha256:ba74dd3384763f1cf644077371d268aa2fc32b34d8829cf08971f95bc708da1f` |
+|  `0.31.2` `latest` `0` `0.31`                 | May 23rd     | `sha256:3ea7120a57ef648950d19ce8133c37be02608307e18c09034deb8e29048533d2` |
 |  `0.31.1-dev`                                 | May 19th     | `sha256:6ca4a53ba444db135223cf90503e68520d55548a09585a4800005256d13e22cd` |
 |  `0.31.1`                                     | May 17th     | `sha256:fedb3d31f4af6066df3f45b3d83eae7e25b366d02e53db58903cf38fc58b21c7` |
 |  `0.31.0-dev`                                 | May 1st      | `sha256:3337779ce190fac671a711a4f07e80cf8beec01904bcaf1fca17c232d3408a49` |

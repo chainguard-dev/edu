@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the falcosidekick-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2-dev` `2.28-dev` `2.28.0-dev` | May 22nd     | `sha256:01385b0235aed0a919bdd7a105c32c7e37e22151e10a77394425cde3fa793fcb` |
-|  `2` `latest` `2.28.0` `2.28`                 | May 21st     | `sha256:bc1a2be73fa8a99d12cf416530ab3868bf85932cd0c7d310d4683c44e48388da` |
+|  `2.28-dev` `2-dev` `latest-dev` `2.28.0-dev` | May 23rd     | `sha256:dface205baf0ef4ffa97f2fd3722bb968373cddfee668e4592e84a03dcd17159` |
+|  `2.28` `2` `2.28.0` `latest`                 | May 23rd     | `sha256:636bd3b5b10a6622680456fc234a6f32e9a944a1989f8220cabe1211534abeed` |
 

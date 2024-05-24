@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-kustomize-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:d77f52dbe4a09b2664ba502220b6c953220150624e7caad58b29a8c638257c4f` |
-|  `latest`     | May 22nd     | `sha256:3bc8217e2b79491a8485f0ecbc062ceb8cf6861c31abd8e6bb7b862bb3b01aac` |
+|  `latest-dev` | May 23rd     | `sha256:f7f1c75585b613e6c2c651e5454513beecdf2299d16aee758562c15eb27e0a31` |
+|  `latest`     | May 23rd     | `sha256:8b1cdedc34f44fff81cb1b2ebc4dbfae5428bdbaec9fed8383cccd18e1f282c7` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.3-dev` `1-dev` `1.3.0-dev` | May 22nd     | `sha256:e6bb25692f2a3c2a12fed68446e50f3e9d72cf85fb0e6da039824056e1044617` |
-|  `latest` `1` `1.3` `1.3.0`                 | May 22nd     | `sha256:8836e595bf5364b21ae6c4b7e45eddcde6ac0f4474f6df6a5fc81f1d961022f4` |
+|  `1.3.0` `1.3` `latest` `1`                 | May 23rd     | `sha256:36bc7a5780b581917d04a0ede322f08d6dfd367d3c37bcb27776e112a7e4fe8b` |
+|  `latest-dev` `1-dev` `1.3-dev` `1.3.0-dev` | May 23rd     | `sha256:f8580508f74716fcc3effb6071fcfab8fe33bb00ae2d18b482268bfe16ebb31e` |
 |  `1.2.2` `1.2`                              | May 2nd      | `sha256:4990ca8a08a24e5470974f048e09496b1977e774514f4418ef8a4a2247a16756` |
 |  `1.2.2-dev` `1.2-dev`                      | May 2nd      | `sha256:c804794d43712623ebd372b72d4517977f36f31de55798767d9abcb0aff8a64c` |
 
