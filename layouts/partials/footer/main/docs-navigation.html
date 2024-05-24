@@ -1,61 +1,76 @@
-{{ $currentPage := . -}}
-{{ $active := in $currentPage.RelPermalink .RelPermalink }}
-
-{{ $section := .Section -}}
-
 {{ $allsections := slice }}
-
-
-
-<h1>Prev in section</h1>
-<p>
-  {{ .PrevInSection }}
-</p>
-<h1>Next in section</h1>
-<p>
-  {{ .NextInSection }}
-</p>
-
-<h1>Prev</h1>
-<p>
-  {{ .Prev }}
-</p>
-<h1>Next</h1>
-<p>
-  {{ .Next }}
-</p>
+{{ $walkpages := slice }}
 
 {{ range $index, $section := sort .Site.Sections "Weight" }}
+{{ if not (eq .Title "Uis") }}
 {{ $allsections = $allsections | append . }}
 
-<!-- Second level -->
-{{ range .Sections }}
-{{ $allsections = $allsections | append . }}
-
-<!-- Third level -->
-{{ range .Sections }}
-{{ $allsections = $allsections | append . }}
+{{ end }}
 
 {{ range .Sections }}
 {{ $allsections = $allsections | append . }}
 
+{{ range .Sections }}
+{{ $allsections = $allsections | append . }}
 
 {{ range .Sections }}
 {{ $allsections = $allsections | append . }}
 
 
-<!-- End section finding loop -->
+{{ range .Sections }}
+{{ $allsections = $allsections | append . }}
+
 {{ end }}
 {{ end }}
 {{ end }}
 {{ end }}
 {{ end }}
 
+{{ range $allsections }}
 
-{{ if or .PrevInSection .NextInSection -}}
+{{ range .RegularPages }}
+
+{{ $walkpages = $walkpages | append . }}
+
+{{ end }}
+
+{{ end }}
+
+{{ $walkpages = where $walkpages ".Params.unlisted" "!=" "true"}}
+
+
+
+{{ $prevpage := false }}
+{{ $thispage := false }}
+{{ $nextpage := false }}
+{{ $pageindex := false }}
+
+{{ range $index, $page := $walkpages }}
+
+
+{{ if eq .RelPermalink $.RelPermalink }}
+{{ $pageindex = $index }}
+{{ end }}
+
+{{ end }}
+
+{{ with $pageindex }}
+{{ $thispage = index $walkpages $pageindex }}
+{{ $prevpage = index $walkpages (math.Sub $pageindex 1) }}
+{{ $nextpage = index $walkpages (math.Add $pageindex 1) }}
+{{ end }}
+
+{{ if eq $pageindex 0 }}
+{{ $thispage = (index $walkpages 0) }}
+{{ $prevpage = index $walkpages (math.Sub $pageindex 1) }}
+{{ $nextpage = index $walkpages (math.Add $pageindex 1) }}
+{{ end }}
+
+
+{{ if or $prevpage $nextpage }}
 <div class="docs-navigation">
 
-  {{ with .NextInSection }}
+  {{ with $prevpage }}
   <a class="docs-navigation-button docs-navigation-button-previous" href="{{ .RelPermalink }}">
     <div class="chevron-rotator">
       <svg xmlns="http://www.w3.org/2000/svg" width="10" height="15" viewBox="0 0 10 6" fill="none">
@@ -68,7 +83,7 @@
   {{ end -}}
   <!-- end previous -->
 
-  {{ with .PrevInSection }}
+  {{ with $nextpage }}
   <a class="docs-navigation-button docs-navigation-button-next" href="{{ .RelPermalink }}">
     <span class="next-in-line">{{ .Title }}</span>
     <span class="next-in-line">&nbsp;&nbsp;Next</span>
@@ -78,17 +93,8 @@
       </svg>
     </div>
   </a>
-  {{ end -}}                
+  {{ end -}} 
 
 
 </div>
 {{ end }}
-
-
-{{ $allsections }}
-
-<!-- {{ range $allsections }}
-     <p>
-     {{ .Title }}
-     </p>
-     {{ end }} -->
