@@ -237,15 +237,21 @@ docker build . -t nginx-demo
 Once the build is complete, run the image with:
 
 ```shell
-docker run -d -p 8080:8080 nginx-demo
+docker run -d --name nginxcontainer -p 8080:8080 nginx-demo
 ```
 
-The `-d` flag configures our container to run as a background process. The `-p` flag publishes the port that the container listens on to a port on your local machine. This allows us to navigate to `localhost:8080` in a web browser of our choice to view the HTML content served by the container. You should see the same HTML page as before, with Inky and an octopus fun fact.
+The `-d` flag configures our container to run as a background process. The `--name` flag will name our container `nginxcontainer`, making it easy to identify from other containers. The `-p` flag publishes the port that the container listens on to a port on your local machine. This allows us to navigate to `localhost:8080` in a web browser of our choice to view the HTML content served by the container. You should see the same HTML page as before, with Inky and an octopus fun fact.
 
 If you wish to publish to a different port on your machine, such as `1313`, you can do so by altering the command-line argument as shown:
 
 ```shell
-docker run -d -p 1313:8080 nginx-demo
+docker run -d --name nginxcontainer -p 1313:8080 nginx-demo
+```
+
+When you are done with your container, you can stop it with the following command:
+
+```shell
+docker container stop nginxcontainer
 ```
 
 ## Advanced Usage
