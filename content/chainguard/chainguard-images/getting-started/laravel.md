@@ -254,7 +254,7 @@ docker exec cb24b8b3d96a php /app/artisan migrate --seed
 
 You can use the same method to execute other Artisan commands while the environment is up. After running migrations and seeding the database, you should be able to reload the app from your browser at `localhost:8000` and get a new Octopus fact.
 
-## Creating a Distroless Laravel Runtime for the Application
+## 3. Creating a Distroless Laravel Runtime for the Application
 So far, we have been using the `laravel:latest-dev` builder image to run the application in a development setting. For production workloads, the recommended approach for additional security is to create a [distroless](/chainguard/chainguard-images/getting-started-distroless/) runtime for the application that will contain only what's absolutely necessary for running the app on production. This is done by combining a **build** phase in a **multi-stage** Dockerfile.
 
 To demonstrate this approach, we'll now build a distroless image and test it using the Docker Compose setup exemplified in the previous section.
