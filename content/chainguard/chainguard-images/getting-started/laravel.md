@@ -161,6 +161,8 @@ networks:
 
 This `docker-compose.yaml` file defines 3 services to run the application (**app**, **nginx**, **mariadb**), using volumes to share the application files within the container and a configuration file for the Nginx server, which we'll showcase in a moment. Notice the database credentials within the `mariadb` service: these environment variables are used to set up the database. This is done automatically by the MariaDB image entrypoint upon container initialization. We'll use these credentials to configure the new database within Laravel's `.env` file.
 
+>Please note this Docker Compose setup is intended for local development only. For production environments, you should never keep sensitive data like database credentials in plain text. Check the [Docker Compose Documentation](https://docs.docker.com/compose/use-secrets/) for more information on how to handle sensitive data in Compose files.
+
 The following `nginx.conf` file is also included within the root of the application folder. This file is based on the [recommended Nginx deployment configuration](https://laravel.com/docs/11.x/deployment#nginx) from official Laravel docs.
 
 ```nginx configuration
