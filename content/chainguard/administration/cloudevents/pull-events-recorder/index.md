@@ -1,5 +1,6 @@
 ---
-title: "Listen for Chainguard Pull Events and Store them in BigQuery"
+title: "Listen for Chainguard Pull Events and Record them in BigQuery"
+linktitle: "Record Pull Events in BigQuery"
 type: "article"
 description: "Instructional guide outlining how one can set up an application that will listen for pull events in a given Chainguard Registry and store the data in Google BigQuery."
 date: 2024-05-21T15:22:20+01:00
@@ -23,6 +24,7 @@ This tutorial is meant to serve as a companion to the [CloudEvents recorder](htt
 
 To follow along with this guide, it is assumed that you have the following tools and programs set up and ready to use.
 
+* A [verified Chainguard organization](/chainguard/administration/iam-organizations/verified-orgs/) with a private [Registry](/chainguard/chainguard-registry/overview/) and access to [Production Images](/chainguard/chainguard-images/overview/#production-and-developer-images).
 * `chainctl`, the Chainguard command-line interface. You can install this by following our guide on [How to Install `chainctl`](/chainguard/administration/how-to-install-chainctl/).
 * [`terraform`](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) to configure a Google Cloud service account, IAM permissions, and deploy the Cloud Run service.
 * A Google Cloud account with a project running. The example application assumes that your project has the following APIs enabled:
