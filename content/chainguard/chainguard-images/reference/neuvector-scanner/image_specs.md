@@ -3,8 +3,8 @@ title: "neuvector-scanner Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public neuvector-scanner Chainguard Image."
-date: 2024-05-23 00:45:07
-lastmod: 2024-05-23 00:45:07
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -21,20 +21,49 @@ toc: true
 
 This page shows detailed information about the Chainguard **neuvector-scanner** Image.
 
-|              |
-|--------------|
-| Default User |
-| Entrypoint   |
-| CMD          |
-| Workdir      |
-| Has apk?     |
-| Has a shell? |
+|              | latest-dev                  | latest                      |
+|--------------|-----------------------------|-----------------------------|
+| Default User | `nonroot`                   | `nonroot`                   |
+| Entrypoint   | `neuvector-scanner-monitor` | `neuvector-scanner-monitor` |
+| CMD          | not specified               | not specified               |
+| Workdir      | not specified               | not specified               |
+| Has apk?     | yes                         | no                          |
+| Has a shell? | yes                         | no                          |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/neuvector-scanner/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|  |
-|--|
+|                             | latest-dev | latest |
+|-----------------------------|------------|--------|
+| `apk-tools`                 | X          |        |
+| `bash`                      | X          |        |
+| `busybox`                   | X          |        |
+| `ca-certificates-bundle`    | X          | X      |
+| `chainguard-baselayout`     | X          | X      |
+| `git`                       | X          |        |
+| `glibc`                     | X          | X      |
+| `glibc-locale-posix`        | X          | X      |
+| `ld-linux`                  | X          | X      |
+| `libbrotlicommon1`          | X          |        |
+| `libbrotlidec1`             | X          |        |
+| `libcrypt1`                 | X          |        |
+| `libcrypto3`                | X          |        |
+| `libcurl-openssl4`          | X          |        |
+| `libexpat1`                 | X          |        |
+| `libidn2`                   | X          |        |
+| `libnghttp2-14`             | X          |        |
+| `libpcre2-8-0`              | X          |        |
+| `libpsl`                    | X          |        |
+| `libssl3`                   | X          |        |
+| `libunistring`              | X          |        |
+| `libxcrypt`                 | X          |        |
+| `ncurses`                   | X          |        |
+| `ncurses-terminfo-base`     | X          |        |
+| `neuvector-scanner`         | X          | X      |
+| `neuvector-scanner-monitor` | X          | X      |
+| `wget`                      | X          |        |
+| `wolfi-baselayout`          | X          | X      |
+| `zlib`                      | X          |        |
 

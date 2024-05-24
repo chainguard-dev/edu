@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-skopt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:0776710d941b1b088d9316d06a2fb1a7c5f609587f635f65f159ecb3834ea50f` |
-|  `latest`     | May 21st     | `sha256:3dbab80ac5ff41c773ff50b4441b40d880487431434b27d0b4fc1131d56f16e2` |
+|  `latest-dev` | May 23rd     | `sha256:ff9f6936567188d134d5ece17cfa9467450f94bf939ae587a81262a24f484ce8` |
+|  `latest`     | May 23rd     | `sha256:b62fe997a4b38de886eb0fae5190f3910e207ab5852ffd05c21f693f230f4981` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0-dev` `0-dev` `0.16-dev` `latest-dev` | May 22nd     | `sha256:7dc84ed1c3aeedb0e1b8bf3c683fc7f8a062cdfb3f4f3dd88fac5af42708fe30` |
-|  `0` `0.16.0` `latest` `0.16`                 | May 21st     | `sha256:46f2c0ad7f4231cb5cf5deaca6a228f4789ab1af43bd28e7d67b2ebea4ba22e2` |
+|  `0` `0.16.0` `latest` `0.16`                 | May 24th     | `sha256:b4df60d5ffd9aca426bf30f0ab81ab9c0a777fd42a5addec67df579bd2f4a252` |
+|  `latest-dev` `0.16-dev` `0-dev` `0.16.0-dev` | May 24th     | `sha256:64b88d84a6b28789665be1a6c703e30bb100af45188f6d0ec7a1a319ac78d02c` |
 

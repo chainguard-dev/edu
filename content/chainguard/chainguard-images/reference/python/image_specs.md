@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public python Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -86,12 +86,11 @@ The table shows package distribution across variants.
 | `nss-hesiod`             | X          |        |
 | `pkgconf`                | X          |        |
 | `posix-cc-wrappers`      | X          |        |
-| `py3.12-pip`             | X          |        |
-| `py3.12-setuptools`      | X          |        |
-| `python-3.12`            | X          | X      |
-| `python-3.12-base`       | X          | X      |
-| `python-3.12-base-dev`   | X          |        |
-| `python-3.12-dev`        | X          |        |
+| `py3.9-pip`              | X          |        |
+| `python-3.9`             | X          | X      |
+| `python-3.9-base`        | X          | X      |
+| `python-3.9-base-dev`    | X          |        |
+| `python-3.9-dev`         | X          |        |
 | `readline`               | X          | X      |
 | `sqlite-libs`            | X          | X      |
 | `wget`                   | X          |        |

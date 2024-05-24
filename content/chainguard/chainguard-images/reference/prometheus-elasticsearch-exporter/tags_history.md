@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-elasticsearch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:049c91766599d826fa64f55a5015652b728117f385e94a2a6a0d92751d835eb5` |
-|  `latest`     | May 21st     | `sha256:1bae29de789c5c355798ec7896b1bf230da76387ddde6adf4f6b42050e43fe98` |
+|  `latest-dev` | May 23rd     | `sha256:59b10e9af9b8771fa25ac8f3152eee6da4912bb45e00ac34dcc70e11225df08d` |
+|  `latest`     | May 23rd     | `sha256:cee05319ddfd847f97f69123b159398ca86542fc4726772182796a9eddae6b77` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.7-dev` `1-dev` `latest-dev` `1.7.0-dev` | May 22nd     | `sha256:3c20f0fd1f3708085e7cb89a1881b67119de62543616dac5fe1fcb914f7e0a39` |
-|  `1.7.0` `1` `latest` `1.7`                 | May 21st     | `sha256:3329ae3bd22cdb2342432d2c6f629ca429b8ce33e5c6b4d9a07222e642eab1a1` |
+|  `1-dev` `1.7.0-dev` `1.7-dev` `latest-dev` | May 23rd     | `sha256:476139790d0e85149d7d087991679053f9d6e5cb055cbee167085dd70417d1e8` |
+|  `1.7.0` `1` `1.7` `latest`                 | May 23rd     | `sha256:406c5059cb1b69a31ea7565e9b32df39624fba9bfb97deddf8f4fe3d9469a871` |
 

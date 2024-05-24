@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-file-metrics-collector Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:02cf84c07e7d1794dcd505b1076ab4a2a00ad8ba5c5aaaeb783f69d8db67c8d8` |
-|  `latest`     | May 21st     | `sha256:3985bd828f4f8226bd7918ddbe2229d425e79b8823a9e042308ae290d8e5b4ff` |
+|  `latest-dev` | May 23rd     | `sha256:bd29025b8c67127372bce2949004c7fc7cda2b123f4fbbe52a146d7bb48cbe7f` |
+|  `latest`     | May 23rd     | `sha256:0a35b1be4b7dd4ff70994a72665ea9019d487a393f84187c040abbe417f2aee8` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0-dev` `0-dev` `latest-dev` `0.16-dev` | May 22nd     | `sha256:fbad4981cc8332edbaebf4d8f6b15afd99b8317073b9549491aff4060ec57b6b` |
-|  `latest` `0.16.0` `0` `0.16`                 | May 21st     | `sha256:6d1c8053aedcea38c5a531fba6b98ab7cb01050b6ae4b36a89b9c2b90e982b8f` |
+|  `latest-dev` `0.16-dev` `0-dev` `0.16.0-dev` | May 24th     | `sha256:0d1114470a0a90d1bcb7cef8eddc670ab167580cdb20f098bccaaa8db081129d` |
+|  `0.16.0` `0.16` `0` `latest`                 | May 23rd     | `sha256:abb46fc351c2b7ace0a273395750e36b9001814a77e78e1e1b48c73d352cafd0` |
 

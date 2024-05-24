@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-pbt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:f18679c66232bfab2fb4524a80e4e467275c36a7176e98c35e1b6b23421655d8` |
-|  `latest`     | May 21st     | `sha256:f1f45fe71250e3e85b3252022e631147a36110917d3d3c00cacf00946872650c` |
+|  `latest-dev` | May 23rd     | `sha256:11dcedbfaba348a2a88326417d2ff484566ada75a9a1248c082601ab83f27cd2` |
+|  `latest`     | May 23rd     | `sha256:979b94324b9aeb8fccb34c84af2f4015206a53efcdb217eb5610c192c1a1c508` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.16-dev` `0.16.0-dev` `latest-dev` | May 22nd     | `sha256:9b424121938187832308dfb50b06a80a37fe7a213d1e6d057ded78e09f0c2bc8` |
-|  `0.16.0` `0` `latest` `0.16`                 | May 21st     | `sha256:c4b226c3536f9fa9493fa43ba7ca2567ba8ee4b40824b684421d9a8d404fe691` |
+|  `0` `0.16` `latest` `0.16.0`                 | May 24th     | `sha256:e85fbbf2445ec154d3c15608406b5dcc77c32725bbe16705d07e8e728b9b5a91` |
+|  `0.16.0-dev` `0-dev` `latest-dev` `0.16-dev` | May 24th     | `sha256:1a83541cd32c082b5ddbac83b1ff8602785ac362675505a1737e848b6fcaa6ec` |
 

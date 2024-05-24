@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rabbitmq-default-user-credential-updater Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:a1075f32794b9d1fb86af10ef1ef5c2522b99f49445858f42b6b82a709b04b4f` |
-|  `latest`     | May 21st     | `sha256:f3b88fdfb890cbb116f307e49703dc3c0141a2eca260c4db30dca6ae60f1bfe0` |
+|  `latest`     | May 23rd     | `sha256:deb9db5f2b0b28a4b5a44653314ad6d87534f7c050317b7df4f9bf03d52f8f0e` |
+|  `latest-dev` | May 23rd     | `sha256:45ed91a4fbda59dac8b266ad024d07a67e3a06c6c0a233d6cda5e09dab9d0913` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.0-dev` `1.0.4-dev` `1-dev` `latest-dev` | May 22nd     | `sha256:aa3de59d6c6e5b7321d4114efe7b494e0e0b7d3ca901936554a10854fffd5581` |
-|  `1` `latest` `1.0.4` `1.0`                 | May 21st     | `sha256:59f78061cfb17b2b3ca70a747cff80bd8c58c1256a172e331b349f5dd60fe89f` |
+|  `latest-dev` `1.0.4-dev` `1.0-dev` `1-dev` | May 23rd     | `sha256:259b62376b32bd65cc5d0322846ac230a5f2d5eb4459ed5a7276109e714be906` |
+|  `latest` `1` `1.0` `1.0.4`                 | May 23rd     | `sha256:0d733b63b6f823fc7c62dfc1e644c8459926caaba6058d43c830766c34d4aa11` |
 

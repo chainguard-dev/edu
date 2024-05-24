@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public pytorch-cuda12 Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-21 00:38:36
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,7 +26,7 @@ This page shows detailed information about the Chainguard **pytorch-cuda12** Ima
 | Default User | `nonroot`     | `nonroot`     |
 | Entrypoint   | `/bin/bash`   | `/bin/bash`   |
 | CMD          | not specified | not specified |
-| Workdir      | not specified | not specified |
+| Workdir      | `/work`       | `/work`       |
 | Has apk?     | yes           | no            |
 | Has a shell? | yes           | yes           |
 

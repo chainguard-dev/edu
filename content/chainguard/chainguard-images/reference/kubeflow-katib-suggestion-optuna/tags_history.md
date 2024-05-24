@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-optuna Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:e65fcf91c868d4ee8d9ce2797d7503129a25fcad2e3efe9ae79aaab9b10841e9` |
-|  `latest`     | May 21st     | `sha256:8f35752c3cb3144dbbd1fd1723b32b204dd2c975f241f99627eb3b14502b1f61` |
+|  `latest`     | May 23rd     | `sha256:a5b36f83ce5c8b978112ca6b4a220b0473c436a9769fc16eeaffd5d072ab5438` |
+|  `latest-dev` | May 23rd     | `sha256:ed0123022ce95bbcbce1719372f49ab45aad8739a6765b04e38eaafcdcf42f17` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16-dev` `latest-dev` `0-dev` `0.16.0-dev` | May 22nd     | `sha256:b9ca9e07b6e2b6ad0fc95afc3d023059753c316afdee761ba0c55745fb267ab9` |
-|  `0.16` `0` `latest` `0.16.0`                 | May 21st     | `sha256:6bfa3e0fc65f58fb5740121aa2c1be0b6ca329a273996fb5d28a15aa53f9f200` |
+|  `latest` `0.16.0` `0` `0.16`                 | May 24th     | `sha256:00230c6d66db1e3d92f1f0b37e00bcb5f388d704379ea82cc5c95a687263823f` |
+|  `latest-dev` `0.16.0-dev` `0-dev` `0.16-dev` | May 24th     | `sha256:9f939ece3a9d4b97d8c15a060af4cb1d1d8cfe5cdcb9110d7c623a3f896f06a9` |
 

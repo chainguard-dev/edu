@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-event-exporter-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                         | Last Changed | Digest                                                                    |
 |---------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.7-dev` `1-dev` `latest-dev` | May 22nd     | `sha256:d1f284d7d152bc5f28eec45f15eb98ddc97bd7d05d6f4fd1ee95eaf2dbf88864` |
-|  `1.7` `1` `latest`             | May 21st     | `sha256:0a73def6246f420581dba1895619df835c6b38033e63db3acaa51d6f2f49cf72` |
+|  `latest-dev` `1.7-dev` `1-dev` | May 23rd     | `sha256:37f577a6a3ee9faaba2a2fdae2313b544611af307705188ec967d6f49abda208` |
+|  `1` `latest` `1.7`             | May 23rd     | `sha256:52fc4e9f95827871abc636d939635a26c036ae29828d4e4422fffb3a57ab10b6` |
 

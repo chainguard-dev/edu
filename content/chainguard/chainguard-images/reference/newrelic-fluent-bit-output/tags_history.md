@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-fluent-bit-output Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,15 +28,17 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:f6781da4a44b026e7ff3f26d1051368cb8bb872e291b940bc46ccc0ae030ab11` |
-|  `latest`     | May 21st     | `sha256:2feb04ab5712cbe16352caa4d19bdc050aa5dbede93a8efd83d1d0c15a0e478c` |
+|  `latest`     | May 23rd     | `sha256:004ad2122013b62cefb11299cc313196561ec192e35ccfa651b01ba1583423c1` |
+|  `latest-dev` | May 23rd     | `sha256:3eb819d9825ef2d50a46a3b8137e7a472ef0085e3ddbdba53274da194e181306` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                       | Last Changed | Digest                                                                    |
-|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.19-dev` `1.19.2-dev` | May 22nd     | `sha256:432635e918ea08c3ee02325e73a6dd22d1cae58c9eb643fb914bbdf9ce420e73` |
-|  `latest` `1.19` `1.19.2` `1`                 | May 21st     | `sha256:1fd2828d71423dd4bb67dde8c0b2cc5bcade5768fc8e0ff16c80521ab4227122` |
+| Tag (s)                                     | Last Changed | Digest                                                                    |
+|---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2.0.0-dev` `latest-dev` `2.0-dev` `2-dev` | May 24th     | `sha256:c57976365157d48b9ef4e3e2c392e535451785353cd7cede12e6b395d8916055` |
+|  `latest` `2.0.0` `2` `2.0`                 | May 24th     | `sha256:e7f0d3f61ace5518cd38e3ba2a7bb1199c39467bcd9c608cf06b3cf682dd24e3` |
+|  `1.19` `1.19.2` `1`                        | May 23rd     | `sha256:eff49a4d136d5e752f1a88c4b75a354af3ab15a0793a78af31ff5915781ee1c8` |
+|  `1.19-dev` `1.19.2-dev` `1-dev`            | May 23rd     | `sha256:8ef275a81548fb70404aad7f0b85ec21b2c24d9826cd115ce9deb2af126088e4` |
 

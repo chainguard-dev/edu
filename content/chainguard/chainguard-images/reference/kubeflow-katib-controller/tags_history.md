@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:ff8670c1ef708ed16676b75ff8bc8b9f4dafe083bbb272639e2044e835ac0ede` |
-|  `latest`     | May 21st     | `sha256:8599e506d35399c4dd83d477bc478513c089f7616e436c4a5777bdd4f9d2d59a` |
+|  `latest`     | May 23rd     | `sha256:90ea6d5eae8cf3e5032b162dd81b675eb57fbeafe9eaa558745fd82a2a67fa24` |
+|  `latest-dev` | May 23rd     | `sha256:23d758322594d382419dfc48289c51f0f275dab9892054b3d1587d69dd3f0ba5` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0-dev` `0.16-dev` `latest-dev` `0-dev` | May 22nd     | `sha256:ea8af119274aafc9d14270d8f4fa02788aca6c3064dbcfe100258fb7379d25fc` |
-|  `0.16.0` `0.16` `0` `latest`                 | May 21st     | `sha256:aa5ecfe0a26ff8d947ad442e82fe98054d864d520aa6406228e41c186f27b4f8` |
+|  `0.16.0-dev` `latest-dev` `0.16-dev` `0-dev` | May 24th     | `sha256:f842e74b6369a9de7981acc50436b3d302ec3690294ca8e3f6814a807af8deb1` |
+|  `latest` `0` `0.16` `0.16.0`                 | May 23rd     | `sha256:574ede80b4aac7826656a1d1ab676fb7daa0a2b41d7b634b579c0339cf797f44` |
 

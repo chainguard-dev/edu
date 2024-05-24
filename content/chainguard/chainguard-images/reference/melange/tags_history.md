@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the melange Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:ca360c25b9f68d3a21e8fa659cd0444ff903e340f5dc8714847b051ba79a7e1d` |
-|  `latest`     | May 22nd     | `sha256:1fc27a00a02773bb69e4c95eca950f19ea48b4007d9247ae12e56fae803cdeba` |
+|  `latest-dev` | May 23rd     | `sha256:9075d73aa592ce920b58136ec77037b84d4e464381c98abba39eaa6f8f33f424` |
+|  `latest`     | May 23rd     | `sha256:22b3307eaa987da434cfe1418e677be4e99b4e93a1858b860c71249c3d49ab9f` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.8.1` `0.8` `0`                 | May 22nd     | `sha256:76f2042441db56113903afa30644db09f06733efdc3bc568d71f5e3934fcc048` |
-|  `0.8.1-dev` `0-dev` `latest-dev` `0.8-dev` | May 22nd     | `sha256:cffa6c356c4839491fecb39f4376d1904e9c563999e5d1ef12a819ecf17afbb1` |
+|  `0-dev` `0.8-dev` `latest-dev` `0.8.1-dev` | May 23rd     | `sha256:a630ca5c453b68ac70fed735d178b1ba5432ece035718d0ee354633054fee512` |
+|  `latest` `0.8` `0` `0.8.1`                 | May 23rd     | `sha256:ee03d39295d232e37ed1fcfcbb00ebe49a96c5b8dcc023ebb8fca84ff2968397` |
 |  `0.8.0-dev`                                | May 22nd     | `sha256:2af9fb71c481317a5684c6ea055ae2be2f04ab3381bb74be601812c69b5c2ebf` |
 |  `0.8.0`                                    | May 22nd     | `sha256:74316e3152bbcbfacfdb5f02bb5a325645f68d38ab357e6c42b3bc5a90ec21f5` |
 |  `0.7.0` `0.7`                              | May 22nd     | `sha256:090aa13a3f5b114daed4f495c994e8933b25018a17f4d479ad97b52ac7be9fc7` |

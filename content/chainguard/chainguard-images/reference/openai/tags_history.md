@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the openai Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:dcdd5a412af69e04dd76874f3b47ef8ed2b28330f89d1fc1afb201232096b435` |
-|  `latest`     | May 21st     | `sha256:228cb69fd2bb026807ef9f6e220398352d617c89b11b4c013e0920b9e6a1b56f` |
+|  `latest-dev` | May 23rd     | `sha256:b24637c37ad2db78dccdae0055ee39a388450ccd16d0a49e44cfc0338f1a0e2b` |
+|  `latest`     | May 23rd     | `sha256:362894367ee196e224c1963c275930a3c7a2a980bb95acff2a771391da823358` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.30-dev` `1-dev` `1.30.1-dev` `latest-dev` | May 22nd     | `sha256:489db6bac2605c015572a5c3763b0cb1b148d1ba05f9149859d05008fbf6a0f8` |
-|  `1` `1.30` `latest` `1.30.1`                 | May 21st     | `sha256:5b2546eb9a8edf71037fbe765f6143a1173080799788689d367a77f3d8634326` |
+|  `1.30.2` `1.30` `latest` `1`                 | May 23rd     | `sha256:14a6aa35544f1d33405bfd0f56b3c64dc3fbe21a1036691f2a4ce5dcf644a29e` |
+|  `latest-dev` `1.30-dev` `1.30.2-dev` `1-dev` | May 23rd     | `sha256:6202588de2d39a63a92a124fc9d13cdd6d921f77a0cb5f53f421fb1a504bba4e` |
+|  `1.30.1`                                     | May 23rd     | `sha256:ef0e6acc4cb1a8db601543b412409e5804deb6965b3d803f1736376d08637099` |
+|  `1.30.1-dev`                                 | May 23rd     | `sha256:68fcb7d30224fb5b593b826f6cbe5ad30101dd90ad5b86916b865cb974840ebd` |
 |  `1.29-dev` `1.29.0-dev`                      | May 14th     | `sha256:735585f2f0ab5f13afd099e3449e49f57a6ea4007b130855d19ca8ea65a72ff2` |
 |  `1.29` `1.29.0`                              | May 14th     | `sha256:c1c3ad73db1a07720d2d712b149dea3311f7a1c6e5f137b719ceafe04ffe5393` |
 |  `1.28.2-dev` `1.28-dev`                      | May 14th     | `sha256:aee8f57037287305c6c27cec559721503c4cda190b57ea013d9d272a697316d9` |
@@ -67,6 +69,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.23.4-dev`                                 | April 25th   | `sha256:3cf7bd7c6ec00f34b72d50babc0ef32f4120165902931ff0ebd984b546a451f5` |
 |  `1.23.3-dev`                                 | April 24th   | `sha256:462dbf70d1b09d17d5d8904f6a3c632b822915f7052e7865d849209c7cda7aa5` |
 |  `1.23.3`                                     | April 24th   | `sha256:8fad3e7f0a078f1787cf33d2f091e7fcb15064afefbc23b14536ba31ff3cba1c` |
-|  `1.23.2`                                     | April 23rd   | `sha256:cdcbebd1ea308d370bf74c27aba96f80e1dca217735f6c65681df60fe16a3e36` |
-|  `1.23.2-dev`                                 | April 23rd   | `sha256:5a2ecd11a1ce4d661421e4c35ed9ab0358fddb8319561741d54818260da725ea` |
 

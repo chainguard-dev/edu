@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the buck2 Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:26d3e29b2b133925456884ab2fe85f3a228e6e09862689be62dae04f4c11eadc` |
-|  `latest`     | May 22nd     | `sha256:c134b4e48bfbef6175d6c6c0634dc33aa8199d2ed310f23ee49e9b13edcd1465` |
+|  `latest-dev` | May 23rd     | `sha256:fb6d14ba77231fe06265753e5996b88f8b4b70d05034d25c6435056d03d010bb` |
+|  `latest`     | May 23rd     | `sha256:ca6f2991df027077609151d6c518e53771581291ea8d4947a58896bd6501be7e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:d7966264fc20ef823a77038864a7ba0580fd74163870d86940d2166865d65f1d` |
-|  `latest`     | May 22nd     | `sha256:fd8d16cff07176294ed5bd260021758eb6dde9e5fc5a0320da087a6e80880ae2` |
+|  `latest-dev` | May 23rd     | `sha256:355aa8bfb2ad18362408909f25b9b79c871f77081e653e88acccd00f2bfa2935` |
+|  `latest`     | May 23rd     | `sha256:660807241ed74862076d1041988188e97bb29a8d18509bcf6635de2a2c129b01` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gatekeeper-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.14-dev` `3.14.2-dev`                      | May 22nd     | `sha256:ea4d5e92374dcedff9649dba289205cd53334cb4b015d2991031e00e975773db` |
-|  `latest-dev` `3.15-dev` `3-dev` `3.15.1-dev` | May 22nd     | `sha256:2680c3131d307f84baa89d6f45a49a5ae98f62edb1b5eb0dcb67af50cf2f66f5` |
-|  `3.13-dev` `3.13.4-dev`                      | May 22nd     | `sha256:33e54d86160d0f4352483dcd0daa6b1ed2b2af4278cd2b4595a1188a45a3cedd` |
-|  `3.15` `3.15.1` `latest` `3`                 | May 21st     | `sha256:f14c0dfb7c7208587b7ae3a70a182e3f39e31ac1a78a419c5e6994bf869a04c4` |
-|  `3.14` `3.14.2`                              | May 21st     | `sha256:0fdf772b2d9bb8f8856993a2c0e4fffdc574af106b4c18a7bbe252701a7583fa` |
-|  `3.13` `3.13.4`                              | May 21st     | `sha256:1013a942b4eb3195b825f0ed0d20adda913ee45f13bce0595953ec37bcdf4b9c` |
+|  `3.15.1-dev` `latest-dev` `3-dev` `3.15-dev` | May 23rd     | `sha256:cd7525d26479477e1cd46a3a51f0265f6e50c234e0cfa137997fdb5aa517f802` |
+|  `3.13.4-dev` `3.13-dev`                      | May 23rd     | `sha256:71f77351828ad2f7664282dc7a5032c2546fc4a0749e77e5ac1ad02b0027beeb` |
+|  `3.14-dev` `3.14.2-dev`                      | May 23rd     | `sha256:bf1a9d751a2e50f020e418e8fc4c8ffe0b599540ca580a42fa88921c61e99bae` |
+|  `3.15.1` `latest` `3.15` `3`                 | May 23rd     | `sha256:728511ae79fda6590db8026921be453f0dd90ebeadd633b665fe9470df070c76` |
+|  `3.13` `3.13.4`                              | May 23rd     | `sha256:59cf77d536320d9b754a693cac483582c142ad72ed569a482be47538d5e0f999` |
+|  `3.14` `3.14.2`                              | May 23rd     | `sha256:64d06b215a92d57e3fbf96daf7aa35b1432f7c0b800887da3fe40a6987ad49f7` |
 

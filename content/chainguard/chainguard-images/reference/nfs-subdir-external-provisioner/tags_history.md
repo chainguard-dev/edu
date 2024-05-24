@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nfs-subdir-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:2aeaae1a573ce3e0b245701dcde1d60e4a1c645bd900a026268a53482bf5f10c` |
-|  `latest`     | May 22nd     | `sha256:7fe82351ff76c06a31f218cfda069a3fcd8a6cecea854244e312af70cbade2c2` |
+|  `latest`     | May 23rd     | `sha256:79d89d547d367b22163c6b49ac67305b7db9bc5d27bddd493e05b239c1f3f539` |
+|  `latest-dev` | May 23rd     | `sha256:fc5b2c9e3ddd01e3edb5a97b181862600574e2642ac9748b9218a12c624c1c69` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4` `latest` `4.0` `4.0.18`                 | May 22nd     | `sha256:5572f4d18e1d2fbfdc955aa7179d3e43a9b48da4db9bbc0e2db62c992c5a5dff` |
-|  `4-dev` `4.0-dev` `latest-dev` `4.0.18-dev` | May 22nd     | `sha256:314035b6ee739bfb5177b4b0307b1ccd9ed7fdb984f5b9499a887278877cdffa` |
+|  `4.0-dev` `latest-dev` `4-dev` `4.0.18-dev` | May 23rd     | `sha256:310c03eb0a1eb41a7f5f782e674e1f497fefdf13c235048a25af55486005167c` |
+|  `4` `latest` `4.0.18` `4.0`                 | May 23rd     | `sha256:5c17e85bfab49ff3a8f615e4eff7f8da654720ee6cdec28be153a1d6b02fd1a1` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-adapter-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.12.0-dev` `0-dev` `latest-dev` `0.12-dev` | May 22nd     | `sha256:83dd14ae0a8f1acc42e2e5f444b34d7c95eba3303ee29031dfe644e492e61285` |
-|  `0.10.1-dev` `0.10-dev`                      | May 22nd     | `sha256:4f48f68620f801fd53ef5a34ccd8f0084f33f4d6f0e6f9c8f535fc52245fa092` |
-|  `0.12.0` `latest` `0` `0.12`                 | May 21st     | `sha256:082ed05b9817f625cf4e26ec565d3593707e463ed7b07979867bff38e155a920` |
-|  `0.10` `0.10.1`                              | May 21st     | `sha256:a39a4fb315b4366021c63874314fbba417b155b24b17697e72ffbbd847bed32d` |
+|  `0.12.0-dev` `0.12-dev` `0-dev` `latest-dev` | May 23rd     | `sha256:da9ce5c76a2dc3a5a0e4312fac15aaf07311f88676209ce6ee052cffae566cad` |
+|  `0.10-dev` `0.10.1-dev`                      | May 23rd     | `sha256:09675299e27d5c8ca4ac045e5c447cb8adba86f239a64640b2a5cc91323dde9f` |
+|  `0` `0.12` `latest` `0.12.0`                 | May 23rd     | `sha256:d5af46f505754a411a769f08a6efffc436ede6987d2277aa2576ab89edc65f10` |
+|  `0.10.1` `0.10`                              | May 23rd     | `sha256:fb7f869b86ac3e52b541e5e71bdca66acc97017720b895596f0f642e812577ad` |
 |  `0.11-dev` `0.11.2-dev`                      | May 16th     | `sha256:e2a5ab87dfd0965da8c4cc842198367a98bc4c4304b8be57f1d79d88af493ad2` |
 |  `0.11.2` `0.11`                              | May 15th     | `sha256:96ae6f24e9a6627629377e0384b2093c56fe3f5a341ea968de1851304c3a7463` |
 

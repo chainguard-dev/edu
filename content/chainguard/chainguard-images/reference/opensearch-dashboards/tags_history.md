@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opensearch-dashboards Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:78c3790207e5df6aaecce2574cc653138b33a1c9b3982d23c6ac42ec033024af` |
-|  `latest`     | May 22nd     | `sha256:2bb217d35fe1711015065fb26d483b976bd07d202a2d86ce3686623b941d4e6b` |
+|  `latest-dev` | May 23rd     | `sha256:d00b9d8a97e1bc8fa17bf43ea62e04b9312cfc9c79e0c577a07902bdc3830444` |
+|  `latest`     | May 23rd     | `sha256:d9737a8967b75f855eab82a21a6ed26f1d26e281480368b37702ed18cdfef00c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.13-dev` `2-dev` `latest-dev` `2.13.0-dev` | May 22nd     | `sha256:4a30b9a5b74210fe27fec6243ccfcddb66b55ff7c7a9d71db5284403a4822841` |
-|  `2.13` `latest` `2` `2.13.0`                 | May 21st     | `sha256:a8ce6f9dd4b642c667cfb40f2d0a01db392e6094e16627751772082d254da461` |
+|  `2.13-dev` `2-dev` `latest-dev` `2.13.0-dev` | May 23rd     | `sha256:b9fa2699adfb63efe3a21305483f15bff4f1a9a9a297c5b6439d83fb867a333c` |
+|  `2.13` `2.13.0` `latest` `2`                 | May 23rd     | `sha256:781d6e08cae9308be0adf097c7d36bdd34e21a0ee723bfd029f2b273badb377a` |
 

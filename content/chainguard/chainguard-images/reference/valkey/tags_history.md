@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the valkey Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:df5f80d605d29427344435d9ca5092a371595673a3e306526f6471a3e2642cf7` |
-|  `latest`     | May 21st     | `sha256:5bca5d4923149fb8c14bbee13c578827e5996884279628b2df8b19b44c1d8dcb` |
+|  `latest-dev` | May 23rd     | `sha256:87a24f41bdb8d094609db3aa0dc31f3e7762993f75d3a0ff57eb81ab3cf5af58` |
+|  `latest`     | May 23rd     | `sha256:ffddf441db04507c41aae247ec7e11f04c4800fe3a8b0ce0c5cdc281926980ae` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `7.2.5-dev` `7.2-dev` `7-dev` | May 22nd     | `sha256:27d7268d377e64d86b938c1bbbd3f9ace20325dda7ef40ac5ec7069942e770bd` |
-|  `7.2.5` `7` `7.2` `latest`                 | May 21st     | `sha256:70b9842c41e0616498c5926d775c9cd70213cf5e01d23b7c8a2fd81208579190` |
+|  `7-dev` `7.2-dev` `7.2.5-dev` `latest-dev` | May 23rd     | `sha256:1f196bbff814c526d7e1c51dd287fb7475196e138b3e17fc11b6a2cce60667a6` |
+|  `latest` `7` `7.2.5` `7.2`                 | May 23rd     | `sha256:2c969e2a13daa5bff78dd0edc4f95fe33a574e38d4df2ea9ac313985b64c7fdc` |
 

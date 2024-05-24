@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the istio-proxy-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.20-dev` `1.20.6-dev`                      | May 22nd     | `sha256:ff04557d97ed5047c9cf2bd0375037df95b505c9745300f25cbe06696dd8e0ab` |
-|  `latest-dev` `1-dev` `1.21.2-dev` `1.21-dev` | May 22nd     | `sha256:3b06424dfdcd4f7d845e1da26a277011c8fe14a0de05cac6793542958682de1a` |
-|  `1.20` `1.20.6`                              | May 21st     | `sha256:37a42dfb475a09bd84cdd8fe56001ef6387427022a29e117bd882473f7014cae` |
-|  `latest` `1.21` `1` `1.21.2`                 | May 21st     | `sha256:d57241523f4ae043f600093946533dc8fd28b6f7f58c1409c61c50444b9478f9` |
+|  `1.21.2` `1` `1.21` `latest`                 | May 23rd     | `sha256:f71ffff6edcc96e9ae1a904d0afaa86adc5c45def889d613d77fd342a490e163` |
+|  `1.20.6` `1.20`                              | May 23rd     | `sha256:3ae676847491e62d9ea765ac26209bbf88f3e3ceaf7fab6a080c02479e1a360e` |
+|  `1.20-dev` `1.20.6-dev`                      | May 23rd     | `sha256:43b82cf0f94bf29ed60256c5111ed891fdcc46fcdd0ad33993253bac9887b0fe` |
+|  `1-dev` `1.21.2-dev` `latest-dev` `1.21-dev` | May 23rd     | `sha256:7fb37b5a5e3a03765933ff97f6c58392935288be9d497efe79fc3dd1a3c24da3` |
 |  `1.19.10` `1.19`                             | May 6th      | `sha256:9a0538e7c7eebede2012efb5f569f5e542f694305733ca671d7c008679952cf4` |
 |  `1.19-dev` `1.19.10-dev`                     | May 6th      | `sha256:8a92e8cb3fb9173b880c85c7a7dec139a995cd7a7a271f8d05715aa2ac425212` |
 

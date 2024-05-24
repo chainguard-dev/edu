@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:35290ce64b498d695ae8091f23be276d2b435b02c868adb3ada7446386e2ec85` |
-|  `latest`     | May 21st     | `sha256:8a6d7857b81d143a4eb7aaa64f4c8e3805171e70599bf110e9b2be9798bb79ed` |
+|  `latest-dev` | May 23rd     | `sha256:3556bf3e071fda904d99cc546b6e5da7d89a8c3b3d2b68c433d5e90e16eb9f6c` |
+|  `latest`     | May 23rd     | `sha256:778cb3056dfff6ab2110b96b212e6d0e8debdd69cf8582fa4b1e50e4b15fa601` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `4.0-dev` `4-dev` `4.0.1-dev` | May 22nd     | `sha256:8ff5164b7de46a529d6ad786eb03609cd3ae26070c0303e1c8e04da747547909` |
-|  `4` `4.0.1` `4.0` `latest`                 | May 21st     | `sha256:797db5809fb123cfa3a3159d3bb1ff7ecf49c1333b7b515e22c3553c1769846c` |
+|  `5-dev` `5.0.0-dev` `5.0-dev` `latest-dev` | May 23rd     | `sha256:e4dd837bea1e27c33e911cd227f512d534f6daa32b0ef7239e535f9bdc8ff837` |
+|  `5.0.0` `5` `5.0` `latest`                 | May 23rd     | `sha256:f28f2eac5b4253eab3289ee97d11b80b32ac4b72126cb5ae6f668c573fcc4127` |
+|  `4.0-dev` `4-dev` `4.0.1-dev`              | May 22nd     | `sha256:8ff5164b7de46a529d6ad786eb03609cd3ae26070c0303e1c8e04da747547909` |
+|  `4` `4.0.1` `4.0`                          | May 21st     | `sha256:797db5809fb123cfa3a3159d3bb1ff7ecf49c1333b7b515e22c3553c1769846c` |
 

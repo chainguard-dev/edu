@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-snapshot-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:fe1059c3d2641e218a61170d572f985ade1dd9353d41b402c2df13e2fb63d3fc` |
-|  `latest`     | May 21st     | `sha256:9111034de88f994761f08bc0ac8566bfefff0795acce58fd4b35ba6cf525f813` |
+|  `latest-dev` | May 23rd     | `sha256:1165ce5024b943fe80b72792ebed845ae679c0ab57ccecc7d78bc7e750a094ab` |
+|  `latest`     | May 23rd     | `sha256:dba2b24fc4e5f7054249dc37c4410a5bb53cbeb164df183868c99507cf97fa70` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7-dev` `7.0-dev` `latest-dev` `7.0.2-dev` | May 22nd     | `sha256:fb75fbc709b478706ec56bbca429106375d086f892a7151722b3470aa203dafe` |
-|  `latest` `7.0` `7.0.2` `7`                 | May 21st     | `sha256:f1a6d01058808bbd90555c90ca7a5ea8b4c19a639d2ff2a318f319dbf0abafc7` |
+|  `7.0.2-dev` `7.0-dev` `latest-dev` `7-dev` | May 23rd     | `sha256:03369e6f54b0f1ebe79faaf2f5968f3fbb6706d834ca8ed63ebef3fe2a3e3e30` |
+|  `7` `7.0` `latest` `7.0.2`                 | May 23rd     | `sha256:d74dd8bf9fb61635f4c34f4a751d77552e549f46f2b0277dd43dbd3cd533e663` |
 

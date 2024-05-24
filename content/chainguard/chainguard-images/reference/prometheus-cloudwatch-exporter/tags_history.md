@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-cloudwatch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:71ceddbdd74dc276beed80d668592c3eda8ddee2f89cfcb143ed78dfd526f5de` |
-|  `latest`     | May 21st     | `sha256:a4e44fd8bb0358f1682f0a042f1e941e53e73e15b44a39225cdd44706b279016` |
+|  `latest-dev` | May 23rd     | `sha256:40c71c3d6bafdf42b3309d115d6c19439dc078589fff21b1faeea64af197e001` |
+|  `latest`     | May 23rd     | `sha256:f096574d8a06be0c714fa89c8f951a9c60d2fedc1b1210af911eee7b6e4339e0` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.15-dev` `0.15.5-dev` `latest-dev` `0-dev` | May 22nd     | `sha256:4af9c0918f945b06fee128046c0fb5f4e3b49ddef773d10e1d8e8d75524e7cec` |
-|  `0.15.5` `latest` `0.15` `0`                 | May 21st     | `sha256:8b4f1b9b37bc540e3a4b178da675ffb34580054f0912b4a4198194778fc09573` |
+|  `0.15` `0.15.5` `latest` `0`                 | May 23rd     | `sha256:559c964f242740339008174ddc16f24a37c2cd9cbb691e6d22d2a208ccc840d8` |
+|  `0-dev` `0.15.5-dev` `0.15-dev` `latest-dev` | May 23rd     | `sha256:644ade2aea34a3d8ca3fc19a54ffa1b3899d29fc86cd51c4856e046354940d76` |
 

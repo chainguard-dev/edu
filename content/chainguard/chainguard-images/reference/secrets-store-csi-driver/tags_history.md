@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the secrets-store-csi-driver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:55d8e510f4f8fd8135343dfa728f7c2177e88a715b0016e7cae85e05e47e6829` |
-|  `latest`     | May 21st     | `sha256:3bae2c85535bb9ef4a1b0079e14091350dfefd29be6a3576acd57489ed786ab0` |
+|  `latest-dev` | May 23rd     | `sha256:29bfbe97441e3d2247b3b85c8f560cf00ef97eb0595044db95ffc01b7b2fb6d3` |
+|  `latest`     | May 23rd     | `sha256:15790c4e69a06a5f5240f5dd8bbfddd379898857fdc11b09a262b038e03a6b31` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.4-dev` `1.4.3-dev` | May 22nd     | `sha256:95e4fdbddc4ec4bb26d0c6bda5228cf62920ea2390b93814b3c8ef9d3e9aaedb` |
-|  `1.4.3` `1` `1.4` `latest`                 | May 21st     | `sha256:1f6cc76bfd487ddbf93eb1a3b77eadc6914177b04f51af7bf8c073e5f4b313ca` |
+|  `1.4-dev` `1.4.3-dev` `1-dev` `latest-dev` | May 23rd     | `sha256:9be0bf348fec5d18e3a5300cf41a6a72dfd69ae331ca9570f97f6a17601ddcc7` |
+|  `latest` `1` `1.4.3` `1.4`                 | May 23rd     | `sha256:93ea942ef87c890ceaf2b34b6ab9c37978c179ce4eb4b4ae38cdc0f9ea0f8de8` |
 |  `1.3.2-dev`                                | May 5th      | `sha256:8f86f18ca55b2766f2bdd3f8385a799eb419a6cc90d781bfad52899584239ff7` |
 |  `1.3.2`                                    | May 2nd      | `sha256:799e60cc7720f0a7e80558e278019413770bd6871e10f456991218345f7470a7` |
 

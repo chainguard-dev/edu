@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-webhook-certgen Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:f74a131aef9c974fab3d270348975c88b2a4a3c07b831dcc7d185629ff8e5362` |
-|  `latest`     | May 21st     | `sha256:ec3dbc14cebbb3768bcbc571cacb40c56bad1a37d78ddd07009b1e0c7e633533` |
+|  `latest-dev` | May 23rd     | `sha256:4b3a427f1cfff6d79e956e23c95ddfaab2605302a3008c9dd474188efeae5ca5` |
+|  `latest`     | May 23rd     | `sha256:d422b630fe9a4db79e09e19d3b39de1d22efd03fb591defb8adda9486077ccf4` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.10.1-dev` `1.10-dev` `latest-dev` | May 22nd     | `sha256:b295fc4bc5f0f69de6fb45df9e1bdf43aa361f92c04da7a7f341641d887e1baf` |
-|  `1.10.1` `1.10` `latest` `1`                 | May 21st     | `sha256:1a78b7217b824971c2a537b70f6ccef496e8423dd0673dbbedbeb787fdb3dbcb` |
+|  `latest-dev` `1-dev` `1.10-dev` `1.10.1-dev` | May 23rd     | `sha256:544f76943b1865f77a8d29424b60d20c6364528def9229d972a21002ba44e3a4` |
+|  `1.10` `1` `1.10.1` `latest`                 | May 23rd     | `sha256:3e7bfbebb6700a168389aa79538808bde1f8e581fb82adf1386bf74216f676d5` |
 

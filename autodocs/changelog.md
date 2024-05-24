@@ -1,3 +1,11 @@
+# 2024-05-24
+New images added:
+
+- openscap
+- rabbitmq-bitnami-fips
+
+A total of **796** documents were updated.
+
 # 2024-05-23
 New images added:
 

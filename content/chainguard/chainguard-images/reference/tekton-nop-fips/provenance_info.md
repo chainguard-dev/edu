@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for tekton-nop-fips Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for tekton-nop-fips Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                 |
-|------------------------------|------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | No public tags are available for this image.                                                         |
-| `cgr.dev/chainguard-private` | 0, 0-dev, 0.58, 0.58-dev, 0.58.0, 0.58.0-dev, 0.59, 0.59-dev, 0.59.0, 0.59.0-dev, latest, latest-dev |
+| Registry                     | Tags                                                                                                                                     |
+|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                             |
+| `cgr.dev/chainguard-private` | 0, 0-dev, 0.58, 0.58-dev, 0.58.0, 0.58.0-dev, 0.59, 0.59-dev, 0.59.0, 0.59.0-dev, 0.60, 0.60-dev, 0.60.0, 0.60.0-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

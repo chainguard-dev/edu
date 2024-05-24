@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ml-metadata-store-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:4f964c1f378085b3d0f5e17573c311e870a9ac35ab1040405569d22f1e0bd360` |
-|  `latest`     | May 21st     | `sha256:2f218b3eb46e5eed35098ace657d4e6d411fc1bbc5236849c0bf73e8f0771aa5` |
+|  `latest`     | May 23rd     | `sha256:bacde53985aa239b2a261f87ac1cc9eac28c7fee6bef16896ed6c20444ed947e` |
+|  `latest-dev` | May 23rd     | `sha256:0dba9a32fa4d473717d637511a434cc2ce10b845042d83247606cc3c4174e911` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.14.0-dev` `1.14-dev` | May 22nd     | `sha256:9f3c03d8da366f3adff23ea7380b218cb2c97b0c997cca50e34970ecf742cc11` |
-|  `latest` `1.14` `1` `1.14.0`                 | May 21st     | `sha256:847a79683e5f3287e0b390c8d4298a8ecc388cbc6f1f338635107c78f54a2021` |
+|  `1.15.0-dev` `latest-dev` `1.15-dev` `1-dev` | May 23rd     | `sha256:60c14ad6870ad0c8c3103033497c94abc079109643100b70a56e64da019d8880` |
+|  `1.15` `1` `latest` `1.15.0`                 | May 23rd     | `sha256:1ea33d2da77c73db974eff56583923c8e6b20d1e23788f33b90c12f095d109fd` |
+|  `1.14.0` `1.14`                              | May 23rd     | `sha256:88af2397f30bf9d376b79f6f6d629b652ee8ee9a9c1e88c54e9539bd39239cdc` |
+|  `1.14-dev` `1.14.0-dev`                      | May 23rd     | `sha256:3e88d0494f9a98c674dc1f4ed09228c2c4adacc7ae848225a64c48df0996b77b` |
 

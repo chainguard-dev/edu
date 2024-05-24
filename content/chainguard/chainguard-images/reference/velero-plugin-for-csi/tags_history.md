@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the velero-plugin-for-csi Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:574da89ab353e8255f4175b0d73884af537373d17c8b0df66bd9d9dd82838764` |
-|  `latest`     | May 22nd     | `sha256:92cb674d88a31058a6a67db567d5bc3d783c85770183ed4ff6e750749c65da26` |
+|  `latest`     | May 23rd     | `sha256:30f738a9cd855d77242cc8380b18d95376122110904ca70924f47e554b096ba2` |
+|  `latest-dev` | May 23rd     | `sha256:df073b25a562713e50e83b90b7448b38efd8f09e64c4f0dac76b8d9d89175066` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.7` `0.7.1` `latest` `0`                 | May 22nd     | `sha256:61191812b1bca5123a20c01152df7a1546d7b8ffc88ab4d79f3828d8d3419809` |
-|  `0.7.1-dev` `0-dev` `0.7-dev` `latest-dev` | May 22nd     | `sha256:e4ba49ba508c5fdc32b01684d5cee938961811ea5b0c75e4e17f6adb808d6203` |
+|  `0-dev` `0.7-dev` `latest-dev` `0.7.1-dev` | May 23rd     | `sha256:1ad84419544664416923ca82d035b1cf6a6a516b053fc359275527bdf4f85aad` |
+|  `0.7.1` `0.7` `latest` `0`                 | May 23rd     | `sha256:aaaf47b11af676e9a533d104cc384b2e85849ac0759a397428288cd3e5c2abd1` |
 

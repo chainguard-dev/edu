@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grafana-rollout-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:62092d40b3c7a5c47dd4288ed4a755c2ae0fcec6d754b711924fb50bfcd95741` |
-|  `latest`     | May 21st     | `sha256:4edebd6652690951d9291a236a4e4a97842d4c7163779c5b71c9928e5f4a2fc4` |
+|  `latest-dev` | May 23rd     | `sha256:8ac3ecb1d874eea71cce0d98bcb4f53094e3ae165eead7e32b7366740984f501` |
+|  `latest`     | May 23rd     | `sha256:9a9c37dc7a127710ab2ff7fa346c4abbad2d8e483e6511833595bfb3af14090e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.14-dev` `0-dev` `latest-dev` `0.14.0-dev` | May 22nd     | `sha256:cdd9aadf4e21886084605dbf7ee5d1d74a75c205e79c7726ea20fec740606805` |
-|  `0.14` `0.14.0` `latest` `0`                 | May 21st     | `sha256:5660603e67ffb45def79625f173f76cc2f0cd97510b35aea37a13fd99ecdbf6b` |
+|  `0.14-dev` `0-dev` `0.14.0-dev` `latest-dev` | May 23rd     | `sha256:34eab07f13ac4896f6ce922d76c1a52268a4931a2fe8f63baa629c5ac3c69134` |
+|  `latest` `0.14.0` `0.14` `0`                 | May 23rd     | `sha256:69383373d04b170d2adcd38a626d779a1f83a93e90848d7db2e78ad0f12666e2` |
 
