@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the secrets-store-csi-driver-provider-gcp Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:5d59de9eb5465341c9db82020bebfc0a0cabe0c0d13fa5763e0f0a073b7795d9` |
-|  `latest`     | May 21st     | `sha256:4307909810bb2af2bf30fd46bd355b1769b8d7d0544c33293969af5ed758cb7a` |
+|  `latest-dev` | May 23rd     | `sha256:9ae6f2997a5b4bf768c3838b5c44e70c3dfc60b91c8bed6995c790862f9fcb64` |
+|  `latest`     | May 23rd     | `sha256:aeab21b6f4e7801eb8c279ea0076b4e4b5623f4f994a4309de0e3770f28f1f05` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.5.0-dev` `1.5-dev` `latest-dev` | May 22nd     | `sha256:777f119986d9f93c211720af69d1a0f48fca790ff8621324f4ef097791a35518` |
-|  `latest` `1` `1.5.0` `1.5`                 | May 21st     | `sha256:5753710dd5eb982f9e17b5a596ef7e0aa12478ad6ddba2bd6265d7475d7554a5` |
+|  `1.5-dev` `1-dev` `1.5.0-dev` `latest-dev` | May 23rd     | `sha256:0914567fd37c1f26cea578505a53e1d5677b4771f0d5aca2bee9bc950d440973` |
+|  `1` `1.5` `latest` `1.5.0`                 | May 23rd     | `sha256:c752c1cad11be04f4f4eed82fa51cb4e07d522261ba5b417f54bd3f944e15cc5` |
 

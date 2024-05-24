@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.52.0-dev` `2-dev` `2.52-dev` `latest-dev` | May 22nd     | `sha256:98ecdfcacedd8b67b6bd6bbe5444c8931a39477426c2566a56ea78cc4ca2b90d` |
-|  `2.45-dev` `2.45.5-dev`                      | May 22nd     | `sha256:9acf9f96701c0f421756451b049ccdc2756b48e26aea577be908fc7633be232b` |
-|  `2.45` `2.45.5`                              | May 21st     | `sha256:cf92d33c31b93e45e8ab857b1fa8a6e00166236c0d9409a4c148004ce65c3f0a` |
-|  `2.52.0` `2.52` `latest` `2`                 | May 21st     | `sha256:243f3aa1c3522842eb42b662a290f5dee3504ac95c5d605f27ac9ee96c6d673e` |
+|  `2.52.0-dev` `latest-dev` `2.52-dev` `2-dev` | May 23rd     | `sha256:769b7a2dd644d9e3fb0d4205a7860fd66ce767507ce913e3dedf05ca3ac910ef` |
+|  `2.45.5-dev` `2.45-dev`                      | May 23rd     | `sha256:f389816da7a74fa9fada317249915da139ac419b146c3651d5d1af588c1ba9db` |
+|  `latest` `2.52.0` `2` `2.52`                 | May 23rd     | `sha256:17ee97299eb8cd9b9bc143ad9e0b1d2b9ebecbc0ac65677da76e0d0ca7b1a714` |
+|  `2.45` `2.45.5`                              | May 23rd     | `sha256:b9847b5d2bdbaa7fab4cc9af2ed29249482bdee4c6c7fd1674c222f8099bf7ae` |
 |  `2.51.2-dev` `2.51-dev`                      | May 10th     | `sha256:c15028f53cb059c4892666ad3b5baff6383959b0d7b8421549f480a37a88b0c9` |
 |  `2.51.2` `2.51`                              | May 10th     | `sha256:652bb8b8fa679fcb5cbd4bd91af230e5998a5db01f68a05a4dd275ec2fa06fca` |
 |  `2.45.4`                                     | May 2nd      | `sha256:f9cb64f553813e1d7636936d0f72478cb8f9c38b8fa584f1c2a65b8ce75ae759` |

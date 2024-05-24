@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mongodb-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:97b339e3a4cb0786e686a018223266869ecf7e1b702a6512ff18cec687cfd72a` |
-|  `latest`     | May 21st     | `sha256:f6231624933c2d2070fcf9b49a9458e83148055008bfd343333b19f9629b9b45` |
+|  `latest-dev` | May 23rd     | `sha256:7de2a46f4369e62aacf52d7966d63727d8a3923831fd8e9d1e3f78dd2c001655` |
+|  `latest`     | May 23rd     | `sha256:9ac8b0fe13dce9d96666c0885531e01e16e091cd74b1d0352c775873cd37f8dc` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.40.0-dev` `0.40-dev` | May 22nd     | `sha256:dc05fe15bb316fd8d940aaebfda4ecce0d1ceb629023d259a0854690079d701c` |
-|  `latest` `0.40` `0` `0.40.0`                 | May 21st     | `sha256:2e3c43e629567111a8a1c949ddc83cd4a6dc58669e32682cdf1db9f3a2c653c2` |
+|  `0.40.0-dev` `latest-dev` `0-dev` `0.40-dev` | May 23rd     | `sha256:60e554de5871bfc7884659575efa02299b131975274cd45219a0128266dc58f3` |
+|  `0.40.0` `0.40` `0` `latest`                 | May 23rd     | `sha256:647ed78c95f9f13b49f0877b7286af9e8df8f37616054a50199d437e341286cc` |
 

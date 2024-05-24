@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k8ssandra-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:43eb9c6e74e132c15162bdb35ee63e9812514a8192e8a0589bff87ef63ffe473` |
-|  `latest`     | May 21st     | `sha256:9c2556b256d0da7b12b62dfda4ccc14e0df3b64edf8e19fc9792219910390f80` |
+|  `latest-dev` | May 23rd     | `sha256:4db0d2f989e5b7aa57f800ff61bcc5351c211cce5343818c4d6efd6f91ba4c92` |
+|  `latest`     | May 23rd     | `sha256:a6d88ea5475692677c24a829e0f38af1ec4e70bb4ded056576483907b1d3da68` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.16.0-dev` `1.16-dev` `1-dev` `latest-dev` | May 22nd     | `sha256:bf8fb2878b33a175915dc204dab27afa20e2d78d87395d2f19d3d9a31af892b5` |
-|  `latest` `1.16` `1.16.0` `1`                 | May 21st     | `sha256:f5618d55a5fd16f56e689640a6f866f1ac84d711ada0bbe5ef55eab612a18caf` |
+|  `1.16.0-dev` `1-dev` `1.16-dev` `latest-dev` | May 23rd     | `sha256:72835a04d9430144c3ef6a055897241a33cd8457d0d4a26a35bbd37d6e8d511e` |
+|  `1` `1.16.0` `1.16` `latest`                 | May 23rd     | `sha256:3f16c50c6a71dad514068ab7e7f1da7095d2fef7c40f71acfc5dd8e75d095dfb` |
 |  `1.15.0` `1.15`                              | May 7th      | `sha256:abba7f688ae3be2a8608c30b8c12d6cb3537729bcee42b1d95987746eb34c58a` |
 |  `1.15-dev` `1.15.0-dev`                      | May 7th      | `sha256:96e760dcfd148ce43c859ce0b864f90eb73f659ba9a2dbf2ffba034fc32979e3` |
 

@@ -3,8 +3,8 @@ title: "neuvector-scanner Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the neuvector-scanner Chainguard Image"
-date: 2024-05-23 00:45:07
-lastmod: 2024-05-23 00:45:07
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,11 +28,15 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:c260587060cd072e2e3f6762842580750bea1cfcd3c3fb33bd5410eb38f16a0d` |
-|  `latest`     | May 22nd     | `sha256:9b064b8670fc58d71a225d52b886a7105a89fe88a28183f5c8f1e8761536a313` |
+|  `latest-dev` | May 23rd     | `sha256:89b967a86786efeecb10f2e7ee484f3e5e2ff38f52237b4ce679f1cb1f6b7d70` |
+|  `latest`     | May 23rd     | `sha256:a5bcb7684328f86e438771085fd6725419e90af051363d769a507a491f31d03c` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-Currently, there are no Production versions of this image available.
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 23rd     | `sha256:9912a3f2fd44e2dcd39f4018cbe06451585d9b16f01d6373841a0e6340479a17` |
+|  `latest`     | May 23rd     | `sha256:c0a55f67d1bc5371e77cb4ec70cd16d4fde70238ca6733302f3fa121a79f67a6` |
+

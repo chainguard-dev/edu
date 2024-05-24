@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the velero-restore-helper Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:de395de987007deb70d67a7655d5ea9ee0e3b536d9f3a3313855787b148525f6` |
-|  `latest`     | May 21st     | `sha256:5d1f1187efe94d34a1b54dd40281729324407ade4032639f962b52303a498295` |
+|  `latest`     | May 23rd     | `sha256:d466d32f8c00275a9666242805ecf0a35c3fb8218cc8922ef44ab24cc8712358` |
+|  `latest-dev` | May 23rd     | `sha256:31fa99ff4df0fb375ca8c4a1dfe88bbcef6539be723138202214b014e520768d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.13.2-dev` `1-dev` `latest-dev` `1.13-dev` | May 22nd     | `sha256:52bb6306ba11a8cc6d2c666be1fbac7a1efcb2238182b143b598ff9c941dad8f` |
-|  `1` `1.13.2` `1.13` `latest`                 | May 21st     | `sha256:9b664b1756e76213935d4e1ae4a0e1498da079473d8627b20cfab0e7b6fa02ab` |
+|  `1.13.2-dev` `1-dev` `1.13-dev` `latest-dev` | May 23rd     | `sha256:89c8f6f94aed496e6790cf012ce5848b76abd35301bd928aa32e6039fe3dcea8` |
+|  `latest` `1` `1.13.2` `1.13`                 | May 23rd     | `sha256:d641890ab6f4cfc73d80c31586d405447ba88141f8e0997bd9b1dc7b327b29b4` |
 

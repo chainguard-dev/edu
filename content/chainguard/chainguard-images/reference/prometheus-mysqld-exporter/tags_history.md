@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mysqld-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:f6c301c93f4a73094d078c2b27f38a7aa98d3d7acb74be8f6453eccd547e7923` |
-|  `latest`     | May 21st     | `sha256:d6b4746a373b5e1e934ad894534d7146307b8242140837efa3d8eb687da95cbe` |
+|  `latest-dev` | May 23rd     | `sha256:df0e72c60c59d488fe7d07788b6091ea4144fad831c9a8037fd73e20309470f9` |
+|  `latest`     | May 23rd     | `sha256:49dd6c1586110b219b4ce97f09c5908968066fbcb4cabe778c78c982e3554f0f` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.15-dev` `0-dev` `0.15.1-dev` `latest-dev` | May 22nd     | `sha256:2aaa5973cad62c91b7be5a592fc51f7c03aa2d117adda3d6b4d21c45e52ec085` |
-|  `0.15.1` `0` `latest` `0.15`                 | May 21st     | `sha256:0038d07cda9da594fe6c58bd460e58a89c89c01896f8d49f6b8c85893f01bbf8` |
+|  `0.15-dev` `0-dev` `latest-dev` `0.15.1-dev` | May 23rd     | `sha256:1fc4f5a6ceb7ffa3c066544a867ae6fea4544e79cfc5e22e7862cf48f0f09051` |
+|  `0.15` `0` `latest` `0.15.1`                 | May 23rd     | `sha256:98f213de75df56db3d782887b5a708266b1c4b8d2565fd52eac561f7ec67e63f` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the boring-registry-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.14-dev` `0.14.0-dev` | May 22nd     | `sha256:aa1ef3790784ca3ae4488343b5870c316e472a15faf17ca41aa7ed0eb815d7dd` |
-|  `latest` `0.14` `0.14.0` `0`                 | May 21st     | `sha256:c1ddec2d82389bbb5523c865b1e5f8ce56a582c7f4d0391e5d20e67281257baa` |
+|  `0.14-dev` `latest-dev` `0.14.0-dev` `0-dev` | May 23rd     | `sha256:3ae8bdba308f1d646eacaee8431977f17a04639b19e6f462fa505efdc7fe682a` |
+|  `0.14` `0.14.0` `latest` `0`                 | May 23rd     | `sha256:8b14273dc8502e722cac3c6712ce8fabdf099d9b09071144f5f77e3997471cb8` |
 

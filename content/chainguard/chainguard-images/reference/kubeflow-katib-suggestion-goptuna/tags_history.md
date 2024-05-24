@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-goptuna Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:a79feb569e38b479ae71688285e53ae2959177888a052de94a0ab4e4e53c1ace` |
-|  `latest`     | May 21st     | `sha256:e810bf4615bc906e99c4e04e500dca762c70f8cb82307790fb9c478816ccba07` |
+|  `latest-dev` | May 23rd     | `sha256:e7030ec3b8648ebdfd3dc64997fa27382f4438904b461f42e2c7953221f95930` |
+|  `latest`     | May 23rd     | `sha256:1f4bb03dd5fc298d78631429e0b42b385261a4bc176f70f441ff4493559f56dd` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0-dev` `0-dev` `latest-dev` `0.16-dev` | May 22nd     | `sha256:e70814ba66ffc568d2d61c971b48138a725d19b26046c885d2d86b7c94e1d9f9` |
-|  `0.16.0` `latest` `0.16` `0`                 | May 21st     | `sha256:3627f86a46e4c903835a0e19e6275cd8047d844133b98fb59a9ec48d2ad9cd3b` |
+|  `0.16.0-dev` `0-dev` `latest-dev` `0.16-dev` | May 24th     | `sha256:d889e50aac5ea5e1c9c3b3e3ce1ea5d81f22ed406f1c66f7a98e55d385b18fce` |
+|  `0.16` `0.16.0` `0` `latest`                 | May 23rd     | `sha256:229d4bbb1df229a739c039121384d093febd28b0b50ef94c1b5d09edc11cf10f` |
 

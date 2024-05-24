@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nginx-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.25.5-dev` `1.25-dev` | May 22nd     | `sha256:2188a4c3738c3684b8fd6896a7e80ad87d73f10522be42b4940949646db5a758` |
-|  `1.26.0-dev` `1.26-dev`                      | May 22nd     | `sha256:71d6e9d4819a94406730389f59749f09b0092d482106e79e6328e78d1a128e55` |
-|  `1.26.0` `1.26`                              | May 21st     | `sha256:9b8d1f0545a05e484f27d12375e254cd2e5de731c9f6af94a62839b5702b17e6` |
-|  `1.25` `latest` `1.25.5` `1`                 | May 21st     | `sha256:70fd907587862968d548abb1ec398bc85e88c01738c29f98b918f4ce3eaed7c3` |
+|  `1.26.0-dev` `1.26-dev`                      | May 23rd     | `sha256:094f17839eae10603ec740189c2d5aeab82437020a484c5d797409d374230e50` |
+|  `latest-dev` `1-dev` `1.25.5-dev` `1.25-dev` | May 23rd     | `sha256:2a9226e81ced303ba201ae7be5b244e835ffb67ab2ad5a650d3d3b89792ed6a8` |
+|  `1.26` `1.26.0`                              | May 23rd     | `sha256:6e21a21f2db4de55582ed3c3cdb459d1f936792d4b55b9864209180eda6745eb` |
+|  `latest` `1` `1.25.5` `1.25`                 | May 23rd     | `sha256:65cf6f13f3e5b8cdff8f888471c6546884f734d65b6aeea7ed9e6ac56e7d7da8` |
 |  `1.24` `1.24.0`                              | May 2nd      | `sha256:098ca8d0496423c3b7ed7c0781f584b228ca50e04ed26c3f190da75b14db1955` |
 |  `1.24-dev` `1.24.0-dev`                      | May 2nd      | `sha256:4482b9d624b6587fc2aa62d1816b1fdef98c101ad9b6ee6fadbe5a4626502119` |
 

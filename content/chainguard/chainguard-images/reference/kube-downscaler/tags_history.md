@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-downscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:10967053c00c0b76c0614b1adb938d163e5cb92ed37c5e023acd5b3b43891e5c` |
-|  `latest`     | May 22nd     | `sha256:475aa0cf02e1f5a20b9ab412f80d073e7fd68ad02116d71373da451d486f662e` |
+|  `latest-dev` | May 23rd     | `sha256:e3c8733e02be485dc9e930b7f70282d5dcda00c8d318d60e98e8ff989d7d14ce` |
+|  `latest`     | May 23rd     | `sha256:72f72e030a7c522044a5d242e8319fa6c67ef26035d299df7f207ad2480d3ff8` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `23-dev` `23.2.0-dev` `latest-dev` `23.2-dev` | May 22nd     | `sha256:29e38191a7d5ed7168c3e441e0e122dd878b27ee6eb16eb12bd5b72b9d650428` |
-|  `latest` `23.2.0` `23` `23.2`                 | May 21st     | `sha256:6fd42d499ee32dfeb44fb0ba86192a29c87d7d0b99dec63ccaeb55d980e116d4` |
+|  `23.2.0` `23.2` `23` `latest`                 | May 23rd     | `sha256:408b16f404ffc67dea7f28da7d0caee70a05f086040e1c861a93cc747499484a` |
+|  `latest-dev` `23-dev` `23.2-dev` `23.2.0-dev` | May 23rd     | `sha256:486d8eecbd5139efdc16600a9bf3e6ed8867fcf12f8aac83746378d385bd997d` |
 

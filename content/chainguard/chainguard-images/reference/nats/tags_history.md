@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nats Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:ebe9983bc66f16aea55982da240e06012a3d6168893f12be81355e1543c144fe` |
-|  `latest`     | May 22nd     | `sha256:1b9012ef4be82f1ba2e6b861e45f294ae6b9963f465cd7e257f3e2f656791d01` |
+|  `latest-dev` | May 23rd     | `sha256:195955824db2170b56b09890a812fb6a7cfdfde8d1f78e19d8da7c1cc66ddf7a` |
+|  `latest`     | May 23rd     | `sha256:7a74f14d0582fd75a7ea600237bd10a8f34bddff5ebaed78060123f5e50d5ffa` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.10-dev` `2.10.16-dev` `2-dev` | May 22nd     | `sha256:f5fc3e6fa2adc8570d8977a25ae5dd4a132f062400e06a56fe424ecd87bd2e39` |
-|  `2.10.16` `2.10` `latest` `2`                 | May 21st     | `sha256:60e6c95aced0e89f522feafa25ac4be93eceab77e5e4dd092161f39a88de996a` |
+|  `2.10.16-dev` `2-dev` `latest-dev` `2.10-dev` | May 23rd     | `sha256:be3c2d0f773f9625e07862bb23b3cf2ee87ac5868d5c36d4ea93f28d0e7f7a46` |
+|  `latest` `2.10` `2.10.16` `2`                 | May 23rd     | `sha256:d855b6cf2ff0f24addd835484ca812de0a2f38809a1688dac207936048bd34eb` |
 |  `2.10.14`                                     | May 21st     | `sha256:de98b04920c9120823c7dee89760ce22e70e470a67d333d4e15ecebfbe7b587b` |
 |  `2.10.14-dev`                                 | May 21st     | `sha256:5e3fb9c543fb297fd9208ced9aa644ccf04cb66eeb1d463087591658ba53fa5c` |
 |  `2.9.16-dev`                                  | May 20th     | `sha256:936c0a9959e5ceaaa45ab7ac5efc12a0e45712740c78fccfc9e08c2c945ecd11` |

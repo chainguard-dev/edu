@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crane Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:b0ff4aea632b56ba0b2fb02c3539595354bc39d94198ebbde1f0fa8a79979310` |
-|  `latest`     | May 21st     | `sha256:2a1232f3c8bf1942a3a7c5e374bb97349fa4d8f51c09a787a26c34e37153f4f8` |
+|  `latest-dev` | May 23rd     | `sha256:9236ef47ac45a3b69952eef630708274aea6c47d64818eb3945c3b7fd912a436` |
+|  `latest`     | May 23rd     | `sha256:95b66c53984c4efd5d264907686d88f6e5eb72e701ebe25a999d819c4d83d10d` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.19.1-dev` `latest-dev` `0.19-dev` | May 22nd     | `sha256:cae9e1023edfff16ddd27ea0a9b550932457f256bcb36d0c7600164d0a0e912a` |
-|  `0.19` `0` `latest` `0.19.1`                 | May 21st     | `sha256:209cd22c016660ca0ba9a93e27fc49bc86678bf5c6c5d5d3f5e69def883e5f64` |
+|  `latest-dev` `0.19.1-dev` `0-dev` `0.19-dev` | May 23rd     | `sha256:59e03ab246c6e39fc75a8a8235a99b326b00f36176471e644db47a9d2e3ae4b4` |
+|  `0.19` `0` `latest` `0.19.1`                 | May 23rd     | `sha256:6770ec3b13731c2d28b076827b6c625588236fe356a27a19c6f253904be81d9f` |
 |  `0.15.1`                                     | May 17th     | `sha256:c105bebcedb401a2aa5be90d5a96a1a59ee6442aa86b2ef833ce5e7da84b2679` |
 |  `0.15.1-dev`                                 | May 17th     | `sha256:ebf6ad743b2eaf0f9ba4f3e71ea2f342307a860f137eb54616b1d77441c210bc` |
 |  `0.14.0` `0.14`                              | May 6th      | `sha256:d02e486fbe6d7c753bbe6effd354b679accea3ed87096fad4448c76562b0b5a2` |

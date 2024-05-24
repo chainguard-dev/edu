@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the harbor-registry Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:081797728da20054d7da67bb82756e62731d7acf1e9a36e15a8f9b38bdb87380` |
-|  `latest`     | May 21st     | `sha256:4f2d4bad9c6e6e8ce30d0d75e54297a1b7d53e51a99f893c1523be0c66d19606` |
+|  `latest-dev` | May 23rd     | `sha256:9058f0cff441606236e2f68e3775aadf5d6cbd85e149dcccb5d9c25cb032fc18` |
+|  `latest`     | May 23rd     | `sha256:22552619775a7b3a3e489caca71ed3a98d0a7977b94f572c9b90ac4ba7c0445f` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                            | Last Changed | Digest                                                                    |
 |----------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.0.0_alpha1-dev` `3-dev` `3.0-dev` `latest-dev` | May 22nd     | `sha256:40ac06d8cd81cfebc33562f36acfb6b1a0c980aa930f43ab3e00f3fe62cbfa56` |
-|  `3` `latest` `3.0` `3.0.0_alpha1`                 | May 21st     | `sha256:dba9b334db0966c8773db910a899d710963c1a1ff224269bcd3b28c511038e82` |
+|  `3.0.0_alpha1-dev` `3-dev` `latest-dev` `3.0-dev` | May 23rd     | `sha256:9c7f7c132febb70fe95f9e3841f0839aeb9e5ed4ca39634860a42f11f18643ef` |
+|  `3.0.0_alpha1` `3` `3.0` `latest`                 | May 23rd     | `sha256:42ead1956bfeeff1339f5856d6f6350cacec9b5d362a6ef3f1f888484fc868dc` |
 

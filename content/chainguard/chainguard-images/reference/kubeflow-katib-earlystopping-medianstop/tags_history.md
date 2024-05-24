@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-earlystopping-medianstop Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:a013ccbb1f2c735ce2357be9703ef7700a56d696846f47625df406a52113b90e` |
-|  `latest`     | May 21st     | `sha256:8f3e030b1e059cb8606321f8fd11c04fa02b194aca78b87f256108fadf6f3191` |
+|  `latest`     | May 23rd     | `sha256:66b913a150179b9675a692a420e1bf7002f14d6c2019421f6753802ecac7caaa` |
+|  `latest-dev` | May 23rd     | `sha256:281041beb0f7a9b7695c5f92eadae8820b4486cb6868dacf39558ebc1931e031` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.16.0-dev` `0.16-dev` `latest-dev` | May 22nd     | `sha256:20f122d5764dd6c1b4f5975b1528a79ac73d4e0c11ec32a16e442b6116f05e8a` |
-|  `0.16.0` `0` `0.16` `latest`                 | May 21st     | `sha256:4908015597e36da7849e132f3ac7bcd2e737d63a9ecb0ff579c9e02896b48ee1` |
+|  `0-dev` `0.16.0-dev` `latest-dev` `0.16-dev` | May 24th     | `sha256:8bdba30512035d8a39779b43dcfc3144b95fa3fb1cad763777b86a2d2864adc4` |
+|  `0.16.0` `0` `latest` `0.16`                 | May 24th     | `sha256:31ffcbd56e2aa96369dd534c18b0b344406ed2aef8e3b3984b1283aed8ad203a` |
 

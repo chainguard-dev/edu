@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the graalvm-native Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | May 21st     | `sha256:8a7ff8d374648b0a647705707eed4538de9478fb9a13591ac4f3d3c48067bea6` |
+|  `latest` | May 23rd     | `sha256:8ea883ec5168f6683e6f492851c9507bdd7209c52c6c1dcfe08b422cf2a168e1` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +36,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | May 21st     | `sha256:c0393f3a1eb91ad8815363252270c19b897fd7ebd64ac011a2f69e57b36d4dff` |
+|  `latest` | May 23rd     | `sha256:178bfefc923888f87c42bc06b3375dd46f28377dffac8613a4d6638a665519b5` |
 

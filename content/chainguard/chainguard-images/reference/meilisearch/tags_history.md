@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the meilisearch Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | May 22nd     | `sha256:fcc472957648f2a787654e2520c242e58f047fc4acc253d7d7b08d0726b4ac47` |
+|  `latest` | May 23rd     | `sha256:78b86b3c539e78230108e5fc79b150cb1781480264f77aeaa31123f1cb08fbb0` |
 
 
 ### Private/Dedicated Registry
@@ -36,7 +36,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                     | Last Changed | Digest                                                                    |
 |-----------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.8.1` `1.8` `1` `latest` | May 22nd     | `sha256:7026adce97225461703f98e93c352a8d2b228f2bfa2ea55873ac49ff1f172862` |
+|  `1` `latest` `1.8.1` `1.8` | May 23rd     | `sha256:95fafc527f6edc8758c5964e891baace58e1092e6c97274a100a6b8fe024b9ea` |
 |  `1.8.0`                    | May 21st     | `sha256:288f565f0a6cc30a57740cca8d5e47fb81ab02e228f48ab500f197cef9d8fc31` |
 |  `1.7` `1.7.6`              | May 2nd      | `sha256:f7a1e5741801b6a8e44364c4c3726d926024665cd4c3d45ba05ac4f5dad66fed` |
 

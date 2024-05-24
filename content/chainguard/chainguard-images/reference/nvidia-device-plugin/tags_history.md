@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nvidia-device-plugin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-23 00:45:07
+lastmod: 2024-05-24 00:45:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 22nd     | `sha256:b78c3fa9d9e1f5f60a68ca20460e9282b837a9716af2348fccbc343d6ca865e8` |
-|  `latest`     | May 21st     | `sha256:d568a17fb7e9c64f03f4e231229b27a38d85bac065139955e11d470ac3ee55f3` |
+|  `latest-dev` | May 23rd     | `sha256:147fbad7c0265c01bd8fcd8f95cb607b5296287a433b3e3d3633a79d4a997a3c` |
+|  `latest`     | May 23rd     | `sha256:981e235f3712f43dc0ed04be235709f3dcd20ba05bcf7a41b7f0ddcab38e1e82` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.15.0-dev` `0.15-dev` | May 22nd     | `sha256:f138952e6de4b3c5a155a8d28d5af194fe8819b1dce9305ba058bc144f0851c7` |
-|  `0.15` `0` `0.15.0` `latest`                 | May 21st     | `sha256:3ed60bf61ece48ac73ee11377178114fcd2d4e715cbe94e6df215a4d0151ab54` |
+|  `0.15.0-dev` `0-dev` `latest-dev` `0.15-dev` | May 23rd     | `sha256:c62a003dd3e8e14f62e055ba40d3d076ebcdf9930a30182f1316763fd469106f` |
+|  `0.15.0` `latest` `0.15` `0`                 | May 23rd     | `sha256:8220efec29659a4d7d07983c2da941d7fcc170c99b7c771689b8078dae1083c9` |
 
