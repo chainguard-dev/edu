@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dragonfly Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 23rd     | `sha256:d870e8d4357d347b63c426bb77ca246a40ac6017583fac6320daf25060d3d8db` |
+|  `latest`     | May 26th     | `sha256:b49cc29a48c7de6207cc03b5bde176b7b36fcd0f684d2f983bee4df8d50e72e0` |
 |  `latest-dev` | May 23rd     | `sha256:fe99052265ac9f357c88040d6a7b3c5ad2e30ca8aaf1c449f84eb1eb3c2b2096` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.18` `1.18.1` `latest` `1`                 | May 23rd     | `sha256:ec2dd3bcbe427b3a66a28a11b00b2aa5e402546417f5dca95d7f7e9201413f89` |
-|  `latest-dev` `1.18-dev` `1.18.1-dev` `1-dev` | May 23rd     | `sha256:1ce12c348a9355eed406dbb90f19a3f7ffa838592eb3a6cdf048b6bd0f5d7485` |
+|  `1-dev` `1.18.1-dev` `latest-dev` `1.18-dev` | May 25th     | `sha256:506af6899eaf1477a89496b9a953afa26bce0d6fc8433e3d0ebd3190bf7d218e` |
+|  `1.18` `1.18.1` `1` `latest`                 | May 25th     | `sha256:fd252f2f6bafd880d3581d6bbb1d5eb44bc9d20d0651cc1dd612018ca6816477` |
 |  `1.18.0-dev`                                 | May 16th     | `sha256:fc5dcfd9d45aa14c01e7e9bc88ac63e0ab6131d4bd3b3c7af7e1e3367ed6b259` |
 |  `1.18.0`                                     | May 15th     | `sha256:b4d94620a7d2c4d3765846d627c0807ec80dcf95c274915f4b827561bc3b6d91` |
 |  `1.17.1` `1.17`                              | May 2nd      | `sha256:2efcb588f91b183225fdc1664e4b9df10c92ccefda954bc7536765266f154c1e` |

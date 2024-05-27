@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rqlite Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8.24.7-dev` `8.24-dev` `latest-dev` `8-dev` | May 23rd     | `sha256:3db37564e5de7f859550fc23cbf101d8337a6d841d4b2bd19bf0c57d4349a308` |
+|  `latest-dev` `8.24-dev` `8.24.7-dev` `8-dev` | May 24th     | `sha256:977c91a55107c22824dbe6ef88a9f0bc8bf22c877087ec055dc14afc9c0bfe49` |
 |  `latest` `8` `8.24.7` `8.24`                 | May 23rd     | `sha256:c48e890fba873200a886eda4e065a36f3dc2301834debfce2fb0a10a3292a61d` |
 |  `8.24.3`                                     | May 10th     | `sha256:861b6e07b46f9f1d74713150abbf530bfebd7ce377dacf23008cc4d1fe149aed` |
 |  `8.24.3-dev`                                 | May 10th     | `sha256:5a5b6f5991c00b0e64546a6f45eee9d00f4b890b0491bda2c24e47dfaf5f18d1` |

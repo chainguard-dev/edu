@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grafana-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | May 24th     | `sha256:da6e5306fe0cdc9029c3fb6736a1544c96e80a66596431f300ee05bbdfddaafd` |
 |  `latest-dev` | May 23rd     | `sha256:c9808bce4adeba9613f98e35c139e44df05eeda1c376a2e7191354c5884654b3` |
-|  `latest`     | May 23rd     | `sha256:ea375bfaa0f6276628ed475665a1558fad59a761a9c679c7b15f0105cf275cd7` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `5-dev` `latest-dev` `5.9.1-dev` `5.9-dev` | May 23rd     | `sha256:fdaf5b1d6d3702218b36b570da91cf632ab5b6d39838b930c7d825f0d29aa5ad` |
+|  `5-dev` `latest-dev` `5.9-dev` `5.9.1-dev` | May 24th     | `sha256:4373e8b41d09900efaf620a9066cf5394e7c7cde83bfc2d05eff853e832e4548` |
 |  `latest` `5.9.1` `5` `5.9`                 | May 23rd     | `sha256:78c44801fb3f4e93d82352ecffc43cba5e16954593ef32540e5795dcb010ed47` |
 |  `5.9.0-dev`                                | May 23rd     | `sha256:180d66706f21a88a29780830eb6eb797401019da5f1b1848b808387d92cd322b` |
 |  `5.9.0`                                    | May 23rd     | `sha256:08fee4da3808d92213d017549e7ae9f577095ea39bc1d985b37e9eb11966a267` |

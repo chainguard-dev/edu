@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-viewer-crd-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.1.0-dev` `2.1-dev` `latest-dev` `2-dev` | May 23rd     | `sha256:5c57b3769e60f01092973d97c7126e07378d881d526919031a04d885d4a2b6b5` |
+|  `latest-dev` `2.1-dev` `2-dev` `2.1.0-dev` | May 24th     | `sha256:c0032f0d3ee7b1a833bd3493d15160017c16de31bc59ff52172bff92bb5ac2f9` |
 |  `2.1.0` `2.1` `2` `latest`                 | May 23rd     | `sha256:b989e9780d37a61f300ad3c2337ea1a92c4205a634254a3be14c21459ad8463b` |
-|  `2.0.5` `2.0`                              | April 24th   | `sha256:bf5bd0e20acb715d1f6988993b60f63a17c2d8ca3f2605c242133456800bbb9b` |
-|  `2.0.5-dev` `2.0-dev`                      | April 24th   | `sha256:2478dc01eff6174569de985c3d0dc290094a2a9f4144ca3a8ae66d3edcea9337` |
 

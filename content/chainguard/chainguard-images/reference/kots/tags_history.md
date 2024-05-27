@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kots Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                         | Last Changed | Digest                                                                    |
 |---------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1` `latest` `1.109.4` `1.109` | May 23rd     | `sha256:1ba511a0f46609b8cb67bd25742b6190f47b045eff396d384608c7f2ebb805a1` |
+|  `1.109.6` `1.109` `1` `latest` | May 24th     | `sha256:22106110932b7dc0c6972830056ee40f88bc6ff129c46a59ba71ca0da6f314b7` |
+|  `1.109.5`                      | May 24th     | `sha256:d7593af0065d686fd527e495eaaecb35428ff4432df239b3bc4297bf63ce7cde` |
+|  `1.109.4`                      | May 23rd     | `sha256:1ba511a0f46609b8cb67bd25742b6190f47b045eff396d384608c7f2ebb805a1` |
 |  `1.109.3`                      | May 21st     | `sha256:32ca24c98485927e1d5ae6861de7fa9027e88cb0b8ccc649169abb53a786a845` |
 |  `1.109.2`                      | May 16th     | `sha256:2128ceb10c7a39d286e9e35deb6203dcf8edc12f8e70f7198796f4318f1288af` |
 |  `1.109.1`                      | May 15th     | `sha256:ed51490ebc2f0d4621998093c1e2f890e053306a46c2c332fa15a0a6399f4935` |
@@ -42,8 +44,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.108.12`                     | May 3rd      | `sha256:8cddb3068e42449b8b2dbfc3ceed209de4c82902e2c68f3342db3c9dd2e98bb0` |
 |  `1.108.11`                     | May 2nd      | `sha256:c9c5dd51cff78f5117f2bf15cf1e8f2c65292dd30698047f6b3057424c74c82b` |
 |  `1.108.10`                     | May 1st      | `sha256:ccece6b7a5d1f1e53ac34d0239b750909d730396aab0fb0ccc75bdec663a7cc0` |
-|  `1.108.9`                      | April 26th   | `sha256:fb06677f8e05584506b367e0659cb6abc80b564eea9c0a3bb91df60ec6cc93b9` |
-|  `1.108.8`                      | April 24th   | `sha256:c19f25df825fdc2bee4dc810c5540afcbbd6b4f1f72aa6c7f28900bd37d91c99` |
 |  `1.99.0` `1.99`                | May 23rd     | `sha256:222283bb84c8c97db0de52373983f8495cf815c82d91e673948e710a374433ce` |
 |  `1.98.3` `1.98`                | May 19th     | `sha256:5efbcb49de80ee13159b72aa98789fa7190bfcc534bb2fc1dcbc185d42b46132` |
 |  `1.98.2`                       | May 12th     | `sha256:ab6f558f20574918f661e26e33718e12817de2fc2a109460378c1f54cf27c947` |

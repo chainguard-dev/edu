@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public tomcat Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-06 00:43:57
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -72,14 +72,14 @@ The table shows package distribution across variants.
 | `libxcrypt`              | X          | X      |
 | `ncurses`                | X          | X      |
 | `ncurses-terminfo-base`  | X          | X      |
-| `openjdk-11`             | X          | X      |
-| `openjdk-11-default-jvm` | X          | X      |
-| `openjdk-11-jre`         | X          | X      |
-| `openjdk-11-jre-base`    | X          | X      |
+| `openjdk-17`             | X          | X      |
+| `openjdk-17-default-jvm` | X          | X      |
+| `openjdk-17-jre`         | X          | X      |
+| `openjdk-17-jre-base`    | X          | X      |
 | `p11-kit`                | X          | X      |
 | `p11-kit-trust`          | X          | X      |
-| `tomcat-9`               | X          | X      |
-| `tomcat-9-webapps`       | X          | X      |
+| `tomcat-10.1`            | X          | X      |
+| `tomcat-10.1-webapps`    | X          | X      |
 | `tomcat-native`          | X          | X      |
 | `wget`                   | X          |        |
 | `wolfi-baselayout`       | X          | X      |

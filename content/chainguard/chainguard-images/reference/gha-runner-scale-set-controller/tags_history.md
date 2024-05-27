@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gha-runner-scale-set-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 23rd     | `sha256:e0d253b83930f83cc5fc59dfa7535ef7e1f61fb1cf32017ea9970ad37460eb11` |
+|  `latest-dev` | May 24th     | `sha256:538ca5688f6fb423e6bf5a31e73ccdbc90bcfd171a36d0ea1c84c0fce75a72ef` |
 |  `latest`     | May 23rd     | `sha256:42f2424a986460d135d81dcd00b3fb734aae0ed9c575ff1530983d5fb639d797` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.9-dev` `0-dev` `latest-dev` `0.9.2-dev` | May 23rd     | `sha256:9a36b606ecd0e80e835d49cd77ea9bfd83ef5e37240b4a97b7c2764e59e725cc` |
+|  `0.9.2-dev` `0.9-dev` `latest-dev` `0-dev` | May 24th     | `sha256:1c80c700b9ef798284a782934f69f2b551c91ee9306429e491e593fe7b19d948` |
 |  `0.9.2` `latest` `0.9` `0`                 | May 23rd     | `sha256:81cae510716bcca09ed4813c97c61e8db7807d0911ea584951462cd7a9b1375f` |
 |  `0.9.1-dev`                                | May 19th     | `sha256:137a5469832cec22924544b3ac6cdc69f09200d5814d5f4b9995f961ab0d0e69` |
 |  `0.9.1`                                    | May 17th     | `sha256:0ffeb88c2e2b90f11d91dc2afadc595a0956b1f7fb25d06ad551fd66f43fe302` |

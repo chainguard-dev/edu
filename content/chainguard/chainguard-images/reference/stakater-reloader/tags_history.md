@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the stakater-reloader Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.0-dev` `1-dev` `latest-dev` `1.0.97-dev` | May 23rd     | `sha256:e459ccc3cb36ee3726a45e1fe11e1a4a28cf2eb4e71db1c3530cd5d3a9dbade2` |
+|  `1-dev` `1.0-dev` `latest-dev` `1.0.97-dev` | May 24th     | `sha256:72df5ce4ba4a005774f7d53a4a8893d4b78450dae5dcdcb4cd264825a38c111a` |
 |  `latest` `1` `1.0` `1.0.97`                 | May 23rd     | `sha256:0e9037bc180a3fea82491079f7f069612055f0a2b8abc276513cbf389f78f166` |
 |  `1.0.95-dev`                                | May 15th     | `sha256:dbd2200150539b30feddac49981acc352f9a922a0e8164c70000614deee02a36` |
 |  `1.0.95`                                    | May 15th     | `sha256:ba81e9cd4b9cbaa40f2ab3ef8196fb85549065e4dfe55e109ab1764089eb1e30` |
@@ -53,10 +53,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.0.90`                                    | April 27th   | `sha256:8227d3b409b086ce7f298804f81ed4d5120da65d43c70369444612ea46394553` |
 |  `1.0.88`                                    | April 27th   | `sha256:0380abf6d8b754b651533b4c906b9b3e1ac7bb8061d27c4a078a369cc1255cf9` |
 |  `1.0.88-dev`                                | April 27th   | `sha256:1ffd8c6dfd8f8e8f574d8acb7edf93fa4823b40b80f1ebfda4e140e92f1fd70b` |
-|  `1.0.87-dev`                                | April 26th   | `sha256:bcc9a01bef7b40cdd78d3d12a0355a47806a720529a7b7554c626c78cad6a491` |
-|  `1.0.87`                                    | April 26th   | `sha256:d418c16e52c0825f701834bde256182eaf41c2362faa84642f9ee6d9af42a541` |
-|  `1.0.84`                                    | April 26th   | `sha256:5b79c6ec3574b2672007dd87e8e5e6293e64e873d4eb955f76e226f6665d5e03` |
-|  `1.0.84-dev`                                | April 26th   | `sha256:8d1125bb9170976f8528a23d91c8ba1311eea1bfd61a98d05dc6bc1f3d1afac9` |
-|  `1.0.82-dev`                                | April 24th   | `sha256:62b7c3b0d65a091422b08edfb66e29c1f54fc1e75c4e1328e41e73deae7d9690` |
-|  `1.0.82`                                    | April 24th   | `sha256:2f39e7c473503b0134fb13c15101f1bbc924ebb490e4b97035998fa84c9eec92` |
 

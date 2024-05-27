@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-external-resizer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                  | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.9.0-dev` `latest-dev` `1.9-dev` `1.9.0-r9-eks-1-23-33-dev` `1.9-eks-1-23-33-dev` `1-eks-1-23-33-dev` `1.9.0-eks-1-23-33-dev` | May 23rd     | `sha256:1bb95391c7ac7282f5d938787400e93bea51c04478561f07e933d5432c5f7382` |
-|  `1.10-eks-1-25-33-dev` `1-eks-1-25-33-dev` `1.10-dev` `1.10.0-r7-eks-1-25-33-dev` `1.10.0-eks-1-25-33-dev` `1.10.0-dev`                 | May 23rd     | `sha256:523e3052368b685d8a37d442701536b2fdd7cc9e31c10888882257e42d043490` |
+|  `1.10.0-dev` `1.10-eks-1-25-33-dev` `1.10.0-r7-eks-1-25-33-dev` `1.10.0-eks-1-25-33-dev` `1.10-dev` `1-eks-1-25-33-dev`                 | May 24th     | `sha256:b250da77566f7c199e8b1646b519d14c0f8e10bd635c24770fe5ee98b2fd5627` |
+|  `1.9.0-dev` `1.9.0-eks-1-23-33-dev` `1-eks-1-23-33-dev` `latest-dev` `1.9.0-r9-eks-1-23-33-dev` `1-dev` `1.9-dev` `1.9-eks-1-23-33-dev` | May 24th     | `sha256:09cba1b603863bfd2c07a4012389dff29e9c860033de4e94e562efad1c1506ca` |
 |  `1.10.0-eks-1-25-33` `1.10.0-r7-eks-1-25-33` `1.10.0` `1.10` `1.10-eks-1-25-33` `1-eks-1-25-33`                                         | May 23rd     | `sha256:1dbb7f57b3bc7264137861bd7188c82a9df2e2a23a24afe7b56ab50060f590ed` |
 |  `1.10.0-r6-eks-1-25-33-dev`                                                                                                             | May 23rd     | `sha256:19650b5f453511ec9e0dd7769b0cbd14ab62ecbfae7b1757e2f7c301d30168e5` |
 |  `1.10.0-r6-eks-1-25-33`                                                                                                                 | May 23rd     | `sha256:edf7060793ac96cd80558f3ead271dfc5125ca0bb682948e54faffe9fa8ede45` |

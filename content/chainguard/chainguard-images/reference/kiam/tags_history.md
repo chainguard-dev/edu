@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kiam Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,5 +33,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)             | Last Changed | Digest                                                                    |
 |---------------------|--------------|---------------------------------------------------------------------------|
-|  `4.2` `4` `latest` | May 23rd     | `sha256:0bf8b4f08a09c4309fd88c182ef2d5f73d08f121f15e7c2bc81744ae48756615` |
+|  `4` `latest` `4.2` | May 24th     | `sha256:50d66ca16cd7b229c990a00f11abd59a54c83717a3c5a216f8270d67074cbaf3` |
 

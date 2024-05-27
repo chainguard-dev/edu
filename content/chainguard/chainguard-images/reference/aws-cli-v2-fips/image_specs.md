@@ -3,8 +3,8 @@ title: "aws-cli-v2-fips Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public aws-cli-v2-fips Chainguard Image."
-date: 2024-04-04 00:51:18
-lastmod: 2024-04-04 00:51:18
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -50,7 +50,8 @@ The table shows package distribution across variants.
 | `ld-linux`                    | X          | X      |
 | `libbrotlicommon1`            | X          |        |
 | `libbrotlidec1`               | X          |        |
-| `libcrypt1`                   | X          |        |
+| `libbz2-1`                    | X          | X      |
+| `libcrypt1`                   | X          | X      |
 | `libcrypto3`                  | X          |        |
 | `libcurl-openssl4`            | X          |        |
 | `libexpat1`                   | X          |        |
@@ -62,12 +63,13 @@ The table shows package distribution across variants.
 | `libssl3`                     | X          |        |
 | `libstdc++`                   | X          | X      |
 | `libunistring`                | X          |        |
-| `libxcrypt`                   | X          |        |
+| `libxcrypt`                   | X          | X      |
 | `ncurses`                     | X          |        |
 | `ncurses-terminfo-base`       | X          |        |
 | `openssl-config-fipshardened` | X          | X      |
 | `openssl-provider-fips`       | X          | X      |
+| `perl`                        | X          | X      |
 | `wget`                        | X          |        |
 | `wolfi-baselayout`            | X          | X      |
-| `zlib`                        | X          |        |
+| `zlib`                        | X          | X      |
 

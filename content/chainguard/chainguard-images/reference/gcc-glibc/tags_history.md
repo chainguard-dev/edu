@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gcc-glibc Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | May 24th     | `sha256:5157d106280bdcce28d9426d3e4c40dbcbab05e1502557c9d059a6188c2d051d` |
 |  `latest-dev` | May 23rd     | `sha256:07763503c6641508fd602e57a515ee3eeb699ef0f55905a2de96be9c0ea44c52` |
-|  `latest`     | May 23rd     | `sha256:592e88e7abce0e5918cec5d8d232af2b879fd1e8d9189ef5c3c150da5d54d255` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `13.2.0-dev` `13.2-dev` `latest-dev` `13-dev` | May 23rd     | `sha256:229c9cb084ed7468600f21b17d9221b44ab049cd5c879fcec3b5e660f2c2e9b8` |
-|  `13.2.0` `latest` `13` `13.2`                 | May 23rd     | `sha256:d694669f3f0ee8be523e6d2858bb9b4ef627cfd5a41b9f56e837f6be98949c12` |
+|  `13.2-dev` `latest-dev` `13.2.0-dev` `13-dev` | May 24th     | `sha256:5743b385597e88a8e0a8712dc5800939707ee40aad85dc9a005960d02a1b4e20` |
+|  `13` `latest` `13.2.0` `13.2`                 | May 24th     | `sha256:48a576ddd63ccfc9eb63821d279ca9ba6772ab9218f149fa8bc753e8789458ec` |
 |  `12.2.0` `12.2` `12`                          | May 2nd      | `sha256:b4ef6a3728403bd9d844ecd944fe5e116aca5f767cef3f44c7d3320a7635a093` |
 

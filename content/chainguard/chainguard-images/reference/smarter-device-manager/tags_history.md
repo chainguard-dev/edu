@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the smarter-device-manager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.20.11-dev` `1.20-dev` | May 23rd     | `sha256:dd1e5fb6956e0c0fd65bb78cbd7165dc795f6da157d825644bf77515f534348b` |
+|  `1.20.11-dev` `1-dev` `1.20-dev` `latest-dev` | May 24th     | `sha256:70c49d80f3aa152173f0a294be95346656f04f8e1e324324819c8a73d57927db` |
 |  `1` `1.20` `1.20.11` `latest`                 | May 23rd     | `sha256:b60ae6230d8bcf7ebecce4c16b3a2c5799154883a93111fd1b19fc58d01ac297` |
 

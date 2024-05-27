@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the superset Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | May 24th     | `sha256:962448bfd5358b812b982c310995c822e22b5c5a0c87ad16134461c447039c76` |
 |  `latest-dev` | May 23rd     | `sha256:65711bf50a5af0431ae3b466d994551ec4b13df362cc1c74827b350c4dd97855` |
-|  `latest`     | May 23rd     | `sha256:edfd6d41c1b260f032098e14b849c14aeff8677b15ee45ac87b750d0e7ce0e90` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `4.0` `4` `4.0.1`                 | May 23rd     | `sha256:5d8d109c5a0a979a582f1788d56f289b116898f5354a8fc6606cf7426088862f` |
-|  `4-dev` `4.0.1-dev` `4.0-dev` `latest-dev` | May 23rd     | `sha256:95f3264a5cb85a6a0a90c16d8de9584b8371736dac6738ddab8cf88f4670cd00` |
+|  `4.0.1-dev` `latest-dev` `4.0-dev` `4-dev` | May 24th     | `sha256:4acf030ce3b990dc6b2914b56ae8e3acc0091bcf5aac36b61f676c0b9e37c30e` |
+|  `4.0.1` `4.0` `latest` `4`                 | May 24th     | `sha256:040011d65090fd628d4e8dd000da18ef584d77166a2be91178aec40a526ab59f` |
 |  `4.0.0-dev`                                | May 14th     | `sha256:674ad4627e2d255d58657ccccf274618af343a2154fe6431c113e3b8189dbd95` |
 |  `4.0.0`                                    | May 13th     | `sha256:b82921f99bf739979746a773282ed9233747b59a8d4bce11c2b172b0f187834e` |
 
