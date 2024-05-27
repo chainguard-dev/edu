@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the yara Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.5-dev` `latest-dev` `4-dev` `4.5.0-dev` | May 23rd     | `sha256:4a7638c0ed7610512b5b4bce9278860c60acdab0312a353ed48c5b38a36b05e9` |
-|  `4` `4.5.0` `4.5` `latest`                 | May 23rd     | `sha256:7e31c41f75e6717270977a21045467296435360bfdf4135279c654f92b689644` |
+|  `4.5.1-dev` `4.5-dev` `4-dev` `latest-dev` | May 25th     | `sha256:b7ed9732f10c67728c83f1708754c3b0a5c2fee8e5d089ee2e97b419779dd78b` |
+|  `4.5.1` `4` `4.5` `latest`                 | May 25th     | `sha256:cc65f80678817148b0793e9004adff0b422e9282382f93853e04cf1eb75d1df5` |
+|  `4.5.0-dev`                                | May 24th     | `sha256:7f38e2ce9c549402cbef623cd88d39e5c23bce29d3d4ad349016992ad6cec12e` |
+|  `4.5.0`                                    | May 23rd     | `sha256:7e31c41f75e6717270977a21045467296435360bfdf4135279c654f92b689644` |
 

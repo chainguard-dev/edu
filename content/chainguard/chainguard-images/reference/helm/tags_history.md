@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the helm Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | May 24th     | `sha256:1667f28623a08e6441bf0d8c624a1b36af37c2bd9de55ca81bc23d66275ee0c8` |
 |  `latest-dev` | May 23rd     | `sha256:41bbd999f702598a23ab1963295f11e018ca512c360d85a2b55fbdbdde900723` |
-|  `latest`     | May 23rd     | `sha256:28ca85efed288af82b249a2f0c404e1f5fbc3b5b36e5bcb86d9f381dad6968a5` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.15.1-dev` `3.15-dev` `3-dev` `latest-dev` | May 23rd     | `sha256:ca00ba4bdd1d54feaf152a7986f30a25a1d423f7aedced2604fd5f1b492a835c` |
+|  `3-dev` `3.15.1-dev` `3.15-dev` `latest-dev` | May 24th     | `sha256:c313ff04ab552352af43da3681830001eb0c7244e6c02e4a526fb8c8c02151ad` |
 |  `3.15` `3.15.1` `3` `latest`                 | May 23rd     | `sha256:959cc82ec8b0f6a91ffa7d4f093869ec4f364dc2ec49d45ab00da34ddffa2f0f` |
 |  `3.15.0-dev`                                 | May 23rd     | `sha256:57141c2c7d62410f664f2738075a451c585c509bb631585cf1b648dddd5f15f3` |
 |  `3.15.0`                                     | May 23rd     | `sha256:5d4a9bfb76c4d761feae968a8a509fc49d19a1fb113334ffa1c29c073503f84f` |

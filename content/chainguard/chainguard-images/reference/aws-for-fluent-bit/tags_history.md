@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-for-fluent-bit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,10 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                       | Last Changed | Digest                                                                    |
 |-------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.32.2-dev` `latest-dev` `2.32-dev` `2-dev`                                 | May 24th     | `sha256:40a7b1ad8f5cd77854e4a74751488b5caa2150858a0cdfe01e9f01ddf3494563` |
+|  `2-dev-flb-1.9` `2.32-dev-flb-1.9` `2.32.2-dev-flb-1.9` `latest-dev-flb-1.9` | May 24th     | `sha256:a01762b82e7d6fe97f6148bc203af3a412b7dce37f67d43cf9ce4994be8ca3bc` |
+|  `2-dev` `2.32.2-dev` `2.32-dev` `latest-dev`                                 | May 24th     | `sha256:0204bd4168f2db3035c777df913e9c814f80989d1cc68f29fb5be3537a9155eb` |
 |  `2` `2.32.2` `latest` `2.32`                                                 | May 24th     | `sha256:52415916f95f57913946d0d16c8cbac1701ab79711ac8e7e82a09ab1d52ef846` |
-|  `2-dev-flb-1.9` `2.32-dev-flb-1.9` `2.32.2-dev-flb-1.9` `latest-dev-flb-1.9` | May 23rd     | `sha256:a7eeb17df963fb7414c29af15f9d124bc0ef29f6698d74a0dae951ac40336550` |
 |  `2-flb-1.9` `latest-flb-1.9` `2.32.2-flb-1.9` `2.32-flb-1.9`                 | May 23rd     | `sha256:ee1c37c0e22e41e2a7b34d0a5f0e2252c8c160545ff134271f2306c3217ee40a` |
-|  `2.32.2-r0-flb-1.9`                                                          | April 26th   | `sha256:65edb4d28565dbfb49e08d43ec885cde3a1fad436d1d7f5a43ccd18c503557be` |
-|  `2.32.2-r0-dev-flb-1.9`                                                      | April 26th   | `sha256:f6194591a5f695c3beb86fa9a1d9011eb7aa1d97196e6a2428aa6cf6ef3e7328` |
 

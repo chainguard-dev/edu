@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-agent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,10 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1` `1.15.5` `1.15`                 | May 23rd     | `sha256:0293ea70abdcf4bb854949bf82840d1b454515f67a5e9e983581e882ed997278` |
-|  `1-dev` `1.15.5-dev` `latest-dev` `1.15-dev` | May 23rd     | `sha256:95881f9b729ef95124fa277fa813a7406c6ecd445df78624fe78485fab806562` |
-|  `1.14.11-dev` `1.14-dev`                     | May 23rd     | `sha256:0bb152ee08d990a67182ee1bfc798b3724256c91a9aa43b2a4eafc39247f5b83` |
-|  `1.14.11` `1.14`                             | May 23rd     | `sha256:2bece2d0193ab6a8279ea277b56aa7105e0107a37866694c320627e78d063427` |
+|  `1.14-dev` `1.14.11-dev`                     | May 24th     | `sha256:28d5bbb8aa9fe103b855ae7c6a8ccaf2fb6c21cf9afd38498b3173040a312b0d` |
+|  `1` `1.15` `1.15.5` `latest`                 | May 24th     | `sha256:5d716f51f9ad1c91f49cacb0e5ffcde1047f74e42cac0557171eb30b011c2806` |
+|  `1-dev` `1.15-dev` `latest-dev` `1.15.5-dev` | May 24th     | `sha256:b2cc474a1812d1c229f53343b81a6ad19405cad05cd54ee56445097d26d44dfb` |
+|  `1.14` `1.14.11`                             | May 24th     | `sha256:b525ab16bb38dd730f7aee2f97cdffd2034a0629d268032a965e75bbfcb6e065` |
 |  `1.14.9-dev`                                 | May 22nd     | `sha256:4defc89219ea9c4d998a0c4ce612b39a1ab09d3855c37b5925d273d864c1a7f2` |
 |  `1.14.9`                                     | May 22nd     | `sha256:258e103bd692829db18d609eb7a05eee432c8074eae1a45f14ac625cd7c2147c` |
 |  `1.15.4-dev`                                 | May 20th     | `sha256:6a9af2ff0ac24ea376d102b63d6029801daaf20a69075c803cd80ff4fc065b2e` |

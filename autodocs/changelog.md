@@ -1,3 +1,10 @@
+# 2024-05-27
+New images added:
+
+- neuvector-scanner-fips
+
+A total of **723** documents were updated.
+
 # 2024-05-24
 New images added:
 

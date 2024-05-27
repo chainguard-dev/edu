@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the curl Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | May 24th     | `sha256:4630f9991ab7d012400894b30c66516effa555d0a37edcd863ad43aba53d0482` |
 |  `latest-dev` | May 23rd     | `sha256:be8b756cbab502f6fd0f9f9f3ac7332b0b9074c5de89e2d27474c8f9a58a81d2` |
-|  `latest`     | May 23rd     | `sha256:80575bee30d833946282d22f8f3386810d6b1d9227d850b27d5ac138cf1d02a4` |
 
 
 ### Private/Dedicated Registry
@@ -37,9 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8.8.0-dev` `8-dev` `8.8-dev` `latest-dev` | May 23rd     | `sha256:c26088b6b0c08fa5179aed731cbcc170209b05cea47e686a8cac73c4f7aab380` |
-|  `8.8` `8.8.0` `8` `latest`                 | May 23rd     | `sha256:d7db4fac2efb228551ecc4afc42123d0a6667081898259998d062a4835bec496` |
+|  `latest-dev` `8-dev` `8.8.0-dev` `8.8-dev` | May 24th     | `sha256:0c923d88ce81b36990df68550907e58da3572104c0b8bcae0014b7f76a01bdaf` |
+|  `8` `latest` `8.8` `8.8.0`                 | May 24th     | `sha256:c3d62ddfa5dfc4b56e6f69a2272e2c95a15ee44b8a08bdbd96759d82d6655097` |
 |  `8.7.1-dev` `8.7-dev`                      | May 21st     | `sha256:2376813de161b081f4a787f0561f7eba0a8fea6c6d6591fce42e64114029a137` |
 |  `8.7.1` `8.7`                              | May 21st     | `sha256:1549923343afcde77d3249007dfe0fc342dcd6a2593a839dc27c0b69a8e2d91e` |
+|  `8.1.0`                                    | May 25th     | `sha256:84b3217031be0703acd576a04d6ec9c1cc819a5a3abc8c7afa580737c74b8c34` |
 |  `8.0.1` `8.0`                              | May 17th     | `sha256:8e90fcbe3f0c1644d7ee0124a5777485581d3c46149fafcf077fec4799088c84` |
 

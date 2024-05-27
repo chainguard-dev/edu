@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the apache-nifi Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.26.0-dev` `1-dev` `latest-dev` `1.26-dev` | May 23rd     | `sha256:8afea58edd4c5e3d45fdaba8bcefbb4c892394ac855c11f998821af99e9f8219` |
-|  `1` `1.26` `1.26.0` `latest`                 | May 23rd     | `sha256:22470bcdd08664daea882f615247128f3ce49fbc86b361bab1e4f2746ab7ac32` |
+|  `1.26.0` `latest` `1` `1.26`                 | May 24th     | `sha256:cdea8832c7d8fa03acff96037ab0e177832c9a63ffbb309207391590db64ff16` |
+|  `latest-dev` `1-dev` `1.26-dev` `1.26.0-dev` | May 24th     | `sha256:acf583285292b05eb0c85aed74a207f86b0afd22b314837e63f506e51d2aa9e6` |
 

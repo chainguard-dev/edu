@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-config-reloader Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.74-dev` `0.74.0-dev` | May 23rd     | `sha256:cf04567a13e08e8531a0c60da6804b52c5b3a6e3950f677b4aec08cf13a3bd85` |
+|  `latest-dev` `0.74.0-dev` `0.74-dev` `0-dev` | May 24th     | `sha256:021042bf4889b460dcb783b44ac0a0865215d7f2bf42e06950c0fc8cdb6f38fd` |
 |  `0.74.0` `latest` `0.74` `0`                 | May 23rd     | `sha256:19785e819e9fe1821181f30353e9ae422d1b1a68ad1060cc1ecb5ed11fd7d98d` |
 |  `0.73.2-dev` `0.73-dev`                      | May 17th     | `sha256:e568cb93d9290e154422df7c4eb847d21b6159fe61243bada01ae76c0a802c30` |
 |  `0.73.2` `0.73`                              | May 17th     | `sha256:c425bfc21bfa1474f1991a4b39755eb78f7cc50025c1fd9d6797a2016b506312` |
@@ -45,6 +45,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `0.65.0-dev`                                 | May 5th      | `sha256:a90b1f49349b64b3862616e27b06a47c8cf382526d7b45f4d85c1b1b3f446596` |
 |  `0.64.1` `0.64`                              | May 4th      | `sha256:e39822c59f8c2ad5e70e55659b713bbe7b7bf6cc9307133e4376e9974bd02487` |
 |  `0.64.1-dev` `0.64-dev`                      | May 4th      | `sha256:dc191db7055bdf215ed53c610afe0d04af45d5442014d3535528a9bde68118e7` |
-|  `0.64.0`                                     | April 24th   | `sha256:29e657316cf40c6b1ec2407ff90af3c27cadae1c015e29395d8fe6de711115a8` |
-|  `0.64.0-dev`                                 | April 24th   | `sha256:49808be0d0fdbc9da7ca9256023025648d3913550417f012086fd494eacf566b` |
 

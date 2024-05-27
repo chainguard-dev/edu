@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the fluent-bit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.2.3-dev` `2.2-dev`              | May 23rd     | `sha256:b56ac002529d6108c02dc035add73f9095c84da691e6550862285f929c490d70` |
-|  `latest-dev` `3.0.5-dev` `3-dev` `3.0-dev` | May 23rd     | `sha256:d510f0ddc732f20b5fa90b8d5d905f28123f24999869328306ad6ae94dd9bf76` |
+|  `3.0-dev` `3.0.5-dev` `latest-dev` `3-dev` | May 24th     | `sha256:71aaa5c59cb29a8750163dd386bef4ea984ee899f9745ad6d9d2ccd46061a2e0` |
+|  `2.2.3-dev` `2-dev` `2.2-dev`              | May 24th     | `sha256:aa48007185a4905c58a7bc848688c2eb2420afda7d5d7fa77c7d6b3363941d3b` |
 |  `2.2` `2` `2.2.3`                          | May 23rd     | `sha256:a857c6dc8c57f7dabf6b22881378c338bd247d0902cb3c11ca34a28b85a3fb91` |
 |  `latest` `3.0` `3` `3.0.5`                 | May 23rd     | `sha256:44543317a76d56c2f722f432577514c9e8e6dcb77447094a9c3afb81fd2d0b60` |
 |  `3.0.4-dev`                                | May 23rd     | `sha256:45db58787ea2dc4e6dd3e2410ad4619a72de0556592e0e8824e23e2fdbaf2cc0` |
@@ -49,7 +49,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `3.0.3`                                    | May 20th     | `sha256:2717288523117b56db8e03fb41f25f87e9de3dbc960c3db141bcdb6849cbc78b` |
 |  `1.9.10-dev` `1.9-dev` `1-dev`             | May 13th     | `sha256:ed47054c5151266c10bbf8c1c0fdf9378e2cf8be92ed4046cc3839bcc51ca62c` |
 |  `1.9` `1` `1.9.10`                         | May 9th      | `sha256:60c9d6f579122db53169e04f667feba997494a3352f068250baab3ebf626a620` |
-|  `3.0.2`                                    | April 26th   | `sha256:8ccde47892306532760c9732d26473ee0662a05b67293226bd340172f17d35f8` |
-|  `3.0.2-dev`                                | April 26th   | `sha256:86155ea4558a4f5a3d7df1fe1dd593ca75a324f6630fc295b6e978cf6e96b639` |
 |  `2.1.1`                                    | May 18th     | `sha256:1e9d03f7c44e833bdfe722d5afe81899fba5c308f317b1572c4ef4d9327bf30f` |
 

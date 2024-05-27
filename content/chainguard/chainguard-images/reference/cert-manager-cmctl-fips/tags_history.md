@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-cmctl-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,9 +33,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.14.5-dev` `1-dev` `latest-dev` `1.14-dev` | May 23rd     | `sha256:421e095ace94ccfeb9a5248bee2fd462d7a2f889286f8f4d259eae02544f6f29` |
-|  `1.12.10-dev` `1.12-dev`                     | May 23rd     | `sha256:77af1160b84125ca1495383ed7216d7be9f321b9cb7f82f9d5d2f582faf90219` |
-|  `1.13.6-dev` `1.13-dev`                      | May 23rd     | `sha256:07773be62abc820f933bac375d237eb3f912556e6878a577d2a661907761686a` |
+|  `1.13.6-dev` `1.13-dev`                      | May 24th     | `sha256:02c864c60b5055b71931c103425aa1a7f33135f713e5c2b98418bac6d55eac69` |
+|  `1-dev` `1.14.5-dev` `1.14-dev` `latest-dev` | May 24th     | `sha256:5618970345c2ab201d53ea589cebb8a81e17e87a8a70cf821e046931031e9d25` |
+|  `1.12-dev` `1.12.10-dev`                     | May 24th     | `sha256:8cd83a8bbf822844f5431764257bf39bfa0cdd03fa7f7e22d9a8d22203101e4f` |
 |  `1.13.6` `1.13`                              | May 23rd     | `sha256:7ef14ad97a37d58b1fca65ba81209d137ae12cf67872a1a6318b22592793e6b3` |
 |  `1.12` `1.12.10`                             | May 23rd     | `sha256:bfe2a24a4b3de201b6ae27aeb52efaf35b0ed792f334052710fc2d4ccd199cfc` |
 |  `1.14` `latest` `1` `1.14.5`                 | May 23rd     | `sha256:b119e612800e949911457e381b93d5192ef1ec1fe87bb96288f792f9cad009a0` |
@@ -43,6 +43,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.14.4`                                     | April 30th   | `sha256:493b63abd9104393507e045dd083b7490bf15a15bf3f1322108d842d0f878e8a` |
 |  `1.13.5-dev`                                 | April 30th   | `sha256:560deff1bc1c4da5cd2543df128c181deec2c6a92db0ed9c99a5cde7abf074d2` |
 |  `1.14.4-dev`                                 | April 30th   | `sha256:93248c5545f4b296d6959e715eddd7923995313a2fa32009474cdfc180fe635f` |
-|  `1.12.9`                                     | April 24th   | `sha256:0573b4fd138606fad3be239d0a99d8d919402bad1a5bf80594a2e4e980802f0d` |
-|  `1.12.9-dev`                                 | April 24th   | `sha256:ec1b3c0aff09873ae0c2293a57e52ef6e350b2c19466a47d01a7ce152d0ad5bc` |
 

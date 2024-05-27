@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cortex Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.17.1-dev` `1.17-dev` | May 23rd     | `sha256:91c6866c945c4c6c924cdbb4e5e85b84da7ab93641088fc6f295ca7238653d7c` |
+|  `1.17.1-dev` `1.17-dev` `1-dev` `latest-dev` | May 24th     | `sha256:a739afce9c8c691026ca572eb83646d81fcbfddf0f699615ef2b66ca797b58d0` |
 |  `1` `1.17.1` `1.17` `latest`                 | May 23rd     | `sha256:9793ca242831bae4b44297a14c3a13c30b0e05fe527ec70fe6590936945d5808` |
 |  `1.17.0-dev`                                 | May 21st     | `sha256:bb6cecbdfc1c056560466e0eb8e6cee868e7bad699508bcddc7e55710a2b50c0` |
 |  `1.17.0`                                     | May 21st     | `sha256:dd2138371eae2d462369cf861c788f5105a9a54ce245a5966823418de9919f5d` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mariadb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 23rd     | `sha256:f9b698cf28039878b4344a159a4474e8075833f0a1af2be74f29ec0c52b8b7e9` |
-|  `latest`     | May 23rd     | `sha256:88e70bb9571086b6168a65a85a0dca2c909f0e7fee02307e1f40e9f3660b43dc` |
+|  `latest`     | May 24th     | `sha256:9164407fddd6ea8bf7976c478b5ddca5add8573baa0a6acb13635204e512e5cb` |
+|  `latest-dev` | May 24th     | `sha256:004326d43aa582181d32a494a49a02f99006ad2df8a59d69d4c667df8ce15b8f` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                          | Last Changed | Digest                                                                    |
 |--------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `10.11` `latest` `10.11.8` `10`                 | May 23rd     | `sha256:94b6ca2810c658cdf641c91e8d9b6871d9660808fa44030b0bc5d5cc837bf462` |
-|  `10.11.8-dev` `latest-dev` `10-dev` `10.11-dev` | May 23rd     | `sha256:efda7302141725def5efd13b6482d604591f202f51457814d4033be4d5fcceea` |
+|  `latest` `10.11.8` `10.11` `10`                 | May 25th     | `sha256:3db77842e00fdc7f25735ccbb1afa75d480e4d8ffe7da15185d0d8c733b35e50` |
+|  `latest-dev` `10.11.8-dev` `10.11-dev` `10-dev` | May 25th     | `sha256:b1a78a86216324ddfbccfa89f61202662d1bcb16c00e1408069201c6791f1d0c` |
 |  `10.11.7-dev`                                   | May 19th     | `sha256:ccfb38a644f47372439dfc591af37cd45213329b12e4ffcabe014a69f68acf8b` |
 |  `10.11.7`                                       | May 17th     | `sha256:62a05c917cd1b4693484beffd7a2cade5ef17931fc3d98243cdea1cea3cb0e70` |
 

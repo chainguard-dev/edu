@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public aws-cli Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -69,6 +69,7 @@ The table shows package distribution across variants.
 | `mpdecimal`              | X          | X      |
 | `ncurses`                | X          | X      |
 | `ncurses-terminfo-base`  | X          | X      |
+| `perl`                   | X          | X      |
 | `py3-asn1`               | X          | X      |
 | `py3-botocore`           | X          | X      |
 | `py3-colorama`           | X          | X      |

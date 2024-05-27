@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public pytorch-cuda12 Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -59,8 +59,10 @@ The table shows package distribution across variants.
 | `libgcc`                  | X          | X      |
 | `libgomp`                 | X          | X      |
 | `libidn2`                 | X          |        |
+| `libjpeg-turbo`           | X          | X      |
 | `libnghttp2-14`           | X          |        |
 | `libpcre2-8-0`            | X          |        |
+| `libpng`                  | X          | X      |
 | `libpsl`                  | X          |        |
 | `libssl3`                 | X          | X      |
 | `libstdc++`               | X          | X      |
@@ -87,6 +89,7 @@ The table shows package distribution across variants.
 | `pytorch-cuda12`          | X          | X      |
 | `readline`                | X          | X      |
 | `sqlite-libs`             | X          | X      |
+| `torchvision-cuda12`      | X          | X      |
 | `wget`                    | X          |        |
 | `wolfi-baselayout`        | X          | X      |
 | `xz`                      | X          | X      |

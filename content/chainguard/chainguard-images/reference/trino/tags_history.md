@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the trino Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 23rd     | `sha256:9a14c834c716138ca4d5d4d942b9028cf7fe02ad31ba4ec77a951567f33de98d` |
+|  `latest`     | May 24th     | `sha256:8f3a059897c1480aeb1f090fa0b605a96da99068af1956cd8689830f2fc08e97` |
 |  `latest-dev` | May 23rd     | `sha256:a631014aa42fc1eef286854ed8ff1af57e173a1876d79a16083a20f56bef2af6` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                 | Last Changed | Digest                                                                    |
 |-------------------------|--------------|---------------------------------------------------------------------------|
-|  `448-dev` `latest-dev` | May 23rd     | `sha256:4569311f667a484a9b803e524f7b445cff44b37769feb506e08329680fc6ddb8` |
-|  `448` `latest`         | May 23rd     | `sha256:4431ad6aba32d7dcc60a8ed0178c643fba16924d3b99aeb2c93680537d43dca0` |
+|  `latest-dev` `448-dev` | May 24th     | `sha256:8b51aa27966b2e40ae5cd843e0bce8c97a03770db58f75091733482ab4a05feb` |
+|  `latest` `448`         | May 24th     | `sha256:c4eb5cd4025e6eccdd640f051bd39e4c6cda4f135ca9fbc312ad9f5397f25cf3` |
 |  `446-dev`              | May 16th     | `sha256:c951138004531f1b3cd5f2d6714f670558e4e4bdd31366ab0ba807ffd69df84a` |
 |  `446`                  | May 16th     | `sha256:86173de55d548fa4f6fc68717e97ce212028047b66f1529ca90896727340a8dc` |
 |  `445-dev`              | May 3rd      | `sha256:593b9da027467535f3363181c2573af3bbdea3b033a414235666bed97273bf5a` |
