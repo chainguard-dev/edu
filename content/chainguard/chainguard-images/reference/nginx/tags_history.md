@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nginx Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,10 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.26.0-dev` `1.26-dev`                      | May 23rd     | `sha256:110a9ee2a31ceaea3241396fdefa359bbe517a4daf5103620868e59e757c89a4` |
-|  `latest-dev` `1.25.5-dev` `1.25-dev` `1-dev` | May 23rd     | `sha256:9f99a912166e5c893e3ca12b906e9a518dfd767d4834acc18989adf0384b58c2` |
-|  `1` `mainline` `1.25` `1.25.5` `latest`      | May 23rd     | `sha256:93b6adddb594df94c5e196ef44ab87d133b4be98c91362d2ea63b970b7857f81` |
-|  `1.26.0` `stable` `1.26`                     | May 23rd     | `sha256:8afccc2410fc9146dc5d5ea2874f8eafe3c7e52ebef3225d7d3b223e00a9abfa` |
+|  `1.26.0` `1.26` `stable`                     | May 24th     | `sha256:15cd3071254ed0c3fa7005f4e3379e7d478a83c55ad431fe68c3dbbfe43208c8` |
+|  `latest` `1.25` `mainline` `1.25.5` `1`      | May 24th     | `sha256:44bf3dc074c102c512bfd518cd986b6c0038d1e1247684fa9f911ff023256ddf` |
+|  `latest-dev` `1.25.5-dev` `1.25-dev` `1-dev` | May 24th     | `sha256:067a1aa873509673d67358b3ac1da2f9566f493b3dbe6082d9f18d27b413c566` |
+|  `1.26-dev` `1.26.0-dev`                      | May 24th     | `sha256:af588d26d0f532bc3f1e01fd4516b6bf89c200332dad22fc13da39b441d5c55f` |
 |  `1.24` `1.24.0`                              | May 2nd      | `sha256:f9cd4ff7d76ff0ce095f42fea4c9b5820fb99dcb49df0f0e302d87883fab7967` |
 |  `1.24-dev` `1.24.0-dev`                      | May 2nd      | `sha256:15ebd2e4311a62e1d77e55ff87e6f494c8d3a84ef8e861fdf6a7a85a92b3b4f3` |
 

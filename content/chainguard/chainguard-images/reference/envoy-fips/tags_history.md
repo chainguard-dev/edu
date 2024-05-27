@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the envoy-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                               | Last Changed | Digest                                                                    |
 |---------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1` `1.28.3` `1.28`         | May 23rd     | `sha256:10c0728621433d59ef1d2607ce6ddf12dfc42f8efc6cd3d00540ce90a8420c5b` |
-|  `latest-dev` `1.29-dev` `1.29.4-dev` | May 23rd     | `sha256:9981c548cd94884e75160820afbeadbb4e196894c5ee0834ecd1c8e1f8ab310e` |
-|  `1-dev` `1.28.3-dev` `1.28-dev`      | May 23rd     | `sha256:e8fa573f1be5756300a5b38688f900e1057baca72d8f731daecdff166c3d0818` |
-|  `1.27.5-dev` `1.27-dev`              | May 23rd     | `sha256:3660a4412b2412ca2eb99c542310b99b45113546ccd35b3b2a5083a88d02d888` |
-|  `1.29` `1.29.4`                      | May 23rd     | `sha256:ca331b9c485545cabc3d75f72bbc0eb5afd125d1baaf9546a6b2de0a337b5d41` |
-|  `1.27.5` `1.27`                      | May 23rd     | `sha256:6d96a972119e69961e084b64239133875cd81cbb34e766756674438c03d6e412` |
+|  `1` `1.28.3` `1.28`                  | May 26th     | `sha256:9c9916234abe789c685236713e03283abd03f93b6e950a2945d5383f84079016` |
+|  `latest` `1.29` `1.29.4`             | May 26th     | `sha256:8aed7d740ea3cb7ec86ecaa0c270e447a0bf08e1c0121ddc38a74e504416f3cb` |
+|  `1-dev` `1.27-dev` `1.27.5-dev`      | May 26th     | `sha256:77cf5e50461062bd2ad790af0f5067014b98dd2d12924675d3cba3d583516b93` |
+|  `latest-dev` `1.28-dev` `1.28.3-dev` | May 26th     | `sha256:4ac07d5ed69bdf492b2d299b95887f4a656ac8d19c0582504177f96af1218fab` |
+|  `1.27` `1.27.5`                      | May 24th     | `sha256:cec15630d4e5cded61b3f895506433a79b98e79283fc9fce19aebd576d9f59e8` |
+|  `1.29.4-dev` `1.29-dev`              | May 24th     | `sha256:b86f210b21c31924ddccfb3b1e18b2f4d0972f49bf1fc31a6666104a8fd1d8c4` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public aws-cli-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-04-16 00:44:43
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -71,6 +71,7 @@ The table shows package distribution across variants.
 | `ncurses-terminfo-base`       | X          | X      |
 | `openssl-config-fipshardened` | X          | X      |
 | `openssl-provider-fips`       | X          | X      |
+| `perl`                        | X          | X      |
 | `py3-asn1`                    | X          | X      |
 | `py3-botocore`                | X          | X      |
 | `py3-colorama`                | X          | X      |

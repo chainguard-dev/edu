@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-acmesolver-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,9 +33,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.14.5-dev` `1.14-dev` | May 23rd     | `sha256:15e6495172c982ed756b2c6f91e29a370b3808f13fae1aa578636f36f88eca41` |
-|  `1.13.6-dev` `1.13-dev`                      | May 23rd     | `sha256:9993c7bbb0b69f59aefe51fb528fd38768c3e7fb15380230cc326a1e5d42b5c8` |
-|  `1.12.10-dev` `1.12-dev`                     | May 23rd     | `sha256:0ab254615ea68192b485318a6542b0b6c35e49065c807d76c2289d360f9f782a` |
+|  `1.12-dev` `1.12.10-dev`                     | May 24th     | `sha256:1ce1c1960f14807f0c5c3987429e37788983b897c8d5ad35eae36f4edb3766a7` |
+|  `1-dev` `latest-dev` `1.14-dev` `1.14.5-dev` | May 24th     | `sha256:fbfe2851b4afdb67a6364e9ce83204635945f3784536d11552812db8e1beab60` |
+|  `1.13-dev` `1.13.6-dev`                      | May 24th     | `sha256:4551b18fbb22f34248a3ee5c562be64dae38d708b087317be8dec4cc23377679` |
 |  `1.14` `latest` `1` `1.14.5`                 | May 23rd     | `sha256:a66267aea380ac7cada4f00daab0c4bfd90bcd3f85fd87fcea33f4f276bdcf3f` |
 |  `1.12` `1.12.10`                             | May 23rd     | `sha256:e865a92d4651262962c357515df59d5c522ed794db69b85165dec0a233fe78ea` |
 |  `1.13.6` `1.13`                              | May 23rd     | `sha256:700521ddf1a0ce6c5b1f16259caa45af7e272ecc6cbd6f989d8ba28dd2256c02` |
@@ -43,6 +43,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.14.4`                                     | April 30th   | `sha256:e56a40e5be53fbc525bf5a017c516f09c63e6f7ac3b2501f44f640342c4712f5` |
 |  `1.14.4-dev`                                 | April 30th   | `sha256:a70117488a8856e3094c90128f17f2b616337cfe0ddd883df80f1ea216eafc65` |
 |  `1.13.5-dev`                                 | April 30th   | `sha256:3a54b334f547358b834004619e1e454e23c1daaaf81b27b477637d9a13d5f46d` |
-|  `1.12.9`                                     | April 24th   | `sha256:362abf7edd9d5d4d3416b0f401d8f67c700cddc3add5ee343aaa7d36850b3d76` |
-|  `1.12.9-dev`                                 | April 24th   | `sha256:cd43cdd4be83fa7ee267c476dffe3f9325dc736d67271cb28f1271f4d6d01677` |
 

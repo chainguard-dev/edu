@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opensearch-dashboards Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 23rd     | `sha256:d00b9d8a97e1bc8fa17bf43ea62e04b9312cfc9c79e0c577a07902bdc3830444` |
-|  `latest`     | May 23rd     | `sha256:d9737a8967b75f855eab82a21a6ed26f1d26e281480368b37702ed18cdfef00c` |
+|  `latest-dev` | May 24th     | `sha256:58cdb844e9fe00c0a9964ff0794555e2526896cfdfd80ae1f84a459b27db6bf1` |
+|  `latest`     | May 24th     | `sha256:5418ec26c1e1dcf2cfb674bfc234e277f713a06e89001500e13d4e9fcbdc7552` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.13-dev` `2-dev` `latest-dev` `2.13.0-dev` | May 23rd     | `sha256:b9fa2699adfb63efe3a21305483f15bff4f1a9a9a297c5b6439d83fb867a333c` |
-|  `2.13` `2.13.0` `latest` `2`                 | May 23rd     | `sha256:781d6e08cae9308be0adf097c7d36bdd34e21a0ee723bfd029f2b273badb377a` |
+|  `2.13.0-dev` `latest-dev` `2-dev` `2.13-dev` | May 24th     | `sha256:d41ee7b66fb3ac22ca5ef7d10f4b75d94bc708654b45260ed821a5376e0bcbf5` |
+|  `2.13.0` `2` `2.13` `latest`                 | May 24th     | `sha256:4a8186871edae52b290990171e209d43585328e83932d24de2404e83fc3717a0` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the velero-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.13.2-dev` `1.13-dev` `1-dev` `latest-dev` | May 23rd     | `sha256:18414a5ab8b54b1579e00a23100a74e7fecc32a6dd00de1b3583c83647ee9f4b` |
+|  `1.13.2-dev` `1-dev` `latest-dev` `1.13-dev` | May 24th     | `sha256:c6aacfa248020d2b46132d2ea6f839a15b14eb2f06c83ba80cf460c435a915af` |
 |  `1` `1.13` `latest` `1.13.2`                 | May 23rd     | `sha256:ebb15271f4a32980149567388aaeb2a2bc13b9352303fc7625ae92d2ae9aa2fe` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-visualization-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 23rd     | `sha256:b07a3d2258d9fbe05e477805b83becb8e68cc28d88316c61dc3db5da56657477` |
+|  `latest`     | May 24th     | `sha256:87301ae1677c0c2f2b0f5a5e76ba607053add9736484f31d631d642780a3c706` |
 |  `latest-dev` | May 23rd     | `sha256:9ad49e0c24f25c16e3fa72961cdbe5c2d460ed6b620c9119241ed059216ce809` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `latest-dev` `2.2.0-dev` `2.2-dev` | May 23rd     | `sha256:872580f25f6fa803b60ce597f7bdafbf480b789ed833aa8a01aa2c026a006b64` |
-|  `2.2.0` `2` `latest` `2.2`                 | May 23rd     | `sha256:79225ccf3d1f4961c45b6387da5ce083a0e54f29f1f121ba6313e12247f5e051` |
+|  `2.2` `latest` `2.2.0` `2`                 | May 24th     | `sha256:7e6f1b2f4a878933dbe9c5b8936690b60ea11a8e6c3ac3bd31a409bc4f7ecf49` |
+|  `2.2.0-dev` `2.2-dev` `2-dev` `latest-dev` | May 24th     | `sha256:6af5c49a571b3e0c37a00a5849edd9e910affe5e4faeae65c295a9fc60bb08cd` |
 |  `2.1-dev` `2.1.0-dev`                      | May 13th     | `sha256:c7fcde7c5c140ed229aaebe8793d026c739a927f7eb2d50c39b908e51bd9631c` |
 |  `2.1.0` `2.1`                              | May 13th     | `sha256:b6929ef1e09303329746d1a1316096b1f8c76d59ccf5e9e86ab5516c715b42c4` |
 

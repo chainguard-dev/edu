@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the envoy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,11 +37,11 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.28-dev` `1.28.3-dev`                      | May 23rd     | `sha256:496b15f30df04a3e5ef50546a41851038490adddf5acf69e524ee5a42dead899` |
-|  `1.27.5-dev` `1.27-dev`                      | May 23rd     | `sha256:ef4e2c2580d01c80341f5a438be1b50c2c065c04023ef7dd8bd6f209bbad16fa` |
-|  `latest-dev` `1.29-dev` `1-dev` `1.29.4-dev` | May 23rd     | `sha256:239babc32500a9cd787dc15de99fb067fe900d529e3c8e129bc151f5eba13663` |
-|  `1.29` `1.29.4` `latest` `1`                 | May 23rd     | `sha256:85982a0f28dea235d67bb49eca079a5eb85e7c0952a331075f1d20b9cc28d72b` |
-|  `1.27.5` `1.27`                              | May 23rd     | `sha256:1d21491d1b1e31936588242e32293ff7b23cf1f2af5e7e4f5150a6a0c8695a19` |
-|  `1.28` `1.28.3`                              | May 23rd     | `sha256:32ae5c7859a97ce5ea36e0b3ebb85612321e2b499e1a70d6689834844512753c` |
+|  `1.29.4-dev` `1.29-dev` `latest-dev` `1-dev` | May 24th     | `sha256:13c59265d57a78f027388cd0883601c0face49415a0725bf70a9974a5b83ced8` |
+|  `1.28-dev` `1.28.3-dev`                      | May 24th     | `sha256:b2c21f48c060feadf9189ee9cfa428f2b7c1627beb08c1fbfd9f445052172b79` |
+|  `1.27.5` `1.27`                              | May 24th     | `sha256:c354b7ff6dfeeb900faf8f9c08728f9d281a5ccee81999d1083261499debc983` |
+|  `1.27-dev` `1.27.5-dev`                      | May 24th     | `sha256:0f63d7bfe33de54dcebd2b0b876ba6a0d66a18bafdb07320dedfb86e981878ba` |
+|  `1` `latest` `1.29` `1.29.4`                 | May 24th     | `sha256:34b277454b2d5d3d12b6862c70d54f16f0ec98ccf1454d1bca3d31705ccb0982` |
+|  `1.28` `1.28.3`                              | May 24th     | `sha256:ed70d81676e07a808d4fd227d2a612711c5282bb80eae0c8840e9a0564e6dd81` |
 |  `1.26.0`                                     | April 28th   | `sha256:8c7c61ddb5b6746de87fdd3754067c0005a709e113d0da02cec67686d267538c` |
 

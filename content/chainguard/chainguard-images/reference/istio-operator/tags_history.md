@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the istio-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-27 00:43:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,9 +37,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.20-dev` `1.20.6-dev`                      | May 23rd     | `sha256:ccc3c10ab8e1c084c993800932f4d3b2635ff359b2335b78679b108e8997cbf6` |
-|  `1-dev` `latest-dev` `1.22.0-dev` `1.22-dev` | May 23rd     | `sha256:a4f69ec29ed10d29ef30c060afaa6d04c9ca00f8b455bab1acbed996641b125d` |
-|  `1.21.2-dev` `1.21-dev`                      | May 23rd     | `sha256:c46316f97c323f60fe42954dfb1f5100bf4585857a2205aceafa6b425111611b` |
+|  `1.21.2-dev` `1.21-dev`                      | May 24th     | `sha256:5ae035fc974b4c1ef621816155e4e11a019f11893eb6100e6c596f92a1d0e470` |
+|  `1.22-dev` `1-dev` `latest-dev` `1.22.0-dev` | May 24th     | `sha256:933dff9839deec2bb3ea1eee38dce9e26d025a5f323e9214d4a3a4174db2c839` |
+|  `1.20-dev` `1.20.6-dev`                      | May 24th     | `sha256:46b740737f968f6a269b013e823c72eba07a2ebe278679c01d6688ae29d1a658` |
 |  `1.22.0` `1` `1.22` `latest`                 | May 23rd     | `sha256:5635a55fbbf3462cb7cbc12db24f295d9960ac98f45c86cdb2b4524b2995a1d6` |
 |  `1.21` `1.21.2`                              | May 23rd     | `sha256:bf3b66bbb284b651e45e5623e6a316f942bbcdc10d836759c18ba24e5886527e` |
 |  `1.20.6` `1.20`                              | May 23rd     | `sha256:b124a55ab153ab0deba3bd452276c43becddf0c84939fd75fd7b9287a4798b00` |
