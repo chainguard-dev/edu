@@ -4,8 +4,8 @@ linktitle: "nvidia-container-toolkit"
 type: "article"
 layout: "single"
 description: "Overview: nvidia-container-toolkit Chainguard Image"
-date: 2024-05-06 00:43:57
-lastmod: 2024-05-06 00:43:57
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-05-28 00:45:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -61,7 +61,7 @@ helm upgrade --install gpu-operator nvidia/gpu-operator \
 > You need GPU nodes to run the operator as it will schedule Deployments and DaemonSets on nodes with GPUs.
 
 > [!NOTE]
-> If you want to learn more about how we are testing this image, please refer to the [TESTING.md](./TESTING.md) file.
+> If you want to learn more about how we are testing this image, please refer to the [TESTING.md](https://github.com/chainguard-images/images/blob/main/images/nvidia-container-toolkit/TESTING.md) file.
 
 <!--body:end-->
 
