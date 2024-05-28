@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the fluent-bit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-27 00:43:34
+lastmod: 2024-05-28 00:45:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,10 +37,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.0-dev` `3.0.5-dev` `latest-dev` `3-dev` | May 24th     | `sha256:71aaa5c59cb29a8750163dd386bef4ea984ee899f9745ad6d9d2ccd46061a2e0` |
-|  `2.2.3-dev` `2-dev` `2.2-dev`              | May 24th     | `sha256:aa48007185a4905c58a7bc848688c2eb2420afda7d5d7fa77c7d6b3363941d3b` |
-|  `2.2` `2` `2.2.3`                          | May 23rd     | `sha256:a857c6dc8c57f7dabf6b22881378c338bd247d0902cb3c11ca34a28b85a3fb91` |
-|  `latest` `3.0` `3` `3.0.5`                 | May 23rd     | `sha256:44543317a76d56c2f722f432577514c9e8e6dcb77447094a9c3afb81fd2d0b60` |
+|  `3.0.6` `latest` `3.0` `3`                 | May 27th     | `sha256:b4e9b1e57968fbb792746cd3086be2173a4164d4f7437708a8aa4218ca1f4e45` |
+|  `2.2.3` `2.2` `2`                          | May 27th     | `sha256:b0fc045c4ab247079cb3e6011507b9154e59e0ad5ee9210ce8d05e61c9427288` |
+|  `2-dev` `2.2-dev` `2.2.3-dev`              | May 27th     | `sha256:2702fc9a062cfa56ec4734780abc7dc9af475d52ef30678fd5bf27babf992555` |
+|  `latest-dev` `3-dev` `3.0.6-dev` `3.0-dev` | May 27th     | `sha256:d43f0ba19762a272225d42a90c380c20e3237b85307ad7ab15e677ad30037564` |
+|  `3.0.5-dev`                                | May 24th     | `sha256:71aaa5c59cb29a8750163dd386bef4ea984ee899f9745ad6d9d2ccd46061a2e0` |
+|  `3.0.5`                                    | May 23rd     | `sha256:44543317a76d56c2f722f432577514c9e8e6dcb77447094a9c3afb81fd2d0b60` |
 |  `3.0.4-dev`                                | May 23rd     | `sha256:45db58787ea2dc4e6dd3e2410ad4619a72de0556592e0e8824e23e2fdbaf2cc0` |
 |  `3.0.4`                                    | May 23rd     | `sha256:8fdbf93cba6831476b5b0c56bb14cc2e487f9cf25369071092926b41d7788829` |
 |  `2.2.2`                                    | May 21st     | `sha256:0519e5e7fa08f0b60fc04ca00c5329c9448ff2fc8701ced1baab09b72448c366` |

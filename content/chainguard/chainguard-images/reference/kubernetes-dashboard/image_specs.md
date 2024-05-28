@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public kubernetes-dashboard Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-05-28 00:45:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -21,14 +21,14 @@ toc: true
 
 This page shows detailed information about the Chainguard **kubernetes-dashboard** Image.
 
-|              | latest-dev                                                                                         | latest                     |
-|--------------|----------------------------------------------------------------------------------------------------|----------------------------|
-| Default User | `nonroot`                                                                                          | `nonroot`                  |
-| Entrypoint   | `/usr/share/kubernetes-dashboard/dashboard --insecure-bind-address=0.0.0.0 --bind-address=0.0.0.0` | `/usr/bin/metrics-sidecar` |
-| CMD          | not specified                                                                                      | not specified              |
-| Workdir      | not specified                                                                                      | not specified              |
-| Has apk?     | yes                                                                                                | no                         |
-| Has a shell? | yes                                                                                                | no                         |
+|              | latest-dev                 | latest                     |
+|--------------|----------------------------|----------------------------|
+| Default User | `nonroot`                  | `nonroot`                  |
+| Entrypoint   | `/usr/bin/metrics-sidecar` | `/usr/bin/metrics-sidecar` |
+| CMD          | not specified              | not specified              |
+| Workdir      | not specified              | not specified              |
+| Has apk?     | yes                        | no                         |
+| Has a shell? | yes                        | no                         |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/kubernetes-dashboard/tags_history/) for the full list of available tags.
 
@@ -45,7 +45,7 @@ The table shows package distribution across variants.
 | `git`                                  | X          |        |
 | `glibc`                                | X          |        |
 | `glibc-locale-posix`                   | X          | X      |
-| `kubernetes-dashboard`                 | X          |        |
+| `kubernetes-dashboard-metrics-scraper` | X          | X      |
 | `ld-linux`                             | X          |        |
 | `libbrotlicommon1`                     | X          |        |
 | `libbrotlidec1`                        | X          |        |
@@ -65,5 +65,4 @@ The table shows package distribution across variants.
 | `wget`                                 | X          |        |
 | `wolfi-baselayout`                     | X          | X      |
 | `zlib`                                 | X          |        |
-| `kubernetes-dashboard-metrics-scraper` |            | X      |
 

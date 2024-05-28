@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cassandra-medusa Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-27 00:43:34
+lastmod: 2024-05-28 00:45:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.21` `0` `0.21.0`                 | May 24th     | `sha256:f4964dfb496de24878edc628654c7acb470fdc30a5ff5a02e8e52cfb1bc98d77` |
-|  `0-dev` `latest-dev` `0.21-dev` `0.21.0-dev` | May 24th     | `sha256:72a8331ceb8f0a7c2742284125f370cdfa94f27a1db96cebf50297eee69b2ecd` |
+|  `latest-dev` `0.21-dev` `0-dev` `0.21.0-dev` | May 27th     | `sha256:5817bc1b24a88ffd2267e67a2a74cf625a039a569198dfa9a8285bcbe89e2cdc` |
+|  `0.21` `latest` `0` `0.21.0`                 | May 27th     | `sha256:8467a7a8cba8979d06af0fbc9e51c39aba2cc76b6ed31d5bc31675cd149c0707` |
 |  `0.20` `0.20.1`                              | May 5th      | `sha256:2db9b970f5d5a9c4b9164c830400a9d70038d0d9be177b9ce9440b90ca43ed6e` |
 |  `0.20-dev` `0.20.1-dev`                      | May 5th      | `sha256:39a863ff0ff7e481d9e303dec04902c48ef1e5e01ccaa77c1ed3ccfc12ae6ef9` |
 

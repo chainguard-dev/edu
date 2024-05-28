@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-kube-events Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-27 00:43:34
+lastmod: 2024-05-28 00:45:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,10 +37,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.9.7-dev` `2-dev` `latest-dev` `2.9-dev` | May 24th     | `sha256:f95c915cc9cb2ef004a5d4b6f0092edf2ada4e1b38e6fca22ac657964485af51` |
+|  `2.9-dev` `latest-dev` `2-dev` `2.9.8-dev` | May 27th     | `sha256:7caf8d5a56153a6245ab54f851b45723a783fd215c5afd96d2eb415d5a14c1a1` |
+|  `latest` `2.9` `2.9.8` `2`                 | May 27th     | `sha256:ab167bf960940dc008af09a47c4f7af71d0a84210b99060fbe88d49cbec1c645` |
+|  `2.9.7-dev`                                | May 24th     | `sha256:f95c915cc9cb2ef004a5d4b6f0092edf2ada4e1b38e6fca22ac657964485af51` |
 |  `1-dev` `1.9-dev` `1.9.3-dev`              | May 24th     | `sha256:ffcfac1df09ec9ec8d6bf06555241783ed0765c60c0a79d39769d695ceb361df` |
 |  `1` `1.9.3` `1.9`                          | May 23rd     | `sha256:ebe7189ee0294ab1f7296f8fededeb2a67c221b7e7f27768a9b89bdb2d748a24` |
-|  `2` `2.9.7` `latest` `2.9`                 | May 23rd     | `sha256:0b36cfc5319a596b00e42e02493cc3bdb76207dba0fb52a34d87d86cc44f7249` |
+|  `2.9.7`                                    | May 23rd     | `sha256:0b36cfc5319a596b00e42e02493cc3bdb76207dba0fb52a34d87d86cc44f7249` |
 |  `2.9.6`                                    | May 9th      | `sha256:6cdad3c2f6b38110d937f754b948db32601efceb2125bc6466e4c3f3fecc41f2` |
 |  `2.9.6-dev`                                | May 9th      | `sha256:910d56428103c2f2060ee515fc877ac17af91ba2e2bdf3ea110b96ee8627541b` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public kafka Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-28 00:45:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -73,9 +73,9 @@ The table shows package distribution across variants.
 | `libxcrypt`              | X          | X      |
 | `ncurses`                | X          | X      |
 | `ncurses-terminfo-base`  | X          | X      |
-| `openjdk-11-default-jvm` | X          | X      |
-| `openjdk-11-jre`         | X          | X      |
-| `openjdk-11-jre-base`    | X          | X      |
+| `openjdk-17-default-jvm` | X          | X      |
+| `openjdk-17-jre`         | X          | X      |
+| `openjdk-17-jre-base`    | X          | X      |
 | `p11-kit`                | X          | X      |
 | `p11-kit-trust`          | X          | X      |
 | `wget`                   | X          |        |
