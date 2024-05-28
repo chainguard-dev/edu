@@ -1,28 +1,100 @@
-{{ if or .Prev .Next -}}
+{{ $allsections := slice }}
+{{ $walkpages := slice }}
+
+{{ range $index, $section := sort .Site.Sections "Weight" }}
+{{ if not (eq .Title "Uis") }}
+{{ $allsections = $allsections | append . }}
+
+{{ end }}
+
+{{ range .Sections }}
+{{ $allsections = $allsections | append . }}
+
+{{ range .Sections }}
+{{ $allsections = $allsections | append . }}
+
+{{ range .Sections }}
+{{ $allsections = $allsections | append . }}
+
+
+{{ range .Sections }}
+{{ $allsections = $allsections | append . }}
+
+{{ end }}
+{{ end }}
+{{ end }}
+{{ end }}
+{{ end }}
+
+{{ range $allsections }}
+
+{{ range .RegularPages }}
+
+{{ $walkpages = $walkpages | append . }}
+
+{{ end }}
+
+{{ end }}
+
+{{ $walkpages = where $walkpages ".Params.unlisted" "!=" "true"}}
+
+
+
+{{ $prevpage := false }}
+{{ $thispage := false }}
+{{ $nextpage := false }}
+{{ $pageindex := false }}
+
+{{ range $index, $page := $walkpages }}
+
+
+{{ if eq .RelPermalink $.RelPermalink }}
+{{ $pageindex = $index }}
+{{ end }}
+
+{{ end }}
+
+{{ with $pageindex }}
+{{ $thispage = index $walkpages $pageindex }}
+{{ $prevpage = index $walkpages (math.Sub $pageindex 1) }}
+{{ $nextpage = index $walkpages (math.Add $pageindex 1) }}
+{{ end }}
+
+{{ if eq $pageindex 0 }}
+{{ $thispage = (index $walkpages 0) }}
+{{ $prevpage = index $walkpages (math.Sub $pageindex 1) }}
+{{ $nextpage = index $walkpages (math.Add $pageindex 1) }}
+{{ end }}
+
+
+{{ if or $prevpage $nextpage }}
 <div class="docs-navigation">
-	<!-- https://www.feliciano.tech/blog/custom-sort-hugo-single-pages/ -->
-	{{ $pages := where site.RegularPages "Section" .Section -}}
-	{{ with $pages.Next . -}}
-		<a class="docs-navigation-button docs-navigation-button-previous" href="{{ .RelPermalink }}">
-			<div class="chevron-rotator">
-				<svg xmlns="http://www.w3.org/2000/svg" width="10" height="15" viewBox="0 0 10 6" fill="none">
-					<path d="M1.06199 5.729L0.291992 4.938L4.99999 0.229004L9.70799 4.938L8.93799 5.729L4.99999 1.792L1.06199 5.729Z" fill="currentColor"/>
-				</svg>
-			</div>
-			<span class="next-in-line">{{ .Title }}</span>
-			<span class="next-in-line">Prev&nbsp;&nbsp;</span>
-		</a>
-	{{ end -}}
-	{{ with $pages.Prev . -}}
-		<a class="docs-navigation-button docs-navigation-button-next" href="{{ .RelPermalink }}">
-			<span class="next-in-line">{{ .Title }}</span>
-			<span class="next-in-line">&nbsp;&nbsp;Next</span>
-			<div class="chevron-rotator">
-				<svg xmlns="http://www.w3.org/2000/svg" width="10" height="15" viewBox="0 0 10 6" fill="none">
-					<path d="M1.06199 5.729L0.291992 4.938L4.99999 0.229004L9.70799 4.938L8.93799 5.729L4.99999 1.792L1.06199 5.729Z" fill="currentColor"/>
-				</svg>
-			</div>
-		</a>
-	{{ end -}}
+
+  {{ with $prevpage }}
+  <a class="docs-navigation-button docs-navigation-button-previous" href="{{ .RelPermalink }}">
+    <div class="chevron-rotator">
+      <svg xmlns="http://www.w3.org/2000/svg" width="10" height="15" viewBox="0 0 10 6" fill="none">
+	<path d="M1.06199 5.729L0.291992 4.938L4.99999 0.229004L9.70799 4.938L8.93799 5.729L4.99999 1.792L1.06199 5.729Z" fill="currentColor"/>
+      </svg>
+    </div>
+    <span class="next-in-line">{{ .Title }}</span>
+    <span class="next-in-line">Prev&nbsp;&nbsp;</span>
+  </a>
+  {{ end -}}
+  <!-- end previous -->
+
+  {{ with $nextpage }}
+  <a class="docs-navigation-button docs-navigation-button-next" href="{{ .RelPermalink }}">
+    <span class="next-in-line">{{ .Title }}</span>
+    <span class="next-in-line">&nbsp;&nbsp;Next</span>
+    <div class="chevron-rotator">
+      <svg xmlns="http://www.w3.org/2000/svg" width="10" height="15" viewBox="0 0 10 6" fill="none">
+	<path d="M1.06199 5.729L0.291992 4.938L4.99999 0.229004L9.70799 4.938L8.93799 5.729L4.99999 1.792L1.06199 5.729Z" fill="currentColor"/>
+      </svg>
+    </div>
+  </a>
+  {{ end -}} 
+
+
 </div>
-{{ end -}}
+{{ end }}
