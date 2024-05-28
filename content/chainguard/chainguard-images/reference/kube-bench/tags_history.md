@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-bench Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-27 00:43:34
+lastmod: 2024-05-28 00:45:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | May 23rd     | `sha256:c77c79a3dd553a550e7f5dd03cefe20f52d2ab408dd439bdc391ee1af2267719` |
+|  `latest` | May 27th     | `sha256:3e08485e65a49f69c5ee1dda1d25d6eedddb7cff71d6be6444c9897f0b64d528` |
 
 
 ### Private/Dedicated Registry

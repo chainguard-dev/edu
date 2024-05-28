@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the management-api-for-apache-cassandra Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-27 00:43:34
+lastmod: 2024-05-28 00:45:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | May 27th     | `sha256:98ddf8e9780e9d1d0137a9424eec2f1b11bc1b030dcc40b04d2f077622d49e25` |
 |  `latest-dev` | May 25th     | `sha256:341011977c73df130d3cbf34cca8d72daa021331e573e75ae7358a03187ff951` |
-|  `latest`     | May 25th     | `sha256:756d9b9d7c74d3dd1016924ec1be63a14e33bdd2e6916c74df5d81d2aa4dc4a9` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.1` `latest` `0.1.78` `0`                 | May 24th     | `sha256:238bf2a45d0400f079a448ca35411dda50745f6be27586dbc18712f0da4996ae` |
-|  `latest-dev` `0.1-dev` `0.1.78-dev` `0-dev` | May 24th     | `sha256:7d5b45fb9c544f674b0c8ac60e90fedc9a05f7de7f78671fa4bdc04608c7861b` |
+|  `latest-dev` `0.1-dev` `0-dev` `0.1.78-dev` | May 27th     | `sha256:483ac8ef517156f4c263c18148917797964fc7d61a383dd120be11ff8c01fba7` |
+|  `0.1.78` `0` `0.1` `latest`                 | May 27th     | `sha256:ab43ed51d8873bd79cbe72a5a8c822544d25912a899af2228f3c4cb4b34a58fd` |
 |  `0.1.74-dev`                                | May 22nd     | `sha256:53d078952f5d00180703c355658a48fc587f29a7634662ab8f0f535f927943f6` |
 |  `0.1.74`                                    | May 22nd     | `sha256:9255884f1103785c6707b2a620b80c92348055dfd82067d2d5a01b7a8efd0346` |
 
