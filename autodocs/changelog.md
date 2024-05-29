@@ -1,3 +1,10 @@
+# 2024-05-29
+New images added:
+
+- zookeeper-fips
+
+A total of **172** documents were updated.
+
 # 2024-05-28
 
 

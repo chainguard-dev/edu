@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the spark-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-27 00:43:34
+lastmod: 2024-05-29 00:38:53
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | May 28th     | `sha256:da6235f05534534ef1fecf80f1e650b39772ee9fd379ad0e40aa14967bb602c0` |
 |  `latest-dev` | May 23rd     | `sha256:ff7ca5abe714201957d47799f3ae3ccb9ecd2ce31a106cc051c73f12001d4d64` |
-|  `latest`     | May 23rd     | `sha256:df5969bb31c95171e48051f54447811e35bc76bc5c1b7a4f5907ba91bb8750fe` |
 
 
 ### Private/Dedicated Registry

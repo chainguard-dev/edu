@@ -3,8 +3,8 @@ title: "rabbitmq-bitnami Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public rabbitmq-bitnami Chainguard Image."
-date: 2024-05-10 00:43:45
-lastmod: 2024-05-10 00:43:45
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-05-29 00:38:53
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -44,7 +44,7 @@ The table shows package distribution across variants.
 | `chainguard-baselayout`  | X          | X      |
 | `coreutils`              | X          | X      |
 | `curl`                   | X          | X      |
-| `erlang-26`              | X          | X      |
+| `erlang-27`              | X          | X      |
 | `git`                    | X          |        |
 | `glibc`                  | X          | X      |
 | `glibc-locale-en`        | X          | X      |

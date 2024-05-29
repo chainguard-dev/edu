@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the fluent-bit-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-28 00:45:11
+lastmod: 2024-05-29 00:38:53
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2` `2.2.3` `2.2`                          | May 27th     | `sha256:6e110848553dc313df88bbe5a1c681b27b51dd2d83087cdb9efed3ada1a70b22` |
-|  `3.0-dev` `3.0.6-dev` `latest-dev` `3-dev` | May 27th     | `sha256:b3b349f70cfd8ca75e8b0ebf9e1f5c244c00f8a25786112a8447a58bdf36aefa` |
-|  `3.0.6` `3` `latest` `3.0`                 | May 27th     | `sha256:899c4060716a04382cae7a4a1fa03ef72f1724b42a7daca2aa53c9d43bffa591` |
-|  `2-dev` `2.2.3-dev` `2.2-dev`              | May 27th     | `sha256:90a9f87064b2d99154e4c533eac4e0ab50bd82088e86bad004ace7cfadd66912` |
+|  `2` `2.2.3` `2.2`                          | May 28th     | `sha256:866aaa93022e95fdd5aaba732c5e1b1069eb18ceed90c81a59fac0f12458f433` |
+|  `3.0.6-dev` `3.0-dev` `latest-dev` `3-dev` | May 28th     | `sha256:51d7d551d99102210d723fca9f13125207eeb05f6146d83ffaeda38f892f5d72` |
+|  `latest` `3` `3.0` `3.0.6`                 | May 28th     | `sha256:0240d4d835c24b2084e408c8920d08efbcb8638f02657193f1a687a3b1818896` |
+|  `2.2.3-dev` `2-dev` `2.2-dev`              | May 28th     | `sha256:8ea310499ae341e76672e65a4e77d0ceec91f878e2290505ceb78ace02002a4a` |
 |  `3.0.5-dev`                                | May 24th     | `sha256:a7ff0998534a1e26dce5fb6386c289b4fd2a59798e952b3ef0feaf57d9f53d05` |
 |  `3.0.5`                                    | May 23rd     | `sha256:ab4da3a8f61272b99fb533f76530df2f8f7110afe14c6006db30b428cb659a03` |
 |  `3.0.4-dev`                                | May 23rd     | `sha256:f1c9b7623539e355342f173845ebaf595da2127a9f9be0500d984e51fa252843` |

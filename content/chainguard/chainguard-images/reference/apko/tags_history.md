@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the apko Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-28 00:45:11
+lastmod: 2024-05-29 00:38:53
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -44,5 +44,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `0.14.1`                                     | May 23rd     | `sha256:2a01f16171c78d0a3e5dd3034abc29a72ae21ca1c5abeca96fc37194e71d07b6` |
 |  `0.14.0`                                     | May 8th      | `sha256:45d6c24438e99cd5908dd0dafcad14d7f3d4a4a79942f63e7b1a9ed71c8110c2` |
 |  `0.14.0-dev`                                 | May 8th      | `sha256:c339b942980abc3d9e6a3484240e836f8d75d927c2be855284ef3dd0b87e8204` |
-|  `0.7.3` `0.7`                                | April 28th   | `sha256:69c495e889693510a586e5d9268e419c2b3e9816568a499502498a808f4b27d5` |
 

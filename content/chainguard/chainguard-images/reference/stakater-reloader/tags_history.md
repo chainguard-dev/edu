@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the stakater-reloader Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-28 00:45:11
+lastmod: 2024-05-29 00:38:53
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,14 +37,14 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.0-dev` `latest-dev` `1.0.97-dev` | May 24th     | `sha256:72df5ce4ba4a005774f7d53a4a8893d4b78450dae5dcdcb4cd264825a38c111a` |
-|  `latest` `1` `1.0` `1.0.97`                 | May 23rd     | `sha256:0e9037bc180a3fea82491079f7f069612055f0a2b8abc276513cbf389f78f166` |
+|  `latest-dev` `1.0.98-dev` `1-dev` `1.0-dev` | May 28th     | `sha256:39642ee7e03ace8a423c7d3b14562b2636bf8deedef3a464df8afc30e297fa31` |
+|  `1.0` `1` `latest` `1.0.98`                 | May 28th     | `sha256:12bbb672215861fdb6750267059715bcb7050b0980d0d04973564a2197643385` |
+|  `1.0.97-dev`                                | May 24th     | `sha256:72df5ce4ba4a005774f7d53a4a8893d4b78450dae5dcdcb4cd264825a38c111a` |
+|  `1.0.97`                                    | May 23rd     | `sha256:0e9037bc180a3fea82491079f7f069612055f0a2b8abc276513cbf389f78f166` |
 |  `1.0.95-dev`                                | May 15th     | `sha256:dbd2200150539b30feddac49981acc352f9a922a0e8164c70000614deee02a36` |
 |  `1.0.95`                                    | May 15th     | `sha256:ba81e9cd4b9cbaa40f2ab3ef8196fb85549065e4dfe55e109ab1764089eb1e30` |
 |  `1.0.94`                                    | May 10th     | `sha256:074c312da8adbe2d43e1bb4f9acb57844873603729382df766b3ebd7b7c2be43` |
 |  `1.0.94-dev`                                | May 10th     | `sha256:82a389d4826ff1242b46fc2e5ab52137d90f097832e8bf9eb3951978bd72262b` |
 |  `1.0.93-dev`                                | May 2nd      | `sha256:c01b77e45c8fd7d7c883e89c02fdb4f92a012db5a3a70916ccb87debadeae11e` |
 |  `1.0.93`                                    | May 2nd      | `sha256:4d447967726e0fb94535be8a3dd6a7170a666f7ed1e20f841e5a94b366bd8ed4` |
-|  `1.0.92-dev`                                | April 28th   | `sha256:65a300e461381bf75b929af06c6ad0a4c05ad41b28890de87be048e6bfba628a` |
-|  `1.0.92`                                    | April 28th   | `sha256:e60d3d373096022fffd27c38c3eacbc6bed0f99c30c4ccc222673f80e8d8c653` |
 
