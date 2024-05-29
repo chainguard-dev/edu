@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the r-base Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-27 00:43:34
+lastmod: 2024-05-29 00:38:53
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `4.3-dev` `4.3.1-dev` `4-dev` | May 24th     | `sha256:c1536612511cc78137910244255995ddd0804ac84d1b848a8f0184848bd63cb0` |
-|  `latest` `4.3` `4.3.1` `4`                 | May 24th     | `sha256:01f68c8647765c4b52291a48eecc622f88b47b2971954aa33237f9d92ca30c5e` |
+|  `4.3` `4.3.1` `4` `latest`                 | May 28th     | `sha256:047bdb5f17e914d5a4f738c7771784bc5c4d4c1b99863d325cbb771e2d21f2be` |
+|  `4.3-dev` `4.3.1-dev` `4-dev` `latest-dev` | May 28th     | `sha256:ad3b5cc48c59de19f4e10b0b395f04da54d2cb3a63d6093ba29622bce8a33ae2` |
 

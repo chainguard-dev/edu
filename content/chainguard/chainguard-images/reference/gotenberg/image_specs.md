@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public gotenberg Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-05-29 00:38:53
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -51,6 +51,7 @@ The table shows package distribution across variants.
 | `boost-thread`             | X          | X      |
 | `busybox`                  | X          | X      |
 | `ca-certificates-bundle`   | X          | X      |
+| `cabextract`               | X          | X      |
 | `cairo`                    | X          | X      |
 | `chainguard-baselayout`    | X          | X      |
 | `chromium`                 | X          | X      |
@@ -135,6 +136,7 @@ The table shows package distribution across variants.
 | `libjpeg-turbo`            | X          | X      |
 | `liblangtag`               | X          | X      |
 | `libmount`                 | X          | X      |
+| `libmspack`                | X          | X      |
 | `libnghttp2-14`            | X          | X      |
 | `libnspr`                  | X          | X      |
 | `libnss`                   | X          | X      |
