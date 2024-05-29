@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public elasticsearch Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-29 00:38:53
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -42,6 +42,8 @@ The table shows package distribution across variants.
 | `ca-certificates`        | X      |
 | `ca-certificates-bundle` | X      |
 | `chainguard-baselayout`  | X      |
+| `coreutils`              | X      |
+| `curl`                   | X      |
 | `elasticsearch-8`        | X      |
 | `elasticsearch-config`   | X      |
 | `fontconfig-config`      | X      |
@@ -51,16 +53,24 @@ The table shows package distribution across variants.
 | `java-cacerts`           | X      |
 | `java-common`            | X      |
 | `ld-linux`               | X      |
+| `libacl1`                | X      |
+| `libattr1`               | X      |
 | `libbrotlicommon1`       | X      |
 | `libbrotlidec1`          | X      |
 | `libbz2-1`               | X      |
 | `libcrypt1`              | X      |
 | `libcrypto3`             | X      |
+| `libcurl-openssl4`       | X      |
 | `libexpat1`              | X      |
 | `libffi`                 | X      |
 | `libfontconfig1`         | X      |
+| `libidn2`                | X      |
+| `libnghttp2-14`          | X      |
 | `libpng`                 | X      |
+| `libpsl`                 | X      |
+| `libssl3`                | X      |
 | `libtasn1`               | X      |
+| `libunistring`           | X      |
 | `libxcrypt`              | X      |
 | `ncurses`                | X      |
 | `ncurses-terminfo-base`  | X      |

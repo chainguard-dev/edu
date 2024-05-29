@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cluster-autoscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-27 00:43:34
+lastmod: 2024-05-29 00:38:53
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -46,4 +46,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.28.4` `1.28`                              | May 23rd     | `sha256:489a3af009896652d1cd6a15abf1c69689390b23fc23816224834a25896bf15d` |
 |  `1.27` `1.27.7`                              | May 23rd     | `sha256:18f83e28dec34b06b54c61345d5b7193f28ae40cb8630f909d33dbc4a77f577f` |
 |  `1.25.3-dev` `1.25-dev`                      | April 30th   | `sha256:a3c9f78471874026d57181e00087e1a82fba1a666181a21c24e2804ea4c6073d` |
+|  `1.27.1-dev`                                 | May 28th     | `sha256:352bfc7cf4cc097a10fcbb78f399e9b60da1624654f8daa8bcb8fb6a6385c1e1` |
+|  `1.27.1`                                     | May 28th     | `sha256:a93161b13f7fbf228eedbeca68d7aa16e1ca0c5c08cdbcab4a56087ead9ac367` |
 

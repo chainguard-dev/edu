@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the management-api-for-apache-cassandra Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-28 00:45:11
+lastmod: 2024-05-29 00:38:53
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.1-dev` `0-dev` `0.1.78-dev` | May 27th     | `sha256:483ac8ef517156f4c263c18148917797964fc7d61a383dd120be11ff8c01fba7` |
-|  `0.1.78` `0` `0.1` `latest`                 | May 27th     | `sha256:ab43ed51d8873bd79cbe72a5a8c822544d25912a899af2228f3c4cb4b34a58fd` |
+|  `0.1.78-dev` `latest-dev` `0-dev` `0.1-dev` | May 28th     | `sha256:77f7ba9e79e8d77d66d91363d0732e567ef1158e2dd57d1bc136a320091b67e1` |
+|  `0.1.78` `0` `latest` `0.1`                 | May 28th     | `sha256:65aa0815d069ae0b7cf4b3a0f4818cc263de80a0e801ae191b8387cdfe03045f` |
 |  `0.1.74-dev`                                | May 22nd     | `sha256:53d078952f5d00180703c355658a48fc587f29a7634662ab8f0f535f927943f6` |
 |  `0.1.74`                                    | May 22nd     | `sha256:9255884f1103785c6707b2a620b80c92348055dfd82067d2d5a01b7a8efd0346` |
 

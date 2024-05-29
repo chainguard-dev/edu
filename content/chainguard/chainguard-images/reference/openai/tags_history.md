@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the openai Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-28 00:45:11
+lastmod: 2024-05-29 00:38:53
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.30.3-dev` `1.30-dev` | May 27th     | `sha256:2da23230ed814d3794543a0706102d75ed82f9cdfc5d2c2f360a83086e6ecb0d` |
-|  `latest` `1.30` `1` `1.30.3`                 | May 27th     | `sha256:72149eb510a2d0c38affee6bf942d72626a650769efdf86149e21e36e84f77ea` |
+|  `1-dev` `latest-dev` `1.30-dev` `1.30.4-dev` | May 28th     | `sha256:315f1cebb9d8934ae0defd82de95eb8a686c67cc74d1b216b6920c4291479fe2` |
+|  `1` `1.30.4` `1.30` `latest`                 | May 28th     | `sha256:ba00f5cba0623dad3cf7048c3e3708d5a3e72bedfa18630458eefb317ca137f7` |
+|  `1.30.3-dev`                                 | May 28th     | `sha256:aac766ef3508bfbadb67e481e907048efdd703b7646ce7ba53f7e92b4bd2a991` |
+|  `1.30.3`                                     | May 28th     | `sha256:4eac9b8659306063303968e91b69b922a935aa3d75f524abb541c7543c5cce3f` |
 |  `1.30.2`                                     | May 24th     | `sha256:8a7295aaff22aac758ec92e0e6c74d0e6cf459316cb204a180b8ad362a955caf` |
 |  `1.30.2-dev`                                 | May 24th     | `sha256:0d06527ec4959850e34e878e43e54b58f71bd38ed797bef540287c9174b36b9e` |
 |  `1.30.1`                                     | May 23rd     | `sha256:ef0e6acc4cb1a8db601543b412409e5804deb6965b3d803f1736376d08637099` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the skaffold Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-27 00:43:34
+lastmod: 2024-05-29 00:38:53
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.12-dev` `2.12.0-dev` `latest-dev` `2-dev` | May 24th     | `sha256:8a6f7159c6ffdde19734bc3745e1a2dad8e87b043c5eff2a37cf9de2f54ab135` |
-|  `latest` `2.12.0` `2.12` `2`                 | May 24th     | `sha256:78041052687d10336c525f07f20eaf3e751ada81da26165d32ec74dace0f4c8f` |
+|  `2.12.0` `2.12` `2` `latest`                 | May 28th     | `sha256:7fad467766e41a470305f904eabc5c71a7dceb2e06095677ddfa82be963f919a` |
+|  `2-dev` `2.12.0-dev` `2.12-dev` `latest-dev` | May 28th     | `sha256:1f430e8a223883cf59a281a44a1a3c572cc55b3b934976a7cc196a4dd021d4a6` |
 |  `2.11.1-dev` `2.11-dev`                      | May 14th     | `sha256:792efada85093dc16330dd58d8f517ef7314dfff906ccf2b14e370a3472a112c` |
 |  `2.11` `2.11.1`                              | May 13th     | `sha256:3043b565d3e1e4940534b5b57c3998bc25988e6e9ed3e63276eee81c31f6c803` |
 |  `2.4.1` `2.4`                                | May 25th     | `sha256:ac5043a6641ac0c28c953ad8d1658c0c9c3421be3c00370a3df3442c54b1b660` |
