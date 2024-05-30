@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node-lts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-29 00:38:53
+lastmod: 2024-05-30 00:47:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -38,9 +38,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                     | Last Changed | Digest                                                                    |
 |-------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `20.14-dev` `next-dev` `latest-dev` `20.14.0-dev` `20-dev` | May 28th     | `sha256:3f7fe196799948f2ad6267ad02f3963366043aa076a274e825ef5814571ff120` |
-|  `latest` `20` `20.14.0` `20.14`                            | May 28th     | `sha256:14b96c3a2790f945ceb2b78269dbce2f01cc509554f63754320e2c64cadd2e8b` |
-|  `next`                                                     | May 28th     | `sha256:8dd1d1e0f237f7def2d70030cf79e81631784fac8d45b6de2dfa3bc5940f1e37` |
+|  `20-dev` `20.14.0-dev` `20.14-dev` `latest-dev` `next-dev` | May 29th     | `sha256:c1ed5cf018a20b98309a0811b58c984c15d17cf1046d77d2bd9904279504d323` |
+|  `20.14` `20.14.0` `latest` `20`                            | May 29th     | `sha256:ec9f890ca8a1e31aedeb46fc06a4c411f4ed8c754d20ef0d52c3ae594159a9cd` |
+|  `next`                                                     | May 29th     | `sha256:bacf8c9075f825c619f985dba4e4a6c593495c229db5b484e9240416fc4e7912` |
 |  `20.13-dev` `20.13.1-dev`                                  | May 28th     | `sha256:e8d44ddf859b463a39a89dc23310120f3b676f790a02395e6d029daa10adc5b8` |
 |  `20.13.1` `20.13`                                          | May 24th     | `sha256:cdcb55f5afb9fd31acaa01e957aa6eff12aa9fdca6aaff0cd5fd748611c56cc0` |
 |  `20.13.0-dev`                                              | May 8th      | `sha256:2360a32e40e19b859f6d47a78ff722b6e3533260547e961a24aae47ad2603aa1` |

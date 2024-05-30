@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-k8s-events-forwarder Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-27 00:43:34
+lastmod: 2024-05-30 00:47:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,10 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.52` `1` `1.52.3` `latest`                 | May 24th     | `sha256:7587ec55589b3f067a8abc4e2f186862fd8b66452b717784d57662cf555d6b86` |
-|  `latest-dev` `1.52-dev` `1-dev` `1.52.3-dev` | May 24th     | `sha256:42d9d09db3a6749e32051d056e6fdc53b27666b9aab45c41641f16b3804c06bb` |
-|  `1.43.2` `1.43`                              | May 24th     | `sha256:cfbe7d448a0eefe029e8d5ddf3810357b6bdbf312e9575fdbb7f73bf615c2fc8` |
-|  `1.43-dev` `1.43.2-dev`                      | May 24th     | `sha256:ac30f0aca91c96b1afc743c4ccde28e31047cbec17b77e32d4dddf4b22d1cabc` |
+|  `1-dev` `1.52-dev` `latest-dev` `1.52.3-dev` | May 29th     | `sha256:a3eecd6d6a49d16bc4fa40e246f7693f9505b308b0c4b536864f73c13ba6d5a4` |
+|  `latest` `1.52.3` `1` `1.52`                 | May 29th     | `sha256:c1fe4aa268fea640fc7f11d271de863c85ff2ddb9e424f565ca41113494ec51f` |
+|  `1.43.2` `1.43`                              | May 29th     | `sha256:95acce8a9684cbd97ada696b66de10eb8f84eae8d57d17b1b7a56ba93f43e2a7` |
+|  `1.43-dev` `1.43.2-dev`                      | May 29th     | `sha256:8f851c6b1ecf96fcbdf4fb8cf8963ee49c820f82503d0513ac21253f5cbca8b3` |
 |  `1.52.2`                                     | May 19th     | `sha256:775aa9408d7add09fec4adec720d845d4fc3db536cb29df17f28d6ea949c4e7a` |
 |  `1.52.2-dev`                                 | May 19th     | `sha256:b948b3604ca6bd6583f0baa43ca0a4687b169cbee0115fd0c1f207204ccbc872` |
 |  `1.52.1-dev`                                 | May 9th      | `sha256:b65253c037b0628b20ae57c5d13f84db5ef0bd441e257fc492fee8507ee489a5` |

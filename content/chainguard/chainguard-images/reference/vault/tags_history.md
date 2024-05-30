@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vault Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-27 00:43:34
+lastmod: 2024-05-30 00:47:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,11 +37,11 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.14.12-dev` `1.14-dev`                     | May 24th     | `sha256:5422efd6c2cb7e1d9b8423e215b34e59d6346a86de3e6a3302fbe10715b816f1` |
-|  `latest-dev` `1-dev` `1.16-dev` `1.16.2-dev` | May 24th     | `sha256:71309af8d600e08b10e8dfa013fd0924b2911b29fe38b6faa8731aa2eaae06e9` |
+|  `1.15-dev` `1.15.8-dev`                      | May 29th     | `sha256:b431ed53fee50f304f7bcb0ffc2541aef4d149612721a130036f4bcc8027017a` |
+|  `latest-dev` `1.16.2-dev` `1-dev` `1.16-dev` | May 29th     | `sha256:a8d1df28d692f88ea437f904905b8fba928ebbd578cf785511371b8a628b0f6d` |
+|  `1.14.12-dev` `1.14-dev`                     | May 29th     | `sha256:39ef99fb75c86bec4b3be04c7173e3b197a468f1fa026c562c5379e93dd1bf5f` |
 |  `latest` `1.16.2` `1.16` `1`                 | May 24th     | `sha256:4dcb9e16d87bd56c9d01d2b1014c998bac476a263c5ec8e7f4e79055bd4cbae1` |
 |  `1.15` `1.15.8`                              | May 24th     | `sha256:b905fd40ddbfa212d70bafb7d6b79e3ec890f674907d47ac1dca84910c9a33ed` |
-|  `1.15-dev` `1.15.8-dev`                      | May 24th     | `sha256:15ced5a729ffb55d1cf15499c92f23915641e81bec88c120e1dda63be14b01a7` |
 |  `1.14.12` `1.14`                             | May 24th     | `sha256:c57ea2ac3e68ec244e864b090a1fbfb5e7da5ba6af728ce5edb72a2788f328ea` |
 |  `1.13-dev` `1.13.13-dev`                     | May 14th     | `sha256:f07262ce87225366516a80bb5ed890a173a8f2c0ee1ec69e613b4071d88280e3` |
 |  `1.13.13` `1.13`                             | May 13th     | `sha256:35383fc342a68b25575442fb9e682f569a1eddcf0d8af31fade9d22c17e6b317` |

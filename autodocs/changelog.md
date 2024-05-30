@@ -1,3 +1,11 @@
+# 2024-05-30
+New images added:
+
+- fluent-operator
+- fluent-operator-fips
+
+A total of **687** documents were updated.
+
 # 2024-05-29
 New images added:
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the etcd-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-27 00:43:34
+lastmod: 2024-05-30 00:47:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3-dev` `3.5-dev` `3.5.13-dev` `latest-dev` | May 24th     | `sha256:d718b65621ac643e8c9a1dde0a867cbc6caec46f800000cd132f9ff12b63161d` |
-|  `3.4.32-dev` `3.4-dev`                      | May 24th     | `sha256:66660fb51f3adafcbf8ed4a3d3966baa3dc71f5d1560453e728b601c8b817ba0` |
-|  `3.4` `3.4.32`                              | May 23rd     | `sha256:78ea2761556883c488345c38edabcf673ede96fde861166cde923bcd6a74a8df` |
-|  `3` `latest` `3.5.13` `3.5`                 | May 23rd     | `sha256:e6bf0af82879b283d3136520042efb759d2dfdddbafc3899841a2a3c656084ed` |
+|  `3.4-dev` `3.4.32-dev`                      | May 29th     | `sha256:aecee745aab351ef78bfcf9e33308020409be56d3f481d166f403f54afac4132` |
+|  `latest` `3.5.13` `3` `3.5`                 | May 29th     | `sha256:c70541b43d3ec62a858873d6d515b74c594eb00895b4134de386249de53bbb67` |
+|  `3.5.13-dev` `3-dev` `3.5-dev` `latest-dev` | May 29th     | `sha256:0a625a3eef8407ea42a4bf22e583b5f990932e65371033c57e48a27525d85854` |
+|  `3.4.32` `3.4`                              | May 29th     | `sha256:f99c21a1fb34fc4b17a0fe62849a635aac061bad4328fe2146c7fb0a911f456b` |
 |  `3.4.31-dev`                                | May 2nd      | `sha256:08d8b37718a228a3d3fe0a2239d470c1d44e46c200e9ad23e6f1471e418467d9` |
 |  `3.4.31`                                    | May 2nd      | `sha256:f8ec3984b35483672aea1dfa695606403c89e31ee78dc52d04f1e213baa1f72e` |
 

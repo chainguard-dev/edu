@@ -3,8 +3,8 @@ title: "elasticsearch-fips Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public elasticsearch-fips Chainguard Image."
-date: 2024-05-06 00:43:57
-lastmod: 2024-05-06 00:43:57
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-05-30 00:47:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -41,30 +41,39 @@ The table shows package distribution across variants.
 | `bouncycastle-fips`             | X      |
 | `bouncycastle-pkix-fips`        | X      |
 | `bouncycastle-tls-fips`         | X      |
-| `busybox`                       | X      |
 | `ca-certificates`               | X      |
 | `ca-certificates-bundle`        | X      |
 | `chainguard-baselayout`         | X      |
+| `coreutils`                     | X      |
+| `curl`                          | X      |
 | `elasticsearch-fips-8`          | X      |
 | `elasticsearch-fips-8-config`   | X      |
 | `fontconfig-config`             | X      |
 | `freetype`                      | X      |
 | `glibc`                         | X      |
 | `glibc-locale-posix`            | X      |
+| `grep`                          | X      |
 | `java-cacerts`                  | X      |
 | `java-common`                   | X      |
 | `ld-linux`                      | X      |
+| `libacl1`                       | X      |
+| `libattr1`                      | X      |
 | `libbrotlicommon1`              | X      |
 | `libbrotlidec1`                 | X      |
 | `libbz2-1`                      | X      |
-| `libcrypt1`                     | X      |
 | `libcrypto3`                    | X      |
+| `libcurl-openssl4`              | X      |
 | `libexpat1`                     | X      |
 | `libffi`                        | X      |
 | `libfontconfig1`                | X      |
+| `libidn2`                       | X      |
+| `libnghttp2-14`                 | X      |
+| `libpcre2-8-0`                  | X      |
 | `libpng`                        | X      |
+| `libpsl`                        | X      |
+| `libssl3`                       | X      |
 | `libtasn1`                      | X      |
-| `libxcrypt`                     | X      |
+| `libunistring`                  | X      |
 | `ncurses`                       | X      |
 | `ncurses-terminfo-base`         | X      |
 | `openjdk-17-default-jvm-bcfips` | X      |

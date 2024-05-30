@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-rbac-proxy-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-27 00:43:34
+lastmod: 2024-05-30 00:47:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.17-dev` `0-dev` `latest-dev` `0.17.1-dev` | May 24th     | `sha256:745b3f854421d042a6076dc025d22d421a2431e261273daa2f9436a87f637c75` |
+|  `0-dev` `0.17-dev` `0.17.1-dev` `latest-dev` | May 29th     | `sha256:82ab3acc71af5e0b9380f604d78602cce0d6cd5b43ecdf6906ad9439aaa8ce16` |
 |  `0` `latest` `0.17.1` `0.17`                 | May 23rd     | `sha256:d856a28289dba3af98d1b9441b6aa660756a3a1c159dba0fbfbf82c4438ee3c7` |
 |  `0.17.0-dev`                                 | May 2nd      | `sha256:6662b248e58e8367eb3ff4df7a840bef630d61265ccc3b096382c77a6fd29d97` |
 |  `0.17.0`                                     | May 2nd      | `sha256:18e62c6c2091e29c1253ad48f6eb356f3ca3652847e38b72ffe5df40106df80e` |

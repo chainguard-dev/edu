@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the proxysql Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-29 00:38:53
+lastmod: 2024-05-30 00:47:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.6.3-dev` `2-dev` `2.6-dev` | May 28th     | `sha256:86e3e39471f2ff98310ed84663e1c03c40b74e159553c4143f5f521ffbd2e303` |
+|  `2-dev` `latest-dev` `2.6-dev` `2.6.3-dev` | May 29th     | `sha256:b172f753e1a6c0110280eafd5e50cbe7b1cc49a2886c35ebf09c68a8a091d14c` |
 |  `latest` `2.6.3` `2` `2.6`                 | May 28th     | `sha256:766e296503ace29495a654d01dfba2a04f5e7608561c8221276e9b85b6f41084` |
 |  `2.6.2-dev`                                | May 19th     | `sha256:548096417f60bcad3301c9a740d7ab278a3f39f57856a0e691dffb60277dab71` |
 |  `2.6.2`                                    | May 17th     | `sha256:374f1b2d90e39170772cfc8346a177bd31273fb9386353bdb208c31cba008d63` |
