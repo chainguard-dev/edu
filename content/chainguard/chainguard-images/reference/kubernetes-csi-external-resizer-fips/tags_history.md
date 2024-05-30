@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-resizer-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-27 00:43:34
+lastmod: 2024-05-30 00:47:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.9.4-dev` `1.9-dev`                        | May 24th     | `sha256:f9184840607ce62b58d151574f7212352bdb4adb5cd549fd4bcf1a0710e14f3f` |
-|  `1-dev` `1.10.1-dev` `latest-dev` `1.10-dev` | May 24th     | `sha256:592bdae21cd6b2ba761fe9c6aba5fa32d4fd84218cca9e9f121c3c0164c550c2` |
-|  `1.8.1-dev` `1.8-dev`                        | May 24th     | `sha256:07a96f73eb9b8415d8223ec805bef4059d538884fa5a49d75868d439618890b5` |
-|  `1.10.1` `1` `latest` `1.10`                 | May 23rd     | `sha256:8b238d3b40d7bd358336e2d269a9348dbeb1e65bfca48492f246574d0e6784fc` |
-|  `1.9.4` `1.9`                                | May 23rd     | `sha256:ae8742938f742cf51f52816ac4168f8845cf498b53f13d7396fb41a51ed26d3a` |
-|  `1.8` `1.8.1`                                | May 23rd     | `sha256:9b49548256f54d8fce110317ac7d755dc89ca5034321c15a86c7bd9799f7a7e8` |
+|  `1-dev` `1.10-dev` `1.10.1-dev` `latest-dev` | May 29th     | `sha256:11df7776727331eb9bcaf41662eedf44a81bd3c7259216240a74777e971c303e` |
+|  `1.9.4-dev` `1.9-dev`                        | May 29th     | `sha256:bfa6a5e3dfaf199108b2270232211630ddc808b3fceed077a6ec4ec31482da0b` |
+|  `1` `1.10.1` `1.10` `latest`                 | May 29th     | `sha256:b4ff869addf66848555af88d4978205cea6bd77cce772fbf03031d64d546ae40` |
+|  `1.8.1-dev` `1.8-dev`                        | May 29th     | `sha256:507658cc49e23f31c8036802709da0cfc3fcec5dce79a2b9e93b846e565ca114` |
+|  `1.9` `1.9.4`                                | May 29th     | `sha256:4765dfcabaf1abd853a745ea30164826d87a66653a4c02880856c89b70fcf43d` |
+|  `1.8` `1.8.1`                                | May 29th     | `sha256:15177882dd5f67d383fbf429c0a2206b5d0b5e44b0c68843865223a10f607ee1` |
 

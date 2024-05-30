@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the superset Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-27 00:43:34
+lastmod: 2024-05-30 00:47:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 24th     | `sha256:962448bfd5358b812b982c310995c822e22b5c5a0c87ad16134461c447039c76` |
+|  `latest`     | May 29th     | `sha256:183182fa60b625cd3db48ed73353f06a1865081c9f6559f1d6c8aacd575a728e` |
 |  `latest-dev` | May 23rd     | `sha256:65711bf50a5af0431ae3b466d994551ec4b13df362cc1c74827b350c4dd97855` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.0.1-dev` `latest-dev` `4.0-dev` `4-dev` | May 24th     | `sha256:4acf030ce3b990dc6b2914b56ae8e3acc0091bcf5aac36b61f676c0b9e37c30e` |
-|  `4.0.1` `4.0` `latest` `4`                 | May 24th     | `sha256:040011d65090fd628d4e8dd000da18ef584d77166a2be91178aec40a526ab59f` |
+|  `4` `4.0.1` `latest` `4.0`                 | May 29th     | `sha256:c7cc12e69f4272195575a0b58217732de49b4aa48820489f4315622379a74b12` |
+|  `4.0.1-dev` `4-dev` `latest-dev` `4.0-dev` | May 29th     | `sha256:0878a9bde25db95dbe91c957c4089c8feb804624d32b94b66dd4ec07947a3931` |
 |  `4.0.0-dev`                                | May 14th     | `sha256:674ad4627e2d255d58657ccccf274618af343a2154fe6431c113e3b8189dbd95` |
 |  `4.0.0`                                    | May 13th     | `sha256:b82921f99bf739979746a773282ed9233747b59a8d4bce11c2b172b0f187834e` |
 

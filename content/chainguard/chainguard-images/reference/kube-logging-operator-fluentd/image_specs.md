@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public kube-logging-operator-fluentd Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-30 00:47:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -86,7 +86,6 @@ The table shows package distribution across variants.
 | `ncurses-terminfo-base`                        | X          | X      |
 | `nss-db`                                       | X          |        |
 | `nss-hesiod`                                   | X          |        |
-| `openssl-config`                               | X          |        |
 | `pkgconf`                                      | X          |        |
 | `posix-cc-wrappers`                            | X          |        |
 | `readline`                                     | X          | X      |

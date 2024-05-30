@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the spark-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-29 00:38:53
+lastmod: 2024-05-30 00:47:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1.3.0` `1` `1.3`                 | May 24th     | `sha256:1f9132f8870bb706566761b1976d83e93875a4d4a81bd6fb9ad2a0fda187c03e` |
-|  `latest-dev` `1-dev` `1.3-dev` `1.3.0-dev` | May 24th     | `sha256:da9f68bb098213b9708bf8bc4fcc7d3d50c0f9f989105d3289aad69a808927f0` |
+|  `1.3-dev` `latest-dev` `1.3.0-dev` `1-dev` | May 29th     | `sha256:af96ee24fce70af75e1a2799fc7a25219e88e34af7986de25adb82013e0a329f` |
+|  `latest` `1.3` `1.3.0` `1`                 | May 29th     | `sha256:62545e5bb2fd3849b6e4640f5e018dac04b10c941654fb0c69f8277a56754b14` |
 |  `1.2-dev` `1.2.15-dev`                     | May 19th     | `sha256:30fddba52a773dc28846af95983fd2b03c640735854fa78a3bba14adc1fad375` |
 |  `1.2.15` `1.2`                             | May 17th     | `sha256:f5a6398cc25358ed259f698d9b2a272bc3f084623b3112269c88fcf078f00d18` |
 |  `1.2.14-dev`                               | May 2nd      | `sha256:de739a0504cfb47e2d5edcaf12a5da411b61f0b26a45bfcfe94c8b05b1dec387` |

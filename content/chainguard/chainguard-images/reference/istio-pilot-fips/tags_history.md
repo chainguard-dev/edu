@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the istio-pilot-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-27 00:43:34
+lastmod: 2024-05-30 00:47:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.21-dev` `1.21.2-dev` | May 24th     | `sha256:26e7a3d07a0654c7d29e78c0856008679bacbc6ce31fed706573aebb755a95e2` |
-|  `1.20.6-dev` `1.20-dev`                      | May 24th     | `sha256:d55908aa3a0a29bc2ea3ad2dac4acb4f9ee3f1498b92b86f8c4df57b5637f7f7` |
-|  `latest` `1.21` `1.21.2` `1`                 | May 23rd     | `sha256:347e595b3c852b7de65a5804377d56cda6c7498b1c453d4336b0e56b0c2d0297` |
-|  `1.20.6` `1.20`                              | May 23rd     | `sha256:49c979ffe4a8dfd0326fd561a40a6545df466043eda0c71d1b1065f0471e58ac` |
+|  `1.20` `1.20.6`                              | May 29th     | `sha256:a156a9001ee57e72908ee0e83d7b37a3aa3e5b0f1d34f6b954b94d782419cdde` |
+|  `1` `latest` `1.21` `1.21.2`                 | May 29th     | `sha256:8bd094c835b636b82138a01fd0c44d99dec8c2d830c735bffa573eb3884bba42` |
+|  `1.21-dev` `1.21.2-dev` `1-dev` `latest-dev` | May 29th     | `sha256:0fef7285d254b60a4c493f8cf40b484eb807b8ad40110e7740be69a69cd7877a` |
+|  `1.20-dev` `1.20.6-dev`                      | May 29th     | `sha256:78dc6fb97a0feded248f1946364843e5f6ec80ca9aebb5ea3b8d34273d3b34b2` |
 |  `1.19-dev` `1.19.10-dev`                     | May 2nd      | `sha256:41f73b66598c08ca0e84d10f3089c0363f7a8152a50b74b3b03a60c61e17fbfe` |
 |  `1.19.10` `1.19`                             | May 2nd      | `sha256:b5eb35e5b7fd0ff94793f3e9d7c5259c744fa1f9fa002f1b3601d670588dbb74` |
 
