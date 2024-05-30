@@ -17,13 +17,9 @@ toc: true
 
 The [Laravel Chainguard Image](https://edu.chainguard.dev/chainguard/chainguard-images/reference/laravel/overview/) is a container image that has the tooling necessary to develop, build, and execute [Laravel](https://laravel.com) applications, including required extensions. Laravel is a full-stack PHP framework that enables developers to build complex applications using modern tools and techniques that help streamline the development process.
 
-In this guide, we'll set up a demo application and demonstrate how you can use Chainguard Images to  develop, build, and run Laravel applications on development and production environments.
+In this guide, we'll set up a demo and demonstrate how you can use Chainguard Images to develop, build, and run Laravel applications.
 
-This tutorial requires Docker to be installed on your local machine.
-
-{{< details "Chainguard Images" >}}
-{{< blurb/images >}}
-{{< /details >}}
+This tutorial requires Docker to be installed on your local machine. If you don't have Docker installed, you can download and install it from the [official Docker website](https://docs.docker.com/get-docker/).
 
 ## 1. Setting Up a Demo Application
 
@@ -295,19 +291,7 @@ This will stop and remove all containers, networks, and volumes created by the p
 docker compose -f docker-compose-distroless.yaml up
 ```
 
-Then, get the `octofacts` container id with `docker ps` in order to run migrations:
-
-```shell
-docker compose ps
-```
-```shell
-NAME                   IMAGE                        COMMAND                  SERVICE   CREATED          STATUS          PORTS
-octo-facts-app-1       octofacts                    "/bin/s6-svscan /sv"     app       28 seconds ago   Up 27 seconds
-octo-facts-mariadb-1   cgr.dev/chainguard/mariadb   "/usr/local/bin/dock…"   mariadb   28 seconds ago   Up 27 seconds   0.0.0.0:3306->3306/tcp, :::3306->3306/tcp
-octo-facts-nginx-1     cgr.dev/chainguard/nginx     "/usr/sbin/nginx -c …"   nginx     28 seconds ago   Up 27 seconds   0.0.0.0:8000->8080/tcp, :::8000->8080/tcp
-```
-
-You can now run the database migrations with:
+Once the environment is up and running, you can now run the database migrations with:
 
 ```shell
 docker exec octo-facts-app-1  php /app/artisan migrate --seed
