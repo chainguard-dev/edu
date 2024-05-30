@@ -17,17 +17,9 @@ toc: true
 
 The [Laravel Chainguard Image](https://edu.chainguard.dev/chainguard/chainguard-images/reference/laravel/overview/) is a container image that has the tooling necessary to develop, build, and execute [Laravel](https://laravel.com) applications, including required extensions. Laravel is a full-stack PHP framework that enables developers to build complex applications using modern tools and techniques that help streamline the development process.
 
-In this guide, we'll set up a demo application and demonstrate how you can use Chainguard images to  develop, build, and run Laravel applications on development and production environments.
+In this guide, we'll set up a demo application and demonstrate how you can use Chainguard Images to  develop, build, and run Laravel applications on development and production environments.
 
 This tutorial requires Docker to be installed on your local machine.
-
-{{< details "What is distroless" >}}
-{{< blurb/distroless >}}
-{{< /details >}}
-
-{{< details "What is Wolfi" >}}
-{{< blurb/wolfi >}}
-{{< /details >}}
 
 {{< details "Chainguard Images" >}}
 {{< blurb/images >}}
@@ -37,7 +29,7 @@ This tutorial requires Docker to be installed on your local machine.
 
 We'll start by getting the demo application ready. The demo is called **OctoFacts**, and it shows a random fact about Octopuses alongside a random Octopus image each time the page is reloaded. Quotes are loaded from a `.txt` file into the database through a database migration.
 
-By default, the application uses an SQLite database. This allows us to test the application with the built-in web server provided by the `artisan serve` command, without having to set up a full PHP development environment first. In the next step, we'll configure a multi-node environment using Docker Compose to demonstrate a typical LEMP (Linux, (E)Nginx, MariaDB, and PHP) environment using Chainguard Images.
+By default, the application uses an [SQLite](https://www.sqlite.org/) database. This allows us to test the application with the built-in web server provided by the `artisan serve` command, without having to set up a full PHP development environment first. In the next step, we'll configure a multi-node environment using Docker Compose to demonstrate a typical LEMP (Linux, (E)Nginx, MariaDB, and PHP) environment using Chainguard Images.
 
 Start by cloning the demos repository to your local machine:
 
@@ -83,7 +75,7 @@ docker run --rm -v ${PWD}:/app --entrypoint npm --user root \
 Then, fix permissions on node modules with:
 
 ```shell
-sudo chown -R ${USER}:${USER} node_modules/
+sudo chown -R ${USER} node_modules/
 ```
 The next step is to build front end assets. You can use the `npm run build` command for that. Like with `npm install`, you'll need to set the container user to **root**.
 
@@ -96,7 +88,7 @@ docker run --rm -v ${PWD}:/app --entrypoint npm --user root \
 Fix permissions on the public folder:
 
 ```shell
-sudo chown -R ${USER}:${USER} public/
+sudo chown -R ${USER} public/
 ```
 
 The application is all set. Next, run the built-in web server with:
@@ -119,7 +111,6 @@ To demonstrate a full LEMP setup using Chainguard Images, we'll now set up a Doc
 The following `docker-compose.yaml` file is already included in the root of the application folder:
 
 ```yaml
-version: "3.7"
 services:
   app:
     image: cgr.dev/chainguard/laravel:latest-dev
@@ -185,7 +176,7 @@ http {
     charset utf-8;
 
     location / {
-    include  /etc/nginx/mime.types;
+        include  /etc/nginx/mime.types;
         try_files $uri $uri/ /index.php?$query_string;
     }
 
@@ -221,7 +212,7 @@ docker compose up
 
 This command will block your terminal and show live logs from each of the running services. With the MariaDB database up and running, you can now update Laravel's main `.env` file to change the database connection from **sqlite** to **mysql**.
 
-Open the `.env` file in your editor of choice and locate the database settings. The `DB_CONNECTION` parameter is set to `sqlite`, you should change that to `mysql` and uncomment the remaining variables to reflect the settings from your `docker-compose.yaml` file:
+Open the `.env` file in your editor of choice and locate the database settings. The `DB_CONNECTION` parameter is set to `sqlite`, you should change that to `mysql` and uncomment the remaining variables to reflect the settings from your `docker-compose.yaml` file. This is how the database section should look like when you're finished editing:
 
 ```ini
 DB_CONNECTION=mysql
@@ -234,25 +225,24 @@ DB_PASSWORD=password
 
 Save and close the file. If you reload the application on your browser now, you should get a database error, because the database is empty. You'll need to re-run migrations and seed the database. To do that, you can run a `docker exec` command on the live container.
 
-First, look for the container running the `app` service and copy its ID.
+First, look for the container running the `app` service and copy its name.
 
 ```shell
-docker ps
+docker compose ps
 ```
 ```shell
-CONTAINER ID   IMAGE                                   COMMAND                  CREATED          STATUS          PORTS                                       NAMES
-4d8534e540cd   cgr.dev/chainguard/mariadb              "/usr/local/bin/dock…"   25 seconds ago   Up 24 seconds   0.0.0.0:3306->3306/tcp, :::3306->3306/tcp   octo-facts-mariadb-1
-cb24b8b3d96a   cgr.dev/chainguard/laravel:latest-dev   "/bin/s6-svscan /sv"     25 seconds ago   Up 24 seconds                                               octo-facts-app-1
-f6cc3978e0e8   cgr.dev/chainguard/nginx                "/usr/sbin/nginx -c …"   25 seconds ago   Up 24 seconds   0.0.0.0:8000->8080/tcp, :::8000->8080/tcp   octo-facts-nginx-1
-
+NAME                   IMAGE                                   COMMAND                  SERVICE   CREATED          STATUS          PORTS
+octo-facts-app-1       cgr.dev/chainguard/laravel:latest-dev   "/bin/s6-svscan /sv"     app       11 seconds ago   Up 10 seconds
+octo-facts-mariadb-1   cgr.dev/chainguard/mariadb              "/usr/local/bin/dock…"   mariadb   11 seconds ago   Up 10 seconds   0.0.0.0:3306->3306/tcp, :::3306->3306/tcp
+octo-facts-nginx-1     cgr.dev/chainguard/nginx                "/usr/sbin/nginx -c …"   nginx     11 seconds ago   Up 10 seconds   0.0.0.0:8000->8080/tcp, :::8000->8080/tcp
 ```
 Then, you can run migrations like this:
 
 ```shell
-docker exec cb24b8b3d96a php /app/artisan migrate --seed
+docker exec octo-facts-app-1 php /app/artisan migrate --seed
 ```
 
-You can use the same method to execute other Artisan commands while the environment is up. After running migrations and seeding the database, you should be able to reload the app from your browser at `localhost:8000` and get a new Octopus fact.
+You can use the same method to execute other Artisan commands while the environment is up. After running migrations and seeding the database, you should be able to reload the app from your browser at `localhost:8000` and get a new octopus fact.
 
 ## 3. Creating a Distroless Laravel Runtime for the Application
 So far, we have been using the `laravel:latest-dev` builder image to run the application in a development setting. For production workloads, the recommended approach for additional security is to create a [distroless](/chainguard/chainguard-images/getting-started-distroless/) runtime for the application that will contain only what's absolutely necessary for running the app on production. This is done by combining a **build** phase in a **multi-stage** Dockerfile.
@@ -277,47 +267,53 @@ COPY --from=builder /app /app
 
 This Dockerfile starts with a build stage that copies the application files to the container, installs Node and NPM, installs the application dependencies, and dumps front-end assets to the public folder. A second stage based on `laravel:latest` copies the application from the build stage to the final distroless image. It's important to notice that we don't run any database migrations here, because at build time the database might not be ready yet. In other production scenarios, you may be able to include the migration within the Dockerfile, as long as the database is already up and running.
 
-To build this image, run:
+The file `docker-compose-distroless.yaml` included within the root of the application folder has a few changes compared to the previous `docker-compose.yaml` file. The `app` service now uses the `octofacts` image, which is built from the Dockerfile referenced above. The `user: laravel` directive is also removed so commands run as the default **php** user. This is how the `app` service looks like in the new file:
 
-```shell
-docker build . -t octofacts
-```
-This will build the image with the `octofacts` tag, which you can reference in your Docker Compose configuration. Edit your `docker-compose.yaml` file and replace the `cgr.dev/chainguard/laravel:latest-dev` image with your newly built `octofacts` image. You should also remove the `user: laravel` directive as this image won't be used for development:
-
-```shell
-services:
+```yaml
   app:
     image: octofacts
+    build:
+      context: .
     restart: unless-stopped
     working_dir: /app
+    user: laravel
+    volumes:
+      - .:/app
+    networks:
+      - wolfi
 ...
 ```
 
-You can now bring the environment up with:
+If your environment is still running, you should stop it before proceeding. Hit `CTRL+C` and then run:
 
 ```shell
-docker compose up
+docker compose down
+```
+This will stop and remove all containers, networks, and volumes created by the previous `docker-compose.yaml` file. You can now bring the new environment up with:
+
+```shell
+docker compose -f docker-compose-distroless.yaml up
 ```
 
 Then, get the `octofacts` container id with `docker ps` in order to run migrations:
 
 ```shell
-docker ps
+docker compose ps
 ```
 ```shell
-CONTAINER ID   IMAGE                        COMMAND                  CREATED          STATUS          PORTS                                       NAMES
-6ef6aee627fc   cgr.dev/chainguard/mariadb   "/usr/local/bin/dock…"   39 seconds ago   Up 38 seconds   0.0.0.0:3306->3306/tcp, :::3306->3306/tcp   octo-facts-mariadb-1
-78e8d29eeca6   octofacts                    "/bin/s6-svscan /sv"     39 seconds ago   Up 38 seconds                                               octo-facts-app-1
-7622ef29da99   cgr.dev/chainguard/nginx     "/usr/sbin/nginx -c …"   39 seconds ago   Up 38 seconds   0.0.0.0:8000->8080/tcp, :::8000->8080/tcp   octo-facts-nginx-1
+NAME                   IMAGE                        COMMAND                  SERVICE   CREATED          STATUS          PORTS
+octo-facts-app-1       octofacts                    "/bin/s6-svscan /sv"     app       28 seconds ago   Up 27 seconds
+octo-facts-mariadb-1   cgr.dev/chainguard/mariadb   "/usr/local/bin/dock…"   mariadb   28 seconds ago   Up 27 seconds   0.0.0.0:3306->3306/tcp, :::3306->3306/tcp
+octo-facts-nginx-1     cgr.dev/chainguard/nginx     "/usr/sbin/nginx -c …"   nginx     28 seconds ago   Up 27 seconds   0.0.0.0:8000->8080/tcp, :::8000->8080/tcp
 ```
 
 You can now run the database migrations with:
 
 ```shell
-docker exec 78e8d29eeca6 php /app/artisan migrate --seed
+docker exec octo-facts-app-1  php /app/artisan migrate --seed
 ```
 
-You should now be able to reload your browser and obtain a new Octopus fact.
+You should now be able to reload your browser and obtain a new octopus fact.
 
 ## Advanced Usage
 
