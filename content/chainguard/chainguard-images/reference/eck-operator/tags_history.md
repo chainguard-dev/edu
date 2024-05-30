@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eck-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-27 00:43:34
+lastmod: 2024-05-30 00:47:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.12.1-dev` `2.12-dev` `latest-dev` `2-dev` | May 25th     | `sha256:f3b1ae5f20a710576e1207b493c86cfc5cf03df65b87b3e060b47a9fcf085ef8` |
+|  `2.12.1-dev` `2-dev` `latest-dev` `2.12-dev` | May 29th     | `sha256:03094a2e40e77cbd3b988dabd936e2757f7ff5ff7eb663ab3eb1c47f5f2e6e80` |
 |  `2.12.1` `2.12` `2` `latest`                 | May 25th     | `sha256:22831a75de3fa901673ef443fe8775d1770da6f605f685fa24205f796bdbbdb7` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the falcoctl-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-27 00:43:34
+lastmod: 2024-05-30 00:47:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.7-dev` `latest-dev` `0-dev` `0.7.3-dev` | May 24th     | `sha256:b14f19e32602c956418dec425580e96b99f99e67095c1a07c89a88e1e841da90` |
-|  `0.4.0-dev` `0.4-dev`                      | May 24th     | `sha256:ca19abcd722cf525818495cde48c56424e488a0633e7b25d41b474a7a9ca4907` |
-|  `0.4` `0.4.0`                              | May 23rd     | `sha256:d8e4b9f50823376cb4b915f149923e841a0132066655b214bee8028121cdba1b` |
-|  `latest` `0` `0.7.3` `0.7`                 | May 23rd     | `sha256:266d7a8aa71447cd380337a85ac3fd71caf99c3d124b4b87052eca47e5600029` |
+|  `0.4-dev` `0.4.0-dev`                      | May 29th     | `sha256:f170427fa5f2060757fec8feb56ebd59d8eca2e8e0577026bcfff231eedc19f8` |
+|  `0.4` `0.4.0`                              | May 29th     | `sha256:47fcad8a859ea08ec6660b3054827208d5fb354450ac982b8bacd00cf9ff8d6d` |
+|  `0.8.0-dev` `0.8-dev` `latest-dev` `0-dev` | May 29th     | `sha256:9873bf951c13ccd189f61190862658e2bf04a2cede5d1e41540bf13b6a1d0ff1` |
+|  `0.8.0` `0.8` `latest` `0`                 | May 29th     | `sha256:02ded856feffc7fbf40c7758ed79c611476ad5c3328d1154152afbcfec0eae25` |
+|  `0.7-dev` `0.7.3-dev`                      | May 24th     | `sha256:b14f19e32602c956418dec425580e96b99f99e67095c1a07c89a88e1e841da90` |
+|  `0.7.3` `0.7`                              | May 23rd     | `sha256:266d7a8aa71447cd380337a85ac3fd71caf99c3d124b4b87052eca47e5600029` |
 

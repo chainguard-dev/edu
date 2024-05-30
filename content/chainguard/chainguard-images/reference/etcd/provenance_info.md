@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for etcd Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-04-26 00:36:54
+lastmod: 2024-05-30 00:47:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for etcd Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                                                                                                     |
-|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                                       |
-| `cgr.dev/chainguard-private` | 3, 3-dev, 3.4, 3.4-dev, 3.4.30, 3.4.30-dev, 3.4.31, 3.4.31-dev, 3.4.32, 3.4.32-dev, 3.5, 3.5-dev, 3.5.10, 3.5.10-dev, 3.5.11, 3.5.11-dev, 3.5.12, 3.5.12-dev, 3.5.13, 3.5.13-dev, 3.5.8, 3.5.8-dev, 3.5.9, 3.5.9-dev, latest, latest-dev |
+| Registry                     | Tags                                                                                                                                                                                                                                                         |
+|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                                                           |
+| `cgr.dev/chainguard-private` | 3, 3-dev, 3.4, 3.4-dev, 3.4.30, 3.4.30-dev, 3.4.31, 3.4.31-dev, 3.4.32, 3.4.32-dev, 3.5, 3.5-dev, 3.5.10, 3.5.10-dev, 3.5.11, 3.5.11-dev, 3.5.12, 3.5.12-dev, 3.5.13, 3.5.13-dev, 3.5.14, 3.5.14-dev, 3.5.8, 3.5.8-dev, 3.5.9, 3.5.9-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

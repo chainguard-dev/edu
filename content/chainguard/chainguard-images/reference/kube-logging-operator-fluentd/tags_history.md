@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-logging-operator-fluentd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-29 00:38:53
+lastmod: 2024-05-30 00:47:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,14 +28,15 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 24th     | `sha256:48e18fab5ea95fb7f58843da3aff0726f21123647c21c449d51852b3ff82e48d` |
+|  `latest`     | May 29th     | `sha256:213540ff74e5a400198e42bc361398b0c0da232932e03d2cec4c56fae13f140b` |
 |  `latest-dev` | May 23rd     | `sha256:596d1ef408a234e30752430c2dd5b25183d86ed38d4d27b37f69a652867d88ac` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | May 28th     | `sha256:38a6ba514c2e2557f57221b78e7b0c275aa5f528e81f3831fdc22024f9085a4f` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.16` `1` `1.16.5` `latest`                 | May 29th     | `sha256:f41d5421fa32136b79b307b8420bf5e26bb10ec0dd03122aae743b7a7b8b4935` |
+|  `latest-dev` `1.16-dev` `1-dev` `1.16.5-dev` | May 29th     | `sha256:5407f95d7375491c28c935305fc8415006b575577caaa3dd25acc52a300cb45c` |
 

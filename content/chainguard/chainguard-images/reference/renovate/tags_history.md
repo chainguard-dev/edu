@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the renovate Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-29 00:38:53
+lastmod: 2024-05-30 00:47:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                            | Last Changed | Digest                                                                    |
 |----------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `37.381-dev` `37.381.3-dev` `37-dev` | May 28th     | `sha256:82376ae0f0ed0c4e56e3e41e99f99093bbc850e5da6409467a14425a5dae3cac` |
-|  `37.381` `latest` `37.381.3` `37`                 | May 28th     | `sha256:4cf71e117a39a9b2a0a05fa1b231195db2cdcb108848bc62ce8543c9e040ad13` |
+|  `37.381-dev` `latest-dev` `37.381.8-dev` `37-dev` | May 29th     | `sha256:6accbaf6e83f8d592adea0de795fc6737ee3ee2650421483f123c9c432704d06` |
+|  `37` `37.381.8` `37.381` `latest`                 | May 29th     | `sha256:75e475e49de16f931a209d3d97be4b9acdb1a93bba03c80120098b50bbc077cd` |
+|  `37.381.7`                                        | May 29th     | `sha256:da08f94cbc72fe1c4c8bc258d1c9a352e31603e4bcd932a2ce2d7bb9476c5d4b` |
+|  `37.381.7-dev`                                    | May 29th     | `sha256:b13af71626c48e3d8752ea566d1fd0f07c9bc37820ca71da89e67d9ad99eaeb5` |
+|  `37.381.3-dev`                                    | May 29th     | `sha256:55409ac4e256b2fc778003ca84bc99eb5aece9259b97b3c229e5a8b34888e2d6` |
+|  `37.381.3`                                        | May 29th     | `sha256:1b5113037ea095db152205ed8bc9028bc2e5e490d156f7cd25f45180040f6941` |
 |  `37.381.0`                                        | May 28th     | `sha256:f81c1e5466594131a1e9a516924e7a105dbbf48f9899a0cc25633ed72be1549b` |
 |  `37.381.0-dev`                                    | May 28th     | `sha256:772a60fa71125f3e06065b4359ee8dfda93709ef0f2f7cdd184250889a2ae8fa` |
 |  `37.379-dev` `37.379.0-dev`                       | May 27th     | `sha256:ffc2ffd623708fb0aa646569cbecfab2696d3497649e472866df5d7bbb8bc3a9` |

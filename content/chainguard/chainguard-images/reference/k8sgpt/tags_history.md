@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k8sgpt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-27 00:43:34
+lastmod: 2024-05-30 00:47:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | May 23rd     | `sha256:23f5001053e126a655da8ceadf8104957145072e414df431b1fed3911df3784b` |
+|  `latest` | May 29th     | `sha256:620418fdddb427be2daf3c4a18b4a17b88bda638c08a77b689252709fa56c9ba` |
 
 
 ### Private/Dedicated Registry
@@ -38,6 +38,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |------------------------------|--------------|---------------------------------------------------------------------------|
 |  `0.3.32` `0.3` `0` `latest` | May 24th     | `sha256:8b323386d2d8d29345477ba921a941e49a320fe5e29eb093e85610bb618c7f1d` |
 |  `0.3.30`                    | May 10th     | `sha256:b71970bd3509cf7e732f1203d4eab97a4e82efe4131027918f70a5f219a99378` |
+|  `0.3.5`                     | May 29th     | `sha256:25b4785bf8194553094e2d87976eee4ff22b76b7dfb9e213a5aba7278e4bb3a5` |
 |  `0.3.4`                     | May 25th     | `sha256:a3102f88bd7d9225212482cd0d46307b74d73d84bdb200baa0cf285391a91d28` |
 |  `0.3.3`                     | May 22nd     | `sha256:22a1039c0ba505e0132b5b8ec9eb3e95dd9a3e8ad4094d0f1f5b37ecf3d0d6ca` |
 |  `0.3.2`                     | May 20th     | `sha256:fb9f307b78af88eb23833c649a7adf8a950182491d1f068293691bf594430bcf` |

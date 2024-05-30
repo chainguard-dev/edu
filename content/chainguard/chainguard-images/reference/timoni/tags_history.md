@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the timoni Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-27 00:43:34
+lastmod: 2024-05-30 00:47:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | May 29th     | `sha256:2c401e2b90c2b7fc6e106740585a2423f0e643769055eaf7c97738d15e5c2d97` |
 |  `latest-dev` | May 23rd     | `sha256:1bfbdc06b78ece39c9d52be1e405c79d097ca12311636844e12018436fa7e8fe` |
-|  `latest`     | May 23rd     | `sha256:65a1c577a76868d4ec853cda90263604733e3f32b8be2396f71ffb9f8670cf2c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.21.0-dev` `0.21-dev` `0-dev` `latest-dev` | May 24th     | `sha256:bda0e5ee1eb9b54d8bef39c091deb8d210359f40fe7f347276e6b0a849cf5fe8` |
-|  `latest` `0.21` `0.21.0` `0`                 | May 24th     | `sha256:c5a45212a833935a29cbdb2cbea2bca842091830e2ea08f66635a4348c4ee905` |
+|  `0.21` `0` `latest` `0.21.0`                 | May 29th     | `sha256:580f1dcff3c744be81e801f851b2c63b1e1720e275405c741648cff68660a868` |
+|  `0-dev` `latest-dev` `0.21.0-dev` `0.21-dev` | May 29th     | `sha256:3ddfe29d4935669727f7eba48113d97e598d5e1988f18bf08f0c9155a13eae3e` |
 

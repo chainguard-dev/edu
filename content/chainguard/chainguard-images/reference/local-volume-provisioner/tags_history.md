@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the local-volume-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-29 00:38:53
+lastmod: 2024-05-30 00:47:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.7.0-dev` `latest-dev` `2.7-dev` `2-dev` | May 28th     | `sha256:87cad976cf25fcb811ca16bd9ed6bafed76a07d2b38efd755e54cda5c49331a1` |
+|  `2.7-dev` `2-dev` `2.7.0-dev` `latest-dev` | May 29th     | `sha256:3c97b906856cb6c2fc458ca4fe0d3079bf34680d5defe658893420c244099a5a` |
 |  `2.7` `2.7.0` `2` `latest`                 | May 28th     | `sha256:2eb2b1a980ce9bc845b28ca552fe4e82660bebbbe07637f815567d99e7387053` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tomcat Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-28 00:45:11
+lastmod: 2024-05-30 00:47:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,10 +36,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                         | Last Changed | Digest                                                                    |
 |-------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `10.1.24-dev` `10-dev` `10.1-dev` | May 24th     | `sha256:1d74d6bd4ab33e7d93d46403abe92f1fa7494f5a25b779fb66e8abe7f65f95dc` |
-|  `latest` `10` `10.1` `10.1.24`                 | May 24th     | `sha256:6c7e991c400c3fd648c4e77537558d52abb60ebd30728c47ae38cbb3d5df351a` |
-|  `9.0.89-dev` `9.0-dev` `9-dev`                 | May 24th     | `sha256:3414f8fe47f7b13d82ac6d7ab8ac8f9cb09998a0d244d5d2eb109f0332f175e7` |
-|  `9` `9.0.89` `9.0`                             | May 24th     | `sha256:aa2224769f96fcdf354b72ec29f47f5d178ae558f2c61f096f6386cc52188ef4` |
+|  `9` `9.0.89` `9.0`                             | May 29th     | `sha256:ba6c75b08dffdbc71288df1dce6a90774860dd056b17ada15eca4b8fd9f54260` |
+|  `9.0-dev` `9-dev` `9.0.89-dev`                 | May 29th     | `sha256:e6773e29b2e41733f3db4b89bdc5c0b1e9ca946a3aace076c1c2e1d0f2dd1bd3` |
+|  `10.1` `latest` `10.1.24` `10`                 | May 29th     | `sha256:52b53b9eaaafa19119f62791a9360998ac019b1b00857c9de7ea8a47094c9770` |
+|  `10-dev` `10.1.24-dev` `latest-dev` `10.1-dev` | May 29th     | `sha256:cfbe1992cbdbf01cfed945f19f5d0815294a18519d36dcb38e6b530d35ab2238` |
 |  `10.1.23-dev`                                  | May 3rd      | `sha256:1e4fef12f2104e50955350d07a6edf79335e5b51e2827fe8af5b35f38cccab90` |
 |  `10.1.23`                                      | May 3rd      | `sha256:696f9e0e73700f366e4f34455fb973c03588cf9ebd898f3252c066e953450972` |
 |  `9.0.88-dev`                                   | May 3rd      | `sha256:f03e81f4d8efa425201a69d0efa7eee3d6685e489ca67f7a49aac3a48653794e` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public erlang Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-30 00:47:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -42,7 +42,7 @@ The table shows package distribution across variants.
 | `busybox`                | X          | X      |
 | `ca-certificates-bundle` | X          | X      |
 | `chainguard-baselayout`  | X          | X      |
-| `erlang-26`              | X          | X      |
+| `erlang-27`              | X          | X      |
 | `git`                    | X          |        |
 | `glibc`                  | X          | X      |
 | `glibc-locale-posix`     | X          | X      |

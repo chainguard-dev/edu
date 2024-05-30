@@ -3,8 +3,8 @@ title: "fluent-bit-plugin-loki Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public fluent-bit-plugin-loki Chainguard Image."
-date: 2024-05-16 00:37:58
-lastmod: 2024-05-16 00:37:58
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-05-30 00:47:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,7 +23,7 @@ This page shows detailed information about the Chainguard **fluent-bit-plugin-lo
 
 |              | latest-dev                                                                                  | latest                                                                                      |
 |--------------|---------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
-| Default User | `nonroot`                                                                                   | `nonroot`                                                                                   |
+| Default User | `root`                                                                                      | `root`                                                                                      |
 | Entrypoint   | `fluent-bit -e /fluent-bit/bin/out_grafana_loki.so -c /fluent-bit/etc/fluent-bit-loki.conf` | `fluent-bit -e /fluent-bit/bin/out_grafana_loki.so -c /fluent-bit/etc/fluent-bit-loki.conf` |
 | CMD          | not specified                                                                               | not specified                                                                               |
 | Workdir      | not specified                                                                               | not specified                                                                               |

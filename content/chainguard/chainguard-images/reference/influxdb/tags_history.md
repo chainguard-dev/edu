@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the influxdb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-28 00:45:11
+lastmod: 2024-05-30 00:47:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `latest-dev` `2.7.5-dev` `2.7-dev` | May 24th     | `sha256:eb1e161cffdc085e5d8c6176756022b25316742e8040bc4d5ca37300a9bf1155` |
+|  `2.7-dev` `2.7.5-dev` `2-dev` `latest-dev` | May 29th     | `sha256:7c036e0c4e3d4c4d75a0119921d92725ebd322928194814c9bb5234c0e59f685` |
 |  `2` `2.7.5` `latest` `2.7`                 | May 23rd     | `sha256:f16f17430c516f5a66f5e78326c98f1d62036c3a3c1e75bc0f676fc45053cf63` |
 

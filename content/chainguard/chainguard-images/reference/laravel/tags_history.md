@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the laravel Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-29 00:38:53
+lastmod: 2024-05-30 00:47:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,5 +37,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | May 28th     | `sha256:2e86408ca7c5a6d3e28d6d79aa9abfd3a2bec9dab27e35b8c78079ca846e4a15` |
+|  `latest` | May 29th     | `sha256:47ebb10568e4772d81572d0b134fdcb4cc4727802ce435127bdd3e62780c8e3a` |
 

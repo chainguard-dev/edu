@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the istio-install-cni Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-27 00:43:34
+lastmod: 2024-05-30 00:47:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,12 +37,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.22.0-dev` `1.22-dev` | May 24th     | `sha256:6cc4f7035ac32ccd0ffe32445957fe5eda72c9164b29d4c323028c40d8f058df` |
+|  `1.22.0-dev` `latest-dev` `1.22-dev` `1-dev` | May 29th     | `sha256:18e090c6a2942e1911f6109f547f2d891ae590a3f8858caffbb7a4d02ff92ca9` |
+|  `1.20.6-dev` `1.20-dev`                      | May 29th     | `sha256:bf61a56f659d839ad05896d02b98d968bf82f94dc53b77892a1fac6e44f170a3` |
+|  `1.21-dev` `1.21.2-dev`                      | May 29th     | `sha256:3fb91a54dae61c8d87ed94fd0dfcfad63115d66e856f6a75ae8c4d371d198b9e` |
 |  `1.20.6` `1.20`                              | May 24th     | `sha256:2d9c9b6ee6385fd5b2365d3f807a609e300068e60c3a993a046874f5dce900d0` |
 |  `latest` `1` `1.22.0` `1.22`                 | May 24th     | `sha256:3b98967b92a309e83259ef17940ab7d04726b35d449405fdcc6c10d78870167b` |
-|  `1.21.2-dev` `1.21-dev`                      | May 24th     | `sha256:b108e9f120dddc5bd4dc08bd4ff812a9384e69916a47e3482f385d0287e78e33` |
 |  `1.21.2` `1.21`                              | May 24th     | `sha256:58b802c9ce24989f97c7259281627b72b0565d59de8a4ad72e5e420f25799e89` |
-|  `1.20-dev` `1.20.6-dev`                      | May 24th     | `sha256:2e9f75fb011360026b183e90d50b725a975648a5569a7fec036492f9377dee89` |
 |  `1.19.10-dev` `1.19-dev`                     | May 2nd      | `sha256:bf78764d3b3326cad7c03d2800365c0741b40cd11bc783fa6a9d0870aa3dbe64` |
 |  `1.19` `1.19.10`                             | May 2nd      | `sha256:cc2bc2a1f977bd5206e586987fd3a51bd67b2663bc6ee0571f5da95c0cd49557` |
 

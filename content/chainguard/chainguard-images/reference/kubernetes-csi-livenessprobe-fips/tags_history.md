@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-livenessprobe-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-27 00:43:34
+lastmod: 2024-05-30 00:47:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2-dev` `2.13.0-dev` `2.13-dev` | May 24th     | `sha256:c32fd5a40485fe1bf28355ad8b7397bfe6482edd90ea25ce05648b0996237445` |
-|  `2.10.0-dev` `2.10-dev`                      | May 24th     | `sha256:ebb400dd043b1ee961e09dadb2cd4c21a9e64e768c89269da85ffca42d5576f6` |
-|  `2.10` `2.10.0`                              | May 23rd     | `sha256:6bf55f160d090d4130e9b0b03dbf20e896ca85efaf026c9ef200b66e0d3908f0` |
-|  `2.13` `2.13.0` `2` `latest`                 | May 23rd     | `sha256:4e586fce8388dd55e66daf7e997182d4e08d937241348fe9bf526b1fee051eba` |
+|  `2-dev` `2.13-dev` `latest-dev` `2.13.0-dev` | May 29th     | `sha256:e45001b56f34a230abf3308688bce9898e107007e440dce51a8b796b10d65094` |
+|  `2.13.0` `2` `latest` `2.13`                 | May 29th     | `sha256:5aaad1c96426d6161621fb677961d9092a2c13b1e82c477bb30e9cee16e9fa1e` |
+|  `2.10.0` `2.10`                              | May 29th     | `sha256:a09160cb24b1e193046f6171fb9e32c893d68ca10a98e7c22083d75d95fa4844` |
+|  `2.10-dev` `2.10.0-dev`                      | May 29th     | `sha256:82f798e08be695b25495578d596eda2e6f3df992aca52ebd606e7517e15dd421` |
 |  `2.12.0` `2.12`                              | May 23rd     | `sha256:a619262c112ebab521c2ea0a954f5b7b48de7296fe9cf2a376edd1771e61efc3` |
 |  `2.12-dev` `2.12.0-dev`                      | May 23rd     | `sha256:6c44e544e77e3ad75cde41f094f3dc7a756a2e9db2a9e2c0d2196eda31ca8e19` |
 

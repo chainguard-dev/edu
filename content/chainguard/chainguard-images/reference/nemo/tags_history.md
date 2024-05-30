@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nemo Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-28 00:45:11
+lastmod: 2024-05-30 00:47:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.23` `1.23.0` `latest` `1`                 | May 27th     | `sha256:37387a86a544ed65e8c80c1d80849a78561e4a458b86bc2faf2b90811fcfac32` |
-|  `1-dev` `1.23.0-dev` `latest-dev` `1.23-dev` | May 27th     | `sha256:77c21e59a2e65441f7e4645998a684dd7d9acb62171ed3b723739fd916a749cb` |
+|  `1.23.0` `1.23` `latest` `1`                 | May 29th     | `sha256:a487848ca207d7dc706a5b2d801955534e07d810af935b43c1215765793fdfd3` |
+|  `latest-dev` `1-dev` `1.23.0-dev` `1.23-dev` | May 29th     | `sha256:aec68acea3749e644062a7699dacbc90aba0c26b3a871b736e3e9a9cf790d75a` |
 
