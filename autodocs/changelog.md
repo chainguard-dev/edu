@@ -1,3 +1,13 @@
+# 2024-05-31
+New images added:
+
+- calico-key-cert-provisioner
+- redis-bitnami-fips-cluster-bitnami
+- redis-bitnami-fips-sentinel-bitnami
+- redis-bitnami-fips-server-bitnami
+
+A total of **717** documents were updated.
+
 # 2024-05-30
 New images added:
 

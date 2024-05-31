@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the docker-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-30 00:47:59
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `26.1-dev` `latest-dev` `26-dev` `26.1.3-dev` | May 29th     | `sha256:37a30ad7c9a085fa8d217b592815507db8a13ebe5b679b578f056d8af1451ae5` |
+|  `26-dev` `26.1-dev` `26.1.3-dev` `latest-dev` | May 30th     | `sha256:d0d265d1fa1a52da67de0fdd4d1bbaf7131efe7ca87e6c02d0c4701d30ac2d80` |
 |  `latest` `26.1.3` `26` `26.1`                 | May 29th     | `sha256:a915161d0835cf064c6d3a3d6c10d911257ab8eff8873ac074da71dda69232a8` |
 |  `24.0.6-dev` `24.0-dev` `24-dev`              | May 24th     | `sha256:2bd49653fd8754aa76a5582eddee88ca73b2be689de8484975e5a68e8d962ecf` |
 |  `24` `24.0.6` `24.0`                          | May 23rd     | `sha256:c6524219a4d47932d6a7de77df8796768d9519a49fac59d10bb43e050cb125cf` |

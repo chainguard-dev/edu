@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the guacamole-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-30 00:47:59
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.5.5-dev` `latest-dev` `1.5-dev` | May 29th     | `sha256:71e401ce1745a6805120fcb1d008701334f85ee2a4d4d92a50453cdab9632cc8` |
-|  `1.5` `1` `1.5.5` `latest`                 | May 29th     | `sha256:dfc5cfa85dcbde3404ef8c4b5652651e7b6bdcef8406931417c27c07f7255d51` |
+|  `1.5` `latest` `1.5.5` `1`                 | May 30th     | `sha256:5091787160caa1593ab76b35e6ced383481c37db58f0f90589503ef8b7531d47` |
+|  `1.5.5-dev` `1.5-dev` `latest-dev` `1-dev` | May 30th     | `sha256:b6a0189be8dcfae31284992d64497e7fcf98f6e03e15369f54c73137b5b5040f` |
 

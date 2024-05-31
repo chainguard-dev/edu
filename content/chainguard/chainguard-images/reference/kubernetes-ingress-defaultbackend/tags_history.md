@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-ingress-defaultbackend Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-30 00:47:59
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 30th     | `sha256:fe538adac2b7e7cbe8b49bfa510147956e8f0fe58a6077a21f7f422b4f5f7acd` |
 |  `latest`     | May 23rd     | `sha256:1bf2b0644c40dc04a27102de5ea428a5712b5d7ba70277b7ef04e0a043c14e67` |
-|  `latest-dev` | May 23rd     | `sha256:639cf39f6fa3de049155ad02b2a6488e36aa76ef9846ba32df195151fbce69ef` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.29-dev` `1-dev` `latest-dev` `1.29.1-dev` | May 29th     | `sha256:da46a7108da5594539c97b8a9b8622df60b9bf43a1bc1229a37dd21aa85b3bb7` |
+|  `1.29-dev` `latest-dev` `1-dev` `1.29.1-dev` | May 30th     | `sha256:6f7aa853797d62e859a3f809d9fe4bf520ac0c44ca52d1c511f99c78864c7b0b` |
 |  `1.29` `1` `latest` `1.29.1`                 | May 23rd     | `sha256:a0382b190e56f3925b18b8114c1714d7bf14081aca29fd195def7aea87292d0d` |
 |  `1.29.0-dev`                                 | May 2nd      | `sha256:57c0a027a33dfb865591f30d47e49f118ee02886f90666e09705a5518ab94668` |
 |  `1.29.0`                                     | May 2nd      | `sha256:6b96e3c05ba7bd4cd6733c2f77bf69aa761ff39fde399abc3ac28fdc8d28648a` |

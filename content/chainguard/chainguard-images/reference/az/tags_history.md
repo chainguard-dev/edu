@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the az Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-30 00:47:59
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 27th     | `sha256:7784de8327481379ed1cbfca60dbe79d16836e61774f0e806fdfd9be105c8f41` |
+|  `latest`     | May 30th     | `sha256:74068e96658aeec9114a349c2870ab0620cbf2990c6ccc9f9e48b2b91c07db97` |
 |  `latest-dev` | May 23rd     | `sha256:424b984e8f14a122877b9ef750a6e02f1f874779405be05a1a2cb87dda66b3b4` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.61-dev` `2.61.0-dev` `latest-dev` | May 29th     | `sha256:0c00b02bdf2d19f3078ce7a53f66c3936baf99a6315e81ab36a5e5f5eaa86d30` |
-|  `latest` `2` `2.61` `2.61.0`                 | May 29th     | `sha256:b012edd4fbead49918a98959b209219657a00762b092cd8a491d3696c7a5a9ed` |
+|  `2` `2.61` `latest` `2.61.0`                 | May 30th     | `sha256:66367d56ae9510a31d57ca2a87c9632c226397a91392f562b9d2d0e7ed435607` |
+|  `latest-dev` `2-dev` `2.61.0-dev` `2.61-dev` | May 30th     | `sha256:5b91f81671fe99c216854e9b0fd80daaf5f13da6eb827217b941e6e9a88b903a` |
 |  `2.60.0-dev` `2.60-dev`                      | May 19th     | `sha256:ebf4af5e8c9618e08a9d8d17cfcc446250833fd4b0fb8593179302879a9fd2b9` |
 |  `2.60.0` `2.60`                              | May 17th     | `sha256:15ef99e92cea2e3acfa4c18d8cfea77d74684109d3c2a41ef1899924a800ff2a` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the temporal-ui-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-30 00:47:59
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | May 30th     | `sha256:4bd53e50b13e569fa39b98aeb7cfb73f364c5c3c4d41287ec9ae6daaba90b2ae` |
 |  `latest-dev` | May 23rd     | `sha256:6148554078cc7919b495ca11c7192a3b0abdc10edba7bad9b614600c798728bb` |
-|  `latest`     | May 23rd     | `sha256:f16e5569db3727a4cfa421abc67c90ff0f69091c4e0ca1f5066afe99b71d5d59` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `latest-dev` `2.27.2-dev` `2.27-dev` | May 29th     | `sha256:b26c2a585c0b44230e58121f0ee66c696ddf18941c3d63a8b6fce5b899a46abd` |
+|  `latest-dev` `2.27-dev` `2-dev` `2.27.2-dev` | May 30th     | `sha256:ff2e1cdadd7db8cdcf2278c1a58de27dd1109afc811158c3e97bfe599fcd39e0` |
 |  `2.27.2` `2.27` `latest` `2`                 | May 28th     | `sha256:bd9096130775ef58d2dfd973353f1a23cc17ec8d0217f85353dc783f3dbf148a` |
 |  `2.27.1-dev`                                 | May 24th     | `sha256:d9f050f9c41419982b8f940230452dde870f68d66b04be47df36aa0d0bc87f21` |
 |  `2.27.1`                                     | May 23rd     | `sha256:ab56277393e0ebdc50428e2e0fa713e2615c50333f8b2daff583279faba6c709` |

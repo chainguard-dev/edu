@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-agent-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-30 00:47:59
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.15` `1.15.5` `latest` `1`                 | May 29th     | `sha256:28cd32a17cdffe8a0c26c7d1222a2259336b53fcd1fef8abd48af8b9e598884e` |
-|  `1.14.9` `1.14`                              | May 29th     | `sha256:841d1079a86052557f2a8e8ed74fc4edfd8b096a3cde0485ba43c423ddb40a54` |
-|  `latest-dev` `1-dev` `1.15.5-dev` `1.15-dev` | May 29th     | `sha256:ad7b6c7e31ab3019075a9f1f0625645620b380d0145c1a9260490b455153e934` |
-|  `1.14.9-dev` `1.14-dev`                      | May 29th     | `sha256:73aa6ecf0e5f17bef20ccb7651f72531fb9da31cf4f84dd3b312ec690f5b4b00` |
+|  `1-dev` `1.15-dev` `latest-dev` `1.15.5-dev` | May 30th     | `sha256:2a3dca35a3bcce039083684ad0b778e8ed30b57ceb5f9c82d365e8cce11ee51c` |
+|  `1.14.9` `1.14`                              | May 30th     | `sha256:f75ac1fafb04ff771139f3b182412b4e22db70f9931efa400bade1b800828616` |
+|  `1.14.9-dev` `1.14-dev`                      | May 30th     | `sha256:f0c9c4a4147df97d4a45b9a64d370d07796742dcfc7557ce0e353e66bfcb0a9e` |
+|  `1.15.5` `1` `1.15` `latest`                 | May 30th     | `sha256:5a3a5d07ba900edf4ef432d0b597745c5da2a9eecd5da3157e26db4f2bf91fe6` |
 |  `1.15.4-dev`                                 | May 24th     | `sha256:e0a7e724ee3893b59bc8bad9197fb496e138c122ca97c10b7c787bea5779ac43` |
 |  `1.15.4`                                     | May 24th     | `sha256:9eb8dc80fc64d15b353d4aa72b21e0bd7a1d5845abec54c02c60142f462e2b81` |
 

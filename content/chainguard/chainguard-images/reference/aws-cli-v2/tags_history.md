@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-cli-v2 Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-30 00:47:59
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.15-dev` `2.15.60-dev` `2-dev` `latest-dev` | May 29th     | `sha256:fba3d6244dab85f5329bf99bcebd7de051ea88880cf8f9430c397e3a04c16e16` |
+|  `2-dev` `2.15.60-dev` `2.15-dev` `latest-dev` | May 30th     | `sha256:bb5922694132830c3391e98f38e7729942fe67788537d4b39f8c504a9f030a86` |
 |  `2` `2.15.60` `2.15` `latest`                 | May 29th     | `sha256:7b7c3d2294c29017daac519f3eafc9dc99ff117b4304247bd859b98a2b239ba3` |
 |  `2.15.59`                                     | May 28th     | `sha256:c0238f37712f9b6b67a4e7777f465509eb59b7b5cfb8eaa96c8f2eb2af9416c4` |
 |  `2.15.59-dev`                                 | May 28th     | `sha256:72198313320b195f16700182da174283516ed0a9864b0fd3ac5edec7b670bf31` |

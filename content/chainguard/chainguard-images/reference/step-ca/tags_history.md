@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the step-ca Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-30 00:47:59
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.26-dev` `latest-dev` `0.26.1-dev` | May 29th     | `sha256:b815add4960d342a2738d07a9f19877c646fef54099b9013990a4d5abb506763` |
+|  `0.26-dev` `0-dev` `0.26.1-dev` `latest-dev` | May 30th     | `sha256:2f734a784daca2a499865f1971c3c01144d56b5b14f4d711251f73ee6546ee5e` |
 |  `0.26.1` `0.26` `0` `latest`                 | May 23rd     | `sha256:bc5891feba27ca4dd87fc5cc2664fff285e5d2efd2942b0f8f32fe5e483cd65b` |
 

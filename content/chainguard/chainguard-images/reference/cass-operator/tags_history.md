@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cass-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-30 00:47:59
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.20-dev` `latest-dev` `1.20.0-dev` `1-dev` | May 24th     | `sha256:28ba9358e310045e200785996a12150fd12bfc5d0b426895b61cf77f3afddf21` |
-|  `1.20.0` `1` `1.20` `latest`                 | May 23rd     | `sha256:1d0c49d3eca627a554da5e3320a8f2241b15f79a1da5c93b7b692f7a3d7efc6d` |
+|  `1.21.0` `1.21` `1` `latest`                 | May 30th     | `sha256:8c0ea6370afb6c9db16dceda540d3e2f0f58b0215a4040391cbaa60c8c6afc5c` |
+|  `1.21.0-dev` `latest-dev` `1.21-dev` `1-dev` | May 30th     | `sha256:3ab0eceffcd2af66b2025a7a4263de7c163c0f0f8fbdbe0a8f4d539c5ee80d7d` |
+|  `1.20-dev` `1.20.0-dev`                      | May 24th     | `sha256:28ba9358e310045e200785996a12150fd12bfc5d0b426895b61cf77f3afddf21` |
+|  `1.20.0` `1.20`                              | May 23rd     | `sha256:1d0c49d3eca627a554da5e3320a8f2241b15f79a1da5c93b7b692f7a3d7efc6d` |
 |  `1.19` `1.19.1`                              | May 2nd      | `sha256:cfe219a26fae6e1932beab7ceeb8b74757521f496a2d1c514f172ca950e11ad4` |
 |  `1.19.1-dev` `1.19-dev`                      | May 2nd      | `sha256:ec049a0aa668f1d5e5165c90601092cea46d388a56f887b77eee730f3c895e13` |
 

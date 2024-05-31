@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubectl-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-30 00:47:59
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.29-dev` `latest-dev` `1.29.5-dev` `1-dev` | May 29th     | `sha256:e24dcea3e8fa44e7e43f8d7980534daeb9a8a1c914ec1220eeb01290ab1c1441` |
-|  `1.27-dev` `1.27.14-dev`                     | May 29th     | `sha256:43a8abaac80608f91dbb9888daa4f9ceaf4dbe7261a445124f50bdc361e3d93a` |
-|  `1.28-dev` `1.28.10-dev`                     | May 29th     | `sha256:78c53becd0ab41dbc0374e141408efd1f9cbba5033fa3330d44e4f35fb429c32` |
-|  `1.29` `1.29.5` `1` `latest`                 | May 23rd     | `sha256:ed117128252863430501bdfdd2564232385893dc73e977a39c706a365e3ac078` |
+|  `1.29` `1.29.5` `1` `latest`                 | May 30th     | `sha256:0f404d3e7f7da50cb7adf80342ef0a0e42d05648776f847add60722063e9af34` |
+|  `latest-dev` `1.29.5-dev` `1.29-dev` `1-dev` | May 30th     | `sha256:84baf70ee0017783818c8487df37543b609d21fea411f6e721791c6747777d92` |
+|  `1.28-dev` `1.28.10-dev`                     | May 30th     | `sha256:d0596da24ecc3b584d34a5c203f0c1e9938ff6f679b65272b9ee02d59b2215b6` |
+|  `1.27-dev` `1.27.14-dev`                     | May 30th     | `sha256:91362b96359c58de9d9916dd379c489ea9f78ba5d4ec61a63a3230f501a45a04` |
 |  `1.27.14` `1.27`                             | May 23rd     | `sha256:5d6950fa5e31790afd7edfad1bc4de44e52b80e5f991c7f5b39b0d76d4aefb26` |
 |  `1.28` `1.28.10`                             | May 23rd     | `sha256:e391a890fbddf841d7f0390882cc539e1b3974b6fc5fc18162b1bab701a54544` |
 |  `1.29.4`                                     | May 15th     | `sha256:6b27e13a8004570ed83fe863b8b91ef0d16590b75fb4105bde45e6e36131fc09` |

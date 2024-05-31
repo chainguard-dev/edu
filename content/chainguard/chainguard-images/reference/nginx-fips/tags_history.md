@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nginx-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-30 00:47:59
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.26-dev` `1.26.1-dev`                      | May 29th     | `sha256:44c18695d79005a6a9218186ac7e2bfe822409a922662f84862a6b390d0522c6` |
-|  `1.25.5-dev` `1.25-dev` `latest-dev` `1-dev` | May 29th     | `sha256:a0a1b8d98a950df0cb02e8313bb0531da0dbc56740e771b07144223b1f6b393c` |
-|  `1.26.1` `1.26`                              | May 29th     | `sha256:019ce2ab91fb1b10480062aad5b6dc52a0bd35018ab53a18620004771e07aacd` |
-|  `1.25` `latest` `1` `1.25.5`                 | May 29th     | `sha256:c2cc66871b960dc8b7cc418981e41fad2fc513111c1a42662b78121927062a21` |
+|  `1.26.1-dev` `1.26-dev`                      | May 30th     | `sha256:4886f1680451f952fdfc07afb78ff9c20c3fea2ad10629c8242612a2ccff7ffa` |
+|  `1` `1.25` `1.25.5` `latest`                 | May 30th     | `sha256:b34a98a5d9a4a7ed8dab02e1f000bac7f23c6fa77294074a5e3f7c80e3aa148e` |
+|  `latest-dev` `1.25-dev` `1-dev` `1.25.5-dev` | May 30th     | `sha256:8bcc920aced39c307d56fdc6825833efb69f6d544166a6e6d892ed9b9dfae805` |
+|  `1.26` `1.26.1`                              | May 30th     | `sha256:57a3398035a92a9d1f1e6c0a844afdb555700584ba64de1d1b2ebad387f7cfa9` |
 |  `1.26.0`                                     | May 24th     | `sha256:de8ea9ed8a5db8125d4aa31979f85c5594ce54f036ed751105962924ec526daa` |
 |  `1.26.0-dev`                                 | May 24th     | `sha256:9ecd3933ac7a158ee12c3443012238e37f6a7c2e4b262c77ec4adf6aba0872a3` |
 |  `1.24` `1.24.0`                              | May 2nd      | `sha256:098ca8d0496423c3b7ed7c0781f584b228ca50e04ed26c3f190da75b14db1955` |

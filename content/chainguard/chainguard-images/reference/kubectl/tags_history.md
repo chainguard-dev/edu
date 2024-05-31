@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubectl Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-30 00:47:59
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,10 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.27.14-dev` `1.27-dev`                     | May 29th     | `sha256:3cf377dcc541e77c2063636b458737bcc82591cc03c305f65e7d7295bceb9772` |
-|  `latest-dev` `1.30.1-dev` `1.30-dev` `1-dev` | May 29th     | `sha256:01c7498016e4fd5c063328c06cc3de57208a78421324d77c0af6a21fcbc6e002` |
-|  `1.28.10-dev` `1.28-dev`                     | May 29th     | `sha256:264ed23f548f3196351a3b0fa42bfe184721e5c9f51095fd14ca6e1d3db34870` |
-|  `1.29-dev` `1.29.5-dev`                      | May 29th     | `sha256:82687249462ee182512e8be91d54a35e8d63f0fb8c92811f025d45d1c71a4543` |
+|  `1.30.1-dev` `1-dev` `latest-dev` `1.30-dev` | May 30th     | `sha256:bd1260817ec66a5e6e26a14d718747766023ef1b749e08680f0f794972cf5781` |
+|  `1.29-dev` `1.29.5-dev`                      | May 30th     | `sha256:613659e94ab8e625908c7cbf0b144930b3c676071489f4c2379d4cc2de2b5866` |
+|  `1.27-dev` `1.27.14-dev`                     | May 30th     | `sha256:cebc76f35b0b21f7677ae2f1980c26586006cc24be1151214aece4904693ae92` |
+|  `1.28.10-dev` `1.28-dev`                     | May 30th     | `sha256:829a88ab30478489b0a9f2bd98cbc716719cf9c3bac1d6fbc1ed255d73ec365a` |
 |  `1.28` `1.28.10`                             | May 23rd     | `sha256:7ca636789cd47f113e1428e179b69ef797e4f3da8b505415375fee0fce9ca686` |
 |  `1` `1.30` `latest` `1.30.1`                 | May 23rd     | `sha256:51e0713bde4ef6a3a9a96c6fc3ad4c7147156d87e36e8770be3a18e234c63898` |
 |  `1.29` `1.29.5`                              | May 23rd     | `sha256:29e8ce93a7344bfa96d0bc770da8b497c8ff13734085e8b244440c0ad487b15a` |

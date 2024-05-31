@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the terraform Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-30 00:47:59
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -39,6 +39,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.7-dev` `1-dev` `latest-dev` `1.7.5-dev` | May 29th     | `sha256:261ea0ecbd768f2647dae873a4b0448d5f889a9051bfd5aa8c22c774fb25fba0` |
+|  `1.7.5-dev` `1-dev` `1.7-dev` `latest-dev` | May 30th     | `sha256:79438bbd5121990c1700d91624b8f68dd6607f2cca6e7114dc6839d17c986206` |
 |  `1.7.5` `1.7` `1` `latest`                 | May 23rd     | `sha256:89f095ef9f6020fbe258be1d5e085900e103d7152728061a4227303d4d2c5f49` |
 

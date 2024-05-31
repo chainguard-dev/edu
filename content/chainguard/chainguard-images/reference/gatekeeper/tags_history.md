@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gatekeeper Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-30 00:47:59
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,10 +35,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.15-dev` `3.15.1-dev` `3-dev` `latest-dev` | May 29th     | `sha256:55464a30fe284d60428b750654903a6dd2b475e8d5d94f588c3d0025a7c3121b` |
-|  `3.13-dev` `3.13.4-dev`                      | May 29th     | `sha256:05bb74e04ad2ea91f91673c4e0a3993e97826ec5fdce0a7c4202eb3b91078b54` |
-|  `3.12.0-dev` `3.12-dev`                      | May 29th     | `sha256:fa3f0f2e9cbb378a32efc700c94bb10246e83bffdb322dd9f80e62f0d1fb0a16` |
-|  `3.14.1-dev` `3.14-dev`                      | May 29th     | `sha256:3a8f88a4ad1caad3b6b8f923b6c24fccccbf8a0e5206d6ec59f31264b72d5da1` |
+|  `3.12-dev` `3.12.0-dev`                      | May 30th     | `sha256:6814477b0c423edab38aea55606c418cd4489cb3b1e72b017bfbd4b08a43e393` |
+|  `3.13.4-dev` `3.13-dev`                      | May 30th     | `sha256:f854709b0d815fa912463e32b95432d4ea5f1d1f022ccc0d2ef047ec0781c4d1` |
+|  `3.14-dev` `3.14.1-dev`                      | May 30th     | `sha256:ed236762eee6b58ebbee25fa8871a1ac805ba27b4da3a33d1c86f94f2eda2ca2` |
+|  `3-dev` `latest-dev` `3.15-dev` `3.15.1-dev` | May 30th     | `sha256:79b6855e4a0d1c6e48f5066877a9a5302b27b780a5073621e2a85b64ffa589a0` |
 |  `3.15.1` `3.15` `latest` `3`                 | May 23rd     | `sha256:1862a7b36f136376e924da7e93be8014a2d26f57203d67c130cb956c9485dbfb` |
 |  `3.13.4` `3.13`                              | May 23rd     | `sha256:1a015091cc3bbddcfdcad787e0f8465950ebfa5e13e174657fa56fa4a9cc811d` |
 |  `3.12` `3.12.0`                              | May 23rd     | `sha256:20c31059e0b3677227fe6e441d742ed16e7b96278e610dce1290c42aaad1929e` |
