@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cassandra Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-27 00:43:34
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,10 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4-dev` `4.1-dev` `4.1.5-dev` `latest-dev` | May 24th     | `sha256:1760fdb453a40684745da585de8621943e39e7c78d6243ca8dfec39efa6abe53` |
-|  `4.1` `latest` `4.1.5` `4`                 | May 24th     | `sha256:b98c74353d203761eb5f28b2695c062f2c5d44dafb9d857b2e5971237ba3779e` |
-|  `4.0.13-dev` `4.0-dev`                     | May 24th     | `sha256:a45f753babb37f3c24978846ede7aebc0ad3d5ee3f589fb54a957d90e4364bd4` |
-|  `4.0` `4.0.13`                             | May 24th     | `sha256:4e39e606d9299ec11b1be0fc9a9351629cf1b7fada3f70e2dbdd7075f0ef529d` |
+|  `4.0.13-dev` `4.0-dev`                     | May 30th     | `sha256:a87534db8594b85ee408f909d4ff47110f3b2ec484c22cf5f1295402b9026528` |
+|  `latest-dev` `4.1.5-dev` `4.1-dev` `4-dev` | May 30th     | `sha256:6dd192400b3857dade41e310b9459ada606c057e41f0523cc95ee9862207f4ab` |
+|  `4.0` `4.0.13`                             | May 30th     | `sha256:845636b662e4e438da2ddc6dff9d95303ed2b9e07c8a93563930809daf770bb7` |
+|  `4.1` `4.1.5` `latest` `4`                 | May 30th     | `sha256:a63ba643f3c69b2d00ca7af1a79de235713e20ec85e7d82a244a3ebc6acd0138` |
 |  `4.0.12-dev`                               | May 19th     | `sha256:540eb382e4ef8821174c2f028ab5bf790b108a5d25a3e3385b3f3f73060557d4` |
 |  `4.1.4-dev`                                | May 19th     | `sha256:0b6b8a0d9619c5d97a03275ebd4f83694805b5f1005567295949ed5d2ff9dbbb` |
 |  `4.0.12`                                   | May 17th     | `sha256:528a9b14a9947ba2871ed45d720a478c7e48d652bb56b37b34fa7af9cdb5f2c8` |

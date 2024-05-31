@@ -3,8 +3,8 @@ title: "argocd-repo-server-fips Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public argocd-repo-server-fips Chainguard Image."
-date: 2024-05-03 00:45:55
-lastmod: 2024-05-03 00:45:55
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -52,8 +52,8 @@ The table shows package distribution across variants.
 | `gnupg-gpgconf`                 | X          | X      |
 | `gpg`                           | X          | X      |
 | `gpg-agent`                     | X          | X      |
-| `helm`                          | X          | X      |
-| `kustomize`                     | X          | X      |
+| `helm-fips`                     | X          | X      |
+| `kustomize-fips`                | X          | X      |
 | `ld-linux`                      | X          | X      |
 | `libassuan`                     | X          | X      |
 | `libbrotlicommon1`              | X          | X      |

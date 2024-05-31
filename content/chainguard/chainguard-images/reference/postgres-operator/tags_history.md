@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the postgres-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-30 00:47:59
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.11-dev` `latest-dev` `1.11.0-dev` | May 29th     | `sha256:c58fbac05fe7c5d739c54d3d3ee8599b2462b1a6c416609cca36963c89414572` |
+|  `1-dev` `1.11-dev` `1.11.0-dev` `latest-dev` | May 30th     | `sha256:bee7c4528ada15541ec5d9abf52c3c7e49053012eb4550053286d8ec76f8837b` |
 |  `latest` `1` `1.11.0` `1.11`                 | May 23rd     | `sha256:a0b8d1727808b3f2f5d7eb223bf987597fc4ce476e658c888208957274d8e20f` |
 

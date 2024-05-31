@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the argocd-repo-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-30 00:47:59
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,12 +37,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.10-dev` `2-dev` `2.10.11-dev` `latest-dev` | May 29th     | `sha256:bf5ca264ffa657990e59c0ba8f4d32872e5ccd2a747cbf3b077ef47ea3cd8c0a` |
-|  `2.8-dev` `2.8.18-dev`                        | May 29th     | `sha256:0d75454e7a42ae5efcb7c6d34bb4c758f34d8716493c1712898a404e4731d5c7` |
-|  `2.9.16` `2.9`                                | May 29th     | `sha256:cf3cd3005e83593e6c146db73d0584bf781e21aca572c9a15bbdc173fae782e5` |
-|  `2.8.18` `2.8`                                | May 29th     | `sha256:616e9a5606a8156a42ffc2adbbdbf212330fc285fc2c1e815980c860418cc4ce` |
-|  `latest` `2.10.11` `2.10` `2`                 | May 29th     | `sha256:d5cc766ff97f8761c8bc24c3af41d23be06a74b5e86276e358b8f4a4fe6ccb8c` |
-|  `2.9.16-dev` `2.9-dev`                        | May 29th     | `sha256:0c0eee2e7a18f6e11fc9636af7eda1fd238a7acb8bcdce7c15675234184dbe7a` |
+|  `2.10.11-dev` `2-dev` `2.10-dev` `latest-dev` | May 30th     | `sha256:633ea7128ab3a43eb1ff084764050507227752c1bd111721690c8d7f22e65078` |
+|  `2.9-dev` `2.9.16-dev`                        | May 30th     | `sha256:f50056372e3b76baaca206f0688d542eaf3bd84176fa5e990d144c295d02f10a` |
+|  `2.8` `2.8.18`                                | May 30th     | `sha256:729bc27762472bb3ea9ad217613b3ba5114845aee27538e9b343e456e603ba09` |
+|  `2.9` `2.9.16`                                | May 30th     | `sha256:091d0ccafe2e1049a877726d8aa13534f368c302d25c0fe0afbc42f796d52d1d` |
+|  `2` `2.10.11` `latest` `2.10`                 | May 30th     | `sha256:dbb138358703e389324dd0a69b0ec3abe27252080c4927979819cdb3a2987f30` |
+|  `2.8-dev` `2.8.18-dev`                        | May 30th     | `sha256:a63afe51320753a36c4005fae2392b4376bab9425928128690a9f87ca96031f1` |
 |  `2.9.15`                                      | May 23rd     | `sha256:7d2100c1b55a7c8f385d7af2e5b834fe8cdbad6dc46b70d330f09702633f5f14` |
 |  `2.10.10`                                     | May 23rd     | `sha256:3bf7b70d3a56194c635f3bd04b320be88185ce791c6cc62479d073f911a31b32` |
 |  `2.10.10-dev`                                 | May 23rd     | `sha256:f585bd4870956c2cf0b2ecdbcc896e2f8dc004d09a07c827663e6a0816607934` |
@@ -51,10 +51,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `2.9.14-dev`                                  | May 19th     | `sha256:cc38ad8f93838200a259ef01d7bc8b780f7d0eae0f13ce3abc755234c10af23e` |
 |  `2.9.14`                                      | May 19th     | `sha256:0d15ec5c95602db0f3afcc2852221368e63a7dfc47f7ae80377045a1479450cb` |
 |  `2.10.9`                                      | May 19th     | `sha256:4b8181dbbb35e9469f3c3d0d88489d8dc8dcab531d0b33798a955c04fa2875df` |
-|  `2.9.13`                                      | April 30th   | `sha256:34cce72c03dcbaa4a6ec7c3b3f05c3e457e002f3f367cbe9227a7bbae1b530c7` |
-|  `2.8.17`                                      | April 30th   | `sha256:de6e82fbcfc6343b9f243fc310ac719336868a51b9cd9b5e6c3f573e9c499f37` |
-|  `2.8.17-dev`                                  | April 30th   | `sha256:cb99e1dd885f9ae1325f0dd32bec668468d15a89084b65b4c20393d7c9c357fd` |
-|  `2.10.8-dev`                                  | April 30th   | `sha256:9ce6cf1c400bdf47e11055c50a5d57dd5fb46d459f8b974e78a375b149a9466e` |
-|  `2.10.8`                                      | April 30th   | `sha256:0d8611cf4161b0e8b85f12f8012758dc064d81b69b97b6cdb738d0ca6f3f5c27` |
-|  `2.9.13-dev`                                  | April 30th   | `sha256:88c652251ad2e89ce72d69b66e5b186330d118ab154cbf929b80d062ffa97eb1` |
 

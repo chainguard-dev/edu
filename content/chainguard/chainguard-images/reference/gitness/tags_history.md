@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gitness Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-30 00:47:59
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | May 30th     | `sha256:8d70498ed0137bcc96ec89ada070c1e3f6b6239629933bd4e15c5a4871f3d278` |
 |  `latest-dev` | May 25th     | `sha256:9a26a2bdd64fb2b7e0dfaca75530df0c10b728c96e09978606cb5a8b9961b06a` |
-|  `latest`     | May 25th     | `sha256:d7261755959ed28aa3e695fe4448eac9525d5b97b580d8fcdbfadd114dca18a6` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                           | Last Changed | Digest                                                                    |
 |---------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.0.0_beta6-dev` `latest-dev` `3-dev` `3.0-dev` | May 29th     | `sha256:957f1364feef127f6424531a4bff66029608edbb82b1d5706db7ceda9d178b1e` |
-|  `3` `latest` `3.0` `3.0.0_beta6`                 | May 29th     | `sha256:dafb072f216a8e0c4fe46dd0b59b2b5fc7ba14dccef90c58432e3c381d023469` |
+|  `3.0` `latest` `3.0.0_beta6` `3`                 | May 30th     | `sha256:fe26802476fc3627ebde62905e721b7d7ef0d18e9d37c129893d0ca5a040cbbb` |
+|  `latest-dev` `3.0-dev` `3-dev` `3.0.0_beta6-dev` | May 30th     | `sha256:125bd216d28677d1ba5bedf13f6cd352bd385b1d027b32a0bf37330eb0be88ee` |
 

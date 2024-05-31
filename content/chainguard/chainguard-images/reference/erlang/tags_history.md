@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the erlang Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-30 00:47:59
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,12 +37,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                           | Last Changed | Digest                                                                    |
 |---------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `25.3-dev` `25-dev` `25.3.2.12-dev` `25.3.2-dev` | May 29th     | `sha256:342e55c2576dc9a563a97624b22b5504de5f200625511fc67328b9edcc9280ff` |
-|  `latest` `27` `27.0`                             | May 29th     | `sha256:c700b588e4eef433242c88a8487f0ca6f4929b39ffd90bdc1639410ccfc7c132` |
-|  `25` `25.3.2.12` `25.3` `25.3.2`                 | May 29th     | `sha256:be1c11f3da9c5492e2c7ca423b5bcae539b95046a1ff89b993445f40d8d876b1` |
-|  `26.2` `26.2.5` `26`                             | May 29th     | `sha256:46d0844d4442abf5d78a6574f8192705d33db81d7530c81a7038b2f5f49a0f2b` |
-|  `latest-dev` `27-dev` `27.0-dev`                 | May 29th     | `sha256:556fef835d57bf40137d65e2024024c17b45854017410034712b3cfbbdcc256a` |
-|  `26.2.5-dev` `26.2-dev` `26-dev`                 | May 29th     | `sha256:4f18733c4d12bf41e9b84b3304c3865d64667fbc3e7a6620421a1e394599c7a2` |
+|  `25.3.2` `25.3.2.12` `25.3` `25`                 | May 30th     | `sha256:86c0a73bab18e073b438b20c95d1dfb944f72829599fe103d01c3c7b27363c41` |
+|  `26.2` `26` `26.2.5`                             | May 30th     | `sha256:d43e1a7fb7ebf37678d042fba66c30f69df5bb88cab758a11eafb24393c818f7` |
+|  `26.2-dev` `26-dev` `26.2.5-dev`                 | May 30th     | `sha256:9e41ee46879ca6b807f08afd2a1819df56f5fafb80b2909abfaef0f309b91b13` |
+|  `25.3-dev` `25.3.2.12-dev` `25-dev` `25.3.2-dev` | May 30th     | `sha256:213c37dae0d9e93e756ed564325d1daea8bf5aa7ab345f660f03b1904d6fcaee` |
+|  `latest-dev` `27-dev` `27.0-dev`                 | May 30th     | `sha256:58064ea6aaf003c78128cfe8481eb43b599843f70b27112dfd2b248dbdaf3ba9` |
+|  `27` `latest` `27.0`                             | May 30th     | `sha256:2cac9f3ddf69c83103b1956ae243890b6fc6ba865f36e0448bf29e3a1f960bff` |
 |  `25.3.2.11`                                      | May 2nd      | `sha256:ab3a27dc662d5336b85d792bbc882401285528bff5ad844b9122e6586efbb403` |
 |  `25.3.2.11-dev`                                  | May 2nd      | `sha256:83295bb7d4216f6267d767486135d825a8b5cfbf1e0155779b35d12f9aac1ef4` |
 |  `26.2.4-dev`                                     | May 1st      | `sha256:1fa47467cae429fc9e6e85b1113e6db152f90b21d852df52cf2e12e8ae05c435` |

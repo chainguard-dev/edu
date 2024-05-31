@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-downscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-30 00:47:59
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 29th     | `sha256:8db5e9e6e688bcd889420f1770653d04b77042a588f0dde05f0f0d77c4a19f21` |
-|  `latest-dev` | May 23rd     | `sha256:e3c8733e02be485dc9e930b7f70282d5dcda00c8d318d60e98e8ff989d7d14ce` |
+|  `latest-dev` | May 30th     | `sha256:dcd9ba8ad5ba91c3539afc7d12f7a1905e330fa15686ef2bd24859b282abfb93` |
+|  `latest`     | May 30th     | `sha256:4c4f4fee75614708faea9a371f836787351867688dbbc070be85e19eff475021` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `23.2` `23.2.0` `23`                 | May 29th     | `sha256:f85b3315fa43777d4fe42172c6830bac069cc329214b05f65658e593b0a70ade` |
-|  `23.2-dev` `latest-dev` `23.2.0-dev` `23-dev` | May 29th     | `sha256:fc1d3c8340eea44df88d6f48b26ed58ade0fe920d3a2b8e799420a5c89ab2506` |
+|  `23` `23.2` `23.2.0` `latest`                 | May 30th     | `sha256:a8834dee6a952aee85c17f5e1d284dea7d360458d18d9d26300d07a083e214e1` |
+|  `23.2-dev` `23.2.0-dev` `latest-dev` `23-dev` | May 30th     | `sha256:52a91ab915d88e319a54a00e7f5ea01c06a58a2903d04745017969d485812d48` |
 

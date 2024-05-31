@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ctlog-trillian-ctserver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-30 00:47:59
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 23rd     | `sha256:3b6ba70c454cb75f2214d452960f0c16ff17d753876273d103021dff0247b2b7` |
-|  `latest`     | May 23rd     | `sha256:5acf549efe8d00e478e41b66278a880b57d7d58483883684ec52d901b8c50548` |
+|  `latest-dev` | May 30th     | `sha256:b461a07deb447f77315068d5bded3d61e59a9e55f31b595be20c83f7e23564d3` |
+|  `latest`     | May 30th     | `sha256:1377b3cd726e180a8d703606d0af4d0a2ceb99a9e91fcaa88b66198635d94774` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.2.0-dev` `1-dev` `1.2-dev` | May 29th     | `sha256:500f9bf67cea40e92daeeed6de09fd3875e2ec15eeec5a93c2fed5a6d6e60dae` |
+|  `1.2-dev` `latest-dev` `1-dev` `1.2.0-dev` | May 30th     | `sha256:72754bc8fe812c67f253d6e6bc0e61da56820b099b02c72bc8b86b4308a91664` |
 |  `latest` `1.2` `1` `1.2.0`                 | May 28th     | `sha256:b4565b40dfa37a7f010fa9bfdd1df5e87f05f997e0b4be8a7ca78cd8f533b2cd` |
 |  `1.1.8-dev` `1.1-dev`                      | May 24th     | `sha256:cdfc88a45a8a94e842aef802461bc3a7ff44d9751de52d38dc1f35142d4f02b4` |
 |  `1.1.8` `1.1`                              | May 23rd     | `sha256:473cf76ddccbbecae1615c5b576bc014e1b8ccdf6673eed6640924966b84bd7f` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public aws-ebs-csi-driver-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -58,7 +58,7 @@ The table shows package distribution across variants.
 | `libbrotlidec1`               | X          |        |
 | `libcom_err`                  | X          | X      |
 | `libcrypt1`                   | X          |        |
-| `libcrypto3`                  | X          |        |
+| `libcrypto3`                  | X          | X      |
 | `libcurl-openssl4`            | X          |        |
 | `libexpat1`                   | X          |        |
 | `libgcc`                      | X          | X      |
@@ -68,7 +68,7 @@ The table shows package distribution across variants.
 | `libpcre2-8-0`                | X          |        |
 | `libpsl`                      | X          |        |
 | `libsmartcols`                | X          | X      |
-| `libssl3`                     | X          |        |
+| `libssl3`                     | X          | X      |
 | `libstdc++`                   | X          | X      |
 | `libunistring`                | X          |        |
 | `libuuid`                     | X          | X      |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the neuvector-prometheus-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-30 00:47:59
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | May 30th     | `sha256:2bcf3a8d5c2fffa54c45eb8c11ed17e680a0b662afbcd742739a5865f1bdd5f7` |
 |  `latest-dev` | May 23rd     | `sha256:c3592c85ecaf28ba0dbaad9a9fb8322f5c1f1372d6933848bc554492ad8e9c1f` |
-|  `latest`     | May 23rd     | `sha256:ce616f781aa53c8f7a3336bdb2215424918bd29edca79024ad549977a90303d6` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                   | Last Changed | Digest                                                                    |
 |-----------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.1-dev` `1.1.0.0-dev` `1.1.0-dev` `1-dev` `latest-dev` | May 29th     | `sha256:608ebbc8733f0b040078386cbc1d22de26ce6d844b0655707949fc22d0f1a3a6` |
-|  `1.1.0` `1` `latest` `1.1.0.0` `1.1`                     | May 29th     | `sha256:3f4c262f51add3f982c9c1949b6507197e20dd38c7a8622ad638fff13556138e` |
+|  `1.1` `latest` `1.1.0.0` `1.1.0` `1`                     | May 30th     | `sha256:4b25a678df7a0ab5cc2056aa342afc7eef4948adb3342c8fc045f269306ddeef` |
+|  `1.1-dev` `1-dev` `latest-dev` `1.1.0.0-dev` `1.1.0-dev` | May 30th     | `sha256:3b5245901552e0732e0c2d7e7160edcbe9b4e2eff0409fe319e75af10d23ce50` |
 |  `5-dev` `5.3-dev` `5.3.0-dev`                            | May 24th     | `sha256:7cb7a1a6f2ca4af884404751e71c32ddbd41a87706fd857667082508df1a5b07` |
 |  `5.3` `5` `5.3.0`                                        | May 24th     | `sha256:2bf2538d2e3b0c81ca486c883362321ea59ac120732ddc24958b2d3c4b137580` |
 

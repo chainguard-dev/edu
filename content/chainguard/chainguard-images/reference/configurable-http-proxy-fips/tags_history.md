@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the configurable-http-proxy-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-30 00:47:59
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4-dev` `4.6-dev` `latest-dev` `4.6.1-dev` | May 29th     | `sha256:1c35f62604155a7b00eacc97a110a44a15d91e0edbd4796eb082fd56d4ab603a` |
-|  `latest` `4.6` `4.6.1` `4`                 | May 29th     | `sha256:a29e95116a36b19d8fa315733e2db48f8f3102f5b2ff11d1c786fff6908686a2` |
+|  `latest-dev` `4.6.1-dev` `4.6-dev` `4-dev` | May 30th     | `sha256:922b476502227ad6804944c3721417ed0f8fce975b6d8e851075914a59ebb2be` |
+|  `4.6` `4` `4.6.1` `latest`                 | May 30th     | `sha256:0f1d60af5ee809a8146ee212b436161685b72577a6cb3a78cbf8ce683ee61ca6` |
 
