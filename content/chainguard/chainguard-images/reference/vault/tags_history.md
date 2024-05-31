@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vault Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-30 00:47:59
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,9 +37,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.15-dev` `1.15.8-dev`                      | May 29th     | `sha256:b431ed53fee50f304f7bcb0ffc2541aef4d149612721a130036f4bcc8027017a` |
-|  `latest-dev` `1.16.2-dev` `1-dev` `1.16-dev` | May 29th     | `sha256:a8d1df28d692f88ea437f904905b8fba928ebbd578cf785511371b8a628b0f6d` |
-|  `1.14.12-dev` `1.14-dev`                     | May 29th     | `sha256:39ef99fb75c86bec4b3be04c7173e3b197a468f1fa026c562c5379e93dd1bf5f` |
+|  `1.15-dev` `1.15.8-dev`                      | May 30th     | `sha256:8d3301ed2f35b5579071295ac13effbdb60c38cf886c54d7130ad8e756b5dd3b` |
+|  `1.16.2-dev` `1.16-dev` `latest-dev` `1-dev` | May 30th     | `sha256:e03bc271885c8793c27642f7066fcf7b91ceff19dcfca39adbc6039e5206b475` |
+|  `1.14-dev` `1.14.12-dev`                     | May 30th     | `sha256:d110639d2452ba1eb0a219da4b257e243802bb5682cdeade648f2994c1ba5f54` |
 |  `latest` `1.16.2` `1.16` `1`                 | May 24th     | `sha256:4dcb9e16d87bd56c9d01d2b1014c998bac476a263c5ec8e7f4e79055bd4cbae1` |
 |  `1.15` `1.15.8`                              | May 24th     | `sha256:b905fd40ddbfa212d70bafb7d6b79e3ec890f674907d47ac1dca84910c9a33ed` |
 |  `1.14.12` `1.14`                             | May 24th     | `sha256:c57ea2ac3e68ec244e864b090a1fbfb5e7da5ba6af728ce5edb72a2788f328ea` |

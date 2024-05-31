@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public calico-node-driver-registrar-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -45,7 +45,7 @@ The table shows package distribution across variants.
 | `git`                                              | X          |        |
 | `glibc`                                            | X          | X      |
 | `glibc-locale-posix`                               | X          | X      |
-| `kubernetes-csi-node-driver-registrar-2.10-compat` | X          | X      |
+| `kubernetes-csi-node-driver-registrar-2.11-compat` | X          | X      |
 | `kubernetes-csi-node-driver-registrar-fips-2.10`   | X          | X      |
 | `ld-linux`                                         | X          | X      |
 | `libbrotlicommon1`                                 | X          |        |

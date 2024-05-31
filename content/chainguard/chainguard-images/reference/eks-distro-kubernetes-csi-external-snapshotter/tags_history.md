@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-external-snapshotter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-30 00:47:59
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                  | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `6-eks-1-23-33-dev` `6.3.0-dev` `6.3.0-r6-eks-1-23-33-dev` `latest-dev` `6.3.0-eks-1-23-33-dev` `6-dev` `6.3-dev` `6.3-eks-1-23-33-dev` | May 29th     | `sha256:71cd4391f055ea6d5ed3c98ebf9a47b13a6f729214f7a2b7259523c87b1dff11` |
+|  `6.3-eks-1-23-33-dev` `6.3.0-dev` `6-eks-1-23-33-dev` `6.3.0-eks-1-23-33-dev` `6.3-dev` `latest-dev` `6-dev` `6.3.0-r6-eks-1-23-33-dev` | May 30th     | `sha256:230c9762a547af8894ab7de9e6f096753df9c064adc2d1212e2310b23aedffea` |
 |  `6-eks-1-23-33` `latest` `6.3` `6.3.0` `6` `6.3.0-r6-eks-1-23-33` `6.3.0-eks-1-23-33` `6.3-eks-1-23-33`                                 | May 23rd     | `sha256:fafbfc37cb05ce9fd81327f37191434e52e29d1d0cfc3409b39e29273cb54cbc` |
 |  `6.3.0-r5-eks-1-23-33-dev`                                                                                                              | May 2nd      | `sha256:d1a265760d8727a72f0fa889b58abd93d5ec343eb96eb930974cd21b1a93c17f` |
 |  `6.3.0-r5-eks-1-23-33`                                                                                                                  | May 2nd      | `sha256:322667947d6fb13b6df4f25dd1cf263bb0559333ae6912ede37cdf7d8995e4a2` |

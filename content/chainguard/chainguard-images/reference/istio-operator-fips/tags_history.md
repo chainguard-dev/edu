@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the istio-operator-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-30 00:47:59
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.20` `1.20.6`                              | May 29th     | `sha256:ec848ec089d8e1e2f78e92b3af56fda6042c5ecf3e97950a4040f2b33eb71075` |
-|  `latest-dev` `1-dev` `1.21.2-dev` `1.21-dev` | May 29th     | `sha256:19dfd6c3bf5bdfa4d655e8ce4d4f779b6e7def3a03016185a80f61878ad833e4` |
-|  `1.20-dev` `1.20.6-dev`                      | May 29th     | `sha256:26932fdadb6b367580ee7a1a63384b986b2b99236895422343da8c740049f2a9` |
-|  `1.21.2` `1.21` `1` `latest`                 | May 29th     | `sha256:1e40786b7ea21dc5eac9782e46200349dae9169b4a1e768982a50c7c1ed8b3c9` |
+|  `1.21.2` `1` `1.21` `latest`                 | May 30th     | `sha256:097b98de1f18521c2c082b7a0bc7c56bcc3695adeea033b589e2797a9394bcb8` |
+|  `1-dev` `latest-dev` `1.21.2-dev` `1.21-dev` | May 30th     | `sha256:7842a5bb8093764f665a30ba6aef49a24edd3f41f05433513671d6aee146ff26` |
+|  `1.20-dev` `1.20.6-dev`                      | May 30th     | `sha256:5a2bf697adfc1087e44ae4b408e0fb92aaa1ddf48f3aeaff4077554daa5d0ca0` |
+|  `1.20.6` `1.20`                              | May 30th     | `sha256:529d99b8c44d0780945a37325ea90ca75444b747337c23c779c4a545bad65645` |
 |  `1.19.10-dev` `1.19-dev`                     | May 2nd      | `sha256:4d867ad56f3fcc7348f3d6c80a9f9efb4d8be96075664dc581c5ba7af4a7f2ad` |
 |  `1.19.10` `1.19`                             | May 2nd      | `sha256:cb7c099dfe4468648a9693573153f94063050b29dcf45445ce4ccc61e0f381ce` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jellyfin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-30 00:47:59
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | May 27th     | `sha256:828d779811ce8e32dac0b0c7a2d67962a364f519ea9d1bf3b2a3cdaeb20759ac` |
+|  `latest` | May 30th     | `sha256:8f0c36058e5cfded58ec96b131b23bd248cf822787e2783e3b60f37732a2588b` |
 
 
 ### Private/Dedicated Registry
@@ -36,8 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `10.9-dev` `10-dev` `10.9.3-dev` `latest-dev` | May 29th     | `sha256:a941b6e82edff88a6c295ab6e2b561f70aded484104197801bf5b9c96d03f152` |
-|  `latest` `10` `10.9` `10.9.3`                 | May 29th     | `sha256:bc45d7ff9d82986ae002a214d33a715e60bf672ffe9f9dd4c9a2a8e39d737743` |
+|  `10` `latest` `10.9.3` `10.9`                 | May 30th     | `sha256:c8a962a9462574efa46eabe1d4565c81123d41977a9f4ea620ca17c43c7254db` |
+|  `10.9.3-dev` `10-dev` `latest-dev` `10.9-dev` | May 30th     | `sha256:ff206676f66859e23663495ff4f6197844f026b0ee94af583ce7122b23465393` |
 |  `10.9.2-dev`                                  | May 24th     | `sha256:b28b22939fe68732b929a311ae1e64a30b9ff6226876ad716588cdd5824c39ba` |
 |  `10.9.2`                                      | May 24th     | `sha256:f8fb1b5fee58fd485a7b7d362d6b0c3dfefc42d67f101d688bef1770d8f67b37` |
 |  `10.8.13-dev` `10.8-dev`                      | May 13th     | `sha256:b7038f768a1d862411699b8a81e933b41df1d36be0d82027cac07e4bbb6c47db` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the openai Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-30 00:47:59
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.30.4-dev` `1-dev` `latest-dev` `1.30-dev` | May 29th     | `sha256:695510829d6e62443980a40ddf3be2e3655c80d7114863c20a4f72fc0aa49553` |
-|  `latest` `1.30` `1` `1.30.4`                 | May 29th     | `sha256:6f858c2cfe562539b04c286ec8d55b50246e5b25100be37032c90f28656a7164` |
+|  `latest-dev` `1.30.5-dev` `1.30-dev` `1-dev` | May 30th     | `sha256:4d17ac859f73cd16b94bdaa859ed4b5c04427d32bb4c0a52bbd7fac854e58b9f` |
+|  `1.30` `1.30.5` `1` `latest`                 | May 30th     | `sha256:a19882a25ffdcf4b5065b267f136f0b0909f155e77cac598c3c63a7ff52f96ee` |
+|  `1.30.4-dev`                                 | May 29th     | `sha256:695510829d6e62443980a40ddf3be2e3655c80d7114863c20a4f72fc0aa49553` |
+|  `1.30.4`                                     | May 29th     | `sha256:6f858c2cfe562539b04c286ec8d55b50246e5b25100be37032c90f28656a7164` |
 |  `1.30.3-dev`                                 | May 28th     | `sha256:aac766ef3508bfbadb67e481e907048efdd703b7646ce7ba53f7e92b4bd2a991` |
 |  `1.30.3`                                     | May 28th     | `sha256:4eac9b8659306063303968e91b69b922a935aa3d75f524abb541c7543c5cce3f` |
 |  `1.30.2`                                     | May 24th     | `sha256:8a7295aaff22aac758ec92e0e6c74d0e6cf459316cb204a180b8ad362a955caf` |
@@ -63,8 +65,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.25.1`                                     | May 3rd      | `sha256:6d401cb6a17f8a5acf073026aec7a8764e6706f689085b8dba64f1978ec7dc68` |
 |  `1.25.0-dev`                                 | May 2nd      | `sha256:325d5a124e58de5dd910d6a02d893b00e05923555f87a1d4087538d251287c7c` |
 |  `1.25.0`                                     | May 2nd      | `sha256:ff89d74266cc65a4e0cd2097b5e47649477507f0203436e00c53c0af8afdaf18` |
-|  `1.24-dev` `1.24.1-dev`                      | April 30th   | `sha256:0570dcede3c80f9e744e60ce520488db663c94616629761b48f6dae2f2a05dc2` |
-|  `1.24` `1.24.1`                              | April 30th   | `sha256:1068e3537210c06268b86e83275f94ccd03364268b8f21bcbc726db07fe8f897` |
-|  `1.23` `1.23.6`                              | April 30th   | `sha256:fca1fddec98bbf5df9f3b8d4da57973d21f6ec5b6b1b2f21e595983b82b68603` |
-|  `1.23.6-dev` `1.23-dev`                      | April 30th   | `sha256:1429c437dc5cde4f2cc0c22f539a2cf81497f86643ee766319caa01328914a33` |
 

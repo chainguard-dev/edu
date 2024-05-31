@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vertical-pod-autoscaler-fips-admission-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-30 00:47:59
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.1.2-dev` `1.1-dev` `1-dev` `latest-dev` | May 29th     | `sha256:04165aaea7febe41170797012ef38c91afde76427c4f6b171de61c71a71ce44b` |
-|  `latest` `1.1` `1.1.2` `1`                 | May 29th     | `sha256:16f8039df19f648013ab28ef8eb432c343c3708265eaea3d8bd612a6b6ac6595` |
+|  `1.1.2` `latest` `1` `1.1`                 | May 30th     | `sha256:1b6cc5768bf0857ca98d9a05eba5af08ba5bcdf839c077431d69cf6f4fa9b907` |
+|  `1.1.2-dev` `1-dev` `latest-dev` `1.1-dev` | May 30th     | `sha256:2b17220d5a68029a065f1f99171141ea323077c40d872492d559113382811109` |
 |  `1.1.1-dev`                                | May 16th     | `sha256:447ab19ac8378ac24be4afcd541a150a1bf99e9d04cc69ee3b958ce45bb41e96` |
 |  `1.1.1`                                    | May 15th     | `sha256:5d12caae51d3762c44c3de2bc2b5508f83832db914a804193bc45fb5dc12f02b` |
 |  `1.1.0-dev`                                | May 1st      | `sha256:9a207d78b62f0dfb1a5a1f769974e242d73d42930e6cdb12b6b123d415741953` |

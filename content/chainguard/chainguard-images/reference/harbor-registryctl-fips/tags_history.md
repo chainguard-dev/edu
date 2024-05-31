@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the harbor-registryctl-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-30 00:47:59
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.8` `2.8.6`                                | May 29th     | `sha256:060be9d26b7d9c037f8697b8cc8af6500ecf4ee6254b75bf215071d0daa42d88` |
-|  `2.9.4` `2.9`                                | May 29th     | `sha256:e9c39c1e255e7cb76b4fd1b2bd50a949dea8106a415a8d519154f41794c8a0bf` |
-|  `2.10-dev` `latest-dev` `2-dev` `2.10.2-dev` | May 29th     | `sha256:5664c4f59b21438e53de225e72352492186d89ddfd1bfac55de0035e8edaacc9` |
-|  `latest` `2.10.2` `2` `2.10`                 | May 29th     | `sha256:a0edccfed3c2c5be67ca69f30df2864b00a2eaa40aed376c0909f3a714ecf43a` |
-|  `2.8.6-dev` `2.8-dev`                        | May 29th     | `sha256:e3b86b86ec127fb5c82da716eac50a1f962ef1d454641035f19c069644654b89` |
-|  `2.9.4-dev` `2.9-dev`                        | May 29th     | `sha256:c1f6d133d07143ad4cd10ddd27885987158a6a31129612ecbed37a74e258bc12` |
+|  `2.10.2-dev` `latest-dev` `2-dev` `2.10-dev` | May 30th     | `sha256:5834967894769f21776222c17f2716b73f7f686b6cdcad71564b557a921d2f8e` |
+|  `2.9.4-dev` `2.9-dev`                        | May 30th     | `sha256:852463419283e62fb70b79042ad1bb9da252cd2d103096a55fa2557b8da6f654` |
+|  `2.9` `2.9.4`                                | May 30th     | `sha256:b7f044320f34e591a5596079a06f8f25abc94a4ef346437684194086a8bf9f8f` |
+|  `latest` `2.10` `2` `2.10.2`                 | May 30th     | `sha256:93cb42df144554532ad7b2afbaf08d739d2f55c31865a5a68e8d58189f4a5881` |
+|  `2.8.6` `2.8`                                | May 30th     | `sha256:36f09631783051390096129fef63186391de05c04f63377462d7a854e98bd2cb` |
+|  `2.8-dev` `2.8.6-dev`                        | May 30th     | `sha256:eb10d2d2f0e97f0215896adbf50abc072f59c12a8a21762ee7effac35ceb152a` |
 

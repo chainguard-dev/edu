@@ -4,8 +4,8 @@ linktitle: "fluent-operator"
 type: "article"
 layout: "single"
 description: "Overview: fluent-operator Chainguard Image"
-date: 2024-05-30 00:47:59
-lastmod: 2024-05-30 00:47:59
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-05-31 00:48:45
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -34,7 +34,7 @@ Operator for Fluent Bit and Fluentd - previously known as FluentBit Operator
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard-private/fluent-operator:latest
+docker pull cgr.dev/chainguard/fluent-operator:latest
 ```
 
 
