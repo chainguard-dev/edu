@@ -2,7 +2,7 @@
 title: "Mirror new Images to Google Artifact Registry with Chainguard CloudEvents"
 linktitle: "Mirror Images to Artifact Registry"
 type: "article"
-description: "Instructional guide outlining how one can set up an application that will listen for pull events in a given Chainguard Registry and store the data in Google BigQuery."
+description: "Instructional guide outlining how one can set up an application that will listen for push events on a private Chainguard Registry and mirror any new Chainguard Images to a GCP Artifact Registry."
 date: 2024-05-24T15:22:20+01:00
 lastmod: 2024-05-24T15:22:20+01:00
 draft: false
@@ -17,7 +17,7 @@ toc: true
 
 Certain interactions with Chainguard resources will emit [CloudEvents](/chainguard/administration/cloudevents/events-reference/) that you or an application can subscribe to. This allows you to do things like receive alerts when a user downloads one or more of your organization's private Images or when a new Image gets added to your organization's registry.
 
-This tutorial is meant to serve as a companion to the [Image Copy GCP](https://github.com/chainguard-dev/platform-examples/tree/main/image-copy-gcp) example application. It will guide you through setting up infrastructure to listen for `push` events on an organization's private registry and mirror any new Images in the registry to a repository in a GCP Artifact Registry repository.
+This tutorial is meant to serve as a companion to the [Image Copy GCP](https://github.com/chainguard-dev/platform-examples/tree/main/image-copy-gcp) example application. It will guide you through setting up infrastructure to listen for `push` events on an organization's private registry and mirror any new Chainguard Images in the registry to a repository in a GCP Artifact Registry repository.
 
 
 ## Prerequisites
@@ -49,7 +49,7 @@ This configuration will consist of a single module. For the purposes of this exa
 
 ```
 module "image-copy" {
-  source = "github.com/chainguard-dev/platform-examples//image-copy-gcp/iac"
+  source = "github.com/chainguard-dev/platform-examples/image-copy-gcp/iac"
 ```
 
 The next five lines configure a few variables that you will need to update to reflect your own setup.
@@ -83,7 +83,7 @@ You can create this file with a command like the following.
 ```sh
 cat > main.tf <<EOF
 module "image-copy" {
-  source = "github.com/chainguard-dev/platform-examples//image-copy-gcp/iac"
+  source = "github.com/chainguard-dev/platform-examples/image-copy-gcp/iac"
 
   name = "chainguard-dev"
 
@@ -98,8 +98,7 @@ module "image-copy" {
 EOF
 ```
 
-After that you can apply the configuration to get the application up and running.
-
+Make sure to replace the placeholders with your own settings for `project_id` and `group`. In the next section, we'll see how to apply the configuration to get the application up and running.
 
 ## Applying the configuration
 
