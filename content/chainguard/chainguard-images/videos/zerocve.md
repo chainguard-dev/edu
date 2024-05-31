@@ -2,8 +2,8 @@
 title: "How Chainguard Creates Container Images with Low-to-No CVEs"
 linktitle: "Why our images have Low-to-No CVEs"
 lead: ""
-description: "This video explains how Chainguard are able to create container images with low-to-no
-CVEs and how you can utilize them."
+description: "This video explains how Chainguard is able to create container images with low-to-no
+CVEs."
 type: "article"
 date: 2024-05-31T12:21:01+00:00
 lastmod: 2024-05-31T12:21:01+00:00
