@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the http-echo Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 29th     | `sha256:08050876d7e3f65cb969d9c2be6679b079fc11c0618c362ac976a3a570a29bc6` |
+|  `latest-dev` | May 31st     | `sha256:93adb7d0b0b2aec7a152bfe8b25215e79db01e8d1c242372c18dfc9bd0520be1` |
 |  `latest`     | May 23rd     | `sha256:d5d716b02e4a8b0a7200da098be89726dba7cbe98aa350b52596c2ce34d928ff` |
 
 

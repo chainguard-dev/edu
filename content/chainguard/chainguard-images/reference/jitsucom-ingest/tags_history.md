@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jitsucom-ingest Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 23rd     | `sha256:1a05d97847c13d8773ab3aca5aa8cf43a83c4804b9663007a460723462af197a` |
-|  `latest`     | May 23rd     | `sha256:1ad36237f680bf133f12f5c2c1a50a8679208f84d9a66a4eb4ab0df471ef9001` |
+|  `latest-dev` | May 31st     | `sha256:79140818c213c917c5e25d821da31d26111e6d6b0de6afa160efb1e66b9bde88` |
+|  `latest`     | May 31st     | `sha256:1d4a40f4584aac01fecdf4064bbfe91a17c21ae83cc5798482802278f4d1daf9` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.6.0-dev` `2.6-dev` `latest-dev` | May 30th     | `sha256:31a0282dd3488611dbb42d09d9a872e9afa26f7e74933af336ae8ddf1c1ae079` |
-|  `2` `2.6` `2.6.0` `latest`                 | May 23rd     | `sha256:13a786ca4cf9d9ee7f7cdc5865fa9b6a3a595f8d7f8442eed35131fbfb5ee0b5` |
+|  `2.7` `2.7.0` `2` `latest`                 | May 31st     | `sha256:1ea1389837b953d0755cbe86d9f63642e31a264b9e247a239d0070d46b1c33cb` |
+|  `2-dev` `latest-dev` `2.7.0-dev` `2.7-dev` | May 31st     | `sha256:3ef2234bf1febd4ea1b22e0024b609106a1000ccb2855716c193c5587ad0aa2d` |
+|  `2.6.0-dev` `2.6-dev`                      | May 30th     | `sha256:31a0282dd3488611dbb42d09d9a872e9afa26f7e74933af336ae8ddf1c1ae079` |
+|  `2.6` `2.6.0`                              | May 23rd     | `sha256:13a786ca4cf9d9ee7f7cdc5865fa9b6a3a595f8d7f8442eed35131fbfb5ee0b5` |
 

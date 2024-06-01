@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the keda-admission-webhooks-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2-dev` `2.14-dev` `2.14.0-dev` | May 30th     | `sha256:2f824b21e402799cc322ec33c9d9a1a8b44cf135306941b8656e11bddeffaf32` |
-|  `2` `latest` `2.14` `2.14.0`                 | May 23rd     | `sha256:bfec7d672238eea6a30330c8c80ff18dee38a65d6ad57a1c167271570a859256` |
+|  `2.14.0-dev` `2.14-dev` `2-dev` `latest-dev` | May 31st     | `sha256:466c8c7b735b84f32149248af833e4775e2638a86d82198de53d9361479d8af8` |
+|  `latest` `2.14` `2.14.0` `2`                 | May 31st     | `sha256:eb84d72d2fb2fff5c535ceef88425ac272ac16df5adc769d318fba0fab771318` |
 

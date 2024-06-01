@@ -4,8 +4,8 @@ linktitle: "calico-key-cert-provisioner"
 type: "article"
 layout: "single"
 description: "Overview: calico-key-cert-provisioner Chainguard Image"
-date: 2024-05-31 00:48:45
-lastmod: 2024-05-31 00:48:45
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -34,7 +34,7 @@ toc: true
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard-private/calico-key-cert-provisioner:latest
+docker pull cgr.dev/chainguard/calico-key-cert-provisioner:latest
 ```
 
 

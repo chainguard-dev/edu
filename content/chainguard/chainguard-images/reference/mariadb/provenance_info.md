@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for mariadb Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for mariadb Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                 |
-|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                   |
-| `cgr.dev/chainguard-private` | 10, 10-dev, 10.11, 10.11-dev, 10.11.4, 10.11.5, 10.11.6, 10.11.6-dev, 10.11.7, 10.11.7-dev, 10.11.8, 10.11.8-dev, latest, latest-dev |
+| Registry                     | Tags                                                                                                                                                                                 |
+|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                   |
+| `cgr.dev/chainguard-private` | 10, 10-dev, 10.11, 10.11-dev, 10.11.4, 10.11.5, 10.11.6, 10.11.6-dev, 10.11.7, 10.11.7-dev, 10.11.8, 10.11.8-dev, 11, 11-dev, 11.2, 11.2-dev, 11.2.4, 11.2.4-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

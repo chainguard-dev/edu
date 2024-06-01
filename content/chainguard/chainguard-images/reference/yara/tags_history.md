@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the yara Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 29th     | `sha256:a7e2d147f5bbb71830ca8b36eecad4a9b8129f4801e2b3c5a3146e11592de725` |
-|  `latest-dev` | May 23rd     | `sha256:a9b9a997e803cdfef9485e01b92628955a46cb67b390a8ebb885d62dd8d0edc0` |
+|  `latest-dev` | May 31st     | `sha256:f39cbc9fa2c5d35403b11874e1103d0665ec5f75b699b2120bdc6072c3050992` |
+|  `latest`     | May 31st     | `sha256:c4abc577d813fbf5af55210bbf90c5533b487fb471cef3a0eedb7244aa87abe7` |
 
 
 ### Private/Dedicated Registry

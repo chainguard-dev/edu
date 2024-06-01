@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the hugo Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 31st     | `sha256:1167d2cf5a8836c8a2ee73e53a69cc9e091e7e8737b52412ab52119285929f20` |
 |  `latest`     | May 23rd     | `sha256:541201ce8bcad56554b18d9a4461069508a95a4ec8d18de5018b23b7f3c7cf28` |
-|  `latest-dev` | May 23rd     | `sha256:e2214f47fc40ffbbecbc22b4d27cc53bfea7c3cfc7bf3712b6fa2bebf15d36c0` |
 
 
 ### Private/Dedicated Registry
@@ -49,6 +49,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `0.125.5`                                      | May 2nd      | `sha256:7727816a3599bd3b533520d7ef56d6ecefdead3da3751bf23cc608a11fca6ade` |
 |  `0.125.4-dev`                                  | May 1st      | `sha256:06fa418112343c89a70fcaaa49332f198b6ff343122bf6a8b7c409de2c84e316` |
 |  `0.125.4`                                      | May 1st      | `sha256:a6749015824391b4a39f79f3f447feb38afd7f875f9a5db80d25bbdc3d0ca438` |
+|  `0.112.5-dev`                                  | May 31st     | `sha256:889830ba3f88223c89d7af0706f70ebeb789aa508aa00270ccedd267a302960f` |
+|  `0.112.5`                                      | May 31st     | `sha256:273edafee5c42f0ea26013e7167a5999e05822e2264341558dbfecb2379a5fa9` |
 |  `0.112.3-dev`                                  | May 27th     | `sha256:23a6862160bb5bed22e53d783d75050d9b1d968575be3da9df576d2147974f46` |
 |  `0.112.3`                                      | May 27th     | `sha256:14e409599eb8a717a5884b18aef8e7f1c8bb091f5ed07c9fc8a2006e3b5c6b0e` |
 |  `0.112.2`                                      | May 25th     | `sha256:8f1679eaa1a7e330a0ecdd71c7dc11bc9b5dcb367931b9d0964a4078fc2d1c87` |
