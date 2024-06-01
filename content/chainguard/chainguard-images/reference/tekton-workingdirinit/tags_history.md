@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-workingdirinit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 23rd     | `sha256:ead4158c733fb5ab1a8a4705f9e613d3b07e8e9f7f7e66ae869cb628ed399a6c` |
-|  `latest`     | May 23rd     | `sha256:69067f130a3c41477340d57a4bf9b14aeb666350719da41672b65dfee4d3755e` |
+|  `latest`     | May 31st     | `sha256:05036802e7fedea46a9b0e3dcc213c534a47fa322d1bb0f10d9a43bd7cec5909` |
+|  `latest-dev` | May 31st     | `sha256:24f2ce09aaac76f7f597093a115e7346dbc486e690963070d0ed0270086fbc23` |
 
 
 ### Private/Dedicated Registry

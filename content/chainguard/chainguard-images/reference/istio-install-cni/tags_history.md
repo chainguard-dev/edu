@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the istio-install-cni Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 23rd     | `sha256:e5f5d8495c98a1788be897417476399d9425d64bf5a4c1e9d3ded3d5e97f1d99` |
-|  `latest-dev` | May 23rd     | `sha256:91eefef9d4b0165b2f66211068211c23eded53871dbfb9afe02391964be8f207` |
+|  `latest`     | May 31st     | `sha256:cf5fc4a4a9b40b0f842b772f89eec1b803f6e31b8f58bfcb605a6962b78d1c5f` |
+|  `latest-dev` | May 31st     | `sha256:217c75511f94d8b2b5c9d87df7f0cfa6b26ba675de57b4ce7f46ca60efbf4231` |
 
 
 ### Private/Dedicated Registry

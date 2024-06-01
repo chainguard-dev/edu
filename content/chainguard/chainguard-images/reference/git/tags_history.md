@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the git Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,14 +28,14 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)                  | Last Changed | Digest                                                                    |
 |--------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-glibc`          | May 23rd     | `sha256:19dfea2c21fd55e08bda886e77b1f00075064f45a751b72f624daba48d85ccb9` |
-|  `latest-glibc-root`     | May 23rd     | `sha256:a8369fc160c85ce337e239d4e102e5322dcc71f9218deaf98e9c3ff160b411dc` |
-|  `latest-glibc-root-dev` | May 23rd     | `sha256:c108a1595e36a967682ced21167eac0ef12a91d5ac5d6f36d4a3eabe9cf3155b` |
-|  `latest-glibc-dev`      | May 23rd     | `sha256:dd4bb108b8a8f2f957aadbe0224be1306bf0a8acf9455812d610c0fb85b9704d` |
-|  `latest-dev`            | May 22nd     | `sha256:aab18a96fa32d77892406d8dca2d94c3ad882693eb2b670a45ecc893e1daf02d` |
-|  `latest`                | May 22nd     | `sha256:f06036ea97419c784339638cf4a21b52d39df8dfd8aa0e0e73307fc1082c6043` |
-|  `latest-root-dev`       | May 22nd     | `sha256:51c7c0164a6b4db491284ad755a0530df11c98d3081a5a05478656c34c9f991f` |
-|  `latest-root`           | May 22nd     | `sha256:fa7a03c2cbfa3b961931f0fc0a3489e19fb06ae085f4c2dfd980347ed012c796` |
+|  `latest-root`           | May 31st     | `sha256:9a663a492a2061c0cb86ffdc34f4ba0f4e8283321969560088c1b4d97e785ac5` |
+|  `latest-glibc`          | May 31st     | `sha256:112afd322a889656cf207b1ac58c19e0ad39f7b96b8a62392be232e3dcaeb75c` |
+|  `latest`                | May 31st     | `sha256:4ad268dd2abb204b601fbeb6522ea8f7ea7f789fdb2821abce0cfb85143fe31a` |
+|  `latest-dev`            | May 31st     | `sha256:9e453e652ee1f4c1031d90dd9f50098abbbb5a2ac4344d2f45073ef5724b9f15` |
+|  `latest-root-dev`       | May 31st     | `sha256:2af786558f96c33f685d8a8c5d242f921a0f59cf3415931a5052f7c3fc957e86` |
+|  `latest-glibc-root`     | May 31st     | `sha256:3761875cc34f55df7fe7225b412de40129d3eacd6b1219ca35afe9d25f22da8d` |
+|  `latest-glibc-root-dev` | May 31st     | `sha256:501723845b48b77682cdc5a6d8dfdf3db9b2ceecffe5a75fb1773c0e66cbeba6` |
+|  `latest-glibc-dev`      | May 31st     | `sha256:9f648e8faff329538cec1d3b678c2d2a4170a0102a6582cf02bb37b575120feb` |
 
 
 ### Private/Dedicated Registry
@@ -51,4 +51,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `glibc-root-2.45.0` `root-2.45.0`                                                                                                                         | May 14th     | `sha256:f2ff396551bfe42e62401b04a65df65bf43f04d3aff283d0c42454d97d70d7d8` |
 |  `2.45.0` `glibc-2.45.0`                                                                                                                                   | May 14th     | `sha256:827fbc62d3e475394599edbf9095a353b4ec964a64797b62b143ef100a464027` |
 |  `glibc-root-2.45.0-dev` `root-2.45.0-dev`                                                                                                                 | May 14th     | `sha256:48efe16835214c405ce9131641af0e51f342d50b5e98f05dff415afb65ceb469` |
+|  `glibc-2.40.1` `glibc-2.40`                                                                                                                               | May 31st     | `sha256:d9a4dfac6a30414987e34ef7a7eb5b647a8abca66269e1e3199a317ea10bf723` |
+|  `glibc-root-2.40.1` `glibc-root-2.40`                                                                                                                     | May 31st     | `sha256:134bfe7b2df942f3f19e57002ae046eb6b34a87a8445342c61c8258efa382ddd` |
+|  `glibc-2.40.1-dev` `glibc-2.40-dev`                                                                                                                       | May 31st     | `sha256:a026934a01663b2d17c5d9faa0730fb26866e8779434d0b5cb82ace802985532` |
 

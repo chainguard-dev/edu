@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cortex Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 23rd     | `sha256:df0ab01b29ef961ac4d8cbba75aca1ae5aafb632a50edcebc88aaf1b11c88ebb` |
+|  `latest-dev` | May 31st     | `sha256:eff9783f0bb2725b534cc491486ba1c74ea4aa5840858f8b15cf4dd267768dce` |
 |  `latest`     | May 23rd     | `sha256:c7cf8d2ceb24ab661cc998b072b94dec46b0e9a26e9db3e4747dbee9ab386f41` |
 
 

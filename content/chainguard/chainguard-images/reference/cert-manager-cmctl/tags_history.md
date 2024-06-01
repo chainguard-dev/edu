@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-cmctl Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 31st     | `sha256:120317b99a39b8901c344eb7296c32cb552dfa4abb3b1f6b20ebf1d9d27b310b` |
 |  `latest`     | May 23rd     | `sha256:eeae72b8428b7f57725b3e271c0bc569e0c5f1673f3428e94abd08ba09888ae4` |
-|  `latest-dev` | May 23rd     | `sha256:73fda3e991b1f280a427a62f863af8dee259d1f8268316132b5d5c1b57711c96` |
 
 
 ### Private/Dedicated Registry

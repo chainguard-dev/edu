@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the postgres-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 31st     | `sha256:b7dc4ff77e2f2cf42879873cf6434fe9393acc6ca84bf5e47c8fb80b06bfe3a3` |
 |  `latest`     | May 23rd     | `sha256:3fa61cb0a260a098029cab740409a7dd5295e6644cd0eab2d9e7f89010aec65d` |
-|  `latest-dev` | May 23rd     | `sha256:0ae9518b0c16697e6e3683ed697b00dc58192305ac00c4eb9151d0d5fa7fec31` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.11-dev` `1.11.0-dev` `latest-dev` | May 30th     | `sha256:bee7c4528ada15541ec5d9abf52c3c7e49053012eb4550053286d8ec76f8837b` |
-|  `latest` `1` `1.11.0` `1.11`                 | May 23rd     | `sha256:a0b8d1727808b3f2f5d7eb223bf987597fc4ce476e658c888208957274d8e20f` |
+|  `1.11.0` `latest` `1` `1.11`                 | May 31st     | `sha256:7bc5ba846eb94ae9d656add6447630466c80bd3b329a445bac1d3bed070c6e91` |
+|  `1-dev` `1.11-dev` `1.11.0-dev` `latest-dev` | May 31st     | `sha256:5f045ebaaa980adaf2817a378a3e96b31983b4ef4e63ced05b5a0d9279a1b22b` |
 

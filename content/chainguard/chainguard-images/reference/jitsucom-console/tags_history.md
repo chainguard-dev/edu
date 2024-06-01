@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jitsucom-console Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 23rd     | `sha256:ba3cba1bbd9f916d9fd3803f437943d0d116b019c80801fef55086b30073e5bd` |
-|  `latest`     | May 23rd     | `sha256:3e82879c61e9075eff13f905f873f211e54407feb83ffc9ff3030a5edaa73311` |
+|  `latest`     | May 31st     | `sha256:c5fa51a8eb98caa77397daaba93bdf74d6e8c2c699bc92fe9b29e21af5f96e92` |
+|  `latest-dev` | May 31st     | `sha256:d25b03d6c9107d78138dd6fd5249fbcac0087c6ef336ab5c09043aca580b0a30` |
 
 
 ### Private/Dedicated Registry

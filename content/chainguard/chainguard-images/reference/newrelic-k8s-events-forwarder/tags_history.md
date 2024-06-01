@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-k8s-events-forwarder Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 31st     | `sha256:a79c9a5ca939b3f29e08085ae58e44e4b62a8c04b5c5a4d800d027564f37523c` |
 |  `latest`     | May 30th     | `sha256:ee5318e5ee2cf17c32f6307f803471f59c359912d759abb235e11712dcdbb866` |
-|  `latest-dev` | May 23rd     | `sha256:9c4bfda55a610ffc289ac0c573e242e0c97dea7ac74785708a374c023ae7f3dd` |
 
 
 ### Private/Dedicated Registry

@@ -1,3 +1,14 @@
+# 2024-06-01
+New images added:
+
+- aws-for-fluent-bit-fips
+- redis-cluster-bitnami-fips
+- redis-sentinel-bitnami-fips
+- redis-server-bitnami-fips
+- spdx-tools
+
+A total of **515** documents were updated.
+
 # 2024-05-31
 New images added:
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the coredns Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 23rd     | `sha256:ad07175798c9d4075903e6ecdec108b01eedb4ffec515133d5a9cbe1dbf5a7dc` |
+|  `latest-dev` | May 31st     | `sha256:aa4d22ad5cbf2525972c9233788baf6d64671589547c6635f33560db37c0337d` |
 |  `latest`     | May 23rd     | `sha256:aa406fb71a1df90636b9ea4631375fe88f5bc1969a4a61ecd89c5a37fdaec8bb` |
 
 

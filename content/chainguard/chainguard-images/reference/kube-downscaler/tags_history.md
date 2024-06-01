@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-downscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` `23-dev` `23.2-dev` `23.2.0-dev` | June 1st     | `sha256:f70bafa589990772bc366b965591450780bdcb0ae7f4937762bac6687845021f` |
 |  `23` `23.2` `23.2.0` `latest`                 | May 30th     | `sha256:a8834dee6a952aee85c17f5e1d284dea7d360458d18d9d26300d07a083e214e1` |
-|  `23.2-dev` `23.2.0-dev` `latest-dev` `23-dev` | May 30th     | `sha256:52a91ab915d88e319a54a00e7f5ea01c06a58a2903d04745017969d485812d48` |
 

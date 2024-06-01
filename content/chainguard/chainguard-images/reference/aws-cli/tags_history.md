@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 30th     | `sha256:985c2a87e8f19754b5dd4b5df019ebf8592bd4a1910d3d805e4eb7ee3744edf3` |
-|  `latest-dev` | May 30th     | `sha256:85916b22790d4bb7c1b3f27a4456f99fe272a739648542fc9e78400d7edeff21` |
+|  `latest-dev` | May 31st     | `sha256:3913c78500719db52c45936aa506656a2e97c89a9a77beab84e4de57c16712be` |
+|  `latest`     | May 31st     | `sha256:8950dbdb5ad9494b881428250c04fd8498376aa8a6a57026751f8e2582756291` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,11 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.32-dev` `1-dev` `1.32.71-dev` `latest-dev` | May 30th     | `sha256:7c36dd7bb22129b3e5e8b0d599b71261b1055d584750b6c01f6171ed8bd686ea` |
-|  `1.32` `1.32.71` `1` `latest`                 | May 30th     | `sha256:c5760a1f1231b83265792275ad3211efecc741034e00364be939aed85f93010e` |
+|  `1-dev` `latest-dev` `1.32.71-dev` `1.32-dev` | May 31st     | `sha256:2c79fcee7b43d68a550441e7f3f24d09a611d7f2bd38fd7926ccd556fd5a5d38` |
+|  `1` `1.32.71` `latest` `1.32`                 | May 31st     | `sha256:2b9cf9fff53e40fae6ff1fefa205d7a07317ead9e324026c2f5438cb130fa463` |
+|  `1.27.144-dev`                                | May 31st     | `sha256:d0064090043a2e1910b0f10be2843cbd55f8a106cac7813ff62e608915160f98` |
+|  `1.27.144`                                    | May 31st     | `sha256:4911b3b61b98a0d331475f196f44567fe8fda823a87935139426e643d38533a9` |
+|  `1.27.143`                                    | May 31st     | `sha256:db26ac6ead4a3ba6c7c527e46630906b4d6daede075fec92221a3df86d51e042` |
 |  `1.27.142-dev`                                | May 29th     | `sha256:026a52de69ec66041411fa726bf3afe0d5037eaba8e266e0d29b02e16e3ec22b` |
 |  `1.27.142`                                    | May 29th     | `sha256:f777aad92c935d6db47296527057079cee8245a5495f1d5d1dead59d64a05624` |
 |  `1.27.141`                                    | May 27th     | `sha256:d3c4f2fee754bfbad6ae4c37e727b61d68ad10ee6805b01d3be30063b1782ce1` |
