@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the influxdb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 31st     | `sha256:36ef482836ca19883d14d7046f9ade0faed3338129ecf119058c6e54a3b5d091` |
 |  `latest`     | May 23rd     | `sha256:803372007c1fb42e1b358f99decf2a834545009e3d940b5bc54773b94b904446` |
-|  `latest-dev` | May 23rd     | `sha256:e063a7ae2b5a4b4fd5ab4ae58d1f3efb734c2fa489709040f5aa98e173b1cf96` |
 
 
 ### Private/Dedicated Registry

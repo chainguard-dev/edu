@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jitsucom-rotor Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 23rd     | `sha256:a25941ab82ced671140019c9caa9677c37f449af7aba5791fcbf6045a07c6bd3` |
-|  `latest`     | May 23rd     | `sha256:f5b5d3a9b24630f5048e78392852f2910f37710318f0d8fa314ec39611aa8989` |
+|  `latest`     | May 31st     | `sha256:18d0f440b262d335d331419e96e1107095552f0a3cd03dd87eeaf97817ec3ec4` |
+|  `latest-dev` | May 31st     | `sha256:ed5e1253815de6555626a773a0497bab0d01af439df23d17966a4ef230b9c3f0` |
 
 
 ### Private/Dedicated Registry

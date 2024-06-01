@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the octo-sts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 31st     | `sha256:b14127cd72d6220e3a3db2d44809116136d42dc1d4b862fd961994a19cded8ff` |
 |  `latest`     | May 23rd     | `sha256:25454dd98ca6221a4a34119994f0849529dd0475cf602cd9c1657949b674147c` |
-|  `latest-dev` | May 23rd     | `sha256:94c9820e0199c74da53d16a717be2fdf3b6bd7815ab48616d12c1ecc105d768a` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.2.0-dev` `latest-dev` `0.2-dev` `0-dev` | May 30th     | `sha256:761ff7ce5fee73cccd22a9868d0e9be51c9169aed9670ff5baf61a721d30560d` |
+|  `latest-dev` `0.2-dev` `0-dev` `0.2.0-dev` | June 1st     | `sha256:4a3839e9c8b18f08f26e6b0f2726a010f5935672eb4148afe185615242fcd870` |
 |  `0` `latest` `0.2` `0.2.0`                 | May 23rd     | `sha256:a8fe8d841c17e9939340395826155e57e247c25601ae87c0954d961a72a28cb5` |
 |  `0.1` `0.1.0`                              | May 17th     | `sha256:0ddf02893e4bd2de7632a03cbfd0e39a103429ffd7fbc8e825d61b53d62df6e8` |
 |  `0.1.0-dev` `0.1-dev`                      | May 17th     | `sha256:6ec4d2c7a4f5492d5a8c93cd257309092c6abe41d13f39e26e51d4dc68bec509` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the melange Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 23rd     | `sha256:9075d73aa592ce920b58136ec77037b84d4e464381c98abba39eaa6f8f33f424` |
-|  `latest`     | May 23rd     | `sha256:22b3307eaa987da434cfe1418e677be4e99b4e93a1858b860c71249c3d49ab9f` |
+|  `latest`     | May 31st     | `sha256:d57a932498a73f96080f9680520ea441dbd36f9416cbb6ff25eb29a2496ea797` |
+|  `latest-dev` | May 31st     | `sha256:0ab4d649bdca08b4f910c40218082aefeb26f9c5f55c0d8a6cc74e190439c33d` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.8-dev` `0-dev` `latest-dev` `0.8.3-dev` | May 30th     | `sha256:7d9233aa6ff11e8fef517666d0a3ca0c1b18d467bee47a0af3f7cf7e3f812834` |
+|  `0-dev` `0.8.3-dev` `latest-dev` `0.8-dev` | June 1st     | `sha256:85521f137b2c4a098ead94f9ff63e77e2d6ee297775c0306e0a185ebcfeb7d62` |
 |  `0` `0.8` `latest` `0.8.3`                 | May 29th     | `sha256:2503b35df029e0e006173d311603ef54324fccfb395289236ed4bd09798d7ad5` |
 |  `0.8.2-dev`                                | May 28th     | `sha256:8a92e4c169f9be82966d128382be63838b94bf397a4c60929653aa631c8b7a25` |
 |  `0.8.2`                                    | May 28th     | `sha256:3390d6d0a6c1ca019b3346c276249475e3aeeeb8a9bf3621934d5d42f3e8ba4f` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rekor-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 23rd     | `sha256:16b7e23ecf6b55470406570aca80256dad59efa00bf16898783a4f20a9e1d983` |
+|  `latest-dev` | May 31st     | `sha256:19ceee3a62f85707ee4762125295b64fd7289db1ff6e62d94d4e4e3c216924eb` |
 |  `latest`     | May 23rd     | `sha256:21bfae71c4fc1cd5833c0b186cb64124168f8f2d84464a3b23afae8b10839438` |
 
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jitsucom-bulker Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 23rd     | `sha256:0242b15f9fd540defc0328338e79e69bfbbd4d84bb11e533f09e2df157a53e84` |
-|  `latest`     | May 23rd     | `sha256:39f7b936202220f4758dd8385377735c6a664fddc30a2d1a716d170a2c340087` |
+|  `latest-dev` | May 31st     | `sha256:b28595dbea1658b25b288c98b32279aa599c3402811a2873e4f7805ac7c0d199` |
+|  `latest`     | May 31st     | `sha256:628ca32a5406d219ee6b0a67f3ee8e71057d61190447e554c79c3f867fa35ff4` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.6-dev` `2-dev` `2.6.0-dev` `latest-dev` | May 30th     | `sha256:5a0c79d27ff332089a78bed164deeb4eefa3bfdd5f6c01e4e14e2441d940347c` |
-|  `2` `2.6.0` `2.6` `latest`                 | May 23rd     | `sha256:a8373c2c232dd4b7021f0b9bde543a972028b6e0d3b67b23ca84da4af459e020` |
+|  `2.7.0` `2.7` `latest` `2`                 | May 31st     | `sha256:14bbf2704d1f91122fb9ac15a6115dc4fe41f3a034b5981983612e2ca09c7f9a` |
+|  `latest-dev` `2.7-dev` `2-dev` `2.7.0-dev` | May 31st     | `sha256:847770099e1ee7df09d07e5e079ec1b1cf969965bb63b18644d258b3f8d9fc0a` |
+|  `2.6-dev` `2.6.0-dev`                      | May 30th     | `sha256:5a0c79d27ff332089a78bed164deeb4eefa3bfdd5f6c01e4e14e2441d940347c` |
+|  `2.6.0` `2.6`                              | May 23rd     | `sha256:a8373c2c232dd4b7021f0b9bde543a972028b6e0d3b67b23ca84da4af459e020` |
 

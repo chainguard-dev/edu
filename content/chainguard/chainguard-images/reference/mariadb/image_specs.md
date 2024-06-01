@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public mariadb Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -58,13 +58,14 @@ The table shows package distribution across variants.
 | `libidn2`                     | X          |        |
 | `libnghttp2-14`               | X          |        |
 | `libpcre2-8-0`                | X          | X      |
+| `libpcre2-posix-3`            | X          | X      |
 | `libpsl`                      | X          |        |
 | `libssl3`                     | X          | X      |
 | `libstdc++`                   | X          | X      |
 | `libunistring`                | X          |        |
 | `libxcrypt`                   | X          | X      |
 | `linux-pam`                   | X          | X      |
-| `mariadb-10.11`               | X          | X      |
+| `mariadb-11.2`                | X          | X      |
 | `mariadb-11.2-oci-entrypoint` | X          | X      |
 | `ncurses`                     | X          | X      |
 | `ncurses-terminfo-base`       | X          | X      |

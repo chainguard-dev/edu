@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the buildkit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)            | Last Changed | Digest                                                                    |
 |--------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-root-dev` | May 23rd     | `sha256:61f1c669bff304007519a8a2e6418e2ed1363d41cd40a20ec96feb2a22cf29e6` |
-|  `latest-root`     | May 23rd     | `sha256:b3c91bbb384eeab5c7d681b6c01f181fbbf8ff5b79f342a4bb716ece1e2d89da` |
+|  `latest-root`     | May 31st     | `sha256:ae5e3dfa3301de218725acae37c9b8e25c9f8d7d500b56ea027e9dd00093d9bd` |
+|  `latest-root-dev` | May 31st     | `sha256:894d2c5d01242bb839ae9a5cd46644496bb8969d2070e116a0e37d985bab0fec` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.13-dev` `0-dev` `0.13.2-dev` | May 30th     | `sha256:c201172ee2b9864c7b4f7fc738b09222ccb81da518e083c44d751c83a28b286f` |
+|  `0.13-dev` `0.13.2-dev` `latest-dev` `0-dev` | June 1st     | `sha256:92f7e43d4dac1c49ce043ff96f5ffcc30fcda4bd2e981e8a5eace579b4f30e31` |
 |  `0.13.2` `0` `latest` `0.13`                 | May 23rd     | `sha256:086f6e4084628edc4adaf00cccd7fec24a5f58b4871e38269aa57294248e3c30` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the metacontroller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 31st     | `sha256:9d1cd8fc78844096abdd7081653ff69670eefd68c1ac79ec876a18b595b49915` |
 |  `latest`     | May 23rd     | `sha256:23cb45ebe0410f0fd950e376543b11457d31149a38278f67c5b16f9740a3ed20` |
-|  `latest-dev` | May 23rd     | `sha256:def33c0c38547691b5465ef4c948d03edbabe24d1d85ca884e6145639452c654` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `4.11.13-dev` `4-dev` `4.11-dev` | May 30th     | `sha256:2ec424dc1d80e262e38ffc21c5c1c01a16fc4ad5df074ccd13365631f7136c7e` |
+|  `latest-dev` `4.11-dev` `4-dev` `4.11.13-dev` | June 1st     | `sha256:c8991cd4533dd5b5dce662ec4bb8fba9383210edd6e82545041b1b1014da36bc` |
 |  `latest` `4` `4.11` `4.11.13`                 | May 23rd     | `sha256:277f6c23162454a6c34f94dbc227cfc38758cc5dec3d8f1ad4aab2b28b4abd5b` |
 |  `4.11.12-dev`                                 | May 22nd     | `sha256:a9c3e18943df799acc9d57726116d5a1c8a846d76f8f34a9629b339f68ccf467` |
 |  `4.11.12`                                     | May 21st     | `sha256:728a0a0342065b5c69e856518f1d0ad5a2ec9be3905af090864ddc55c2a5059b` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-state-metrics Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | May 31st     | `sha256:9dcbf3192fbb8a0f2a4b3aad912e7d2524bd10028a5607f431ef201e775557f6` |
 |  `latest`     | May 23rd     | `sha256:25b531089c3b7d1f47bd35111516204e2f908e41f86fa746b43e643adb74fe61` |
-|  `latest-dev` | May 23rd     | `sha256:559a2e63bb330f395a7efe5d43df4cc5e41c462cb1da61751a52e1814b1f14ad` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.12-dev` `2-dev` `latest-dev` `2.12.0-dev` | May 30th     | `sha256:8c89b1704a3a57be647a11e54927cce032a99068ab279cf4be9ad286d98a8f42` |
+|  `latest-dev` `2.12-dev` `2.12.0-dev` `2-dev` | June 1st     | `sha256:47ef9a724a04bf0c2805e15417440b49f001edab69e0182b136e9119f8313184` |
 |  `latest` `2.12` `2` `2.12.0`                 | May 23rd     | `sha256:cae03e52d6e6c795c2e5935409ad0dc70596ed0b9166ab0096a8186a8cdf4a17` |
 |  `2.9.1`                                      | May 29th     | `sha256:5c721f0e674c61a269a4056a38a3006bcd0433a171cfb466ba69a6fc16351f8c` |
 |  `2.9.1-dev`                                  | May 29th     | `sha256:0b956e254cb84f2582e0bc181311db1d4726934945ff4098a34fa05194b44e42` |

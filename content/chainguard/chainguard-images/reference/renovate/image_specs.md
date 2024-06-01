@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public renovate Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-30 00:47:59
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -72,7 +72,7 @@ The table shows package distribution across variants.
 | `jsonnet-bundler`               | X          | X      |
 | `ld-linux`                      | X          | X      |
 | `lerna`                         | X          | X      |
-| `libLLVM-18.1`                  | X          | X      |
+| `libLLVM-18`                    | X          | X      |
 | `libacl1`                       | X          | X      |
 | `libatomic`                     | X          | X      |
 | `libattr1`                      | X          | X      |
@@ -105,7 +105,7 @@ The table shows package distribution across variants.
 | `libxcrypt-dev`                 | X          | X      |
 | `libxml2`                       | X          | X      |
 | `linux-headers`                 | X          | X      |
-| `llvm18.1`                      | X          | X      |
+| `llvm-18`                       | X          | X      |
 | `lttng-ust`                     | X          | X      |
 | `make`                          | X          | X      |
 | `mpc`                           | X          | X      |

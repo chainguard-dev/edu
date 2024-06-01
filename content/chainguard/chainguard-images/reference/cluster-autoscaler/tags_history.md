@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cluster-autoscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 24th     | `sha256:87439e4adee45e70620687152ce2c3e02d84fc631fb795ef70716dd0b997ab6d` |
-|  `latest`     | May 23rd     | `sha256:2ac1fb2ca852a5f92e28ddd35dacadddc0471d2ea49f7029ee691a670ee18ae3` |
+|  `latest`     | May 31st     | `sha256:ae207a76892e05bea8f26aa59b6660b7d5036bfc9673d07030a455f4c2e79977` |
+|  `latest-dev` | May 31st     | `sha256:9566cdb29b05b22e8bf7fda8df352cb66c5990c97b9d1ac63784afd05d2e2b60` |
 
 
 ### Private/Dedicated Registry

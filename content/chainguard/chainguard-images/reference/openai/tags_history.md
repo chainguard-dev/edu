@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the openai Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 23rd     | `sha256:b24637c37ad2db78dccdae0055ee39a388450ccd16d0a49e44cfc0338f1a0e2b` |
-|  `latest`     | May 23rd     | `sha256:362894367ee196e224c1963c275930a3c7a2a980bb95acff2a771391da823358` |
+|  `latest`     | May 31st     | `sha256:13bf2cc14762e53bb4e47aa94040afd6905704f16e0e470a3196576e14a201d4` |
+|  `latest-dev` | May 31st     | `sha256:0663071d0d15573ebe43ddeb74859eb6b3f6fa8f85bfa04eb4520e4c99ae1e45` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.30.5-dev` `1.30-dev` `1-dev` | May 30th     | `sha256:4d17ac859f73cd16b94bdaa859ed4b5c04427d32bb4c0a52bbd7fac854e58b9f` |
+|  `1-dev` `latest-dev` `1.30-dev` `1.30.5-dev` | June 1st     | `sha256:a407b2ef75d39a7aa7d48056d195bde7506faa30a30fc83008fec412dbf1ff8e` |
 |  `1.30` `1.30.5` `1` `latest`                 | May 30th     | `sha256:a19882a25ffdcf4b5065b267f136f0b0909f155e77cac598c3c63a7ff52f96ee` |
 |  `1.30.4-dev`                                 | May 29th     | `sha256:695510829d6e62443980a40ddf3be2e3655c80d7114863c20a4f72fc0aa49553` |
 |  `1.30.4`                                     | May 29th     | `sha256:6f858c2cfe562539b04c286ec8d55b50246e5b25100be37032c90f28656a7164` |

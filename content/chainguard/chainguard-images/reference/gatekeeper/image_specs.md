@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public gatekeeper Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -42,8 +42,8 @@ The table shows package distribution across variants.
 | `busybox`                | X          |        |
 | `ca-certificates-bundle` | X          | X      |
 | `chainguard-baselayout`  | X          | X      |
-| `gatekeeper-3.15`        | X          | X      |
-| `gatekeeper-3.15-compat` | X          | X      |
+| `gatekeeper-3.16`        | X          | X      |
+| `gatekeeper-3.16-compat` | X          | X      |
 | `git`                    | X          |        |
 | `glibc`                  | X          |        |
 | `glibc-locale-posix`     | X          | X      |

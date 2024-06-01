@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for fluent-operator Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 | Registry                     | Tags                                                         |
 |------------------------------|--------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest                                                       |
+| `cgr.dev/chainguard`         | latest, latest-dev                                           |
 | `cgr.dev/chainguard-private` | 2, 2-dev, 2.8, 2.8-dev, 2.8.0, 2.8.0-dev, latest, latest-dev |
 
 

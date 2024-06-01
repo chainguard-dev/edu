@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-alertmanager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 23rd     | `sha256:42fd1bd90f2b425de841a509e2eb997b9e864479d211667aafee548b068f5ae3` |
-|  `latest-dev` | May 23rd     | `sha256:9a87548efafd24ffcb8e254a3f62e2c9f79a7c9955d798a89d81c9fd986a1ebc` |
+|  `latest-dev` | May 31st     | `sha256:faeea0e6dca3c986bb725269dfce0f8f759a6bf20c324ebde314bc3f761fa97e` |
+|  `latest`     | May 31st     | `sha256:42fd1bd90f2b425de841a509e2eb997b9e864479d211667aafee548b068f5ae3` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.27.0-dev` `0-dev` `latest-dev` `0.27-dev` | May 30th     | `sha256:17aa458f2ad6b365946b22a453750d24c47991def1b8ef14c2c3444795af888a` |
-|  `0` `0.27` `0.27.0` `latest`                 | May 30th     | `sha256:33329d7c53d481f332a3a0cdb4de63068b5244747170d16d90208af975af4f06` |
+|  `latest` `0.27` `0` `0.27.0`                 | May 31st     | `sha256:33329d7c53d481f332a3a0cdb4de63068b5244747170d16d90208af975af4f06` |
+|  `0-dev` `latest-dev` `0.27-dev` `0.27.0-dev` | May 31st     | `sha256:17aa458f2ad6b365946b22a453750d24c47991def1b8ef14c2c3444795af888a` |
 

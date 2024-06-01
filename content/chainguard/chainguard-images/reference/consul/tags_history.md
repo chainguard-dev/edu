@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the consul Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-01 00:50:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 24th     | `sha256:6bcf4305cc6eb14e29b8a67efe1346dd1ee9338050d9c847dc94e4d2aefaecc2` |
-|  `latest-dev` | May 23rd     | `sha256:595c191db9a0fc96e07428068c19f04303715aa9dce04185686039333f4d3aae` |
+|  `latest`     | May 31st     | `sha256:443890f50bd5c1c76fda867189d7821bf088ecaf02fb99fc73790bce61a335eb` |
+|  `latest-dev` | May 31st     | `sha256:a8ae5fc19ff95595e7f73276d59c6ec8cdc570dd4e7442457275da8abcf91f17` |
 
 
 ### Private/Dedicated Registry
@@ -43,4 +43,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1-dev` `latest-dev` `1.17-dev` `1.17.4-dev` | May 30th     | `sha256:382a11a7218a1898cb890dc393ddcd686e138b4ce177e0ee8711339c0daf6574` |
 |  `1.15.11-dev` `1.15-dev`                     | May 30th     | `sha256:a357295a6e1484444d0e1551c789af36adf98cdbd43c80f5c192775639ea4daa` |
 |  `1.16.7` `1.16`                              | May 30th     | `sha256:8aa7745f9a3b3e85e9bc9467a145654d2e22610a377f67c5ade0927626e2d5fd` |
+|  `1.15.2`                                     | June 1st     | `sha256:39bd22f48537f3b21e5eab833404813d917bbb02bd5b1de0c1c19797e719d294` |
 
