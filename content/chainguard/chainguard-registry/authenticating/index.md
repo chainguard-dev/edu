@@ -129,7 +129,6 @@ jobs:
   example:
 	runs-on: ubuntu-latest
 	steps:
-  	- uses: actions/checkout@v3
   	- uses: chainguard-dev/setup-chainctl@main
     	with:
       	identity: [[ The Chainguard Identity ID you created above ]]
