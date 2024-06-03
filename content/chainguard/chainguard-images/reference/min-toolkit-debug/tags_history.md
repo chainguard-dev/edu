@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the min-toolkit-debug Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | May 30th     | `sha256:4b89fed94227b35b69133bd87bd56ce91b0ccbad860a43a030f1f702c7340545` |
+|  `latest` | June 1st     | `sha256:2b9b5da030a36759febd519cbaab5f933de8e4c6eb4ef680b955df568cd96b98` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +36,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | June 1st     | `sha256:11f0269b310f324a6ce120f243100a26cc41e649dae720d6ddf74d2690ba9f16` |
+|  `latest` | June 1st     | `sha256:68141577f4625efd2f4872be9242b6a3d79970f1ad6407a00321966ec45aa6b6` |
 

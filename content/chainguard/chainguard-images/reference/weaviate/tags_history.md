@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the weaviate Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | June 1st     | `sha256:a1183785c3d982d895ff78ef20be7b62a62285128ca96af9a6ca252b1a9b090b` |
 |  `latest`     | May 31st     | `sha256:b1da5eba165a8ae01c2b7596092a3ab8ea523caf4c0af0b574acddde11cda14e` |
-|  `latest-dev` | May 31st     | `sha256:e86e1cb21e9582c3ffbc990e118a4e76731b04eb614cc4f2a6461b3102a2b579` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.25.2-dev` `1.25-dev` `latest-dev` `1-dev` | May 31st     | `sha256:5413d8ee8facf16493de49e265894dff0fdf34cee3e20eed6a32e73a5c2fb153` |
+|  `1.25.2-dev` `latest-dev` `1.25-dev` `1-dev` | June 1st     | `sha256:f5732e3ccad85c597ea7d48dcf96756ea0ab90154dd51856d40ab621b59f483c` |
 |  `1.25.2` `latest` `1` `1.25`                 | May 31st     | `sha256:679a3ca6269c5220afda543bce717891719f7a82326799c38d56c67ac06d9095` |
 |  `1.25.1-dev`                                 | May 30th     | `sha256:eadb559929be5fdcfa288bafe68fee4b03ed303ea786367511713d4281a00bca` |
 |  `1.25.1`                                     | May 30th     | `sha256:992cce18ee58336f73b24a201f424e553342c8df2ed6181abe4496a065dbf555` |

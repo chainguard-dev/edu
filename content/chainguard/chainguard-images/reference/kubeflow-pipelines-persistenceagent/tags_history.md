@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-persistenceagent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 31st     | `sha256:3b144d8889be0f14f98ba92a210a33d8c7fbcaf4b17b935bfce52656e5b3e41c` |
+|  `latest-dev` | June 1st     | `sha256:ba0e1793c27e0a03bc470a1d716608bf2ddd7cd436287425c38a04c5d19eb49a` |
 |  `latest`     | May 31st     | `sha256:70b1d5b85aa6396eef356404012396f995bf091271c018d966b4c728d39249ba` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.2.0-dev` `2.2-dev` `2-dev` | May 30th     | `sha256:49d27dc2afcebe3aba77764a840bbf9097a6774a4b2a3f5eb5f0c24067c27e25` |
+|  `2-dev` `2.2.0-dev` `2.2-dev` `latest-dev` | June 1st     | `sha256:d97cc24e309768f1facfbdb50c8763e8b1c09b9b0bd75204ef3ba3fdcbad23c6` |
 |  `2.2` `latest` `2.2.0` `2`                 | May 29th     | `sha256:8b01363211dc746caff1f9d8ecb4e3d80c2a25825c042eb703e16a3b74112412` |
 |  `2.1.0-dev` `2.1-dev`                      | May 24th     | `sha256:dd4cf1c4e9352346862e4c2b3d96e7c4005422455ed8ac3292603d351b93e4ed` |
 |  `2.1` `2.1.0`                              | May 23rd     | `sha256:7d744e3e2ff680323b851515744082fe61c20e1f9fe2b6833b87ebd10b4e17fa` |

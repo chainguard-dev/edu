@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public atlantis-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -48,7 +48,7 @@ The table shows package distribution across variants.
 | `curl`                        | X          | X      |
 | `dumb-init`                   | X          | X      |
 | `git`                         | X          | X      |
-| `git-lfs`                     | X          | X      |
+| `git-lfs-fips`                | X          | X      |
 | `glibc`                       | X          | X      |
 | `glibc-locale-posix`          | X          | X      |
 | `gnupg`                       | X          | X      |

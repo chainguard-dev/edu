@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-workingdirinit-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,12 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.60` `0.60.1` `0`                 | May 30th     | `sha256:b0356389c84e9af057f67560273b637e7b3d884dd6f7ba2cc871a3e71f43d3fa` |
-|  `0-dev` `latest-dev` `0.60.1-dev` `0.60-dev` | May 30th     | `sha256:c52852a11ba3a29b416ff4ee026b814ff05db3c970dd7071a875cfa49d590574` |
+|  `0-dev` `0.60-dev` `0.60.1-dev` `latest-dev` | June 1st     | `sha256:f9fcd9998c9eea3d5381ed5d40a983ace29aac8fa0324fc58ff41b7ebd6d8af5` |
+|  `0.60.1` `latest` `0.60` `0`                 | June 1st     | `sha256:3ca681da84cc4ef26861781aa3d1ed0c6ce02aae093a7899e2670161e8ffcf17` |
 |  `0.60.0-dev`                                 | May 24th     | `sha256:9973d0c4e120d44a8e99b1147015169de382fcb2b67752ecc0008346221f9a0e` |
 |  `0.60.0`                                     | May 23rd     | `sha256:8e0edb0af55f2e67752a0498607252f5ec95e851d4708722df803009ac3986cd` |
 |  `0.59.0-dev` `0.59-dev`                      | May 22nd     | `sha256:9df6c7a83930698019ee0c3e29ed17fd7304886eb24423cb6f0355deb1318208` |
 |  `0.59.0` `0.59`                              | May 21st     | `sha256:28e7a40d9cd092c386053ca72320abedc2834cae5feab168dc952b13d86ff689` |
-|  `0.58.0` `0.58`                              | May 1st      | `sha256:f0919c7c6f1c5b4f88084ecbf3538e0cb66c2f78949d7879b4addde25528ebab` |
-|  `0.58-dev` `0.58.0-dev`                      | May 1st      | `sha256:b8f343b5b58bf65baf2ec86f216ae95ad2f6e46fda018247c7250f57069ac575` |
 

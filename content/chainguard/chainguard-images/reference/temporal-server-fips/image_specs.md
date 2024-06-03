@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public temporal-server-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -39,6 +39,7 @@ The table shows package distribution across variants.
 |-----------------------------------------|------------|--------|
 | `apk-tools`                             | X          |        |
 | `bash`                                  | X          | X      |
+| `boringssl-fips-static`                 | X          | X      |
 | `busybox`                               | X          |        |
 | `ca-certificates-bundle`                | X          | X      |
 | `chainguard-baselayout`                 | X          | X      |

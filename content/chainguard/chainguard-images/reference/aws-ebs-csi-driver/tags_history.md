@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-ebs-csi-driver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 31st     | `sha256:e45147d01633e77eee2634fbf82098691fd88c49c8fe56d4ba109739698cd062` |
+|  `latest-dev` | June 1st     | `sha256:d3bca288deafb19bd8f940ed43dc8c997063238264f5642ed394ea23a1a2604e` |
 |  `latest`     | May 29th     | `sha256:44d342de073434c2bdc0e09318d3d836eb2572f68529aaf809dbc3ad7b4223df` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.31.0-dev` `1.31-dev` `latest-dev` `1-dev` | May 30th     | `sha256:4773c1d6db639a045f8fcfbe6eb599d6ec369c15e76d85ddee89dd5f34c704ba` |
+|  `1.31-dev` `1.31.0-dev` `latest-dev` `1-dev` | June 1st     | `sha256:b3d972b7d0052b7266ff93be15387733b7d33c1f42b0061c8429e7256c5a583d` |
 |  `latest` `1` `1.31.0` `1.31`                 | May 28th     | `sha256:927c8ceb5788a6a503be0cb5a76630b2e60005ad284392d739c3450a17236bec` |
 |  `1.30-dev` `1.30.0-dev`                      | May 15th     | `sha256:326858e6c799fdc068e66f5eaefca6983512da39f7b6988fd6995c0fbefc984f` |
 |  `1.30.0` `1.30`                              | May 15th     | `sha256:0ddb2f5971477b1e01d6ed5a08a2b9f9908fb35b9c21d14ea829240d7d0bd406` |

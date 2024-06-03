@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gitness Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 31st     | `sha256:cef66ae94e0a54949f49c9d68183059361fff992e15d2888719a404fae2dcaed` |
-|  `latest`     | May 30th     | `sha256:8d70498ed0137bcc96ec89ada070c1e3f6b6239629933bd4e15c5a4871f3d278` |
+|  `latest`     | June 1st     | `sha256:db0ba9ebe7c355889265efd57f012b6818e28fd370fcf677ba3222e8ed163151` |
+|  `latest-dev` | June 1st     | `sha256:57a4531779c41d03a22ec326b36b25fcd364ea5f03ba0f955d6c74d422d0db33` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                           | Last Changed | Digest                                                                    |
 |---------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.0` `latest` `3.0.0_beta6` `3`                 | May 30th     | `sha256:fe26802476fc3627ebde62905e721b7d7ef0d18e9d37c129893d0ca5a040cbbb` |
-|  `latest-dev` `3.0-dev` `3-dev` `3.0.0_beta6-dev` | May 30th     | `sha256:125bd216d28677d1ba5bedf13f6cd352bd385b1d027b32a0bf37330eb0be88ee` |
+|  `latest-dev` `3.0-dev` `3.0.0_beta6-dev` `3-dev` | June 1st     | `sha256:bbe11eab8f6cb576ca011a6800c89a150b6ff14beadd689a3bd5cc7c1d8f7183` |
+|  `latest` `3.0.0_beta6` `3.0` `3`                 | June 1st     | `sha256:c2e0b0742f2d36f7f44c3db89948450e6def030a1cc4c631fe86e0e6d6f6ed11` |
 

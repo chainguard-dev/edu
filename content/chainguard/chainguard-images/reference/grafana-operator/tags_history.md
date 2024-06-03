@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grafana-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 31st     | `sha256:7e6db188072f5939c9025a24619903466a66d7df5f4089f30a0c8f0de1358d68` |
+|  `latest-dev` | June 1st     | `sha256:c5e4e3fd7d2494662fa639154ac96f0ab6e0054cd99873f04d88f2ae795dccbe` |
 |  `latest`     | May 24th     | `sha256:da6e5306fe0cdc9029c3fb6736a1544c96e80a66596431f300ee05bbdfddaafd` |
 
 
@@ -37,10 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `5.9.1-dev` `5-dev` `latest-dev` `5.9-dev` | May 30th     | `sha256:bcf88da774c5999d4ca0fe81a592f24c49e2134faea22cb65e43683892e43e4d` |
+|  `5.9.1-dev` `5-dev` `5.9-dev` `latest-dev` | June 1st     | `sha256:3e9c9cfd840af1d48636e8fa5d785aae621c81245ba2cac8f4765b5b8c605e8c` |
 |  `latest` `5.9.1` `5` `5.9`                 | May 23rd     | `sha256:78c44801fb3f4e93d82352ecffc43cba5e16954593ef32540e5795dcb010ed47` |
 |  `5.9.0-dev`                                | May 23rd     | `sha256:180d66706f21a88a29780830eb6eb797401019da5f1b1848b808387d92cd322b` |
 |  `5.9.0`                                    | May 23rd     | `sha256:08fee4da3808d92213d017549e7ae9f577095ea39bc1d985b37e9eb11966a267` |
-|  `5.8.1` `5.8`                              | May 1st      | `sha256:b9e1346aed5553cf2bf8c75b46eba9a1c5ccc7e3807316a025962b2330816c31` |
-|  `5.8-dev` `5.8.1-dev`                      | May 1st      | `sha256:62705a562f27e2c7d01f7845fa112436598652042fca143e50d7d0c918bd7017` |
 

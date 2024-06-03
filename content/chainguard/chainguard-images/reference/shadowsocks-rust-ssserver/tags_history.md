@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the shadowsocks-rust-ssserver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 31st     | `sha256:97c6c446d1b64e49f499f5844cb4bf901b18d9742302abcd54e2dd23abc2e305` |
-|  `latest`     | May 31st     | `sha256:c001f57628c25bc3f9093cde94bea7276378d0671d528973c86b2b9af59e7e48` |
+|  `latest-dev` | June 2nd     | `sha256:81874bd29d8f112e19ea02178c266aba49460047764ceb437966621e027c0c47` |
+|  `latest`     | June 2nd     | `sha256:6d70f146116ac776fe7671d809289e0d1665f65374f0ac37ce8badb1d547779f` |
 
 
 ### Private/Dedicated Registry
@@ -37,10 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.19.0-dev` `1.19-dev` `1-dev` `latest-dev` | May 30th     | `sha256:a7eb261b89eaf136e8497b92061dc8aba256f928e734e16a66313929d9a59f45` |
-|  `1.19.0` `1.19` `1` `latest`                 | May 27th     | `sha256:4311c28adae0547f36bcaa49a4f28a91861b14175f378fb2c3556e356fdc8858` |
+|  `1.19.2` `latest` `1` `1.19`                 | June 1st     | `sha256:9d2d54ed8e43283e8c7095c05ba375bc06dedee41bccdd4f38c8feab940e8713` |
+|  `1-dev` `1.19-dev` `1.19.2-dev` `latest-dev` | June 1st     | `sha256:bd445f54fa7c996cc50296a953c3e8ba82c294fd16280b52778dc5c25ef8007a` |
+|  `1.19.0-dev`                                 | June 1st     | `sha256:b894219edaeed5a4f2a334da39b5d12d0468537d8c26428f75542d399e591f09` |
+|  `1.19.0`                                     | May 27th     | `sha256:4311c28adae0547f36bcaa49a4f28a91861b14175f378fb2c3556e356fdc8858` |
 |  `1.18.4-dev` `1.18-dev`                      | May 24th     | `sha256:957f93d9f50873e0fbaafaf7e78068af2cf3d61d7d4033a13da58accb221be4e` |
 |  `1.18.4` `1.18`                              | May 23rd     | `sha256:d23f17cbad1d0194df546c5966220b5d6d1b98da9e655776037d0e4446e1a114` |
-|  `1.18.3-dev`                                 | May 2nd      | `sha256:d47c05244dc77cc8b0de1208ace54ed42c011ab1247a5289718a6d3ce925bd49` |
-|  `1.18.3`                                     | May 2nd      | `sha256:c75fc1826377f3ff26fe1fec616c231021bfaf00ff82be92cc02a46061e48701` |
 

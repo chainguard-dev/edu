@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ctlog-trillian-ctserver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 30th     | `sha256:b461a07deb447f77315068d5bded3d61e59a9e55f31b595be20c83f7e23564d3` |
-|  `latest`     | May 30th     | `sha256:1377b3cd726e180a8d703606d0af4d0a2ceb99a9e91fcaa88b66198635d94774` |
+|  `latest-dev` | June 1st     | `sha256:85c2b3a32c6adaec6d2ac01dfe9fe3e19b88c1d54df8f5d287802aa68d2888bc` |
+|  `latest`     | June 1st     | `sha256:32af3f4063bded10275e90f0eb6cc112887f770cf7c29c77b9d928adba8591ba` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.2-dev` `latest-dev` `1-dev` `1.2.0-dev` | May 30th     | `sha256:72754bc8fe812c67f253d6e6bc0e61da56820b099b02c72bc8b86b4308a91664` |
-|  `latest` `1.2` `1` `1.2.0`                 | May 28th     | `sha256:b4565b40dfa37a7f010fa9bfdd1df5e87f05f997e0b4be8a7ca78cd8f533b2cd` |
+|  `1.2.1-dev` `1-dev` `latest-dev` `1.2-dev` | June 1st     | `sha256:345de4d25caf55ecc45112e1ae2fb3ff60794bf9606f5dbc29f45cb4bb5081a8` |
+|  `1` `latest` `1.2` `1.2.1`                 | June 1st     | `sha256:f08a0707c961cf9a8af3a06a8d315808664f5df5d19629abb8ce559f5c57ebfe` |
+|  `1.2.0-dev`                                | June 1st     | `sha256:904d858dfb532459c5ffb617fd68d19b6f13d78776d3f6030a4c677306bc9a86` |
+|  `1.2.0`                                    | May 28th     | `sha256:b4565b40dfa37a7f010fa9bfdd1df5e87f05f997e0b4be8a7ca78cd8f533b2cd` |
 |  `1.1.8-dev` `1.1-dev`                      | May 24th     | `sha256:cdfc88a45a8a94e842aef802461bc3a7ff44d9751de52d38dc1f35142d4f02b4` |
 |  `1.1.8` `1.1`                              | May 23rd     | `sha256:473cf76ddccbbecae1615c5b576bc014e1b8ccdf6673eed6640924966b84bd7f` |
 

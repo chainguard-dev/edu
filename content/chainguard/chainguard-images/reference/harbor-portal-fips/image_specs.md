@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public harbor-portal-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-10 00:43:45
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -46,7 +46,7 @@ The table shows package distribution across variants.
 | `glibc`                           | X          | X      |
 | `glibc-locale-posix`              | X          | X      |
 | `harbor-2.10-portal-nginx-config` | X          | X      |
-| `harbor-fips-2.10-portal`         | X          | X      |
+| `harbor-fips-2.9-portal`          | X          | X      |
 | `ld-linux`                        | X          | X      |
 | `libbrotlicommon1`                | X          |        |
 | `libbrotlidec1`                   | X          |        |

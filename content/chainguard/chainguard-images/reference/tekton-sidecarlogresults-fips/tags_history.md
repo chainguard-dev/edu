@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-sidecarlogresults-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,12 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.60` `0.60.1` `0` `latest`                 | May 30th     | `sha256:5f96d0bb51aa65764273b1aad23bd40e49226b339fe13aa918a384aa555fadaf` |
-|  `0-dev` `0.60.1-dev` `latest-dev` `0.60-dev` | May 30th     | `sha256:3a9b2fbca6b6121aeb3cd128c752f5c78aed23ee70fef41e244649da34836cf9` |
+|  `0.60.1-dev` `latest-dev` `0.60-dev` `0-dev` | June 1st     | `sha256:c1fe7752df4aacb1bb19fea7c8cba9849f9f546d368d704fc693ea8d9b53423e` |
+|  `0.60` `0` `0.60.1` `latest`                 | June 1st     | `sha256:06229204808e55dddb245a8546b07c8604ea18077092a67c4506b90722589f4b` |
 |  `0.60.0-dev`                                 | May 24th     | `sha256:66806ca3122cc421f6bffe077cba68fc012694e83d9a54b562e3b5a3b0129050` |
 |  `0.60.0`                                     | May 23rd     | `sha256:fc4c07a0add028916d6d703822614fb198a1762c3448675004e56fff2487eb5e` |
 |  `0.59.0-dev` `0.59-dev`                      | May 22nd     | `sha256:3090de854fe8dcb207c73ed9a73447caeae5de5d4cce690442988c8681932728` |
 |  `0.59` `0.59.0`                              | May 21st     | `sha256:897018f66a61a18cfd5323728a9829a0d335942f60c0d6f23c67c87ce0e9fc97` |
-|  `0.58-dev` `0.58.0-dev`                      | May 1st      | `sha256:948629b46dc73eb46665faab94d8fa2b41235c3e16e1b8e74572bf7e7eddd78c` |
-|  `0.58.0` `0.58`                              | May 1st      | `sha256:6e81133e20a0e973bda451cf29df7a72ba84e20d564d6cd60f8dfbe2053a1c94` |
 

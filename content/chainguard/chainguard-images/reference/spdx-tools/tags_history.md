@@ -3,8 +3,8 @@ title: "spdx-tools Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the spdx-tools Chainguard Image"
-date: 2024-06-01 00:50:07
-lastmod: 2024-06-01 00:50:07
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | June 1st     | `sha256:8903bf5c4b88443e78684a279e2bd73ac6b38f0d98b8aa7007f3155f1d178b8b` |
 |  `latest`     | May 31st     | `sha256:cc4c0272f70ea9e8083c360787793fc7f847917942b49e80ed90d03199df0a55` |
-|  `latest-dev` | May 31st     | `sha256:cefa41ed8522530e244893efa24c56a15b10f301d8d69258da441b3a8b35abef` |
 
 
 ### Private/Dedicated Registry

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-workingdirinit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | June 1st     | `sha256:70e9d4056bd045ef380bf6d0e56c42c12aefbd0ccbe60d0eb99c1813321c746c` |
 |  `latest`     | May 31st     | `sha256:05036802e7fedea46a9b0e3dcc213c534a47fa322d1bb0f10d9a43bd7cec5909` |
-|  `latest-dev` | May 31st     | `sha256:24f2ce09aaac76f7f597093a115e7346dbc486e690963070d0ed0270086fbc23` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.60.1-dev` `0-dev` `0.60-dev` `latest-dev` | May 30th     | `sha256:41414c7b604a2304110524adfe2b94b792116b5be07178ecd5d7b6e21d8e0f3b` |
+|  `0-dev` `latest-dev` `0.60.1-dev` `0.60-dev` | June 1st     | `sha256:75e5e05dfd78c988286436b0ed452e0be2c0d821cd0eb316d7b9f07645312556` |
 |  `0` `latest` `0.60.1` `0.60`                 | May 28th     | `sha256:c483c4736b331c872252134793bd5305f7bf3df55487659381b2bf176fa4d949` |
 |  `0.60.0-dev`                                 | May 24th     | `sha256:4c420aed74f95aa2591f18d0147aa26dac7ebd1c349689c332d1d6848221f671` |
 |  `0.60.0`                                     | May 23rd     | `sha256:a08cc09bef95ea0cd9c40bcff1ac7998a5daff57a2c6d4157281e5ea61efa8a1` |

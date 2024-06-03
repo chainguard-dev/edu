@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ingress-nginx-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 31st     | `sha256:f3fb12315e7a1ffb44545616945424f753515d532411ed9a1e5e7de09e1197b4` |
+|  `latest-dev` | June 1st     | `sha256:77f731b38da84fcfd5e8343b123f2fe462e41b2703ffb53029fc3b9d2e083973` |
 |  `latest`     | May 30th     | `sha256:271494380b5cb14cb1c95a856aa9137ba28581551dfebce68a8469bbb2185d6e` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.9.6-dev` `1.9-dev`                        | May 30th     | `sha256:d9acb1c17f5e2df24ecd966b00555ab2fbc3c265d0a6172351b47be9e1344fe9` |
+|  `1.9-dev` `1.9.6-dev`                        | June 1st     | `sha256:6aa082d1cbc65b0314ab7e7862705520923b196180d27095d219d0e47a6835f9` |
+|  `1.10.1-dev` `1-dev` `1.10-dev` `latest-dev` | June 1st     | `sha256:0eddf0cb22666d310e7993c156dd33c5a697db18596f012f6eabcd1bf9b91a11` |
 |  `1.9.6` `1.9`                                | May 30th     | `sha256:892ad6bb14e57c87a8627d5c051c73d7fde0c7ae11f923548ce6ebf1dddc5af9` |
-|  `1.10-dev` `1.10.1-dev` `1-dev` `latest-dev` | May 30th     | `sha256:ebe08f2e03591491982956b9f64001c1bf496fbc4345da3bfddb5a85fc31f15e` |
 |  `1` `latest` `1.10` `1.10.1`                 | May 30th     | `sha256:bf2ea4c680c523dc29961d79c48232b912b5036d79718f890d4f68c6712677de` |
 

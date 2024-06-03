@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-earlystopping-medianstop Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | June 1st     | `sha256:ea5b849c2064d81b9ef605629dc7650099dd4443aaefd3d24c52b0c7fe88084b` |
 |  `latest`     | May 31st     | `sha256:ca0fa12be3a37572a88dadba6b275f13f9c330a8fcc4d375e4c9b3ddbbb9760f` |
-|  `latest-dev` | May 31st     | `sha256:98580c5822e7dfadde3947fb7d8ef04a5b10845f516c58b1ee68418bae93c652` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` `0.16.0-dev` `0.16-dev` `0-dev` | June 1st     | `sha256:6c85e51742f25d41f62c1b7647be179dc6cfd3473386489c78d58e9b56a7608a` |
 |  `0` `0.16` `latest` `0.16.0`                 | May 30th     | `sha256:df6b17d6d9e2194f6d221c4a2c8f9833fed9bcad8d74cae5c474a1bdad9bbc00` |
-|  `0.16-dev` `0-dev` `latest-dev` `0.16.0-dev` | May 30th     | `sha256:a91881c328b7724bf6757b4c91d74ec92884cda01c5006e02d8b49e63fd59ef7` |
 

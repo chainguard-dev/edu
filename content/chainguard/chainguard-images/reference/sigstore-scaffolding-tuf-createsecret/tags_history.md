@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-tuf-createsecret Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 31st     | `sha256:7a5728f1c0777f3b90f05c00886a69955bfce480957fe98b92e45dbd6d55f482` |
+|  `latest-dev` | June 1st     | `sha256:b2855e0edf1842c87fc4df565b4c84e4ad3a0a7bba06cb1bcc173b0769fe1d4e` |
 |  `latest`     | May 23rd     | `sha256:504662341eb9c01bc6807875c3fabf28f752a94edfbbcf5a1542a827d74db232` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.7.1-dev` `0.7-dev` `0-dev` `latest-dev` | May 30th     | `sha256:16b38e58d98b3af4dd818173c4810df6c6969a32078424660c7cda6db751e0e7` |
+|  `0.7.1-dev` `0-dev` `latest-dev` `0.7-dev` | June 1st     | `sha256:bb6dce3523eeb3d8805490f8cc9f2e4c05fad4c27e0bc9d7686c97a22bbce45e` |
 |  `0.7` `0` `latest` `0.7.1`                 | May 23rd     | `sha256:9d77c1375c4b1b01959465a7a1f4eb566292156b75c988814d6fa6e09194535b` |
 |  `0.6-dev` `0.6.17-dev`                     | May 17th     | `sha256:1b2d8e51583c7b0b74de800f92d031e1d398d6ad0b2a06dab591bdffe4b81c22` |
 |  `0.6.17` `0.6`                             | May 17th     | `sha256:d8de903a065e778f44a6cff8e1aeac1d8191a5ac50b0044077d396fb2c72fdf4` |

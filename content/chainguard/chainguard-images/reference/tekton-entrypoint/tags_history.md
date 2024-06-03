@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-entrypoint Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | June 1st     | `sha256:fad65f23e1b6cfc89897bccf4e698a6d95bc20a7c380d743139b8c894034348f` |
 |  `latest`     | May 31st     | `sha256:12258e0ac2fdbed8ca6d9327d5bd51d2c422e975e8f70f84f27e206ffc38627f` |
-|  `latest-dev` | May 31st     | `sha256:98e0f19d8bb27ee6b02b735cd4148c670227ddd74195e0cca5f127138c14914e` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.60-dev` `latest-dev` `0.60.1-dev` `0-dev` | May 30th     | `sha256:64f616c4723297574ab9787727756c88632076acf7f4e79175493ca872fffde2` |
+|  `0.60.1-dev` `latest-dev` `0.60-dev` `0-dev` | June 1st     | `sha256:5f0cbdc43ae04c85b83fd6b230c729ca64850d40248e50e870af7f4c241d232d` |
 |  `0.60.1` `0` `latest` `0.60`                 | May 28th     | `sha256:b3e57220cfba563e1193af2a8998813e3d71cd60786b82f4b17ac554466d9b46` |
 |  `0.60.0-dev`                                 | May 24th     | `sha256:0ee9eea5e50d05be969d82489c7b7ac1b9475e07fe9a9053a5d9ceeecb7da95b` |
 |  `0.60.0`                                     | May 23rd     | `sha256:bfcf6ea763d0c9f09fd3c63f263ff1da4daef53e7fbb8047fad5fdbe211c8b88` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the metallb-speaker Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 31st     | `sha256:26565a5784686e678f5f3a55a26995d4deb8302a39d8d9b3b73eb242e4d56b4a` |
+|  `latest-dev` | June 1st     | `sha256:b6c19f3338b4243d827d5c0edd180df10db740d785f3cda905a5832d75c0e412` |
 |  `latest`     | May 23rd     | `sha256:73dac2c49a7f85e155daa3564d64ca24c248bd2205840a6b2fbfd93cf056901f` |
 
 

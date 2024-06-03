@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-ctlog-createctconfig Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 31st     | `sha256:0fbabbd1ca654d07265f6c932704b3aa541067723c9f5f4466d544c310ed7836` |
+|  `latest-dev` | June 1st     | `sha256:bd01e95e8104c3aff01fbd7cae8b9ef791f27f69b5c548f4dbb9906d336820a7` |
 |  `latest`     | May 23rd     | `sha256:4eaf2305aec9827dd7b643c840df24767e3788d96ed6fca9b1255cac9ab745f3` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.7.1-dev` `0.7-dev` | May 30th     | `sha256:63760322a940e0f8fa9fa5d5cbc0086dd17beaf078557e09ffc03c2c39c6cd5f` |
+|  `latest-dev` `0.7-dev` `0-dev` `0.7.1-dev` | June 1st     | `sha256:dd6fa5874ccb12a4b627031d361db9ca914aceb9737e724fe0c959087bea9544` |
 |  `latest` `0` `0.7` `0.7.1`                 | May 23rd     | `sha256:4a8f7ae39197db3f2f3b51ca105fdf30df1de16b13caca5a934838c63806b488` |
 |  `0.6.17-dev` `0.6-dev`                     | May 17th     | `sha256:b70bad917662a5579bd7500d99d4d2a7714947f1de4676710c22ae27c2b06614` |
 |  `0.6.17` `0.6`                             | May 17th     | `sha256:8d8ec6316c6a0551a536a22ff6e4bd9e36fceb364992577c4304fd6a593195cb` |
