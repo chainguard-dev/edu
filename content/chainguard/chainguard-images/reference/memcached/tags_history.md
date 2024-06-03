@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the memcached Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 31st     | `sha256:de7411acf992f1989b0689d7b60a524c5b9d4a9925835cbd0df63fed475f5c83` |
-|  `latest`     | May 30th     | `sha256:6f3baf4c8d3ff5fe26aeaddb8dc8b711391a8e56992bd2508829a93c1bb047e6` |
+|  `latest-dev` | June 1st     | `sha256:d82a064219bcc05a30ab14f952580165dd88ca7a3d973cd3fbbed5dd017435d5` |
+|  `latest`     | June 1st     | `sha256:5d962ae7b8fbf20f10963679b56a7e535b504ce62ff728566a0c2b9013e9d001` |
 
 
 ### Private/Dedicated Registry
@@ -41,7 +41,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.6-dev` `1-dev` `1.6.28-dev` `latest-dev` | June 1st     | `sha256:83686dfcb920b533b881a06b98ce9d99f96951f1d2471adee909cfef27daf66b` |
 |  `1.6.27-dev`                                | May 30th     | `sha256:b933960484d7e98d95cab5acedc572942e97da3c14156c8b9caf6e3f118f1944` |
 |  `1.6.27`                                    | May 30th     | `sha256:f9da8fd7338fb138c8de3ade047682bd59e06e68dc3336c5a680f5ccd3f41e67` |
-|  `1.6.26`                                    | May 2nd      | `sha256:9744fb0b51d906adee6bb9178b961cf6a7c785521a1f19421654ea379bfb9ae4` |
-|  `1.6.26-dev`                                | May 2nd      | `sha256:5ef373f5e95182067a603db75af50aea20ee8b6c657f85f6643ee72a46609ad5` |
 |  `1.6.19`                                    | May 13th     | `sha256:8910f7162e95f03a1a859b89c53fb7d44a0d7674d1018ad2850e480dd70ab816` |
 

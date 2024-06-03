@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 31st     | `sha256:f8c2c2a9822e34b30302b1f404c3bd99a431c2600fb69e537e4e9be0f3f4c1d7` |
+|  `latest-dev` | June 1st     | `sha256:4e0e02b3dbb0c21de420e47ff8ee79d76e2fce31274bd1a99c3524d812025539` |
 |  `latest`     | May 23rd     | `sha256:a1e5af81a9566c11504c5ea06fe3ed356a91930b7e34ccfb9e5fdbe0ae48441f` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.74.0-dev` `0-dev` `0.74-dev` | May 30th     | `sha256:d9715c51bb264a1417c7d6648bcc1ca0c49422ac8d05955f2acedb797c028a60` |
+|  `0.74.0-dev` `0.74-dev` `0-dev` `latest-dev` | June 1st     | `sha256:52c512d8a539ad57c75da30872dfd230ba5646d87b5d1f4cdba55f605db241d7` |
 |  `0` `latest` `0.74` `0.74.0`                 | May 23rd     | `sha256:7020fd41b948a81fa915cebd447f12688984ff0ffd508ea31cf6a73b737d396a` |
 |  `0.73.2-dev` `0.73-dev`                      | May 17th     | `sha256:ac3d0696560dc54b0b817fcac51c3707f7e4a75946326e31f1abea5c832ade29` |
 |  `0.73.2` `0.73`                              | May 17th     | `sha256:ab089ab33249716b77015a8dbaf2127835889ede9fed1840ae81789b77cf76df` |

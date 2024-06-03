@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the caddy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | June 1st     | `sha256:4ca5de6bd6906559f685f599eb6a2b03a8907d5b453e6a6326640d6d50e3961c` |
 |  `latest`     | May 31st     | `sha256:e4e4208aef2ce88fed8afc37b4c936a6716a23ccfab8045914d7ca1ab2125a7f` |
-|  `latest-dev` | May 31st     | `sha256:6943aa46d1ecdd7758468d163c58a2d0e06ffe507505206ee82a96607f56f57e` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2.8.1-dev` `2.8-dev` `latest-dev` `2-dev` | June 1st     | `sha256:9ade97dd8cc549daaa221086f0a746ff4ba789cbe41bfaa8da3db84367354184` |
 |  `2` `2.8.1` `2.8` `latest`                 | May 30th     | `sha256:b25c80b8f6fc636a1d10d968e55c42f24114ffe79a1a37a9e61475ed86294bd8` |
-|  `2-dev` `2.8-dev` `2.8.1-dev` `latest-dev` | May 30th     | `sha256:6ee48ff1ef24e0f9328c06ad13791f868da0ba8b2af9444f505672ef55ecf75c` |
 |  `2.7-dev` `2.7.6-dev`                      | May 24th     | `sha256:bf3366b6ecf0e60569c56c221006dc786d2fd6f850d57a45bde759a87367bd04` |
 |  `2.7` `2.7.6`                              | May 23rd     | `sha256:fabf73fbb88d1419820ed349027ebbd60e3156397e7d60452371a2f9375276a6` |
 

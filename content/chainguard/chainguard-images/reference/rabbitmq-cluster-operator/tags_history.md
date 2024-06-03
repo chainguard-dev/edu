@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rabbitmq-cluster-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 30th     | `sha256:373d728bb6e7aa9f2a06dc086d09c210cb8ccc4af5aabebc3046d84dd4e3874a` |
+|  `latest-dev` | June 1st     | `sha256:34e1904b07435d6fee5ca5d3ae2efb493b8fc74f5b114888e17bf389fea9349f` |
 |  `latest`     | May 23rd     | `sha256:a4c289ecec40881ae020f5cd25284dc12fb10c3fc2241050bbaf035aa4997350` |
 
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tomcat Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,10 +36,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                         | Last Changed | Digest                                                                    |
 |-------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `9` `9.0` `9.0.89`                             | May 30th     | `sha256:dcc66753cbf3f0330fac7d78fb6f66b42fcb29f153da632b0e0cda7f9e7e1a32` |
+|  `9` `9.0` `9.0.89`                             | June 1st     | `sha256:42b68ef0172584fcdd91681dfb27221711accb79e79c5ac67a41b6fa06e1a659` |
+|  `9-dev` `9.0.89-dev` `9.0-dev`                 | June 1st     | `sha256:d11afdbe411956c09c6672fffb035d165d34177ab6655a8714a409873079a350` |
+|  `10-dev` `latest-dev` `10.1.24-dev` `10.1-dev` | June 1st     | `sha256:8044c8696a2ff79887b514b3507e0a95e657ce1c60c432e6f75ecff74039daae` |
 |  `10.1.24` `10.1` `latest` `10`                 | May 30th     | `sha256:76155ebe1fceb6585614730a05fdfbd04d6a10a7eb9327f27601bedb65972a54` |
-|  `10-dev` `latest-dev` `10.1-dev` `10.1.24-dev` | May 30th     | `sha256:51fff03ebcdb27bc53d338607d19bf24da91fbb7a775f99442b62c74e5b486b8` |
-|  `9.0.89-dev` `9-dev` `9.0-dev`                 | May 30th     | `sha256:6c2e3bd1d8d63486645d0365e9392bcc98cd449a7ae5d6f5fa6fd4cfc432730c` |
 |  `10.1.23-dev`                                  | May 3rd      | `sha256:1e4fef12f2104e50955350d07a6edf79335e5b51e2827fe8af5b35f38cccab90` |
 |  `10.1.23`                                      | May 3rd      | `sha256:696f9e0e73700f366e4f34455fb973c03588cf9ebd898f3252c066e953450972` |
 |  `9.0.88-dev`                                   | May 3rd      | `sha256:f03e81f4d8efa425201a69d0efa7eee3d6685e489ca67f7a49aac3a48653794e` |

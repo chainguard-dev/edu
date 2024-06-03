@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-sidecarlogresults Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | June 1st     | `sha256:64b47be9dfcbdc060b26ae6c2fbbc47878b378296f4bb9b821743097808e8e59` |
 |  `latest`     | May 31st     | `sha256:066f1fa15efa3f5eff51e1f89e0dce991b639e2f084cf18d5e59d343862b2a8c` |
-|  `latest-dev` | May 31st     | `sha256:c77adbd5176ab7dd590aedd8771cf3fb3fea3f6d6912f02b6b1847d9fbf12b60` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.60.1-dev` `latest-dev` `0.60-dev` | May 30th     | `sha256:1cb8ea342399ff1405d2e3e6f0d5707b69f3c9f366e6de27d5879571555189ec` |
+|  `0-dev` `latest-dev` `0.60.1-dev` `0.60-dev` | June 1st     | `sha256:1bdb4af14ce569767ec0c79a564a83afbf5df95a5d0b5b37532dfd723a03f36f` |
 |  `0` `0.60.1` `0.60` `latest`                 | May 28th     | `sha256:15eab56bf0b98a6ab5b6c81e443122c98bde65dce103661dfb2cf509598a78a6` |
 |  `0.60.0-dev`                                 | May 24th     | `sha256:ced02bdea2097a2cbffe5bfa20dc6404e77d226ee4b4089b8a5ebb058677be8a` |
 |  `0.60.0`                                     | May 23rd     | `sha256:f91ee48a47549223d9edd0b509bb6fd503cec5cb41792d9867ebbe38c75bbc7f` |

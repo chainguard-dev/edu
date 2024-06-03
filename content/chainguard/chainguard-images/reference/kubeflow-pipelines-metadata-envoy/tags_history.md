@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-envoy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 31st     | `sha256:dccd5e701a6a116ceb38d617f69181e57a991d58a6854b32f93fa80d79b44471` |
+|  `latest-dev` | June 1st     | `sha256:69142ff4f926c03b9a68d422942cf7fdf9f184337575d243e7515534be3f6c5b` |
 |  `latest`     | May 31st     | `sha256:e7ef10f2b7bc2572da49d7b074024fb55117eb677d8409707aab186bdb6bdf2d` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2-dev` `2.2.0-dev` `2.2-dev` | May 30th     | `sha256:f979443b78abfdaaf34fa4c8fbdb9e75fb80a3919b2a4071d2e9ea7ba86d0e0e` |
+|  `2.2-dev` `2-dev` `latest-dev` `2.2.0-dev` | June 1st     | `sha256:35605af221a06a28f23722fb4d36a209f7c562b5099d3aeb5df186eb181bbc0b` |
 |  `2.2` `latest` `2` `2.2.0`                 | May 30th     | `sha256:e1eb5ee6ff02053f073732363d463cf6ede9b6d523da5495805f96e01fd14877` |
 |  `2.1` `2.1.0`                              | May 24th     | `sha256:58894fba67bb845366374df4a047dece762cb1f20d7fb2fae04aa58e21da21d6` |
 |  `2.1-dev` `2.1.0-dev`                      | May 24th     | `sha256:c4b033d48fd01a80b45c2e55a8c8343e703fa542968167984b6cbef9c497f9f9` |

@@ -1,3 +1,10 @@
+# 2024-06-03
+New images added:
+
+- tomcat-jdk8
+
+A total of **695** documents were updated.
+
 # 2024-06-01
 New images added:
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-tsa-createcertchain Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 31st     | `sha256:5cc522d2eff422f70e4f75a5c3d2754372ea18e2ae97968e156c6d6f4143aefd` |
+|  `latest-dev` | June 1st     | `sha256:61e79f8aa74fa80c851354f7ae2623a10351b26875ab0f376b3d124db597a9d0` |
 |  `latest`     | May 23rd     | `sha256:70dcd1344bd69ab9b6c721918b35f1f3f1628df9d30e1f77bd2bac5b6bb60746` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.7.1-dev` `0.7-dev` | May 30th     | `sha256:0ee27149b2cd181017e7bd83e93fe30e21a8c2e0a651ecfd86adbae0c29c62a6` |
+|  `0-dev` `0.7.1-dev` `latest-dev` `0.7-dev` | June 1st     | `sha256:6f1eb366165642578ef5946652b60c023e0e78cd14d49180e1a245a2b1680ea2` |
 |  `0.7` `latest` `0` `0.7.1`                 | May 23rd     | `sha256:5a29c804fc2db545bcbd86349364c6d49acbf1851aa3a9ba89b95322ea5cb4b7` |
 |  `0.6-dev` `0.6.17-dev`                     | May 17th     | `sha256:a49c058d766a73ebbf5f84bd82ae96c8b13c9189c45c8ba3ede4adec1aae6db1` |
 |  `0.6.17` `0.6`                             | May 17th     | `sha256:0c99a06f1f5b7e0aa20bdef63836e47a6c9e4418ba1c7b03acb243623a7dffbd` |

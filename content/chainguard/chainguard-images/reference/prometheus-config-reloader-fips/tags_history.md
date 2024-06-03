@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-config-reloader-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.74.0-dev` `0-dev` `latest-dev` `0.74-dev` | May 30th     | `sha256:89eb036351d2fa69658a5d64cc1e3b8a47c537c3cc81a88b13ac3b71623c2211` |
+|  `0-dev` `latest-dev` `0.74.0-dev` `0.74-dev` | June 1st     | `sha256:f5071d9a0d1bcdadc11df2bb1e6dcf353abf491c1252514790430cfcd83c0954` |
 |  `0.74.0` `0` `0.74` `latest`                 | May 30th     | `sha256:c8529bbb8fb0b065492f42853672f23ecf517570b0867f43ebd3e2d2aa5b72f0` |
 |  `0.73.2` `0.73`                              | May 17th     | `sha256:4b05465738bbc7b96995f24e3f54aa4c6425ca6662c42fc15c5bd25737cb6550` |
 |  `0.73-dev` `0.73.2-dev`                      | May 17th     | `sha256:570567dbcbd20923a47b33230f8d956ec6a5413b37f27d977b95861c3b143ca0` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the argo-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | June 1st     | `sha256:f7a9e46e50970c512f2b59e15b6f1cdc764366d00de200a93447f4a77cc68cbf` |
 |  `latest`     | May 31st     | `sha256:c128bf957dcd6806ed1954a6d26f24bd5c845d77b94a76adbf26e7877fcb9aa2` |
-|  `latest-dev` | May 31st     | `sha256:be4b27f2a9d1300f5deab47830da933f9cae469de465ca0f712d39a9f9ad6583` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `3.5.7-dev` `3-dev` `3.5-dev` | May 30th     | `sha256:5c994bfaff0f8e846352801cac9f053e3adad1724c2b94eaa79495b07522a36d` |
+|  `3-dev` `latest-dev` `3.5-dev` `3.5.7-dev` | June 1st     | `sha256:34edfa1b20cdf60049f8655e6ac28e87ddfbfa8b408c9f90e5b73e892edf9c8f` |
 |  `3` `3.5` `latest` `3.5.7`                 | May 27th     | `sha256:0a9d38eda53c69b7d60c7af279f00ff64e7165c439b50dba6d29d34588cf01c1` |
 |  `3.5.6-dev`                                | May 24th     | `sha256:450b28dec861cd3e8f90e161cc1356814cc5f41a23df847843fa246ed624620f` |
 |  `3.5.6`                                    | May 23rd     | `sha256:fcc37c026ede0ed3b4640d7e2aa89cc3955c755acc1d8081e2ef81760ab20e4a` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-resolvers Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | June 1st     | `sha256:ca58fe66f47068019a4e833434a4b18c7635568641b2f1b39ea6664f45d842d7` |
 |  `latest`     | May 31st     | `sha256:09cdfe4ccd4acc0ef19264c7282feaa5e636f46abbb2437a1314b4d71aad7a7e` |
-|  `latest-dev` | May 31st     | `sha256:82558489b19c51f9bcb99db98361eafce8d795590e33ed816cce7143ea9c83e1` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.60.1-dev` `0.60-dev` | May 30th     | `sha256:f7c7ffd91bb611b2a6f4c68e63c961383d8932316c5e84949233656ca42d61fc` |
+|  `0.60-dev` `0.60.1-dev` `0-dev` `latest-dev` | June 1st     | `sha256:98919ead3d94496ad10ae99c06847d132b1977e200ed2f2b381056bea5771643` |
 |  `0.60.1` `latest` `0.60` `0`                 | May 28th     | `sha256:b065003e421302d97c0515c907fba7c2d20d5610e536707785633b196c0d8b84` |
 |  `0.60.0-dev`                                 | May 24th     | `sha256:90330cdc094b4c1dea512c21a37a786381ed066ef930a81636b9d07a66f81cf8` |
 |  `0.60.0`                                     | May 23rd     | `sha256:e01189b1d13d846544926320baf178607164b30c38301cdb099a8bdcded07242` |

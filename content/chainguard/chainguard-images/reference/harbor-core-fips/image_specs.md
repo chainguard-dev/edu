@@ -3,8 +3,8 @@ title: "harbor-core-fips Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public harbor-core-fips Chainguard Image."
-date: 2024-05-03 00:45:55
-lastmod: 2024-05-03 00:45:55
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -45,7 +45,7 @@ The table shows package distribution across variants.
 | `git`                         | X          |        |
 | `glibc`                       | X          | X      |
 | `glibc-locale-posix`          | X          | X      |
-| `harbor-fips-2.10`            | X          | X      |
+| `harbor-fips-2.9`             | X          | X      |
 | `ld-linux`                    | X          | X      |
 | `libbrotlicommon1`            | X          |        |
 | `libbrotlidec1`               | X          |        |

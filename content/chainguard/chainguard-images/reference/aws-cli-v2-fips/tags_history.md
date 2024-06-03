@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-cli-v2-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.15.61-dev` `latest-dev` `2-dev` `2.15-dev` | May 31st     | `sha256:571ed7d3b5cb1784b9774208148dd7f80376de797329b6035b178e4b316789a9` |
-|  `2` `2.15.61` `latest` `2.15`                 | May 31st     | `sha256:61ace06ee80ed580c5047d38d5c019796cf5328eb1259e8caef5c98f8cbb54bc` |
+|  `2.15` `2` `latest` `2.15.62`                 | June 1st     | `sha256:af57765afda59a84bd5614d87674f86459ac8c785b2bbde9b70f820d3144cc6a` |
+|  `2-dev` `2.15-dev` `2.15.62-dev` `latest-dev` | June 1st     | `sha256:dd39a0da93f2b9f2d091ee47f0047e84a2d593653caae5b63bacdaff23b1a185` |
+|  `2.15.61-dev`                                 | May 31st     | `sha256:571ed7d3b5cb1784b9774208148dd7f80376de797329b6035b178e4b316789a9` |
+|  `2.15.61`                                     | May 31st     | `sha256:61ace06ee80ed580c5047d38d5c019796cf5328eb1259e8caef5c98f8cbb54bc` |
 |  `2.15.60-dev`                                 | May 30th     | `sha256:51118cac752e59d336558e23939ae31b0788b99e069c551162ea6e3e7cee7e5a` |
 |  `2.15.60`                                     | May 29th     | `sha256:a49c868a70d7aebdfaadadb00712f392ee266dbccc5b6f14abb714d1035dae7e` |
 |  `2.15.59`                                     | May 28th     | `sha256:4ffa7e4134645f57b864cca4367742e505a53e57cb16adfaeff33b47b79361bc` |
@@ -65,8 +67,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `2.15.45-dev`                                 | May 7th      | `sha256:faea3dcada84a5c20152465f2f6b47d8b6e1f99eb6840573dae482e3c8ee61fc` |
 |  `2.15.44`                                     | May 3rd      | `sha256:5d2a0ab866e067190eb1e7f2c9ab5be4a745ff0030deff2e78472352492bdaf3` |
 |  `2.15.44-dev`                                 | May 3rd      | `sha256:03bd4b63ef0d6a161543a4dc29c0d33c771dd3aafcaa3494e6bb60874cf4b85a` |
-|  `2.15.43`                                     | May 2nd      | `sha256:576549d0a80dba9a750a7141e5e047a27a9b81ef6a6f0211facd21f72c7444bb` |
-|  `2.15.43-dev`                                 | May 2nd      | `sha256:15e77de33f55910299f0ac214cb831ca2e72cba867da56d0ccd781573207f1fa` |
-|  `2.15.42-dev`                                 | May 1st      | `sha256:249ec68d5e83d0584a9286b275ec8611db5393848f1fe138efeea45cd8a37ed1` |
-|  `2.15.42`                                     | May 1st      | `sha256:fc2e9edd4cbb03ebf9e83cb18c1ebe405827a04981b50f4cf789a2d3ce1c5ee4` |
 

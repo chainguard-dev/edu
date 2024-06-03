@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-downscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 30th     | `sha256:dcd9ba8ad5ba91c3539afc7d12f7a1905e330fa15686ef2bd24859b282abfb93` |
-|  `latest`     | May 30th     | `sha256:4c4f4fee75614708faea9a371f836787351867688dbbc070be85e19eff475021` |
+|  `latest`     | June 2nd     | `sha256:e45f077ccd18c7192c25b876276a9bf82d002416aff6c46164d543488d6f3920` |
+|  `latest-dev` | June 2nd     | `sha256:c82a0d843edc648321f867b4e0d563da37d88be4647e909b95e63d1b5b671997` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `23-dev` `23.2-dev` `23.2.0-dev` | June 1st     | `sha256:f70bafa589990772bc366b965591450780bdcb0ae7f4937762bac6687845021f` |
-|  `23` `23.2` `23.2.0` `latest`                 | May 30th     | `sha256:a8834dee6a952aee85c17f5e1d284dea7d360458d18d9d26300d07a083e214e1` |
+|  `23.2.0` `23.2` `23` `latest`                 | June 2nd     | `sha256:01eeb750e61309d91e2545979e9970cabb74a43fbceecdef91d3e9fe782953f4` |
+|  `23-dev` `latest-dev` `23.2.0-dev` `23.2-dev` | June 2nd     | `sha256:a9175067a0f460a4f8dccc89e880b6b5d46e492ce399d5367dbbc13668bd35ec` |
 

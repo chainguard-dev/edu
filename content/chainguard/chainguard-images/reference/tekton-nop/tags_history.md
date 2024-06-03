@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-nop Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | June 1st     | `sha256:6a1454d1fe9c411529a1cab47ac6d94ec01c05cec1c976bab97ddb315ac02b54` |
 |  `latest`     | May 31st     | `sha256:301948fbc3e7113948b28e69603a96c13c8dc14e1d23b0555ea89413ad29fa68` |
-|  `latest-dev` | May 31st     | `sha256:9250041d925d4e54d0c7002e641233ad037213265d7321e8bd7a3959e7338e6d` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.60.1-dev` `0.60-dev` `latest-dev` `0-dev` | May 30th     | `sha256:7fae087d4861b3256c474af2232ad03c3e195b73609dfe6ee59268fbe81167d3` |
+|  `0.60-dev` `0.60.1-dev` `0-dev` `latest-dev` | June 1st     | `sha256:df6faac8a46961bdd01e1315abfcf1786878226eca59c09ef23a58f9f66c1371` |
 |  `0.60.1` `latest` `0` `0.60`                 | May 28th     | `sha256:4d8a600b03687636984c1e76e6ee82562994c61d4871c08a4aa6f22f4dbc75bd` |
 |  `0.60.0-dev`                                 | May 24th     | `sha256:1835d1d47f954fdff149c16cf578182fdbbaa6ccdfd3a0c8a925d386fcac19dd` |
 |  `0.60.0`                                     | May 23rd     | `sha256:de6d6308e96c7668ed1ade814ea5285ffe7996ebc494ba6fb9f5c9e1f2cf015a` |

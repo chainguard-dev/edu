@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-tuf-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 31st     | `sha256:d88bc42960976439d01860731a476f17183b3e004b41b41ba6c98ba87d079ed3` |
+|  `latest-dev` | June 1st     | `sha256:066cddd96b8bf433538e12109c76123428f3228dc6fd5e25ffcc7bf1882994b5` |
 |  `latest`     | May 23rd     | `sha256:ae03f61165678e9e8d54ee3cac300adafebc905fae70652a75c050c34ee9788f` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.7.1-dev` `latest-dev` `0.7-dev` | May 30th     | `sha256:69869b396d76ca3b79a1c06f86472007c6003fe930ec3d4838b1aa2cbd1430d2` |
+|  `0-dev` `0.7.1-dev` `0.7-dev` `latest-dev` | June 1st     | `sha256:22beb3e3a31955730644cfaff260f7d2c581d4a308f94f0b9db1e6b87fdcffef` |
 |  `0.7` `0` `0.7.1` `latest`                 | May 23rd     | `sha256:35a48ab235b68d73a864724f27120126fa0d42bbcb5c8cb81769006f6d5b4d31` |
 |  `0.6.17-dev` `0.6-dev`                     | May 17th     | `sha256:a2f55ebba54104103743e1c09e3e32e2664b0245526bc029cb74a250d221fbf9` |
 |  `0.6` `0.6.17`                             | May 17th     | `sha256:138580cc2e5d4aff17f6e6b49a60dbdd283f17a9ff162212a98ef1026189f81c` |

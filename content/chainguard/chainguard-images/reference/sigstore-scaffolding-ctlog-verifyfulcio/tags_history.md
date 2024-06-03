@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-ctlog-verifyfulcio Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 31st     | `sha256:b4e1046810d7b15e755c0c37ce3c08f14c04fcf8d9566e0409c529f3f7d7ce01` |
+|  `latest-dev` | June 1st     | `sha256:13f24c499251850a717b3d49453794fb5ec230c8016872d07a4633741a340883` |
 |  `latest`     | May 23rd     | `sha256:9c3779665f56d87cc0578b5898ff3c4096d144fafb986799859826150aba2f18` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.7-dev` `0.7.1-dev` `0-dev` | May 30th     | `sha256:aec94448f4f7b8f1db88b702665b4e24222ded012f2bcab0f3136a71f381fb6d` |
+|  `latest-dev` `0.7.1-dev` `0.7-dev` `0-dev` | June 1st     | `sha256:f48c9b1c3181560b2a3e4dbced81cd0ac7e30df1ab28111c0c8fc10c84bee9a5` |
 |  `0.7.1` `0` `0.7` `latest`                 | May 23rd     | `sha256:99b326f793f1df5db12315633d7408a1c316bcc9e06cef13adc2a6bdf19b24b6` |
 |  `0.6.17-dev` `0.6-dev`                     | May 17th     | `sha256:b857b33dbcb3f6144cc612cc083c621760ca4e281c209fc0b85908c1fadc3ce2` |
 |  `0.6` `0.6.17`                             | May 17th     | `sha256:9ce6f543e3583beabb2622328af2a047c5a17678c3782486a55e24869ef5fe74` |
