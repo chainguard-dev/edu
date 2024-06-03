@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opentelemetry-collector-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,13 +31,10 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                 | Last Changed | Digest                                                                    |
-|-----------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev`                                | June 1st     | `sha256:9475a621b7ebc5be7fd3cc98fcd9c726ac7a227429172c791c17b58c079fb112` |
-|  `0.101` `0` `latest` `0.101.0`         | May 30th     | `sha256:cb9271a15e5faf7ebf85b5acaa20b74612211829772a3e81812cbe760e429bdc` |
-|  `0.101-dev` `0.101.0-dev` `latest-dev` | May 30th     | `sha256:4edcb35b7c84547d5220d4f2616d5d0a111215433a0a41522492ed980f2287ea` |
-|  `0.100.0-dev` `0.100-dev`              | May 19th     | `sha256:31195a63d3b778b3073a21cf31bfb5eea098fc0929d37360490461eeb1de4002` |
-|  `0.100.0` `0.100`                      | May 17th     | `sha256:b061a28ea5bef70140ee56f139a017aeb485976245482a6f6a54791baa6ccab0` |
-|  `0.99` `0.99.0`                        | May 2nd      | `sha256:ef56e64dd7fa6f79eef3012b8ecb3e7f23fe40df9afd9cb8948185eb9f01dea1` |
-|  `0.99.0-dev` `0.99-dev`                | May 2nd      | `sha256:4b6dfd1af345fd093af7b279562139c7166b900f4a89711161503a549ad4e4a4` |
+| Tag (s)                                         | Last Changed | Digest                                                                    |
+|-------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0` `0.101` `0.101.0` `latest`                 | June 1st     | `sha256:b0ec4ebbe2773d1ab1f6a9df6168163d530091f0db6105a02b25863117609e42` |
+|  `latest-dev` `0.101.0-dev` `0.101-dev` `0-dev` | June 1st     | `sha256:fc943d3a472b39eb15e35f31ad93c9833533084f144d67e1e27e1d85de11ac7d` |
+|  `0.100.0-dev` `0.100-dev`                      | May 19th     | `sha256:31195a63d3b778b3073a21cf31bfb5eea098fc0929d37360490461eeb1de4002` |
+|  `0.100.0` `0.100`                              | May 17th     | `sha256:b061a28ea5bef70140ee56f139a017aeb485976245482a6f6a54791baa6ccab0` |
 

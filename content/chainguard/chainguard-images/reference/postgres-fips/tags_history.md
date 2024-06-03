@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the postgres-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,11 +33,11 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                           | Last Changed | Digest                                                                    |
 |-----------------------------------|--------------|---------------------------------------------------------------------------|
-|  `15-dev` `15.7-dev`              | May 31st     | `sha256:cdb72eb2ff4e27c6af9066e44fac3fb51f39c4cc2ca3fc3f58ad2f05f51d615c` |
+|  `14-dev` `14.12-dev`             | June 1st     | `sha256:b0cccf47795ef5056272a526f80d58e8cc560e4d72ba50da1def5ccc412f3c8d` |
+|  `15-dev` `15.7-dev`              | June 1st     | `sha256:09aad6f6f18afba9876c8aa0942e42dc03d481945eae9184d84efa52576e2e32` |
+|  `16-dev` `latest-dev` `16.3-dev` | June 1st     | `sha256:fde2d6feb7aa667d7c2efd40ce310a091225a2570aa4213c544cc085730ac764` |
 |  `15.7` `15`                      | May 31st     | `sha256:0bd5080fa0c6d8c2dcc2a0b042be6f8a1f88298f14c8e6f9f121d3f24c0f37ef` |
-|  `14.12-dev` `14-dev`             | May 31st     | `sha256:c7e28f0ba139170cf7d8b3699e10defc5603de45cd6c0fc0d4f9fcc973c0781f` |
 |  `14.12` `14`                     | May 31st     | `sha256:a3483b104bc939444c05f13e9c687d310c27f95669746155b82e90ab0db639b6` |
-|  `latest-dev` `16-dev` `16.3-dev` | May 30th     | `sha256:318fa2c5d19503a8d470aaf8c2df21d29c5f1425b076211b939e66d78953e239` |
 |  `16.3` `latest` `16`             | May 30th     | `sha256:9d71e5ba6c5b8b49a10581413b0370ce37ace11cb759bda4ce1750b2785e29ab` |
 |  `16.2-dev`                       | May 9th      | `sha256:344a2fadff4e651053cd211fd19341adf7a8433bb57384a689d544edb1634766` |
 |  `16.2`                           | May 9th      | `sha256:727d46a9219aabc491e6d932eadea193f905b2267b687a2e94dc9b30a64eea09` |

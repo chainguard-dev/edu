@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the trino Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 31st     | `sha256:e877f1bfbbb34c94a7324a831b41a79a92d668b2fae33bc51a730a6198fe42bf` |
+|  `latest-dev` | June 1st     | `sha256:b0f4a78c95697b4cc17b05e37fa7c7dca0f6af8e6e6fee98d32a92ef675f2c68` |
 |  `latest`     | May 30th     | `sha256:43c7fef8ac72fbdad29b3e2017a56cd965ee5ffc21a10c6862de53bf274da8c5` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                 | Last Changed | Digest                                                                    |
 |-------------------------|--------------|---------------------------------------------------------------------------|
-|  `448-dev` `latest-dev` | May 30th     | `sha256:152220e4830bea840084ddc79640d8a32ca3987e946102d3d9054bcb53fc3002` |
+|  `latest-dev` `448-dev` | June 1st     | `sha256:64caa521eae0bc48535111163c6674389fafe459060f612a7afe19605343252a` |
 |  `448` `latest`         | May 30th     | `sha256:367c13b2a7026e468579753aa26a76dd58302abd1c88227cbcb07a1e6f61d868` |
 |  `446-dev`              | May 16th     | `sha256:c951138004531f1b3cd5f2d6714f670558e4e4bdd31366ab0ba807ffd69df84a` |
 |  `446`                  | May 16th     | `sha256:86173de55d548fa4f6fc68717e97ce212028047b66f1529ca90896727340a8dc` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the confluent-kafka Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 30th     | `sha256:14ef21be3e31e7226d0080af2020a0563184ce559cc7d9120d84a12e221bec15` |
+|  `latest-dev` | June 1st     | `sha256:b4595a7d13af3304dc4d891dafe3357e686afacb501c5f836f1c9ccfdfd2724a` |
 |  `latest`     | May 30th     | `sha256:0f051d6c00bd911fd44e5bdbdd0705444f389538388d6461e29ae3ce6d5af4cf` |
 
 
@@ -37,8 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                     | Last Changed | Digest                                                                    |
 |-------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `7.8.0.103-dev` `7.8-dev` `latest-dev` `7.8.0-dev` `7-dev` | June 1st     | `sha256:b9e323983e0b6e3f7d3700105b501a890a0631ea365eb54182f60fc3a7c869b2` |
 |  `7.8.0` `7` `latest` `7.8.0.103` `7.8`                     | May 30th     | `sha256:f8f371d6aa7992343528294d3f0a26c3bf83183625466c476fab7407640c10e7` |
-|  `7.8-dev` `7-dev` `7.8.0-dev` `7.8.0.103-dev` `latest-dev` | May 30th     | `sha256:dc15ef011ccf870daf3b9b3751fb6fef5ddf43f8e5dabb3028a8d1f48017e14b` |
-|  `7.8.0.9`                                                  | May 2nd      | `sha256:1965d0048e0f94a54575340b782fbcbc8c7781db83ee1ce6c464e2cd19c8f48b` |
-|  `7.8.0.9-dev`                                              | May 2nd      | `sha256:2bdb11936d70f2db2fc5fcd506bfffc9b2a6153e596e5d06496cbc37f99b6573` |
 

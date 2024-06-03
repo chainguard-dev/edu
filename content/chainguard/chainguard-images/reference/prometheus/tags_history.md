@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 31st     | `sha256:340c28b657e664341f8e4e7e066d8b834e4ca8928ad48314cd42dfe4783aaba3` |
+|  `latest-dev` | June 1st     | `sha256:e9a6eed7acd566ea5cb35e882bd4b80ec9e86c6c3bd246bcf63a45d9f745dda7` |
 |  `latest`     | May 23rd     | `sha256:223d9e1bf9a185c616442fb0da624ef93e8b13b5bdb6d8b8840f974125794c42` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.52.0-dev` `latest-dev` `2.52-dev` | May 30th     | `sha256:df5bde8fecb1051f684f9cfec7c7d85d1f1ca472a9bb7fc2de57a6c1dccd92e9` |
+|  `2-dev` `2.52.0-dev` `latest-dev` `2.52-dev` | June 1st     | `sha256:aee18fea0a111227659704587088028ce75da86287e375569bbef947fec2d120` |
 |  `2` `latest` `2.52` `2.52.0`                 | May 23rd     | `sha256:6c3bbe18f4bc4887b8e7e8df90b1f62fea3639f81a0939951d8de4c36f822939` |
 |  `2.51.2-dev` `2.51-dev`                      | May 10th     | `sha256:b506d04a2f18195f1639a200af1caa6141a196c9301285f75e66becab6f81914` |
 |  `2.51.2` `2.51`                              | May 10th     | `sha256:892f37ebd01e3e5ea9c403f6a780b857b16dc806cf9dd84c8907b34dd6aeea46` |

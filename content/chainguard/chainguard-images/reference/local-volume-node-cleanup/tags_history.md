@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the local-volume-node-cleanup Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 31st     | `sha256:edf68cb97e225fdf7232cfb981244cc9e192e2d4ae06a1ef56a0811798b86fd8` |
+|  `latest-dev` | June 1st     | `sha256:3b693f461d3f82eb5f01c903b74542e57202ffbf5863f780583a76c7d08245fc` |
 |  `latest`     | May 23rd     | `sha256:390cce3223c00a201b693a7425b4f8d01c3e892f824d24ccb33aecfcd39ac10e` |
 
 

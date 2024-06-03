@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the keycloak-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 31st     | `sha256:96d2228126c5dd3abdc6cd5898ba72f4324088e39a5c06393e919a8146a0650a` |
+|  `latest-dev` | June 1st     | `sha256:43edd66fe458c9372b1837433cfa8f4fd4a7da7713d213925df7396c4ffdbf02` |
 |  `latest`     | May 31st     | `sha256:9d58dbdf2dc3b1cfa2b0b86fc527503b935907909b6e18cc79210e278513f169` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `24.0.4-dev` `24-dev` `latest-dev` `24.0-dev` | June 1st     | `sha256:6efc8c094753e5eefed6167bee732910dcf010ab8be00aed6807f55e0bc613cc` |
 |  `24.0.4` `latest` `24.0` `24`                 | May 30th     | `sha256:6ddd4de19245bc7d115bd887d66c42d961c12ce4bcced391c88a63ccb2e5984a` |
-|  `24.0.4-dev` `24.0-dev` `24-dev` `latest-dev` | May 30th     | `sha256:901483b74f8b42aadd40246037a166f96373269e9884856b879f57db28e3489c` |
 

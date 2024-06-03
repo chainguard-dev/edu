@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rekor-cli-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1-dev` `1.3-dev` `latest-dev` `1.3.6-dev` | June 1st     | `sha256:f15d1957d96630946d71317fcc8cb1e9dd18c57670f29fba2ec817274d85f0f5` |
 |  `latest` `1.3` `1` `1.3.6`                 | May 30th     | `sha256:5faf4f49d792aa73a982fc6fb148ad317db56eec05e0abb88d7026f642abebbc` |
-|  `1.3.6-dev` `1.3-dev` `latest-dev` `1-dev` | May 30th     | `sha256:d989cd00c839ee885b14b50b45d9e74212e8e78045c7711550a5860ddf3ff3e3` |
 

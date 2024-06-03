@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-webhook Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | June 1st     | `sha256:0608849a6290bd83d40c88c237bfebbf8dbcaeafbd2477906e2772b04966d53b` |
 |  `latest`     | May 31st     | `sha256:3c71c397387b087bbf5400e8e852c4403ed83be30e6cf94a23b8a3efc348a8a5` |
-|  `latest-dev` | May 31st     | `sha256:7b177d0a6d697ebbfcae7a54bf6178d35db385d0a586dae5d1b5f038328a5784` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.60.1-dev` `0.60-dev` `latest-dev` `0-dev` | May 30th     | `sha256:fa9300343873323211d857be5f023011e5308dbb634d2ccfa33bda697e4ead08` |
+|  `0.60-dev` `0.60.1-dev` `latest-dev` `0-dev` | June 1st     | `sha256:904960325a35333d8fc9be8b3e491b7dbe0ea9c8d129bb67c4e5dde657c613f5` |
 |  `0.60.1` `0.60` `0` `latest`                 | May 28th     | `sha256:70cdde8f819b9e2a6dd4c7123b1e2021fa80e54614989361773fe0f8654c909d` |
 |  `0.60.0-dev`                                 | May 24th     | `sha256:8fb21d225767200d4a32f016ed662de097f8787063e3d3e8849c04d884ea90fa` |
 |  `0.60.0`                                     | May 23rd     | `sha256:14690b2ebc444d56fa591a32b10fb6a0be194593f2ef9e96156da004ad6c2270` |

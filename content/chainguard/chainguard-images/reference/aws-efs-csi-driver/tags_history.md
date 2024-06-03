@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-efs-csi-driver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 31st     | `sha256:0ebea78983bd972f13a1bbd078b4fe178a33194ae5a16ebe495f1b1d445cb379` |
-|  `latest-dev` | May 31st     | `sha256:32d4855da155f6cd157dbffe55744bfb8bd69da814d682d0e746993cfbdbe683` |
+|  `latest-dev` | June 1st     | `sha256:c4821d6b36fec4bcdd4b170df108a5784e84b05eddebc5fd5a8b9a77da32b35e` |
+|  `latest`     | June 1st     | `sha256:d655b7edfb47ad518fc601e346a217e9f8e1e4a717ea0a6fcfc244ebcda2b1d6` |
 
 
 ### Private/Dedicated Registry
@@ -41,8 +41,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `2.0` `2` `2.0.3` `latest`                 | June 1st     | `sha256:ddbe49ebdfdb26ee8dd48839a8efb3d3581990bf4758f43f47a02bce3ce90270` |
 |  `2.0.2-dev`                                | May 27th     | `sha256:0977c5e1c49f94db450883508cbadf1aeb1b188baa5a90c12c2a81fc2379be1e` |
 |  `2.0.2`                                    | May 27th     | `sha256:d777dd981bd1e70f8e9c46d1ebb8be5824e7f4d4c9f7446c12c0c49d09695a25` |
-|  `2.0.1`                                    | May 1st      | `sha256:05a69f5b5bbbaa3140956270b200daba0dc6827eea79a1667018dcbf71626da8` |
-|  `2.0.1-dev`                                | May 1st      | `sha256:b66bbc6bc6fe91cb94ff273296841427fa3985eb9ac025461ba457b287bf3a1d` |
 |  `1.5.5-dev`                                | May 25th     | `sha256:2b017923f775dcfd1a2ffbc2d87c00d7d8cfa49e15861bf10bee2396233e4fb6` |
 |  `1.5.5`                                    | May 25th     | `sha256:962045f7e97bd1df39b00f7e44a21539e83725a5a3f921f1a1970be097bbc383` |
 

@@ -3,8 +3,8 @@ title: "tempo-fips Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public tempo-fips Chainguard Image."
-date: 2024-05-17 00:44:46
-lastmod: 2024-05-17 00:44:46
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -49,14 +49,14 @@ The table shows package distribution across variants.
 | `libbrotlicommon1`            | X          |        |
 | `libbrotlidec1`               | X          |        |
 | `libcrypt1`                   | X          |        |
-| `libcrypto3`                  | X          |        |
+| `libcrypto3`                  | X          | X      |
 | `libcurl-openssl4`            | X          |        |
 | `libexpat1`                   | X          |        |
 | `libidn2`                     | X          |        |
 | `libnghttp2-14`               | X          |        |
 | `libpcre2-8-0`                | X          |        |
 | `libpsl`                      | X          |        |
-| `libssl3`                     | X          |        |
+| `libssl3`                     | X          | X      |
 | `libunistring`                | X          |        |
 | `libxcrypt`                   | X          |        |
 | `ncurses`                     | X          |        |

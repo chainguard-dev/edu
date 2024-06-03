@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the qdrant Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 31st     | `sha256:d6534540192d4d2320a31c5f4a03eb1733f554f2f8fedbe9c1cb15c0ab617a0f` |
+|  `latest-dev` | June 1st     | `sha256:53eb377fd57e0de7ec18d70f5ab81e46cac7bb5bd101730e45e279e7708b3880` |
 |  `latest`     | May 30th     | `sha256:691c079750d1b3f452b75c83aceffdec175df8dd5600cd28f659bd5c27afc6b8` |
 
 
@@ -45,6 +45,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.9.2`                                    | May 23rd     | `sha256:fc9d7eaca25338c63b1345b13add1f133b0a535b236dc2e7601374348a9d87eb` |
 |  `1.9.1-dev`                                | May 8th      | `sha256:62f127fa5e1c4ac647029e285aa8cec3afb5d01f0f7b8c634955dc85cdf8db72` |
 |  `1.9.1`                                    | May 8th      | `sha256:e73c6d4fdcf750f4352fa9395414514459719231f0f1716de883b407a9a3df05` |
-|  `1.9.0-dev`                                | May 2nd      | `sha256:6f4a8b69cc11d44adc4acc71d4e3debeee768b8cf4b0682d1f29985522360224` |
-|  `1.9.0`                                    | May 2nd      | `sha256:e93d66bb3e9fe92e6f4ca881a549e3f8f94b25ac9f98b9241fd09ea1771002e2` |
 

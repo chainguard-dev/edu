@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the atlantis Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 31st     | `sha256:8d7c74c3d78ccc2d79dae4dc266218742aabaa7b4831fd4a7f29c0ac4d6b211d` |
-|  `latest`     | May 31st     | `sha256:603c78306fdd89c8ae9b533bd3f4538c68314acbbd1fc3b06afa61b555b1ee4f` |
+|  `latest-dev` | June 1st     | `sha256:c70ffebc6a48308e8243d04cd4848ee8c69f5096a91a72869aa37525967f9dba` |
+|  `latest`     | June 1st     | `sha256:dad4c82b22cdaaf4a81f6a94f70fb0404918c9bd427a72ef6284dded426c0d58` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `0.28.1` `latest` `0.28`                 | May 30th     | `sha256:74ffa06551f5957c3c77d74cc6d63170e2a028f13656d01434a4c35ace3b63fc` |
-|  `0.28.1-dev` `0-dev` `0.28-dev` `latest-dev` | May 30th     | `sha256:9972d0a3b1ee24fefc02bcfe27a5198e13a838054bb5e6e9a1666a96b6ddbd93` |
+|  `0-dev` `0.28.1-dev` `0.28-dev` `latest-dev` | June 1st     | `sha256:388205b7dff86e3c15d240cee4541f6ab66213e610a2ad257b5366518ae1c3d5` |
+|  `0.28` `0` `0.28.1` `latest`                 | June 1st     | `sha256:3e276abe1f8f1c2771a1b61f49e3590a139f3ccb5852999d7deb643267ae2554` |
 |  `0.28.0`                                     | May 23rd     | `sha256:f40147eefef82978a276521107440a915469c8d3d878c90c22e40a926b28c313` |
 |  `0.28.0-dev`                                 | May 23rd     | `sha256:193c07865586a759ef470f9321d754c0f600080d30635d997771430abbae8138` |
 |  `0.27.3` `0.27`                              | May 22nd     | `sha256:72f2c6e84517e12f6fd3a94e53bd36c1a5024fb2741369b91656c960f25c56b4` |

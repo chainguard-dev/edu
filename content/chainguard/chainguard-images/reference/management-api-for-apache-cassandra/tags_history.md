@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the management-api-for-apache-cassandra Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-03 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 30th     | `sha256:28e7b155a74681e4cbbbc68ff862a4a00caab8e06773431be09496e759c90dfc` |
+|  `latest-dev` | June 1st     | `sha256:2a2255cc46a341132dcebc70a2dfe2decca7686c5943932a378b4a5fccdf56c8` |
 |  `latest`     | May 30th     | `sha256:9631a94280a8338981b2e5dd18f3920231c0967d13518272eb0cf38705c7c9af` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.1.78-dev` `0-dev` `0.1-dev` | May 30th     | `sha256:74d4c37b60815131b69f2f72c9b85fb719961d5761d92c4b64e453d740dd3d05` |
+|  `0.1-dev` `latest-dev` `0-dev` `0.1.78-dev` | June 1st     | `sha256:47205a5b89ca1faa6f7891ef2cdf5ae6166f78169caa59e7ac55e24c8dee8c80` |
 |  `0.1` `0.1.78` `latest` `0`                 | May 30th     | `sha256:aeae2cb986b183dfa79fc39827a52ec5dff7c2babb6791e215a542197d90f0cc` |
 |  `0.1.74-dev`                                | May 22nd     | `sha256:53d078952f5d00180703c355658a48fc587f29a7634662ab8f0f535f927943f6` |
 |  `0.1.74`                                    | May 22nd     | `sha256:9255884f1103785c6707b2a620b80c92348055dfd82067d2d5a01b7a8efd0346` |
