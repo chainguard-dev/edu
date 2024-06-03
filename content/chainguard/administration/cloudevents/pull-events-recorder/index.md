@@ -70,7 +70,7 @@ This configuration will consist of a single module. For the purposes of this exa
 
 ```
 module "event recorder" {
-  source = "github.com/chainguard-dev/platform-examples/event-recorder/iac"
+  source = "github.com/chainguard-dev/platform-examples//event-recorder/iac"
 ```
 
 The next few lines specify the GCP project ID where the application resources will reside, the region where the application's subnetwork will be created, and the UIDP of the Chainguard IAM organization whose private Registry we expect to receive events from.
@@ -93,7 +93,7 @@ Once you know all of the relevant details, you can create this file with a comma
 ```sh
 cat > main.tf <<EOF
 module "event-recorder" {
-  source = "github.com/chainguard-dev/platform-examples/event-recorder/iac"
+  source = "github.com/chainguard-dev/platform-examples//event-recorder/iac"
 
   project_id = "<GCP project ID>"
   region 	= "us-central1"

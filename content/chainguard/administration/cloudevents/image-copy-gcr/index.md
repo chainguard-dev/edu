@@ -3,8 +3,8 @@ title: "Mirror new Images to Google Artifact Registry with Chainguard CloudEvent
 linktitle: "Mirror Images to Artifact Registry"
 type: "article"
 description: "Instructional guide outlining how one can set up an application that will listen for push events on a private Chainguard Registry and mirror any new Chainguard Images to a GCP Artifact Registry."
-date: 2024-05-24T15:22:20+01:00
-lastmod: 2024-05-24T15:22:20+01:00
+date: 2024-06-03T15:22:20+01:00
+lastmod: 2024-06-03T15:22:20+01:00
 draft: false
 tags: ["Product", "CloudEvents", "Procedural"]
 images: []
@@ -49,7 +49,7 @@ This configuration will consist of a single module. For the purposes of this exa
 
 ```
 module "image-copy" {
-  source = "github.com/chainguard-dev/platform-examples/image-copy-gcp/iac"
+  source = "github.com/chainguard-dev/platform-examples//image-copy-gcp/iac"
 ```
 
 The next five lines configure a few variables that you will need to update to reflect your own setup.
@@ -83,7 +83,7 @@ You can create this file with a command like the following.
 ```sh
 cat > main.tf <<EOF
 module "image-copy" {
-  source = "github.com/chainguard-dev/platform-examples/image-copy-gcp/iac"
+  source = "github.com/chainguard-dev/platform-examples//image-copy-gcp/iac"
 
   name = "chainguard-dev"
 
