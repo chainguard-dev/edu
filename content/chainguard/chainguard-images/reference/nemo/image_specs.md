@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public nemo Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-06-04 00:50:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -45,18 +45,18 @@ The table shows package distribution across variants.
 | `busybox`                | X          | X      |
 | `ca-certificates-bundle` | X          | X      |
 | `chainguard-baselayout`  | X          | X      |
+| `ffmpeg-cuda`            | X          | X      |
 | `ffmpeg-dev`             | X          | X      |
 | `gdbm`                   | X          | X      |
 | `git`                    | X          |        |
 | `glibc`                  | X          | X      |
 | `glibc-locale-posix`     | X          | X      |
-| `lame-libs`              | X          | X      |
 | `ld-linux`               | X          | X      |
-| `libavcodec61`           | X          | X      |
-| `libavdevice61`          | X          | X      |
-| `libavfilter10`          | X          | X      |
-| `libavformat61`          | X          | X      |
-| `libavutil59`            | X          | X      |
+| `libavcodec60-cuda`      | X          | X      |
+| `libavdevice60-cuda`     | X          | X      |
+| `libavfilter9-cuda`      | X          | X      |
+| `libavformat60-cuda`     | X          | X      |
+| `libavutil58-cuda`       | X          | X      |
 | `libbrotlicommon1`       | X          |        |
 | `libbrotlidec1`          | X          |        |
 | `libbz2-1`               | X          | X      |
@@ -73,12 +73,11 @@ The table shows package distribution across variants.
 | `libogg`                 | X          | X      |
 | `libpcre2-8-0`           | X          |        |
 | `libpng`                 | X          | X      |
-| `libpostproc58`          | X          | X      |
 | `libpsl`                 | X          |        |
 | `libssl3`                | X          | X      |
 | `libstdc++`              | X          | X      |
-| `libswresample5`         | X          | X      |
-| `libswscale8`            | X          | X      |
+| `libswresample4-cuda`    | X          | X      |
+| `libswscale7-cuda`       | X          | X      |
 | `libtheora`              | X          | X      |
 | `libunistring`           | X          |        |
 | `libxcrypt`              | X          | X      |

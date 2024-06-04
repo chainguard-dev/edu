@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public guacamole-server Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-22 00:47:17
+lastmod: 2024-06-04 00:50:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -59,12 +59,11 @@ The table shows package distribution across variants.
 | `gsm`                     | X          | X      |
 | `guacamole-server`        | X          | X      |
 | `harfbuzz`                | X          | X      |
-| `lame-libs`               | X          | X      |
 | `ld-linux`                | X          | X      |
 | `libasyncns`              | X          | X      |
-| `libavcodec61`            | X          | X      |
-| `libavformat61`           | X          | X      |
-| `libavutil59`             | X          | X      |
+| `libavcodec60-cuda`       | X          | X      |
+| `libavformat60-cuda`      | X          | X      |
+| `libavutil58-cuda`        | X          | X      |
 | `libblkid`                | X          | X      |
 | `libbrotlicommon1`        | X          | X      |
 | `libbrotlidec1`           | X          | X      |
@@ -98,8 +97,8 @@ The table shows package distribution across variants.
 | `libsndfile`              | X          | X      |
 | `libssh2`                 | X          | X      |
 | `libssl3`                 | X          | X      |
-| `libswresample5`          | X          | X      |
-| `libswscale8`             | X          | X      |
+| `libswresample4-cuda`     | X          | X      |
+| `libswscale7-cuda`        | X          | X      |
 | `libtelnet`               | X          | X      |
 | `libtheora`               | X          | X      |
 | `libunistring`            | X          |        |
@@ -120,8 +119,8 @@ The table shows package distribution across variants.
 | `libxinerama`             | X          | X      |
 | `libxkb`                  | X          | X      |
 | `libxrender`              | X          | X      |
-| `ncurses`                 | X          | X      |
-| `ncurses-terminfo-base`   | X          | X      |
+| `ncurses`                 | X          |        |
+| `ncurses-terminfo-base`   | X          |        |
 | `netcat-openbsd`          | X          | X      |
 | `openssl-provider-legacy` | X          | X      |
 | `opus`                    | X          | X      |

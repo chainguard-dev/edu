@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the helm-chartmuseum Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-04 00:50:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 1st     | `sha256:f79e89f6ac9c48c0212ca7a31887434282986aea700dad0b32b075821a4aa5c7` |
-|  `latest`     | May 23rd     | `sha256:99f0ebdee09db28e2096d4d91d9880f83623a8f1e8bfd103d2ec8a9c13d92169` |
+|  `latest`     | June 3rd     | `sha256:eb50a4dd499e67d38642982621ac5d70218dff479ba84e5f2708a1a52d4308f7` |
+|  `latest-dev` | June 3rd     | `sha256:37a9512f1d22ac8afeec6a51f1698c8830572954bb85927a4b37ea51807cfd0d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.16.1-dev` `latest-dev` `0.16-dev` | June 1st     | `sha256:066ce448c04839073bd7d23144094a3f7e84171a94e9bc4bab7f48eef6bcbd95` |
-|  `latest` `0.16` `0` `0.16.1`                 | May 23rd     | `sha256:de728cd46edc4b521b7795f79ba7b8d045bffc8e207bdb1f9a06fb289e8e58c1` |
+|  `0-dev` `latest-dev` `0.16-dev` `0.16.2-dev` | June 3rd     | `sha256:6cd441453b21e89a2b34026d5ead0dda620c1c3d260f4f3fcaf1d30ee2fc1323` |
+|  `0.16.2` `0` `0.16` `latest`                 | June 3rd     | `sha256:c318b333a4f8450fd6cf44aae4b3057c9a84f1c966af6c18d45086b8af267164` |
+|  `0.16.1-dev`                                 | June 1st     | `sha256:066ce448c04839073bd7d23144094a3f7e84171a94e9bc4bab7f48eef6bcbd95` |
+|  `0.16.1`                                     | May 23rd     | `sha256:de728cd46edc4b521b7795f79ba7b8d045bffc8e207bdb1f9a06fb289e8e58c1` |
 
