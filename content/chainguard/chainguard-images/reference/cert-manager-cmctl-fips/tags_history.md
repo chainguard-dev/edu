@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-cmctl-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-04 00:50:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.14-dev` `latest-dev` `1-dev` `1.14.5-dev` | May 30th     | `sha256:668a44e18ee09c95dd35ed45fa33be2384c9f43aaf9367f4b7575f47b852d117` |
-|  `1.13.6-dev` `1.13-dev`                      | May 30th     | `sha256:0fec84d7c2c205cecd6c83e8726bede290cd713b057ec860dacd5cfe000a2e22` |
-|  `1.12-dev` `1.12.10-dev`                     | May 30th     | `sha256:e586593313c3a56b436246546b0b9042dae7dbe24f38529c26718dd6d5d6e952` |
-|  `1.13.6` `1.13`                              | May 23rd     | `sha256:7ef14ad97a37d58b1fca65ba81209d137ae12cf67872a1a6318b22592793e6b3` |
-|  `1.12` `1.12.10`                             | May 23rd     | `sha256:bfe2a24a4b3de201b6ae27aeb52efaf35b0ed792f334052710fc2d4ccd199cfc` |
-|  `1.14` `latest` `1` `1.14.5`                 | May 23rd     | `sha256:b119e612800e949911457e381b93d5192ef1ec1fe87bb96288f792f9cad009a0` |
+|  `1.12.10-dev` `1.12-dev`                     | June 4th     | `sha256:f219118e92cd908a2d018f3880c70f876987a8b78f4ee9b3b9d35be964c45af1` |
+|  `1.12` `1.12.10`                             | June 4th     | `sha256:e0311ebd72a337b5ed722ab26e5a2cd55b1f035ed054670ad6020d97f13fa4b9` |
+|  `1-dev` `latest-dev` `1.14.5-dev` `1.14-dev` | June 4th     | `sha256:f27c26ddd7c4ee3acbe746d6b68a7e7e3409f76b18fd24d7a3aa67872adf9f43` |
+|  `1.13.6-dev` `1.13-dev`                      | June 4th     | `sha256:e4753c1fc06a6ac1d22ce80683b86d4721a66f5f5890aa29b64d1ae1e32eae8d` |
+|  `1` `1.14` `1.14.5` `latest`                 | June 4th     | `sha256:f92f2388fdac3c6497b35edf37ecef70b1c39c9975e1c00c97e503c9948de181` |
+|  `1.13.6` `1.13`                              | June 4th     | `sha256:886c0d27fee9d173f42ff3a62aebce8a7634545fdd9608a83b7098c744258784` |
 
