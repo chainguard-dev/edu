@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-dns-node-cache Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-04 00:50:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | May 31st     | `sha256:d7c3b4c65f9014a7f53873ba06ec83f9376023aa485e11a86a24030411386ec3` |
+|  `latest` | June 3rd     | `sha256:5640f62a36d9a4afbe91a65c252fd3347c9463c6a3d7bf0af42de95e926d7363` |
 
 
 ### Private/Dedicated Registry
@@ -36,8 +36,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.23.0-dev` `1.23-dev` | June 1st     | `sha256:11810762e4c2953b0a03ca6a87d37abf9dce144b3b22efb8deafce2d5bd55c53` |
-|  `1.23` `latest` `1.23.0` `1`                 | May 24th     | `sha256:3a372a9835b2947e0612390d081982c260cc9f895bb5372edef9d57a119b0df7` |
+|  `1.23` `1` `1.23.1` `latest`                 | June 3rd     | `sha256:5a774dfa3af6447e104b4bd2b0c0bc9b531045b9034c84d9704ba1586e519778` |
+|  `1.23.1-dev` `1.23-dev` `latest-dev` `1-dev` | June 3rd     | `sha256:30582a33a9c54c5e3acfb481731cecb99fb9cb0a917284674a4f0fdb82055b1c` |
+|  `1.23.0-dev`                                 | June 1st     | `sha256:11810762e4c2953b0a03ca6a87d37abf9dce144b3b22efb8deafce2d5bd55c53` |
+|  `1.23.0`                                     | May 24th     | `sha256:3a372a9835b2947e0612390d081982c260cc9f895bb5372edef9d57a119b0df7` |
 |  `1.17.4-dev` `1.17-dev`                      | May 15th     | `sha256:dcedb84a191fa9b01a9e92a9c63be25d0c648673c298b07f6605593b476a4227` |
 |  `1.17` `1.17.4`                              | May 15th     | `sha256:90a46c1fa520296cab4a9a351bfb48ee483496d5dbbbee26c78fcd142aada361` |
 

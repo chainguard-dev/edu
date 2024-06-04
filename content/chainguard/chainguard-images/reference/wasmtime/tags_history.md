@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the wasmtime Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-04 00:50:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -43,8 +43,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `21.0.0`                                      | May 21st     | `sha256:ac80c557e4363bf88ee9559c2751a593a2a1e06f8840161fa324938d328a68fd` |
 |  `20-dev` `20.0.2-dev` `20.0-dev`              | May 19th     | `sha256:e3fde756c36d48b8a840fd769fc6da0183eab2f6f2740a36be8908f95a7fb8af` |
 |  `20.0.2` `20.0` `20`                          | May 17th     | `sha256:4b32b618516d7e1d11ea9dbb7e3e6b20a20df621e0cc4d3774167a58feb76347` |
-|  `20.0.1-dev`                                  | May 3rd      | `sha256:e3d7e58146bff895c099fc105024c68c0f62cd6ff613ede2144a5d064d3c885e` |
-|  `20.0.1`                                      | May 3rd      | `sha256:f3df8bc879113c52903b1fc1469d2e9ae67adea1bb622d968121449c5349cd0c` |
-|  `20.0.0`                                      | May 3rd      | `sha256:13947da773e5d7ddf1026db8580d993ae9c6f1b85edda5d509bbc0e65e000b87` |
-|  `20.0.0-dev`                                  | May 3rd      | `sha256:6c8bc49247dd32c55ce0324fdb38fbe04035eb005fee188eb3491f973907e611` |
 

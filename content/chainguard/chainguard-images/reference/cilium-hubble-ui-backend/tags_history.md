@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-hubble-ui-backend Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-04 00:50:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 1st     | `sha256:143a7c48e137615ac2f46b4d85a7b496445fcbb4604386388ac0fd4df5f5b09a` |
-|  `latest`     | May 23rd     | `sha256:ece216a270bc533322211da3fe75aa4da3e5381a59547c5376068544e487c6a2` |
+|  `latest-dev` | June 3rd     | `sha256:bec10a79ad28ddf95663f273b8bb912c0345ae13c17c4d0e7e8fc9abebe030d5` |
+|  `latest`     | June 3rd     | `sha256:162aec15df4f91ddc0294a5deb2f6763ecaf86ef4b91acb017debfdf89d28dfb` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.13-dev` `0-dev` `latest-dev` `0.13.0-dev` | June 1st     | `sha256:d94907a06698fa856edbbef71b546a6fac3865120b73140d14f66660669a9968` |
-|  `0.13` `0` `0.13.0` `latest`                 | May 23rd     | `sha256:6b3c595b01c7aeeed4a54b25d86a08daa8492f8d3251619d708e433a52503db2` |
+|  `latest` `0.13` `0` `0.13.1`                 | June 3rd     | `sha256:445730823a9741620bc3ec9f93c8b67e6a9fa57366105d11f5439225987712ce` |
+|  `0-dev` `0.13-dev` `0.13.1-dev` `latest-dev` | June 3rd     | `sha256:483fd101ceb9c10b463fb0d35a9f553e90981f9346383e6bc37fbab30d8954fa` |
+|  `0.13.0-dev`                                 | June 1st     | `sha256:d94907a06698fa856edbbef71b546a6fac3865120b73140d14f66660669a9968` |
+|  `0.13.0`                                     | May 23rd     | `sha256:6b3c595b01c7aeeed4a54b25d86a08daa8492f8d3251619d708e433a52503db2` |
 
