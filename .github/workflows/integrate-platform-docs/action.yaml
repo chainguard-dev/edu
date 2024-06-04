@@ -17,6 +17,9 @@ inputs:
     type: string
     required: true
 
+env:
+  PLATFORM_CHANGELOG: "content/chainguard/autodocs/platform-changelog.md"
+
 runs:
   using: composite
   steps:
@@ -24,7 +27,7 @@ runs:
       shell: bash
       run: |
         gcloud --quiet storage cp --project="${{ inputs.project_id }}" \
-          "${{ inputs.storage_bucket }}/enforce-changelog/changelog.md" content/chainguard/chainguard-enforce/
+          "${{ inputs.storage_bucket }}/enforce-changelog/changelog.md" "${{ env.PLATFORM_CHANGELOG }}"
 
     - name: download openapi api.json spec from cloud storage
       shell: bash
@@ -55,12 +58,6 @@ runs:
       run: |
         sed '/draft: false/a tags: ["chainctl", "Reference", "Product"]' \
           -i content/chainguard/chainctl/chainctl-docs/*.md
-          
-    - name: add tags to changelog by inserting line with sed
-      shell: bash
-      run: |
-        sed '/draft: false/a tags: ["Platform", "Reference", "Product"]' \
-          -i content/chainguard/chainguard-enforce/changelog.md
 
     - name: add tags to cloudevents by inserting line with sed
       shell: bash
