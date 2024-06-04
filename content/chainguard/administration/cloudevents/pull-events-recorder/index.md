@@ -120,7 +120,7 @@ Following that, run `terraform init` to initialize Terraform’s working directo
 terraform init
 ```
 
-> **Note**: If you have used the [Chainguard Terraform provider](/chainguard/administration/terraform-provider/) in the past but not recently, you may need to upgrade the provider by running `terraform init --upgrade` in order to avoid errors.
+> **Note**: If you have used the [Chainguard Terraform provider](/chainguard/administration/terraform-provider/) in the past but not recently, you may need to upgrade the provider by running `terraform init -upgrade` in order to avoid errors.
 
 Then run `terraform plan`. This will produce a speculative execution plan that outlines what steps Terraform will take to create the resources defined in the files you set up in the last section.
 
