@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the skaffold Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,12 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.12.0-dev` `2.12-dev` `2-dev` `latest-dev` | June 1st     | `sha256:6218c235e6c2033763c417ebaa7ed2256c2efe8143acbaec4b8b9e99c7d179cd` |
-|  `2.12.0` `2.12` `latest` `2`                 | May 30th     | `sha256:30ce20b831594534cafb1b8d56b6b4724806e00a9cd7a43e8b6aa49b804bdd52` |
-|  `2.11.1-dev` `2.11-dev`                      | May 14th     | `sha256:792efada85093dc16330dd58d8f517ef7314dfff906ccf2b14e370a3472a112c` |
-|  `2.11` `2.11.1`                              | May 13th     | `sha256:3043b565d3e1e4940534b5b57c3998bc25988e6e9ed3e63276eee81c31f6c803` |
-|  `2.4.1` `2.4`                                | May 25th     | `sha256:ac5043a6641ac0c28c953ad8d1658c0c9c3421be3c00370a3df3442c54b1b660` |
-|  `2.4.1-dev` `2.4-dev`                        | May 25th     | `sha256:8095182ea3ab9c22b1962f2ad812d0ef486b9ce42917b4981208adfeaf208015` |
-|  `2.4.0-dev`                                  | May 9th      | `sha256:372a7be3e7c7d86ae162e51e4d46de6d3df2e16df4139b02b2a67cf4d3bd5a08` |
-|  `2.4.0`                                      | May 9th      | `sha256:997c86d21f52ab05db7cd830b687fdbc45906f787869659acc3e5ece9539b08a` |
+|  `latest` `2` `2.12` `2.12.0`                 | June 4th     | `sha256:ad3f74ea378a9004faf9eb725dff1e68feac2d9aa7f61e0431ee16c173596103` |
+|  `2.12.0-dev` `2-dev` `latest-dev` `2.12-dev` | June 4th     | `sha256:19cf6d4928253c1bb250dee1347c261ed569fce26532203dc76a6752a9f495a7` |
 

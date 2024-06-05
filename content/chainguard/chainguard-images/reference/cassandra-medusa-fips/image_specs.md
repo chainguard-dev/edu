@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public cassandra-medusa-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -46,6 +46,7 @@ The table shows package distribution across variants.
 | `git`                           | X          |        |
 | `glibc`                         | X          | X      |
 | `glibc-locale-posix`            | X          | X      |
+| `grpc-health-probe-fips`        | X          | X      |
 | `ld-linux`                      | X          | X      |
 | `libbrotlicommon1`              | X          |        |
 | `libbrotlidec1`                 | X          |        |

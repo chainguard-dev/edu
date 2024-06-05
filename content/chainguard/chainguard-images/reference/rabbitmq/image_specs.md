@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public rabbitmq Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-29 00:38:53
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -21,54 +21,40 @@ toc: true
 
 This page shows detailed information about the Chainguard **rabbitmq** Image.
 
-|              | latest-dev                  | latest                      |
-|--------------|-----------------------------|-----------------------------|
-| Default User | `rabbitmq`                  | `rabbitmq`                  |
-| Entrypoint   | `/usr/sbin/rabbitmq-server` | `/usr/sbin/rabbitmq-server` |
-| CMD          | not specified               | not specified               |
-| Workdir      | `/var/lib/rabbitmq`         | `/var/lib/rabbitmq`         |
-| Has apk?     | yes                         | no                          |
-| Has a shell? | yes                         | yes                         |
+|              | latest                      |
+|--------------|-----------------------------|
+| Default User | `rabbitmq`                  |
+| Entrypoint   | `/usr/sbin/rabbitmq-server` |
+| CMD          | not specified               |
+| Workdir      | `/var/lib/rabbitmq`         |
+| Has apk?     | no                          |
+| Has a shell? | yes                         |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/rabbitmq/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                          | latest-dev | latest |
-|--------------------------|------------|--------|
-| `apk-tools`              | X          |        |
-| `bash`                   | X          | X      |
-| `busybox`                | X          | X      |
-| `ca-certificates-bundle` | X          | X      |
-| `chainguard-baselayout`  | X          | X      |
-| `erlang-26`              | X          |        |
-| `git`                    | X          |        |
-| `glibc`                  | X          | X      |
-| `glibc-locale-en`        | X          | X      |
-| `glibc-locale-posix`     | X          | X      |
-| `ld-linux`               | X          | X      |
-| `libbrotlicommon1`       | X          |        |
-| `libbrotlidec1`          | X          |        |
-| `libcrypt1`              | X          | X      |
-| `libcrypto3`             | X          | X      |
-| `libcurl-openssl4`       | X          |        |
-| `libexpat1`              | X          |        |
-| `libgcc`                 | X          | X      |
-| `libidn2`                | X          |        |
-| `libnghttp2-14`          | X          |        |
-| `libpcre2-8-0`           | X          |        |
-| `libpsl`                 | X          |        |
-| `libssl3`                | X          |        |
-| `libstdc++`              | X          | X      |
-| `libunistring`           | X          |        |
-| `libxcrypt`              | X          | X      |
-| `ncurses`                | X          | X      |
-| `ncurses-terminfo-base`  | X          | X      |
-| `rabbitmq-server`        | X          | X      |
-| `tzdata`                 | X          | X      |
-| `wget`                   | X          |        |
-| `wolfi-baselayout`       | X          | X      |
-| `zlib`                   | X          | X      |
-| `erlang-27`              |            | X      |
+|                          | latest |
+|--------------------------|--------|
+| `bash`                   | X      |
+| `busybox`                | X      |
+| `ca-certificates-bundle` | X      |
+| `chainguard-baselayout`  | X      |
+| `erlang-27`              | X      |
+| `glibc`                  | X      |
+| `glibc-locale-en`        | X      |
+| `glibc-locale-posix`     | X      |
+| `ld-linux`               | X      |
+| `libcrypt1`              | X      |
+| `libcrypto3`             | X      |
+| `libgcc`                 | X      |
+| `libstdc++`              | X      |
+| `libxcrypt`              | X      |
+| `ncurses`                | X      |
+| `ncurses-terminfo-base`  | X      |
+| `rabbitmq-server`        | X      |
+| `tzdata`                 | X      |
+| `wolfi-baselayout`       | X      |
+| `zlib`                   | X      |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the redis Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -45,6 +45,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `6` `6.2.14` `6.2`                         | May 30th     | `sha256:94acac80adf2ecd4a036680f218cb4e6ecc379ce0a1be0cbb34488db56b697cc` |
 |  `6.0` `6.0.20`                             | May 30th     | `sha256:0eec1a270a99685d9e611a234a17cba40dbc8ff3b097b2371ab813d5b92ed28d` |
 |  `7.0.15` `7.0`                             | May 30th     | `sha256:48e3378457ad30c0182b0633ab094860abb3d89ab59f700493351eead5474956` |
-|  `7.2.4-dev`                                | May 19th     | `sha256:c820da3a3e28da060d971eb95b30046956dc18468c7a24e409e06db857f7ce78` |
-|  `7.2.4`                                    | May 17th     | `sha256:dbc74a5de5a3f403228f1669448ce5d728817512d0420fa3ab60c2406e597154` |
 

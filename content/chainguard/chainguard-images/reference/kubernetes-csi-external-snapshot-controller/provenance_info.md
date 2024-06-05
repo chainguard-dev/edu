@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for kubernetes-csi-external-snapshot-controller Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-05-27 00:43:34
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for kubernetes-csi-external-snapshot-controller Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                                                                                                                                       |
-|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                                                                         |
-| `cgr.dev/chainguard-private` | 6, 6-dev, 6.2, 6.2-dev, 6.2.2, 6.2.2-dev, 6.3, 6.3-dev, 6.3.0, 6.3.0-dev, 6.3.1, 6.3.1-dev, 6.3.2, 6.3.2-dev, 6.3.3, 6.3.3-dev, 7, 7-dev, 7.0, 7.0-dev, 7.0.0, 7.0.0-dev, 7.0.1, 7.0.1-dev, 7.0.2, 7.0.2-dev, 8, 8-dev, 8.0, 8.0-dev, 8.0.0, 8.0.0-dev, latest, latest-dev |
+| Registry                     | Tags                                                                    |
+|------------------------------|-------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | latest, latest-dev                                                      |
+| `cgr.dev/chainguard-private` | 8, 8-dev, 8.0, 8.0-dev, 8.0.0-dev, 8.0.1, 8.0.1-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

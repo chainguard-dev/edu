@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gpu-feature-discovery Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,7 +29,6 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
 |  `latest-dev` | June 1st     | `sha256:783ce823442d919d932b017a6cc09668c471d63b0574a1deeb30790565855405` |
-|  `latest`     | May 23rd     | `sha256:78b23d8b1417c17d368432e200eb725f7cd4ce8475c0e394668717432ee179e7` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.8-dev` `0-dev` `0.8.2-dev` | June 1st     | `sha256:7eb8af1f88142dbff3870eec99c284a05f371d976ba34b660f2300281f32092d` |
-|  `0` `0.8.2` `0.8` `latest`                 | May 23rd     | `sha256:a5a002b87b23a0725d29c958a980bc75fc4ea07b6e34fcc100e4f02099912fd4` |
+|  `0.8` `latest` `0` `0.8.2`                 | June 4th     | `sha256:29dcbe89dfbb2e85cf092d31ac696cbc02b10d9b9b9b609ec6b27460a9ccba78` |
+|  `latest-dev` `0-dev` `0.8.2-dev` `0.8-dev` | June 4th     | `sha256:3af72602ecfe5ada8865cd197f2fd6fb2aa5a9522a7f7b8212ce05235a9f342e` |
 

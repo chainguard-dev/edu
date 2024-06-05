@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gptscript Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,12 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.7.1-dev` `0.7-dev` | June 1st     | `sha256:0cb8c9cf14d661ebdbb4e07c484c77b80811575519b66ee97076b60fe37ffeda` |
-|  `0.7` `0` `latest` `0.7.1`                 | May 30th     | `sha256:3c060275d268df604033f6452b6be92bdd0ba2da8eb1bf816f218f6a39b97c22` |
-|  `0.7.0-dev`                                | May 24th     | `sha256:f838c8cdfdb484b70abad25c1e04d1e8c13123cf8921f5a7071af9ea5408c4ca` |
-|  `0.7.0`                                    | May 24th     | `sha256:f26d46be20a1b758600cf60fb145ee0ba1690be2ae6c7566accdab778bad2ffc` |
-|  `0.6.0-dev` `0.6-dev`                      | May 23rd     | `sha256:779e61bc09e8f93a88e88e5d5df0a95c42f159ccf71b00361e1979f56a57e686` |
-|  `0.6` `0.6.0`                              | May 23rd     | `sha256:21d071ac28d250148926d66cfdb4e0513fe39bf9b11d64c31f8750725f5498c7` |
-|  `0.5.0-dev` `0.5-dev`                      | May 10th     | `sha256:3bc3e5c464478c933375ed4f7168c18c9428764d0be960e957a020abcd13aa1f` |
-|  `0.5` `0.5.0`                              | May 10th     | `sha256:fbf88692a1d7e1e9966d3170eb13f80a3e1460e99025371807bf3c4e492fe5a3` |
+|  `0` `0.7` `0.7.1` `latest`                 | June 4th     | `sha256:6f960cb317c2aedf0cb4c6fdb33fb03ecfb8ee4dbcba52a1771d3fd02021b815` |
+|  `0.7.1-dev` `latest-dev` `0-dev` `0.7-dev` | June 4th     | `sha256:2b43dc962a8130fca39c788e99d5ae9ed9b072a257f015c62023aa37466cc75b` |
 

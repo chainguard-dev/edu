@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the spire-oidc-discovery-provider-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,6 +35,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
 |  `1.9.6` `latest` `1.9` `1`                 | June 1st     | `sha256:c60252dae0188e8ae1acbc1326b42ee001232ee5d2622a02a6db6aff3c1ccb52` |
 |  `latest-dev` `1.9-dev` `1.9.6-dev` `1-dev` | June 1st     | `sha256:cd22990320fef721cc34a2d7ef407f1feabafb3a07d19fcf393aa70d0035e4d4` |
-|  `1.9.5-dev`                                | May 15th     | `sha256:995434273ef0981c1b402f9fe105e74fd90bd4ed972c991e13fc4cde0b3e3d8f` |
-|  `1.9.5`                                    | May 15th     | `sha256:83b40f00d7b941e53d0cfe85e260442bd0e219571b9979b18125bb1c4053fa96` |
 

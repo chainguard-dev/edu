@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-livenessprobe Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,8 +35,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |-----------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
 |  `2.11-dev` `2.11.0-dev` `2.11.0-r5-eks-1-23-33-dev` `2-eks-1-23-33-dev` `2.11.0-eks-1-23-33-dev` `2.11-eks-1-23-33-dev`                      | June 1st     | `sha256:fcf24b149abdee589835ff051492e5763f448001c38aa8f1d2a1d74f3f8ddd91` |
 |  `2.12.0-r7-eks-1-25-33-dev` `2.12.0-dev` `2.12-eks-1-25-33-dev` `latest-dev` `2.12-dev` `2.12.0-eks-1-25-33-dev` `2-dev` `2-eks-1-25-33-dev` | June 1st     | `sha256:5ef884a1ad3487d8a245cc3a195660eb1f3d9b803602892c5a13ae145b8b7ce4` |
-|  `2.12.0-r7-eks-1-25-33` `2.12-eks-1-25-33` `latest` `2.12` `2` `2.12.0-eks-1-25-33` `2-eks-1-25-33` `2.12.0`                                 | May 23rd     | `sha256:c6cffc23aed1269503a0ff68212e80e8bf61a45c314781449c68c67208b9c0f8` |
-|  `2.12.0-r6-eks-1-25-33-dev`                                                                                                                  | May 23rd     | `sha256:c6e4bca6a64a847caaacb76ad772c519e4e62dc0632a5e1e30f0c720a5c068cd` |
-|  `2.11.0` `2.11` `2-eks-1-23-33` `2.11.0-r5-eks-1-23-33` `2.11-eks-1-23-33` `2.11.0-eks-1-23-33`                                              | May 23rd     | `sha256:6b590187b1d9109939fe43117b71a29f4f12ae2bb49891773670c840ffb183c1` |
-|  `2.12.0-r6-eks-1-25-33`                                                                                                                      | May 23rd     | `sha256:dd5324899e41f120e4566a9d5d0c9748f16f603685208759dba2475c7fcdac33` |
 

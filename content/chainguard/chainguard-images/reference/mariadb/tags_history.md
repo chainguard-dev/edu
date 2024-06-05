@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mariadb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -41,6 +41,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `11.2.4-dev` `latest-dev` `11.2-dev` `11-dev` | June 1st     | `sha256:8bec5ed28661e78476c17da1aa4aeef8daa54ebed1cd0b7117dd656ededfee87` |
 |  `latest` `11` `11.2.4` `11.2`                 | May 31st     | `sha256:4d7439a140639d9159bd78548cc0105d79f9f93fe9151a46629f63fc665c2b07` |
 |  `10` `10.11` `10.11.8`                        | May 30th     | `sha256:ebc115fa6c081821b92809fead12f70f7d14e541f108c607c47b5823211dc623` |
-|  `10.11.7-dev`                                 | May 19th     | `sha256:ccfb38a644f47372439dfc591af37cd45213329b12e4ffcabe014a69f68acf8b` |
-|  `10.11.7`                                     | May 17th     | `sha256:62a05c917cd1b4693484beffd7a2cade5ef17931fc3d98243cdea1cea3cb0e70` |
 

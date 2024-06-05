@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crossplane Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,7 +29,6 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
 |  `latest-dev` | June 1st     | `sha256:8dd75bc1baf84fb3ae494f672fe7c6c2e971949e8200ffa8421c230dd70da05a` |
-|  `latest`     | May 23rd     | `sha256:d6e19238747164db697918262ceabf4939ee5e1989bf65a5a7be32e3f5896e73` |
 
 
 ### Private/Dedicated Registry
@@ -38,9 +37,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
 |  `1-dev` `1.16-dev` `latest-dev` `1.16.0-dev` | June 1st     | `sha256:7405c0a1f002a2597e280814002a057d373e9b1689480128f48a3fc0391b90a5` |
-|  `1` `1.16.0` `1.16` `latest`                 | May 23rd     | `sha256:b60b4c832cc646fe64233e2e6f9f820c8d834462b8c976ba69fb4f65e19323e6` |
-|  `1.15.3-dev` `1.15-dev`                      | May 16th     | `sha256:be7bce4238adc1ebbec4722000c7af42f2dce56adc1ea480db94c8061dc16dfd` |
-|  `1.15.3` `1.15`                              | May 16th     | `sha256:670eec9e526c77061ada7a858b544b0dbd4e7c919bafdc4c3b4011b70a7c35db` |
-|  `1.15.2`                                     | May 15th     | `sha256:201cb14ac7b905af6844fc29f2a6a2da372a36de34b9559af62b7c1b56f4800d` |
-|  `1.15.2-dev`                                 | May 15th     | `sha256:97ef80fe8a207c7cfe923c553bf6158f42be588b2767415c77a7bd3667a6284e` |
 
