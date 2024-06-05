@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-hubble-relay-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.14.9-dev` `1.14-dev`                      | June 2nd     | `sha256:eb446056e0e62af4b8a74413bc1d75c91ac0ce6c4e5daa4af6288ce562eb59d5` |
-|  `1.15.5` `latest` `1.15` `1`                 | June 2nd     | `sha256:e29007b0a79a1d392b68339a343c96871017e0d807b30d25e8a631badc86af3d` |
-|  `1.14.9` `1.14`                              | June 2nd     | `sha256:f2aa149ba093495aed40619d5b5a0b467ced96e74298c6d8473b544136ff9b66` |
-|  `1-dev` `latest-dev` `1.15.5-dev` `1.15-dev` | June 2nd     | `sha256:0254c3e914dc6c772063ea5dcdea5fa467e1bcecc5ce1ebbefb1265af7b9f83b` |
-|  `1.15.4-dev`                                 | May 24th     | `sha256:faec4f4093af19d8dd4f8d27c9da27cafd758a46649f3f39473ad5415ad1f71a` |
-|  `1.15.4`                                     | May 23rd     | `sha256:74ac6ae1e3b35e4dc8a4f7371089973334ced8c99766a67c9e85c654de5fee5d` |
+|  `1.15.5-dev` `1.15-dev` `1-dev` `latest-dev` | June 4th     | `sha256:f728e90acae9ebc54a3b4337e80f840c0844b401fa932f575f95df07ae3f4240` |
+|  `1.14.11-dev` `1.14-dev`                     | June 4th     | `sha256:91c9dad403e212e857816c93665be6b3fee122159ba82a5b8bc97983f70ae69d` |
+|  `1.14.11` `1.14`                             | June 4th     | `sha256:729466ca84dc2bfc3f354c2a73342ecd481cbb3a92615fca931308f46f21c019` |
+|  `1.15.5` `latest` `1` `1.15`                 | June 4th     | `sha256:2dac1f382dd998c81a108cc81ae8ef374f4a0a5ae03f1e3caad020784e228237` |
+|  `1.14.9-dev`                                 | June 2nd     | `sha256:eb446056e0e62af4b8a74413bc1d75c91ac0ce6c4e5daa4af6288ce562eb59d5` |
+|  `1.14.9`                                     | June 2nd     | `sha256:f2aa149ba093495aed40619d5b5a0b467ced96e74298c6d8473b544136ff9b66` |
 

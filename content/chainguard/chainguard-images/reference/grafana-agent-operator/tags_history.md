@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grafana-agent-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,10 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.41-dev` `0-dev` `latest-dev` `0.41.0-dev` | June 1st     | `sha256:4efea213817b9011b64d0984d4d36ee68c423751d79e80f140a3264772811608` |
-|  `0` `0.41.0` `latest` `0.41`                 | May 31st     | `sha256:938ead40eda2bcd0a942c73af4052e7cf4a781616aafaa6f82ddaf49cf0c5976` |
+|  `0` `0.41` `latest` `0.41.0`                 | June 4th     | `sha256:0ff7603d09f9fc61d6b62aad4fd2513e99c78da1c142f4c874d897e4780e4c41` |
+|  `0-dev` `0.41.0-dev` `latest-dev` `0.41-dev` | June 4th     | `sha256:e295679a00036d70936a0043821aacb55d8a966f46573c6cb6cbe16b8871a4be` |
 |  `0.40-dev` `0.40.5-dev`                      | May 30th     | `sha256:e7fff8ce3f6f6d09f19cfa21641a30dd5853476659e324175eb2cd9d304a46e0` |
-|  `0.40.5` `0.40`                              | May 23rd     | `sha256:7b3e55095b6da07dadec8d6c66ab58776d7cb40c926b0dc7d6a576bf54c39760` |
-|  `0.40.4-dev`                                 | May 15th     | `sha256:2e6d3e2bf332787898d7bc08562b257a63db6a1a5350c1e1664dcaf87684bd89` |
-|  `0.40.4`                                     | May 15th     | `sha256:c91e4271ce904e0bacc265b30a590e4c25c309945c1ba8e86b813e5c0d9621d4` |
 

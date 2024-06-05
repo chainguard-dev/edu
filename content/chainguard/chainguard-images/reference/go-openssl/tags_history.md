@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the go-openssl Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-04 00:50:16
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.22-dev` `latest-dev` `1-dev` `1.22.3-dev` | June 3rd     | `sha256:3eda3b1a68a406434619bceb1b2036cc71d1c1825efc9a37e0ae1068d84fb63a` |
-|  `1` `1.22` `latest` `1.22.3`                 | June 3rd     | `sha256:5730c6af866a4f3764a47381b31529db1690dacee70dcef55225c98ffd3a5d02` |
+|  `1.22` `1.22.4` `latest` `1`                 | June 4th     | `sha256:f9a3d5bc0a08be435463c4ecd26420614745823c0721b3d58b4e52e48be98520` |
+|  `1-dev` `latest-dev` `1.22-dev` `1.22.4-dev` | June 4th     | `sha256:59561052baa96a7579ba0dae750d0894ce7bc25fcc1c7317bffcdd821629c8f7` |
+|  `1.22.3-dev`                                 | June 3rd     | `sha256:3eda3b1a68a406434619bceb1b2036cc71d1c1825efc9a37e0ae1068d84fb63a` |
+|  `1.22.3`                                     | June 3rd     | `sha256:5730c6af866a4f3764a47381b31529db1690dacee70dcef55225c98ffd3a5d02` |
 

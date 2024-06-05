@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-snapshotter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | May 27th     | `sha256:319fbe5e6859094f7e92b4d6dda3a63ee7646f49c4217862afa96220d7bcd4b8` |
+|  `latest` | June 4th     | `sha256:9431ff9f8f4bc58d978d3f0c40091973c1b746f0956f12c236c850f791d8c1ea` |
 
 
 ### Private/Dedicated Registry
@@ -36,8 +36,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8.0.0-dev` `8.0-dev` `latest-dev` `8-dev` | June 1st     | `sha256:1cb5350683b2eb39761f66e5602f35cfa92036f3671dd1d8f8af68f0c5095666` |
-|  `8.0.0` `8` `8.0` `latest`                 | May 24th     | `sha256:b4ab0b290b92391251e39454e4fda62c7680af7a545f6c50f958631b0ca046e0` |
-|  `7-dev` `7.0-dev` `7.0.2-dev`              | May 23rd     | `sha256:cfbc9b92372fa098b9f3814035d1019c557a76ea790ccc5ff788eaccf9c1c295` |
-|  `7.0` `7` `7.0.2`                          | May 23rd     | `sha256:a81ca15d0bcc7006d12dd6c0dd7fd8691649e0d86938eec7fd5d0ddb53ff7eeb` |
+|  `8.0` `8` `8.0.1` `latest`                 | June 4th     | `sha256:d936516a83575a0b1bc491bef7f7892695b934356159bd937f30a316c7f5c5fb` |
+|  `8-dev` `8.0.1-dev` `8.0-dev` `latest-dev` | June 4th     | `sha256:39b718f62fe053695490234232967f917603128d925b4b877ba535a7263ec1ac` |
+|  `8.0.0-dev`                                | June 1st     | `sha256:1cb5350683b2eb39761f66e5602f35cfa92036f3671dd1d8f8af68f0c5095666` |
 

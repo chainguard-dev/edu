@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for temporal-ui-server Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-05-29 00:38:53
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for temporal-ui-server Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                                                                                                                                                             |
-|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                                                                                               |
-| `cgr.dev/chainguard-private` | 2, 2-dev, 2.23, 2.23-dev, 2.23.0, 2.23.0-dev, 2.24, 2.24-dev, 2.24.0, 2.24.0-dev, 2.25, 2.25-dev, 2.25.0, 2.25.0-dev, 2.26, 2.26-dev, 2.26.0, 2.26.0-dev, 2.26.1, 2.26.1-dev, 2.26.2, 2.26.2-dev, 2.27, 2.27-dev, 2.27.0, 2.27.0-dev, 2.27.1, 2.27.1-dev, 2.27.2, 2.27.2-dev, latest, latest-dev |
+| Registry                     | Tags                                    |
+|------------------------------|-----------------------------------------|
+| `cgr.dev/chainguard`         | latest, latest-dev                      |
+| `cgr.dev/chainguard-private` | 2-dev, 2.27-dev, 2.27.2-dev, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

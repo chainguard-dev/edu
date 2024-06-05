@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: prometheus-pushgateway-bitnami Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -34,7 +34,7 @@ Minimalist Wolfi-based [prometheus-pushgateway-bitnami](https://github.com/prome
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/prometheus-pushgateway-bitnami:latest
+docker pull cgr.dev/chainguard-private/prometheus-pushgateway-bitnami:latest
 ```
 
 

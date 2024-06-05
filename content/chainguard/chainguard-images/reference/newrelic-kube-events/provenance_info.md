@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for newrelic-kube-events Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-05-28 00:45:11
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for newrelic-kube-events Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| `cgr.dev/chainguard-private` | 1, 1-dev, 1.9, 1.9-dev, 1.9.3, 1.9.3-dev, 2, 2-dev, 2.1, 2.1.2, 2.2, 2.2.0, 2.2.12, 2.2.13, 2.2.2, 2.2.7, 2.3, 2.3.0, 2.5, 2.5-dev, 2.5.0, 2.5.0-dev, 2.6, 2.6-dev, 2.6.0, 2.6.0-dev, 2.7, 2.7-dev, 2.7.0, 2.7.0-dev, 2.7.1, 2.7.1-dev, 2.7.2, 2.7.2-dev, 2.7.3, 2.7.3-dev, 2.7.4, 2.7.4-dev, 2.8, 2.8-dev, 2.8.0, 2.8.0-dev, 2.8.1, 2.8.1-dev, 2.8.2, 2.8.2-dev, 2.9, 2.9-dev, 2.9.0, 2.9.0-dev, 2.9.1, 2.9.1-dev, 2.9.2, 2.9.2-dev, 2.9.3, 2.9.3-dev, 2.9.4, 2.9.4-dev, 2.9.5, 2.9.5-dev, 2.9.6, 2.9.6-dev, 2.9.7, 2.9.7-dev, 2.9.8, 2.9.8-dev, latest, latest-dev |
+| Registry                     | Tags                                                                                    |
+|------------------------------|-----------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | latest, latest-dev                                                                      |
+| `cgr.dev/chainguard-private` | 1-dev, 1.9-dev, 1.9.3-dev, 2, 2-dev, 2.9, 2.9-dev, 2.9.8, 2.9.8-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

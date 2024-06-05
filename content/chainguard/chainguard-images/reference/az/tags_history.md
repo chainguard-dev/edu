@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the az Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -39,6 +39,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
 |  `2-dev` `2.61-dev` `2.61.0-dev` `latest-dev` | June 1st     | `sha256:d7b3b65e1dd79a25c9fee0048b0bacef21cf3d1bccd73508f2c7d46b60d0754a` |
 |  `2` `2.61` `latest` `2.61.0`                 | May 30th     | `sha256:66367d56ae9510a31d57ca2a87c9632c226397a91392f562b9d2d0e7ed435607` |
-|  `2.60.0-dev` `2.60-dev`                      | May 19th     | `sha256:ebf4af5e8c9618e08a9d8d17cfcc446250833fd4b0fb8593179302879a9fd2b9` |
-|  `2.60.0` `2.60`                              | May 17th     | `sha256:15ef99e92cea2e3acfa4c18d8cfea77d74684109d3c2a41ef1899924a800ff2a` |
 

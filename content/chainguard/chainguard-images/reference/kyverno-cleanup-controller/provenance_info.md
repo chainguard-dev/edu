@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for kyverno-cleanup-controller Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for kyverno-cleanup-controller Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                        |
-|------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest                                                                                                                                      |
-| `cgr.dev/chainguard-private` | 1, 1.10, 1.10.0, 1.10.1, 1.10.2, 1.10.3, 1.10.4, 1.11, 1.11.0, 1.11.1, 1.11.2, 1.11.3, 1.11.4, 1.12, 1.12.0, 1.12.1, 1.12.2, 1.12.3, latest |
+| Registry                     | Tags                    |
+|------------------------------|-------------------------|
+| `cgr.dev/chainguard`         | latest                  |
+| `cgr.dev/chainguard-private` | 1, 1.12, 1.12.3, latest |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

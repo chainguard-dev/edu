@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the metacontroller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-04 00:50:16
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -40,9 +40,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `latest-dev` `4-dev` `4.11.14-dev` `4.11-dev` | June 3rd     | `sha256:747157eff534449ae119301586f27cf049452ea3ec9c3e238d9372f480089b7d` |
 |  `4` `4.11` `4.11.14` `latest`                 | June 3rd     | `sha256:7bf6fa2599fec868c71d8256af86db99a7e3af1a47ecdce0a856ca5c07d3d8b5` |
 |  `4.11.13-dev`                                 | June 1st     | `sha256:c8991cd4533dd5b5dce662ec4bb8fba9383210edd6e82545041b1b1014da36bc` |
-|  `4.11.13`                                     | May 23rd     | `sha256:277f6c23162454a6c34f94dbc227cfc38758cc5dec3d8f1ad4aab2b28b4abd5b` |
-|  `4.11.12-dev`                                 | May 22nd     | `sha256:a9c3e18943df799acc9d57726116d5a1c8a846d76f8f34a9629b339f68ccf467` |
-|  `4.11.12`                                     | May 21st     | `sha256:728a0a0342065b5c69e856518f1d0ad5a2ec9be3905af090864ddc55c2a5059b` |
-|  `4.11.11-dev`                                 | May 7th      | `sha256:b80237e605b8495989c5cbcb62ce9be9f31a1f576f9551af4a5679a150c67b00` |
-|  `4.11.11`                                     | May 7th      | `sha256:f0497a298dae653bc7f3389d74666938e3e5f8186ee1a7e4c893d7b5633c28b5` |
 

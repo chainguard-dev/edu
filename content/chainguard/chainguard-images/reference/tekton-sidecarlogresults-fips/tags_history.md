@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-sidecarlogresults-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,8 +35,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
 |  `0.60.1-dev` `latest-dev` `0.60-dev` `0-dev` | June 1st     | `sha256:c1fe7752df4aacb1bb19fea7c8cba9849f9f546d368d704fc693ea8d9b53423e` |
 |  `0.60` `0` `0.60.1` `latest`                 | June 1st     | `sha256:06229204808e55dddb245a8546b07c8604ea18077092a67c4506b90722589f4b` |
-|  `0.60.0-dev`                                 | May 24th     | `sha256:66806ca3122cc421f6bffe077cba68fc012694e83d9a54b562e3b5a3b0129050` |
-|  `0.60.0`                                     | May 23rd     | `sha256:fc4c07a0add028916d6d703822614fb198a1762c3448675004e56fff2487eb5e` |
-|  `0.59.0-dev` `0.59-dev`                      | May 22nd     | `sha256:3090de854fe8dcb207c73ed9a73447caeae5de5d4cce690442988c8681932728` |
-|  `0.59` `0.59.0`                              | May 21st     | `sha256:897018f66a61a18cfd5323728a9829a0d335942f60c0d6f23c67c87ce0e9fc97` |
 

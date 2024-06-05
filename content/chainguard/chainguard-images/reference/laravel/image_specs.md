@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public laravel Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -21,96 +21,83 @@ toc: true
 
 This page shows detailed information about the Chainguard **laravel** Image.
 
-|              | latest-dev     | latest         |
-|--------------|----------------|----------------|
-| Default User | `php`          | `php`          |
-| Entrypoint   | Service Bundle | Service Bundle |
-| CMD          | not specified  | not specified  |
-| Workdir      | `/app`         | `/app`         |
-| Has apk?     | yes            | no             |
-| Has a shell? | yes            | no             |
+|              | latest         |
+|--------------|----------------|
+| Default User | `php`          |
+| Entrypoint   | Service Bundle |
+| CMD          | not specified  |
+| Workdir      | `/app`         |
+| Has apk?     | no             |
+| Has a shell? | no             |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/laravel/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                             | latest-dev | latest |
-|-----------------------------|------------|--------|
-| `apk-tools`                 | X          |        |
-| `bash`                      | X          |        |
-| `busybox`                   | X          |        |
-| `ca-certificates`           | X          | X      |
-| `ca-certificates-bundle`    | X          | X      |
-| `chainguard-baselayout`     | X          | X      |
-| `composer`                  | X          |        |
-| `curl`                      | X          | X      |
-| `execline`                  | X          | X      |
-| `git`                       | X          |        |
-| `glibc`                     | X          | X      |
-| `glibc-locale-posix`        | X          | X      |
-| `ld-linux`                  | X          | X      |
-| `libbrotlicommon1`          | X          | X      |
-| `libbrotlidec1`             | X          | X      |
-| `libcrypt1`                 | X          |        |
-| `libcrypto3`                | X          | X      |
-| `libcurl-openssl4`          | X          | X      |
-| `libexpat1`                 | X          |        |
-| `libidn2`                   | X          | X      |
-| `libnghttp2-14`             | X          | X      |
-| `libpcre2-8-0`              | X          |        |
-| `libpsl`                    | X          | X      |
-| `libsodium`                 | X          | X      |
-| `libssl3`                   | X          | X      |
-| `libunistring`              | X          | X      |
-| `libxcrypt`                 | X          |        |
-| `libxml2`                   | X          | X      |
-| `ncurses`                   | X          | X      |
-| `ncurses-terminfo-base`     | X          | X      |
-| `oniguruma`                 | X          | X      |
-| `openssl-config`            | X          |        |
-| `php-8.2`                   | X          | X      |
-| `php-8.2-config`            | X          | X      |
-| `php-8.2-ctype`             | X          | X      |
-| `php-8.2-ctype-config`      | X          | X      |
-| `php-8.2-curl`              | X          | X      |
-| `php-8.2-curl-config`       | X          | X      |
-| `php-8.2-dom`               | X          | X      |
-| `php-8.2-dom-config`        | X          | X      |
-| `php-8.2-fileinfo`          | X          | X      |
-| `php-8.2-fileinfo-config`   | X          | X      |
-| `php-8.2-fpm`               | X          | X      |
-| `php-8.2-fpm-config`        | X          | X      |
-| `php-8.2-iconv`             | X          | X      |
-| `php-8.2-iconv-config`      | X          | X      |
-| `php-8.2-mbstring`          | X          | X      |
-| `php-8.2-mbstring-config`   | X          | X      |
-| `php-8.2-mysqlnd`           | X          | X      |
-| `php-8.2-mysqlnd-config`    | X          | X      |
-| `php-8.2-openssl`           | X          | X      |
-| `php-8.2-openssl-config`    | X          | X      |
-| `php-8.2-pdo`               | X          | X      |
-| `php-8.2-pdo-config`        | X          | X      |
-| `php-8.2-pdo_mysql`         | X          | X      |
-| `php-8.2-pdo_mysql-config`  | X          | X      |
-| `php-8.2-pdo_sqlite`        | X          | X      |
-| `php-8.2-pdo_sqlite-config` | X          | X      |
-| `php-8.2-phar`              | X          | X      |
-| `php-8.2-phar-config`       | X          | X      |
-| `php-8.2-simplexml`         | X          | X      |
-| `php-8.2-simplexml-config`  | X          | X      |
-| `php-8.2-sodium`            | X          | X      |
-| `php-8.2-sodium-config`     | X          | X      |
-| `php-8.2-xml`               | X          | X      |
-| `php-8.2-xml-config`        | X          | X      |
-| `php-8.2-xmlwriter`         | X          |        |
-| `php-8.2-xmlwriter-config`  | X          |        |
-| `readline`                  | X          | X      |
-| `s6`                        | X          | X      |
-| `skalibs`                   | X          | X      |
-| `sqlite-libs`               | X          | X      |
-| `wget`                      | X          |        |
-| `wolfi-baselayout`          | X          | X      |
-| `xz`                        | X          | X      |
-| `zlib`                      | X          | X      |
+|                             | latest |
+|-----------------------------|--------|
+| `ca-certificates`           | X      |
+| `ca-certificates-bundle`    | X      |
+| `chainguard-baselayout`     | X      |
+| `curl`                      | X      |
+| `execline`                  | X      |
+| `glibc`                     | X      |
+| `glibc-locale-posix`        | X      |
+| `ld-linux`                  | X      |
+| `libbrotlicommon1`          | X      |
+| `libbrotlidec1`             | X      |
+| `libcrypto3`                | X      |
+| `libcurl-openssl4`          | X      |
+| `libidn2`                   | X      |
+| `libnghttp2-14`             | X      |
+| `libpsl`                    | X      |
+| `libsodium`                 | X      |
+| `libssl3`                   | X      |
+| `libunistring`              | X      |
+| `libxml2`                   | X      |
+| `ncurses`                   | X      |
+| `ncurses-terminfo-base`     | X      |
+| `oniguruma`                 | X      |
+| `php-8.2`                   | X      |
+| `php-8.2-config`            | X      |
+| `php-8.2-ctype`             | X      |
+| `php-8.2-ctype-config`      | X      |
+| `php-8.2-curl`              | X      |
+| `php-8.2-curl-config`       | X      |
+| `php-8.2-dom`               | X      |
+| `php-8.2-dom-config`        | X      |
+| `php-8.2-fileinfo`          | X      |
+| `php-8.2-fileinfo-config`   | X      |
+| `php-8.2-fpm`               | X      |
+| `php-8.2-fpm-config`        | X      |
+| `php-8.2-iconv`             | X      |
+| `php-8.2-iconv-config`      | X      |
+| `php-8.2-mbstring`          | X      |
+| `php-8.2-mbstring-config`   | X      |
+| `php-8.2-mysqlnd`           | X      |
+| `php-8.2-mysqlnd-config`    | X      |
+| `php-8.2-openssl`           | X      |
+| `php-8.2-openssl-config`    | X      |
+| `php-8.2-pdo`               | X      |
+| `php-8.2-pdo-config`        | X      |
+| `php-8.2-pdo_mysql`         | X      |
+| `php-8.2-pdo_mysql-config`  | X      |
+| `php-8.2-pdo_sqlite`        | X      |
+| `php-8.2-pdo_sqlite-config` | X      |
+| `php-8.2-phar`              | X      |
+| `php-8.2-phar-config`       | X      |
+| `php-8.2-simplexml`         | X      |
+| `php-8.2-simplexml-config`  | X      |
+| `php-8.2-sodium`            | X      |
+| `php-8.2-sodium-config`     | X      |
+| `php-8.2-xml`               | X      |
+| `php-8.2-xml-config`        | X      |
+| `readline`                  | X      |
+| `s6`                        | X      |
+| `skalibs`                   | X      |
+| `sqlite-libs`               | X      |
+| `wolfi-baselayout`          | X      |
+| `xz`                        | X      |
+| `zlib`                      | X      |
 

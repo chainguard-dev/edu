@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for aws-cli-v2-fips Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for aws-cli-v2-fips Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| `cgr.dev/chainguard-private` | 2, 2-dev, 2.15, 2.15-dev, 2.15.34, 2.15.34-dev, 2.15.35, 2.15.35-dev, 2.15.36, 2.15.36-dev, 2.15.37, 2.15.37-dev, 2.15.38, 2.15.38-dev, 2.15.39, 2.15.39-dev, 2.15.40, 2.15.40-dev, 2.15.41, 2.15.41-dev, 2.15.42, 2.15.42-dev, 2.15.43, 2.15.43-dev, 2.15.44, 2.15.44-dev, 2.15.45, 2.15.45-dev, 2.15.46, 2.15.46-dev, 2.15.47, 2.15.47-dev, 2.15.48, 2.15.48-dev, 2.15.49, 2.15.49-dev, 2.15.52, 2.15.52-dev, 2.15.53, 2.15.53-dev, 2.15.54, 2.15.54-dev, 2.15.55, 2.15.55-dev, 2.15.56, 2.15.56-dev, 2.15.57, 2.15.57-dev, 2.15.58, 2.15.58-dev, 2.15.59, 2.15.59-dev, 2.15.60, 2.15.60-dev, 2.15.61, 2.15.61-dev, 2.15.62, 2.15.62-dev, latest, latest-dev |
+| Registry                     | Tags                                                                                                                                               |
+|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                                       |
+| `cgr.dev/chainguard-private` | 2, 2-dev, 2.15, 2.15-dev, 2.15.60, 2.15.60-dev, 2.15.61, 2.15.61-dev, 2.15.62, 2.15.62-dev, 2.16, 2.16-dev, 2.16.0, 2.16.0-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

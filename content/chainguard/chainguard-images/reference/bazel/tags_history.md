@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the bazel Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -43,8 +43,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `latest-dev` `7.1-dev` `7.1.2-dev` `7-dev` | June 1st     | `sha256:cac198f6136c742e2e5e79afec28e7444f6a22e08999d3a7da84e66b4602cad7` |
 |  `6` `6.5.0` `6.5`                          | June 1st     | `sha256:2146c02a3d940778006dbeda6aef7186ce4fb8ec30163905550d58dec08579aa` |
 |  `5.4.1` `5` `5.4`                          | June 1st     | `sha256:c12de5a6584d766edd75fc6e08cb4bfd9005b8129b0d91b7cd7ebf8883f6c2f7` |
-|  `7.1.1`                                    | May 9th      | `sha256:14417579783d4513144a3ed611a6b3dbb2c5cc51453ad7c11cf3cdb595d737b2` |
-|  `7.1.1-dev`                                | May 9th      | `sha256:cdd252e8dac5c1ceccfa2b49bb2279867f4c5686a559e40122327b9b37a114f7` |
-|  `6.2.0`                                    | June 2nd     | `sha256:ba470fbd15c736353c8a3271a141b1dba02238004fbb51e5611a69e29be0950d` |
-|  `6.1.2` `6.1`                              | May 22nd     | `sha256:eed2d4f320442b1498ee44dc54efd331844d9e2c7ec1a2ff0458bd2762172d0c` |
 

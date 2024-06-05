@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opensearch-dashboards Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -39,6 +39,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
 |  `2.14-dev` `2.14.0-dev` `2-dev` `latest-dev` | June 1st     | `sha256:c0f97e43e940707a44958fc1888e350550149c9bfaa335174c80007629b4b640` |
 |  `2.14` `latest` `2.14.0` `2`                 | May 30th     | `sha256:d387f1b43af569b5660d1147001cc9b5f6ccbc6da9eabce1572b4a77a16353a1` |
-|  `2.13.0-dev` `2.13-dev`                      | May 24th     | `sha256:d41ee7b66fb3ac22ca5ef7d10f4b75d94bc708654b45260ed821a5376e0bcbf5` |
-|  `2.13.0` `2.13`                              | May 24th     | `sha256:4a8186871edae52b290990171e209d43585328e83932d24de2404e83fc3717a0` |
 

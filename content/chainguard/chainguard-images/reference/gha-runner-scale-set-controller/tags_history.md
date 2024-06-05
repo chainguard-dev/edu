@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gha-runner-scale-set-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,7 +29,6 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
 |  `latest-dev` | June 1st     | `sha256:f5c5018b588c0525222e2ac2e8be58d395edc92f13d01db4dbda9b7223df839b` |
-|  `latest`     | May 23rd     | `sha256:42f2424a986460d135d81dcd00b3fb734aae0ed9c575ff1530983d5fb639d797` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.9-dev` `0.9.2-dev` `0-dev` `latest-dev` | June 1st     | `sha256:77c92e62ad14bb63c67dba1938abdacf53a33dd89081c37c9f2b76f3cdcf33d5` |
-|  `0.9.2` `latest` `0.9` `0`                 | May 23rd     | `sha256:81cae510716bcca09ed4813c97c61e8db7807d0911ea584951462cd7a9b1375f` |
-|  `0.9.1-dev`                                | May 19th     | `sha256:137a5469832cec22924544b3ac6cdc69f09200d5814d5f4b9995f961ab0d0e69` |
-|  `0.9.1`                                    | May 17th     | `sha256:0ffeb88c2e2b90f11d91dc2afadc595a0956b1f7fb25d06ad551fd66f43fe302` |
+|  `0.9.2` `0.9` `0` `latest`                 | June 4th     | `sha256:f715305ade4978c54373fb03de3aaff6c6a7e63e7ec191a5abdab50fa6dddb91` |
+|  `latest-dev` `0.9-dev` `0.9.2-dev` `0-dev` | June 4th     | `sha256:ddb87736cf16aadbd2e84643f2fafc16a8f25a4e3c866b8493abcb9ff667e555` |
 

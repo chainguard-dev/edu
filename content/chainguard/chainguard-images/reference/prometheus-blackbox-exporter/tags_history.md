@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-blackbox-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,7 +29,6 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
 |  `latest-dev` | June 1st     | `sha256:59b70738850906db2a3fa33657d91feed30071f9d6658bee875aca9fa8383ddd` |
-|  `latest`     | May 23rd     | `sha256:dcb9048e92641e4119fbedbd2e6c31231d19bd328416abe9a777b7991b22aafc` |
 
 
 ### Private/Dedicated Registry
@@ -38,5 +37,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
 |  `latest-dev` `0.25.0-dev` `0-dev` `0.25-dev` | June 1st     | `sha256:342f698127ab4bac985a2e2006867be6d18e7bd03edcb6bc39593e625f2ef778` |
-|  `0` `0.25` `latest` `0.25.0`                 | May 23rd     | `sha256:5d45132bf7a97a500aee2b650d700a385c958c05b53eee06a55df72ac9699dc5` |
 

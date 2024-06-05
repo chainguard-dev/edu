@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the busybox Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,18 +26,12 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)         | Last Changed | Digest                                                                    |
-|-----------------|--------------|---------------------------------------------------------------------------|
-|  `latest`       | June 2nd     | `sha256:c74efaa7e158006d0cab2b467824ca86754ef3a6af18d80790d862e942e1ca86` |
-|  `latest-glibc` | May 23rd     | `sha256:b1f74c11872f030ad7c37d10e45b8e214c45c5adcaf89278460193f1243b9cf4` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | June 2nd     | `sha256:c74efaa7e158006d0cab2b467824ca86754ef3a6af18d80790d862e942e1ca86` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                                                            | Last Changed | Digest                                                                    |
-|------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-glibc` `glibc-1.36.1` `glibc-1.36` `glibc-1` `1.36.1` `1.36` `latest` `1` | May 23rd     | `sha256:68d189d2bbc9bfe11336f0e21d412975826b427f8133d08adba36b690dcf935d` |
-|  `glibc-1.36.0`                                                                    | May 26th     | `sha256:aa5f8fbd8ad3113b8a2204d27f9aed9146129fd72973627034f23a12bc757e14` |
-|  `1.36.0`                                                                          | May 25th     | `sha256:40044e903ed084cfd16575da98578f8a3062e1a28aa5841ba19b9ed53da0ae92` |
-
+Currently, there are no Production versions of this image available.

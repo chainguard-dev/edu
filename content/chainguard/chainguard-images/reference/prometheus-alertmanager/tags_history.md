@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-alertmanager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-04 00:50:16
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 3rd     | `sha256:42fd1bd90f2b425de841a509e2eb997b9e864479d211667aafee548b068f5ae3` |
-|  `latest-dev` | June 3rd     | `sha256:2fb567800effa972d542493807dd16c34c2289f01dd867c5111460e3963cfd55` |
+|  `latest`     | June 4th     | `sha256:42fd1bd90f2b425de841a509e2eb997b9e864479d211667aafee548b068f5ae3` |
+|  `latest-dev` | June 4th     | `sha256:2fb567800effa972d542493807dd16c34c2289f01dd867c5111460e3963cfd55` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.27-dev` `latest-dev` `0-dev` `0.27.0-dev` | June 3rd     | `sha256:35fd0056dc66ca3152be6ff39fbd4a46d618c7fffffda4a6a8b4b70905f575e8` |
-|  `0` `0.27` `latest` `0.27.0`                 | June 3rd     | `sha256:33329d7c53d481f332a3a0cdb4de63068b5244747170d16d90208af975af4f06` |
+|  `0.27-dev` `latest-dev` `0.27.0-dev` `0-dev` | June 5th     | `sha256:35fd0056dc66ca3152be6ff39fbd4a46d618c7fffffda4a6a8b4b70905f575e8` |
+|  `0` `latest` `0.27` `0.27.0`                 | June 5th     | `sha256:33329d7c53d481f332a3a0cdb4de63068b5244747170d16d90208af975af4f06` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for kubernetes-dns-node-cache Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-04 00:50:16
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for kubernetes-dns-node-cache Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                                                                 |
-|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest                                                                                                                                                                                               |
-| `cgr.dev/chainguard-private` | 1, 1-dev, 1.17, 1.17-dev, 1.17.0, 1.17.0-dev, 1.17.4, 1.17.4-dev, 1.22, 1.22-dev, 1.22.20, 1.22.27, 1.22.28, 1.22.28-dev, 1.23, 1.23-dev, 1.23.0, 1.23.0-dev, 1.23.1, 1.23.1-dev, latest, latest-dev |
+| Registry                     | Tags                                                                         |
+|------------------------------|------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | latest                                                                       |
+| `cgr.dev/chainguard-private` | 1, 1-dev, 1.23, 1.23-dev, 1.23.0-dev, 1.23.1, 1.23.1-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

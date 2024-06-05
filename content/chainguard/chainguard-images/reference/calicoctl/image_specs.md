@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public calicoctl Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -21,27 +21,20 @@ toc: true
 
 This page shows detailed information about the Chainguard **calicoctl** Image.
 
-|              | latest               |
-|--------------|----------------------|
-| Default User | `nonroot`            |
-| Entrypoint   | `/usr/bin/calicoctl` |
-| CMD          | not specified        |
-| Workdir      | not specified        |
-| Has apk?     | no                   |
-| Has a shell? | no                   |
+|              |
+|--------------|
+| Default User |
+| Entrypoint   |
+| CMD          |
+| Workdir      |
+| Has apk?     |
+| Has a shell? |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/calicoctl/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                          | latest |
-|--------------------------|--------|
-| `ca-certificates-bundle` | X      |
-| `calicoctl`              | X      |
-| `chainguard-baselayout`  | X      |
-| `glibc`                  | X      |
-| `glibc-locale-posix`     | X      |
-| `ld-linux`               | X      |
-| `wolfi-baselayout`       | X      |
+|  |
+|--|
 

@@ -3,8 +3,8 @@ title: "harbor-trivy-adapter-fips Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public harbor-trivy-adapter-fips Chainguard Image."
-date: 2024-05-03 00:45:55
-lastmod: 2024-05-03 00:45:55
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -64,7 +64,7 @@ The table shows package distribution across variants.
 | `ncurses-terminfo-base`       | X          |        |
 | `openssl-config-fipshardened` | X          | X      |
 | `openssl-provider-fips`       | X          | X      |
-| `trivy`                       | X          | X      |
+| `trivy-fips`                  | X          | X      |
 | `wget`                        | X          |        |
 | `wolfi-baselayout`            | X          | X      |
 | `zlib`                        | X          |        |

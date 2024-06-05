@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gatekeeper Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -44,7 +44,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `3.16.3-dev` `3.16-dev` `3-dev` `latest-dev` | June 1st     | `sha256:e71f1fcb5ac478e4e910d1c597ba5487542af4e337ec733ac39ac38967cdee8e` |
 |  `3.14.1-dev` `3.14-dev`                      | June 1st     | `sha256:723316c4f20144084c8498a6d0e307fd9124344942b7fd423caf47e3d2a46712` |
 |  `3` `3.16.3` `latest` `3.16`                 | May 31st     | `sha256:fae5f0c1f6b37d5929f518f933111eecbdf99cbb08b7b1efce4f15608930ea92` |
-|  `3.13.4` `3.13`                              | May 23rd     | `sha256:1a015091cc3bbddcfdcad787e0f8465950ebfa5e13e174657fa56fa4a9cc811d` |
-|  `3.12` `3.12.0`                              | May 23rd     | `sha256:20c31059e0b3677227fe6e441d742ed16e7b96278e610dce1290c42aaad1929e` |
-|  `3.14.1` `3.14`                              | May 23rd     | `sha256:149be9c2a6f16e05168eed28b2aaf7f9654438e2d2018d7cfd4696ba446f33f3` |
 

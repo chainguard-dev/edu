@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-db-manager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,7 +29,6 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
 |  `latest-dev` | June 1st     | `sha256:b414cbe22508315b0a43cb62c7919f21e80fcf35c48428397c0b192ec9d2692a` |
-|  `latest`     | May 23rd     | `sha256:4397ccdad15d0ce89b85cdaa4ccdaa2f5238f63c916c53b4c836ac10aa5fd8be` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16-dev` `0.16.0-dev` `0-dev` `latest-dev` | June 1st     | `sha256:81dfecee094caf60d8b96f128e7e5ecdf1ba1c78bbf8224eda7f176c22d349ee` |
-|  `latest` `0` `0.16` `0.16.0`                 | May 23rd     | `sha256:198125ed3ee81ac142b71d49f9537c81658fd34ea48efeb27b0806eb622447b0` |
+|  `0` `0.16.0` `0.16` `latest`                 | June 4th     | `sha256:e312445407e9301f9989049379e4f8cdcbe08cf9e410e4ceb2c3b5964b2b9ecc` |
+|  `0.16-dev` `0-dev` `latest-dev` `0.16.0-dev` | June 4th     | `sha256:12456f6822019e8c39443c1ce973718c8fe70caa86dbb6d0cd85677d6068c9fe` |
 

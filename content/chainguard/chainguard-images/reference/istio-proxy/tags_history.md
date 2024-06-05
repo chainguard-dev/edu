@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the istio-proxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -40,7 +40,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.21.2-dev` `1.21-dev`                      | June 1st     | `sha256:c2339157cae01e50d4898884e50b4c2107f42f3a5cdc1851862bbdf9654d9d20` |
 |  `1.20-dev` `1.20.6-dev`                      | June 1st     | `sha256:5c19732dd62212bd21779024b6f2e105641f1af9d7e23f96a687d30b8f12bf4f` |
 |  `1-dev` `latest-dev` `1.22.0-dev` `1.22-dev` | June 1st     | `sha256:d3bc78594bff542c5e3c2a9bb400d798927b44bc25f1921161100aed64795fe5` |
-|  `latest` `1` `1.22` `1.22.0`                 | May 24th     | `sha256:ebf2420fa95f9fe5e4f62c61b332da2b7be8a9666cc6aafa9236941591948542` |
-|  `1.20.6` `1.20`                              | May 24th     | `sha256:35bb701c11b50c14f9f4d7f3b1d968bed4f05aeb61d2b0081909e8d9a0cf3877` |
-|  `1.21.2` `1.21`                              | May 24th     | `sha256:37a5306e1da19ba22592c3eb2cf76de6b30d9a978ecf39dd167c707e3e01635f` |
 
