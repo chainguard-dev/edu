@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grafana-rollout-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,7 +29,6 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
 |  `latest-dev` | June 1st     | `sha256:5add7ee43cadc5d816dd6292d9430f30d714e0eaa3a849a48ae84b7386fb2f9c` |
-|  `latest`     | May 23rd     | `sha256:9a9c37dc7a127710ab2ff7fa346c4abbad2d8e483e6511833595bfb3af14090e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.14.0-dev` `latest-dev` `0-dev` `0.14-dev` | June 1st     | `sha256:a651459b4ae319545c152dbc688642f90a8c1c594e939186eae867d7e10571d4` |
-|  `latest` `0.14.0` `0.14` `0`                 | May 23rd     | `sha256:69383373d04b170d2adcd38a626d779a1f83a93e90848d7db2e78ad0f12666e2` |
+|  `0-dev` `latest-dev` `0.14.0-dev` `0.14-dev` | June 4th     | `sha256:53d2ee606ea8596209b6a28febc4c1ea06a3c6ca48144e37b78fbe6c12eb556a` |
+|  `0.14` `0.14.0` `latest` `0`                 | June 4th     | `sha256:754049d47821a21b92d2cd512b300209a17147598cf57751ebad673f8bb581f9` |
 

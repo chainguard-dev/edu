@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the envoy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -40,7 +40,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.27-dev` `1.27.5-dev`                      | June 1st     | `sha256:bfc563ec7766df52e44b070dbc585f76634473bc003937e7b18f7414cdeaf339` |
 |  `latest-dev` `1-dev` `1.29.4-dev` `1.29-dev` | June 1st     | `sha256:c6d34a08e1ca1883e51cb79c2b844fff3a4758aa22f889cc05868b9028f3e493` |
 |  `1.28.3-dev` `1.28-dev`                      | June 1st     | `sha256:8f4614e18f43da07f4a0eaee2a4d3ff891de2ad67952037c153b2522bf179330` |
-|  `1.27.5` `1.27`                              | May 24th     | `sha256:c354b7ff6dfeeb900faf8f9c08728f9d281a5ccee81999d1083261499debc983` |
-|  `1` `latest` `1.29` `1.29.4`                 | May 24th     | `sha256:34b277454b2d5d3d12b6862c70d54f16f0ec98ccf1454d1bca3d31705ccb0982` |
-|  `1.28` `1.28.3`                              | May 24th     | `sha256:ed70d81676e07a808d4fd227d2a612711c5282bb80eae0c8840e9a0564e6dd81` |
 

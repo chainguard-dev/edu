@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,8 +35,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
 |  `3-eks-1-23-33-dev` `3.6-dev` `3-dev` `3.6-eks-1-23-33-dev` `3.6.0-eks-1-23-33-dev` `3.6.0-dev` `3.6.0-r6-eks-1-23-33-dev`              | June 1st     | `sha256:24e064567034a37b63e4115fcf84befb549c641bf7c3bce80dba302331cc821a` |
 |  `4.0.0-r6-eks-1-25-33-dev` `4.0-eks-1-25-33-dev` `4.0-dev` `4-dev` `latest-dev` `4.0.0-eks-1-25-33-dev` `4-eks-1-25-33-dev` `4.0.0-dev` | June 1st     | `sha256:40ee851a91a68fc461b8c1b29c7427b0c356efa19f194bdf465e31a466f8fa9d` |
-|  `4.0.0-r6-eks-1-25-33` `4` `latest` `4.0.0-eks-1-25-33` `4.0-eks-1-25-33` `4.0` `4-eks-1-25-33` `4.0.0`                                 | May 23rd     | `sha256:9fa5af7d6eb676fc40105d3e2c5ed69ba57dd92d1c77d88d1f9365788d43f157` |
-|  `4.0.0-r5-eks-1-25-33-dev`                                                                                                              | May 23rd     | `sha256:abf1df0350bc81764eae51b3b0344c4782a8f814a01827b6766f6d3fa6c099d8` |
-|  `3.6.0-r6-eks-1-23-33` `3-eks-1-23-33` `3` `3.6` `3.6.0-eks-1-23-33` `3.6.0` `3.6-eks-1-23-33`                                          | May 23rd     | `sha256:dd26aaff7972eb8ac4948c28a9b1aaa882f3f37d61082c2947d883729bc5f87e` |
-|  `4.0.0-r5-eks-1-25-33`                                                                                                                  | May 23rd     | `sha256:cd26963404d8bc600fc769f6649fcbaf1c9539731d5dafa1ed74eb85aad7abc7` |
 

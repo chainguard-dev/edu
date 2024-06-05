@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the helm-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,7 +29,6 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
 |  `latest-dev` | June 1st     | `sha256:7305af9828fa350f3e368d898a4317992d12699bfb92d2ab4707a5d12dd2b3ba` |
-|  `latest`     | May 23rd     | `sha256:f975f40df2e9baa6fb58fe98503c99a176f5244c45dc4023fda28cd992ef3a16` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.34.2-dev` `1.34-dev` | June 1st     | `sha256:a36a705d4ef07ebc3eee867d4f712b6a13884a62bf0107a26c3b8a395a7c029e` |
-|  `1` `latest` `1.34.2` `1.34`                 | May 23rd     | `sha256:eace5964ad5e631db21711b2ba5cd6bea51650ef4614137e1e7f84ea510171a8` |
-|  `1.34.1-dev`                                 | May 15th     | `sha256:dff611e943370ac4421d05173af8dcb62a2a9fdc7d3945415e2d99b189f5ecf1` |
-|  `1.34.1`                                     | May 15th     | `sha256:83c2a038d6e1f68adab1203e762aab26bb02e66f3d48f4fac1933126f388282e` |
+|  `1` `1.34.2` `1.34` `latest`                 | June 4th     | `sha256:ae748384c6513e090c4167f9694e67b89837d8b64e41fc39e81a92eff7af2c41` |
+|  `1.34-dev` `latest-dev` `1.34.2-dev` `1-dev` | June 4th     | `sha256:9e1900ebf040b96f619283d33b16b2e8b35cfcb6756928751d508365e72eb3e9` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the redis-sentinel-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,9 +26,7 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s) | Last Changed | Digest |
-|---------|--------------|--------|
-
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
@@ -41,6 +39,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `latest` `7.2.5` `7.2` `7`                 | May 30th     | `sha256:e7e3a832fb28e8a8bfc87946509b9af440891d0cb575f1b103bd87a1b042d0a9` |
 |  `7.0.15` `7.0`                             | May 30th     | `sha256:bdd9510d6587e68c31001b6c86da87fefb466f583abee219dc114a9ffc1cd657` |
 |  `6.2` `6` `6.2.14`                         | May 30th     | `sha256:69dd07233dd051a265d60e55425859c4e1bf2623b1bbd75b2cb0292142e82187` |
-|  `7.2.4-dev`                                | May 19th     | `sha256:65c0ad5e156d20ac493569bb9007aef9549c405f546fd1f8ae433d80e010ff99` |
-|  `7.2.4`                                    | May 17th     | `sha256:13abc645d17ac79ea39cad2de812f183116d70f3cb3600796c3f16bd41434399` |
 

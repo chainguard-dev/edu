@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for newrelic-prometheus Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-05-16 00:37:58
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for newrelic-prometheus Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                                                                                                 |
-|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                                   |
-| `cgr.dev/chainguard-private` | 2, 2-dev, 2.18, 2.18-dev, 2.18.4, 2.18.5, 2.18.7, 2.18.7-dev, 2.19, 2.19-dev, 2.19.0, 2.19.0-dev, 2.20, 2.20-dev, 2.20.1, 2.20.1-dev, 2.21, 2.21-dev, 2.21.0, 2.21.0-dev, 2.21.1, 2.21.1-dev, 2.21.2, 2.21.2-dev, latest, latest-dev |
+| Registry                     | Tags                                    |
+|------------------------------|-----------------------------------------|
+| `cgr.dev/chainguard`         | latest-dev                              |
+| `cgr.dev/chainguard-private` | 2-dev, 2.21-dev, 2.21.2-dev, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

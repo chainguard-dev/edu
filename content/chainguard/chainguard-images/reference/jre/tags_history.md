@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jre Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -53,10 +53,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `openjdk-16.0` `openjdk-16` `openjdk-16.0.2` `openjdk-16.0.2.7`                   | May 30th     | `sha256:71ee530229bada5de058ca101b291d484141ef82e952b59b5b5e0b11cd9ddf96` |
 |  `openjdk-21` `openjdk-21.0.3` `openjdk-21.0`                                      | May 30th     | `sha256:f11df5872f9f4ec0cf52fd861ce04a8a6ff6c7a8dee9681cc083854d5aa16319` |
 |  `openjdk-8.412.08` `openjdk-8` `openjdk-8.412`                                    | May 30th     | `sha256:4300e16b46d94df59645b51fbdf9d689ac0fcb25a7f58e513c5813c9f3ccc44f` |
-|  `openjdk-8.392` `openjdk-8.392.08`                                                | May 24th     | `sha256:bee10fb31837f16c5619ab12bd23f4306aca19ccc0b9bcbe56414e409bf4df2c` |
-|  `openjdk-8.392-dev` `openjdk-8.392.08-dev`                                        | May 24th     | `sha256:6b4e5dbd3bd694eb6e7e092b52b90a93912a07a68f83949a1f9dbf7f86345aed` |
-|  `openjdk17.0.7.7-dev` `openjdk17.0.7-dev`                                         | May 24th     | `sha256:7ae7e3f4fd4d3ed8dc5079df0f2a3d8f5eb7a0bbb299c43b26087d0a0e606491` |
-|  `openjdk17.0.7.7` `openjdk17.0.7`                                                 | May 24th     | `sha256:987c691df173a241a4398d60014a6f061e007e4323f19d9c487b95c7623dfeaa` |
-|  `openjdk11.0.19.5` `openjdk11.0.19`                                               | May 16th     | `sha256:677dee78db811af812e1bb2bd33c1f247a5a4e0418169c194d965fc618768bba` |
-|  `openjdk11.0.19.5-dev` `openjdk11.0.19-dev`                                       | May 16th     | `sha256:30327ab04c691b2d4f2bfa4391531384ea89b4e204cc65b90eee78a5cbc83156` |
 

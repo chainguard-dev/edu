@@ -1,3 +1,15 @@
+# 2024-06-05
+New images added:
+
+- calico-apiserver-fips
+- neuvector-controller
+- neuvector-enforcer
+- neuvector-manager
+- neuvector-updater
+- nvidia-gpu-driver
+
+A total of **1367** documents were updated.
+
 # 2024-06-04
 
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the redis-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -39,6 +39,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `6` `6.2.14` `6.2`                         | May 30th     | `sha256:24d74710cb2a66678606012cd3821507605c8bf593dec50d7c17964caefb2708` |
 |  `latest` `7` `7.2` `7.2.5`                 | May 30th     | `sha256:535d26cbcc0ebd0ddd1ca5e008a2c4a9d12f5102962de25529d13cc2917920cc` |
 |  `7.0.15` `7.0`                             | May 30th     | `sha256:eb6aaac1c83d2942a18777a3da3399e3ee5e8bbe3b7da61f09cb5c0ffc34c331` |
-|  `7.2.4-dev`                                | May 19th     | `sha256:54dd031f91dae3edd3049cb620207a00aff232e5098ade663f3722e339459881` |
-|  `7.2.4`                                    | May 17th     | `sha256:839d7931ea0a2825f8a06f56fec439b3286ad317a8ef9e506f40b3a305ca7e2a` |
 

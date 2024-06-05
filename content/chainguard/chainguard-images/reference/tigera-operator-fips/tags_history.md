@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tigera-operator-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.29.8-dev` `1.29-dev` `v1.29.8-dev` `v1.29-dev`                                             | June 1st     | `sha256:8e7c5fcce77a5f3c75873ac218b9cf02fca6f95ed9b5b3659bfae662cf62dabd` |
 |  `v1.34.0` `latest` `1.34` `vlatest` `1.34.0` `1` `v1` `v1.34`                                 | May 30th     | `sha256:12fb2a7eb62f83353beea4fa1a086803b4d3dbbc6c4b4854f58440258d7ca160` |
 |  `v1.29.8` `1.29.8` `1.29` `v1.29`                                                             | May 30th     | `sha256:811d8ba3e46e1c7fb13276d0f2f84e363769673b6a68ecb83954ac8a500d2f7a` |
-|  `v1.33` `1.33` `1.33.0` `v1.33.0`                                                             | May 10th     | `sha256:a8ab00be8050a6c8f215621b6680b7f765c9cd78d334bab0868e4e5ab13f7394` |
-|  `1.33.0-dev` `v1.33.0-dev` `v1.33-dev` `1.33-dev`                                             | May 10th     | `sha256:ca947212ea967f56c6c6266a6527088fa5061ac50f21dc206a2a94089c71ac3a` |
 

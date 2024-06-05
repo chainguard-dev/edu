@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-redis-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.59.0-dev` `1-dev` `latest-dev` `1.59-dev` | May 30th     | `sha256:c6aee5dbf43e9440b1c2c0dee110c3d07275c9059a56d9f0547fcf97c2cb9247` |
-|  `1.59.0` `1.59` `1` `latest`                 | May 23rd     | `sha256:0911f00e6aa5d742ebec5322d539e2a2c5388bbaf489ebf74d7d0b4d494e5761` |
+|  `1-dev` `1.60-dev` `1.60.0-dev` `latest-dev` | June 4th     | `sha256:d7e9f718172a9dffd51f5fbbe7374c96830b3a116edfec6817840820cba5ed46` |
+|  `1.60` `latest` `1.60.0` `1`                 | June 4th     | `sha256:8e0fe8666a183a23fcfee1352ac8446dffed5a57f898469409cd88f03eb69003` |
+|  `1.59.0-dev` `1.59-dev`                      | May 30th     | `sha256:c6aee5dbf43e9440b1c2c0dee110c3d07275c9059a56d9f0547fcf97c2cb9247` |
 

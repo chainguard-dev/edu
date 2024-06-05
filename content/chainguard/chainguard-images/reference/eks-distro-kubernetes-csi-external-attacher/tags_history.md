@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-external-attacher Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,8 +35,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
 |  `4.5.0-r7-eks-1-25-33-dev` `4.5-eks-1-25-33-dev` `latest-dev` `4.5-dev` `4-eks-1-25-33-dev` `4.5.0-dev` `4-dev` `4.5.0-eks-1-25-33-dev` | June 1st     | `sha256:22cd0acf0ea59de9e56e8b498740fddf10a457e853bed3ac1522bb449ff35c1b` |
 |  `4.4-eks-1-23-33-dev` `4-eks-1-23-33-dev` `4.4-dev` `4.4.0-eks-1-23-33-dev` `4.4.0-r5-eks-1-23-33-dev` `4.4.0-dev`                      | June 1st     | `sha256:818e2395fb9c4b0cb2c12ddbe8fb3151e8ec7473a77c3dacf57e669f647d9c39` |
-|  `4.5.0` `4.5-eks-1-25-33` `latest` `4-eks-1-25-33` `4.5` `4.5.0-r7-eks-1-25-33` `4.5.0-eks-1-25-33` `4`                                 | May 23rd     | `sha256:6ebfa15d72f91de62857f664ffe9176103797ca972769f621eb2fc9848ba97ca` |
-|  `4.5.0-r6-eks-1-25-33-dev`                                                                                                              | May 23rd     | `sha256:1609f80756ce5cc91df2cdda66dd2d0ed848d2c10ee2b45a4fa86ebb7796df0e` |
-|  `4-eks-1-23-33` `4.4.0-r5-eks-1-23-33` `4.4.0-eks-1-23-33` `4.4` `4.4-eks-1-23-33` `4.4.0`                                              | May 23rd     | `sha256:a92dc7be9ff60dc67b9cc939abd3ed8facac943a2b55d47d8e6cb207c72549cb` |
-|  `4.5.0-r6-eks-1-25-33`                                                                                                                  | May 23rd     | `sha256:68d84f69f86a40f073142e70ce3b55aaa2e8ff4b4492fdf7db972ece44e128e9` |
 

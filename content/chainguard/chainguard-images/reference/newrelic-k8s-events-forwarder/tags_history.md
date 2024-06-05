@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-k8s-events-forwarder Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-05 00:36:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,12 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.52-dev` `1.52.3-dev` `latest-dev` `1-dev` | June 1st     | `sha256:420e8d44c347cf6ac7b66c2276ece993b7741f2641a42e39eb105235e00f8f3d` |
+|  `1` `latest` `1.52` `1.52.3`                 | June 5th     | `sha256:a145d40d58c49ea673e72fc4fdd2ed23f97980fbf8c61b4e162b217dba7775bc` |
+|  `1.52-dev` `1-dev` `latest-dev` `1.52.3-dev` | June 5th     | `sha256:104828cc9d615b85fb6d17e0ba3e913c7a8056dc63803cf3bb9c745d51b2ee0d` |
 |  `1.43.2-dev` `1.43-dev`                      | June 1st     | `sha256:e2945dad99ccc504018e0fd2cf7e6c8a8c594f4bb1b5d8732249920ee40aec85` |
-|  `1.52.3` `1.52` `latest` `1`                 | May 30th     | `sha256:e985db86f1029387191603e504271e43c8852c4c83b77e13d99b8e992888e1f4` |
 |  `1.43` `1.43.2`                              | May 30th     | `sha256:03ab0a4b4f039a0833c3319d540d9a6d743d42a87272b0f437e8977df5e73b4a` |
-|  `1.52.2`                                     | May 19th     | `sha256:775aa9408d7add09fec4adec720d845d4fc3db536cb29df17f28d6ea949c4e7a` |
-|  `1.52.2-dev`                                 | May 19th     | `sha256:b948b3604ca6bd6583f0baa43ca0a4687b169cbee0115fd0c1f207204ccbc872` |
-|  `1.52.1-dev`                                 | May 9th      | `sha256:b65253c037b0628b20ae57c5d13f84db5ef0bd441e257fc492fee8507ee489a5` |
-|  `1.52.1`                                     | May 9th      | `sha256:3cca5f4ccfaabb5e1d5b9c8bc93fe12713b06279a99b1b44d168329ccb5905f7` |
 
