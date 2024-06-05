@@ -27,16 +27,14 @@ jobs:
         egress-policy: audit
 
     - name: 'Checkout default branch to $GITHUB_WORKSPACE dir'
-      uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # v3
+      uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3.2.0
 
     - name: Authenticate to Google Cloud
       id: auth
-      uses: google-github-actions/auth@ceee102ec2387dd9e844e01b530ccd4ec87ce955 # v0
+      uses: google-github-actions/auth@71fee32a0bb7e97b4d33d548e7d957010649d8fa # v2.1.3
       with:
-        token_format: 'access_token'
         project_id: "${{ secrets.PROJECT_ID }}"
         workload_identity_provider: "${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}"
-        service_account: "${{ secrets.GCP_SERVICE_ACCOUNT }}"
 
     - id: compare-releases
       name: 'Compare published docs to upstream releases'
@@ -59,7 +57,7 @@ jobs:
     permissions:
       contents: write # writes to a branch on the repo
       id-token: write # federates with GCP and Sigstore
-      pull-requests: write # creates PRs with the GH CLI
+      pull-requests: write # creates PRs
 
     needs: check-new-docs
     if: needs.check-new-docs.outputs.status == 'outdated'
@@ -71,26 +69,23 @@ jobs:
         egress-policy: audit
 
     - name: 'Checkout default branch to $GITHUB_WORKSPACE dir'
-      uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # v3
+      uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3.2.0
 
     - name: 'Setup gitsign'
       uses: chainguard-dev/actions/setup-gitsign@main
 
     - name: Authenticate to Google Cloud
       id: auth
-      uses: google-github-actions/auth@ceee102ec2387dd9e844e01b530ccd4ec87ce955 # v0
+      uses: google-github-actions/auth@71fee32a0bb7e97b4d33d548e7d957010649d8fa # v2.1.3
       with:
-        token_format: 'access_token'
         project_id: "${{ secrets.PROJECT_ID }}"
         workload_identity_provider: "${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}"
-        service_account: "${{ secrets.GCP_SERVICE_ACCOUNT }}"
 
     - uses: ./.github/workflows/integrate-platform-docs
       with:
         project_id: "${{ secrets.PROJECT_ID }}"
-        workload_identity_provider: "${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}"
-        service_account: "${{ secrets.GCP_SERVICE_ACCOUNT }}"
         storage_bucket: "${{ secrets.STORAGE_BUCKET }}"
+        platform_changelog: "${{ env.PLATFORM_CHANGELOG }}"
 
     - uses: actions/setup-node@2fddd8803e2f5c9604345a0b591c3020ee971a93 # v3
       with:
@@ -129,7 +124,7 @@ jobs:
 
     - name: "Send notification to Slack"
       if: ${{ steps.cpr.outputs.pull-request-number }}
-      uses: chainguard-dev/images-autodocs@1.5.0
+      uses: chainguard-dev/images-autodocs@e1a94660b757ba4f22db273c54e150b1a8dd1732 # v1.5.0
       with:
        command: notify pullrequest
     env:
