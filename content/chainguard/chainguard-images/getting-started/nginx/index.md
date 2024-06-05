@@ -15,11 +15,11 @@ weight: 610
 toc: true
 ---
 
-The nginx images maintained by Chainguard are a mix of development and production distroless images that are suitable for building and running nginx workloads.
+The nginx images maintained by Chainguard include development and production distroless images that are suitable for building and running nginx workloads. Images tagged with `:latest-dev` include additional packages to facilitate project development and testing. Images tagged with `:latest` strip back these extra packages to provide a secure, production-ready container image.
 
-In this tutorial, we will create a demo application using nginx to serve static HTML content to a local port on your machine. Then we will use the nginx Chainguard Image to build and execute the demo in a lightweight containerized environment.
+In this tutorial, we will create a local demo website using nginx to serve static HTML content to a local port on your machine. Then we will use the nginx Chainguard Image to build and execute the demo in a lightweight containerized environment.
 
-You will need to have nginx and Docker Engine installed on your machine to follow along.
+You will need to have [nginx](https://nginx.org/en/download.html) and [Docker Engine](https://docs.docker.com/engine/install/) installed on your machine to follow along.
 
 {{< details "What is distroless" >}}
 {{< blurb/distroless >}}
@@ -33,13 +33,13 @@ You will need to have nginx and Docker Engine installed on your machine to follo
 {{< blurb/images >}}
 {{< /details >}}
 
-## Step 1: Setting up a Demo Application
+## Step 1: Setting up a Demo Website 
 
-We'll start by creating a basic nginx application to serve as a demo. This app will serve static content to a local web server. 
+We'll start by serving static content to a local web server with nginx.
 
 For this tutorial, you will be copying code to files you create locally. You can find the demo code throughout this tutorial, or you can find the complete demo at the [demo GitHub repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/nginx).
 
-With nginx installed, create a directory for your app. In this guide we'll call the directory `nginxdemo`:
+With nginx installed, create a directory for your demo. In this guide we'll call the directory `nginxdemo`:
 
 ```shell
 mkdir ~/nginxdemo/ && cd $_
@@ -63,13 +63,13 @@ The following HTML file displays an image of Inky alongside a fun octopus fact.
 <!DOCTYPE html>
 <html>
 <head>
-<title>Chainguard nginx Demo Application</title>
+<title>Chainguard nginx Demo Website</title>
 <link rel="stylesheet" href="stylesheet.css">
 </head>
 
 <body>
 
-<h1>nginx Demo Application</h1>
+<h1>nginx Demo Website</h1>
 
 <h2>from the <a href="https://edu.chainguard.dev/" target="_blank">Chainguard Academy</a></h2>
 
@@ -96,7 +96,7 @@ Copy the following code to your `stylesheet.css` file.
 
 ```CSS
 /*
-Chainguard Academy nginx Demo Application
+Chainguard Academy nginx Demo Website
 */
 
 body {
@@ -131,7 +131,13 @@ Next, you will pull down the `inky.png` file using `curl`. Always [inspect the U
 curl -O https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/734e6171ee69f0e0dbac95e6ebc1759ac18bf00a/nginx/data/inky.png
 ```
 
-Now, return to the `nginxdemo` directory you made earlier. Here we will create the `nginx.conf` configuration file used by nginx to run the local web server. We will demonstrate this using `nano`.
+Now, return to the `nginxdemo` directory you made earlier. 
+
+```shell
+cd ../
+```
+
+Here we will create the `nginx.conf` configuration file used by nginx to run the local web server. We will demonstrate this using `nano`.
 
 ```shell
 nano nginx.conf
@@ -156,12 +162,13 @@ http {
 
     server {
 
-        listen 1313;
+        listen 8080;
         server_name localhost;
         charset koi8-r;
 
         location / {
             root /Users/username/nginxdemo/data; # Update the file path for your system
+            #root /home/username/nginxdemo/data # Linux file path example
 
         }
 
@@ -192,7 +199,7 @@ types {
 
 Save and close the `mime.types` file when you are finished editing it.
 
-Next, copy the filepath to the `nginx.conf` file you created earlier. Replacing the example path with this copied path, execute the following command to initialize the nginx server:
+Next, copy the absolute filepath to the `nginx.conf` file you created earlier. Replacing the example path with this copied path, execute the following command to initialize the nginx server:
 
 ```shell
 nginx -c /Users/username/nginxdemo/nginx.conf
@@ -200,11 +207,11 @@ nginx -c /Users/username/nginxdemo/nginx.conf
 
 To view the HTML content, navigate to `localhost:8080` in your web browser of choice. You should see a simple landing page with a picture of Inky and a fun fact about the Wolfi octopus.
 
-If you make any changes to the files nginx is serving, run `nginx -s reload` in your terminal to allow the changes to render. When you are finished with your application, run `nginx -s quit` to allow nginx to safely shut down.
+If you make any changes to the files nginx is serving, run `nginx -s reload` in your terminal to allow the changes to render. When you are finished with your website, run `nginx -s quit` to allow nginx to safely shut down.
 
 ## Step 2: Creating the Dockerfile
 
-We will now use a Dockerfile to build an image containing the demo application. 
+We will now use a Dockerfile to build an image containing the demo. 
 
 In the `nginxdemo` directory, create the `Dockerfile` with the text editor of your choice. We will use `nano`:
 
@@ -214,7 +221,7 @@ nano Dockerfile
 The following Dockerfile will:
 
 1. Start a new build based on the `cgr.dev/chainguard/nginx:latest` image;
-2. Expose port 8080 in the container for nginx to listen on;
+2. Note which container port we need to expose for nginx to listen on;
 3. Copy the HTML content from the data directory into the image.
 
 Copy this content to your own `Dockerfile`:
@@ -256,7 +263,7 @@ docker container stop nginxcontainer
 
 ## Advanced Usage
 
-In this demo application, we did not copy the configuration file into the image built from the Dockerfile. This is because the default configuration file in the image was sufficient for the scope of this demo. If you wish to use a custom configuration file, you must ensure that file paths, ports, and other system-specific settings are configured to match the container environment. You can find more information about making these changes at the [Chainguard nginx Image Overview](/chainguard/chainguard-images/reference/nginx/image_specs/).
+In this demo, we did not copy the configuration file into the image built from the Dockerfile. This is because the default configuration file in the image was sufficient for the scope of this demo. If you wish to use a custom configuration file, you must ensure that file paths, ports, and other system-specific settings are configured to match the container environment. You can find more information about making these changes at the [Chainguard nginx Image Overview](/chainguard/chainguard-images/reference/nginx/image_specs/).
 
 {{< blurb/images-advanced image="nginx" >}}
 
