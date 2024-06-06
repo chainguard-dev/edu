@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for kube-webhook-certgen Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 | Registry                     | Tags                                                             |
 |------------------------------|------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest-dev                                                       |
+| `cgr.dev/chainguard`         | latest, latest-dev                                               |
 | `cgr.dev/chainguard-private` | 1, 1-dev, 1.10, 1.10-dev, 1.10.1, 1.10.1-dev, latest, latest-dev |
 
 

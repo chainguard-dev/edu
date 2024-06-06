@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public nvidia-container-toolkit Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -21,64 +21,64 @@ toc: true
 
 This page shows detailed information about the Chainguard **nvidia-container-toolkit** Image.
 
-|              | latest-dev             |
-|--------------|------------------------|
-| Default User | `root`                 |
-| Entrypoint   | `/work/nvidia-toolkit` |
-| CMD          | not specified          |
-| Workdir      | `/work`                |
-| Has apk?     | yes                    |
-| Has a shell? | yes                    |
+|              | latest-dev             | latest                 |
+|--------------|------------------------|------------------------|
+| Default User | `root`                 | `root`                 |
+| Entrypoint   | `/work/nvidia-toolkit` | `/work/nvidia-toolkit` |
+| CMD          | not specified          | not specified          |
+| Workdir      | `/work`                | `/work`                |
+| Has apk?     | yes                    | no                     |
+| Has a shell? | yes                    | yes                    |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/nvidia-container-toolkit/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                                                            | latest-dev |
-|------------------------------------------------------------|------------|
-| `apk-tools`                                                | X          |
-| `bash`                                                     | X          |
-| `busybox`                                                  | X          |
-| `ca-certificates-bundle`                                   | X          |
-| `chainguard-baselayout`                                    | X          |
-| `git`                                                      | X          |
-| `glibc`                                                    | X          |
-| `glibc-locale-posix`                                       | X          |
-| `ld-linux`                                                 | X          |
-| `libbrotlicommon1`                                         | X          |
-| `libbrotlidec1`                                            | X          |
-| `libcap`                                                   | X          |
-| `libcrypt1`                                                | X          |
-| `libcrypto3`                                               | X          |
-| `libcurl-openssl4`                                         | X          |
-| `libexpat1`                                                | X          |
-| `libidn2`                                                  | X          |
-| `libnghttp2-14`                                            | X          |
-| `libnvidia-container`                                      | X          |
-| `libpcre2-8-0`                                             | X          |
-| `libpsl`                                                   | X          |
-| `libseccomp`                                               | X          |
-| `libssl3`                                                  | X          |
-| `libunistring`                                             | X          |
-| `libxcrypt`                                                | X          |
-| `ncurses`                                                  | X          |
-| `ncurses-terminfo-base`                                    | X          |
-| `nvidia-container-toolkit`                                 | X          |
-| `nvidia-container-toolkit-containerd`                      | X          |
-| `nvidia-container-toolkit-crio`                            | X          |
-| `nvidia-container-toolkit-docker`                          | X          |
-| `nvidia-container-toolkit-nvidia-container-runtime`        | X          |
-| `nvidia-container-toolkit-nvidia-container-runtime-cdi`    | X          |
-| `nvidia-container-toolkit-nvidia-container-runtime-hook`   | X          |
-| `nvidia-container-toolkit-nvidia-container-runtime-legacy` | X          |
-| `nvidia-container-toolkit-nvidia-ctk`                      | X          |
-| `nvidia-container-toolkit-nvidia-toolkit`                  | X          |
-| `nvidia-container-toolkit-operator`                        | X          |
-| `nvidia-container-toolkit-toolkit`                         | X          |
-| `nvidia-cuda-cudart-12`                                    | X          |
-| `nvidia-cuda-nvml-dev-12`                                  | X          |
-| `wget`                                                     | X          |
-| `wolfi-baselayout`                                         | X          |
-| `zlib`                                                     | X          |
+|                                                            | latest-dev | latest |
+|------------------------------------------------------------|------------|--------|
+| `apk-tools`                                                | X          |        |
+| `bash`                                                     | X          | X      |
+| `busybox`                                                  | X          | X      |
+| `ca-certificates-bundle`                                   | X          | X      |
+| `chainguard-baselayout`                                    | X          | X      |
+| `git`                                                      | X          |        |
+| `glibc`                                                    | X          | X      |
+| `glibc-locale-posix`                                       | X          | X      |
+| `ld-linux`                                                 | X          | X      |
+| `libbrotlicommon1`                                         | X          |        |
+| `libbrotlidec1`                                            | X          |        |
+| `libcap`                                                   | X          | X      |
+| `libcrypt1`                                                | X          | X      |
+| `libcrypto3`                                               | X          |        |
+| `libcurl-openssl4`                                         | X          |        |
+| `libexpat1`                                                | X          |        |
+| `libidn2`                                                  | X          |        |
+| `libnghttp2-14`                                            | X          |        |
+| `libnvidia-container`                                      | X          | X      |
+| `libpcre2-8-0`                                             | X          |        |
+| `libpsl`                                                   | X          |        |
+| `libseccomp`                                               | X          | X      |
+| `libssl3`                                                  | X          |        |
+| `libunistring`                                             | X          |        |
+| `libxcrypt`                                                | X          | X      |
+| `ncurses`                                                  | X          | X      |
+| `ncurses-terminfo-base`                                    | X          | X      |
+| `nvidia-container-toolkit`                                 | X          | X      |
+| `nvidia-container-toolkit-containerd`                      | X          | X      |
+| `nvidia-container-toolkit-crio`                            | X          | X      |
+| `nvidia-container-toolkit-docker`                          | X          | X      |
+| `nvidia-container-toolkit-nvidia-container-runtime`        | X          | X      |
+| `nvidia-container-toolkit-nvidia-container-runtime-cdi`    | X          | X      |
+| `nvidia-container-toolkit-nvidia-container-runtime-hook`   | X          | X      |
+| `nvidia-container-toolkit-nvidia-container-runtime-legacy` | X          | X      |
+| `nvidia-container-toolkit-nvidia-ctk`                      | X          | X      |
+| `nvidia-container-toolkit-nvidia-toolkit`                  | X          | X      |
+| `nvidia-container-toolkit-operator`                        | X          | X      |
+| `nvidia-container-toolkit-toolkit`                         | X          | X      |
+| `nvidia-cuda-cudart-12`                                    | X          | X      |
+| `nvidia-cuda-nvml-dev-12`                                  | X          | X      |
+| `wget`                                                     | X          |        |
+| `wolfi-baselayout`                                         | X          | X      |
+| `zlib`                                                     | X          |        |
 

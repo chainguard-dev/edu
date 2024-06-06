@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-load-balancer-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 1st     | `sha256:d60d78f582ddb37c16a2b61e8b4c3f12e208273ae8e8b68fea47083b234e28dc` |
-|  `latest-dev` | June 1st     | `sha256:27aff081bb60619d032f9d10df7d38d17ef9b07400eb21e39eed317843de0a26` |
+|  `latest-dev` | June 5th     | `sha256:56b56b07be3571e9f15adcd6c9cdcff1e077a199d8d2c8f5a42d3436bc7351ff` |
+|  `latest`     | June 5th     | `sha256:01367c9685d26fc72d904841ecf2acafa06661311a96d5655c75288c00f2d623` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.8.1-dev` `2-dev` `latest-dev` `2.8-dev` | June 1st     | `sha256:5012a62ee3538bd73edbdaa17588fccbbcb23bc54911e469f7c868f5fd9558ed` |
-|  `2.8` `2` `latest` `2.8.1`                 | May 31st     | `sha256:a26fb752253b413f2d86140cf03faa0e953a7e2e1bb0ea0b55df465d3013a57c` |
+|  `2.8.1-dev` `2-dev` `latest-dev` `2.8-dev` | June 5th     | `sha256:2c1345f3761be15ddd89a40d74235f591169f29ff96b6e9479937d7ad6129e2c` |
+|  `2` `latest` `2.8` `2.8.1`                 | June 5th     | `sha256:258b6a35b08bb0d52912b868131809f0fc1391afb0e5ba02dfca1e775d2d1883` |
 |  `2.8.0-dev`                                | May 30th     | `sha256:9c1e9457c4118129c0ce9670db7df5da7f5251cfa3e0b12de632921368d32519` |
 

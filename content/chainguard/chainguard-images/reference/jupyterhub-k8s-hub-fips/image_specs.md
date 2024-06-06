@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public jupyterhub-k8s-hub-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-29 00:47:42
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -76,6 +76,7 @@ The table shows package distribution across variants.
 | `libuv`                                | X          | X      |
 | `libxcrypt`                            | X          | X      |
 | `linux-headers`                        | X          | X      |
+| `linux-pam`                            | X          | X      |
 | `llhttp`                               | X          | X      |
 | `mpdecimal`                            | X          | X      |
 | `ncurses`                              | X          | X      |
@@ -86,6 +87,7 @@ The table shows package distribution across variants.
 | `py3-aiohttp`                          | X          | X      |
 | `py3-aiosignal`                        | X          | X      |
 | `py3-alembic`                          | X          | X      |
+| `py3-annotated-types`                  | X          | X      |
 | `py3-async-generator`                  | X          | X      |
 | `py3-async-timeout`                    | X          | X      |
 | `py3-asynctest`                        | X          | X      |
@@ -104,6 +106,7 @@ The table shows package distribution across variants.
 | `py3-jinja2`                           | X          | X      |
 | `py3-jsonschema`                       | X          | X      |
 | `py3-jsonschema-specifications`        | X          | X      |
+| `py3-jupyter-events`                   | X          | X      |
 | `py3-jupyter-telemetry`                | X          | X      |
 | `py3-jupyterhub`                       | X          | X      |
 | `py3-jupyterhub-firstuseauthenticator` | X          | X      |
@@ -133,6 +136,8 @@ The table shows package distribution across variants.
 | `py3-pyasn1`                           | X          | X      |
 | `py3-pycparser`                        | X          | X      |
 | `py3-pycurl`                           | X          | X      |
+| `py3-pydantic`                         | X          | X      |
+| `py3-pydantic-core`                    | X          | X      |
 | `py3-pyjwt`                            | X          | X      |
 | `py3-pymysql`                          | X          | X      |
 | `py3-pyopenssl`                        | X          | X      |
@@ -144,6 +149,8 @@ The table shows package distribution across variants.
 | `py3-referencing`                      | X          | X      |
 | `py3-requests`                         | X          | X      |
 | `py3-requests-oauthlib`                | X          | X      |
+| `py3-rfc3339-validator`                | X          | X      |
+| `py3-rfc3986-validator`                | X          | X      |
 | `py3-rpds-py`                          | X          | X      |
 | `py3-ruamel-yaml`                      | X          | X      |
 | `py3-six`                              | X          | X      |

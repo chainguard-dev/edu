@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-viewer-crd-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 1st     | `sha256:1f68b1daf2d9301cb8b8d4baf8c8bde2d027ced210a390146574339751a38050` |
-|  `latest`     | May 31st     | `sha256:925aa2fa6ceef63c53a7ab895ebb1194ba613b2fb2a0d650c367a7a1ad4df8db` |
+|  `latest-dev` | June 5th     | `sha256:2df30d7136a4087159854b445fc65c206ee1c9d51f106c1f90e1bc2819f94b75` |
+|  `latest`     | June 5th     | `sha256:36419bb900f6fac86087454f802d22092992c064ea77e10dd5076058bf5a2806` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.2-dev` `2-dev` `latest-dev` `2.2.0-dev` | June 1st     | `sha256:f2cbad47cbc3c3af4ab5b198f67c40afc633c402dd63b00882680f3fc58d5ce5` |
-|  `latest` `2.2.0` `2.2` `2`                 | May 29th     | `sha256:612d53206fffe69af171527b7a8a7568095a112f92a0a772eb662ed115fc4e87` |
+|  `latest-dev` `2.2.0-dev` `2-dev` `2.2-dev` | June 5th     | `sha256:a6deb66abdbac3a2a0767881963489128b02e1a6328722012ccf40118f61b96e` |
+|  `2` `2.2.0` `latest` `2.2`                 | June 5th     | `sha256:b6b2e5e04eb666a097aa9ff6b108083b3475ba384d5c392b68c7572e47867932` |
 

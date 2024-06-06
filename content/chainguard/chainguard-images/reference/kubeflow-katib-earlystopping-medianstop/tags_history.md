@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-earlystopping-medianstop Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 1st     | `sha256:ea5b849c2064d81b9ef605629dc7650099dd4443aaefd3d24c52b0c7fe88084b` |
-|  `latest`     | May 31st     | `sha256:ca0fa12be3a37572a88dadba6b275f13f9c330a8fcc4d375e4c9b3ddbbb9760f` |
+|  `latest`     | June 5th     | `sha256:3323e9ce6ec45af916182c0f441bfe1b1d339196ef275f849416bfbd48654c00` |
+|  `latest-dev` | June 5th     | `sha256:6bc2094b057aabf8da6623910b77d6f1b30f90a12e33f42e70ad08160f49ddb0` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.16.0-dev` `0.16-dev` `0-dev` | June 1st     | `sha256:6c85e51742f25d41f62c1b7647be179dc6cfd3473386489c78d58e9b56a7608a` |
-|  `0` `0.16` `latest` `0.16.0`                 | May 30th     | `sha256:df6b17d6d9e2194f6d221c4a2c8f9833fed9bcad8d74cae5c474a1bdad9bbc00` |
+|  `latest-dev` `0.16-dev` `0.16.0-dev` `0-dev` | June 5th     | `sha256:87d6153a948390f2eafdf44039853fbcec42b4aae613e98a72e5b32d535cb47d` |
+|  `0.16.0` `latest` `0` `0.16`                 | June 5th     | `sha256:c22ad7ca0f29302acd56cad73519d81e05a259c23ca2a15de4e7463a95622a84` |
 

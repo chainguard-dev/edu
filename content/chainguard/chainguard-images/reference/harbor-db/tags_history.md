@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the harbor-db Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2` `2.9.4` `2.9` `latest`                 | June 2nd     | `sha256:203d1ca2e08ef2e219881327b5d34e36712352a97317eb1572b98c896b1b49a5` |
-|  `2-dev` `2.9-dev` `2.9.4-dev` `latest-dev` | June 2nd     | `sha256:d72e0dddd9339164cd4fd1f5c395487c709c5b2874a39d44887550a0a6433fc3` |
-|  `2.10.2` `2.10`                            | June 2nd     | `sha256:b5ad87dc2b2d0b2318b4105db0be27b5e47b1dc94e1d6954218270b695acb402` |
-|  `2.10-dev` `2.10.2-dev`                    | June 2nd     | `sha256:710c063684daeccd146c200ab701be7ecbda369b637744ead91d06bff526131e` |
+|  `2` `2.9` `latest` `2.9.4`                 | June 5th     | `sha256:203d1ca2e08ef2e219881327b5d34e36712352a97317eb1572b98c896b1b49a5` |
+|  `2.10` `2.10.2`                            | June 5th     | `sha256:b5ad87dc2b2d0b2318b4105db0be27b5e47b1dc94e1d6954218270b695acb402` |
+|  `2.9-dev` `2-dev` `2.9.4-dev` `latest-dev` | June 5th     | `sha256:d72e0dddd9339164cd4fd1f5c395487c709c5b2874a39d44887550a0a6433fc3` |
+|  `2.10-dev` `2.10.2-dev`                    | June 5th     | `sha256:710c063684daeccd146c200ab701be7ecbda369b637744ead91d06bff526131e` |
 |  `2.8.6-dev` `2.8-dev`                      | June 1st     | `sha256:b9811f96f0050861e095bfeaf188307afc76c89b462d685488823bc78c83b300` |
 |  `2.8.6` `2.8`                              | May 31st     | `sha256:69e8abaf99288cdc7ed47a6610da557defa745cfb498520d8575087b1680356c` |
 

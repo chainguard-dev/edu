@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-livenessprobe Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 1st     | `sha256:9de03a3b3677d882123a06a809e56c2b1d46a155d00ced0922ff8537b32c616f` |
+|  `latest-dev` | June 5th     | `sha256:e3c9fa699e4c355e69dcdd3c1ff96d4a7854f17ba337eaadc43f26c37d8fefb4` |
+|  `latest`     | June 5th     | `sha256:11de0a02a8fb224f4b7b56670eb88835c36b76d48fb1757f2695fb2b67a70bf6` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.13-dev` `latest-dev` `2.13.0-dev` `2-dev` | June 1st     | `sha256:16d7345112eb93a25621df0e1abe0b99982c823fd707d1fb8c705527afd67a95` |
+|  `latest-dev` `2.13-dev` `2.13.0-dev` `2-dev` | June 5th     | `sha256:1e66411041fddbd36307bcf9b2f6e27f8a8701992ef2b3368266679d7deb4172` |
+|  `2` `2.13` `latest` `2.13.0`                 | June 5th     | `sha256:fc9c7abac01b776c16ead39ee17241b091735d55c7b8616e340c658128ee06a2` |
 

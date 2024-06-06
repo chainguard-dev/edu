@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opensearch-dashboards Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 1st     | `sha256:da8e889bb2b1607050dadc5d6197d1470fe0f496be9ea6e3b3a292d91e8ab3ab` |
-|  `latest`     | May 31st     | `sha256:4fd4e40a2679fd8d873ab88e573a400ddf1919b0fe09047946effb72aea206cf` |
+|  `latest`     | June 5th     | `sha256:4fd4e40a2679fd8d873ab88e573a400ddf1919b0fe09047946effb72aea206cf` |
+|  `latest-dev` | June 5th     | `sha256:da8e889bb2b1607050dadc5d6197d1470fe0f496be9ea6e3b3a292d91e8ab3ab` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.14-dev` `2.14.0-dev` `2-dev` `latest-dev` | June 1st     | `sha256:c0f97e43e940707a44958fc1888e350550149c9bfaa335174c80007629b4b640` |
-|  `2.14` `latest` `2.14.0` `2`                 | May 30th     | `sha256:d387f1b43af569b5660d1147001cc9b5f6ccbc6da9eabce1572b4a77a16353a1` |
+|  `2.14` `2` `latest` `2.14.0`                 | June 5th     | `sha256:d387f1b43af569b5660d1147001cc9b5f6ccbc6da9eabce1572b4a77a16353a1` |
+|  `latest-dev` `2.14-dev` `2-dev` `2.14.0-dev` | June 5th     | `sha256:c0f97e43e940707a44958fc1888e350550149c9bfaa335174c80007629b4b640` |
 

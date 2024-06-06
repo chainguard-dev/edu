@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the argocd-repo-server-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2` `latest` `2.10` `2.10.11`                 | June 1st     | `sha256:bc03eef2f16d6fdf552ec70e70180adc7c4cdc232ab09b5c3e845e14bad0f783` |
-|  `2.9.14-dev` `2.9-dev`                        | June 1st     | `sha256:39ab84475b6e41d31ad335fc8ae7825f5327901cb1858c9ac5b3362302430aa8` |
-|  `2.8.20` `2.8`                                | June 1st     | `sha256:e5f36a271e8e67b9c884fb7adeb964f057ad5956ffb8f4b680d43194f291cc43` |
-|  `2.9` `2.9.14`                                | June 1st     | `sha256:cdf3aa578b180fc32d269a1a779b66878bef82c352c27c497181d0a5f0e9c25b` |
-|  `2.8.20-dev` `2.8-dev`                        | June 1st     | `sha256:3549bfc1a2f1b97ea79589ac7d78aa5a8eaed92616b11222eb20f4403e57ed8a` |
-|  `latest-dev` `2.10.11-dev` `2-dev` `2.10-dev` | June 1st     | `sha256:69b787b8db18b33571ce51bd8bc3ccb596fbc0f3f72eafece363ded0c185c671` |
+|  `2.9.14-dev` `2.9-dev`                        | June 5th     | `sha256:c4fae6e8670ea5d04346090dc1b16c3ecdb76d776bf4a73db3aaf372682013c9` |
+|  `2.10.11` `latest` `2` `2.10`                 | June 5th     | `sha256:3f29838ea334359997aaa59a1e801c33fed5e395d2feee2276a4b59a347616c5` |
+|  `latest-dev` `2.10-dev` `2.10.11-dev` `2-dev` | June 5th     | `sha256:5fb46e97e5820dd8edfec1156ff9d3d800a3c2c454ad9d406a8b44355babc080` |
+|  `2.9.14` `2.9`                                | June 5th     | `sha256:ea613275407a0f05d1172a9e5f31616e5e3fd41317cde85c1f6065c4438fe0b8` |
+|  `2.8-dev` `2.8.20-dev`                        | June 5th     | `sha256:11d88084f384e7120cde3dcbba4984d14fff956e626f01c15a5b14c0d9c87255` |
+|  `2.8` `2.8.20`                                | June 5th     | `sha256:3110108d0b264247d11aed2e76dbfd66b3e07afc2ea0bb17e0d7ef2b2db89491` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-redis-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 1st     | `sha256:4927b2c517312a87f2ae621acb57fc62ae67fd8c7fbf2a1535e76820743621cd` |
-|  `latest-dev` | June 1st     | `sha256:2b8ab9ee7ecd34b837c841ee4355a419b1b58386c157312070aa6e76a33e10f1` |
+|  `latest-dev` | June 5th     | `sha256:58cc87d1e36c64f02d13dba6d6fde44dd557473e99eafd038f3394a152104166` |
+|  `latest`     | June 5th     | `sha256:147199548f8ae9c0cadd797220feda6443b412ea68c42b2d34db877aa7019f73` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.60-dev` `1.60.0-dev` `latest-dev` | June 4th     | `sha256:d7e9f718172a9dffd51f5fbbe7374c96830b3a116edfec6817840820cba5ed46` |
-|  `1.60` `latest` `1.60.0` `1`                 | June 4th     | `sha256:8e0fe8666a183a23fcfee1352ac8446dffed5a57f898469409cd88f03eb69003` |
+|  `1.60-dev` `latest-dev` `1-dev` `1.60.0-dev` | June 5th     | `sha256:8478c1382ce6341f5068d9c5018b5da3376b671398c7d1ea6717980ab66205be` |
+|  `1` `1.60` `1.60.0` `latest`                 | June 5th     | `sha256:b9aefafaf62bd6719a6538e61a76594399be22403931cd19648857feb39e18d3` |
 |  `1.59.0-dev` `1.59-dev`                      | May 30th     | `sha256:c6aee5dbf43e9440b1c2c0dee110c3d07275c9059a56d9f0547fcf97c2cb9247` |
 

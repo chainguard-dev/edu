@@ -1,3 +1,10 @@
+# 2024-06-06
+New images added:
+
+- kubernetes-dashboard-metrics-scraper-fips
+
+A total of **1122** documents were updated.
+
 # 2024-06-05
 New images added:
 

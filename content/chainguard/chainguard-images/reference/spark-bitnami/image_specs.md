@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public spark-bitnami Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -64,6 +64,7 @@ The table shows package distribution across variants.
 | `libnghttp2-14`            | X          |        |
 | `libpcre2-8-0`             | X          |        |
 | `libpng`                   | X          | X      |
+| `libproc-2-0`              | X          | X      |
 | `libpsl`                   | X          |        |
 | `libssl3`                  | X          |        |
 | `libtasn1`                 | X          | X      |
@@ -76,6 +77,7 @@ The table shows package distribution across variants.
 | `openjdk-17-jre-base`      | X          | X      |
 | `p11-kit`                  | X          | X      |
 | `p11-kit-trust`            | X          | X      |
+| `procps`                   | X          | X      |
 | `spark-3.5`                | X          | X      |
 | `spark-3.5-bitnami-compat` | X          | X      |
 | `wget`                     | X          |        |
