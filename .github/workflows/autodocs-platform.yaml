@@ -122,17 +122,3 @@ jobs:
           platform
           automated
         assignees: erikaheidi
-
-    - name: "Send notification to Slack"
-      if: ${{ steps.cpr.outputs.pull-request-number }}
-      uses: chainguard-dev/images-autodocs@e1a94660b757ba4f22db273c54e150b1a8dd1732 # v1.5.0
-      with:
-       command: notify pullrequest
-    env:
-     AUTODOCS_SLACK_PRIMARY: ${{ secrets.AUTODOCS_SLACK_PRIMARY }}
-     AUTODOCS_SLACK_SECONDARY: ${{ secrets.AUTODOCS_SLACK_SECONDARY }}
-     AUTODOCS_SLACK_GENERAL: ${{ secrets.AUTODOCS_SLACK_GENERAL }}
-     PR_NUMBER: ${{ steps.cpr.outputs.pull-request-number }}
-     PR_ACTION: ${{ steps.cpr.outputs.pull-request-operation }}
-     PR_URL: ${{ steps.cpr.outputs.pull-request-url }}
-     PR_SHA: ${{ steps.cpr.outputs.pull-request-head-sha }}
