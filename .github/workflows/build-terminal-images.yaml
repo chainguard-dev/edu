@@ -30,7 +30,7 @@ jobs:
       - uses: sigstore/cosign-installer@11086d25041f77fe8fe7b9ea4e48e3b9192b8f19 # v3.1.2
 
       - name: 'Checkout default branch to $GITHUB_WORKSPACE dir'
-        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # v3
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
 
       - name: melange keygen
         shell: bash
@@ -49,10 +49,8 @@ jobs:
         id: auth
         uses: google-github-actions/auth@ceee102ec2387dd9e844e01b530ccd4ec87ce955 # v0
         with:
-          token_format: 'access_token'
-          project_id: "${{ secrets.TERMINAL_PROJECT_ID }}"
-          workload_identity_provider: "${{ secrets.TERMINAL_WORKLOAD_IDENTITY_PROVIDER }}"
-          service_account: "${{ secrets.TERMINAL_SERVICE_ACCOUNT }}"
+          service_account: "github-chainguard-academy@chainguard-academy.iam.gserviceaccount.com"
+          workload_identity_provider: "projects/456977358484/locations/global/workloadIdentityPools/chainguard-academy/providers/chainguard-edu"
 
       - name: apko login
         shell: bash
