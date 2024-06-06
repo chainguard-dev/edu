@@ -1,5 +1,5 @@
 ---
-date: 2024-04-04T08:56:03Z
+date: 2024-06-04T22:20:27Z
 title: "chainctl auth login"
 slug: chainctl_auth_login
 url: /chainguard/chainctl/chainctl-docs/chainctl_auth_login/
@@ -43,6 +43,7 @@ chainctl auth login [--invite-code=INVITE_CODE] [--identity-token=PATH_TO_TOKEN]
       --org-name string              Organization to use for authentication. If configured the organization's custom identity provider will be used
       --prefer-ambient-credentials   Auth with ambient credentials, if present, before using a supplied identity token.
       --refresh                      Enable auto refresh of the Chainguard token (for workloads).
+      --skip-browser                 Skip opening a browser for login
       --social-login string          Which of the default identity providers to use for authentication. Must be one of: google, github, gitlab
       --sts-http1-downgrade          Downgrade STS requests to HTTP/1.x
       --validate                     Validates token after exchange (default true)
