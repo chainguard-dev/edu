@@ -2,22 +2,26 @@ name: Build Platform Docs
 
 on:
   schedule:
-    - cron: "0 * * * *"
+    - cron: "0 0 * * *"
   workflow_dispatch:
   push:
-    branches: 
+    branches:
       - platform-docs
+env:
+  PLATFORM_CHANGELOG: "content/chainguard/autodocs/platform-changelog.md"
 
 jobs:
   check-new-docs:
     runs-on: ubuntu-latest
 
     permissions:
+      contents: read # reads from the repo
       id-token: write # federates to talk to storage
 
     outputs:
       status: ${{ steps.compare-releases.outputs.status }}
-    
+      latest: ${{ steps.compare-releases.outputs.latest }}
+
     steps:
     - name: 'Github Actions Runner'
       uses: step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142 # v2.7.0
@@ -25,16 +29,14 @@ jobs:
         egress-policy: audit
 
     - name: 'Checkout default branch to $GITHUB_WORKSPACE dir'
-      uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # v3
+      uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
 
     - name: Authenticate to Google Cloud
       id: auth
-      uses: google-github-actions/auth@ceee102ec2387dd9e844e01b530ccd4ec87ce955 # v0
+      uses: google-github-actions/auth@71fee32a0bb7e97b4d33d548e7d957010649d8fa # v2.1.3
       with:
-        token_format: 'access_token'
         project_id: "${{ secrets.PROJECT_ID }}"
-        workload_identity_provider: "${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}"
-        service_account: "${{ secrets.GCP_SERVICE_ACCOUNT }}"
+        workload_identity_provider: "projects/456977358484/locations/global/workloadIdentityPools/chainguard-academy/providers/chainguard-edu"
 
     - id: compare-releases
       name: 'Compare published docs to upstream releases'
@@ -44,7 +46,7 @@ jobs:
           awk '/###/ {print $NF}' | \
           head -n 1)
         current=$(awk '/###/ {print $NF}' \
-          content/chainguard/chainguard-enforce/changelog.md | \
+          ${{ env.PLATFORM_CHANGELOG }} | \
           head -n 1)
         if [ "$current" != "$latest" ]; then
           echo "status=outdated" >> $GITHUB_OUTPUT
@@ -55,9 +57,8 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: write # writes to a branch on the repo
+      contents: read # reads from the repo
       id-token: write # federates with GCP and Sigstore
-      pull-requests: write # creates PRs with the GH CLI
 
     needs: check-new-docs
     if: needs.check-new-docs.outputs.status == 'outdated'
@@ -69,28 +70,25 @@ jobs:
         egress-policy: audit
 
     - name: 'Checkout default branch to $GITHUB_WORKSPACE dir'
-      uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # v3
+      uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3.2.0
 
     - name: 'Setup gitsign'
       uses: chainguard-dev/actions/setup-gitsign@main
 
     - name: Authenticate to Google Cloud
       id: auth
-      uses: google-github-actions/auth@ceee102ec2387dd9e844e01b530ccd4ec87ce955 # v0
+      uses: google-github-actions/auth@71fee32a0bb7e97b4d33d548e7d957010649d8fa # v2.1.3
       with:
-        token_format: 'access_token'
         project_id: "${{ secrets.PROJECT_ID }}"
-        workload_identity_provider: "${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}"
-        service_account: "${{ secrets.GCP_SERVICE_ACCOUNT }}"
+        workload_identity_provider: "projects/456977358484/locations/global/workloadIdentityPools/chainguard-academy/providers/chainguard-edu"
 
     - uses: ./.github/workflows/integrate-platform-docs
       with:
         project_id: "${{ secrets.PROJECT_ID }}"
-        workload_identity_provider: "${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}"
-        service_account: "${{ secrets.GCP_SERVICE_ACCOUNT }}"
         storage_bucket: "${{ secrets.STORAGE_BUCKET }}"
+        platform_changelog: "${{ env.PLATFORM_CHANGELOG }}"
 
-    - uses: actions/setup-node@2fddd8803e2f5c9604345a0b591c3020ee971a93 # v3
+    - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
       with:
         node-version: 16
 
@@ -110,29 +108,31 @@ jobs:
         scope: chainguard-dev/edu
         identity: edu
 
-    - name: Commit to autodocs branch
-      env:
-        GH_TOKEN: ${{ github.token }}
-      run: |
-        git config user.name github-actions
-        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+    - name: Create a PR
+      uses: peter-evans/create-pull-request@2b011faafdcbc9ceb11414d64d0573f37c774b04 # v4.2.3
+      id: cpr
+      with:
+        token: ${{ steps.octo-sts.outputs.token }}
+        commit-message: Update Images Reference
+        title: "[AutoDocs] Update Platform Docs"
+        body: "Platform docs ${{needs.check-new-docs.outputs.latest}} autocommit"
+        signoff: true
+        labels: |
+          documentation
+          platform
+          automated
+        assignees: erikaheidi
 
-        # Check git status and push changes if needed
-        GIT_STATUS=$(git status content --porcelain)
-        if [ -n "${GIT_STATUS}" ]; then
-          git add content/
-          git commit -am "Automated docs commit"
-          git push origin HEAD:autodocs --force
-
-          # Now open a PR if needed
-          PR=$(gh pr list --json title,headRefName,url |jq '.[] | select(.headRefName=="autodocs")')
-          if [ -z "${PR}" ]; then
-            gh pr create \
-              --base main --head autodocs \
-              --title "Platform docs ${{needs.check-new-docs.outputs.latest}} autocommit" \
-              --body "Platform docs ${{needs.check-new-docs.outputs.latest}} autocommit" \
-              --no-maintainer-edit --label automated,documentation,platform
-          else
-            echo "PR exists, see ${PR}"
-          fi
-        fi
+    - name: "Send notification to Slack"
+      if: ${{ steps.cpr.outputs.pull-request-number }}
+      uses: chainguard-dev/images-autodocs@e1a94660b757ba4f22db273c54e150b1a8dd1732 # v1.5.0
+      with:
+       command: notify pullrequest
+    env:
+     AUTODOCS_SLACK_PRIMARY: ${{ secrets.AUTODOCS_SLACK_PRIMARY }}
+     AUTODOCS_SLACK_SECONDARY: ${{ secrets.AUTODOCS_SLACK_SECONDARY }}
+     AUTODOCS_SLACK_GENERAL: ${{ secrets.AUTODOCS_SLACK_GENERAL }}
+     PR_NUMBER: ${{ steps.cpr.outputs.pull-request-number }}
+     PR_ACTION: ${{ steps.cpr.outputs.pull-request-operation }}
+     PR_URL: ${{ steps.cpr.outputs.pull-request-url }}
+     PR_SHA: ${{ steps.cpr.outputs.pull-request-head-sha }}

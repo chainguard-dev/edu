@@ -1,14 +1,10 @@
-name: Integrate Enforce Docs
+name: Integrate Platform Docs
 
 inputs:
-  workload_identity_provider:
+  platform_changelog:
     type: string
     required: true
-    description: "Workload identity provider for GCP Workload Federation."
-  service_account:
-    type: string
-    required: true
-    description: "GCP Service Account to impersonate."
+    description: "Path to platform changelog file in the repository"
   storage_bucket:
     type: string
     required: true
@@ -24,7 +20,7 @@ runs:
       shell: bash
       run: |
         gcloud --quiet storage cp --project="${{ inputs.project_id }}" \
-          "${{ inputs.storage_bucket }}/enforce-changelog/changelog.md" content/chainguard/chainguard-enforce/
+          "${{ inputs.storage_bucket }}/enforce-changelog/changelog.md" "${{ inputs.platform_changelog }}"
 
     - name: download openapi api.json spec from cloud storage
       shell: bash
@@ -55,12 +51,6 @@ runs:
       run: |
         sed '/draft: false/a tags: ["chainctl", "Reference", "Product"]' \
           -i content/chainguard/chainctl/chainctl-docs/*.md
-          
-    - name: add tags to changelog by inserting line with sed
-      shell: bash
-      run: |
-        sed '/draft: false/a tags: ["Platform", "Reference", "Product"]' \
-          -i content/chainguard/chainguard-enforce/changelog.md
 
     - name: add tags to cloudevents by inserting line with sed
       shell: bash
