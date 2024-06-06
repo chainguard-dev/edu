@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-hyperband Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 1st     | `sha256:61454670e865c59e1cd7e632ce6a55e26ce9d83956669d34e43ff2850ee0714d` |
-|  `latest`     | May 31st     | `sha256:dc0451f04e3ba81ab6714ee0696abf03781b9ecb3aa1957f0028481fefc341d4` |
+|  `latest`     | June 5th     | `sha256:5edb16ea3988777c062525b77b264bcb195d1792574f4246fddb92f8a05f7bca` |
+|  `latest-dev` | June 5th     | `sha256:b4655810fa53d818bafe4b6f158d4c9eec3df65d6f5ad5dc7c95e3d67681bed4` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.16-dev` `0.16.0-dev` `latest-dev` | June 1st     | `sha256:99e65778c73fdbb0c64fe3830b497862345cf8d670b01eef35c471aaf000c3f3` |
-|  `0` `0.16.0` `latest` `0.16`                 | May 30th     | `sha256:596a8f0d93741ec4de6c6e0e213a7b3cc5ec3d9f4a2bdcc6c4bf8e5cf059b07c` |
+|  `0-dev` `0.16.0-dev` `0.16-dev` `latest-dev` | June 5th     | `sha256:3088c4f171afed07c267bb64e7b99a5dc21df676a7eab7efc7bc42a9eb66fc64` |
+|  `0.16` `latest` `0.16.0` `0`                 | June 5th     | `sha256:35cbb176ef3e336522f6d7b00889a01557c28fe6fb4bfede866460ffada6bc20` |
 

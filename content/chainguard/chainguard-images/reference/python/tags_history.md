@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the python Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 1st     | `sha256:c7afe78f15c543c9936151640ce819e4d6cd2cf0f027ac5749d3cda369079675` |
-|  `latest`     | May 30th     | `sha256:b6f495ed363328b0600c5b9b8cbf5e76c4bb981a7641988722123024a97b41b6` |
+|  `latest-dev` | June 5th     | `sha256:c7afe78f15c543c9936151640ce819e4d6cd2cf0f027ac5749d3cda369079675` |
+|  `latest`     | June 5th     | `sha256:b6f495ed363328b0600c5b9b8cbf5e76c4bb981a7641988722123024a97b41b6` |
 
 
 ### Private/Dedicated Registry

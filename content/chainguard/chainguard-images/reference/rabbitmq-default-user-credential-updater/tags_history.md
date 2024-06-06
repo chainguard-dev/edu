@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rabbitmq-default-user-credential-updater Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 1st     | `sha256:fc42a70f94fffb419241113d34fcbfbfbeed8e93d95a71fdd363acadec68e5dd` |
+|  `latest-dev` | June 5th     | `sha256:480fa8e49108b98e7d076ffe9d2c535c0a3854d1f3731753696cea33d1c02407` |
+|  `latest`     | June 5th     | `sha256:5ac832c7247ff7160a6e45cd7f9d7f45f1abdd785d6c581af186b1b72f90a782` |
 
 
 ### Private/Dedicated Registry

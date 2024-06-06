@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the harbor-trivy-adapter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 4th     | `sha256:66951f56c611e38b1f2463845ade8e4b9161915cca5ed213fd907a555655b2dc` |
-|  `latest`     | June 4th     | `sha256:82357eaefa313ca4e18fbe6458d2775ee8a416ced2c0f7669101d46d90899165` |
+|  `latest-dev` | June 5th     | `sha256:8bed8a11036ba25801df235f6319c828ddf1f2d3bbdcadf3832c0995c003dd53` |
+|  `latest`     | June 5th     | `sha256:fde07a4422276adcf27b37b1a966b71710083a7a8fd89cec73f9123e417d151f` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.31` `0` `0.31.2`                 | June 4th     | `sha256:650d0b7164a0f927e4832cba86a8a6d5b84d2b892d65a6b2dbc7140ef601408f` |
-|  `latest-dev` `0.31.2-dev` `0.31-dev` `0-dev` | June 4th     | `sha256:c33e7ef8ee20f6acdf3b494c581222a3e42666f9b5d79e077d1c6382b541ebfc` |
+|  `0-dev` `latest-dev` `0.31-dev` `0.31.2-dev` | June 5th     | `sha256:7d0e525ee141030af9d636888049e09be0f3f3fbf3b1f720932663b3d88623eb` |
+|  `0.31.2` `0` `latest` `0.31`                 | June 5th     | `sha256:bb3c415b50baa3a7e38f77e9752ff1d4bf31d7f7fcc86e498abfdc9a532e88d3` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public kubernetes-csi-node-driver-registrar Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-30 00:47:59
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -42,6 +42,5 @@ The table shows package distribution across variants.
 | `glibc-locale-posix`                               | X      |
 | `kubernetes-csi-node-driver-registrar-2.11-compat` | X      |
 | `kubernetes-csi-node-driver-registrar-2.9`         | X      |
-| `ld-linux`                                         | X      |
 | `wolfi-baselayout`                                 | X      |
 

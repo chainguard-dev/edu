@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-hubble-ui Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 3rd     | `sha256:7816c69cc9655904580a90c3bb1dbd9b762e1e54f7183eb84980fa3605e30141` |
-|  `latest`     | June 3rd     | `sha256:8d45c102e97aea2142c04750de0b3caf7ae5872d9b3c63670792fba4239baad3` |
+|  `latest-dev` | June 5th     | `sha256:456ddd0a2a103adfa25b1fb4d01d3a5a4710c43f9e8da088c80d1346a9a8e70a` |
+|  `latest`     | June 5th     | `sha256:a3af013bc9a13b1d50da77c0c0d982db77e5726b930c81890605efd8dd76b6b7` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.13.1` `0` `0.13`                 | June 4th     | `sha256:c1b4a57a4b051c8134e863f08aa4b77693862d74b110e5aef6c3b85c5d4f4371` |
-|  `latest-dev` `0.13-dev` `0.13.1-dev` `0-dev` | June 4th     | `sha256:9f22cad5722f1f1097458dcd6189d39032ac18a373e3c8b16766dec8835ae882` |
+|  `latest-dev` `0-dev` `0.13.1-dev` `0.13-dev` | June 5th     | `sha256:f4ec651d0baedc956846f6ed18e852d38fcd2bb327608f57116774f37a0672ca` |
+|  `0.13` `0.13.1` `0` `latest`                 | June 5th     | `sha256:edc5bdc678e7e0785620d200516fe50fe0e0565853606a1844453f5bad5704ab` |
 |  `0.13.0-dev`                                 | June 1st     | `sha256:c44086e60b66b804478fe451abfd4fc625deff680452662cc788c500753d5d7d` |
 |  `0.13.0`                                     | May 30th     | `sha256:9f9cb64dac39440efdabfbf77dfdfe72e89655523e6fbb870047526733694b29` |
 

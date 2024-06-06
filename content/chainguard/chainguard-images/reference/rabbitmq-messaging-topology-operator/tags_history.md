@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rabbitmq-messaging-topology-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 1st     | `sha256:eb67fb51fd979fcbfed203387e35c4cc3bd6b091c7a24231c1e9fceada9dfe69` |
+|  `latest-dev` | June 5th     | `sha256:a2c2e29be43fc306553e916f3b433dde2eb4aa165bad709eeee781f6aa5eb1ed` |
+|  `latest`     | June 5th     | `sha256:33c062d2bbf4bee725e1fc323fc1dbf7158f921b0a086c9a269fbd532e0f10e3` |
 
 
 ### Private/Dedicated Registry

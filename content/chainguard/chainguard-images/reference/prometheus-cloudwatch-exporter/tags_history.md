@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-cloudwatch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 1st     | `sha256:5f438f068da5206951bf7f6587248e0573b26d0e7e9466b5c4d18fb5848f381f` |
-|  `latest`     | May 30th     | `sha256:c556f728cde2c62a4654cb64e1ada332457e3a58ba1ab839a29abff93a6eb183` |
+|  `latest`     | June 5th     | `sha256:c556f728cde2c62a4654cb64e1ada332457e3a58ba1ab839a29abff93a6eb183` |
+|  `latest-dev` | June 5th     | `sha256:5f438f068da5206951bf7f6587248e0573b26d0e7e9466b5c4d18fb5848f381f` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.15.5-dev` `0-dev` `0.15-dev` | June 1st     | `sha256:ed9e4358b9a5ddb3e185223f63dcc8615098177586c9a62ab5d6b6644f209805` |
-|  `0` `latest` `0.15` `0.15.5`                 | May 30th     | `sha256:82c68b8e56ef7d3f65e6f133ddd882c9292064962eeec5262e85a0d358b90d3a` |
+|  `0.15.5-dev` `0.15-dev` `0-dev` `latest-dev` | June 5th     | `sha256:ed9e4358b9a5ddb3e185223f63dcc8615098177586c9a62ab5d6b6644f209805` |
+|  `0.15.5` `0.15` `0` `latest`                 | June 5th     | `sha256:82c68b8e56ef7d3f65e6f133ddd882c9292064962eeec5262e85a0d358b90d3a` |
 

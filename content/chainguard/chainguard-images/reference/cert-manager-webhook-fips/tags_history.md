@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-webhook-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-04 00:50:16
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.12-dev` `1.12.10-dev`                     | June 4th     | `sha256:5a7b2b740bf68c1f3ad0d9375036ec21e923277fd06f4e5514f9ddc20b4486e7` |
-|  `1-dev` `1.14-dev` `latest-dev` `1.14.5-dev` | June 4th     | `sha256:346bdc43794473d24478a6cc94b1703b841edb69d5028395ffe6ed96fd6904f8` |
-|  `1.14` `1.14.5` `latest` `1`                 | June 4th     | `sha256:c1fe5c70d757b135723517fde6bacf203ece906f0b7d110fa5f5e694fa7a2a55` |
-|  `1.13.6-dev` `1.13-dev`                      | June 4th     | `sha256:5600ea22c2dc5bd1d581a5b054e7179762651182464aac92defb1215cb78ef15` |
-|  `1.13.6` `1.13`                              | June 4th     | `sha256:88c24c1b04ae142835d296fc689821b7e06b838a0f5001d79c151f37ee178994` |
-|  `1.12` `1.12.10`                             | June 4th     | `sha256:55f4aef02abf32315a0a2e18df9f48a888054b1f7cb10f8a5b558132608cb766` |
+|  `1.14.5` `1` `1.14` `latest`                 | June 5th     | `sha256:74292fae318d1cf6295b031751355520fbedf2d57479bd26619eaaba81920098` |
+|  `1-dev` `1.14.5-dev` `latest-dev` `1.14-dev` | June 5th     | `sha256:6765308e241e01229cfb72552f1f8a38973e9c252ecffb70782fc295cbbceeaa` |
+|  `1.13.6` `1.13`                              | June 5th     | `sha256:becc44b39dcb0c65fabb6ad1025c2d602154dd68b162f5f5aca8c1adf8a0dc19` |
+|  `1.12.10-dev` `1.12-dev`                     | June 5th     | `sha256:140d797bd262ea7ca0f1e596328a60718d00412d5c872a5ec71253b7e8da5c5f` |
+|  `1.12` `1.12.10`                             | June 5th     | `sha256:8eef611474cffadbd91f52a96be8deae7b5b855429c9d24fe6311fc9a099f7e0` |
+|  `1.13.6-dev` `1.13-dev`                      | June 5th     | `sha256:703d05f857960df7df3d8e8bb6bb65e6d9d068ba69242bb74f7450c9be01a366` |
 

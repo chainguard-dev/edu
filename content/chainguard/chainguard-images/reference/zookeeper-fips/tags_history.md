@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the zookeeper-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                   | Last Changed | Digest                                                                    |
 |-----------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.9.2` `latest` `3.9.2.0` `3.9` `3`                     | June 4th     | `sha256:ec2976ab93f17f65f7ba8144e2e60e24b2ef50f625984a0a193d84509908b5e9` |
-|  `3.9-dev` `3-dev` `latest-dev` `3.9.2.0-dev` `3.9.2-dev` | June 4th     | `sha256:f5eabb65aa25d1dc593026ac4246c7a826546f33e84b7f4a23a6bc8578260521` |
+|  `3.9.2` `latest` `3.9` `3.9.2.0` `3`                     | June 5th     | `sha256:ec2976ab93f17f65f7ba8144e2e60e24b2ef50f625984a0a193d84509908b5e9` |
+|  `latest-dev` `3.9-dev` `3.9.2.0-dev` `3.9.2-dev` `3-dev` | June 5th     | `sha256:f5eabb65aa25d1dc593026ac4246c7a826546f33e84b7f4a23a6bc8578260521` |
 

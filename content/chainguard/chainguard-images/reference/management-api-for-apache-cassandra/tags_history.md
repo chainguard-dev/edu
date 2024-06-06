@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the management-api-for-apache-cassandra Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 1st     | `sha256:2a2255cc46a341132dcebc70a2dfe2decca7686c5943932a378b4a5fccdf56c8` |
-|  `latest`     | May 30th     | `sha256:9631a94280a8338981b2e5dd18f3920231c0967d13518272eb0cf38705c7c9af` |
+|  `latest-dev` | June 5th     | `sha256:2a2255cc46a341132dcebc70a2dfe2decca7686c5943932a378b4a5fccdf56c8` |
+|  `latest`     | June 5th     | `sha256:9631a94280a8338981b2e5dd18f3920231c0967d13518272eb0cf38705c7c9af` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.1-dev` `latest-dev` `0-dev` `0.1.78-dev` | June 1st     | `sha256:47205a5b89ca1faa6f7891ef2cdf5ae6166f78169caa59e7ac55e24c8dee8c80` |
-|  `0.1` `0.1.78` `latest` `0`                 | May 30th     | `sha256:aeae2cb986b183dfa79fc39827a52ec5dff7c2babb6791e215a542197d90f0cc` |
+|  `0.1` `0.1.78` `latest` `0`                 | June 5th     | `sha256:aeae2cb986b183dfa79fc39827a52ec5dff7c2babb6791e215a542197d90f0cc` |
+|  `0.1.78-dev` `0.1-dev` `latest-dev` `0-dev` | June 5th     | `sha256:47205a5b89ca1faa6f7891ef2cdf5ae6166f78169caa59e7ac55e24c8dee8c80` |
 

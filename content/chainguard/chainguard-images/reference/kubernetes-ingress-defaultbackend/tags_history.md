@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-ingress-defaultbackend Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 1st     | `sha256:825d061e0202a9b410c1c9ead8aa0f652dac01d2cc678fb529fc0ea66ea813b3` |
+|  `latest-dev` | June 5th     | `sha256:dac2aa5e6547c81922f388d0fe3a7e4da549055f2723d55d228bd96ee128c68b` |
+|  `latest`     | June 5th     | `sha256:9166aaf2a2ace406e6cf7505cfe8158a27eca9aea2c308642426e553d84bcfa9` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.29.1-dev` `1-dev` `1.29-dev` `latest-dev` | June 1st     | `sha256:0df3ed50d2c5609ef37d46883241df5079a092b7d0eb51a567938fce0798c310` |
+|  `1.29.1-dev` `latest-dev` `1.29-dev` `1-dev` | June 5th     | `sha256:b47363ff98d8babe2515340a0ee38b057f0d95d3989a323fa1d9824903db46ad` |
+|  `1` `latest` `1.29` `1.29.1`                 | June 5th     | `sha256:965773d6f47801fbf7171f82fae77b7d85c3377e877beb96b1f00d5e5e2a7b56` |
 

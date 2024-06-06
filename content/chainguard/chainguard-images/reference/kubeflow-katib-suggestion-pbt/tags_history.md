@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-pbt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 1st     | `sha256:6c2be90ba9cf301d1861bb164f69b89540511acb734c7d3566d49cd7a70a30c3` |
-|  `latest`     | May 31st     | `sha256:12050066a90050eca10ee64d5f9e5e2ba24f3e99d72d9286ca56c65e5e3befb3` |
+|  `latest`     | June 5th     | `sha256:7ab3f1db320b4ee2df0f840422bfafebcb3f45f496b50a306047bd0f58bd82aa` |
+|  `latest-dev` | June 5th     | `sha256:c489167ca90a8f9cc5596b6619d2c6a92fecb148ab0e41084662f1e352d3362d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16-dev` `0-dev` `0.16.0-dev` `latest-dev` | June 1st     | `sha256:313b11b5ce54300c93d47107824ceee2023d8049230900647004e742245acf8a` |
-|  `0.16.0` `latest` `0.16` `0`                 | May 30th     | `sha256:5ea03db57bca3773d3591a6fefede04b39907f676f0e9d33b738f79b5d343afe` |
+|  `0.16` `latest` `0.16.0` `0`                 | June 5th     | `sha256:427af5a69d1f9360c8b60a0c60293e36756c9e82df7608d51729324cffb7f589` |
+|  `0-dev` `latest-dev` `0.16.0-dev` `0.16-dev` | June 5th     | `sha256:d331713167aca9b3cdc64c46a4bd84f80b87eb2a789ddf928b88ac768920429e` |
 

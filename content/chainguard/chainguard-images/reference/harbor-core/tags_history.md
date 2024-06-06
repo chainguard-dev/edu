@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the harbor-core Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 1st     | `sha256:41638621dc5f1814aa651a5b46b1fa666c9e4f5d645770cbace8f9b67bc4dfc2` |
+|  `latest-dev` | June 5th     | `sha256:41638621dc5f1814aa651a5b46b1fa666c9e4f5d645770cbace8f9b67bc4dfc2` |
 
 
 ### Private/Dedicated Registry
@@ -36,8 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2.9.4-dev` `2.9-dev` `2-dev` `latest-dev` | June 5th     | `sha256:0c08e68d34343bb00e35b825492b192dd371cbcb48bb3a83db0a672a264c6b05` |
+|  `2.10.2-dev` `2.10-dev`                    | June 5th     | `sha256:112803a9aa3bf6b17063f47fce2b7db086501d0a7bbf80f182b698f9abbb5a17` |
 |  `2` `latest`                               | June 1st     | `sha256:295f4cf25e0a6c7faebeac36e6409080297dca36a77ab6d9506ad595926c7970` |
-|  `2-dev` `latest-dev` `2.9.4-dev` `2.9-dev` | June 1st     | `sha256:0c08e68d34343bb00e35b825492b192dd371cbcb48bb3a83db0a672a264c6b05` |
-|  `2.10.2-dev` `2.10-dev`                    | June 1st     | `sha256:112803a9aa3bf6b17063f47fce2b7db086501d0a7bbf80f182b698f9abbb5a17` |
 |  `2.8-dev` `2.8.6-dev`                      | June 1st     | `sha256:f2af6c17343f3565d52fda5ac866dcf9c3d0b519ce236797e5ad4aa0aeafdd7a` |
 

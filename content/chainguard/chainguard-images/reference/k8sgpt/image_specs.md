@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public k8sgpt Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -21,20 +21,25 @@ toc: true
 
 This page shows detailed information about the Chainguard **k8sgpt** Image.
 
-|              |
-|--------------|
-| Default User |
-| Entrypoint   |
-| CMD          |
-| Workdir      |
-| Has apk?     |
-| Has a shell? |
+|              | latest        |
+|--------------|---------------|
+| Default User | `nonroot`     |
+| Entrypoint   | `k8sgpt`      |
+| CMD          | not specified |
+| Workdir      | not specified |
+| Has apk?     | no            |
+| Has a shell? | no            |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/k8sgpt/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|  |
-|--|
+|                          | latest |
+|--------------------------|--------|
+| `ca-certificates-bundle` | X      |
+| `chainguard-baselayout`  | X      |
+| `glibc-locale-posix`     | X      |
+| `k8sgpt`                 | X      |
+| `wolfi-baselayout`       | X      |
 

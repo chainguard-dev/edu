@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the metacontroller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 3rd     | `sha256:16b8ede881e6ca2391bf6ce0e4197fd7334a524c16bf1c0cf5bc9ee1b981328e` |
-|  `latest-dev` | June 3rd     | `sha256:10daef184d05fd7c7b74d0bb14f093ded46c650183ca4b2cac0a2d6f2ade1e64` |
+|  `latest-dev` | June 5th     | `sha256:736a4d311633527e51bc7a1d96fb57edc1a94cf63ff4f448fb708a4bcd820d67` |
+|  `latest`     | June 5th     | `sha256:7ab8075836550d2a02f0be648d0e36639c9e93d3f5e1edfdc9b728b29f89bda6` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `4-dev` `4.11.14-dev` `4.11-dev` | June 3rd     | `sha256:747157eff534449ae119301586f27cf049452ea3ec9c3e238d9372f480089b7d` |
-|  `4` `4.11` `4.11.14` `latest`                 | June 3rd     | `sha256:7bf6fa2599fec868c71d8256af86db99a7e3af1a47ecdce0a856ca5c07d3d8b5` |
+|  `4.11-dev` `4-dev` `latest-dev` `4.11.14-dev` | June 5th     | `sha256:860a0f16e601888e521cb44fa32c7e4bea90299740f76503da62d2ad0ff10abb` |
+|  `4.11.14` `4.11` `4` `latest`                 | June 5th     | `sha256:588ae6790d7405d6753a756ddc8acb5c474371692b0564900b2e0bcffb84a231` |
 |  `4.11.13-dev`                                 | June 1st     | `sha256:c8991cd4533dd5b5dce662ec4bb8fba9383210edd6e82545041b1b1014da36bc` |
 

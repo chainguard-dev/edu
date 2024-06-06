@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the caddy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 3rd     | `sha256:04a5afa60aa39d4428531ffb47d4d037f67aa206a16567879996b8769769475f` |
-|  `latest-dev` | June 3rd     | `sha256:ccaa893bdc8384c8b4204f6dbdf052ac8247b3a7c492c9b72d5d91e5ce5e783b` |
+|  `latest-dev` | June 5th     | `sha256:30742ea456dbe1d0690a8f5e913d177ced89adae75d72513bb37e2453f7c831e` |
+|  `latest`     | June 5th     | `sha256:13d24de809623dee967bbfe82672c650fa2889e4fb8d865156666d6fbb32bcfa` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.8.4-dev` `latest-dev` `2.8-dev` `2-dev` | June 3rd     | `sha256:59e2736be0a5b8a4b69d3212e020e8b69f683f586893e2267dce81eca9c49e96` |
-|  `2.8.4` `2.8` `latest` `2`                 | June 3rd     | `sha256:3750f4272571d527bcebd0e20d25144ae5d66f9bbaf385b8812468cfef479373` |
+|  `2.8-dev` `2.8.4-dev` `2-dev` `latest-dev` | June 5th     | `sha256:8a0cf9d576ffd0094bcacee08d820e00306ae9e3d3c38d7cf5e58a168b24cc9d` |
+|  `2.8` `2.8.4` `2` `latest`                 | June 5th     | `sha256:b5434565af6aa548ba20ead7724f91aa9553fd425d46ed49d5c07329bf2152a3` |
 |  `2.8.1-dev`                                | June 1st     | `sha256:9ade97dd8cc549daaa221086f0a746ff4ba789cbe41bfaa8da3db84367354184` |
 |  `2.8.1`                                    | May 30th     | `sha256:b25c80b8f6fc636a1d10d968e55c42f24114ffe79a1a37a9e61475ed86294bd8` |
 

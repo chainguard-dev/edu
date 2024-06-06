@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mysqld-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 1st     | `sha256:4163024dfe38c7d9fd3db593762cf263d63bde7afd30e2ab5ee6c5f3350236d3` |
-|  `latest`     | May 31st     | `sha256:682a98862fb2867545c75cf6c83cb9bbe470301d532e754e842acbde8f4919f2` |
+|  `latest`     | June 5th     | `sha256:e014caacbd658acb0dee8051d263f861d56ee2693ad209f620f82d644b8f3470` |
+|  `latest-dev` | June 5th     | `sha256:8548922cd84f6ac4e106c88871f1bc843a6dc314ff85ef6c27ca5b89da23c7d1` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.15-dev` `0.15.1-dev` | June 1st     | `sha256:84f47b5efd4545ed78d44eb2cf795d7147b380e546368c7c7f33475921f33775` |
-|  `0.15.1` `0.15` `latest` `0`                 | May 30th     | `sha256:fc789f14f4f7109da7763b688165dfe41d178baa3454bcf406bf7fc8ffbdf7c6` |
+|  `0-dev` `latest-dev` `0.15.1-dev` `0.15-dev` | June 5th     | `sha256:05ed73f36769f84c483262607bb4cbf22936469cbed3948e52b48f9053b70a40` |
+|  `0` `latest` `0.15` `0.15.1`                 | June 5th     | `sha256:203ee3789d937487a6c17d47fce7b458de2f3da7510d46c7691512f3a5d04e2a` |
 

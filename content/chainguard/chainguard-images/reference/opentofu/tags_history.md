@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opentofu Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 3rd     | `sha256:721a424c9d58ac54488312df5593513ecd2c364be1f3775d5115279613449138` |
-|  `latest-dev` | June 3rd     | `sha256:e130b4e5e3099fb7825ab6b0256c14a3420c4932b86be2a184a5e1664b515457` |
+|  `latest-dev` | June 5th     | `sha256:f69693c5a7426df393593ac3893e5690cc823ca9b83ca178974ff6af1eb2e76a` |
+|  `latest`     | June 5th     | `sha256:08ee165ddb67d6e50599dcf5e56c4758b5d7b147400f554f39c8457ee0496086` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.7.2-dev` `1.7-dev` `1-dev` `latest-dev` | June 3rd     | `sha256:33aa67e911dc3d997ba5b2a1859cb78942c151af1467e99f5ce34cae5c5df71e` |
-|  `1` `latest` `1.7` `1.7.2`                 | June 3rd     | `sha256:55a826265ccf74eaabb9eb552b9af05b0ae45c7d6a85bd1a33c7cb2e2b353416` |
+|  `1.7-dev` `1-dev` `1.7.2-dev` `latest-dev` | June 5th     | `sha256:b8b21aaa64ee9fbc7f7bcc43d465a7256acec8ce1c027b1e5ba538f9b4af97c0` |
+|  `1.7.2` `1.7` `latest` `1`                 | June 5th     | `sha256:344cf3742824e9467bb75a6a68b191a25c1129663cd19acb24f77b8a12ab1bb5` |
 |  `1.7.1-dev`                                | June 1st     | `sha256:f7fbfa57c7eacc12e403dff32487729f79c2adcc635f27f2071c8b2e7f34bbd8` |
 

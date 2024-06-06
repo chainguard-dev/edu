@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nfs-subdir-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 1st     | `sha256:547ec2fd4b82a05b8fdd7eff8f3446e9e2d30b6db8201a43c8ee9bda15731b64` |
-|  `latest`     | May 31st     | `sha256:7b407457239954cb6342779d515feda44add873661db1fec413cf77108d5a8d9` |
+|  `latest-dev` | June 5th     | `sha256:2323d26cc6d1e2cbd69a14b703017aa074db220b4623e5929eb810143f18aa2c` |
+|  `latest`     | June 5th     | `sha256:8d3d60d910158a9ba37a09b12f53e93bad0d2b69399892231e92a248782367b8` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4` `4.0.18` `latest` `4.0`                 | June 5th     | `sha256:f6b432b16a6a53614a1d9e1db027e101f52d06ec9ba9b6ed1a34ad17f62fd58d` |
-|  `4-dev` `4.0.18-dev` `4.0-dev` `latest-dev` | June 5th     | `sha256:eb7ce95ae13e78458e33805c19b88781204a60a9d5b1f42a0f6fc80abbbcfb20` |
+|  `latest-dev` `4.0.18-dev` `4-dev` `4.0-dev` | June 5th     | `sha256:eb7ce95ae13e78458e33805c19b88781204a60a9d5b1f42a0f6fc80abbbcfb20` |
+|  `4.0` `4` `latest` `4.0.18`                 | June 5th     | `sha256:f6b432b16a6a53614a1d9e1db027e101f52d06ec9ba9b6ed1a34ad17f62fd58d` |
 

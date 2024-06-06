@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-cache-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 1st     | `sha256:0fe23e51425ab4ed5abc5da921feb7843fd45bf3a68761925c6812b12be7a12d` |
-|  `latest`     | May 31st     | `sha256:f5dbba7afc76c505a6de4544066d3f7d95ac438ff5ab2679b8884b69b9b3542f` |
+|  `latest-dev` | June 5th     | `sha256:2754b28c4f50a5b676e65f5f54524b814c747bc533ea1f453b930d1e6014d982` |
+|  `latest`     | June 5th     | `sha256:3bb3d8f125e180c584472b4486454b8e92d760a2197775a9e4d0a2b32f967f1c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.2.0-dev` `2-dev` `latest-dev` `2.2-dev` | June 1st     | `sha256:fb820eebdf9a38fe4ffc85224db756124adaae5c179b705420d290b6728f6863` |
-|  `2.2` `2` `latest` `2.2.0`                 | May 29th     | `sha256:fbe10f84a98fefdc80974f6a19ae5d8767a483cf82eafb9eec2e11cdcd195109` |
+|  `2-dev` `2.2-dev` `2.2.0-dev` `latest-dev` | June 5th     | `sha256:0904a2a25cf3019832d1c8670f5db5c3334b8080b9af21175cae8635b402fc01` |
+|  `2` `2.2.0` `2.2` `latest`                 | June 5th     | `sha256:7751a195fd523307cb659990bac2b50e8005a9acdd97ed2fddb2508eedafd531` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the bincapz Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 1st     | `sha256:e12ee5a5c284e98e63cf9f841b8cb8e8510acc59df5a6a1d127995069e932ade` |
-|  `latest`     | May 31st     | `sha256:58c23cefbce8b5a35afcacad6aebdafc8282423865427aba1148d5d96f74ce54` |
+|  `latest`     | June 5th     | `sha256:1590cd34324c16be176898adee024fec58d5f5709f13060f61fe97389ece2df8` |
+|  `latest-dev` | June 5th     | `sha256:c45532ec1f4a1c15255dcba26f6695a251a56089a54a4e8c5ac70d5f23f962c2` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.12-dev` `0.12.0-dev` `0-dev` `latest-dev` | June 1st     | `sha256:926b6e13d487ca60ab2f301f9c6d5728b22d7fda02b78090a2107dde4a4ebf7c` |
-|  `0.12` `0` `0.12.0` `latest`                 | May 30th     | `sha256:a18d62df02b11be7772c984344fc7d8f4db96657ffa86cf3656277f6397f8141` |
+|  `0-dev` `0.12.0-dev` `0.12-dev` `latest-dev` | June 5th     | `sha256:41fe164325f1fb761009136b8e52338183f8fb46d30b04487ca31da1ae0fc961` |
+|  `0.12` `0.12.0` `0` `latest`                 | June 5th     | `sha256:cd9286e337bd9dacf919bac8539c476f061af0990f27901c984fe98679e28564` |
 

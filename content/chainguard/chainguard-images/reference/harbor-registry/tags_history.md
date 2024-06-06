@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the harbor-registry Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 1st     | `sha256:f964bee620aaf815e517f2619c653421aa0e0c92482689fa49a1429a6cf98e0e` |
+|  `latest-dev` | June 5th     | `sha256:c74050b27410cba503c043c417abfffdc5398a471d0eaaca533f987a9c6fe7a6` |
+|  `latest`     | June 5th     | `sha256:b0a4c307c3c3dd89468c8dc38ef4bfe7cfebd798b890db521dfae22c7be6490e` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                            | Last Changed | Digest                                                                    |
 |----------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.0-dev` `3.0.0_alpha1-dev` `3-dev` `latest-dev` | June 1st     | `sha256:af6a26f3864ba17805bf0232d2f8d0e1fbf75e715704f71cf9355f2ad1d0eba1` |
+|  `latest-dev` `3-dev` `3.0.0_alpha1-dev` `3.0-dev` | June 5th     | `sha256:aef5e54ee0a18f22570fda562c6fff6a151a2ff40f9622883b49ea20e730cfde` |
+|  `3.0.0_alpha1` `3.0` `3` `latest`                 | June 5th     | `sha256:5efd7ea5a8783f3d1c89dda9bdac088a55639f69a2f0eb2fe4c061e5371d6c17` |
 

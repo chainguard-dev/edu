@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the fluent-bit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 1st     | `sha256:a343ca0d1968edab6fe153da8d31ea716ff673a11752dcfb6805782aaad4e19e` |
-|  `latest`     | May 31st     | `sha256:dd69b2726a4b978771eb01bb79440a57d06ccd25f7995ea63081c3e4e21350e1` |
+|  `latest-dev` | June 5th     | `sha256:a343ca0d1968edab6fe153da8d31ea716ff673a11752dcfb6805782aaad4e19e` |
+|  `latest`     | June 5th     | `sha256:dd69b2726a4b978771eb01bb79440a57d06ccd25f7995ea63081c3e4e21350e1` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` `3.0.6-dev` `3-dev` `3.0-dev` | June 6th     | `sha256:59ef1cfb70913a7fab8e88d1eb0aaec7c4fc3a64606f688eebfd85c40cfe11f1` |
+|  `2.2.3-dev` `2.2-dev` `2-dev`              | June 6th     | `sha256:9f3b3cf62c9fef18099a9dc7c6dae9fb47918ccd768bb503eabe3da3ef4c8d68` |
 |  `3.0` `3` `3.0.6` `latest`                 | May 30th     | `sha256:1b8de36663467cc73021411d9c3fb224ffd05c7b16c16b473f64d796fff9437d` |
-|  `2.2.3-dev` `2-dev` `2.2-dev`              | May 30th     | `sha256:2a66b56f8ad28b229b0a9e0878d3bae2bd81821cccb7647c1aa5d6c60d2e62a0` |
-|  `3.0-dev` `3.0.6-dev` `latest-dev` `3-dev` | May 30th     | `sha256:135dea27bc09cf6976693e42a970b14d3b532309222fffe8bf143df904291453` |
 |  `2.2.3` `2.2` `2`                          | May 30th     | `sha256:b1a6b4b5c9b120f151120623e4ed4a9997d61e5f9bd286e5c1cf3c9ee1b29ecd` |
 

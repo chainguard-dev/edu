@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: memcached-exporter Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -34,7 +34,7 @@ A memcached exporter for Prometheus.
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard-private/memcached-exporter:latest
+docker pull cgr.dev/chainguard/memcached-exporter:latest
 ```
 
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gitness Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 1st     | `sha256:db0ba9ebe7c355889265efd57f012b6818e28fd370fcf677ba3222e8ed163151` |
-|  `latest-dev` | June 1st     | `sha256:57a4531779c41d03a22ec326b36b25fcd364ea5f03ba0f955d6c74d422d0db33` |
+|  `latest`     | June 5th     | `sha256:5b7a870cb0dee376413599696d76b899be9c439412078a63ca47379cb4a1545d` |
+|  `latest-dev` | June 5th     | `sha256:b2f54309c12a6e544d837599810feab753601f02b9065c28c14003ba13f4e3f1` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                           | Last Changed | Digest                                                                    |
 |---------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `3.0-dev` `3.0.0_beta6-dev` `3-dev` | June 1st     | `sha256:bbe11eab8f6cb576ca011a6800c89a150b6ff14beadd689a3bd5cc7c1d8f7183` |
-|  `latest` `3.0.0_beta6` `3.0` `3`                 | June 1st     | `sha256:c2e0b0742f2d36f7f44c3db89948450e6def030a1cc4c631fe86e0e6d6f6ed11` |
+|  `latest-dev` `3.0-dev` `3-dev` `3.0.0_beta6-dev` | June 5th     | `sha256:868862ff4c0a5fe7e451493a289d8b2ef3d7fab873c5f04971e98b02fad91579` |
+|  `3.0.0_beta6` `3.0` `latest` `3`                 | June 5th     | `sha256:62de60ff994a689569dee58370ee7f1b9fe255718d9589a82627ddadb957b4b3` |
 

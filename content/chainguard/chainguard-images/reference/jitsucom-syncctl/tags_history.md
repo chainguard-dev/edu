@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jitsucom-syncctl Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 1st     | `sha256:bbcb8983a2c22e2a23052ddc47647af78029b77c1aa0e7f1d987d34da518600a` |
-|  `latest`     | May 31st     | `sha256:f801eae245e47b8b8cbef1c8b6c018f146186416cfd93b3840a0bbac961ce153` |
+|  `latest-dev` | June 5th     | `sha256:36d8d0795f5974ccac978e4e50280733f22adaa1a131e511ef50c91d79bc0728` |
+|  `latest`     | June 5th     | `sha256:4db0217c5e9c6d9e0bc7dfbaa84d4ab28f6fc7b296e3bdecee1c00e2f07ec4fa` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.7-dev` `2.7.0-dev` `latest-dev` `2-dev` | June 1st     | `sha256:6a3fcbe614d73bae9fcddc1771d2d77dab2d7884bc1861c32cc9d976c1a2845a` |
-|  `2` `latest` `2.7.0` `2.7`                 | May 31st     | `sha256:e8a01f1ae71529aa557209ce674d35ecca0509f63be96a77ca03b838bbf2fac7` |
+|  `2.7-dev` `2-dev` `2.7.0-dev` `latest-dev` | June 5th     | `sha256:795d30217869cdab4612badc1b9157606c11f087a053d9cc667084e3ca08a113` |
+|  `2` `latest` `2.7.0` `2.7`                 | June 5th     | `sha256:5164b82c0ecd56ef1b5ea3dbd34141e5efa9a561f1f5752bd4383356dda31517` |
 |  `2.6-dev` `2.6.0-dev`                      | May 30th     | `sha256:31639323d83c23ec98c7b6260b919878fd88f4a6838dd57e9b09111e48bbaa26` |
 
