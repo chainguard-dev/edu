@@ -1,5 +1,5 @@
 issuer: https://token.actions.githubusercontent.com
-subject: repo:chainguard-dev/edu:.*
+subject_pattern: repo:chainguard-dev/edu:.*
 claim_pattern:
   job_workflow_ref: chainguard-dev/edu/.github/workflows/autodocs-platform.yaml@.*
 
