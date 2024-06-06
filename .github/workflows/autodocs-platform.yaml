@@ -8,7 +8,7 @@ on:
     branches:
       - platform-docs
 env:
-  PLATFORM_CHANGELOG: "content/chainguard/autodocs/platform-changelog.md"
+  PLATFORM_CHANGELOG: "autodocs/platform-changelog.md"
 
 jobs:
   check-new-docs:
