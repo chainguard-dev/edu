@@ -1,5 +1,5 @@
 ---
-date: 2024-04-04T08:56:03Z
+date: 2024-06-04T22:20:27Z
 title: "chainctl images diff"
 slug: chainctl_images_diff
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_diff/
@@ -21,7 +21,6 @@ chainctl images diff FROM_IMAGE TO_IMAGE [flags]
 
 ```
   -h, --help              help for diff
-      --mode string       Specifies the mode of the diff operation between: local or server (default "local")
       --platform string   Specifies the platform in the form os/arch (e.g. linux/amd64, linux/arm64) (default "linux/amd64")
 ```
 

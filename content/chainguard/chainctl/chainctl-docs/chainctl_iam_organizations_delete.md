@@ -1,26 +1,43 @@
 ---
 date: 2024-06-04T22:20:27Z
-title: "chainctl iam organizations list"
-slug: chainctl_iam_organizations_list
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_organizations_list/
+title: "chainctl iam organizations delete"
+slug: chainctl_iam_organizations_delete
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_organizations_delete/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam organizations list
+## chainctl iam organizations delete
 
-List organizations.
+Delete an organization.
 
 ```
-chainctl iam organizations list [--output tree|table|json|id]
+chainctl iam organizations delete [ORGANIZATION_NAME | ORGANIZATION_ID] [--skip-refresh] [--yes]
+```
+
+### Examples
+
+```
+
+# Delete an organization by ID
+chainctl iam organizations delete e533448ca9770c46f99f2d86d60fc7101494e4a3
+
+# Delete an organization by name
+chainctl iam organizations delete my-org
+
+# Delete an organization to be selected interactively
+chainctl iam organizations delete
+
 ```
 
 ### Options
 
 ```
-  -h, --help   help for list
+  -h, --help           help for delete
+      --skip-refresh   Skips attempting to reauthenticate and refresh the Chainguard auth token if it becomes out of date.
+  -y, --yes            Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 
 ### Options inherited from parent commands

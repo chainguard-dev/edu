@@ -1,22 +1,26 @@
 ---
 date: 2024-06-04T22:20:27Z
-title: "chainctl iam invites"
-slug: chainctl_iam_invites
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_invites/
+title: "chainctl auth token"
+slug: chainctl_auth_token
+url: /chainguard/chainctl/chainctl-docs/chainctl_auth_token/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam invites
+## chainctl auth token
 
-Manage invite codes that register identities with Chainguard.
+Print the local Chainguard Token.
+
+```
+chainctl auth token [flags]
+```
 
 ### Options
 
 ```
-  -h, --help   help for invites
+  -h, --help   help for token
 ```
 
 ### Options inherited from parent commands
@@ -33,8 +37,5 @@ Manage invite codes that register identities with Chainguard.
 
 ### SEE ALSO
 
-* [chainctl iam](/chainguard/chainctl/chainctl-docs/chainctl_iam/)	 - IAM related commands for the Chainguard platform.
-* [chainctl iam invites create](/chainguard/chainctl/chainctl-docs/chainctl_iam_invites_create/)	 - Generate an invite code to identities with Chainguard.
-* [chainctl iam invites delete](/chainguard/chainctl/chainctl-docs/chainctl_iam_invites_delete/)	 - Delete invite codes
-* [chainctl iam invites list](/chainguard/chainctl/chainctl-docs/chainctl_iam_invites_list/)	 - List organization and folder invites.
+* [chainctl auth](/chainguard/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
 

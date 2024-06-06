@@ -1,5 +1,5 @@
 ---
-date: 2024-04-04T08:56:03Z
+date: 2024-06-04T22:20:27Z
 title: "chainctl iam invites create"
 slug: chainctl_iam_invites_create
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_invites_create/
@@ -14,7 +14,7 @@ toc: true
 Generate an invite code to identities with Chainguard.
 
 ```
-chainctl iam invites create [ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--role=ROLE_ID|ROLE_NAME] [--ttl=TTL_DURATION] [--email=EMAIL] [--output json|table|id]
+chainctl iam invites create [ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--role=ROLE_ID|ROLE_NAME] [--ttl=TTL_DURATION] [--email=EMAIL] [--single-use] [--output json|table|id]
 ```
 
 ### Examples
@@ -22,10 +22,13 @@ chainctl iam invites create [ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME |
 ```
 
 # Create an invite that will be valid for 5 days:
-chainctl iam invite create ORGANIZATION_ID --role=ROLE_ID --ttl=5d
+chainctl iam invite create my-org-name --role=viewer --ttl=5d
 
 # Create an invite that only Kim can accept:
-chainctl iam invite create ORGANIZATION_ID --role=ROLE_ID --email=kim@example.com
+chainctl iam invite create my-org-name --email=kim@example.com
+
+# Create an invite code that can only be used once.
+chainctl iam invite create my-org-name --single-use
 
 ```
 
@@ -35,6 +38,7 @@ chainctl iam invite create ORGANIZATION_ID --role=ROLE_ID --email=kim@example.co
       --email string   The email address that is allowed to accept this invite code.
   -h, --help           help for create
       --role string    Role is used to role-bind the invited to the associated location.
+      --single-use     The invite can only be used once before it is invalidated.
       --ttl duration   Duration the invite code will be valid. (default 168h0m0s)
 ```
 
