@@ -1912,12 +1912,12 @@
         ]
       }
     },
-    "/registry/v1/repos/{repoId}/diff": {
+    "/registry/v1/repos/{repoId}/digests/{digest}/architectures": {
       "get": {
-        "operationId": "Registry_DiffImage",
+        "operationId": "Registry_GetArchs",
         "parameters": [
           {
-            "description": "The UIDP of the image repo to diff against.",
+            "description": "The UIDP of the image repo to get architectures for.",
             "in": "path",
             "name": "repoId",
             "pattern": ".+",
@@ -1925,15 +1925,11 @@
             "type": "string"
           },
           {
-            "in": "query",
-            "name": "fromDigest",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "toDigest",
-            "required": false,
+            "description": "The digest of the image to get architectures for.",
+            "in": "path",
+            "name": "digest",
+            "pattern": "[^/]+",
+            "required": true,
             "type": "string"
           }
         ],
@@ -1941,7 +1937,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/registryDiffImageResponse"
+              "$ref": "#/definitions/registryArchs"
             }
           },
           "default": {
@@ -2022,6 +2018,13 @@
             "pattern": "[^/]+",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "The architecture to get the SBOM for.",
+            "in": "query",
+            "name": "arch",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2029,6 +2032,53 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/tenantSbom2"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      }
+    },
+    "/registry/v1/repos/{repoId}/digests/{digest}/size": {
+      "get": {
+        "operationId": "Registry_GetSize",
+        "parameters": [
+          {
+            "description": "The UIDP of the image repo to get size and architecture information for.",
+            "in": "path",
+            "name": "repoId",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The digest of the image to get size and architecture information for.",
+            "in": "path",
+            "name": "digest",
+            "pattern": "[^/]+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The architecture to filter on.",
+            "in": "query",
+            "name": "arch",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registrySize"
             }
           },
           "default": {
@@ -2729,107 +2779,6 @@
       ],
       "type": "string"
     },
-    "ChangedImageConfigChangedStopSignal": {
-      "properties": {
-        "current": {
-          "type": "string"
-        },
-        "previous": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "ChangedImageConfigChangedUser": {
-      "properties": {
-        "current": {
-          "type": "string"
-        },
-        "previous": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "ChangedImageConfigChangedWorkingDir": {
-      "properties": {
-        "current": {
-          "type": "string"
-        },
-        "previous": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "ChangedImageConfigCmdDiff": {
-      "properties": {
-        "added": {
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
-        "removed": {
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "ChangedImageConfigEntrypointDiff": {
-      "properties": {
-        "added": {
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
-        "removed": {
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "ChangedImageConfigEnvDiff": {
-      "properties": {
-        "added": {
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
-        "removed": {
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "ChangedImageConfigVolumeDiff": {
-      "properties": {
-        "added": {
-          "additionalProperties": {
-            "$ref": "#/definitions/registryChangedImageConfigVolume"
-          },
-          "type": "object"
-        },
-        "removed": {
-          "additionalProperties": {
-            "$ref": "#/definitions/registryChangedImageConfigVolume"
-          },
-          "type": "object"
-        }
-      },
-      "type": "object"
-    },
     "ComponentGraphEdge": {
       "properties": {
         "predicateId": {
@@ -3023,18 +2972,7 @@
       "description": "ExposedPorts a set of ports to expose from a container running this image.",
       "type": "object"
     },
-    "PackagesDiffChangedPackageReference": {
-      "properties": {
-        "current": {
-          "$ref": "#/definitions/registryVersionReference"
-        },
-        "name": {
-          "type": "string"
-        },
-        "previous": {
-          "$ref": "#/definitions/registryVersionReference"
-        }
-      },
+    "ImageConfigVolume": {
       "type": "object"
     },
     "RoleBindingListBinding": {
@@ -3909,6 +3847,18 @@
       },
       "type": "object"
     },
+    "registryArchs": {
+      "properties": {
+        "archs": {
+          "description": "Architectures belonging to the requested digest's manifests.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "registryCatalogTier": {
       "default": "UNKNOWN",
       "enum": [
@@ -3918,56 +3868,6 @@
         "PREMIUM"
       ],
       "type": "string"
-    },
-    "registryChangedImageConfig": {
-      "properties": {
-        "changedStopSignal": {
-          "$ref": "#/definitions/ChangedImageConfigChangedStopSignal"
-        },
-        "changedUser": {
-          "$ref": "#/definitions/ChangedImageConfigChangedUser"
-        },
-        "changedWorkingDir": {
-          "$ref": "#/definitions/ChangedImageConfigChangedWorkingDir"
-        },
-        "cmds": {
-          "$ref": "#/definitions/ChangedImageConfigCmdDiff"
-        },
-        "entrypoints": {
-          "$ref": "#/definitions/ChangedImageConfigEntrypointDiff"
-        },
-        "envs": {
-          "$ref": "#/definitions/ChangedImageConfigEnvDiff"
-        },
-        "volumes": {
-          "$ref": "#/definitions/ChangedImageConfigVolumeDiff"
-        }
-      },
-      "type": "object"
-    },
-    "registryChangedImageConfigVolume": {
-      "type": "object"
-    },
-    "registryDiffImageResponse": {
-      "properties": {
-        "config": {
-          "$ref": "#/definitions/registryImageConfigDiff"
-        },
-        "packages": {
-          "$ref": "#/definitions/registryPackagesDiff"
-        },
-        "vulnerabilities": {
-          "$ref": "#/definitions/registryVulnerabilitiesDiff"
-        },
-        "warnings": {
-          "description": "warnings is a list of warning messages to return to the requesting client.\nWarning messages describe a problem the client making the DiffImageRequest should correct or be aware of.\nWarnings over 256 characters and large numbers of warnings may be truncated.",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
     },
     "registryImageConfig": {
       "properties": {
@@ -4015,7 +3915,7 @@
         },
         "volumes": {
           "additionalProperties": {
-            "$ref": "#/definitions/registryImageConfigVolume"
+            "$ref": "#/definitions/ImageConfigVolume"
           },
           "description": "Volumes is a set of directories describing where the process is likely write data specific to a container instance.",
           "type": "object"
@@ -4025,17 +3925,6 @@
           "type": "string"
         }
       },
-      "type": "object"
-    },
-    "registryImageConfigDiff": {
-      "properties": {
-        "changed": {
-          "$ref": "#/definitions/registryChangedImageConfig"
-        }
-      },
-      "type": "object"
-    },
-    "registryImageConfigVolume": {
       "type": "object"
     },
     "registryManifestMetadata": {
@@ -4085,44 +3974,6 @@
         "items": {
           "items": {
             "$ref": "#/definitions/registryManifestMetadata"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "registryPackageReference": {
-      "description": "PackageReference is a reference to a package, containing minimal information to identify it.",
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "reference": {
-          "type": "string"
-        },
-        "version": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "registryPackagesDiff": {
-      "properties": {
-        "added": {
-          "items": {
-            "$ref": "#/definitions/registryPackageReference"
-          },
-          "type": "array"
-        },
-        "changed": {
-          "items": {
-            "$ref": "#/definitions/PackagesDiffChangedPackageReference"
-          },
-          "type": "array"
-        },
-        "removed": {
-          "items": {
-            "$ref": "#/definitions/registryPackageReference"
           },
           "type": "array"
         }
@@ -4199,19 +4050,15 @@
       },
       "type": "object"
     },
-    "registryScannerMetadata": {
+    "registrySize": {
       "properties": {
-        "digest": {
+        "arch": {
+          "description": "Architecture.",
           "type": "string"
         },
-        "scanner": {
-          "$ref": "#/definitions/tenantScanner"
-        },
-        "vulnerabilityDbLastBuildTime": {
-          "format": "date-time",
-          "type": "string"
-        },
-        "vulnerabilityDbSchemaVersion": {
+        "size": {
+          "description": "Size per manifest digest, by architecture.",
+          "format": "int64",
           "type": "string"
         }
       },
@@ -4298,55 +4145,6 @@
             "$ref": "#/definitions/registryTag"
           },
           "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "registryVersionReference": {
-      "properties": {
-        "reference": {
-          "type": "string"
-        },
-        "version": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "registryVulnerabilitiesDiff": {
-      "properties": {
-        "added": {
-          "items": {
-            "$ref": "#/definitions/registryVulnerabilityReference"
-          },
-          "type": "array"
-        },
-        "metadata": {
-          "items": {
-            "$ref": "#/definitions/registryScannerMetadata"
-          },
-          "type": "array"
-        },
-        "removed": {
-          "items": {
-            "$ref": "#/definitions/registryVulnerabilityReference"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "registryVulnerabilityReference": {
-      "description": "VulnerabilityReference is a reference to a vulnerability, containing minimal information to identify it.",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "reference": {
-          "type": "string"
-        },
-        "severity": {
-          "type": "string"
         }
       },
       "type": "object"

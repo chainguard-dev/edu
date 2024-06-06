@@ -1,5 +1,5 @@
 ---
-date: 2024-04-04T08:56:03Z
+date: 2024-06-04T22:20:27Z
 title: "chainctl images list"
 slug: chainctl_images_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_list/
@@ -20,12 +20,14 @@ chainctl images list [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME
 ### Options
 
 ```
-  -h, --help             help for list
-      --parent string    The name or id of the parent location to list image repos.
-      --repo string      Search for a specific repo by name.
-      --show-dates       Whether to show date tags of the form latest-{date}.
-      --show-epochs      Whether to show epoch tags of the form 1.2.3-r4.
-      --show-referrers   Whether to show referrer tags of the form sha256-deadbeef.{sig,sbom,att}.
+  -h, --help                      help for list
+      --parent string             The name or id of the parent location to list image repos.
+      --public                    List repos from the public Chainguard registry.
+      --repo string               Search for a specific repo by name.
+      --show-dates                Whether to show date tags of the form latest-{date}.
+      --show-epochs               Whether to show epoch tags of the form 1.2.3-r4.
+      --show-referrers            Whether to show referrer tags of the form sha256-deadbeef.{sig,sbom,att}.
+      --updated-within duration   The duration within which an image must have been updated. (default 168h0m0s)
 ```
 
 ### Options inherited from parent commands

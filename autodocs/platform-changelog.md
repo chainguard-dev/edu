@@ -1,3 +1,146 @@
+---
+title : "Chainguard Enforce Changelog"
+description: "Chainguard Enforce Changelog"
+type: "article"
+date: 2024-04-15 19:29:55 +0000 UTC
+draft: false
+images: []
+weight: 799
+---
+
+## Introduction
+Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+
+### v0.1.278
+Release date: 2024-04-15
+
+Customer facing changes: N/A
+
+### v0.1.277
+Release date: 2024-04-15
+
+Customer facing changes: N/A
+
+### v0.1.276
+Release date: 2024-04-11
+
+Customer facing changes: N/A
+
+### v0.1.275
+Release date: 2024-04-10
+
+Customer facing changes: N/A
+
+### v0.1.274
+Release date: 2024-04-09
+
+Customer facing changes: N/A
+
+### v0.1.273
+Release date: 2024-04-09
+
+Customer facing changes: N/A
+
+### v0.1.272
+Release date: 2024-04-09
+
+Customer facing changes: N/A
+
+### v0.1.271
+Release date: 2024-04-08
+#### Feature
+- hpe cluster value has been removed
+
+
+### v0.1.270
+Release date: 2024-04-04
+
+Customer facing changes: N/A
+
+### v0.1.269
+Release date: 2024-04-03
+
+Customer facing changes: N/A
+
+### v0.1.268
+Release date: 2024-04-03
+
+Customer facing changes: N/A
+
+### v0.1.267
+Release date: 2024-04-03
+
+Customer facing changes: N/A
+
+### v0.1.266
+Release date: 2024-04-03
+
+Customer facing changes: N/A
+
+### v0.1.265
+Release date: 2024-04-02
+
+Customer facing changes: N/A
+
+### v0.1.264
+Release date: 2024-04-01
+
+Customer facing changes: N/A
+
+### v0.1.263
+Release date: 2024-03-29
+
+Customer facing changes: N/A
+
+### v0.1.262
+Release date: 2024-03-28
+
+Customer facing changes: N/A
+
+### v0.1.261
+Release date: 2024-03-27
+
+Customer facing changes: N/A
+
+### v0.1.260
+Release date: 2024-03-27
+
+Customer facing changes: N/A
+
+### v0.1.259
+Release date: 2024-03-27
+
+Customer facing changes: N/A
+
+### v0.1.258
+Release date: 2024-03-27
+
+Customer facing changes: N/A
+
+### v0.1.257
+Release date: 2024-03-26
+
+Customer facing changes: N/A
+
+### v0.1.256
+Release date: 2024-03-26
+
+Customer facing changes: N/A
+
+### v0.1.255
+Release date: 2024-03-25
+#### Feature
+- Use flag `--social-login={google|github|gitlab}` to `chainctl auth login` to specify which identity provider to use for authentication. This flag takes precedence over the default configuration value `default.social-login`
+
+
+### v0.1.254
+Release date: 2024-03-20
+#### Feature
+- `chainctl auth login` will now prompt users to choose an identity provider before redirecting them to a browser to authenticate. Bypass this selection by setting `default.social-login`, `default.org-name`, or `default.identity-provider` configuration values.
+#### Bug or Regression
+- Fix a bug that caused first-time logging in through `chainctl` to fail when using a custom identity provider and refresh tokens.
+
+
 ### v0.1.253
 Release date: 2024-03-15
 
