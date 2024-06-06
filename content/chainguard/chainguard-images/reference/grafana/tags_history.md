@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grafana Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `9.5.19-dev` `9-dev` `latest-dev` `9.5-dev` | June 4th     | `sha256:03eea9b9020e7ee7d1cb109c687c98699e99326aa6f2d36f9674a1ae23ebbc3b` |
-|  `latest` `9` `9.5.19` `9.5`                 | June 4th     | `sha256:27f44f015a8db05482367d38f5aee0d86c124ea814cb4c220b8012a60966e7c0` |
-|  `10.4.3` `10.4` `10`                        | June 4th     | `sha256:753cfa3df759baa699141571abdaec8ed19d8ea5719166754e86ab539b1f2b6b` |
-|  `10-dev` `10.4-dev` `10.4.3-dev`            | June 4th     | `sha256:cb1995effe87c8b113b2c3a84f27bda7bc46a5fe3758e75040fcef66e171b352` |
-|  `10.3-dev` `10.3.6-dev`                     | June 1st     | `sha256:807f26c28a60f7cf7f0f48176bbd91a00ad9fc37d01da6afc91d9e4c00cd1545` |
-|  `8.5.27-dev` `8-dev` `8.5-dev`              | June 1st     | `sha256:1aea8c47b58f10ad5c4194e4f0e2b9e3442248d9ad9b196143fa7783b0302c50` |
+|  `10.3.6-dev` `10.3-dev`                     | June 5th     | `sha256:807f26c28a60f7cf7f0f48176bbd91a00ad9fc37d01da6afc91d9e4c00cd1545` |
+|  `8-dev` `8.5-dev` `8.5.27-dev`              | June 5th     | `sha256:1aea8c47b58f10ad5c4194e4f0e2b9e3442248d9ad9b196143fa7783b0302c50` |
+|  `10.4-dev` `10-dev` `10.4.3-dev`            | June 5th     | `sha256:21986fbaea989206bec508299f3d8fc4e76e21127005886836b2972410a3da89` |
+|  `latest-dev` `9.5.19-dev` `9-dev` `9.5-dev` | June 5th     | `sha256:04b50758ed7af09d9a91c4c084544a0671eb86f361c5d0c69a8261e6ce1cae54` |
+|  `latest` `9.5.19` `9` `9.5`                 | June 5th     | `sha256:6473b2a9ea40e5182a930781d034d772929b12b82db6c104d5ec1f16eab7065a` |
+|  `10.4` `10.4.3` `10`                        | June 5th     | `sha256:d0181155562da3ba92270c11677bf6a26000aa4faf8a1ccb20a8d4975058fdbb` |
 

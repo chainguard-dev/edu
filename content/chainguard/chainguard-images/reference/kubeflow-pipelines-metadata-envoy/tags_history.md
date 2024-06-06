@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-envoy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 1st     | `sha256:69142ff4f926c03b9a68d422942cf7fdf9f184337575d243e7515534be3f6c5b` |
-|  `latest`     | May 31st     | `sha256:e7ef10f2b7bc2572da49d7b074024fb55117eb677d8409707aab186bdb6bdf2d` |
+|  `latest`     | June 5th     | `sha256:338cdd103c0ef92054f7f28801b54a1539fbb2a175a90e274f5db7a23772ca42` |
+|  `latest-dev` | June 5th     | `sha256:629722c121e6b303e955c58c8d60a421aaf2132c5939ee2c826e7df09ee555cb` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.2-dev` `2-dev` `latest-dev` `2.2.0-dev` | June 1st     | `sha256:35605af221a06a28f23722fb4d36a209f7c562b5099d3aeb5df186eb181bbc0b` |
-|  `2.2` `latest` `2` `2.2.0`                 | May 30th     | `sha256:e1eb5ee6ff02053f073732363d463cf6ede9b6d523da5495805f96e01fd14877` |
+|  `latest` `2.2` `2` `2.2.0`                 | June 5th     | `sha256:bc1115865eab281db321b4ee3479dfb5b38f7db815a4e1c0d90b92aef62da973` |
+|  `latest-dev` `2.2.0-dev` `2.2-dev` `2-dev` | June 5th     | `sha256:e028c64c126a5af83156971edba22a9fedc4ec9df89b25484d0a5ebbf42c1d72` |
 

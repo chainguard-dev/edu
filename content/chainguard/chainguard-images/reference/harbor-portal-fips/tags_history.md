@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the harbor-portal-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2-dev` `2.9.4-dev` `2.9-dev` | June 1st     | `sha256:084de3a412697c148daa2dbc91279692103211f11d4d8baed046d8bb2e5a1d0b` |
-|  `2` `latest` `2.9` `2.9.4`                 | June 1st     | `sha256:a3ab4db91d45e5af76562a9d6335d89a5efc408d339f36dfece9640d6d7eee60` |
-|  `2.10.2-dev` `2.10-dev`                    | June 1st     | `sha256:b9097a61ad369b41def6623936060e35f69e9105d7747756299b61265c75a431` |
+|  `2-dev` `latest-dev` `2.9.4-dev` `2.9-dev` | June 5th     | `sha256:4ef5b4e0297c504cb78ff31cc32247d6a115decb3bd2f7d88c8e692685e99081` |
+|  `2.10.2-dev` `2.10-dev`                    | June 5th     | `sha256:651365586051a99e2e775164579b4f1c5746ae20283f3aa22aaa5d5abfcf9edd` |
+|  `latest` `2.9.4` `2` `2.9`                 | June 5th     | `sha256:6c75bf85bf01cdefef8544aba5d96d10f4e740bc5de6b437be08eb66753beb0b` |
+|  `2.10.2` `2.10`                            | June 5th     | `sha256:d0bbfe88b075f858331a83e1f81ba7cdd8f55130e6d4a05e3d889faad15d4b91` |
 |  `2.8-dev` `2.8.6-dev`                      | June 1st     | `sha256:56af5631ca78d239429f2d68a6833f9fc6fb691ae0dd28ca6ece4941793eea75` |
-|  `2.10` `2.10.2`                            | May 30th     | `sha256:95980cc19c43b7f849338493378986c94605a45c23899020856922ba91984430` |
 |  `2.8` `2.8.6`                              | May 30th     | `sha256:0fa0392c443b177fd210b2289648eba9efa39a27fa0e57d3fa074636818e2f62` |
 

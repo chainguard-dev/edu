@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the stakater-reloader Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 4th     | `sha256:1b3892ef40054620a5882bb19d5867b58beccb1f16a1f50f7a53d52b7c916439` |
-|  `latest-dev` | June 4th     | `sha256:9024400ab379db1b32dc375df4786059acdac6f305a00338b0b129053e4281ed` |
+|  `latest`     | June 5th     | `sha256:603ca7f29a0f8f2d5fc56cde73b0951df6010074a8582eff38c95d8250efa68b` |
+|  `latest-dev` | June 5th     | `sha256:651d4b01cb84864a5323634e2d36daf9fbe45b4d9fcdfb1bca071b8890e1be43` |
 
 
 ### Private/Dedicated Registry
@@ -37,12 +37,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.0.104-dev` `latest-dev` `1-dev` `1.0-dev` | June 4th     | `sha256:d570e69da7229fbff09170dd4e6831f144e078022474179bb12fef5480e145bd` |
-|  `1.0.104` `1.0` `1` `latest`                 | June 4th     | `sha256:de3989f8eb3e9fd65d68bbbd4a2032415970e33af96298b7b72f152ebba5a5f7` |
+|  `1.0-dev` `1-dev` `1.0.105-dev` `latest-dev` | June 5th     | `sha256:adecdf2e3c4bb4a95df3b9f96aedf1152b800b3faf5519bfc3258333317468c9` |
+|  `1.0.105` `1` `latest` `1.0`                 | June 5th     | `sha256:fe56444b10f144a90dacdb15438f262d38a38782fbbf3ff623bccbb64a457a0d` |
+|  `1.0.104-dev`                                | June 5th     | `sha256:fb8e521d6813f6f48de618f295fc1d3fb4ee685e4be15a4186b1e98116db8574` |
+|  `1.0.104`                                    | June 5th     | `sha256:a008e7d2fe32a8c774b35811c34805078013aa4bcf8e6509cf5a76a20f9e88ac` |
 |  `1.0.101-dev`                                | June 1st     | `sha256:3765086c5255c7056a5cc659de20f8f84f461a74038337062e1c03d98d9ff7b6` |
 |  `1.0.101`                                    | June 1st     | `sha256:6e5564c1a2ff236fe2f5616081016f0528e233b6cf2d835e71ea8b0f685f7336` |
 |  `1.0.100-dev`                                | June 1st     | `sha256:33dacdb8fd18ba3472c34bfcd354ee268513777d10fb18bb583c74f0499bb576` |
 |  `1.0.100`                                    | May 30th     | `sha256:6bf32842ffa9e6918bb7cd9312f7b28e29c7d2ccf755a4a2fd8a3c436811507b` |
-|  `1.0.99-dev`                                 | May 29th     | `sha256:17017dd5ccfefd3e73ad000296b11c2eff0d470fad7226f78ed92f3d542abffe` |
-|  `1.0.99`                                     | May 29th     | `sha256:4c635273d4afeecdb494d2ee8285f309763d103b7c2bc6f8fdda06e9b89945b6` |
 

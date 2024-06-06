@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-scheduledworkflow Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 1st     | `sha256:c3ce05f653b12162c0af06133893d8922b405329329c7562893e670230d1cb1c` |
-|  `latest`     | May 31st     | `sha256:738866b444606649e02550e2acb1ca310273fe4289079a6bec0a085192f92ae0` |
+|  `latest-dev` | June 5th     | `sha256:d356226f56fb86ff7d6271cb525c5419d3998e21b5569f45d4ece286007cf70f` |
+|  `latest`     | June 5th     | `sha256:e6410959f1e16666b57acf6a13a4a8ba97e1e7d186ba3eb5f2d896a867e7f278` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.2-dev` `2.2.0-dev` `latest-dev` `2-dev` | June 1st     | `sha256:449d33654f056ce3c7b8a40f8965210663aa209ee32f0130b8316b600a208ea9` |
-|  `latest` `2.2.0` `2.2` `2`                 | May 29th     | `sha256:e89b008148e2c61d988092440683117c3acabe21053733618526bc5ca47dd976` |
+|  `2-dev` `latest-dev` `2.2.0-dev` `2.2-dev` | June 5th     | `sha256:12b7b007d96cf6484eb28a8f7da9edad0054381198e84fbbfa4740bdbe694987` |
+|  `2` `2.2` `latest` `2.2.0`                 | June 5th     | `sha256:0f5b8f507d7b93eb73908237f1a3e701cbb5152de6efea637fe5c24a95f59fea` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grafana-agent-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 1st     | `sha256:2a08a5930f1c3cefe076c0ece8d8643bf8145f2dcf84d31f1fc82dc92b298d52` |
-|  `latest`     | May 31st     | `sha256:6699f659d16fe22d800ec58e50d7fcfd4c398a42f7616ddc67ee5332fad89e53` |
+|  `latest-dev` | June 5th     | `sha256:67e01a84b219562a0ca18c16b46cb783a0f48b9d593e0c4df035d7b7e9356488` |
+|  `latest`     | June 5th     | `sha256:e5694da2dcd0dfce0f409f6d931d93508b9cea5017f4bfb09cd1c2bde3a4d6b9` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` `0-dev` `0.41.0-dev` `0.41-dev` | June 5th     | `sha256:e295679a00036d70936a0043821aacb55d8a966f46573c6cb6cbe16b8871a4be` |
 |  `0` `0.41` `latest` `0.41.0`                 | June 4th     | `sha256:0ff7603d09f9fc61d6b62aad4fd2513e99c78da1c142f4c874d897e4780e4c41` |
-|  `0-dev` `0.41.0-dev` `latest-dev` `0.41-dev` | June 4th     | `sha256:e295679a00036d70936a0043821aacb55d8a966f46573c6cb6cbe16b8871a4be` |
 |  `0.40-dev` `0.40.5-dev`                      | May 30th     | `sha256:e7fff8ce3f6f6d09f19cfa21641a30dd5853476659e324175eb2cd9d304a46e0` |
 

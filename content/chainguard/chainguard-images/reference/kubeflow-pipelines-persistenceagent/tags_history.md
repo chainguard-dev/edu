@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-persistenceagent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 1st     | `sha256:ba0e1793c27e0a03bc470a1d716608bf2ddd7cd436287425c38a04c5d19eb49a` |
-|  `latest`     | May 31st     | `sha256:70b1d5b85aa6396eef356404012396f995bf091271c018d966b4c728d39249ba` |
+|  `latest-dev` | June 5th     | `sha256:65811d923f6ebfbaf5bd5efffa935d9fb8485428ecfcb128d47727e3213f3421` |
+|  `latest`     | June 5th     | `sha256:efc89c76678f92ab987ff1b22d372084b27c4912c32d1ee26ded5254fd4a9f7f` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.2.0-dev` `2.2-dev` `latest-dev` | June 1st     | `sha256:d97cc24e309768f1facfbdb50c8763e8b1c09b9b0bd75204ef3ba3fdcbad23c6` |
-|  `2.2` `latest` `2.2.0` `2`                 | May 29th     | `sha256:8b01363211dc746caff1f9d8ecb4e3d80c2a25825c042eb703e16a3b74112412` |
+|  `2.2.0-dev` `2-dev` `2.2-dev` `latest-dev` | June 5th     | `sha256:8628dfb09a5454fc4f434cf751ef584c0969e05f670dc2955797335a273629b3` |
+|  `2.2.0` `2` `2.2` `latest`                 | June 5th     | `sha256:1fd159312769ef7bcca952b646f4d646e6a4954d2cff5105d10007ea36090931` |
 

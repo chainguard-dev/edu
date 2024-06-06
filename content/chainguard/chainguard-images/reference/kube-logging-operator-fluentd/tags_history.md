@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-logging-operator-fluentd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 1st     | `sha256:f377ba5fe876dbb57b3fbe9c1d05093551229c286dccb9abe99a98e4fc8ec596` |
-|  `latest`     | May 31st     | `sha256:75e8f3ff7c15c364709b02980e2850242bc459d5fdf8c46fc208d0b8d4f0053a` |
+|  `latest-dev` | June 5th     | `sha256:8aac286d38af998a186865210ecdf1c965589ae5aa3686e37c42b02bafbceb4e` |
+|  `latest`     | June 5th     | `sha256:21fb1c9d377a298a4e498f997f3403769d81efd84cff96a1e5bb21508fe25d7b` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.16.5-dev` `1.16-dev` `1-dev` | June 1st     | `sha256:6ec283e250be378557896b68a1a429a6e50aaeaadf5fd1233c6ef89756e02625` |
-|  `1.16` `latest` `1.16.5` `1`                 | May 30th     | `sha256:de10f3388fef5c175fe24ffae5ffd66e6df1267b72c808861803aa7c34879f29` |
+|  `1` `latest` `1.16` `1.16.5`                 | June 5th     | `sha256:470ddcf9fe25d945e810efa60c71968ef9c1387abcb856ea4a44130e2b308242` |
+|  `1.16-dev` `1-dev` `latest-dev` `1.16.5-dev` | June 5th     | `sha256:e6c05c754b1c93f448968fd1b0718bfe15840435bedbf761e81ab2888973fb23` |
 

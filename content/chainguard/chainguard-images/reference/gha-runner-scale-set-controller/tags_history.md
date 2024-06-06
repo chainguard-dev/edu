@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gha-runner-scale-set-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 1st     | `sha256:f5c5018b588c0525222e2ac2e8be58d395edc92f13d01db4dbda9b7223df839b` |
+|  `latest-dev` | June 5th     | `sha256:f7b48b4a5ecfd08172209818f0f5c601999e3e3e568a819b2b6e1e691ea16c4f` |
+|  `latest`     | June 5th     | `sha256:0ccd18da185392782738f6dd39fb349976356f262cb9f99bebd70528c2cfbda9` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` `0.9-dev` `0-dev` `0.9.2-dev` | June 5th     | `sha256:ddb87736cf16aadbd2e84643f2fafc16a8f25a4e3c866b8493abcb9ff667e555` |
 |  `0.9.2` `0.9` `0` `latest`                 | June 4th     | `sha256:f715305ade4978c54373fb03de3aaff6c6a7e63e7ec191a5abdab50fa6dddb91` |
-|  `latest-dev` `0.9-dev` `0.9.2-dev` `0-dev` | June 4th     | `sha256:ddb87736cf16aadbd2e84643f2fafc16a8f25a4e3c866b8493abcb9ff667e555` |
 

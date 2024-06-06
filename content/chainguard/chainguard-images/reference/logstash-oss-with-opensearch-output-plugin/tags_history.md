@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the logstash-oss-with-opensearch-output-plugin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 2nd     | `sha256:cb02c7c5f0a055cad133e5bd9046bf48d9c77523e5b4a82f56f34f0bd5204f1c` |
-|  `latest`     | May 30th     | `sha256:d3260d0925d0ce5897d57ec916c95f6396952ba089537bbe4af9398d60aa47d0` |
+|  `latest-dev` | June 5th     | `sha256:1fd65db16de4b4d6ecdf9b33042fb7455c1e5f23c6367de8756afed1c6d19002` |
+|  `latest`     | June 5th     | `sha256:defb904d0778753ecbf493c4bcfdd52555eb11e0187d6b0d6d644adb895a947e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8.13-dev` `8-dev` `latest-dev` `8.13.4-dev` | June 1st     | `sha256:40142e8a178d1bda1e06e373bedb08766ecf4839375f413279c5f24b529bb098` |
-|  `8` `latest` `8.13` `8.13.4`                 | May 30th     | `sha256:c6dcfebcbdabb4acd615d4294beeba4233e8a07f9bc7592ff43c8050fb696dfc` |
+|  `8-dev` `8.13-dev` `8.13.4-dev` `latest-dev` | June 5th     | `sha256:ac691c94f3920720ace5efc2981b45a87e6730bd4dd14c1059a508fe939b194b` |
+|  `8.13` `8.13.4` `8` `latest`                 | June 5th     | `sha256:bd8dfa0174b69a0b500ef92c62e1125442c0d1fb5937c016c8c8722727141337` |
 

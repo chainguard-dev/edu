@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the velero-restore-helper Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-06 00:48:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 2nd     | `sha256:f78a9a32cde4ae859a014b3898fe3e0b904fafc1305c7503a2d0334a01e2db7a` |
-|  `latest`     | May 30th     | `sha256:bed0a8cc0ff0848699a36cc297b25bd9225900a0af29f080ed200d806c837b5a` |
+|  `latest-dev` | June 5th     | `sha256:cde643de102b92173073b3fa4872efef7ec688307958bd8b995a0126241dce27` |
+|  `latest`     | June 5th     | `sha256:fe52d4d1db2f13200df14d8d4de6401ff1aa6e64f90e705926b8e33861ccc8da` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.13-dev` `1.13.2-dev` `1-dev` | June 1st     | `sha256:933edd23d1053fd4934fe95ceffdf380ad5db67514e19bb75d5213230618660d` |
-|  `1.13.2` `1.13` `latest` `1`                 | May 30th     | `sha256:74473f1cef48b175ae9269bca4b297bea98121cf4691595e462cce92249154cb` |
+|  `1.13.2-dev` `1-dev` `1.13-dev` `latest-dev` | June 5th     | `sha256:8035c52e4fbe37dd810d6771049f5ae4b1983ebdfb674703024778b926e68b44` |
+|  `latest` `1.13` `1.13.2` `1`                 | June 5th     | `sha256:0560f5fc751c8069c3ca05a93d45505dd5c599ebbec4cad5c73dbf6d65404d0e` |
 
