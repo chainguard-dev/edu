@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the r-base Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-07 00:46:50
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,9 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
 |  `latest-dev` | June 1st     | `sha256:3fb07ff9b8ea03bb465b6ebd0f624b1c82756c13d4509799d22bbaf3db2c7a11` |
-|  `latest`     | May 30th     | `sha256:e819bfec7ea7251b06cd5042de24232109b10c1a3abeaa58b71d930409fcf4e4` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                     | Last Changed | Digest                                                                    |
-|---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.3.1` `4.3` `4` `latest`                 | May 30th     | `sha256:06153390c1370c83749c102aa64b77ab57ed59f9517cfa92d6f25aeddc2b9b52` |
-|  `4-dev` `4.3-dev` `latest-dev` `4.3.1-dev` | May 30th     | `sha256:0f6393fc01c22162fa39812fbe1ae119a6318c974554689746e29bcb95743c70` |
-
+Currently, there are no Production versions of this image available.

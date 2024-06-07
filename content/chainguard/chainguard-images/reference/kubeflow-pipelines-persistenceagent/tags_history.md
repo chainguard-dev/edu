@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-persistenceagent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-07 00:46:50
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 5th     | `sha256:65811d923f6ebfbaf5bd5efffa935d9fb8485428ecfcb128d47727e3213f3421` |
-|  `latest`     | June 5th     | `sha256:efc89c76678f92ab987ff1b22d372084b27c4912c32d1ee26ded5254fd4a9f7f` |
+|  `latest-dev` | June 6th     | `sha256:326f263aece880ebe81a0f1f7da2ddeb439180fd9c6fd99a95f539987477711b` |
+|  `latest`     | June 6th     | `sha256:6b8088ad43e4c48e1c3c77dc2ba356829c484aac87653d4d581ac27196f9d058` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.2.0-dev` `2-dev` `2.2-dev` `latest-dev` | June 5th     | `sha256:8628dfb09a5454fc4f434cf751ef584c0969e05f670dc2955797335a273629b3` |
-|  `2.2.0` `2` `2.2` `latest`                 | June 5th     | `sha256:1fd159312769ef7bcca952b646f4d646e6a4954d2cff5105d10007ea36090931` |
+|  `2.2.0-dev` `2-dev` `latest-dev` `2.2-dev` | June 6th     | `sha256:890856fe632aaf45b4baa408a538ae49b0341915426f399c39d223d30f43e117` |
+|  `2.2.0` `2` `latest` `2.2`                 | June 6th     | `sha256:9f170b924a209287656e7710b890a46d3197d914d21daa14f32f56e18fa1450b` |
 

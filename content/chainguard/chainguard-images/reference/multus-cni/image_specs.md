@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public multus-cni Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-07 00:46:50
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ This page shows detailed information about the Chainguard **multus-cni** Image.
 | CMD          | not specified     | not specified     |
 | Workdir      | not specified     | not specified     |
 | Has apk?     | yes               | no                |
-| Has a shell? | yes               | no                |
+| Has a shell? | yes               | yes               |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/multus-cni/tags_history/) for the full list of available tags.
 
@@ -39,16 +39,16 @@ The table shows package distribution across variants.
 |--------------------------|------------|--------|
 | `apk-tools`              | X          |        |
 | `bash`                   | X          |        |
-| `busybox`                | X          |        |
+| `busybox`                | X          | X      |
 | `ca-certificates-bundle` | X          | X      |
 | `chainguard-baselayout`  | X          | X      |
 | `git`                    | X          |        |
-| `glibc`                  | X          |        |
+| `glibc`                  | X          | X      |
 | `glibc-locale-posix`     | X          | X      |
-| `ld-linux`               | X          |        |
+| `ld-linux`               | X          | X      |
 | `libbrotlicommon1`       | X          |        |
 | `libbrotlidec1`          | X          |        |
-| `libcrypt1`              | X          |        |
+| `libcrypt1`              | X          | X      |
 | `libcrypto3`             | X          |        |
 | `libcurl-openssl4`       | X          |        |
 | `libexpat1`              | X          |        |
@@ -58,7 +58,7 @@ The table shows package distribution across variants.
 | `libpsl`                 | X          |        |
 | `libssl3`                | X          |        |
 | `libunistring`           | X          |        |
-| `libxcrypt`              | X          |        |
+| `libxcrypt`              | X          | X      |
 | `multus-cni`             | X          | X      |
 | `ncurses`                | X          |        |
 | `ncurses-terminfo-base`  | X          |        |

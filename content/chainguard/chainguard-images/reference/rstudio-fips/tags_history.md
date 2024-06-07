@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rstudio-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-07 00:46:50
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                     | Last Changed | Digest                                                                    |
 |-------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2023.12.1_p402-dev` `2023.12-dev` `2023-dev` | June 5th     | `sha256:f5a5474a7be04b716523c1a547c4529865e35bfc43883eb806d6b4756928635d` |
-|  `2023` `2023.12.1_p402` `latest` `2023.12`                 | June 5th     | `sha256:43584eb1f813f65b145505e7c1c974e51866ff27c932119bca7900a39c597a22` |
+|  `2023.12-dev` `2023.12.1_p402-dev` `latest-dev` `2023-dev` | June 6th     | `sha256:8bb03a040de964a7d1960b8150aa47d1a1a753802274ccc1b4b12000612c8022` |
+|  `2023.12` `latest` `2023` `2023.12.1_p402`                 | June 6th     | `sha256:894f48437502a041e81ed051590d7411d95b2ba8db3d22bf51c500da3a2e773d` |
 

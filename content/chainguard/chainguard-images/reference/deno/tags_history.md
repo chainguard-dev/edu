@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the deno Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-07 00:46:50
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | May 30th     | `sha256:66e3b93419af91346e2d0cedebdde73ea3d85e66216b1967a06f2e34d4bc8b79` |
+|  `latest` | June 6th     | `sha256:7020bd90b2f91506c4eb5b3884ba5458bd485455055edd8bb05bf4707ff0167a` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +36,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                       | Last Changed | Digest                                                                    |
 |-------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.44.0` `1.44` `1` `latest` | May 30th     | `sha256:49c85675cfc01fc863ef0b8f46c888202a184f1b7aa2640a2b42f9b44c55c330` |
+|  `1` `latest` `1.44.1` `1.44` | June 6th     | `sha256:bb8a4024362634411828626d5a2d459f1e5e1a34bf9b71320a9b1261c94ad778` |
 

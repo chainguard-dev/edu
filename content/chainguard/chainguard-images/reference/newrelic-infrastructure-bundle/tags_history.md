@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-infrastructure-bundle Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-07 00:46:50
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -39,6 +39,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
 |  `3.2` `latest` `3.2.45` `3`                 | June 5th     | `sha256:f69728e1f42105ccdf5bc0f6014d45c3545d4f273736d76ea83c4ea60892f945` |
 |  `latest-dev` `3.2-dev` `3-dev` `3.2.45-dev` | June 5th     | `sha256:03144930ab3d5dfa780aa3d89e4e11d3a3119fc517d268265caffadaa59576eb` |
-|  `3.2.44`                                    | May 30th     | `sha256:b673ca155fdf59b5eb8d2e92c416c86a34b60ebe89309035d180b915518669b5` |
-|  `3.2.44-dev`                                | May 30th     | `sha256:12766f8260b2f5960b3d9fa6a7e88def8cf0c1014c9c10d46dc4c67c4c596f23` |
 
