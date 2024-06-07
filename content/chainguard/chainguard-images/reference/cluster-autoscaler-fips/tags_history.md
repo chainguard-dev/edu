@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cluster-autoscaler-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-07 00:46:50
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -41,8 +41,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.28.5` `1.28`                              | June 5th     | `sha256:83cf33827b43d53e02a0824dcef77bf9de59f22ee3129f510d2bc91136c17998` |
 |  `latest-dev` `1.29-dev` `1-dev` `1.29.3-dev` | June 5th     | `sha256:9dab02e4e2d36358cf828d57925fc2499fdc78db8b75f8bcd98bf8c02d76467e` |
 |  `latest` `1.29.3` `1.29` `1`                 | June 5th     | `sha256:194d7dd7ecb70f372d30207c0eaaeecf79a67f8ceab9c84408d066d59cd49619` |
-|  `1.27.7-dev`                                 | May 30th     | `sha256:c78147d3f5417c8e841ccf2bd544669d90abce2df8af23de6d1dc10961473d69` |
-|  `1.29.2-dev`                                 | May 30th     | `sha256:fb3629a4974fec7b288058fb7ee1d4c4f1d9e4ae22af51b229c70e49ca5b6aed` |
-|  `1.29.2`                                     | May 30th     | `sha256:4dc790e57b15ff93593d035bf336da2a52b92f90fed4f53ff223218d77315dde` |
-|  `1.27.7`                                     | May 30th     | `sha256:932ab5c87619a4a7275913d461934d42cef25aa1ecc7669502e5d8b4d01ace2b` |
 

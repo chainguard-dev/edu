@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-envoy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-07 00:46:50
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 5th     | `sha256:338cdd103c0ef92054f7f28801b54a1539fbb2a175a90e274f5db7a23772ca42` |
-|  `latest-dev` | June 5th     | `sha256:629722c121e6b303e955c58c8d60a421aaf2132c5939ee2c826e7df09ee555cb` |
+|  `latest-dev` | June 6th     | `sha256:4ce3c77d4660024d68cd525caee39190627b8d5c7c1ea6d978f139f3d253dfea` |
+|  `latest`     | June 6th     | `sha256:d7c295471c755a72efa3fb657aac656f3284e1db344e9f67c260232968c279c7` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `2.2` `2` `2.2.0`                 | June 5th     | `sha256:bc1115865eab281db321b4ee3479dfb5b38f7db815a4e1c0d90b92aef62da973` |
-|  `latest-dev` `2.2.0-dev` `2.2-dev` `2-dev` | June 5th     | `sha256:e028c64c126a5af83156971edba22a9fedc4ec9df89b25484d0a5ebbf42c1d72` |
+|  `2.2.0-dev` `2.2-dev` `2-dev` `latest-dev` | June 6th     | `sha256:cd26f9bc1411e0abe9b4a44ad54cf0d4cdf3d8d5dc67a2e946e4380e968ba5e0` |
+|  `2` `2.2.0` `latest` `2.2`                 | June 6th     | `sha256:51d6020424ed25081b74d3e15dc1b14dca03f8f92e1577c23ce1c1ea9ec30de6` |
 

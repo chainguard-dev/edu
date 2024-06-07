@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opentelemetry-collector Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-07 00:46:50
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 5th     | `sha256:283b7927648bcb6f19a90c3fc63bd0da18ac44cd8e73a816ddd0ead5161ae5c2` |
-|  `latest`     | June 5th     | `sha256:8967b1c640bcea5e400eadede27f5450d3d4de70ad759426dde6ccb1c962c843` |
+|  `latest`     | June 6th     | `sha256:76ca223ebcaae54f032d6d426cb09832022c625b8059c8cd60f827fb734afb42` |
+|  `latest-dev` | June 6th     | `sha256:12d719f84a6163c1e46d2be74d680d830d25447cfc0b77876f8b7066bab68bf8` |
 
 
 ### Private/Dedicated Registry
@@ -42,5 +42,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `0.102.0-dev`                                  | June 5th     | `sha256:6dc1ab14889cb87758a4d35993a78c7631b04ea0810f7450940366856d039add` |
 |  `0.102.0`                                      | June 5th     | `sha256:6cd02daa792485ae91b6da5e298e68e6df60f93e5972d1a8871f70dca92b09dd` |
 |  `0.101-dev` `0.101.0-dev`                      | June 1st     | `sha256:f1aef7c8b1d8b0a2addd2e5f060942e21f03fdc6fefc4ecd2fc39ec3611be6a0` |
-|  `0.101.0` `0.101`                              | May 30th     | `sha256:53282399aa71508aa1b6b5b28f75fc8ab540f2c0a95d0f5a6a410b0dd0c16c2b` |
 

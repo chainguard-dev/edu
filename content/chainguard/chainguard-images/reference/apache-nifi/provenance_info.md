@@ -3,8 +3,8 @@ title: "Provenance Information for apache-nifi Images"
 type: "article"
 unlisted: true
 description: "Provenance information for apache-nifi Chainguard Image"
-date: 2024-05-20 00:48:18
-lastmod: 2024-05-20 00:48:18
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-06-07 00:46:50
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 | Registry                     | Tags                                                             |
 |------------------------------|------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                                               |
+| `cgr.dev/chainguard`         | latest-dev                                                       |
 | `cgr.dev/chainguard-private` | 1, 1-dev, 1.26, 1.26-dev, 1.26.0, 1.26.0-dev, latest, latest-dev |
 
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dotnet-sdk Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-07 00:46:50
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,7 +29,6 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
 |  `latest-dev` | June 1st     | `sha256:dd47d11fff18757bcfd5fda6e50f47020518bbceb266a0eeb5c7afae26effb2a` |
-|  `latest`     | May 30th     | `sha256:a86cf61d3f93f7041a5ad749546fc5293979d9058ed8c9fdd5bc7dc70d7cf5cd` |
 
 
 ### Private/Dedicated Registry
@@ -44,7 +43,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `8.0.6-dev` `latest-dev` `8-dev` `8.0-dev` | June 1st     | `sha256:44dd328cc631a126644ccd9ceb04fd42abf459afe441fda8cdfc917acb7d897f` |
 |  `6.0.130-dev`                              | June 1st     | `sha256:c9edb1d7213eddd215c4ee2e73c76074001d6396ebdbe770fc22700227c3e2e4` |
 |  `7.0.119-dev`                              | June 1st     | `sha256:4351003c1933bc8a5fb0cf1fc848ebd4d5cc21699c3ccb1a47d0a7aac0ef325d` |
-|  `8.0` `8.0.6` `latest` `8`                 | May 30th     | `sha256:f8271d83456f17e1fbe6a64fec13883fb083e08db030beaf3ecd2e61b6cfb4cb` |
-|  `6.0.130`                                  | May 30th     | `sha256:54eca97f20187eae9c7e91d818aca1f41f7c7e0d8e433436f82b575a8430df08` |
-|  `7.0.119`                                  | May 30th     | `sha256:0a182ae85db6bb2d10cc5b4d462545ccee237c2970a611f5f48db5e7adf0ffac` |
 

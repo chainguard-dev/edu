@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public rstudio-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-04-26 00:36:54
+lastmod: 2024-06-07 00:46:50
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -51,7 +51,7 @@ The table shows package distribution across variants.
 | `chainguard-baselayout`       | X          | X      |
 | `curl`                        | X          | X      |
 | `curl-dev`                    | X          | X      |
-| `esbuild`                     | X          | X      |
+| `esbuild-fips`                | X          | X      |
 | `fontconfig`                  | X          | X      |
 | `fontconfig-config`           | X          | X      |
 | `freetype`                    | X          | X      |

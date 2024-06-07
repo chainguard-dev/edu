@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the static Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-24 00:45:45
+lastmod: 2024-06-07 00:46:50
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,16 +26,12 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)         | Last Changed | Digest                                                                    |
-|-----------------|--------------|---------------------------------------------------------------------------|
-|  `latest-glibc` | May 23rd     | `sha256:7ce79e45e53e2705902f5d9110c1c925ced834494a23f55fc7159c213dc0be2b` |
-|  `latest`       | May 22nd     | `sha256:288b818c1b3dd89776d176f07f5f671b118fe836c4d80ec2cc3299b596fe71b7` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | June 6th     | `sha256:68b8855b2ce85b1c649c0e6c69f93c214f4db75359e4fd07b1df951a4e2b0140` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                  | Last Changed | Digest                                                                    |
-|--------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-glibc` `latest` | May 23rd     | `sha256:0e2e18815af8316e1f14854ed41eb887d9a95392dfd0ebd2fa9a30db389ee4fe` |
-
+Currently, there are no Production versions of this image available.

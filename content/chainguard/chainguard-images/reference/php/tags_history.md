@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the php Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-07 00:46:50
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -45,6 +45,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `8.2-fpm` `latest-fpm` `8.2.20-fpm` `8-fpm` `8.2.20-r0-fpm`                     | June 5th     | `sha256:95195f0912f0f4fcaf42ccd4a371d9b8f2008268381c66dfeb49b157e0701341` |
 |  `8.2.19-dev`                                                                    | June 1st     | `sha256:64b6a7d5f6fbdf31ab66bf1b160452a9a174d4d77e4903e46c7b2c094cf67225` |
 |  `8.2.19-r0-fpm-dev` `8.2.19-fpm-dev`                                            | June 1st     | `sha256:6137476ff217000692319169313b93e04e3b4bf441de27cc61a061d496c153bf` |
-|  `8.2.19-fpm` `8.2.19-r0-fpm`                                                    | May 30th     | `sha256:871b248362672f088d09d5ebc389eb5425114be9ce51b35bd6a083fb1eebdafb` |
-|  `8.2.19`                                                                        | May 30th     | `sha256:3e4613222add9415b179c64db55833f7569df96d594927e4f58a99b6ae62c3d0` |
 

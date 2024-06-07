@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-scheduledworkflow Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-07 00:46:50
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 5th     | `sha256:d356226f56fb86ff7d6271cb525c5419d3998e21b5569f45d4ece286007cf70f` |
-|  `latest`     | June 5th     | `sha256:e6410959f1e16666b57acf6a13a4a8ba97e1e7d186ba3eb5f2d896a867e7f278` |
+|  `latest-dev` | June 6th     | `sha256:207ac2251dabe1fabd0541ad7f7626b519888c2fee2eae6d51e8e1576f31ffb2` |
+|  `latest`     | June 6th     | `sha256:b5aa24400f4f1fc5be93474ad06073c5fe99dba6122fbff4af36d48ea0f75776` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `latest-dev` `2.2.0-dev` `2.2-dev` | June 5th     | `sha256:12b7b007d96cf6484eb28a8f7da9edad0054381198e84fbbfa4740bdbe694987` |
-|  `2` `2.2` `latest` `2.2.0`                 | June 5th     | `sha256:0f5b8f507d7b93eb73908237f1a3e701cbb5152de6efea637fe5c24a95f59fea` |
+|  `2.2.0` `2.2` `2` `latest`                 | June 6th     | `sha256:10a64ba983d0f2a4f3ebb46faf371af04883567dadfd2844dbef0dec74a4b9dd` |
+|  `2.2-dev` `2-dev` `latest-dev` `2.2.0-dev` | June 6th     | `sha256:4faabed139de38bfda20b15a26cd34ac9c64cb8230980c14f16702afb446e81f` |
 
