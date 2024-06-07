@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ruby Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-07 00:46:50
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -43,8 +43,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `3.2` `3.2.4`                              | June 5th     | `sha256:746948b20fc12b6040f73acab4122bb3a75991cdb3165442a729099b10ba2960` |
 |  `3.1-dev` `3.1.6-dev`                      | June 5th     | `sha256:b008401acd920b6beca32863392b4c3ab0bc71fda12c4cb942da91a6d57c77c4` |
 |  `3.3-dev` `latest-dev` `3.3.2-dev` `3-dev` | June 5th     | `sha256:e4be02af382323e306bd206dd6085d5d29fd8d71eb7b63257293c365c54e0350` |
-|  `3.3.1-dev`                                | May 30th     | `sha256:7cfeacfa429fcf11772dadd6aa06d659f855fb212cd6b38f393203d660448943` |
-|  `3.1.5`                                    | May 30th     | `sha256:01f63ecb2cc2aae80e56fdbf48f29149596792ddad637ff70cdac086041f92bf` |
-|  `3.1.5-dev`                                | May 30th     | `sha256:9d37939dd7abc9693f0c2222015d5110ece4127948e870ebf1eddb921dedc44f` |
-|  `3.3.1`                                    | May 30th     | `sha256:7bd5b6edbb2ed63b97300e7c3760cd232101e96e7933097e0d4f9922b6d77d4d` |
 

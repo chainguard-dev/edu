@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the argocd-repo-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-07 00:46:50
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 5th     | `sha256:19d1693effd65b1ebd825fda578e0e1e4c0473b60d4302f9d78f415445a470a7` |
-|  `latest-dev` | June 5th     | `sha256:ccf27a2e0f7a0dcd49415ac01af375ac52d5b8a16b7a05d9d4ae12d16b28e42f` |
+|  `latest-dev` | June 6th     | `sha256:f19d62db0fca2c547a91ab503fa186a24786921f689b1df28c922df242df2793` |
+|  `latest`     | June 6th     | `sha256:74e06db46e00b43e120229afdcfe9952ef8a7cc59b85ba583a7a2f4b965b7f9a` |
 
 
 ### Private/Dedicated Registry
@@ -37,9 +37,11 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.10-dev` `2.10.11-dev` `latest-dev` `2-dev` | June 5th     | `sha256:a989f329dc27be49670b0f756d29978e310ae805c38c97106c91b96ebf4cc601` |
-|  `2.10.11` `latest` `2.10` `2`                 | June 5th     | `sha256:9a2b2ee59f52066d07277575b994970a072351110328cad2290f0b7b69b0a62c` |
+|  `2.10.12-dev` `2-dev` `latest-dev` `2.10-dev` | June 6th     | `sha256:3911c2d6fa8c7df7c88e8390a2e78819c131d1b190b9ad25a30a0406199ea465` |
+|  `2.10` `latest` `2.10.12` `2`                 | June 6th     | `sha256:4e29c1bbc651dd17380ab9c6e9f15ed016899fd0d6526e9c4f25f7ad3dfec67b` |
+|  `2.10.11`                                     | June 5th     | `sha256:9a2b2ee59f52066d07277575b994970a072351110328cad2290f0b7b69b0a62c` |
 |  `2.8.18-dev` `2.8-dev`                        | June 5th     | `sha256:bb4d13afc88fbd6c4e4fb12d82446e925f0c0045d17499d8e13d6c4f4fca66b6` |
+|  `2.10.11-dev`                                 | June 5th     | `sha256:a989f329dc27be49670b0f756d29978e310ae805c38c97106c91b96ebf4cc601` |
 |  `2.9.16` `2.9`                                | June 5th     | `sha256:ef88dbb82661b501341d604c094145daba92d7a24ba96f3a10f2c88a1eb9560a` |
 |  `2.8` `2.8.18`                                | June 5th     | `sha256:86f3da02c72bdcfd8dcaf30f286d053f2fe4609fc86a2b28ea49b0fc7310ff1b` |
 |  `2.9-dev` `2.9.16-dev`                        | June 5th     | `sha256:2673ca705dbd5554173fa7f2df67f535a5ec8467fe83276395c2751c172fa5c2` |

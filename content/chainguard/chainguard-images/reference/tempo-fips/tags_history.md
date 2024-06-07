@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tempo-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-07 00:46:50
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,5 +35,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
 |  `2.5-dev` `latest-dev` `2.5.0-dev` `2-dev` | June 5th     | `sha256:113e2cad05797dd9fe847629df33be08fd0575a18d25e6449e853974129724b5` |
 |  `2.5` `latest` `2` `2.5.0`                 | June 5th     | `sha256:c2e17c79ec105a64ea503899850b77b91a7c6d60b87bbab990fc16634b5baa17` |
-|  `2.4-dev` `2.4.2-dev`                      | May 30th     | `sha256:ea5c6b61c568dc6e258dddb474ed7ea573b39e02bc2cb22abfae22fd52e19cd8` |
 

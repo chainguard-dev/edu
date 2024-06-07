@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vertical-pod-autoscaler-recommender Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-07 00:46:50
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 5th     | `sha256:4292f5a70fd8027ac33e54b9767d2c55e76405961e3d71f3ff3d62439b2aec98` |
-|  `latest`     | June 5th     | `sha256:bb9e3bd073a5eeebfdbda90b3bae3d8ead18b06344968fc98313fcba55b50d3b` |
+|  `latest`     | June 6th     | `sha256:de63a072804ebe4a0cf39fc6a4933e44424abb951f688febc8f639d380b47990` |
+|  `latest-dev` | June 6th     | `sha256:94d9934ac5b6a1ef405bf785bca96cc63d21c609608148c09da03877ce6b8911` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.1-dev` `1.1.2-dev` `latest-dev` | June 5th     | `sha256:2ae5d4928ae3e485b9fe2e6b32da0ffa5bd0608091dc7360471a870f4f0dc5ba` |
-|  `latest` `1.1.2` `1.1` `1`                 | June 5th     | `sha256:009456e03694e58cf1525f35d5861daea74061a9a73102105fd8e834163efdb9` |
+|  `1.1-dev` `1-dev` `latest-dev` `1.1.2-dev` | June 6th     | `sha256:b29f60b769e2aa6b13ff785ac411abb41e808c5aa8b927331790d1bddfd5e864` |
+|  `1` `latest` `1.1.2` `1.1`                 | June 6th     | `sha256:521deb6782b08d9838981b16df6e39cdaa5e96e6cc33c0ebc4d3d15b3b2689aa` |
 
