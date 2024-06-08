@@ -243,6 +243,7 @@ environment:
     repositories:
       - https://dl-cdn.alpinelinux.org/alpine/edge/main
       - https://dl-cdn.alpinelinux.org/alpine/edge/community
+      - https://dl-cdn.alpinelinux.org/alpine/edge/testing
     packages:
       - alpine-baselayout-data
       - ca-certificates-bundle
