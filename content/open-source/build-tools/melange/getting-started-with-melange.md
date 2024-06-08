@@ -341,6 +341,7 @@ contents:
   repositories:
     - https://dl-cdn.alpinelinux.org/alpine/edge/main
     - https://dl-cdn.alpinelinux.org/alpine/edge/community
+    - https://dl-cdn.alpinelinux.org/alpine/edge/testing
     - '@local /work/packages'
   packages:
     - alpine-baselayout-data
