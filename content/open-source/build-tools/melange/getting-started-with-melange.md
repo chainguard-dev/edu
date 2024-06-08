@@ -121,7 +121,7 @@ Because our app will be built into an apk and later on embedded on a container i
 Place the following code in your `minicli` file:
 
 ```php
-#!/usr/bin/env php
+#!/usr/bin/env php81
 
 <?php
 
