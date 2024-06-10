@@ -90,7 +90,7 @@ Now, you don't want to be running versions of software that are a year out of da
 
 So you need to update and test your Dockerfile periodically.
 
-Now, you can script a solution with Frizbee, but it's also Digestabot from Chainguard.
+Now, you can script a solution with Frizbee, but there's also Digestabot from Chainguard.
 
 So Digestabot is a GitHub action that will run regularly and open a PR to update your image references if it finds they're out of date.
 
