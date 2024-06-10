@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-cache-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-07 00:46:50
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 6th     | `sha256:c4aff9109508ffdb3f5c648d32e2f24466da60af6a77fa6a7d795eec926585f6` |
-|  `latest`     | June 6th     | `sha256:eda2e44faad88ce8e12fb11c1521299f2de7cbb5a048221552bba6ed6a753c1c` |
+|  `latest-dev` | June 9th     | `sha256:c7e3bd051224b68901c1eb4600601d0fc40c6e042b7aa73fc36acc061a225b5b` |
+|  `latest`     | June 7th     | `sha256:56fb337574f0cb33aa491ddb726febd8198520a60c54b5602d065cc65ee08218` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.2.0` `latest` `2` `2.2`                 | June 6th     | `sha256:4a9e0db44659abd372df1f309a42a28dfd100e7ffb6e094a06e513ddcbc02f34` |
-|  `2-dev` `2.2.0-dev` `2.2-dev` `latest-dev` | June 6th     | `sha256:c833b40191c5df58fa55f078ef6570ef96b8770a175b1142f8b01d9fe14ee2d1` |
+|  `2.2-dev` `2.2.0-dev` `2-dev` `latest-dev` | June 8th     | `sha256:a0c801fd5d67b24f19d36d8efbfb80a3fef68367b7ff24e552b399e4f42d1f48` |
+|  `2` `2.2` `2.2.0` `latest`                 | June 7th     | `sha256:1e8b886ba6c38e457cb59fe9259cf0bdcc59abd8e907dd13bca05df19d6d6782` |
 

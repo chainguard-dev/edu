@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public multus-cni Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-07 00:46:50
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,7 +23,7 @@ This page shows detailed information about the Chainguard **multus-cni** Image.
 
 |              | latest-dev        | latest            |
 |--------------|-------------------|-------------------|
-| Default User | `nonroot`         | `nonroot`         |
+| Default User | `root`            | `root`            |
 | Entrypoint   | `/usr/bin/multus` | `/usr/bin/multus` |
 | CMD          | not specified     | not specified     |
 | Workdir      | not specified     | not specified     |
@@ -60,6 +60,7 @@ The table shows package distribution across variants.
 | `libunistring`           | X          |        |
 | `libxcrypt`              | X          | X      |
 | `multus-cni`             | X          | X      |
+| `multus-cni-compat`      | X          | X      |
 | `ncurses`                | X          |        |
 | `ncurses-terminfo-base`  | X          |        |
 | `wget`                   | X          |        |

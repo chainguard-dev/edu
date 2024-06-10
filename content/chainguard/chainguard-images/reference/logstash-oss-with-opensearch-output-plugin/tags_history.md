@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the logstash-oss-with-opensearch-output-plugin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 5th     | `sha256:1fd65db16de4b4d6ecdf9b33042fb7455c1e5f23c6367de8756afed1c6d19002` |
+|  `latest-dev` | June 9th     | `sha256:89a1f737aea664f725f2790201aa615c58344ae5d4b4c6ee7c7451d9f1a2f175` |
 |  `latest`     | June 5th     | `sha256:defb904d0778753ecbf493c4bcfdd52555eb11e0187d6b0d6d644adb895a947e` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8-dev` `8.13-dev` `8.13.4-dev` `latest-dev` | June 5th     | `sha256:ac691c94f3920720ace5efc2981b45a87e6730bd4dd14c1059a508fe939b194b` |
+|  `latest-dev` `8.13-dev` `8-dev` `8.13.4-dev` | June 8th     | `sha256:2d3e8dedc2a5d17bed927006be5e4533d51db5f7938667dd530077e18d60a0fc` |
 |  `8.13` `8.13.4` `8` `latest`                 | June 5th     | `sha256:bd8dfa0174b69a0b500ef92c62e1125442c0d1fb5937c016c8c8722727141337` |
 

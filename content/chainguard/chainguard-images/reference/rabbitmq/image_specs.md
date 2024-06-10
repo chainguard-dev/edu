@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public rabbitmq Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -41,7 +41,7 @@ The table shows package distribution across variants.
 | `busybox`                | X      |
 | `ca-certificates-bundle` | X      |
 | `chainguard-baselayout`  | X      |
-| `erlang-27`              | X      |
+| `erlang-26`              | X      |
 | `glibc`                  | X      |
 | `glibc-locale-en`        | X      |
 | `glibc-locale-posix`     | X      |
@@ -53,7 +53,7 @@ The table shows package distribution across variants.
 | `libxcrypt`              | X      |
 | `ncurses`                | X      |
 | `ncurses-terminfo-base`  | X      |
-| `rabbitmq-server`        | X      |
+| `rabbitmq-server-3.13`   | X      |
 | `tzdata`                 | X      |
 | `wolfi-baselayout`       | X      |
 | `zlib`                   | X      |

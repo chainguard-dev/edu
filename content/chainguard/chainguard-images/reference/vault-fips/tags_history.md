@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vault-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.14.12-dev` `1.14-dev`                     | June 5th     | `sha256:100668c08ed775afa533b044cc7e08a3ead38f787c6dcadeb1dd770fa4430b2c` |
-|  `1-dev` `1.16.2-dev` `1.16-dev` `latest-dev` | June 5th     | `sha256:704437f96342cc544dc9b50ea40838a74083351efb7c5a85551b91f277960da5` |
-|  `1.15-dev` `1.15.8-dev`                      | June 5th     | `sha256:1b07f00452f44e04f4ccd11322e74ad500d549af7d0968590774abb422434ae2` |
+|  `1.14.12-dev` `1.14-dev`                     | June 8th     | `sha256:b930aac4390481f524e00f816d163e767a5346479f0d7a4bcfb01c7a41e8edd6` |
+|  `1.15.8-dev` `1.15-dev`                      | June 8th     | `sha256:9d116d0aedfd3a9b0807eec04e2ef4ea092423e4d1d2d2c8e02b2dcbc866ad0a` |
+|  `latest-dev` `1.16.2-dev` `1-dev` `1.16-dev` | June 8th     | `sha256:83cc74f43c668eca911685bf08a3fb80f59370e40376dc772e17b7fc3fd5db51` |
 

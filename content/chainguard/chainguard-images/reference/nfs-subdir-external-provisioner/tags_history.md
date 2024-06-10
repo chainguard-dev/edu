@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nfs-subdir-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 5th     | `sha256:2323d26cc6d1e2cbd69a14b703017aa074db220b4623e5929eb810143f18aa2c` |
-|  `latest`     | June 5th     | `sha256:8d3d60d910158a9ba37a09b12f53e93bad0d2b69399892231e92a248782367b8` |
+|  `latest-dev` | June 9th     | `sha256:b0c13d3f43d27db4cd45f4cf3b922974548216e316983609f31bb77b5544a659` |
+|  `latest`     | June 7th     | `sha256:637c1a6a4a04fbb0b35446c3bb485ca478ff1435bba034ca2770a99e5090fc00` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `4.0.18-dev` `4-dev` `4.0-dev` | June 5th     | `sha256:eb7ce95ae13e78458e33805c19b88781204a60a9d5b1f42a0f6fc80abbbcfb20` |
-|  `4.0` `4` `latest` `4.0.18`                 | June 5th     | `sha256:f6b432b16a6a53614a1d9e1db027e101f52d06ec9ba9b6ed1a34ad17f62fd58d` |
+|  `4-dev` `latest-dev` `4.0-dev` `4.0.18-dev` | June 8th     | `sha256:4f97ec89f699021ef51f3bba460862ab000ebda36b5410f6d79a2e8a57e99294` |
+|  `4` `4.0` `latest` `4.0.18`                 | June 7th     | `sha256:faa329ecb6eef733c7ba56eea8fe1c4f1c28278432a4689615f666b8fbd86c19` |
 

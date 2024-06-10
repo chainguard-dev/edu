@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cortex Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 5th     | `sha256:ab16b25f0d7252abb57492f3ceb1ab30165468a60f6b224dc35db745ba97b4e5` |
+|  `latest-dev` | June 9th     | `sha256:05628046bf1a3dc680feec10a0e6e15c59f351d398034a57ccdb7a45181bbea5` |
 |  `latest`     | June 5th     | `sha256:88514b01703b155e9e2f67642a3f79790384b5184fe1f5e16e4df961438b833a` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.17.1-dev` `1-dev` `1.17-dev` | June 5th     | `sha256:690b22eb9e572eb2784b952ca47778968a59500633227bb37e942f9e54b31c41` |
+|  `1.17-dev` `1-dev` `1.17.1-dev` `latest-dev` | June 8th     | `sha256:663c36911652668b68167ae79118a1082ae9aa7c5a529dd2a64121f7c98d040c` |
 |  `latest` `1` `1.17` `1.17.1`                 | June 5th     | `sha256:4326f27806a9c6b5d197d12bdcb934582429072c53d54c0a2eb9c1efd20afa5e` |
 

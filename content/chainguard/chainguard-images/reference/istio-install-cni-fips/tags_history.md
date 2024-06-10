@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the istio-install-cni-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.21.2-dev` `1-dev` `latest-dev` `1.21-dev` | June 8th     | `sha256:b11d0d6a524172faff89fc1651caf10447f1ae2246752b855238e96c67b39108` |
+|  `1.20.6-dev` `1.20-dev`                      | June 8th     | `sha256:39d061ed8f1ef2c4110aec68b8495df07ca16385935dc082533b3308fd97206f` |
 |  `latest` `1.21` `1` `1.21.2`                 | June 5th     | `sha256:698c87f73764d4d85e99a37bea0e2ff8b8b3484207b7877d15a823143b6bcbdc` |
-|  `1.21-dev` `1.21.2-dev` `1-dev` `latest-dev` | June 5th     | `sha256:2644a83f49861df64ceccce7c5a9f79c47f1c9c77160f08925ee436a08659e49` |
 |  `1.20` `1.20.6`                              | June 5th     | `sha256:a808dacacad872ddec3d10c073658c626c11e34f2f7c2468fa304ed160d20f8f` |
-|  `1.20-dev` `1.20.6-dev`                      | June 5th     | `sha256:fb8c8e0c7898b31e5ac0b717475b7ff118aee1938e021f1ea8bd2fa65f51db30` |
 

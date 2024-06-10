@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the wasmtime Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 5th     | `sha256:aa22e36b6b3bc58f82920c1869a063fdda131946f2b5cb2ad52d91d7cfe6cc40` |
+|  `latest-dev` | June 9th     | `sha256:c891b43bae125440ccdcff58e6c8ac89e3ed824325213ff49227d7d707d377ca` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +36,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `21.0-dev` `21-dev` `latest-dev` `21.0.1-dev` | June 5th     | `sha256:2b0c90bb4b88103015744aecc704aad0cd2e11dba4c90425eae3642a5c84af23` |
+|  `21.0.1-dev` `21-dev` `21.0-dev` `latest-dev` | June 8th     | `sha256:83b40a7ec883209b04d8636abdca0eed1c206b1b40c7bef7b866d9869e900806` |
 

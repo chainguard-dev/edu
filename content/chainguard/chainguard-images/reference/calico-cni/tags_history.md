@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the calico-cni Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-07 00:46:50
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,6 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                          | Last Changed | Digest                                                                    |
 |----------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `v3.28-dev` `v3-dev` `3.28-dev` `3.28.0-dev` `v3.28.0-dev` `3-dev` `latest-dev` | June 5th     | `sha256:dff415c3f5fae92bccc3b4c7dd9a8868f3b993bac600372ba3c56e1f17b2c24e` |
+|  `3.28-dev` `v3.28.0-dev` `latest-dev` `v3.28-dev` `3-dev` `v3-dev` `3.28.0-dev` | June 8th     | `sha256:9d8d07602f306f3e38cf7f9b8d6ee2e999c391e419aae40f0e46f9e5f540d493` |
 |  `v3` `3.28.0` `v3.28.0` `3.28` `latest` `v3.28` `3`                             | June 5th     | `sha256:418a88b56e4d576db8ae5b60d5400eb7d34cee215479e13afbe34f3932e00093` |
 

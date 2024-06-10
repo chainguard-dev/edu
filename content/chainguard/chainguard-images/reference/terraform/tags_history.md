@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the terraform Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-07 00:46:50
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,9 +28,9 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)                                 | Last Changed | Digest                                                                    |
 |-----------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.5-dev` `1.5.7-dev` `latest-mpl-dev` | June 9th     | `sha256:0e139f44802af639908b08efdac13c8fa15300cc049f7b8aabd880f6133d0718` |
+|  `latest-dev`                           | June 9th     | `sha256:efa2e91b3c394054dbeeb3b944b890d34f9a47a4f5ff60ab9cb640d8d7a63bf9` |
 |  `latest`                               | June 6th     | `sha256:2ae54530f63e023e16aad8624f66d173fab1139faba7ee94caa96bf67ed2e72b` |
-|  `latest-dev`                           | June 6th     | `sha256:eafa66b69660130a85eab637c7f04889278526853ffaade94734831a2686c1f8` |
-|  `latest-mpl-dev` `1.5.7-dev` `1.5-dev` | June 5th     | `sha256:c7d1fe7cdadba009484c166215eab729213fd9ef97cd0dc41a4152eb35ea6d8b` |
 |  `1.5` `1.5.7` `latest-mpl`             | June 5th     | `sha256:1e6ecdf51e3f790f835438d278e68e2e4886b29ce28ddff93a83810369e8cd39` |
 
 
@@ -39,6 +39,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.7.5-dev` `latest-dev` `1.7-dev` | June 5th     | `sha256:758145e50726e5a820156699c17c83932983b136d07de6738564acbdd22a1bb0` |
+|  `1.7-dev` `1-dev` `1.7.5-dev` `latest-dev` | June 8th     | `sha256:ee078f4398e57d06c1fa2c95a953fe69420d80a4ed05cf74b5fcedf1c4c165c5` |
 |  `1.7` `1.7.5` `1` `latest`                 | June 5th     | `sha256:a46538789f96fdfc2e9bbba50708869d16a988483d82b8a9206f622e3d67ffe9` |
 

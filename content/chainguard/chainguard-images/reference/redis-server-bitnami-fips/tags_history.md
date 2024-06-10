@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the redis-server-bitnami-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.2.5-dev` `7.2-dev` `latest-dev` `7-dev` | June 1st     | `sha256:6a51eb9caec0bc0ebef071b716d476be09ef87d8fcc09584613a7e97599df427` |
-|  `6.2.14-dev` `6.2-dev` `6-dev`             | June 1st     | `sha256:b8300e0e6cd738b84a85d945d5f80d78a31c05b4d15fd26c32764590851de9db` |
-|  `7.0-dev` `7.0.15-dev`                     | June 1st     | `sha256:3932108578246b4b9977c9c1fa4e8f3833f6c23d64728a5ca34b25da5577c731` |
-|  `7` `7.2.5` `7.2` `latest`                 | May 31st     | `sha256:925f218a0dd71bd7fd6c340b70fab7e5019554722045a3edf58ef2bb684349e5` |
-|  `6` `6.2.14` `6.2`                         | May 31st     | `sha256:06aaae021231558bace3d6ef382a21c65a0d8c04d893302e67b3807e0b34a147` |
-|  `7.0` `7.0.15`                             | May 31st     | `sha256:5477ef238319ab4212daec273be6f9a431057a9d24d3cc3a8b95af7f36d8e3b9` |
+|  `latest-dev` `7.2-dev` `7.2.5-dev` `7-dev` | June 8th     | `sha256:add189f6fc1281aa12cae9108056adaeed5e099da4adf1dc0800c58d4232ad3f` |
+|  `7.0.15-dev` `7.0-dev`                     | June 8th     | `sha256:1a61d1cbf5d130c27f04c3d526ba08fe3df450d5d46d58fea81fb63a87ef8f3d` |
+|  `6.2-dev` `6.2.14-dev` `6-dev`             | June 8th     | `sha256:eaff2c6c9cf744aafd765c113f73b8404703044288d5dea7b0bc7500a5941cff` |
+|  `7.2` `latest` `7.2.5` `7`                 | June 7th     | `sha256:53d70e3488e471e51b65c9b829d77ad6ff009630342e8e83dcbb4b65cff6982b` |
 

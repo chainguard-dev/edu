@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the harbor-trivy-adapter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 5th     | `sha256:8bed8a11036ba25801df235f6319c828ddf1f2d3bbdcadf3832c0995c003dd53` |
-|  `latest`     | June 5th     | `sha256:fde07a4422276adcf27b37b1a966b71710083a7a8fd89cec73f9123e417d151f` |
+|  `latest-dev` | June 9th     | `sha256:511f1aa75f47896b2fd4f91a224f7bda561c520f5885e8abd7bbe81411e5f3ce` |
+|  `latest`     | June 7th     | `sha256:3e30d6ab0c850e0bd4775408eb72c9b0213a7d1e7009d639f371a75d520b5f21` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.31-dev` `0.31.2-dev` | June 5th     | `sha256:7d0e525ee141030af9d636888049e09be0f3f3fbf3b1f720932663b3d88623eb` |
-|  `0.31.2` `0` `latest` `0.31`                 | June 5th     | `sha256:bb3c415b50baa3a7e38f77e9752ff1d4bf31d7f7fcc86e498abfdc9a532e88d3` |
+|  `latest-dev` `0.31.2-dev` `0.31-dev` `0-dev` | June 8th     | `sha256:fa8407cba97dfd50b92a65387c3ff65145464a18654136f2489a47ad8a84b631` |
+|  `0` `latest` `0.31` `0.31.2`                 | June 7th     | `sha256:f5102ec678575ec97cec98fe9f19fecd81cc6d9c1e627b235eeebd805d916134` |
 

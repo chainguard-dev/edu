@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-downscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 5th     | `sha256:e45f077ccd18c7192c25b876276a9bf82d002416aff6c46164d543488d6f3920` |
-|  `latest-dev` | June 5th     | `sha256:c82a0d843edc648321f867b4e0d563da37d88be4647e909b95e63d1b5b671997` |
+|  `latest-dev` | June 9th     | `sha256:871bf0c8f882f2d642651a724d8a35afec6a96429415e118fe0a74dd92371f2c` |
+|  `latest`     | June 7th     | `sha256:799381833d0955fb0df0f0108cc74f5b1ebaaad72c5240c249ed302085e7db3f` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `23.2.0-dev` `latest-dev` `23.2-dev` `23-dev` | June 5th     | `sha256:a9175067a0f460a4f8dccc89e880b6b5d46e492ce399d5367dbbc13668bd35ec` |
-|  `23.2.0` `23` `23.2` `latest`                 | June 5th     | `sha256:01eeb750e61309d91e2545979e9970cabb74a43fbceecdef91d3e9fe782953f4` |
+|  `23.2-dev` `latest-dev` `23.2.0-dev` `23-dev` | June 8th     | `sha256:06f9d6453311de772e4955bd4ee4855a38500b22771791536360f8d8b8dd6c0d` |
+|  `latest` `23` `23.2.0` `23.2`                 | June 7th     | `sha256:4d4da1791ee2e81cc0708ab0f98864d98ac525b15be2d8d41365b2c909a3f36a` |
 
