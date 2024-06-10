@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the python-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-07 00:46:50
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.9-dev` `3.9.19-dev`                       | June 6th     | `sha256:17b0917791397b0aea8d4319dc7c4a31cf0b6bdb484c1531b6d1596cedbc005e` |
-|  `3.11.9-dev` `3.11-dev`                      | June 6th     | `sha256:3c658056dfebef883683ee52529769bb4c5e477f16bb7c2641da75f315e62775` |
-|  `latest-dev` `3.12-dev` `3.12.3-dev` `3-dev` | June 6th     | `sha256:bf08d8338ed3992a160238b91a6657fe8201d87b98b18d959c5ebac450369fc6` |
-|  `3.10.14-dev` `3.10-dev`                     | June 6th     | `sha256:c3ff2294fc702ef0079dfa0c22eee23683700cf7c39bdbe44229b75a66a85d06` |
+|  `3.9.19-dev` `3.9-dev`                       | June 8th     | `sha256:7ec41a2404cddc245d0390d08991687189ecd872792b71d725466ec593129c2f` |
+|  `3.11.9-dev` `3.11-dev`                      | June 8th     | `sha256:302b1da3309a87048794d887360a939e3bf7d5302a890df65323507f61c89359` |
+|  `3-dev` `3.12-dev` `latest-dev` `3.12.4-dev` | June 8th     | `sha256:72ddbced31633a49b4e5e2b02bfa238180265e01d5a4202958be891450d7256f` |
+|  `3.10.14-dev` `3.10-dev`                     | June 8th     | `sha256:07c9e5b9cce3cc2049b6c57158d82033e4986ff0277a5f8ee7f1befada70a9cf` |
+|  `latest` `3` `3.12.4` `3.12`                 | June 7th     | `sha256:40b66a30a77e1ab248ae758e8dfcf057b6a6ae5e00028098a0f19064c9401d4c` |
+|  `3.12.3-dev`                                 | June 6th     | `sha256:bf08d8338ed3992a160238b91a6657fe8201d87b98b18d959c5ebac450369fc6` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the apache-nifi Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-07 00:46:50
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,16 +26,13 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 2nd     | `sha256:4adbe7bdd2349f0057a597c0f45b71b5d31f4b19d9b3492123974e37d2d3d1c8` |
-
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.26-dev` `latest-dev` `1.26.0-dev` `1-dev` | June 5th     | `sha256:aeeba2d1c8a28300a384138b6b1a39ed3b0a811f012cdaa02ee722a50aac46a2` |
+|  `latest-dev` `1-dev` `1.26-dev` `1.26.0-dev` | June 8th     | `sha256:32d9c356d78e0e729bcde015c38dcf3654046c93ba81f570007fcacdca7757f5` |
 |  `1` `1.26` `latest` `1.26.0`                 | June 5th     | `sha256:13eceb7dd3c3eac99376beaf38b76aded4fdc7594118a7ea6980e9226d3939dd` |
 

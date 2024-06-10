@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dotnet-runtime-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-07 00:46:50
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,11 +33,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.0.120` `7` `7.0`                        | June 2nd     | `sha256:4182d460ec3ddbccf21362bc296ab22aeee1676cef4317f9d416e61a45d9d372` |
-|  `7-dev` `7.0-dev` `7.0.120-dev`            | June 2nd     | `sha256:88af78515fb5a2b54ef80a29977881fc1a2d6782ce1eb5e72fba61d115903835` |
-|  `6` `6.0` `6.0.131`                        | June 1st     | `sha256:cb9bb38bb9a8628225ce5af534fb0a4614a5fc5a9859e6912be8924d4e546370` |
-|  `6.0.131-dev` `6-dev` `6.0-dev`            | June 1st     | `sha256:425c92460807afbbdcb758fa4fa63050c736f1896034b75433792f3923418d93` |
-|  `8.0-dev` `latest-dev` `8-dev` `8.0.6-dev` | June 1st     | `sha256:b5068387808669d6565f68f1a81feb9f819dbc2370036ae5b0e6d99123875528` |
-|  `7.0.119-dev`                              | June 1st     | `sha256:5dfae0ea21d94624b722bbb53bb98085365dc87a4cb50e1c7bcb732924751e3a` |
-|  `6.0.130-dev`                              | June 1st     | `sha256:8be774915e8e66290110628f42521680c09075fdb2f4b464530dfe6ca2394a20` |
+|  `latest-dev` `8.0-dev` `8.0.6-dev` `8-dev` | June 8th     | `sha256:863cfa593c1dc8bd41970b4aa143b2d0eccedc561878649a5389f7b8864b0520` |
+|  `6.0.131-dev` `6-dev` `6.0-dev`            | June 8th     | `sha256:aa3a1ea513d8e4e1d36804ae30c56aadfd08fd715bde9b826b411352a823f1ab` |
+|  `7-dev` `7.0.120-dev` `7.0-dev`            | June 8th     | `sha256:4cfc082fa7068890406fdd2640b5a3116430f3d5511e318dd3a637740fe5ac10` |
 

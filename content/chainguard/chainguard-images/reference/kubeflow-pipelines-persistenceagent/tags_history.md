@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-persistenceagent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-07 00:46:50
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 6th     | `sha256:326f263aece880ebe81a0f1f7da2ddeb439180fd9c6fd99a95f539987477711b` |
-|  `latest`     | June 6th     | `sha256:6b8088ad43e4c48e1c3c77dc2ba356829c484aac87653d4d581ac27196f9d058` |
+|  `latest-dev` | June 9th     | `sha256:536b716edfb93e36155e569fc60524789040891a26e50af33c4c7be9dc21626a` |
+|  `latest`     | June 7th     | `sha256:2702d53f94b16a782484ac79d45fbf6da4574e04c911176e20daba3e613b8a46` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.2.0-dev` `2-dev` `latest-dev` `2.2-dev` | June 6th     | `sha256:890856fe632aaf45b4baa408a538ae49b0341915426f399c39d223d30f43e117` |
-|  `2.2.0` `2` `latest` `2.2`                 | June 6th     | `sha256:9f170b924a209287656e7710b890a46d3197d914d21daa14f32f56e18fa1450b` |
+|  `latest-dev` `2.2.0-dev` `2.2-dev` `2-dev` | June 8th     | `sha256:ef7dea7c30d78b61afbbdfe736e1ebfb339e864fc96aa3b34fddf49499d1a581` |
+|  `2` `latest` `2.2.0` `2.2`                 | June 7th     | `sha256:adc3d0a62f421d2b3d45e845d603de5e424d9067a9140789324ae7baf34b406c` |
 

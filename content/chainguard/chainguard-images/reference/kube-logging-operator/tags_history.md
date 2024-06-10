@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-logging-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,11 +36,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `4.7-dev` `4.7.0-dev` `4-dev` `latest-dev` | June 8th     | `sha256:aaccc4c59b511890aabafe92a0b770882af4f5f2a344045cc3f76e95a2be95cf` |
+|  `4.1.0-dev` `4.1-dev`                      | June 8th     | `sha256:c8817ed99e743ddeaa5ab816b53960969f055fea1de52968db300ac73e8ec5ac` |
+|  `3-dev` `3.17.11-dev` `3.17-dev`           | June 8th     | `sha256:a45757198488a5dc69585c4f6de6e98fdf4411e935d1ea5eb8f4e68967af2c5f` |
 |  `3` `3.17` `3.17.11`                       | June 5th     | `sha256:1851ecff1d11365a821a74117ac49b72b45aece8572dba54bfb33dffa0406813` |
-|  `3-dev` `3.17.11-dev` `3.17-dev`           | June 5th     | `sha256:e1963d092146b0e5b484ae327bb0dcf1fbe960e736519ea27d7dd60d0c192737` |
 |  `4.1` `4.1.0`                              | June 5th     | `sha256:72bfbe1fc955f15fb71e86b0691c42f2981bdc605223839e6fd9d3e5e94d46f8` |
-|  `4.1.0-dev` `4.1-dev`                      | June 5th     | `sha256:787236cadda3456a8a0e2691223a957f92b7d0dedc1e1ef1b33e9baafa62c3be` |
-|  `4-dev` `4.7.0-dev` `latest-dev` `4.7-dev` | June 5th     | `sha256:b690c0c5ed9611bf2977732131e86d9076124d9fd5473e0afe3b27fe5de4f6e5` |
 |  `4.7.0` `4.7` `latest` `4`                 | June 5th     | `sha256:bd78fe25f8b5aa5a157c86dd48bfc6044dcfeaa33e572a018bd65e1e4a90f32d` |
-|  `4.6.1-dev` `4.6-dev`                      | June 1st     | `sha256:860cb436153ddc4a530fb96c6a915f91452a5ca2b7405f4d73f79250948d3e71` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the redis-cluster-bitnami-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.0.15-dev` `7.0-dev`                     | June 1st     | `sha256:394f88efd95997efd0d09635fa7500c65900232479b59b6302c6289e2e2fc8cd` |
-|  `7-dev` `7.2-dev` `latest-dev` `7.2.5-dev` | June 1st     | `sha256:3025c6da9690afafb4f1ce279fce1a6eba05110425762cc33a4beaf01c5366ae` |
-|  `6.2-dev` `6-dev` `6.2.14-dev`             | June 1st     | `sha256:ebaca4e71dc944dc67805f81e1bd14d87ab4dd88937db5c33f0da5f4194f3728` |
-|  `7` `latest` `7.2.5` `7.2`                 | May 31st     | `sha256:8e5dce3b627556dc28109ecef893705e02ee52a55332a7f9eea521c89f6e83fa` |
-|  `6.2` `6.2.14` `6`                         | May 31st     | `sha256:f42c74b219f470913a9bec8aa244245dcaf041ce69ffbd142790653af1af56f1` |
-|  `7.0.15` `7.0`                             | May 31st     | `sha256:6f8b1102036593d185044bcf177379402e94a1a6b6a8bfbc9a64c7f04f852ed8` |
+|  `7-dev` `latest-dev` `7.2-dev` `7.2.5-dev` | June 8th     | `sha256:b5a9bf09570b614032ad86f9a6c3456d33535169ef73498814910dfac0cd5ac0` |
+|  `6-dev` `6.2-dev` `6.2.14-dev`             | June 8th     | `sha256:b383ae6655f37da690ebf7995d408556406d9e1045a2100278675f5217750363` |
+|  `7.0-dev` `7.0.15-dev`                     | June 8th     | `sha256:fdb258e012133ba84623c71e8f0f641a97bea65f343f75e1df9c4a81257b5a01` |
+|  `7` `7.2` `7.2.5` `latest`                 | June 7th     | `sha256:823b4caf6a0965bce7dd65683ebdc808e433f099188c697f068405d41c4e5f13` |
 

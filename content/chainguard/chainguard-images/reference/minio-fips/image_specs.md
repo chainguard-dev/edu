@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public minio-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-29 00:38:53
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ This page shows detailed information about the Chainguard **minio-fips** Image.
 | CMD          | not specified    | not specified    |
 | Workdir      | not specified    | not specified    |
 | Has apk?     | yes              | no               |
-| Has a shell? | yes              | no               |
+| Has a shell? | yes              | yes              |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/minio-fips/tags_history/) for the full list of available tags.
 
@@ -38,14 +38,17 @@ The table shows package distribution across variants.
 |                               | latest-dev | latest |
 |-------------------------------|------------|--------|
 | `apk-tools`                   | X          |        |
-| `bash`                        | X          |        |
+| `bash`                        | X          | X      |
 | `busybox`                     | X          |        |
 | `ca-certificates-bundle`      | X          | X      |
 | `chainguard-baselayout`       | X          | X      |
+| `coreutils`                   | X          | X      |
 | `git`                         | X          |        |
 | `glibc`                       | X          | X      |
 | `glibc-locale-posix`          | X          | X      |
 | `ld-linux`                    | X          | X      |
+| `libacl1`                     | X          | X      |
+| `libattr1`                    | X          | X      |
 | `libbrotlicommon1`            | X          |        |
 | `libbrotlidec1`               | X          |        |
 | `libcrypt1`                   | X          |        |
@@ -61,8 +64,8 @@ The table shows package distribution across variants.
 | `libxcrypt`                   | X          |        |
 | `mc-fips`                     | X          | X      |
 | `minio-fips`                  | X          | X      |
-| `ncurses`                     | X          |        |
-| `ncurses-terminfo-base`       | X          |        |
+| `ncurses`                     | X          | X      |
+| `ncurses-terminfo-base`       | X          | X      |
 | `openssl-config-fipshardened` | X          | X      |
 | `openssl-provider-fips`       | X          | X      |
 | `wget`                        | X          |        |

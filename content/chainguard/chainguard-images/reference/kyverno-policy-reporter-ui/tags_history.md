@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kyverno-policy-reporter-ui Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 5th     | `sha256:292ae389681e9b322b4b8feeedaf68a51d270b230c7484b3fb78679d3ae97a9b` |
+|  `latest-dev` | June 9th     | `sha256:6a2c1a676fe124c1621a0bbe726c5a7cc205d339d2cac56ad1a395b40e38ded4` |
 |  `latest`     | June 5th     | `sha256:6abbae2cd9e2dc7442124982aeba99ca28834076c38c9c785ca21998ff407614` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.9-dev` `1.9.2-dev` `latest-dev` `1-dev` | June 5th     | `sha256:b770fad0ddc81869888df7279d00d5685397bbfff7ae021140ff5ac84edca755` |
+|  `latest-dev` `1.9.2-dev` `1-dev` `1.9-dev` | June 8th     | `sha256:48f5b1a21d6e53ec005ac3e843cf739278bbd6a0fdfa6c0308fa6b84f23f24e9` |
 |  `1.9` `latest` `1` `1.9.2`                 | June 5th     | `sha256:2611d2b8b96e2c684c67938b157ab9499aeefc539e8f9977b8edbe57be239cee` |
 

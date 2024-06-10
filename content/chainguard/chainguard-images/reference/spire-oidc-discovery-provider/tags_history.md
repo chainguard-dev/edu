@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the spire-oidc-discovery-provider Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 5th     | `sha256:3178fcc38e06acbb0b619f9d299f01a460f13aafc64178c4349dcd1e51ac1fec` |
+|  `latest-dev` | June 9th     | `sha256:73de934e29fd035575fc4edbd2fa22d7bf20c90667882a48a15ab888616b9727` |
 |  `latest`     | June 5th     | `sha256:76155538102c2dd6e1a3e56a07a36f4940cc62b1fd2a7f18c9aebe58a023f654` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.9.6-dev` `latest-dev` `1.9-dev` `1-dev` | June 5th     | `sha256:1ea2f8a2910c1239464f521daf5c0d9182db1bd56131d74535956aca4f07ad1c` |
+|  `1-dev` `1.9.6-dev` `latest-dev` `1.9-dev` | June 8th     | `sha256:9f62661948c56c8ba93cc7c1fefa78a15fc16a13e10d768c1d22fc1fa8fa88a5` |
 |  `1.9` `1` `1.9.6` `latest`                 | June 5th     | `sha256:ef8d765fd719882386fcdce2d2f29a00cfa13f535d8ba046e1dec39fa5dfc75a` |
 

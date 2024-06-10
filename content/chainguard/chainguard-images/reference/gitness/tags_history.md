@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gitness Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 5th     | `sha256:5b7a870cb0dee376413599696d76b899be9c439412078a63ca47379cb4a1545d` |
-|  `latest-dev` | June 5th     | `sha256:b2f54309c12a6e544d837599810feab753601f02b9065c28c14003ba13f4e3f1` |
+|  `latest-dev` | June 9th     | `sha256:6cc3565973462790291b9483f5e568f8402de99aebd4226b4e49f39f3b2cd168` |
+|  `latest`     | June 9th     | `sha256:adb61e2ae11df67a9230cb8d2d4159ad19704809ee0f388a25e1ce8679c36821` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                           | Last Changed | Digest                                                                    |
 |---------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `3.0-dev` `3-dev` `3.0.0_beta6-dev` | June 5th     | `sha256:868862ff4c0a5fe7e451493a289d8b2ef3d7fab873c5f04971e98b02fad91579` |
-|  `3.0.0_beta6` `3.0` `latest` `3`                 | June 5th     | `sha256:62de60ff994a689569dee58370ee7f1b9fe255718d9589a82627ddadb957b4b3` |
+|  `3.0-dev` `3.0.0_beta6-dev` `latest-dev` `3-dev` | June 8th     | `sha256:e961da1ca41cfcacccc87d91b006e1c6eeff6e07e6db5a7fbfd7c78fca41ade1` |
+|  `3.0.0_beta6` `3.0` `3` `latest`                 | June 8th     | `sha256:ac9ef2b35287d0bfa6a3ca4be048823498bfeebe8563507656ce5ef445531c7e` |
 

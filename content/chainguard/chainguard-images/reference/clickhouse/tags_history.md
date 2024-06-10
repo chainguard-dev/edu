@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the clickhouse Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 5th     | `sha256:e80267d1946f36a6b3c83dbda42e9ce29c7c17dc983e278aec020e16368b561b` |
+|  `latest-dev` | June 9th     | `sha256:a3529a400365806fb380b2888a6f6b508a59c45a13f8d64407cf23bf23b5f763` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                        | Last Changed | Digest                                                                    |
 |----------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `23.8.14-dev` `23-dev` `23.8-dev` `23.8.14.6-dev`             | June 5th     | `sha256:9e2b384616ebe0c02ffd17d163720eb4d1a30e2436e5b95ac7b45a6e6a145722` |
-|  `24.2-dev` `24-dev` `24.2.2-dev` `latest-dev` `24.2.2.71-dev` | June 5th     | `sha256:2e844c7295ad71dabd8b4abae7f03deb31fe9cb086c473c9af8c974ca4bf71a8` |
+|  `24.2.2.71-dev` `latest-dev` `24.2.2-dev` `24-dev` `24.2-dev` | June 8th     | `sha256:f740061b2d50e76c527a9aae91c1c9c126590980ce2c7ec17a5dafc09ba4a706` |
+|  `23-dev` `23.8.14.6-dev` `23.8.14-dev` `23.8-dev`             | June 8th     | `sha256:b941daca4b211b751fe216619216faa7c66147ba09babdf536f64d7df94b49d9` |
 

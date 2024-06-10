@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the calico-pod2daemon-flexvol Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-07 00:46:50
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,6 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                          | Last Changed | Digest                                                                    |
 |----------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `3.28.0-dev` `latest-dev` `3-dev` `3.28-dev` `v3-dev` `v3.28.0-dev` `v3.28-dev` | June 8th     | `sha256:9d956dbf292e456ba1524148c23fcc75a7c2f1b0d4453f1b778ddfe730163475` |
 |  `3.28.0` `v3` `v3.28.0` `latest` `3` `3.28` `v3.28`                             | June 5th     | `sha256:655c521dd4cb65c7e508d61039c8cdaacb3c68805d9edbed73a59b1a1525eb79` |
-|  `latest-dev` `3.28.0-dev` `3.28-dev` `v3.28-dev` `3-dev` `v3.28.0-dev` `v3-dev` | June 5th     | `sha256:1e87f2f142155a75b74a800fd3b497bd057d0bbc40ec706a66fca1b3b3be510c` |
 

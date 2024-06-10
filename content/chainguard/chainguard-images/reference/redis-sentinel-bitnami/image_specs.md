@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public redis-sentinel-bitnami Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-07 00:46:50
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -21,57 +21,57 @@ toc: true
 
 This page shows detailed information about the Chainguard **redis-sentinel-bitnami** Image.
 
-|              | latest-dev                                                                                     |
-|--------------|------------------------------------------------------------------------------------------------|
-| Default User | `redis`                                                                                        |
-| Entrypoint   | `/opt/bitnami/scripts/redis-sentinel/entrypoint.sh /opt/bitnami/scripts/redis-sentinel/run.sh` |
-| CMD          | not specified                                                                                  |
-| Workdir      | not specified                                                                                  |
-| Has apk?     | yes                                                                                            |
-| Has a shell? | yes                                                                                            |
+|              | latest-dev                                                                                     | latest                                                                                         |
+|--------------|------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
+| Default User | `redis`                                                                                        | `redis`                                                                                        |
+| Entrypoint   | `/opt/bitnami/scripts/redis-sentinel/entrypoint.sh /opt/bitnami/scripts/redis-sentinel/run.sh` | `/opt/bitnami/scripts/redis-sentinel/entrypoint.sh /opt/bitnami/scripts/redis-sentinel/run.sh` |
+| CMD          | not specified                                                                                  | not specified                                                                                  |
+| Workdir      | not specified                                                                                  | not specified                                                                                  |
+| Has apk?     | yes                                                                                            | no                                                                                             |
+| Has a shell? | yes                                                                                            | yes                                                                                            |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/redis-sentinel-bitnami/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                                     | latest-dev |
-|-------------------------------------|------------|
-| `apk-tools`                         | X          |
-| `bash`                              | X          |
-| `busybox`                           | X          |
-| `ca-certificates-bundle`            | X          |
-| `chainguard-baselayout`             | X          |
-| `coreutils`                         | X          |
-| `git`                               | X          |
-| `glibc`                             | X          |
-| `glibc-locale-posix`                | X          |
-| `ld-linux`                          | X          |
-| `libacl1`                           | X          |
-| `libattr1`                          | X          |
-| `libbrotlicommon1`                  | X          |
-| `libbrotlidec1`                     | X          |
-| `libcrypt1`                         | X          |
-| `libcrypto3`                        | X          |
-| `libcurl-openssl4`                  | X          |
-| `libexpat1`                         | X          |
-| `libidn2`                           | X          |
-| `libnghttp2-14`                     | X          |
-| `libpcre2-8-0`                      | X          |
-| `libpsl`                            | X          |
-| `libssl3`                           | X          |
-| `libunistring`                      | X          |
-| `libxcrypt`                         | X          |
-| `ncurses`                           | X          |
-| `ncurses-terminfo-base`             | X          |
-| `openssl`                           | X          |
-| `openssl-provider-legacy`           | X          |
-| `posix-libc-utils`                  | X          |
-| `redis-7.2`                         | X          |
-| `redis-cli-7.2`                     | X          |
-| `redis-sentinel-7.2-bitnami-compat` | X          |
-| `wait-for-port`                     | X          |
-| `wget`                              | X          |
-| `wolfi-baselayout`                  | X          |
-| `zlib`                              | X          |
+|                                     | latest-dev | latest |
+|-------------------------------------|------------|--------|
+| `apk-tools`                         | X          |        |
+| `bash`                              | X          | X      |
+| `busybox`                           | X          | X      |
+| `ca-certificates-bundle`            | X          | X      |
+| `chainguard-baselayout`             | X          | X      |
+| `coreutils`                         | X          | X      |
+| `git`                               | X          |        |
+| `glibc`                             | X          | X      |
+| `glibc-locale-posix`                | X          | X      |
+| `ld-linux`                          | X          | X      |
+| `libacl1`                           | X          | X      |
+| `libattr1`                          | X          | X      |
+| `libbrotlicommon1`                  | X          |        |
+| `libbrotlidec1`                     | X          |        |
+| `libcrypt1`                         | X          | X      |
+| `libcrypto3`                        | X          | X      |
+| `libcurl-openssl4`                  | X          |        |
+| `libexpat1`                         | X          |        |
+| `libidn2`                           | X          |        |
+| `libnghttp2-14`                     | X          |        |
+| `libpcre2-8-0`                      | X          |        |
+| `libpsl`                            | X          |        |
+| `libssl3`                           | X          | X      |
+| `libunistring`                      | X          |        |
+| `libxcrypt`                         | X          | X      |
+| `ncurses`                           | X          | X      |
+| `ncurses-terminfo-base`             | X          | X      |
+| `openssl`                           | X          | X      |
+| `openssl-provider-legacy`           | X          | X      |
+| `posix-libc-utils`                  | X          | X      |
+| `redis-7.2`                         | X          | X      |
+| `redis-cli-7.2`                     | X          | X      |
+| `redis-sentinel-7.2-bitnami-compat` | X          | X      |
+| `wait-for-port`                     | X          | X      |
+| `wget`                              | X          |        |
+| `wolfi-baselayout`                  | X          | X      |
+| `zlib`                              | X          |        |
 

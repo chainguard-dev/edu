@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the squid-proxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | June 9th     | `sha256:da9bc8be4590705569d514a3fd5d66b01a1c0b3759b55ad9cfe1efef058f4125` |
 |  `latest`     | June 5th     | `sha256:ad1977e751d04c934251ea0046d874d380d2969aa5b001a080bed8fe1b050378` |
-|  `latest-dev` | June 5th     | `sha256:30c5df4d1937df1b66d511ef7fd1f3f0e57d3bb850b0bc8e86e1313c7d93bba9` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                         | Last Changed | Digest                                                                    |
 |---------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` `6.9-dev` `6-dev` | June 8th     | `sha256:e348702e08514f5fbba86eb4d9826d93fcacec6464ff8cd9e839a9cd21ce0623` |
 |  `latest` `6.9` `6`             | June 5th     | `sha256:f2492e3a97483afb66f7ea474dd193b199e8b80ee3e6e6570ded21665a78f6bb` |
-|  `6.9-dev` `6-dev` `latest-dev` | June 5th     | `sha256:e82a7ad32af680489b6460a859921beb83403f6550480608e8fd80995a935785` |
 

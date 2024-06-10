@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-hyperband Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | June 9th     | `sha256:c5d19c618103ae0888da21959215f52cc5c983f85d01414e32b92ca31d15d71c` |
 |  `latest`     | June 5th     | `sha256:5edb16ea3988777c062525b77b264bcb195d1792574f4246fddb92f8a05f7bca` |
-|  `latest-dev` | June 5th     | `sha256:b4655810fa53d818bafe4b6f158d4c9eec3df65d6f5ad5dc7c95e3d67681bed4` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.16.0-dev` `0.16-dev` `latest-dev` | June 5th     | `sha256:3088c4f171afed07c267bb64e7b99a5dc21df676a7eab7efc7bc42a9eb66fc64` |
+|  `0-dev` `latest-dev` `0.16.0-dev` `0.16-dev` | June 8th     | `sha256:9dc3f8b9b9a080868cc4174b8774ce9577ee0e7365f7aca8a6600203cfaf377b` |
 |  `0.16` `latest` `0.16.0` `0`                 | June 5th     | `sha256:35cbb176ef3e336522f6d7b00889a01557c28fe6fb4bfede866460ffada6bc20` |
 

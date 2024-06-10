@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-envoy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-07 00:46:50
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 6th     | `sha256:4ce3c77d4660024d68cd525caee39190627b8d5c7c1ea6d978f139f3d253dfea` |
-|  `latest`     | June 6th     | `sha256:d7c295471c755a72efa3fb657aac656f3284e1db344e9f67c260232968c279c7` |
+|  `latest-dev` | June 9th     | `sha256:f43f4c2726f1847e04d7c557205398ec7f9372c71ed596e0543b960b9302660c` |
+|  `latest`     | June 7th     | `sha256:806ec8f4e18dc3e41a947cd4b336d1b2804962936eb2dc9efe3ccc5936495e06` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.2.0-dev` `2.2-dev` `2-dev` `latest-dev` | June 6th     | `sha256:cd26f9bc1411e0abe9b4a44ad54cf0d4cdf3d8d5dc67a2e946e4380e968ba5e0` |
-|  `2` `2.2.0` `latest` `2.2`                 | June 6th     | `sha256:51d6020424ed25081b74d3e15dc1b14dca03f8f92e1577c23ce1c1ea9ec30de6` |
+|  `2-dev` `latest-dev` `2.2-dev` `2.2.0-dev` | June 8th     | `sha256:291a48b18b8c870ff898b21f4581273e7e040b1e10fe505048d5c7b1d061b5f4` |
+|  `latest` `2.2` `2.2.0` `2`                 | June 7th     | `sha256:50956d50805daa4d6b3fb0ca953d703ca334e68781d1d8a2ffd3bd450c7f60c2` |
 

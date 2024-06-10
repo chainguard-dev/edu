@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-nop-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.60-dev` `0-dev` `latest-dev` `0.60.1-dev` | June 5th     | `sha256:2018c5dbec1d6ee4c819ed72e08516a3c2bf27c267e1caf29aac6ade778ec842` |
-|  `0.60` `0` `0.60.1` `latest`                 | June 5th     | `sha256:06a9de3298098262b4fb7108b04b941e9d2335cfda22e05133440d4fa9c4e6f8` |
+|  `0.60` `0` `latest` `0.60.2`                 | June 8th     | `sha256:9351fdfbd25db68ee1166e11c1a64c6aee3a760ee6895b557bb04c4dd16c150b` |
+|  `latest-dev` `0.60.2-dev` `0.60-dev` `0-dev` | June 8th     | `sha256:9951ff1c0942d2d6457bbf1c0ea9ca4909480247d6ad1e854861b60345dd43be` |
+|  `0.60.1-dev`                                 | June 8th     | `sha256:2d4eef52d9cae746fcf9daa7ce2577a16f9f09558ba6a87945f5a34039e162a4` |
+|  `0.60.1`                                     | June 5th     | `sha256:06a9de3298098262b4fb7108b04b941e9d2335cfda22e05133440d4fa9c4e6f8` |
 

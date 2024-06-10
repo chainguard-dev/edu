@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dask-gateway Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 5th     | `sha256:2e0f014f7e1aaa3bcca5291e490a936fb515052ad6929bf0d0ecc4695307457b` |
-|  `latest`     | June 5th     | `sha256:3faaec074b914ea0550a83ab9934b7837f5668afddded402f10361fd95823af5` |
+|  `latest-dev` | June 9th     | `sha256:194f12e415daeccabc16214481eb951821651505a81a62c50080bb21454ff926` |
+|  `latest`     | June 7th     | `sha256:b4b28a633670c85477d0ab2c240f0e8bb3c13bbefa718924d5832628bd1332c8` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                              | Last Changed | Digest                                                                    |
 |------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2024` `latest` `2024.1` `2024.1.0`                 | June 5th     | `sha256:26f30eaac3cd6db3a0015afef8c056b684e0f267d31fff8be25165f529e05a1a` |
-|  `2024.1.0-dev` `2024.1-dev` `latest-dev` `2024-dev` | June 5th     | `sha256:27bbafb1d638b324ce438cccac450f355a8b2ba3ef073bd3a42620222def063b` |
+|  `2024.1.0-dev` `2024-dev` `latest-dev` `2024.1-dev` | June 8th     | `sha256:d573cd08e90f0b8d529e24cd4c28bc21b0e2dda2ada4e55219fa2479c175fdca` |
+|  `2024.1.0` `2024.1` `2024` `latest`                 | June 7th     | `sha256:3011491ba4ccd6da3f85cea8e82fd3240cf8248043afb7d9b9b1021a036af50a` |
 

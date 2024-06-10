@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the metallb-speaker Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 5th     | `sha256:cb687efa14947dac4beed2612171c95c23b9fc696eaf2b27a245d996ffbfa7db` |
+|  `latest-dev` | June 9th     | `sha256:3d8a04896f3f8e4efa1581b02759b71d50a42606ff921f75158dddb507127c89` |
 |  `latest`     | June 5th     | `sha256:950ca0d2a5292a283de68334eee2400d736dcac1c758bf91ae3fc0d587fd85b2` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.14.5-dev` `0.14-dev` | June 5th     | `sha256:f2af3f19a47b87a11c97c3a4827a35037fa5a107de3b999d7ac935dc96727c2e` |
+|  `latest-dev` `0.14.5-dev` `0.14-dev` `0-dev` | June 8th     | `sha256:6a9a71c55ef11bf4f1086795f488d775d45cd0c1f48dac16d05151f53fc4cc69` |
 |  `0.14.5` `0.14` `0` `latest`                 | June 5th     | `sha256:8c9530ee9917567012108eee13b039fd1ffbace41b53ef77d8117c2e272a9128` |
 
