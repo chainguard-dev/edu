@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the chromium Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-07 00:46:50
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 6th     | `sha256:81df03f20f41d04de90f1a79990ee5bef8dcac104246e85f09756ce27a515bab` |
-|  `latest`     | June 6th     | `sha256:8307e1b1d50e749395f9017ef14cb8e79c9fc9f54283d7f05fee78a2de5785eb` |
+|  `latest-dev` | June 9th     | `sha256:579108f96bc25e128cc2b045f4ef8e0ca2ba9063162e1d11c7f20ec71142f95d` |
+|  `latest`     | June 9th     | `sha256:80772e8bc89c726a719371ba1a8fcda45fa0d4013d78bf833474c0be491fe39f` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                   | Last Changed | Digest                                                                    |
 |---------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `125.0.6422` `125.0` `125.0.6422.141` `125`                     | June 6th     | `sha256:2b6e7d759502812bd2f6d378759155954fd4bde8cba46801ff0fd5b31fb05de1` |
-|  `125-dev` `125.0.6422.141-dev` `125.0-dev` `125.0.6422-dev` `latest-dev` | June 6th     | `sha256:a888b60dfc44923f26c6f46ae0f56f1936f12ad0a78ff8cff86f99df8562b207` |
+|  `latest` `125.0.6422` `125.0` `125.0.6422.141` `125`                     | June 8th     | `sha256:52be74bf2be063bb29119f8a34e654562239e2d414488394db1365dbbbb96226` |
+|  `125.0.6422-dev` `125.0-dev` `125.0.6422.141-dev` `125-dev` `latest-dev` | June 8th     | `sha256:a01bdcf08eb159d65ec5254a69aaf3a431a48da0807bb2605a70757eff810a9e` |
 

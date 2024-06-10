@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the karpenter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 5th     | `sha256:0f3473185b1d4c3d00a7e15e4d65b89b07066088a6313b2f236b0ac801d6eed7` |
+|  `latest-dev` | June 9th     | `sha256:d610267b6718fd76c00d12c5ba8ac35e167891dbced09a24b65755b328111446` |
 |  `latest`     | June 5th     | `sha256:19c10a4c18ac7c8c64cdd3e4efc88f5ad03adfefc6454d7d26ed4b6ae8b57e4a` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.35-dev` `0.35.5-dev`                      | June 5th     | `sha256:352a70607e172062ecc696da42b595d7a73c2d2745dececaeed3d4d20578279f` |
+|  `0.35.5-dev` `0.35-dev`                      | June 8th     | `sha256:a54e3a442101764185bfd9bd40ca0a7ac3fa08c49534e8b0117101db3672471c` |
+|  `latest-dev` `0-dev` `0.37-dev` `0.37.0-dev` | June 8th     | `sha256:4726c986fcf0071b5ac2eec7fbcfa636091867fce446283c63ac9790c2c8eb62` |
 |  `0.35` `0.35.5`                              | June 5th     | `sha256:13ccfd6ac8cd4d3016b4b0e0cb865ae93874637e28654dcf14fe7b7124561a08` |
-|  `0.37-dev` `0-dev` `latest-dev` `0.37.0-dev` | June 5th     | `sha256:db294acfbdd629ed109a3b8070c04007fbfb47caf16f1c239761c169a8d6d6dd` |
 |  `0.37.0` `0.37` `0` `latest`                 | June 5th     | `sha256:1537effb64da80fd3eadb0c93576367ff84e271a6c047f30d5c4d39e075f709a` |
 

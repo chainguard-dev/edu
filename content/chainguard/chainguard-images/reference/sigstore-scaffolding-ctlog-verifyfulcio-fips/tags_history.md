@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-ctlog-verifyfulcio-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0-dev` `latest-dev` `0.7-dev` `0.7.1-dev` | June 8th     | `sha256:6ef9fe6940d06f0cfbd823029530156c8609fc8f0c239c09bce527e9bcddf29e` |
 |  `0` `0.7.1` `latest` `0.7`                 | June 5th     | `sha256:98bbb28338c24bb5a06c2226592e4b661efe53603e2a9f7d5662faf0dcac1789` |
-|  `0.7.1-dev` `0.7-dev` `latest-dev` `0-dev` | June 5th     | `sha256:23d29e3a1bfae57a00070d061e02402360a062305fb431d6c4d9b060dc64de95` |
 

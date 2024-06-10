@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the falco-no-driver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-07 00:46:50
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 5th     | `sha256:adae45fe2c0d1e0b79f3e4cd56de9aa07fe415bf31a2362c3023f2fdb95c6185` |
+|  `latest-dev` | June 9th     | `sha256:8abd36c914f2251d14661f31ab5ef65b2f4487ab1e10c1e8da01bf9dab6ae597` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +36,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.38.0-dev` `0.38-dev` `latest-dev` | June 5th     | `sha256:79b5fc24c9c535a6e17e33ad863d618e6990cb89e0e48054bf55d6fb378cba02` |
+|  `0.38-dev` `0.38.0-dev` `latest-dev` `0-dev` | June 8th     | `sha256:324fe7a293121c5d7e75bf205f02c0d04e278154915b518556e8df6281c4c563` |
 

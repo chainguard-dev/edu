@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tempo Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-07 00:46:50
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 5th     | `sha256:e1e6c32d81c53c1d2cb23b4f6a38615539660b9b86946d0b4fcb1bd67c11bc41` |
+|  `latest-dev` | June 9th     | `sha256:4a36992566462eff866ee50d62445b7124c47a951f87bbeae322e1988d825d8b` |
 |  `latest`     | June 5th     | `sha256:757754f3e75d3f2778334ceec2c03ed00de22964418f386329af41e29f3d4fcf` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.3-dev` `2.3.1-dev` `2-dev` `latest-dev` | June 5th     | `sha256:a323bd73ca7b65bbc71d4b03436820f0f9f2a1b3013d89b462c5a2bd2ab8b13d` |
+|  `2-dev` `latest-dev` `2.3.1-dev` `2.3-dev` | June 8th     | `sha256:e25ed36cfe4856df554a9aeabf2ea23f0b732db08d684f904c2afa5c2bbaf7f4` |
+|  `2.5.0-dev` `2.5-dev`                      | June 8th     | `sha256:f4bcf0d376d80914185bb07146d9e7ec0df7ec21f224a1e0455040153fa2a11e` |
 |  `latest` `2` `2.3.1` `2.3`                 | June 5th     | `sha256:72278f738390e65280d90da0c951710840aa0bb5ec44fc10a8391c11153792f2` |
-|  `2.5-dev` `2.5.0-dev`                      | June 5th     | `sha256:352e88472aac7bfa0e0700eab378d5972166c0814a5fcea81014eecb9e064bcc` |
 |  `2.5` `2.5.0`                              | June 5th     | `sha256:65813dbd779e6c6ad280e18232ab7ddbca1b3bb0914d233331f1e6caabe8b899` |
 

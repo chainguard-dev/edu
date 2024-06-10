@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: pytorch-cuda12 Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-04-16 00:44:43
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,7 +35,7 @@ A minimal, [wolfi](https://github.com/wolfi-dev)-based image for pytorch, a Pyth
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/pytorch-cuda12:latest
+docker pull cgr.dev/chainguard-private/pytorch-cuda12:latest
 ```
 
 

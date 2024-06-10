@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-hubble-ui Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-07 00:46:50
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 5th     | `sha256:456ddd0a2a103adfa25b1fb4d01d3a5a4710c43f9e8da088c80d1346a9a8e70a` |
-|  `latest`     | June 5th     | `sha256:a3af013bc9a13b1d50da77c0c0d982db77e5726b930c81890605efd8dd76b6b7` |
+|  `latest-dev` | June 9th     | `sha256:a198f6dab13eeb9e3416b6c5e53cb043f2d23bbc66134ba85a4e3eb9235c21ef` |
+|  `latest`     | June 7th     | `sha256:480a438de217fea39e247707e7df240f54f55de3cc78378bb71e20dbc5970ce2` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.13.1-dev` `0.13-dev` | June 5th     | `sha256:f4ec651d0baedc956846f6ed18e852d38fcd2bb327608f57116774f37a0672ca` |
-|  `0.13` `0.13.1` `0` `latest`                 | June 5th     | `sha256:edc5bdc678e7e0785620d200516fe50fe0e0565853606a1844453f5bad5704ab` |
-|  `0.13.0-dev`                                 | June 1st     | `sha256:c44086e60b66b804478fe451abfd4fc625deff680452662cc788c500753d5d7d` |
+|  `0.13-dev` `0.13.1-dev` `0-dev` `latest-dev` | June 8th     | `sha256:c42ffd6060cc4d5b005efd8be53ffcbd98384c6f43607d560b574816cc6673c6` |
+|  `0.13` `0` `latest` `0.13.1`                 | June 7th     | `sha256:2bca0cf71046c834683a5d57bef81309fa8a2d6202fca06594385aa4bf4e7c19` |
 

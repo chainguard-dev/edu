@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-agent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 5th     | `sha256:52e4515112ef7d9198fe7ba487e4bf95699d2d1f8faa2f4d201fce996de04db5` |
+|  `latest-dev` | June 9th     | `sha256:01256a6a6b51a0b5ee131510be7678e7c6259ae611461604ef8842648e18be4c` |
 |  `latest`     | June 5th     | `sha256:0e8e263692e68fc8515921a8e302a669e9bd278472bc3133b3f1b93c217a06da` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.15.5-dev` `1-dev` `1.15-dev` `latest-dev` | June 8th     | `sha256:977392244a516f1e18e93dd724d3e298ae8a6b8ef59a11d6550a69aef948badf` |
+|  `1.14-dev` `1.14.11-dev`                     | June 8th     | `sha256:5cb6340941bab483ecd58f64fea332a942bd96c377da4c563e6976cf3700cc61` |
 |  `1.14.11` `1.14`                             | June 5th     | `sha256:396a1556304f25dff89b950b9a4052cb7ecf6dc60f77e654e8e13de73f2d83e6` |
-|  `1.14.11-dev` `1.14-dev`                     | June 5th     | `sha256:4fe104845d0760f37a4a0856f7e8bdf241dabee63a106a886f996ad5914d4d09` |
 |  `latest` `1.15` `1` `1.15.5`                 | June 5th     | `sha256:c50d0fe6accd6d5ab1722e44350f466a3098243073a16173204cc91d7a55c648` |
-|  `1.15.5-dev` `latest-dev` `1.15-dev` `1-dev` | June 5th     | `sha256:93e29f662cd33a14f96413897c8ec0e3ff78544fcaa13bc8a2878678e4eded01` |
 

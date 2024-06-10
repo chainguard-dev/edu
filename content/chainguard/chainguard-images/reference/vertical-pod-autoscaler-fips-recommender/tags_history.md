@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vertical-pod-autoscaler-fips-recommender Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-07 00:46:50
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.1.2-dev` `1-dev` `1.1-dev` `latest-dev` | June 8th     | `sha256:271fd5fd71894bb6ab53c3bcb3786a072fa5ddf84cfd11fc20f7f28ca73f689b` |
 |  `1.1.2` `1.1` `1` `latest`                 | June 6th     | `sha256:14c23c1d761c80914850ae8264d5e1eed225b953f7e4a6dc011069bc4c2e0f4a` |
-|  `1.1-dev` `latest-dev` `1.1.2-dev` `1-dev` | June 6th     | `sha256:e368fa644bee665805e1e1bb92e273d54577769a48e97fd5c6e31a5922a16578` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-cloudsqlproxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 5th     | `sha256:6994dd900260906cab19a7d388176c54edead3413f182902467e7366505feed0` |
+|  `latest-dev` | June 9th     | `sha256:5b7045d963012c08b416a2e9571d6bc2a13392b0ff974a87a806cc8f36d82f32` |
 |  `latest`     | June 5th     | `sha256:207c334fa79edf28fab2425ce7d7cc2d28ce49ae77c940b2f6d89b19f46ea788` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.7.1-dev` `0.7-dev` | June 5th     | `sha256:2a2b2600f9fb12d6740f4efe2f11642580912989170c523439df61a5e3ececfc` |
+|  `0.7-dev` `latest-dev` `0.7.1-dev` `0-dev` | June 8th     | `sha256:2f4ddc900e4a01e6b75a0cc0932c842aa1bb05496e7411c918d3e458233e46a3` |
 |  `0` `0.7.1` `latest` `0.7`                 | June 5th     | `sha256:290f12c0a5e4413ea3da1ce07451083a288150a7ed58573de831635b45cfe646` |
 

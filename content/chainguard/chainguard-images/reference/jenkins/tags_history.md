@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jenkins Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-07 00:46:50
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 5th     | `sha256:a54204e1c076a5350d68360665c3cb52115fc7645be568a795d5467b1270cad3` |
-|  `latest`     | June 5th     | `sha256:7ada09c259c9ab5dd182354ab95854b26a0800d861e10ae0943e282a5e680621` |
+|  `latest-dev` | June 9th     | `sha256:6bf766f0113c5c5812cd84dc9ff68a646a8f3cbba3d645c09021073502fba24d` |
+|  `latest`     | June 9th     | `sha256:ef15f1763f8c53d6abe5a54495a9b17a5399b05e291d8d4575a8c11417f3e4bb` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                           | Last Changed | Digest                                                                    |
 |-----------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2` `latest` `2.461`             | June 5th     | `sha256:a8df74748d3ff19e4ecc25b25daaa1c826266eb0435eb768576dc8aaaddf31ec` |
-|  `latest-dev` `2.461-dev` `2-dev` | June 5th     | `sha256:b9fb72ade4ff08f1fb8e4fb8a3f06bd354ba5de46d4e5a4e7ce251e91986ee7a` |
+|  `latest` `2.461` `2`             | June 8th     | `sha256:9d848881bebca774959b9a686819ae141e28b4b9ad9ad6d03835e5c3c02b79fd` |
+|  `2.461-dev` `2-dev` `latest-dev` | June 8th     | `sha256:066df934f91ace1f3153c9f899911534686b641759e6e550f64d77207b052229` |
 |  `2.460-dev`                      | June 4th     | `sha256:fc1f88b3cc5a1d62c344745ffffc3f042cfac76261be70ed698859fee0282d40` |
 |  `2.460`                          | June 4th     | `sha256:3726fb8f8057d554174e0845da21bf1ed01915df7c3a569cb2733c9927d7b1d2` |
 

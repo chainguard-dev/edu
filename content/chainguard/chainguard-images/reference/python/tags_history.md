@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the python Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-07 00:46:50
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,11 +28,19 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 5th     | `sha256:c7afe78f15c543c9936151640ce819e4d6cd2cf0f027ac5749d3cda369079675` |
-|  `latest`     | June 5th     | `sha256:b6f495ed363328b0600c5b9b8cbf5e76c4bb981a7641988722123024a97b41b6` |
+|  `latest-dev` | June 9th     | `sha256:a66967d781bec4367589c4e9b98c18e3df0f24c38c380e45af383a3424b34bde` |
+|  `latest`     | June 7th     | `sha256:6a7100769a082ca01772e302b6fce08a28ea4225bb73fbf1e00dbc0147f79900` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-Currently, there are no Production versions of this image available.
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `3.10-dev` `3.10.14-dev`                     | June 8th     | `sha256:ef3abdd737806612dd9cd235019b3c6d59fd2109c84e89e747c9c23e463aea08` |
+|  `3.9-dev` `3.9.19-dev`                       | June 8th     | `sha256:d7acdb2e46d83cccbbad256577fb5e6da60c386dfc78342158e8e49fc4001a38` |
+|  `latest-dev` `3-dev` `3.12.4-dev` `3.12-dev` | June 8th     | `sha256:2ad9274370e94092a8b34eaa8471f38246045e34bf7ee75e0293f8e6877a1769` |
+|  `3.11-dev` `3.11.9-dev`                      | June 8th     | `sha256:cc520fdbb82be06245bc2b8db52c983ecf41b7b82c0330ea80283c9263ba566f` |
+|  `3.8.19-dev` `3.8-dev`                       | June 8th     | `sha256:87160ceecf043af28391039ae9d577dcfd3771c4688cda8cdb35862748b78932` |
+|  `3` `3.12.4` `latest` `3.12`                 | June 7th     | `sha256:437153fa23699713b3a71984044f7117b5362c02d416b85c58b1c61e782c3bbf` |
+

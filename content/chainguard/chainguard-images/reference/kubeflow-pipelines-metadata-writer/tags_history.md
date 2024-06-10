@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-writer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-07 00:46:50
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 6th     | `sha256:25ae8abf067266867581b0ab31dd051bc5460f9e7d52e814a71bcd9c37662cc2` |
-|  `latest-dev` | June 6th     | `sha256:8b0aff29ebf405632164793241dba7d5e829a16ce726ffe94896d1f988aa1a10` |
+|  `latest-dev` | June 9th     | `sha256:57d24746496e3f260b2dc45be5fe70fb5588e7f1a15587bb373805f0a04ba642` |
+|  `latest`     | June 7th     | `sha256:1c7ed8dbff7c64bd877d74991264c66e328da031bfe9f721e410879d17d7bd20` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.2.0` `2` `latest` `2.2`                 | June 6th     | `sha256:0db6aee53358ec03d3c3741cb42f075fc3918526fa13feaae120e97078e01672` |
-|  `latest-dev` `2.2.0-dev` `2.2-dev` `2-dev` | June 6th     | `sha256:5ecd35cff11febba2294a22e350c0360ded5e127e716baf5424fc3c8747e427c` |
+|  `latest-dev` `2.2-dev` `2.2.0-dev` `2-dev` | June 8th     | `sha256:7a0afed1a67667f9eec94743ef8d4a53721d3faf39202da6f6cff948aeda2d42` |
+|  `2` `latest` `2.2` `2.2.0`                 | June 7th     | `sha256:3a4118da9912d921413db02629b970676a02f6ebb2536d9665b3ffb8c3feddb5` |
 

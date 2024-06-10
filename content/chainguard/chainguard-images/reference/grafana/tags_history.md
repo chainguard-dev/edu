@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grafana Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `10.3.6-dev` `10.3-dev`                     | June 5th     | `sha256:807f26c28a60f7cf7f0f48176bbd91a00ad9fc37d01da6afc91d9e4c00cd1545` |
-|  `8-dev` `8.5-dev` `8.5.27-dev`              | June 5th     | `sha256:1aea8c47b58f10ad5c4194e4f0e2b9e3442248d9ad9b196143fa7783b0302c50` |
-|  `10.4-dev` `10-dev` `10.4.3-dev`            | June 5th     | `sha256:21986fbaea989206bec508299f3d8fc4e76e21127005886836b2972410a3da89` |
-|  `latest-dev` `9.5.19-dev` `9-dev` `9.5-dev` | June 5th     | `sha256:04b50758ed7af09d9a91c4c084544a0671eb86f361c5d0c69a8261e6ce1cae54` |
+|  `9.5.19-dev` `9.5-dev` `latest-dev` `9-dev` | June 8th     | `sha256:99fe01915f401d6f49b0ccae9f4b23493dda6d4f776a7f43d850c6abccc001a0` |
+|  `8.5.27-dev` `8.5-dev` `8-dev`              | June 8th     | `sha256:df1c79b99b33ca15b22b0fdbe263a69e5f189163e2699117b2fbfa33d037d61f` |
+|  `10.3.6-dev` `10.3-dev`                     | June 8th     | `sha256:7f72b814629d798415ff5d337df62af9429dfcc974999391781f8f209ee2a10f` |
+|  `10.4-dev` `10-dev` `10.4.3-dev`            | June 8th     | `sha256:9b9fd9e3b9c7a671b26bef4cbbb06dc5a282a13e98edc1952cdc167bc2e4bc2e` |
 |  `latest` `9.5.19` `9` `9.5`                 | June 5th     | `sha256:6473b2a9ea40e5182a930781d034d772929b12b82db6c104d5ec1f16eab7065a` |
 |  `10.4` `10.4.3` `10`                        | June 5th     | `sha256:d0181155562da3ba92270c11677bf6a26000aa4faf8a1ccb20a8d4975058fdbb` |
 

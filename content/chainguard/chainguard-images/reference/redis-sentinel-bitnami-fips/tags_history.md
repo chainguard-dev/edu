@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the redis-sentinel-bitnami-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `6.2-dev` `6-dev` `6.2.14-dev`             | June 1st     | `sha256:cbc47ec47ec9c4babcf3c81d8cd4810fd0b9e113fdd0f5af77c77289178f22ca` |
-|  `7.2.5-dev` `latest-dev` `7.2-dev` `7-dev` | June 1st     | `sha256:3fc0f660b9f6ccfabbe107309fc2f431543d74a4e5cabe3d41a7069aba5fa431` |
-|  `7.0-dev` `7.0.15-dev`                     | June 1st     | `sha256:a2f57550c9d4f036d512faebde1e0006aa0864acb4b257d726baebe5b35eda76` |
-|  `6` `6.2` `6.2.14`                         | May 31st     | `sha256:77853e8e8e0eba4f7c297078433cb317623137eb1dc13be61d39a3492b2a2236` |
-|  `7.0` `7.0.15`                             | May 31st     | `sha256:dc4d4a423ce79ac6c509ca681bb37b10c820ed358c0222bc1d118b75e6cc8d9c` |
-|  `7` `7.2.5` `latest` `7.2`                 | May 31st     | `sha256:fc715e91aa74bbc0ed4360ea55e34e4d87b931ef9f9cd186c7e2c54c9473118a` |
+|  `7.2-dev` `latest-dev` `7-dev` `7.2.5-dev` | June 8th     | `sha256:d53def98be8d9e83241b43eb533d9a27141c3fc8ca2d75932edf295d0659ca44` |
+|  `6.2-dev` `6.2.14-dev` `6-dev`             | June 8th     | `sha256:296b29cad9360552898c6579a0458d84170faf9b94227bf23199c5f850870e82` |
+|  `7.0.15-dev` `7.0-dev`                     | June 8th     | `sha256:68b73153b40ff906f4ada75fb1e0427bfacfac335e692d36262ad54ece428da7` |
+|  `7` `latest` `7.2.5` `7.2`                 | June 7th     | `sha256:f7ea09bdf7121e0b81f60a14579eb53276a3707742210e2affc0aaf2f27fac34` |
 

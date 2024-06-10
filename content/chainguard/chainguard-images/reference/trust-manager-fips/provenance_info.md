@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for trust-manager-fips Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-07 00:46:50
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for trust-manager-fips Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                   |
-|------------------------------|----------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | No public tags are available for this image.                                           |
-| `cgr.dev/chainguard-private` | 0, 0-dev, 0.10-dev, 0.10.1-dev, 0.11, 0.11-dev, 0.11.0, 0.11.0-dev, latest, latest-dev |
+| Registry                     | Tags                                                             |
+|------------------------------|------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | No public tags are available for this image.                     |
+| `cgr.dev/chainguard-private` | 0, 0-dev, 0.11, 0.11-dev, 0.11.0, 0.11.0-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

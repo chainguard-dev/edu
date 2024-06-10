@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-infrastructure-bundle Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-07 00:46:50
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 5th     | `sha256:183e610a184a38c86cd8cac32ae78749b01eb36eb0e56c94c548645a620de225` |
-|  `latest`     | June 5th     | `sha256:c5ef6d8f9c5f7c5b8337a35b8065d280b864fd3f8a675723ded6a8d4b622f72e` |
+|  `latest-dev` | June 9th     | `sha256:684451c8d3da936ebfe2d9a8d49bf9a159ef27c34a270f2c0b227279970f73fa` |
+|  `latest`     | June 7th     | `sha256:2197ca776a99587240e635ec9c8cc5150802794833f9c19b33de6f8fed8b35e7` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.2` `latest` `3.2.45` `3`                 | June 5th     | `sha256:f69728e1f42105ccdf5bc0f6014d45c3545d4f273736d76ea83c4ea60892f945` |
-|  `latest-dev` `3.2-dev` `3-dev` `3.2.45-dev` | June 5th     | `sha256:03144930ab3d5dfa780aa3d89e4e11d3a3119fc517d268265caffadaa59576eb` |
+|  `latest-dev` `3-dev` `3.2-dev` `3.2.45-dev` | June 8th     | `sha256:3b66c4f617817b65bfadf83ac7b8dd7ad54b28dc2bf13bcbd9c8613318e1d76d` |
+|  `3` `latest` `3.2.45` `3.2`                 | June 7th     | `sha256:499fd683116e993ed935daacc7ccd5a4c59a97504d6eb2ad2a28a26aaf045c95` |
 

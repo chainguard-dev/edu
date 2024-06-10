@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-webhook-certgen Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 5th     | `sha256:a15c860c917a264f2506dcfb7d82cb30664b2dbc62060f87139e197ac9cf985c` |
+|  `latest-dev` | June 9th     | `sha256:93d02ff54edd6d412cda5e19a45f3c34237ad57ec7366575ccfcb294a446de34` |
 |  `latest`     | June 5th     | `sha256:ffd4e301067d13cca6c5e8ceaf881ecd2c6176914627f8759f949d5c1cda597a` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.10-dev` `1.10.1-dev` | June 5th     | `sha256:6783456d43c349fa23ccd6dc4bc064fc779a43e8f8e138dacdfb280415594386` |
-|  `1.10` `1` `latest` `1.10.1`                 | June 5th     | `sha256:61e748076e8709267b1980efdce224376a704d55d961a4f95b7225e984494921` |
+|  `1.10.1-dev` `latest-dev` `1.10-dev` `1-dev` | June 8th     | `sha256:e72d43f232399c5d56fbe0869483f72309961cf103995a02b77cdf06503c79db` |
+|  `latest` `1.10.1` `1` `1.10`                 | June 7th     | `sha256:61e748076e8709267b1980efdce224376a704d55d961a4f95b7225e984494921` |
 

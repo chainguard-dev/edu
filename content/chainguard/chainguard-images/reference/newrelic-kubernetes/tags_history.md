@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-kubernetes Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 5th     | `sha256:ead3f8f260a3057207b8c9c6d65b005021296c1eb822f4d95837966676d71e70` |
-|  `latest`     | June 5th     | `sha256:194f0746050fcd3d0cad590c939d77d26516c20d19e5d715d41dc938ccba5894` |
+|  `latest-dev` | June 9th     | `sha256:9af17e68810654057010488f752fc99180bfd81eba34f61a7d97c63eb90adc44` |
+|  `latest`     | June 7th     | `sha256:786b2420cb8f590319656a6cd4b8ab661b2c4d16f3f9e827efe37475d738fd22` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3-dev` `3.28-dev` `latest-dev` `3.28.8-dev` | June 5th     | `sha256:e633de215ec46db4a823841406bd1aebb773f3c89d9ea1cfb7b9e61912625722` |
-|  `3` `3.28.8` `3.28` `latest`                 | June 5th     | `sha256:8ebe0bf7e832e4ca569e34a40f3e79bc74e0ce15c50bcb6528a82dcb77fdcdf7` |
+|  `3-dev` `latest-dev` `3.28-dev` `3.28.8-dev` | June 8th     | `sha256:b5e3c3c473b771b4cc941848957233e9c6666de659ff5f8c8fee2eb82f578b44` |
+|  `3.28.8` `3.28` `latest` `3`                 | June 7th     | `sha256:ce63ab6954c231103479e798a451aac56513db9c88a977ed1f126d558a7574e2` |
 

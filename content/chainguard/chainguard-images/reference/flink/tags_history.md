@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flink Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-07 00:46:50
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.18-dev` `1.18.1-dev`                      | June 8th     | `sha256:ace8483b2da942b1898c8a2ea4e9c0b788553dd25895d36a29e8ff72de1e41f5` |
+|  `1.17-dev` `1.17.2-dev`                      | June 8th     | `sha256:e788e31b6e258bf03f4510e197bb87870c049c59a39fecedde8eb538cdf66098` |
+|  `latest-dev` `1.19.0-dev` `1-dev` `1.19-dev` | June 8th     | `sha256:fc705cc877af17802cd451baf02d13e5bd464fa28f08eb855dd3a68660099309` |
 |  `1.18` `1.18.1`                              | June 6th     | `sha256:ece5b066147279ee761e987176106060d57d51d0079040d0a0846daa5091012e` |
-|  `1.19.0-dev` `1-dev` `1.19-dev` `latest-dev` | June 6th     | `sha256:2c53b9bb4829fb229ebfbe5dd38522b7d8042d44000e8342ca92e2b7b74805c3` |
 |  `1.19` `1.19.0` `latest` `1`                 | June 6th     | `sha256:26f466dd1afc4eb7677860885bf3309e28e3e21c86aabf33828895175e8f96d9` |
 |  `1.17.2` `1.17`                              | June 6th     | `sha256:cef450a278b5fdd6928a3b6e282700be431cf54a8d3d81d000d3553fac8b01ad` |
-|  `1.18-dev` `1.18.1-dev`                      | June 6th     | `sha256:8b657a92aaf9c3ce6fd4075ddf006bf9a853072eec3d085ab7f1557c92059888` |
-|  `1.17-dev` `1.17.2-dev`                      | June 6th     | `sha256:1468a570c225420ff19ee9ff3c44a2d39213f3167409a63c75d29c7563517ae2` |
 

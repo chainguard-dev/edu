@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dotnet-sdk-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-07 00:46:50
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,11 +33,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.0.120-dev` `7.0-dev` `7-dev`            | June 2nd     | `sha256:544675bcca01399946917d08029f078da368fedbf93acb5f796620fb96f3b1e3` |
-|  `7.0` `7` `7.0.120`                        | June 2nd     | `sha256:a95077277df0ffa20c19fec25f7041f025c5eadb2b639ef10c076f49e8867707` |
-|  `6.0.131-dev` `6.0-dev` `6-dev`            | June 1st     | `sha256:0bbc66e83f99d2fdfc8e785b755845ba917c40b1bba72fcd0e85f082a61ce15a` |
-|  `6.0.131` `6` `6.0`                        | June 1st     | `sha256:db1f21d00ac6aef38ebf791fcc29fbc2d3c9b1ebbccf2824fbb308f57f2c2d51` |
-|  `7.0.119-dev`                              | June 1st     | `sha256:85d3009f62d982dc8fce33e2d34e7750326774ae08fd4514a097282aa4c7bf86` |
-|  `8.0-dev` `latest-dev` `8.0.6-dev` `8-dev` | June 1st     | `sha256:59628981c64daf34d10e3f64f6ccb02a9b98f80cb3feec1031c461c49960ea5e` |
-|  `6.0.130-dev`                              | June 1st     | `sha256:cb3b8f61267d866064f521e243f4abcca4cbf78fe4ae014e5f71ab554d551355` |
+|  `7.0-dev` `7-dev` `7.0.120-dev`            | June 8th     | `sha256:4215265f94c990c37f789a4bb70e82e06231866999ec679b553e4814bb612896` |
+|  `6-dev` `6.0.131-dev` `6.0-dev`            | June 8th     | `sha256:4ef6c1425786f98d5cc3f7ca140f1686fea7950fff615b2919843a566ed6856c` |
+|  `8-dev` `8.0-dev` `latest-dev` `8.0.6-dev` | June 8th     | `sha256:032a1541d846bfc86f48ef33fa3b53e1af7b97bd3fd1899a6c4efb0034b232fd` |
 

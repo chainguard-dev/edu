@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the paranoia Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 5th     | `sha256:ff3897644adde5c0ffff958dcd2400bc8b0dff04e9c1427c6e876e4b574bf1d8` |
+|  `latest-dev` | June 9th     | `sha256:c8763e935c77b3327d5498179f9d767a2df023de645449b2a2240758b233aa5a` |
 |  `latest`     | June 5th     | `sha256:fc82ea1622f30005202a7f630881c3b9b8b9d0fd626054b591e068a3a3885be9` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.2-dev` `latest-dev` `0.2.1-dev` `0-dev` | June 5th     | `sha256:a46c88066af3e9c0b9286d57f6c9669c3057c2399a3dfde7c0e4ca9b4dc4d10b` |
+|  `latest-dev` `0-dev` `0.2.1-dev` `0.2-dev` | June 8th     | `sha256:4aa51f8def2a4b75f577c61f232d17d8e212058e6384cd6fbf3a00cfe46c0bdf` |
 |  `0` `latest` `0.2.1` `0.2`                 | June 5th     | `sha256:cbe23f9419417ec2f84d14027dc1696538d3716504a27093b70f8002cee1e34b` |
 

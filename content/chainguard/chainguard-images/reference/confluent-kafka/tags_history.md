@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the confluent-kafka Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 5th     | `sha256:4c8058661e3e901a9ef1109342b695f2acd2d88c81bd974363ce87b840998775` |
-|  `latest`     | June 5th     | `sha256:d6775839fa1edd9a7b4a75a01901438c4d3fe1c1b7283aa13be659503136a8d9` |
+|  `latest-dev` | June 9th     | `sha256:98909a5c99e0ca4d81629cf3f7360a3ed04a5944894864eab1ceeb64a8b9d330` |
+|  `latest`     | June 7th     | `sha256:8c31b57e1df18aa705ffb8fa752d574d35294b55fc82280d51c699546d8ef747` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                     | Last Changed | Digest                                                                    |
 |-------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.8.0` `7` `7.8.0.103` `latest` `7.8`                     | June 5th     | `sha256:4e7a049976fa8096b233d5a11baf03bdeeea14d243324a67a6be46d411fd25f3` |
-|  `latest-dev` `7.8-dev` `7.8.0-dev` `7.8.0.103-dev` `7-dev` | June 5th     | `sha256:d7f45e6e7f6e106f4affad594c43e515eb22c30c406fc72decae0d0950ba0827` |
+|  `7-dev` `latest-dev` `7.8.0-dev` `7.8.0.103-dev` `7.8-dev` | June 8th     | `sha256:f9f3f5f442e0cad2ba2a925b728a0c31758ce4f22b1c1d60b04607878c27ad47` |
+|  `7` `7.8.0` `7.8.0.103` `7.8` `latest`                     | June 7th     | `sha256:77e600cf495e2ee67f95e8ba46465972846714b9e834593461b050f7a22551e7` |
 

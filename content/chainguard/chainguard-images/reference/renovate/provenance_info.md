@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for renovate Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-07 00:46:50
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for renovate Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                                                                                                                                                                                                                                                                                   |
-|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                                                                                                                                                                                                                                                                                                           |
-| `cgr.dev/chainguard-private` | 37, 37-dev, 37.382, 37.382-dev, 37.382.4, 37.382.4-dev, 37.383, 37.383-dev, 37.383.0, 37.383.0-dev, 37.384, 37.384-dev, 37.384.0, 37.384.0-dev, 37.385, 37.385-dev, 37.385.0, 37.385.0-dev, 37.387, 37.387-dev, 37.387.2, 37.387.2-dev, 37.390, 37.390-dev, 37.390.0, 37.390.0-dev, 37.391, 37.391-dev, 37.391.0, 37.391.0-dev, 37.391.3, 37.391.3-dev, 37.393, 37.393-dev, 37.393.0, 37.393.0-dev, latest, latest-dev |
+| Registry                     | Tags                                                                                                                                                                                                                                                                                                                           |
+|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                                                                                                                                                                                                                   |
+| `cgr.dev/chainguard-private` | 37, 37-dev, 37.384, 37.384-dev, 37.384.0, 37.384.0-dev, 37.385, 37.385-dev, 37.385.0, 37.385.0-dev, 37.387, 37.387-dev, 37.387.2, 37.387.2-dev, 37.390, 37.390-dev, 37.390.0, 37.390.0-dev, 37.391, 37.391-dev, 37.391.0, 37.391.0-dev, 37.391.3, 37.391.3-dev, 37.393, 37.393-dev, 37.393.0, 37.393.0-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

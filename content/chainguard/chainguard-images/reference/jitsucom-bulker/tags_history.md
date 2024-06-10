@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jitsucom-bulker Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-07 00:46:50
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 5th     | `sha256:13eae157c50a99d9aa2668a80605aa3d310556d5a8207a6b2c439b61cf488f02` |
+|  `latest-dev` | June 9th     | `sha256:ba039ad422269d56c83d6b024e1e14ed6994dad661e5a527fb5fd542cbcc7edb` |
 |  `latest`     | June 5th     | `sha256:1a53f900b3225f34a1a502c6a54261ca6824d9b31a9199d8360599cb56232c72` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.7-dev` `latest-dev` `2.7.0-dev` | June 5th     | `sha256:89e8f32a9b08ef1d38335cf82fa974d7409eb5401451e43b0d141c221c26397b` |
+|  `latest-dev` `2-dev` `2.7.0-dev` `2.7-dev` | June 8th     | `sha256:72b4e41aa6729d6ddb7d6b8b7153e7b80d85853a58551802a40ad90873cbfdc6` |
 |  `latest` `2.7.0` `2` `2.7`                 | June 5th     | `sha256:e537d97a81397013558bc26b79d4618923d72a9d036ac1ac3c05797cb57ead66` |
 

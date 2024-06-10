@@ -3,8 +3,8 @@ title: "multus-cni-fips Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public multus-cni-fips Chainguard Image."
-date: 2024-04-04 00:51:18
-lastmod: 2024-04-04 00:51:18
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-06-10 00:50:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,7 +23,7 @@ This page shows detailed information about the Chainguard **multus-cni-fips** Im
 
 |              | latest-dev        | latest            |
 |--------------|-------------------|-------------------|
-| Default User | `nonroot`         | `nonroot`         |
+| Default User | `root`            | `root`            |
 | Entrypoint   | `/usr/bin/multus` | `/usr/bin/multus` |
 | CMD          | not specified     | not specified     |
 | Workdir      | not specified     | not specified     |
@@ -59,6 +59,7 @@ The table shows package distribution across variants.
 | `libssl3`                     | X          | X      |
 | `libunistring`                | X          |        |
 | `libxcrypt`                   | X          |        |
+| `multus-cni-compat`           | X          | X      |
 | `multus-cni-fips`             | X          | X      |
 | `ncurses`                     | X          |        |
 | `ncurses-terminfo-base`       | X          |        |
