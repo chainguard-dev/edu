@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the redis-sentinel-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-11 00:42:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `6.2.14-dev` `6.2-dev` `6-dev`             | June 8th     | `sha256:50047f5d5fb009f7bf6e0b1690e158fd98b77283a8c775c2202dd457a6219fba` |
-|  `latest-dev` `7.2.5-dev` `7-dev` `7.2-dev` | June 8th     | `sha256:edec6f30d2c83857ac4885f9c6a6e5f5038ac4627e5228243046e877c3cf9f4c` |
-|  `7.0.15-dev` `7.0-dev`                     | June 8th     | `sha256:0e88a54b0515d793ed9ea9009d1400cede845fd27706692c513cefac037deedd` |
-|  `latest` `7.2.5` `7.2` `7`                 | June 7th     | `sha256:fd796c65b2d9d980d1763dd5fabb3540f7f81b6c57ae7fdb65173ad2f3c22bc2` |
+|  `latest` `7.2` `7.2.5` `7`                 | June 10th    | `sha256:18287f0458b9efc6b2d04da6f8719d5be7406cbf2b1eac83c30a99fefea14e3d` |
+|  `7.0.15` `7.0`                             | June 10th    | `sha256:4feec570ff9fdb75c31978462912cb07d2253824499ac57d8831609faa98b5f2` |
+|  `6.2-dev` `6-dev` `6.2.14-dev`             | June 10th    | `sha256:2089decaf4ab113e7542b20374b2fda7fb6a3c8ae54a6be54ce1209f1926a433` |
+|  `6` `6.2.14` `6.2`                         | June 10th    | `sha256:877816c39cd2aa4811f9a25dc78f70a2703f50bd7beb22f7ee7ab574b612a289` |
+|  `7.2.5-dev` `7.2-dev` `latest-dev` `7-dev` | June 10th    | `sha256:0a0883b61f8c4a06fd9fac9abe6179cbe1a071b9d95c4af8d1cffa5c392778d8` |
+|  `7.0.15-dev` `7.0-dev`                     | June 10th    | `sha256:ea2984ca78e98e4a79ee5d809b604a223332a5c0fceb7b28ba3efb791d6bbe31` |
 

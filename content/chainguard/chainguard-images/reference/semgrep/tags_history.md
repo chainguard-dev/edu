@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the semgrep Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-11 00:42:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 9th     | `sha256:4f9a8304fce4e82521e9caa482e23e273ed431525eb41f0cb3c047ecc5c38aee` |
-|  `latest-dev` | June 9th     | `sha256:2db3df929f2a091e2f54749aad284ebdf2c46b6641cf7dc52388b99aecf65511` |
+|  `latest`     | June 10th    | `sha256:c63c90ec16440830e3ae24a4bd5574645e48e0c8c0ceaaa08a151e4e442d1385` |
+|  `latest-dev` | June 10th    | `sha256:11963de02d9daf2af3b3e4fe671ba211c69fb875d524baef3b98f4980009864b` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.75-dev` `1-dev` `1.75.0-dev` | June 8th     | `sha256:3eef04c324f04cf1b027fa814afe5d98cfb26324a241c4cc19494d43b3f7643b` |
-|  `1` `latest` `1.75.0` `1.75`                 | June 8th     | `sha256:6b8b97560c73cde8ce0dc156da2e210b19fa7cd6b88cd56d10acbde127bbcc9a` |
-|  `1.74.0-dev` `1.74-dev`                      | June 3rd     | `sha256:1224688827c73a67db8418ab93b083a48bfa6021e69c23b9707805f14a283afc` |
-|  `1.74.0` `1.74`                              | June 3rd     | `sha256:c2882ef25996ef8c725d3be7f087e0bebc34639ae997da5871b0bec13d2381c7` |
+|  `1` `1.75.0` `latest` `1.75`                 | June 10th    | `sha256:d131810e38bb013957c8e31a387b1c0e14768e6ba4a8f2b475bee290004a30c5` |
+|  `1-dev` `latest-dev` `1.75-dev` `1.75.0-dev` | June 10th    | `sha256:3338310c075078b94feeda72f3937a7ed13f169ed63e1a2c7303ac2e75f779b2` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rabbitmq-messaging-topology-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-11 00:42:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:0b13b779b99d10b49261cce1a02760ea73a11fab2c3e00f58e8d33ed794b829d` |
-|  `latest`     | June 5th     | `sha256:33c062d2bbf4bee725e1fc323fc1dbf7158f921b0a086c9a269fbd532e0f10e3` |
+|  `latest-dev` | June 11th    | `sha256:28c6e5b61b95cdbc5c551d5492e8b5bbbdb37e0e4df129c5aab4729bbfb34716` |
+|  `latest`     | June 11th    | `sha256:ce275e7d415e212d25df623a145fa74294a94af420b0d059acfa51ebc6f6ee4f` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.14.1-dev` `1.14-dev` | June 8th     | `sha256:178739bc1ea623fb8b34ef3116f2f8bb7368ebc5c21010b7bad631bf7efd5fca` |
-|  `latest` `1.14.1` `1.14` `1`                 | June 7th     | `sha256:e245a62dbaa0057b58c64ce679624de93134a0fd578d27d6644f743d6781a9bb` |
+|  `1.14-dev` `1.14.2-dev` `1-dev` `latest-dev` | June 10th    | `sha256:ae62e0eb4df50a9238c519dc61539738a3d88c45e450997e0e75bc7288a0aa6f` |
+|  `1.14.2` `1.14` `1` `latest`                 | June 10th    | `sha256:f48f1dc2dc80b7bf0d49429ceddae8d6e705449937fe76c4cc82a26a04852b79` |
+|  `1.14.1-dev`                                 | June 8th     | `sha256:178739bc1ea623fb8b34ef3116f2f8bb7368ebc5c21010b7bad631bf7efd5fca` |
+|  `1.14.1`                                     | June 7th     | `sha256:e245a62dbaa0057b58c64ce679624de93134a0fd578d27d6644f743d6781a9bb` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-infrastructure-bundle Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-11 00:42:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:684451c8d3da936ebfe2d9a8d49bf9a159ef27c34a270f2c0b227279970f73fa` |
-|  `latest`     | June 7th     | `sha256:2197ca776a99587240e635ec9c8cc5150802794833f9c19b33de6f8fed8b35e7` |
+|  `latest`     | June 10th    | `sha256:b0bb8cfcc61b1673d7dbebd1d6c48734e0723b7dc85bc1a27809d1f6f990b224` |
+|  `latest-dev` | June 10th    | `sha256:e0ed11496b10f93ce948e9fb907529d76a7f80a1f670820dee8a4cc69a169244` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `3-dev` `3.2-dev` `3.2.45-dev` | June 8th     | `sha256:3b66c4f617817b65bfadf83ac7b8dd7ad54b28dc2bf13bcbd9c8613318e1d76d` |
-|  `3` `latest` `3.2.45` `3.2`                 | June 7th     | `sha256:499fd683116e993ed935daacc7ccd5a4c59a97504d6eb2ad2a28a26aaf045c95` |
+|  `3.2-dev` `3.2.45-dev` `latest-dev` `3-dev` | June 10th    | `sha256:56d2099b154af9a3fcaa8fc9436a6f7230665c23dca03b3c0a3884433f03eb20` |
+|  `latest` `3.2` `3.2.45` `3`                 | June 10th    | `sha256:5e1ac7111b3b1c4eace201bf2c28ac7b81b2f20c5c3354e0de8866df676d7917` |
 

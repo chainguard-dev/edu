@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the redis-server-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-11 00:42:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.2.5-dev` `latest-dev` `7.2-dev` `7-dev` | June 8th     | `sha256:6204cd446e932c23a199db29e4941716e517cf0eedc9c68e214ce8cca37b7be5` |
-|  `7.0.15-dev` `7.0-dev`                     | June 8th     | `sha256:d3add383e5d4fc866b3bbcdb014c7685ee242aa7293510a9558bad9d7e0d113d` |
-|  `6-dev` `6.2-dev` `6.2.14-dev`             | June 8th     | `sha256:8710a763492f81762b47030c514e4ed93716a1bfea46ed4449823963f5472229` |
-|  `7` `latest` `7.2` `7.2.5`                 | June 7th     | `sha256:3f4d75a104c386538758fe712987afe5bf1e26428f89222ff5abefd377e46d56` |
+|  `7.0.15-dev` `7.0-dev`                     | June 10th    | `sha256:304388749aeb66ac67133553b9f874fe3585194e248f48fbc1daf274929061ce` |
+|  `6.2.14` `6` `6.2`                         | June 10th    | `sha256:194705836fdefb680468c3983988cdf9880054eca18628332cdffb101705916c` |
+|  `7-dev` `7.2-dev` `7.2.5-dev` `latest-dev` | June 10th    | `sha256:7992349c08529dfed2845bab8ed1e896d8acd2ce27d48b674b5005373db9fec1` |
+|  `latest` `7.2.5` `7.2` `7`                 | June 10th    | `sha256:1f5e803072118a7a9d9e5bafa5e6f227aad294bb7cbcc9992971057bb88f4016` |
+|  `6-dev` `6.2.14-dev` `6.2-dev`             | June 10th    | `sha256:81c9a1f44c1d1ba1f0a4f8965f28a49334b6ac92da03508ffd4e70ddc9486e16` |
+|  `7.0.15` `7.0`                             | June 10th    | `sha256:070023635a4e6ddf8012dfc989b04c5742699e7c0cfe171266f0a87e2a0e5d6f` |
 

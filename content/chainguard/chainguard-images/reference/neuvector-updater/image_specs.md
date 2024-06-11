@@ -3,8 +3,8 @@ title: "neuvector-updater Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public neuvector-updater Chainguard Image."
-date: 2024-06-05 00:36:13
-lastmod: 2024-06-05 00:36:13
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-06-11 00:42:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -21,20 +21,49 @@ toc: true
 
 This page shows detailed information about the Chainguard **neuvector-updater** Image.
 
-|              |
-|--------------|
-| Default User |
-| Entrypoint   |
-| CMD          |
-| Workdir      |
-| Has apk?     |
-| Has a shell? |
+|              | latest-dev    | latest        |
+|--------------|---------------|---------------|
+| Default User | `root`        | `root`        |
+| Entrypoint   | `sleep 30`    | `sleep 30`    |
+| CMD          | not specified | not specified |
+| Workdir      | not specified | not specified |
+| Has apk?     | yes           | no            |
+| Has a shell? | yes           | no            |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/neuvector-updater/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|  |
-|--|
+|                          | latest-dev | latest |
+|--------------------------|------------|--------|
+| `apk-tools`              | X          |        |
+| `bash`                   | X          |        |
+| `busybox`                | X          |        |
+| `ca-certificates`        | X          | X      |
+| `ca-certificates-bundle` | X          | X      |
+| `chainguard-baselayout`  | X          | X      |
+| `curl`                   | X          | X      |
+| `git`                    | X          |        |
+| `glibc`                  | X          | X      |
+| `glibc-locale-posix`     | X          | X      |
+| `ld-linux`               | X          | X      |
+| `libbrotlicommon1`       | X          | X      |
+| `libbrotlidec1`          | X          | X      |
+| `libcrypt1`              | X          |        |
+| `libcrypto3`             | X          | X      |
+| `libcurl-openssl4`       | X          | X      |
+| `libexpat1`              | X          |        |
+| `libidn2`                | X          | X      |
+| `libnghttp2-14`          | X          | X      |
+| `libpcre2-8-0`           | X          |        |
+| `libpsl`                 | X          | X      |
+| `libssl3`                | X          | X      |
+| `libunistring`           | X          | X      |
+| `libxcrypt`              | X          |        |
+| `ncurses`                | X          |        |
+| `ncurses-terminfo-base`  | X          |        |
+| `wget`                   | X          |        |
+| `wolfi-baselayout`       | X          | X      |
+| `zlib`                   | X          | X      |
 

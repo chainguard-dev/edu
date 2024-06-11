@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the git Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-11 00:42:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,12 +28,12 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)                  | Last Changed | Digest                                                                    |
 |--------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-root-dev`       | June 9th     | `sha256:62a5c9a647c749f27df354d94db35a2d2fe548e505a002f8bd045ea745a52c68` |
-|  `latest`                | June 9th     | `sha256:d96bef1ad67557c5865b87524b29a90bbe9949f85a735ac4911e91cc6aa33989` |
+|  `latest-root-dev`       | June 10th    | `sha256:9840516c98e12853309954a134d651f364437fc0aa61647e5b78555a8c600881` |
+|  `latest`                | June 10th    | `sha256:6ecdfaf18b4fc0d6141e4551d5254d13cc249b5a6c6d08a9106e0b6e3a9dbab3` |
+|  `latest-root`           | June 10th    | `sha256:8b9f9e868eb4e264d1b52c55ab980fb93509d01c33ea5e00d3fe8a325863a789` |
+|  `latest-dev`            | June 10th    | `sha256:b9123ff9885f02fc39e75d1e5e6aaa0395ec9a8f6ba168bdc20178d916d9ee1d` |
 |  `latest-glibc-root`     | June 9th     | `sha256:cfaf622086948ddc6d13f1bce8a0b685f0e8352bccaa8b23458c53d1647c3ba7` |
 |  `latest-glibc`          | June 9th     | `sha256:f605d550a85bec71c6ba4ffe16da471cc26e0a5e854015da0de056b6f012d392` |
-|  `latest-root`           | June 9th     | `sha256:1f92ca86f9c195f4958712d1a3e2bd32bdbe9cfdaf75436467fb137c00b65093` |
-|  `latest-dev`            | June 9th     | `sha256:0c10410c55bf7ea8663bbc2a28b5b22347fb0e3edfb8279bc2808be98cce7604` |
 |  `latest-glibc-dev`      | June 9th     | `sha256:f357777c5e85b40d29c3f2af84f41e555b9cc4226e679bc6a045666949469135` |
 |  `latest-glibc-root-dev` | June 9th     | `sha256:b9f7732a270369feeea1a401e077b6b7bb199030e7b483d3bbaa32cceca7171e` |
 

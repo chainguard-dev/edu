@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the traefik Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-11 00:42:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | June 5th     | `sha256:89c8c53fd5df87a77b25db66c232e400e4767c89ce2cee89df2c70d74c780a9b` |
+|  `latest` | June 10th    | `sha256:8d341e64650bb7c664fdeebc73882136e3ee0570c66559936c84e21d9bb44d09` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.0.1-dev` `3-dev` `3.0-dev` `latest-dev` | June 8th     | `sha256:db725c738affe97e58eec94090b9f91b1aff06acbd696718ec9e3b5d92d3ce1d` |
-|  `3.0` `3` `3.0.1` `latest`                 | June 5th     | `sha256:d9fef6caab1b7c581fe28f9147b571bba89ac3bfe48b2c464795bad44f6fc8e5` |
+|  `latest-dev` `3.0-dev` `3-dev` `3.0.2-dev` | June 10th    | `sha256:b69d8f59a21c3626b105150c70a6038a26718eab59157f637c535782c227cf0a` |
+|  `3` `3.0` `3.0.2` `latest`                 | June 10th    | `sha256:2f634a3e127a0970ebabaafe4fc15fdc587295257fad5b12f52feec402a3025d` |
+|  `3.0.1-dev`                                | June 8th     | `sha256:db725c738affe97e58eec94090b9f91b1aff06acbd696718ec9e3b5d92d3ce1d` |
+|  `3.0.1`                                    | June 5th     | `sha256:d9fef6caab1b7c581fe28f9147b571bba89ac3bfe48b2c464795bad44f6fc8e5` |
 

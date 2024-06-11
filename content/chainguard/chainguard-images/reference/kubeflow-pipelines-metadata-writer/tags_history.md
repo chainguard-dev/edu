@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-writer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-11 00:42:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:57d24746496e3f260b2dc45be5fe70fb5588e7f1a15587bb373805f0a04ba642` |
-|  `latest`     | June 7th     | `sha256:1c7ed8dbff7c64bd877d74991264c66e328da031bfe9f721e410879d17d7bd20` |
+|  `latest`     | June 10th    | `sha256:35e43e36fbb7bcf3b648339db462c5b297e21bb46408171a682110b70c5d88d2` |
+|  `latest-dev` | June 10th    | `sha256:256be5e27abeb6f0e095ad20826185b16370657b9e6666bf328c35b0c5f6439b` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.2-dev` `2.2.0-dev` `2-dev` | June 8th     | `sha256:7a0afed1a67667f9eec94743ef8d4a53721d3faf39202da6f6cff948aeda2d42` |
-|  `2` `latest` `2.2` `2.2.0`                 | June 7th     | `sha256:3a4118da9912d921413db02629b970676a02f6ebb2536d9665b3ffb8c3feddb5` |
+|  `2-dev` `latest-dev` `2.2.0-dev` `2.2-dev` | June 10th    | `sha256:c4778664361a558551a8a3fa0a3e5214aef4fabe4bc11517d56928c7a9a3823e` |
+|  `2.2` `2.2.0` `2` `latest`                 | June 10th    | `sha256:ef48bc0ffe31a9d28004ae5c2b0da51a7f998a3aa9b6022f9f8d20d4c785da94` |
 

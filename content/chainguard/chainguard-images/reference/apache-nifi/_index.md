@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: apache-nifi Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-11 00:42:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -34,7 +34,7 @@ Apache NiFi was made for dataflow. It supports highly configurable directed grap
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard-private/apache-nifi:latest
+docker pull cgr.dev/chainguard/apache-nifi:latest
 ```
 
 
