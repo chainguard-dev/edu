@@ -3,8 +3,8 @@ title: "redis-sentinel-bitnami-fips Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public redis-sentinel-bitnami-fips Chainguard Image."
-date: 2024-06-01 00:50:07
-lastmod: 2024-06-01 00:50:07
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-06-11 00:42:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -21,14 +21,14 @@ toc: true
 
 This page shows detailed information about the Chainguard **redis-sentinel-bitnami-fips** Image.
 
-|              | latest-dev                                                                                     | latest                                                                                         |
-|--------------|------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
-| Default User | `redis`                                                                                        | `redis`                                                                                        |
-| Entrypoint   | `/opt/bitnami/scripts/redis-sentinel/entrypoint.sh /opt/bitnami/scripts/redis-sentinel/run.sh` | `/opt/bitnami/scripts/redis-sentinel/entrypoint.sh /opt/bitnami/scripts/redis-sentinel/run.sh` |
-| CMD          | not specified                                                                                  | not specified                                                                                  |
-| Workdir      | not specified                                                                                  | not specified                                                                                  |
-| Has apk?     | yes                                                                                            | no                                                                                             |
-| Has a shell? | yes                                                                                            | yes                                                                                            |
+|              | latest-dev                                                                                                                                                            | latest                                                                                                                                                                |
+|--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Default User | `redis`                                                                                                                                                               | `redis`                                                                                                                                                               |
+| Entrypoint   | `/bin/bash -c '/opt/bitnami/scripts/redis-sentinel/postunpack.sh && /opt/bitnami/scripts/redis-sentinel/entrypoint.sh && /opt/bitnami/scripts/redis-sentinel/run.sh'` | `/bin/bash -c '/opt/bitnami/scripts/redis-sentinel/postunpack.sh && /opt/bitnami/scripts/redis-sentinel/entrypoint.sh && /opt/bitnami/scripts/redis-sentinel/run.sh'` |
+| CMD          | not specified                                                                                                                                                         | not specified                                                                                                                                                         |
+| Workdir      | not specified                                                                                                                                                         | not specified                                                                                                                                                         |
+| Has apk?     | yes                                                                                                                                                                   | no                                                                                                                                                                    |
+| Has a shell? | yes                                                                                                                                                                   | yes                                                                                                                                                                   |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/redis-sentinel-bitnami-fips/tags_history/) for the full list of available tags.
 

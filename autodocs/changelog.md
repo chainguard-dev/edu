@@ -1,3 +1,10 @@
+# 2024-06-11
+New images added:
+
+- percona-server
+
+A total of **212** documents were updated.
+
 # 2024-06-10
 New images added:
 

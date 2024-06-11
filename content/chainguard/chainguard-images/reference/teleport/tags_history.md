@@ -3,8 +3,8 @@ title: "teleport Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the teleport Chainguard Image"
-date: 2024-06-10 00:50:47
-lastmod: 2024-06-10 00:50:47
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-06-11 00:42:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:85636a8b517da2363f04b73c35f95cea6dbd6da55cd81e5422b5006ac0bc6159` |
-|  `latest`     | June 7th     | `sha256:3a5c26daaa096029b29aca5fc80c687d26e9bce6429b067c8629f64a3076afcf` |
+|  `latest-dev` | June 10th    | `sha256:2ff904ddcbf1ccf30db4a01b281cfa6568491c662d3ebabed65578f5d284d640` |
+|  `latest`     | June 10th    | `sha256:114019c89e444cbcd3d35b74bcb2693325d690f2a697fdf5f46013ccd815a7d6` |
 
 
 ### Private/Dedicated Registry

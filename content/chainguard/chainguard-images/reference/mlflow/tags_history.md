@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mlflow Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-11 00:42:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:485c469dfbc3002c97e06f5a43d1ee1e663af2161f7ecaf17c8ba56332e26932` |
-|  `latest`     | June 9th     | `sha256:7747bce7a23eb954da234b3e7dd1c0756a1f10d93286bd2768ed39cc10af0d13` |
+|  `latest`     | June 10th    | `sha256:dd187c74ff5e7c150d67d11616ef2c7a1fb845ad5b82f51a497a28b5cb3086cc` |
+|  `latest-dev` | June 10th    | `sha256:8628d474a856cc2e0c657541b4e5a35263d3026930bc4fd1099c251e7813acd6` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2-dev` `2.13-dev` `2.13.1-dev` | June 8th     | `sha256:9c100160f5680890a57a0f591447c7057d70d43bf71a4b6c1b45cbc288bab2d5` |
-|  `latest` `2.13` `2` `2.13.1`                 | June 8th     | `sha256:126579e1726b962cad4853a9aef51a2fabcda0f159323fcbd8465e3ca79bc9c2` |
+|  `latest` `2.13` `2` `2.13.2`                 | June 10th    | `sha256:6f14ebd68422cfd29a63d99cadec7917f49c6eddd1c5e3c3446fdfec9f221de5` |
+|  `2-dev` `latest-dev` `2.13-dev` `2.13.2-dev` | June 10th    | `sha256:1561d255fd9a0115deeb3711c2c6feea838c24d4c7e0c6706425bece63e0a5b7` |
+|  `2.13.1`                                     | June 8th     | `sha256:126579e1726b962cad4853a9aef51a2fabcda0f159323fcbd8465e3ca79bc9c2` |
+|  `2.13.1-dev`                                 | June 8th     | `sha256:9c100160f5680890a57a0f591447c7057d70d43bf71a4b6c1b45cbc288bab2d5` |
 
