@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the harbor-trivy-adapter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-11 00:42:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:511f1aa75f47896b2fd4f91a224f7bda561c520f5885e8abd7bbe81411e5f3ce` |
-|  `latest`     | June 7th     | `sha256:3e30d6ab0c850e0bd4775408eb72c9b0213a7d1e7009d639f371a75d520b5f21` |
+|  `latest-dev` | June 10th    | `sha256:51991a2d906f8908ecd060a0888b049c16341ad50a3e039533eb99165616426a` |
+|  `latest`     | June 10th    | `sha256:b25d6809c8fd9d0215b483cedaa5019d30e0595eed893980891fb43e3efe35da` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.31.2-dev` `0.31-dev` `0-dev` | June 8th     | `sha256:fa8407cba97dfd50b92a65387c3ff65145464a18654136f2489a47ad8a84b631` |
-|  `0` `latest` `0.31` `0.31.2`                 | June 7th     | `sha256:f5102ec678575ec97cec98fe9f19fecd81cc6d9c1e627b235eeebd805d916134` |
+|  `0-dev` `latest-dev` `0.31-dev` `0.31.2-dev` | June 10th    | `sha256:2512dfe02299668e417945b45dffd37edb8c8f8ea02c78235b6af6da0fe198a3` |
+|  `0.31` `0.31.2` `0` `latest`                 | June 10th    | `sha256:f7b7db0d305e2d91921c9415dfdf9f93a0ecaa445141440a77af7750ff76789b` |
 
