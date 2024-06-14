@@ -123,6 +123,6 @@ These containers can be validated against the General Purpose Operating System S
 
 ## Learn more
 
-You can access Chainguard's General Purpose Operating STIG through the Early Access Program. If you’re interested in participating in the program, please fill out the [interest form](https://docs.google.com/forms/d/e/1FAIpQLSdKqtAziDyLpTtQw5v77orKup5jap0QP1T-VrAj4g32Y1pE6w/viewform?utm_source=blog&utm_medium=website&utm_campaign=FY25-EC-Blog_sourced) or email [compliance@chainguard.dev](mailto:compliance@chainguard.dev).
+If interested, you can access Chainguard's General Purpose Operating STIG through the Early Access Program. If you’re interested in participating in the program, please fill out the [interest form](https://docs.google.com/forms/d/e/1FAIpQLSdKqtAziDyLpTtQw5v77orKup5jap0QP1T-VrAj4g32Y1pE6w/viewform?utm_source=blog&utm_medium=website&utm_campaign=FY25-EC-Blog_sourced) or email [compliance@chainguard.dev](mailto:compliance@chainguard.dev).
 
 If you'd like to learn more about how Chainguard Images can help you meet FedRAMP compliance, we encourage you to refer to our overview of [Chainguard's FIPS-ready Images](/chainguard/chainguard-images/working-with-images/fips-images/).
