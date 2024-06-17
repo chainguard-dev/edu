@@ -4,7 +4,7 @@ type: "article"
 linktitle: "nginx"
 description: "Tutorial on how to get started with the nginx Chainguard Image"
 date: 2023-01-09T11:07:52+02:00
-lastmod: 2024-05-24T17:32:25+00:00
+lastmod: 2024-06-17T18:32:10+00:00
 tags: ["Chainguard Images", "Products"]
 draft: false
 images: []
@@ -143,7 +143,7 @@ Here we will create the `nginx.conf` configuration file used by nginx to run the
 nano nginx.conf
 ```
 
-Copy the following code into the configuration file you created. In the `location` directive, be sure to update the configuration to reference the path from root to the `data` directory you created in a previous step.
+Copy the following code into the configuration file you created. In the `location` directive, be sure to update the configuration to reference the path from root to the `data` directory you created in a previous step. The file path which you are not using should be commented out using the `#` symbol to prevent syntax errors.
 
 ```nginx
 worker_processes  1;
@@ -168,7 +168,7 @@ http {
 
         location / {
             root /Users/username/nginxdemo/data; # Update the file path for your system
-            #root /home/username/nginxdemo/data # Linux file path example
+            #root /home/username/nginxdemo/data; # Linux file path example
 
         }
 
@@ -205,7 +205,15 @@ Next, copy the absolute filepath to the `nginx.conf` file you created earlier. R
 nginx -c /Users/username/nginxdemo/nginx.conf
 ```
 
-To view the HTML content, navigate to `localhost:8080` in your web browser of choice. You should see a simple landing page with a picture of Inky and a fun fact about the Wolfi octopus.
+Please note that you may encounter some permissions errors when executing this command. You will need to update the permissions of the default nginx logging directory on some systems to proceed. For example, nginx installed with Homebrew stores its log files at `/opt/homebrew/var/log/nginx/`, while on a Linux machine, the logs are stored in `/var/log/nginx/`. To update the permissions of these directories, execute the following command, replacing `username` with your local username and updating the log file path if need be.
+
+```shell
+chmod +wx /opt/homebrew/var/log/nginx/
+```
+
+With the directory permissions updated, you should now be able to initialize the nginx server.
+
+To view the HTML content, navigate to `localhost:8080` in your web browser of choice. You will see a simple landing page with a picture of Inky and a fun fact about the Wolfi octopus.
 
 If you make any changes to the files nginx is serving, run `nginx -s reload` in your terminal to allow the changes to render. When you are finished with your website, run `nginx -s quit` to allow nginx to safely shut down.
 
