@@ -4,7 +4,7 @@ type: "article"
 linktitle: "nginx"
 description: "Tutorial on how to get started with the nginx Chainguard Image"
 date: 2023-01-09T11:07:52+02:00
-lastmod: 2024-06-17T18:32:10+00:00
+lastmod: 2024-06-17T18:39:59+00:00
 tags: ["Chainguard Images", "Products"]
 draft: false
 images: []
@@ -205,7 +205,7 @@ Next, copy the absolute filepath to the `nginx.conf` file you created earlier. R
 nginx -c /Users/username/nginxdemo/nginx.conf
 ```
 
-Please note that you may encounter some permissions errors when executing this command. You will need to update the permissions of the default nginx logging directory on some systems to proceed. For example, nginx installed with Homebrew stores its log files at `/opt/homebrew/var/log/nginx/`, while on a Linux machine, the logs are stored in `/var/log/nginx/`. To update the permissions of these directories, execute the following command, replacing `username` with your local username and updating the log file path if need be.
+Please note that you may encounter some permissions errors when executing this command. You will need to update the permissions of the default nginx logging directory on some systems to proceed. For example, nginx installed with Homebrew stores its log files at `/opt/homebrew/var/log/nginx/`, while on a Linux machine, the logs are stored in `/var/log/nginx/`. To update the permissions of these directories, execute the following command, updating the log file path if need be.
 
 ```shell
 chmod +wx /opt/homebrew/var/log/nginx/
