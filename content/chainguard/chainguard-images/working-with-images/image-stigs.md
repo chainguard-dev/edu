@@ -16,14 +16,14 @@ toc: true
 ---
 
 
-The practice of using STIGs to secure various technologies originated with the United States Department of Defense (DoD). If an organization uses a certain kind of software, say MySQL 8.0, they must ensure that their implementation of it meets the requirements of the [associated STIG](https://public.cyber.mil/announcement/stig-update-disa-has-released-the-oracle-mysql-8-0-stig/) in order to qualify as a vendor for the DoD. More recently, other compliance frameworks have begun acknowledging the value of STIGS, with some going so far as to require the use of STIGs in their guidelines.
+The practice of using STIGs to secure various technologies originated with the United States Department of Defense (DoD). If an organization uses a certain kind of software, say MySQL 8.0, they must ensure that their implementation of it meets the requirements of the [associated Security Requirements Guide (SRG)](https://public.cyber.mil/announcement/stig-update-disa-has-released-the-oracle-mysql-8-0-stig/) in order to qualify as a vendor for the DoD. More recently, other compliance frameworks have begun acknowledging the value of STIGS, with some going so far as to require the use of STIGs in their guidelines.
 
-[Chainguard announced](https://www.chainguard.dev/unchained/stig-hardening-container-images) the release of a General Purpose Operating System STIG with the goal that it will help customers integrate Chainguard Images into their workflows with the confidence that they're doing so securely. This conceptual article aims to give a brief overview of what STIGs are and how they can be valuable in the context of container images.
+[Chainguard announced](https://www.chainguard.dev/unchained/stig-hardening-container-images) the release of a STIG for the General Purpose Operating System (GPOS) SRG with the goal that it will help customers integrate Chainguard Images into their workflows with the confidence that they're doing so securely. This conceptual article aims to give a brief overview of what STIGs are and how they can be valuable in the context of container images.
 
 
 ## What are STIGs?
 
-"STIG" is an acronym that stands for Secure Technical Implementation Guide. A STIG is akin to a checklist that a security administrator can go through to ensure that a given piece of software has been fully hardened against cybersecurity threats.
+"STIG" is an acronym that stands for Secure Technical Implementation Guide. A STIG is akin to the implementation of a Security Requirements Guide (SRG) that a security administrator can go through to ensure that a given piece of software has been hardened against cybersecurity threats.
 
 A STIG is typically written by the developer or vendor of the given piece of software against a published DOD Security Requirements Guide (SRG). STIGs are presented in the XCCDF (Extensible Configuration Checklist Description Format), allowing them to be ingested into a SCAP-validated tool to validate that a given target is in compliance with them.
 
@@ -42,7 +42,7 @@ Because the NIST 800-53 controls are technology-neutral, the STIGs published by 
 
 _“The service provider shall use the DoD STIGs to establish configuration settings; Center for Internet Security up to Level 2 (CIS Level 2) guidelines shall be used if STIGs are not available; Custom baselines shall be used if CIS is not available.”_
 
-However, the requirements for how a STIG applies to a container image are rather unclear. For example, some controls apply to the host operating system instead of the image. Similarly, other controls apply to the Docker service instead of the container itself. Knowing what controls are relevant for containers and how to check for them in a STIG are key to achieving and maintaining FedRAMP compliance.
+However, the requirements for how a STIG applies to a container image are rather unclear. For example, some controls apply to the host operating system instead of the image. Similarly, other controls apply to the container runtime instead of the container itself. Knowing what controls are relevant for containers and how to check for them in a STIG are key to achieving and maintaining FedRAMP compliance.
 
 DISA understands that containers have different requirements than traditional operating systems. In an effort to highlight these differences, the DOD DevSecOps Initiative released the [Container Hardening Process Guide](https://dl.dod.cyber.mil/wp-content/uploads/devsecops/pdf/Final_DevSecOps_Enterprise_Container_Hardening_Guide_1.2.pdf) which describes the Initiative's approach to hardening images and how other agencies should handle applying STIGs to containers.
 
@@ -52,12 +52,6 @@ _"With a properly locked down hosting environment, containers inherit most of th
 controls and benefits from infrastructure to host OS-level remediation requirements."_
 
 Deploying containers on a STIG hardened host provides many of the security features that are difficult or sometimes impossible to implement inside a container. What's left then is the application-level security configuration — in particular vulnerability remediation — which Chainguard provides through our guaranteed vulnerability remediation SLAs. 
-
-Once a container has been deployed, you can use tools such as [OpenSCAP](http://www.open-scap.org/tools/) to validate that the container was appropriately hardened. Those scans will return [false positives](/chainguard/chainguard-images/recommended-practices/false-results/) any time they detect missing components inside the container which are inherited from the host where the container is running. As stated in [Appendix D](https://dl.dod.cyber.mil/wp-content/uploads/devsecops/pdf/Final_DevSecOps_Enterprise_Container_Hardening_Guide_1.2.pdf#%5B%7B%22num%22%3A67%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C70%2C720%2C0%5D) of the DSO Initiative's Container Hardening Process Guide:
-
-_"If an OpenSCAP scan returns noncompliant result(s), always evaluate the validity of those findings. False positives are common within major host OS-based containers, as the security profiles normally account for all host-level controls potentially not applicable to a container build (e.g., GUI, CAC authentication, etc.). In addition to false positives, many of the base OS STIG requirements are not applicable in the containers either."_
-
-To sum up, it can be difficult to determine exactly which results are false positives and which ones should be applied to a container. 
 
 
 ## False Positives and the General Purpose OS STIG
@@ -75,9 +69,7 @@ Once configured, logs of container actions are written to the host's audit log f
 
 ### Isolation
 
-Containers provide process isolation by executing their applications in a constrained environment using the Linux Namespace and cgroup subsystems. Inside the namespace, container processes are only permitted to access a limited set of system resources defined when the container is launched.
-
-Processes are further restricted by limits imposed through the cgroup for access to system resources such as system memory or CPU use. Cgroups protect the host resources and other containers running on the host from being impacted by Denial of Service attacks on a targeted container.
+Containers provide process isolation by executing their applications in a constrained environment using the Linux Namespace and cgroup subsystems. Inside the namespace, container processes are only permitted to access a limited set of system resources defined when the container is launched. Processes are further restricted by limits imposed through the cgroup for access to system resources such as system memory or CPU use.
 
 Together, namespaces and cgroups isolate security functions of the host operating system from non-security functions of applications running inside the container. This separation makes it possible for container failures to not directly impact the operation of the host and its security functions when caused through processing of invalid inputs or other runtime errors. In the event of a container failure during initialization or shutdown, for example, the host operating system's security capabilities will continue to function as configured.
 
@@ -123,6 +115,6 @@ These containers can be validated against the General Purpose Operating System S
 
 ## Learn more
 
-If interested, you can access Chainguard's General Purpose Operating STIG through the Early Access Program. If you’re interested in participating in the program, please fill out the [interest form](https://docs.google.com/forms/d/e/1FAIpQLSdKqtAziDyLpTtQw5v77orKup5jap0QP1T-VrAj4g32Y1pE6w/viewform?utm_source=blog&utm_medium=website&utm_campaign=FY25-EC-Blog_sourced) or email [compliance@chainguard.dev](mailto:compliance@chainguard.dev).
+If interested, you can access Chainguard's General Purpose Operating System STIG through the Early Access Program. If you’re interested in participating in the program, please fill out the [interest form](https://docs.google.com/forms/d/e/1FAIpQLSdKqtAziDyLpTtQw5v77orKup5jap0QP1T-VrAj4g32Y1pE6w/viewform?utm_source=blog&utm_medium=website&utm_campaign=FY25-EC-Blog_sourced) or email [compliance@chainguard.dev](mailto:compliance@chainguard.dev).
 
 If you'd like to learn more about how Chainguard Images can help you meet FedRAMP compliance, we encourage you to refer to our overview of [Chainguard's FIPS-ready Images](/chainguard/chainguard-images/working-with-images/fips-images/).
