@@ -2,7 +2,7 @@
 title: "STIGs for Chainguard Images"
 linktitle: "STIGs"
 type: "article"
-description: "A conceptual overview of STIGs, which are available for Chainguard Images."
+description: "A conceptual overview of Security Technical Implementation Guides, which are available for Chainguard Images."
 date: 2024-06-13T15:56:52-07:00
 lastmod: 2024-06-13T15:56:52-07:00
 draft: false
@@ -15,26 +15,25 @@ weight: 055
 toc: true
 ---
 
+The practice of using Security Technical Implementation Guides, or "STIGs," to secure various technologies originated with the United States Department of Defense (DoD). If an organization uses a certain kind of software, say MySQL 8.0, they must ensure that their implementation of it meets the requirements of the [associated Security Requirements Guide (SRG)](https://public.cyber.mil/announcement/stig-update-disa-has-released-the-oracle-mysql-8-0-stig/) in order to qualify as a vendor for the DoD. More recently, other compliance frameworks have begun acknowledging the value of STIGS, with some going so far as to require the use of STIGs in their guidelines.
 
-The practice of using STIGs to secure various technologies originated with the United States Department of Defense (DoD). If an organization uses a certain kind of software, say MySQL 8.0, they must ensure that their implementation of it meets the requirements of the [associated Security Requirements Guide (SRG)](https://public.cyber.mil/announcement/stig-update-disa-has-released-the-oracle-mysql-8-0-stig/) in order to qualify as a vendor for the DoD. More recently, other compliance frameworks have begun acknowledging the value of STIGS, with some going so far as to require the use of STIGs in their guidelines.
-
-[Chainguard announced](https://www.chainguard.dev/unchained/stig-hardening-container-images) the release of a STIG for the General Purpose Operating System (GPOS) SRG with the goal that it will help customers integrate Chainguard Images into their workflows with the confidence that they're doing so securely. This conceptual article aims to give a brief overview of what STIGs are and how they can be valuable in the context of container images.
+[Chainguard announced](https://www.chainguard.dev/unchained/stig-hardening-container-images) the release of a STIG for the [General Purpose Operating System (GPOS) SRG](https://www.stigviewer.com/stig/general_purpose_operating_system_srg/) — an SRG that specifies security requirements for general purpose operating systems running in a network. The goal for this new STIG is that it will help customers confidently and securely integrate Chainguard Images into their workflows. This conceptual article aims to give a brief overview of what STIGs are and how they can be valuable in the context of container images.
 
 
 ## What are STIGs?
 
-"STIG" is an acronym that stands for Secure Technical Implementation Guide. A STIG is akin to the implementation of a Security Requirements Guide (SRG) that a security administrator can go through to ensure that a given piece of software has been hardened against cybersecurity threats.
+As mentioned previously, "STIG" is an acronym that stands for Security Technical Implementation Guide. A STIG is akin to the implementation of a Security Requirements Guide (SRG) that a security administrator can go through to ensure that a given piece of software has been hardened against cybersecurity threats.
 
 A STIG is typically written by the developer or vendor of the given piece of software against a published DOD Security Requirements Guide (SRG). STIGs are presented in the XCCDF (Extensible Configuration Checklist Description Format), allowing them to be ingested into a SCAP-validated tool to validate that a given target is in compliance with them.
 
-After drafting the STIG, the vendor will submit it to the Defense Information Systems Agency (DISA), an agency within the DoD. One of DISA's responsibilities is publishing and maintaining STIGs on the [DoD Cyber Exchange website](https://public.cyber.mil/stigs/downloads/), and the process from a STIG being submitting to it being published by DISA can take years. As of this writing, DISA has published over 450 STIGs for a wide variety of software applications.
+After drafting the STIG, the vendor will submit it to the [Defense Information Systems Agency (DISA)](https://www.disa.mil/), an agency within the DoD. One of DISA's responsibilities is publishing and maintaining STIGs on the [DoD Cyber Exchange website](https://public.cyber.mil/stigs/downloads/), and the process from a STIG being submitting to it being published by DISA can take years. As of this writing, DISA has published over 450 STIGs for a wide variety of software applications.
 
 
 ## How STIGs can be used to harden images
 
-STIGs are typically published for hardware, firmware, and specific applications. However, in recent years containerization has grown in popularity and is now the modern way to deploy applications. Without STIGs to  presents a gap in terms of clear instructions on how to securely but there has historically been a gap when it comes to STIGs for 
+STIGs are typically published for hardware, firmware, and specific applications. However, in recent years containerization has grown in popularity and is now the modern way to deploy applications. This has resulted in there being a gap in terms of clear instructions on how to securely deploy containerized applications.
 
-Chainguard produces hardened, minimal container images with each one containing few to zero CVEs. Because of this, they adhere to many compliance standards where there's a control for vulnerability or risk management, including [FedRAMP](https://www.fedramp.gov/) and [PCI DSS v4.0](https://www.pcisecuritystandards.org/document_library/?category=pcidss). 
+Chainguard produces hardened, minimal container images containing few to zero CVEs. Because of this, they adhere to many compliance standards where there's a control for vulnerability or risk management, including [FedRAMP](https://www.fedramp.gov/) and [PCI DSS v4.0](https://www.pcisecuritystandards.org/document_library/?category=pcidss). 
 
 For many risk management frameworks, the system categorization will result in varying levels of hardening guidelines. Using FedRAMP as an example, FIPS-199 defines the security categorization which will result in a baseline set of controls (defined in NIST 800-53) that must be implemented.
 
@@ -54,7 +53,7 @@ controls and benefits from infrastructure to host OS-level remediation requireme
 Deploying containers on a STIG hardened host provides many of the security features that are difficult or sometimes impossible to implement inside a container. What's left then is the application-level security configuration — in particular vulnerability remediation — which Chainguard provides through our guaranteed vulnerability remediation SLAs. 
 
 
-## False Positives and the General Purpose OS STIG
+## False positives and the General Purpose OS STIG
 
 Here we've assembled several explanations for requirements from Chainguard's General Purpose Operating System STIG that are likely to cause false positives when scanning containers, as well as the rationale for those requirements. By disambiguating these false positives, the following sections should be helpful to any administrators deploying containers in environments where STIG hardening is necessary both as a means to understand where to expend effort performing hardening and for discussions with assessors and compliance personnel.
 
@@ -76,7 +75,7 @@ Together, namespaces and cgroups isolate security functions of the host operatin
 
 ### Minimal images
 
-Chainguard Images contain only the minimal software needed for the container to perform its intended function. Nonessential capabilities such as package managers, shell environments, executables, and process launching functions have been removed from the images and may not be installed once the container is running.
+Chainguard Images contain only the minimal software needed for the container to perform its intended function. For Nonessential capabilities such as package managers, shell environments, executables, and process launching functions have been removed from many Chainguard Images and may not be installed once the container is running.
 
 This limited implementation means that only the necessary software to operate can run on the container and restricts the installation of additional software on the image during operation. Be sure to have fixed permissions on libraries and executable files in place so that any software installed can't be modified.
 
@@ -85,7 +84,7 @@ The host's container execution environment further reduces the risk of unauthori
 
 ### Address Space Layout Randomization (ASLR)
 
-ASLR configuration is the responsibility of the host operating system where containers run. Applications running within a container on a host that has ASLR enabled will automatically be protected by the configuration. No additional action is needed to ensure that container-based applications are protected.
+ASLR configuration is the responsibility of the host operating system on which containers run. Applications running within a container on a host that has ASLR enabled will automatically be protected by the configuration. No additional action is needed to ensure that container-based applications are protected.
 
 
 ### Host firmware
