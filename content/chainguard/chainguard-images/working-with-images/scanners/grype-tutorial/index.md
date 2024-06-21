@@ -153,7 +153,7 @@ You should see grype results based on the packages itemized in the SBOM.
 
 ## Comprehending grype Output
 
-By default, grype output is divided into two sections: a summary of information on the scanned artifact and an itemized list of CVE.
+By default, grype output is divided into two sections: a summary of information on the scanned artifact and an itemized list of CVEs.
 
  In this section, we'll use an Alpine version of the official Python image as an example. Since we're specifying an older version, you may encounter more CVEs when following the examples than are shown here, as CVEs will accumulate on an image over time.
 
@@ -196,7 +196,7 @@ In the initial portion of its results output, grype summarizes information on th
 
 Overview output includes the number of packages, files, and executables found in the artifact. Generally speaking, CVEs are detected against packages, but the number of executables detected can also give you an idea of the attack surface of the scanned image or filesystem.
 
-Finally, this portion gives a count of the number of CVEs detected by severity and fixed status. Severity categorization sorts CVE into four categories based on the Common Vulnerability Scoring System (CVSS).
+Finally, this portion gives a count of the number of CVEs detected by severity and fixed status. Severity categorization sorts CVEs into four categories based on the Common Vulnerability Scoring System (CVSS).
 
 {{< details "What is CVSS??" >}}
 {{< blurb/cvss >}}
@@ -207,7 +207,7 @@ In our output, we can see that we have 0 critical, 1 high, and 8 medium CVEs:
 ```
    ├── by severity: 0 critical, 1 high, 8 medium, 0 low, 0 negligible 
 ```
-grype also counts the number of CVE by fixed status. If a CVE is marked as fixed, it can be resolved by updating to a newer version of the package. Our output suggests that 7 packages have been fixed and can be remediated with updates:
+grype also counts the number of CVEs by fixed status. If a CVE is marked as fixed, it can be resolved by updating to a newer version of the package. Our output suggests that 7 packages have been fixed and can be remediated with updates:
 
 ```
    └── by status:   7 fixed, 3 not-fixed, 0 ignored 
