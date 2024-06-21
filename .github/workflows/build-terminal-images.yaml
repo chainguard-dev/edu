@@ -23,6 +23,12 @@ jobs:
           - rekor
           - vexctl
 
+    container:
+      image: ghcr.io/wolfi-dev/sdk:latest@sha256:a96b9173cb5dd9d6050ecb11b6ec326f47a32d93537838845be5e558f9103148
+      # TODO: Deprivilege
+      options: |
+        --cap-add NET_ADMIN --cap-add SYS_ADMIN --device /dev/fuse --security-opt seccomp=unconfined --security-opt apparmor:unconfined
+
     steps:
       - name: 'Github Actions Runner'
         uses: step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142 # v2.7.0
@@ -38,14 +44,13 @@ jobs:
         shell: bash
         working-directory: terminal-images/${{ matrix.image }}
         run: |
-          docker run -v ${PWD}:/work cgr.dev/chainguard/melange keygen
+          melange keygen
 
       - name: melange build
         shell: bash
         working-directory: terminal-images/${{ matrix.image }}
         run: |
-          docker run --privileged -v ${PWD}:/work cgr.dev/chainguard/melange build \
-            melange.yaml --arch x86_64 --signing-key melange.rsa
+          melange build melange.yaml --arch x86_64 --signing-key melange.rsa
 
       - name: Authenticate to Google Cloud
         id: auth
@@ -53,30 +58,34 @@ jobs:
         with:
           service_account: "github-chainguard-academy@chainguard-academy.iam.gserviceaccount.com"
           workload_identity_provider: "projects/456977358484/locations/global/workloadIdentityPools/chainguard-academy/providers/chainguard-edu"
+          token_format: 'access_token'
+
+      - name: Setup G Cloud SDK
+        uses: 'google-github-actions/setup-gcloud@98ddc00a17442e89a24bbf282954a3b65ce6d200' # v2.0.11
+
+      - name: Configure GCR auth
+        shell: bash
+        run: gcloud auth configure-docker "${{ secrets.TERMINAL_REGISTRY_URL }}"
 
       - name: apko login
         shell: bash
-        working-directory: /tmp/
         run: |
-          docker run --rm -v ${PWD}/:/root/ cgr.dev/chainguard/apko login \
+          apko login \
             "${{ secrets.TERMINAL_REGISTRY_URL }}" \
             --password=${{ steps.auth.outputs.access_token }} \
             --username="oauth2accesstoken"
 
       - name: apko publish
         shell: bash
-        working-directory: terminal-images/${{ matrix.image }}
+        # working-directory: terminal-images/${{ matrix.image }}
         run: |
-          docker run --rm \
-            -v /tmp/.docker/config.json:/root/.docker/config.json \
-            -v ${PWD}/:/work \
-            cgr.dev/chainguard/apko publish \
+          apko publish \
             --arch x86_64 apko.yaml \
-            --image-refs /work/image-refs.txt \
+            --image-refs image-refs.txt \
             "${{ secrets.TERMINAL_REGISTRY_URL }}/${{ secrets.TERMINAL_REPOSITORY }}/${{ matrix.image }}:latest" \
             -k melange.rsa.pub \
             --sbom-path . \
-            -C /work
+            -C terminal-images/${{ matrix.image }}
 
       # - name: cosign login
       #  shell: bash
@@ -92,4 +101,4 @@ jobs:
 
       # - name: cosign sign image
       #  working-directory: terminal-images/${{ matrix.image }}
-      #  run: cosign sign -y "$(cat image-refs.txt)"
+      #  run: cosign sign -y "$(cat image-refs.txt)
