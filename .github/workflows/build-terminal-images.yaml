@@ -8,6 +8,8 @@ jobs:
   build-image:
     runs-on: ubuntu-latest
 
+    if: github.repository == 'chainguard-dev/edu'
+
     permissions:
       id-token: write # Federate with GCP and sign images
 
