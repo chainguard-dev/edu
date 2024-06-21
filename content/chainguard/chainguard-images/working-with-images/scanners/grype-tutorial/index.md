@@ -116,7 +116,7 @@ Scan the virtual environment folder by passing the folder path to Grype as an ar
 grype venv
 ```
 
-We can do the same with node modules in a mode_modules folder. First, create an empty project folder and change the working directory to that folder:
+We can do the same with node modules in a `node_modules` folder. First, create an empty project folder and change the working directory to that folder:
 
 ```bash
 mkdir node_project && cd node_project
@@ -214,7 +214,7 @@ Grype also counts the number of CVEs by fixed status. If a CVE is marked as fixe
 ```
 ### Itemized CVEs
 
-In addition to the summary, Grype provides an itemized list of CVEs. By default, these are in table format, and list the package name, current version, severity, and package type (such as `apt`, `apk`, `binary`). If the package is fixed, Grype will also indicate the package version where the fix was introduced.
+In addition to the summary, Grype provides an itemized list of CVEs. By default, these are in table format, and list the package name, current version, severity, and package type (such as `apt`, `apk`, or `binary`). If the package is fixed, Grype will also indicate the package version where the fix was introduced.
 
 Grype writes itemized CVEs to stdout, so you can redirect the report of itemized CVEs to a file:
 
@@ -282,7 +282,7 @@ The following resources may also be useful while working with Grype:
 
 - [Syft](https://github.com/anchore/syft) - A Grype-compatible tool for generating SBOMs from images and filesystems.
 - [Grype-DB](https://github.com/anchore/grype-db) - A tool to build Grype databases from specific upstream vulnerability database providers
-- [vunnel](https://github.com/anchore/vunnel) - Atool for collating vulnerability provider data
+- [Vunnel](https://github.com/anchore/vunnel) - A tool for collating vulnerability provider data
 - [Grype Chainguard Image](https://edu.chainguard.dev/chainguard/chainguard-images/reference/grype/) — A low-to-no CVE container image maintained by Chainguard
 
 ### More on Grype
