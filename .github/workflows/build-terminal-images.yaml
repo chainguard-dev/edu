@@ -36,18 +36,18 @@ jobs:
         shell: bash
         working-directory: terminal-images/${{ matrix.image }}
         run: |
-          docker run -v ${PWD}:/work ghcr.io/wolfi-dev/melange keygen
+          docker run -v ${PWD}:/work cgr.dev/chainguard/melange keygen
 
       - name: melange build
         shell: bash
         working-directory: terminal-images/${{ matrix.image }}
         run: |
-          docker run --privileged -v ${PWD}:/work ghcr.io/wolfi-dev/melange build \
+          docker run --privileged -v ${PWD}:/work cgr.dev/chainguard/melange build \
             melange.yaml --arch x86_64 --signing-key melange.rsa
 
       - name: Authenticate to Google Cloud
         id: auth
-        uses: google-github-actions/auth@ceee102ec2387dd9e844e01b530ccd4ec87ce955 # v0
+        uses: google-github-actions/auth@71fee32a0bb7e97b4d33d548e7d957010649d8fa # v2.1.3
         with:
           service_account: "github-chainguard-academy@chainguard-academy.iam.gserviceaccount.com"
           workload_identity_provider: "projects/456977358484/locations/global/workloadIdentityPools/chainguard-academy/providers/chainguard-edu"
@@ -56,23 +56,25 @@ jobs:
         shell: bash
         working-directory: /tmp/
         run: |
-          docker run --rm -v ${PWD}/:/root/ ghcr.io/wolfi-dev/apko login \
-            -p ${{ steps.auth.outputs.access_token }} \
-            -u oauth2accesstoken \
-            ${{ secrets.TERMINAL_REGISTRY_URL }}
+          docker run --rm -v ${PWD}/:/root/ cgr.dev/chainguard/apko login \
+            "${{ secrets.TERMINAL_REGISTRY_URL }}" \
+            --password=${{ steps.auth.outputs.access_token }} \
+            --username="oauth2accesstoken"
 
       - name: apko publish
         shell: bash
         working-directory: terminal-images/${{ matrix.image }}
         run: |
           docker run --rm \
-            -v /tmp/.docker/config.json:/root/.docker/config.json -v ${PWD}/:/work/ \
-            ghcr.io/wolfi-dev/apko publish \
+            -v /tmp/.docker/config.json:/root/.docker/config.json \
+            -v ${PWD}/:/work \
+            cgr.dev/chainguard/apko publish \
             --arch x86_64 apko.yaml \
             --image-refs /work/image-refs.txt \
             "${{ secrets.TERMINAL_REGISTRY_URL }}/${{ secrets.TERMINAL_REPOSITORY }}/${{ matrix.image }}:latest" \
             -k melange.rsa.pub \
-            --sbom-path .
+            --sbom-path . \
+            -C /work
 
       # - name: cosign login
       #  shell: bash
