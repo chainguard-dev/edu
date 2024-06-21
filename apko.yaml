@@ -51,4 +51,3 @@ paths:
 
 entrypoint:
   command: /bin/bash /entrypoint.sh
-
