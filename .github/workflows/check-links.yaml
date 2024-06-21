@@ -16,6 +16,8 @@ jobs:
   check-links:
     runs-on: ubuntu-latest
 
+    if: github.repository == 'chainguard-dev/edu'
+
     permissions:
       issues: write # opens issues when bad links are found
 
