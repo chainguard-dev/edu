@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tempo Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:4a36992566462eff866ee50d62445b7124c47a951f87bbeae322e1988d825d8b` |
-|  `latest`     | June 5th     | `sha256:757754f3e75d3f2778334ceec2c03ed00de22964418f386329af41e29f3d4fcf` |
+|  `latest-dev` | June 22nd    | `sha256:0cf4620677fbb0887aca5fe24fc54e27ea8d60eeb237539db72a1524e3143d6c` |
+|  `latest`     | June 19th    | `sha256:a2cdce36a2aa7402576b0aa60de6f6ccd627c4dc2d540216ef4cc0d7414c2950` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `latest-dev` `2.3.1-dev` `2.3-dev` | June 8th     | `sha256:e25ed36cfe4856df554a9aeabf2ea23f0b732db08d684f904c2afa5c2bbaf7f4` |
-|  `2.5.0-dev` `2.5-dev`                      | June 8th     | `sha256:f4bcf0d376d80914185bb07146d9e7ec0df7ec21f224a1e0455040153fa2a11e` |
-|  `latest` `2` `2.3.1` `2.3`                 | June 5th     | `sha256:72278f738390e65280d90da0c951710840aa0bb5ec44fc10a8391c11153792f2` |
-|  `2.5` `2.5.0`                              | June 5th     | `sha256:65813dbd779e6c6ad280e18232ab7ddbca1b3bb0914d233331f1e6caabe8b899` |
+|  `2-dev` `2.3.1-dev` `latest-dev` `2.3-dev` | June 21st    | `sha256:a471de905f7200dd2fe9810ef734af8665cce64c500baf6724ed8ab0c74f8b89` |
+|  `2.5-dev` `2.5.0-dev`                      | June 21st    | `sha256:a428bd1ae5bf8109f1bd25cf2954286c3d4da46c8b850b9f686f36b8bb837e3f` |
+|  `2.3.1` `2.3` `latest` `2`                 | June 20th    | `sha256:ae459daaf818a91b179c942073597f5aac9c5bb816bb7530ee90e02604e00d09` |
+|  `2.5.0` `2.5`                              | June 20th    | `sha256:73263f3bfa413b24e9366d2d05b2528ae0af80eaaa81977fe01f486632889a5c` |
 

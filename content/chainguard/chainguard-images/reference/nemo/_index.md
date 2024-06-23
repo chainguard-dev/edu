@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: nemo Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -34,7 +34,7 @@ NVIDIA NeMo Framework is an end-to-end, cloud-native framework to build, customi
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard-private/nemo:latest
+docker pull cgr.dev/chainguard/nemo:latest
 ```
 
 

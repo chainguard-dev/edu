@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the calico-calicoctl Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                          | Last Changed | Digest                                                                    |
 |----------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `v3-dev` `v3.28-dev` `3-dev` `3.28-dev` `3.28.0-dev` `latest-dev` `v3.28.0-dev` | June 8th     | `sha256:5fbd34b257c9561eb27ecbf784546355d04c2b24a884c0291e31d0e6aad76b24` |
-|  `v3.28.0` `3.28.0` `3.28` `latest` `3` `v3.28` `v3`                             | June 5th     | `sha256:c32d045697b4217fb8f5ef05a8b214a6e94cc36aa1c9be3006d147dd93d6f305` |
+|  `v3.28.0-dev` `3-dev` `3.28.0-dev` `3.28-dev` `v3-dev` `latest-dev` `v3.28-dev` | June 21st    | `sha256:5eee01b888f5ae8eda769ae994fa3183f1c27d968b6f4572abdc4c82ff34405a` |
+|  `v3.28.0` `3.28` `v3.28` `3` `latest` `3.28.0` `v3`                             | June 20th    | `sha256:1dbee7affcc6be98fc52e8e77ce3bc66b1e6bf7bdeba93df3b71bdf8451d72e3` |
 

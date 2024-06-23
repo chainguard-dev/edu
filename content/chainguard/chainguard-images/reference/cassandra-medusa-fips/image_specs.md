@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public cassandra-medusa-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -112,7 +112,6 @@ The table shows package distribution across variants.
 | `py3-rpds-py`                   | X          | X      |
 | `py3-secretstorage`             | X          | X      |
 | `py3-shellingham`               | X          | X      |
-| `py3-tomli`                     | X          | X      |
 | `py3-tomlkit`                   | X          | X      |
 | `py3-trove-classifiers`         | X          | X      |
 | `py3-typing-extensions`         | X          | X      |
@@ -121,6 +120,7 @@ The table shows package distribution across variants.
 | `py3-xattr`                     | X          | X      |
 | `py3-zipp`                      | X          | X      |
 | `py3.12-installer`              | X          | X      |
+| `py3.12-tomli`                  | X          | X      |
 | `python-3.11-base`              | X          | X      |
 | `python-3.12`                   | X          | X      |
 | `python-3.12-base`              | X          | X      |

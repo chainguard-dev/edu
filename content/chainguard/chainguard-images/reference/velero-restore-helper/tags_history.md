@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the velero-restore-helper Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:2067f67995d1522f09403da9037760dbb88ea376c1d4147cf275fb8da86de47d` |
-|  `latest`     | June 5th     | `sha256:fe52d4d1db2f13200df14d8d4de6401ff1aa6e64f90e705926b8e33861ccc8da` |
+|  `latest-dev` | June 22nd    | `sha256:bf761e70b2ccdaa88515154fcd1715b28cdde42c14dc15fd6d19e2689bb7f48f` |
+|  `latest`     | June 19th    | `sha256:633ac84b9df333f8dfb6afb74067cb07d032d96a912660c5987d2aa0c3f05017` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.13-dev` `1.13.2-dev` | June 8th     | `sha256:696ace3f2a549490774bbde407be5c772171c4d37032d1f8abdd62cf7a479363` |
-|  `latest` `1.13` `1.13.2` `1`                 | June 5th     | `sha256:0560f5fc751c8069c3ca05a93d45505dd5c599ebbec4cad5c73dbf6d65404d0e` |
+|  `1.14-dev` `latest-dev` `1-dev` `1.14.0-dev` | June 21st    | `sha256:97fe5aca05160c1f7d995bfc283fd5d2005cc8fa72d8dba028cb8381e5c9e68d` |
+|  `latest` `1.14` `1.14.0` `1`                 | June 20th    | `sha256:c3093f6f6e385df8e5f65348f8d5ced120da6bd258954e43026e797b73f1d589` |
 

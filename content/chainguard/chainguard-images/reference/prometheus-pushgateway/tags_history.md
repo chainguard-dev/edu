@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-pushgateway Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 9th     | `sha256:89a3319120d14be86cc0e69daef3f37d14570e518741bc39ba2a71b81a69e5a1` |
-|  `latest-dev` | June 9th     | `sha256:05e8dac383be032df93544a300be8f2c8ae342b309e432325eb528a66c19a95c` |
+|  `latest-dev` | June 22nd    | `sha256:961c4abae272d021eac5e2bff6357a66d348417dd49e940f8fc90de394c658c0` |
+|  `latest`     | June 19th    | `sha256:6f3e38d22fb728a907d84e676efbb02f54543757a75510b4221abeef6e61dd3b` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.9-dev` `1.9.0-dev` `1-dev` | June 9th     | `sha256:edba26485a3b379cf3b85bca476c0d0f6d1e4f1c78c85e27fef351df7b1c2a7b` |
-|  `1.9.0` `latest` `1` `1.9`                 | June 9th     | `sha256:b6a183896bb2039d2d9c58c8b40a973f3163b1d34bebdca15d9e21af284eb446` |
-|  `1.8-dev` `1.8.0-dev`                      | June 8th     | `sha256:2248592f915e4023e7f6c0c2b53a7d8ad44508cb5f26578fb6e1c95927415868` |
-|  `1.8.0` `1.8`                              | June 5th     | `sha256:9422c16a44a55966978fa37d0089fad6a9193ff010d6f3b694cfbc8d46ba0542` |
+|  `1-dev` `1.9-dev` `1.9.0-dev` `latest-dev` | June 21st    | `sha256:65b8cd7328df15583136a5212c83d7cb15bd3ddbd72dc8809ec2ea70b3d29d4b` |
+|  `1.9` `latest` `1.9.0` `1`                 | June 20th    | `sha256:232e0ab31fac9e9d207f5591373497e6a027c49e967d5a7c11ed5e7d2302cc70` |
 

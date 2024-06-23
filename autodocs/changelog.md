@@ -1,3 +1,20 @@
+# 2024-06-23
+New images added:
+
+- authservice
+- authservice-fips
+- cfssl-self-sign
+- local-path-provisioner
+- neuvector-controller-fips
+- neuvector-enforcer-fips
+- neuvector-updater-fips
+- openresty
+- prometheus-blackbox-exporter-fips
+- sonar-scanner-cli
+- tomcat-fips
+
+A total of **1205** documents were updated.
+
 # 2024-06-11
 New images added:
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-optuna Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:baa372ebe7b14be30e08e1a85bd8f105e9c6698d5c6576edd1c3fba3311a1ce4` |
-|  `latest`     | June 5th     | `sha256:2d9c8297656b366b8f2d90eb4fc3b093b947b0f803de0afd08ff2725b90153fe` |
+|  `latest-dev` | June 22nd    | `sha256:b9f57e94f854e5d8d977532fa1b3c0baf0541d24205b338a16a3d91766d91316` |
+|  `latest`     | June 22nd    | `sha256:f314a2d056c66a5ed5ef8adf6cf4792ba70c7c6ef4ee8a459bf6d2886de2bae6` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.16-dev` `0.16.0-dev` `0-dev` | June 8th     | `sha256:81198db910a6fa2ed0c9c3d671935d600fd150d773b4ba7b92fef47fca1930bb` |
-|  `latest` `0` `0.16` `0.16.0`                 | June 5th     | `sha256:d19844dcc3c07629b94b18a3760fca1ce797a56096ec9f6bd64f87278398dfd4` |
+|  `0.16` `latest` `0.16.0` `0`                 | June 21st    | `sha256:9290c6b0a7888a34255b2944d09be31af13556523d1a67851aeec4f3758f0ed7` |
+|  `0.16.0-dev` `0.16-dev` `latest-dev` `0-dev` | June 21st    | `sha256:74b7cfbbb68723dc42ca9945f785328e8681f425074f2a06fa24ee368a4865ac` |
 

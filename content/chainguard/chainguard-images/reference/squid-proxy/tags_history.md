@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the squid-proxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,15 +28,15 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:da9bc8be4590705569d514a3fd5d66b01a1c0b3759b55ad9cfe1efef058f4125` |
-|  `latest`     | June 5th     | `sha256:ad1977e751d04c934251ea0046d874d380d2969aa5b001a080bed8fe1b050378` |
+|  `latest-dev` | June 22nd    | `sha256:3e1f3a3ff21a78d3a884f5fa6858260faf89e2a68860f7458b18f16027776de3` |
+|  `latest`     | June 21st    | `sha256:0edbf09f122328365f4ded4d019bc5e3733c41e6569747acbfb3774b1c18dad8` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                         | Last Changed | Digest                                                                    |
-|---------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `6.9-dev` `6-dev` | June 8th     | `sha256:e348702e08514f5fbba86eb4d9826d93fcacec6464ff8cd9e839a9cd21ce0623` |
-|  `latest` `6.9` `6`             | June 5th     | `sha256:f2492e3a97483afb66f7ea474dd193b199e8b80ee3e6e6570ded21665a78f6bb` |
+| Tag (s)                          | Last Changed | Digest                                                                    |
+|----------------------------------|--------------|---------------------------------------------------------------------------|
+|  `6.10-dev` `6-dev` `latest-dev` | June 21st    | `sha256:7efbafe2bfdd226597bc76194f906b0499dd8b372f7bb451181a8adc521d6188` |
+|  `latest` `6.10` `6`             | June 21st    | `sha256:bab71af4451c01ba4063e9ba86eb6df7d48f44ef72281c6e9364827d61204110` |
 

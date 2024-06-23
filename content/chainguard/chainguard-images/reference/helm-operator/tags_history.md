@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the helm-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:428d948a15acc1b7c05a83172071f09bedc0493f5c45c8400101f8f4b3f23330` |
-|  `latest`     | June 5th     | `sha256:df632e5fd98c43c54dbe857a483f0cc73cb9c8fd3ae782859b9eaa42eea028ca` |
+|  `latest-dev` | June 22nd    | `sha256:7a9df379109b5060fb11cea10be7f37e19710b0df282d7ff701796515e60915d` |
+|  `latest`     | June 19th    | `sha256:ccdb60f7e4270d354afe7b762955fc184d9bbaf5eb276f4b971475c5181c8d0a` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.34.2-dev` `latest-dev` `1.34-dev` `1-dev` | June 8th     | `sha256:f2f59abbaae534349a2e477e9651aa8844ddcd75c5452fbc25e9fbe119ba3aaa` |
-|  `1` `1.34.2` `1.34` `latest`                 | June 4th     | `sha256:ae748384c6513e090c4167f9694e67b89837d8b64e41fc39e81a92eff7af2c41` |
+|  `1-dev` `latest-dev` `1.35-dev` `1.35.0-dev` | June 21st    | `sha256:1ee844a2bf6d624fecfcdf7a283c426f28fc8096280ade7ee2ab977bfd612868` |
+|  `1.35` `1.35.0` `latest` `1`                 | June 20th    | `sha256:0303343e64af8baccbe6627c4826b83079b4d540d6f32a60d46f464bfe19bd2c` |
+|  `1.34.2-dev` `1.34-dev`                      | June 19th    | `sha256:b3c18995b154c426de22a2aecc7101dad5f8733d616088a6728aa625c76dfb6e` |
+|  `1.34.2` `1.34`                              | June 19th    | `sha256:3fff2e54b80899fe41f36d54408b81af6f760b933d5fda7a3e61b70f0334b238` |
 

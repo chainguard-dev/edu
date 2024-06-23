@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the management-api-for-apache-cassandra Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:2776cb5cd52255f1360eff3d24189de329faa7db1ac33e3a141e571fd88f642e` |
-|  `latest`     | June 9th     | `sha256:e30dea341ca2786f700d6042b32e413f6aceb95d58715b40e336a86bef7c5a93` |
+|  `latest-dev` | June 22nd    | `sha256:d743bc94a73c326eb8317d5f4805558941cffd2fee7c3cedb0d5fbf41ab5eba9` |
+|  `latest`     | June 22nd    | `sha256:63835a616f0b6d65b5ceddea1ace2a1f189cbe709bda1418cff865708636b77c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.1.78-dev` `latest-dev` `0.1-dev` `0-dev` | June 8th     | `sha256:bdcce379c8e17ff9062020c05db63b11981b0a08564825af75bddecffe1a4fa4` |
-|  `latest` `0.1.78` `0.1` `0`                 | June 8th     | `sha256:d01c24eb893f32fefe0ec9d0ce428969fbc676910f01164399b505810d805b1b` |
+|  `0.1` `0` `latest` `0.1.82`                 | June 21st    | `sha256:6c2460bc8131815fbfe45590e0919518829ef3159c0eb51aab069a55adb1884c` |
+|  `0-dev` `latest-dev` `0.1-dev` `0.1.82-dev` | June 21st    | `sha256:5a2abc941b4c28199dd3ccb4af9776323ff1f0a6152e896e144cdae9c5c713e9` |
 

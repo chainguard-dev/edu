@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for filebeat Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-07 00:46:50
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,7 +29,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 | Registry                     | Tags                                                                                                             |
 |------------------------------|------------------------------------------------------------------------------------------------------------------|
 | `cgr.dev/chainguard`         | latest, latest-dev                                                                                               |
-| `cgr.dev/chainguard-private` | 7, 7-dev, 7.17, 7.17-dev, 7.17.21, 7.17.21-dev, 8, 8-dev, 8.14, 8.14-dev, 8.14.0, 8.14.0-dev, latest, latest-dev |
+| `cgr.dev/chainguard-private` | 7, 7-dev, 7.17, 7.17-dev, 7.17.22, 7.17.22-dev, 8, 8-dev, 8.14, 8.14-dev, 8.14.1, 8.14.1-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-viewer-crd-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:c3f892cfa2970a58f80aacd2ebe2276d0425a99251ee296ba717444184f38648` |
-|  `latest`     | June 7th     | `sha256:bb1c77253703b3f636a8713e68dfddd594b7479079f61b4b6ef819c838387c57` |
+|  `latest-dev` | June 22nd    | `sha256:d8159dc5b0fa178736b8088eb9dbe3ee70a564b8bd776fa97dd9e5ba0f84eb79` |
+|  `latest`     | June 21st    | `sha256:778dd27847f230c9f6b081de544d05b2f9ea1658ccf7f8b9ac1834b3fb3fc95c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.2-dev` `2-dev` `latest-dev` `2.2.0-dev` | June 8th     | `sha256:df7a2b028671795ef910ea5ef779a1644a3f7088ca0fb6a2a4bbea299c011f0f` |
-|  `latest` `2.2` `2` `2.2.0`                 | June 7th     | `sha256:767e4995c7c0e63656e767b1839a377ebdeeb382aee55ca3f242dc4b804a1258` |
+|  `latest-dev` `2.2.0-dev` `2.2-dev` `2-dev` | June 21st    | `sha256:daefb806f9a549d39e1aa228c4b448efabfbaab0d10f390bdb9ec60947c6e437` |
+|  `latest` `2` `2.2.0` `2.2`                 | June 21st    | `sha256:fd10dc7ddf2bcb094dede8e7cfeaf8590e964e34d098b6f66db7e6ee26880b15` |
 

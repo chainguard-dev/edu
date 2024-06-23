@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-postgres-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:6043588363d26c314c20735c30a02c1cc0042b462e4f715197a9701b2f20ac25` |
-|  `latest`     | June 5th     | `sha256:47cb6db49c40b2898e5cafdadd117e59cbce64382270c2d7121d3499646f49bc` |
+|  `latest-dev` | June 22nd    | `sha256:5ad5d3ddfcd8f86379b67a95da3afaa97b4704eb191b9e244937a97e54f5fa51` |
+|  `latest`     | June 19th    | `sha256:f60cd53b27d0c2c8e88a4aa7aa72fc4c718907979991b3468c8b60d8de32b918` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.15.0-dev` `latest-dev` `0.15-dev` | June 8th     | `sha256:a6d1f2546cc330c51cbf7e597eefc120f4a42ce7a542e66028a06c44ef73d024` |
-|  `latest` `0.15` `0` `0.15.0`                 | June 5th     | `sha256:fc81d9a167b90bbfaf6041d98138c60383f3a307cb07e16d1bc61d4250f179b9` |
+|  `0.15.0-dev` `0-dev` `latest-dev` `0.15-dev` | June 21st    | `sha256:a653bd41d701bbbcffcc8b78d4ead23d6ddc60290dce4e23c62e890bc6e91f71` |
+|  `0` `0.15.0` `0.15` `latest`                 | June 20th    | `sha256:b3fcf283edf506abab2b6656e7872e7dfe04a2d22253a02df6d789ce3035420e` |
 

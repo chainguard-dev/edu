@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for kubewatch Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,7 +29,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 | Registry                     | Tags                                                         |
 |------------------------------|--------------------------------------------------------------|
 | `cgr.dev/chainguard`         | latest, latest-dev                                           |
-| `cgr.dev/chainguard-private` | 2, 2-dev, 2.6, 2.6-dev, 2.6.0, 2.6.0-dev, latest, latest-dev |
+| `cgr.dev/chainguard-private` | 2, 2-dev, 2.7, 2.7-dev, 2.7.0, 2.7.0-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

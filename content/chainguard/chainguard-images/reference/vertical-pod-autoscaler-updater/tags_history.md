@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vertical-pod-autoscaler-updater Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:148f1a9a305418b30a1f6e8e463b66da4700629ec60f4a9e095e2df3b71e275a` |
-|  `latest`     | June 6th     | `sha256:076036eb65b1000f2121b99712fd382c56c1dd8a8a66f4168f6994b7121ea1f3` |
+|  `latest-dev` | June 22nd    | `sha256:9c2c1ddf717d8420a1090c55111361b23c2de13285b6b9aef31bdc1720fa2958` |
+|  `latest`     | June 19th    | `sha256:3e946120cde5d60f380434965908533eba0df5e7ef06c358f17873e4f3047cf3` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.1-dev` `latest-dev` `1-dev` `1.1.2-dev` | June 8th     | `sha256:add3dcb26f2b8cb8a4084d915ada2b0a5a635682085e86864b66afd9f71c0c6d` |
-|  `1` `latest` `1.1.2` `1.1`                 | June 6th     | `sha256:89066d1fe386adc28c11efac8e3c9ff874c85856a5ec52a56b6995205b2f7ea1` |
+|  `latest-dev` `1.1-dev` `1-dev` `1.1.2-dev` | June 21st    | `sha256:4c9c7fd26d51220acb6af143cad1f6575eff4d6bfcc39c45c25b56d9e8af99dc` |
+|  `1.1` `1` `latest` `1.1.2`                 | June 20th    | `sha256:6da368c65e04d1ef8c954cd486207ce3ca8dba5b2abfeb5ac31bd333cff64d55` |
 

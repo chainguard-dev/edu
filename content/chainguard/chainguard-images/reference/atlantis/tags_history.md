@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the atlantis Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-11 00:42:18
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:6a82bbbdfdd3067f8f04811d1340fd324b99eacb4b5bffcd6436c56e4baaac74` |
-|  `latest`     | June 9th     | `sha256:0a95c2d31571e491d94c8e284c5d22f2e27cd45da1912b32da84223b90b6a36d` |
+|  `latest`     | June 22nd    | `sha256:e95ef733bb6d83a7ed26350d960dcb3b8e2c57d58ad4f4409f0cdd9e67e48b72` |
+|  `latest-dev` | June 22nd    | `sha256:e5b2c8092acc621252d228ebd91c9374998b489fb0cb812e1075985ce5800445` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.28-dev` `latest-dev` `0.28.1-dev` `0-dev` | June 10th    | `sha256:492302ab9767249dbbef6fcddeb34d7b84e4d43e9b0a1a120a5bde3d9b6c0d60` |
-|  `0.28.1` `latest` `0.28` `0`                 | June 10th    | `sha256:1bd40e874ae8e15e5c42db470d2d918f357acdc166334ca118112e7f68034629` |
+|  `0-dev` `0.28.3-dev` `0.28-dev` `latest-dev` | June 21st    | `sha256:8aaab848e0aaea194877714d527019011c476dd96b9b6cc5585201d2b662c991` |
+|  `0` `0.28` `latest` `0.28.3`                 | June 21st    | `sha256:554821a369efab98ee3cd51d45a6f66c30cbe1e960465b0d15616556ed8923f2` |
+|  `0.28.1`                                     | June 18th    | `sha256:05797df99f8988e7ef28eb95aabfe38d9438800f3fb6b201fcdd01804b5c859b` |
+|  `0.28.1-dev`                                 | June 18th    | `sha256:177b5369147d643b84443ab59944d20df57a7d263f262f4a8a79d34361d22bd4` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the secrets-store-csi-driver-provider-gcp Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:2335b5998e0e1a5b4cb4c7a00f96f53d7b290b486571373edfc6646dbabd5166` |
-|  `latest`     | June 5th     | `sha256:87a4e10b710c6a27f5969aa5e1397e521f151889c6a1623ac216f08f73e65f36` |
+|  `latest-dev` | June 22nd    | `sha256:94ed4fb227227a260cdd88bb0ed6feed8054379cd70cd1d8b2f62355f3d7872c` |
+|  `latest`     | June 19th    | `sha256:de4fdcc5212bfd3e6e33ffc9367a4f49d05fa6ab2d3a7b38e0da075391842145` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.5.0-dev` `1.5-dev` | June 8th     | `sha256:9f148d98993fbc99d287fc70bfd444570e0a53cf9bb53ccfc4841f191513a475` |
-|  `latest` `1.5` `1` `1.5.0`                 | June 5th     | `sha256:7a9128d3dba9adaaff23b55a10651c6d09d8346534000ea2e983204389d4de23` |
+|  `latest-dev` `1.5-dev` `1.5.0-dev` `1-dev` | June 21st    | `sha256:8883f87615a289aa7970500a7cea8cf388194a71b15a110547486cffb970789f` |
+|  `1.5` `latest` `1.5.0` `1`                 | June 20th    | `sha256:fac91e3e0782b9d730d1a125542410bc2e1250fef319d09d92509f458d10cf4e` |
 

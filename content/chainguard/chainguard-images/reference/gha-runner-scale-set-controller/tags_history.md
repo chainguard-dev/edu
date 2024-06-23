@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gha-runner-scale-set-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:4838226635b2e6a48ef3eadb7d086237c8212fd8dbbd04c6c0ce69a0dcf56203` |
-|  `latest`     | June 5th     | `sha256:0ccd18da185392782738f6dd39fb349976356f262cb9f99bebd70528c2cfbda9` |
+|  `latest-dev` | June 22nd    | `sha256:0942949d1bbcede1054417a39835335c68418d464e94d964035ea7bc81bd6e88` |
+|  `latest`     | June 19th    | `sha256:3534405b3b5e3ff47986bc1631732d080d0cf47ab2a9fd4b84b1bad060bc1a34` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.9.2-dev` `latest-dev` `0.9-dev` `0-dev` | June 8th     | `sha256:7ffd88ed9416b11078920a419da90ef087ff36b816d5f3d4db0ee66e989dca25` |
-|  `0.9.2` `0.9` `0` `latest`                 | June 4th     | `sha256:f715305ade4978c54373fb03de3aaff6c6a7e63e7ec191a5abdab50fa6dddb91` |
+|  `latest-dev` `0.9.2-dev` `0.9-dev` `0-dev` | June 21st    | `sha256:0b443b26d50c6379abfdaea6cca27882e7003ff36b3ae48a5241023f7ed4f7a3` |
+|  `latest` `0` `0.9` `0.9.2`                 | June 20th    | `sha256:9f314cc5a6c85f7987d477041ed69ac0274462186534aa632e9b1e3b932b76b7` |
 

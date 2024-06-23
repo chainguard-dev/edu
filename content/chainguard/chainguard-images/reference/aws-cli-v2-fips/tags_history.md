@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-cli-v2-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-11 00:42:18
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,12 +33,13 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.16` `2` `latest` `2.16.4`                 | June 10th    | `sha256:3a1be58eaadf6d271499a1af9406310fb533dacb984fe1bf07ceacd6ebec8413` |
-|  `latest-dev` `2.16-dev` `2.16.4-dev` `2-dev` | June 10th    | `sha256:05dc5f8f6527baf6b91d70b7e8bc5c862a24847ef69e4e4fd737d7792fed08fb` |
-|  `2.16.2-dev`                                 | June 8th     | `sha256:a71e07acf8e243d54fce032c5ec0976f291b19d76fd0cc609975aa0061b88e97` |
-|  `2.16.2`                                     | June 6th     | `sha256:325892d7a302ee1e93cebad41e7278cad6087b6958149ad75420ff141ebeccc1` |
-|  `2.16.1`                                     | June 5th     | `sha256:9fa9a388cb77c8a3529d3e64c2c3e723b764083a0021f2530881d57bb60ffefc` |
-|  `2.16.1-dev`                                 | June 5th     | `sha256:bc08b26d6a543803f754f972c438fe256a39f9e28608539d20ac2354428b74da` |
-|  `2.16.0-dev`                                 | June 5th     | `sha256:8236020e9a13302c73e456308c2e31546ee9211a67ac940c03ebd7a1cc0d243a` |
-|  `2.16.0`                                     | June 4th     | `sha256:77ee67c3db4fc3cc1cf6286028c5f24093f12fba8d490866d0a0cbe58b056848` |
+|  `2.17.0-dev` `2.17-dev` `2-dev` `latest-dev` | June 21st    | `sha256:4d27bf3937247e00a041ea3feac36d9cb44429755a9c1897c3098f382fc40520` |
+|  `2.17` `2.17.0` `2` `latest`                 | June 21st    | `sha256:bac77b1a6b9edad0db03a8753950687f213393351ec6d17cb6b95ae9dcfa85bb` |
+|  `2.16.12-dev` `2.16-dev`                     | June 20th    | `sha256:77bb0b5d215f05e8f3133d61054129dc56a58e2c28f7d49661e4567bd69f6800` |
+|  `2.16.12` `2.16`                             | June 20th    | `sha256:eb1356c8f4948563d2fd1cae69bd21010200f3790f294ac4b455c2d39bc2cf66` |
+|  `2.16.11-dev`                                | June 19th    | `sha256:29c7eb23d1bede42ac0771803fba421616ca822528232cd85dcacdf8693328d0` |
+|  `2.16.11`                                    | June 19th    | `sha256:8ec344ac83dcd672f5575c4d01e4f171ff2be94406e04d180141e39ea819e44e` |
+|  `2.16.10`                                    | June 19th    | `sha256:284ffc61f2e5d676a2b729b00e23ddf601a2b44230d58db15402f3ca8b83859d` |
+|  `2.16.10-dev`                                | June 19th    | `sha256:da0fec383998e59f45a75e216f16bcbe1f05d84f06954c7277a36a0f05071242` |
+|  `2.16.9-dev`                                 | June 17th    | `sha256:bbe6489ccc0b1b431d146f55ba03108922d541e6137386b150ed0916edc0b68e` |
 

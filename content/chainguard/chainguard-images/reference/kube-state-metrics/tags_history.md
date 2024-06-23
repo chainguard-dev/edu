@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-state-metrics Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:2d05737f3b417b921a7c91a2e27923f187a41b8dae0d1ac63fe5411900515334` |
-|  `latest`     | June 5th     | `sha256:b15609c8f5523420fab96436450b36e672081b9ec0c1ac556c73a3ce4529fd4f` |
+|  `latest-dev` | June 22nd    | `sha256:27e2af7ae8b9264b24548e7818c54e8c679b31c6b7603bf4cb780d07b73f5dc4` |
+|  `latest`     | June 19th    | `sha256:226f02175299b0e525302857a02773f5c15eb85ef1b041ad10ede259545b3177` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.12.0-dev` `2-dev` `2.12-dev` `latest-dev` | June 8th     | `sha256:54fb7643bf970eaf93a738bada08a1172085f7e82979df2bb9dcbe68030098aa` |
-|  `latest` `2.12` `2` `2.12.0`                 | June 5th     | `sha256:68ac23077b9ca306c35d2ba03213a8c1fab9c38b2315176c394ead52e83f135f` |
+|  `latest-dev` `2.12.0-dev` `2.12-dev` `2-dev` | June 21st    | `sha256:9c7c636a0bd72a5679096ebba71044d8b98e41ebec8575f185fee0168e698a59` |
+|  `2` `2.12.0` `latest` `2.12`                 | June 20th    | `sha256:46e4d1556ced4c132e73b0adff79380402222cda1771ae302a239b73d788abc6` |
 

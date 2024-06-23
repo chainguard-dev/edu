@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-vip Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:7e8f85632f51e509ef31961afb69a6ac2b372d8e98418bd8f56c9332c48d95e2` |
-|  `latest`     | June 5th     | `sha256:e90b12bd8ccb1b2d5f8a0251ac023108cc98631aac9c403eb5bb46ad15fa55b2` |
+|  `latest-dev` | June 21st    | `sha256:f76de2a4b2771dbe18bdba387bd66d4f4a83c312cde2615f614f6a9740f8b977` |
+|  `latest`     | June 21st    | `sha256:0f35949b6b93187b04b9daf26f08fc96e5712bc7a92b7aed7ded367e0fbcaf02` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.8-dev` `0.8.0-dev` `latest-dev` `0-dev` | June 8th     | `sha256:981762857864e67b1a158050d772c98b959586129cd871c3bef4b52ef18446f1` |
-|  `latest` `0.8.0` `0.8` `0`                 | June 5th     | `sha256:04db4e04fbb7ed82d588054d560bc53d98f89f2e1a12e085317d83f5016bcc83` |
+|  `0-dev` `0.8-dev` `latest-dev` `0.8.1-dev` | June 21st    | `sha256:08a0e0235f092af1fe1cd6d991026de91b739bbb4e1358278d6e89c08ac86a2b` |
+|  `latest` `0` `0.8.1` `0.8`                 | June 21st    | `sha256:d38382bb2a1427d851dcfbeed8a737ba3e9ff7257665af8dd1443a864b96331a` |
+|  `0.8.0-dev`                                | June 20th    | `sha256:376a801bf3f9a25c421db4ff47e20ae9ddd9b361e3a4eccd6c8509380948656e` |
+|  `0.8.0`                                    | June 20th    | `sha256:5a38b63fff56b2a1e92e6ac0362e2d6cf90ccc225cd29fe50f402e9010e4c0fb` |
 

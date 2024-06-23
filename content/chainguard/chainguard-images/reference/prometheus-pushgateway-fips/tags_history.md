@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-pushgateway-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-11 00:42:18
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.9.0-dev` `1-dev` `1.9-dev` | June 10th    | `sha256:ea602602f75a5a6520e29676be136f54e45eece590742c97600e8c6363620e3c` |
-|  `1` `latest` `1.9` `1.9.0`                 | June 10th    | `sha256:452be43b821fe6185de43ffbc6dd4337a00fa3d5c182083ce5773e2c51153749` |
-|  `1.4.3` `1.4`                              | June 9th     | `sha256:fd1fdb3f9edd910b7a83673c5a7bfb1ada63f0ae41a2c8a28fd6cd35fa2e29d6` |
-|  `1.8-dev` `1.8.0-dev`                      | June 9th     | `sha256:b6f6a5a1af7d78ff4006da595d676535711a250ba13bf03b76072d1b86097e1c` |
-|  `1.8.0` `1.8`                              | June 9th     | `sha256:1a202305e049262d5e1d162cf066ac86660be955ace83bcc97f6c6a4f389b293` |
-|  `1.4.3-dev` `1.4-dev`                      | June 9th     | `sha256:932a186297ee6a1af6bf48b6b2b5dee0c5f898df3a3473febcd0d41430407904` |
+|  `1.4-dev` `1.4.3-dev`                      | June 21st    | `sha256:e20e986c28697b4afe8196e6a1baaf479e069e53bf296a1f323b3761cb2a8baf` |
+|  `1.9-dev` `1.9.0-dev` `1-dev` `latest-dev` | June 21st    | `sha256:44d35b2de11462045fada68b7b69ad117279120809b29afab904326cb2a29992` |
+|  `latest` `1.9.0` `1` `1.9`                 | June 20th    | `sha256:21b7d5ada8e67f778760d8cfd03bec37e60b090d29ee1455b22258d2d6b7f941` |
+|  `1.4.3` `1.4`                              | June 20th    | `sha256:45e1c08b549127eef4c59f868a3b08bcce759a8526ad4acc60ae54d6077667bf` |
 

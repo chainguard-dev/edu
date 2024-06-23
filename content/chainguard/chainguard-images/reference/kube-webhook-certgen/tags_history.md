@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-webhook-certgen Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:93d02ff54edd6d412cda5e19a45f3c34237ad57ec7366575ccfcb294a446de34` |
-|  `latest`     | June 5th     | `sha256:ffd4e301067d13cca6c5e8ceaf881ecd2c6176914627f8759f949d5c1cda597a` |
+|  `latest-dev` | June 22nd    | `sha256:017526e9020a2716587e31aa2f8781b61bcc7a40d0f47d5ca39a37ea7a766a26` |
+|  `latest`     | June 19th    | `sha256:c72c5341e113bcf669da49f58ff53312597a321ba41a5c8f73dc8fcc0a46d41c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.10.1-dev` `latest-dev` `1.10-dev` `1-dev` | June 8th     | `sha256:e72d43f232399c5d56fbe0869483f72309961cf103995a02b77cdf06503c79db` |
-|  `latest` `1.10.1` `1` `1.10`                 | June 7th     | `sha256:61e748076e8709267b1980efdce224376a704d55d961a4f95b7225e984494921` |
+|  `1-dev` `1.10-dev` `latest-dev` `1.10.1-dev` | June 21st    | `sha256:a59db9ff56cea406d76c4449a87595958e500588904dbb5734b326026b05e182` |
+|  `1.10` `1` `1.10.1` `latest`                 | June 20th    | `sha256:d1cfa63f5c90acbeffb03ae4c5b965b4fa05ddfbd07dc790c6cada32081bcd1e` |
 

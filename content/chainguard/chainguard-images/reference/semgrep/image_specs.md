@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public semgrep Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -98,12 +98,12 @@ The table shows package distribution across variants.
 | `py3-rpds-py`                   | X          | X      |
 | `py3-ruamel-yaml`               | X          | X      |
 | `py3-semgrep`                   | X          | X      |
-| `py3-tomli`                     | X          | X      |
 | `py3-typing-extensions`         | X          | X      |
 | `py3-ujson`                     | X          | X      |
 | `py3-urllib3`                   | X          | X      |
 | `py3-wcmatch`                   | X          | X      |
 | `py3-zipp`                      | X          | X      |
+| `py3.12-tomli`                  | X          | X      |
 | `python-3.12`                   | X          | X      |
 | `python-3.12-base`              | X          | X      |
 | `readline`                      | X          | X      |

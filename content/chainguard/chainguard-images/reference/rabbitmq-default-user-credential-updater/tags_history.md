@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rabbitmq-default-user-credential-updater Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:01a23f83dbad01f845dd8c67b95ace8dc63135937d104223012ef734d7aab5a7` |
-|  `latest`     | June 5th     | `sha256:5ac832c7247ff7160a6e45cd7f9d7f45f1abdd785d6c581af186b1b72f90a782` |
+|  `latest-dev` | June 22nd    | `sha256:81c37ff7698c5a1c30909d87c8fd77af8429b2291c51690e97253aa8c5eb3f7b` |
+|  `latest`     | June 19th    | `sha256:ac76c0147b3ac16515c6b96219cb9d83d11249a84de12e0e23c6161f221b3c73` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.0.4-dev` `1.0-dev` | June 8th     | `sha256:650db5ecb64973818491d8b1db84196fc5000af4d140c612b26cd359703e3376` |
-|  `1.0.4` `1.0` `1` `latest`                 | June 7th     | `sha256:e4cbf6cd5268a4f4113894b95cdd0d5c23b6f4ff8563a42fe25b1913e7fbfb78` |
+|  `1.0-dev` `1-dev` `latest-dev` `1.0.4-dev` | June 21st    | `sha256:765b4aa3aedc6cdb1ca8a8415853471d32554ed7120c691e6ae0917df8647690` |
+|  `1.0` `1.0.4` `latest` `1`                 | June 20th    | `sha256:2ca9fe4156511406dc780cb5efcd9ba7e43fbb7351a4628335d878b3195bfee6` |
 

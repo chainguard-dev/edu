@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the pytorch-cuda12 Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-11 00:42:18
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 10th    | `sha256:7582f231be4f13e5bdf1fa95863e7172f4e8d287546c4b874d62296699cbeb70` |
+|  `latest-dev` | June 21st    | `sha256:9dc45d979ae9b5e1f15463e885d74a6dcd9e7537433188e4fcd2b8708a88db0c` |
+|  `latest`     | June 21st    | `sha256:72abde514cf4257abd097547e8b4f0a36b59f59798704ff4b3d03397a34b16c1` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.3.0-dev` `2.3-dev` `latest-dev` | June 8th     | `sha256:37dc9e96dee9981eaf42616a7c74a21395782e3017c7739adb55347cc94a72a3` |
+|  `2` `latest` `2.3.1` `2.3`                 | June 21st    | `sha256:c7f14f47871dc3ac5622abda751eccad6c855dd2691f2e7126011eb893905cad` |
+|  `2.3.1-dev` `latest-dev` `2.3-dev` `2-dev` | June 21st    | `sha256:096ff157314214b80e096012349384b15622b5871718020524c72f68d5d81b8d` |
+|  `2.3.0-dev`                                | June 19th    | `sha256:7284ec25e7060e4cfe78aefd19dbc8841ba3132b2e9a56ad7ab75662bb107ce3` |
+|  `2.3.0`                                    | June 19th    | `sha256:12f32be60736a89934c0ef47fa3fc44079d689b595ae719f010bffc1b0d06792` |
 

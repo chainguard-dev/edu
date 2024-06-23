@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public prometheus-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-11 00:42:18
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -63,7 +63,7 @@ The table shows package distribution across variants.
 | `ncurses-terminfo-base`       | X          |        |
 | `openssl-config-fipshardened` | X          | X      |
 | `openssl-provider-fips`       | X          | X      |
-| `prometheus-fips-2.52`        | X          | X      |
+| `prometheus-fips-2.53`        | X          | X      |
 | `wget`                        | X          |        |
 | `wolfi-baselayout`            | X          | X      |
 | `zlib`                        | X          |        |

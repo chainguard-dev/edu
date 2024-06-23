@@ -3,8 +3,8 @@ title: "percona-server Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the percona-server Chainguard Image"
-date: 2024-06-11 00:42:18
-lastmod: 2024-06-11 00:42:18
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,12 +26,16 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-Currently, there are no Developer versions of this image available.
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | June 22nd    | `sha256:1fe8aad0b0ed8242d206d09f8492d4278a79c8aaedd69b852531a3a0cf6bccd1` |
+|  `latest`     | June 22nd    | `sha256:c1b6565e8c6649a5d6560387c7516676102189ee0338ec154a48e72ed4a7550a` |
+
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | June 11th    | `sha256:cdb64fd138a9a4f9d21df4ae428828e91b3d6894474b0ce0f64b001fc76af235` |
+| Tag (s)                     | Last Changed | Digest                                                                    |
+|-----------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest` `8.3.0` `8.3` `8` | June 21st    | `sha256:a4a3c10d157071663f01da0dd78d5296c558bd7029a480ddab24259c470e2b1a` |
 

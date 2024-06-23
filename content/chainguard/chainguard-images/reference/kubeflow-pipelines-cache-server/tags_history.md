@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-cache-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:c7e3bd051224b68901c1eb4600601d0fc40c6e042b7aa73fc36acc061a225b5b` |
-|  `latest`     | June 7th     | `sha256:56fb337574f0cb33aa491ddb726febd8198520a60c54b5602d065cc65ee08218` |
+|  `latest-dev` | June 22nd    | `sha256:56d93ca91c817e9238a0c5f5b3dc0f6e5fa6ffb8fe14cca73e442b72dcc9b2a2` |
+|  `latest`     | June 21st    | `sha256:62034a3bfd0c856c2e78b56d2065577a8b77647a4818e03cc14cf7e90e70668f` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.2-dev` `2.2.0-dev` `2-dev` `latest-dev` | June 8th     | `sha256:a0c801fd5d67b24f19d36d8efbfb80a3fef68367b7ff24e552b399e4f42d1f48` |
-|  `2` `2.2` `2.2.0` `latest`                 | June 7th     | `sha256:1e8b886ba6c38e457cb59fe9259cf0bdcc59abd8e907dd13bca05df19d6d6782` |
+|  `latest-dev` `2.2-dev` `2.2.0-dev` `2-dev` | June 21st    | `sha256:c003de1b2585ef1e8fa216c66d81aec24be8911ad4b02e71c17b75e28027f19f` |
+|  `2.2` `latest` `2.2.0` `2`                 | June 21st    | `sha256:2e1128d89b4fd72a5ce056b696b5edfc5a04265fee276e3e04f86bbff8896894` |
 

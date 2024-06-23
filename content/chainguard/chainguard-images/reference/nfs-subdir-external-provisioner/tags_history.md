@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nfs-subdir-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:b0c13d3f43d27db4cd45f4cf3b922974548216e316983609f31bb77b5544a659` |
-|  `latest`     | June 7th     | `sha256:637c1a6a4a04fbb0b35446c3bb485ca478ff1435bba034ca2770a99e5090fc00` |
+|  `latest-dev` | June 22nd    | `sha256:30cb25d776df9bf1074fb251b4725a3f60ffd61f89a4154ddc84276e67f04c1d` |
+|  `latest`     | June 22nd    | `sha256:d1dab7c52a24ea69bc9b1bf87678f3aa51f637e103a5602a293bca97a6776a6e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4-dev` `latest-dev` `4.0-dev` `4.0.18-dev` | June 8th     | `sha256:4f97ec89f699021ef51f3bba460862ab000ebda36b5410f6d79a2e8a57e99294` |
-|  `4` `4.0` `latest` `4.0.18`                 | June 7th     | `sha256:faa329ecb6eef733c7ba56eea8fe1c4f1c28278432a4689615f666b8fbd86c19` |
+|  `4.0.18-dev` `latest-dev` `4.0-dev` `4-dev` | June 21st    | `sha256:a4554e99c1aff71a4d12b6d3cb61c212d92e0556c3ed69d9b11ee3a2ffe2d7ed` |
+|  `latest` `4` `4.0` `4.0.18`                 | June 21st    | `sha256:f8069f839a982de6e1bfe257c83431bca3e900109938294de4f70f93f4457e12` |
 

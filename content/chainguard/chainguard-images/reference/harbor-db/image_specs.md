@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public harbor-db Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-03 00:46:08
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -24,7 +24,7 @@ This page shows detailed information about the Chainguard **harbor-db** Image.
 |              | latest-dev                            | latest                                |
 |--------------|---------------------------------------|---------------------------------------|
 | Default User | `postgres`                            | `postgres`                            |
-| Entrypoint   | `/usr/bin/docker-entrypoint.sh 13 14` | `/usr/bin/docker-entrypoint.sh 13 14` |
+| Entrypoint   | `/usr/bin/docker-entrypoint.sh 14 15` | `/usr/bin/docker-entrypoint.sh 14 15` |
 | CMD          | not specified                         | not specified                         |
 | Workdir      | `/`                                   | `/`                                   |
 | Has apk?     | yes                                   | no                                    |
@@ -49,7 +49,7 @@ The table shows package distribution across variants.
 | `glibc-locale-en`           | X          | X      |
 | `glibc-locale-posix`        | X          | X      |
 | `gzip`                      | X          | X      |
-| `harbor-2.9-db`             | X          | X      |
+| `harbor-2.11-db`            | X          | X      |
 | `ld-linux`                  | X          | X      |
 | `libbrotlicommon1`          | X          |        |
 | `libbrotlidec1`             | X          |        |
@@ -71,13 +71,14 @@ The table shows package distribution across variants.
 | `ncurses-terminfo-base`     | X          | X      |
 | `net-tools`                 | X          | X      |
 | `posix-libc-utils`          | X          | X      |
-| `postgresql-13-base`        | X          | X      |
-| `postgresql-13-client-base` | X          | X      |
-| `postgresql-14`             | X          | X      |
 | `postgresql-14-base`        | X          | X      |
-| `postgresql-14-client`      | X          | X      |
 | `postgresql-14-client-base` | X          | X      |
-| `postgresql-14-contrib`     | X          | X      |
+| `postgresql-15`             | X          | X      |
+| `postgresql-15-base`        | X          | X      |
+| `postgresql-15-client`      | X          | X      |
+| `postgresql-15-client-base` | X          | X      |
+| `postgresql-15-contrib`     | X          | X      |
+| `sqlite-libs`               | X          | X      |
 | `util-linux`                | X          | X      |
 | `wget`                      | X          |        |
 | `wolfi-baselayout`          | X          | X      |

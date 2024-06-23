@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opensearch-dashboards Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:52ab04eda0fe108fce905bd84d6a45b7f1fe2524583ccd63deddfacdf399d167` |
-|  `latest`     | June 7th     | `sha256:e485c561b33cb3f0a2d34dd511206b747952879db322c1a86507aab1f0ab3639` |
+|  `latest-dev` | June 22nd    | `sha256:54dae7fd01372199a348acd9214f1901a1fadb76ac6c9ea60fea8bccb4d1c55a` |
+|  `latest`     | June 22nd    | `sha256:00e050be1efbfd4e61a82caa23105fd7cb6e06a2f9175ae52881bb75647b902b` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.14.0-dev` `2-dev` `2.14-dev` `latest-dev` | June 8th     | `sha256:d3b0418fb4d54d5487c8d62571f2dd4f2ca042dc50c91ac878cd1ab14cb9fc84` |
-|  `2` `2.14` `latest` `2.14.0`                 | June 7th     | `sha256:49fc953376d68a4d09a9fba5a11c510eaf86a72b4afaa0ec9236805291090a10` |
+|  `2` `2.14` `latest` `2.14.0`                 | June 21st    | `sha256:b629ff285f751b23ae310e2a571b670af4405f8a0238323f7807a2c502b13ab4` |
+|  `2.14-dev` `2-dev` `latest-dev` `2.14.0-dev` | June 21st    | `sha256:6c081a77633a9c12f0f41ecbe69adbf2130bca9569485b16f58b0fb7adb9d8e2` |
 
