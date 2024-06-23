@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-ebs-csi-driver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:148c351c5af2f68e1647877ee32f8784716f7514c431ddd88296fe461d4cbdf2` |
-|  `latest`     | June 5th     | `sha256:77c90d46faaa7c36720bf68eaf8041a0bd5bc5690f85dafe53989d79f5046b15` |
+|  `latest-dev` | June 22nd    | `sha256:0031f702d9b10e08629ebee15efad11e122c217793637e6e4e99ae8cae5fe6ba` |
+|  `latest`     | June 20th    | `sha256:28e34c0845bdfd52de63890fac7cf12e6bd2ba40fe7da483376a111116fa9362` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.31-dev` `1.31.0-dev` `latest-dev` | June 8th     | `sha256:0ce528a320b3f6dd2fa931691994927ab3a8439e684a112693337a528f12f532` |
-|  `latest` `1.31` `1` `1.31.0`                 | June 5th     | `sha256:d3067850f302d9620135c1a907d8198c935b8373ff2677baf83e3ec996fbedb2` |
+|  `1-dev` `1.31-dev` `1.31.0-dev` `latest-dev` | June 21st    | `sha256:7bd3af1cf59ebe6f5a12bb8b55d03609be3e2780e12c75671650a75a9aa96bf1` |
+|  `1` `latest` `1.31` `1.31.0`                 | June 20th    | `sha256:d0c93e12c144e3cc28ff01ddd8135acf505dbcb3280a1d64b7201076d061f47a` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-hubble-ui-backend Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:d0e437caf9bbffd23f67fc2ca50047276a5f5480a8d276a7c95178c264da828e` |
-|  `latest`     | June 5th     | `sha256:85fa0f04efcfa842ff4dadf8233710c89a077043d73ce7ba93b93b97bad36773` |
+|  `latest-dev` | June 20th    | `sha256:c8a460abf187c34657153be7d218b357f7f4f151c7fc5fea7ab8ffd9a400972e` |
+|  `latest`     | June 20th    | `sha256:5086b621d3a862c2b3045c67472740b16c37819a7bc5acd28eb3d216868663c6` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.13-dev` `0.13.1-dev` | June 8th     | `sha256:fef815985a765dce9a4bdb26580ebb35d5ca34a27d0ac08f21cfc711a1dc0cc6` |
-|  `0.13` `latest` `0.13.1` `0`                 | June 4th     | `sha256:acf43511851eaf5e443defc2ba8d584ba80cbd9d1bfbaca0d443a4c985d44a14` |
+|  `0.13.1-dev` `0-dev` `0.13-dev` `latest-dev` | June 21st    | `sha256:f7f33b4fe6d3c72d33f3a28bf0549a520f36a559391809fe280b9ad652391a99` |
+|  `0` `0.13.1` `latest` `0.13`                 | June 20th    | `sha256:77b17d060a6a2757d59342d427952cb5eb17fa8e109dbe3611d53338f3bab959` |
 

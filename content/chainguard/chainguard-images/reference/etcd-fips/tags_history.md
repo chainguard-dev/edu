@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the etcd-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.5.13-dev` `3-dev` `3.5-dev` `latest-dev` | June 8th     | `sha256:f65d71a1ae70247639779bc7e2acdf104eda91c389f15fb50724010aad6900df` |
-|  `3.4-dev` `3.4.32-dev`                      | June 8th     | `sha256:e098d06772fa4d0f4c60789d1f8c6803d50a5269811a46fe3e17dee84609819b` |
-|  `3` `latest` `3.5` `3.5.13`                 | June 5th     | `sha256:863365fb6a2839023f5e11f16365bb616b47f43950318385bdf4053b73931e52` |
-|  `3.4.32` `3.4`                              | June 5th     | `sha256:fe0c4f356b07cd939c43760b67eee9b8e84eeb1e8dc17a606f8e912f38d43819` |
+|  `3-dev` `latest-dev` `3.5-dev` `3.5.14-dev` | June 21st    | `sha256:d58b449cd5f4a4211e5789681c1d3fcc890262859076648bf9001d83d9bd6ac2` |
+|  `3.4-dev` `3.4.33-dev`                      | June 21st    | `sha256:c07955ad74da4ebcb0c3fc858c2385a931d0c1e0c8c7fb6c89101eee62463d9a` |
+|  `latest` `3.5.14` `3` `3.5`                 | June 21st    | `sha256:4a02129301110fac504222eb64088e6ceccc2569ecdeb2689e5b19a1f79a3095` |
+|  `3.4` `3.4.33`                              | June 20th    | `sha256:ac6799842496b1468d39b9e2a31cfd714583015de88ecb6cea679e40e4a6977f` |
+|  `3.5.13`                                    | June 20th    | `sha256:97e231771f97a2eee93be5ab70cbbc16046ee90e46327bdcdff29521550e0130` |
+|  `3.5.13-dev`                                | June 20th    | `sha256:64340e1ecdd4e9fb26f3c4c6dc756aa21b72152a63e176be72a8a786cd8e0b0d` |
 

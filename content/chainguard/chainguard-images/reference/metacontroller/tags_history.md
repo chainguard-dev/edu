@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the metacontroller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:cd398311544a35a230933cb7f77f41ea492fc1b7dbd05c67c608a22236f34ffa` |
-|  `latest`     | June 5th     | `sha256:7ab8075836550d2a02f0be648d0e36639c9e93d3f5e1edfdc9b728b29f89bda6` |
+|  `latest-dev` | June 22nd    | `sha256:d795ac52e526e21a4da654b7b99681a9570e4c4cca1d0d54eff03bfd025c23be` |
+|  `latest`     | June 19th    | `sha256:e6aae7e4e6b6c38fcfc1071c47fc471c6df326bb2c76b7f895414a7ee40954b1` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.11.14-dev` `4.11-dev` `4-dev` `latest-dev` | June 8th     | `sha256:aea30faf52744127fcba353f5502e16318699627a3341fdd0d7f8feda13ce520` |
-|  `4.11.14` `4.11` `4` `latest`                 | June 5th     | `sha256:588ae6790d7405d6753a756ddc8acb5c474371692b0564900b2e0bcffb84a231` |
+|  `4-dev` `latest-dev` `4.11-dev` `4.11.14-dev` | June 21st    | `sha256:4a8bc58d47ad33f641f542d3760f6e3ac588ca5520d5c72b869ae165a58fc131` |
+|  `4.11.14` `latest` `4.11` `4`                 | June 20th    | `sha256:650ccabe6ff6b3a36cf5fba6b941cc4ebca9801fe1f61a1b655f2463b24bd2f5` |
 

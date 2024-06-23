@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the neuvector-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-11 00:42:18
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:f9e981d9a5deb766a757040344bec3e43b9c4908c0b7c9e0da610e9cf29378df` |
-|  `latest`     | June 7th     | `sha256:74189fe4107dfea4862960ab1c3c21d9edfe2a51aa5e5c45709d2a73bc862965` |
+|  `latest-dev` | June 22nd    | `sha256:fc4ecd4cc67ef30ee0d2d68fc508fdc2370a5945c8711d3f28261de8797d8a8f` |
+|  `latest`     | June 22nd    | `sha256:10b667c7d97b1b58b7c5a68383b7be22fd459731f8ad2cb09e732bf840326a75` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `5.3.2-dev` `latest-dev` `5-dev` `5.3-dev` | June 10th    | `sha256:fe87e8a179331b90a68eb95012e5c17be0db09debc01b48f0448061ffb4dc66a` |
-|  `5.3` `5` `latest` `5.3.2`                 | June 10th    | `sha256:2ba087168430e098c1104a323af709429c60a8db039f683e59dba91629384f60` |
+|  `5.3.3` `5.3` `5` `latest`                 | June 21st    | `sha256:25c49d5c0f09d860c05c33bc30dc44ee09c2ad9c932e48cc6c247fd5d9574f4e` |
+|  `5.3.3-dev` `5.3-dev` `5-dev` `latest-dev` | June 21st    | `sha256:0b5552af505bb485153018288368afd26ec7c22166f47a6ef90806e8663baf28` |
+|  `5.3.2`                                    | June 17th    | `sha256:3424a26c39d7acb1e1a812a2807679209078c538acc6a59e2c42db227ed51834` |
+|  `5.3.2-dev`                                | June 17th    | `sha256:1f0760840871ac0c4ed5abebc9147bab3b56e80d1e17a1f325d29595ffc227ae` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public elasticsearch Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-29 00:38:53
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -58,6 +58,7 @@ The table shows package distribution across variants.
 | `libbrotlicommon1`       | X      |
 | `libbrotlidec1`          | X      |
 | `libbz2-1`               | X      |
+| `libcap`                 | X      |
 | `libcrypt1`              | X      |
 | `libcrypto3`             | X      |
 | `libcurl-openssl4`       | X      |
@@ -69,6 +70,7 @@ The table shows package distribution across variants.
 | `libpng`                 | X      |
 | `libpsl`                 | X      |
 | `libssl3`                | X      |
+| `libsystemd`             | X      |
 | `libtasn1`               | X      |
 | `libunistring`           | X      |
 | `libxcrypt`              | X      |

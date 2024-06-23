@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for calico-node-driver-registrar-fips Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,7 +29,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 | Registry                     | Tags                                                                                                                                  |
 |------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
 | `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                          |
-| `cgr.dev/chainguard-private` | 2, 2-dev, 2.10, 2.10-dev, 2.10.1, 2.10.1-dev, 3, 3.28, 3.28.0, latest, latest-dev, v2, v2-dev, v2.10, v2.10-dev, v2.10.1, v2.10.1-dev |
+| `cgr.dev/chainguard-private` | 2, 2-dev, 2.11, 2.11-dev, 2.11.0, 2.11.0-dev, 3, 3.28, 3.28.0, latest, latest-dev, v2, v2-dev, v2.11, v2.11-dev, v2.11.0, v2.11.0-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

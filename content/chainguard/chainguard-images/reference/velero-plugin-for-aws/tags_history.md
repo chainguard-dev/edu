@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the velero-plugin-for-aws Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-11 00:42:18
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,15 +28,16 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 10th    | `sha256:51fd6f0699842ac689e5b42a94c1f8d70294ee3fe573eed05b45148784839c15` |
-|  `latest`     | June 5th     | `sha256:e5099350c12fdde2748fed111e9bcf3a99d4762f4fe47945298a404662b0e471` |
+|  `latest-dev` | June 19th    | `sha256:c237b1a59beadacb554a1dfabea5bc3518040ca0ab9d9f6e9c4351dd923d8d75` |
+|  `latest`     | June 19th    | `sha256:170b3641df89e38bee2ba0580fe2bee7f576de8c304c78e309a05d8c85aba390` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                     | Last Changed | Digest                                                                    |
-|---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.9.2-dev` `1.9-dev` | June 8th     | `sha256:7a72ad57f5678dba8f683eb980db1d29736d409dfad8092b88a9116f43f23dc2` |
-|  `1.9.2` `latest` `1` `1.9`                 | June 5th     | `sha256:5286c8600f181a4d575515124e4652b03fc7d5f8c5975d87effdf27a91bd126f` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.10-dev` `latest-dev` `1-dev` `1.10.0-dev` | June 21st    | `sha256:357bd30b4d91dfc69de4ce99fee438dfb1994feb2b9b10e4d32dfb3dd7d8b95c` |
+|  `1.10` `latest` `1` `1.10.0`                 | June 20th    | `sha256:f2a1a44c2526f3544f95e6a215999539c9b165926c77e72db82fa30c6409e761` |
+|  `1.9-dev` `1.9.2-dev`                        | June 17th    | `sha256:efcddc14f21542ea1c0c65396a0263f4a59d7b5db949040bcec5d65b7e5e48bc` |
 

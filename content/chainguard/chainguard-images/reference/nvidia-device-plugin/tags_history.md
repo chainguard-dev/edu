@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nvidia-device-plugin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:8ac65140960d39a972bba0d27c8ab7fdeaa6447f0a97c2159f4b580112d4c415` |
-|  `latest`     | June 5th     | `sha256:ff6c54a85136597c806dda2287a67627f76bcd355074a5fffda4c270176ffd55` |
+|  `latest-dev` | June 22nd    | `sha256:1cd25cffde67e0ae0c5c9034fbb90f2c4c67d44f73338dc3fb425b6feca98242` |
+|  `latest`     | June 19th    | `sha256:c96aa06464646015a0b23eb5412ef9adaf9923f7330abc48884b4dda6ca0f217` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.15-dev` `0.15.0-dev` | June 8th     | `sha256:ddecca7b74a5a34b5d7711e9cfa20edd2f7347620331ba77edb77e35d99c306f` |
-|  `0.15.0` `latest` `0.15` `0`                 | June 5th     | `sha256:3d6b708d19faf461974bdfe49453452891b02512afc5bc56f486fbcaf09d30ea` |
+|  `0.15-dev` `0-dev` `0.15.0-dev` `latest-dev` | June 21st    | `sha256:9df8c0b143256e22edd57d1d52f6fbc7b85e75d35b7b0ea12b2e6b98b065b412` |
+|  `latest` `0.15` `0` `0.15.0`                 | June 20th    | `sha256:426212050a6827cb05ffe56c91cc8994c416c232e7fa5ead55d64fbdad675e04` |
 

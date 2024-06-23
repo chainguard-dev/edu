@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for tomcat Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,7 +29,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 | Registry                     | Tags                                                                                                             |
 |------------------------------|------------------------------------------------------------------------------------------------------------------|
 | `cgr.dev/chainguard`         | latest                                                                                                           |
-| `cgr.dev/chainguard-private` | 10, 10-dev, 10.1, 10.1-dev, 10.1.24, 10.1.24-dev, 9, 9-dev, 9.0, 9.0-dev, 9.0.89, 9.0.89-dev, latest, latest-dev |
+| `cgr.dev/chainguard-private` | 10, 10-dev, 10.1, 10.1-dev, 10.1.25, 10.1.25-dev, 9, 9-dev, 9.0, 9.0-dev, 9.0.90, 9.0.90-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

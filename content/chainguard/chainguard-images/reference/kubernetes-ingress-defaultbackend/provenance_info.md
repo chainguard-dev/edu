@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for kubernetes-ingress-defaultbackend Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,7 +29,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 | Registry                     | Tags                                                             |
 |------------------------------|------------------------------------------------------------------|
 | `cgr.dev/chainguard`         | latest, latest-dev                                               |
-| `cgr.dev/chainguard-private` | 1, 1-dev, 1.29, 1.29-dev, 1.29.1, 1.29.1-dev, latest, latest-dev |
+| `cgr.dev/chainguard-private` | 1, 1-dev, 1.30, 1.30-dev, 1.30.0, 1.30.0-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

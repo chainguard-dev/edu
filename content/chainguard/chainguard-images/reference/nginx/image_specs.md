@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public nginx Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -21,14 +21,14 @@ toc: true
 
 This page shows detailed information about the Chainguard **nginx** Image.
 
-|              | latest-dev                                                                             | latest                                                                                 |
-|--------------|----------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
-| Default User | `nginx`                                                                                | `nginx`                                                                                |
-| Entrypoint   | `/docker-entrypoint.sh nginx -c /etc/nginx/nginx.conf -e /dev/stderr -g "daemon off;"` | `/docker-entrypoint.sh nginx -c /etc/nginx/nginx.conf -e /dev/stderr -g "daemon off;"` |
-| CMD          | not specified                                                                          | not specified                                                                          |
-| Workdir      | not specified                                                                          | not specified                                                                          |
-| Has apk?     | yes                                                                                    | no                                                                                     |
-| Has a shell? | yes                                                                                    | yes                                                                                    |
+|              | latest-dev                                                 | latest                                                     |
+|--------------|------------------------------------------------------------|------------------------------------------------------------|
+| Default User | `nginx`                                                    | `nginx`                                                    |
+| Entrypoint   | `/usr/sbin/nginx`                                          | `/usr/sbin/nginx`                                          |
+| CMD          | `-c /etc/nginx/nginx.conf -e /dev/stderr -g "daemon off;"` | `-c /etc/nginx/nginx.conf -e /dev/stderr -g "daemon off;"` |
+| Workdir      | not specified                                              | not specified                                              |
+| Has apk?     | yes                                                        | no                                                         |
+| Has a shell? | yes                                                        | no                                                         |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/nginx/tags_history/) for the full list of available tags.
 
@@ -39,14 +39,11 @@ The table shows package distribution across variants.
 |---------------------------------|------------|--------|
 | `apk-tools`                     | X          |        |
 | `bash`                          | X          |        |
-| `busybox`                       | X          | X      |
+| `busybox`                       | X          |        |
 | `ca-certificates-bundle`        | X          | X      |
 | `chainguard-baselayout`         | X          | X      |
-| `docker-nginx`                  | X          | X      |
-| `gettext`                       | X          | X      |
 | `git`                           | X          |        |
 | `glibc`                         | X          | X      |
-| `glibc-iconv`                   | X          | X      |
 | `glibc-locale-posix`            | X          | X      |
 | `ld-linux`                      | X          | X      |
 | `libbrotlicommon1`              | X          |        |
@@ -56,16 +53,14 @@ The table shows package distribution across variants.
 | `libcurl-openssl4`              | X          |        |
 | `libexpat1`                     | X          |        |
 | `libgcc`                        | X          | X      |
-| `libgomp`                       | X          | X      |
 | `libidn2`                       | X          |        |
 | `libnghttp2-14`                 | X          |        |
 | `libpcre2-8-0`                  | X          |        |
 | `libpsl`                        | X          |        |
 | `libssl3`                       | X          | X      |
 | `libstdc++`                     | X          | X      |
-| `libunistring`                  | X          | X      |
+| `libunistring`                  | X          |        |
 | `libxcrypt`                     | X          | X      |
-| `libxml2`                       | X          | X      |
 | `ncurses`                       | X          |        |
 | `ncurses-terminfo-base`         | X          |        |
 | `nginx-mainline`                | X          | X      |
@@ -74,6 +69,5 @@ The table shows package distribution across variants.
 | `pcre`                          | X          | X      |
 | `wget`                          | X          |        |
 | `wolfi-baselayout`              | X          | X      |
-| `xz`                            | X          | X      |
 | `zlib`                          | X          | X      |
 

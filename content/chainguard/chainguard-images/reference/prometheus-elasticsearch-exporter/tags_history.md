@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-elasticsearch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:b9caef57109b25cc40cb0e720946e8f3461848b00868b2b3b05a8da053bb618f` |
-|  `latest`     | June 5th     | `sha256:201566dff992099d38c8caea1ed1e76b49e01f7ee3f8922ca55a2fadcca6ca2e` |
+|  `latest-dev` | June 22nd    | `sha256:8eecaddf7da9fff2bbc8c62a553ac69d2c58a61a30e7d6bd324d55311107acea` |
+|  `latest`     | June 19th    | `sha256:15d32473e2abc4e908194142291ff27f7516efbf36d9a634c8c54d8d02656529` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.7.0-dev` `latest-dev` `1.7-dev` `1-dev` | June 8th     | `sha256:815dcca768e2f94661f236c69e77ef43e80a723f0e72759f5b174e6bb32ddf28` |
-|  `latest` `1.7` `1` `1.7.0`                 | June 5th     | `sha256:b35890cfeee7245bf9a1c965251bbed0d9887fc6b40d5e9c4b74b2bf5f5af8ca` |
+|  `1.7.0-dev` `1-dev` `1.7-dev` `latest-dev` | June 21st    | `sha256:c9fc2514a81c0b60835e18f7288eda82bb14409003edb1cf34092608242f256b` |
+|  `1.7.0` `1.7` `latest` `1`                 | June 20th    | `sha256:e67c595f496c2f186707bf14dc1de37900049472131c44dfb3205ce44164ee05` |
 

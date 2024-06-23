@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-file-metrics-collector Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:384d5604c343a2c6caa7070490490e24082f1b2ca93ce3c22e7580d22b7b18a0` |
-|  `latest`     | June 5th     | `sha256:b2d1a061d347cfb48cb51730b4f3f894ccc7bec7a12fde743f4cdc8cc4f9cdd4` |
+|  `latest-dev` | June 22nd    | `sha256:e1c471ff96e3c6c99ce37699ef473518ce361738b2ae868afd06147275d62b92` |
+|  `latest`     | June 20th    | `sha256:052d0781791927cf9e219645fa2a99509456ac8495c226c99569ef07e0ae1202` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0-dev` `0-dev` `latest-dev` `0.16-dev` | June 8th     | `sha256:0b73389cdfc526a8d4f974727296ce2ec48299de30072122f5eb2cacaa241b52` |
-|  `0.16` `latest` `0.16.0` `0`                 | June 5th     | `sha256:d60239c118adf988b0197427f33e9efeefbffe405ddd0acc909bef87aa1a1b73` |
+|  `0.16.0-dev` `0.16-dev` `0-dev` `latest-dev` | June 21st    | `sha256:c343d262758d953aaa0c343ee820d65463cea51cb9d5af75b92f884648ed50d1` |
+|  `0` `latest` `0.16` `0.16.0`                 | June 20th    | `sha256:508eb5fd3f3d4530dcab374be39c28792da4248ae513a94660023ff49f1667e6` |
 

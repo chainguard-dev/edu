@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-cloudsqlproxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:5b7045d963012c08b416a2e9571d6bc2a13392b0ff974a87a806cc8f36d82f32` |
-|  `latest`     | June 5th     | `sha256:207c334fa79edf28fab2425ce7d7cc2d28ce49ae77c940b2f6d89b19f46ea788` |
+|  `latest-dev` | June 22nd    | `sha256:45eeef5cd882df08b012b4833f00a24ae152aa444de39ef83392e09054ee9c1f` |
+|  `latest`     | June 20th    | `sha256:1055e8913c433346ff2fe337ca54072d2a5926f09aa620110f61a92e8db1fd96` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.7-dev` `latest-dev` `0.7.1-dev` `0-dev` | June 8th     | `sha256:2f4ddc900e4a01e6b75a0cc0932c842aa1bb05496e7411c918d3e458233e46a3` |
-|  `0` `0.7.1` `latest` `0.7`                 | June 5th     | `sha256:290f12c0a5e4413ea3da1ce07451083a288150a7ed58573de831635b45cfe646` |
+|  `0.7.2-dev` `0.7-dev` `0-dev` `latest-dev` | June 21st    | `sha256:2f999b684e9ae97782fecdc0037ca4b6c8dbe5e7c49abaadc70178d486a3f083` |
+|  `0` `0.7` `0.7.2` `latest`                 | June 20th    | `sha256:50f26071b29fa08b495d20546b355e0a60029e7c0f5e3a52f7b6ec9a90acb6b5` |
+|  `0.7.1-dev`                                | June 17th    | `sha256:92cf897ec07d1e93561a327674d5fe7b31ac0bfe61e99264b2118337d06629fa` |
 

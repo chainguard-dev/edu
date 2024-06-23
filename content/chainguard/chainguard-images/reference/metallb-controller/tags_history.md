@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the metallb-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:19fe444df1680f1a19c950fbbcc339d1911938af2b52a2b3f20cc740ea8d3480` |
-|  `latest`     | June 5th     | `sha256:188f76f9dc2304a0763a13c3483fa0c9ad5d5699bf738241ac37ec4c3cf8ff29` |
+|  `latest-dev` | June 22nd    | `sha256:07ca5628ac5cb55ae70e22e4195d11bc8066b0e3462c79ced7ef44b112b73d93` |
+|  `latest`     | June 19th    | `sha256:f4d93839512838ba6dc1336f7228f52795097d98848169f4b93a75200dae68c7` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.14.5-dev` `latest-dev` `0.14-dev` `0-dev` | June 8th     | `sha256:0e8801a9d6b6f859b8f6617fc41b40597c8e617d5ff9de9d99588ae9e3107462` |
-|  `latest` `0.14.5` `0.14` `0`                 | June 5th     | `sha256:3b07961b6470ee52f6165d791f0c3125dcc8fd1a15e738bdf3b1f2e223d53c95` |
+|  `0.14-dev` `latest-dev` `0.14.5-dev` `0-dev` | June 21st    | `sha256:b180a508df1b714a7bef4e3fc0ef13672ba822550db32c89373bae996f626229` |
+|  `0` `0.14` `latest` `0.14.5`                 | June 20th    | `sha256:ca8f2fefb0e25341dee0a106fcd6487de8c4de7971475da7eecb2ed2c4cbd8c4` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-image-automation-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:4552dc977484f9a6b6c3fda3a4c5b88e70876516ae0f47b9b47c97283ac9337b` |
-|  `latest`     | June 5th     | `sha256:71271b4882913a200b9653a1499b8c03854a9c49c976b82df32a90ef30682476` |
+|  `latest`     | June 19th    | `sha256:933e7831b9a1f520780b5129532718f3fc933fce3f81acea877ce4e9b27e4872` |
+|  `latest-dev` | June 19th    | `sha256:bee18da53d72a56c3b84b5dffc391adde3c0896e76aee3b5d7787e869d8f1130` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.38.0-dev` `0-dev` `0.38-dev` | June 8th     | `sha256:060f2a50f8446c39293c92f9c443e0fd4d70da8615619b28a27a798c78180cc6` |
-|  `0` `latest` `0.38` `0.38.0`                 | June 6th     | `sha256:2ea534aa0b8bfac820e8917e513100fd716c15bbd2a00931ddfee82295c22061` |
+|  `0.38.0` `0.38` `0` `latest`                 | June 20th    | `sha256:1857c5ee7c0bc878966b160787222c258cb28955608f4d12ac42fb16b248b0db` |
+|  `latest-dev` `0.38-dev` `0.38.0-dev` `0-dev` | June 20th    | `sha256:5e3dc87ddcb82fe9933e8e2760b332bc92860af336f63a08ec011ca19a8f4a68` |
 

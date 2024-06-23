@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-cloudwatch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:e8f8b1b074b95d859b4cb6a3a86138468e27084a5b648214a22901063d39839d` |
-|  `latest`     | June 5th     | `sha256:c556f728cde2c62a4654cb64e1ada332457e3a58ba1ab839a29abff93a6eb183` |
+|  `latest-dev` | June 22nd    | `sha256:fb5ef5da269d089cb92a823cc614fee09573ae63531c144ad92db402e425b755` |
+|  `latest`     | June 22nd    | `sha256:b29ef23571a3cb70b8e98daef4c1ead58094c99a38dd627f0537a3392646bed0` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.15-dev` `0.15.5-dev` `latest-dev` | June 8th     | `sha256:d3000d4bb0396a9a1af87a7f4b337fe8c1e1a22b0c9d9bef28fc90fcef095f82` |
-|  `0.15.5` `0.15` `0` `latest`                 | June 5th     | `sha256:82c68b8e56ef7d3f65e6f133ddd882c9292064962eeec5262e85a0d358b90d3a` |
+|  `0.15-dev` `0.15.5-dev` `0-dev` `latest-dev` | June 21st    | `sha256:d736aa38c4d992a4f6ff8d314b291838559dbf3598fb6e200bf574a919fc5f9c` |
+|  `0.15` `0.15.5` `0` `latest`                 | June 21st    | `sha256:9766a6ad2463e13186af016c680e02bc45df6c6ad2e926d62eb64086c7fb8e01` |
 

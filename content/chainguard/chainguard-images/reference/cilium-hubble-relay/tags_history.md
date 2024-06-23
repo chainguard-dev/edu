@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-hubble-relay Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:57c64b0dc24e87867e811434a0852567bc910c87af2bf8a1505d970c38886058` |
-|  `latest`     | June 5th     | `sha256:b18e03832070d3153fbf58ba8b5343e18c08953fdd0bca0dbc92e1322d61134d` |
+|  `latest`     | June 20th    | `sha256:ad69c336c232b13882afa6a2d48d59d85fde70edc1416858dcb413576d07ea7b` |
+|  `latest-dev` | June 20th    | `sha256:df1a3ed9e1cb54fb90a2daa1f8c372ec793d1ac6d49cadd7a6e98ebafeaafcfc` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.14.11-dev` `1.14-dev`                     | June 8th     | `sha256:ab5d3c61f23d28418f2bf33c92c5a788a77afe9976bf98d1f990e5fb77046e8e` |
-|  `1.15-dev` `latest-dev` `1.15.5-dev` `1-dev` | June 8th     | `sha256:cb6970ef7b18d849f2ff8a22e0ac0bf316e13625ecb4301957c85c3fbbc5e055` |
-|  `1.14.11` `1.14`                             | June 5th     | `sha256:0c6ee2888b143f00201207caed2d100d9327ab420858c4c11f5492411283e9c0` |
-|  `latest` `1` `1.15.5` `1.15`                 | June 5th     | `sha256:9791b39968dc452ea58171627de820f834b3a1a7c11f851244f8ddb9f99447c9` |
+|  `1.15.6-dev` `latest-dev` `1.15-dev` `1-dev` | June 21st    | `sha256:5fd87756bd3c90f19fcef227255768a187ab7a9ded5bfa65a76acef94e3f8669` |
+|  `1.14-dev` `1.14.11-dev`                     | June 21st    | `sha256:6910e89694612949af2f08be79b3869fd7cd728da4ee484c36a97eb07ef90c27` |
+|  `latest` `1.15` `1` `1.15.6`                 | June 20th    | `sha256:b45d09e1dae64ce094976853ee93d8be4f4723f8ef23a1800e6e74c05f816635` |
+|  `1.14.11` `1.14`                             | June 20th    | `sha256:1db71ea4cf300094df881b25f6b04f0dc80d9c0277aa802230efdb259509a3b6` |
 

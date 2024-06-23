@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public docker-selenium Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -178,7 +178,6 @@ The table shows package distribution across variants.
 | `ncurses-terminfo-base`             | X          | X      |
 | `net-tools`                         | X          | X      |
 | `novnc`                             | X          | X      |
-| `numpy`                             | X          | X      |
 | `openblas`                          | X          | X      |
 | `openjdk-11`                        | X          | X      |
 | `openjdk-11-default-jvm`            | X          | X      |
@@ -198,6 +197,7 @@ The table shows package distribution across variants.
 | `py3-requests`                      | X          | X      |
 | `py3-simplejson`                    | X          | X      |
 | `py3-urllib3`                       | X          | X      |
+| `py3.12-numpy`                      | X          | X      |
 | `py3.12-setuptools`                 | X          | X      |
 | `python-3.12`                       | X          | X      |
 | `python-3.12-base`                  | X          | X      |

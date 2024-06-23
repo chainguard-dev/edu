@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tomcat-jdk8 Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `9.0.89-dev` `9.0-dev` `9-dev` `latest-dev` | June 8th     | `sha256:ee035c5db80551f474fbd84d31514677de5645e018564bfa0b4dd1ec64ac5156` |
-|  `9` `9.0` `latest` `9.0.89`                 | June 7th     | `sha256:a08321e7f635fbb93a701aa2b3f19cd3d647eee48d6e8ad51dec5b0ee31291d3` |
+|  `9.0` `9` `9.0.90` `latest`                 | June 21st    | `sha256:e497871d997ddd49b53e483edc7ac697ec807ae3d926268ea55a0e5be2ef2287` |
+|  `9.0.90-dev` `9.0-dev` `9-dev` `latest-dev` | June 21st    | `sha256:3e3be42bf6042a0599017aef39ac07fee76c48624ff5269fc015409f10f40acf` |
 

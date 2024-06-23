@@ -4,8 +4,8 @@ linktitle: "tekton-entrypoint-fips"
 type: "article"
 layout: "single"
 description: "Overview: tekton-entrypoint-fips Chainguard Image"
-date: 2024-03-29 00:47:42
-lastmod: 2024-03-29 00:47:42
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -27,9 +27,6 @@ toc: true
 
 This image is a variant of the Tekton images that is FIPS-compliant.
 
-> **Note**:
-> Tekton's entrypoint image has requirements that are incompatible with how we normally enable FIPS-validated crypto in Go binaries. In order for it to work with Tekton, the binary must be statically linked. Luckily, this binary does no crypto -- and we ensure that it does no crypto. This means we believe that the regular Tekton entrypoint image can be used in a FIPS environment, alongside the regular FIPS-variant Tekton images.
-
 ## Usage
 
 These images a drop-in replacement for the upstream images.
@@ -46,8 +43,11 @@ curl -sL https://storage.googleapis.com/tekton-releases/pipeline/latest/release.
     sed "s|gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/sidecarlogresults[a-z0-9:@.]\{1,\}|cgr.dev/chainguard-private/tekton-sidecarlogresults-fips|g" | \
     sed "s|gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/webhook[a-z0-9:@.]\{1,\}|cgr.dev/chainguard-private/tekton-webhook-fips|g" | \
     sed "s|gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/workingdirinit[a-z0-9:@.]\{1,\}|cgr.dev/chainguard-private/tekton-workingdirinit-fips|g" | \
+    sed "s|cgr.dev/chainguard/busybox[a-z0-9:@.]\{1,\}|cgr.dev/chainguard-private/busybox-fips|g" | \
     kubectl apply -f -
 ```
+
+Instead of `busybox-fips` one can use any image with a shell and OpenSSL FIPS provider, for example `chainguard-base-fips`. This is needed because of entrypoint support for SPIRE. Currently it is not possible to build up to date entrypoint images without SPIRE, see this [issue](https://github.com/tektoncd/pipeline/issues/8034). If deployment does not use SPIRE support, one can use `cgr.dev/chainguard-private/busybox` and `cgr.dev/chainguard-private/tekton-entrypoint` images combination instead.
 
 For Tekton Chains:
 

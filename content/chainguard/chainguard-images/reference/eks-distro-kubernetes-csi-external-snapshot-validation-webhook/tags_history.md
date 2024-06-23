@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-external-snapshot-validation-webhook Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                  | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `6.3.0-eks-1-23-33-dev` `latest-dev` `6.3-dev` `6.3.0-r7-eks-1-23-33-dev` `6.3.0-dev` `6-eks-1-23-33-dev` `6.3-eks-1-23-33-dev` `6-dev` | June 8th     | `sha256:16b009556bcb235ea8e21e3ae8dcc4b5257aa24b3a609212b447ecb8469c063d` |
-|  `latest` `6.3.0` `6` `6.3.0-eks-1-23-33` `6.3.0-r7-eks-1-23-33` `6.3-eks-1-23-33` `6-eks-1-23-33` `6.3`                                 | June 5th     | `sha256:5c12871fe542328c64822032154e8463c8e48b5b6ae8888e72cb0e50573f6c6b` |
-|  `6.3.0-r6-eks-1-23-33-dev`                                                                                                              | June 5th     | `sha256:669630c13d49c5c3a6a10b9515394b02f744b4f98c7aee845e525db8520a54f7` |
+|  `6.3-dev` `6.3.0-dev` `6.3-eks-1-23-33-dev` `6-dev` `6-eks-1-23-33-dev` `6.3.0-r7-eks-1-23-33-dev` `6.3.0-eks-1-23-33-dev` `latest-dev` | June 21st    | `sha256:b6c91f59bf6f70444d6d2e8261516f9becc4a3baae8e4a1d6602518a121d5906` |
+|  `6.3.0` `6.3.0-r7-eks-1-23-33` `6-eks-1-23-33` `6.3-eks-1-23-33` `latest` `6` `6.3` `6.3.0-eks-1-23-33`                                 | June 20th    | `sha256:c2885dd841196422af37efeee63b5d30e71e86ba1d590d964eccf66f5b335e49` |
 

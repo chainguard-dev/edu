@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-downscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:871bf0c8f882f2d642651a724d8a35afec6a96429415e118fe0a74dd92371f2c` |
-|  `latest`     | June 7th     | `sha256:799381833d0955fb0df0f0108cc74f5b1ebaaad72c5240c249ed302085e7db3f` |
+|  `latest-dev` | June 22nd    | `sha256:1531cef95c32918dfd1dfb9f8f3481888bb264b6ff8eecc358df33ad96cd77da` |
+|  `latest`     | June 22nd    | `sha256:1d5909e7e0627549e3846feeca3b1cc4060b71ac55182dce6ca8efc831a71c23` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `23.2-dev` `latest-dev` `23.2.0-dev` `23-dev` | June 8th     | `sha256:06f9d6453311de772e4955bd4ee4855a38500b22771791536360f8d8b8dd6c0d` |
-|  `latest` `23` `23.2.0` `23.2`                 | June 7th     | `sha256:4d4da1791ee2e81cc0708ab0f98864d98ac525b15be2d8d41365b2c909a3f36a` |
+|  `23.2.0-dev` `23.2-dev` `23-dev` `latest-dev` | June 21st    | `sha256:99935e989ff8b7fabc3e7a6611ad3ccd022dca79fb6e04c81ee024b864f21e47` |
+|  `23.2.0` `latest` `23` `23.2`                 | June 21st    | `sha256:1dd53fd9cb209765832e02be3e906817650c2bfb06572cbb9436cc7d17bcaf0b` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-scheduledworkflow Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:da9136d2e434a51a049787310e699caf54bffea49714480ff470290918694fbc` |
-|  `latest`     | June 7th     | `sha256:ec484397218fd2a381530f01d294691ed81b46dc52538245835ad06f032db85b` |
+|  `latest-dev` | June 22nd    | `sha256:d3dc1163358ccdbf27d8886e182893e64b6a4855a8c49cafa9cd81dc8ab9be10` |
+|  `latest`     | June 21st    | `sha256:26602771c75f49dbf91ec7ff11a8ce623ba2b3909c1e33979d0ab694ac7a487e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.2.0-dev` `2-dev` `2.2-dev` `latest-dev` | June 8th     | `sha256:058f579d393e63c76a40ade397175d9506808616660b07e5c137701c84277791` |
-|  `latest` `2` `2.2.0` `2.2`                 | June 7th     | `sha256:903e1987a82b95b07a9c80d5fdf8afa93677a8f63c98e228bcb687f41af12973` |
+|  `2.2-dev` `2.2.0-dev` `latest-dev` `2-dev` | June 21st    | `sha256:20dce56d301746e26800d8cba833a6ccc4cccef4a61777ce24ec592dfd66913e` |
+|  `2.2.0` `2` `2.2` `latest`                 | June 21st    | `sha256:af108825984f9d52ab1c773239a92cb341c744ba17a1787ff05a129f95adfc7f` |
 

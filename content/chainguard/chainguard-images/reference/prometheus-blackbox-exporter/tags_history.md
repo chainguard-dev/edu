@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-blackbox-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:f4c146227a9be8455de4205659f28f1e53b895058cf3bfbbeaffe652166941f2` |
-|  `latest`     | June 5th     | `sha256:455fb2dcada6b40148b67e768c8bf18d20e8614400da36bbdaa0924d79836a38` |
+|  `latest-dev` | June 22nd    | `sha256:d3a3d6d327887bdba1c6bd197337e4ab7aef6770fd7fd42d15a13280deae6f13` |
+|  `latest`     | June 22nd    | `sha256:dd621adf68f983742265886104cd4b0a9727339dd17a1eb3355972424c9389bd` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.25.0-dev` `0.25-dev` `latest-dev` `0-dev` | June 8th     | `sha256:7de5d27bff74e4872db6696e96ac3ead9438d3f1bd4645d7f387ec9db678ca93` |
-|  `0.25` `0` `0.25.0` `latest`                 | June 5th     | `sha256:7d235199f7853a99ccd6c8eb11d865c1c0ba93a547eda1e70c04ac50a936e65d` |
+|  `latest-dev` `0.25-dev` `0-dev` `0.25.0-dev` | June 21st    | `sha256:8fd805ec7d3dfdf9e0e108e8bb5ec1eb86151120a6c2ca68c0e048e648e92e6d` |
+|  `0.25.0` `0` `latest` `0.25`                 | June 21st    | `sha256:aef5d1db0699e19d7ce693ae933a9cb8228292a9e14543774b5b0eec8bcb4ba6` |
 

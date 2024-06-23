@@ -3,8 +3,8 @@ title: "neuvector-prometheus-exporter-fips Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public neuvector-prometheus-exporter-fips Chainguard Image."
-date: 2024-04-08 00:38:35
-lastmod: 2024-04-08 00:38:35
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,7 +23,7 @@ This page shows detailed information about the Chainguard **neuvector-prometheus
 
 |              | latest-dev                        | latest                            |
 |--------------|-----------------------------------|-----------------------------------|
-| Default User | `nonroot`                         | `nonroot`                         |
+| Default User | `root`                            | `root`                            |
 | Entrypoint   | `python3 /usr/bin/nv_exporter.py` | `python3 /usr/bin/nv_exporter.py` |
 | CMD          | not specified                     | not specified                     |
 | Workdir      | not specified                     | not specified                     |

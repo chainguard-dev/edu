@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for pgbouncer Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,7 +29,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 | Registry                     | Tags                                                             |
 |------------------------------|------------------------------------------------------------------|
 | `cgr.dev/chainguard`         | latest, latest-dev                                               |
-| `cgr.dev/chainguard-private` | 1, 1-dev, 1.21, 1.21-dev, 1.21.0, 1.21.0-dev, latest, latest-dev |
+| `cgr.dev/chainguard-private` | 1, 1-dev, 1.22, 1.22-dev, 1.22.1, 1.22.1-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
