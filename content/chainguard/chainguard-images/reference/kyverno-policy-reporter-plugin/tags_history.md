@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kyverno-policy-reporter-plugin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:c35b5c605eb45aec98e5b0910eac0b5d1b9bb1750e2bef07ef290813d938cd93` |
-|  `latest`     | June 5th     | `sha256:56edc8d6463f8a9ee21fd058f51588734b5633039325dbf08a91714efb4107c0` |
+|  `latest-dev` | June 22nd    | `sha256:93206787dd05914560f09769767a98216f74c9863fe925eae571879f1012c160` |
+|  `latest`     | June 20th    | `sha256:9df25aae578f9ff1e4c704d8c04336628d034acc9333f2c30de260e8750447d0` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.6-dev` `latest-dev` `1.6.3-dev` `1-dev` | June 8th     | `sha256:e8dd210af6ea7759e14a0bd7bc69200bcd0ec2ee958ed4c3fbc38d90806bb491` |
-|  `1` `1.6.3` `latest` `1.6`                 | June 5th     | `sha256:7daf51c913177f02eed4e2f01e487986f58828ced455c7b826117495ecd2aad8` |
+|  `1-dev` `1.6-dev` `1.6.3-dev` `latest-dev` | June 21st    | `sha256:d7dc0ed9b2752d55f453a2152d0e555f35ed234672f7ef69bdee2c8e188055bc` |
+|  `latest` `1.6.3` `1.6` `1`                 | June 20th    | `sha256:720fea7012eb3c767948dc20c9c2174062251eb38a0c5081e77571477fb7d338` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-db-manager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:8733e8e4df702f05fed39be23b66138203610333533f9c6276548a616bf246a1` |
-|  `latest`     | June 5th     | `sha256:937ba3fbb4b6685794c63051af4478590f55a2867617073376d1dc4d8d27f21e` |
+|  `latest-dev` | June 22nd    | `sha256:ea2fafbce6fdc1b6d7e8a97b7b98b362c0c0d96d57e882ad7360ca4d63c5f29f` |
+|  `latest`     | June 20th    | `sha256:ab4ccfb8eeaa9917948e90cf907f7d0ed1cac0e9d4aba669a5ec64ff5f740a6d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16-dev` `0-dev` `0.16.0-dev` `latest-dev` | June 8th     | `sha256:b0f9279f64026e32dc8ee55da12c2c9da66073a657250ee64955a60d783f8197` |
-|  `0` `0.16` `latest` `0.16.0`                 | June 5th     | `sha256:b20e9ff287b581e7188faa7c9fa113298e83528b08378a3c835301fc3b2bc610` |
+|  `latest-dev` `0-dev` `0.16.0-dev` `0.16-dev` | June 21st    | `sha256:5416bd6b98fce836b8c95d1c2f876450f583d4b30f1e46d03a5f3708940cd98f` |
+|  `0.16.0` `latest` `0` `0.16`                 | June 20th    | `sha256:15eb9914a83ff26251d489cb4d929f55be18728af091282ac66b4d1e24d64e95` |
 

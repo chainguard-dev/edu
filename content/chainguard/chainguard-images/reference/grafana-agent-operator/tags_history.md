@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grafana-agent-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:a66732096d9c57a55e1b69e9bff164d2b7b2219b32c85fdfe20d2abc2c7a35a8` |
-|  `latest`     | June 7th     | `sha256:66e755dc9678ddc3eb7321f9a4d8e72e4f8b9a2012c529be66a03d4538cd19a6` |
+|  `latest-dev` | June 22nd    | `sha256:772a656dc0e9b2cfc45f7586dd7dc4de854be26fe96980e04f95d304fe18ac16` |
+|  `latest`     | June 19th    | `sha256:e8a34f64524a21dafa7b1bfece064f6084bd8f7f6b8786b1f7e748f82371dbe6` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.41.1-dev` `latest-dev` `0.41-dev` `0-dev` | June 8th     | `sha256:de6b2bc5381457603af5b75c75cd241924780be75772e14df7380d842b5ac45b` |
-|  `latest` `0.41.1` `0.41` `0`                 | June 7th     | `sha256:993d0e401df0454090945104796e9a291084016e18eef6d6967c1d8ed2d45b8b` |
-|  `0.41.0-dev`                                 | June 5th     | `sha256:e295679a00036d70936a0043821aacb55d8a966f46573c6cb6cbe16b8871a4be` |
-|  `0.41.0`                                     | June 4th     | `sha256:0ff7603d09f9fc61d6b62aad4fd2513e99c78da1c142f4c874d897e4780e4c41` |
+|  `0.41.1-dev` `latest-dev` `0.41-dev` `0-dev` | June 21st    | `sha256:b5f403bc869c01f92cf43dbbdc6cbacffe1b70deaecd9a4298d5098892d00026` |
+|  `latest` `0.41.1` `0` `0.41`                 | June 20th    | `sha256:302ca250167787d957385ff6152f9094889bd755cb2bdd83b90ee5d1617155d3` |
 

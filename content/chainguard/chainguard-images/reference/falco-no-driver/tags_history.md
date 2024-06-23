@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the falco-no-driver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:8abd36c914f2251d14661f31ab5ef65b2f4487ab1e10c1e8da01bf9dab6ae597` |
+|  `latest-dev` | June 22nd    | `sha256:d380dc78fab6475de9de39a8d4282a65a1545c59d465f376f30c227c325ce867` |
+|  `latest`     | June 22nd    | `sha256:5f0371ad5cb612da03abcdb5785fc6e7d4b37ab3b5476a95595584a797dc8241` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.38-dev` `0.38.0-dev` `latest-dev` `0-dev` | June 8th     | `sha256:324fe7a293121c5d7e75bf205f02c0d04e278154915b518556e8df6281c4c563` |
+|  `latest-dev` `0-dev` `0.38.1-dev` `0.38-dev` | June 21st    | `sha256:75d70ca1db0aa763d334965bc69bea6491a5e33ca8b024d69cc63cb8e4f599f9` |
+|  `0.38` `0.38.1` `latest` `0`                 | June 21st    | `sha256:f4f9e8dfac0ea028f1d8b9c921d72e065896e4d45073c37311319f95849786cb` |
+|  `0.38.0-dev`                                 | June 19th    | `sha256:5d41436e4cd9eef822a311b28765c3f549175d8ea2f240581f7e80a85eb51b21` |
+|  `0.38.0`                                     | June 19th    | `sha256:6c2e9eb4c9770d029eb267a5d4b4872ba39ca56a8588728d31f3bc64aea277ba` |
 

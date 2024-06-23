@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the clickhouse Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:a3529a400365806fb380b2888a6f6b508a59c45a13f8d64407cf23bf23b5f763` |
+|  `latest-dev` | June 22nd    | `sha256:c426d14ca3f4cb00e7010022c118e0acfd125bd80430b7efedd8a3698ae7470a` |
+|  `latest`     | June 20th    | `sha256:e38a9f16bb7f79c9808d6b702a081773dced2927f4c499445fab2659160a66fa` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                        | Last Changed | Digest                                                                    |
 |----------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `24.2.2.71-dev` `latest-dev` `24.2.2-dev` `24-dev` `24.2-dev` | June 8th     | `sha256:f740061b2d50e76c527a9aae91c1c9c126590980ce2c7ec17a5dafc09ba4a706` |
-|  `23-dev` `23.8.14.6-dev` `23.8.14-dev` `23.8-dev`             | June 8th     | `sha256:b941daca4b211b751fe216619216faa7c66147ba09babdf536f64d7df94b49d9` |
+|  `23.8.15-dev` `23.8-dev` `23-dev` `23.8.15.35-dev`            | June 21st    | `sha256:441dc84feae5233972ecbb32b5dbfe281d94e2818db9ce81f5bf8293a9310eb0` |
+|  `24-dev` `24.2.2-dev` `latest-dev` `24.2-dev` `24.2.2.71-dev` | June 21st    | `sha256:7b1782185ae59a5169326380fcdd0e6af865a4ec83065052f895165ec1c051bc` |
+|  `24.2.2.71` `24.2` `24` `latest` `24.2.2`                     | June 20th    | `sha256:47d1e82cd2fe97fb559738575357fe67c6a9aea635261fec77a4a0278c2ccc76` |
+|  `23.8.15` `23.8.15.35` `23` `23.8`                            | June 20th    | `sha256:a70c514cd15d3a3d1f14073d414c649f1564f726fc169a2771e0073eb9d1c1e4` |
 

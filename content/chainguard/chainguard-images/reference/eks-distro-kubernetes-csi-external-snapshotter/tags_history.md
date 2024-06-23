@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-external-snapshotter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                  | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `6.3-eks-1-23-33-dev` `6.3.0-eks-1-23-33-dev` `6-eks-1-23-33-dev` `6-dev` `6.3.0-dev` `latest-dev` `6.3-dev` `6.3.0-r7-eks-1-23-33-dev` | June 8th     | `sha256:b5e28e3413611265017d6af8c4dd5ff228970c6a2b5132cdb368a9737de84afd` |
-|  `6.3.0-r7-eks-1-23-33` `latest` `6.3.0-eks-1-23-33` `6.3` `6-eks-1-23-33` `6.3.0` `6` `6.3-eks-1-23-33`                                 | June 5th     | `sha256:e93b2dcfb1b84ea25e6df816b6326f7182f9e2a5bc667f504a7350247da70caa` |
-|  `6.3.0-r6-eks-1-23-33-dev`                                                                                                              | June 5th     | `sha256:01850284dcf16d5c6d0a61f6a021ce10d401252f818e91a7228d4edae9d07c53` |
+|  `6.3-eks-1-23-33-dev` `6.3-dev` `6.3.0-dev` `6.3.0-eks-1-23-33-dev` `6-dev` `6-eks-1-23-33-dev` `latest-dev` `6.3.0-r7-eks-1-23-33-dev` | June 21st    | `sha256:4bf023ddbb847f1b57c2f868aa8f46eb99b1f38a053a4f31d0eda0c94d0478d6` |
+|  `latest` `6.3.0-eks-1-23-33` `6` `6.3-eks-1-23-33` `6.3` `6-eks-1-23-33` `6.3.0-r7-eks-1-23-33` `6.3.0`                                 | June 20th    | `sha256:875c699d9ccdf708dd9c08b57273309cf0d1aa4dd6675003ea680668928b33db` |
 

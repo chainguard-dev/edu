@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the squid-proxy-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,8 +31,8 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                         | Last Changed | Digest                                                                    |
-|---------------------------------|--------------|---------------------------------------------------------------------------|
-|  `6.9-dev` `6-dev` `latest-dev` | June 8th     | `sha256:46d7fd9c6eb03cf166266779fb77f20892f622e38c8f5c742fd8392cf0b7c9fe` |
-|  `latest` `6.9` `6`             | June 5th     | `sha256:0eb1862a5f7e16a3230145d5119e622f24f540469da7da09507f8074ececb7be` |
+| Tag (s)                          | Last Changed | Digest                                                                    |
+|----------------------------------|--------------|---------------------------------------------------------------------------|
+|  `6.10-dev` `6-dev` `latest-dev` | June 21st    | `sha256:db47eb9a263422238ef2b858012d6390fef90d7a28e3a0e9bb73a7bfc3e23d63` |
+|  `6.10` `6` `latest`             | June 21st    | `sha256:3bf1de6b70f5fd40e967e591e3708a051a08814804aaf2a96a461b0013b5bada` |
 

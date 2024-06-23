@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mongodb-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:ac508494e03be8bdbffe101921294a2af84fc4bbf314345e4c314c3f0a97cf22` |
-|  `latest`     | June 5th     | `sha256:2c5618bd2d5f659cff3128758066c75ab38faf1ba096d7d5185fffaf27214a2a` |
+|  `latest-dev` | June 22nd    | `sha256:a95d06ec8b62cd001acb738616716716747481f5317f549169fb9eae36703af0` |
+|  `latest`     | June 19th    | `sha256:78459260d7963885c8055ecf877d7c760db4764808821d9815d924d4d0cd30d0` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.40.0-dev` `0.40-dev` `0-dev` `latest-dev` | June 8th     | `sha256:797c14293bb77dcfb5cef7d09dcec64fdb3af6d14055db665523dc5d6a988290` |
-|  `0` `0.40.0` `0.40` `latest`                 | June 5th     | `sha256:be019f3f07e6ecf6a5e9241f8bd032dae0b10018b5acd6c0ec499c48fa3fcc83` |
+|  `0.40.0-dev` `latest-dev` `0.40-dev` `0-dev` | June 21st    | `sha256:38d696c4b4817d8029227be5bf33e47f6bd8c2880d84b72e3ba50328ea6b7dce` |
+|  `latest` `0` `0.40.0` `0.40`                 | June 20th    | `sha256:a55d4418d8ddbff18ab0820ec9e1c3b15b09e730dac3fa6a52974326520216c8` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public aws-ebs-csi-driver-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-31 00:48:45
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -75,8 +75,8 @@ The table shows package distribution across variants.
 | `libxcrypt`                   | X          |        |
 | `lsblk`                       | X          | X      |
 | `mount`                       | X          | X      |
-| `ncurses`                     | X          |        |
-| `ncurses-terminfo-base`       | X          |        |
+| `ncurses`                     | X          | X      |
+| `ncurses-terminfo-base`       | X          | X      |
 | `openssl-config-fipshardened` | X          | X      |
 | `openssl-provider-fips`       | X          | X      |
 | `umount`                      | X          | X      |

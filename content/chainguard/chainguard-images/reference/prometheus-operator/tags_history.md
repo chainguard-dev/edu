@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:4f5492c3daa48b565d0e3acf1a3ec68f66b983615bf3e2254853f06caef5e83b` |
-|  `latest`     | June 5th     | `sha256:98b97427bd9df59e27bf8b64bd92a3455299a0f93b654ca3fe2ac8115d1bae7b` |
+|  `latest-dev` | June 22nd    | `sha256:58f9e15f2c6405f1c581bd385e2107fd8b11b5eb7ee24a117680b9cc589cc6e2` |
+|  `latest`     | June 19th    | `sha256:1755b17265f78d51019b13ddd7f573bee96fe6bacd4ed0d7faaf15ded66971a1` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.74.0-dev` `latest-dev` `0-dev` `0.74-dev` | June 8th     | `sha256:d79768dce21e95cc73ab77edc2b23742f24310d71ba82ab18ca7344f0ea3c523` |
-|  `0` `latest` `0.74.0` `0.74`                 | June 5th     | `sha256:1b645a13a25fe8c6c0220ec34e4ec111a6ee884cc92609dc800b7106b3b78812` |
+|  `latest-dev` `0.74-dev` `0.74.0-dev` `0-dev` | June 21st    | `sha256:ea595f61da6116d60135abf7da6c74c47021270e4932922f483cc0bc7c4389d0` |
+|  `0` `latest` `0.74` `0.74.0`                 | June 20th    | `sha256:53734f9b28d660764d3183cd80d7ba5140b413018209211d5e322a77f1bdb940` |
 

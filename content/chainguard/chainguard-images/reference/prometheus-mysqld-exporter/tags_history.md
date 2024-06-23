@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mysqld-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:d4d83f801646cb0ffc9c914e07670c298b70c48ce078b12640a7dccdcdf8d5dd` |
-|  `latest`     | June 5th     | `sha256:e014caacbd658acb0dee8051d263f861d56ee2693ad209f620f82d644b8f3470` |
+|  `latest`     | June 22nd    | `sha256:8c077f98bbfa33836a265cd8da2dd0e6405f46ac9d8f3733fe7d810ae1b358f4` |
+|  `latest-dev` | June 22nd    | `sha256:d693e86cbd5b13f55595ad7f02b2a324340042680609aa3121e70118692a008b` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.15.1-dev` `0.15-dev` `latest-dev` | June 8th     | `sha256:e00ef8ffa45fd2ebb077732632aacd1527c1a2c258ad0c85b76dcb4d78fa5fbd` |
-|  `0` `latest` `0.15` `0.15.1`                 | June 5th     | `sha256:203ee3789d937487a6c17d47fce7b458de2f3da7510d46c7691512f3a5d04e2a` |
+|  `0.15-dev` `0-dev` `0.15.1-dev` `latest-dev` | June 21st    | `sha256:f11cf4c99ec7f176d326584ff573eb38cb401d776a611022831f8074fa7aa5d4` |
+|  `0` `0.15` `latest` `0.15.1`                 | June 21st    | `sha256:2324dfb5ad75446c633811fdd220b03b355e6ef3df360f70543916f388488164` |
 

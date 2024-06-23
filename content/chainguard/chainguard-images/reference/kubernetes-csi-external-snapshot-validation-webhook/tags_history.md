@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-snapshot-validation-webhook Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | June 5th     | `sha256:ab69a6f21f1165da6d947f89e1b12ee0c799211dcf15a494c8e0350792b5459d` |
+|  `latest` | June 19th    | `sha256:21b25f630be2bd63adbecb504a2f068c537b9dc81ee2e23e98b70fda39b58929` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8-dev` `8.0.1-dev` `latest-dev` `8.0-dev` | June 8th     | `sha256:c8f5e6c25c984c9e8e257719ff9ef185ada36c69328106c4fc8dbd63866bf6f9` |
-|  `8.0.1` `8` `8.0` `latest`                 | June 5th     | `sha256:7c18ac33034a1fcfa8304c73e5ee58215f17fe2247c42d42de731885681211a1` |
+|  `8.0.1-dev` `8.0-dev` `latest-dev` `8-dev` | June 21st    | `sha256:c06ee1de3077a05944b1606dafbaf8bec1d9d295bdcedd4ae632a0a3ca739d15` |
+|  `latest` `8.0` `8.0.1` `8`                 | June 20th    | `sha256:e95f67a001d378d887321eb207846219b4006cbc3b015284ceccde46f6a77ff9` |
 

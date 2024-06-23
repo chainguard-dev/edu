@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the velero Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:8792087c442dcf6426afe75bb9d88fb7aae11884cb75b8d698c2929bd0c41bdf` |
-|  `latest`     | June 5th     | `sha256:bbf583ab3babc945305833f42f9488852259411c5d67e9abe22aa2372a8f3cac` |
+|  `latest-dev` | June 22nd    | `sha256:7f5ce459f56d882876b182a9280646f61cd9ba760ff0092b305177123bdf57fe` |
+|  `latest`     | June 19th    | `sha256:878adb1cf7dd79d24bd15aba9780dd07c7ccbbbf29f08486cb385dc278db04b1` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.13-dev` `1.13.2-dev` `1-dev` | June 8th     | `sha256:fff6d95b13835e30cf33bec99873b3135735bd38aad60ad7205d73f21272bc38` |
-|  `1` `latest` `1.13.2` `1.13`                 | June 5th     | `sha256:2573a8b7809f569d23e8826ec0af0d58799a4f6d632776dc0dfb397701b5831c` |
+|  `latest-dev` `1.14-dev` `1-dev` `1.14.0-dev` | June 21st    | `sha256:3360d79c40d944f1847e6064b9df0b965b5435df7f9938e07c07d809609c7e30` |
+|  `1.14` `1.14.0` `1` `latest`                 | June 20th    | `sha256:b64e2b775819ed0ec6d71b02ee8d0dcd0dab71247d4729f98d94adacd74b3f7e` |
 

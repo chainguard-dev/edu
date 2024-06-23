@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-persistenceagent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:536b716edfb93e36155e569fc60524789040891a26e50af33c4c7be9dc21626a` |
-|  `latest`     | June 7th     | `sha256:2702d53f94b16a782484ac79d45fbf6da4574e04c911176e20daba3e613b8a46` |
+|  `latest-dev` | June 22nd    | `sha256:4b2f2f56826a26996d472d4e785b612d6afd8887a0f588a6b4e4e9fdfa4c2e70` |
+|  `latest`     | June 21st    | `sha256:7198687be7dc7540ecd044515fbfc77bbdd6a0d8d1b6a5f3bc7a072950290f62` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.2.0-dev` `2.2-dev` `2-dev` | June 8th     | `sha256:ef7dea7c30d78b61afbbdfe736e1ebfb339e864fc96aa3b34fddf49499d1a581` |
-|  `2` `latest` `2.2.0` `2.2`                 | June 7th     | `sha256:adc3d0a62f421d2b3d45e845d603de5e424d9067a9140789324ae7baf34b406c` |
+|  `latest-dev` `2.2.0-dev` `2.2-dev` `2-dev` | June 21st    | `sha256:42284b8e9c51f9f6d8dba3d46e95a4a9651d5ecaae8457ce77f30d54554a1120` |
+|  `2` `2.2` `2.2.0` `latest`                 | June 21st    | `sha256:0a994356e35377b781f80e2662d598b427af623191df4660c5ad35fb2b8c2bfb` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for cilium-hubble-relay Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,7 +29,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 | Registry                     | Tags                                                                                                   |
 |------------------------------|--------------------------------------------------------------------------------------------------------|
 | `cgr.dev/chainguard`         | latest, latest-dev                                                                                     |
-| `cgr.dev/chainguard-private` | 1, 1-dev, 1.14, 1.14-dev, 1.14.11, 1.14.11-dev, 1.15, 1.15-dev, 1.15.5, 1.15.5-dev, latest, latest-dev |
+| `cgr.dev/chainguard-private` | 1, 1-dev, 1.14, 1.14-dev, 1.14.11, 1.14.11-dev, 1.15, 1.15-dev, 1.15.6, 1.15.6-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

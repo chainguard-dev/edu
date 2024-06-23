@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kibana Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:1a72f80d30383550955b93997ab3f8a51691ace68e25f591818d0899ac88b765` |
+|  `latest-dev` | June 22nd    | `sha256:e3b7711364ec90ed040b9ea286d9e26903780248ebbd1fa806428ab7ce11b72f` |
+|  `latest`     | June 19th    | `sha256:039cf1328996e07ab96dc8a6804348ecd50cab119f550b1e578d90772b4382d9` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.17-dev` `7-dev` `7.17.21-dev`             | June 8th     | `sha256:2f581efbc02caaf53b80c18f6812e625433a96dc110a3084dfbcb449aaef4c64` |
-|  `8.13-dev` `8.13.4-dev` `8-dev` `latest-dev` | June 8th     | `sha256:61fe2da3488e4283e3c47762d9a301e0390ccc9aac47001f7dea1be361806952` |
+|  `8.13.4-dev` `latest-dev` `8-dev` `8.13-dev` | June 21st    | `sha256:bc3773c93bdd772c6cbd84d5a23dd2b01c2edaa1e587bccbf0586b1126fd513c` |
+|  `7.17-dev` `7-dev` `7.17.22-dev`             | June 21st    | `sha256:2f8910485c269e18a17800a70b1117c6bc18d74247af80163c25e48d7a62b4a3` |
+|  `7.17.22` `7` `7.17`                         | June 20th    | `sha256:88e9db729c0f2fee647db3ffb1d817c67887774ed1929ad3d92a7503556b070b` |
+|  `8.13.4` `8` `latest` `8.13`                 | June 20th    | `sha256:08e6a868075aab21e0563ed16df235961f7128a87826d970bbe2e0ded63299ea` |
 

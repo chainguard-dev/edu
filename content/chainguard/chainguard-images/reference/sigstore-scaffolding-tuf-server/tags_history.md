@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-tuf-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:72aa18ff1e3afc108e0ddbafcbb36a010b6162bbdd28808faac2f6725a6cb83d` |
-|  `latest`     | June 5th     | `sha256:c23215480d17e7b881c48c697c69c9a8f7128d467cc46a8bd447a4f2fbce9676` |
+|  `latest-dev` | June 22nd    | `sha256:4e41f3130784e3d3c04c7b7337969140da1ae7c66134715dd5d50c8528f472fb` |
+|  `latest`     | June 20th    | `sha256:bab42c4eadbf7a25c7cc62af23d8b0d5563587eea804da0edfa46adc9ba05f3c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.7-dev` `0.7.1-dev` | June 8th     | `sha256:1123cbc1471c508ced8326a1e452370929a98c1a9588f15458d04ba3a757c06d` |
-|  `0.7.1` `0` `latest` `0.7`                 | June 5th     | `sha256:45b18864243b59b4002662148c102a708bb30ab7a8c0beb4d662b8beae2702a6` |
+|  `0.7-dev` `0.7.2-dev` `latest-dev` `0-dev` | June 21st    | `sha256:068df356eff815cdc3be3a69b398b04d3ece05b06f9c0509dc4988270b1a7973` |
+|  `latest` `0.7.2` `0` `0.7`                 | June 20th    | `sha256:d2abcf6f7e39a4f399e543c0f3b86b8bb82e822ffd1063eea030fa123af3818e` |
+|  `0.7.1-dev`                                | June 17th    | `sha256:b4d79cd8d2fd2f17465a72fd3b6c7aeb3b62ecac47979e10ea52078435080e69` |
 

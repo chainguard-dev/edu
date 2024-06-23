@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-hyperopt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:b29d1387c0a8c587e8d5559e87e60834ab3cc10475d67edaa57935ea0650bd8b` |
-|  `latest`     | June 5th     | `sha256:1f793a231ffcf557a43f4a7cd3c75ce2876c35bb3e59cd051345489559a3fe9a` |
+|  `latest`     | June 22nd    | `sha256:15a05874d0126842045265cb267ae661134061dd13dad02ffce32dfb5f83ced2` |
+|  `latest-dev` | June 22nd    | `sha256:7b66023fb9f98d932d3181c08895d519f4663d44a739ec2aef1788b286600f71` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.16-dev` `latest-dev` `0.16.0-dev` | June 8th     | `sha256:6718eac215ee58550405c5bb3ebf94d0ce03225dab9be5178d155014f50606fd` |
-|  `0.16` `0` `0.16.0` `latest`                 | June 5th     | `sha256:4ea95db4e2b78ee5a0c7bdd90c43470c9ab54768cea8de6798683ab3191cea6a` |
+|  `0.16.0-dev` `0.16-dev` `0-dev` `latest-dev` | June 21st    | `sha256:25ec926030e17ca901e8a5b691496c786067f63832758cdd7980c213e4802fe2` |
+|  `0.16` `0.16.0` `latest` `0`                 | June 21st    | `sha256:6d2e7e66521014fcfb099d1b71909bf567613c05b840d252e87d86337bed651d` |
 

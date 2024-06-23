@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public pulumi-kubernetes-operator Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -134,7 +134,9 @@ The table shows package distribution across variants.
 | `pulumi-language-python`     | X      |
 | `pulumi-language-yaml`       | X      |
 | `pulumi-watch`               | X      |
+| `py3.12-flit-core`           | X      |
 | `py3.12-pip`                 | X      |
+| `py3.12-pip-base`            | X      |
 | `py3.12-setuptools`          | X      |
 | `python-3.12`                | X      |
 | `python-3.12-base`           | X      |

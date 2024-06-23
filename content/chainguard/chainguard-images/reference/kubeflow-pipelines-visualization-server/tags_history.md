@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-visualization-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:c1bd49b0f783c9632c95de2ebaa0af0d20d61a6e1b999912d1faede715d1e3b0` |
-|  `latest`     | June 5th     | `sha256:3258095e2c37081b7bbeeb15704e9ff94a883c8cb8d52387916f50c5943280ad` |
+|  `latest-dev` | June 22nd    | `sha256:ff82ae9c0498c9cb10efad53c80980309ae8bb1670f95bc403f2fa13152850a2` |
+|  `latest`     | June 22nd    | `sha256:a830cb11db0f1c05f7e6dd8ae3ede4413a55ce8513df49205303a7ef8fe3c8f4` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.2-dev` `latest-dev` `2.2.0-dev` `2-dev` | June 8th     | `sha256:8dea22bcc63168ca092f02ae9201106a2c227c3d5d3e36d3cd8e331bf92839d7` |
-|  `2.2` `2.2.0` `2` `latest`                 | June 5th     | `sha256:9801bf51b1fe7507e6194c0da6f073b5999b0a3671ed11ff90a5fc244fcf084b` |
+|  `2` `latest` `2.2.0` `2.2`                 | June 21st    | `sha256:6cd86a0a0eb60adca599bbd5e5bd7dd013136aec97950dcff7a97aeb390fcc2d` |
+|  `latest-dev` `2.2-dev` `2-dev` `2.2.0-dev` | June 21st    | `sha256:d2826fd3ff9931bf74540dab77b44eb67c047b037459e7842c688862b314b980` |
 

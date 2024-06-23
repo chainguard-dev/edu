@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-earlystopping-medianstop Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:cad1d431263cbb1b092508578e2f5b1361ec0bc0a2ae4d0be489b289d681247c` |
-|  `latest`     | June 5th     | `sha256:3323e9ce6ec45af916182c0f441bfe1b1d339196ef275f849416bfbd48654c00` |
+|  `latest-dev` | June 22nd    | `sha256:e858db0246791daecb323775d1c44f8e62dc8fd9eac936f0042db14026dae5be` |
+|  `latest`     | June 22nd    | `sha256:1fc54f50ea841fdd66901504b0cd1d5a6c7b6431ea5d7ad2ccf79143634b0e89` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.16.0-dev` `latest-dev` `0.16-dev` | June 8th     | `sha256:f0f2905e9206727380ec0ffeba93d0f01d498764c3e81e53488387f7e971c8d3` |
-|  `0.16.0` `latest` `0` `0.16`                 | June 5th     | `sha256:c22ad7ca0f29302acd56cad73519d81e05a259c23ca2a15de4e7463a95622a84` |
+|  `0.16.0-dev` `0.16-dev` `latest-dev` `0-dev` | June 21st    | `sha256:8afcab2190f9383b82d8d40213ea423a4f36973304e934a93935a3c1b59fcca9` |
+|  `0.16` `latest` `0.16.0` `0`                 | June 21st    | `sha256:0d12d5d13485127ea7b226d40326f6671ee94957a41b8eb735ffb3b836676c5e` |
 

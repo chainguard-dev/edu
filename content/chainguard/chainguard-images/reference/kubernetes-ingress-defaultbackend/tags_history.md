@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-ingress-defaultbackend Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:e2002fc4ab525ed2c4914dd408f56469aea1ee8b553241e45bdac3586cc40ab2` |
-|  `latest`     | June 5th     | `sha256:9166aaf2a2ace406e6cf7505cfe8158a27eca9aea2c308642426e553d84bcfa9` |
+|  `latest-dev` | June 22nd    | `sha256:7c7721daaf5a7ef3a29b8d8c061e5c704cac3dbf9dbe7b7e9f9860cd36c43d40` |
+|  `latest`     | June 19th    | `sha256:7ce6f4bb70b4c8dbd902bb3703ffc32aed3f02f232cb8fd97ded236700db46b3` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.29-dev` `1.29.1-dev` `1-dev` `latest-dev` | June 8th     | `sha256:621a169bef4ea1104bfc3574d40bbe8c7d5bd8877b8753ed4929970c015129c7` |
-|  `1` `latest` `1.29` `1.29.1`                 | June 5th     | `sha256:965773d6f47801fbf7171f82fae77b7d85c3377e877beb96b1f00d5e5e2a7b56` |
+|  `1.30.0-dev` `1.30-dev` `latest-dev` `1-dev` | June 21st    | `sha256:0f59dcc52f1c20d114f09d27849096620a718fc272af3998d4a2cd804847ac97` |
+|  `1` `1.30` `1.30.0` `latest`                 | June 20th    | `sha256:b7faaad0c242f08419e450a4ac598c7c2af68b2b30421b8851c4f2752f5e3d4b` |
 

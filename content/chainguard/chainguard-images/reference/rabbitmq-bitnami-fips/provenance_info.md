@@ -3,8 +3,8 @@ title: "Provenance Information for rabbitmq-bitnami-fips Images"
 type: "article"
 unlisted: true
 description: "Provenance information for rabbitmq-bitnami-fips Chainguard Image"
-date: 2024-05-24 00:45:45
-lastmod: 2024-05-24 00:45:45
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,7 +29,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 | Registry                     | Tags                                                             |
 |------------------------------|------------------------------------------------------------------|
 | `cgr.dev/chainguard`         | No public tags are available for this image.                     |
-| `cgr.dev/chainguard-private` | 3, 3-dev, 3.13, 3.13-dev, 3.13.2, 3.13.2-dev, latest, latest-dev |
+| `cgr.dev/chainguard-private` | 3, 3-dev, 3.13, 3.13-dev, 3.13.3, 3.13.3-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

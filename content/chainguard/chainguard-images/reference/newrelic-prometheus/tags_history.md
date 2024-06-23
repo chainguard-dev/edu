@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-prometheus Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:7b159ddcab56b421fc4a4ff13707ae08d1b2c196ffc3b3f37f70f6bb1524eb30` |
-|  `latest`     | June 5th     | `sha256:3530750438938b43d2dbd925af1ec3301339e1bfa95ade78d1885851137e6f0b` |
+|  `latest-dev` | June 22nd    | `sha256:e1d150e1f2689b45285d360dbd6cabdb059e1f897ba16d2d740518234a94e861` |
+|  `latest`     | June 19th    | `sha256:ac60855c1a768c4590a25d9427ee921353a4d4d7e2c35906a2031d182f468a71` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.21-dev` `2.21.2-dev` `latest-dev` | June 8th     | `sha256:46b02d20704a800a37273e72a5606efac0302c512d25ceecc2e74188c4b1b544` |
-|  `2.21` `2` `2.21.2` `latest`                 | June 5th     | `sha256:19effe921287cd3f6ff976b5f857bdc32e64b37c661d953deaf07e1c1bcde5ab` |
+|  `2.21-dev` `2.21.3-dev` `2-dev` `latest-dev` | June 21st    | `sha256:7abac93a68e079fbf005ed3cb7b2a58ac2a1aafa457dfc920ffaa4fcb4af6e7f` |
+|  `2.21` `2` `2.21.3` `latest`                 | June 20th    | `sha256:8b489e1c30bfea3994a5f29fbc8f67a4590b676ed36f906ce5c70ab0b4d8c504` |
 

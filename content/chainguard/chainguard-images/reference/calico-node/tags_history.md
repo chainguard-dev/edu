@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the calico-node Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | June 6th     | `sha256:0dcbdc81cc36d43a1f8a47a43dc2999bdc09c2c468122ac125c3cef3dc6aa9c3` |
+|  `latest` | June 22nd    | `sha256:fcc55d1d3defc2e346937c2390c1f42c414024bd30be43ec27ce9937c287159b` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                          | Last Changed | Digest                                                                    |
 |----------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.28-dev` `v3.28.0-dev` `latest-dev` `3-dev` `3.28.0-dev` `v3.28-dev` `v3-dev` | June 8th     | `sha256:61c8bb43784bf99a4add14314dec9ccdd88812c7d5306e09c469aa2d8bad4a7e` |
-|  `v3` `3.28` `3` `v3.28.0` `latest` `3.28.0` `v3.28`                             | June 5th     | `sha256:62dd299321a3fb2ac132a0367806dedfd8987f04677c408f2929aba7e24c6598` |
+|  `v3-dev` `3.28-dev` `3.28.0-dev` `v3.28.0-dev` `v3.28-dev` `latest-dev` `3-dev` | June 21st    | `sha256:d2b336ef94d07d6817457cc937d0e88f44402d10daea017ac9fa8b2280f67b74` |
+|  `v3` `latest` `3` `v3.28` `v3.28.0` `3.28` `3.28.0`                             | June 21st    | `sha256:c6d31cc1cc5c452a7acc6a7dd622eac2d257bef4a70e69460e05450acf0dca01` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-snapshot-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:ef5d286fc182f6f703e442fde5286f75eedb31262ddf8cf0b3fde0b285738891` |
-|  `latest`     | June 5th     | `sha256:964f3d98a75d8743cd10eb84a893800a0e6e906f3174cfa829673eb04a02ed65` |
+|  `latest-dev` | June 22nd    | `sha256:35e9a7dfea3a1389e5d0dbb9c821af095ff0a05aaa292dc428b5f6f8973c2eda` |
+|  `latest`     | June 19th    | `sha256:413c4518d16fff850a5ac60a1301e63825c9a047e6d44c31f59e963e225fbb6b` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8.0-dev` `8.0.1-dev` `latest-dev` `8-dev` | June 8th     | `sha256:4ec8424d4fa9d96980bcccd19f34241698832600f87a41e8d302d74d50211b74` |
-|  `8.0` `latest` `8` `8.0.1`                 | June 5th     | `sha256:25d6808904d5e00ad45dd79f2a74fd6f4127c22bfd6d1c68342068582b4a1aaf` |
+|  `8.0-dev` `8-dev` `latest-dev` `8.0.1-dev` | June 21st    | `sha256:40196ba47180bd390f24b14fdbc482216f096c335d6f4bbe76a48f78d3d1873c` |
+|  `8` `latest` `8.0` `8.0.1`                 | June 20th    | `sha256:d06a0d90ff7f39486a519f5fd7ab0b166884bc9069a2e2490402a7dbdf40184a` |
 

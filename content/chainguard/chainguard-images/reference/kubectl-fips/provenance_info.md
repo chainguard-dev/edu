@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for kubectl-fips Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,7 +29,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 | Registry                     | Tags                                                                                                                                         |
 |------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                                 |
-| `cgr.dev/chainguard-private` | 1, 1-dev, 1.27, 1.27-dev, 1.27.14, 1.27.14-dev, 1.28, 1.28-dev, 1.28.10, 1.28.10-dev, 1.29, 1.29-dev, 1.29.5, 1.29.5-dev, latest, latest-dev |
+| `cgr.dev/chainguard-private` | 1, 1-dev, 1.27, 1.27-dev, 1.27.15, 1.27.15-dev, 1.28, 1.28-dev, 1.28.11, 1.28.11-dev, 1.29, 1.29-dev, 1.29.5, 1.29.5-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

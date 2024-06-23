@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grafana Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,17 +26,25 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-Currently, there are no Developer versions of this image available.
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | June 22nd    | `sha256:ec891c3a2ae5e6f2977a8299f481b3bc56eaaf2be7994a288087ef269781825d` |
+|  `latest`     | June 19th    | `sha256:9b18bc4edf6b85550fee678caf5556cbba3176ecb52ddb050cefbb28f350e12b` |
+
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                      | Last Changed | Digest                                                                    |
-|----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `9.5.19-dev` `9.5-dev` `latest-dev` `9-dev` | June 8th     | `sha256:99fe01915f401d6f49b0ccae9f4b23493dda6d4f776a7f43d850c6abccc001a0` |
-|  `8.5.27-dev` `8.5-dev` `8-dev`              | June 8th     | `sha256:df1c79b99b33ca15b22b0fdbe263a69e5f189163e2699117b2fbfa33d037d61f` |
-|  `10.3.6-dev` `10.3-dev`                     | June 8th     | `sha256:7f72b814629d798415ff5d337df62af9429dfcc974999391781f8f209ee2a10f` |
-|  `10.4-dev` `10-dev` `10.4.3-dev`            | June 8th     | `sha256:9b9fd9e3b9c7a671b26bef4cbbb06dc5a282a13e98edc1952cdc167bc2e4bc2e` |
-|  `latest` `9.5.19` `9` `9.5`                 | June 5th     | `sha256:6473b2a9ea40e5182a930781d034d772929b12b82db6c104d5ec1f16eab7065a` |
-|  `10.4` `10.4.3` `10`                        | June 5th     | `sha256:d0181155562da3ba92270c11677bf6a26000aa4faf8a1ccb20a8d4975058fdbb` |
+| Tag (s)                                        | Last Changed | Digest                                                                    |
+|------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `10.4.4-dev` `10-dev` `10.4-dev`              | June 21st    | `sha256:07c847ae2211516501392592ff3ccdf44cc442cce8da05d7a56c0dd885bca625` |
+|  `latest-dev` `11-dev` `11.0.0-dev` `11.0-dev` | June 21st    | `sha256:adb5712996d2252cf618871f74953e0eb252066d47230cfb5a62bf6e6c08249d` |
+|  `9.5.19-dev` `9.5-dev` `9-dev`                | June 21st    | `sha256:7bdd82c7ceba4c7d0eace4e8b8dca97f7f8dff8d3842045a82f4b3984d4a5f9b` |
+|  `10.3.6-dev` `10.3-dev`                       | June 21st    | `sha256:faffa980e4e91cf1ec1c9932d3bf20f48aa2df9406310b606932b4bf88378f8d` |
+|  `8-dev` `8.5.27-dev` `8.5-dev`                | June 21st    | `sha256:ab217df3187aefe5efebd538e32a963558463f3d90248da9a8687bafcd98368d` |
+|  `9.5` `9` `9.5.19`                            | June 20th    | `sha256:4213e4ae82def16a09873bead7bdba8881ad69bad6521f9a7482a282d652f4c8` |
+|  `10` `10.4` `10.4.4`                          | June 20th    | `sha256:b430c40d2200b4dc72e0afe712f451e0cf73ad86d59f915a0637398946b02e8d` |
+|  `11` `latest` `11.0` `11.0.0`                 | June 20th    | `sha256:db1682cf3adf1679235a918b9f285650789890dc744f6aad1a683344f5fea61d` |
+|  `10.3` `10.3.6`                               | June 20th    | `sha256:dbddac87e2f4ec94fc87a4ddea5dd68080ae1bbed84f4547bf83a4469a531dc2` |
+|  `8` `8.5` `8.5.27`                            | June 20th    | `sha256:ab3777643376857be214379a99e46cb845213391057cf3ca5841c34577c44022` |
 

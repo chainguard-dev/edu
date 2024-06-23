@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:3aac8f70421fd099b707bb4b88f52919581840e8070dc334cc24288f5f3da97c` |
-|  `latest`     | June 5th     | `sha256:b451a6a5d8755ab0c674429a77f8f98763923fdb9ee64cf4f8142d8c059eaf9e` |
+|  `latest-dev` | June 22nd    | `sha256:ca2b4ea8cd97c0f1e8dd741c14df9a306369d2ceef586dd9127c8f412cc0e739` |
+|  `latest`     | June 20th    | `sha256:bd93c246052cba66ca398259baae451828549e191ee611f3a03efd5d1fdf1733` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0-dev` `latest-dev` `0-dev` `0.16-dev` | June 8th     | `sha256:fcd30c34c951fb0fa6594c713ea26cf9c72d148a43b6eb24ce9636637c209a3a` |
-|  `0` `0.16.0` `0.16` `latest`                 | June 5th     | `sha256:ce1c8edc40a8e08691af0c99765887595fababa3f76205f261fed14e116eb509` |
+|  `latest-dev` `0-dev` `0.16.0-dev` `0.16-dev` | June 21st    | `sha256:ff1387ac5628ce7e0f3e5add94f411ad5621ba353760fc671f03609eb88b0ce2` |
+|  `0` `0.16.0` `0.16` `latest`                 | June 20th    | `sha256:6c327e923679e226ca21a5b71a8369d46a0b870f44224dc4f392310d74dd1d50` |
 

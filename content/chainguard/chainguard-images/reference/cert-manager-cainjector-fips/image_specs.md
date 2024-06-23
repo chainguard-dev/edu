@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public cert-manager-cainjector-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-04 00:50:16
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -41,9 +41,9 @@ The table shows package distribution across variants.
 | `bash`                              | X          |        |
 | `busybox`                           | X          |        |
 | `ca-certificates-bundle`            | X          | X      |
-| `cert-manager-fips-1.14-cainjector` | X          | X      |
+| `cert-manager-cmctl-fips`           | X          |        |
+| `cert-manager-fips-1.15-cainjector` | X          | X      |
 | `chainguard-baselayout`             | X          | X      |
-| `cmctl-1.14-fips`                   | X          |        |
 | `git`                               | X          |        |
 | `glibc`                             | X          | X      |
 | `glibc-locale-posix`                | X          | X      |

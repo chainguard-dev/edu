@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-external-snapshot-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                  | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `6-eks-1-23-33-dev` `6.3-dev` `6.3.0-eks-1-23-33-dev` `6.3.0-dev` `latest-dev` `6.3-eks-1-23-33-dev` `6.3.0-r7-eks-1-23-33-dev` `6-dev` | June 8th     | `sha256:ca2ff980c8aabfc48f3ed95b5e4a4bd8d9bb269034a8030832fb31b603dee1ef` |
-|  `6.3.0` `latest` `6.3.0-eks-1-23-33` `6.3` `6-eks-1-23-33` `6` `6.3.0-r7-eks-1-23-33` `6.3-eks-1-23-33`                                 | June 5th     | `sha256:9e2f7fb0ffa1b6abd5b1013c3b61b0b62775a92c5b7cbe7a0e7d86439dc119a0` |
+|  `6.3-dev` `6.3.0-r7-eks-1-23-33-dev` `latest-dev` `6-dev` `6.3-eks-1-23-33-dev` `6.3.0-eks-1-23-33-dev` `6-eks-1-23-33-dev` `6.3.0-dev` | June 21st    | `sha256:8cac1697ca2828392a2ee6b11f445a04ca79008b3fce84e5b0dccbac0b18b44c` |
+|  `6.3-eks-1-23-33` `6.3.0-eks-1-23-33` `6.3` `latest` `6.3.0-r7-eks-1-23-33` `6.3.0` `6-eks-1-23-33` `6`                                 | June 20th    | `sha256:3e4649019999a538718430e419ba59872acde86374c3b28bf32b47afb6160920` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the neuvector-prometheus-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-11 00:42:18
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:777816d7e6f950ec8121b79ec6dfa44b7e1458e7c5388ad1be8ff79f70db1e30` |
-|  `latest`     | June 7th     | `sha256:1838281ed0d16fdc6968d7bafd819b999ff0e4c351718946f9dfdab0555efc84` |
+|  `latest-dev` | June 22nd    | `sha256:eaf299ad5ce08ebeb244e012a55fc163ec531541804ab3a3a08cd73e1d233444` |
+|  `latest`     | June 22nd    | `sha256:b5b0b4a8cd2a9c4b22763b139b0886a32accd8830f76c26871d79485fb9e21f3` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                   | Last Changed | Digest                                                                    |
 |-----------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.1.0-dev` `1.1-dev` `latest-dev` `1.1.0.0-dev` `1-dev` | June 10th    | `sha256:51d36d90beee02d0911e4557841a04dce029b8216981d0d3618f8cbeeebef617` |
-|  `1.1.0.0` `1.1.0` `1` `1.1` `latest`                     | June 10th    | `sha256:a1757c5bb1afc5e254b893244083eb2798f96052d6b7946a6412c28e69bb5ed0` |
+|  `1.1.0.0` `1.1.0` `1` `latest` `1.1`                     | June 21st    | `sha256:a7b24ef4d6fc16f2794260e12af754239d5877c2c0b6d3452c2feb82f0f28546` |
+|  `1.1.0-dev` `1.1-dev` `1-dev` `latest-dev` `1.1.0.0-dev` | June 21st    | `sha256:f460aee9200c0868f63374b7862bf054e03efafe3e8efb7f78e178f4e93d1899` |
 

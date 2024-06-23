@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public python-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -88,7 +88,9 @@ The table shows package distribution across variants.
 | `openssl-provider-fips`       | X          | X      |
 | `pkgconf`                     | X          |        |
 | `posix-cc-wrappers`           | X          |        |
+| `py3.12-flit-core`            | X          |        |
 | `py3.12-pip`                  | X          |        |
+| `py3.12-pip-base`             | X          |        |
 | `py3.12-setuptools`           | X          |        |
 | `python-3.12`                 | X          | X      |
 | `python-3.12-base`            | X          | X      |

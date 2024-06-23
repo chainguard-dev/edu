@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public aws-cli Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-27 00:43:34
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -78,11 +78,13 @@ The table shows package distribution across variants.
 | `py3-python-dateutil`    | X          | X      |
 | `py3-rsa`                | X          | X      |
 | `py3-s3transfer`         | X          | X      |
-| `py3-six`                | X          | X      |
 | `py3-urllib3`            | X          | X      |
 | `py3-yaml`               | X          | X      |
+| `py3.12-flit-core`       | X          | X      |
 | `py3.12-pip`             | X          | X      |
+| `py3.12-pip-base`        | X          | X      |
 | `py3.12-setuptools`      | X          | X      |
+| `py3.12-six`             | X          | X      |
 | `python-3.12`            | X          | X      |
 | `python-3.12-base`       | X          | X      |
 | `readline`               | X          | X      |

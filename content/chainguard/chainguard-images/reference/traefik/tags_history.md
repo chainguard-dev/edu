@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the traefik Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-11 00:42:18
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | June 10th    | `sha256:8d341e64650bb7c664fdeebc73882136e3ee0570c66559936c84e21d9bb44d09` |
+|  `latest` | June 19th    | `sha256:355cfd5dd4b6c1802820a618f39d8038e4ae997b9ce586c4aad8a45aed6df3f0` |
 
 
 ### Private/Dedicated Registry
@@ -36,8 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `3.0-dev` `3-dev` `3.0.2-dev` | June 10th    | `sha256:b69d8f59a21c3626b105150c70a6038a26718eab59157f637c535782c227cf0a` |
-|  `3` `3.0` `3.0.2` `latest`                 | June 10th    | `sha256:2f634a3e127a0970ebabaafe4fc15fdc587295257fad5b12f52feec402a3025d` |
-|  `3.0.1-dev`                                | June 8th     | `sha256:db725c738affe97e58eec94090b9f91b1aff06acbd696718ec9e3b5d92d3ce1d` |
-|  `3.0.1`                                    | June 5th     | `sha256:d9fef6caab1b7c581fe28f9147b571bba89ac3bfe48b2c464795bad44f6fc8e5` |
+|  `3.0.3-dev` `3.0-dev` `latest-dev` `3-dev` | June 21st    | `sha256:10ed3bf7352617a099f7119310678a52f3c8096b795017bb1065adf80058215c` |
+|  `3.0.3` `3.0` `latest` `3`                 | June 20th    | `sha256:17da18c74b01a5f8d33eb81e066965d27744173fd5dc1ca96a09d183f5c2d05e` |
+|  `3.0.2-dev`                                | June 18th    | `sha256:6c991b4005db3a5914733527daa136cd25b231d81bcf456522e7e152d9cf3d87` |
+|  `3.0.2`                                    | June 18th    | `sha256:46fe6e67d5a852be3953b018ed194a9b29e192d4d1f8a72049b4d7861848025d` |
 

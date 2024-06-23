@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public cert-manager-acmesolver Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -41,9 +41,9 @@ The table shows package distribution across variants.
 | `bash`                         | X          |        |
 | `busybox`                      | X          |        |
 | `ca-certificates-bundle`       | X          | X      |
-| `cert-manager-1.14-acmesolver` | X          | X      |
+| `cert-manager-1.15-acmesolver` | X          | X      |
+| `cert-manager-cmctl`           | X          |        |
 | `chainguard-baselayout`        | X          | X      |
-| `cmctl-1.14`                   | X          |        |
 | `git`                          | X          |        |
 | `glibc`                        | X          |        |
 | `glibc-locale-posix`           | X          | X      |

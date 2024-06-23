@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-writer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-11 00:42:18
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 10th    | `sha256:35e43e36fbb7bcf3b648339db462c5b297e21bb46408171a682110b70c5d88d2` |
-|  `latest-dev` | June 10th    | `sha256:256be5e27abeb6f0e095ad20826185b16370657b9e6666bf328c35b0c5f6439b` |
+|  `latest`     | June 22nd    | `sha256:d217cb35297b8c726191242b15f40e2b5b7f5b570aac88da6893e7fc8e94b52f` |
+|  `latest-dev` | June 22nd    | `sha256:975cef39a62e63194584781e6a329999e67bd044c43c77222a37e5be41d4cdf8` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `latest-dev` `2.2.0-dev` `2.2-dev` | June 10th    | `sha256:c4778664361a558551a8a3fa0a3e5214aef4fabe4bc11517d56928c7a9a3823e` |
-|  `2.2` `2.2.0` `2` `latest`                 | June 10th    | `sha256:ef48bc0ffe31a9d28004ae5c2b0da51a7f998a3aa9b6022f9f8d20d4c785da94` |
+|  `2-dev` `latest-dev` `2.2-dev` `2.2.0-dev` | June 21st    | `sha256:8fce2a3650155432a75c73ea1acd1019d129428d24298cb8633ee43767334655` |
+|  `latest` `2.2.0` `2.2` `2`                 | June 21st    | `sha256:13959f99fb8c7370354834f12f723497ee0ec7c8b4e39577462f5396ba19e378` |
 

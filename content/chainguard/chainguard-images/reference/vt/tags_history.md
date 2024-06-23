@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:e485c3a58601d78a44e4ab9fd0f18aa9b7e292f9adfcfa7d89915b51b244b739` |
-|  `latest`     | June 5th     | `sha256:8cfab5888804799ee0ee9e466335c0386c761ce857df64a2e3b27b1346abcb1d` |
+|  `latest-dev` | June 22nd    | `sha256:ccf0fcfe33d4c42419970d7e321c010cf28029f18ed81f96b273a1caa109030a` |
+|  `latest`     | June 19th    | `sha256:a3a1b00b9cb670746acb2805476895f61e1a9b9ba12d5d4442539e8bddad0812` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.0-dev` `1-dev` `1.0.0-dev` | June 8th     | `sha256:44a7f7434d73add342aba87a7062cef40ab6f1d126f9ddbc159f53604bab5dce` |
-|  `1.0` `1.0.0` `1` `latest`                 | June 5th     | `sha256:78056d23f3cdb5461cdd55c41980353432d5e9ba5e23a89dd74941ffcb4577fd` |
+|  `1.0.0-dev` `1.0-dev` `1-dev` `latest-dev` | June 21st    | `sha256:1fe65b6b48536143dc1893d0903ef9bcce1a6209686bfea42c07fd9cfd20188b` |
+|  `1.0` `1` `1.0.0` `latest`                 | June 20th    | `sha256:0b9413626ff189236d8d153818ce653e5c6d95a00451f6108fa4015d1fa06c62` |
 

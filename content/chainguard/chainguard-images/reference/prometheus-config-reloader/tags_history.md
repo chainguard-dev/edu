@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-config-reloader Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:63f9fd6c044807561d38c98aa43ac137b0701ae68df1c9eec8c6da6d58ad90a3` |
-|  `latest`     | June 5th     | `sha256:eaa9e7c209e6f6499d56dde30da8b8850615d04bd161d12a21910a07d3c8e2a5` |
+|  `latest-dev` | June 22nd    | `sha256:f56188a90abc11ab9359b305bd73783e7dce6361c5c4e52d81e946d47e98ff35` |
+|  `latest`     | June 19th    | `sha256:dc751fdf31d42e4b921542052982481818722d95f0cce877535001668d147754` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.74-dev` `0-dev` `latest-dev` `0.74.0-dev` | June 8th     | `sha256:7ec5762b2ebf06a122fdd5560d1c25c9bf0fc49705054d4da1ac6ef5e91049b9` |
-|  `0` `0.74.0` `latest` `0.74`                 | June 5th     | `sha256:feeefb16f18e9089987f567310de768e601e57f1e6337cf7cf6805d8eaf39e3f` |
+|  `latest-dev` `0.74.0-dev` `0-dev` `0.74-dev` | June 21st    | `sha256:e016d1888cb2997d014948731fdadc6e0b75d5aa53f9a6b55741c17a254921f0` |
+|  `0` `0.74` `0.74.0` `latest`                 | June 20th    | `sha256:8dfc1b01b62b352f6797602185b150f575715e83bf48e926d7471af616eed43c` |
 

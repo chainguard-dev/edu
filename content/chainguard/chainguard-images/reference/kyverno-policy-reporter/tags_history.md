@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kyverno-policy-reporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:080dd805e284182db1265e0f98c7ef4661c71d387cc5ba01f5787f7453d4c002` |
-|  `latest`     | June 5th     | `sha256:e6dc9dcdafc817b6a2d6dbe71a9591d812f0c36c210571a0dff717b70857e8e4` |
+|  `latest-dev` | June 22nd    | `sha256:119a86a880a3a3e5f5692c0f13ea28246697582d56e751c6519318713f6817e6` |
+|  `latest`     | June 20th    | `sha256:2bec12ac6047ecb3bedc562ab9ec36eed413be06e76a9fd19d941d7b01793d50` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.19.0-dev` `latest-dev` `2.19-dev` | June 8th     | `sha256:15c592131037ecda95808a6e5b74855bc413fcac28571442954d956fda8e5057` |
-|  `latest` `2.19` `2` `2.19.0`                 | June 5th     | `sha256:1d8a6ef27fae843ddc666611ff65c4b10e7c9b7d8dcdf28b2488468199083f1c` |
+|  `2.20-dev` `latest-dev` `2-dev` `2.20.0-dev` | June 21st    | `sha256:236ac1f4cb3dea11431e11165bf259bb23775ae082204a414fd0f7589ee18408` |
+|  `2` `latest` `2.20` `2.20.0`                 | June 20th    | `sha256:09f54a5841045acd8c036b6c5799b260bb6a11a5b0d22eb35bfaff9757a68ca3` |
 

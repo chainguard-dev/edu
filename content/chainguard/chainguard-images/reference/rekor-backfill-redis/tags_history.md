@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rekor-backfill-redis Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:2e87d5b59b89e87d041a544c0a3baedbb4b74b3c9ab575c3bc1f02e9ed440a97` |
-|  `latest`     | June 5th     | `sha256:aea76b00ca4875e7e7f13303e88f31653527ef1f139edf62f3549982b892e0d6` |
+|  `latest-dev` | June 22nd    | `sha256:bb2d8a86da40e0710e931d35378ffcc13de950e567a8cac72520110726ba0372` |
+|  `latest`     | June 20th    | `sha256:a096046cc0859121f3843f3f3891d65fc8f4d134e69213d118c69cdf00a453dd` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.3-dev` `latest-dev` `1.3.6-dev` | June 8th     | `sha256:9ac0c0fc2844fd49d0caf143d4efb8509862f521a2cd49ea5ab8d9db79cc98a1` |
-|  `1.3.6` `1.3` `1` `latest`                 | June 5th     | `sha256:09ed5a011f7c2c7ca45790288dcc5be659679d4763512c83b3b3247c14f1973f` |
+|  `1-dev` `1.3-dev` `latest-dev` `1.3.6-dev` | June 21st    | `sha256:7e3ab6ec7ce1b38edcdb3736126aa53f18d389b4f0f0bff9c716e015761e6575` |
+|  `1` `1.3.6` `latest` `1.3`                 | June 20th    | `sha256:2fe2315bcc835d46df88aae0f8d06e48a0058b82ee92c94a0bca1cdc42e58cca` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the apache-nifi Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-11 00:42:18
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 10th    | `sha256:2eb2d4a6c30bc17308a0ba900a53c009bb8f6620a2847e4b116cf2f8afd909ae` |
+|  `latest`     | June 21st    | `sha256:1b3335692745c03daab76f160e8398947ec18408cb012e2fdac612eb6d98d104` |
+|  `latest-dev` | June 21st    | `sha256:4c86d5e1cb6f086601947c7fc8e326d9106bac543efc724643875493f5a12b0d` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.26-dev` `1.26.0-dev` | June 8th     | `sha256:32d9c356d78e0e729bcde015c38dcf3654046c93ba81f570007fcacdca7757f5` |
-|  `1` `1.26` `latest` `1.26.0`                 | June 5th     | `sha256:13eceb7dd3c3eac99376beaf38b76aded4fdc7594118a7ea6980e9226d3939dd` |
+|  `1.26.0-dev` `latest-dev` `1.26-dev` `1-dev` | June 21st    | `sha256:c1961a8909bcd07d89b7442c7798559fa5748d3ddd603411c6e885e94db8f10b` |
+|  `1.26.0` `1.26` `latest` `1`                 | June 21st    | `sha256:639c71a38a848d87c4f5d8c5f86134b757cd02cb9dfc4a483bcb8d2d90ffa575` |
 

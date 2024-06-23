@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grafana-rollout-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:cccbc4bf6a090127fea98b70dd4fc82c53907dcc6b5404c460d2c8ddb714d529` |
-|  `latest`     | June 5th     | `sha256:f523fd1244a7be618881ef957aff6bb9cca20215083f7f96567a6fd70b841de6` |
+|  `latest-dev` | June 22nd    | `sha256:ef2a910efd25e641050e1669c275b7b42a2f56e1e936ec1827a595221238213b` |
+|  `latest`     | June 19th    | `sha256:70f39d2e21b3357173f4fe40f86822312cd19ac6cf8b93ebfb80a13dc57d3b38` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.14.0-dev` `latest-dev` `0.14-dev` `0-dev` | June 8th     | `sha256:dcf5a4592cc419c0909d284456972e5255eddf0c6e9218a041ed09111da94ecb` |
-|  `0.14` `0.14.0` `latest` `0`                 | June 4th     | `sha256:754049d47821a21b92d2cd512b300209a17147598cf57751ebad673f8bb581f9` |
+|  `0-dev` `0.14.0-dev` `latest-dev` `0.14-dev` | June 21st    | `sha256:198c24d0287d25475fa4f6144b5f6395b306f3c59ba0181414ae2461f1008ab9` |
+|  `0` `0.14.0` `0.14` `latest`                 | June 20th    | `sha256:15fb094d5bb0d5066693522c66125b53a764967b5c2913f205f39f8a1475517d` |
 

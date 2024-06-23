@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nemo Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,13 +26,17 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-Currently, there are no Developer versions of this image available.
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | June 21st    | `sha256:c4cf660de9392974c3d5cd4cadd3c7754c786d8cf68d88ad5332efa707ff12d5` |
+|  `latest`     | June 21st    | `sha256:7f898f5a2c8356f825bea87290d658ef431faa7a35fb6af0f050c0d5daa876b1` |
+
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.23-dev` `1-dev` `1.23.0-dev` `latest-dev` | June 8th     | `sha256:268b15dea53b5996c3fd84cdbc12bc400fbed1ebe3b674e5a42363c7519732a2` |
-|  `1` `1.23.0` `1.23` `latest`                 | June 5th     | `sha256:f277dd9ec7ab0fdfbe2123ac64efce882e7133ca020eb18147cf0281db10f4b3` |
+|  `1.23.0-dev` `1.23-dev` `latest-dev` `1-dev` | June 21st    | `sha256:af054710994425d5383081bea3d03a268f1c989113a3becaca0d267a7a1d1648` |
+|  `1.23.0` `1` `1.23` `latest`                 | June 21st    | `sha256:6fb72900eb4931fae60d8aae1cea870a60cdc0bc832149f46eb62026e0804f0e` |
 

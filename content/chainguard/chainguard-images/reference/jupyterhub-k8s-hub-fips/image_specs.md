@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public jupyterhub-k8s-hub-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -145,7 +145,6 @@ The table shows package distribution across variants.
 | `py3-python-editor`                    | X          | X      |
 | `py3-python-json-logger`               | X          | X      |
 | `py3-python-slugify`                   | X          | X      |
-| `py3-pyyaml`                           | X          | X      |
 | `py3-referencing`                      | X          | X      |
 | `py3-requests`                         | X          | X      |
 | `py3-requests-oauthlib`                | X          | X      |
@@ -153,7 +152,6 @@ The table shows package distribution across variants.
 | `py3-rfc3986-validator`                | X          | X      |
 | `py3-rpds-py`                          | X          | X      |
 | `py3-ruamel-yaml`                      | X          | X      |
-| `py3-six`                              | X          | X      |
 | `py3-sqlalchemy`                       | X          | X      |
 | `py3-sqlalchemy-cockroachdb`           | X          | X      |
 | `py3-statsd`                           | X          | X      |
@@ -164,7 +162,9 @@ The table shows package distribution across variants.
 | `py3-urllib3`                          | X          | X      |
 | `py3-yarl`                             | X          | X      |
 | `py3-zipp`                             | X          | X      |
+| `py3.12-pyyaml`                        | X          | X      |
 | `py3.12-setuptools`                    | X          | X      |
+| `py3.12-six`                           | X          | X      |
 | `python-3.12`                          | X          | X      |
 | `python-3.12-base`                     | X          | X      |
 | `python-3.12-base-dev`                 | X          | X      |

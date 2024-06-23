@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-dashboard Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:6767cec7af8b810f29ee029b4cb834a6cae8f08534e6351c10b21faa0552d70b` |
-|  `latest`     | June 5th     | `sha256:813c59a17a66a4b4d0050dbe0d2cea020a114b905927438306b632848ef8700b` |
+|  `latest-dev` | June 22nd    | `sha256:1617594f97c8f2da994c0052ae7e0f33ad341fbd34e43aaf8c7d81669e385834` |
+|  `latest`     | June 19th    | `sha256:3bfec915a9dcebe6140e79d6f1dcdd735ac35ee8566ca924fca09f3111daea93` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `latest-dev` `2.7.0-dev` `2.7-dev` | June 8th     | `sha256:4977d8787982cd9591b885911873ed5aba6ab9a4617d2e5f219c5413f780ac52` |
-|  `latest` `2.7.0` `2.7` `2`                 | June 5th     | `sha256:126f14784f004077e687cdabf93f575066142191aa618bbf39bdfb59f3c67062` |
-|  `1-dev` `1.0.9-dev` `1.0-dev`              | June 5th     | `sha256:44ffcff386fc74a07b7b41b1cbdd7c589b63e37793409dbd6dd31aecb0128bc6` |
-|  `1.0.9` `1` `1.0`                          | June 5th     | `sha256:43153d196598420b7b4f826b2f339f72ea54efc95946fc467419733ab214c6c8` |
+|  `latest-dev` `2.7-dev` `2-dev` `2.7.0-dev` | June 21st    | `sha256:aa1420548748afd935dfc4481ff5b41c973a739231c648be8b85215bd0f8797d` |
+|  `latest` `2.7` `2` `2.7.0`                 | June 20th    | `sha256:c870e07a7c91d591c771f53758579ac48a0d060ea3851ae35ad70e898007c779` |
 

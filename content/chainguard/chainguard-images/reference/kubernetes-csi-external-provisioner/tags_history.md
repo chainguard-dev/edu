@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:bcc754bcdaffbd030afb5f264e677f5c443c44634317e2db63435cfd763aca06` |
-|  `latest`     | June 5th     | `sha256:f8dae207a35796f8dd6cdd2b842717313b33793e5b62eac2a823c2363f0a2a2a` |
+|  `latest-dev` | June 22nd    | `sha256:fa020339b6e6afec9030853a4d0b2b90cca7573e4f2f928644b486a9686714a2` |
+|  `latest`     | June 19th    | `sha256:6d6c93539ee25cb6428c453080062dbb070af5ebc7f89279add05e4e775d10c2` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `5-dev` `5.0.1-dev` `5.0-dev` | June 8th     | `sha256:3d40b370d014060fad9a66aa7fd6d2c062adcdeea61fcf946646ca1af134ae17` |
-|  `5.0` `5.0.1` `latest` `5`                 | June 5th     | `sha256:7a235aedbe866e2bd5eef8507d80f9e8d31cc85b7ad92aa4d4461091f5e9f3a0` |
+|  `5-dev` `5.0.1-dev` `latest-dev` `5.0-dev` | June 21st    | `sha256:3d4f3e584c0231e9b4ca96dab993452e3c7ad33f07390475e315ee009322ec0c` |
+|  `latest` `5.0.1` `5.0` `5`                 | June 20th    | `sha256:6d80ac32963228a3f9a00cc7f73e5072c010e85d71af72d93f2e9d870fbd0c87` |
 

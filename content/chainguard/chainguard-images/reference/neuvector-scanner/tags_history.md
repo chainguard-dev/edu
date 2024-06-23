@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the neuvector-scanner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-11 00:42:18
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:0d0702f213b69d2a390f7b8ab19f40e4fe5a876127255a98c6f37e3010159262` |
-|  `latest`     | June 5th     | `sha256:5ba2b78fc73dfb25774fc4e425c9e074231bd5b21a8f206f51da5705dbddc43e` |
+|  `latest-dev` | June 22nd    | `sha256:853a706b465dd8e064f8260784dd6e5061997d664c2cc4a74c7a90d6ff0a574f` |
+|  `latest`     | June 19th    | `sha256:85a7b92dca8a9b39648be654161acdbb181c7b9b05555b8d1eb1108508989340` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 10th    | `sha256:41bea92b7aabdc2eb81a2431b7645bd3faa85d80e0c20989ad387f037c11bbd0` |
-|  `latest`     | June 10th    | `sha256:d8539d00411590511da5df14b65d0c180301978022a51a8f9b45bd1d6dd35a9e` |
+|  `latest-dev` | June 21st    | `sha256:dc7e86fa8de50fb87b97737148284ca16a1b77736204d17d9c686c32b1d44b25` |
+|  `latest`     | June 20th    | `sha256:b8544791c8554fcf9992fbd94da4a18ef39113a5265f49cefa8855a5b0b39626` |
 

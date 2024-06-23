@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public renovate Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-01 00:50:07
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -51,7 +51,7 @@ The table shows package distribution across variants.
 | `coreutils`                     | X          | X      |
 | `dotnet-7`                      | X          | X      |
 | `dotnet-7-runtime`              | X          | X      |
-| `elixir-1.16`                   | X          | X      |
+| `elixir-1.17`                   | X          | X      |
 | `erlang-27`                     | X          | X      |
 | `fontconfig-config`             | X          | X      |
 | `freetype`                      | X          | X      |
@@ -122,8 +122,8 @@ The table shows package distribution across variants.
 | `openjdk-17-jre-base`           | X          | X      |
 | `p11-kit`                       | X          | X      |
 | `p11-kit-trust`                 | X          | X      |
-| `php-8.2`                       | X          | X      |
-| `php-8.2-config`                | X          | X      |
+| `php-8.3`                       | X          | X      |
+| `php-8.3-config`                | X          | X      |
 | `pkgconf`                       | X          | X      |
 | `pnpm`                          | X          | X      |
 | `posix-cc-wrappers`             | X          | X      |
@@ -169,7 +169,6 @@ The table shows package distribution across variants.
 | `py3-rpds-py`                   | X          | X      |
 | `py3-secretstorage`             | X          | X      |
 | `py3-shellingham`               | X          | X      |
-| `py3-tomli`                     | X          | X      |
 | `py3-tomlkit`                   | X          | X      |
 | `py3-trove-classifiers`         | X          | X      |
 | `py3-typing-extensions`         | X          | X      |
@@ -177,16 +176,19 @@ The table shows package distribution across variants.
 | `py3-virtualenv`                | X          | X      |
 | `py3-xattr`                     | X          | X      |
 | `py3-zipp`                      | X          | X      |
+| `py3.12-flit-core`              | X          | X      |
 | `py3.12-installer`              | X          | X      |
 | `py3.12-pip`                    | X          | X      |
+| `py3.12-pip-base`               | X          | X      |
 | `py3.12-setuptools`             | X          | X      |
+| `py3.12-tomli`                  | X          | X      |
 | `python-3.12`                   | X          | X      |
 | `python-3.12-base`              | X          | X      |
 | `readline`                      | X          | X      |
 | `renovate`                      | X          | X      |
 | `ruby-3.2`                      | X          | X      |
 | `ruby3.2-bundler`               | X          | X      |
-| `rust-1.78`                     | X          | X      |
+| `rust-1.79`                     | X          | X      |
 | `sqlite-libs`                   | X          | X      |
 | `wget`                          | X          |        |
 | `wolfi-base`                    | X          | X      |

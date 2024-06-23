@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cassandra-reaper Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:b78ab67ea740f246cb5a8c3a72274216d2c7ba8e900ccb50a979c487903c4efe` |
-|  `latest`     | June 7th     | `sha256:16869876b2618280dbe7dd1a723d2050b8cca0b5cc63d6aca54a6483499cecf4` |
+|  `latest-dev` | June 22nd    | `sha256:47e788737e947b3837bfe68c46004096e3d1de67f5a4631c34e4b0969d9c2141` |
+|  `latest`     | June 22nd    | `sha256:1bf4aadfbe3e0ceb6c6cc0d32ed5e02cde04d88af3078a93b2ea226407f67051` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3-dev` `latest-dev` `3.6-dev` `3.6.0-dev` | June 8th     | `sha256:c9912b1b49a7a91c7e9167aa8835d2686289ab7821ad39d32cb2a25c0b4c6f91` |
-|  `latest` `3` `3.6.0` `3.6`                 | June 7th     | `sha256:14b4aa54b6a9797a1ffb4f28346739690c4a4ec7be257c9a4de03f6b3a49b95c` |
+|  `3.6` `latest` `3` `3.6.1`                 | June 21st    | `sha256:1c0ce57c4abed42944f15f37a9c860221be7791ae1e188faaf153c4ec0b1e407` |
+|  `3.6-dev` `3.6.1-dev` `3-dev` `latest-dev` | June 21st    | `sha256:e492575749960cbade8cd5e5640921b46a4b6763b2ea95546bb5fcc53501daed` |
 

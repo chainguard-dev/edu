@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-envoy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:f43f4c2726f1847e04d7c557205398ec7f9372c71ed596e0543b960b9302660c` |
-|  `latest`     | June 7th     | `sha256:806ec8f4e18dc3e41a947cd4b336d1b2804962936eb2dc9efe3ccc5936495e06` |
+|  `latest`     | June 22nd    | `sha256:878a86d05a4d2128d6b302b92aeef298219ae6f5ad20e4fd5415e2c697e7f5f9` |
+|  `latest-dev` | June 22nd    | `sha256:504d6a545ea04def293dfeba78a89b9473f2ea74f80c290b1fe11ee958df98a3` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `latest-dev` `2.2-dev` `2.2.0-dev` | June 8th     | `sha256:291a48b18b8c870ff898b21f4581273e7e040b1e10fe505048d5c7b1d061b5f4` |
-|  `latest` `2.2` `2.2.0` `2`                 | June 7th     | `sha256:50956d50805daa4d6b3fb0ca953d703ca334e68781d1d8a2ffd3bd450c7f60c2` |
+|  `2.2.0` `2` `2.2` `latest`                 | June 21st    | `sha256:9724aa21f106c44183f27cc49bd084c1b6bc6a91ee2beaa8bfc1869829f2377e` |
+|  `2.2.0-dev` `latest-dev` `2.2-dev` `2-dev` | June 21st    | `sha256:25b49b286ee2197d41e624ca531c3befc52b904455e7f6f41fecf10f69f7140c` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the argo-exec Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:13eda80f271a1a5705ccb03b11adcc1cb867ba00df98b531f7af29db03602612` |
-|  `latest`     | June 5th     | `sha256:86bd9c98b7ed9b579fbb5b0ed0326a2d2d1ca63e9acec9f4f6110b0a7fce69e2` |
+|  `latest-dev` | June 22nd    | `sha256:450f42a9a8c8af219e33070fb2e351945e5c946fa8ca0e1dfd80b2dcabc4d0f9` |
+|  `latest`     | June 20th    | `sha256:d938cfb8e6165bf6c77e1a48bed980e787f8f53b6c43dad01de853bc813ff55e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.5.7-dev` `3.5-dev` `3-dev` `latest-dev` | June 8th     | `sha256:3345e309e05000f952aaf8c58ca091393313f3545b6df52dd9c10a255fce25cd` |
-|  `3.5` `3.5.7` `latest` `3`                 | June 4th     | `sha256:0905c99f58907fb2dad0d022a4876aa7a4bc4914db35f56dfd69c883fa871af6` |
+|  `3.5-dev` `3-dev` `latest-dev` `3.5.8-dev` | June 21st    | `sha256:46ad8a50587df3c84ce3a7167836381c682ac288b7e0c311ae9dee5508c1b4c0` |
+|  `3.5.8` `latest` `3.5` `3`                 | June 20th    | `sha256:a6fa162f5574351bedf9060a866021932b5956e42e080e28c5080373ca08086f` |
+|  `3.5.7-dev`                                | June 17th    | `sha256:9d4a4766c5d6027d456484c839a1af151fbe0c17384c5a23f31ba2239a39a71d` |
 

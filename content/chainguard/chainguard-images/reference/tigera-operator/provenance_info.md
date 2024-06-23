@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for tigera-operator Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,7 +29,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 | Registry                     | Tags                                                                                                                                                                                                                                                                                                                                                                               |
 |------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                                                                                                                                                                                 |
-| `cgr.dev/chainguard-private` | 1, 1-dev, 1.30, 1.30-dev, 1.30.10, 1.30.10-dev, 1.31, 1.31-dev, 1.31.2, 1.31.2-dev, 1.32, 1.32-dev, 1.32.8, 1.32.8-dev, 1.33, 1.33-dev, 1.33.0, 1.33.0-dev, latest, latest-dev, v1, v1-dev, v1.30, v1.30-dev, v1.30.10, v1.30.10-dev, v1.31, v1.31-dev, v1.31.2, v1.31.2-dev, v1.32, v1.32-dev, v1.32.8, v1.32.8-dev, v1.33, v1.33-dev, v1.33.0, v1.33.0-dev, vlatest, vlatest-dev |
+| `cgr.dev/chainguard-private` | 1, 1-dev, 1.30, 1.30-dev, 1.30.10, 1.30.10-dev, 1.31, 1.31-dev, 1.31.2, 1.31.2-dev, 1.32, 1.32-dev, 1.32.9, 1.32.9-dev, 1.33, 1.33-dev, 1.33.0, 1.33.0-dev, latest, latest-dev, v1, v1-dev, v1.30, v1.30-dev, v1.30.10, v1.30.10-dev, v1.31, v1.31-dev, v1.31.2, v1.31.2-dev, v1.32, v1.32-dev, v1.32.9, v1.32.9-dev, v1.33, v1.33-dev, v1.33.0, v1.33.0-dev, vlatest, vlatest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ingress-nginx-controller-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-11 00:42:18
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1` `latest` `1.10.1` `1.10`                 | June 10th    | `sha256:30dc17b301f971b7020741e42109e454796671d0737a8a2408327fcc78847de0` |
-|  `1-dev` `1.10-dev` `latest-dev` `1.10.1-dev` | June 10th    | `sha256:09b2bb83409c4c3119e9a751a3d88a0571f8856ee5134c1e531b7ea07aabdef4` |
-|  `1.9-dev` `1.9.6-dev`                        | June 10th    | `sha256:7437311d3bac9f081c6d524d10d31e737640fe9be21a2749d83cc79b05503444` |
-|  `1.9` `1.9.6`                                | June 10th    | `sha256:6b14b5453f9a12f9906ee87ad46dbb19da793803ed7ba79cc336e547351954e8` |
+|  `1.10` `1` `1.10.1` `latest`                 | June 21st    | `sha256:8ff0587d26a373be1bfbb6a0e84e6dbb0a199117a66d7a32d5b199077e81cf5d` |
+|  `1.9-dev` `1.9.6-dev`                        | June 21st    | `sha256:3312a01c1d04b72cdc57f234b4f721602070e232f9c61ad8fc072f81c881e451` |
+|  `1.9.6` `1.9`                                | June 21st    | `sha256:5ba553ee3d761a134d2971a0c90557685432d2b244df87e3709d5e36758b9aa7` |
+|  `1.10.1-dev` `1.10-dev` `latest-dev` `1-dev` | June 21st    | `sha256:4fd31509d1373b3d99de88d1d663bd6c4a8c1ccd86dfcaaf56de47ea332381d6` |
 

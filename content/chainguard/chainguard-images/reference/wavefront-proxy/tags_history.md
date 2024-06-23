@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the wavefront-proxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:560350faadc1c7b49c788506c9ba1e8fcf5ff0a09da6d3802640885f5216fb99` |
-|  `latest`     | June 5th     | `sha256:0bf7cbd5853360bc100efbf5dd548e9cb870a0beca07ad9323668e92ffe51b4a` |
+|  `latest-dev` | June 22nd    | `sha256:8c407cd30a6eec72949f3a27149d93bbbb19ff78e5cbad4b251e3b2735a9c684` |
+|  `latest`     | June 22nd    | `sha256:aa8214037c757f6e1a1c08c34720ae58c137f28eb5170d29bd7e96f30a3fc35e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                           | Last Changed | Digest                                                                    |
 |-----------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `13.4-dev` `13-dev` | June 8th     | `sha256:9ad1bbd098c02017274aedf0b4bdb898293f4098992deca2879f74e06648009f` |
-|  `13.4` `13` `latest`             | June 5th     | `sha256:4bd47625fce0f71542a4eb6026e698cbbb292a065f2773300934c5bf98a3a365` |
+|  `13.4` `13` `latest`             | June 21st    | `sha256:d1f784cb9580290f0df69280d326baf64bf9684d60024edc5ec408c270f6f099` |
+|  `13-dev` `latest-dev` `13.4-dev` | June 21st    | `sha256:b027d491a66bc3962fd8407fece1cc5e9bb158a9d81b4f6a77fdc95c9e06c4b8` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public laravel Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -59,40 +59,40 @@ The table shows package distribution across variants.
 | `ncurses`                   | X      |
 | `ncurses-terminfo-base`     | X      |
 | `oniguruma`                 | X      |
-| `php-8.2`                   | X      |
-| `php-8.2-config`            | X      |
-| `php-8.2-ctype`             | X      |
-| `php-8.2-ctype-config`      | X      |
-| `php-8.2-curl`              | X      |
-| `php-8.2-curl-config`       | X      |
-| `php-8.2-dom`               | X      |
-| `php-8.2-dom-config`        | X      |
-| `php-8.2-fileinfo`          | X      |
-| `php-8.2-fileinfo-config`   | X      |
-| `php-8.2-fpm`               | X      |
-| `php-8.2-fpm-config`        | X      |
-| `php-8.2-iconv`             | X      |
-| `php-8.2-iconv-config`      | X      |
-| `php-8.2-mbstring`          | X      |
-| `php-8.2-mbstring-config`   | X      |
-| `php-8.2-mysqlnd`           | X      |
-| `php-8.2-mysqlnd-config`    | X      |
-| `php-8.2-openssl`           | X      |
-| `php-8.2-openssl-config`    | X      |
-| `php-8.2-pdo`               | X      |
-| `php-8.2-pdo-config`        | X      |
-| `php-8.2-pdo_mysql`         | X      |
-| `php-8.2-pdo_mysql-config`  | X      |
-| `php-8.2-pdo_sqlite`        | X      |
-| `php-8.2-pdo_sqlite-config` | X      |
-| `php-8.2-phar`              | X      |
-| `php-8.2-phar-config`       | X      |
-| `php-8.2-simplexml`         | X      |
-| `php-8.2-simplexml-config`  | X      |
-| `php-8.2-sodium`            | X      |
-| `php-8.2-sodium-config`     | X      |
-| `php-8.2-xml`               | X      |
-| `php-8.2-xml-config`        | X      |
+| `php-8.3`                   | X      |
+| `php-8.3-config`            | X      |
+| `php-8.3-ctype`             | X      |
+| `php-8.3-ctype-config`      | X      |
+| `php-8.3-curl`              | X      |
+| `php-8.3-curl-config`       | X      |
+| `php-8.3-dom`               | X      |
+| `php-8.3-dom-config`        | X      |
+| `php-8.3-fileinfo`          | X      |
+| `php-8.3-fileinfo-config`   | X      |
+| `php-8.3-fpm`               | X      |
+| `php-8.3-fpm-config`        | X      |
+| `php-8.3-iconv`             | X      |
+| `php-8.3-iconv-config`      | X      |
+| `php-8.3-mbstring`          | X      |
+| `php-8.3-mbstring-config`   | X      |
+| `php-8.3-mysqlnd`           | X      |
+| `php-8.3-mysqlnd-config`    | X      |
+| `php-8.3-openssl`           | X      |
+| `php-8.3-openssl-config`    | X      |
+| `php-8.3-pdo`               | X      |
+| `php-8.3-pdo-config`        | X      |
+| `php-8.3-pdo_mysql`         | X      |
+| `php-8.3-pdo_mysql-config`  | X      |
+| `php-8.3-pdo_sqlite`        | X      |
+| `php-8.3-pdo_sqlite-config` | X      |
+| `php-8.3-phar`              | X      |
+| `php-8.3-phar-config`       | X      |
+| `php-8.3-simplexml`         | X      |
+| `php-8.3-simplexml-config`  | X      |
+| `php-8.3-sodium`            | X      |
+| `php-8.3-sodium-config`     | X      |
+| `php-8.3-xml`               | X      |
+| `php-8.3-xml-config`        | X      |
 | `readline`                  | X      |
 | `s6`                        | X      |
 | `skalibs`                   | X      |

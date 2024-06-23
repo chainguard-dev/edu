@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-cache-deployer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:2ac1d72c40867ebbc7c0fddccb2ecf597e7bd43713bbc0d00dee0a73bfe58304` |
-|  `latest`     | June 7th     | `sha256:bf850b2a853f2d493f9d99bd644051e7a3020d854f8ea89327617ac2e4e2d8a6` |
+|  `latest-dev` | June 22nd    | `sha256:d1a48916d274dac9ea3640ac796d58db5af2549069afff28275a915968852301` |
+|  `latest`     | June 21st    | `sha256:b48369342e6698aedccf3c4745d15f35df1ededa67b75735b5acb3c635dd2c13` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.2-dev` `latest-dev` `2.2.0-dev` | June 8th     | `sha256:d730817a9b0ba2bc51f3b9c2a5cc48981d5f16ba9140e1a9ec2872210e0357aa` |
-|  `latest` `2.2` `2` `2.2.0`                 | June 7th     | `sha256:7643236aa5e81dcc497eba4311b9a5d90e6aa2ad2210d40cb155637ea1a9909b` |
+|  `latest-dev` `2-dev` `2.2.0-dev` `2.2-dev` | June 21st    | `sha256:48eaccb2e5ff3695d51531a99a07bfe6d2f80c3e901815f1e3e1468e34e11065` |
+|  `2` `2.2.0` `latest` `2.2`                 | June 21st    | `sha256:bc74a4ad5f38668e37c576299c62a91f6dca1d2dfb90b64d038bec36ee91c733` |
 

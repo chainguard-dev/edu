@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-livenessprobe Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:b75498aafc21ae999f8fb0a09f2034cde05746ed5ffad3efff9b0d96db8c9944` |
-|  `latest`     | June 5th     | `sha256:11de0a02a8fb224f4b7b56670eb88835c36b76d48fb1757f2695fb2b67a70bf6` |
+|  `latest-dev` | June 22nd    | `sha256:9f83579f13892b53ff1163957ce77cf08290c20c6a59af61a7976c2c50b232f0` |
+|  `latest`     | June 19th    | `sha256:5ff2f766b4cfb32a844dec17e22ec04e330eccd2f5f12731f4d1db73db519fce` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.13-dev` `2-dev` `2.13.0-dev` | June 8th     | `sha256:e2887966405bba1299de8100cc98beaf5f042b33b4373758bde6e8818c820b73` |
-|  `2` `2.13` `latest` `2.13.0`                 | June 5th     | `sha256:fc9c7abac01b776c16ead39ee17241b091735d55c7b8616e340c658128ee06a2` |
+|  `2.13-dev` `2.13.0-dev` `2-dev` `latest-dev` | June 21st    | `sha256:e623be1c022cdb5246afaf40f1a50fac191a3a5edec9e8f1bcb063ce8a659625` |
+|  `2.13` `2` `latest` `2.13.0`                 | June 20th    | `sha256:4c85aa81c690bdeb305a6ab7ea71f9086fc951982d706fbe78e5ae7f01fd2c1a` |
 

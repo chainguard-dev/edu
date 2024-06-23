@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public min-toolkit-debug Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-15 00:39:35
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -124,7 +124,6 @@ The table shows package distribution across variants.
 | `py3-python-dateutil`     | X      |
 | `py3-pytzdata`            | X      |
 | `py3-setproctitle`        | X      |
-| `py3-six`                 | X      |
 | `py3-sqlparse`            | X      |
 | `py3-tabulate`            | X      |
 | `py3-typing`              | X      |
@@ -133,6 +132,7 @@ The table shows package distribution across variants.
 | `py3-wcwidth`             | X      |
 | `py3-zipp`                | X      |
 | `py3.12-installer`        | X      |
+| `py3.12-six`              | X      |
 | `python-3.12`             | X      |
 | `python-3.12-base`        | X      |
 | `readline`                | X      |

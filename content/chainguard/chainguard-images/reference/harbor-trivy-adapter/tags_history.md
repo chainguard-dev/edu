@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the harbor-trivy-adapter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-11 00:42:18
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 10th    | `sha256:51991a2d906f8908ecd060a0888b049c16341ad50a3e039533eb99165616426a` |
-|  `latest`     | June 10th    | `sha256:b25d6809c8fd9d0215b483cedaa5019d30e0595eed893980891fb43e3efe35da` |
+|  `latest-dev` | June 22nd    | `sha256:96d9c9e0d95f408798bc8e16c4838336c1862ee39ddb205810036318773dacb1` |
+|  `latest`     | June 19th    | `sha256:fa5e99905573c1cae2fb5cfb59046c5722fbee323b5e3aaba592c0e21ba029a9` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.31-dev` `0.31.2-dev` | June 10th    | `sha256:2512dfe02299668e417945b45dffd37edb8c8f8ea02c78235b6af6da0fe198a3` |
-|  `0.31` `0.31.2` `0` `latest`                 | June 10th    | `sha256:f7b7db0d305e2d91921c9415dfdf9f93a0ecaa445141440a77af7750ff76789b` |
+|  `latest-dev` `0.31.2-dev` `0-dev` `0.31-dev` | June 20th    | `sha256:0dc440b67a27f830611a568c6289d8674ed81e2396a7ea630bbf49ff93039aa3` |
+|  `0.31.2` `0.31` `0` `latest`                 | June 20th    | `sha256:d17249fc8810304047c9e27ed832894d50564712b0b34cd5c2579ba9cbec95c3` |
 

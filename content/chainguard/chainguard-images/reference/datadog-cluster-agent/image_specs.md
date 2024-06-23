@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public datadog-cluster-agent Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-11 00:42:18
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -43,8 +43,8 @@ The table shows package distribution across variants.
 | `ca-certificates-bundle`                | X          | X      |
 | `chainguard-baselayout`                 | X          | X      |
 | `coreutils`                             | X          | X      |
-| `datadog-cluster-agent-fips`            | X          | X      |
-| `datadog-cluster-agent-oci-compat-fips` | X          | X      |
+| `datadog-cluster-agent-fips`            | X          |        |
+| `datadog-cluster-agent-oci-compat-fips` | X          |        |
 | `git`                                   | X          |        |
 | `glibc`                                 | X          | X      |
 | `glibc-locale-posix`                    | X          | X      |
@@ -62,15 +62,17 @@ The table shows package distribution across variants.
 | `libpcre2-8-0`                          | X          |        |
 | `libpsl`                                | X          |        |
 | `libseccomp`                            | X          | X      |
-| `libssl3`                               | X          | X      |
+| `libssl3`                               | X          |        |
 | `libunistring`                          | X          |        |
 | `libxcrypt`                             | X          |        |
 | `ncurses`                               | X          | X      |
 | `ncurses-terminfo-base`                 | X          | X      |
-| `openssl-config-fipshardened`           | X          | X      |
-| `openssl-provider-fips`                 | X          | X      |
+| `openssl-config-fipshardened`           | X          |        |
+| `openssl-provider-fips`                 | X          |        |
 | `tzdata`                                | X          | X      |
 | `wget`                                  | X          |        |
 | `wolfi-baselayout`                      | X          | X      |
 | `zlib`                                  | X          |        |
+| `datadog-cluster-agent`                 |            | X      |
+| `datadog-cluster-agent-oci-compat`      |            | X      |
 

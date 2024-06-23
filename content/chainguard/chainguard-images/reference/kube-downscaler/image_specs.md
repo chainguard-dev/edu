@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public kube-downscaler Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -78,12 +78,12 @@ The table shows package distribution across variants.
 | `py3-oauthlib`           | X          | X      |
 | `py3-pykube-ng`          | X          | X      |
 | `py3-pytz`               | X          | X      |
-| `py3-pyyaml`             | X          | X      |
 | `py3-requests`           | X          | X      |
 | `py3-requests-oauthlib`  | X          | X      |
 | `py3-rsa`                | X          | X      |
-| `py3-six`                | X          | X      |
 | `py3-urllib3`            | X          | X      |
+| `py3.12-pyyaml`          | X          | X      |
+| `py3.12-six`             | X          | X      |
 | `python-3.12`            | X          | X      |
 | `python-3.12-base`       | X          | X      |
 | `readline`               | X          | X      |

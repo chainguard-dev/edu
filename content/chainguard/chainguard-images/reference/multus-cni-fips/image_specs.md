@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public multus-cni-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -42,10 +42,14 @@ The table shows package distribution across variants.
 | `busybox`                     | X          |        |
 | `ca-certificates-bundle`      | X          | X      |
 | `chainguard-baselayout`       | X          | X      |
+| `coreutils`                   | X          | X      |
+| `dash`                        | X          | X      |
 | `git`                         | X          |        |
 | `glibc`                       | X          | X      |
 | `glibc-locale-posix`          | X          | X      |
 | `ld-linux`                    | X          | X      |
+| `libacl1`                     | X          | X      |
+| `libattr1`                    | X          | X      |
 | `libbrotlicommon1`            | X          |        |
 | `libbrotlidec1`               | X          |        |
 | `libcrypt1`                   | X          |        |
@@ -59,8 +63,8 @@ The table shows package distribution across variants.
 | `libssl3`                     | X          | X      |
 | `libunistring`                | X          |        |
 | `libxcrypt`                   | X          |        |
-| `multus-cni-compat`           | X          | X      |
 | `multus-cni-fips`             | X          | X      |
+| `multus-cni-fips-compat`      | X          | X      |
 | `ncurses`                     | X          |        |
 | `ncurses-terminfo-base`       | X          |        |
 | `openssl`                     | X          |        |

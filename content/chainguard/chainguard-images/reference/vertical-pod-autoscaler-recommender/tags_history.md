@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vertical-pod-autoscaler-recommender Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:55004c5b5ce2bad05affa9ce21efc95b7682faac5db4475f6542486b5d3b1584` |
-|  `latest`     | June 6th     | `sha256:de63a072804ebe4a0cf39fc6a4933e44424abb951f688febc8f639d380b47990` |
+|  `latest-dev` | June 22nd    | `sha256:35eb8e60417697ce3d8beb05e1ee8038c0c238136a4e0a046f9331242b7325eb` |
+|  `latest`     | June 19th    | `sha256:2bcd507169ba00e664702d4cf69a3fa38aff9680fb018147ee29ab7fb7a55fa2` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.1-dev` `1.1.2-dev` `latest-dev` | June 8th     | `sha256:d3a64515aadf22a30f715784cce27f4e8c6f753b79f65f1a6e3f21410016db90` |
-|  `1` `latest` `1.1.2` `1.1`                 | June 6th     | `sha256:521deb6782b08d9838981b16df6e39cdaa5e96e6cc33c0ebc4d3d15b3b2689aa` |
+|  `1.1-dev` `latest-dev` `1-dev` `1.1.2-dev` | June 21st    | `sha256:d08d72d6f4f34fbc5ef545f99f23810c4083f3a017d7c5d05694f997887f4d81` |
+|  `latest` `1.1.2` `1.1` `1`                 | June 20th    | `sha256:0ae53249953cb9affc6346b9e15a46631bae2ede4dd5b4ea55b289576d311b3c` |
 

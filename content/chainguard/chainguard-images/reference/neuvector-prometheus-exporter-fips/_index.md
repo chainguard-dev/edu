@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: neuvector-prometheus-exporter-fips Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,7 +26,7 @@ toc: true
 
 
 <!--overview:start-->
-Prometheus exporter and Grafana template for NeuVector container security platform.
+A Wolfi-based image for NeuVector - a full lifecycle container security platform.
 <!--overview:end-->
 
 ## Download this Image
@@ -39,29 +39,101 @@ docker pull cgr.dev/chainguard-private/neuvector-prometheus-exporter-fips:latest
 
 
 <!--body:start-->
-## Usage
+## Install the Helm repository
 
-Add the NeuVector Helm repository to your repositories list:
+Install the NeuVector Helm chart repository and update:
 
-```shell
+```bash
 helm repo add neuvector https://neuvector.github.io/neuvector-helm/
 helm repo update
 ```
 
-Next, install the NeuVector Prometheus Exporter with the following command:
+## Generate internal certificates
 
-```sh
-helm install neuvector-prometheus-exporter neuvector/monitor \
-    --namespace neuvector \
-    --create-namespace \
-    --set exporter.apiSvc=neuvector-svc-controller:10443 \
-    --set exporter.image.repository=cgr.dev/chainguard/neuvector-prometheus-exporter \
-    --set exporter.image.tag=<set to the latest chainguard tag>
+Refer to NeuVector's documentation on generating internal certs [here](https://open-docs.neuvector.com/deploying/production/internal). These are
+not provided out of the box as they should be changed within a production environment.
+
+Create a namespace for NeuVector:
+
+```bash
+kubectl create ns neuvector
 ```
 
-Jump to the official [Helm Chart](https://github.com/neuvector/neuvector-helm/blob/master/charts/monitor/README.md) for more detailed usage.
+Create a secret with the internal certs:
 
-P.S: The Exporter will not work without the NeuVector Core Service. Install the [neuvector/core](https://github.com/neuvector/neuvector-helm/tree/master/charts/core) first.
+```bash
+kubectl create secret generic internal-cert -n neuvector --from-file=cert.key --from-file=cert.pem --from-file=ca.cert
+```
 
+## Deploy CRD
+
+Deploy the custom resource definition:
+
+```bash
+helm install core neuvector/crd -n neuvector
+```
+
+## Deploy core
+
+Deploy NeuVector core:
+
+```bash
+helm install core neuvector/core -n neuvector \
+  --set registry=cgr.dev \
+  \
+  --set controller.image.repository=chainguard/neuvector-controller \
+  --set controller.internal.certificate.secret=internal-cert \
+  --set controller.internal.certificate.keyFile=cert.key \
+  --set controller.internal.certificate.pemFile=cert.pem \
+  --set controller.internal.certificate.caFile=ca.cert \
+  \
+  --set enforcer.image.repository=chainguard/neuvector-enforcer \
+  --set enforcer.internal.certificate.secret=internal-cert \
+  --set enforcer.internal.certificate.keyFile=cert.key \
+  --set enforcer.internal.certificate.pemFile=cert.pem \
+  --set enforcer.internal.certificate.caFile=ca.cert \
+  \
+  --set manager.image.repository=chainguard/neuvector-manager \
+  \
+  --set cve.scanner.image.registry=cgr.dev \
+  --set cve.scanner.image.repository=chainguard/neuvector-scanner \
+  --set cve.scanner.internal.certificate.secret=internal-cert \
+  --set cve.scanner.internal.certificate.keyFile=cert.key \
+  --set cve.scanner.internal.certificate.pemFile=cert.pem \
+  --set cve.scanner.internal.certificate.caFile=ca.cert \
+  \
+  --set cve.updater.image.registry=cgr.dev \
+  --set cve.updater.image.repository=chainguard/neuvector-updater \
+  \
+  --set crdwebhook.enabled=false
+```
+
+Note that the container runtime will need to be changed depending on where NeuVector is deployed.
+For example, for k3s we would set:
+
+```bash
+  --set k3s.enabled=true \
+  --set k3s.runtimePath=/run/k3s/containerd/containerd.sock
+```
+
+By default, the runtime is set to docker.
+
+The `*.internal.certificate.*` entries can all be removed except for `*.internal.certificate.secret`
+if using the default values of `keyFile=tls.key`, `pemFile=tls.pem`, and `caFile=ca.crt`.
+
+## Deploy monitor
+
+Deploy the monitor chart with prometheus exporter:
+
+```bash
+helm install monitor neuvector/monitor -n neuvector \
+  --set registry=cgr.dev \
+  --set exporter.apiSvc=neuvector-svc-controller:10443 \
+  --set exporter.image.repository=chainguard/neuvector-prometheus-exporter
+```
+
+The API service is changed as by default it points to a non-existant `neuvector-svc-controller-api` service.
+
+You're now running NeuVector with Chainguard images! Consult [NeuVector's documentation](https://open-docs.neuvector.com/) for additional configuration.
 <!--body:end-->
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public cilium-agent-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-29 00:38:53
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -46,6 +46,7 @@ The table shows package distribution across variants.
 | `cilium-1.15-container-init`        | X          | X      |
 | `cilium-1.15-container-init-compat` | X          | X      |
 | `cilium-fips-1.15`                  | X          | X      |
+| `cilium-fips-1.15-host-utils`       | X          | X      |
 | `clang-15`                          | X          | X      |
 | `clang-15-default`                  | X          | X      |
 | `cni-plugins-fips-loopback`         | X          | X      |
@@ -95,6 +96,8 @@ The table shows package distribution across variants.
 | `ncurses-terminfo-base`             | X          | X      |
 | `openssl-config-fipshardened`       | X          | X      |
 | `openssl-provider-fips`             | X          | X      |
+| `sqlite-libs`                       | X          | X      |
+| `util-linux`                        | X          | X      |
 | `util-linux-misc`                   | X          | X      |
 | `wget`                              | X          |        |
 | `wolfi-baselayout`                  | X          | X      |

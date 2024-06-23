@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aspnet-runtime-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `6.0-dev` `6-dev` `6.0.131-dev`            | June 8th     | `sha256:8dcffd4f1478dbe16bb2c876d3d0e9e90a04a2bfd787ec812d90302a432a67ce` |
-|  `8.0-dev` `8-dev` `8.0.6-dev` `latest-dev` | June 8th     | `sha256:38bcd1732fba4cdedfddc6ea8d81dc66281641288bde6dae8e2c51f83b391325` |
-|  `7-dev` `7.0-dev` `7.0.120-dev`            | June 8th     | `sha256:8585f7b9e51c597103aed53a8691f3ff4a310514b19d5a34e12d5ad432528e64` |
-|  `8.0` `8` `latest` `8.0.6`                 | June 5th     | `sha256:fcab6e77b70066666534b2cc8bba008d3fa9bb243faa724d1e711bd22f75c628` |
-|  `6.0.131` `6` `6.0`                        | June 5th     | `sha256:90ac81e46273771abc2baabc21ed3b4b0b946625bf80bce9a9684d06cd153c48` |
-|  `7.0.120` `7.0` `7`                        | June 5th     | `sha256:c1089711112d7698177154527133d241f9674b05aa2caf9bb3c720b47910b272` |
+|  `6-dev` `6.0.131-dev` `6.0-dev`            | June 21st    | `sha256:7ba9a207e46c87160a7c235b013b9704077b262edd7ad4bc7caa4aff09e0a9de` |
+|  `8.0-dev` `8-dev` `8.0.6-dev` `latest-dev` | June 21st    | `sha256:91dd7dbb2d4a5ceaad55e86086522717c14fa54f2b5fd55139ac91fa340e2741` |
+|  `6.0` `6` `6.0.131`                        | June 21st    | `sha256:1221d3ed5823b6c0ce50a23f5f0144d19db1c60a691a1eba33e9a402febd70d3` |
+|  `7` `7.0` `7.0.120`                        | June 21st    | `sha256:9d4714c8f31647dbefdb6a145dee44cc6b482395e557e0460ecbda92261e39b9` |
+|  `8` `8.0.6` `latest` `8.0`                 | June 21st    | `sha256:e19d1d8541326d466cf1586060c8ceb66ace880f7421650c8d69b34aa26c236d` |
+|  `7.0.120-dev` `7-dev` `7.0-dev`            | June 21st    | `sha256:e9475e622bb912bf5261ebba8ea27b5b5789b30ea5468433853c118f982515b4` |
 

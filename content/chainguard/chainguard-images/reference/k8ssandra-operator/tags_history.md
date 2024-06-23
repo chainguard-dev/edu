@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k8ssandra-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:604269c3e6d9219f379ecf657efc21092615cc56777535e0a6027e5b4f91b396` |
-|  `latest`     | June 5th     | `sha256:a6e2cef6b56be11cc7542e4d02fa76fe7370c622e91dd45567b8529ca00e5b28` |
+|  `latest-dev` | June 22nd    | `sha256:2fcb0a0b50b2bde794619a1d20fdad2cf44a3fbd38f8b02bd69342ba333536b4` |
+|  `latest`     | June 19th    | `sha256:ff17b63701c5af813ce811df7bf835c7eab1e90aec239f912a9404b7067717e1` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.16.0-dev` `latest-dev` `1.16-dev` | June 8th     | `sha256:1916834b7d7035f3ab23b7dd78e4a573dd71bfd07aa0ae0c8bd8b4ce4d7663de` |
-|  `1.16.0` `1.16` `1` `latest`                 | June 5th     | `sha256:3b094fddbcdc5849a6be73995498a16d7ed365a9e6b2f2c46aa169dbcc4abbdd` |
+|  `1.17.0-dev` `1.17-dev` `latest-dev` `1-dev` | June 21st    | `sha256:fc88293ae3be23d8a66f562e802f2040ed61718bbc98e2653016f9f27e95c6ad` |
+|  `1` `1.17` `latest` `1.17.0`                 | June 20th    | `sha256:77be7addd80c8ef3608ea0b1114633cb312234b1abc819fe4ff2e62feadcf0ae` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gitness Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-23 00:43:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 9th     | `sha256:6cc3565973462790291b9483f5e568f8402de99aebd4226b4e49f39f3b2cd168` |
-|  `latest`     | June 9th     | `sha256:adb61e2ae11df67a9230cb8d2d4159ad19704809ee0f388a25e1ce8679c36821` |
+|  `latest`     | June 22nd    | `sha256:baf8fea0e192100408d008ae8f51ba16e5820270fc705aeca9803149e3361b5a` |
+|  `latest-dev` | June 22nd    | `sha256:713b150f1a2a4dd6350625b163838dffab60848e81cb11033e08c8d805d097fe` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                           | Last Changed | Digest                                                                    |
 |---------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.0-dev` `3.0.0_beta6-dev` `latest-dev` `3-dev` | June 8th     | `sha256:e961da1ca41cfcacccc87d91b006e1c6eeff6e07e6db5a7fbfd7c78fca41ade1` |
-|  `3.0.0_beta6` `3.0` `3` `latest`                 | June 8th     | `sha256:ac9ef2b35287d0bfa6a3ca4be048823498bfeebe8563507656ce5ef445531c7e` |
+|  `latest` `3.0` `3.0.0_beta6` `3`                 | June 21st    | `sha256:212c9e7d26dbb0e60b8e7a8650eef8edb2338ace2ee38f6597b7c44cf0a5dca7` |
+|  `3.0.0_beta6-dev` `3-dev` `latest-dev` `3.0-dev` | June 21st    | `sha256:b63cdd4a908593a7b34cbf805d72aba364638fc2147e1099b204a7c3eea3820c` |
 
