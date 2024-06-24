@@ -6,7 +6,7 @@ aliases:
 type: "article"
 description: "Install the chainctl command line tool to work with Chainguard"
 date: 2022-09-22T15:56:52-07:00
-lastmod: 2024-05-15T15:22:20+01:00
+lastmod: 2024-06-24T15:22:20+01:00
 draft: false
 tags: ["chainctl", "Product"]
 images: []
@@ -79,13 +79,13 @@ Note that you can also use `curl` install `chainctl` on Windows systems. Running
 curl -o chainctl.exe https://dl.enforce.dev/chainctl/latest/chainctl_windows_x86_64.exe
 ```
 
-Following that you can invoke `chainctl` like as in this example.
+Following that you can use `chainctl`. Be aware that Windows PowerShell does not load commands from the working directory by default so you will need to include `.\` before any `chainctl` commands you run, as in this example.
 
 ```PowerShell
 .\chainctl auth login
 ```
 
-Be aware that Windows PowerShell does not load commands from the working directory by default, so you will need to include `.\` before any `chainctl` commands you run.
+Also, please note that while [`chainctl` commands](/chainguard/chainctl/) will generally work, some are not as thoroughly tested on Windows and may not behave as expected. In particular, the [`chainctl auth configure-docker`](/chainguard/chainctl/chainctl-docs/chainctl_auth_configure-docker/) command is known to cause errors on Windows as of this writing.
 
 
 ## Verify installation
