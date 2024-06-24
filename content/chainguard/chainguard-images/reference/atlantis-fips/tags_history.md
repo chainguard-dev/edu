@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the atlantis-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.28-dev` `latest-dev` `0.28.3-dev` `0-dev` | June 21st    | `sha256:47899c91b284bcd7477197bb863b210890268b784923362cced65ecec984d567` |
-|  `0.28` `latest` `0` `0.28.3`                 | June 21st    | `sha256:06b9c0f63f523d7eb5e7e745b11ac1aefcb767205e84a7ea2bd507b287f7784e` |
+|  `0` `latest` `0.28.3` `0.28`                 | June 23rd    | `sha256:66e7b7267aa8dff7c1a88c6c07ef196573ae8ffa417eac4bf3fbca45f94ca189` |
+|  `0-dev` `0.28.3-dev` `0.28-dev` `latest-dev` | June 23rd    | `sha256:6675c0bd272c652c72f9efb81ecaa2a30df390fb5d32362c8e9b237a1d669c95` |
 |  `0.28.1`                                     | June 19th    | `sha256:9d40cc77e25c98f2622238971ca0216282955feaad590bdd96a6a31440449e64` |
 |  `0.28.1-dev`                                 | June 19th    | `sha256:397432d4a993d529812275b5e4c1a83e03f424b27bff828947078960c4325f79` |
 

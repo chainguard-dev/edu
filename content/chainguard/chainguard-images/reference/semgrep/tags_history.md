@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the semgrep Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.76.0-dev` `1.76-dev` | June 21st    | `sha256:28571ec85f56e3d8105e7dd7a060db773913d3ea3061c0e95ecf46b7b461c52d` |
-|  `1` `latest` `1.76.0` `1.76`                 | June 21st    | `sha256:0083a98d5b5c15eab505d5c041298a387b696aa7dc3f88c33ab6873d788e7ef0` |
+|  `latest` `1` `1.76.0` `1.76`                 | June 23rd    | `sha256:12c7f6e9fa7f48b61cb2b4c2becbf49a3f8f2735bd00bd9a08b26107f91ef4a7` |
+|  `1.76-dev` `1-dev` `latest-dev` `1.76.0-dev` | June 23rd    | `sha256:b52130f2a43e379c907a2a51e765985c15d5b9ece57b5d1d9a82a6c771a49b0e` |
 

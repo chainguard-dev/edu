@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the oauth2-proxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `7.6-dev` `7-dev` `7.6.0-dev` | June 21st    | `sha256:9c49349de4847589b249283675e10c76798b5492fd09757a03dde034e1887eae` |
+|  `7.6-dev` `latest-dev` `7-dev` `7.6.0-dev` | June 23rd    | `sha256:5be5a33e920d45a3fea2c53923006dc422efd75fefd996216f0e079cca5bba87` |
 |  `latest` `7` `7.6.0` `7.6`                 | June 20th    | `sha256:b35ef7b072a81c3ec920de3eeffb8c31ab0334068d62b947d424446e3766e110` |
 

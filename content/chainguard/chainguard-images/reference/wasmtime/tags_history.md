@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the wasmtime Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `21.0-dev` `21-dev` `21.0.1-dev` `latest-dev` | June 21st    | `sha256:cdc56b2c10fd978c5b07b22a82ed6422b427d770cac24d4bbc0bd4a58d73a9c9` |
+|  `latest-dev` `21.0.1-dev` `21.0-dev` `21-dev` | June 23rd    | `sha256:97c832440f5c709934eb2e35800c18c152fc741b307eae5bba7959dccf2c7f22` |
 |  `21.0` `21.0.1` `21` `latest`                 | June 20th    | `sha256:afc84c63f7487d15f188568ad1e2febcd667256eb81c4fdc523c18aaf28e7160` |
 

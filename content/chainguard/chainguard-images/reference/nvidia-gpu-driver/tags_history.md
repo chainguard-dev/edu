@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nvidia-gpu-driver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                              | Last Changed | Digest                                                                    |
 |------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `550.54` `550.54.14` `550` `latest`                 | June 21st    | `sha256:a921359d4bd40e150cb550fa72eff45da1b88eef171a8a93b8846e89a1361dc7` |
-|  `latest-dev` `550.54.14-dev` `550-dev` `550.54-dev` | June 21st    | `sha256:bb55a92567aded495ed2894867108b4748372c35701a17d59ee8e13ce94769e0` |
+|  `550.54.14` `550` `latest` `550.54`                 | June 23rd    | `sha256:72e967ba9fa8211499df859301d808944d5f4909c851b3ff0af362008df1430c` |
+|  `550.54-dev` `550-dev` `latest-dev` `550.54.14-dev` | June 23rd    | `sha256:8d9ed941f4eba68b2c03db81c643bb40bff3921fc8c52b5e22992ebd9b0dc9bf` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the trillian-logsigner-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.6-dev` `latest-dev` `1.6.0-dev` `1-dev` | June 21st    | `sha256:083ef47d98fe8a76fa52cc1cd5402b0f723ef04fb8384331f752303b1b7b9c6c` |
+|  `latest-dev` `1.6.0-dev` `1.6-dev` `1-dev` | June 23rd    | `sha256:b10804b5a167d5dae6f1169d5b680a1d5b24a3c919ae1f8c37c0b520f7695d42` |
 |  `latest` `1` `1.6` `1.6.0`                 | June 20th    | `sha256:2622665c7999b77c80a26bfbe5b8d77d97fc8d145b865639bf702c512a6c8ae6` |
 

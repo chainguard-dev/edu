@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the hugo Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                         | Last Changed | Digest                                                                    |
 |-------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.127.0-dev` `latest-dev` `0.127-dev` | June 21st    | `sha256:11869c232350ffda7738ce188c70ed3e9ea355c2a9fc696b99cd74673c5c799f` |
+|  `latest-dev` `0-dev` `0.127.0-dev` `0.127-dev` | June 23rd    | `sha256:60a79240fe31c756fd0aa3f1e73c7369620439a06aa9ed1ec98a7cf740150cff` |
 |  `0.127` `0` `0.127.0` `latest`                 | June 20th    | `sha256:856878022528bef43f9a8e5db55429fec8af5cd26ef2efdd3ca5c35989789dff` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-webhook Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,9 +37,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.14.7-dev` `1.14-dev`                      | June 21st    | `sha256:e6f4ac0ea9de32c3d7f72f3a3341d7fd66f851765cb92f03c7d7e9b9fd497e80` |
-|  `1.12-dev` `1.12.12-dev`                     | June 21st    | `sha256:b91056e0d149ccfd653ed32678ebb3f1fc48726ca68d68cafa932533ca643bfe` |
-|  `1.15-dev` `1-dev` `1.15.0-dev` `latest-dev` | June 21st    | `sha256:71565ed2e80d151847d4fbf34dfa40b97547a63b8e1036399491a73a54d9c0e7` |
+|  `1.12-dev` `1.12.12-dev`                     | June 23rd    | `sha256:fdd4acda88de2a2c43f2acffd302779f30be309c1e1f47214c47b95bf51290b6` |
+|  `1.15-dev` `1-dev` `latest-dev` `1.15.0-dev` | June 23rd    | `sha256:47b7860b0e8f59ed1d5d245464851c727b56030dd2a7868b39e53b670428ea63` |
+|  `1.14-dev` `1.14.7-dev`                      | June 23rd    | `sha256:edc97ce148691409b6744d04c285e0d100b8fcac3477aacdf3deda1a5fd03d37` |
 |  `1.12` `1.12.12`                             | June 21st    | `sha256:bd6aa6d8ea12b0aea2e9b1c677b57c623c40e3821e6eb4a9a5f306deba377224` |
 |  `1.14.7` `1.14`                              | June 21st    | `sha256:1a2573897c84a5f6ef72d76b3e97bec52553b35d26d641ad642575f00f60c840` |
 |  `1.12.11-dev`                                | June 20th    | `sha256:7bf5909ca4ad4f96e71a19580ad1aca3f536c9daa8fbc498c63946461ee94288` |

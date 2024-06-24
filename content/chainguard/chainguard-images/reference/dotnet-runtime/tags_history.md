@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dotnet-runtime Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,10 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7-dev` `7.0.120-dev` `7.0-dev`            | June 21st    | `sha256:067c40a85e42047ab9dba879eb932df72720ee751e8812fbea1eb4d875deec27` |
+|  `8.0.6-dev` `8.0-dev` `8-dev` `latest-dev` | June 23rd    | `sha256:af7e9df06eeb0ae5e95d0405a396d8d28d1d922df43b6df914a9d7040663fdfe` |
+|  `7-dev` `7.0.120-dev` `7.0-dev`            | June 23rd    | `sha256:a5cdf158246574fd6ae5295de499b66b4ee70c46b89611448e9d42b13d02f5cc` |
+|  `6.0.131-dev` `6.0-dev` `6-dev`            | June 23rd    | `sha256:cf6e7e4927295ce1c20259523c72408984a58f10b6ca2838da12ab71d63de861` |
 |  `8.0` `8.0.6` `latest` `8`                 | June 21st    | `sha256:60b5f05256be80d120ed69dd5049085549f9df020e4a74b7e5fd24bc1666f313` |
-|  `8.0.6-dev` `8.0-dev` `latest-dev` `8-dev` | June 21st    | `sha256:f783f05bb89b6128d8bc7b0a351fe4de9ca56c38642c25a2aea69d0785f6a348` |
-|  `6.0.131-dev` `6.0-dev` `6-dev`            | June 21st    | `sha256:9371e2098b2f70b573b30c299f6bcd44a16f99c12c821c11f9313792c936114f` |
 |  `7` `7.0` `7.0.120`                        | June 21st    | `sha256:08fb3896e9f7df12ae5bea53a2ce1dc998fd2d78d3ab93787fc0a5e78eff9eae` |
 |  `6.0` `6` `6.0.131`                        | June 21st    | `sha256:9e6b2ed558bc977d6f226bb715cff564fc3a7afd520d4cbdf06505c4b977ea89` |
 

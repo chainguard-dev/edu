@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the shadowsocks-rust-ssserver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.20.0-dev` `1-dev` `latest-dev` `1.20-dev` | June 21st    | `sha256:d67f7bf83f37bfc5e6191e707f84a4e4a074fd19bd71b1292d8771112c56b492` |
+|  `latest-dev` `1-dev` `1.20.0-dev` `1.20-dev` | June 23rd    | `sha256:d2b3c7f0c985b6dd8e4107c1c32b11f64564c9e35b5cc92c53ee4621cf64a3c2` |
 |  `1.20.0` `1.20` `1` `latest`                 | June 20th    | `sha256:8ca937273ab9323021874720334889a69d260d55af79a91657d47a60da186c7d` |
 
