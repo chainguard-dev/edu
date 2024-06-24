@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nats Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.10.16-dev` `2-dev` `latest-dev` `2.10-dev` | June 21st    | `sha256:eead9212c6aa1c265e226fd1d8e66a7ac6246f1d95e03a849708aae9b36a0a4b` |
+|  `2.10-dev` `2.10.16-dev` `2-dev` `latest-dev` | June 23rd    | `sha256:f3c80cfe484ce182355a30b74445fce76313da0a77d3408b80ccb9dd30b12220` |
 |  `2` `2.10.16` `latest` `2.10`                 | June 20th    | `sha256:0093f232f95b01331a6e473cff3a411617f34d0c3bf6c6a303c8038c3d2c7d63` |
 

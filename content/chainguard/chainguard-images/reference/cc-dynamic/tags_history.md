@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cc-dynamic Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `13-dev` `latest-dev` `13.2-dev` `13.2.0-dev` | June 21st    | `sha256:802d45546c40ca6889146e45e908001b1d434bdfe0686537edcc314f83c2c289` |
+|  `13-dev` `latest-dev` `13.2.0-dev` `13.2-dev` | June 23rd    | `sha256:cccf90fabcb23e70db6cae2da36705f403d93a81f8106fe2d66c24873f5c7130` |
 |  `13` `latest` `13.2` `13.2.0`                 | June 20th    | `sha256:214139935583b3b1d2f8f3e7582c8df74d7976b13aa96ef9116e9dfd7e3e41f3` |
 

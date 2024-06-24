@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the keycloak Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `25.0.1-dev` `25-dev` `latest-dev` `25.0-dev` | June 21st    | `sha256:7f3dd684b11037962b316765d50fb510de0d2ca10bb0d57892efa3622f337e75` |
+|  `25-dev` `25.0-dev` `latest-dev` `25.0.1-dev` | June 23rd    | `sha256:08faa4f2f0ddc58bb184ff072ab976eb356da21a020e1738d3dc9a8f896874b6` |
 |  `25.0.1` `25` `latest` `25.0`                 | June 21st    | `sha256:ce9972ff3756e4d463da68d19fd04ac6c41cc097c85006c574265c4acdb79115` |
 |  `25.0.0-dev`                                  | June 20th    | `sha256:6d37fcce2c6472b90fa5ab68ae877532cdac36358b5b1088aa8c72b509b03d71` |
 |  `25.0.0`                                      | June 20th    | `sha256:322d35d37482dc5fa14b4b225ad535eeb84307e008e589fbbe3efa64cf6a0359` |

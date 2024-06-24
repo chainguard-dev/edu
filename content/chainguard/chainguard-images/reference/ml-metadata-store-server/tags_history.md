@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ml-metadata-store-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.15-dev` `1.15.0-dev` `1-dev` | June 21st    | `sha256:8ee5aa0b93eb0ce30d5e440c69c7f03b7396c7637c068a9c11250867a0a46da5` |
+|  `1.15-dev` `latest-dev` `1.15.0-dev` `1-dev` | June 23rd    | `sha256:f6cf74ccc053553046771ef6cdc735e664886367c29c88ca3b7fe86349e51c9d` |
 |  `latest` `1.15.0` `1.15` `1`                 | June 20th    | `sha256:2129c58c4aa20aac98e7f347bfe1105615f4e49e1abac4ca738244119ffaf0cf` |
 

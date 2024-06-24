@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-k8s-events-forwarder Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,10 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.53-dev` `1.53.0-dev` `latest-dev` | June 21st    | `sha256:c1b72ca4ed57519198c12b0b6434a67f64366511f6cac7a9f2b4ff0b94d09117` |
-|  `1.43.2-dev` `1.43-dev`                      | June 21st    | `sha256:594d054473e3ff4c23964396ddb3850902e012f6462b15b175216e5a84083709` |
-|  `latest` `1.53` `1` `1.53.0`                 | June 21st    | `sha256:18a9e69adc4bb944f38d375bd8d1f3dc12b91aa002ca935b74200db466fb0c20` |
-|  `1.43.2` `1.43`                              | June 21st    | `sha256:a9c7d291f6bd4f187b79794d9701cc38fa11c6acd021b2ab5ae134402248d6bb` |
+|  `1.43` `1.43.2`                              | June 23rd    | `sha256:4ff55eada0362d4290aea281493329431b3b980482516e08de6a9de241c8e84c` |
+|  `1.53-dev` `latest-dev` `1-dev` `1.53.0-dev` | June 23rd    | `sha256:50d566c88b441a4d5083072764b8a752097c9b164df44a583969a890c8679bfb` |
+|  `latest` `1.53` `1.53.0` `1`                 | June 23rd    | `sha256:6fa714f4ba5647ba48905aba94f8a4afcd544ae52625f6a9340db9e7b42ec991` |
+|  `1.43-dev` `1.43.2-dev`                      | June 23rd    | `sha256:3fe42876b7e8124b214e87137d5dc406ab7a72c602dfdf961d71327a2d1a372a` |
 |  `1.52` `1.52.3`                              | June 19th    | `sha256:614acf24af24caab32d9379102e77504c4d942c3b0d402d262b693ba4c95bca8` |
 |  `1.52-dev` `1.52.3-dev`                      | June 19th    | `sha256:affcd1b207012526072e0797324a844475c8a11eec746ddf9d8aba5595cd1ad8` |
 

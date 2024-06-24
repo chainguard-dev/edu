@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-operator-generic Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 20th    | `sha256:e39523fccec493a3c74b59ac01600b9a835924e525ab298786d81fba7c1c3fc4` |
+|  `latest-dev` | June 23rd    | `sha256:844cd7a08efea443ab1347a4e6512d52881aeb3bb9cb9b4cefc1cf0dca94482a` |
 |  `latest`     | June 20th    | `sha256:64c7dc6c7220bcc0cafa69fd2457d99fa7a0d48dd73fe79fac44d7b57849a898` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.14.11-dev` `1.14-dev`                     | June 21st    | `sha256:5cc8c2d9a4df6c30831af5c7379bbf9fa4ffd55618f07d1a9ac36e6e1d7c833f` |
-|  `latest-dev` `1.15.6-dev` `1-dev` `1.15-dev` | June 21st    | `sha256:050e5c8a4011a038dfc48222a3f901fec6a1b63952ca8c3e8d5426709839cf67` |
+|  `1-dev` `1.15-dev` `latest-dev` `1.15.6-dev` | June 23rd    | `sha256:fbce0ca15a62bba219546effd5645e2ad16aea2485968a5627c970a742f85f74` |
+|  `1.14.11-dev` `1.14-dev`                     | June 23rd    | `sha256:b9e5e8a3b4771a07cdfbb403dca35879d6dcb5a7ef781c6c2cbe30ad1d2c4733` |
 |  `latest` `1` `1.15` `1.15.6`                 | June 20th    | `sha256:c432a6437c36d7188a87fd0af1a5dfd388191ed3b95ad51a416b5b6ba61fb7f4` |
 |  `1.14.11` `1.14`                             | June 20th    | `sha256:ba41602712862a13ea7e614ec147c761d9b45346b30279eec4889473b0fc8df7` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                  | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3-dev` `3.6.0-eks-1-23-33-dev` `3.6.0-dev` `3.6-eks-1-23-33-dev` `3-eks-1-23-33-dev` `3.6.0-r7-eks-1-23-33-dev` `3.6-dev`              | June 21st    | `sha256:213ca383b1b58c806fa03053f33ad7c9e3b4da2fa189ee4305f9b844418be2ee` |
-|  `4.0.0-eks-1-25-33-dev` `4-dev` `4.0-eks-1-25-33-dev` `4-eks-1-25-33-dev` `latest-dev` `4.0-dev` `4.0.0-dev` `4.0.0-r7-eks-1-25-33-dev` | June 21st    | `sha256:980e1a409015dc9af070b26b695540b7b8ce38cdb9aee263987c7b2b07527f98` |
+|  `4.0.0-dev` `4.0.0-eks-1-25-33-dev` `4.0.0-r7-eks-1-25-33-dev` `4-dev` `latest-dev` `4-eks-1-25-33-dev` `4.0-dev` `4.0-eks-1-25-33-dev` | June 23rd    | `sha256:eaaba56e5e891fbf5381938b82a1849bf730d33802df7ee6d91fb805fc43a80a` |
+|  `3.6-dev` `3.6.0-eks-1-23-33-dev` `3-eks-1-23-33-dev` `3-dev` `3.6-eks-1-23-33-dev` `3.6.0-dev` `3.6.0-r7-eks-1-23-33-dev`              | June 23rd    | `sha256:2efa425c253898d1dbc79108655ae7a95d3f0d3982654628dfe5a6224c5b4c7b` |
 |  `4-eks-1-25-33` `latest` `4.0-eks-1-25-33` `4.0.0` `4.0.0-eks-1-25-33` `4.0` `4.0.0-r7-eks-1-25-33` `4`                                 | June 20th    | `sha256:0fceb2d77985be46a2b8875ce0aa4227d344802437e011c4029d0a48abb7fb55` |
 |  `3.6.0-r7-eks-1-23-33` `3.6-eks-1-23-33` `3.6` `3.6.0-eks-1-23-33` `3` `3.6.0` `3-eks-1-23-33`                                          | June 20th    | `sha256:6a8ca4cf14ab55599bbb505be4eb2b19cdabc00b968852f3ffdb40dfa115e827` |
 

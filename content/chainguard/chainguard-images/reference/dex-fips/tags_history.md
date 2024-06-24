@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dex-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2-dev` `2.40.0-dev` `2.40-dev` | June 21st    | `sha256:45f0fed09497b43bba9ac7be5f83039890aacdb5d2584c60b3f071ca8b088fef` |
+|  `2.40-dev` `2-dev` `latest-dev` `2.40.0-dev` | June 23rd    | `sha256:f6ba52c435f6c72819cab238cbce50a50e63161ff7c1199fa7c91f0cfe926379` |
 |  `latest` `2.40` `2.40.0` `2`                 | June 20th    | `sha256:ea5180b702a6ff179520fad78e82984ded4bde2d5526282d8a64ec9f65d1eda7` |
 

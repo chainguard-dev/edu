@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-cainjector-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,9 +33,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.15.0-dev` `1.15-dev` | June 21st    | `sha256:3d7bc2f4a3a1cef8c71e4dd82ddb3d181a62769f54214fdb05e739d86278f72a` |
-|  `1.14.7-dev` `1.14-dev`                      | June 21st    | `sha256:bebc63906ceb211ce026ee49c079fe531f9b534d8aadc8d60f4500ad205ed9ca` |
-|  `1.12.12-dev` `1.12-dev`                     | June 21st    | `sha256:f491945f7e40a27bdf8f195d3370070a1ff1fa69fe2a4cc45b76000ec2eeb988` |
+|  `1-dev` `1.15-dev` `latest-dev` `1.15.0-dev` | June 23rd    | `sha256:d388f1fe39c610678018f3137cde38e62ad8636a9bc70b84500d11f9752fc320` |
+|  `1.12-dev` `1.12.12-dev`                     | June 23rd    | `sha256:8f7ec9a7c6ef92b5bae921ecacce844ad2e3886d4c6ecce51d5b0547ece6f4b5` |
+|  `1.14.7-dev` `1.14-dev`                      | June 23rd    | `sha256:e207ff0cf66886b07ecebe5ba52f8e13b9f6de8396afe88e9426b92d96361537` |
 |  `1.15.0` `1` `1.15` `latest`                 | June 21st    | `sha256:e23cb7c44600f71ce59ac771b76a574628aa99afb4961414cfee0e731817628c` |
 |  `1.14` `1.14.7`                              | June 21st    | `sha256:f81c855583a1638668f1d3ca31461da20d2dd1013bba9a79fab67500457e0c49` |
 |  `1.12.12` `1.12`                             | June 21st    | `sha256:61450c92eda830193ee8136a40f7506989a6fe7030b9ecfe423768252ca25f78` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-agent-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.14-dev` `1.14.11-dev`                     | June 21st    | `sha256:6d79d8199837d241a4fca0cfcd0904c8f04fbbd02533facb6dcf53afb14ace9b` |
-|  `1.15.6-dev` `latest-dev` `1-dev` `1.15-dev` | June 21st    | `sha256:ca5b263c8a141365e691068d98d9d4c768cc9ceae728c9083b5ebb6c120bfedf` |
-|  `1.14.11` `1.14`                             | June 21st    | `sha256:b996c1b9f4e43323e891033a58865231d5efe891ac1bb013ff0654c2ce5b5a66` |
-|  `latest` `1.15.6` `1` `1.15`                 | June 21st    | `sha256:7642abea9056de2441d593ffdc175e49fdd79ab8e1eadb5d3bece205cec2cb44` |
+|  `1.14-dev` `1.14.11-dev`                     | June 23rd    | `sha256:e1e62dcb1b1019545de1ae2411a672a23e7f90b60fc3959c5a73f1da15795e2d` |
+|  `latest-dev` `1.15.6-dev` `1.15-dev` `1-dev` | June 23rd    | `sha256:8768b1156449f2c1c307eb47acf97d2a932fb1717462d16266accad3272eb9e8` |
+|  `1.15.6` `1` `1.15` `latest`                 | June 23rd    | `sha256:2925a972320931ca10032719e46dd118984187dcfd7302eceaecbd45d01b855b` |
+|  `1.14` `1.14.11`                             | June 23rd    | `sha256:a29c3ed64db6e1383d2f166289f32ad87d3b5d77058487475f7cdd368367fef7` |
 |  `1.15.5-dev`                                 | June 20th    | `sha256:b64688484e261bc2844bb707e13c2443a883a3117fc413971921227b96eed1ee` |
 |  `1.15.5`                                     | June 20th    | `sha256:e0b4722716e431ec1fde06c4c139ab93981fe96814f51330ae885f5f7120f8e5` |
 

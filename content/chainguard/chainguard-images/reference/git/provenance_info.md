@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for git Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 | Registry                     | Tags                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 |------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest-dev, latest-glibc, latest-glibc-dev, latest-glibc-root, latest-glibc-root-dev, latest-root-dev                                                                                                                                                                                                                                                                                                                                                  |
+| `cgr.dev/chainguard`         | latest, latest-dev, latest-glibc, latest-glibc-dev, latest-glibc-root, latest-glibc-root-dev, latest-root, latest-root-dev                                                                                                                                                                                                                                                                                                                             |
 | `cgr.dev/chainguard-private` | 2, 2-dev, 2.45, 2.45-dev, 2.45.2, 2.45.2-dev, glibc-2, glibc-2-dev, glibc-2.45, glibc-2.45-dev, glibc-2.45.2, glibc-2.45.2-dev, glibc-root-2, glibc-root-2-dev, glibc-root-2.45, glibc-root-2.45-dev, glibc-root-2.45.2, glibc-root-2.45.2-dev, latest, latest-dev, latest-glibc, latest-glibc-dev, latest-glibc-root, latest-glibc-root-dev, latest-root, latest-root-dev, root-2, root-2-dev, root-2.45, root-2.45-dev, root-2.45.2, root-2.45.2-dev |
 
 

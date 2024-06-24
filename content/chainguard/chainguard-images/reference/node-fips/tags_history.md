@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                   | Last Changed | Digest                                                                    |
 |-----------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` `next-dev` `22.3-dev` `22.3.0-dev` `22-dev` | June 23rd    | `sha256:696c0f36a0b551830c0600c98ae35860973ea5ac87e5d19be46ea24909563cac` |
+|  `18.20-dev` `18-dev` `18.20.3-dev`                       | June 23rd    | `sha256:ffef506341f2de6d53973f62f1030990ea906b17f816701e91921d525e9b47a0` |
+|  `20.15-dev` `20-dev` `20.15.0-dev`                       | June 23rd    | `sha256:07791cb1427b7ce08dd05365cd68bc20a6382478c8c1bb00d3440801b61dbfc9` |
 |  `22` `latest` `22.3` `22.3.0`                            | June 21st    | `sha256:e88517980cb98c6d84bf5faac5fa69509952113c5f7f34bde1c8ff6b79999ce1` |
-|  `22-dev` `22.3-dev` `latest-dev` `next-dev` `22.3.0-dev` | June 21st    | `sha256:9f47578beb5dc25a93c8647c3978a4dd4fd9b2eafa75be3bd150175723db736b` |
-|  `18-dev` `18.20-dev` `18.20.3-dev`                       | June 21st    | `sha256:b1c38f9904498ff375a04bc507267a951590ca0a2eefaa3f1bd95b1153026826` |
-|  `20-dev` `20.15-dev` `20.15.0-dev`                       | June 21st    | `sha256:8114c7ecfd21ff2ae429cf8a3eccb3f049c974b933611a509315d6be92dd0172` |
 |  `20.15` `20.15.0` `20`                                   | June 21st    | `sha256:0c6b593ee1a7608709caf0b694e12c0771dddedcb08ce3b2b8a6a14e94ab4243` |
 |  `18` `18.20` `18.20.3`                                   | June 21st    | `sha256:922447f2ee4fe668c09bee905d81afc72dde7a1a02be145e545b7ec422246ede` |
 |  `next`                                                   | June 21st    | `sha256:afe6b011a67bcc7762441a15e58323b204ebe7e623fa59467be804e64c6b6f67` |

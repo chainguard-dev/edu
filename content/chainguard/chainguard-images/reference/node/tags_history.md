@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -38,10 +38,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                   | Last Changed | Digest                                                                    |
 |-----------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `next-dev` `latest-dev` `22-dev` `22.3.0-dev` `22.3-dev` | June 21st    | `sha256:10947fa87b17b77ceab0ddd06c310039d7d95657777755093b3f3e6df22888f9` |
-|  `20.15-dev` `20.15.0-dev` `20-dev`                       | June 21st    | `sha256:a27a8cfad4f3f665242d2e085aa6432c2c9c04a51e5789933375d0f3b3933aae` |
+|  `22.3-dev` `latest-dev` `next-dev` `22-dev` `22.3.0-dev` | June 23rd    | `sha256:0e613130f8315085ef826fcb105b31e1ab5afcd7c142ed340b90947366d5aa3b` |
+|  `18.20.3-dev` `18.20-dev` `18-dev`                       | June 23rd    | `sha256:8dd174dd76afc48783792481d4abc62935703c1d93f42239b49c8abfe111d37c` |
+|  `20-dev` `20.15.0-dev` `20.15-dev`                       | June 23rd    | `sha256:73b5d46aabd39c8e18dcf633714be8467b724aef3d63be00a3cf6b38b3668e36` |
 |  `latest` `22.3.0` `22.3` `22`                            | June 21st    | `sha256:2faa31537a3d867f3af6a0428ebc857b153b846f19c19fdbdb1a52f28ff911f8` |
-|  `18.20.3-dev` `18.20-dev` `18-dev`                       | June 21st    | `sha256:996dcd466b44253a8edad020d3584ba6960eb89da2edcff06d00b0326c4178ba` |
 |  `18.20.3` `18.20` `18`                                   | June 21st    | `sha256:ff1eb3347b7b08cc87041b16a5f625c67119b4246a62220f09e3e814d54ba39d` |
 |  `next`                                                   | June 21st    | `sha256:06e4b7d05cb85be1fd5820786baaa40d946b9162451420343c55730bbd5534d4` |
 |  `20.15.0` `20` `20.15`                                   | June 21st    | `sha256:141fe58bf1337317ad22b35df9fdee45ce5b61afb23b9516e774fe2dcd17149e` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-cainjector Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,9 +37,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.14-dev` `1.14.7-dev`                      | June 21st    | `sha256:a1e6ef31b1838b83f77eb6afb2ce0df75f8ae968472a3856e3a26844940ebd6c` |
-|  `1.12-dev` `1.12.12-dev`                     | June 21st    | `sha256:8e3a3188724a51c77930278a66d2ca30ee6ab8257f192e3e6948e6e5205da319` |
-|  `1-dev` `1.15-dev` `latest-dev` `1.15.0-dev` | June 21st    | `sha256:3a451bf16a772861de9d719dffad73bba0257127f42c5e0c85f8e75426db9e9c` |
+|  `1.14-dev` `1.14.7-dev`                      | June 23rd    | `sha256:358fae6349b537a7fdde8f40eae1b04b4868ee171a2d5bbda7c49976a333f11d` |
+|  `1.12-dev` `1.12.12-dev`                     | June 23rd    | `sha256:7b67bcc520a4f645847ad2a362e3f982603c00505d34a11691bd9a9a5c1c4e13` |
+|  `1.15.0-dev` `1.15-dev` `1-dev` `latest-dev` | June 23rd    | `sha256:a7e316bb1715c044c29c5b93c589c7cdeac5ad75bdda4a3bf620b150ae5d5887` |
 |  `1.12` `1.12.12`                             | June 21st    | `sha256:fdfa1fb0b88e4b991141b01a921e31ceaf1ec8d67b4503dbe2677b9d7da75f77` |
 |  `1.14` `1.14.7`                              | June 21st    | `sha256:747301ae3541188499f5d703d1d9b0311eba8ca93f5efc51b69e0a2fa99157d5` |
 |  `1.14.6-dev`                                 | June 20th    | `sha256:b7c66d3cfaf0a4813bec6901fe47f13d2be4373f3ba085f00c7a30a8deacab73` |

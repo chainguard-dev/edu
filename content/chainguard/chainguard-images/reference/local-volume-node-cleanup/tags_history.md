@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the local-volume-node-cleanup Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.7.0-dev` `2.7-dev` `latest-dev` | June 21st    | `sha256:ba426917ced8512cdb3613ae64b506f52581afe3e8f5b7b08a219b41ae80edf8` |
+|  `2.7-dev` `2.7.0-dev` `2-dev` `latest-dev` | June 23rd    | `sha256:6d76727d45955df087d88ed4416b6d9550fbb7c18c0f54b45f06e05377dc2f41` |
 |  `2.7` `2` `2.7.0` `latest`                 | June 20th    | `sha256:c6de9285b0b2310e834f26bfd911572f6c7467fa6b9cc9fc6ad493cf00583907` |
 

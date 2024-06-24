@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the datadog-cluster-agent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,18 +28,17 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 20th    | `sha256:542a21c7414e2742edb35565c0e4aade3181152925f5932c3bd7b5a6d1619ae9` |
-|  `latest`     | June 20th    | `sha256:a46c17607b4d0c6f247a3d72d7a253a819c116e166558391167c7568549751fe` |
+|  `latest-dev` | June 23rd    | `sha256:18d928b60051627629493e30babb47055099ba4d69dd9dc8079f5174c6b62b28` |
+|  `latest`     | June 23rd    | `sha256:5a78f2586ba02970459f05ff9f2d679f6811424ea1eae99c0074e2b46357e6c7` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                       | Last Changed | Digest                                                                    |
-|-------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.54.1` `latest` `7.54` `7` | June 23rd    | `sha256:98ee1615b6f9ec143f05b0e67018448b0f807870a6a95ae87da5cbf1a3211d99` |
-|  `7-dev` `7.54-dev`           | June 23rd    | `sha256:94c6552ea8241059f4f357c5dda7de31cdddab7c467871f55db40b58fcdd4015` |
-|  `latest-dev` `7.54.1-dev`    | June 23rd    | `sha256:5661a03061c5fd53cd122802ea049af7149431fc33d1c7d32d27eca1735945ad` |
-|  `7.54.0`                     | June 20th    | `sha256:7d1efdb7feca703f66de0112d91293fb09ee99dc693ad2388adec860dc9606ba` |
-|  `7.54.0-dev`                 | June 20th    | `sha256:18e8aba4b8670477f85a4503350033143a1236ebc0c1768172990c4792c9a5f1` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `7.54` `7` `latest` `7.54.1`                 | June 24th    | `sha256:98ee1615b6f9ec143f05b0e67018448b0f807870a6a95ae87da5cbf1a3211d99` |
+|  `7-dev` `7.54-dev` `7.54.1-dev` `latest-dev` | June 24th    | `sha256:482d3f62ed387516a043643259c1c1460441a632477ef44e08c89214cc73d330` |
+|  `7.54.0`                                     | June 20th    | `sha256:7d1efdb7feca703f66de0112d91293fb09ee99dc693ad2388adec860dc9606ba` |
+|  `7.54.0-dev`                                 | June 20th    | `sha256:18e8aba4b8670477f85a4503350033143a1236ebc0c1768172990c4792c9a5f1` |
 
