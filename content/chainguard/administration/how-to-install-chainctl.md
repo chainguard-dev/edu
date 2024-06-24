@@ -71,6 +71,23 @@ sudo install -o $UID -g $GID -m 0755 chainctl /usr/local/bin/
 
 At this point, you'll be able to use the `chainctl` command.
 
+### Installing with `curl` in Windows Powershell
+
+Note that you can also use `curl` install `chainctl` on Windows systems. Running the following command in PowerShell will download the appropriate `.exe` file.
+
+```PowerShell
+curl -o chainctl.exe https://dl.enforce.dev/chainctl/latest/chainctl_windows_x86_64.exe
+```
+
+Following that you can invoke `chainctl` like as in this example.
+
+```PowerShell
+.\chainctl auth login
+```
+
+Be aware that Windows PowerShell does not load commands from the working directory by default, so you will need to include `.\` before any `chainctl` commands you run.
+
+
 ## Verify installation
 
 You can verify that everything was set up correctly by checking the `chainctl` version.
