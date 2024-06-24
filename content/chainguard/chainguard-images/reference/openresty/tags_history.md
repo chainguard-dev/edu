@@ -3,8 +3,8 @@ title: "openresty Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the openresty Chainguard Image"
-date: 2024-06-23 00:43:06
-lastmod: 2024-06-23 00:43:06
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                      | Last Changed | Digest                                                                    |
 |--------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.25.3-dev` `latest-dev` `1-dev` `1.25-dev` `1.25.3.1-dev` | June 23rd    | `sha256:378fb02d578490249d5545a0b8d99baef8a5ad1ba706dbe9b604d7584db47569` |
 |  `1.25.3.1` `latest` `1.25.3` `1.25` `1`                     | June 21st    | `sha256:8abac4e05f9a3bffdc4885f3076e62ec6af46ff7f934c88bb6229b7360375c5a` |
-|  `1.25.3-dev` `1-dev` `1.25.3.1-dev` `latest-dev` `1.25-dev` | June 21st    | `sha256:290dcc0f03fd85ff41f67727a0f43a9f10dc51c093f757a55ee63c0ce3a064a0` |
 

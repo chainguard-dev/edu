@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gitness Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                           | Last Changed | Digest                                                                    |
 |---------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `3.0` `3.0.0_beta6` `3`                 | June 21st    | `sha256:212c9e7d26dbb0e60b8e7a8650eef8edb2338ace2ee38f6597b7c44cf0a5dca7` |
-|  `3.0.0_beta6-dev` `3-dev` `latest-dev` `3.0-dev` | June 21st    | `sha256:b63cdd4a908593a7b34cbf805d72aba364638fc2147e1099b204a7c3eea3820c` |
+|  `3.0.0_beta6` `3.0` `latest` `3`                 | June 23rd    | `sha256:9a45bae1ac14aa80e63d01c552dd8f87c82c149e0fdc8ea1b9ce5d65895229d7` |
+|  `3-dev` `latest-dev` `3.0.0_beta6-dev` `3.0-dev` | June 23rd    | `sha256:9a3420a0dcd8d4ff8dca7e37d1d67dd2439045bd8aa416b13a6ca28a136b5c78` |
 

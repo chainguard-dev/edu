@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the conda Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,10 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `24.5-dev` `24.5.0-dev`                       | June 21st    | `sha256:a92ccd96cc67f8c48eb0e6cb5908ff15b68af838118b70f26f39bf5dd5e2ba3a` |
-|  `24.5.0` `24.5`                               | June 21st    | `sha256:f0fa4cb1056af4d5a837b35ebe4b12e3bb9a88c2d89284484cfaedca2ba950fb` |
-|  `24.1.1`                                      | June 21st    | `sha256:7cb1e5644527fb7ddea98fbe10f8b657fd58edba4db00d34fb7c6b62d6f8ee89` |
-|  `latest` `24.1.2` `24` `24.1`                 | June 21st    | `sha256:8c68c3af1806da11902cf2a7d9155c757362ad879db3d22b63b27a0f1ab4fc18` |
-|  `24.1-dev` `latest-dev` `24.1.2-dev` `24-dev` | June 21st    | `sha256:0836091bd389f7614ebe3c96926ceda652ebbf79a9de5bb749c4d0f5039ba4b1` |
-|  `24.1.1-dev`                                  | June 21st    | `sha256:ce4391544066ff1532fcc57cd727acca738eba48f9e9092e46016b4a70cde0ff` |
+|  `24.1.1-dev`                                  | June 23rd    | `sha256:5cc378d8637c21bf1bfd4dd8ece690fc461eac284819f482a07314a07175b884` |
+|  `24.1.2-dev` `24.1-dev` `latest-dev` `24-dev` | June 23rd    | `sha256:3dfade7d2f6f29303f6b65bee4bb29b3d819f26078a29c1f175b8d85a943ec86` |
+|  `24.1` `24` `latest` `24.1.2`                 | June 23rd    | `sha256:72705352c264d6d4e6a49ea91cfad1cd89b466629efe143ac6a17391facb776a` |
+|  `24.5.0` `24.5`                               | June 23rd    | `sha256:49355b972a74fc42d10aaeb9d4044320020c93de3006fb1c9690da26e8a4bccb` |
+|  `24.1.1`                                      | June 23rd    | `sha256:bc09cdf9043cc650ccc4b1d7bd5a2e622adda0e294ab3b059282dd161df2dcfe` |
+|  `24.5.0-dev` `24.5-dev`                       | June 23rd    | `sha256:abfb2dbbd1df3d110ef16fb3d094904186c0d85561b42d782a0896bbf18d5ea4` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the clickhouse Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                        | Last Changed | Digest                                                                    |
 |----------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `23.8.15-dev` `23.8-dev` `23-dev` `23.8.15.35-dev`            | June 21st    | `sha256:441dc84feae5233972ecbb32b5dbfe281d94e2818db9ce81f5bf8293a9310eb0` |
-|  `24-dev` `24.2.2-dev` `latest-dev` `24.2-dev` `24.2.2.71-dev` | June 21st    | `sha256:7b1782185ae59a5169326380fcdd0e6af865a4ec83065052f895165ec1c051bc` |
+|  `23-dev` `23.8-dev` `23.8.15-dev` `23.8.15.35-dev`            | June 23rd    | `sha256:228eb5236bf30270e45d975e71ef24a3960ee8a5d6b66c9e17b30c047952f625` |
+|  `24-dev` `24.2-dev` `24.2.2-dev` `24.2.2.71-dev` `latest-dev` | June 23rd    | `sha256:482ed1992e21aaf176c7457848c216a27a6398cd4e3c5e196dd46635adbae240` |
 |  `24.2.2.71` `24.2` `24` `latest` `24.2.2`                     | June 20th    | `sha256:47d1e82cd2fe97fb559738575357fe67c6a9aea635261fec77a4a0278c2ccc76` |
 |  `23.8.15` `23.8.15.35` `23` `23.8`                            | June 20th    | `sha256:a70c514cd15d3a3d1f14073d414c649f1564f726fc169a2771e0073eb9d1c1e4` |
 

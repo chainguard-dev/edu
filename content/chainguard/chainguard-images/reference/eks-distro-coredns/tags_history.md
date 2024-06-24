@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-coredns Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                  | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.9-dev` `1.9.3-dev` `1.9-eks-1-25-33-dev` `1-eks-1-25-33-dev` `latest-dev` `1.9.3-r8-eks-1-25-33-dev` `1.9.3-eks-1-25-33-dev` | June 21st    | `sha256:9fb8e43392e1219026706a1f3453299fb7e1978b41f74d9b684b7f14923e1a3b` |
-|  `1-eks-1-23-33-dev` `1.8-eks-1-23-33-dev` `1.8-dev` `1.8.7-dev` `1.8.7-eks-1-23-33-dev` `1.8.7-r15-eks-1-23-33-dev`                     | June 21st    | `sha256:5308d213d599a8c9887248eff37fd79fb08a605fb66a34470d14ad1993d49696` |
+|  `1.9.3-eks-1-25-33-dev` `1-eks-1-25-33-dev` `1.9.3-r8-eks-1-25-33-dev` `1.9.3-dev` `latest-dev` `1.9-dev` `1-dev` `1.9-eks-1-25-33-dev` | June 23rd    | `sha256:cf808b4848225b7bd1d25308e0db9fe22f69675e4f4c645d2a30172cdb7b14b5` |
+|  `1.8-eks-1-23-33-dev` `1.8-dev` `1.8.7-dev` `1.8.7-r15-eks-1-23-33-dev` `1.8.7-eks-1-23-33-dev` `1-eks-1-23-33-dev`                     | June 23rd    | `sha256:4a4140d360395c7373fa4983242ce339de28ffce5cdb1ef30c9ec534f55d62a0` |
 |  `1.8` `1.8-eks-1-23-33` `1.8.7-r15-eks-1-23-33` `1-eks-1-23-33` `1.8.7-eks-1-23-33` `1.8.7`                                             | June 20th    | `sha256:1a60c354007523e42fbc54f895376019d621f6ae1fff9d83221291a761d42485` |
 |  `1-eks-1-25-33` `1.9.3-eks-1-25-33` `1` `1.9-eks-1-25-33` `latest` `1.9.3-r8-eks-1-25-33` `1.9.3` `1.9`                                 | June 20th    | `sha256:65cf06dbc33c4b97527ca3cc356dc7f8e1be05e896f13525cec4bc9188cf83ca` |
 

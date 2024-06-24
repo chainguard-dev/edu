@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the docker-selenium Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | June 23rd    | `sha256:7a46da693cdbbcc44668e438adfb322a1cda400488a9f81fbfe315c9a90d6a8e` |
 |  `latest`     | June 22nd    | `sha256:ddd248074154516044c3cd9c3e37a095d347a136aacff886d1ba4b057e06c44d` |
-|  `latest-dev` | June 21st    | `sha256:a970900f7b5057356516d75f6c58ceecbeaf6c745466dfd4330f4b950f0f617a` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `4-dev` `4.21-dev` `4.21.0-dev` | June 21st    | `sha256:a6dc0e5a67a19cba31734e2445d1b4b1ec05f7455ade96b670d121262976c89e` |
-|  `latest` `4` `4.21` `4.21.0`                 | June 21st    | `sha256:a92cb9a04861c79ac13a5c1b4e67d556737a1b71adf28f46065ad44148789d02` |
+|  `4-dev` `latest-dev` `4.22-dev` `4.22.0-dev` | June 23rd    | `sha256:a0c622fd368f8ca0a39d931c9e92f845849f579ad36d1299e70a0407bde19f92` |
+|  `4` `4.22.0` `4.22` `latest`                 | June 23rd    | `sha256:ea9097c0958f4ccfc7d5cf54ddff16f3f87edca39205b184f1a0a1b4c1a96563` |
+|  `4.21-dev` `4.21.0-dev`                      | June 21st    | `sha256:a6dc0e5a67a19cba31734e2445d1b4b1ec05f7455ade96b670d121262976c89e` |
+|  `4.21` `4.21.0`                              | June 21st    | `sha256:a92cb9a04861c79ac13a5c1b4e67d556737a1b71adf28f46065ad44148789d02` |
 

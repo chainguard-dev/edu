@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mongodb-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                         | Last Changed | Digest                                                                    |
 |---------------------------------|--------------|---------------------------------------------------------------------------|
-|  `5.0.27-dev` `5.0-dev` `5-dev` | June 21st    | `sha256:be97ea85b5bb01c6cb3ce7166c9896f8c32b1704d717f008d56e4ac4f35c9f24` |
-|  `6.0` `6` `6.0.15`             | June 21st    | `sha256:fb18ee252b0f510dfc3a27b3d2d45b71a6ef58f3bccd6df39086efd53080ff4d` |
-|  `6-dev` `6.0-dev` `6.0.15-dev` | June 21st    | `sha256:c69396c2da46f4d559a23c32b30768537d126e6a9234d44629aca3a558855eb6` |
-|  `7.0` `7` `7.0.11`             | June 21st    | `sha256:409f10f1fb4250564851cadc907243aab0e3f6f0c3e47fc65d9ff83ccd06f35c` |
-|  `7.0-dev` `7.0.11-dev` `7-dev` | June 21st    | `sha256:343fa22608c51d874cfe7b730498bdcfd4e0a0b0a01c941182cb5bb241de68e7` |
-|  `5.0.27` `5` `5.0`             | June 21st    | `sha256:caceffcc1780fd69bbfb35d9237c3223cb2b31d2d1e6c34dd87ee3e94d15e458` |
+|  `7.0.11` `7` `7.0`             | June 23rd    | `sha256:97a761a55f19161a1d306a2c44268154446ba25de3cc69087dd1f63ff6d75855` |
+|  `7.0-dev` `7-dev` `7.0.11-dev` | June 23rd    | `sha256:7f436bc54f1695306dd4729d08e173d6680325e68dd4f89a45924c8455b58837` |
+|  `6.0-dev` `6-dev` `6.0.15-dev` | June 23rd    | `sha256:6d57f8fe9272559e7dd787321d79e9f821f39a37a8b04638cbca5d6c2f2ce4f4` |
+|  `5.0-dev` `5-dev` `5.0.27-dev` | June 23rd    | `sha256:ed3538e58b2f2a9f75810fa2b94c947df88086397d7e9098dde727634df37a89` |
+|  `6.0.15` `6.0` `6`             | June 23rd    | `sha256:e098370043cd554501792048c42dad1624f250384ac4504424b89ca91bee2976` |
+|  `5` `5.0` `5.0.27`             | June 23rd    | `sha256:ed7ab5f6f49469d1d2207b9067427ceac60faaca977d352c2cdf3308ba353383` |
 

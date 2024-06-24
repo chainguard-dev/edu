@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the openscap Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.3` `1` `latest` `1.3.10`                 | June 21st    | `sha256:f355ab69b29ac85b5a3dbd3098c06ee2faffc964a5dae433a050f109a61fc343` |
-|  `1.3.10-dev` `1-dev` `latest-dev` `1.3-dev` | June 21st    | `sha256:3262e273aee288864a1f49d2444d419eb4fda8583898b9358d3113c812471450` |
+|  `latest-dev` `1-dev` `1.3-dev` `1.3.10-dev` | June 23rd    | `sha256:d18676dd0d49614a040727c43b6e662065d2963e5fc6e58cae0a78f74919c2a5` |
+|  `1` `latest` `1.3.10` `1.3`                 | June 23rd    | `sha256:3e0b467a77cf356f6b128f9b39eba5c51f69457106f60f4a6e17c58de053c7c8` |
 

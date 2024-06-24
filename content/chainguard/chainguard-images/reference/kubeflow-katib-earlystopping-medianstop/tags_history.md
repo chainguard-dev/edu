@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-earlystopping-medianstop Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0-dev` `0.16-dev` `latest-dev` `0-dev` | June 21st    | `sha256:8afcab2190f9383b82d8d40213ea423a4f36973304e934a93935a3c1b59fcca9` |
+|  `0-dev` `latest-dev` `0.16.0-dev` `0.16-dev` | June 23rd    | `sha256:635cb1b448688fd9a21a5f9e0babe9025b2d1418b271875623cceda93a61d680` |
 |  `0.16` `latest` `0.16.0` `0`                 | June 21st    | `sha256:0d12d5d13485127ea7b226d40326f6671ee94957a41b8eb735ffb3b836676c5e` |
 

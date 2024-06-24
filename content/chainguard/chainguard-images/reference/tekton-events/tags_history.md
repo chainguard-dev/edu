@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-events Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-24 00:43:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.60-dev` `latest-dev` `0.60.2-dev` `0-dev` | June 21st    | `sha256:20595518f09c4fdba33afa7c47260b2c73dd59560504032732e0726d59325ba7` |
+|  `0-dev` `latest-dev` `0.60-dev` `0.60.2-dev` | June 23rd    | `sha256:f94456ef9a191db844508a9e9d96bfff1359e302ae2528e511c4d950347bf6c5` |
 |  `0.60` `0` `latest` `0.60.2`                 | June 21st    | `sha256:3dc6fd1eb36a10d453fc7ce2a2aab172737f92fa7e14ff19c5aa3e8b3459102c` |
 
