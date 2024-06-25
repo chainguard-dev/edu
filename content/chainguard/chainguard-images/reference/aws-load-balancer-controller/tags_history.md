@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-load-balancer-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 22nd    | `sha256:a1cca34c6ae9487a313157aaa7c3227cb0ae1c59dfea0a009fc46d0d017d4af1` |
+|  `latest-dev` | June 24th    | `sha256:522415a65175fe65f2c4b83857a5ec01be5472deaee8072695876c2cb97608ec` |
 |  `latest`     | June 20th    | `sha256:a6c160fc1c77ab2f74b498aceb5ebc16619657b0bbc059e4cb9a2539d378e08d` |
 
 

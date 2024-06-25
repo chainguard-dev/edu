@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the octo-sts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 22nd    | `sha256:91bf931688cad9e80987a5b419710bc9a35023b75d8d1dab66f251ebc4559f52` |
+|  `latest-dev` | June 24th    | `sha256:48f8f4c00e51740721b3471a220a93fce45a2b840df91e1021a8448a426a6c09` |
 |  `latest`     | June 19th    | `sha256:246ce5065a4db7b2edba5a5f4e8743434bb2ce4f35955d3ac5008030bea5eb84` |
 
 

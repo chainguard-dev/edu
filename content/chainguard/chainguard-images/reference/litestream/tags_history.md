@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the litestream Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 22nd    | `sha256:c6693e109f6d1b1515c4238c3c53147836f35ff76945bfe7b546d4163440f4e5` |
+|  `latest-dev` | June 24th    | `sha256:1fe1859e700828525dc7a6f0b3a31839e4d76c7c0db6af80ba265fc7d07b53ca` |
 |  `latest`     | June 22nd    | `sha256:987d1d6dcdb30038fcfc2f3bdc9d4f9013f2af536f33b85095ce654d16867be0` |
 
 

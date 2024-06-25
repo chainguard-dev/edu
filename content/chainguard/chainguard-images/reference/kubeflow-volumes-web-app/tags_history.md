@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-volumes-web-app Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | June 24th    | `sha256:f55342cb5dce256ab076251244eb33aafdab6f9671e194be9488e4e4388ba611` |
 |  `latest`     | June 22nd    | `sha256:600d2738e251fa3c3bf46493639dbaf09498814dcf4268f92079540d07797b15` |
-|  `latest-dev` | June 22nd    | `sha256:6013faa3bd5282e8035d3e8c58e7951af1c4f91c7a44c59792c7695d8ff273c6` |
 
 
 ### Private/Dedicated Registry

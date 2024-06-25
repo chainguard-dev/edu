@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the git Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,14 +28,14 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)                  | Last Changed | Digest                                                                    |
 |--------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-glibc-dev`      | June 24th    | `sha256:367c36e0ec44ec2a6ec9d1153c0ce17f8b3794d0271320ced62812393c60c98f` |
+|  `latest-glibc-root-dev` | June 24th    | `sha256:2b64a5e7921603f1dc0aed0689951a5cd89b8635727325f11e3543e56c296c81` |
+|  `latest-glibc-root`     | June 24th    | `sha256:4e5ee5286a27e2091140d6141bf69f089857523ece58b951944bafa573a2304f` |
+|  `latest-glibc`          | June 24th    | `sha256:4beb1cdaacefaee680734fc564c91498687b858e2834e799044ac7369211e896` |
 |  `latest-dev`            | June 23rd    | `sha256:846e1a4dbb50d840bf799f49688647f93028416217cebe3631572806a9c51fb2` |
 |  `latest-root`           | June 23rd    | `sha256:d6631a4bfaa73f5edc536bfd7ab9e165f394a6fc1ff1e8834574f49bc0f4c2e9` |
 |  `latest-root-dev`       | June 23rd    | `sha256:f9a47a22f7d4e93f5b31ce55b4ebfdf6aa8b5ac7dc85664846c474308c760bb1` |
 |  `latest`                | June 23rd    | `sha256:06119871a608d163eac2daddd0745582e457a29ee8402bd351c13f294ede30e1` |
-|  `latest-glibc-root-dev` | June 22nd    | `sha256:364fe5e098b2de412679ceddcdc767aeb189952977042b8b77a3f461727a5233` |
-|  `latest-glibc-dev`      | June 22nd    | `sha256:fd35ff8980c0765eaea136e476140da1bcb22175edc6c2b977297d57a5fe5143` |
-|  `latest-glibc`          | June 22nd    | `sha256:56d28739399b640156a4d74949aa174c2e0b287ade802e245baef17d267bd8b3` |
-|  `latest-glibc-root`     | June 22nd    | `sha256:8eefe85fda9b0c6d15f9ed8bca7ef830678c86c0c9e75b6828f124703a398d3c` |
 
 
 ### Private/Dedicated Registry

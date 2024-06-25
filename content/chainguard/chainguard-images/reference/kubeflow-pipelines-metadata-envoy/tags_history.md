@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-envoy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 22nd    | `sha256:878a86d05a4d2128d6b302b92aeef298219ae6f5ad20e4fd5415e2c697e7f5f9` |
-|  `latest-dev` | June 22nd    | `sha256:504d6a545ea04def293dfeba78a89b9473f2ea74f80c290b1fe11ee958df98a3` |
+|  `latest`     | June 24th    | `sha256:f7e4b32fbb75bb403deb3faf631822959f7e9ad3beb6a05bf4cc1d6e77b4b3ac` |
+|  `latest-dev` | June 24th    | `sha256:08e1ac987d4aad9bb91854a0f5dc06ba2b90c99c1fcb2cead7217f9f6c444f5f` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.2.0-dev` `2.2-dev` `2-dev` | June 23rd    | `sha256:3b40669d5eba5560330d59fdae4ca604bba132b6a9d7a0dd4d41d93dc5d53b80` |
-|  `2.2.0` `2` `2.2` `latest`                 | June 21st    | `sha256:9724aa21f106c44183f27cc49bd084c1b6bc6a91ee2beaa8bfc1869829f2377e` |
+|  `latest` `2.2.0` `2.2` `2`                 | June 24th    | `sha256:ba09e77ee4a8426b0f0324c71fb1e405236a683c68c7d3117a93df244ddfe14f` |
+|  `2.2.0-dev` `latest-dev` `2-dev` `2.2-dev` | June 24th    | `sha256:80f8af03fd5bb37ddc6949014bc56eb2fb71b263c05668d377c750f0335fec29` |
 

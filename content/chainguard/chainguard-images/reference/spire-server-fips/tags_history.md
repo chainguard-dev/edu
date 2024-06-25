@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the spire-server-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,8 +31,10 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                     | Last Changed | Digest                                                                    |
-|---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.9-dev` `1-dev` `latest-dev` `1.9.6-dev` | June 23rd    | `sha256:2957f8c54b8176fe93099a1cb362f99f85eddcfb7ce6c3999f9afb023e798b60` |
-|  `1.9.6` `1.9` `1` `latest`                 | June 20th    | `sha256:b0e438fe59eaefd585402eb80d63033906c1a4c7937db8ab0e6f65ee345199fb` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` `1-dev` `1.10.0-dev` `1.10-dev` | June 24th    | `sha256:2cd34831758f4ff132a6c9981203a3d85b0572928614a54b86ddc724337bf3b4` |
+|  `1` `1.10` `1.10.0` `latest`                 | June 24th    | `sha256:7848e3384eb6422ce6d3273a37898c218db0af6e342e6b9c757513f6fce4b7c1` |
+|  `1.9-dev` `1.9.6-dev`                        | June 23rd    | `sha256:2957f8c54b8176fe93099a1cb362f99f85eddcfb7ce6c3999f9afb023e798b60` |
+|  `1.9.6` `1.9`                                | June 20th    | `sha256:b0e438fe59eaefd585402eb80d63033906c1a4c7937db8ab0e6f65ee345199fb` |
 
