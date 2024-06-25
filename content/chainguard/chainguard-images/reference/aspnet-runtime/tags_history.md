@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aspnet-runtime Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 22nd    | `sha256:30caec4024ca4f6e0e91a4db78c2c61f266ac75d9274d7d8baed8875bb43cdc3` |
+|  `latest-dev` | June 24th    | `sha256:4be921a5da8f8b78960f370038e17a18111207a800bf00fa9643d88f9f703ea1` |
 |  `latest`     | June 22nd    | `sha256:4818bfc2b4527cbbef0f4de592c0eaf895eb8a930591e51428ae123008eec932` |
 
 

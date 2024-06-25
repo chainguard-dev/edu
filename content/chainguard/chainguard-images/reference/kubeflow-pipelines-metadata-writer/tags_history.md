@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-writer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 22nd    | `sha256:d217cb35297b8c726191242b15f40e2b5b7f5b570aac88da6893e7fc8e94b52f` |
-|  `latest-dev` | June 22nd    | `sha256:975cef39a62e63194584781e6a329999e67bd044c43c77222a37e5be41d4cdf8` |
+|  `latest`     | June 24th    | `sha256:46f2b4c0621bcc43a73b8da5c7c8d4f23a72e08008e3044bf5299e9bde31621d` |
+|  `latest-dev` | June 24th    | `sha256:2000ab52c57d4207fe00162b2c610402ebc8eaadf90626433279b75eb1882623` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.2` `latest` `2` `2.2.0`                 | June 23rd    | `sha256:6f0677f7ff418f8d0919f2ac91a25f27e662f98b070b80ae5ae86477444b25b8` |
-|  `latest-dev` `2.2-dev` `2-dev` `2.2.0-dev` | June 23rd    | `sha256:9142720096c1eef0215fd127b8ddb75e10653e20bebd6de073b0fb9fb51d638f` |
+|  `2.2-dev` `latest-dev` `2-dev` `2.2.0-dev` | June 24th    | `sha256:98ea2dca60f8f98329ade088ba494bac970a57f88dd66cdf1c088b4ae2028e9a` |
+|  `2.2` `2` `latest` `2.2.0`                 | June 24th    | `sha256:4f0ecf1d90953b5c529a8ab3159937ed6a54fd5c6fe770252ce3eab1dc7eb385` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the datadog-cluster-agent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 23rd    | `sha256:18d928b60051627629493e30babb47055099ba4d69dd9dc8079f5174c6b62b28` |
+|  `latest-dev` | June 24th    | `sha256:4b025898ba10606068405678d8a98715417d981ba11b51ebbfd8768ec2f20c8a` |
 |  `latest`     | June 23rd    | `sha256:5a78f2586ba02970459f05ff9f2d679f6811424ea1eae99c0074e2b46357e6c7` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.54` `7` `latest` `7.54.1`                 | June 24th    | `sha256:98ee1615b6f9ec143f05b0e67018448b0f807870a6a95ae87da5cbf1a3211d99` |
-|  `7-dev` `7.54-dev` `7.54.1-dev` `latest-dev` | June 24th    | `sha256:482d3f62ed387516a043643259c1c1460441a632477ef44e08c89214cc73d330` |
+|  `7.54.1-dev` `7.54-dev` `7-dev` `latest-dev` | June 24th    | `sha256:482d3f62ed387516a043643259c1c1460441a632477ef44e08c89214cc73d330` |
+|  `7` `latest` `7.54.1` `7.54`                 | June 24th    | `sha256:98ee1615b6f9ec143f05b0e67018448b0f807870a6a95ae87da5cbf1a3211d99` |
 |  `7.54.0`                                     | June 20th    | `sha256:7d1efdb7feca703f66de0112d91293fb09ee99dc693ad2388adec860dc9606ba` |
 |  `7.54.0-dev`                                 | June 20th    | `sha256:18e8aba4b8670477f85a4503350033143a1236ebc0c1768172990c4792c9a5f1` |
 

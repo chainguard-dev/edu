@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jitsucom-syncctl Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 22nd    | `sha256:477f22b40d4d5b416d50c58f2f3170baeccdf69d579c367d1969e7c2e3b2a525` |
+|  `latest-dev` | June 24th    | `sha256:2c169127025b44bc52f627e0d64d888b465e90d5bbead20290f8cf23bf6d68ba` |
 |  `latest`     | June 19th    | `sha256:6c71f4cec28b108788006d0e4da3ea0c446e5c97efb82ff06a1e42c8bea9bba2` |
 
 

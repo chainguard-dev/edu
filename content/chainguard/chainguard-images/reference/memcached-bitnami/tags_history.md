@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the memcached-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.6.28-dev` `1-dev` `1.6-dev` `latest-dev` | June 23rd    | `sha256:c86299411e4a86a8608efe14713f1eb077442526310f00fe86686ba1a0ad1d2f` |
-|  `1` `1.6` `latest` `1.6.28`                 | June 21st    | `sha256:3c9db61312ca8532486c53a971c4fcefeb2612dbe8c1e6bba7ca3bc78aba7fa1` |
+|  `1.6.28-dev` `1.6-dev` `1-dev` `latest-dev` | June 24th    | `sha256:14087cfac6a455df0f3b076f2264292497cb5724b94cf14a3b000585c13341ad` |
+|  `1` `latest` `1.6.28` `1.6`                 | June 24th    | `sha256:f8cc8d2f87e784f1e1f868eccd334b61b82892057cbbf6d119bb9b5073177e9c` |
 

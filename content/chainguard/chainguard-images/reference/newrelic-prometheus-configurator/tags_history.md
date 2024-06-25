@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-prometheus-configurator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 22nd    | `sha256:f017f67d3be82779d60f3e578110a3eee120ac3b3d30a51a410849e8b57e4b9f` |
-|  `latest`     | June 19th    | `sha256:3a3d12e39d1876a0e46e7192a080113c7d42217caecfe3de0713ed733fa05d85` |
+|  `latest`     | June 24th    | `sha256:c7a64a21c5f4c0aaa2913fae8fa0901d7ff0ebfe968f7e656a45ac759acf3038` |
+|  `latest-dev` | June 24th    | `sha256:57d399ae616d3b1626de7c25c5af7c479dbd367b0a4f278901251c3637aa64b4` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.16-dev` `1-dev` `1.16.4-dev` `latest-dev` | June 23rd    | `sha256:e30087232efd43a7f3a98d01fb3db28b5477a73bfcf55f72de75c31c46adf7ca` |
-|  `latest` `1.16.4` `1.16` `1`                 | June 20th    | `sha256:faeb2d7b142718ec2ea6ceeb560e4f87c3cd8a96a0754483747b23a9abd16edb` |
+|  `1` `1.17.0` `1.17` `latest`                 | June 24th    | `sha256:e0bf8d874cd0f3e1401b74235277dc06621abea765d22f76d55bcc7d623d6dfa` |
+|  `1-dev` `1.17-dev` `latest-dev` `1.17.0-dev` | June 24th    | `sha256:30706c76348af7e17a66fc7b6e2a34117f323c9549488f2223ecb18ad2ac6fa3` |
+|  `1.16-dev` `1.16.4-dev`                      | June 23rd    | `sha256:e30087232efd43a7f3a98d01fb3db28b5477a73bfcf55f72de75c31c46adf7ca` |
+|  `1.16.4` `1.16`                              | June 20th    | `sha256:faeb2d7b142718ec2ea6ceeb560e4f87c3cd8a96a0754483747b23a9abd16edb` |
 

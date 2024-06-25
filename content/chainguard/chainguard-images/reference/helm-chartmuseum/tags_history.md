@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the helm-chartmuseum Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 22nd    | `sha256:efdcfe71d6a8b8425547ca4cf09afc07fde34e3c259c5b10dcbda480189884d0` |
+|  `latest-dev` | June 24th    | `sha256:49f18e9e966c4c70dc847e4788d58e88de9aec921c835a23db250da673aaa02f` |
 |  `latest`     | June 19th    | `sha256:f8cd68338e299e57bfcc6b2d017e6bb16c556842a6c6c38df03250a57df6a510` |
 
 

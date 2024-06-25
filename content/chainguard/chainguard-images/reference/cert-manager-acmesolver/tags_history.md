@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-acmesolver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 22nd    | `sha256:7ad9965d267adb76d875a1d7fc6122f512d08c0352f807474f110c9923ab02a8` |
+|  `latest-dev` | June 24th    | `sha256:24c15ec601917e662f66149bf4b2a2fb0680031d403055a215fd79ca98df3400` |
 |  `latest`     | June 20th    | `sha256:6f94c4710de9ed35a8ef0136ded7cceaad173c70b0ff6bbe1fe2cc5cb34ce945` |
 
 

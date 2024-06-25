@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the conda Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 22nd    | `sha256:24a7513dfcc79bfe060d7be60cd6ae100c1c98c2c2e29c73f4f34540f84f1c7b` |
-|  `latest-dev` | June 22nd    | `sha256:8dbdeadbed251739be24d23eb5ad50f0f7dfcd7453aff1fbb5fc3946c45a1ccf` |
+|  `latest-dev` | June 24th    | `sha256:1d2c13d8a274551c7993538fa095190a2df6ff0e4f33b75c06e8257f4a5e4779` |
+|  `latest`     | June 24th    | `sha256:e9e58283af2f98aeac84033387e03909494f3a18d8678ad12db3ea8b9f4ee059` |
 
 
 ### Private/Dedicated Registry

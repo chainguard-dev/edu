@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nfs-subdir-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 22nd    | `sha256:30cb25d776df9bf1074fb251b4725a3f60ffd61f89a4154ddc84276e67f04c1d` |
-|  `latest`     | June 22nd    | `sha256:d1dab7c52a24ea69bc9b1bf87678f3aa51f637e103a5602a293bca97a6776a6e` |
+|  `latest`     | June 24th    | `sha256:2fbabda1f6f12de1d9722d58c6a34d63175cdad2f75c895e7bb3486e01ca532b` |
+|  `latest-dev` | June 24th    | `sha256:b9831ca11d72dc35becfe41dca443069bd7edd974bb83b4f3fabe47dbd9303cf` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4-dev` `latest-dev` `4.0.18-dev` `4.0-dev` | June 23rd    | `sha256:b5b46f76a3b3d7761218e552482c9587ab931022c4f21f414af88c9fd4ca159f` |
-|  `latest` `4` `4.0` `4.0.18`                 | June 21st    | `sha256:f8069f839a982de6e1bfe257c83431bca3e900109938294de4f70f93f4457e12` |
+|  `latest` `4` `4.0.18` `4.0`                 | June 24th    | `sha256:be94764a40896ffba9cb6faa07fc8c39fd20ff18e86201f8b0002b0877ced7e4` |
+|  `latest-dev` `4.0-dev` `4.0.18-dev` `4-dev` | June 24th    | `sha256:ae4d4642d10a7dadbae1a52d30f435ed8eec54d78ec90fc93458408db7198f87` |
 

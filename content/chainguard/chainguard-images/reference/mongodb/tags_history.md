@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mongodb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 22nd    | `sha256:baffb96570799c9511e3c6937ac2dc7afa9b612f2e1b1f5ee9cb5c2d9a44bce2` |
-|  `latest`     | June 22nd    | `sha256:7a6a133ca3ae8afd077decd9533ff975f017c70b6b8608b10e34d7a9bc880208` |
+|  `latest-dev` | June 24th    | `sha256:ae80f7ed80899c63b4ccb80d7f78e96559c95c1936ec2a7cd96ebecd8c99eaf9` |
+|  `latest`     | June 24th    | `sha256:69b81b1b62ee0eabfc4a4b43dba84a7fafe321e20b8ecddabf92668386231a80` |
 
 
 ### Private/Dedicated Registry

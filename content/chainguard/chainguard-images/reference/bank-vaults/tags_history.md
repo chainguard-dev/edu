@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the bank-vaults Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 22nd    | `sha256:27475cd233e830ce57b26b9ae530005aa110b712b015d950199393aa09ac342d` |
+|  `latest-dev` | June 24th    | `sha256:356777412b88b674afb18843bce168a4ddd75ded022ab798ca4b13901784ddfd` |
 |  `latest`     | June 20th    | `sha256:7214a9144498446ba1a847c0588a1401b7de1fd76d0cafafa268d353e296dfd4` |
 
 

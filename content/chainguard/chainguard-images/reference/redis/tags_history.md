@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the redis Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 22nd    | `sha256:a9ff73825517cc72a22191fb6db65e5d89d4536c927b1e325874554fe2370811` |
+|  `latest-dev` | June 24th    | `sha256:91f5d38f2babd37022c8c1449299f9acba19aa97a1a2a2320f64077407382752` |
 |  `latest`     | June 19th    | `sha256:52c82e42a611c08c599163256f5b7df7cd65aab7f65015c2aa35120f21573b34` |
 
 

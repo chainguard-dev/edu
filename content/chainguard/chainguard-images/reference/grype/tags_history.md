@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grype Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 22nd    | `sha256:5324b666c7fa296fe9aae5fac732f209f61158e042e4f2962ac2a0bb468b0dfa` |
+|  `latest-dev` | June 24th    | `sha256:e38179165f3326722210046da6872b8e7e15ae18feb1a17b50c89b037d6ae25b` |
 |  `latest`     | June 19th    | `sha256:bd7413c543cf5553ea0dde655cc94e51d20f392af917a483c6b173979da6f900` |
 
 
