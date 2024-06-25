@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public squid-proxy Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -55,6 +55,7 @@ The table shows package distribution across variants.
 | `libexpat1`              | X          |        |
 | `libgcc`                 | X          | X      |
 | `libidn2`                | X          |        |
+| `libltdl`                | X          | X      |
 | `libnghttp2-14`          | X          |        |
 | `libpcre2-8-0`           | X          |        |
 | `libpsl`                 | X          |        |

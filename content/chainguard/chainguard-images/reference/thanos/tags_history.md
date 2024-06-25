@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the thanos Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 22nd    | `sha256:10636766525feb59aa9e1ad1281f9f225482d8390716fc44e900abab66f9f361` |
+|  `latest-dev` | June 24th    | `sha256:b7742f0fbdb8e2814c61fbda816882df79b529405d517d4fdb649ab38d5e3340` |
 |  `latest`     | June 19th    | `sha256:852255e8e49002f0b8668eee1e417eab2b41ac02127a356a76646f077ebaf666` |
 
 

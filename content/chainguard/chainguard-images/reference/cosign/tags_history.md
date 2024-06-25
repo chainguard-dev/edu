@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cosign Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 22nd    | `sha256:80910f09300196bf4e1919e5496bace081e9ff3ca310adafb60d928eba7e23ad` |
+|  `latest-dev` | June 24th    | `sha256:032fcfee77d806e5d62db0a1d2a4294e2e94310b6dabfb6ce49cd9854b70bef0` |
 |  `latest`     | June 20th    | `sha256:d66fa41bacf2219650ba083ce3713b3622a1d097a99147944a5d6c56b0778a05` |
 
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public gotenberg Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -128,7 +128,6 @@ The table shows package distribution across variants.
 | `libffi`                   | X          | X      |
 | `libfontconfig1`           | X          | X      |
 | `libgcc`                   | X          | X      |
-| `libgcrypt`                | X          | X      |
 | `libgo`                    | X          | X      |
 | `libgomp`                  | X          | X      |
 | `libgpg-error`             | X          | X      |

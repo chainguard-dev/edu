@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-hubble-relay Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 23rd    | `sha256:35b5dfa0804c82db6b296c384b40ff12847106cbbec5cbddefe9fc67420807d5` |
+|  `latest-dev` | June 24th    | `sha256:a4506c2c6ba10e43f623910c07417da72a08b829d6e728946ee968b3bfda2b80` |
 |  `latest`     | June 20th    | `sha256:ad69c336c232b13882afa6a2d48d59d85fde70edc1416858dcb413576d07ea7b` |
 
 

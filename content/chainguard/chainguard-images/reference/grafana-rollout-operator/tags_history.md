@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grafana-rollout-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 22nd    | `sha256:ef2a910efd25e641050e1669c275b7b42a2f56e1e936ec1827a595221238213b` |
+|  `latest-dev` | June 24th    | `sha256:bed94a18d1429b09082800f6f6fc5a91541a6359c55d9bec40a631831f3b8200` |
 |  `latest`     | June 19th    | `sha256:70f39d2e21b3357173f4fe40f86822312cd19ac6cf8b93ebfb80a13dc57d3b38` |
 
 

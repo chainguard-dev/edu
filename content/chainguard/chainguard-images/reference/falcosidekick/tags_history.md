@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the falcosidekick Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 22nd    | `sha256:d4222bd69f6246dc1bcccee7fa5397d4de14e48b0a36d478bded4b48a9fbe0c7` |
+|  `latest-dev` | June 24th    | `sha256:fd7a8190a2d21a7c79efd2a0994edb42fc7cab869b4e21bb4aaee0e979b50ebf` |
 |  `latest`     | June 20th    | `sha256:f366a91d35434ee0fd97f476cef25e2fe5b8b08f4d52c036f8c931a71e9a6c3e` |
 
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the spire-agent-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,8 +31,10 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                     | Last Changed | Digest                                                                    |
-|---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.9-dev` `1.9.6-dev` | June 23rd    | `sha256:4983db262508dea816211d63d3bb58ff8f97f50903a2477a76ef3116c647069c` |
-|  `1.9.6` `1` `latest` `1.9`                 | June 21st    | `sha256:8b60414c55b651c29e18b12c2253b568f22d5d1a25ae63ab28d9165cc3cf0abd` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.10` `latest` `1` `1.10.0`                 | June 24th    | `sha256:58d00fbd430a9bc52ee0f6a0f67dfa74873e77339c3e4928d54b3daf2920fbd5` |
+|  `1.10-dev` `1.10.0-dev` `1-dev` `latest-dev` | June 24th    | `sha256:ffeaf786a4d1c7d8fd564745fd37ba8d5fb96c1ecca58307abbbd61ed34e2358` |
+|  `1.9-dev` `1.9.6-dev`                        | June 23rd    | `sha256:4983db262508dea816211d63d3bb58ff8f97f50903a2477a76ef3116c647069c` |
+|  `1.9.6` `1.9`                                | June 21st    | `sha256:8b60414c55b651c29e18b12c2253b568f22d5d1a25ae63ab28d9165cc3cf0abd` |
 

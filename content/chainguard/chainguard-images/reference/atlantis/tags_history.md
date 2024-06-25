@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the atlantis Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 22nd    | `sha256:e95ef733bb6d83a7ed26350d960dcb3b8e2c57d58ad4f4409f0cdd9e67e48b72` |
-|  `latest-dev` | June 22nd    | `sha256:e5b2c8092acc621252d228ebd91c9374998b489fb0cb812e1075985ce5800445` |
+|  `latest`     | June 24th    | `sha256:dff9d33712693dd3596e3252494bf0b0f0cefeb612ed574f6eae82edb9cfb3cb` |
+|  `latest-dev` | June 24th    | `sha256:ee80230ebf91ad6e33e783395d9658c0d9d3ac348809bcfc442cdbe4cc80d0ff` |
 
 
 ### Private/Dedicated Registry

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the teleport Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 22nd    | `sha256:7c1cda309beca88173f3330e82b600c36231b073637ffaf9fcc1c9dcfc7d06f8` |
-|  `latest-dev` | June 22nd    | `sha256:4dbd31b2a1e3f8de65a11b1b7877618b6c132577ae43aeb3c7df0229d168d964` |
+|  `latest`     | June 24th    | `sha256:90c885ee922187df572387653813061b5ad6a94cf80877081196244c8b66b9b7` |
+|  `latest-dev` | June 24th    | `sha256:6636100873bc3e9fb14a2b8e67f01d6c01096cff1b5122785a04961dbe9761d1` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `16.0.1-dev` `16.0-dev` `16-dev` | June 23rd    | `sha256:e015cc56c858bce62b17ac427e620565116f9393798d1a1b8d90d72de3c36e56` |
-|  `16.0` `16` `latest` `16.0.1`                 | June 21st    | `sha256:25918bea6a5054f1e47fee54cdf71829c94d6866358f63c655b7b778b338302b` |
-|  `16.0.0-dev`                                  | June 17th    | `sha256:c98a748603cb3aa61726bc40f14cc918bb8b96ed563c4b0baab89af0c2e80929` |
-|  `16.0.0`                                      | June 17th    | `sha256:a7bd9e8e03bf6cbf9ce42795ea66948e160828512c23e38efe264b68456166bd` |
+|  `16-dev` `latest-dev` `16.0.1-dev` `16.0-dev` | June 24th    | `sha256:87b1523314e59d25d268bab3fa8687164efddbbfe163e5d2c21ee378f567106c` |
+|  `16.0.1` `16.0` `16` `latest`                 | June 24th    | `sha256:fa99a12c9f9f0107751be8ccd28ace521f196123570b140ff5b052c2f8fc5ed9` |
 

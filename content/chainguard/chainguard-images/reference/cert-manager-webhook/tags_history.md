@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-webhook Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 22nd    | `sha256:d72eabf25ebd826b9871f3002e6ef5bd685e9c19bdb4844dcdd0533d6e9e712e` |
+|  `latest-dev` | June 24th    | `sha256:cee9615b10ae42853cb1d61cd59bba6b0ef467910145b43a3b937a8b911c106c` |
 |  `latest`     | June 20th    | `sha256:1a95e33b0c97d063938585a93a6df276342254a65ae84d150c5cbab50b8a02cd` |
 
 

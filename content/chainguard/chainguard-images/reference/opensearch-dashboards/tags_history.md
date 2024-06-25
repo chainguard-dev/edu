@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opensearch-dashboards Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 22nd    | `sha256:54dae7fd01372199a348acd9214f1901a1fadb76ac6c9ea60fea8bccb4d1c55a` |
-|  `latest`     | June 22nd    | `sha256:00e050be1efbfd4e61a82caa23105fd7cb6e06a2f9175ae52881bb75647b902b` |
+|  `latest-dev` | June 24th    | `sha256:efd12ef097a2b4a90e2f42e31ac98dac886802fb392a4636547067d001c47bfc` |
+|  `latest`     | June 24th    | `sha256:84d4f0334856bef39f0387124cf79f8a472e630b0c67eb4b7b086e1d615c7a8e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.14.0-dev` `2.14-dev` `latest-dev` | June 23rd    | `sha256:42af7bc948385df1b82387b121b179f13dae5fcabeb3ecc82c4064cab4ea7a3a` |
-|  `2` `2.14` `latest` `2.14.0`                 | June 21st    | `sha256:b629ff285f751b23ae310e2a571b670af4405f8a0238323f7807a2c502b13ab4` |
+|  `2` `2.14` `2.14.0` `latest`                 | June 24th    | `sha256:763bc99fe2f7781b42dfc46f5d24e455de6eca91e8224e9f2758dcdaf82a22c0` |
+|  `2-dev` `2.14-dev` `latest-dev` `2.14.0-dev` | June 24th    | `sha256:5359a2e56ef819e9870ec8c4dbd51ba3fa2916e47c7fb42c38e61ba2b0bc6611` |
 

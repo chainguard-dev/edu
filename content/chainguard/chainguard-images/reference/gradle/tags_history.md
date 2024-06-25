@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gradle Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,8 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `openjdk-21-8-dev` `openjdk-21-8.8.0-dev` `latest-dev` `openjdk-21-8.8-dev` `openjdk-21-dev` | June 23rd    | `sha256:15ff4cd4cec11869ff3d70ab32781e6c4041e1aaf84849a526fca8c4debaca8f` |
+|  `openjdk-21-8.8.0` `openjdk-21-8` `latest` `openjdk-21` `openjdk-21-8.8`                     | June 24th    | `sha256:5aa49083ab754d0f7eec7437539b80efe5f410676c59df0361f605d4a9c66827` |
+|  `openjdk-21-8.8-dev` `latest-dev` `openjdk-21-8.8.0-dev` `openjdk-21-8-dev` `openjdk-21-dev` | June 24th    | `sha256:5b671aa5a63869b50e5f30438956497c91767ab997215d6864aee9012ed16264` |
 |  `openjdk-17-dev` `openjdk-17-8.8-dev` `openjdk-17-8.8.0-dev` `openjdk-17-8-dev`              | June 23rd    | `sha256:e4fc4766382e9e9bd9c923e396d7d088e07eaf7da716ae5c0f82cf23bf6a23e8` |
 |  `openjdk-17-8.8` `openjdk-17-8.8.0` `openjdk-17-8` `openjdk-17`                              | June 21st    | `sha256:95987d99afd73eb5c5ef97564329bb3a366b7d23fb6b0f9fd713bcc6e1924f6b` |
-|  `openjdk-21-8.8` `openjdk-21-8` `openjdk-21-8.8.0` `latest` `openjdk-21`                     | June 21st    | `sha256:f4890b2b6e140c6800efb049dce9bdcaf31d09e1d9f03625d5cd9e5636913f5b` |
 

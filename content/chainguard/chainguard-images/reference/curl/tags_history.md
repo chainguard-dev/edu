@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the curl Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-25 00:42:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 22nd    | `sha256:28c33b11c86344a04f9041e8be6e88b440efa99dd7f44a0aa1092e69f9b9c1af` |
-|  `latest-dev` | June 22nd    | `sha256:aa3b66a1d71527382d50aafdac32a137bd703bfcfd5b01fb663ca475aaa3c46d` |
+|  `latest`     | June 24th    | `sha256:9d3201470b7005a8ac8b6023bb343deda12e098f704e50f3088287ec514e7466` |
+|  `latest-dev` | June 24th    | `sha256:647ac69098b3f317469f57f5acbf9cd65658e643aa3a4c2ecf4404b901c78446` |
 
 
 ### Private/Dedicated Registry
