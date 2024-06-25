@@ -6,7 +6,7 @@ aliases:
 type: "article"
 description: "Install the chainctl command line tool to work with Chainguard"
 date: 2022-09-22T15:56:52-07:00
-lastmod: 2024-05-15T15:22:20+01:00
+lastmod: 2024-06-24T15:22:20+01:00
 draft: false
 tags: ["chainctl", "Product"]
 images: []
@@ -57,7 +57,7 @@ You are now ready to use the `chainctl` command. You can verify that it works co
 
 ## Install with `curl`
 
-A platform agnostic approach to installing `chainctl` is through using `curl`, which you can achieve with the following command.
+A platform-agnostic approach to installing `chainctl` is through using `curl`. We have [specific instructions for Windows users](/chainguard/administration/how-to-install-chainctl/#installing-with-curl-in-windows-powershell) on installing `chainctl` with `curl`, but all others can run the following command:
 
 ```bash
 curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/aarch64/arm64/')"
@@ -70,6 +70,25 @@ sudo install -o $UID -g $GID -m 0755 chainctl /usr/local/bin/
 ```
 
 At this point, you'll be able to use the `chainctl` command.
+
+### Installing with `curl` in Windows Powershell
+
+As stated previously, you can also use `curl` install `chainctl` on Windows systems. Running the following command in PowerShell will download the appropriate `.exe` file.
+
+```PowerShell
+curl -o chainctl.exe https://dl.enforce.dev/chainctl/latest/chainctl_windows_x86_64.exe
+```
+
+It may take several minutes for this operation to complete.
+
+Following that you can use `chainctl`. Be aware that Windows PowerShell does not load commands from the working directory by default so you will need to include `.\` before any `chainctl` commands you run, as in this example.
+
+```PowerShell
+.\chainctl auth login
+```
+
+Also, please note that while [`chainctl` commands](/chainguard/chainctl/) will generally work, some are not as thoroughly tested on Windows and may not behave as expected. In particular, the [`chainctl auth configure-docker`](/chainguard/chainctl/chainctl-docs/chainctl_auth_configure-docker/) command is known to cause errors on Windows as of this writing.
+
 
 ## Verify installation
 
