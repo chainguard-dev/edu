@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-pbt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 24th    | `sha256:03dcf24a6c15f1b2f550c434d7d659da7037bf2877ae0572a60cbda481b96d49` |
-|  `latest`     | June 22nd    | `sha256:c48393842f5cea69b3da8a7c3f659df44a5d90d0bd0a0a8e9081a436c1b5a08d` |
+|  `latest-dev` | June 25th    | `sha256:bf48f98a460d96300dee61f25e0b02536ba6c038c1287f9bfc657737b2b226bc` |
+|  `latest`     | June 25th    | `sha256:5690b7b730eae183c50535a210da63d12651ed46959fc3fb7b390d1c1a675d8c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0-dev` `latest-dev` `0.16-dev` `0-dev` | June 23rd    | `sha256:2bd4cfde3a3d59acec28bb18589dc510ccecc6071c3d36336b9c10037083070b` |
-|  `0.16.0` `0` `latest` `0.16`                 | June 21st    | `sha256:740237f5b2bef089156f73ff7057970b35e85044f0d8576eadcc3ffdd68da207` |
+|  `latest-dev` `0.16-dev` `0-dev` `0.16.0-dev` | June 25th    | `sha256:b495431731db42884e89dd73b8a7d44d702335b3e1a7d295d56c7c26189ad6ff` |
+|  `0.16` `0` `latest` `0.16.0`                 | June 25th    | `sha256:22b1d10cc771db717af40a536d9c924b704eaf688a26b241c5e36084ca3b4d59` |
 

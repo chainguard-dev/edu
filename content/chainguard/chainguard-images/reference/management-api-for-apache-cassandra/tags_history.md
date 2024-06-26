@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the management-api-for-apache-cassandra Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 24th    | `sha256:c9324e1eac7a1cb1503b1e29601813d40a20544b302c70e7394a0c0325c955ce` |
-|  `latest`     | June 24th    | `sha256:db3d9a26b80896145520874c6303e3549e210f1b103c9023b09562952f42ebe9` |
+|  `latest`     | June 25th    | `sha256:76e627fcaf8469760548455a89fe8e64332e455cc5d506642ed9e0ef98b2317f` |
+|  `latest-dev` | June 25th    | `sha256:42078a971d50d66e3d07ff55b81b8c04ac1e5a895716f84107d9e03f2d4d1178` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                           | Last Changed | Digest                                                                    |
 |-------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.1.5-v0.1` `4.1.5-v0` `4.1.5-v0.1.82` `latest`                 | June 24th    | `sha256:97cd6ecfa2f58e2e670f5b5c2d3efe394c440b2c7067aadc378fbf5860b44bbf` |
-|  `4.1.5-v0-dev` `4.1.5-v0.1.82-dev` `latest-dev` `4.1.5-v0.1-dev` | June 24th    | `sha256:ee05420e8083ccdac52aa5c4108256b7092dcfdc745c4f7cb40bef4e1eb02d6b` |
+|  `4.1.5-v0.1` `4.1.5-v0` `4.1.5-v0.1.82` `latest`                 | June 25th    | `sha256:fd80cc74f74d8fc33a8e0a0940b774e08d38882d1ebef59f64e39c3ef1bdb0b1` |
+|  `4.1.5-v0-dev` `4.1.5-v0.1.82-dev` `4.1.5-v0.1-dev` `latest-dev` | June 25th    | `sha256:77080bbb733c11040a95684c243dc925c943318008e9e9f1bc43cfeff5887da3` |
 |  `0.1-dev` `0-dev` `0.1.82-dev`                                   | June 24th    | `sha256:25970a888536c27b99f79d66be65fe496d12597abcabfce2b0d2643ce0ebd33e` |
 |  `0.1` `0` `0.1.82`                                               | June 24th    | `sha256:97d6065a5a252b534305167f4d48863a337b1a15ae6ca91e58bb0e70652729a6` |
 

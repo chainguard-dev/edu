@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dependency-track Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4-dev` `4.11.4-dev` `4.11-dev` `latest-dev` | June 24th    | `sha256:b83e5a17434dcd6d1dcf24b8642c18bc62a2fe468761b0a019e9952c392a469f` |
+|  `4.11-dev` `latest-dev` `4-dev` `4.11.4-dev` | June 25th    | `sha256:c7cfb9c6050a23448723f1eb19a771d6a588fa1a4dba52683bbf438ffc6f0d8b` |
 |  `4.11.4` `4.11` `latest` `4`                 | June 24th    | `sha256:abc1257eec013f0b6e9f740c0deeafa31c6c267bfbc5af7132986cdeb9ef9443` |
 |  `4.11.3-dev`                                 | June 23rd    | `sha256:556e280af8e5c3c6d36f1d4eb8b9865c863c52e7849ab8327e9f78ded2b95d25` |
 |  `4.11.3`                                     | June 21st    | `sha256:522286e4f554a0af2e8f67bddaa61cc313e3f3df1257ec83b4ddc3a243369c89` |

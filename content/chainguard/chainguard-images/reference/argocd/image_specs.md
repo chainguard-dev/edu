@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public argocd Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -38,8 +38,8 @@ The table shows package distribution across variants.
 |                          | latest-dev | latest |
 |--------------------------|------------|--------|
 | `apk-tools`              | X          |        |
-| `argo-cd-2.10`           | X          | X      |
-| `argo-cd-2.10-compat`    | X          | X      |
+| `argo-cd-2.11`           | X          | X      |
+| `argo-cd-2.11-compat`    | X          | X      |
 | `bash`                   | X          |        |
 | `busybox`                | X          | X      |
 | `ca-certificates-bundle` | X          | X      |

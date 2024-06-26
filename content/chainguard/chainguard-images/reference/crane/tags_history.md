@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crane Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.19-dev` `latest-dev` `0.19.2-dev` | June 23rd    | `sha256:03af8dfffbb41e8ab8e7791d27a60449782da00879a15e4d427bb0980966a35f` |
+|  `latest-dev` `0-dev` `0.19.2-dev` `0.19-dev` | June 25th    | `sha256:1d6e14cd5f630dd979b90ac41ca74617af38e07f37f663d3b940948b79adf8e2` |
 |  `0.19` `0` `0.19.2` `latest`                 | June 21st    | `sha256:8fb61ce96f3e6b1140da11d212e2cc0be23d1cfea4d913b05a43bb3b4a05e745` |
 

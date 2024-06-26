@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-cainjector-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.15-dev` `latest-dev` `1.15.0-dev` | June 23rd    | `sha256:d388f1fe39c610678018f3137cde38e62ad8636a9bc70b84500d11f9752fc320` |
-|  `1.12-dev` `1.12.12-dev`                     | June 23rd    | `sha256:8f7ec9a7c6ef92b5bae921ecacce844ad2e3886d4c6ecce51d5b0547ece6f4b5` |
-|  `1.14.7-dev` `1.14-dev`                      | June 23rd    | `sha256:e207ff0cf66886b07ecebe5ba52f8e13b9f6de8396afe88e9426b92d96361537` |
-|  `1.15.0` `1` `1.15` `latest`                 | June 21st    | `sha256:e23cb7c44600f71ce59ac771b76a574628aa99afb4961414cfee0e731817628c` |
+|  `1.14.7-dev` `1.14-dev`                      | June 25th    | `sha256:f28459921f5c7024c17977751142996e64f22c5834b4858857b3a4a4961028d0` |
+|  `1.15-dev` `latest-dev` `1.15.0-dev` `1-dev` | June 25th    | `sha256:71d7c475187314fa42238f62f7ccb8db7847ba668043e0ccf0ae9b2c5770f7de` |
+|  `1.12-dev` `1.12.12-dev`                     | June 25th    | `sha256:7a911f3d31d6169f8935956fd69f31e05c6f006f2c01a46d6a7b19038c4fdcb5` |
+|  `1.15` `1.15.0` `1` `latest`                 | June 25th    | `sha256:5ccd437c421e8c3971827a34a0ef91f63e230937130beaf9dcb0e8f256c950a6` |
 |  `1.14` `1.14.7`                              | June 21st    | `sha256:f81c855583a1638668f1d3ca31461da20d2dd1013bba9a79fab67500457e0c49` |
 |  `1.12.12` `1.12`                             | June 21st    | `sha256:61450c92eda830193ee8136a40f7506989a6fe7030b9ecfe423768252ca25f78` |
 |  `1.12.11`                                    | June 20th    | `sha256:892e535c726b3f28a4aad8ab357bb3c4957ce127f05bd575097210d3fdcde71c` |

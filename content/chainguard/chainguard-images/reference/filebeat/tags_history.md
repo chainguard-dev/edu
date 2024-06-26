@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the filebeat Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.17-dev` `7-dev` `7.17.22-dev`             | June 23rd    | `sha256:f8e7ed785f45c1b2e041749a980524cc00e039a22b4c9ba1d12774c2f4982913` |
-|  `8.14` `8.14.1` `latest` `8`                 | June 23rd    | `sha256:e2ed509be62f760201cfb38462c2a395d906f398734756ef99bc243ebd489c9f` |
-|  `7.17.22` `7.17` `7`                         | June 23rd    | `sha256:28d3becf843414cf60ef4e9b0b981e2fc3edc252e686d27cb4ba58c04c75ed08` |
-|  `latest-dev` `8.14-dev` `8-dev` `8.14.1-dev` | June 23rd    | `sha256:3fbe70c5637dbcd999a2eacc3d3b0506fe4dcbb918a4257c3be5d3aeff814530` |
+|  `8.14.1-dev` `8.14-dev` `latest-dev` `8-dev` | June 25th    | `sha256:f78fdf6625026c7e273ee5548611458dc325ddfff56963fe291b0a011b7cb03c` |
+|  `7.17` `7` `7.17.22`                         | June 25th    | `sha256:b4bb96fd479465aaeb431f685ad6e2141426e91449924bee7353a9ee10d3302a` |
+|  `latest` `8.14.1` `8` `8.14`                 | June 25th    | `sha256:5705c5114ab43f04364a8b4ca543aec2ee61e1e683e668b93b1bb5913d3576cd` |
+|  `7.17.22-dev` `7.17-dev` `7-dev`             | June 25th    | `sha256:c655f2367ca96c94bb00541727be2d1903ab492323fc37af6401a936deab0497` |
 

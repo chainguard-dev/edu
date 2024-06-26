@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-resolvers-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.60.2-dev` `0.60-dev` `0-dev` | June 23rd    | `sha256:38e03b29a03feb7a31ba482f81c8db033d09c41ddf5ab12f8725631d87e83794` |
-|  `0.60.2` `latest` `0` `0.60`                 | June 20th    | `sha256:5c2b7613d3fba5fe34f286585f78e7cc12abb0f90008386c9389b0a55019efa8` |
+|  `0-dev` `0.60-dev` `0.60.2-dev` `latest-dev` | June 25th    | `sha256:a5048c06a9873239efc04b8ec5a39bbe108f81ab8a799890f73c690de7fe08be` |
+|  `0.60.2` `0` `0.60` `latest`                 | June 25th    | `sha256:e86c4f3d13dea26be035dbe6428f56294bfbcdfafa63b309977d42ff3fead262` |
 

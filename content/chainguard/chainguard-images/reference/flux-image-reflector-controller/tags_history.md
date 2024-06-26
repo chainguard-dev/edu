@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-image-reflector-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 24th    | `sha256:7305bf72db6e35df324eee2fb60187988742b3f3d1e055cd3b507dbd1fe5f360` |
-|  `latest`     | June 19th    | `sha256:f3f19ee783b8696e4555ec6ae72621f7ca0462d07b242c522a19b7fd59ebfef0` |
+|  `latest-dev` | June 25th    | `sha256:90c14363a0c229fbd4b40743aa0a1935249a921aaff0c7dda53557849a6dcd31` |
+|  `latest`     | June 25th    | `sha256:dd7b09171b4addf7bce48df0297a3997837beaeefc453aa9cc45af5690478d09` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.32-dev` `0-dev` `0.32.0-dev` | June 24th    | `sha256:0415dddfe26cc74db5a48b1025a89da58e95ec14b38ca2b9c5b8abd466ae1095` |
-|  `0.32` `0` `latest` `0.32.0`                 | June 20th    | `sha256:a6f08c6a96a75c37926a7ef3e13b887072a4e1b5b9e5504e1c1f5e839c1c0018` |
+|  `latest-dev` `0.32-dev` `0.32.0-dev` `0-dev` | June 25th    | `sha256:b5d2a50554feac1ede2a52a792c3422a0f39680085f17974a4ad151ef557b271` |
+|  `0` `0.32` `latest` `0.32.0`                 | June 25th    | `sha256:c42ccd65da7c417edb64e9a241c2919c50c16c32e69f324e590a7f4e9cb48322` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jenkins Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                           | Last Changed | Digest                                                                    |
 |-----------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.463-dev` `2-dev` `latest-dev` | June 23rd    | `sha256:38cdaf7f96fd8f37cd8ce0375ebe16782327af8fda4d344885e750fa3d723a97` |
-|  `2.463` `2` `latest`             | June 23rd    | `sha256:8a3aea0fed653cd14ecd1899351590fccbf4bf2a88fc4c09aeb71316d5c1e7e5` |
+|  `latest` `2.464` `2`             | June 25th    | `sha256:fa6f92148f7791f907410fbe58c89ffa6f994de75069488589f068bd6052caa3` |
+|  `2.464-dev` `2-dev` `latest-dev` | June 25th    | `sha256:77c13bf15e3496a8d6bcac5bfb0e9ba87be6ce71d5a02518a4c6d3409869b0b4` |
+|  `2.463-dev`                      | June 23rd    | `sha256:38cdaf7f96fd8f37cd8ce0375ebe16782327af8fda4d344885e750fa3d723a97` |
+|  `2.463`                          | June 23rd    | `sha256:8a3aea0fed653cd14ecd1899351590fccbf4bf2a88fc4c09aeb71316d5c1e7e5` |
 |  `2.462-dev`                      | June 19th    | `sha256:3923b2d716015552b02ae4765e153c1e2ee083f421b7bf7be47d807b1e6ce246` |
 |  `2.462`                          | June 19th    | `sha256:84e6b9e31fb47e1004decb776f19dbf3f104703ce8e091821d5a4eddfca56614` |
 

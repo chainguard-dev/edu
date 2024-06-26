@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nvidia-gpu-driver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 24th    | `sha256:4566eed3d5bbad9904077b6441da62649d5a99f59f010ccc236d5a3535aa26a4` |
-|  `latest-dev` | June 24th    | `sha256:c250343e0bb17dabc29bd3e6d08935257e5fbb39190f98080c0dc2755fadb08b` |
+|  `latest-dev` | June 25th    | `sha256:96b84aea133110778c5f12367bffc0cbcd7d8dfdebc2b8a33161b185258513d8` |
+|  `latest`     | June 25th    | `sha256:371d4e358d437be4027abd5f50bf9ae26128f6720479ac27da4bf3c820eedd8c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                              | Last Changed | Digest                                                                    |
 |------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `550` `latest` `550.54.14` `550.54`                 | June 24th    | `sha256:4b0dd783f92c44816dcc21ff164d74d3c268bea1acf27e4a4b398e2d314257ad` |
-|  `latest-dev` `550.54.14-dev` `550.54-dev` `550-dev` | June 24th    | `sha256:09f67b62d1a7a38b606ec71800c97edd3f6b4d98536e5c858c3169215713682e` |
+|  `550.54.14` `latest` `550.54` `550`                 | June 25th    | `sha256:1001fd72c049da60145795981ffb039158de27b50b5a0ce7ca97f07107dbcc26` |
+|  `550.54.14-dev` `latest-dev` `550-dev` `550.54-dev` | June 25th    | `sha256:4ae2ced6dab003dd252af46db2359050e61fc8e379ddb24ac21c8b9a4902628c` |
 

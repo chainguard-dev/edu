@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-getoidctoken Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.7.2-dev` `latest-dev` `0.7-dev` `0-dev` | June 23rd    | `sha256:639aa5136fa0640f6fe3fbfb59511bca427bd1ab91247abcd4e2f225025b8daf` |
+|  `0-dev` `0.7-dev` `0.7.2-dev` `latest-dev` | June 25th    | `sha256:4776d35a45e4dfa417f4bb32a2b9b26ac7e67fab0923d9e8a5ce78775af45877` |
 |  `0.7.2` `0.7` `0` `latest`                 | June 20th    | `sha256:0309dcbfc777f3cc86245c0ac4e3d3b541d1549929b3cbee622ead460be4ba10` |
 

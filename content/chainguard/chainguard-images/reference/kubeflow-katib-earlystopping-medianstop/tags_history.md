@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-earlystopping-medianstop Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 24th    | `sha256:1b71b6c239e0f0e41f865524c2e9732fcc2d9cf6d35b1634619179787711149a` |
-|  `latest`     | June 22nd    | `sha256:1fc54f50ea841fdd66901504b0cd1d5a6c7b6431ea5d7ad2ccf79143634b0e89` |
+|  `latest-dev` | June 25th    | `sha256:2948eee6ec3d016b74b504f6f47ed0e80db6bc608160d938b3bd48a99990ded2` |
+|  `latest`     | June 25th    | `sha256:5e69fc989113d10ea06c4df86df026538855eea3560d3cdd74841b00e2e94636` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.16.0-dev` `0.16-dev` | June 23rd    | `sha256:635cb1b448688fd9a21a5f9e0babe9025b2d1418b271875623cceda93a61d680` |
-|  `0.16` `latest` `0.16.0` `0`                 | June 21st    | `sha256:0d12d5d13485127ea7b226d40326f6671ee94957a41b8eb735ffb3b836676c5e` |
+|  `0.16-dev` `0-dev` `0.16.0-dev` `latest-dev` | June 25th    | `sha256:833cbc83ad910e4e72d64194895e201c9e94bd2e05d248463823d4b7c296af47` |
+|  `latest` `0.16` `0` `0.16.0`                 | June 25th    | `sha256:e32b81c7fc2cf9b63a86213ba5215bf65e4387747bafdc0ab6b31219dc613e0b` |
 

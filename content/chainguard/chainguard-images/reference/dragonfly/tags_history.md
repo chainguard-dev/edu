@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dragonfly Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.19.0-dev` `latest-dev` `1.19-dev` | June 23rd    | `sha256:d002c1cfaa2526c4bff2e7a633ffe46af15e758432902da4da6aed4f191eb546` |
-|  `1.19.0` `latest` `1.19` `1`                 | June 21st    | `sha256:bcc613851c29043aba6fda0d0a91299c6bfce15154474c1888eab0749453581c` |
+|  `1-dev` `1.19.0-dev` `latest-dev` `1.19-dev` | June 25th    | `sha256:81163455998e5d0488d6b829d17c9e238a909e1691e33a46925de5f9f95de4b4` |
+|  `1` `latest` `1.19` `1.19.0`                 | June 25th    | `sha256:cb6768905d913bd670ab0b8abe979077a71b5c3126257089cbe698d813986c44` |
 

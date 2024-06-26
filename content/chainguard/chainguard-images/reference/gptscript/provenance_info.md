@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for gptscript Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,7 +29,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 | Registry                     | Tags                                                                           |
 |------------------------------|--------------------------------------------------------------------------------|
 | `cgr.dev/chainguard`         | latest, latest-dev                                                             |
-| `cgr.dev/chainguard-private` | 0, 0-dev, 0.8, 0.8-dev, 0.8.2, 0.8.2-dev, 0.8.3, 0.8.3-dev, latest, latest-dev |
+| `cgr.dev/chainguard-private` | 0, 0-dev, 0.8, 0.8-dev, 0.8.3, 0.8.3-dev, 0.8.4, 0.8.4-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

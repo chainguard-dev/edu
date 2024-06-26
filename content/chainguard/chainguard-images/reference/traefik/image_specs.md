@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public traefik Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -61,7 +61,7 @@ The table shows package distribution across variants.
 | `libxcrypt`              | X          |        |
 | `ncurses`                | X          |        |
 | `ncurses-terminfo-base`  | X          |        |
-| `traefik`                | X          | X      |
+| `traefik-3.0`            | X          | X      |
 | `wget`                   | X          |        |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          |        |

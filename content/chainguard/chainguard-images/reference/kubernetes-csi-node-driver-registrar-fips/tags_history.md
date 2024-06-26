@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-node-driver-registrar-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,9 +33,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.8.0-dev` `2.8-dev`                        | June 23rd    | `sha256:286427c23889663c98aa1c180b645fae93c54e90566d77e5b47bd88253292c44` |
-|  `2.9.4-dev` `2.9-dev`                        | June 23rd    | `sha256:1caa1a32b66303f2648ca41f29f500aa47bb1f0163dbe7ac4c6dc4684175e32c` |
-|  `2.10-dev` `2-dev` `2.10.1-dev` `latest-dev` | June 23rd    | `sha256:46a1d62cbb7f77987482589e1bc432af87dfd399a52882b37fc2a6eef83c9301` |
+|  `2-dev` `latest-dev` `2.10-dev` `2.10.1-dev` | June 25th    | `sha256:d500b744e33a017ecb79076d2bf0cfd0916f46604005e875a4ad1eb94e7bf90a` |
+|  `2.8-dev` `2.8.0-dev`                        | June 25th    | `sha256:0aa84490d05ea0899511648c5eef5bb2ccd25bb083a5d8213a9f48c301e89405` |
+|  `2.9-dev` `2.9.4-dev`                        | June 25th    | `sha256:eb0b0211dd6b9a2952cc77673d0bb6079707ec201b00844b7dc19a4284564953` |
 |  `2` `2.10.1` `2.10` `latest`                 | June 20th    | `sha256:199db3b9e70e5cb904d34e9454d1e78d2e94b6a675da87f8393dc4745e36231f` |
 |  `2.9` `2.9.4`                                | June 20th    | `sha256:811742925b30702e24e25feaf1bdb022a1b68018c131d202a44db0552e06970f` |
 |  `2.8.0` `2.8`                                | June 20th    | `sha256:68d5225c8158aa8f74ddf7bfbce99442b9e1922995641d199b202c4159281291` |

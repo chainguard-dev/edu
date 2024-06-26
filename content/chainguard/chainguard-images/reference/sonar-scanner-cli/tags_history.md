@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sonar-scanner-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                      | Last Changed | Digest                                                                    |
 |--------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `5.0.1.3006-dev` `5.0.1-dev` `5.0-dev` `5-dev` | June 24th    | `sha256:4b827ba9abdc864e45a1b493c2a196174c93dd6504570c3b0b8b270cc15e7e18` |
-|  `5.0.1` `5.0` `latest` `5` `5.0.1.3006`                     | June 24th    | `sha256:a4e861505949cc7bbf4853ee878e87d67637221e1499281305ebbf67d9b33c17` |
+|  `5-dev` `latest-dev` `5.0.1.3006-dev` `5.0.1-dev` `5.0-dev` | June 25th    | `sha256:27a1d45fd42d9d653a1acfae8adb73c41c2eb2ee63302c05e57d8961e6e78e3b` |
+|  `latest` `5.0` `5.0.1.3006` `5.0.1` `5`                     | June 25th    | `sha256:a566ad2160e4bad244a6059f4900026970d5ad67e64de49fa0a7f62830efffef` |
 

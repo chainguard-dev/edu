@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-trillian-createtree Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.7-dev` `0.7.2-dev` `latest-dev` `0-dev` | June 23rd    | `sha256:d0cba4c6f4d339803771ac098c894811ea99f99ad28d2d515d0034044f3fc274` |
+|  `0-dev` `0.7-dev` `latest-dev` `0.7.2-dev` | June 25th    | `sha256:4169f3f8c7c5fcca4ae70cab560b068136b5562f04c3cc32f8b60ea1baac48e4` |
 |  `latest` `0` `0.7` `0.7.2`                 | June 20th    | `sha256:d800361a6fe6dcbaa0d1f84873c6f48029924c77aee971721f65ef4982cb0013` |
 

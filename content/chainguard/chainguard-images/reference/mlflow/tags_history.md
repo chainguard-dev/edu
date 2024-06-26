@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mlflow Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 24th    | `sha256:cfa100bf2b3b8e96ec9f1ff24c817fa0c2bc818cad1383f73f04c3353be1ac6f` |
-|  `latest`     | June 24th    | `sha256:2e0cb0dcc9c91bae5d8dbc27a607030c9e0769e15531ede30d61cc129048df80` |
+|  `latest-dev` | June 25th    | `sha256:c27ef47d1881ec32201931419ceeb7c85ebef645a9db0b841636c5bcb3de9de6` |
+|  `latest`     | June 25th    | `sha256:f1897b96dfa0d17a3def901ce8a58d720e4ad31f1fa6199383f883e91573e13e` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.14.1-dev` `2.14-dev` `latest-dev` `2-dev` | June 23rd    | `sha256:02dcc36809111a979b7b39427c357c933ec486b95b2df6a907260fd794adf6b1` |
-|  `2.14.1` `2` `latest` `2.14`                 | June 23rd    | `sha256:7990fa705d70e1984c529be004efd362a7148cbb3e1a273be3ea29e8a00e6fcd` |
+|  `latest` `2` `2.14` `2.14.1`                 | June 25th    | `sha256:57ad0ed42a104f8eb6f7f3e444256d9b2693df4dab12e6de134a495f24987ec7` |
+|  `latest-dev` `2-dev` `2.14-dev` `2.14.1-dev` | June 25th    | `sha256:f6c2ffd981395a62a7d870b56306532a20d314bbc348cd359fad1c50fad87dae` |
 |  `2.14.0-dev`                                 | June 19th    | `sha256:11fdbfee871ec39d9ff60859f5b227d123aca305e08a5038e818531483b6d3c6` |
 |  `2.14.0`                                     | June 19th    | `sha256:7cb8a31aee253043638b927f73b0f3096d3af546b3bd49ff7ae4f85436500431` |
 

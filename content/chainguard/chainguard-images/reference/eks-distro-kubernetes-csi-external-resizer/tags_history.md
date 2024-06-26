@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-external-resizer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                   | Last Changed | Digest                                                                    |
 |-------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.9-dev` `1.9-eks-1-23-33-dev` `1.9.0-dev` `1.9.0-r10-eks-1-23-33-dev` `1.9.0-eks-1-23-33-dev` `1-eks-1-23-33-dev` `latest-dev` `1-dev` | June 23rd    | `sha256:7158439e8433bb6c9ea41372449caeca11274d5ef873335bc50743f1f1eabd28` |
-|  `1.10.0-dev` `1.10.0-r8-eks-1-25-33-dev` `1.10-dev` `1.10-eks-1-25-33-dev` `1-eks-1-25-33-dev` `1.10.0-eks-1-25-33-dev`                  | June 23rd    | `sha256:69b41a55ede60d2003acaddf22295c61a5b71ca70de9e66e6f82c51f857fc2bd` |
+|  `1.9-eks-1-23-33-dev` `1.9.0-dev` `1.9-dev` `latest-dev` `1.9.0-r10-eks-1-23-33-dev` `1.9.0-eks-1-23-33-dev` `1-eks-1-23-33-dev` `1-dev` | June 25th    | `sha256:47dc064b0dc72adfc7dda395a5d302fa6c53b6a01bebe8876df04944bc4ac721` |
+|  `1.10.0-eks-1-25-33-dev` `1.10-eks-1-25-33-dev` `1-eks-1-25-33-dev` `1.10.0-dev` `1.10-dev` `1.10.0-r8-eks-1-25-33-dev`                  | June 25th    | `sha256:80e25d057be6f061b4ae5b03ee0dc53018b4643bef2c16dcacf923d0c4ce77bc` |
 |  `1.9` `1.9.0` `1-eks-1-23-33` `1` `latest` `1.9.0-r10-eks-1-23-33` `1.9.0-eks-1-23-33` `1.9-eks-1-23-33`                                 | June 20th    | `sha256:85bc6e9cf1fbc3d3314c73f8191a2770da4149d47599b792ff29de1bfa924248` |
 |  `1.10.0-eks-1-25-33` `1.10.0-r8-eks-1-25-33` `1.10-eks-1-25-33` `1-eks-1-25-33` `1.10.0` `1.10`                                          | June 20th    | `sha256:6045f3d7061abd0c21307f16fdc1c19a566fcf037fc9bd08a6322ec3ece95ca1` |
 
