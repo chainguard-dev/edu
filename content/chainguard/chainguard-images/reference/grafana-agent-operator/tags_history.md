@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grafana-agent-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.41.1-dev` `0-dev` `latest-dev` `0.41-dev` | June 23rd    | `sha256:d87a17754972c1ca092a5ee1490fb8aae7557bc2a755d7d91176c624c4fade53` |
+|  `0.41.1-dev` `0.41-dev` `latest-dev` `0-dev` | June 25th    | `sha256:14baf2a33e144c1c1d66dfc3fb76900fc69d30f04045cd4d1a82d784c6346a92` |
 |  `latest` `0.41.1` `0` `0.41`                 | June 20th    | `sha256:302ca250167787d957385ff6152f9094889bd755cb2bdd83b90ee5d1617155d3` |
 

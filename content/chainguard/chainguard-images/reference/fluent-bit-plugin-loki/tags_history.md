@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the fluent-bit-plugin-loki Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.0-dev` `3.0.0-dev` `latest-dev` `3-dev` | June 24th    | `sha256:54704dadb8b0e624c6b7e4abd7bde2166e5aabb09ca74cd81d47aca00c6787c6` |
+|  `3.0-dev` `latest-dev` `3-dev` `3.0.0-dev` | June 25th    | `sha256:0d4b6b85f72a496d36760f8da796111d67f025aa94c9122222b3fb6fdefd231d` |
 |  `3.0` `3.0.0` `latest` `3`                 | June 24th    | `sha256:e9bbaaf7b6a6632d17f7e70e9a0091522e9a725e05db7f5403917b9a696b30c9` |
 

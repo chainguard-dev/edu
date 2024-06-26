@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public traefik-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -63,7 +63,7 @@ The table shows package distribution across variants.
 | `ncurses-terminfo-base`       | X          |        |
 | `openssl-config-fipshardened` | X          | X      |
 | `openssl-provider-fips`       | X          | X      |
-| `traefik-fips`                | X          | X      |
+| `traefik-3.0-fips`            | X          | X      |
 | `wget`                        | X          |        |
 | `wolfi-baselayout`            | X          | X      |
 | `zlib`                        | X          |        |

@@ -1,3 +1,10 @@
+# 2024-06-26
+New images added:
+
+- gpu-operator-validator
+
+A total of **782** documents were updated.
+
 # 2024-06-25
 New images added:
 

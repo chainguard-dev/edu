@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the git Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -43,8 +43,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                                    | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.45.2` `glibc-2.45.2` `latest-glibc` `glibc-2` `latest` `2.45` `2` `glibc-2.45`                                                                         | June 23rd    | `sha256:30ca67a9818e3f25dae19fe2a5c93d88394468690b13f9d7efe222891d0f4d41` |
-|  `2.45-dev` `2-dev` `glibc-2.45.2-dev` `latest-glibc-dev` `glibc-2-dev` `latest-dev` `glibc-2.45-dev` `2.45.2-dev`                                         | June 23rd    | `sha256:92568f54245f1bb6188373abd9d0282cb228e2437f0f86f17d479042f2a6213d` |
-|  `glibc-root-2.45` `glibc-root-2.45.2` `latest-glibc-root` `root-2.45.2` `latest-root` `root-2.45` `glibc-root-2` `root-2`                                 | June 23rd    | `sha256:5437df373bec1c2311c71b79e09f632bdfdf9aab7049a0ebbf6ca97a874d78a2` |
-|  `latest-root-dev` `latest-glibc-root-dev` `root-2-dev` `glibc-root-2.45-dev` `root-2.45.2-dev` `root-2.45-dev` `glibc-root-2.45.2-dev` `glibc-root-2-dev` | June 23rd    | `sha256:0fc3fb76bf15ff3698fd913b2d10a19e2917176a9b976635d599d0297b547d7a` |
+|  `2.45.2-dev` `2-dev` `glibc-2.45-dev` `latest-dev` `2.45-dev` `latest-glibc-dev` `glibc-2-dev` `glibc-2.45.2-dev`                                         | June 25th    | `sha256:68265e26332cec59dcf1bd5724ba9562eb22bcadfbc876c624901e6727db9b7f` |
+|  `latest-root` `root-2` `glibc-root-2.45.2` `root-2.45` `glibc-root-2` `latest-glibc-root` `root-2.45.2` `glibc-root-2.45`                                 | June 25th    | `sha256:982e332c7d0ca373ddadad72763e034199c2c6be3fc474da6d463160f8b00303` |
+|  `glibc-2.45.2` `glibc-2.45` `glibc-2` `latest` `2` `2.45` `2.45.2` `latest-glibc`                                                                         | June 25th    | `sha256:3b23260edfd60c92829f36a48fcd57946fba6441033337700760aaff305cc172` |
+|  `root-2-dev` `glibc-root-2-dev` `root-2.45.2-dev` `glibc-root-2.45.2-dev` `glibc-root-2.45-dev` `latest-root-dev` `latest-glibc-root-dev` `root-2.45-dev` | June 25th    | `sha256:9650369e47a6db7c8b0900870c949228a695f001a9600f047f70097f6e41f6fd` |
 

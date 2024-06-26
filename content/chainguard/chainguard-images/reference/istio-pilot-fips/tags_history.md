@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the istio-pilot-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.21-dev` `1.21.3-dev` `1-dev` | June 23rd    | `sha256:922b341aac125e2e95520280e1a54637b4480d73cc9103361a09d0b341bc8da8` |
-|  `1.20.6-dev` `1.20-dev`                      | June 23rd    | `sha256:e44767dc1f98f7ec8cea0087a949fb1ebf0f01a912a3097e402d09262b211fae` |
-|  `1.21` `1` `latest` `1.21.3`                 | June 20th    | `sha256:63e6dfe04a040a3f617932d5735bcc85627f0cae0a76ebe70dc1b925c4170f4d` |
-|  `1.20.6` `1.20`                              | June 20th    | `sha256:6d765528cf4019791753134ee841f2330e615a0bb44c3ab59ba2a7055fb11952` |
+|  `1.20.7-dev` `1.20-dev`                      | June 25th    | `sha256:e412a6fa49e6887e4a3b6b3d89bd07b169767972e2287a57ee8f26613b182cb1` |
+|  `1-dev` `1.22.1-dev` `1.22-dev` `latest-dev` | June 25th    | `sha256:c9649cc23b4266f399f503c7aef0684fa0c26b383b5cebff90a3315119a0d469` |
+|  `1.21.3-dev` `1.21-dev`                      | June 25th    | `sha256:3cf6b6466be08e76e68f1993705625add2d39a397fc8a36bb1f6a5f770c2ac56` |
+|  `1.20.7` `1.20`                              | June 25th    | `sha256:43736ee5cefdd66fce93ca5ea06d2a25c55b1c3e45e4adc81126f0031c0677a3` |
+|  `1.22` `latest` `1.22.1` `1`                 | June 25th    | `sha256:58e47611dae62867cbefec9394ae143dca6665bdfea0f9b729aa2540208fe922` |
+|  `1.20.6-dev`                                 | June 23rd    | `sha256:e44767dc1f98f7ec8cea0087a949fb1ebf0f01a912a3097e402d09262b211fae` |
+|  `1.21` `1.21.3`                              | June 20th    | `sha256:63e6dfe04a040a3f617932d5735bcc85627f0cae0a76ebe70dc1b925c4170f4d` |
+|  `1.20.6`                                     | June 20th    | `sha256:6d765528cf4019791753134ee841f2330e615a0bb44c3ab59ba2a7055fb11952` |
 

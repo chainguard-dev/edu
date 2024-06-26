@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-cli-v2-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2-dev` `2.17.0-dev` `2.17-dev` | June 23rd    | `sha256:3a67508aebe8251ffc5a07375efdcc7c1166477df26c4d242bd2e0dbb7242f50` |
-|  `2.17` `2.17.0` `2` `latest`                 | June 21st    | `sha256:bac77b1a6b9edad0db03a8753950687f213393351ec6d17cb6b95ae9dcfa85bb` |
+|  `2.17-dev` `latest-dev` `2.17.2-dev` `2-dev` | June 25th    | `sha256:ff5a6b326001e1648f4dc2f0095534b975c5c187d277b4aa6ae4db085b965892` |
+|  `2.17` `latest` `2.17.2` `2`                 | June 25th    | `sha256:6a4e394cc7a713f51c20bb61dc1350328e78c41fed8578525ef2c781fe477f38` |
+|  `2.17.1-dev`                                 | June 25th    | `sha256:ca19e1cd34dccbd8aeceedc122bf795283cdea31cfcc715bdc8cf09ccfc95b29` |
+|  `2.17.1`                                     | June 25th    | `sha256:0935fa52a99c491153ecdf2993363737ccdd72a5a7938f4fdd37d6540d221bd7` |
+|  `2.17.0-dev`                                 | June 23rd    | `sha256:3a67508aebe8251ffc5a07375efdcc7c1166477df26c4d242bd2e0dbb7242f50` |
+|  `2.17.0`                                     | June 21st    | `sha256:bac77b1a6b9edad0db03a8753950687f213393351ec6d17cb6b95ae9dcfa85bb` |
 |  `2.16.12-dev` `2.16-dev`                     | June 20th    | `sha256:77bb0b5d215f05e8f3133d61054129dc56a58e2c28f7d49661e4567bd69f6800` |
 |  `2.16.12` `2.16`                             | June 20th    | `sha256:eb1356c8f4948563d2fd1cae69bd21010200f3790f294ac4b455c2d39bc2cf66` |
 |  `2.16.11-dev`                                | June 19th    | `sha256:29c7eb23d1bede42ac0771803fba421616ca822528232cd85dcacdf8693328d0` |

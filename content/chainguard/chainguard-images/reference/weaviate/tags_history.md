@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the weaviate Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.25.5-dev` `1-dev` `1.25-dev` `latest-dev` | June 24th    | `sha256:d8d4dc6a8db334feee7a58eb4d53a62994dfb4dea3a18f199a60beb1b077b2ce` |
+|  `1.25.5-dev` `latest-dev` `1.25-dev` `1-dev` | June 25th    | `sha256:6abc5647a5e2b41dd4423a4d9f7f32f47dc61340fe87d9c4d6d89852cb48b67f` |
 |  `latest` `1.25.5` `1.25` `1`                 | June 24th    | `sha256:f2330f81d9db2693857322a00f8abf36eaddf05e72b2a27310200c12bf11a8f9` |
 |  `1.25.4-dev`                                 | June 23rd    | `sha256:bc552e6e5d6c008d2d6b414ecf6448ffffee058df4d8ac18e29c22973bfa917e` |
 |  `1.25.4`                                     | June 20th    | `sha256:d4cf82fd446038d495efd513677d0af3e4faa12990c4d8663e1b9ee43b765459` |

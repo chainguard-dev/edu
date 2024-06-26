@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the python-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.10-dev` `3.10.14-dev`                     | June 24th    | `sha256:8f00bf28087b3f18143522e0aca6e9144d8f98bdec058811a0c752a270b2038c` |
-|  `3.9.19-dev` `3.9-dev`                       | June 24th    | `sha256:ae3d4ee0ae53adafea469c44a28fbc666e16b1869434b1bdf947278761b11707` |
-|  `3-dev` `3.12-dev` `3.12.4-dev` `latest-dev` | June 24th    | `sha256:b7ca5c6a53940634b91500590aa04d7cd0cfe919687156ad2add9d09f30622c3` |
-|  `3.11-dev` `3.11.9-dev`                      | June 24th    | `sha256:f1a26531fdacca90fd6962717ab14e646e27293cae0a90fc92253ad1cf165649` |
+|  `3.9.19-dev` `3.9-dev`                       | June 25th    | `sha256:527a1687b9281dcad183921d29a12362e518aced0a0218bb466ebf8ce2298abc` |
+|  `3.11.9-dev` `3.11-dev`                      | June 25th    | `sha256:85a634dfe55c1a3ad43e67804fc73bd048661573ac50fde829011a904578abe5` |
+|  `3.12.4-dev` `latest-dev` `3-dev` `3.12-dev` | June 25th    | `sha256:1f5a3fe25fb84c6ec5be06b9cb25611d0dd514ec841d25431961c0f8c5f5c81e` |
+|  `3.10.14-dev` `3.10-dev`                     | June 25th    | `sha256:e845de5e0bc93a1c6bf850ad05ac4c9cd7d619d30e4208e4fa179b7cd50b18b5` |
 |  `latest` `3` `3.12.4` `3.12`                 | June 21st    | `sha256:ff1fde87c434c2f23668e75084abae94bbcf5b3760b3b80769d9a63ce447fb2f` |
 |  `3.9` `3.9.19`                               | June 21st    | `sha256:8cac8decee257670daefbe786c742aad30246b8adc124201a101cd730059b4cc` |
 |  `3.10` `3.10.14`                             | June 21st    | `sha256:238494d070e4c41bba90c7f89650c385785086e6d504e763c973a9635a0cff2b` |

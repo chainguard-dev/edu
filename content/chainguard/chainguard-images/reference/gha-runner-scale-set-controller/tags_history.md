@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gha-runner-scale-set-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 24th    | `sha256:641d85a5e722da513968502c8856b5fedb83e88121e4d4116abb75a4a2f74396` |
-|  `latest`     | June 19th    | `sha256:3534405b3b5e3ff47986bc1631732d080d0cf47ab2a9fd4b84b1bad060bc1a34` |
+|  `latest`     | June 25th    | `sha256:6711ccd20dd74dafe8454e173d8a059b43b6fe1eddce32113f90cc7802b4e5b7` |
+|  `latest-dev` | June 25th    | `sha256:ea2c23e29f6d0b6659e72491aca0047a95112f8341733e256081fe7ed7d22453` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.9-dev` `latest-dev` `0-dev` `0.9.2-dev` | June 23rd    | `sha256:3e153214a3c216c056b6de8dfa5898e9bb61418b5a4bcb6bc3c9937658bc7166` |
-|  `latest` `0` `0.9` `0.9.2`                 | June 20th    | `sha256:9f314cc5a6c85f7987d477041ed69ac0274462186534aa632e9b1e3b932b76b7` |
+|  `latest-dev` `0.9.3-dev` `0.9-dev` `0-dev` | June 25th    | `sha256:282a66e845cf5a25814cadd3ef263b30652a9e7004b51c1cd918ea8fab029570` |
+|  `0.9` `latest` `0.9.3` `0`                 | June 25th    | `sha256:cd53299f73b43d734682dab0223ea233006cc74393f793d849cd46de113934fa` |
+|  `0.9.2-dev`                                | June 25th    | `sha256:6fe637ea128faa185d4960d785f342c438f64d5ad07c884693fdc60b912fcb6e` |
+|  `0.9.2`                                    | June 25th    | `sha256:615029383bc941d198ef4f91c5486dba5443a0ee3b839a3b02ef89d3a0675ca5` |
 

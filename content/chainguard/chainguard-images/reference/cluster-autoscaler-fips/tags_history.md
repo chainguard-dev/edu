@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cluster-autoscaler-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.26-dev` `1.26.8-dev`                      | June 23rd    | `sha256:5db280b6e7638d4f8ef17d64505a69ebc99bdb87b604c3f815aa38805c22c50f` |
-|  `1-dev` `1.29-dev` `1.29.3-dev` `latest-dev` | June 23rd    | `sha256:d2d5e537859322240fe2094ee02fad7996475a376e8f5af13e5821348c574453` |
-|  `1.28.5-dev` `1.28-dev`                      | June 23rd    | `sha256:ce28d8b7b36271450ac4b8f20c299a4d98eec016339948356610cc29e3153cba` |
-|  `1.27.8-dev` `1.27-dev`                      | June 23rd    | `sha256:e48fa032eb57faa6a964992f54be35af7c5d58e3d66fbdb5d868eb9a6b3ba832` |
+|  `1.26.8-dev` `1.26-dev`                      | June 25th    | `sha256:15f5cea95fa4cd4865a34c7578920b766664e2a1b95351b305e542b27d7b370b` |
+|  `1.28-dev` `1.28.5-dev`                      | June 25th    | `sha256:5bcb4aae4d62f240ed01a984d3b73814825a09de383f38704a65f6c9dad8a6ad` |
+|  `1.27-dev` `1.27.8-dev`                      | June 25th    | `sha256:e0cd8949a945d4162dd7de9c322006adf5e894f2d256647775a1f1c4a22905ed` |
+|  `1.29.3-dev` `1.29-dev` `latest-dev` `1-dev` | June 25th    | `sha256:2753094f93ecd4f1c49ecb5bd7e347c83a3c6ef000160714b05e427dcd2632c9` |
 |  `1.27.8` `1.27`                              | June 20th    | `sha256:66c198579bd65ba8aa896be673f4593e1d7ea8e74c14108a735921c8dd521750` |
 |  `1.26` `1.26.8`                              | June 20th    | `sha256:02c1603f15408bad3a861c7b59c60a848ff2090071fb29dda749878c1911fe0d` |
 |  `1.28` `1.28.5`                              | June 20th    | `sha256:821b6073a9bba75fec3bba23aaae7bfb755386de36c66008498eb97f421f4ace` |

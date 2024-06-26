@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-hyperopt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 24th    | `sha256:e85b6247643f5a42194f606cd388002025caf585158e8311c6fe113f6e7f30ff` |
-|  `latest`     | June 22nd    | `sha256:15a05874d0126842045265cb267ae661134061dd13dad02ffce32dfb5f83ced2` |
+|  `latest-dev` | June 25th    | `sha256:4fc54bd6dc7286adc58b835384c4e301124623eb10f4a688b5944d05bf0566a6` |
+|  `latest`     | June 25th    | `sha256:710208f0658d9cbd1296693c039a913f160784dfc75262412bdb7683be9d3015` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16-dev` `0.16.0-dev` `latest-dev` `0-dev` | June 23rd    | `sha256:5ca6ff922bd01a7266f362a60af240442603510d1cf7ba8d6a9488e6574ea670` |
-|  `0.16` `0.16.0` `latest` `0`                 | June 21st    | `sha256:6d2e7e66521014fcfb099d1b71909bf567613c05b840d252e87d86337bed651d` |
+|  `0-dev` `0.16.0-dev` `latest-dev` `0.16-dev` | June 25th    | `sha256:c7d8eaf1dd6348097cdfbdfd8e1cb3dee3f3025d105e8b2e8ff5a51972e4f357` |
+|  `latest` `0.16` `0` `0.16.0`                 | June 25th    | `sha256:5ac1e7fe7fd544647c31e5997ffa8f4bd79cfec63b753475d1d9d40b1b61850f` |
 

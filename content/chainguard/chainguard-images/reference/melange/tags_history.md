@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the melange Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.9-dev` `latest-dev` `0.9.0-dev` | June 23rd    | `sha256:06e320ab6621c9ca020f9d3242fb76fa1aa9cbe5ced9a3e1bbe22b1e443db494` |
+|  `latest-dev` `0-dev` `0.9-dev` `0.9.0-dev` | June 25th    | `sha256:ff82bb2da9d012856c64e485525f5a3c9b9ff95e1560d2320fc123942bdbc3f0` |
 |  `0.9` `0.9.0` `latest` `0`                 | June 21st    | `sha256:580ed917df2fb846489951d196965fd6e1b6aabc876a05a8b92864c92f5c9ee8` |
-|  `0.8.6-dev` `0.8-dev`                      | June 18th    | `sha256:874331fb864d288b395743a3837464d07827b80593f7cf4a089bc1dc7e8c5830` |
-|  `0.8.6` `0.8`                              | June 18th    | `sha256:7ac5c46cee608c06704a979d28a31c6fcbf897b83eaab67197b2bcdd0a945bf3` |
 

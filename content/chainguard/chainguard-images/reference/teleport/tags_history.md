@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the teleport Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `16-dev` `latest-dev` `16.0.1-dev` `16.0-dev` | June 24th    | `sha256:87b1523314e59d25d268bab3fa8687164efddbbfe163e5d2c21ee378f567106c` |
-|  `16.0.1` `16.0` `16` `latest`                 | June 24th    | `sha256:fa99a12c9f9f0107751be8ccd28ace521f196123570b140ff5b052c2f8fc5ed9` |
+|  `16.0.1-dev` `16-dev` `latest-dev` `16.0-dev` | June 25th    | `sha256:7f3a8d89a42068365e25ab4c7a11431044652dc5d7bef1c932e753874e56d3c4` |
+|  `16` `latest` `16.0.1` `16.0`                 | June 25th    | `sha256:219f39cefc5573a56dff9b53174ecaa630ae8a05cf4552db9c47df719b7632b5` |
 

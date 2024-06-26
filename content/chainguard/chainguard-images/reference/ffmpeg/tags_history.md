@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ffmpeg Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `7.0.1-dev` `7-dev` `7.0-dev` | June 23rd    | `sha256:c0e30b37cbdc7b31a758bdccae77172c89acc25d17449012333adf52bd08f449` |
+|  `7.0.1-dev` `7.0-dev` `7-dev` `latest-dev` | June 25th    | `sha256:7fb04320b6f0a1223cddfac155ef14a9064044247c89285d85393500ffab2ff1` |
 |  `latest` `7` `7.0.1` `7.0`                 | June 20th    | `sha256:c192396e9c9fa02ece3231bc7fcc3d0a41ea62ddd816328fa8523c97a0b82481` |
 

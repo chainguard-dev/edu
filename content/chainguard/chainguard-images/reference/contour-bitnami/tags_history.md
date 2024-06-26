@@ -3,8 +3,8 @@ title: "contour-bitnami Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the contour-bitnami Chainguard Image"
-date: 2024-06-25 00:42:19
-lastmod: 2024-06-25 00:42:19
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.28-dev` `1.28.5-dev`                      | June 24th    | `sha256:a4523a12d1b40abd38a7e5b48dbd8c697a4071d6a32d42ceb58437d7d294fe8e` |
+|  `latest-dev` `1.29-dev` `1.29.1-dev` `1-dev` | June 25th    | `sha256:67442db570868cf7f552a5428b6aeb7d740d0c1e26434ec185fd83f15880bc98` |
+|  `1.28-dev` `1.28.5-dev`                      | June 25th    | `sha256:60b15d61b050fdd9bf5c81316b3d2f9083a3f0529c4d87dacce930389e786b8e` |
+|  `1.27.4-dev` `1.27-dev`                      | June 25th    | `sha256:a26ceae9d746c605c0d85f5e4baf8e5c73ac2a252c70a59768406a324d0ccf9b` |
 |  `1` `1.29` `1.29.1` `latest`                 | June 24th    | `sha256:29b628ce44c6916e20cfbe2f2f8aec9893a3b089a002b481141bea1ef3f1cb59` |
-|  `latest-dev` `1.29-dev` `1.29.1-dev` `1-dev` | June 24th    | `sha256:bfd103ea33826dbab4a67106701a934465ab14efeaa159b44a1a5b8b6f91cc51` |
-|  `1.27-dev` `1.27.4-dev`                      | June 24th    | `sha256:1afea29b6f0b94bf4e37d8f928577e2c01a45a074928b0b8cfbf29d1ebf8727a` |
 |  `1.27.4` `1.27`                              | June 24th    | `sha256:ed1c0ed8cec2ee78dec0e2650e5e66cdb362abd407aa85e138f6d2609f58f52f` |
 |  `1.28.5` `1.28`                              | June 24th    | `sha256:126a1d433624577a65f01d1f2fa24f548851fc9ed1fca777ee9c36258ae52c44` |
 

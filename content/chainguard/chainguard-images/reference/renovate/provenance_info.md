@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for renovate Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,7 +29,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 | Registry                     | Tags                                                                                                                                                                                                                                                                                                                                                                           |
 |------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                                                                                                                                                                                                                                                                   |
-| `cgr.dev/chainguard-private` | 37, 37-dev, 37.410, 37.410-dev, 37.410.1, 37.410.1-dev, 37.411, 37.411-dev, 37.411.0, 37.411.0-dev, 37.412, 37.412-dev, 37.412.1, 37.412.1-dev, 37.413, 37.413-dev, 37.413.1, 37.413.1-dev, 37.413.3, 37.413.3-dev, 37.413.4, 37.413.4-dev, 37.414, 37.414-dev, 37.414.0, 37.414.0-dev, 37.414.1, 37.414.1-dev, 37.415, 37.415-dev, 37.415.0, 37.415.0-dev, latest, latest-dev |
+| `cgr.dev/chainguard-private` | 37, 37-dev, 37.411, 37.411-dev, 37.411.0, 37.411.0-dev, 37.412, 37.412-dev, 37.412.1, 37.412.1-dev, 37.413, 37.413-dev, 37.413.1, 37.413.1-dev, 37.413.3, 37.413.3-dev, 37.413.4, 37.413.4-dev, 37.414, 37.414-dev, 37.414.0, 37.414.0-dev, 37.414.1, 37.414.1-dev, 37.415, 37.415-dev, 37.415.0, 37.415.0-dev, 37.416, 37.416-dev, 37.416.1, 37.416.1-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

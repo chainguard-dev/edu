@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-skopt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 24th    | `sha256:ec71f9c9fcb53963a33a641fbeeba8bd87e27bb755580ae82817edfbf7db504a` |
-|  `latest`     | June 22nd    | `sha256:9ffe50934162c6abafed3372e9aa2d4242f196ad863546ef800d7e37a9792b9a` |
+|  `latest-dev` | June 25th    | `sha256:990b0533fa02a5075bcf156ace4ce295867e6478fee6a96295f86cdd0e083909` |
+|  `latest`     | June 25th    | `sha256:76fd6b41403d000621f4a1721d0693397f34d36f0732f1f36dc64aabf76481d7` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.16-dev` `0.16.0-dev` `latest-dev` | June 23rd    | `sha256:77823753e101831d583a32c2b1286426e6a9f4e299b208be7974869827bb8aea` |
-|  `0.16` `0.16.0` `0` `latest`                 | June 21st    | `sha256:ac5e4d85dbcbec1f6642a06ab98cae9171245f5ba489638473127112db6787d1` |
+|  `0.16-dev` `0-dev` `0.16.0-dev` `latest-dev` | June 25th    | `sha256:128498a36989830442e75de922b89a9a020cc5cd68c3b644621435a13c8ee3c5` |
+|  `0.16.0` `0` `latest` `0.16`                 | June 25th    | `sha256:ce5e94e1872b96552d15c110d5a4ea1b0ba7e29092ce3e63b4e05d4b78bc97e3` |
 
