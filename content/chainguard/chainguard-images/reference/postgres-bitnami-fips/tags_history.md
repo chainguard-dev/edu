@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the postgres-bitnami-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                           | Last Changed | Digest                                                                    |
 |-----------------------------------|--------------|---------------------------------------------------------------------------|
-|  `14.12-dev` `14-dev`             | June 21st    | `sha256:7e414ff568dac681abadf3c02230aa9465e1546c59d84c47a1c896bd021baad4` |
-|  `latest-dev` `16.3-dev` `16-dev` | June 21st    | `sha256:8184872dea6a567cdbeca47b187d601dba69342eb54803ae9b129e1353dde17b` |
-|  `15.7` `15`                      | June 21st    | `sha256:91b9525e1fcbaa48fd6591968124bf69424cd838a084445614ecfe25b4ca5df8` |
-|  `14` `14.12`                     | June 21st    | `sha256:79c7ff4e8aff0e86c680ec6c0d8276b6dc55a1d9f107bca27f4f296b596153ea` |
-|  `latest` `16` `16.3`             | June 21st    | `sha256:e78fc8b02f581470ae2354ed5ae716abd472d35f7699e66ff5d508e3eba899b6` |
-|  `15-dev` `15.7-dev`              | June 21st    | `sha256:5029ee14e7e8fdc482728a9f9fd4f7852e2395245a6c92277509fac8380dedbd` |
+|  `16.3-dev` `16-dev` `latest-dev` | June 25th    | `sha256:a25f12b67c456b17615f90449ac149a4bb60f1aa05b01143740672083f3c11f6` |
+|  `14.12-dev` `14-dev`             | June 25th    | `sha256:b627dfd3874d0df84cbe218cfaf141ac19862407fed0b39d5dc331fb05d21404` |
+|  `16` `16.3` `latest`             | June 25th    | `sha256:986015e7d86ae250a20a74cfdf04fffb86fca76eb175f21a485f9cab267c8e9c` |
+|  `14.12` `14`                     | June 25th    | `sha256:11014004ef78b6e53d9010c0ff693e71650be8926ffddc9fbdff5e3a9bd06b6c` |
+|  `15-dev` `15.7-dev`              | June 25th    | `sha256:27a9fe363f904b4978a39c216cc74b173b296aede2a17a31e74990d622b02db1` |
+|  `15` `15.7`                      | June 25th    | `sha256:775a60443a373f636ef8a80ec247742d415f5e10818b0fa2b5a25be36bc3b626` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public istio-install-cni-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -47,10 +47,10 @@ The table shows package distribution across variants.
 | `glibc-locale-posix`                 | X          | X      |
 | `ip6tables`                          | X          | X      |
 | `iptables`                           | X          | X      |
-| `istio-cni-fips-1.21`                | X          | X      |
-| `istio-cni-fips-1.21-compat`         | X          | X      |
-| `istio-install-cni-fips-1.21`        | X          | X      |
-| `istio-install-cni-fips-1.21-compat` | X          | X      |
+| `istio-cni-fips-1.22`                | X          | X      |
+| `istio-cni-fips-1.22-compat`         | X          | X      |
+| `istio-install-cni-fips-1.22`        | X          | X      |
+| `istio-install-cni-fips-1.22-compat` | X          | X      |
 | `ld-linux`                           | X          | X      |
 | `libbrotlicommon1`                   | X          |        |
 | `libbrotlidec1`                      | X          |        |

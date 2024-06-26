@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the zookeeper Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 24th    | `sha256:a1a0605796f0556d7f12f19ceb65eec96c2b135d835eb1bdad6888d9a1ae89a5` |
-|  `latest-dev` | June 24th    | `sha256:c70d0466eca92ff0eedbbc33f4fe988a3bb70edede498371045e497a847d05c7` |
+|  `latest`     | June 25th    | `sha256:37adb729e25b4a729b57fb8b539c43f082668214724f095776b59128632c9c59` |
+|  `latest-dev` | June 25th    | `sha256:22c531d1c72417835a52b7f0ee2c56e7c6b08bafcf1395dcbcd24d5833dc35f4` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                   | Last Changed | Digest                                                                    |
 |-----------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `3-dev` `3.9-dev` `3.9.2.0-dev` `latest-dev` `3.9.2-dev` | June 25th    | `sha256:5a00754cc3e0786f1002bc931fbebc2ae43ee288daf5c4eb2eb4946ca1d3c156` |
+|  `3.8.4-dev` `3.8-dev` `3.8.4.0-dev`                      | June 25th    | `sha256:a5163379991465ed99ab555d43ce0edbcd636d8f41c58b981b0c76907c1de43c` |
 |  `3.8.4.0` `3.8.4` `3.8`                                  | June 24th    | `sha256:68bdf9c304a051266f7c83875f85fe4f0d212bfd073b7d4169fb87aa59bea806` |
-|  `3.9.2.0-dev` `latest-dev` `3.9-dev` `3.9.2-dev` `3-dev` | June 24th    | `sha256:a8132464d5a35ac2cef9b42dc9f7f20c508d7d0863b836654a1c64cb2f45ffe7` |
-|  `3.8.4-dev` `3.8.4.0-dev` `3.8-dev`                      | June 24th    | `sha256:c5870a26573d31c6adff4ee121fcf720c7320314f41eb2ac855cae65236f9a8c` |
 |  `3` `3.9.2.0` `latest` `3.9` `3.9.2`                     | June 24th    | `sha256:b3f0a9044288e8d1105f1958c6ad5bf18508bb2c7ef663646e602c0cc817a73b` |
 

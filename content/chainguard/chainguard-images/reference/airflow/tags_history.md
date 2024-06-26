@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the airflow Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.9` `2` `latest` `2.9.2`                 | June 23rd    | `sha256:a11ccb2f0d33c3d73574ae697265745647502b4552f1914bf8ced8a200a2afaf` |
-|  `2.9-dev` `2.9.2-dev` `2-dev` `latest-dev` | June 23rd    | `sha256:3b864a5a052480d058875e2c4f9554aa65b8ce6b1eda9bf5272971f43c81e7b0` |
+|  `2.9-dev` `2.9.2-dev` `2-dev` `latest-dev` | June 25th    | `sha256:d592c308558847b8fe3eb276079e4df675e6cb81a0a7d92a1ab1a11c55d38367` |
+|  `2.9.2` `latest` `2.9` `2`                 | June 25th    | `sha256:718a5452d37af0c3a9ed9794deb27cb073eef93c590ffae6d23542e36ce9115c` |
 

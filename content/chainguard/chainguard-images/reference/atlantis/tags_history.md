@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the atlantis Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 24th    | `sha256:dff9d33712693dd3596e3252494bf0b0f0cefeb612ed574f6eae82edb9cfb3cb` |
-|  `latest-dev` | June 24th    | `sha256:ee80230ebf91ad6e33e783395d9658c0d9d3ac348809bcfc442cdbe4cc80d0ff` |
+|  `latest`     | June 25th    | `sha256:45912902bafd92b763bfa0667bc7a08492848a0b9ba368f43cd46af837b5325e` |
+|  `latest-dev` | June 25th    | `sha256:29a7a3003738cc516bbdc4e5822928ed12ecf4b8601ae66fe2a8acc8dfddeb57` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.28-dev` `0.28.3-dev` `latest-dev` | June 23rd    | `sha256:cfe25774e2bb600a01e4fc2dc01ed1d177aca6c831dc82c73f9118d1e40df06e` |
-|  `latest` `0.28.3` `0.28` `0`                 | June 23rd    | `sha256:b2e9459f954bbc00c3a7af27aa189f6c49d9ee8738c6ed0371e305b0a1f85a6a` |
-|  `0.28.1`                                     | June 18th    | `sha256:05797df99f8988e7ef28eb95aabfe38d9438800f3fb6b201fcdd01804b5c859b` |
-|  `0.28.1-dev`                                 | June 18th    | `sha256:177b5369147d643b84443ab59944d20df57a7d263f262f4a8a79d34361d22bd4` |
+|  `0-dev` `latest-dev` `0.28.3-dev` `0.28-dev` | June 25th    | `sha256:63694dc7ac3e7d65df89ce11a6c73ce8044d5c112eddb0d14625a09dd82e018e` |
+|  `latest` `0.28` `0.28.3` `0`                 | June 25th    | `sha256:b2a7930908e29996113dcf25e6979b002f47dc355111ea72dc2798a4a53f1e5a` |
 

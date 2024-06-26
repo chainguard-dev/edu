@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kibana Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8.13.4-dev` `latest-dev` `8-dev` `8.13-dev` | June 23rd    | `sha256:e47a366d4ae5bd07d1948f4a71b6cf6df192c51a6d10bbd69031d6ebf6bf14ff` |
-|  `7.17-dev` `7-dev` `7.17.22-dev`             | June 23rd    | `sha256:0972becc85dec248f49d489b24028b36ffa819589bcc7bf74e9ca39ca5f975ad` |
+|  `7.17.22-dev` `7-dev` `7.17-dev`             | June 25th    | `sha256:312963851743e6e1a70b9cecaceccaab1a46c61ab8ee48616b20ec8fc4b8b11b` |
+|  `8-dev` `8.13-dev` `8.13.4-dev` `latest-dev` | June 25th    | `sha256:4941eddd7093e05944e4c9e53c7a427fc828029330736f6a92356770b7dc0d8e` |
 |  `7.17.22` `7` `7.17`                         | June 20th    | `sha256:88e9db729c0f2fee647db3ffb1d817c67887774ed1929ad3d92a7503556b070b` |
 |  `8.13.4` `8` `latest` `8.13`                 | June 20th    | `sha256:08e6a868075aab21e0563ed16df235961f7128a87826d970bbe2e0ded63299ea` |
 

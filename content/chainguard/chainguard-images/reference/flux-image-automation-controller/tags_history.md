@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-image-automation-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 24th    | `sha256:eb4877dd34bcaceff39b74329c82bf0b0b4d5508abba3445c2d087e95bb5570f` |
-|  `latest`     | June 19th    | `sha256:933e7831b9a1f520780b5129532718f3fc933fce3f81acea877ce4e9b27e4872` |
+|  `latest-dev` | June 25th    | `sha256:f34f4d2368bd3d20ec9406c6fb9ddda048f8f694248d29d17391e15829096e0b` |
+|  `latest`     | June 25th    | `sha256:3e8cd8084fd8ca74d868785f5ed6ee5ca4610deb1268972e142936672e4dc183` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.38-dev` `0.38.0-dev` | June 24th    | `sha256:f8328287024516199aa06a8f872ea90f6bdf4eb10cfe557c60f5f4f094cea30e` |
-|  `0.38.0` `0.38` `0` `latest`                 | June 20th    | `sha256:1857c5ee7c0bc878966b160787222c258cb28955608f4d12ac42fb16b248b0db` |
+|  `0-dev` `0.38.0-dev` `latest-dev` `0.38-dev` | June 25th    | `sha256:86b6f26f1055b8fa48c086cead06d183e70a1ac94f1a75e82dc5d065c1f37170` |
+|  `latest` `0` `0.38.0` `0.38`                 | June 25th    | `sha256:8c9b2aa826817a46bb550dcffa61f75b854deb88e68417ce3e19813a468edc22` |
 

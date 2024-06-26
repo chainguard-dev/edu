@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the fluent-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.9.0-dev` `2.9-dev` `2-dev` | June 23rd    | `sha256:41c9715f0907997fe037f11935ce295061752098f508765fe4e9064daa7e7fda` |
+|  `2-dev` `latest-dev` `2.9.0-dev` `2.9-dev` | June 25th    | `sha256:6ba62f8460a7fd28c072513600dac44befb98ec3a5dce2b0f6e8634d4fdb61e6` |
 |  `2.9` `2` `2.9.0` `latest`                 | June 20th    | `sha256:576e03ed62c23afa9d3ccc9a6cd420a35002a9858496004acb6451972eeb4633` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tigera-operator-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.29.8-dev` `v1.29.8-dev` `v1.29-dev` `1.29-dev`                                             | June 23rd    | `sha256:fa71020ca4d009887eef34f082c6be2511ff5e98e562c8b7ef86dd62fe3d9a04` |
-|  `v1.34.1-dev` `latest-dev` `1.34-dev` `v1.34-dev` `1-dev` `vlatest-dev` `1.34.1-dev` `v1-dev` | June 23rd    | `sha256:3a718da617ea49f9aed400d9e09fad70db2b142adf01bbc242afd7c632a784ac` |
+|  `v1.34-dev` `latest-dev` `1.34.1-dev` `1-dev` `v1-dev` `v1.34.1-dev` `1.34-dev` `vlatest-dev` | June 25th    | `sha256:2c5ead0759e1637777b7d59aa592753a53616529724e91860a3982ee22fefae3` |
+|  `1.29-dev` `v1.29-dev` `v1.29.8-dev` `1.29.8-dev`                                             | June 25th    | `sha256:cd37c78da1348bf38291db586a8ff4ed5fa1940ee3e330202f1967b72969b3fb` |
 |  `v1.34.1` `latest` `v1.34` `1.34` `1.34.1` `v1` `vlatest` `1`                                 | June 21st    | `sha256:82cba93b9714e85d8520c19814fe9f36042f86da3d3fb4b1078380a2b2f8050b` |
 |  `1.34.0` `v1.34.0`                                                                            | June 20th    | `sha256:f3060a4eb04a984a680608a29b002bf534e7f245fb9ed63c74e8f879b8e4b596` |
 |  `v1.29.8` `1.29.8` `1.29` `v1.29`                                                             | June 20th    | `sha256:660acbdb00a8809849705bf335d0e6ed9193ad599174c6b12996f73a41c118e9` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-bench-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.7-dev` `latest-dev` `0.7.3-dev` | June 23rd    | `sha256:46b2dc6df82bc60ac2768bffdc0840d63388a3cdb6f0c611e92adc6e24fa7c6c` |
+|  `0.7-dev` `latest-dev` `0.7.3-dev` `0-dev` | June 25th    | `sha256:f71e3b598ddd88e488d79a668eaf88be52376b1048ce796c5342693a2c887ace` |
 |  `0` `latest` `0.7.3` `0.7`                 | June 20th    | `sha256:905bda5b198ed4a74678907e863c4aa37527aaa82af530a92b1b7ce446a170fd` |
 

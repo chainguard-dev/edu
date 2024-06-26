@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-webhook-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.15-dev` `latest-dev` `1-dev` `1.15.0-dev` | June 23rd    | `sha256:e30e4794b4c2013fd37ac88f79c8e613b1fc04edb9f179e9007b41485195acf5` |
-|  `1.14.7-dev` `1.14-dev`                      | June 23rd    | `sha256:7259600172163e73ce59aa827b07e3af80a88f9ad695137d200cfef1c8b662cd` |
-|  `1.12.12-dev` `1.12-dev`                     | June 23rd    | `sha256:2d1850a3469801ff0d22e8edadb0d7653d6076bf8072ea3f5a0775e6764dc776` |
-|  `1.15` `latest` `1.15.0` `1`                 | June 21st    | `sha256:0dbe528d85c74589d015a75c4e375fae509d8ea9d83f578045b3ef6baf63c064` |
+|  `1.15.0-dev` `1.15-dev` `1-dev` `latest-dev` | June 25th    | `sha256:d415f880aa02cc33097abadc90f2615221d314c2e8a7d78b83a2145dd740cc3a` |
+|  `1.14-dev` `1.14.7-dev`                      | June 25th    | `sha256:0dd08c59e97c523eb52b8afd369c838964a3ce8f2a1ccf3c1dfda0a11f5eb715` |
+|  `1.12-dev` `1.12.12-dev`                     | June 25th    | `sha256:4c6c4e9731cd77e7670926dcfd7ed1f81e9c04e007f0710d25851e041c8c59cf` |
+|  `1.15` `1.15.0` `1` `latest`                 | June 25th    | `sha256:953d5bc9d1354739709efb0a4c39b7ae827e283e3e2cf8bdef6e5110217adc72` |
 |  `1.14` `1.14.7`                              | June 21st    | `sha256:1db7d59d3f11f9267fe8615cb1d846a727cd653d3455ae0256466acdb314e638` |
 |  `1.12` `1.12.12`                             | June 21st    | `sha256:d52ab79d65abf3a1a4a12d1ee8a68520aa07d0b4c051fcf46504842854693575` |
 |  `1.12.11-dev`                                | June 20th    | `sha256:f587ba1e16ede8f44baafd8de0820522023e164f38165f4a2a030c4cf21bc9fd` |

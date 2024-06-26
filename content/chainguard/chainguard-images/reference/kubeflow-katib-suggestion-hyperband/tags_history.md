@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-hyperband Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 24th    | `sha256:7ec6b1270de414ceb91ac17aa4bfffcefebeefda2d72279291ad34a74faa9958` |
-|  `latest`     | June 22nd    | `sha256:ba03127c8b40effb8382df832990919c46a95367143516825794945f158f2ee5` |
+|  `latest-dev` | June 25th    | `sha256:162904b2bbe52bce9acb7e970df3dff1449fb25c5f594cdfde0d19fe4e311010` |
+|  `latest`     | June 25th    | `sha256:0ef565cc1d727da9bd8a1436b5008a565a12669a464f9684c583a877eeb2663c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0-dev` `0-dev` `latest-dev` `0.16-dev` | June 23rd    | `sha256:8e9c9962d5c0d3e753fb05a350bfd69a8cb8706ee09e26021b5f08b26c333989` |
-|  `0.16` `latest` `0.16.0` `0`                 | June 21st    | `sha256:e7b4f3a1423d339e4b94bb67c4851e7a502b31140a62f80c6aea708fac214ce4` |
+|  `0.16-dev` `latest-dev` `0-dev` `0.16.0-dev` | June 25th    | `sha256:bab4fd5b360e843e84366ae4d857230ab390dc29ca2d989ce14153e76fb7df5c` |
+|  `0` `0.16` `0.16.0` `latest`                 | June 25th    | `sha256:2adb5ae4284a00ea006388d161d8d3078ec6cb946bb98e7d10dc3d4b86f7376c` |
 

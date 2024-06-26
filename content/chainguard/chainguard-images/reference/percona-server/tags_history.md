@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the percona-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,5 +37,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                     | Last Changed | Digest                                                                    |
 |-----------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `8.3.0` `8.3` `8` | June 21st    | `sha256:a4a3c10d157071663f01da0dd78d5296c558bd7029a480ddab24259c470e2b1a` |
+|  `8.3` `8` `latest` `8.3.0` | June 25th    | `sha256:3899cc74f60ad6d1ef0e873ad4ff1485c56ee849bf8ad55640a07baecc8468e1` |
 

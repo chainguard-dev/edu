@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the harbor-jobservice Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,10 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.11-dev` `2.11.0-dev` `2-dev` `latest-dev` | June 24th    | `sha256:5e7b679b707213b4a67f7fce3e8ff8022451fe7ecbbbd770b1bf4fa99edc6598` |
-|  `2.10-dev` `2.10.2-dev`                      | June 24th    | `sha256:386bcebb250be57cbcc310e02380dcade76c699a62c5efd0b7b4f4dedfca6c48` |
-|  `2.8.6-dev` `2.8-dev`                        | June 24th    | `sha256:56bf5efd9df38df479174cafd583d86a78e1bbf6ea816f949669c2a579a8f2f6` |
-|  `2.9.4-dev` `2.9-dev`                        | June 24th    | `sha256:f2822462afcb3ee316a2e42eee09846c86e39ef07d2d80280a5bc9709fcdda6a` |
+|  `2.8.6-dev` `2.8-dev`                        | June 25th    | `sha256:c82b068732af5fc426467dba634543401faf63305349ee3a5f664ef642d31ec8` |
+|  `2.9.4-dev` `2.9-dev`                        | June 25th    | `sha256:050cc837349a046cbce7b0369a6b5e3143eaf6d103e45008d5852db1c5bdfd58` |
+|  `2.10.2-dev` `2.10-dev`                      | June 25th    | `sha256:fcadc218fce15ea62cfd8de804bbb3f9351733c46233ebbd2f3df0d5cfe5f061` |
+|  `2.11.0-dev` `latest-dev` `2.11-dev` `2-dev` | June 25th    | `sha256:e41c319ad1b0ef526a5e1a56ed80e3daa56c1a59f0c0ef12552bb8bd58d54831` |
 |  `2.8` `2.8.6`                                | June 20th    | `sha256:3b5b8e59e42ca139b6e0b8335d66e81318182c3c1548f5ecba47d22ddf14b3e7` |
 |  `latest` `2.11.0` `2` `2.11`                 | June 20th    | `sha256:e0ab4307d2ac3959a4d2a75a4da5babead48da6e7b7034af040452fe7e1b0ccb` |
 |  `2.10.2` `2.10`                              | June 20th    | `sha256:7ce5619ebd12e0d99e1d7f0e065893050ec8601808ba2e0de906e5f71357a609` |

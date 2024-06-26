@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the memcached-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-24 00:43:49
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | June 19th    | `sha256:7d9cd37f45df0212a427818e509821c2d1afe95bc95f686ef69be6b2251e73c7` |
+|  `latest` | June 25th    | `sha256:0478b8e8a8931a61a4f5ff206cbac711ef518a733928fbdc6e70c70145151934` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.14-dev` `0.14.3-dev` | June 23rd    | `sha256:136cf33168bbc172f0a84d2b412b632809fdaf3aba629180edcbae6f9f616477` |
-|  `0.14` `0.14.3` `0` `latest`                 | June 20th    | `sha256:8d2d0b549a84836349dbb96a1bd95163be16b7528d6c9cf4dfcb5d0234b4a5a7` |
+|  `0.14-dev` `0.14.4-dev` `0-dev` `latest-dev` | June 25th    | `sha256:5ed8baca4feaeb8137ee643a6939c71e5ef7974813dd2508692c77558c3e7465` |
+|  `0.14` `0.14.4` `0` `latest`                 | June 25th    | `sha256:261d7c588c996e07263eae7b51c20b3dda3591fa55528875def66cfd127d272f` |
+|  `0.14.3-dev`                                 | June 23rd    | `sha256:136cf33168bbc172f0a84d2b412b632809fdaf3aba629180edcbae6f9f616477` |
+|  `0.14.3`                                     | June 20th    | `sha256:8d2d0b549a84836349dbb96a1bd95163be16b7528d6c9cf4dfcb5d0234b4a5a7` |
 

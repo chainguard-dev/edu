@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-for-fluent-bit-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-25 00:42:19
+lastmod: 2024-06-26 00:35:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2.32-dev` `2-dev` `2.32.2-dev` `latest-dev` | June 25th    | `sha256:62e6fe3c4d465461047298cacb731c2c65198adde742d16b922520bb46fee37b` |
 |  `2` `2.32.2` `2.32` `latest`                 | June 24th    | `sha256:9fd5bb6ff15d53c4e063948867871c65d5d8cd0069d7b44423ddc518f175ee38` |
-|  `2.32-dev` `2-dev` `latest-dev` `2.32.2-dev` | June 24th    | `sha256:8ed0c6b9f538856b318bf3a5602402cb749c84a2b7dbc98e17802b3836bb6212` |
 
