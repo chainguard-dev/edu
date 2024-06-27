@@ -5,7 +5,7 @@ lead: ""
 description: "Procedural tutorial on how to create an Okta App Integration"
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2024-04-03T15:22:20+01:00
+lastmod: 2024-06-26T15:22:20+01:00
 draft: false
 tags: ["Chainguard Images", "Procedural"]
 images: []
@@ -23,7 +23,6 @@ To complete this guide, you will need the following.
 
 * `chainctl` installed on your system. Follow our guide on [How To Install `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) if you don't already have this installed.
 * An Okta account over which you have administrative access.
-* A Custom IDP quota of at least 1. You can reach out to [Chainguard's support team](https://support.chainguard.dev/) for help with this.
 
 
 ## Create an Okta App integration
