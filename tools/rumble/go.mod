@@ -8,7 +8,7 @@ require (
 	github.com/klauspost/compress v1.15.9
 	github.com/mattn/go-sqlite3 v1.14.17
 	github.com/spf13/cobra v1.8.0
-	golang.org/x/sync v0.2.0
+	golang.org/x/sync v0.7.0
 	google.golang.org/api v0.126.0
 )
 
