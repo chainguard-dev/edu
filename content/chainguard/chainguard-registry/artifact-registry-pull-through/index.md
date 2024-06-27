@@ -34,7 +34,7 @@ To set up a remote repository in Google Artifact Registry from which you can pul
 
 Following that, you can enter the following details for your new remote repository:
 
-* **Name** — This is used to refer to your repository. You can choose whatever name you like here, but this guide's examples will use the name `chainguard-developer-iamges`.
+* **Name** — This is used to refer to your repository. You can choose whatever name you like here, but this guide's examples will use the name `chainguard`.
 * **Format** - This must be set to `Docker`.
 * **Mode** — This must be set to `Remote`.
 * **Remote repository source** — Choose `Custom` then enter `https://cgr.dev/` in the **Custom repository** field.
@@ -56,8 +56,10 @@ After running this command, you may be prompted to log in to your Google Cloud a
 After running the command, you will be able to pull a Chainguard Developer Image through Google Artifact Registry. The following example pulls the `wolfi-base` Image.
 
 ```sh
-docker pull us-central1-docker.pkg.dev/<your-project-id>/chainguard-developer-images/chainguard/wolfi-base:latest
+docker pull us-central1-docker.pkg.dev/<your-project-id>/chainguard/chainguard/wolfi-base:latest
 ```
+
+Note that `chainguard` is duplicated in the path.
 
 Be sure the `docker pull` command contains the correct Google Artifact Registry URL for your repository, including the location and project ID.
 
@@ -104,7 +106,7 @@ Make sure you've logged in with a valid Google Cloud account and set up `docker`
 If your organization has access to it, the following example will pull the `argo-cli-fips` Image.
 
 ```sh
-docker pull us-central1-docker.pkg.dev/<your-project-id>/chainguard-developer-images/<your-chainguard-org-name>/argo-cli-fips:latest
+docker pull us-central1-docker.pkg.dev/<your-project-id>/chainguard/<your-chainguard-org-name>/argo-cli-fips:latest
 ```
 
 Be sure the `docker pull` command you run includes the name of your Chainguard organization's registry.
