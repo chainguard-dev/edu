@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the hugo Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 24th    | `sha256:4c20f8d97dd52e2865c00610f1d2e2207b9a95e7ba32648da830a94d1652900f` |
-|  `latest`     | June 19th    | `sha256:5c6397ad02c182760bbc493b11b82493ad9a48d5652661bf5ccc682e26232f05` |
+|  `latest-dev` | June 26th    | `sha256:04e1c51484dca8df84bd5379723a6055ffe8a33ab95b876961721a1536c98d58` |
+|  `latest`     | June 26th    | `sha256:787ef71b03841057c6aba6aa691908893093d438fa9dfd4a4db7146a8590bfdd` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                         | Last Changed | Digest                                                                    |
 |-------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.127.0-dev` `0.127-dev` `latest-dev` `0-dev` | June 25th    | `sha256:8d7a064444f30bbbbbb7c571d8a0a5624af4543de18a889ad53157ab4a1b948e` |
-|  `0.127` `0` `0.127.0` `latest`                 | June 20th    | `sha256:856878022528bef43f9a8e5db55429fec8af5cd26ef2efdd3ca5c35989789dff` |
+|  `latest-dev` `0-dev` `0.128-dev` `0.128.0-dev` | June 26th    | `sha256:703c5e7ce59e80c1d5a5c23572a38468f82538d25173109337d22164b0f58fad` |
+|  `0.128` `0.128.0` `0` `latest`                 | June 26th    | `sha256:31b3818bcc785d6244ece8624d7754d8c7e3c864c3da671902c976a587d103fc` |
+|  `0.127.0-dev` `0.127-dev`                      | June 25th    | `sha256:8d7a064444f30bbbbbb7c571d8a0a5624af4543de18a889ad53157ab4a1b948e` |
+|  `0.127` `0.127.0`                              | June 20th    | `sha256:856878022528bef43f9a8e5db55429fec8af5cd26ef2efdd3ca5c35989789dff` |
 

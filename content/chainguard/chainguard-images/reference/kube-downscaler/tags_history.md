@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-downscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 24th    | `sha256:784ed7f91e356dcf3f30a9a3d7e707ba190c0497ec7c4e19726c16c9b75a9dfa` |
-|  `latest`     | June 22nd    | `sha256:1d5909e7e0627549e3846feeca3b1cc4060b71ac55182dce6ca8efc831a71c23` |
+|  `latest-dev` | June 26th    | `sha256:53ed27c3493c48a076df0c606625b7d5e75103887844ac5de1fd96e4983bf94b` |
+|  `latest`     | June 26th    | `sha256:03e640adab7e11283555c4d6bb380436503070d52c368145d319b2448ab5e422` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `23.2-dev` `23.2.0-dev` `23-dev` `latest-dev` | June 25th    | `sha256:4ff6d69258e6f02d09c8bfcd21f44ffea406d07e124fa6197b8bd0b9ef95364d` |
-|  `23.2.0` `latest` `23` `23.2`                 | June 21st    | `sha256:1dd53fd9cb209765832e02be3e906817650c2bfb06572cbb9436cc7d17bcaf0b` |
+|  `23.2.0-dev` `23-dev` `latest-dev` `23.2-dev` | June 26th    | `sha256:a354a881ca7bdd20923e177257e463b545d9127a27e103d2b703f9f31603a8e1` |
+|  `23.2` `23` `latest` `23.2.0`                 | June 26th    | `sha256:c58ad51d89c2d7addd21f9d07095853e85558ee79f3af679e72fff0fddbe7b17` |
 

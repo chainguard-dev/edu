@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the shadowsocks-rust-ssserver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 24th    | `sha256:1d3f671c5ba5e35d254fa8ca6c18bd23d083410f94f8b0126845b20fbd9eb1a6` |
-|  `latest`     | June 19th    | `sha256:4a2af409ebb1c6327e7a8ad11b8cb29ee0971d0efd3a707a06ec6b85b8b550a3` |
+|  `latest-dev` | June 26th    | `sha256:197b54099f843bff7d3a764d069bddd245e8d34116b1888fc2324d51caf798fe` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.20-dev` `1.20.0-dev` `1-dev` | June 25th    | `sha256:bac647ec5ae19d2257b0ce07046c448702b273f1d4c3bb42d0a9167103fed8e7` |
+|  `1-dev` `1.20-dev` `1.20.0-dev` `latest-dev` | June 26th    | `sha256:33e7cc29da7dacfff657411994915fa2446bfd9e57a38ba3470bdd587339b16c` |
 |  `1.20.0` `1.20` `1` `latest`                 | June 20th    | `sha256:8ca937273ab9323021874720334889a69d260d55af79a91657d47a60da186c7d` |
 

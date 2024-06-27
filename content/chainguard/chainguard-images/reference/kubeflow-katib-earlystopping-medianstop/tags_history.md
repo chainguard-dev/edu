@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-earlystopping-medianstop Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 25th    | `sha256:2948eee6ec3d016b74b504f6f47ed0e80db6bc608160d938b3bd48a99990ded2` |
-|  `latest`     | June 25th    | `sha256:5e69fc989113d10ea06c4df86df026538855eea3560d3cdd74841b00e2e94636` |
+|  `latest`     | June 26th    | `sha256:8431b447f22096d2e6e7826880fb1c0c59885dab543dc0e322604cff7c6d5fb6` |
+|  `latest-dev` | June 26th    | `sha256:115f67c3063fe247211e8fcebcf3eac585367234eb6ccc864bc499105a334da6` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16-dev` `0-dev` `0.16.0-dev` `latest-dev` | June 25th    | `sha256:833cbc83ad910e4e72d64194895e201c9e94bd2e05d248463823d4b7c296af47` |
-|  `latest` `0.16` `0` `0.16.0`                 | June 25th    | `sha256:e32b81c7fc2cf9b63a86213ba5215bf65e4387747bafdc0ab6b31219dc613e0b` |
+|  `0` `latest` `0.16` `0.16.0`                 | June 26th    | `sha256:e30ea0261e09c04fafe61638b4e0e9dd27ab05c7fae8502ae037090ed49075f9` |
+|  `0-dev` `latest-dev` `0.16-dev` `0.16.0-dev` | June 26th    | `sha256:38803b2a534ada4ab146041a65ebc785de57fa9188975957c173d5b5c4d6a5b4` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nfs-subdir-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 24th    | `sha256:2fbabda1f6f12de1d9722d58c6a34d63175cdad2f75c895e7bb3486e01ca532b` |
-|  `latest-dev` | June 24th    | `sha256:b9831ca11d72dc35becfe41dca443069bd7edd974bb83b4f3fabe47dbd9303cf` |
+|  `latest`     | June 26th    | `sha256:972264d07dfb24325d7563bf3e2667e01001cf4f82c6972f2b7be0427f889ff5` |
+|  `latest-dev` | June 26th    | `sha256:06c08a91494de869a465c378c94fdca48c8854891f1bf03837551e5cf75c384f` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4-dev` `4.0-dev` `4.0.18-dev` `latest-dev` | June 25th    | `sha256:e6edc430a3654783ce3e9d73631bfb96b4b6103337f1020bc38ab26bba75a604` |
-|  `latest` `4.0.18` `4` `4.0`                 | June 25th    | `sha256:991137d98bef09fa20fd953182d954f8ccc0ebc0d5377d2a908e8ec879925b99` |
+|  `4.0.18-dev` `4-dev` `4.0-dev` `latest-dev` | June 26th    | `sha256:9a72a13d673027a3027a7ec4b1aa77255dd95caedc8ae21a18ae7dd71c675703` |
+|  `4.0.18` `4.0` `4` `latest`                 | June 26th    | `sha256:f5f64b257355054a582d85c3dd3cd6d6e84b8634dca79130bebcd052aa3d72f6` |
 

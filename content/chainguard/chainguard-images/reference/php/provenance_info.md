@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for php Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for php Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                                                                                                                                                                                                                                                                                 |
-|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev, latest-dev-fpm, latest-dev-fpm-dev, latest-fpm, latest-fpm-dev                                                                                                                                                                                                                                                                                                                                   |
-| `cgr.dev/chainguard-private` | 8, 8-dev, 8-fpm, 8-fpm-dev, 8.2, 8.2-dev, 8.2-fpm, 8.2-fpm-dev, 8.2.20, 8.2.20-dev, 8.2.20-fpm, 8.2.20-fpm-dev, 8.2.20-r0-fpm, 8.2.20-r0-fpm-dev, 8.2.20-r3-fpm, 8.2.20-r3-fpm-dev, 8.2.20-r4-fpm, 8.2.20-r4-fpm-dev, 8.3, 8.3-dev, 8.3-fpm, 8.3-fpm-dev, 8.3.8, 8.3.8-dev, 8.3.8-fpm, 8.3.8-fpm-dev, 8.3.8-r1-fpm, 8.3.8-r1-fpm-dev, 8.3.8-r4-fpm, 8.3.8-r4-fpm-dev, latest, latest-dev, latest-fpm, latest-fpm-dev |
+| Registry                     | Tags                                                                                                                                                                                                                                                                                                                                               |
+|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | latest, latest-dev, latest-dev-fpm, latest-dev-fpm-dev, latest-fpm, latest-fpm-dev                                                                                                                                                                                                                                                                 |
+| `cgr.dev/chainguard-private` | 8, 8-dev, 8-fpm, 8-fpm-dev, 8.2, 8.2-dev, 8.2-fpm, 8.2-fpm-dev, 8.2.20, 8.2.20-dev, 8.2.20-fpm, 8.2.20-fpm-dev, 8.2.20-r3-fpm, 8.2.20-r3-fpm-dev, 8.2.20-r4-fpm, 8.2.20-r4-fpm-dev, 8.3, 8.3-dev, 8.3-fpm, 8.3-fpm-dev, 8.3.8, 8.3.8-dev, 8.3.8-fpm, 8.3.8-fpm-dev, 8.3.8-r4-fpm, 8.3.8-r4-fpm-dev, latest, latest-dev, latest-fpm, latest-fpm-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

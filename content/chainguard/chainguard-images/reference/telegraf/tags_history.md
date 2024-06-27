@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the telegraf Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 24th    | `sha256:6bd244a0e326738f759159b6a8c3fc4adc29fb02c41b0352781cb86e97f4c38d` |
-|  `latest`     | June 19th    | `sha256:e49f0871d831b4625b56a8b585255ef855c3d9fd2bf9a37bfade950c49455948` |
+|  `latest-dev` | June 26th    | `sha256:19477e6bd8e66e8a4e036cacab7a95c1be0fb3eaf80298f6d15f313a6fec0895` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.31-dev` `latest-dev` `1-dev` `1.31.0-dev` | June 25th    | `sha256:3b99b179627debaa7bba4e14642e873fa6868c8e2307c291cad873abc71e6f09` |
-|  `1.30.3-dev` `1.30-dev`                      | June 25th    | `sha256:e7922cbd6948746362fd566e6b1b2988b352c913e754d0f96ad539194fdbaf42` |
+|  `1.31.0-dev` `1.31-dev` `1-dev` `latest-dev` | June 26th    | `sha256:f23d929f9fe312de05f383d4bfc83cef14d2f3974d4fd80e3ec2879cd19f3120` |
+|  `1.30.3-dev` `1.30-dev`                      | June 26th    | `sha256:6a120d4f699f9714ea7b84c487e9ea1d72475ef772d81aa42522840f30c4bbb4` |
 |  `1` `1.31` `latest` `1.31.0`                 | June 20th    | `sha256:7aab8154a4d5d99c87c944d5ade90f1e4e51af9d377d15393c8f32f31328bc4a` |
 |  `1.30` `1.30.3`                              | June 20th    | `sha256:950983d4c7d34d583279b5f00cfa3fd9532459111226c2565545a4a77aab03d7` |
 

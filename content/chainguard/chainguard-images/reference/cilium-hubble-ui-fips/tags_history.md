@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-hubble-ui-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.13` `0` `0.13.1` `latest`                 | June 25th    | `sha256:595eb3c0f5b86d1f2f16450447f60bca61775c9d81f4f9563f8f0452cb74b16c` |
-|  `0-dev` `0.13-dev` `0.13.1-dev` `latest-dev` | June 25th    | `sha256:369a515d19bf9c875fb0ef931184ace13c8392872a36a61334e594e5be880f45` |
+|  `latest` `0.13` `0.13.1` `0`                 | June 26th    | `sha256:6a62f1ae5b1da43f8d22ddc9ac7083551c0db97c1ba26390dcad9925f5b1310c` |
+|  `latest-dev` `0.13.1-dev` `0-dev` `0.13-dev` | June 26th    | `sha256:3e8ff5e2ae8e5ce863bd56409630e036e0d5cedb0540a5bf5f17dfca8508119b` |
 

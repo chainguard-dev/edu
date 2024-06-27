@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the logstash-oss-with-opensearch-output-plugin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 24th    | `sha256:bc11a10598e949a1ca30171f2f30f0ff2c52f069ca334cf79e2ffe0e95a19046` |
-|  `latest`     | June 22nd    | `sha256:bf78860028425fdda8bfdfbc30368d8b03939063cfa577575b692226b07abb08` |
+|  `latest-dev` | June 26th    | `sha256:3f1b75775f88a4dab97a7ec450d6a5814602bde38e571a83a2a28e7689118d3d` |
+|  `latest`     | June 26th    | `sha256:1d017bec6b673dbf406a8fffca5965905eaa7375d4f7081a4950b871c5e2aa35` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8.14.1-dev` `8.14-dev` `8-dev` `latest-dev` | June 25th    | `sha256:dea302a1a2d53691e6aab32f4660648480b22281d86e19a53bcf56acb3848cf4` |
-|  `latest` `8.14` `8.14.1` `8`                 | June 21st    | `sha256:46563450afd8974d99d83450a8048c57914e45487b655c58a9cc59a416c710d8` |
+|  `latest` `8` `8.14.1` `8.14`                 | June 26th    | `sha256:c3809769a72512227072b0d98d032db41e0a6bb237f3d3330d032ee413bd7749` |
+|  `8-dev` `8.14.1-dev` `latest-dev` `8.14-dev` | June 26th    | `sha256:3cb225ed65e167b18fc8ece12bdc30f0899f05bacf3ae4bd5c39cedaabc5e7f3` |
 

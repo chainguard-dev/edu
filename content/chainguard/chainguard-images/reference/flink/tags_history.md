@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flink Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.18.1-dev` `1.18-dev`                      | June 25th    | `sha256:af58bfdf457c970be8955c9fa64df7f87f3b2b72aefb99592513a97f4eec98c6` |
-|  `1.17.2-dev` `1.17-dev`                      | June 25th    | `sha256:ae170bfd8b0284c6e15d4c3eb38be0769b121f0d273ddadb0535c245591ddcae` |
-|  `1.19.1-dev` `latest-dev` `1.19-dev` `1-dev` | June 25th    | `sha256:8b35894486263e07905cff2503982e8a9207633b46f3aa120b41deddde943a54` |
-|  `1.18` `1.18.1`                              | June 24th    | `sha256:63e8f4dd5a27aba0a0fd20f60659efb15d7b80208364f400532aa7ed8783930b` |
-|  `1.19` `1` `latest` `1.19.1`                 | June 24th    | `sha256:560814f0560a28acd5647eb56dc633d1c05f0018bb60fbc6edfda8541bd8a899` |
-|  `1.17` `1.17.2`                              | June 24th    | `sha256:38e281ca487a26eb766047597c4eaa2244edad3efca630f14cef6725e759f4c5` |
+|  `1.17.2-dev` `1.17-dev`                      | June 26th    | `sha256:c86ee9ceeeee43d81a8a7d14dbdacf0e40bd27bfd652b6ebb52c10b14063ccdf` |
+|  `1.19.1-dev` `1-dev` `1.19-dev` `latest-dev` | June 26th    | `sha256:ba5b18923366fd3b2d65a057a12f10d6946f3f8132cc9b319887b9ee23a68dcc` |
+|  `1.18-dev` `1.18.1-dev`                      | June 26th    | `sha256:4fdc0d002ffbca94659059b7a26df644cdf527bd2fe83634306592f0e1b2dee5` |
+|  `1.17` `1.17.2`                              | June 26th    | `sha256:e13e526251f522a39e8db379a51a43f17953efd6e13993ea3f74d22c7923d8b2` |
+|  `latest` `1.19.1` `1.19` `1`                 | June 26th    | `sha256:c9d2416ad1e5e3a657bd15e96aee7d94aa2cfd362d66c425a50a470c34947d51` |
+|  `1.18` `1.18.1`                              | June 26th    | `sha256:8bb2bcf089d0e222fb0fb95d33f7231dc9fd70a8e2d24ba82db7fd2e94a0490f` |
 

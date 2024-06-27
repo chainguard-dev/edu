@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the trino Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 25th    | `sha256:8e8c105cbb230cde489a6ba4d9d3cb9e242684c8143c73c2e2c6833c2405118e` |
-|  `latest`     | June 25th    | `sha256:eaa221bfd89763ca3caa7e26b0d18e5bc0d794d0e9902d0fa5e30cf8a014f47c` |
+|  `latest-dev` | June 26th    | `sha256:dd5baf4bc1e160c14ea068514fb777137cffff28931171f4dd1384f8b2d4b1f9` |
+|  `latest`     | June 26th    | `sha256:582b7d69c65f863ab057a589ed0942dc02842bf567a16846f90a0c3353d4dd7d` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                 | Last Changed | Digest                                                                    |
 |-------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `450`         | June 25th    | `sha256:c85a9001d1ae2dae7d4e188a693fb71e6cd24077e556c5c9a5207b45c6a17bd3` |
-|  `450-dev` `latest-dev` | June 25th    | `sha256:9aec49179028d01f0157808fecfced4b2d284809f014574c43f3ca2b3867da90` |
+|  `450-dev` `latest-dev` | June 26th    | `sha256:d8b85f0047f6f5fe598767d5e8dd995822465ebecbe6189a261704b3c11bf333` |
+|  `450` `latest`         | June 26th    | `sha256:5e2fc910261d3d90923dc7a253f8d5fe15b81f854aba99dc254f4a85f337400e` |
 |  `449-dev`              | June 20th    | `sha256:43fb35522df255a56cbd4a12f24ac06762ab2bb97538b57153189ab1a9fdd04b` |
 |  `449`                  | June 20th    | `sha256:520ca9e6b846943971d7873fefc9040baf9f34742059889320f61abff7479683` |
 

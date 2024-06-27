@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-writer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 24th    | `sha256:46f2b4c0621bcc43a73b8da5c7c8d4f23a72e08008e3044bf5299e9bde31621d` |
-|  `latest-dev` | June 24th    | `sha256:2000ab52c57d4207fe00162b2c610402ebc8eaadf90626433279b75eb1882623` |
+|  `latest`     | June 26th    | `sha256:acc62235d9533eb2a9108b64b6c570a2ee39190b57cfa6bfedb03f34b0fc401e` |
+|  `latest-dev` | June 26th    | `sha256:52ae130fea89ed5bedbfb653fa585afb17eddb795cbf26152273f27b785d3f88` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.2.0-dev` `2.2-dev` `2-dev` | June 25th    | `sha256:303f51e53bfb795b0f0c93059cb01619e5ec2ab3b2f8d2a457737ec0e7729a73` |
-|  `2.2` `2` `latest` `2.2.0`                 | June 24th    | `sha256:4f0ecf1d90953b5c529a8ab3159937ed6a54fd5c6fe770252ce3eab1dc7eb385` |
+|  `latest-dev` `2.2.0-dev` `2.2-dev` `2-dev` | June 26th    | `sha256:1294a3703f0d22d294a51ca7021a4110453aa2108db59fccacb1588a88f9f7a8` |
+|  `2` `2.2` `2.2.0` `latest`                 | June 26th    | `sha256:c1ed9d35c01bb623aa352d57c7afdb9ee828ea417491e562c16b55ab9d8f1d87` |
 

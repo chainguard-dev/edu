@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sonar-scanner-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 24th    | `sha256:18677d8549696619ba46b6be073920a8c1dff1e9f7e09c762d5d1f5de96f4ad5` |
-|  `latest`     | June 24th    | `sha256:74fb35f2d5679579ba99580fb08a160dbea364a27891784664c001d09f230d61` |
+|  `latest`     | June 26th    | `sha256:c9cd53adff2033256d26e291465a1bed7c130705958e725aa20693b21da7f4cc` |
+|  `latest-dev` | June 26th    | `sha256:17e8681c56cb3a3e1911aef8d1a738be776fd1f941967ce937f48d0114cbc280` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                      | Last Changed | Digest                                                                    |
 |--------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `5-dev` `latest-dev` `5.0.1.3006-dev` `5.0.1-dev` `5.0-dev` | June 25th    | `sha256:27a1d45fd42d9d653a1acfae8adb73c41c2eb2ee63302c05e57d8961e6e78e3b` |
-|  `latest` `5.0` `5.0.1.3006` `5.0.1` `5`                     | June 25th    | `sha256:a566ad2160e4bad244a6059f4900026970d5ad67e64de49fa0a7f62830efffef` |
+|  `latest` `5.0` `5` `5.0.1.3006` `5.0.1`                     | June 26th    | `sha256:83266aeba67f74906e2ae0113cdf3a1fafa47815044c75bd7436a35132100cd7` |
+|  `5.0.1-dev` `5.0-dev` `5.0.1.3006-dev` `5-dev` `latest-dev` | June 26th    | `sha256:0362275bc2e169fc6bde55c08eaf16cd26370437fcd591e7ea09aed887ef95aa` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the spire-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 24th    | `sha256:0caf3047de35c6868b7387258502d95d618c79d1f3e0685a04f657033f9e9b5c` |
-|  `latest`     | June 24th    | `sha256:d32c15d33dbe53dfdc81194762a9c9fd827e3a5791b085928dfd392ba94e6de7` |
+|  `latest-dev` | June 26th    | `sha256:603e5a87ffd48257e96a1536726a5fcdc76b0e7d9014017bee1697f5d7e14b65` |
+|  `latest`     | June 26th    | `sha256:72e71eb07a8447696159a13726a2ec15759d6cf16b3baeadd45430f5ae226e46` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.10.0-dev` `1.10-dev` `1-dev` | June 25th    | `sha256:0f8e99b77c8c52d042373f20de9463e50ee3d297355b3b9d7d3820c2776c574d` |
+|  `latest-dev` `1.10.0-dev` `1.10-dev` `1-dev` | June 26th    | `sha256:fbc87961a3fba027d8aef2a5a794e4bb4aabad3c67533be57c930f9c292bdc3f` |
 |  `1.10` `1` `1.10.0` `latest`                 | June 25th    | `sha256:f2e49e03b6962021cfb1e89060341f9f4ab107c3e649a77630ceb6dca1670882` |
 |  `1.9.6-dev` `1.9-dev`                        | June 23rd    | `sha256:f73b06da6679469ae960052ad4e2a1adf030825180e479509e7aad8c8ee8fc3e` |
 |  `1.9` `1.9.6`                                | June 20th    | `sha256:627f4ca61fd28be0960bbad69f45109561872bbcd29fa5d88fb2ef5aa9eb756d` |

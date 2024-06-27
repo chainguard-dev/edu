@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opentelemetry-collector Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 24th    | `sha256:a2703a1f6d198302bf4937ae5adc5c631281ae2e00072cd78dbd9a28b1c85993` |
-|  `latest`     | June 19th    | `sha256:9609f2a0fcb2a59ff4de3f2e93f739b953b100ffa489391f01c6e62ab9fd3933` |
+|  `latest`     | June 26th    | `sha256:4552474beb5fa65148ff2f057bad41997ad5a82b8c9a7c4bbf8b3775e900a26c` |
+|  `latest-dev` | June 26th    | `sha256:b08e0b3e913be6c1ce6255462b1935598e7540d30b229c2dbeff0e8783bc7a58` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                         | Last Changed | Digest                                                                    |
 |-------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.103.0-dev` `0.103-dev` `0-dev` `latest-dev` | June 25th    | `sha256:73875e2ac8719b7a6d25a093bae3229a9b8f0211f8b189a0e352ea797990a133` |
-|  `0.103.0` `0` `0.103` `latest`                 | June 20th    | `sha256:0e553ce2c0f4d5c9058b34ea2727ef3cdd556037ab27f8d4ebcb9aca543d4d70` |
+|  `0` `latest` `0.103` `0.103.0`                 | June 26th    | `sha256:da0d435c1f35ec8bb8476e617a241a0e67cf97d20f9c68baace145216a7cf1ca` |
+|  `latest-dev` `0-dev` `0.103-dev` `0.103.0-dev` | June 26th    | `sha256:d9e62ce9fe76d6c370a04845a1d49614156169978bf7db24efd899e865c440ef` |
 

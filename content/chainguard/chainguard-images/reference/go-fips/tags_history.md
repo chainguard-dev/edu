@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the go-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.22.4-dev` `1.22-dev` | June 25th    | `sha256:6d105d3ea5b2bde405e32fbb0e36aeae51fed28a473c23240eabf1dbe5f545aa` |
-|  `1.21` `1.21.11`                             | June 25th    | `sha256:58d445f5bf06b00c35a9cc1b6b087b18e3a9dad048f1bd1c93a5322bc74098a9` |
-|  `1.21.11-dev` `1.21-dev`                     | June 25th    | `sha256:0a8f054fe6bbf544c1865a623fb69c76d7fc8eba88d988b2c4f6f2ee0963cfd5` |
-|  `1.22.4` `latest` `1` `1.22`                 | June 25th    | `sha256:0518f4c2d5caa0a4d1f1d2ca25583553d5c833a848728d934fafab310dfca871` |
+|  `1.21.11` `1.21`                             | June 26th    | `sha256:3f4d883260db3939ffb33fbf56ba564fa98eff36c5959a00531a01ed25a22f0e` |
+|  `1` `latest` `1.22.4` `1.22`                 | June 26th    | `sha256:9f77085277495d724f60f6556836201cfb67a0050e4060c6241446ed3d9b7e26` |
+|  `1-dev` `1.22-dev` `latest-dev` `1.22.4-dev` | June 26th    | `sha256:aad6599f7578ca4c6ac2b7f1534c2f585c655c0e5522e62bae2cdaa2d903a8b6` |
+|  `1.21.11-dev` `1.21-dev`                     | June 26th    | `sha256:6d344484a2c34fc3d9a72596aced319d132d3a65b543db9d087a1d660177a64c` |
 |  `1.20-dev` `1.20.14-dev`                     | June 25th    | `sha256:c9b218661ad795ffe3034be7c8983fb184400154a749ccbd343fadd7eb0e5875` |
 |  `1.19` `1.19.13`                             | June 25th    | `sha256:67eaf82b259139b3454be1d86b6d6d3d5f17f397aa40f46b6c08b5663f4d2725` |
 |  `1.19.13-dev` `1.19-dev`                     | June 25th    | `sha256:008d62bd60fd51f293b5365dbfcf725879b5fb442863ad750260df731db29ce5` |

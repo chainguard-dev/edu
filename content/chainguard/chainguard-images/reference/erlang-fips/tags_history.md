@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the erlang-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,10 +31,10 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                          | Last Changed | Digest                                                                    |
-|--------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `27-dev` `27.0-dev`                | June 26th    | `sha256:b8429208969dd1408d42699f28f6f93a6a0cec1125d380f04cfa70a90771be2a` |
-|  `latest` `27.0` `27`                            | June 26th    | `sha256:6cbdf66c4d369808fd3394bf4e57da4045c19dfa0a5fcb0a9948552b4b4b2a0d` |
-|  `26-dev` `26.2.5.1-dev` `26.2.5-dev` `26.2-dev` | June 25th    | `sha256:f17406ad24d296af81302794ea42c74bd8e29be56529e5035d307a81ff3f80f7` |
-|  `26` `26.2.5.1` `26.2.5` `26.2`                 | June 25th    | `sha256:6ae8b1643aa4d646e79a8250893b58491111f764c1067c6e101cfd50b938c74f` |
+| Tag (s)                                                       | Last Changed | Digest                                                                    |
+|---------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` `26.2.5.1-dev` `26.2.5-dev` `26.2-dev` `26-dev` | June 27th    | `sha256:1c032793390c51b6f310c5ecec86c27cc36214a71fcd5db51565acf4de5291c2` |
+|  `latest` `26.2.5` `26` `26.2` `26.2.5.1`                     | June 27th    | `sha256:9da10c8dfb5243fa41d899f40ce7819e338b11363a7a0f66288fe94189ddb184` |
+|  `27.0-dev` `27-dev`                                          | June 26th    | `sha256:9c78e898f0f770b99d57dd1b1cd50d3410674fde34deaf93c91f99c826082ae6` |
+|  `27.0` `27`                                                  | June 26th    | `sha256:876c1e39d71fccee651af45bba96597c823d5da1a2b621d90574f673fcaa3dfd` |
 

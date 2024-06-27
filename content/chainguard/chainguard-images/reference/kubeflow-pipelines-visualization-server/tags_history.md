@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-visualization-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 24th    | `sha256:5c75d8c96adfca734baad1e1b22da3c41f5fc8d77ea26139e06cb09373f32e20` |
-|  `latest`     | June 22nd    | `sha256:a830cb11db0f1c05f7e6dd8ae3ede4413a55ce8513df49205303a7ef8fe3c8f4` |
+|  `latest`     | June 26th    | `sha256:ddd5e8cf4317eb514aa95a410af37de698dd6f12a22d25d08aa3a21950d561bb` |
+|  `latest-dev` | June 26th    | `sha256:b91dae6e206896201b277f414c619f61293422989eab79de66134141854e052b` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.2-dev` `latest-dev` `2.2.0-dev` | June 25th    | `sha256:8f84d3d248916ae0086d30711b8a6ec398808de9317e597fa35be10cccd208af` |
-|  `2` `latest` `2.2.0` `2.2`                 | June 21st    | `sha256:6cd86a0a0eb60adca599bbd5e5bd7dd013136aec97950dcff7a97aeb390fcc2d` |
+|  `2.2.0-dev` `2-dev` `2.2-dev` `latest-dev` | June 26th    | `sha256:e46a8e24e41e21f2b85f1f9b9499691341c9d3da9551d3f5d2487b0b66a20b2b` |
+|  `2.2` `latest` `2.2.0` `2`                 | June 26th    | `sha256:6017002ae37c1562e21ac01a8f213b7a95815dfb521a2f8383d87d48f7878b47` |
 

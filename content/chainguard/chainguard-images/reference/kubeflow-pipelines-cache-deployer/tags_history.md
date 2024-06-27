@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-cache-deployer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 24th    | `sha256:f026273f5232ad6643f567ce6a5e5df44504c2198afb681e3c593431eef5d81c` |
-|  `latest`     | June 21st    | `sha256:b48369342e6698aedccf3c4745d15f35df1ededa67b75735b5acb3c635dd2c13` |
+|  `latest`     | June 26th    | `sha256:32cf76a1879d2818c178a9dca35d39e2db01731ab296528dd2e4f449d6f6e1a6` |
+|  `latest-dev` | June 26th    | `sha256:34fe97d34ef6130ced4bbc795e2a7cbdea5bdf85c968dbe704f59461eecb1eae` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.2-dev` `2-dev` `2.2.0-dev` | June 25th    | `sha256:0667347aed461adc952b0ad77fca5821568d3d4db5c9ac8f88bffbac4b61c845` |
-|  `2` `2.2.0` `latest` `2.2`                 | June 21st    | `sha256:bc74a4ad5f38668e37c576299c62a91f6dca1d2dfb90b64d038bec36ee91c733` |
+|  `2.2-dev` `2.2.0-dev` `latest-dev` `2-dev` | June 26th    | `sha256:81f0626913534893135618f34881001de0ba92f0ef0aad92c0cd1a3559c589be` |
+|  `latest` `2.2.0` `2` `2.2`                 | June 26th    | `sha256:001ae35551972920f21f341e083f678467c0bf5ba4316b51cdf54026967bcb4b` |
 

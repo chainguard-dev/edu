@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for gatekeeper Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 | Registry                     | Tags                                                                                                                                                                                                             |
 |------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                               |
+| `cgr.dev/chainguard`         | latest-dev                                                                                                                                                                                                       |
 | `cgr.dev/chainguard-private` | 3, 3-dev, 3.12, 3.12-dev, 3.12.0, 3.12.0-dev, 3.13, 3.13-dev, 3.13.4, 3.13.4-dev, 3.14, 3.14-dev, 3.14.1, 3.14.1-dev, 3.15, 3.15-dev, 3.15.1, 3.15.1-dev, 3.16, 3.16-dev, 3.16.3, 3.16.3-dev, latest, latest-dev |
 
 

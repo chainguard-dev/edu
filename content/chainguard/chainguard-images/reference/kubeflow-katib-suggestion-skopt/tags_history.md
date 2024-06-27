@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-skopt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 25th    | `sha256:990b0533fa02a5075bcf156ace4ce295867e6478fee6a96295f86cdd0e083909` |
-|  `latest`     | June 25th    | `sha256:76fd6b41403d000621f4a1721d0693397f34d36f0732f1f36dc64aabf76481d7` |
+|  `latest`     | June 26th    | `sha256:c34f6acf514147e3475affab012417e217f939b28753a19a01486615f3d5b98b` |
+|  `latest-dev` | June 26th    | `sha256:8c4cc858d54e5d3b9fc7f9ccf4dd73577c2885f846833eb0885ecfe80c16ee33` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16-dev` `0-dev` `0.16.0-dev` `latest-dev` | June 25th    | `sha256:128498a36989830442e75de922b89a9a020cc5cd68c3b644621435a13c8ee3c5` |
-|  `0.16.0` `0` `latest` `0.16`                 | June 25th    | `sha256:ce5e94e1872b96552d15c110d5a4ea1b0ba7e29092ce3e63b4e05d4b78bc97e3` |
+|  `0.16.0-dev` `0-dev` `0.16-dev` `latest-dev` | June 26th    | `sha256:ea55e605023d23691903b0d2e7ba98814f0832b99079eb4ccdde6002eb1910fc` |
+|  `latest` `0` `0.16.0` `0.16`                 | June 26th    | `sha256:41bdafa0000b61122c65a4eef1f203e3535164e5c8042eb6d1d2a304eb28c381` |
 

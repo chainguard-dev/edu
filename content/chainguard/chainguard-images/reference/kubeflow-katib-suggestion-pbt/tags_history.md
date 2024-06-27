@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-pbt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 25th    | `sha256:bf48f98a460d96300dee61f25e0b02536ba6c038c1287f9bfc657737b2b226bc` |
-|  `latest`     | June 25th    | `sha256:5690b7b730eae183c50535a210da63d12651ed46959fc3fb7b390d1c1a675d8c` |
+|  `latest`     | June 26th    | `sha256:65b87f8de68717bd1457f5e44c031b20bc1ea1f7a7ae531db54a52a08471c56d` |
+|  `latest-dev` | June 26th    | `sha256:f29f125dd78786a39f6f2f64a877122c3ec28d5e2e7451e2eb5d8c84fe84f205` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.16-dev` `0-dev` `0.16.0-dev` | June 25th    | `sha256:b495431731db42884e89dd73b8a7d44d702335b3e1a7d295d56c7c26189ad6ff` |
-|  `0.16` `0` `latest` `0.16.0`                 | June 25th    | `sha256:22b1d10cc771db717af40a536d9c924b704eaf688a26b241c5e36084ca3b4d59` |
+|  `0` `0.16` `0.16.0` `latest`                 | June 26th    | `sha256:ebe8a15d528e8e2164f38970cb08f018d5dff2e61941a0c480a5a99625819e86` |
+|  `0.16.0-dev` `0.16-dev` `0-dev` `latest-dev` | June 26th    | `sha256:fd0b9d3e4b671849a39ad187ac27ac5e6156089ad6c4432fb5cf8d0efeeb1c81` |
 

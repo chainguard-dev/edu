@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-prometheus Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 24th    | `sha256:a9afa9f1aed6bdb2fff0642f7f0657371134f58fd9440b71ebbb6c3392029974` |
-|  `latest`     | June 19th    | `sha256:ac60855c1a768c4590a25d9427ee921353a4d4d7e2c35906a2031d182f468a71` |
+|  `latest-dev` | June 26th    | `sha256:66a5873dcd1f0079f6518b6656dd20d1597b213132dda00d5dee679ef0b8d5eb` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `latest-dev` `2.21-dev` `2.21.3-dev` | June 25th    | `sha256:bb55ee513d44b71001fe8a5c8dd0417ac732362ac86cd2d738e43a75900cefe7` |
+|  `latest-dev` `2-dev` `2.21.3-dev` `2.21-dev` | June 26th    | `sha256:d7955814c1b5eeb86aa117eed1962df9944ef4c29574b71cb0d6ccb37cf670c5` |
 |  `2.21` `2` `2.21.3` `latest`                 | June 20th    | `sha256:8b489e1c30bfea3994a5f29fbc8f67a4590b676ed36f906ce5c70ab0b4d8c504` |
 

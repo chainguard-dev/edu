@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the percona-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 24th    | `sha256:7327d5454398111240a4241b5e007fa2455dbccf608b10944f732c4c3f39e652` |
-|  `latest-dev` | June 24th    | `sha256:294c73f3e8edcfeef65f486355f41266cf52faf97ea2847345150345a35a25db` |
+|  `latest-dev` | June 26th    | `sha256:c4d78f747690c6077ff6eb4e160da5154465364f436fea03a85497bcf1fea1d5` |
+|  `latest`     | June 26th    | `sha256:ef1ec0977e353813237c29703a9567655f9f2af865f809a912a21400c4daa086` |
 
 
 ### Private/Dedicated Registry
@@ -37,5 +37,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                     | Last Changed | Digest                                                                    |
 |-----------------------------|--------------|---------------------------------------------------------------------------|
-|  `8.3` `8` `latest` `8.3.0` | June 25th    | `sha256:3899cc74f60ad6d1ef0e873ad4ff1485c56ee849bf8ad55640a07baecc8468e1` |
+|  `8.3` `8` `latest` `8.3.0` | June 26th    | `sha256:a1d21e4fe7c9734964753c5d4790f503c33994e027eabb2749e05950d65162b0` |
 

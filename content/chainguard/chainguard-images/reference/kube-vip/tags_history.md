@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-vip Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 24th    | `sha256:918b56116a9dc51c8c0ee24c5cab496bb7b3f4dcd8352d2083760d76334076d7` |
+|  `latest-dev` | June 26th    | `sha256:97458fc1017d9a630a841a44add279a723e0003b590b920c95f4cea8d60def76` |
 |  `latest`     | June 21st    | `sha256:0f35949b6b93187b04b9daf26f08fc96e5712bc7a92b7aed7ded367e0fbcaf02` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.8-dev` `0-dev` `latest-dev` `0.8.1-dev` | June 25th    | `sha256:7ee0c9e75b6ced8f9b9725da49eddc2c5a6af1270ead665ca1cd339fb45f7982` |
+|  `0.8-dev` `latest-dev` `0-dev` `0.8.1-dev` | June 26th    | `sha256:991a2f3426ee264ff8edd57bb4cda9ecff5aa6db9693a461f20a4cba935cbe5f` |
 |  `latest` `0` `0.8.1` `0.8`                 | June 21st    | `sha256:d38382bb2a1427d851dcfbeed8a737ba3e9ff7257665af8dd1443a864b96331a` |
 |  `0.8.0-dev`                                | June 20th    | `sha256:376a801bf3f9a25c421db4ff47e20ae9ddd9b361e3a4eccd6c8509380948656e` |
 |  `0.8.0`                                    | June 20th    | `sha256:5a38b63fff56b2a1e92e6ac0362e2d6cf90ccc225cd29fe50f402e9010e4c0fb` |
