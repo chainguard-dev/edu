@@ -8,6 +8,7 @@ SPDX-License-Identifier: Apache-2.0
 package cmd
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -24,6 +25,7 @@ import (
 )
 
 type vulnsJson struct {
+	ctx           context.Context
 	opts          *options
 	bqClient      cgbigquery.BqClient
 	storageClient cloudstorage.GcsClient
@@ -44,6 +46,7 @@ func cmdVulns(o *options) *cobra.Command {
 			up, _ := cmd.Flags().GetBool("upload")
 
 			v := &vulnsJson{
+				ctx: cmd.Context(),
 				opts: &options{
 					dbProject:      project,
 					storageProject: gcsProject,
@@ -60,18 +63,22 @@ func cmdVulns(o *options) *cobra.Command {
 
 func (v *vulnsJson) setupClients() error {
 	var err error
+
 	v.bqClient, err = cgbigquery.NewBqClient(v.opts.dbProject, v.opts.db)
 	if err != nil {
 		log.Fatalf("error initializing bq client: %v", err)
 	}
-	v.storageClient, err = cloudstorage.NewGcsClient(v.opts.storageProject, v.opts.storageBucket)
+
+	v.storageClient, err = cloudstorage.NewGcsClient(v.ctx, v.opts.storageBucket)
 	if err != nil {
 		log.Fatalf("error initializing gcs client: %v", err)
 	}
+
 	v.grypeDb, err = grype.NewGrypeClient()
 	if err != nil {
 		log.Fatalf("error initializing grype client: %v", err)
 	}
+
 	return nil
 }
 
