@@ -6,8 +6,8 @@ require (
 	cloud.google.com/go/bigquery v1.52.0
 	cloud.google.com/go/storage v1.30.1
 	github.com/klauspost/compress v1.15.9
-	github.com/mattn/go-sqlite3 v1.14.17
-	github.com/spf13/cobra v1.8.0
+	github.com/mattn/go-sqlite3 v1.14.22
+	github.com/spf13/cobra v1.8.1
 	golang.org/x/sync v0.2.0
 	google.golang.org/api v0.126.0
 )
