@@ -9,6 +9,7 @@ SPDX-License-Identifier: Apache-2.0
 package cmd
 
 import (
+	"context"
 	"encoding/csv"
 	"encoding/json"
 	"fmt"
@@ -29,6 +30,7 @@ type rumbleJson []struct {
 }
 
 type imageCsv struct {
+	ctx            context.Context
 	bqClient       cgbigquery.BqClient
 	storageClient  cloudstorage.GcsClient
 	opts           *options
@@ -50,6 +52,7 @@ func cmdImageCsvs(o *options) *cobra.Command {
 			up, _ := cmd.Flags().GetBool("upload")
 
 			i := imageCsv{
+				ctx: cmd.Context(),
 				opts: &options{
 					dbProject:      project,
 					storageProject: gcsProject,
@@ -76,7 +79,7 @@ func (i *imageCsv) setupClients() error {
 		log.Fatalf("error initializing bq client: %v", err)
 	}
 
-	i.storageClient, err = cloudstorage.NewGcsClient(i.opts.storageProject, i.opts.storageBucket)
+	i.storageClient, err = cloudstorage.NewGcsClient(i.ctx, i.opts.storageBucket)
 	if err != nil {
 		log.Fatalf("error initializing gcs client: %v", err)
 	}
