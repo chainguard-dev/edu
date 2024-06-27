@@ -54,7 +54,7 @@ jobs:
         registry: '${{ secrets.REGISTRY_URL }}'
 
     - name: Build and push
-      uses: 'docker/build-push-action@c56af957549030174b10d6867f20e78cfd7debc5' # v3
+      uses: 'docker/build-push-action@15560696de535e4014efeff63c48f16952e52dd1' # v3
       with:
         context: .
         push: true
