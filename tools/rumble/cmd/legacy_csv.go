@@ -8,6 +8,7 @@ SPDX-License-Identifier: Apache-2.0
 package cmd
 
 import (
+	"context"
 	"encoding/csv"
 	"fmt"
 	"log"
@@ -21,6 +22,7 @@ import (
 )
 
 type legacyCsv struct {
+	ctx           context.Context
 	bqClient      cgbigquery.BqClient
 	storageClient cloudstorage.GcsClient
 	opts          *options
@@ -38,6 +40,7 @@ func cmdLegacyCsv(o *options) *cobra.Command {
 			up, _ := cmd.Flags().GetBool("upload")
 
 			l := legacyCsv{
+				ctx: cmd.Context(),
 				opts: &options{
 					dbProject:      project,
 					storageProject: gcsProject,
@@ -60,7 +63,7 @@ func (l *legacyCsv) setupClients() error {
 		log.Fatalf("error initializing bq client: %v", err)
 	}
 
-	l.storageClient, err = cloudstorage.NewGcsClient(l.opts.storageProject, l.opts.storageBucket)
+	l.storageClient, err = cloudstorage.NewGcsClient(l.ctx, l.opts.storageBucket)
 	if err != nil {
 		log.Fatalf("error initializing gcs client: %v", err)
 	}
