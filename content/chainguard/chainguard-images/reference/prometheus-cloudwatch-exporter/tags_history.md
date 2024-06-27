@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-cloudwatch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 24th    | `sha256:12d4a3699c5540c1150a0416756f74c134ccf16c0d18ce50af60fae213ef8059` |
-|  `latest`     | June 22nd    | `sha256:b29ef23571a3cb70b8e98daef4c1ead58094c99a38dd627f0537a3392646bed0` |
+|  `latest`     | June 26th    | `sha256:9b8b9cd3784acda63b4989f6c9f2c801e7a9adefdec4c76c05459ef25d6e36f4` |
+|  `latest-dev` | June 26th    | `sha256:6b18dab6bea5029243cc73f346f1060d0ba527678bdebacadf47c6adce1c3319` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.15.5-dev` `0.15-dev` | June 25th    | `sha256:eee0a1214f9cbbed6a0022a1cd34d660a98b75868f480e10603b94f00280f9f4` |
-|  `0.15` `0.15.5` `0` `latest`                 | June 21st    | `sha256:9766a6ad2463e13186af016c680e02bc45df6c6ad2e926d62eb64086c7fb8e01` |
+|  `0.15` `0` `latest` `0.15.5`                 | June 26th    | `sha256:7a45d2a760c591b670880955d61231fb7439b416a536ef29342c375525d2dc8f` |
+|  `0.15-dev` `0-dev` `latest-dev` `0.15.5-dev` | June 26th    | `sha256:82e625e99c44b4fe5b001ded64cdf92999af8b2b4755b1f673f3ab4020f3d45e` |
 

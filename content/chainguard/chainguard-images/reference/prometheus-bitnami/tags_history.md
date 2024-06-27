@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,12 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.45.6-dev` `2.45-dev`                      | June 25th    | `sha256:8aefa84c54b503b64c7f546df1c6710e76e344687aaa4dd4594dda42ceb76b32` |
-|  `2-dev` `2.53.0-dev` `latest-dev` `2.53-dev` | June 25th    | `sha256:b43b39ca001bb8a0c7e6ffa687c18122eac6a7ad372f0844e1893638b357716b` |
+|  `2.53-dev` `latest-dev` `2-dev` `2.53.0-dev` | June 26th    | `sha256:7e31e246d2920849b43393f31d5e02118487d724ec516d005d6e0c9fee6283ab` |
+|  `2.45.6-dev` `2.45-dev`                      | June 26th    | `sha256:93d6f6aad4fcbe71f3f4a6466889f574c90389901b2d2082b0c88fa39bda47f8` |
 |  `2.53.0` `2` `2.53` `latest`                 | June 25th    | `sha256:f8bd424a1768b83d4182151af85729218f894aca65d3e1a9427f912073fc9ba6` |
 |  `2.45` `2.45.6`                              | June 25th    | `sha256:850f8b98ef13dd18445b3ff879a5a8f6e6c3e2f6e0f14da50ca78513fefa61db` |
 |  `2.45.5-dev`                                 | June 20th    | `sha256:c929dece40dbf79406583221ab4f74470dfade908bdfb453a66a817fb3d08450` |
 |  `2.45.5`                                     | June 20th    | `sha256:a86012d87d56258377cc3be2eccb5aa5578cddb5ac10a14483a23ce9be1d7ec8` |
-|  `2.52.0` `2.52`                              | June 19th    | `sha256:a78dba1067af49e3b4a4d29c503296394aaa6d5b4fed236f539c66dd9a5b2381` |
-|  `2.52-dev` `2.52.0-dev`                      | June 19th    | `sha256:4c05efe3616c46e2f66e1f51035fccb78525f229c5786d5d9eebd515859b79c1` |
 

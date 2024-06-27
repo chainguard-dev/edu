@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the keycloak-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `25.0-dev` `25.0.1-dev` `25-dev` | June 25th    | `sha256:a7cc6ce6481ea270583aa1d23269e8d21356625b44e1ae53192154f89949d116` |
-|  `25.0` `latest` `25` `25.0.1`                 | June 21st    | `sha256:546016541ca46b4f2f95d878f1b669b04f235372eb6b064bd94ac84929e67266` |
+|  `25.0` `latest` `25` `25.0.1`                 | June 26th    | `sha256:5135143a0da37d098aa494a30b069eee176f0a4b20845400cbac41263afbfc0a` |
+|  `latest-dev` `25.0.1-dev` `25.0-dev` `25-dev` | June 26th    | `sha256:653a2b848a50844974c7ca53a49b8ddf8be5c3dc8a3c1a9b5df8322c0f588b3c` |
 |  `25.0.0`                                      | June 20th    | `sha256:76d9608f43ba21303363227509a02bef66156bcade22ae26b20c2390d575cb85` |
 |  `25.0.0-dev`                                  | June 20th    | `sha256:46f1ec0ca1e584acf9b6f52f10cdaa82dd630d3d43039857f366c10a28653607` |
 

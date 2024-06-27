@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the authservice-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.0.1-dev` `1-dev` `latest-dev` `1.0-dev` | June 25th    | `sha256:77a78e3e42120e776565fe6549e7b555ee7576e7e2612deed02f49818166fe8c` |
-|  `1` `1.0.1` `1.0` `latest`                 | June 20th    | `sha256:a552b0f3a12d19ee4e56cb35bb8d19f62029d05547f4d29b6506cc48a8e2334b` |
+|  `1.0` `1` `latest` `1.0.1`                 | June 26th    | `sha256:8b6c1df4e9d271002dbab89d488d1a721fd97a7e2fc70e80a447e7873235ef23` |
+|  `1-dev` `latest-dev` `1.0.1-dev` `1.0-dev` | June 26th    | `sha256:1eeecb958a9eb35a2bae86d5fdd572a28a580e77720fab3aebb26f72800fdd9e` |
 

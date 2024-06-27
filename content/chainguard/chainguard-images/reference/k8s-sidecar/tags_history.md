@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k8s-sidecar Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 24th    | `sha256:89d7671e5f60a73d41019079639858f0051bb9f3f561a0fe52a8568ff964d472` |
-|  `latest`     | June 22nd    | `sha256:2f39a3fb5e5a60eb10645a48974d035af1094016229c77a08699bbfada61b614` |
+|  `latest-dev` | June 26th    | `sha256:d63d3b95f92c88670aa6a0d2f69c313790089ae11c7ef6e986c7a52a7ce90701` |
+|  `latest`     | June 26th    | `sha256:035d6ccd1c6039fbf557681016ba05244ce178208551c7eb9c4928247edf8026` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.27.4-dev` `1.27-dev` `latest-dev` `1-dev` | June 25th    | `sha256:3905f80238958db12488dee1d3296a2a5322e6db9ce8c5d12999716060312864` |
-|  `latest` `1.27.4` `1.27` `1`                 | June 21st    | `sha256:008252fd409ff4f1f7dee8f09ddff04320b8233e597d5087e6457dae11dc1ddd` |
+|  `1.27` `latest` `1.27.4` `1`                 | June 26th    | `sha256:ae467f1498652783229fdd1a578e667113da2b090b360d81d51177f9ed521abd` |
+|  `1.27-dev` `1-dev` `1.27.4-dev` `latest-dev` | June 26th    | `sha256:0a8754fedc07c9ee08ed4bbdf299ba0a7e4d3ac1efb02af7a03e41d90f6139a5` |
 

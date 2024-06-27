@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for chromium Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for chromium Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                 |
-|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                   |
-| `cgr.dev/chainguard-private` | 126, 126-dev, 126.0, 126.0-dev, 126.0.6478, 126.0.6478-dev, 126.0.6478.114, 126.0.6478.114-dev, 126.0.6478.61, 126.0.6478.61-dev, latest, latest-dev |
+| Registry                     | Tags                                                                                                                                                   |
+|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                     |
+| `cgr.dev/chainguard-private` | 126, 126-dev, 126.0, 126.0-dev, 126.0.6478, 126.0.6478-dev, 126.0.6478.114, 126.0.6478.114-dev, 126.0.6478.126, 126.0.6478.126-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

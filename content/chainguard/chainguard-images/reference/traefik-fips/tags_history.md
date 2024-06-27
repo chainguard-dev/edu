@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the traefik-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.0-dev` `3.0.3-dev` `latest-dev` `3-dev` | June 25th    | `sha256:ad11d81bf65791d95810c0eb6246567fccfb469411758edccb7887df98293480` |
-|  `2-dev` `2.11-dev` `2.11.5-dev`            | June 25th    | `sha256:72763dfa96424c9992c7cf8055ac5dc4a31a4dd88b0eacef3e063b376e5c4deb` |
-|  `2.11` `2` `2.11.5`                        | June 25th    | `sha256:1d98bc3708d17a56a29107cc682912f44c880bdea3b0131df2e1a45270c306b3` |
-|  `3.0.3` `3.0` `latest` `3`                 | June 25th    | `sha256:c629964918e174bae8c0315ab50e60ab391e8ee048642c5a899561a5605bc03d` |
-|  `3.0.2`                                    | June 19th    | `sha256:a055b01e8d8077a66ae3870dddf9d16aa3b9a23f8f0133c037ac490962a08f8e` |
-|  `3.0.2-dev`                                | June 19th    | `sha256:28517320fe4e8e0c5d37b8f85709eff77558e9d12668abd05f06598772407f59` |
+|  `2.11-dev` `2.11.5-dev` `2-dev`            | June 26th    | `sha256:b644e8947bd06d4d75382ddbbfefe679d813b470174d73ab828cf9bd77cece09` |
+|  `2.11.5` `2.11` `2`                        | June 26th    | `sha256:a7b7d6e91463b9b0b3001a6942b79c6e0e73149b486648d09caf8ddae3ac5840` |
+|  `latest` `3` `3.0` `3.0.3`                 | June 26th    | `sha256:5d28724e581409a93319bf743e9ff3dd74e955ecfda9db268bf2b5fdfe7136ce` |
+|  `3.0.3-dev` `3-dev` `3.0-dev` `latest-dev` | June 26th    | `sha256:5cd1566e9d4b7e5b4aa99cbb7b0025709f0abfc649c0dea0137c8eed405445f8` |
 

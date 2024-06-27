@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node-feature-discovery Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 24th    | `sha256:06f12de190b9d4484a00ccbb939ed55f5e8c6876cd0d399545170c5463707376` |
-|  `latest`     | June 19th    | `sha256:c95599363ac2aff02cc936a34cf87243d11bf1f8126a062573c4ee8a0ba6f775` |
+|  `latest-dev` | June 26th    | `sha256:f601ee24413dd654be05f6ee0fe6c4881c7864a392f10d140c5ade8647887586` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.16-dev` `0.16.0-dev` | June 25th    | `sha256:54ac3bb97d115b4dc11e6d897ab8b28c9cee46778925fa339d7ef9d5d00e32f6` |
-|  `0.15-dev` `0.15.4-dev`                      | June 25th    | `sha256:f7122d20d9c22beaae9b889f4c72036cd6c8b014af4e39bd0670c4b956d06a34` |
+|  `0-dev` `0.16.0-dev` `0.16-dev` `latest-dev` | June 26th    | `sha256:4b6b5c3abf306078871956165f99dc3081c33ed748d38f6594891d41cc962acd` |
+|  `0.15.4-dev` `0.15-dev`                      | June 26th    | `sha256:db88cb6e3010c7cec2c8082726edc53987d66a80d49a045854630e641bfb004b` |
 |  `0` `0.16` `0.16.0` `latest`                 | June 20th    | `sha256:c05c7c74bd3babc052a8c9b7573c7cb840c1084b3703805e1bccb75c69ef6533` |
 |  `0.15.4` `0.15`                              | June 20th    | `sha256:091820a99e1f8a233a84186be4de4a8898d43885985c2399bcc5e994c3200d34` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cedar Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 24th    | `sha256:2e05ffe35e95ee7aa2b9321d12147c941c796c0467c8d0c012b08b5ead1e20e6` |
+|  `latest-dev` | June 26th    | `sha256:a4bf6b58e21e8b42154baa2e03d5ab21b6ce5dd53f5234bf0ef0838363e6d2de` |
 |  `latest`     | June 20th    | `sha256:a5b716da81ffd3e0358c067ba9ccb437e54e9ce82c83ac6a50186aab6141fdf6` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3-dev` `latest-dev` `3.2.1-dev` `3.2-dev` | June 25th    | `sha256:750705f469a13c2c6e3aea0fc0bb68ed19724685920dded2107cb1d6c11fccd6` |
+|  `3.2.1-dev` `latest-dev` `3.2-dev` `3-dev` | June 26th    | `sha256:b9af53aeabb20e33121372321e973a330a24b241869e08b8341ab494f3931a16` |
 |  `latest` `3.2` `3` `3.2.1`                 | June 20th    | `sha256:da8ff384dace737ebc6885894ebcd23a5fc2d6745eb6fd7472a2d340ff2c628a` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dotnet-runtime-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8-dev` `latest-dev` `8.0.6-dev` `8.0-dev` | June 25th    | `sha256:6c69a976e013ea7d1ce9132e53b6946e94fc1205036169769ab8c587916a0d61` |
-|  `6.0-dev` `6.0.131-dev` `6-dev`            | June 25th    | `sha256:12bb4c7caaff77c0dda76ea73a9ff67b2172f9bdf0db4b81619fe2f1244ec83e` |
+|  `8.0.6` `latest` `8.0` `8`                 | June 26th    | `sha256:128a075b1c49bd708e8af977d6f2caaa63b5285cc7383f3b57e0dcee820e44c1` |
+|  `8.0.6-dev` `latest-dev` `8-dev` `8.0-dev` | June 26th    | `sha256:42ccfb485507eeb5648d3f803e9c01455c4b1e735f152a0c4493a08796b46aad` |
+|  `6.0.131-dev` `6-dev` `6.0-dev`            | June 26th    | `sha256:0a0515b4bb75ccda8c1bb920cabf2819fa932cdb3f0051b70199aeb01b23f987` |
+|  `6.0` `6` `6.0.131`                        | June 26th    | `sha256:9cb8ecbba9b13d0bbf592bd54ae30fe6c783fc6e763e98e051230fb775a72f6b` |
 |  `7.0-dev` `7.0.120-dev` `7-dev`            | June 23rd    | `sha256:8ddb815dbc8f94e29a935f40f78b98f6dc7eab42bcaf4fe4b35712a764efe5ae` |
-|  `latest` `8.0` `8` `8.0.6`                 | June 21st    | `sha256:6ab3cfa33177425d0b74cfaf04a05f53029acda773128bb3230fea51705b1a12` |
 |  `7` `7.0` `7.0.120`                        | June 21st    | `sha256:03497c96de11ff84b7b81ce77b3b82bfb357c3e43ac6bd7c13ff9798247fda2d` |
-|  `6` `6.0.131` `6.0`                        | June 21st    | `sha256:5183910f7777fa055b1d97eb68594c7d204a8b7644e76ba8fcf16c549c5a3a91` |
 

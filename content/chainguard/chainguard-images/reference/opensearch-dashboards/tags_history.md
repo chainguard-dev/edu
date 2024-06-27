@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opensearch-dashboards Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 24th    | `sha256:efd12ef097a2b4a90e2f42e31ac98dac886802fb392a4636547067d001c47bfc` |
-|  `latest`     | June 24th    | `sha256:84d4f0334856bef39f0387124cf79f8a472e630b0c67eb4b7b086e1d615c7a8e` |
+|  `latest-dev` | June 26th    | `sha256:688d250bf98a33d2a79946a15373279fee1828f5486245de9cc00804a0da6fe1` |
+|  `latest`     | June 26th    | `sha256:8dc0f4bbe2eba76732032068d34ba6dd59986b5bc34f721cb6f481411fe0b805` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.14.0` `2.14` `latest` `2`                 | June 25th    | `sha256:9fb3b821afc41e5a09702120a9e727bca02f7d5f01428526357747dc10e65843` |
-|  `2.14-dev` `latest-dev` `2.14.0-dev` `2-dev` | June 25th    | `sha256:6048f158de2ccea28630852ea38bab7ae63bd790ac5e9a7296c79a037e88f931` |
+|  `2.14.0-dev` `2.14-dev` `2-dev` `latest-dev` | June 26th    | `sha256:3ce451c4be9fc7cec6c9d251565f68626c333ac3ec7ec6f9b9295cda9b5989cd` |
+|  `2.14.0` `2` `2.14` `latest`                 | June 26th    | `sha256:418ac2fbdbc60517ab21ce684e88d6b6d71688706555542118e65f253295a515` |
 

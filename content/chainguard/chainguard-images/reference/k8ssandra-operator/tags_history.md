@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k8ssandra-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 24th    | `sha256:fb79a0196089b8ee3a4f115692a15218a0f5e18be527acf159117fce8522d7f7` |
-|  `latest`     | June 19th    | `sha256:ff17b63701c5af813ce811df7bf835c7eab1e90aec239f912a9404b7067717e1` |
+|  `latest-dev` | June 26th    | `sha256:f78ddfd408d782cf0eadb12ea64bd3be14a989f6de73ea5fbd569152e08b0fcd` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.17.0-dev` `latest-dev` `1.17-dev` `1-dev` | June 25th    | `sha256:e154ed12f25cfe9faaf7b7171879f4b47535b7c7163a5a8f1297cb181fe90b08` |
+|  `1-dev` `1.17.0-dev` `latest-dev` `1.17-dev` | June 26th    | `sha256:cae317853e60ce8b343058abbff89af7b3733a199b938d0fbaaa12d934db31f2` |
 |  `1` `1.17` `latest` `1.17.0`                 | June 20th    | `sha256:77be7addd80c8ef3608ea0b1114633cb312234b1abc819fe4ff2e62feadcf0ae` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for envoy-fips Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for envoy-fips Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                     |
-|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                             |
-| `cgr.dev/chainguard-private` | 1, 1-dev, 1.27, 1.27-dev, 1.27.6, 1.27.6-dev, 1.28, 1.28-dev, 1.28.4, 1.28.4-dev, 1.29, 1.29-dev, 1.29.5, 1.29.5-dev, latest, latest-dev |
+| Registry                     | Tags                                                                                                                                                         |
+|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                                                 |
+| `cgr.dev/chainguard-private` | 1, 1-dev, 1.27, 1.27-dev, 1.27.6, 1.27.6-dev, 1.28, 1.28-dev, 1.28.4, 1.28.4-dev, 1.29, 1.29-dev, 1.29.5, 1.29.5-dev, 1.29.6, 1.29.6-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

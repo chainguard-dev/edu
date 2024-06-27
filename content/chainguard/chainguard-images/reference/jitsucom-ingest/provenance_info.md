@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for jitsucom-ingest Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-07 00:46:50
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 | Registry                     | Tags                                                         |
 |------------------------------|--------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                                           |
+| `cgr.dev/chainguard`         | latest-dev                                                   |
 | `cgr.dev/chainguard-private` | 2, 2-dev, 2.7, 2.7-dev, 2.7.0, 2.7.0-dev, latest, latest-dev |
 
 
