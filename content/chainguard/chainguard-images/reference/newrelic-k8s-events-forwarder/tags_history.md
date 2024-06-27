@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-k8s-events-forwarder Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 24th    | `sha256:2433cd7391511b483a217e1e2e3897e254e92f4f6fc84cf99e14c55da13533f3` |
-|  `latest`     | June 24th    | `sha256:2973259b6ca255f7f5d2df31a72ce46c1ccb3f89c97108cc2eefb808eba7181b` |
+|  `latest-dev` | June 26th    | `sha256:1c0938e136b9b8e9c3997b268084648b76e1af4f669666d46cd51cd983ab3634` |
+|  `latest`     | June 26th    | `sha256:2c142b297b920a351d473fd33d65034a81f64c99bcb1c2711e4f0ce40adf0562` |
 
 
 ### Private/Dedicated Registry
@@ -37,10 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.53.0` `1.53` `latest` `1`                 | June 25th    | `sha256:3b2714c7137f4b95ea0b74356ab1deec577af9d8bd2b8b8e5163d098a40d299f` |
-|  `latest-dev` `1-dev` `1.53-dev` `1.53.0-dev` | June 25th    | `sha256:bffedcad4c8803f0346c1cb6eb4b112fff58603e73a88086ddd7191f72b085a6` |
-|  `1.43.2` `1.43`                              | June 25th    | `sha256:9f284b4b104da56847ba60d664792013387fa69d19300cb72ad44283e43c5a49` |
-|  `1.43-dev` `1.43.2-dev`                      | June 25th    | `sha256:a4459b58f9389fd0094681f1de8556462ebe0de984da8e02af3113f3434dc76b` |
-|  `1.52` `1.52.3`                              | June 19th    | `sha256:614acf24af24caab32d9379102e77504c4d942c3b0d402d262b693ba4c95bca8` |
-|  `1.52-dev` `1.52.3-dev`                      | June 19th    | `sha256:affcd1b207012526072e0797324a844475c8a11eec746ddf9d8aba5595cd1ad8` |
+|  `1.53.0-dev` `1-dev` `1.53-dev` `latest-dev` | June 26th    | `sha256:61a69a9c5ea0f67af984fc6c044c8416338fb952c0271a829845ada87ee8ed2d` |
+|  `1.53.0` `1.53` `1` `latest`                 | June 26th    | `sha256:83ba7747fe46ec425db28a8e3c88a8e6e69cbc54a9eb1411c43b694579205bb3` |
+|  `1.43.2` `1.43`                              | June 26th    | `sha256:1d93b2f18ec2b365023d7dd907937634048c2d349712e543414da1bc465fc6d0` |
+|  `1.43.2-dev` `1.43-dev`                      | June 26th    | `sha256:e4d71e91ef7bdd547dabead109530e9091b53cbec482789feaebfbd545fb1f12` |
 

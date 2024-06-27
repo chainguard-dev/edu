@@ -1,3 +1,11 @@
+# 2024-06-27
+New images added:
+
+- fluent-bit-watcher
+- fluent-bit-watcher-fips
+
+A total of **912** documents were updated.
+
 # 2024-06-26
 New images added:
 

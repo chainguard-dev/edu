@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for kube-logging-operator Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 | Registry                     | Tags                                                                                                                                         |
 |------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest                                                                                                                                       |
+| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                                 |
 | `cgr.dev/chainguard-private` | 3, 3-dev, 3.17, 3.17-dev, 3.17.11, 3.17.11-dev, 4, 4-dev, 4.1, 4.1-dev, 4.1.0, 4.1.0-dev, 4.7, 4.7-dev, 4.7.0, 4.7.0-dev, latest, latest-dev |
 
 

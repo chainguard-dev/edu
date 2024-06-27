@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the fluent-bit-plugin-loki Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 24th    | `sha256:7c4d2d11e29476a690bba40754e032ea7a9faaad104c04aca1eb43e7005ab535` |
+|  `latest-dev` | June 26th    | `sha256:59437294485fd1f327fcec8cc120e8c50d2317af6eba56e8204bac9915dc94d7` |
 |  `latest`     | June 24th    | `sha256:173047aa662ce6a6afe2b8d655086b2d37d019a658bdfb8ae899d0763b43f8bd` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.0-dev` `latest-dev` `3-dev` `3.0.0-dev` | June 25th    | `sha256:0d4b6b85f72a496d36760f8da796111d67f025aa94c9122222b3fb6fdefd231d` |
-|  `3.0` `3.0.0` `latest` `3`                 | June 24th    | `sha256:e9bbaaf7b6a6632d17f7e70e9a0091522e9a725e05db7f5403917b9a696b30c9` |
+|  `3-dev` `latest-dev` `3.0.0-dev` `3.0-dev` | June 26th    | `sha256:012145264ebed27f579aff6aaf79649addc19b2d4a9f0e2680a6e6ebab513895` |
+|  `3.0` `latest` `3.0.0` `3`                 | June 26th    | `sha256:8a435491b63bc38afc04a6e8320ae4195853fedab6027948165bed66fe7cdaa3` |
 

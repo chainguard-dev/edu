@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-cli-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1.32` `1` `1.32.71`                 | June 25th    | `sha256:7cf0304ddc2e069f4dc5f9f58d8fd4b3638814b23c4a74147efa31fbcc879fb8` |
-|  `1-dev` `1.32.71-dev` `1.32-dev` `latest-dev` | June 25th    | `sha256:6215af9a502db7fe18bd0b3ae4182345196dcea805cd5e63fc9ead4acbff6024` |
+|  `1` `latest` `1.32` `1.32.71`                 | June 26th    | `sha256:ade00707991dea5d9738bc577d8826f7cac348e8f28636ccbda03ef07ffa57de` |
+|  `1.32-dev` `1-dev` `latest-dev` `1.32.71-dev` | June 26th    | `sha256:4c35f765afbdd459fb2b01bddf72a00311b49bea600c03606a952421c25840e8` |
 

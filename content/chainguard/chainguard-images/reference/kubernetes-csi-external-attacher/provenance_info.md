@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for kubernetes-csi-external-attacher Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 | Registry                     | Tags                                                                                         |
 |------------------------------|----------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                                                                           |
+| `cgr.dev/chainguard`         | latest-dev                                                                                   |
 | `cgr.dev/chainguard-private` | 4, 4-dev, 4.3, 4.3-dev, 4.3.0, 4.3.0-dev, 4.4, 4.4-dev, 4.4.4, 4.4.4-dev, latest, latest-dev |
 
 

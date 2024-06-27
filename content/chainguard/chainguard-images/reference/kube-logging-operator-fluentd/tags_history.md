@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-logging-operator-fluentd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 25th    | `sha256:135faf5edbfda2963db84f785a1c584f93efd238378c6d4107be02ad9b618691` |
-|  `latest`     | June 22nd    | `sha256:6094fd02437fd1e8d926dec2b36260cf1d8134ba73f001c7d4031e7a623ce302` |
+|  `latest`     | June 26th    | `sha256:a5688129925d632d91cc5d4558eaecd1ad1762ce62874e92234a84f58f50425f` |
+|  `latest-dev` | June 26th    | `sha256:f6b4548ba3bf7cb5d333e26c153da8a3b712138f85af00d09b280dca5a76846b` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.16-dev` `1.16.5-dev` `1-dev` `latest-dev` | June 25th    | `sha256:23949d1b46f420fcb3929059add041dc138fe8a6c4abe28ae96bf67d9ec84d5c` |
-|  `latest` `1` `1.16.5` `1.16`                 | June 21st    | `sha256:cfbc798344e4555d1c06e3728bd7da64a6fe45f91e5250301f4d12ddd22388f3` |
+|  `latest-dev` `1-dev` `1.16-dev` `1.16.5-dev` | June 26th    | `sha256:017162cf1dc0ccf0ec0e87d7c34b223f832e4cac8a0a9bee422ec7e7d25d17ce` |
+|  `1` `latest` `1.16` `1.16.5`                 | June 26th    | `sha256:fc1a80b6940c4fe1978d757505d9a8dcb098f5f61046692bcdcfd445b3d60b8f` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-hyperband Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 25th    | `sha256:162904b2bbe52bce9acb7e970df3dff1449fb25c5f594cdfde0d19fe4e311010` |
-|  `latest`     | June 25th    | `sha256:0ef565cc1d727da9bd8a1436b5008a565a12669a464f9684c583a877eeb2663c` |
+|  `latest`     | June 26th    | `sha256:e380bed414eb2b719143252fa7d32c2a764203da223367ab7e4ed1fc27266853` |
+|  `latest-dev` | June 26th    | `sha256:d900626d486511e888f0a31e0d91e2ad5be5c1536dbe73106259afce8990aa96` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16-dev` `latest-dev` `0-dev` `0.16.0-dev` | June 25th    | `sha256:bab4fd5b360e843e84366ae4d857230ab390dc29ca2d989ce14153e76fb7df5c` |
-|  `0` `0.16` `0.16.0` `latest`                 | June 25th    | `sha256:2adb5ae4284a00ea006388d161d8d3078ec6cb946bb98e7d10dc3d4b86f7376c` |
+|  `latest-dev` `0.16.0-dev` `0.16-dev` `0-dev` | June 26th    | `sha256:1972fb640179148ea991e830fdddb082e30e40fcc52cdb0364d28f514fb13cca` |
+|  `0` `0.16` `0.16.0` `latest`                 | June 26th    | `sha256:386ab89ecc7d6997b863999a7d9ea3cb1cb01943c8ecd54a67d574ca0ab0bcdb` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the falco-no-driver-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.38.1-dev` `0.38-dev` `latest-dev` `0-dev` | June 25th    | `sha256:80f41433d27533a7007f95d78a2851b5a29cd7df8cc17d9a995c2eba5cf13b80` |
+|  `latest-dev` `0.38-dev` `0-dev` `0.38.1-dev` | June 26th    | `sha256:0167b5afbf982a599a9bbd528b4a6e88ac8deadc47edb2e5b8db51b9532d9a89` |
 |  `0.38` `latest` `0` `0.38.1`                 | June 21st    | `sha256:29db4f0b2544941219ee78e0d37ea20e1953c44bb8b867e65cdbf74e268d1ebd` |
-|  `0.38.0-dev`                                 | June 19th    | `sha256:b7da375dbce1af0ec8105f27086c4a58c83bfa4850cf85a054c88a74b7b01924` |
-|  `0.38.0`                                     | June 19th    | `sha256:e2ad96a784a52cbd8d2ca024155ea8aaa25eb5af27278cb704f991a6aa85a0df` |
 

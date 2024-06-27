@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jenkins Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 24th    | `sha256:b32313449994a71cfd5e1c6374752e71e1d566d8b4122f7f4eb100e34ac39670` |
-|  `latest-dev` | June 24th    | `sha256:a1e7f05fead0db926764d435060107934c183438e56c105284fe6dde8bd1e079` |
+|  `latest-dev` | June 26th    | `sha256:524ebb2025452ed9dd634018e039c5ff1560cd93b0178b4e7122768b17a34745` |
+|  `latest`     | June 26th    | `sha256:1c58d73e11af69558f58c5112c4a9d54655c7a8c0cd6a5378f4b834412fb740e` |
 
 
 ### Private/Dedicated Registry
@@ -37,10 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                           | Last Changed | Digest                                                                    |
 |-----------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `2.464` `2`             | June 25th    | `sha256:fa6f92148f7791f907410fbe58c89ffa6f994de75069488589f068bd6052caa3` |
-|  `2.464-dev` `2-dev` `latest-dev` | June 25th    | `sha256:77c13bf15e3496a8d6bcac5bfb0e9ba87be6ce71d5a02518a4c6d3409869b0b4` |
+|  `2-dev` `latest-dev` `2.464-dev` | June 26th    | `sha256:c718a2fc4ee0148a253500c6b6f52dbcf5ca6d0ae35d32b1de0de0a829a806e7` |
+|  `2` `latest` `2.464`             | June 26th    | `sha256:f7694a647a2d88510225e238497f0e5773632f7b0372484f40f566ee5fdb180d` |
 |  `2.463-dev`                      | June 23rd    | `sha256:38cdaf7f96fd8f37cd8ce0375ebe16782327af8fda4d344885e750fa3d723a97` |
 |  `2.463`                          | June 23rd    | `sha256:8a3aea0fed653cd14ecd1899351590fccbf4bf2a88fc4c09aeb71316d5c1e7e5` |
-|  `2.462-dev`                      | June 19th    | `sha256:3923b2d716015552b02ae4765e153c1e2ee083f421b7bf7be47d807b1e6ce246` |
-|  `2.462`                          | June 19th    | `sha256:84e6b9e31fb47e1004decb776f19dbf3f104703ce8e091821d5a4eddfca56614` |
 

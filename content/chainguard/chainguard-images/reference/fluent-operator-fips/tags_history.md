@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the fluent-operator-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-27 00:41:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `latest-dev` `2.9.0-dev` `2.9-dev` | June 25th    | `sha256:5e1c0cbf261ab1876d5ae4a527cb454d87860d70516ef671582b3f6f5ceded51` |
-|  `2.9.0` `2` `2.9` `latest`                 | June 20th    | `sha256:0cb2be7917b02400bac058acb8908452d0578a6b78860d8539c78fdd889908ad` |
+|  `latest` `2.9` `2.9.0` `2`                 | June 26th    | `sha256:eed6c09f0a044d206390852489e006434a3c9306be81093a4a74de641dc01685` |
+|  `2.9.0-dev` `2.9-dev` `latest-dev` `2-dev` | June 26th    | `sha256:292dc0a1770e4965c3f5ade969383cead2e69a22ce7457dd03bba98c45effd26` |
 
