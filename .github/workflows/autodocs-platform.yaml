@@ -55,6 +55,20 @@ jobs:
           echo "latest=$latest" >> $GITHUB_OUTPUT
         fi
 
+    - name: Post failure notice to Slack
+      uses: rtCamp/action-slack-notify@4e5fb42d249be6a45a298f3c9543b111b02f7907 # v2.3.0
+      if: ${{ failure() }}
+      env:
+        SLACK_ICON: http://github.com/chainguard-dev.png?size=48
+        SLACK_USERNAME: guardian
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+        SLACK_CHANNEL: 'alerts-edu'
+        SLACK_COLOR: '#8E1600'
+        MSG_MINIMAL: 'true'
+        SLACK_TITLE: 'AutoDocs Platform failed - ${{ github.repository }}'
+        SLACK_MESSAGE: |
+          For detailed logs: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
   integrate-platform-docs:
     runs-on: ubuntu-latest
 
@@ -124,3 +138,17 @@ jobs:
           platform
           automated
         assignees: erikaheidi
+
+    - name: Post failure notice to Slack
+      uses: rtCamp/action-slack-notify@4e5fb42d249be6a45a298f3c9543b111b02f7907 # v2.3.0
+      if: ${{ failure() }}
+      env:
+        SLACK_ICON: http://github.com/chainguard-dev.png?size=48
+        SLACK_USERNAME: guardian
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+        SLACK_CHANNEL: 'alerts-edu'
+        SLACK_COLOR: '#8E1600'
+        MSG_MINIMAL: 'true'
+        SLACK_TITLE: 'AutoDocs Platform failed - ${{ github.repository }}'
+        SLACK_MESSAGE: |
+          For detailed logs: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
