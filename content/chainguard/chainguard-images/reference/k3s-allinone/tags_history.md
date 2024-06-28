@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k3s-allinone Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1.30` `1.30.1` `1`                 | June 26th    | `sha256:c940fd1652de811b334b91d278586cd502b9009732c04a791090a263a412d12d` |
-|  `latest-dev` `1.30.1-dev` `1.30-dev` `1-dev` | June 26th    | `sha256:92ba1e508416507f1d7c9e5ac61877ffccf64c74821227d8ad2a7520a9d306e3` |
+|  `1.30.2` `1` `1.30` `latest`                 | June 27th    | `sha256:b4c668d4554312c470322968fb81e9d93d8fb1f54f56861c5a9ec0949ec427b5` |
+|  `1.30-dev` `1.30.2-dev` `latest-dev` `1-dev` | June 27th    | `sha256:4be7d084794fa06de0af5a849cce79dd97fbdae3017edeb357a964c5e3210065` |
+|  `1.30.1`                                     | June 26th    | `sha256:c940fd1652de811b334b91d278586cd502b9009732c04a791090a263a412d12d` |
+|  `1.30.1-dev`                                 | June 26th    | `sha256:92ba1e508416507f1d7c9e5ac61877ffccf64c74821227d8ad2a7520a9d306e3` |
 

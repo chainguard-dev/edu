@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-envoy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:a03367182e69b03e2289be8a5dfefaa816d888e45a1275c0823d4b95678af26e` |
-|  `latest`     | June 26th    | `sha256:bc441ef63a7e2779a4d6d50e106e478e42d05d0e7e2f8a1b88c4201b63a897cf` |
+|  `latest`     | June 27th    | `sha256:4fdab09556daf5b6b99df5d006eb9a136283745e9c5d136ebd2724b389018555` |
+|  `latest-dev` | June 27th    | `sha256:3e9cc724043980d197da9d1cdf2a9fc703cf47cdbd828cd82d54c628429d0dee` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.2.0` `latest` `2.2` `2`                 | June 26th    | `sha256:d85df4cf9e1ddb42a1b760497e62971d7eca0d984b973bbea225c51f85c1d095` |
-|  `latest-dev` `2-dev` `2.2-dev` `2.2.0-dev` | June 26th    | `sha256:23e28c8d79ce086ba5f319c8429571c1601cbbf3e83de760ae61243e70d0c9cc` |
+|  `2` `latest` `2.2.0` `2.2`                 | June 27th    | `sha256:139af7c1c5846b9925b83742e99589785f97d9538efd2172f0fc995b769414cc` |
+|  `2.2.0-dev` `2.2-dev` `latest-dev` `2-dev` | June 27th    | `sha256:8cfbcda90ce622982e565f3227780ce1ffe5b86c3fc2fe5b2cbaf9fa76c2deaf` |
 

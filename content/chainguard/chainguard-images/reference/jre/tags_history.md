@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jre Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,9 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                            | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `openjdk-8.412.08-dev` `openjdk-8.412-dev` `openjdk-8-dev`                        | June 27th    | `sha256:a54c5079c266f2b2596c9431a1b875d7f82e5815e0a5a2ed2bba83ebfddf2d32` |
+|  `openjdk-8.412.08` `openjdk-8.412` `openjdk-8`                                    | June 27th    | `sha256:311e016619e84c6ccaca98316cbec5787700eae4a5e21d0a8d3f7bc956b6bf54` |
 |  `openjdk-15.0.10` `openjdk-15.0.10.5` `openjdk-15` `openjdk-15.0`                 | June 26th    | `sha256:ab771a1e5f16506de12812b7969a2e0730bdb7f708ccd8eb5821841caad84f36` |
 |  `openjdk-21` `openjdk-21.0.3` `openjdk-21.0`                                      | June 26th    | `sha256:86368596b4d3adf1ed9fc6054a81010e6c5e8e693f0b58ce34c3debd145d66ce` |
-|  `openjdk-8.412` `openjdk-8` `openjdk-8.412.08`                                    | June 26th    | `sha256:6276bae2a72ba270c4012dd637e716e1b6f055342a9734b6a010ccba09b9038a` |
 |  `openjdk-15.0.10.5-dev` `openjdk-15-dev` `openjdk-15.0.10-dev` `openjdk-15.0-dev` | June 26th    | `sha256:a145c51a2e3afb2a73f42996b6ad0134fcddae13bb84b64faf8383573d60bee4` |
 |  `latest` `openjdk-22.0` `openjdk-22` `openjdk-22.0.1`                             | June 26th    | `sha256:9054cee4df166e942cf51db33cc4354f6da12c5717caa2eb3269fdb44e8ef518` |
 |  `openjdk-22.0.1-dev` `openjdk-22.0-dev` `openjdk-22-dev` `latest-dev`             | June 26th    | `sha256:6a37651262844616f7eba02f45b52217bad884d66903852657798a9247f6cdd1` |
@@ -52,5 +53,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `openjdk-17.0` `openjdk-17.0.11` `openjdk-17`                                     | June 26th    | `sha256:d6cdf783b49a40aa45db2958f0fa0fe69f7b14b6a5490a3cefad0b5e20ae0558` |
 |  `openjdk-21.0.3-dev` `openjdk-21-dev` `openjdk-21.0-dev`                          | June 26th    | `sha256:9f7daa3e985971f69afbb10db77a2f1cd49ab0c9a9c840340e9e750be6046af1` |
 |  `openjdk-16-dev` `openjdk-16.0.2.7-dev` `openjdk-16.0.2-dev` `openjdk-16.0-dev`   | June 26th    | `sha256:58d8ca9bd6df2e7de80c842cab5ceb3757ff94fb53600052ef787399f5f8b349` |
-|  `openjdk-8-dev` `openjdk-8.412-dev` `openjdk-8.412.08-dev`                        | June 26th    | `sha256:558e4f3416589dbaa81161152e35a0dbaaad4f1f34a9ba59b933c5717a2b68e9` |
 

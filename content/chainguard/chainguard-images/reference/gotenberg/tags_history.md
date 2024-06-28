@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gotenberg Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8.7.0` `latest` `8` `8.7`                 | June 26th    | `sha256:f86caaff56569207f44b79634ed10c19e6bbd5ec502d53555e5a2534f3a2557e` |
-|  `8.7.0-dev` `8.7-dev` `latest-dev` `8-dev` | June 26th    | `sha256:e7ed72a33be0e93d6baacc55d51e16df85fae17fd4341e14a0e869c929ee007c` |
+|  `latest` `8.7.0` `8.7` `8`                 | June 27th    | `sha256:dae15013bd2189c86759a87cc1a309e4de60bb3c408fc457f1c8bbc226592c2f` |
+|  `8.7-dev` `latest-dev` `8.7.0-dev` `8-dev` | June 27th    | `sha256:38e7afbbf94af9e121af1de4820f241b45a23452dc2db9a13e1cf5462c235736` |
 

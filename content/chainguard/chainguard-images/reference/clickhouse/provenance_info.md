@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for clickhouse Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for clickhouse Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                                       |
-|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                         |
-| `cgr.dev/chainguard-private` | 23, 23-dev, 23.8, 23.8-dev, 23.8.15, 23.8.15-dev, 23.8.15.35, 23.8.15.35-dev, 24, 24-dev, 24.2, 24.2-dev, 24.2.2, 24.2.2-dev, 24.2.2.71, 24.2.2.71-dev, latest, latest-dev |
+| Registry                     | Tags                                                                                                   |
+|------------------------------|--------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | latest-dev                                                                                             |
+| `cgr.dev/chainguard-private` | 23-dev, 23.8-dev, 23.8.15-dev, 23.8.15.35-dev, 24-dev, 24.2-dev, 24.2.2-dev, 24.2.2.71-dev, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the thanos-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,5 +37,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
 |  `0-dev` `latest-dev` `0.3.7-dev` `0.3-dev` | June 26th    | `sha256:5c75c73d0abf411a493979e12095aa9b8671505a5e58cf082ffa0322f1ce1b17` |
-|  `0` `0.3` `latest` `0.3.7`                 | June 20th    | `sha256:6af5cd07d1f82ceec15be76e9da30120b002b4aac6863159b80ba59e3548e27a` |
 
