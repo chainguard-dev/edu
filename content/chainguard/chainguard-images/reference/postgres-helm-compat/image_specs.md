@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public postgres-helm-compat Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-07 00:45:47
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -46,6 +46,7 @@ The table shows package distribution across variants.
 | `glibc`                             | X          | X      |
 | `glibc-locale-en`                   | X          | X      |
 | `glibc-locale-posix`                | X          | X      |
+| `gosu`                              | X          | X      |
 | `ld-linux`                          | X          | X      |
 | `libbrotlicommon1`                  | X          |        |
 | `libbrotlidec1`                     | X          |        |
@@ -75,7 +76,6 @@ The table shows package distribution across variants.
 | `postgresql-15-contrib`             | X          | X      |
 | `postgresql-15-oci-entrypoint`      | X          | X      |
 | `postgresql-15-oci-entrypoint-base` | X          | X      |
-| `su-exec`                           | X          | X      |
 | `wget`                              | X          |        |
 | `wolfi-baselayout`                  | X          | X      |
 | `zlib`                              | X          | X      |

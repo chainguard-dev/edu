@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the calico-apiserver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,7 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | June 20th    | `sha256:e6dce859d3a9f51b7812dbdc84f52b42c71e0a4dbf16e56e1e32a6125feeb661` |
-
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
@@ -37,5 +34,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 | Tag (s)                                                                          | Last Changed | Digest                                                                    |
 |----------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
 |  `v3-dev` `v3.28-dev` `latest-dev` `3.28-dev` `v3.28.0-dev` `3.28.0-dev` `3-dev` | June 26th    | `sha256:2c8977944cfb0761e00569ede1301ea715af92e833da8ce37d0269dc736dca29` |
-|  `3` `v3` `3.28.0` `v3.28.0` `3.28` `latest` `v3.28`                             | June 20th    | `sha256:158f202eb61af520199e52aa31c8a169269e5c654b271bb5ed84c88a763ba5bc` |
 

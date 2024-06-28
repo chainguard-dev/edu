@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the envoy-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,12 +33,11 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                               | Last Changed | Digest                                                                    |
 |---------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.27-dev` `1.27.6-dev`      | June 27th    | `sha256:bd33675d075c4b5bfc5d6a389e1dd2991d406174dc9bff392044c93692c58542` |
-|  `1` `latest` `1.27` `1.27.6`         | June 27th    | `sha256:958225378cf374aacdb69d8b3ca56a81172d2f66f78fc29ef4dbd0ec53d90126` |
-|  `latest-dev` `1.28.4-dev` `1.28-dev` | June 27th    | `sha256:73d0c94eb1f6e4e46dd4634678a81fa9e2c8744b2b2545d686b24bec886111bd` |
-|  `1.29-dev` `1.29.6-dev`              | June 26th    | `sha256:13b49241b5a0a3cb73177d1bcbec5faec4e66872278c6cad7a411e4cc4994dfd` |
-|  `1.28.4` `1.28`                      | June 26th    | `sha256:b399021a12e40124ce3627b5f11aaacf50a66d7dfd54a1c3d735ef6f513af39d` |
-|  `1.29` `1.29.6`                      | June 26th    | `sha256:18593ed0a678b6b46b7acd567837e9410e9939fd5671f479d42362a85b61e9db` |
+|  `1` `1.28.4` `1.28`                  | June 27th    | `sha256:36e67096f7c35212ad185009546e195777e504982f2e546f247e4f1a4e049d5c` |
+|  `latest` `1.29.6` `1.29`             | June 27th    | `sha256:6b2dd9fee0f02ffceeb2567f76c8b218a74247c153b0356265dde82feada741b` |
+|  `latest-dev` `1.28.4-dev` `1.28-dev` | June 27th    | `sha256:a22387f0203ac9138897b019b812da9a196e7d958ce17513d334540b77220a89` |
+|  `1-dev` `1.29.6-dev` `1.29-dev`      | June 27th    | `sha256:754bc9dca48f72013ced02b647b4c9e554467500b4cd389043f66badd40d1ea5` |
+|  `1.27.6-dev` `1.27-dev`              | June 27th    | `sha256:d54ffa08fb816cbb956d340612ecc6036562acc80b40399d2e17bd4b484ff0e9` |
+|  `1.27.6` `1.27`                      | June 27th    | `sha256:4ba471714df121823c4852a6f7b1907c2ea7c2e11772f30bc154a91c1c39c641` |
 |  `1.29.5-dev`                         | June 25th    | `sha256:39d93b1fa877892cc14a256cca0c7298680a05c28bab75a04ed6517e875f79a3` |
-|  `1.29.5`                             | June 20th    | `sha256:3a84ce8153ca56ee0b8b6f9334b8a63050eab930c4b9ea5fea27f9e0986bcfd4` |
 

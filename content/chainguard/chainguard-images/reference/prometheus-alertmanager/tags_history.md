@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-alertmanager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:56f56b324ead72d84cd693c6012c07128c048d336fad312e4ad421ecba8c6d19` |
-|  `latest`     | June 26th    | `sha256:aff57124dc0a17c32c56c594a88679ffab045c73037a6f3aba45e37270d36e5b` |
+|  `latest-dev` | June 27th    | `sha256:56f56b324ead72d84cd693c6012c07128c048d336fad312e4ad421ecba8c6d19` |
+|  `latest`     | June 27th    | `sha256:8704d40b9f1bd17e1efc85c09cc987adc040fdde2304ee26070bb8942c968b4d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.27.0-dev` `latest-dev` `0.27-dev` `0-dev` | June 27th    | `sha256:93f8d7785841ee43b0ed5f260789efc4bcee2b9a8394dedf312592d14b355fef` |
-|  `0.27.0` `0.27` `0` `latest`                 | June 27th    | `sha256:9508955635caa3e3303cc3d67a6e80342b9cc90bfd96244179678d096198efbb` |
+|  `0.27` `latest` `0` `0.27.0`                 | June 27th    | `sha256:9508955635caa3e3303cc3d67a6e80342b9cc90bfd96244179678d096198efbb` |
+|  `latest-dev` `0.27.0-dev` `0-dev` `0.27-dev` | June 27th    | `sha256:93f8d7785841ee43b0ed5f260789efc4bcee2b9a8394dedf312592d14b355fef` |
 

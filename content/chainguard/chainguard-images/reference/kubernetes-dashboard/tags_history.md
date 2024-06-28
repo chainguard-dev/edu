@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-dashboard Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,5 +37,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
 |  `2.7-dev` `latest-dev` `2.7.0-dev` `2-dev` | June 26th    | `sha256:7e1ef5ddfa0572ba044e78328d417fe9ca4e56b274406415930dc6fcca129983` |
-|  `latest` `2.7` `2` `2.7.0`                 | June 20th    | `sha256:c870e07a7c91d591c771f53758579ac48a0d060ea3851ae35ad70e898007c779` |
 

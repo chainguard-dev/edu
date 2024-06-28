@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-hyperband Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 26th    | `sha256:e380bed414eb2b719143252fa7d32c2a764203da223367ab7e4ed1fc27266853` |
-|  `latest-dev` | June 26th    | `sha256:d900626d486511e888f0a31e0d91e2ad5be5c1536dbe73106259afce8990aa96` |
+|  `latest-dev` | June 27th    | `sha256:440a455abc4736d5a00a9dd1f6536883dd58fc053f301353fb86f4e21f2375d2` |
+|  `latest`     | June 27th    | `sha256:7eca1972763714c3e612eaba5f05d84fee99efceb4e151db2162ff3fc0d9f6f2` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.16.0-dev` `0.16-dev` `0-dev` | June 26th    | `sha256:1972fb640179148ea991e830fdddb082e30e40fcc52cdb0364d28f514fb13cca` |
-|  `0` `0.16` `0.16.0` `latest`                 | June 26th    | `sha256:386ab89ecc7d6997b863999a7d9ea3cb1cb01943c8ecd54a67d574ca0ab0bcdb` |
+|  `0.16.0` `latest` `0.16` `0`                 | June 27th    | `sha256:bfa9bd45756497c95cfa9f11bb86e44bd918e7a361ed954b69e87c77f04143e2` |
+|  `0-dev` `latest-dev` `0.16.0-dev` `0.16-dev` | June 27th    | `sha256:b16bf28523de64e6058130a98711e78f08becc358ab93fa0bd37cd02d97a3b16` |
 

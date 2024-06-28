@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the calico-pod2daemon-flexvol Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,7 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | June 20th    | `sha256:28639e8d83e54b05d6eb2e5fdeb65252a3b17d7cc60b7a204d1fc6ae0c864505` |
-
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
@@ -37,5 +34,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 | Tag (s)                                                                          | Last Changed | Digest                                                                    |
 |----------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
 |  `v3.28-dev` `v3-dev` `3.28.0-dev` `v3.28.0-dev` `3-dev` `latest-dev` `3.28-dev` | June 26th    | `sha256:be0fbab06672f711a84e405c417c52a2ad72459225d2a656438e0b5b62ac3bb3` |
-|  `v3` `latest` `v3.28.0` `v3.28` `3` `3.28.0` `3.28`                             | June 20th    | `sha256:5b21c9837551eadd7250613fb4708056e54d4ce733f240861a3ee7aaea9af19b` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for eks-distro-kubernetes-csi-external-attacher Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for eks-distro-kubernetes-csi-external-attacher Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                                                                                                                                                                                                                                                                                             |
-|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                                                                                                                                                                                                                                                                                                                     |
-| `cgr.dev/chainguard-private` | 4, 4-dev, 4-eks-1-23-33, 4-eks-1-23-33-dev, 4-eks-1-25-33, 4-eks-1-25-33-dev, 4.4, 4.4-dev, 4.4-eks-1-23-33, 4.4-eks-1-23-33-dev, 4.4.0, 4.4.0-dev, 4.4.0-eks-1-23-33, 4.4.0-eks-1-23-33-dev, 4.4.0-r6-eks-1-23-33, 4.4.0-r6-eks-1-23-33-dev, 4.5, 4.5-dev, 4.5-eks-1-25-33, 4.5-eks-1-25-33-dev, 4.5.0, 4.5.0-dev, 4.5.0-eks-1-25-33, 4.5.0-eks-1-25-33-dev, 4.5.0-r8-eks-1-25-33, 4.5.0-r8-eks-1-25-33-dev, latest, latest-dev |
+| Registry                     | Tags                                                                                                                                                                                                                                        |
+|------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                                                                                                                                |
+| `cgr.dev/chainguard-private` | 4-dev, 4-eks-1-23-33-dev, 4-eks-1-25-33-dev, 4.4-dev, 4.4-eks-1-23-33-dev, 4.4.0-dev, 4.4.0-eks-1-23-33-dev, 4.4.0-r6-eks-1-23-33-dev, 4.5-dev, 4.5-eks-1-25-33-dev, 4.5.0-dev, 4.5.0-eks-1-25-33-dev, 4.5.0-r8-eks-1-25-33-dev, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k3s Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.30.1` `latest` `1.30` `1`                 | June 26th    | `sha256:bcbaf5961798db1c3eb534f5e7be6dd2f56a474ecb51b6d1b5e32cdd18d59eab` |
-|  `1.30.1-dev` `latest-dev` `1.30-dev` `1-dev` | June 26th    | `sha256:d1316fb7a79c407999589f8b0946449b9db6d69b7aa0a4681dec4227a2346c3a` |
+|  `1.30-dev` `1-dev` `latest-dev` `1.30.2-dev` | June 27th    | `sha256:3b160e1394637ce8ad81ca263f7b8f8766cc19c6e52f2bb069e0b55c242070d1` |
+|  `1` `1.30` `latest` `1.30.2`                 | June 27th    | `sha256:c22441a1ed51621dc35fbf9162c6c17dafbc342de8d444a3d0ce973eadd990b0` |
+|  `1.30.1`                                     | June 26th    | `sha256:bcbaf5961798db1c3eb534f5e7be6dd2f56a474ecb51b6d1b5e32cdd18d59eab` |
+|  `1.30.1-dev`                                 | June 26th    | `sha256:d1316fb7a79c407999589f8b0946449b9db6d69b7aa0a4681dec4227a2346c3a` |
 

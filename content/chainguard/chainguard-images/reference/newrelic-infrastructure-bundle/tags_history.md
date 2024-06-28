@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-infrastructure-bundle Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 26th    | `sha256:606d95822da6110b8afd4eb5164be3a4357a521c2f7c6b82b0c619b53e85710f` |
-|  `latest-dev` | June 26th    | `sha256:0f2570d1e31ceefa26eddf6490fd1053110d2fa45282b8ed34e5c02f30b55ca3` |
+|  `latest-dev` | June 27th    | `sha256:19e93555d1f8374668d1c9d70c933043ef87284c353dff2b02786764500cb284` |
+|  `latest`     | June 27th    | `sha256:3fe3a0e91dd5e7913a44d063a174f1adc8532903d4a4e8cbb2793b22dc6cd8c5` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.2.46` `3` `latest` `3.2`                 | June 26th    | `sha256:731752b939e3258e8231a7599cf50925bdbd49bd99568db63c5199e7d597cb54` |
-|  `3.2-dev` `3.2.46-dev` `3-dev` `latest-dev` | June 26th    | `sha256:d06fe70a9cea68acd6a6651c6f618c88a554fb90618c53d8c6d31efc57b168e2` |
-|  `3.2.45`                                    | June 20th    | `sha256:e0c692fd641e96708ddc9ce146287632626b3c3c9abf3429f7f6a1ce94e70a10` |
-|  `3.2.45-dev`                                | June 20th    | `sha256:fd232a26fb12b9a83e7eeb9f1d555804b24e8ba0c2a6219a93106888edb98d90` |
+|  `3.2.47-dev` `3-dev` `3.2-dev` `latest-dev` | June 27th    | `sha256:3691be9d62a2333efeebf81612036585f6461105a041f84c3e03ee65043f5fb5` |
+|  `3.2` `latest` `3` `3.2.47`                 | June 27th    | `sha256:32d6d1535dc4d1be8935f857a2e3d3d3a3e2041e6f90025f6f72aa3e78ccefc0` |
+|  `3.2.46`                                    | June 27th    | `sha256:730217973e23f19cf842ffb10d1044d8a63a2610f7ccbeacded5a00b15ed7611` |
+|  `3.2.46-dev`                                | June 27th    | `sha256:40699bb49506370592689217f26b8eaf76fd7a03d5eb4215ccfe2542c9c5130d` |
 

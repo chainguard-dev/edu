@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for gpu-operator Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for gpu-operator Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                               |
-|------------------------------|--------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | No public tags are available for this image.                       |
-| `cgr.dev/chainguard-private` | 24, 24-dev, 24.3, 24.3-dev, 24.3.0, 24.3.0-dev, latest, latest-dev |
+| Registry                     | Tags                                         |
+|------------------------------|----------------------------------------------|
+| `cgr.dev/chainguard`         | No public tags are available for this image. |
+| `cgr.dev/chainguard-private` | 24-dev, 24.3-dev, 24.3.0-dev, latest-dev     |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

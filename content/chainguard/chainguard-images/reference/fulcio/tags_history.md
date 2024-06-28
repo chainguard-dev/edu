@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the fulcio Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:3d7e28c6b164bc86161912acf673a05e4ce7fbc74ad62993ffdcd94ba556ef54` |
+|  `latest-dev` | June 27th    | `sha256:a9a10f232ec11c2c5eb213b321138a52961b9b3da95c349152b315c06cd45051` |
 |  `latest`     | June 25th    | `sha256:53c0a83c6ef71b2ffe36d7d28ea0897323a9e597be110e2fc100afee4d1f7145` |
 
 

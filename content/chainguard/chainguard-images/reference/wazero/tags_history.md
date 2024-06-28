@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the wazero Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,5 +37,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
 |  `1.7.3-dev` `1.7-dev` `1-dev` `latest-dev` | June 26th    | `sha256:9a7c77c263351c75dea81f453a067eca6e2d618d016f9966283e07d9fa481356` |
-|  `latest` `1.7` `1` `1.7.3`                 | June 20th    | `sha256:262b147d67b476aed2913a0b0cb5e30743b454b67c49d3b3a2959c42522804bc` |
 

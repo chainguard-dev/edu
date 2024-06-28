@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-skopt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 26th    | `sha256:c34f6acf514147e3475affab012417e217f939b28753a19a01486615f3d5b98b` |
-|  `latest-dev` | June 26th    | `sha256:8c4cc858d54e5d3b9fc7f9ccf4dd73577c2885f846833eb0885ecfe80c16ee33` |
+|  `latest-dev` | June 27th    | `sha256:d3b4db1908926ce2fd5679e2e3e1817e38fd72f07ffd929f55017dabcce4f98f` |
+|  `latest`     | June 27th    | `sha256:417c1a584d3fd908ca42c5212d105562b914a69f6ab91837a80ed19ea30689c3` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0-dev` `0-dev` `0.16-dev` `latest-dev` | June 26th    | `sha256:ea55e605023d23691903b0d2e7ba98814f0832b99079eb4ccdde6002eb1910fc` |
-|  `latest` `0` `0.16.0` `0.16`                 | June 26th    | `sha256:41bdafa0000b61122c65a4eef1f203e3535164e5c8042eb6d1d2a304eb28c381` |
+|  `0-dev` `0.16.0-dev` `0.16-dev` `latest-dev` | June 27th    | `sha256:61c3d71264268ddd7b7b3d6027e27e6a1ee262c9936e68b96b4b6520441ac973` |
+|  `latest` `0.16.0` `0.16` `0`                 | June 27th    | `sha256:cbff3264bf00503e8e723b72b65521c2cc31ae9bf2c1c6d1bae953ffce7ee0d7` |
 

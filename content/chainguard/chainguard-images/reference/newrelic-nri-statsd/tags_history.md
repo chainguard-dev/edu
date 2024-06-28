@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-nri-statsd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,5 +37,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
 |  `2.9.1-dev` `2-dev` `latest-dev` `2.9-dev` | June 26th    | `sha256:048b1be59ebc068786b2edd2e31b61ebb764c8edc31c6680d49ddda45d4cdda3` |
-|  `2.9` `2` `2.9.1` `latest`                 | June 20th    | `sha256:bda958a26e2f8e8def305aee4e4e310707dff3adbea63b058917f44cd6445300` |
 

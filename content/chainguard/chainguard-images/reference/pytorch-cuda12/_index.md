@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: pytorch-cuda12 Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-11 00:42:18
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -65,7 +65,6 @@ If your environment has connected GPUs, you can check that PyTorch has access wi
 
 ```bash
 docker run --rm -it --gpus all cgr.dev/chainguard/pytorch-cuda12:latest
-bash-5.2$ python
 Python 3.11.9 (main, Apr  2 2024, 15:40:32) [GCC 13.2.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import torch

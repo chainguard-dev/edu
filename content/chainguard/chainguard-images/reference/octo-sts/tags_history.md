@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the octo-sts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,5 +37,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
 |  `0.2.0-dev` `0.2-dev` `latest-dev` `0-dev` | June 26th    | `sha256:43fe50339b7ff9b0263d789ee1ccae6552e09cbd7db5ff3f051deabb34895c55` |
-|  `0.2.0` `latest` `0.2` `0`                 | June 20th    | `sha256:6210d6edcbcbc0c95fef167138b3f0b0c91ea982a6d691ba4c29781e9d9e2803` |
 

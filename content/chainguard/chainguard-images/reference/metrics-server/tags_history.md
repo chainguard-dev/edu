@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the metrics-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,5 +37,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
 |  `0.7-dev` `latest-dev` `0-dev` `0.7.1-dev` | June 26th    | `sha256:b6311558ba258f68f3a5f243d34f5a9554953b622565fe427c50a48e2d25e53b` |
-|  `0.7` `0.7.1` `0` `latest`                 | June 20th    | `sha256:49527dbba75c2b53f811a80a29a61bd86dcd71b638e3ada66cd8601d145bbd86` |
 

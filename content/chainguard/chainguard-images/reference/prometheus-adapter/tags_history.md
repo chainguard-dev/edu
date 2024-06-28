@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-adapter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -38,6 +38,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
 |  `0-dev` `0.12-dev` `0.12.0-dev` `latest-dev` | June 26th    | `sha256:ee673b49d6353c834fd1fe051dd24d71ddd8b5fc281b817a21a5f9363da48e26` |
 |  `0.10.1-dev` `0.10-dev`                      | June 26th    | `sha256:52b4c0bdad1988e3fe85ce059757beabb0877cae3cca32bc7ebf7fbcc600f0c4` |
-|  `0.10` `0.10.1`                              | June 20th    | `sha256:c2b82a036d35d2747be6d9f80c6e0a1c52042e6dd332707a8e2e9342eb0c994c` |
-|  `0` `0.12` `0.12.0` `latest`                 | June 20th    | `sha256:a27213b1f243c44a88136457162ea2a13cf587a40a0f25326855f31d1c12e86b` |
 
