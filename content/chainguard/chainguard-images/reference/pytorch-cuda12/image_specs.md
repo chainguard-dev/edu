@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public pytorch-cuda12 Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -21,14 +21,14 @@ toc: true
 
 This page shows detailed information about the Chainguard **pytorch-cuda12** Image.
 
-|              | latest-dev    | latest        |
-|--------------|---------------|---------------|
-| Default User | `nonroot`     | `nonroot`     |
-| Entrypoint   | `/bin/bash`   | `/bin/bash`   |
-| CMD          | not specified | not specified |
-| Workdir      | `/work`       | `/work`       |
-| Has apk?     | yes           | no            |
-| Has a shell? | yes           | yes           |
+|              | latest-dev                                 | latest                                     |
+|--------------|--------------------------------------------|--------------------------------------------|
+| Default User | `nonroot`                                  | `nonroot`                                  |
+| Entrypoint   | `/usr/share/torchvision/.venv/bin/python3` | `/usr/share/torchvision/.venv/bin/python3` |
+| CMD          | not specified                              | not specified                              |
+| Workdir      | `/work`                                    | `/work`                                    |
+| Has apk?     | yes                                        | no                                         |
+| Has a shell? | yes                                        | no                                         |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/pytorch-cuda12/tags_history/) for the full list of available tags.
 
@@ -38,8 +38,8 @@ The table shows package distribution across variants.
 |                                | latest-dev | latest |
 |--------------------------------|------------|--------|
 | `apk-tools`                    | X          |        |
-| `bash`                         | X          | X      |
-| `busybox`                      | X          | X      |
+| `bash`                         | X          |        |
+| `busybox`                      | X          |        |
 | `ca-certificates-bundle`       | X          | X      |
 | `chainguard-baselayout`        | X          | X      |
 | `cuda-toolkit-12.3`            | X          | X      |

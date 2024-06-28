@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the harbor-registryctl-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,12 +33,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2.10` `2.10.2`                              | June 27th    | `sha256:ad34ceeb5b273f48c92cb43b5eb3b5a3596e6a153da43178de3d8001a6869284` |
+|  `2.10.2-dev` `2.10-dev`                      | June 27th    | `sha256:89c79886cda5251f78ccf78ff3c1855f07d1f70dc358f6352323842cca486c09` |
 |  `2.8-dev` `2.8.6-dev`                        | June 26th    | `sha256:cc28ceb3ab1c53ba508c94510afa638c1c5c8d7b76b20f952db0444bcb780085` |
 |  `2.8` `2.8.6`                                | June 26th    | `sha256:2845905788e564c7af2693a9446647509df7784afb5411f9ed746f1d3ac18b54` |
 |  `2.9` `2.9.4`                                | June 26th    | `sha256:b1bf0c822b1f411ef9cc747f979a1144f00e9e339ab769ec370fedd35b0a1ac0` |
-|  `2.10.2` `2.10`                              | June 26th    | `sha256:4bd6f335c88d16b5f1c70b53f3152e17c9dfd337c82b10976be79aca2ce24a06` |
 |  `2-dev` `2.11.0-dev` `2.11-dev` `latest-dev` | June 26th    | `sha256:4d17fe97e2e6e4fa83648de4d66c41b983858d9a1d9d25739e7e42a87635584d` |
-|  `2.10-dev` `2.10.2-dev`                      | June 26th    | `sha256:89c5cb1a33339a64b450495f6139614b0a56e87d6ff1bda1ed7ce18d89abf1eb` |
 |  `2.11` `2` `2.11.0` `latest`                 | June 26th    | `sha256:235a8ca46947c80133695c6739926916ac8f55ea658b7ebfd00c3e6da7face3e` |
 |  `2.9-dev` `2.9.4-dev`                        | June 26th    | `sha256:851de318de297bbbb19b3b108733246336c40a2e3b19fe3d43ef1d9771d268fe` |
 

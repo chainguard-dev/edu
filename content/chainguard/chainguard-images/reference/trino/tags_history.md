@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the trino Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -39,6 +39,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |-------------------------|--------------|---------------------------------------------------------------------------|
 |  `450-dev` `latest-dev` | June 26th    | `sha256:d8b85f0047f6f5fe598767d5e8dd995822465ebecbe6189a261704b3c11bf333` |
 |  `450` `latest`         | June 26th    | `sha256:5e2fc910261d3d90923dc7a253f8d5fe15b81f854aba99dc254f4a85f337400e` |
-|  `449-dev`              | June 20th    | `sha256:43fb35522df255a56cbd4a12f24ac06762ab2bb97538b57153189ab1a9fdd04b` |
-|  `449`                  | June 20th    | `sha256:520ca9e6b846943971d7873fefc9040baf9f34742059889320f61abff7479683` |
 

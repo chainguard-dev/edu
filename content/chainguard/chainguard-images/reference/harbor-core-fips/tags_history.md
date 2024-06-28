@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the harbor-core-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,11 +33,11 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2.10.2-dev` `2.10-dev`                      | June 27th    | `sha256:7ea3566e9040a7e9113f38401162d85cee5683f0a5669e451d0795f45f5c19c0` |
+|  `2.10` `2.10.2`                              | June 27th    | `sha256:ed3397cfbfd2afcd83db077d8b2af17d8a9be6b38686a89456445b3a608d8c58` |
 |  `2.9.4` `2.9`                                | June 26th    | `sha256:920727b8b7416d4e499e456be9d6654ccbb710eb6bb6d089b59e4f8e436b846c` |
-|  `2.10.2-dev` `2.10-dev`                      | June 26th    | `sha256:22b71049b2189fecb596ca5fed86d47160f79dd36d30f603d18f71e8f8811722` |
 |  `2.11.0` `2.11` `latest` `2`                 | June 26th    | `sha256:9a7387ef6993f264b1d98f74c84f5d3447d750363747e0615028b59259f7349e` |
 |  `2.9-dev` `2.9.4-dev`                        | June 26th    | `sha256:a988b5e4141962b2eb07a47fda0a057e974fbe16921a659f81a7f4281c7bf6d1` |
-|  `2.10.2` `2.10`                              | June 26th    | `sha256:34c690b415c67848e2aa07e654502e15563e0ea26957c226c88b9d0c4fbc20bd` |
 |  `2.8.6` `2.8`                                | June 26th    | `sha256:31ce3ff860b7a6e536ee53b4601eb974ea5c6959ff2ba5c88b32b9e9894e3814` |
 |  `2.11.0-dev` `2-dev` `2.11-dev` `latest-dev` | June 26th    | `sha256:714db73d4e780ea61e9ed8a05ba96f05b49c2d53be2748b7f25fe6ac8072fed5` |
 |  `2.8.6-dev` `2.8-dev`                        | June 26th    | `sha256:152d400ec2c1f69d23c1e4aaf90399aba297db8d98b0b8e53fe5df2d5d8da063` |

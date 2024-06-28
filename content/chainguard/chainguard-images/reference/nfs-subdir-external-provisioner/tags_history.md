@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nfs-subdir-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 26th    | `sha256:972264d07dfb24325d7563bf3e2667e01001cf4f82c6972f2b7be0427f889ff5` |
-|  `latest-dev` | June 26th    | `sha256:06c08a91494de869a465c378c94fdca48c8854891f1bf03837551e5cf75c384f` |
+|  `latest`     | June 27th    | `sha256:81c9b7512d9afa6a4fafce28bacf98ab289c2273bde312bb363d5444b481f031` |
+|  `latest-dev` | June 27th    | `sha256:3bf5d0ad46d49f9f125e5c3226382ed83260c9094a6a716e7675c3f587eb6f45` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.0.18-dev` `4-dev` `4.0-dev` `latest-dev` | June 26th    | `sha256:9a72a13d673027a3027a7ec4b1aa77255dd95caedc8ae21a18ae7dd71c675703` |
-|  `4.0.18` `4.0` `4` `latest`                 | June 26th    | `sha256:f5f64b257355054a582d85c3dd3cd6d6e84b8634dca79130bebcd052aa3d72f6` |
+|  `4.0.18` `latest` `4` `4.0`                 | June 27th    | `sha256:ba6d2ce86c69355920c97ebb21a7d897083b45da296de47a73ea25760123dfaa` |
+|  `4.0.18-dev` `latest-dev` `4.0-dev` `4-dev` | June 27th    | `sha256:43970c697f4ae0597c9adf12bdefbe6f9bf973634c28aa12d0c001be2aa809de` |
 

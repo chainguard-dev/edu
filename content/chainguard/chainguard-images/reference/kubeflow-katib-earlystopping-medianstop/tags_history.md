@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-earlystopping-medianstop Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 26th    | `sha256:8431b447f22096d2e6e7826880fb1c0c59885dab543dc0e322604cff7c6d5fb6` |
-|  `latest-dev` | June 26th    | `sha256:115f67c3063fe247211e8fcebcf3eac585367234eb6ccc864bc499105a334da6` |
+|  `latest`     | June 27th    | `sha256:b89ad028311e07788fc95afadf4097ceed5a5fe82ea5d041117966d84c802e5b` |
+|  `latest-dev` | June 27th    | `sha256:ace187658eb66b6b79817b62c7de050cbdf903e4467a15084fd20bfd4dfe6396` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `latest` `0.16` `0.16.0`                 | June 26th    | `sha256:e30ea0261e09c04fafe61638b4e0e9dd27ab05c7fae8502ae037090ed49075f9` |
-|  `0-dev` `latest-dev` `0.16-dev` `0.16.0-dev` | June 26th    | `sha256:38803b2a534ada4ab146041a65ebc785de57fa9188975957c173d5b5c4d6a5b4` |
+|  `0.16.0` `0.16` `latest` `0`                 | June 27th    | `sha256:d360d94ce9cd05fedd65ec0ebd8c740c993dc682fa0da44ffefae5b7b4f7d183` |
+|  `0.16-dev` `0-dev` `latest-dev` `0.16.0-dev` | June 27th    | `sha256:23dbc6c584134fd7d902b684a437449a5995a0b0a55b1918b9601720d2af6b5d` |
 

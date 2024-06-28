@@ -1,3 +1,11 @@
+# 2024-06-28
+New images added:
+
+- cloudnative-pg
+- postgres-cloudnative-pg
+
+A total of **856** documents were updated.
+
 # 2024-06-27
 New images added:
 
