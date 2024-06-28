@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mlflow Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:37a58428961f9cc6b45bba857cd99cae7d536c2cf208d5e965a6131892961aef` |
-|  `latest`     | June 26th    | `sha256:45cada3df296a411f6108c8d97925845a14e8528a4a3cac49345e077ecd192e4` |
+|  `latest-dev` | June 27th    | `sha256:8cb165e6c85aedbdea057563933c8d0695991ae4afffd32be450732adc9b94dd` |
+|  `latest`     | June 27th    | `sha256:48203e00532bc4d4a1434b4c1564a79d4f97cea9bcf66b21763e9037e0b53232` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.14` `2.14.1` `2` `latest`                 | June 26th    | `sha256:76c6b1c06c907b30408a67dcd4d489bf9bfa9ef56787b08af2e2a9f55c186b1e` |
-|  `2-dev` `latest-dev` `2.14-dev` `2.14.1-dev` | June 26th    | `sha256:6286884913ebeec7569a6f2160e1d44ce1af7682d562c7d7c79ecff1354ee2de` |
+|  `latest-dev` `2.14.1-dev` `2-dev` `2.14-dev` | June 27th    | `sha256:a0fa63c514478b4904577691d5d4c6a67ee553c1fe9e3df2e74acf9c6f20f6fd` |
+|  `2` `2.14.1` `2.14` `latest`                 | June 27th    | `sha256:cfd07db88c53eb38cf7968263132c035ca8f2a402c42a79fe754574dcf1bb545` |
 

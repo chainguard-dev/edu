@@ -12,9 +12,7 @@ import (
 
 	"cloud.google.com/go/storage"
 	"github.com/chainguard-dev/edu/tools/rumble/pkg/grype"
-	"golang.org/x/oauth2/google"
 	"golang.org/x/sync/errgroup"
-	"google.golang.org/api/option"
 )
 
 type GcsClient struct {
@@ -23,18 +21,13 @@ type GcsClient struct {
 	Bucket string
 }
 
-func NewGcsClient(project, bucket string) (g GcsClient, err error) {
-	ctx := context.Background()
-	creds, err := google.FindDefaultCredentials(ctx)
+func NewGcsClient(ctx context.Context, bucket string) (g GcsClient, err error) {
+	g.Ctx = ctx
+	g.Client, err = storage.NewClient(ctx)
 	if err != nil {
-		return g, err
+		return GcsClient{}, err
 	}
-	creds.ProjectID = project
 
-	g.Ctx = context.Background()
-	if g.Client, err = storage.NewClient(g.Ctx, option.WithCredentials(creds)); err != nil {
-		return g, err
-	}
 	g.Bucket = bucket
 	return g, nil
 }

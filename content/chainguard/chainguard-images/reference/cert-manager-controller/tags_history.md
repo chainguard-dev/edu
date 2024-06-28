@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -45,8 +45,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.14` `1.14.7`                              | June 26th    | `sha256:2134919d1df9c2e5217a86945278a43e50f83241152a3daa78744c3fbd84ec87` |
 |  `1.15.0-dev`                                 | June 25th    | `sha256:38a1d36c91b35fa650325e3215631515c6963d175413c7756780153f458b1410` |
 |  `1.15.0`                                     | June 25th    | `sha256:dbb2fe21e1d0477421d96f426d183ccaa947220623674b1a84e6e44efe783c99` |
-|  `1.12.11`                                    | June 20th    | `sha256:1bd6ef3e0029895f4d5f7c3f2340a970c354513c74a0e34e280dd98a66fbe3f1` |
-|  `1.12.11-dev`                                | June 20th    | `sha256:9a4c34e35d19452e5381fc149ea8ee5426c074d027b9863cec4a31395dd2cccf` |
-|  `1.14.6-dev`                                 | June 20th    | `sha256:4f16f430e33466596eee5035523b7f0dcd0cc937a6da7e47f000145ca975fdaa` |
-|  `1.14.6`                                     | June 20th    | `sha256:e1c8e9bd03798b3ab5159eaf42fa538572c50dbb06cae920cb32ad0957672ab5` |
 

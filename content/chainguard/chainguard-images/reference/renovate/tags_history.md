@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the renovate Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                            | Last Changed | Digest                                                                    |
 |----------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `37.416.1` `37.416` `37` `latest`                 | June 26th    | `sha256:ae500e79286cdba71733cddc12171c714481e1962072de766d4407ddf18117ea` |
-|  `37-dev` `37.416-dev` `latest-dev` `37.416.1-dev` | June 26th    | `sha256:e62cf7ce68d78ea8311a36cf78153939ac9e4cfcde00bb5ffb18d3ad9e559556` |
+|  `37-dev` `37.420.1-dev` `37.420-dev` `latest-dev` | June 27th    | `sha256:50861ca7c9a3779dcf750f4fe0abda181abaf4467f5b530c0918ab8e4ba174aa` |
+|  `37.420.1` `37.420` `37` `latest`                 | June 27th    | `sha256:4ee643e782b6f3243559644102b39fdd15e4a0c844ca7866f9a4c86782c64d04` |
+|  `37.416.1` `37.416`                               | June 26th    | `sha256:ae500e79286cdba71733cddc12171c714481e1962072de766d4407ddf18117ea` |
+|  `37.416-dev` `37.416.1-dev`                       | June 26th    | `sha256:e62cf7ce68d78ea8311a36cf78153939ac9e4cfcde00bb5ffb18d3ad9e559556` |
 |  `37.415-dev` `37.415.0-dev`                       | June 25th    | `sha256:74fc1a6f2e58b1506eed5b2a5166827d96e5b67c27c6b172fd5e2a24f3189e3b` |
 |  `37.415.0` `37.415`                               | June 25th    | `sha256:17345162a78f68a4619888591e5ec10448fd92e32526c6d480f9d2587c267c1a` |
 |  `37.414.1-dev` `37.414-dev`                       | June 23rd    | `sha256:cb3601cf86c2b7f012d8b3afb33f496ccfbdcb89d3072c09e205913005d3f0a4` |
@@ -45,6 +47,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `37.413.4` `37.413`                               | June 21st    | `sha256:f90bcb0836a5d5d96a06c1ab5d886970860754e9739b4c080c201e97809b313d` |
 |  `37.413.3`                                        | June 21st    | `sha256:14876976e627e8c3ed931f4b66c3f5747aa8a55e2ff828108a65b587486ee63f` |
 |  `37.413.3-dev`                                    | June 21st    | `sha256:f11501f19a30e35a2b44f451d3d8385ce5d175d60897f19b57cb727dfaec9217` |
-|  `37.413.1`                                        | June 20th    | `sha256:a786ceae6f0b5d6b98cfad97dc45dbf9e3348792ac0495ec853d9c910f3262d2` |
-|  `37.413.1-dev`                                    | June 20th    | `sha256:ce1c38adacacd93d7ca98361538d3b7839fbb98cb5b91bdb6c06857a9be2bbee` |
 

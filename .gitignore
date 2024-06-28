@@ -21,3 +21,5 @@ terraform.tfstate.*.backup
 
 # required by google-github-actions
 gha-creds-*.json
+
+/tools/rumble/vulnerability.db

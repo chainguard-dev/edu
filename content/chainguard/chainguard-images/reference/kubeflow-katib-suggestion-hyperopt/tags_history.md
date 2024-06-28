@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-hyperopt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 26th    | `sha256:1f51723ffa05cfb753bd9cb5cb769a70bb1e8d4473e067ada879d974534328e5` |
-|  `latest-dev` | June 26th    | `sha256:f29f03550c7f34c12afad2c8e65b5e23ea526cf53e5f4ae5246686599c210b58` |
+|  `latest-dev` | June 27th    | `sha256:508efdf6f08f98ea949ddd84f78da8fd6e47a6cd9e0da488154562480adab57b` |
+|  `latest`     | June 27th    | `sha256:76fd07aa072f51e223af1a9b0b375e7f1dd8501c25d8eea32b9cf3b2140b6d5d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0` `0.16.0` `0.16`                 | June 26th    | `sha256:804786705c27dd70387356755c87f2969afa09eea1ae735349a5a89a2c950a90` |
-|  `0.16.0-dev` `latest-dev` `0-dev` `0.16-dev` | June 26th    | `sha256:c471df9210d18bd78893779aaeb76f39c6fe15541eac96702a0abe072b09ae53` |
+|  `0` `latest` `0.16.0` `0.16`                 | June 27th    | `sha256:022b3d8708ec0638b1397b7b29c9d6ab5fda6a94a506dfe2044d400d4ca05e83` |
+|  `0.16.0-dev` `0-dev` `0.16-dev` `latest-dev` | June 27th    | `sha256:4bc5626adf2f18588992c99371d6d0f6d1ffa86f37b540f85a9b2e9b6ea3b965` |
 

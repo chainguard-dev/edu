@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the velero-restore-helper Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-06-28 00:31:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,6 +36,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.14-dev` `1.14.0-dev` | June 25th    | `sha256:b92f4adfd3b3f1dbb530babc27f94e1aa3adaad33b175906d99d642d294339e4` |
-|  `latest` `1.14` `1.14.0` `1`                 | June 20th    | `sha256:c3093f6f6e385df8e5f65348f8d5ced120da6bd258954e43026e797b73f1d589` |
+|  `latest-dev` `1.14-dev` `1-dev` `1.14.0-dev` | June 27th    | `sha256:9f54df9e3904b42857c0cb86e70b15c3eff53ae30002f355f3de1ff34235de8d` |
 
