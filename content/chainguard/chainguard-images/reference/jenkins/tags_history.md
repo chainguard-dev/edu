@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jenkins Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:524ebb2025452ed9dd634018e039c5ff1560cd93b0178b4e7122768b17a34745` |
-|  `latest`     | June 26th    | `sha256:1c58d73e11af69558f58c5112c4a9d54655c7a8c0cd6a5378f4b834412fb740e` |
+|  `latest`     | June 29th    | `sha256:83911a87bf8c25c8cf5fc4b6663950b16eaa013fae5b42bb0156f361952ec668` |
+|  `latest-dev` | June 29th    | `sha256:74afb9bff4ae6da25dd66ba4124651383bbe5aaca2a060f5975ef53dc152635a` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                           | Last Changed | Digest                                                                    |
 |-----------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `2.464` `2`             | June 27th    | `sha256:2ecf4b408e1081886cccc460ac837536b4a443a179adaef5076394ded5035850` |
-|  `2.464-dev` `2-dev` `latest-dev` | June 27th    | `sha256:fdfbc1ccf0c2af7f7aaaf48582dc012facfe1ce76f97ca44161bf8545e3200d6` |
-|  `2.463-dev`                      | June 23rd    | `sha256:38cdaf7f96fd8f37cd8ce0375ebe16782327af8fda4d344885e750fa3d723a97` |
-|  `2.463`                          | June 23rd    | `sha256:8a3aea0fed653cd14ecd1899351590fccbf4bf2a88fc4c09aeb71316d5c1e7e5` |
+|  `2.464-dev` `2-dev` `latest-dev` | June 28th    | `sha256:452f82c023761494505e45ea4b6fef8c677d5504702932eb56b377b83218ecee` |
+|  `2.464` `2` `latest`             | June 28th    | `sha256:cc9ea34f8a019c9876f9ff61152c312b6328e34b76e6458adccdad87a5825eca` |
 

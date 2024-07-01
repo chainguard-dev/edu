@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the temporal-ui-server-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.27.3` `latest` `2.27` `2`                 | June 26th    | `sha256:9339ebbe553b0aaa124133a36d2e8a756a2fe86eec72cf86289617da8c246953` |
-|  `2.27.3-dev` `latest-dev` `2.27-dev` `2-dev` | June 26th    | `sha256:12be0e173e921f13c525c68cc2aca2d5c6c2ecfecbdb079cb51631cc307f751f` |
+|  `2.27` `latest` `2` `2.27.3`                 | June 28th    | `sha256:5b7d9034b92c8fe35f424ac7abf0a09bcd916012fc21537f3b9014d65204229d` |
+|  `2-dev` `latest-dev` `2.27-dev` `2.27.3-dev` | June 28th    | `sha256:fd2ade3462d85825cda9df7c7f9463ee3b65772b54eafec156c23d3b733e3bca` |
 

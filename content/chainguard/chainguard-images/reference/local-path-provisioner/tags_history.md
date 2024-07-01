@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the local-path-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.0.28-dev` `latest-dev` `0-dev` `0.0-dev` | June 26th    | `sha256:eea2b103bce04dfedee612a8e1bacb992cef8679c839bb516b3ca6101fe5369c` |
-|  `latest` `0.0.28` `0` `0.0`                 | June 21st    | `sha256:96d8a5f084d5d2aabcfc5d372cdfd9691507d2989f982dfa7265f134d7bd80a2` |
+|  `0.0-dev` `0-dev` `latest-dev` `0.0.28-dev` | June 28th    | `sha256:672cdf0287e9cf65228d6ede90c9f8f876f9b63860f4552fa2b682f423fd28dd` |
 

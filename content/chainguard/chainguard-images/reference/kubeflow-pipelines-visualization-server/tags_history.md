@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-visualization-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 26th    | `sha256:ddd5e8cf4317eb514aa95a410af37de698dd6f12a22d25d08aa3a21950d561bb` |
-|  `latest-dev` | June 26th    | `sha256:b91dae6e206896201b277f414c619f61293422989eab79de66134141854e052b` |
+|  `latest`     | June 28th    | `sha256:aa5f20010e3eae74c4e3159fa05c9c1240b151cfe3fa9b893ea537c532905eba` |
+|  `latest-dev` | June 28th    | `sha256:94b23fa32ebb1a496a86f6c519dcb40fb59e56dedcf631b4bd83e5d074977953` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.2.0` `2` `2.2` `latest`                 | June 27th    | `sha256:669fac2f44570ce163b00382ad1d762c41903395930809de94088689bf550d39` |
-|  `2.2-dev` `2-dev` `latest-dev` `2.2.0-dev` | June 27th    | `sha256:6f559db2ae5736b66af5291f9e9e6853bd6c6b80ed8390958e97df1e9da05599` |
+|  `2-dev` `latest-dev` `2.2.0-dev` `2.2-dev` | June 28th    | `sha256:17190a4c218502190fcc677277d7c2ea107003c9e06a813fa7f0e6bacb4d33e0` |
+|  `latest` `2.2` `2.2.0` `2`                 | June 28th    | `sha256:47f4c6ca3cdb68b01e16695ab4e8a4b654f1c167108c457bdb86bf6eb4dc8c63` |
 

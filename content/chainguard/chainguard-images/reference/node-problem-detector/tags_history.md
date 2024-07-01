@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node-problem-detector Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:4deb536fb9bce1683256cb5f2ed887c9e26d35db117f0e7e99bea6e8e2cb707e` |
+|  `latest-dev` | June 28th    | `sha256:1a6ba2347ae9de82c60057a2d41cbf43ab77f889f6fd1cccb3fc87ab0c0901a3` |
 |  `latest`     | June 24th    | `sha256:a9f25b017315005a3b1b68f353a3b7a43bd93b440c23ce24c86b775c5dff027b` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.8-dev` `latest-dev` `0.8.19-dev` | June 26th    | `sha256:6cfbce99dc68070d0f512e8de0711bcdeade150be16863e47324c7b0bc52c41f` |
+|  `latest-dev` `0.8-dev` `0-dev` `0.8.19-dev` | June 28th    | `sha256:90c1986ca7a52c79d8da464390f6949f0e7fb17f421f62d58dd379f1da0a7758` |
 |  `0` `0.8` `latest` `0.8.19`                 | June 24th    | `sha256:3b54943ae4c98a9a80849631ee63e32c60c9c04e6fe33e62ddee1cbd93c67b16` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the telegraf Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:19477e6bd8e66e8a4e036cacab7a95c1be0fb3eaf80298f6d15f313a6fec0895` |
+|  `latest-dev` | June 28th    | `sha256:331427668dcd9f3f6b1bddc508787e9dfaeafc3b5fd05c9bc56f31ad5e486871` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.31.0-dev` `1.31-dev` `1-dev` `latest-dev` | June 26th    | `sha256:f23d929f9fe312de05f383d4bfc83cef14d2f3974d4fd80e3ec2879cd19f3120` |
-|  `1.30.3-dev` `1.30-dev`                      | June 26th    | `sha256:6a120d4f699f9714ea7b84c487e9ea1d72475ef772d81aa42522840f30c4bbb4` |
+|  `1.30-dev` `1.30.3-dev`                      | June 28th    | `sha256:7da66165a32127b0af71b9801827c125c75a0ac19140be2d67c2bf4e792e197a` |
+|  `latest-dev` `1.31.0-dev` `1.31-dev` `1-dev` | June 28th    | `sha256:b11780afffdd9273411cc53ea162a23c9199ae46420df650a030dd261602af47` |
 

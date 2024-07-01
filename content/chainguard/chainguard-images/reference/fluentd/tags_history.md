@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the fluentd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,10 +28,10 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)              | Last Changed | Digest                                                                    |
 |----------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev`        | June 26th    | `sha256:ce65de96b14a7b4bb167dc226eb0ebd5f1e00043ef577ceed8f5534492fa4f1a` |
-|  `latest-splunk-dev` | June 26th    | `sha256:4a75664beefa1b4575c73f903ae8b1dcfc2a7c3541c07e8e44e83d53b0edc2fe` |
-|  `latest`            | June 26th    | `sha256:972684b6735ef3790d53fce56191fce17e83d1567f21a4156d1a628df5e87afe` |
-|  `latest-splunk`     | June 26th    | `sha256:4ef6eb958d4e6e277d648806d2531dac8638d0f8ca9765d28bb3016d84033ec3` |
+|  `latest-splunk`     | June 29th    | `sha256:4bcefb38ffb2b37fb892c25669a247f7d8dc5bf942e263d7624dccdee3a0525f` |
+|  `latest-splunk-dev` | June 29th    | `sha256:87b9cdf9905860d8d4899bd41211586e1457002a05629507285d2cffe79ff59e` |
+|  `latest-dev`        | June 28th    | `sha256:279f528d62238041811f31bf554d660cb214181b02f8257161b87972c92274d5` |
+|  `latest`            | June 28th    | `sha256:c9ed9fe666e64d95d72570722ad366c9c6b08135d9f2aa0ac98781a07931136e` |
 
 
 ### Private/Dedicated Registry
@@ -39,8 +39,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                      | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1` `1.16.5` `1.16`                                                | June 26th    | `sha256:3755500ca8a8340c77fec62d56ca5f56fa1707aba6813e807b04fdaa70023936` |
-|  `1.16.5-dev` `1.16-dev` `latest-dev` `1-dev`                                | June 26th    | `sha256:7885133993db888d787d18d9c8d94cad2ba3c93018bbb683acc55bf6d4dec5da` |
-|  `1-splunk` `1.16.5-splunk` `1.16.5-r1-splunk` `1.16-splunk`                 | June 26th    | `sha256:2512b09b302fe5bd54f657b69bdb1a974856f92e58b47cf40b7052dac2bc4b86` |
-|  `1.16.5-r1-splunk-dev` `1.16-splunk-dev` `1.16.5-splunk-dev` `1-splunk-dev` | June 26th    | `sha256:6eaff75b4240701258baa0d89f19dd0634d33cc0cdc9df26e36c6ec3bad27233` |
+|  `1-splunk-dev` `1.16.5-splunk-dev` `1.16.5-r1-splunk-dev` `1.16-splunk-dev` | June 28th    | `sha256:272017a71fec994976905009899e17e0ff872e77454a8c654b9c941f19300ddf` |
+|  `1.16.5-r1-splunk` `1.16-splunk` `1-splunk` `1.16.5-splunk`                 | June 28th    | `sha256:7efa49fbdb26525f109284d4d03c7ccf983cf28ae32eff4fc6001bed4a774b36` |
+|  `latest` `1.16.5` `1` `1.16`                                                | June 28th    | `sha256:6541770516e3cbd6a250e712c748c8fefb22135371ad6e54e295d1d5fe76e6dc` |
+|  `latest-dev` `1-dev` `1.16-dev` `1.16.5-dev`                                | June 28th    | `sha256:198127b58496760831d5ab26200c87813e25a1d32ce0a70c85bd6007079bf109` |
 

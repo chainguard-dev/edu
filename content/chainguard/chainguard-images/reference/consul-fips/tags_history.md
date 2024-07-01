@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the consul-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.17-dev` `1-dev` `latest-dev` `1.17.4-dev` | June 26th    | `sha256:66154144e6a287c4669997612b490af2c205863b2dfd8d88bd5d3f2821d6c946` |
-|  `1.17.4` `1` `1.17` `latest`                 | June 26th    | `sha256:365ca55fe93c07790603a128daa4ab9251eb9454f5c1c761433e8ab82b2d843b` |
+|  `1.17.4` `1` `1.17` `latest`                 | June 28th    | `sha256:bfeca5b65d756409e362019e6d5d50f6dc2cb61b8dc7bc3b60bc0ec5294143a0` |
+|  `1-dev` `1.17.4-dev` `latest-dev` `1.17-dev` | June 28th    | `sha256:2e009fa4818c207356b8fcfc65b47b40981f3386b2184c6346b40b28d400e84c` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opensearch-dashboards Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:688d250bf98a33d2a79946a15373279fee1828f5486245de9cc00804a0da6fe1` |
-|  `latest`     | June 26th    | `sha256:8dc0f4bbe2eba76732032068d34ba6dd59986b5bc34f721cb6f481411fe0b805` |
+|  `latest-dev` | June 28th    | `sha256:ad689e0368e9c308e6edef14245eceb2f672e16beae5df6f7f63a99e0c18590b` |
+|  `latest`     | June 28th    | `sha256:6886e9f6cbe4cf88672b633cd9acb6eb1958595efde32ab5f44a552836fb52a4` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.14.0-dev` `2.14-dev` `2-dev` `latest-dev` | June 26th    | `sha256:3ce451c4be9fc7cec6c9d251565f68626c333ac3ec7ec6f9b9295cda9b5989cd` |
-|  `2.14.0` `2` `2.14` `latest`                 | June 26th    | `sha256:418ac2fbdbc60517ab21ce684e88d6b6d71688706555542118e65f253295a515` |
+|  `2.14-dev` `2-dev` `latest-dev` `2.14.0-dev` | June 28th    | `sha256:f1166f630bc29359f2dca52c6a47f0f55014ded24db2c3ecc9d56764efd2b832` |
+|  `2.14` `latest` `2` `2.14.0`                 | June 28th    | `sha256:273d78fd7a6037f2aaaf4f48a097a6f638546f59ebea898cd334a0df52511a80` |
 

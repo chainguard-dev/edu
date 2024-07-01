@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the confluent-kafka Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 26th    | `sha256:b43c4f1004c4278d7d9f127f442cd88fc02f8277b6797147b8f59ac8041ebaa9` |
-|  `latest-dev` | June 26th    | `sha256:0a32aa718418b283822242bb0f3cc4baa8da5d042d909c6c4606864667fb15a5` |
+|  `latest-dev` | June 28th    | `sha256:8c52fb3384e078b1431e0f6fe6c19769a67a357081c77bb999892a8281fa9a1c` |
+|  `latest`     | June 28th    | `sha256:903f835daad5171750f89a2f56cde14da25b769728b0fb5f6a70f9fcfb077e9d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                     | Last Changed | Digest                                                                    |
 |-------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.8` `7.8.0.103` `7.8.0` `latest` `7`                     | June 26th    | `sha256:66c35ffb2111da2ca42f55d8594cf32adf928677e2b80b8189eade7bcce7e255` |
-|  `latest-dev` `7.8-dev` `7-dev` `7.8.0.103-dev` `7.8.0-dev` | June 26th    | `sha256:224064d00b861f8e5e56c03f8c9f0c2d1af993bda5854e4f8add34095ba8db9d` |
+|  `7.8.0.103` `latest` `7.8` `7` `7.8.0`                     | June 28th    | `sha256:1fb2e3732a213c4706c58217323c61056033d42b287ee56356e0eaf19ceb2143` |
+|  `7.8-dev` `7.8.0.103-dev` `latest-dev` `7-dev` `7.8.0-dev` | June 28th    | `sha256:67a5767115e4f2af0c7c557023b816e9dd1f4d94b51b250d8914152a8b41f913` |
 

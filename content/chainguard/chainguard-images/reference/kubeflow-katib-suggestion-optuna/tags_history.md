@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-optuna Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 27th    | `sha256:87cbb99cec3670e3693ee4e8e2ee36c4deaca1d017b97d1395ac670e8d3fd349` |
-|  `latest`     | June 27th    | `sha256:cff7b9f3731d58ad90cf42ae66be5fd40df6a0f5b5009c8a21a55437a38c2ce1` |
+|  `latest`     | June 28th    | `sha256:1be34e87f4fb21b143be5818299046ac13c8e98ebaf41de0b8f62823d75e8320` |
+|  `latest-dev` | June 28th    | `sha256:4abbbb4a1263f46a214991b4ed2987ce59e0e55354be8f21da027a653fe43660` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16-dev` `0-dev` `latest-dev` `0.16.0-dev` | June 27th    | `sha256:5ec4510f5a4c676b2a534caf81a46101d96238d2df83c9e1ebfbf1238bf72cb7` |
-|  `0.16.0` `latest` `0` `0.16`                 | June 27th    | `sha256:595584dec113800c20ee532c7de61144b0a684251e5f2f9dc98b30af6d6a22fa` |
+|  `0.16-dev` `0.16.0-dev` `latest-dev` `0-dev` | June 28th    | `sha256:062ab4d3e02e775955fc6855a8d7e30caa3bd7c2e59a4bcd367920e9aa87fdb7` |
+|  `0.16` `0` `latest` `0.16.0`                 | June 28th    | `sha256:4d4930a4880d9bd5e8165c7b5014ceee0c6b7aba0f3882e64707a184b057f2d7` |
 

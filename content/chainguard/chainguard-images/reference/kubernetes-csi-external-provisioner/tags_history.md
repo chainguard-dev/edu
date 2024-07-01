@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:abc093c1436f92fc46ab607b79ed090fa150fcd35d910ed47a8cecb8e6eea522` |
+|  `latest-dev` | June 28th    | `sha256:d7e9a8bab0f5f6f0653ee876d7cfaa292f30ed9aed73a6d767c22a2f0d224fa1` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +36,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `5.0-dev` `5.0.1-dev` `5-dev` `latest-dev` | June 26th    | `sha256:90c0fdb3799642cc480cbc7d82707de02f1bde84f29d008bb7dae04aa506190a` |
+|  `5-dev` `5.0-dev` `latest-dev` `5.0.1-dev` | June 28th    | `sha256:5936450138432eee6aa7820797df783c82a453efeacfc1341ca3905ec4e5e8f8` |
 

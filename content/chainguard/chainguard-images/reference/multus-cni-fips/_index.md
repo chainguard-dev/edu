@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: multus-cni-fips Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -46,9 +46,15 @@ Example below on how to install multus-cni in a cluster with helm, replacing wit
 ```shell
 helm repo add startechnica https://startechnica.github.io/apps
 helm repo update
-helm install my-release startechnica/multus --namespace my-release --create-namespace \
-    --set image.repository=cgr.dev/chainguard/multus-cni \
+helm install my-release startechnica/multus-cni --namespace my-release --create-namespace \
+    --set image.registry=cgr.dev \
+    --set image.repository=chainguard/multus-cni \
     --set image.tag=latest
+```
+
+Note that the `multus-cni` helm chart by default defines architecture to `amd64`. If deploying with `arm64`, add the following flag:
+```
+    --set nodeSelector."kubernetes\.io/arch"=arm64
 ```
 
 For more information, refer to the [upstream documentation](https://github.com/k8snetworkplumbingwg/multus-cni), as well as the documentation for the [helm chart](https://artifacthub.io/packages/helm/startechnica/multus)

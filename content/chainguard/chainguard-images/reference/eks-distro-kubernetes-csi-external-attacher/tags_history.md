@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-external-attacher Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                  | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.5.0-r8-eks-1-25-33-dev` `latest-dev` `4.5.0-dev` `4-dev` `4-eks-1-25-33-dev` `4.5.0-eks-1-25-33-dev` `4.5-eks-1-25-33-dev` `4.5-dev` | June 26th    | `sha256:6d4de1f9aefbea72071bc1886679809464ea9e48c8573cd5efffc728016f82aa` |
-|  `4.4.0-r6-eks-1-23-33-dev` `4.4-eks-1-23-33-dev` `4-eks-1-23-33-dev` `4.4-dev` `4.4.0-dev` `4.4.0-eks-1-23-33-dev`                      | June 26th    | `sha256:fbb55b6a478acdfa94af53f328330b994d4323ab29b55f1740a72fb673f2ddcf` |
+|  `4.4.0-eks-1-23-33-dev` `4-eks-1-23-33-dev` `4.4-dev` `4.4-eks-1-23-33-dev` `4.4.0-r6-eks-1-23-33-dev` `4.4.0-dev`                      | June 28th    | `sha256:3d1651abc5eaeb336b668add9a862a4901814b659c9900279a2c5226ca296614` |
+|  `4.5-dev` `latest-dev` `4.5.0-r8-eks-1-25-33-dev` `4.5.0-eks-1-25-33-dev` `4-eks-1-25-33-dev` `4.5.0-dev` `4.5-eks-1-25-33-dev` `4-dev` | June 28th    | `sha256:d4cbedd06226ca2fa7930b3b4c0f5fa14a1c9f1aab37bacdb9ff512becb0c086` |
 

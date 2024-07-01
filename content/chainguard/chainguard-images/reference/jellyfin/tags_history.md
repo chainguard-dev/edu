@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jellyfin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 26th    | `sha256:d57ecd70479b4bd577ad62a2d7eb678c3bd36bd68bc1eeae5e35ab6bfd7f4463` |
-|  `latest-dev` | June 26th    | `sha256:7468aab5b08f02005103876ab88ff6aae8d2fc33e8e0486ea9b79b90f9fdeb26` |
+|  `latest-dev` | June 28th    | `sha256:35314aeaa9433045585bbb82c2eae98dad5ee39ef41b0c3eecbc93c999f6cbe1` |
+|  `latest`     | June 28th    | `sha256:308f484f97100c2ef9355c80e34ca3facaa36683145afed4e949a07c5c2a641f` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `10.9.7` `10.9` `latest` `10`                 | June 26th    | `sha256:d81305cc51837e663473a087f371e8fd8fcd700b30f09ef76633063470114b8e` |
-|  `latest-dev` `10-dev` `10.9.7-dev` `10.9-dev` | June 26th    | `sha256:1443cd1b8555463d3cf7e99e5479b0c74fe01330039df924abda34b5755c4580` |
+|  `10.9.7-dev` `10-dev` `latest-dev` `10.9-dev` | June 28th    | `sha256:486eed68181c97de7edb5e3c743f413e884724c1a604f8b2ffbe7e5cd9f21977` |
+|  `10.9.7` `10.9` `10` `latest`                 | June 28th    | `sha256:765a9eb50d5c68ee318ea68d48ad4b038a6293a37a858db185cada828ed3520b` |
 |  `10.9.6`                                      | June 24th    | `sha256:08aaf103acb881bf116c42f2786f1da797c7a1a5732dea1ebfa9cca21df3758a` |
 |  `10.9.6-dev`                                  | June 24th    | `sha256:5a2408444325443b02cc550fb70d50ed438ed20198dc9625da086ebecb2d053a` |
 

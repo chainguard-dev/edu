@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-logging-operator-fluentd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 26th    | `sha256:a5688129925d632d91cc5d4558eaecd1ad1762ce62874e92234a84f58f50425f` |
-|  `latest-dev` | June 26th    | `sha256:f6b4548ba3bf7cb5d333e26c153da8a3b712138f85af00d09b280dca5a76846b` |
+|  `latest`     | June 29th    | `sha256:92476d3bf9bfb3300364051604485232fbbee715b2d466cacb909891780ed2f6` |
+|  `latest-dev` | June 29th    | `sha256:169e435366178508e5afe9746e39a42d053c932c28864a91aa77768059eb3e52` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.16-dev` `latest-dev` `1.16.5-dev` | June 27th    | `sha256:872c20b6ad17486a47d0286f3ec13f4eeca19c617c8561e60525529527db8d73` |
-|  `latest` `1.16` `1.16.5` `1`                 | June 27th    | `sha256:4947c11185b29abaa09ff1c360184b74c64e9a7a74bbb530d0553f5405afa185` |
+|  `1.16.5-dev` `latest-dev` `1-dev` `1.16-dev` | June 28th    | `sha256:da4cb89d968d62fa79332957a2fcdd7c558813467b187eb26d1916c3ac75f5f3` |
+|  `1.16.5` `1` `latest` `1.16`                 | June 28th    | `sha256:e348f9625a3840e3125a343583c26c1bc5a4c1581287797f4e867db322e25823` |
 
