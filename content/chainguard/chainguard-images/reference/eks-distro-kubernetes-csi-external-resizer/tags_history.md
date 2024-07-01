@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-external-resizer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                   | Last Changed | Digest                                                                    |
 |-------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.10.0-dev` `1.10.0-eks-1-25-33-dev` `1.10.0-r8-eks-1-25-33-dev` `1-eks-1-25-33-dev` `1.10-dev` `1.10-eks-1-25-33-dev`                  | June 26th    | `sha256:a98b1394969ffa2f6df239faf4a381bc3efb0a5173a6583e469354716671f994` |
-|  `1.9.0-r10-eks-1-23-33-dev` `1.9.0-eks-1-23-33-dev` `1.9.0-dev` `1-eks-1-23-33-dev` `1-dev` `1.9-dev` `latest-dev` `1.9-eks-1-23-33-dev` | June 26th    | `sha256:3d84198cda3e5880e91060c901835ebcfa3103ba324e30c371e6684246cf91ac` |
+|  `1.10.0-r8-eks-1-25-33-dev` `1.10.0-dev` `1.10.0-eks-1-25-33-dev` `1-eks-1-25-33-dev` `1.10-dev` `1.10-eks-1-25-33-dev`                  | June 28th    | `sha256:19cd2fa28b9e9f03bfe8eb30fbc86d7f377cf9c7ba4ddd297c2e523355080263` |
+|  `1.9-eks-1-23-33-dev` `latest-dev` `1.9.0-r10-eks-1-23-33-dev` `1.9.0-dev` `1.9.0-eks-1-23-33-dev` `1-dev` `1-eks-1-23-33-dev` `1.9-dev` | June 28th    | `sha256:2321f7fc74008112ae3160f9098cd457c55b00347aff9ca736449e7451f91eb2` |
 

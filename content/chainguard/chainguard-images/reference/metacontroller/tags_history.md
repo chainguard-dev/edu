@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the metacontroller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:a925635466d5ff0c417099f0425e67e5a3424e0fdd4a0e39ef7573b669f9f76a` |
+|  `latest-dev` | June 28th    | `sha256:be56d0b95cf6d5e8d5ad0234d0ab5bfc80efca2d5c4117fbb8a1a062f81954e5` |
 |  `latest`     | June 26th    | `sha256:d28f889aa65342110bcc74c19a96c9407087814f70122dffde1d02e916838d2e` |
 
 
@@ -37,11 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4-dev` `4.11.17-dev` `4.11-dev` `latest-dev` | June 26th    | `sha256:5ef96372aa96810c68314a7da756e5c51c84ec9636d3e50f2a655f4c15624752` |
+|  `latest-dev` `4.11-dev` `4.11.17-dev` `4-dev` | June 28th    | `sha256:bb376b7e55688045d26a9ee8ff4c2087d08a18a27d46bdc237c98897e1ab96a4` |
 |  `4.11` `latest` `4.11.17` `4`                 | June 25th    | `sha256:a06079221654f6d986180f07a623c0199474015e373ab47c5e896588dc045cca` |
 |  `4.11.16-dev`                                 | June 25th    | `sha256:b904cb3e206a44efaa6f3a04c33a3f82ff970702cb66e3b85e49bb6a8d4fdd68` |
 |  `4.11.16`                                     | June 25th    | `sha256:ae7ed6b3c28571f574ae83d95710eb826ed63c126e455d25ebb3de5c5345e9ec` |
-|  `4.11.15-dev`                                 | June 23rd    | `sha256:ca33a55cd695d11cbd220070881e128dcadae39dd7484c545c3a21b0467e1b14` |
-|  `4.11.15`                                     | June 23rd    | `sha256:d172c70cf905b51d8f21bb374a6cadfc95aa057a7e28df32d6bb4c89d9f018e3` |
-|  `4.11.14-dev`                                 | June 23rd    | `sha256:8ae9d0ea087b19a310a1dd6ddb647dffcec9e265b22da08e487a56680ce406d9` |
 

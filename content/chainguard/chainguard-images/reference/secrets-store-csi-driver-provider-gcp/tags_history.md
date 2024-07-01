@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the secrets-store-csi-driver-provider-gcp Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:79c1dfdfcf10b698fdc851ca1e5309a02b335e0b7de74de5d6107057377732ba` |
+|  `latest-dev` | June 28th    | `sha256:55a586ad04322440f854230e454ffca8257defc96ab9cc5d27cc3e49eb054e7c` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +36,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.5-dev` `latest-dev` `1.5.0-dev` | June 26th    | `sha256:4516ae68a09c7238c60ef274fa14c9b687971a1767297e298f512ef2206110eb` |
+|  `1.5.0-dev` `latest-dev` `1.5-dev` `1-dev` | June 28th    | `sha256:66589af98c9e7e3b8911a307c65f94ff9c8ccaf1264d6540b6f3e2fe3e79a144` |
 

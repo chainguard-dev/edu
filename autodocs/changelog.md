@@ -1,3 +1,12 @@
+# 2024-07-01
+New images added:
+
+- cloudnative-pg-fips
+- postgres-cloudnative-pg-fips
+- sonarqube
+
+A total of **863** documents were updated.
+
 # 2024-06-28
 New images added:
 

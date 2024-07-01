@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the loki Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:d859c8a7f082d54d5e21739a831cd4b38e5817c242935cf97b7ad9b562530c7a` |
+|  `latest-dev` | June 28th    | `sha256:6fc65a41d7c792a4ebb254ad8ade8fb3104e26c9d1bc0c08bd074f5fa9de84ba` |
 |  `latest`     | June 25th    | `sha256:5f8fcac1cc7fb2fe7b3b73f85d3da3d8be505b806e9e15959ee4783ad4a8cdf0` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3-dev` `3.0-dev` `3.0.0-dev` `latest-dev` | June 26th    | `sha256:e4decfcdeefc81f8a838f76528d3cb9bef78956f60714b79c78107b5b2f4e629` |
-|  `2.9.8-dev` `2-dev` `2.9-dev`              | June 26th    | `sha256:bd5f925a50831c38c34e2160af6f86d082fddeb6439202002a2c5f96af2b7ac1` |
+|  `2-dev` `2.9.8-dev` `2.9-dev`              | June 28th    | `sha256:4bf732d42793abfdcd55dee1e0657a03ac2d4685eaf06527a46e6eebffa894a7` |
+|  `3.0-dev` `3.0.0-dev` `3-dev` `latest-dev` | June 28th    | `sha256:aa1f74d80e4f023a3b6333a06c3b10b52d7a0121ce0e0adc1161ef385cc3fc09` |
 |  `2.9.8` `2` `2.9`                          | June 25th    | `sha256:4868bfeb27e12dd8323fbe5f026a4151be555076a2342c2be24e61125694dce1` |
 |  `latest` `3.0.0` `3.0` `3`                 | June 25th    | `sha256:2d587b57338c94f9957e11e3c805dc8e78b4a5894ab7aaac02df6efd6a5c11a5` |
 

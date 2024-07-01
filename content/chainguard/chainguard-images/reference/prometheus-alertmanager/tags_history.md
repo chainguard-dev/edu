@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-alertmanager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 27th    | `sha256:56f56b324ead72d84cd693c6012c07128c048d336fad312e4ad421ecba8c6d19` |
-|  `latest`     | June 27th    | `sha256:8704d40b9f1bd17e1efc85c09cc987adc040fdde2304ee26070bb8942c968b4d` |
+|  `latest`     | June 30th    | `sha256:8704d40b9f1bd17e1efc85c09cc987adc040fdde2304ee26070bb8942c968b4d` |
+|  `latest-dev` | June 30th    | `sha256:c07bb413ad760d5a628ec9b8c92eb0681e0328ea633c5db627d050eb2302e0d3` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.27` `latest` `0` `0.27.0`                 | June 27th    | `sha256:9508955635caa3e3303cc3d67a6e80342b9cc90bfd96244179678d096198efbb` |
-|  `latest-dev` `0.27.0-dev` `0-dev` `0.27-dev` | June 27th    | `sha256:93f8d7785841ee43b0ed5f260789efc4bcee2b9a8394dedf312592d14b355fef` |
+|  `0.27.0-dev` `0-dev` `0.27-dev` `latest-dev` | July 1st     | `sha256:1dca0e49da779cff98299716bf853ed61447d47482dfea162927369b49e32079` |
+|  `0.27.0` `0.27` `latest` `0`                 | July 1st     | `sha256:c6659693051e02646d8e0f6ec3df1a5c133cd5d0647f1fe59d8ebeee62e78ead` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for openai Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,7 +29,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 | Registry                     | Tags                                                                                                                         |
 |------------------------------|------------------------------------------------------------------------------------------------------------------------------|
 | `cgr.dev/chainguard`         | latest, latest-dev                                                                                                           |
-| `cgr.dev/chainguard-private` | 1, 1-dev, 1.35, 1.35-dev, 1.35.2, 1.35.2-dev, 1.35.3, 1.35.3-dev, 1.35.4, 1.35.4-dev, 1.35.6, 1.35.6-dev, latest, latest-dev |
+| `cgr.dev/chainguard-private` | 1, 1-dev, 1.35, 1.35-dev, 1.35.3, 1.35.3-dev, 1.35.4, 1.35.4-dev, 1.35.6, 1.35.6-dev, 1.35.7, 1.35.7-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
