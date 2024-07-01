@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for aws-cli-v2 Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,7 +29,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 | Registry                     | Tags                                                                                                                                             |
 |------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
 | `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                               |
-| `cgr.dev/chainguard-private` | 2, 2-dev, 2.17, 2.17-dev, 2.17.0, 2.17.0-dev, 2.17.1, 2.17.1-dev, 2.17.2, 2.17.2-dev, 2.17.3, 2.17.3-dev, 2.17.4, 2.17.4-dev, latest, latest-dev |
+| `cgr.dev/chainguard-private` | 2, 2-dev, 2.17, 2.17-dev, 2.17.1, 2.17.1-dev, 2.17.2, 2.17.2-dev, 2.17.3, 2.17.3-dev, 2.17.4, 2.17.4-dev, 2.17.5, 2.17.5-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

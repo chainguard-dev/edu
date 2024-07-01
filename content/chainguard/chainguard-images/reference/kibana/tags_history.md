@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kibana Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:ccfb71616ecaa6d99e9690ea041008371b4d83e3d3ce9965c7ed0646c42b714b` |
+|  `latest-dev` | June 28th    | `sha256:2c8eade7e16a50e5cd97786cdb68fe5ba5e7610974534ec3262bb236322fe0f9` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7-dev` `7.17.22-dev` `7.17-dev`             | June 26th    | `sha256:8b639985b68ad67ced58a6be2924ce5ca3cc1334214e6ff7753611676b954ea8` |
-|  `8-dev` `8.13.4-dev` `latest-dev` `8.13-dev` | June 26th    | `sha256:4d434b27fd56bfbb150739dfaa2af18a7e31b2fc9e488581d8523c7999cd2bff` |
+|  `latest-dev` `8.13.4-dev` `8-dev` `8.13-dev` | June 28th    | `sha256:ba2e274833207c92b74e5c23de5bef5c2fbf24ef681a12073c104441fcc9d0ec` |
+|  `7.17.22-dev` `7.17-dev` `7-dev`             | June 28th    | `sha256:8a2122d1f56b55c0713756a4a41c2057f642d049581d1dedac0839bd618892be` |
 

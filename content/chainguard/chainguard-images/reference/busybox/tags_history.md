@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the busybox Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,15 +26,12 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)         | Last Changed | Digest                                                                    |
-|-----------------|--------------|---------------------------------------------------------------------------|
-|  `latest-glibc` | June 20th    | `sha256:ea0f7a8a018cdd9b0401179691e6d3a8a5e55c5903c4c85e1da0d39f5a7910c0` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | June 30th    | `sha256:646b16fd2647c7d3049a1d48e8b1eb3eaf6539fdd03224c5edcb5208f531fc20` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                                                            | Last Changed | Digest                                                                    |
-|------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `glibc-1` `1.36` `1` `latest-glibc` `glibc-1.36.1` `latest` `glibc-1.36` `1.36.1` | June 20th    | `sha256:8579b2b1c0e75aee420e22892046a7fb72f7fa983441808228417cae79d59383` |
-
+Currently, there are no Production versions of this image available.

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-envoy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 27th    | `sha256:4fdab09556daf5b6b99df5d006eb9a136283745e9c5d136ebd2724b389018555` |
-|  `latest-dev` | June 27th    | `sha256:3e9cc724043980d197da9d1cdf2a9fc703cf47cdbd828cd82d54c628429d0dee` |
+|  `latest-dev` | June 28th    | `sha256:8cdcea67f2f6c5291631367831b8da932f6d8c6df7ae1b207b975ece417f8bea` |
+|  `latest`     | June 28th    | `sha256:7c3e0398a2dba1e57cfbdc901a809000f3cad792dfa2cf31510bb61bf5df72f1` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2` `latest` `2.2.0` `2.2`                 | June 27th    | `sha256:139af7c1c5846b9925b83742e99589785f97d9538efd2172f0fc995b769414cc` |
-|  `2.2.0-dev` `2.2-dev` `latest-dev` `2-dev` | June 27th    | `sha256:8cfbcda90ce622982e565f3227780ce1ffe5b86c3fc2fe5b2cbaf9fa76c2deaf` |
+|  `2.2.0` `2.2` `latest` `2`                 | June 28th    | `sha256:db1bf0b9a32162bd01d11d41eb53d4b20a9b72fa981c01518ba5aa2a4888f557` |
+|  `2.2.0-dev` `2.2-dev` `latest-dev` `2-dev` | June 28th    | `sha256:f54492ccd3f9dde79f5051f06b452d752d3250290616d8f7f304a84b32747d8f` |
 

@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: postgres Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -34,7 +34,7 @@ Minimal PostgreSQL image.
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard-private/postgres:latest
+docker pull cgr.dev/chainguard/postgres:latest
 ```
 
 

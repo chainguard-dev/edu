@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-efs-csi-driver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 27th    | `sha256:4eb1678346803e8ebc9dcc3f73330d08636460a3c4e27862f10ad8b696f57bf6` |
-|  `latest-dev` | June 27th    | `sha256:3548beb0fe2e0880eb46c7cb69c492db84fd0c790794ea90184d032b90a33c72` |
+|  `latest-dev` | June 28th    | `sha256:371cb81a578fd7389e595a6d2064c58cf7e6877ac8695503ced326e5980b2f51` |
+|  `latest`     | June 28th    | `sha256:8e957ce1294182b5b2cf2e8aaaa94746cebc1ab2112ec66b72c5050be2748195` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.0` `2.0.5` `2` `latest`                 | June 27th    | `sha256:6dd35657bcff8b83e6e009b0f43d0ecf3cb1f5f0d09a66645a8dded7487ea9aa` |
-|  `latest-dev` `2.0.5-dev` `2.0-dev` `2-dev` | June 27th    | `sha256:82061e9d0465527801353a24bb2048f406c7481f7590eaad0e304d0de0a84b27` |
+|  `2.0` `2.0.5` `latest` `2`                 | June 28th    | `sha256:3493458b1ca6b5ae86b239d435fdf9fa95d694491d078e10ceb41982eb7667fd` |
+|  `2-dev` `latest-dev` `2.0-dev` `2.0.5-dev` | June 28th    | `sha256:f33e7410a59a7edeb2018c7204337d03284685fedb1f84480cb8c229acb785a6` |
 |  `2.0.4`                                    | June 26th    | `sha256:11bfb2c41400ac0cbeb943c52f4f7c34306545a249e7bf0565f342e3774d10f0` |
 |  `2.0.4-dev`                                | June 26th    | `sha256:977e91829018c8fa39edb1a96721a404e41429f1a0a5cd8cb79c50fa9cc4517e` |
 

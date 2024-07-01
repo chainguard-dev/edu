@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-hyperband Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 27th    | `sha256:440a455abc4736d5a00a9dd1f6536883dd58fc053f301353fb86f4e21f2375d2` |
-|  `latest`     | June 27th    | `sha256:7eca1972763714c3e612eaba5f05d84fee99efceb4e151db2162ff3fc0d9f6f2` |
+|  `latest`     | June 28th    | `sha256:8444464ef764b828e6e77c963d042ffc352e147ac4ae8905ad05afc183e75833` |
+|  `latest-dev` | June 28th    | `sha256:eb7ca745a367e33e2091117f9381a362a76f9fe96e710f475df553e0c6f8c44e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0` `latest` `0.16` `0`                 | June 27th    | `sha256:bfa9bd45756497c95cfa9f11bb86e44bd918e7a361ed954b69e87c77f04143e2` |
-|  `0-dev` `latest-dev` `0.16.0-dev` `0.16-dev` | June 27th    | `sha256:b16bf28523de64e6058130a98711e78f08becc358ab93fa0bd37cd02d97a3b16` |
+|  `0.16.0` `latest` `0.16` `0`                 | June 28th    | `sha256:bd6dd2d54c4f2b7746fac9cdf3bfac53184f1c165b5914abc4cae14b0e0af4d4` |
+|  `0.16-dev` `0.16.0-dev` `0-dev` `latest-dev` | June 28th    | `sha256:26b6db9ae36debaa21268568d7f275cbb2c58db38ea54e512c67e2c4e1024e96` |
 

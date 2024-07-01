@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public vault-k8s Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -21,49 +21,49 @@ toc: true
 
 This page shows detailed information about the Chainguard **vault-k8s** Image.
 
-|              | latest-dev           | latest               |
-|--------------|----------------------|----------------------|
-| Default User | `vault`              | `vault`              |
-| Entrypoint   | `/usr/bin/vault-k8s` | `/usr/bin/vault-k8s` |
-| CMD          | not specified        | not specified        |
-| Workdir      | not specified        | not specified        |
-| Has apk?     | yes                  | no                   |
-| Has a shell? | yes                  | no                   |
+|              | latest-dev           |
+|--------------|----------------------|
+| Default User | `vault`              |
+| Entrypoint   | `/usr/bin/vault-k8s` |
+| CMD          | not specified        |
+| Workdir      | not specified        |
+| Has apk?     | yes                  |
+| Has a shell? | yes                  |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/vault-k8s/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                          | latest-dev | latest |
-|--------------------------|------------|--------|
-| `apk-tools`              | X          |        |
-| `bash`                   | X          |        |
-| `busybox`                | X          |        |
-| `ca-certificates-bundle` | X          | X      |
-| `chainguard-baselayout`  | X          | X      |
-| `git`                    | X          |        |
-| `glibc`                  | X          | X      |
-| `glibc-locale-posix`     | X          | X      |
-| `ld-linux`               | X          | X      |
-| `libbrotlicommon1`       | X          |        |
-| `libbrotlidec1`          | X          |        |
-| `libcap`                 | X          | X      |
-| `libcrypt1`              | X          |        |
-| `libcrypto3`             | X          |        |
-| `libcurl-openssl4`       | X          |        |
-| `libexpat1`              | X          |        |
-| `libidn2`                | X          |        |
-| `libnghttp2-14`          | X          |        |
-| `libpcre2-8-0`           | X          |        |
-| `libpsl`                 | X          |        |
-| `libssl3`                | X          |        |
-| `libunistring`           | X          |        |
-| `libxcrypt`              | X          |        |
-| `ncurses`                | X          |        |
-| `ncurses-terminfo-base`  | X          |        |
-| `vault-k8s`              | X          | X      |
-| `wget`                   | X          |        |
-| `wolfi-baselayout`       | X          | X      |
-| `zlib`                   | X          |        |
+|                          | latest-dev |
+|--------------------------|------------|
+| `apk-tools`              | X          |
+| `bash`                   | X          |
+| `busybox`                | X          |
+| `ca-certificates-bundle` | X          |
+| `chainguard-baselayout`  | X          |
+| `git`                    | X          |
+| `glibc`                  | X          |
+| `glibc-locale-posix`     | X          |
+| `ld-linux`               | X          |
+| `libbrotlicommon1`       | X          |
+| `libbrotlidec1`          | X          |
+| `libcap`                 | X          |
+| `libcrypt1`              | X          |
+| `libcrypto3`             | X          |
+| `libcurl-openssl4`       | X          |
+| `libexpat1`              | X          |
+| `libidn2`                | X          |
+| `libnghttp2-14`          | X          |
+| `libpcre2-8-0`           | X          |
+| `libpsl`                 | X          |
+| `libssl3`                | X          |
+| `libunistring`           | X          |
+| `libxcrypt`              | X          |
+| `ncurses`                | X          |
+| `ncurses-terminfo-base`  | X          |
+| `vault-k8s`              | X          |
+| `wget`                   | X          |
+| `wolfi-baselayout`       | X          |
+| `zlib`                   | X          |
 

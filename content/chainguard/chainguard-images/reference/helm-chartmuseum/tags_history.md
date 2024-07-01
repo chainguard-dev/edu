@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the helm-chartmuseum Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:418cd6c745ae2230ceebe3648cad809868b5bba58dd459b999bfecd582a5ae68` |
+|  `latest-dev` | June 28th    | `sha256:e66a4de5f6a10e50523305840b7b754b39b3d6c85baa7f9f77e13ea43758594c` |
 |  `latest`     | June 26th    | `sha256:96256d2ea6b843c013b7e887b015ac27203193beebcea7fc4f24d957d0328d63` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16-dev` `0-dev` `latest-dev` `0.16.2-dev` | June 26th    | `sha256:934bf9536aecd389ab1495b11dd262a5e9cf046e4f3e219ce113f7afadd95543` |
+|  `latest-dev` `0.16-dev` `0.16.2-dev` `0-dev` | June 28th    | `sha256:58b778e2b5fcf7b750f922a221ded9a3fed06572b7e434a8d33acc7b4af268f8` |
 |  `latest` `0.16.2` `0` `0.16`                 | June 26th    | `sha256:58825bd5e1ccc0c495ff1d2f169379379cc119f4d7f0777b446a8c056aad797d` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-skopt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 27th    | `sha256:d3b4db1908926ce2fd5679e2e3e1817e38fd72f07ffd929f55017dabcce4f98f` |
-|  `latest`     | June 27th    | `sha256:417c1a584d3fd908ca42c5212d105562b914a69f6ab91837a80ed19ea30689c3` |
+|  `latest`     | June 28th    | `sha256:6371766ffbc40cee42692e35eace3c69fc1e743b68c1417cf221edfe32307311` |
+|  `latest-dev` | June 28th    | `sha256:f0a4d15bb6ba9c6904b6cbbf72adcc372d4fcce734e7d45e64f099e2c523d18b` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.16.0-dev` `0.16-dev` `latest-dev` | June 27th    | `sha256:61c3d71264268ddd7b7b3d6027e27e6a1ee262c9936e68b96b4b6520441ac973` |
-|  `latest` `0.16.0` `0.16` `0`                 | June 27th    | `sha256:cbff3264bf00503e8e723b72b65521c2cc31ae9bf2c1c6d1bae953ffce7ee0d7` |
+|  `0.16.0-dev` `0.16-dev` `latest-dev` `0-dev` | June 28th    | `sha256:1ac91fcc5177a01603824efa3abf6b1731bdd803194c21d8abe65e9d444aea3d` |
+|  `0` `0.16` `0.16.0` `latest`                 | June 28th    | `sha256:0b1339c9ce6918fe751c23cfe6b4b24fdaec10ea2ad81b62c9a92532839b4199` |
 

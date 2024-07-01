@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for tigera-operator Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 | Registry                     | Tags                                                                                                                                                                                                                                                                                                                         |
 |------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                                                                                                                           |
+| `cgr.dev/chainguard`         | latest-dev                                                                                                                                                                                                                                                                                                                   |
 | `cgr.dev/chainguard-private` | 1-dev, 1.30, 1.30-dev, 1.30.10, 1.30.10-dev, 1.31, 1.31-dev, 1.31.2, 1.31.2-dev, 1.32, 1.32-dev, 1.32.9, 1.32.9-dev, 1.33-dev, 1.33.0-dev, latest-dev, v1-dev, v1.30, v1.30-dev, v1.30.10, v1.30.10-dev, v1.31, v1.31-dev, v1.31.2, v1.31.2-dev, v1.32, v1.32-dev, v1.32.9, v1.32.9-dev, v1.33-dev, v1.33.0-dev, vlatest-dev |
 
 

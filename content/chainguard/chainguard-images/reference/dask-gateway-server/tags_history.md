@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dask-gateway-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:ad99352da7ef7f200951215dd35d76869798f6d9b85f6cb31f3cd0583f03ade1` |
-|  `latest`     | June 26th    | `sha256:aed9172a433fa0f1d356946e12cabddf8d09986d086c01d76c33e1251d06bffd` |
+|  `latest`     | June 28th    | `sha256:b02c2caa2d28bf3b5e4c48c8eec77e86fbeda964acdf56ba6186d2abdad6fbb1` |
+|  `latest-dev` | June 28th    | `sha256:eee798ca45d315049e83a8176eb442066a7d0ed70685537eb4b1b47b91c63fcb` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                              | Last Changed | Digest                                                                    |
 |------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2024.1.0` `2024.1` `2024` `latest`                 | June 26th    | `sha256:6f2c7688d66307d6df51ab029fdec96d6887095c1cc71e7209a4c1a7474faf1e` |
-|  `2024.1.0-dev` `latest-dev` `2024.1-dev` `2024-dev` | June 26th    | `sha256:49c9ca9c486280342e412aed425b21f9cc9a7a8a660b29bd848bdbc181d7756b` |
+|  `latest-dev` `2024-dev` `2024.1-dev` `2024.1.0-dev` | June 28th    | `sha256:a9d5a123a8e4ba4f0b8e79f5cf36cbc36af422d31b64e6c973976bcdeef7b42e` |
+|  `2024` `2024.1.0` `2024.1` `latest`                 | June 28th    | `sha256:a24e30454f37f3da4300a2aaa52afa54aaacd72731176f9eb09a8033d848f717` |
 

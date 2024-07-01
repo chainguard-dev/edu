@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-coredns Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                  | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-eks-1-25-33-dev` `1.9.3-eks-1-25-33-dev` `1-dev` `1.9-eks-1-25-33-dev` `latest-dev` `1.9-dev` `1.9.3-dev` `1.9.3-r8-eks-1-25-33-dev` | June 26th    | `sha256:87ac806fb6f6a74182fcff47b80a5199503a2752dda70fe98e806f555955d53e` |
-|  `1.8.7-dev` `1.8.7-eks-1-23-33-dev` `1.8-eks-1-23-33-dev` `1.8.7-r15-eks-1-23-33-dev` `1-eks-1-23-33-dev` `1.8-dev`                     | June 26th    | `sha256:d2bd848609e88254988df415021a7a70fe4508cb2b36e4d4cdf73f26ca11cdc3` |
+|  `1.9-eks-1-25-33-dev` `1.9-dev` `1.9.3-eks-1-25-33-dev` `1-eks-1-25-33-dev` `1-dev` `1.9.3-r8-eks-1-25-33-dev` `latest-dev` `1.9.3-dev` | June 28th    | `sha256:b53f40c42a6b7e7174ecba99807720cd5065ab0a9899fea81ab4ad6dfe0e6502` |
+|  `1.8.7-eks-1-23-33-dev` `1-eks-1-23-33-dev` `1.8-dev` `1.8.7-r15-eks-1-23-33-dev` `1.8.7-dev` `1.8-eks-1-23-33-dev`                     | June 28th    | `sha256:c96cf78ba9d06479eda72cbfeac0120b6354e8d94b4308a60b5316f5fefc796c` |
 

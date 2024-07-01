@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-resizer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:537b52d49997eb94b01f720cde4343d5495e56e8c4423a991d483ca98e6d2a9b` |
+|  `latest-dev` | June 28th    | `sha256:de5e8ec5526f4ec01fd2e03c56b92ef02ab866d8e36caa68eb951de8188c5ef1` |
 
 
 ### Private/Dedicated Registry
@@ -36,7 +36,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.10.1-dev` `1.10-dev` | June 26th    | `sha256:739574f5d514e5f88d51fb8ee7378fc6f747f8d0322a07486193138d0ed38d2c` |
-|  `1.8.1-dev` `1.8-dev`                        | June 26th    | `sha256:a9b6054a063a01ca51ef4eef3723596e23b62565a8424e00bce37526b7a36b9b` |
-|  `1.9-dev` `1.9.4-dev`                        | June 26th    | `sha256:f8c415fa3f4ffbd4e6bb0a5e8ac6a27865348f3e8eaa0592c88ca03170017779` |
+|  `1.9-dev` `1.9.4-dev`                        | June 28th    | `sha256:ef9e4065d8c8d31bc9d082d857dec556243eae716b3b41c2b151bb6e9bb27c43` |
+|  `latest-dev` `1.10-dev` `1-dev` `1.10.1-dev` | June 28th    | `sha256:0729db39284b32759967e0e734a9f141fd9ebd5051c445f7295df841edffeb63` |
+|  `1.8.1-dev` `1.8-dev`                        | June 28th    | `sha256:3f829695cf70505d9b09bb61e6de46c66d9cd0f8548d5bca28e24397d16da9c3` |
 

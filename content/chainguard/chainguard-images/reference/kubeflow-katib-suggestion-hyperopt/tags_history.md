@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-hyperopt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 27th    | `sha256:508efdf6f08f98ea949ddd84f78da8fd6e47a6cd9e0da488154562480adab57b` |
-|  `latest`     | June 27th    | `sha256:76fd07aa072f51e223af1a9b0b375e7f1dd8501c25d8eea32b9cf3b2140b6d5d` |
+|  `latest`     | June 28th    | `sha256:96744906dbfd6b2f5a398f7a2b55164f5afd174ae8ade0a800ab580c06afa65b` |
+|  `latest-dev` | June 28th    | `sha256:4e94a48741effecb1073ddb86b25666899be765c8f41c147643d5029e71e93ce` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `latest` `0.16.0` `0.16`                 | June 27th    | `sha256:022b3d8708ec0638b1397b7b29c9d6ab5fda6a94a506dfe2044d400d4ca05e83` |
-|  `0.16.0-dev` `0-dev` `0.16-dev` `latest-dev` | June 27th    | `sha256:4bc5626adf2f18588992c99371d6d0f6d1ffa86f37b540f85a9b2e9b6ea3b965` |
+|  `0.16.0` `latest` `0.16` `0`                 | June 28th    | `sha256:46670904d0d8ce709780e5de9d7af190f06d1c4c0583af8b20464ffcb3d5035a` |
+|  `0-dev` `latest-dev` `0.16-dev` `0.16.0-dev` | June 28th    | `sha256:6de5b006209dc97b689d33771809abae9b79e9fd495d2cf028f80ba1f3f8cb10` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-snapshot-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:6c5c7ee62c9d72b6a30f2c606952c13c8bc1d28be279a733ffe4aa1d32320544` |
+|  `latest-dev` | June 28th    | `sha256:78f595c58e99ad7c20ef117313e85974a500df2ba35654cfe04b324a7d827cec` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +36,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8-dev` `8.0-dev` `latest-dev` `8.0.1-dev` | June 26th    | `sha256:3da6c6a3a9a5f7a3912abbb0ae09f33cb308e4d2a43d1fc3fc09a0b8a1171cd0` |
+|  `8.0-dev` `8.0.1-dev` `8-dev` `latest-dev` | June 28th    | `sha256:95adbb6cc5338e3fbdf82132f974b34a642b982cbab0c8b3f9a6c045b2f7a251` |
 

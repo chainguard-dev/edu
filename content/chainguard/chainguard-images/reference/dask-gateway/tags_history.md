@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dask-gateway Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:368807bc9aae2c23942e673681f1f5052eba0a159c496cb92c0099c0cd6ddefa` |
-|  `latest`     | June 26th    | `sha256:dbbe264884c9f4ae629cb249949e9062de52922b9574904a869cae07b77ef173` |
+|  `latest-dev` | June 28th    | `sha256:782e69811afcf7e84d05f8501c19fb95f2162a58ca96e7e63ec6ea08e9eeceac` |
+|  `latest`     | June 28th    | `sha256:4bb8435d3f62fc50248ffb78563ff4cb36d1454a3b0a9d751330aa7fbcf3930c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                              | Last Changed | Digest                                                                    |
 |------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2024-dev` `latest-dev` `2024.1.0-dev` `2024.1-dev` | June 26th    | `sha256:20164a90a1f824839ac5d792e1a6960a2d9b053c39ccda4308eeba541aa1ac44` |
-|  `2024.1.0` `latest` `2024.1` `2024`                 | June 26th    | `sha256:151aae9979b821bcbdecd9e01f51709b4d6ab67435f0e5e1cc25e22861adeef3` |
+|  `latest` `2024.1.0` `2024.1` `2024`                 | June 28th    | `sha256:a0ccd9b3dc352cccef04c3206e7bddafc2bd507dbceb9056e6fd9ed4979201c2` |
+|  `2024.1.0-dev` `2024.1-dev` `2024-dev` `latest-dev` | June 28th    | `sha256:372e672aee56579a5b91d332a9791f2115a8ab5331820a183dde3892705986ee` |
 

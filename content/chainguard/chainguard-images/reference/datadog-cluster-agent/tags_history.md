@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the datadog-cluster-agent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:943b4d9925f31826627f472028bfbe9d520fcc87c74d0f43bcd405eb0878d238` |
-|  `latest`     | June 26th    | `sha256:dadf36c18007f451685b0421ad775efa7a048483afcb6b2e46fa0bab4cc277de` |
+|  `latest-dev` | June 28th    | `sha256:5a9c716d1383941b0e51784290a53abca18b3d8d49d06e3c07a17b10db37fffc` |
+|  `latest`     | June 28th    | `sha256:43aecb8978d1c618190091974f4891b86cfd38385d00449f7c7061290f4e8fa3` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `7.54` `7.54.1` `7`                 | June 27th    | `sha256:d2ae6e7fbefd630c69e20da7ada883469e113dde48ca53c26250fedb78b49c0b` |
-|  `latest-dev` `7.54-dev` `7.54.1-dev` `7-dev` | June 27th    | `sha256:ab4d1393ed0095b1ad17b7d83186251000866566c969cfa18dfe3e9fbf5ad511` |
+|  `7` `7.54.1` `7.54` `latest`                 | July 1st     | `sha256:666d6da1dff7d204d5088fa64fadf2b001507bbafbe21bc251944f8b6a551bff` |
+|  `7-dev` `7.54-dev` `7.54.1-dev` `latest-dev` | July 1st     | `sha256:500ebb019c2e038c40ac30c8104cb6b21ab46c9e50738e887bcecb3a2c231fb1` |
 

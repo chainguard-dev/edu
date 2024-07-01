@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dotnet-runtime-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8.0.6` `latest` `8.0` `8`                 | June 26th    | `sha256:128a075b1c49bd708e8af977d6f2caaa63b5285cc7383f3b57e0dcee820e44c1` |
-|  `8.0.6-dev` `latest-dev` `8-dev` `8.0-dev` | June 26th    | `sha256:42ccfb485507eeb5648d3f803e9c01455c4b1e735f152a0c4493a08796b46aad` |
-|  `6.0.131-dev` `6-dev` `6.0-dev`            | June 26th    | `sha256:0a0515b4bb75ccda8c1bb920cabf2819fa932cdb3f0051b70199aeb01b23f987` |
-|  `6.0` `6` `6.0.131`                        | June 26th    | `sha256:9cb8ecbba9b13d0bbf592bd54ae30fe6c783fc6e763e98e051230fb775a72f6b` |
-|  `7.0-dev` `7.0.120-dev` `7-dev`            | June 23rd    | `sha256:8ddb815dbc8f94e29a935f40f78b98f6dc7eab42bcaf4fe4b35712a764efe5ae` |
-|  `7` `7.0` `7.0.120`                        | June 21st    | `sha256:03497c96de11ff84b7b81ce77b3b82bfb357c3e43ac6bd7c13ff9798247fda2d` |
+|  `latest-dev` `8.0-dev` `8-dev` `8.0.6-dev` | June 28th    | `sha256:53fbc9c59b21591d2b13c231714b4971aa69975b1d6282352e8075cc48f064ec` |
+|  `6-dev` `6.0.131-dev` `6.0-dev`            | June 28th    | `sha256:8aa599a49784377a28993b5cdef63f33b7d39bef69c750fda4b480d6030f8ba4` |
+|  `8.0` `8.0.6` `8` `latest`                 | June 28th    | `sha256:b1f1698904a1a5000953f1a901c9a64abaea382f79aac6e2a971972be637dec1` |
+|  `6` `6.0.131` `6.0`                        | June 28th    | `sha256:35fe5e78d8bc4d5177137d20dda7e35bd7a0627fc9aafdcefe262ba32f255830` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the docker-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | June 28th    | `sha256:8afa223c3ce3e530d15d34ccea84c6182c6461d128ede49d7a3a0c909a716e73` |
 |  `latest`     | June 27th    | `sha256:bcae0448d83a7c83f98a72e1456654a2144a5f7b6b9b56f99c142e6b23689d0f` |
-|  `latest-dev` | June 27th    | `sha256:b7d7094e33e7ea7a289ea97d70acf651fb2450cd5e9ba5f5c35618893d073ed4` |
 
 
 ### Private/Dedicated Registry
@@ -37,9 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `27.0.2-dev` `27.0-dev` `27-dev` | June 27th    | `sha256:4a66297f7d3a7b5e35c1a74a4d88c27f7f054dd41075d59300f291c11e5026bc` |
+|  `latest-dev` `27-dev` `27.0.2-dev` `27.0-dev` | June 28th    | `sha256:19baaedc9cfd915892920e740baaf90c75119cbede35e791c8068dbcb327ab80` |
 |  `27.0` `27.0.2` `latest` `27`                 | June 27th    | `sha256:6296d61af08919da35b0cdbbfb28ea7246285c3d827e146ca18e2c4d811c12f3` |
 |  `27.0.1-dev`                                  | June 26th    | `sha256:8524ea4e4932336342b139b3f936b629b246c258d2c406a647a4d750004e4f91` |
 |  `27.0.1`                                      | June 25th    | `sha256:3922ea4ac68bad09f3a67bc5a3b12d7815f2c97a3e12f7a1c408fc1634638cde` |
-|  `26.1.4-dev` `26-dev` `26.1-dev`              | June 23rd    | `sha256:f39d7efaa93d2b319364b1c96346e111a46e03cc1bebd335a9e8116ef0da1d44` |
 

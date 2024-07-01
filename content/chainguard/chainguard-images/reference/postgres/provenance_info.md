@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for postgres Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 | Registry                     | Tags                                                                                                                                                                 |
 |------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                                                         |
+| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                   |
 | `cgr.dev/chainguard-private` | 12, 12-dev, 12.19, 12.19-dev, 13, 13-dev, 13.15, 13.15-dev, 14, 14-dev, 14.12, 14.12-dev, 15, 15-dev, 15.7, 15.7-dev, 16, 16-dev, 16.3, 16.3-dev, latest, latest-dev |
 
 

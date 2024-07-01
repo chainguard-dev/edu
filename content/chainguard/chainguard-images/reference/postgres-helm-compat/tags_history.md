@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the postgres-helm-compat Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 26th    | `sha256:f29e9990bc28daba1c9b75c8906f574194e07b11174feb8fd6b85c7ddd25c0e2` |
-|  `latest-dev` | June 26th    | `sha256:4a0dc231ce796f594201da132191346e139cf7651bdd5e671dc6a27b46eb49d1` |
+|  `latest`     | June 28th    | `sha256:12cd23a740eb78075c46aabc5e303142eb4973a7870d924598fb972af954b22a` |
+|  `latest-dev` | June 28th    | `sha256:756878ecac3c9992c753ec0b37215804eef8bc43b84f18d12d62bf9747766cfd` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                           | Last Changed | Digest                                                                    |
 |-----------------------------------|--------------|---------------------------------------------------------------------------|
-|  `15.7-dev` `15-dev` `latest-dev` | June 27th    | `sha256:18b5a5e669c590020b37f7c9bf79a5206380a6c9e46be3c446e33cf05554281a` |
-|  `15.7` `15` `latest`             | June 27th    | `sha256:fdcfeb65128a5f3c9b0943f25103749d0e3d1276cbfed59c19a84e0fe1edac5d` |
+|  `15.7` `15` `latest`             | June 28th    | `sha256:3ca6e74f76c6797f0ce8ee54b9403d9bf642afc1d5fffd0434c9abfa74349c35` |
+|  `15-dev` `latest-dev` `15.7-dev` | June 28th    | `sha256:f783dfce4d29d108c860954f8e788c53fadee9e858e1aad65b193ca195370e6a` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the temporal-admin-tools Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:7310d41e9dc9ec13f0ed2001341e93a024a65c61bb40d080657733110b35b261` |
-|  `latest`     | June 26th    | `sha256:2d2ccc1a04cc726f3e7f0b7390e3d6b27c1aa15157ded563dfa279efa3327011` |
+|  `latest`     | June 28th    | `sha256:0ea693ea63fd087312809188acfd770ce7834c9f6c8c937550a5c11f5d3bf14c` |
+|  `latest-dev` | June 28th    | `sha256:a058d6604105e5465a51cb3b576f4fbe9b47eea7d10b0b83dc4ae3392f367052` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1` `1.24.2` `latest` `1.24`                 | June 26th    | `sha256:185952db1e7fcd307a7038e7fe1c698e6a5bb7192bbcbfa72d40904a93c12b05` |
-|  `1.24.2-dev` `1-dev` `latest-dev` `1.24-dev` | June 26th    | `sha256:70dbdd548f061fbd9f95605e0ac63f4e97a1a1f4f30c8d6fb3f34288bcd61a66` |
+|  `1-dev` `1.24.2-dev` `1.24-dev` `latest-dev` | June 28th    | `sha256:153e7b7f89280a9c21481ad2c8c4dcae2cc7a4e9d4b2db843eccd6d0473eb5df` |
+|  `latest` `1` `1.24.2` `1.24`                 | June 28th    | `sha256:3fc4a0e1e6688982ccb569c29078e4676b3e831d3e68dd5ccffeceb42bdc5125` |
 

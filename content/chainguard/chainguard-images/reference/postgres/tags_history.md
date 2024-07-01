@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the postgres Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,21 +26,25 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-Currently, there are no Developer versions of this image available.
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | June 28th    | `sha256:18172761d696826116eff743b02087dbcf3b29ffde2e18e3db55a1ff77f718d3` |
+|  `latest`     | June 28th    | `sha256:71207f3734913b6110f4be06668a912c24be5cb28c98363475315d2090bc0787` |
+
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                           | Last Changed | Digest                                                                    |
 |-----------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `16-dev` `16.3-dev` | June 27th    | `sha256:eabb084ea08ccd057379212c055e336abd81fcffa9632178dcaaf1f2911641fb` |
-|  `12.19` `12`                     | June 27th    | `sha256:a11eb8c676ebb1e5f0a7f50ac1ce46f87f267802e4f78c6762dfd002a3c43afd` |
-|  `16.3` `16` `latest`             | June 27th    | `sha256:a4676462684d0f49358d938cc3aecc24af57ae710db95a8cdcb0a68390ba3835` |
-|  `14-dev` `14.12-dev`             | June 27th    | `sha256:57fdcfbcf20024e5173048edd5cb838e5e953e38fe7c27b3c9d6ccd262fd4734` |
-|  `15.7` `15`                      | June 27th    | `sha256:fcde7b7516d6fc1d8a4468f5d7397d37a3334f15e2904d1d7704dc39a898e795` |
-|  `13.15-dev` `13-dev`             | June 27th    | `sha256:8648639f645c8f7e3f0a10a0008e1123af40f7a6f8ccfdd3c50bbe211401d074` |
-|  `14` `14.12`                     | June 27th    | `sha256:cf079622b3fb140f18a5eb9465b5fa085f02b63bec2ef9dd31cdc109cdd179cf` |
-|  `12.19-dev` `12-dev`             | June 27th    | `sha256:abef845d032a91c5861689acaf4cb81d53766a9b107f483f2f0af004624034d0` |
-|  `15.7-dev` `15-dev`              | June 27th    | `sha256:38e32a173176905987e8263bdb1150a1ded61143497f53aec7c459aa713e97fc` |
-|  `13.15` `13`                     | June 27th    | `sha256:1add4bab1574d81d72d1bc3d2117025d57f0978d11c50540dbbfcf4d58ce9bdf` |
+|  `15-dev` `15.7-dev`              | June 28th    | `sha256:fb4a58fc58756452f54617a72d7ab52ee9a3d8968e198f7f0be94072599cd226` |
+|  `14.12-dev` `14-dev`             | June 28th    | `sha256:a36ebf75c223d1b36273b3e503046ff1a8d383c78342779d04594ed8c936615d` |
+|  `15` `15.7`                      | June 28th    | `sha256:314dd71f80ead6ffba462088fc9fbe38b4f145004c9b2111e7c5359f2416a243` |
+|  `16-dev` `16.3-dev` `latest-dev` | June 28th    | `sha256:b3f5f0eb547a90d153d1660ccceb2537a180565266d16c425cf76da3f91be3f9` |
+|  `12` `12.19`                     | June 28th    | `sha256:86bb04fe797cd0125f83668f460f46cd229e90070cb99abd5d8e58603445522a` |
+|  `13-dev` `13.15-dev`             | June 28th    | `sha256:e0e9a8d87a367a57f12c8d69eafc2aa5f39896f38fca23d81f319b58baab3c9d` |
+|  `16` `16.3` `latest`             | June 28th    | `sha256:ab62dc251ad4f740837684c1468175ec7e54a8dec695fa0f482dd6056e168e20` |
+|  `14` `14.12`                     | June 28th    | `sha256:e417bd403fd78ab509db13ca239b8aa940aa02afc7257c6de82255d157fdf0cc` |
+|  `13` `13.15`                     | June 28th    | `sha256:e0c9a70012d52e16c235b3f1f3caf3c50dcac91d6a68293f578100b3ab0e8be5` |
+|  `12-dev` `12.19-dev`             | June 28th    | `sha256:7d262a8a4db9599891949694c7009bc901151c962dc30c8d5381e128e46abc0f` |
 

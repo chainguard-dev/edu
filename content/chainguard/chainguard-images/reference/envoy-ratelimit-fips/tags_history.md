@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the envoy-ratelimit-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)               | Last Changed | Digest                                                                    |
 |-----------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` | June 26th    | `sha256:6c297876ee49f67f7967575a587847403ff69c7c4ee9377b1d1cd0465b7ff5a5` |
-|  `0` `latest`         | June 26th    | `sha256:f4ae47a318341d769df2de9bf40ff8d29ef74c18e5fadb87fa47a518935729a1` |
+|  `0-dev` `latest-dev` | June 28th    | `sha256:4c9020576b405781854c7928a82f609c0b1810cc1c0d733147845b3ac6910607` |
+|  `0` `latest`         | June 28th    | `sha256:9eadb00db9500d1282fd7c5d5c3ea1611e372e5ed4a6fbae2969e29069e21a82` |
 

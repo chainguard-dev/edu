@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the fluentd-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.16.5-dev` `1-dev` `latest-dev` `1.16-dev` | June 27th    | `sha256:ba2a48a3db02fb3ca196e2ad7d5eeef8a494fd64f5967b04c099e4dcc95660dd` |
-|  `1.15.3-dev` `1.15-dev`                      | June 27th    | `sha256:e982b55a1c506c64d28ac94966dc1e0cce282d3b301d474abc2f101f0ecccf94` |
-|  `latest` `1.16.5` `1.16` `1`                 | June 27th    | `sha256:77f25697c4c2f5f6688878170006f29f4f6d9f8a6d00dd4fb7bd3200246f98c5` |
-|  `1.15` `1.15.3`                              | June 27th    | `sha256:ba75f27d566d0fa27f50ccf1d33976fcf7bc226f69ebe0a23f2f003a3c642078` |
+|  `latest-dev` `1.16-dev` `1.16.5-dev` `1-dev` | June 28th    | `sha256:38e23bc5990454b00a2fb794a7f41e74555782aee5044dd56b9a8d8a0ab7a0eb` |
+|  `1.16.5` `latest` `1` `1.16`                 | June 28th    | `sha256:fd6f8d3bd5a6e1185ad1384f83025bc5fd9a6c6c70451f4e5db64d43c5ce22d7` |
+|  `1.15` `1.15.3`                              | June 28th    | `sha256:dfc23cafdb381d51ec9d3ccd7ee4d24bd236214d01e8258eb31f3bef473f6e47` |
+|  `1.15.3-dev` `1.15-dev`                      | June 28th    | `sha256:32124553dd3d94c79286aa300c4c1d5d40e0c06d7d43109435b2e9e01c932beb` |
 

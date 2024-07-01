@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,11 +33,11 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                   | Last Changed | Digest                                                                    |
 |-----------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `20` `20.15` `20.15.0`                                   | June 26th    | `sha256:33bdca0290c7d7af1047a53f6664649214e49e9a6d7005a967f7d9922428c8ed` |
-|  `latest` `22` `22.3` `22.3.0`                            | June 26th    | `sha256:f1b765850cb2d0010b282283a18cd0f2ea086f69b7ff0771fcafb2cabd802474` |
-|  `22.3-dev` `22.3.0-dev` `latest-dev` `22-dev` `next-dev` | June 26th    | `sha256:35ad7271af93686fb5bff328033906f082237265acbe91deda61e8c9eeb696aa` |
-|  `20.15-dev` `20-dev` `20.15.0-dev`                       | June 26th    | `sha256:1eff27eb5403e710a1cbe5da9be223ad1b2041f2b2aad670b38f7ae192610322` |
-|  `18.20.3` `18` `18.20`                                   | June 26th    | `sha256:b33b51de5095aa58e67ccc23ba8acab7b89757cb25ef2ec7ca9b41c31f8fb89d` |
-|  `next`                                                   | June 26th    | `sha256:6a4446e22f15ab15920981004d8884c729efe82cbc41b6ec432a619c69039df6` |
-|  `18.20.3-dev` `18-dev` `18.20-dev`                       | June 26th    | `sha256:8d9f515cb62759d6fe548d76630851fae90a028893fc5e40711fd13d62f35a9a` |
+|  `20.15-dev` `20-dev` `20.15.0-dev`                       | June 28th    | `sha256:70329f658e3eda2646f4e4f39076212036cbf0beed1ea7c9ede5a453ba2f8654` |
+|  `20.15` `20.15.0` `20`                                   | June 28th    | `sha256:b9b9f253dcb9defbe48c4b3e3d2185b4333f4e131cbaa0a8fe7d9d221e870f70` |
+|  `22-dev` `latest-dev` `22.3.0-dev` `22.3-dev` `next-dev` | June 28th    | `sha256:aa1531eaf5b272b2ca58a20ee1a398d7a1fc7462092065bdf23f02ed728f7d94` |
+|  `next`                                                   | June 28th    | `sha256:1c4136fb407a5ea5309af6f730e711e46be9aeecb91bd65dc0315b469ca9025f` |
+|  `18.20.3` `18.20` `18`                                   | June 28th    | `sha256:104dd525ccf6d4bd1970cce89662e28168c1cb761ebd6522223da635beb9bba5` |
+|  `18.20-dev` `18.20.3-dev` `18-dev`                       | June 28th    | `sha256:1eab0d3a05fd46410ce24b099e0030a51c3aa4b07b3623854bf43ab9492587e5` |
+|  `22.3` `latest` `22` `22.3.0`                            | June 28th    | `sha256:b2517f4289003dc83796d8f50c34172072864f453dcf1f2c8bd389b8555ed4ff` |
 

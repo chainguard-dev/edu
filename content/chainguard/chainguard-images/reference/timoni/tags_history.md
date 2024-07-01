@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the timoni Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:dd1394bc761d897a1af1ba66bba127658974a5e255a8fc2d412ccbffa2dcee5d` |
-|  `latest`     | June 26th    | `sha256:18a21aaf5e52b962a49d0da572efa575c639e0b334690be47ef085ac6c5c3248` |
+|  `latest-dev` | June 28th    | `sha256:e754ab20aa9c4eaea43dd2c9237712f989d53ca749913ff22abaaa1217890dd3` |
+|  `latest`     | June 28th    | `sha256:003677774f2f839e3355a8333fff4a497005111a60a13feaaf3efcd58871eb3a` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `latest` `0.21.0` `0.21`                 | June 26th    | `sha256:4010441cf60ecda926d526cd723b9922f82445aa47b6d5353d927953482bcfb8` |
-|  `latest-dev` `0-dev` `0.21.0-dev` `0.21-dev` | June 26th    | `sha256:f60a6b8e68c201daaea850d33568063534cfc4d6e7f74bbdc17c04361cafb55e` |
+|  `0` `0.22` `latest` `0.22.0`                 | June 28th    | `sha256:16e4d982fe024fbb9d60f905729349ccdeb6aea0b8f6ba4ca36f0abb7d381f0e` |
+|  `0.22-dev` `latest-dev` `0-dev` `0.22.0-dev` | June 28th    | `sha256:81f79f423ada9916f924d2138fb25fb04465eeb463973953c6d5486e2fb9c222` |
+|  `0.21.0-dev` `0.21-dev`                      | June 28th    | `sha256:2d3373f2a46815e4fcf9ac78bdb042194645c8a13283c5eef31ae0c7d13a4f93` |
+|  `0.21.0` `0.21`                              | June 28th    | `sha256:c47a216ca44ec67406ff67acf816ac5282af8140fc4498dc03efeeea19fd97a0` |
 

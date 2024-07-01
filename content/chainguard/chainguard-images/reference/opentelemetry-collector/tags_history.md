@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opentelemetry-collector Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 26th    | `sha256:4552474beb5fa65148ff2f057bad41997ad5a82b8c9a7c4bbf8b3775e900a26c` |
-|  `latest-dev` | June 26th    | `sha256:b08e0b3e913be6c1ce6255462b1935598e7540d30b229c2dbeff0e8783bc7a58` |
+|  `latest`     | June 28th    | `sha256:853f8d34d75e431c950ff2779c7599031bc13e810511185d29727d06a484a5a6` |
+|  `latest-dev` | June 28th    | `sha256:224285a1f6e482eaa6b2e5b2b43a029eb3e724d272fc168cb15bd58f79d77c9a` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                         | Last Changed | Digest                                                                    |
 |-------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `latest` `0.103` `0.103.0`                 | June 26th    | `sha256:da0d435c1f35ec8bb8476e617a241a0e67cf97d20f9c68baace145216a7cf1ca` |
-|  `latest-dev` `0-dev` `0.103-dev` `0.103.0-dev` | June 26th    | `sha256:d9e62ce9fe76d6c370a04845a1d49614156169978bf7db24efd899e865c440ef` |
+|  `0.103` `latest` `0.103.0` `0`                 | June 28th    | `sha256:b8860e008cac352e6bd47299e5e229dbb19b23d041c5e7025d195f522664f480` |
+|  `0.103-dev` `0-dev` `latest-dev` `0.103.0-dev` | June 28th    | `sha256:3fc5d82c3cf0ae6b59967268f1ef8827400afcc196bed5912ac7bc75f0a9fac6` |
 

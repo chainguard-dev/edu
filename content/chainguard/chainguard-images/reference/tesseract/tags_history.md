@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tesseract Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 27th    | `sha256:903c038cfed09b39d1f5118cf49f384adad1a4ddab2c65b457ec383e9e064782` |
-|  `latest-dev` | June 27th    | `sha256:6525c0491f835bd98f427ee81c032ce4b39cc8f189aa2827e5a3782fe817f8fd` |
+|  `latest-dev` | June 28th    | `sha256:561740e89dec06076345dce3673642a361016309998123f590bc5c7128cdfda3` |
+|  `latest`     | June 28th    | `sha256:cd69a599d70b3f73a1f39e7490548f366221e5e1919ace73f7606c9e156185e8` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `5.4-dev` `latest-dev` `5-dev` `5.4.1-dev` | June 27th    | `sha256:da04b86fb41cc15600d57970fc8f466e1420aa9317d9de4aae6f97d842c3a5df` |
-|  `latest` `5` `5.4.1` `5.4`                 | June 27th    | `sha256:df2e9f7509454c9f781daefd7a367c75f563ae1d6c4cef5af71cc04753ec9c78` |
+|  `5.4-dev` `latest-dev` `5-dev` `5.4.1-dev` | June 28th    | `sha256:a036d810895f64c7a1b7590dfede23b1f23b288bdbd6f93a49ec679082f425e0` |
+|  `5` `latest` `5.4.1` `5.4`                 | June 28th    | `sha256:185342868136f0cc3acc80fb71cd8f063c8676851484228e47b914da33188043` |
 |  `5.3.4` `5.3`                              | June 25th    | `sha256:3e6974010b169a4115069818e28aeb17b58c20c0f299df4699a49dbf6d64aaf2` |
 |  `5.3.4-dev` `5.3-dev`                      | June 25th    | `sha256:699cac5799dbe3ce5ee51c07517f33526f501c6f717d0e532fbf6dc1361304ae` |
 

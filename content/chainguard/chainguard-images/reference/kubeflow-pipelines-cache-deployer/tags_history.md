@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-cache-deployer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 26th    | `sha256:32cf76a1879d2818c178a9dca35d39e2db01731ab296528dd2e4f449d6f6e1a6` |
-|  `latest-dev` | June 26th    | `sha256:34fe97d34ef6130ced4bbc795e2a7cbdea5bdf85c968dbe704f59461eecb1eae` |
+|  `latest`     | June 28th    | `sha256:a48cb12d68d88aa16caabaad8d9c9584ece7754162eb4bcb047dcc59673531b8` |
+|  `latest-dev` | June 28th    | `sha256:27e467f00531ba161b38e0012334e93105732eb56b1961fa940c614b2ce2dd7f` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.2-dev` `2.2.0-dev` `latest-dev` `2-dev` | June 26th    | `sha256:81f0626913534893135618f34881001de0ba92f0ef0aad92c0cd1a3559c589be` |
-|  `latest` `2.2.0` `2` `2.2`                 | June 26th    | `sha256:001ae35551972920f21f341e083f678467c0bf5ba4316b51cdf54026967bcb4b` |
+|  `2.2.0-dev` `2-dev` `2.2-dev` `latest-dev` | June 28th    | `sha256:71fe1348e37e22950a54d3aa04fa38407c2e0e45f087835db9a9638c3ec0772f` |
+|  `2.2` `2` `2.2.0` `latest`                 | June 28th    | `sha256:88d0627d71f3428ee357d472730771a81da0f75188b1ef41b27e16c799628a74` |
 

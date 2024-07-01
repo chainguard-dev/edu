@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the keycloak-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:a164cb54d8a7930e39cbf9c94d632b63b29665344fa20b72370550955e853818` |
-|  `latest`     | June 26th    | `sha256:08a9aaad4e2963530320f778a8442aa5e4ba48ad2efc3a9fa11f3893c85f2711` |
+|  `latest-dev` | June 28th    | `sha256:636404cbea647463ddc26e180b4d50df541932e6fdb8c8dc54a6dc84feb2c471` |
+|  `latest`     | June 28th    | `sha256:373748fa6fefffc5ab552af256fdd4c94ee9f763660082c5e1f76aa53811e0b0` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `25.0.1-dev` `25.0-dev` `25-dev` `latest-dev` | June 26th    | `sha256:c5d888b52a78b53cfcc2a039bdd1a53835de706f6b02eff93192111bec445a86` |
-|  `latest` `25.0` `25` `25.0.1`                 | June 26th    | `sha256:48f1b629cc51a0e6a35cce5a11ebd70fcb70dff0323ac4b00217773fb8a126f1` |
+|  `latest` `25.0.1` `25` `25.0`                 | June 28th    | `sha256:e11e350aa65729b8b2c8782c4392ab2cf23f0844c4d52f5cfecdb70040966a41` |
+|  `25.0-dev` `25.0.1-dev` `latest-dev` `25-dev` | June 28th    | `sha256:75234cdd39524d35465b4e1ecedca3f5b77b94d0dac1d82210fded0e34d8083a` |
 

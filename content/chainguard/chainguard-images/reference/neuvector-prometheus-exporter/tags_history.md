@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the neuvector-prometheus-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 26th    | `sha256:b369cc79097196e609aee5c101abf0534c1b18f9a7c5e41d19de92ec5696663e` |
-|  `latest-dev` | June 26th    | `sha256:6b08119f197a7faaf8d46b34b39a1ab54de5e6865b264c9259ef568b0356c64a` |
+|  `latest-dev` | June 28th    | `sha256:a4e70ede1cd372177f466ba45c85a22a095583e73cd797e74164d4731f85b71f` |
+|  `latest`     | June 28th    | `sha256:bcca71d5c1e173bcf5c8ffc443abdf44439807107854da8f9048ff726ea9d648` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                   | Last Changed | Digest                                                                    |
 |-----------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.1.0-dev` `1.1-dev` `latest-dev` `1-dev` `1.1.0.0-dev` | June 26th    | `sha256:402a31674f0cbbb6397354e820c369e086bc5729cf8eb743f2156927cd5eb227` |
-|  `1.1.0` `1` `latest` `1.1` `1.1.0.0`                     | June 26th    | `sha256:5decb0046701359654c1ed3cd818cfb5fefed7e68c4345490a373339fe308d00` |
+|  `1.1` `latest` `1.1.0.0` `1` `1.1.0`                     | June 28th    | `sha256:e3a0d88d266b81a72eca5c6b6c60b16ac96d8140dcd67bcc5ca76d25ff779c80` |
+|  `latest-dev` `1.1.0.0-dev` `1.1.0-dev` `1.1-dev` `1-dev` | June 28th    | `sha256:1083ae3c8d2697dd1541c4f2f5fab0067c4283fece0747943fec47b6889377a9` |
 
