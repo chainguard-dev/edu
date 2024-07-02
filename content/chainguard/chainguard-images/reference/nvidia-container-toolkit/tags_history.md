@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nvidia-container-toolkit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-02 00:32:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -38,5 +38,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
 |  `1.15-dev` `1.15.0-dev` `latest-dev` `1-dev` | June 28th    | `sha256:aa061e4aecea807e74e14624bf1d613f5c8d27e6b42b4823f3102199050b544f` |
-|  `latest` `1.15.0` `1` `1.15`                 | June 24th    | `sha256:35a6e70afc80f22188979ba98290cbc2669eb291dd333575a96691d42a3066fb` |
 

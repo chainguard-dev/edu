@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the chromium Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-02 00:32:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -40,5 +40,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `126.0.6478.126-dev` `126-dev` `latest-dev` `126.0-dev` `126.0.6478-dev` | June 28th    | `sha256:e4809b78320b2f8e1a4bd756cc50daa02c1a5df9886be11f13df73989f292024` |
 |  `126.0` `latest` `126.0.6478.126` `126` `126.0.6478`                     | June 28th    | `sha256:9bf1a62cb55813b8bd7968bcb6ae241a8de04248a776ea1c806a34ab17d59be8` |
 |  `126.0.6478.114-dev`                                                     | June 25th    | `sha256:44797b2395588e067f3e3abf5bf0584c647775cac28f13091ef520f974c107bb` |
-|  `126.0.6478.114`                                                         | June 24th    | `sha256:06220b773650d116efe99472959357cdbb6740200ed82b16db91091429c4156f` |
 
