@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for go-fips Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-11 00:42:18
+lastmod: 2024-07-02 00:32:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for go-fips Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                                               |
-|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                                                                       |
-| `cgr.dev/chainguard-private` | 1, 1-dev, 1.19, 1.19-dev, 1.19.13, 1.19.13-dev, 1.20, 1.20-dev, 1.20.14, 1.20.14-dev, 1.21, 1.21-dev, 1.21.11, 1.21.11-dev, 1.22, 1.22-dev, 1.22.4, 1.22.4-dev, latest, latest-dev |
+| Registry                     | Tags                                                                                                   |
+|------------------------------|--------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | No public tags are available for this image.                                                           |
+| `cgr.dev/chainguard-private` | 1, 1-dev, 1.21, 1.21-dev, 1.21.11, 1.21.11-dev, 1.22, 1.22-dev, 1.22.4, 1.22.4-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

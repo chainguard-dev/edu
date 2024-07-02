@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for velero Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-02 00:32:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 | Registry                     | Tags                                    |
 |------------------------------|-----------------------------------------|
-| `cgr.dev/chainguard`         | latest-dev                              |
+| `cgr.dev/chainguard`         | latest, latest-dev                      |
 | `cgr.dev/chainguard-private` | 1-dev, 1.14-dev, 1.14.0-dev, latest-dev |
 
 

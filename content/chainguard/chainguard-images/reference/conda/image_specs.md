@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public conda Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-07-02 00:32:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -90,8 +90,6 @@ The table shows package distribution across variants.
 | `py3-conda-package-streaming` | X          | X      |
 | `py3-idna`                    | X          | X      |
 | `py3-libmambapy`              | X          | X      |
-| `py3-packaging`               | X          | X      |
-| `py3-parsing`                 | X          | X      |
 | `py3-pluggy`                  | X          | X      |
 | `py3-pycosat`                 | X          | X      |
 | `py3-pycparser`               | X          | X      |
@@ -100,6 +98,8 @@ The table shows package distribution across variants.
 | `py3-tqdm`                    | X          | X      |
 | `py3-urllib3`                 | X          | X      |
 | `py3-zstandard`               | X          | X      |
+| `py3.12-packaging`            | X          | X      |
+| `py3.12-pyparsing`            | X          | X      |
 | `python-3.12`                 | X          | X      |
 | `python-3.12-base`            | X          | X      |
 | `readline`                    | X          | X      |
