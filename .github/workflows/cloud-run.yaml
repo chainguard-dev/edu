@@ -16,7 +16,7 @@ jobs:
 
     steps:
     - name: 'Github Actions Runner'
-      uses: step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142 # v2.7.0
+      uses: step-security/harden-runner@17d0e2bd7d51742c71671bd19fa12bdc9d40a3d6 # v2.8.1
       with:
         egress-policy: audit
 
@@ -38,7 +38,7 @@ jobs:
 
     - name: Authenticate to Google Cloud
       id: auth
-      uses: google-github-actions/auth@ceee102ec2387dd9e844e01b530ccd4ec87ce955 # v0
+      uses: google-github-actions/auth@71fee32a0bb7e97b4d33d548e7d957010649d8fa # v0
       with:
         token_format: 'access_token'
         project_id: '${{ secrets.PROJECT_ID }}'
@@ -47,21 +47,21 @@ jobs:
 
     - name: Docker Auth
       id: docker-auth
-      uses: 'docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a' # v2
+      uses: 'docker/login-action@0d4c9c5ea7693da7b068278f7b52bda2a190a446' # v2
       with:
         username: 'oauth2accesstoken'
         password: '${{ steps.auth.outputs.access_token }}'
         registry: '${{ secrets.REGISTRY_URL }}'
 
     - name: Build and push
-      uses: 'docker/build-push-action@c56af957549030174b10d6867f20e78cfd7debc5' # v3
+      uses: 'docker/build-push-action@15560696de535e4014efeff63c48f16952e52dd1' # v3
       with:
         context: .
         push: true
         tags: '${{ secrets.REGISTRY_URL }}/${{ secrets.PROJECT_ID }}/${{ secrets.REPOSITORY }}/${{ secrets.SERVICE }}:${{ github.sha }}'
 
     # Attempt to deploy the terraform configuration
-    - uses: hashicorp/setup-terraform@a1502cd9e758c50496cc9ac5308c4843bcd56d36 # v2.0.0
+    - uses: hashicorp/setup-terraform@651471c36a6092792c552e8b1bef71e592b462d8 # v2.0.0
       with:
         terraform_version: 1.6
     - env:
