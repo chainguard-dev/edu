@@ -3,8 +3,8 @@ title: "contour-bitnami Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public contour-bitnami Chainguard Image."
-date: 2024-06-25 00:42:19
-lastmod: 2024-06-25 00:42:19
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-07-02 00:32:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -21,50 +21,50 @@ toc: true
 
 This page shows detailed information about the Chainguard **contour-bitnami** Image.
 
-|              | latest-dev                         | latest                             |
-|--------------|------------------------------------|------------------------------------|
-| Default User | `nonroot`                          | `nonroot`                          |
-| Entrypoint   | `/opt/bitnami/contour/bin/contour` | `/opt/bitnami/contour/bin/contour` |
-| CMD          | not specified                      | not specified                      |
-| Workdir      | not specified                      | not specified                      |
-| Has apk?     | yes                                | no                                 |
-| Has a shell? | yes                                | no                                 |
+|              | latest-dev                         |
+|--------------|------------------------------------|
+| Default User | `nonroot`                          |
+| Entrypoint   | `/opt/bitnami/contour/bin/contour` |
+| CMD          | not specified                      |
+| Workdir      | not specified                      |
+| Has apk?     | yes                                |
+| Has a shell? | yes                                |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/contour-bitnami/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                               | latest-dev | latest |
-|-------------------------------|------------|--------|
-| `apk-tools`                   | X          |        |
-| `bash`                        | X          |        |
-| `busybox`                     | X          |        |
-| `ca-certificates-bundle`      | X          | X      |
-| `chainguard-baselayout`       | X          | X      |
-| `contour-1.29`                | X          | X      |
-| `contour-1.29-bitnami-compat` | X          | X      |
-| `contour-1.29-compat`         | X          | X      |
-| `git`                         | X          |        |
-| `glibc`                       | X          |        |
-| `glibc-locale-posix`          | X          | X      |
-| `ld-linux`                    | X          |        |
-| `libbrotlicommon1`            | X          |        |
-| `libbrotlidec1`               | X          |        |
-| `libcrypt1`                   | X          |        |
-| `libcrypto3`                  | X          |        |
-| `libcurl-openssl4`            | X          |        |
-| `libexpat1`                   | X          |        |
-| `libidn2`                     | X          |        |
-| `libnghttp2-14`               | X          |        |
-| `libpcre2-8-0`                | X          |        |
-| `libpsl`                      | X          |        |
-| `libssl3`                     | X          |        |
-| `libunistring`                | X          |        |
-| `libxcrypt`                   | X          |        |
-| `ncurses`                     | X          |        |
-| `ncurses-terminfo-base`       | X          |        |
-| `wget`                        | X          |        |
-| `wolfi-baselayout`            | X          | X      |
-| `zlib`                        | X          |        |
+|                               | latest-dev |
+|-------------------------------|------------|
+| `apk-tools`                   | X          |
+| `bash`                        | X          |
+| `busybox`                     | X          |
+| `ca-certificates-bundle`      | X          |
+| `chainguard-baselayout`       | X          |
+| `contour-1.29`                | X          |
+| `contour-1.29-bitnami-compat` | X          |
+| `contour-1.29-compat`         | X          |
+| `git`                         | X          |
+| `glibc`                       | X          |
+| `glibc-locale-posix`          | X          |
+| `ld-linux`                    | X          |
+| `libbrotlicommon1`            | X          |
+| `libbrotlidec1`               | X          |
+| `libcrypt1`                   | X          |
+| `libcrypto3`                  | X          |
+| `libcurl-openssl4`            | X          |
+| `libexpat1`                   | X          |
+| `libidn2`                     | X          |
+| `libnghttp2-14`               | X          |
+| `libpcre2-8-0`                | X          |
+| `libpsl`                      | X          |
+| `libssl3`                     | X          |
+| `libunistring`                | X          |
+| `libxcrypt`                   | X          |
+| `ncurses`                     | X          |
+| `ncurses-terminfo-base`       | X          |
+| `wget`                        | X          |
+| `wolfi-baselayout`            | X          |
+| `zlib`                        | X          |
 

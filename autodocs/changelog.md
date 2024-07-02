@@ -1,3 +1,10 @@
+# 2024-07-02
+New images added:
+
+- helm-chartmuseum-fips
+
+A total of **158** documents were updated.
+
 # 2024-07-01
 New images added:
 

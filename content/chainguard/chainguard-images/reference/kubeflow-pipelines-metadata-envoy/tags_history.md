@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-envoy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-02 00:32:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:8cdcea67f2f6c5291631367831b8da932f6d8c6df7ae1b207b975ece417f8bea` |
-|  `latest`     | June 28th    | `sha256:7c3e0398a2dba1e57cfbdc901a809000f3cad792dfa2cf31510bb61bf5df72f1` |
+|  `latest-dev` | July 1st     | `sha256:48d7a9dff32a7eb222f324b59e9b7e295a1ac7c360fbf77d4137cda7ef763e03` |
+|  `latest`     | July 1st     | `sha256:53565b441837b6cddbe78453aaaa2337d27883c8f1b4c62c24d50762fd4e3115` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.2.0` `2.2` `latest` `2`                 | June 28th    | `sha256:db1bf0b9a32162bd01d11d41eb53d4b20a9b72fa981c01518ba5aa2a4888f557` |
-|  `2.2.0-dev` `2.2-dev` `latest-dev` `2-dev` | June 28th    | `sha256:f54492ccd3f9dde79f5051f06b452d752d3250290616d8f7f304a84b32747d8f` |
+|  `2-dev` `2.2-dev` `2.2.0-dev` `latest-dev` | July 1st     | `sha256:f3829fe3b91098a4457cbe38156acd386621a7a54c43107b9cc336ce6419da77` |
+|  `2` `2.2.0` `latest` `2.2`                 | July 1st     | `sha256:963a56fdfec78106cf1ad893ae6a5953ad5d4e2be2a0df1f0a111af50dc4a72c` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the harbor-jobservice Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-02 00:32:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,8 +36,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2.9.5` `2.9`                                | July 1st     | `sha256:e94fbbd974b79ad7a4e454e8dfd0aa5770de2fbe824047ed355ab45a14210826` |
+|  `2.9-dev` `2.9.5-dev`                        | July 1st     | `sha256:dccc676765c40f10e9e0ccbbbdc3e4c19975e68406f0f7d819aae95447b6f2b9` |
 |  `2.8.6-dev` `2.8-dev`                        | June 28th    | `sha256:4977cbf388af0cab3f67ccb4ed845e62b07fcb7b6c3e7f41788dfeea0b0767e2` |
 |  `latest-dev` `2.11-dev` `2-dev` `2.11.0-dev` | June 28th    | `sha256:cc5224f8acca7cfd900adb1c4e56dc8fb7ad58837943e63180a05fdaa7626b8b` |
 |  `2.10-dev` `2.10.2-dev`                      | June 28th    | `sha256:72fd62673af3ac95448052d365658a731ac7bd886a042bd858e9c36f95d1bb2e` |
-|  `2.9-dev` `2.9.4-dev`                        | June 28th    | `sha256:7faeed5886793fa73fe1f313bfeb65d522439dfa0ce6452bdd0ae497062e4a98` |
+|  `2.9.4-dev`                                  | June 28th    | `sha256:7faeed5886793fa73fe1f313bfeb65d522439dfa0ce6452bdd0ae497062e4a98` |
 

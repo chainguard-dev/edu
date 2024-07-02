@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-02 00:32:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:3658fd632bcfea34f9eeb35772110bc0f2bb1c2c2ee746b5b7e247e40ab81975` |
-|  `latest`     | June 26th    | `sha256:90e080904466a818bc1de01338e1b04532d4df59f5141d6389130f7ea1474d43` |
+|  `latest-dev` | July 1st     | `sha256:1ebd9efc52f44c552aa5f4c4740569387c88a3ded4ec78e3566fcae452555a3a` |
+|  `latest`     | July 1st     | `sha256:ef4fd1b6da35b805886aa514eb52c767024eee918d794044ad87042bd287c2f6` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.75.0-dev` `0.75-dev` `0-dev` | June 28th    | `sha256:98e70e2f241b2b1d6194404cce237b59b02ce4adb38f116dfaf52fd7eaae4592` |
-|  `0.75.0` `0` `0.75` `latest`                 | June 26th    | `sha256:22589bbbcd4e81c3600210e186f2f6d393abb0eced56c209bf95c8e1c0bce1bd` |
+|  `0` `0.75` `latest` `0.75.0`                 | July 1st     | `sha256:b85511e6968a58da222b2f369a64a4ace8f8f1eb4a59b84a568a55df135447c4` |
+|  `0.75-dev` `latest-dev` `0-dev` `0.75.0-dev` | July 1st     | `sha256:ce957f552e448456b045a4fc7ae7c367dd0fcf1fe263303462f1f0ef49ae556a` |
 |  `0.74-dev` `0.74.0-dev`                      | June 25th    | `sha256:cd7d64b2a57ba9ff62ec8ab7d1d8c0e20753d3eaa3e731733999d6b5b344e99d` |
 

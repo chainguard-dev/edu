@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public semgrep Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-07-02 00:32:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -87,8 +87,6 @@ The table shows package distribution across variants.
 | `py3-jsonschema-specifications` | X          | X      |
 | `py3-markdown-it-py`            | X          | X      |
 | `py3-mdurl`                     | X          | X      |
-| `py3-packaging`                 | X          | X      |
-| `py3-parsing`                   | X          | X      |
 | `py3-peewee`                    | X          | X      |
 | `py3-pygments`                  | X          | X      |
 | `py3-python-lsp-jsonrpc`        | X          | X      |
@@ -103,6 +101,8 @@ The table shows package distribution across variants.
 | `py3-urllib3`                   | X          | X      |
 | `py3-wcmatch`                   | X          | X      |
 | `py3-zipp`                      | X          | X      |
+| `py3.12-packaging`              | X          | X      |
+| `py3.12-pyparsing`              | X          | X      |
 | `py3.12-tomli`                  | X          | X      |
 | `python-3.12`                   | X          | X      |
 | `python-3.12-base`              | X          | X      |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public openscap Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-07-02 00:32:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -82,11 +82,11 @@ The table shows package distribution across variants.
 | `py3-charset-normalizer` | X          | X      |
 | `py3-docker`             | X          | X      |
 | `py3-idna`               | X          | X      |
-| `py3-packaging`          | X          | X      |
-| `py3-parsing`            | X          | X      |
 | `py3-requests`           | X          | X      |
 | `py3-urllib3`            | X          | X      |
 | `py3-websocket-client`   | X          | X      |
+| `py3.12-packaging`       | X          | X      |
+| `py3.12-pyparsing`       | X          | X      |
 | `python-3.12`            | X          | X      |
 | `python-3.12-base`       | X          | X      |
 | `readline`               | X          | X      |
