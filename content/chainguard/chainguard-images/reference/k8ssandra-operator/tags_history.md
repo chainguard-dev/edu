@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k8ssandra-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-03 00:33:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,5 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.17.0-dev` `1.17-dev` | June 28th    | `sha256:be09a5dbe6a2af0a85140ba6bdba01267f170d04ccaa33a4801d7bb22fb4ce68` |
+|  `latest` `1.17` `1` `1.17.0`                 | July 3rd     | `sha256:6f3f200d6d126e61c035a1fa03dd62f589189f2bd6b3160ff7216be338909538` |
+|  `latest-dev` `1.17.0-dev` `1-dev` `1.17-dev` | July 3rd     | `sha256:ed1c3b54632d3ab64e133e2bb7efdbc082a5500300c5edbdbfa52be9e61ab9b5` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-for-fluent-bit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-03 00:33:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,8 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                       | Last Changed | Digest                                                                    |
 |-------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.32.2` `2` `latest` `2.32`                                                 | June 28th    | `sha256:aeff23431dfb6f451c18ce2deef0014a856cceb4f128dc12292226e9f63fdb3a` |
-|  `2.32.2-dev-flb-1.9` `2.32-dev-flb-1.9` `latest-dev-flb-1.9` `2-dev-flb-1.9` | June 28th    | `sha256:562976f9a5fae06f3df3c6a6108aedef219363e3fa3ae238cedc7731f757468b` |
-|  `2.32-dev` `2-dev` `2.32.2-dev` `latest-dev`                                 | June 28th    | `sha256:af28c0cd394d02fb862d80baff0967b355717ba81592af2ead6635c9ef318533` |
-|  `2.32-flb-1.9` `2-flb-1.9` `latest-flb-1.9` `2.32.2-flb-1.9`                 | June 28th    | `sha256:0494afe63b5e03384826d0445e801e5b5096d6585f116ee24080f0f309da23cb` |
+|  `2-dev-flb-1.9` `2.32.2-dev-flb-1.9` `latest-dev-flb-1.9` `2.32-dev-flb-1.9` | July 3rd     | `sha256:f8f73eba5c4b6d5b700df9fb251081fdb0d293d03b5356d081246b06ec727f92` |
+|  `2.32-flb-1.9` `latest-flb-1.9` `2.32.2-flb-1.9` `2-flb-1.9`                 | July 3rd     | `sha256:0288090b250bd15a1387895d1fef50145384120d81a431a7abb168ef692312da` |
+|  `2-dev` `latest-dev` `2.32-dev` `2.32.2-dev`                                 | July 3rd     | `sha256:cca69a67b77f02f77db05d0f7452c1b2df79ac6fa9e7e40c8640cb60ebb49096` |
+|  `2` `2.32.2` `latest` `2.32`                                                 | July 3rd     | `sha256:b14095a58b394cd1c1f6fbe042c477f04bf94c58455a3e8da6e65b0c0cbb41b7` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public cassandra-medusa-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-07-02 00:32:13
+lastmod: 2024-07-03 00:33:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -71,7 +71,6 @@ The table shows package distribution across variants.
 | `openssl-config-fipshardened`   | X          | X      |
 | `openssl-provider-fips`         | X          | X      |
 | `py3-attrs`                     | X          | X      |
-| `py3-build`                     | X          | X      |
 | `py3-cachecontrol`              | X          | X      |
 | `py3-cassandra-medusa`          | X          | X      |
 | `py3-cassandra-medusa-compat`   | X          | X      |
@@ -116,6 +115,7 @@ The table shows package distribution across variants.
 | `py3-virtualenv`                | X          | X      |
 | `py3-xattr`                     | X          | X      |
 | `py3-zipp`                      | X          | X      |
+| `py3.12-build`                  | X          | X      |
 | `py3.12-installer`              | X          | X      |
 | `py3.12-packaging`              | X          | X      |
 | `py3.12-pyparsing`              | X          | X      |
