@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cass-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-02 00:32:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:66a8dd76d8f1b2d767c33b7182dd4001799ed8a27927e52304bb9cbb5ce85d16` |
-|  `latest`     | June 24th    | `sha256:80b239b48ead94823309585f6d6e4f4d6f3f42fd2ba91ad5e5f08ee3d8edbd38` |
+|  `latest-dev` | June 28th    | `sha256:c036af24ef02d36d7bbda5e0fce70397f481ad178cee48a4507ffa5b1ee57042` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +36,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.21-dev` `1.21.1-dev` `1-dev` `latest-dev` | June 26th    | `sha256:4116ff79ab8e406e39c6e5cac6f7d105a0dfc3fb77e58dc758f8a8fa84847238` |
-|  `1.21` `1` `latest` `1.21.1`                 | June 24th    | `sha256:f58ce0ceaec33dcac48f3dc97803e3c2121fb1e0ce02d5cd02d39de3598b67e5` |
-|  `1.21.0-dev`                                 | June 23rd    | `sha256:2cb48a09783274eda544edea8304ecbbc1de7be16a8ab40473e169f01a725eef` |
-|  `1.21.0`                                     | June 20th    | `sha256:aa82116277117cd95a6f55349dc06f6d26b01e1faef48fe835234435670d8f9d` |
+|  `latest-dev` `1.21.1-dev` `1.21-dev` `1-dev` | June 28th    | `sha256:d3cc4702511b4ae777500e2b7a6c1174c7df56e1986c00fdd20e894190be6d4a` |
 

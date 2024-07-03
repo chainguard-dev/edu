@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public ntia-conformance-checker Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-07-02 00:32:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -76,7 +76,6 @@ The table shows package distribution across variants.
 | `py3-license-expression`       | X          | X      |
 | `py3-ntia-conformance-checker` | X          | X      |
 | `py3-ply`                      | X          | X      |
-| `py3-pyparsing`                | X          | X      |
 | `py3-rdflib`                   | X          | X      |
 | `py3-semantic-version`         | X          | X      |
 | `py3-spdx-tools`               | X          | X      |
@@ -84,6 +83,7 @@ The table shows package distribution across variants.
 | `py3-uritools`                 | X          | X      |
 | `py3-xmltodict`                | X          | X      |
 | `py3-zipp`                     | X          | X      |
+| `py3.12-pyparsing`             | X          | X      |
 | `py3.12-pyyaml`                | X          | X      |
 | `py3.12-six`                   | X          | X      |
 | `python-3.12`                  | X          | X      |

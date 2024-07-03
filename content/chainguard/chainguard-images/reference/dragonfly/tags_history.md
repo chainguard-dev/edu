@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dragonfly Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-03 00:33:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:907c2920e5a49ff359780b1776ab17bac75dff3d119f1c165ba741947d597435` |
-|  `latest`     | June 26th    | `sha256:0a5ef1318acdf28d48b213287108d9419cefdf41c8bda741562381237b6a3cb7` |
+|  `latest`     | June 28th    | `sha256:0506b570643c6181586d345418a4fb3b99eb472651a3e99d33af6bd249ed7ce7` |
+|  `latest-dev` | June 28th    | `sha256:e9186bee6f20056d8d5924bba2b0dff894ff83212e65cc09374ec96f6cf64f87` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.19.0` `1` `latest` `1.19`                 | June 26th    | `sha256:ccf23a57d0cadea0f305f99a9954ad0427bd5adf7e9f44db929f061a34a4b68b` |
-|  `1.19-dev` `1-dev` `1.19.0-dev` `latest-dev` | June 26th    | `sha256:cc5f91977ea865281cabfd50e7515a8a907c4b08a2e246d94deb08a1a62615c0` |
+|  `1.19.2` `1.19` `latest` `1`                 | July 3rd     | `sha256:c7e1bd987025f8df9e240cd4652193a6d053b1460f37bf82453345ae7db79c60` |
+|  `latest-dev` `1.19.2-dev` `1-dev` `1.19-dev` | July 3rd     | `sha256:f7f071206b8b98ed7580a42c5fdb7105585c69545332bd168574300d76925117` |
+|  `1.19.0-dev`                                 | June 28th    | `sha256:f767f372ff7ad1495986d1e56829a1433847a32447664e1d65a8aeba112fa66f` |
+|  `1.19.0`                                     | June 28th    | `sha256:2ebc14eac26efc11ec386dc0310a1c005a3313710adfecd2f57c8094b8103f8a` |
 

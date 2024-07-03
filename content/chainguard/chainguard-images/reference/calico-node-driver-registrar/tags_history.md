@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the calico-node-driver-registrar Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-03 00:33:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,16 +26,13 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | June 20th    | `sha256:dd6437fec8c55841e68b291ba274689ecaba43fec9fab4ac63180d50626bacde` |
-
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                                                          | Last Changed | Digest                                                                    |
 |----------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.11-dev` `v2.11.0-dev` `latest-dev` `2.11.0-dev` `v2.11-dev` `v2-dev` `2-dev` | June 26th    | `sha256:54475072a8977b3b8158b549dc4ddba261061486230d6e9a2e3a3ebb26dda415` |
-|  `3.28.0` `2` `2.11` `3` `v2.11.0` `3.28` `2.11.0` `latest` `v2` `v2.11`         | June 20th    | `sha256:f7519db40e3628575a69832ae21da578730cb166ef9c1469f40a69b1a7948c04` |
+|  `3.28` `v2.11.0` `2.11` `latest` `2` `v2.11` `v2` `3.28.0` `3` `2.11.0`         | July 3rd     | `sha256:30ba215d4e54a6d6fd5e583e43fc1245639afb99919c755c58ded5eaedd82456` |
+|  `2.11-dev` `2-dev` `v2.11.0-dev` `v2-dev` `2.11.0-dev` `v2.11-dev` `latest-dev` | July 3rd     | `sha256:2fd0c68914c55979eab357ca776955917deeb230bc1dac833cff04a59b6579c9` |
 

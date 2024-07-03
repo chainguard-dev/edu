@@ -3,8 +3,8 @@ title: "gpu-feature-discovery Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public gpu-feature-discovery Chainguard Image."
-date: 2024-05-15 00:39:35
-lastmod: 2024-05-15 00:39:35
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-07-03 00:33:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []

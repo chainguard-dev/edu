@@ -31,11 +31,11 @@ jobs:
 
     steps:
       - name: 'Github Actions Runner'
-        uses: step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142 # v2.7.0
+        uses: step-security/harden-runner@17d0e2bd7d51742c71671bd19fa12bdc9d40a3d6 # v2.8.1
         with:
           egress-policy: audit
 
-      - uses: sigstore/cosign-installer@11086d25041f77fe8fe7b9ea4e48e3b9192b8f19 # v3.1.2
+      - uses: sigstore/cosign-installer@59acb6260d9c0ba8f4a2f9d9b48431a222b68e20 # v3.5.0
 
       - name: 'Checkout default branch to $GITHUB_WORKSPACE dir'
         uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
@@ -102,3 +102,17 @@ jobs:
       # - name: cosign sign image
       #  working-directory: terminal-images/${{ matrix.image }}
       #  run: cosign sign -y "$(cat image-refs.txt)
+
+      - name: Post failure notice to Slack
+        uses: rtCamp/action-slack-notify@4e5fb42d249be6a45a298f3c9543b111b02f7907 # v2.3.0
+        if: ${{ failure() }}
+        env:
+          SLACK_ICON: http://github.com/chainguard-dev.png?size=48
+          SLACK_USERNAME: guardian
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_CHANNEL: 'alerts-edu'
+          SLACK_COLOR: '#8E1600'
+          MSG_MINIMAL: 'true'
+          SLACK_TITLE: 'Build Terminal Images failed - ${{ github.repository }}'
+          SLACK_MESSAGE: |
+            For detailed logs: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}

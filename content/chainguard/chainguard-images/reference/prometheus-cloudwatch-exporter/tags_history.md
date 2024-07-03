@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-cloudwatch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-03 00:33:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 26th    | `sha256:9b8b9cd3784acda63b4989f6c9f2c801e7a9adefdec4c76c05459ef25d6e36f4` |
-|  `latest-dev` | June 26th    | `sha256:6b18dab6bea5029243cc73f346f1060d0ba527678bdebacadf47c6adce1c3319` |
+|  `latest`     | June 28th    | `sha256:6fa2edc78673204cae35e5f25aa069e50a70e29ab1355caa239c24f6d5393da4` |
+|  `latest-dev` | June 28th    | `sha256:9b8901765e7afbfff7b4c67ede7eeabda0038197d515737de931da5257ea5488` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.15` `0` `latest` `0.15.5`                 | June 26th    | `sha256:7a45d2a760c591b670880955d61231fb7439b416a536ef29342c375525d2dc8f` |
-|  `0.15-dev` `0-dev` `latest-dev` `0.15.5-dev` | June 26th    | `sha256:82e625e99c44b4fe5b001ded64cdf92999af8b2b4755b1f673f3ab4020f3d45e` |
+|  `0.15.5-dev` `0.15-dev` `latest-dev` `0-dev` | July 2nd     | `sha256:5a2f3df9172cb8fa0a3cd88f8de835e6a291745933b452c89eadff5b9b014cc2` |
+|  `0.15.5` `0` `0.15` `latest`                 | July 2nd     | `sha256:755d3f58195790deb89f0b812a09d9fe5eaa18726e65a5d5abe77f3b3f920e7f` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node-feature-discovery Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:f601ee24413dd654be05f6ee0fe6c4881c7864a392f10d140c5ade8647887586` |
+|  `latest-dev` | June 28th    | `sha256:42299406ad7452c3ce4070389e611216f158c51d483acd4b6a8d93964b52cdda` |
 
 
 ### Private/Dedicated Registry
@@ -36,8 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.16.0-dev` `0.16-dev` `latest-dev` | June 26th    | `sha256:4b6b5c3abf306078871956165f99dc3081c33ed748d38f6594891d41cc962acd` |
-|  `0.15.4-dev` `0.15-dev`                      | June 26th    | `sha256:db88cb6e3010c7cec2c8082726edc53987d66a80d49a045854630e641bfb004b` |
-|  `0` `0.16` `0.16.0` `latest`                 | June 20th    | `sha256:c05c7c74bd3babc052a8c9b7573c7cb840c1084b3703805e1bccb75c69ef6533` |
-|  `0.15.4` `0.15`                              | June 20th    | `sha256:091820a99e1f8a233a84186be4de4a8898d43885985c2399bcc5e994c3200d34` |
+|  `0.15.4-dev` `0.15-dev`                      | June 28th    | `sha256:ead4a2db95c8325bb94f70f1af630bee2201430d813b6220c97be373dc629c5b` |
+|  `0.16-dev` `0-dev` `latest-dev` `0.16.0-dev` | June 28th    | `sha256:36ba38aaa80e73dd61e51385ed7d6066a7ad2761ae0c0ff143db3145aceecdce` |
 

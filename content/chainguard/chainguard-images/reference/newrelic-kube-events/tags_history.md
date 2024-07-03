@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-kube-events Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-02 00:32:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:d403f1a47cab5bb4e70785ed59ecb8818b195b0ce3fcd042ada384e2ed39c9f4` |
-|  `latest`     | June 24th    | `sha256:99c63d3789e6e4af69dcfb94b7baa41f2e4931d9b6a5fa421aa1951b46e43d36` |
+|  `latest-dev` | June 28th    | `sha256:9d64d6b23563916e20d81c4498b2bd7f402f80f0da0746e480f1f65cb872b27d` |
 
 
 ### Private/Dedicated Registry
@@ -37,10 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.9.3-dev` `1.9-dev`                | June 26th    | `sha256:a74bea7d8bcecdfe6ba456f6ebba0602ee1cc633e0a325870bbb49f27ec39f72` |
-|  `2.10.0-dev` `2-dev` `2.10-dev` `latest-dev` | June 26th    | `sha256:1cb2c23d858200fdd4563355e8d1f4e18db9a2fce740c1435a2f1ab4af345134` |
-|  `latest` `2.10.0` `2.10` `2`                 | June 24th    | `sha256:be50d3acc7f2a3bc3eaa6265f607b4b405458cea79b68d0218083dcdbf9def7b` |
-|  `2.9.10-dev` `2.9-dev`                       | June 23rd    | `sha256:5ae447295ff45cdcd6905bafb098b56ddfc9c09272c2768aa8c0ab3a16ef6bfe` |
-|  `1.9` `1` `1.9.3`                            | June 20th    | `sha256:f9cd85efea095497596d7966a18bee3d67e01428eb6501fcc9c0ceb42f6e786f` |
-|  `2.9.10` `2.9`                               | June 20th    | `sha256:d54b1c5f762a55024cbeb6d041f891e64de73efd8db170105dd6b9c916f09dff` |
+|  `2.10.0-dev` `2-dev` `2.10-dev` `latest-dev` | June 28th    | `sha256:28e7bbd98ed7226787487858ed0445c87f542d17bbdd45471297d9cf702113a3` |
+|  `1.9.3-dev` `1.9-dev` `1-dev`                | June 28th    | `sha256:83b39dbc0bb5b6b8a57bd929a496d61ff0c673c1a7d9f5a18a92b06fee513dc2` |
 

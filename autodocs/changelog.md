@@ -1,3 +1,32 @@
+# 2024-07-03
+
+
+A total of **441** documents were updated.
+
+# 2024-07-02
+New images added:
+
+- helm-chartmuseum-fips
+
+A total of **158** documents were updated.
+
+# 2024-07-01
+New images added:
+
+- cloudnative-pg-fips
+- postgres-cloudnative-pg-fips
+- sonarqube
+
+A total of **863** documents were updated.
+
+# 2024-06-28
+New images added:
+
+- cloudnative-pg
+- postgres-cloudnative-pg
+
+A total of **856** documents were updated.
+
 # 2024-06-27
 New images added:
 

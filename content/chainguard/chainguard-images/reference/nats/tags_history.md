@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nats Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-03 00:33:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:e64641221f9e237e8182e8da36f4ceb86b0e693356f451776ee20898db27d503` |
+|  `latest-dev` | June 28th    | `sha256:be2bf79839e2bf5a7aabed37e0cc2c6e9881d3167d40714ca05b3ac4cb793996` |
+|  `latest`     | June 28th    | `sha256:0f776be3eef61cf4e04cae7f610abe3f0c6e9366ad895acdbc3d3366f540f285` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.10.16-dev` `2.10-dev` `2-dev` | June 26th    | `sha256:d8efba7cbded32fea36a9e74dfe4725ac1bc071bdcc251f76e930ce3d5bb82af` |
-|  `2` `2.10.16` `latest` `2.10`                 | June 20th    | `sha256:0093f232f95b01331a6e473cff3a411617f34d0c3bf6c6a303c8038c3d2c7d63` |
+|  `2-dev` `2.10-dev` `latest-dev` `2.10.17-dev` | July 3rd     | `sha256:2dd98e36b848e5c559a4138dcab734dceeb5cd2b417b8acb75669e63ce7c9557` |
+|  `2` `2.10.17` `2.10` `latest`                 | July 3rd     | `sha256:d0e95a7b749c0192e89319c62033a6f5847b6e401df7802ad635828a4cd963df` |
+|  `2.10.16-dev`                                 | June 26th    | `sha256:d8efba7cbded32fea36a9e74dfe4725ac1bc071bdcc251f76e930ce3d5bb82af` |
 

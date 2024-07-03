@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the apko Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,16 +26,12 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | June 20th    | `sha256:0c689cf4eda8553f0536cc4a18ff4cecedb487e56876f00ee9e7280d9b093d1b` |
-
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.15.0-dev` `0.15-dev` | June 26th    | `sha256:d085570d0441ed21eabd802d3f428dc7f348b3dfd6d99b524d43cf0768914e41` |
-|  `latest` `0` `0.15.0` `0.15`                 | June 20th    | `sha256:77a41dd9f6a6d6018cc628500ba59fb3bec45a6e9ace935a61b5ee37210aec1b` |
+|  `0.15-dev` `latest-dev` `0.15.0-dev` `0-dev` | June 28th    | `sha256:0463adcb258b91e045a6de3227bdf4bee4ef282a0cdf1fcf5d1b3cf8ecc2199b` |
 

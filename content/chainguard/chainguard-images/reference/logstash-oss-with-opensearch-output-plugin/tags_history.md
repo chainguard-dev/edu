@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the logstash-oss-with-opensearch-output-plugin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-03 00:33:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:3f1b75775f88a4dab97a7ec450d6a5814602bde38e571a83a2a28e7689118d3d` |
-|  `latest`     | June 26th    | `sha256:1d017bec6b673dbf406a8fffca5965905eaa7375d4f7081a4950b871c5e2aa35` |
+|  `latest-dev` | June 28th    | `sha256:6d5d10d11b98f1c3e359dda675aa8159a970cdd50fbcbded2331fe7756e752c0` |
+|  `latest`     | June 28th    | `sha256:71659f5a014527f3db49b5b1f03375b117ca5a10284b9d884c05300536eb8a96` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `8` `8.14.1` `8.14`                 | June 26th    | `sha256:c3809769a72512227072b0d98d032db41e0a6bb237f3d3330d032ee413bd7749` |
-|  `8-dev` `8.14.1-dev` `latest-dev` `8.14-dev` | June 26th    | `sha256:3cb225ed65e167b18fc8ece12bdc30f0899f05bacf3ae4bd5c39cedaabc5e7f3` |
+|  `latest-dev` `8.14-dev` `8-dev` `8.14.1-dev` | July 2nd     | `sha256:f443e07e28328015ea36ddae75e348167387b6c8b270d4e01facfb0d3aacd10b` |
+|  `8` `8.14` `8.14.1` `latest`                 | July 2nd     | `sha256:8f3c7343d9c0318f14be6ed5c8b1c423929bf5f7b28cd11548bfba957440ae11` |
 

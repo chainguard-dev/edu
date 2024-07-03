@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-state-metrics Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:52b0cdbce08963bfd30aa537d0f97e1a21f2da496cb86048a627d4ae1b0c2182` |
+|  `latest-dev` | June 28th    | `sha256:d04c0c61fa0d35eb515d6e8a588a46c8e447a6f9293f7a245df6fe8d2f6858f6` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +36,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.12-dev` `latest-dev` `2.12.0-dev` `2-dev` | June 26th    | `sha256:90eac81588ee87a74592e971c2b0301787f4f0446b50196f3a4cee9d0b8780bf` |
-|  `2` `2.12.0` `latest` `2.12`                 | June 20th    | `sha256:46e4d1556ced4c132e73b0adff79380402222cda1771ae302a239b73d788abc6` |
+|  `2.12.0-dev` `latest-dev` `2-dev` `2.12-dev` | June 28th    | `sha256:12749c5fd14fd454c472daccaaf16e84c75dbfc511044f61a4178cf9b5b09416` |
 

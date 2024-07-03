@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public ntpd-rs Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []

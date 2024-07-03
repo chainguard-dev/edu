@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the harbor-trivy-adapter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-03 00:33:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:37f037d7d9dabff040a877fbc5b295037ee65983e489bd48c8da759041b13b9c` |
-|  `latest`     | June 26th    | `sha256:3d5f8e1ebf404a4b0d33b42b694827e62e73542c6d0c7bee05b98b5bb4baf8ec` |
+|  `latest-dev` | July 2nd     | `sha256:ba4cc2fd1511f7246001e1e3716bc40dc6c354b8e45354db91103f99c725b122` |
+|  `latest`     | July 2nd     | `sha256:955e0ff0abc52dd149c317cf83136eb30ac1e91362248e2de7219580a39b476c` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.31-dev` `0-dev` `latest-dev` `0.31.3-dev` | June 26th    | `sha256:0136b2730dbed2bd477e9d4a113209b8d3d60ba34324c3ddcecd277d137198c1` |
-|  `0.31.3` `0.31` `latest` `0`                 | June 26th    | `sha256:7b2d41a864ba3266ee40e621b5d4dcf1d8f107a4e705a0504d0072c9cb2a8d5e` |
-|  `0.31.2-dev`                                 | June 25th    | `sha256:700f5d713a88c31107d7847209fc831d402ac898ce643d2cb4c8689963ee8142` |
-|  `0.31.2`                                     | June 20th    | `sha256:d17249fc8810304047c9e27ed832894d50564712b0b34cd5c2579ba9cbec95c3` |
+|  `0.31` `0.31.3` `0` `latest`                 | July 2nd     | `sha256:9012ad30df690a2269bba9760c4632715a83b8ba6e987a3a4d5f84398ad39647` |
+|  `0.31-dev` `0-dev` `latest-dev` `0.31.3-dev` | July 2nd     | `sha256:5f734367e2eb81cedccfafc3aa00b99712513ae50cd9a5ffcbabdf724af1838d` |
 

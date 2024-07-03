@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the openscap Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-03 00:33:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:7f26813e78ead83100f6245178334463d1e00c5f71198634a7edc0b0a742f834` |
-|  `latest`     | June 26th    | `sha256:f4ac271aabd2daaa50d463b1cd36c0ecc0b1d78c21ee357a1ee3d2228e0ec325` |
+|  `latest-dev` | July 1st     | `sha256:a10debc95ef873e5fc6ff4e46cb80bbc87f55a611ed03481a8491dc01181ca8a` |
+|  `latest`     | July 1st     | `sha256:db5401d7c82f6790dfa8749303c072caca7f2be013629108c1a78ab85812f787` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.3.10-dev` `1.3-dev` | June 26th    | `sha256:4e0d17b0c44fe14255bcdfec0bc065768362d4246c8dc295d8438af1c5898ee5` |
-|  `1` `1.3.10` `1.3` `latest`                 | June 26th    | `sha256:53adc4332849c1b72c505232231b1fdeffdbf26a2b7c41a3e0cff2483a848ad4` |
+|  `latest-dev` `1-dev` `1.3.10-dev` `1.3-dev` | July 2nd     | `sha256:a7f1c6b25a97d08e81b4459f55ba4854ddca85cb9cac09e5957ecf4d2c2137fd` |
+|  `latest` `1.3.10` `1.3` `1`                 | July 2nd     | `sha256:ea8dbbba901e1c31ed9f2c96d49f13390024aab9a34fdbde77b0468ad90ea55f` |
 

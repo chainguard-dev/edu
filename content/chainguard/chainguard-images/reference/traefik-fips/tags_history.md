@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the traefik-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-03 00:33:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.11-dev` `2.11.5-dev` `2-dev`            | June 26th    | `sha256:b644e8947bd06d4d75382ddbbfefe679d813b470174d73ab828cf9bd77cece09` |
-|  `2.11.5` `2.11` `2`                        | June 26th    | `sha256:a7b7d6e91463b9b0b3001a6942b79c6e0e73149b486648d09caf8ddae3ac5840` |
-|  `latest` `3` `3.0` `3.0.3`                 | June 26th    | `sha256:5d28724e581409a93319bf743e9ff3dd74e955ecfda9db268bf2b5fdfe7136ce` |
-|  `3.0.3-dev` `3-dev` `3.0-dev` `latest-dev` | June 26th    | `sha256:5cd1566e9d4b7e5b4aa99cbb7b0025709f0abfc649c0dea0137c8eed405445f8` |
+|  `2.11-dev` `2.11.6-dev` `2-dev`            | July 2nd     | `sha256:bfbf85b973e5eea3ad6fcbef1bdaca43f3eae15ab4f3fff215ec6456a9f0ff11` |
+|  `2.11` `2.11.6` `2`                        | July 2nd     | `sha256:67152914ed656234a0ca282824af5dcfbbb0e0385129d6b468f88d6e86d6a9cb` |
+|  `latest-dev` `3.0.4-dev` `3.0-dev` `3-dev` | July 2nd     | `sha256:45a5443459598928eb31e486f097486a219a0e1663b3fe2fbe83fab8a0c780a3` |
+|  `3` `latest` `3.0.4` `3.0`                 | July 2nd     | `sha256:7a7f6a29567f1dd31c6f06d28a10614a9646808b38f3a80e6ecb27b066126fe6` |
+|  `2.11.5-dev`                               | June 28th    | `sha256:fbc6f7b79fe7dbfba5c68268aef3657491b2be773499938268c3711d1b53e416` |
+|  `3.0.3-dev`                                | June 28th    | `sha256:ee85dce07db01b13bc790bfba2bc35e657f77ad2fc91623ad780976f74984fcc` |
+|  `2.11.5`                                   | June 28th    | `sha256:e4677b00428ad6766ea37285cf2ef4ade9e39a87851cdd7613fcb9c6b527b6c6` |
+|  `3.0.3`                                    | June 28th    | `sha256:bbb7f23f1a463bcfed3625058c2e1a97d0f70a5017ffbddd5ef602ba6b5ecf73` |
 

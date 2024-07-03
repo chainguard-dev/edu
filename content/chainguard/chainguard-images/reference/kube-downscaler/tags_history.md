@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-downscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-02 00:32:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:53ed27c3493c48a076df0c606625b7d5e75103887844ac5de1fd96e4983bf94b` |
-|  `latest`     | June 26th    | `sha256:03e640adab7e11283555c4d6bb380436503070d52c368145d319b2448ab5e422` |
+|  `latest-dev` | July 1st     | `sha256:0be2db0a20064c5dc35150d5c1d0acfc541631312a7e59c67ef384787644d094` |
+|  `latest`     | July 1st     | `sha256:82ae6501d1326079ca486e98f36978911ceed45f2219e6ca79495a308725c7d0` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `23.2.0-dev` `23-dev` `latest-dev` `23.2-dev` | June 26th    | `sha256:a354a881ca7bdd20923e177257e463b545d9127a27e103d2b703f9f31603a8e1` |
-|  `23.2` `23` `latest` `23.2.0`                 | June 26th    | `sha256:c58ad51d89c2d7addd21f9d07095853e85558ee79f3af679e72fff0fddbe7b17` |
+|  `latest` `23` `23.2` `23.2.0`                 | July 1st     | `sha256:914b8e21868a5b7b2fe70e72665ac301179da24d3657a79c59cb256b68ad7c28` |
+|  `latest-dev` `23.2-dev` `23-dev` `23.2.0-dev` | July 1st     | `sha256:4f48695a54b9cff806d7cbe07ff888c7f6cacb3d7fb681e34344c3ec33719d12` |
 

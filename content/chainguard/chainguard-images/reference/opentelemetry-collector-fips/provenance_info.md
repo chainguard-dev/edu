@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for opentelemetry-collector-fips Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-26 00:35:03
+lastmod: 2024-07-02 00:32:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,7 +29,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 | Registry                     | Tags                                                                                                         |
 |------------------------------|--------------------------------------------------------------------------------------------------------------|
 | `cgr.dev/chainguard`         | No public tags are available for this image.                                                                 |
-| `cgr.dev/chainguard-private` | 0, 0-dev, 0.102, 0.102-dev, 0.102.1, 0.102.1-dev, 0.103, 0.103-dev, 0.103.0, 0.103.0-dev, latest, latest-dev |
+| `cgr.dev/chainguard-private` | 0, 0-dev, 0.103, 0.103-dev, 0.103.0, 0.103.0-dev, 0.104, 0.104-dev, 0.104.0, 0.104.0-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

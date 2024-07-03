@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public jupyterhub-k8s-hub-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-07-02 00:32:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -127,9 +127,7 @@ The table shows package distribution across variants.
 | `py3-oauthenticator`                   | X          | X      |
 | `py3-oauthlib`                         | X          | X      |
 | `py3-onetimepass`                      | X          | X      |
-| `py3-packaging`                        | X          | X      |
 | `py3-pamela`                           | X          | X      |
-| `py3-parsing`                          | X          | X      |
 | `py3-prometheus-client`                | X          | X      |
 | `py3-psutil`                           | X          | X      |
 | `py3-psycopg2`                         | X          | X      |
@@ -162,6 +160,8 @@ The table shows package distribution across variants.
 | `py3-urllib3`                          | X          | X      |
 | `py3-yarl`                             | X          | X      |
 | `py3-zipp`                             | X          | X      |
+| `py3.12-packaging`                     | X          | X      |
+| `py3.12-pyparsing`                     | X          | X      |
 | `py3.12-pyyaml`                        | X          | X      |
 | `py3.12-setuptools`                    | X          | X      |
 | `py3.12-six`                           | X          | X      |

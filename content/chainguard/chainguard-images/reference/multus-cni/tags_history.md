@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the multus-cni Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-03 00:33:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:c0ee9512b3091f386fbf86f7bd7ecb9a9aef62fec37c732f937f75839d35bccf` |
-|  `latest`     | June 26th    | `sha256:f6b437d0763105a23818192e330f987a20e2c4a2e7914fcbdfd7605597f43895` |
+|  `latest-dev` | June 28th    | `sha256:e959703176f5cfa77ab24373bce997165a8fca5dc6cc81a75697fb09f85a0edb` |
+|  `latest`     | June 28th    | `sha256:29c1f421893473a22d400cd6735ad765d9227d3239903faede1b3bb59f47e193` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.0.2-dev` `latest-dev` `4.0-dev` `4-dev` | June 26th    | `sha256:bc4d9455e007336f63784cbf230c20f6624719424abc98694e30af2f08bd93f9` |
-|  `4` `latest` `4.0.2` `4.0`                 | June 26th    | `sha256:e47d7fe2d08f585bdd421a00c7c05284649ffe42462eecea777daebea72d8fb9` |
+|  `latest` `4` `4.0` `4.0.2`                 | July 3rd     | `sha256:c041d09b42d396f9bcb0b76c40823d220da633d9094c6fb3ac282b9f035867f0` |
+|  `4.0.2-dev` `4-dev` `4.0-dev` `latest-dev` | July 3rd     | `sha256:66df66b99a147cfb354f24391f96c9a6eed75bf02040ce2bb23644ee2203d4f8` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public kyverno-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-07 00:46:50
+lastmod: 2024-07-02 00:32:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -43,7 +43,7 @@ The table shows package distribution across variants.
 | `glibc-locale-posix`          | X      |
 | `kubectl-fips-1.29`           | X      |
 | `kubectl-fips-latest`         | X      |
-| `kyverno-fips`                | X      |
+| `kyverno-fips-1.12`           | X      |
 | `ld-linux`                    | X      |
 | `libcrypto3`                  | X      |
 | `libssl3`                     | X      |

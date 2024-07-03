@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kafka Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-03 00:33:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:9939cf9cf0f1be87818d9f4b72d33f4e59706c9b0c7494872f041e09e30efbb7` |
-|  `latest`     | June 26th    | `sha256:ef6a6f7bc0415e9c5b08002aaa0539369959b831bb0fa75274b787351ebbdd6d` |
+|  `latest-dev` | June 28th    | `sha256:7a46b681f8129921820ad895fa6cbd27ef03f543ce28a2754a78363fbc24f6c0` |
+|  `latest`     | June 28th    | `sha256:5bcd924337ef7c1a3fbd34a5f6048c838538a3048afd571beaf61f478c376d79` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `3-dev` `3.7.0-dev` `3.7-dev` | June 26th    | `sha256:9f501a07bd5a454c7a06f7895e3b808143aac9e52386481132073b389c426590` |
-|  `latest` `3` `3.7` `3.7.0`                 | June 26th    | `sha256:7351f8489ddd190571ff4d33064b2fbffe9fe4936c5a09380b295e0952002bd9` |
+|  `3.7.1-dev` `3.7-dev` `3-dev` `latest-dev` | July 2nd     | `sha256:fc4afc2377d2097de28073bc78d3f752603631c44c8a6363aa7e25463701f683` |
+|  `3.7.1` `3` `3.7` `latest`                 | July 2nd     | `sha256:5614dcb32c4d5fc0f6b567c117758c3a34df16688a0c03ca3b1c102558822e70` |
+|  `3.7.0-dev`                                | June 28th    | `sha256:a540bf42b386f1a72c9fcfc6a8b593379df03d4f02c290c4689d1065d8cb15df` |
+|  `3.7.0`                                    | June 28th    | `sha256:b70c3c4a65f16a5e0ea56a001dbaa366349cde57733dd88c20ab3f395d43aea8` |
 

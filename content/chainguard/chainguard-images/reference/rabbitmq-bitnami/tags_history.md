@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rabbitmq-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3` `3.13` `latest` `3.13.3`                 | June 26th    | `sha256:0606adcad1d88e4238cbc1e3f32ed00502bbcb45ccd3d4ef756cb4e9d72cbd8f` |
-|  `3.13.3-dev` `3-dev` `latest-dev` `3.13-dev` | June 26th    | `sha256:f59f9e84a5cbca9d497cee9057d94a475c6001d64c3fe8496eb38ea20d03951f` |
+|  `3.13-dev` `3-dev` `latest-dev` `3.13.3-dev` | June 28th    | `sha256:357a4dfee81c2cdd7f2b13fb1148168c6faac09a9f5e424592cd37c1419f4095` |
+|  `3.13` `3` `3.13.3` `latest`                 | June 28th    | `sha256:6a8dd7307ea7fd71c6dd05e3262279541eb93a791136db772fa029090ff72226` |
 

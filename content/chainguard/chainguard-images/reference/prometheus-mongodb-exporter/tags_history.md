@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mongodb-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:57c3f9ff58d0dc3c3582160ff3f9ae90a2a580c10d907d21c975da6161940281` |
+|  `latest-dev` | June 28th    | `sha256:6c95de1c0ff856c29f206536c0e01a6a7c010919de76293cceaa4567ffe524ee` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +36,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.40-dev` `0.40.0-dev` `latest-dev` `0-dev` | June 26th    | `sha256:11949bc103cceaef8f74325082234eea3b95ffd6c947080d26d47b6aa5041a3a` |
-|  `latest` `0` `0.40.0` `0.40`                 | June 20th    | `sha256:a55d4418d8ddbff18ab0820ec9e1c3b15b09e730dac3fa6a52974326520216c8` |
+|  `0.40.0-dev` `0.40-dev` `latest-dev` `0-dev` | June 28th    | `sha256:0c1f83d86016972261384be0725e881aaf307c171dd9f516ac89e53ad475e5a1` |
 

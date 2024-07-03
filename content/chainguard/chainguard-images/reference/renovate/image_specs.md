@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public renovate Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-07-03 00:33:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -128,7 +128,6 @@ The table shows package distribution across variants.
 | `pnpm`                          | X          | X      |
 | `posix-cc-wrappers`             | X          | X      |
 | `py3-attrs`                     | X          | X      |
-| `py3-build`                     | X          | X      |
 | `py3-cachecontrol`              | X          | X      |
 | `py3-certifi`                   | X          | X      |
 | `py3-cffi`                      | X          | X      |
@@ -150,8 +149,6 @@ The table shows package distribution across variants.
 | `py3-keyring`                   | X          | X      |
 | `py3-more-itertools`            | X          | X      |
 | `py3-msgpack`                   | X          | X      |
-| `py3-packaging`                 | X          | X      |
-| `py3-parsing`                   | X          | X      |
 | `py3-pexpect`                   | X          | X      |
 | `py3-pipenv`                    | X          | X      |
 | `py3-pkginfo`                   | X          | X      |
@@ -160,7 +157,6 @@ The table shows package distribution across variants.
 | `py3-poetry-core`               | X          | X      |
 | `py3-ptyprocess`                | X          | X      |
 | `py3-pycparser`                 | X          | X      |
-| `py3-pyproject-hooks`           | X          | X      |
 | `py3-pywin32-ctypes`            | X          | X      |
 | `py3-rapidfuzz`                 | X          | X      |
 | `py3-referencing`               | X          | X      |
@@ -176,10 +172,14 @@ The table shows package distribution across variants.
 | `py3-virtualenv`                | X          | X      |
 | `py3-xattr`                     | X          | X      |
 | `py3-zipp`                      | X          | X      |
+| `py3.12-build`                  | X          | X      |
 | `py3.12-flit-core`              | X          | X      |
 | `py3.12-installer`              | X          | X      |
+| `py3.12-packaging`              | X          | X      |
 | `py3.12-pip`                    | X          | X      |
 | `py3.12-pip-base`               | X          | X      |
+| `py3.12-pyparsing`              | X          | X      |
+| `py3.12-pyproject-hooks`        | X          | X      |
 | `py3.12-setuptools`             | X          | X      |
 | `py3.12-tomli`                  | X          | X      |
 | `python-3.12`                   | X          | X      |

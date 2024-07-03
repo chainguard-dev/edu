@@ -18,4 +18,8 @@ terraform.tfstate.backup
 terraform.tfstate.*.backup
 .terraform.tfstate.lock.*
 .terraform.lock.hcl
+
+# required by google-github-actions
+gha-creds-*.json
+
 /tools/rumble/vulnerability.db

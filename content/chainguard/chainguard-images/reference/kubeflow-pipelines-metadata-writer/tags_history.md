@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-writer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-02 00:32:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 26th    | `sha256:acc62235d9533eb2a9108b64b6c570a2ee39190b57cfa6bfedb03f34b0fc401e` |
-|  `latest-dev` | June 26th    | `sha256:52ae130fea89ed5bedbfb653fa585afb17eddb795cbf26152273f27b785d3f88` |
+|  `latest`     | July 1st     | `sha256:df3102ff417a04793c12d76be6b4423108d94b7c43797d22b768eff4fd72c356` |
+|  `latest-dev` | July 1st     | `sha256:35e1b8f6de779f141bafb6b0c6e6c24f4dc4ab010adf6f17c653b55c9fb523f0` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.2.0-dev` `2.2-dev` `2-dev` | June 26th    | `sha256:1294a3703f0d22d294a51ca7021a4110453aa2108db59fccacb1588a88f9f7a8` |
-|  `2` `2.2` `2.2.0` `latest`                 | June 26th    | `sha256:c1ed9d35c01bb623aa352d57c7afdb9ee828ea417491e562c16b55ab9d8f1d87` |
+|  `2.2.0-dev` `2-dev` `2.2-dev` `latest-dev` | July 1st     | `sha256:df0fb77a0c7d6fd02623b400bee30ab939cce6d3e45625e7d0332055d0941c4b` |
+|  `2.2` `2` `latest` `2.2.0`                 | July 1st     | `sha256:46907f166bcda8d8e9bd16d12be93aebf717973c55b70df15a699b42db0e2725` |
 

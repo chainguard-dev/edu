@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-cloudsqlproxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-03 00:33:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,15 +28,15 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:d8eb79ed773300a2306a326bb6cd9bdc579ffac294912a033f16ec94aaedfd0a` |
-|  `latest`     | June 20th    | `sha256:1055e8913c433346ff2fe337ca54072d2a5926f09aa620110f61a92e8db1fd96` |
+|  `latest-dev` | June 28th    | `sha256:4c9051961404cbf15be9ee8bcc229b2a230a55a43e2f96d018eb166da64fcc14` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                     | Last Changed | Digest                                                                    |
-|---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.7.2-dev` `latest-dev` `0.7-dev` `0-dev` | June 26th    | `sha256:31d718034220893ea777e47f4ed58117ff193cb511948c7911da44d5a11dd564` |
-|  `0` `0.7` `0.7.2` `latest`                 | June 20th    | `sha256:50f26071b29fa08b495d20546b355e0a60029e7c0f5e3a52f7b6ec9a90acb6b5` |
+| Tag (s)                | Last Changed | Digest                                                                    |
+|------------------------|--------------|---------------------------------------------------------------------------|
+|  `0`                   | July 3rd     | `sha256:76c491baf7b0ef62b137a293e97309749ab03de59240283e0d3fbe06340af9d7` |
+|  `0.7.2-dev` `0.7-dev` | July 3rd     | `sha256:b55e5c0fb927ba5c92bf3473f9b5c551e6d3f83fdc1c175fcc11140ddd61d21c` |
+|  `0-dev` `latest-dev`  | June 28th    | `sha256:77ecc2c6e9b574dafa2f84b5742a71033e915a3d572d66043805e78e96833c56` |
 

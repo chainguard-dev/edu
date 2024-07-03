@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the boring-registry Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:5992adddc01d1f22fd33cfd26d86fca8cdb36848f2f8c5ad8639818af3712b0a` |
-|  `latest`     | June 20th    | `sha256:dfb44260136b119dcd14ea5a92f43ff5786053ff3cc91a9366caa5be6e6b96af` |
+|  `latest-dev` | June 28th    | `sha256:418bb22f3a362d97caffd2b852a5ca4eac36fb60ebdbcbf9d93f6ea00d07fe30` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +36,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.14.0-dev` `0-dev` `0.14-dev` | June 26th    | `sha256:217243c1660f973040d5027e79f3bdb09da925f80971c7e205df71b7909d10e7` |
-|  `latest` `0.14` `0.14.0` `0`                 | June 20th    | `sha256:94434355609e782d99cf1df4260d86812f2af78da7ae0b0a6c692fc70096808c` |
+|  `latest-dev` `0-dev` `0.14.0-dev` `0.14-dev` | June 28th    | `sha256:196ba4fa9f1936c226d58978c8cbf24410f70c8ad1582bf2ceab28d3284578cf` |
 

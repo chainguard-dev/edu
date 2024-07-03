@@ -3,8 +3,8 @@ title: "Provenance Information for authservice Images"
 type: "article"
 unlisted: true
 description: "Provenance information for authservice Chainguard Image"
-date: 2024-06-23 00:43:06
-lastmod: 2024-06-23 00:43:06
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-07-03 00:33:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []

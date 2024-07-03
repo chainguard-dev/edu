@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the metallb-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:94709cdbd5e6f6d7c91efba20f54d451ffeed830628643f6426978c8d0846e95` |
+|  `latest-dev` | June 28th    | `sha256:91c4640baf754b24964d31e2351c4ac2d6a36687c6a90796de1bff7889a20f8b` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +36,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.14-dev` `0-dev` `0.14.5-dev` | June 26th    | `sha256:66918db05b98027781bf1e77d5c265b1bf326d813bf52d1d8442b687dee7878e` |
-|  `0` `0.14` `latest` `0.14.5`                 | June 20th    | `sha256:ca8f2fefb0e25341dee0a106fcd6487de8c4de7971475da7eecb2ed2c4cbd8c4` |
+|  `0.14.5-dev` `0.14-dev` `latest-dev` `0-dev` | June 28th    | `sha256:0e9a4da1ccfc7b10fa64bd878aba3f4cac665e96512508bc9c1e50f0598e68f5` |
 

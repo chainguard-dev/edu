@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tomcat-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-03 00:33:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                         | Last Changed | Digest                                                                    |
 |-------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `10-dev` `10.1-dev` `10.1.25-dev` `latest-dev` | June 26th    | `sha256:66d9fd9263dd84d4f0db879bc2c61ecb77a0008a5b7e843d70b9bc84e10bc106` |
-|  `10.1` `10.1.25` `latest` `10`                 | June 26th    | `sha256:8c718d4c728cc36e4d1bcf0844b3e0c190a8dae77ebe2ac1efe47c23b51bd685` |
+|  `10.1` `latest` `10.1.25` `10`                 | July 2nd     | `sha256:9ae786f27e439707bb2ee84094ea238243da2c49467c50da3feebe4a266ac210` |
+|  `10-dev` `10.1.25-dev` `latest-dev` `10.1-dev` | July 2nd     | `sha256:f4df2439a5bb5b27b8b9f4d64d9c3cdf8dbe9969e58804e342dd4ccbf95e7594` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-earlystopping-medianstop Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 26th    | `sha256:8431b447f22096d2e6e7826880fb1c0c59885dab543dc0e322604cff7c6d5fb6` |
-|  `latest-dev` | June 26th    | `sha256:115f67c3063fe247211e8fcebcf3eac585367234eb6ccc864bc499105a334da6` |
+|  `latest`     | June 28th    | `sha256:ff734a5d4905ee6de44b51befed441b081370df01ee34bab8a8141b02db7f75e` |
+|  `latest-dev` | June 28th    | `sha256:3b9fdefa70c93cf56facb56bc508783da65c00357e0dc1181b165eadd2fccb84` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `latest` `0.16` `0.16.0`                 | June 26th    | `sha256:e30ea0261e09c04fafe61638b4e0e9dd27ab05c7fae8502ae037090ed49075f9` |
-|  `0-dev` `latest-dev` `0.16-dev` `0.16.0-dev` | June 26th    | `sha256:38803b2a534ada4ab146041a65ebc785de57fa9188975957c173d5b5c4d6a5b4` |
+|  `latest` `0.16.0` `0` `0.16`                 | June 28th    | `sha256:fdb01a1ccf164de6b2cb74ac95058dbbec15d367bf9c64380fc6672057511fb4` |
+|  `latest-dev` `0-dev` `0.16-dev` `0.16.0-dev` | June 28th    | `sha256:64fafc59ed3da5335b38be1526a2b72cf819bdc4573cc0f323073a3b22e883a4` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for postgres Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []

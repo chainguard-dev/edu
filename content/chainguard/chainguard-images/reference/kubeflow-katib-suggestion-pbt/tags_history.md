@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-pbt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 26th    | `sha256:65b87f8de68717bd1457f5e44c031b20bc1ea1f7a7ae531db54a52a08471c56d` |
-|  `latest-dev` | June 26th    | `sha256:f29f125dd78786a39f6f2f64a877122c3ec28d5e2e7451e2eb5d8c84fe84f205` |
+|  `latest`     | June 28th    | `sha256:72be3c306011ec690025514cc19f0487c497298eb630eddf225372dd915667a0` |
+|  `latest-dev` | June 28th    | `sha256:8c8ae674d12f76c2040978b8a7acd6c56b392bc4f9f2eb15632cf93d049f73d8` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `0.16` `0.16.0` `latest`                 | June 26th    | `sha256:ebe8a15d528e8e2164f38970cb08f018d5dff2e61941a0c480a5a99625819e86` |
-|  `0.16.0-dev` `0.16-dev` `0-dev` `latest-dev` | June 26th    | `sha256:fd0b9d3e4b671849a39ad187ac27ac5e6156089ad6c4432fb5cf8d0efeeb1c81` |
+|  `0.16-dev` `latest-dev` `0-dev` `0.16.0-dev` | June 28th    | `sha256:63ab06b8637aea62376650da09747fe606f2969c0cf936b6e8f5278165c97e74` |
+|  `0.16.0` `0.16` `0` `latest`                 | June 28th    | `sha256:84f2024ca5b3bd60c635ed54e2f9fa390532525e9fab6274a434a762b7235696` |
 

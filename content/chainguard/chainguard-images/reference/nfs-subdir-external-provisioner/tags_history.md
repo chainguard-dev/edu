@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nfs-subdir-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 26th    | `sha256:972264d07dfb24325d7563bf3e2667e01001cf4f82c6972f2b7be0427f889ff5` |
-|  `latest-dev` | June 26th    | `sha256:06c08a91494de869a465c378c94fdca48c8854891f1bf03837551e5cf75c384f` |
+|  `latest`     | June 28th    | `sha256:0f63c7a6a3f1862354a7774776595dcfdf48127e0702ec619e306d941d3397e7` |
+|  `latest-dev` | June 28th    | `sha256:f723c92d4712e2a9c4d78e9f9a8ce52f45f4fd3ef6ba690d0f3c963852ae4012` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.0.18-dev` `4-dev` `4.0-dev` `latest-dev` | June 26th    | `sha256:9a72a13d673027a3027a7ec4b1aa77255dd95caedc8ae21a18ae7dd71c675703` |
-|  `4.0.18` `4.0` `4` `latest`                 | June 26th    | `sha256:f5f64b257355054a582d85c3dd3cd6d6e84b8634dca79130bebcd052aa3d72f6` |
+|  `4-dev` `latest-dev` `4.0.18-dev` `4.0-dev` | June 28th    | `sha256:a96bfd25549604ae18c9da607609950e048fa4e226ee3a777451536b33f60453` |
+|  `4` `4.0` `4.0.18` `latest`                 | June 28th    | `sha256:a9a4e8a822d8e2747087e639a0562535f95333780996ed0b6a3a470b9b89b5fa` |
 

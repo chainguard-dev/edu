@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opensearch Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-03 00:33:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 26th    | `sha256:257f3ea088c358d17fbe1b7f1bb22b906d6ffdfcd4494218de394de0787022a1` |
-|  `latest`     | June 26th    | `sha256:58d3624f69c5e583fbb6118536e473d04c29b31f3688e6f8820a251b678f3a3c` |
+|  `latest-dev` | June 28th    | `sha256:82ac7e5a0d6677b45b80515a17c16731aff9886b954c8a87836b54c673f514e2` |
+|  `latest`     | June 28th    | `sha256:b0c8c2a0475a60ed24de98d0611a04e4737df08eb1b98b4b6cf033c515c9c4ca` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.15.0-dev` `2.15-dev` `2-dev` `latest-dev` | June 26th    | `sha256:bf9c74ef0399eac770dd994cdda86bea5ddd09f9144f41c030ef795b5cf8a865` |
-|  `2.15.0` `2` `latest` `2.15`                 | June 26th    | `sha256:bc711ad61abc2b6264d267a8797b08fdab99ea179950e09a0fb1c169f50b728f` |
-|  `2.14.0-dev` `2.14-dev`                      | June 25th    | `sha256:61ba665f92f4ce63cfd0beb4a39958dc8e77ef5596b3dc208bc19c741bbb9af4` |
-|  `2.14` `2.14.0`                              | June 21st    | `sha256:86ad7ad9839fc1c6516bc1381e752279ee8685672b2b4999a81a2b91577e675f` |
+|  `2.15.0-dev` `2.15-dev` `2-dev` `latest-dev` | July 2nd     | `sha256:90d3ec5272b6cc3bc790a463a26b2faa8e5ae91353e19e250bbb1dc2405ddba7` |
+|  `2` `2.15` `2.15.0` `latest`                 | July 2nd     | `sha256:34bfd226786b3ea7a62baeea648dff7d05cc9e29282d5369bfceb66abcf8bb39` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tomcat-jdk8 Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-03 00:33:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `9-dev` `9.0.90-dev` `latest-dev` `9.0-dev` | June 26th    | `sha256:59e5ab76abf815d0424b5ade29053c0c404e677154f70a237352eca3a5926479` |
-|  `latest` `9.0` `9` `9.0.90`                 | June 26th    | `sha256:454bf5e226f1a5215e5480ea4edd84bab91b2b011182065be40e483eef2964d3` |
+|  `9.0.91-dev` `9-dev` `9.0-dev` `latest-dev` | July 2nd     | `sha256:14ddfd3e219a1b6ee3d898023f22f4f65f2b4345fd70e595501f78acb2c4dfce` |
+|  `9.0.91` `9` `9.0` `latest`                 | July 2nd     | `sha256:5b11ed2f262201929fac229e013b7ddeb41cfc087e65b6007801cb0cd30f65cd` |
+|  `9.0.90`                                    | July 2nd     | `sha256:4346343fa92458af047f9d4f5b0d8f1a9e316368b0c4c2298062f1486f6e5573` |
+|  `9.0.90-dev`                                | July 2nd     | `sha256:1fab3d2436cf438553e77a14e1ebe2168e36f946d8aef26bd7f792482bf390c7` |
 

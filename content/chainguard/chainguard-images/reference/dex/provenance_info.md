@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for dex Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-07 00:46:50
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []

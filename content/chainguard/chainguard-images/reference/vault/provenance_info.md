@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for vault Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-01 00:36:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 | Registry                     | Tags                                                                                                                                                         |
 |------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                           |
-| `cgr.dev/chainguard-private` | 1, 1-dev, 1.15, 1.15-dev, 1.15.8, 1.15.8-dev, 1.15.9, 1.15.9-dev, 1.16, 1.16-dev, 1.16.3, 1.16.3-dev, 1.17, 1.17-dev, 1.17.0, 1.17.0-dev, latest, latest-dev |
+| `cgr.dev/chainguard`         | latest-dev                                                                                                                                                   |
+| `cgr.dev/chainguard-private` | 1, 1-dev, 1.15, 1.15-dev, 1.15.9, 1.15.9-dev, 1.16, 1.16-dev, 1.16.3, 1.16.3-dev, 1.17, 1.17-dev, 1.17.0, 1.17.0-dev, 1.17.1, 1.17.1-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
