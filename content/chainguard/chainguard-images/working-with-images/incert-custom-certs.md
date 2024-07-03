@@ -1,10 +1,10 @@
 ---
-title: "How To Use incert to build Images with Built-in Custom Certificates"
+title: "How To Use incert to Create Images with Built-in Custom Certificates"
 linktitle: "Custom Certificates"
 aliases: 
 - /chainguard/chainguard-images/working-with-images/incert-custom-certs/
 type: "article"
-description: "An overview of how to use incert, a Go program from Chainguard, to build container images with custom certificates built-in to them."
+description: "An overview of how to use incert — a Go program from Chainguard — to create container images with custom certificates built-in to them."
 date: 2023-07-03T11:07:52+02:00
 lastmod: 2023-07-03T11:07:52+02:00
 draft: false
@@ -17,11 +17,11 @@ weight: 032
 toc: true
 ---
 
-In many enterprise settings, an organization will have its own certificate authority which it uses to issue certificates for its internal services. This is often for security or control reasons, but could also be related to regulatory requirements. 
+In many enterprise settings, an organization will have its own certificate authority which it uses to issue certificates for its internal services. This is often for security or control reasons but could also be related to regulatory requirements. 
 
-If you're using a container that needs to communicate with your organization's services and your organization has its own certificate authority, you'll need to add a valid certificate into your container. One way to do this is to volume mount the certificate at runtime. This works, but it means that everyone who uses the container has to go through the process of mounting the certificate. Another solution is to build the certificate directly into the container.
+If you're using a container that needs to communicate with your organization's services and your organization has its own certificate authority, you'll need to add a valid certificate into your container. One way to do this is to mount the certificate as a [volume](https://docs.docker.com/storage/volumes/) at runtime. This works, but it means that everyone who uses the container has to go through the process of mounting the certificate.
 
-This tutorial outlines how to use [`incert`](https://github.com/chainguard-dev/incert) — a Go tool from Chainguard that creates container images with certificates added into them.
+Another solution is to build the certificate directly into the container. This tutorial outlines how to use [`incert`](https://github.com/chainguard-dev/incert) — a Go tool from Chainguard that builds container images with certificates inserted into them.
 
 
 ## Prerequisites
@@ -72,7 +72,7 @@ We want to create some certificates for `example.com` and `www.example.com`, so 
 Next, create your certificates by running the following `cfssl selfsign` command.
 
 ```sh
-cfssl selfsign ww.example.com csr.json | cfssljson -bare selfsigned
+cfssl selfsign www.example.com csr.json | cfssljson -bare selfsigned
 ```
 
 Here we include the hostname we specified previously (`www.example.com`) as well as the CSR file. We then pipe the command's output into a `cfssljson` command; this will process the `.json` files output by the `cfssl selfsign` command into the `.pem` files we need.
@@ -106,7 +106,7 @@ With these files in place you can move on to creating an Nginx container that us
 
 ## Create an Nginx container that uses self-signed certificates for TLS
 
-Now that you've created the certificate infrastructure, you can create an Nginx container that uses them to provide TLS. Later on,  we will attempt to reach this Nginx container to test that `incert` successfully built an image with the `selfsigned.pem` certificate built into it.
+Now that you've created the certificate infrastructure, you can create an Nginx container that uses them to provide TLS. Later on, we will attempt to reach this Nginx container with a `curl` container we built using `incert`, testing whether it can successfully insert the `selfsigned.pem` certificate into it.
 
 First run the following command to create an Nginx configuration file named `nginx.default.conf`. This example is a fairly barebones configuration but will be adequate for the purposes of this guide. Note that it specifies the server should listen on port `8443` and will serve requests for `example.com` and `www.example.com`. It also specifies the location of the certificate and key to be used by the container, namely the `/etc/nginx/conf.d/` directory. 
 
@@ -144,15 +144,21 @@ cgr.dev/chainguard/nginx
 
 ## Test connections to the Nginx service with `curl`
 
-At this point, if you tried to use `curl` to access the running Nginx container, you would receive an error:
+At this point, if you tried to use `curl` to access the running Nginx container, the command will fail because `curl` disallows insecure connections by default.
 
 ```sh
 curl https://localhost:8443
 ```
 ```
+curl: (60) SSL certificate problem: self-signed certificate
+More details here: https://curl.se/docs/sslcerts.html
+
+curl failed to verify the legitimacy of the server and therefore could not
+establish a secure connection to it. To learn more about this situation and
+how to fix it, please visit the web page mentioned above.
 ```
 
-You can force `curl` to ignore the error by passing it the `-k` command, as in `curl -k https://localhost:8443`. However, our goal is to connect to the service securely using the certificate infrastructure created previously. 
+You can force `curl` to ignore the self-signed certificate by passing it the `-k` argument, as in `curl -k https://localhost:8443`. However, our goal is to connect to the service securely using the certificate infrastructure created previously. 
 
 In the next section we will use `incert` to create a new container image (using Chainguard's `curl` image as the foundation) with your `selfsigned.pem` certificate built into it. Before doing this, though, let's attempt to reach the Nginx service with a `curl` container that does not have the certificate included. 
 
@@ -162,14 +168,14 @@ To do this you'll need to find the Nginx container's IP address. First, find the
 docker ps
 ```
 ```
-CONTAINER ID   IMAGE                  	COMMAND              	CREATED     	STATUS     	PORTS                                   	NAMES
-67be0edaf708   cgr.dev/chainguard/nginx   "/usr/sbin/nginx -c …"   3 seconds ago   Up 3 seconds   0.0.0.0:8443->8443/tcp, :::8443->8443/tcp   cranky_zhukovsky
+CONTAINER ID   IMAGE                      COMMAND                  CREATED         STATUS         PORTS                                       NAMES
+9e211033635b   cgr.dev/chainguard/nginx   "/usr/sbin/nginx -c …"   2 minutes ago   Up 2 minutes   0.0.0.0:8443->8443/tcp, :::8443->8443/tcp   agitated_jones
 ```
 
-As this output shows, the name of the Nginx container in this example is `cranky_zhukovsky`. Replace this with the name of your own container in the following command:
+As this output shows, the name of the Nginx container in this example is `agitated_jones`. Replace this with the name of your own container in the following command:
 
 ```sh
-docker inspect --format '{{ .NetworkSettings.IPAddress }}' cranky_zhukovsky
+docker inspect --format '{{ .NetworkSettings.IPAddress }}' agitated_jones
 ```
 
 This will return the container's IP address:
@@ -212,7 +218,7 @@ incert -ca-certs-file selfsigned.pem -platform linux/arm64 -image-url cgr.dev/ch
 
 This command uses the `-ca-certs-file` option to specify that `incert` should use the `selfisgned.pem` certificate file; the `-platform` option to specify that it wants to build an image for `linux/arm64`; the `-image-url` option to specify the image we want to build on as our base image (here we specify Chainguard's `curl` image); and the `-dest-image-url` to pass the registry where we want the resulting image to be uploaded to.
 
-For this final option, this example specifies [`ttl.sh`](http://ttl.sh/), an ephemeral Docker image registry. `ttl.sh` is free to use and does not require a login, making it useful for testing. It's also, however, public, so be sure that you **do not** upload any important private certificates there.
+For this final option, this example specifies [`ttl.sh`](http://ttl.sh/), an ephemeral Docker image registry. `ttl.sh` is free to use and does not require a login, making it useful for testing. However, it's also public, so be sure that you **do not** upload any important private certificates there.
 
 This command will take a few moments to complete, but once it finishes you will receive output showing the image that was created and uploaded to the destination repo. 
 
