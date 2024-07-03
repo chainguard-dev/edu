@@ -164,6 +164,8 @@ Trivy can scan this generated CycloneDX SBOM with the following:
 trivy sbom results.cdx.json
 ```
 
+By default, the `sbom` subcommand scans only for vulnerabilities. License scanning can be enabled using the `--scanners license` flag. 
+
 Learn more on SBOMs and other output formats in the section on [specifying output formats](#specifying-output-formats).
 
 ## Comprehending Trivy Output
@@ -222,11 +224,13 @@ Individual scanners can be selected by passing a comma-separated list after the 
 trivy image --scanners vuln,misconfig,secret nginx
 ```
 
-To recursively scan only for exposed secrets on a filesystem, starting at the current working directory:
+To recursively scan only for exposed secrets on a filesystem:
 
 ```bash
 trivy fs --scanners secret .
 ```
+
+This will perform a recursive scan of all files and folders in the current working directory.
 
 ### License Scanning
 
@@ -280,7 +284,8 @@ The CycloneDX, SPDX, and SPDX-JSON output formats are considered SBOMs, and can 
 trivy image -f cyclonedx -o results.cdx.json nginx
 ```
 
-By default, the `sbom` subcommand scans only for vulnerabilities. License scanning can be enabled using the `--scanners license` flag.
+See [Scanning SBOMs](#scanning-sboms) for more on scanning these output formats.
+
 
 ### Generating a Report from a Template
 
