@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-acmesolver-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-03 00:33:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -39,6 +39,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.12-dev` `1.12.12-dev`                     | June 28th    | `sha256:3580d2829efe0add97eb9c3fc96881eb221ea17e8eb9fd0b31cfc9ccee6892f8` |
 |  `1.14.7` `1.14`                              | June 28th    | `sha256:ea842c6b0cf4fd20b20a9db6d4478298e9d3283abd3c6d80b7aa8679a0dd71d5` |
 |  `1.14.7-dev` `1.14-dev`                      | June 28th    | `sha256:e9fef283909f99a57c52228b53c53041629f4d97d001077fb2d023c87dd390d1` |
-|  `1.15.0-dev`                                 | June 25th    | `sha256:5fe7de2155abd4e8f833511132c7ed91b995962b1bbb4b723f2a550ba0c82db3` |
-|  `1.15.0`                                     | June 25th    | `sha256:4f886261104e4300c3897988e89457bc8b38be59dcc7a0c5bbe13c7fea4d22ce` |
 

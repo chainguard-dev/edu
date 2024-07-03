@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public kubernetes-csi-external-resizer Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-03 00:33:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -21,48 +21,48 @@ toc: true
 
 This page shows detailed information about the Chainguard **kubernetes-csi-external-resizer** Image.
 
-|              | latest-dev             |
-|--------------|------------------------|
-| Default User | `nonroot`              |
-| Entrypoint   | `/usr/bin/csi-resizer` |
-| CMD          | not specified          |
-| Workdir      | not specified          |
-| Has apk?     | yes                    |
-| Has a shell? | yes                    |
+|              | latest-dev             | latest                 |
+|--------------|------------------------|------------------------|
+| Default User | `nonroot`              | `nonroot`              |
+| Entrypoint   | `/usr/bin/csi-resizer` | `/usr/bin/csi-resizer` |
+| CMD          | not specified          | not specified          |
+| Workdir      | not specified          | not specified          |
+| Has apk?     | yes                    | no                     |
+| Has a shell? | yes                    | no                     |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/kubernetes-csi-external-resizer/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                                        | latest-dev |
-|----------------------------------------|------------|
-| `apk-tools`                            | X          |
-| `bash`                                 | X          |
-| `busybox`                              | X          |
-| `ca-certificates-bundle`               | X          |
-| `chainguard-baselayout`                | X          |
-| `git`                                  | X          |
-| `glibc`                                | X          |
-| `glibc-locale-posix`                   | X          |
-| `kubernetes-csi-external-resizer-1.10` | X          |
-| `ld-linux`                             | X          |
-| `libbrotlicommon1`                     | X          |
-| `libbrotlidec1`                        | X          |
-| `libcrypt1`                            | X          |
-| `libcrypto3`                           | X          |
-| `libcurl-openssl4`                     | X          |
-| `libexpat1`                            | X          |
-| `libidn2`                              | X          |
-| `libnghttp2-14`                        | X          |
-| `libpcre2-8-0`                         | X          |
-| `libpsl`                               | X          |
-| `libssl3`                              | X          |
-| `libunistring`                         | X          |
-| `libxcrypt`                            | X          |
-| `ncurses`                              | X          |
-| `ncurses-terminfo-base`                | X          |
-| `wget`                                 | X          |
-| `wolfi-baselayout`                     | X          |
-| `zlib`                                 | X          |
+|                                        | latest-dev | latest |
+|----------------------------------------|------------|--------|
+| `apk-tools`                            | X          |        |
+| `bash`                                 | X          |        |
+| `busybox`                              | X          |        |
+| `ca-certificates-bundle`               | X          | X      |
+| `chainguard-baselayout`                | X          | X      |
+| `git`                                  | X          |        |
+| `glibc`                                | X          |        |
+| `glibc-locale-posix`                   | X          | X      |
+| `kubernetes-csi-external-resizer-1.10` | X          | X      |
+| `ld-linux`                             | X          |        |
+| `libbrotlicommon1`                     | X          |        |
+| `libbrotlidec1`                        | X          |        |
+| `libcrypt1`                            | X          |        |
+| `libcrypto3`                           | X          |        |
+| `libcurl-openssl4`                     | X          |        |
+| `libexpat1`                            | X          |        |
+| `libidn2`                              | X          |        |
+| `libnghttp2-14`                        | X          |        |
+| `libpcre2-8-0`                         | X          |        |
+| `libpsl`                               | X          |        |
+| `libssl3`                              | X          |        |
+| `libunistring`                         | X          |        |
+| `libxcrypt`                            | X          |        |
+| `ncurses`                              | X          |        |
+| `ncurses-terminfo-base`                | X          |        |
+| `wget`                                 | X          |        |
+| `wolfi-baselayout`                     | X          | X      |
+| `zlib`                                 | X          |        |
 

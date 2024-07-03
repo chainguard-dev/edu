@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the go-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-02 00:32:13
+lastmod: 2024-07-03 00:33:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.22.4-dev` `1.22-dev` `latest-dev` | July 1st     | `sha256:e073149d032234dd270ecac47c2a116748425576c961bf1092af89ed02b6797f` |
-|  `1.21.11-dev` `1.21-dev`                     | July 1st     | `sha256:28df7c14eb10ad39374654ae59ac6ec193b2dfd8b8993dc10aff66a3ac1c093e` |
-|  `1.21.11` `1.21`                             | July 1st     | `sha256:304cff0857be1ae74b7a87d2629fb2d35b6a9d72e8aca2bba444ec19b255caf5` |
-|  `1.22.4` `latest` `1` `1.22`                 | July 1st     | `sha256:95621d925a7f5d03c53ef0352a671359ba402d35cba557721ab74b26a6e6aa71` |
+|  `1.21.12` `1.21`                             | July 2nd     | `sha256:d0b0a0b9641d419fdc260f462dcdf2027ceba57d9b94788027b77c680dc75f07` |
+|  `1.21.12-dev` `1.21-dev`                     | July 2nd     | `sha256:3aef36e4235210c692885bde0cf817c5b309c42f32891cdb5366c42e2accef50` |
+|  `1` `1.22.5` `latest` `1.22`                 | July 2nd     | `sha256:80a8d5bed0ecfedc11726ae9567415dea03fe9a22ae373ceda8d0dda1528c086` |
+|  `latest-dev` `1.22-dev` `1.22.5-dev` `1-dev` | July 2nd     | `sha256:f598bb17bbf88a33bfac5454e6dafa9d68d6d3aefb2be2e638d5926934a26317` |
+|  `1.21.11-dev`                                | July 1st     | `sha256:28df7c14eb10ad39374654ae59ac6ec193b2dfd8b8993dc10aff66a3ac1c093e` |
+|  `1.21.11`                                    | July 1st     | `sha256:304cff0857be1ae74b7a87d2629fb2d35b6a9d72e8aca2bba444ec19b255caf5` |
+|  `1.22.4-dev`                                 | July 1st     | `sha256:e073149d032234dd270ecac47c2a116748425576c961bf1092af89ed02b6797f` |
+|  `1.22.4`                                     | July 1st     | `sha256:95621d925a7f5d03c53ef0352a671359ba402d35cba557721ab74b26a6e6aa71` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for bank-vaults Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-07-03 00:33:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 | Registry                     | Tags                                                             |
 |------------------------------|------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                                               |
+| `cgr.dev/chainguard`         | latest-dev                                                       |
 | `cgr.dev/chainguard-private` | 1, 1-dev, 1.20, 1.20-dev, 1.20.4, 1.20.4-dev, latest, latest-dev |
 
 
