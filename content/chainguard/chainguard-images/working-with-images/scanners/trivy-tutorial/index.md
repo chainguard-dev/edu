@@ -1,19 +1,19 @@
 ---
-title: "Using Trivy to Scan Container Images for Vulnerabilities"
+title: "Using Trivy to Scan Software Artifacts for Issues"
 type: "article"
 linktitle: "trivy-tutorial"
 aliases: 
 - /chainguard/chainguard-images/working-with-images/scanners/trivy-tutorial
-description: "Learn to use Trivy to analyze images and other software artifacts"
-date: 2024-06-06:20:00+02:00
-lastmod: 2024-06-06:20:00+00:00
+description: "Learn to use Trivy to analyze container images and other software artifacts for a variety of issues"
+date: 2024-07-03:20:00+02:00
+lastmod: 2024-07-03:20:00+00:00
 tags: ["Conceptual", "CVE"]
 draft: false
 images: []
 menu:
   docs:
     parent: "scanners"
-weight: 100
+weight: 120
 toc: true
 ---
 
