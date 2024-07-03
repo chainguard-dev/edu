@@ -1,5 +1,5 @@
 ---
-title: "Using Trivy to Scan Software Artifacts for Issues"
+title: "Using Trivy to Scan Software Artifacts"
 type: "article"
 linktitle: "trivy-tutorial"
 aliases: 
