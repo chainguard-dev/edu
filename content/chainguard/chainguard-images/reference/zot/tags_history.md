@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the zot Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-03 00:33:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:9e7dc1f804b32dcd8c71a286fe41a872e4af810cb3a220f71535992a2ce29e59` |
-|  `latest`     | June 26th    | `sha256:eea6ea8674b77a01605449520a0d1f6de8944b6c82dcd20128dda5251bfb5dd8` |
+|  `latest`     | July 2nd     | `sha256:7192cedf2ab064a04b63143edd581062d6c1872ee7f4fb8523e39ac4305cd361` |
+|  `latest-dev` | July 2nd     | `sha256:3023eb13382e627ae7868d7516a5174c8e7578d5c8adf784659941a69f6c1df9` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `latest-dev` `2.0.4-dev` `2.0-dev` | June 28th    | `sha256:d7c3ebdd009cb6e2d37eb6e1603a74ce94dbf5285483fed8e4d11ca79e81d3cf` |
-|  `2` `2.0.4` `2.0` `latest`                 | June 26th    | `sha256:8402facd717d4a3d81da7a9653eda8734eb9f0bf5f6113593f7c272859e06ecb` |
+|  `latest` `2.0.4` `2.0` `2`                 | July 2nd     | `sha256:3cee7d36c42c5f1485ebef997211705e7e233c28fb4263bd97c1a9b655d70500` |
+|  `2.0-dev` `2.0.4-dev` `latest-dev` `2-dev` | July 2nd     | `sha256:bcd906331f0fa4484ad531522feea0fc6f5620b0b9584d87b08e1f62e0e529e4` |
 

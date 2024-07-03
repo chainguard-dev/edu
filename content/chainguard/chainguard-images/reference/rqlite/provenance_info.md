@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for rqlite Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-07-02 00:32:13
+lastmod: 2024-07-03 00:33:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 | Registry                     | Tags                                                                         |
 |------------------------------|------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest-dev                                                                   |
+| `cgr.dev/chainguard`         | latest, latest-dev                                                           |
 | `cgr.dev/chainguard-private` | 8, 8-dev, 8.26, 8.26-dev, 8.26.2-dev, 8.26.3, 8.26.3-dev, latest, latest-dev |
 
 

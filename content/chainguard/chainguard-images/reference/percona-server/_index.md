@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: percona-server Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-07-03 00:33:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,11 +26,10 @@ toc: true
 
 
 <!--overview:start-->
-## Overview
-
-Percona Server for MySQL is a free, fully compatible, enhanced, and open source drop-in replacement for any MySQL database. It provides superior performance, scalability, and instrumentation.
+Percona Server for MySQL is a free, fully compatible, enhanced, and open source drop-in replacement for any MySQL database. It provides superior performance, scalability, and instrumentation.'
 
 To get more information about the image, please visit the GitHub [repository](https://github.com/percona/percona-server).
+
 <!--overview:end-->
 
 ## Download this Image

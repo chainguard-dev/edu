@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the metacontroller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-03 00:33:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -38,7 +38,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
 |  `latest-dev` `4.11-dev` `4.11.17-dev` `4-dev` | June 28th    | `sha256:bb376b7e55688045d26a9ee8ff4c2087d08a18a27d46bdc237c98897e1ab96a4` |
-|  `4.11` `latest` `4.11.17` `4`                 | June 25th    | `sha256:a06079221654f6d986180f07a623c0199474015e373ab47c5e896588dc045cca` |
-|  `4.11.16-dev`                                 | June 25th    | `sha256:b904cb3e206a44efaa6f3a04c33a3f82ff970702cb66e3b85e49bb6a8d4fdd68` |
-|  `4.11.16`                                     | June 25th    | `sha256:ae7ed6b3c28571f574ae83d95710eb826ed63c126e455d25ebb3de5c5345e9ec` |
 

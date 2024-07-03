@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-cli-v2-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-02 00:32:13
+lastmod: 2024-07-03 00:33:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.17.6-dev` `2.17-dev` `2-dev` `latest-dev` | July 1st     | `sha256:284a6c9986df4371ca4e963743f0105fe6af590a7abadc59afed6e170c485790` |
-|  `2.17.6` `latest` `2.17` `2`                 | July 1st     | `sha256:3bd56273c5f735b638a0f0684486a4c879c9a768ec23b0226bcebd8a9096bc88` |
+|  `2.17-dev` `2-dev` `2.17.7-dev` `latest-dev` | July 2nd     | `sha256:7d17ecaf196be211a6d26688996d8b8c5c52de2ff929de47bc79791b67dee47e` |
+|  `2.17` `2.17.7` `latest` `2`                 | July 2nd     | `sha256:012e826842eb67350780fac6ffd264f457ae2cfcd005ba5db390bbb5af40d294` |
+|  `2.17.6-dev`                                 | July 1st     | `sha256:284a6c9986df4371ca4e963743f0105fe6af590a7abadc59afed6e170c485790` |
+|  `2.17.6`                                     | July 1st     | `sha256:3bd56273c5f735b638a0f0684486a4c879c9a768ec23b0226bcebd8a9096bc88` |
 |  `2.17.5-dev`                                 | June 28th    | `sha256:e85bea6d83e1fa8f959b1965cd1fc71b31686d114fd397fbc05b1d3970ebac5b` |
 |  `2.17.5`                                     | June 28th    | `sha256:f2633b4ea756ddd6b994b272febfd36ba2d1c86eea8606051058c4f4445744fb` |
 |  `2.17.4-dev`                                 | June 28th    | `sha256:9bb1db5a762d9ae5819065fa10f7fdad400f454933279942e9b36ef5f4d9223f` |
@@ -43,6 +45,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `2.17.3-dev`                                 | June 26th    | `sha256:b60cbbc118dbea0c13baf94879bc92adfe6861f658d9c101ff3609e0742e7f48` |
 |  `2.17.2-dev`                                 | June 26th    | `sha256:03b6e73dd70639770ad6f3f86855a32191fc7fef6d677f3e5fbd0ac10d71bf75` |
 |  `2.17.2`                                     | June 26th    | `sha256:6f2961fa35add82fa9a49e0f9d4ca379719c331a43ad35da68aedb12aecd1b60` |
-|  `2.17.1-dev`                                 | June 25th    | `sha256:ca19e1cd34dccbd8aeceedc122bf795283cdea31cfcc715bdc8cf09ccfc95b29` |
-|  `2.17.1`                                     | June 25th    | `sha256:0935fa52a99c491153ecdf2993363737ccdd72a5a7938f4fdd37d6540d221bd7` |
 
