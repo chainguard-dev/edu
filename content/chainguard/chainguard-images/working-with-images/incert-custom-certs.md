@@ -5,8 +5,8 @@ aliases:
 - /chainguard/chainguard-images/working-with-images/incert-custom-certs/
 type: "article"
 description: "An overview of how to use incert, a Go program from Chainguard, to build container images with custom certificates built-in to them."
-date: 2024-07-02T11:07:52+02:00
-lastmod: 2024-07-02T11:07:52+02:00
+date: 2023-07-03T11:07:52+02:00
+lastmod: 2023-07-03T11:07:52+02:00
 draft: false
 tags: ["Chainguard Images", "Product", "Procedural"]
 images: []
