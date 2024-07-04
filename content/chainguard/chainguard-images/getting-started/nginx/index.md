@@ -273,7 +273,7 @@ docker container stop nginxcontainer
 
 ## Advanced Usage
 
-In this demo, we did not copy the configuration file into the image built from the Dockerfile. This is because the default configuration file in the image was sufficient for the scope of this demo. If you wish to use a custom configuration file, you must ensure that file paths, ports, and other system-specific settings are configured to match the container environment. You can find more information about making these changes at the [Chainguard nginx Image Overview](/chainguard/chainguard-images/reference/nginx/image_specs/).
+In this demo, we did not copy the configuration file into the image built from the Dockerfile. This is because the default configuration file in the image was sufficient for the scope of this demo. If you wish to use a custom configuration file, you must ensure that file paths, ports, and other system-specific settings are configured to match the container environment. You can find more information about making these changes at the [Chainguard nginx Image Overview](https://images.chainguard.dev/directory/image/nginx/overview).
 
 {{< blurb/images-advanced image="nginx" >}}
 
