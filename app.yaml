@@ -5,61 +5,32 @@ automatic_scaling:
   target_cpu_utilization: 0.65
   min_instances: 0
   max_instances: 1
-  min_pending_latency: 30ms # default value
+  min_pending_latency: 30ms  # default value
   max_pending_latency: automatic
   max_concurrent_requests: 50
 
 handlers:
-  - url: /chainguard/chainguard-images/reference/(.+)/image_specs/
-    script: auto
-    secure: always
-    redirect_http_response_code: 301
-    redirect_to: https://images.chainguard.dev/directory/\1/specifications
+- url: /(.*\.css)
+  mime_type: text/css
+  static_files: public/\1
+  upload: public/(.*\.css)
 
-  - url: /chainguard/chainguard-images/reference/(.+)/tags_history/
-    script: auto
-    secure: always
-    redirect_http_response_code: 301
-    redirect_to: https://images.chainguard.dev/directory/\1/versions
+- url: /(.+)/
+  static_files: public/\1/index.html
+  upload: public/(.+)/index.html
 
-  - url: /chainguard/chainguard-images/reference/(.+)/provenance_info/
-    script: auto
-    secure: always
-    redirect_http_response_code: 301
-    redirect_to: https://images.chainguard.dev/directory/\1/provenance
+- url: /
+  static_files: public/index.html
+  upload: public/index.html
 
-  - url: /chainguard/chainguard-images/reference/(.+)
-    script: auto
-    secure: always
-    redirect_http_response_code: 301
-    redirect_to: https://images.chainguard.dev/directory/\1/overview
+- url: /([^\.]+)([^/])
+  static_files: public/\1\2/index.html
+  upload: public/(.+)
 
-  - url: /chainguard/chainguard-images/reference/
-    script: auto
-    secure: always
-    redirect_http_response_code: 301
-    redirect_to: https://images.chainguard.dev/directory
-
-  - url: /(.*\.css)
-    mime_type: text/css
-    static_files: public/\1
-    upload: public/(.*\.css)
-
-  - url: /(.+)/
-    static_files: public/\1/index.html
-    upload: public/(.+)/index.html
-
-  - url: /
-    static_files: public/index.html
-    upload: public/index.html
-
-  - url: /([^\.]+)([^/])
-    static_files: public/\1\2/index.html
-    upload: public/(.+)
-
-  - url: /(.+)
-    static_files: public/\1
-    upload: public/(.+)
-
+- url: /(.+)
+  static_files: public/\1
+  upload: public/(.+)
+  
 error_handlers:
   - file: default_error.html
+
