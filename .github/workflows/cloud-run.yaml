@@ -21,7 +21,7 @@ jobs:
         egress-policy: audit
 
     - name: 'Checkout default branch to $GITHUB_WORKSPACE dir'
-      uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v3
+      uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
 
     - uses: actions/setup-node@2fddd8803e2f5c9604345a0b591c3020ee971a93 # v3
       with:
