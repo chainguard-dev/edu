@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-state-metrics-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.12-dev` `latest-dev` `2.12.0-dev` | June 28th    | `sha256:ce9ac76ae24b845629832899bf782ef6eefd76495e97188c5df835d911eaf24d` |
-|  `2.12` `2` `latest` `2.12.0`                 | June 28th    | `sha256:58b8c1a4f232dbac759c4b246798ae4a18b54a1546c6544066e3d81ebc000a15` |
+|  `2-dev` `2.12.0-dev` `latest-dev` `2.12-dev` | July 3rd     | `sha256:69fafea81736c9ae17e8e924750db7918d9303c2f1c9fa45b313ff544a14a6d5` |
+|  `2.12.0` `2` `2.12` `latest`                 | July 3rd     | `sha256:631abc210121736902ea9b05f4bc0ac9284ee93bcfd0a23f2590bb69570cc624` |
 

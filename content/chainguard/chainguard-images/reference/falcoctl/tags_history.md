@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the falcoctl Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:933ff1a1858cfb11a9f5e1bebb61345e47a8e3e9c7810346338cb3994bcc0fdb` |
+|  `latest`     | July 3rd     | `sha256:595750340ef86ca67137e577953deec6e8c6cf1c2f70732f666fab2a651b320a` |
+|  `latest-dev` | July 3rd     | `sha256:fb7f84fe12a3e18eb23374205806fa284df8d4dd1bec91fdb38152a0c52a8f52` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.8.0-dev` `0.8-dev` `0-dev` `latest-dev` | June 28th    | `sha256:8496d30f60aeba6ca022b368151e7b3c75568884584ea01c114f4f4423027e43` |
+|  `0-dev` `0.8-dev` `0.8.0-dev` `latest-dev` | July 3rd     | `sha256:cf54524b5997600dd22052fa0b69afce4fe1f656b11e95badf507279c6c869c8` |
+|  `0.8.0` `latest` `0` `0.8`                 | July 3rd     | `sha256:74eac38e5a820b70d11ccf2091b7b4d5412498cb9035971c59efd8ccea7b5462` |
 

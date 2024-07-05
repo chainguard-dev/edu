@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dask-gateway-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 28th    | `sha256:b02c2caa2d28bf3b5e4c48c8eec77e86fbeda964acdf56ba6186d2abdad6fbb1` |
-|  `latest-dev` | June 28th    | `sha256:eee798ca45d315049e83a8176eb442066a7d0ed70685537eb4b1b47b91c63fcb` |
+|  `latest`     | July 3rd     | `sha256:acd0970e6ec1fd998d136e9478b1de6e7cc531aa64b74186b4984bd6de9af463` |
+|  `latest-dev` | July 3rd     | `sha256:6c53664b35107b96b41cb97c5ede1ca69ce7a4b1ce279425702171b04555796d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                              | Last Changed | Digest                                                                    |
 |------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2024-dev` `2024.1-dev` `2024.1.0-dev` | June 28th    | `sha256:a9d5a123a8e4ba4f0b8e79f5cf36cbc36af422d31b64e6c973976bcdeef7b42e` |
-|  `2024` `2024.1.0` `2024.1` `latest`                 | June 28th    | `sha256:a24e30454f37f3da4300a2aaa52afa54aaacd72731176f9eb09a8033d848f717` |
+|  `2024` `latest` `2024.1.0` `2024.1`                 | July 3rd     | `sha256:9a09b479725ee092bde86d968281195920847c3404cd03f91e504e540c676d17` |
+|  `latest-dev` `2024.1.0-dev` `2024-dev` `2024.1-dev` | July 3rd     | `sha256:690f6d52eba3c27145c9b9e1fbc3739f285b33f04dc8ea4f6d9f8a4a49e28224` |
 

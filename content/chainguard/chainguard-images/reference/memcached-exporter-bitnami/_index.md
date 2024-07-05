@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: memcached-exporter-bitnami Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -34,7 +34,7 @@ A memcached exporter for Prometheus that is compatible with Bitnami Helm charts.
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard-private/memcached-exporter-bitnami:latest
+docker pull cgr.dev/chainguard/memcached-exporter-bitnami:latest
 ```
 
 

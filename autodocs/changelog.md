@@ -1,3 +1,13 @@
+# 2024-07-05
+New images added:
+
+- curl-fips
+- kubernetes-dns-node-cache-fips
+- whereabouts
+- wordpress
+
+A total of **1300** documents were updated.
+
 # 2024-07-03
 
 

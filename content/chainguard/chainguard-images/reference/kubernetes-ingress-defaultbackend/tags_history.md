@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-ingress-defaultbackend Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:a10a2f33ca65492db04a2a12e47bfbc48aba9afc3e68d74343ad7b371abfe1f0` |
-|  `latest`     | June 26th    | `sha256:e31216f9697e391d36e29944b2be916ac9200ed23647c24f3901b9a9888d90f5` |
+|  `latest`     | July 3rd     | `sha256:1b9d394a4f2c1b038f7b6ee592f11e5271cf28aeca665933840dc1f66e2b51a8` |
+|  `latest-dev` | July 3rd     | `sha256:cfb3f5ab8eb31d26cbc00635792a1414edda5f87347f27b5b8ace9a23e9186c4` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.30.1-dev` `1.30-dev` | June 28th    | `sha256:7113288d960bb22fb4e3da53c2b2955502e43bf7fcc8991007185bd750daffa3` |
-|  `latest` `1` `1.30` `1.30.1`                 | June 26th    | `sha256:75962b12ecabadd11196407e950c42806611ad4a6444930b256ddc3a8c9ee23e` |
-|  `1.30.0-dev`                                 | June 26th    | `sha256:32934fe87b5fae0e3e23a2cc8648b134db168ed7189f7765bb40667e94371ae1` |
+|  `latest-dev` `1-dev` `1.30-dev` `1.30.1-dev` | July 3rd     | `sha256:5edc28360ff30cca7405ccf76e087f4d38ae986b16b1d6d6d7769a0611546590` |
+|  `1.30` `1.30.1` `latest` `1`                 | July 3rd     | `sha256:87821385322268ef8656f3fb66f79b24a959f4f340049713e634cb7f26ed71f3` |
 

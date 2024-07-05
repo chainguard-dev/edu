@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the neuvector-prometheus-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:a4e70ede1cd372177f466ba45c85a22a095583e73cd797e74164d4731f85b71f` |
-|  `latest`     | June 28th    | `sha256:bcca71d5c1e173bcf5c8ffc443abdf44439807107854da8f9048ff726ea9d648` |
+|  `latest-dev` | July 4th     | `sha256:ccf78bc02c32ec751e21a381c911ca748f99aa9578f135db10775d594f4ffee2` |
+|  `latest`     | July 4th     | `sha256:463468a728f2f2d5f92a33e4fe5a7bbc04d07f6649b59fd9270bec2cd01b38f7` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                   | Last Changed | Digest                                                                    |
 |-----------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.1` `latest` `1.1.0.0` `1` `1.1.0`                     | June 28th    | `sha256:e3a0d88d266b81a72eca5c6b6c60b16ac96d8140dcd67bcc5ca76d25ff779c80` |
-|  `latest-dev` `1.1.0.0-dev` `1.1.0-dev` `1.1-dev` `1-dev` | June 28th    | `sha256:1083ae3c8d2697dd1541c4f2f5fab0067c4283fece0747943fec47b6889377a9` |
+|  `1.1.0` `1` `1.1.0.0` `latest` `1.1`                     | July 4th     | `sha256:e4eba6f03aa5e467f54c938b4e58316c420456850d2a0c23f2d624bedb24463d` |
+|  `latest-dev` `1-dev` `1.1-dev` `1.1.0-dev` `1.1.0.0-dev` | July 4th     | `sha256:f93dc74d257d8b3a7640dcb151075b31e42bac93999622b50c9c76adc3a31e41` |
 

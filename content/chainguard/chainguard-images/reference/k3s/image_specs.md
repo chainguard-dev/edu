@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public k3s Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -55,6 +55,8 @@ The table shows package distribution across variants.
 | `iptables`                   | X          | X      |
 | `k3s`                        | X          | X      |
 | `kmod`                       | X          | X      |
+| `kubectl-1.30`               | X          | X      |
+| `kubectl-1.30-default`       | X          | X      |
 | `ld-linux`                   | X          | X      |
 | `libblkid`                   | X          | X      |
 | `libbrotlicommon1`           | X          |        |

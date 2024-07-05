@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node-lts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)                  | Last Changed | Digest                                                                    |
 |--------------------------|--------------|---------------------------------------------------------------------------|
-|  `next-dev` `latest-dev` | June 28th    | `sha256:ec88a69cbf4f4d227b69e7692e959b8412cc41e4033bad7076996f9f12a6e01b` |
+|  `next-dev` `latest-dev` | July 3rd     | `sha256:1a75969e6cb307b87fc070c6e87ffa2edc3b663ad44b504ebaa592861354b8a6` |
 |  `next`                  | June 28th    | `sha256:8683cb055a76b9fd4621721acef7e0e838feec5d35f26ebc5a0f5637ca850745` |
 |  `latest`                | June 28th    | `sha256:437a945409c1f9ad96884d8373f3021631502ed379d25501f659ce8e929da2ac` |
 
@@ -38,7 +38,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                     | Last Changed | Digest                                                                    |
 |-------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `20.15.0-dev` `latest-dev` `next-dev` `20.15-dev` `20-dev` | June 28th    | `sha256:c11a63f209bb02820b80a1642bd1e4a93cdeed1dc8f2da67bf3ae103649543df` |
-|  `20.15.0` `20` `20.15` `latest`                            | June 28th    | `sha256:c2953fba1b64856ecfc0645b746f5cccfc7baa2857532f604713775455f38978` |
-|  `next`                                                     | June 28th    | `sha256:ab8a95c79d8b91203e8f5d06db79def96def1ce11810da81e9b5f346597e8f8a` |
+|  `20.15.0-dev` `20.15-dev` `20-dev` `next-dev` `latest-dev` | July 4th     | `sha256:97e68450563ca2fd040bb518f922a47abcfd712dac8b50e824e45fa14fd5407f` |
+|  `20.15` `latest` `20` `20.15.0`                            | July 4th     | `sha256:b18c931fd817062afbf3f8350dc963c1652723aa3efa27aa168c68306b43699a` |
+|  `next`                                                     | July 4th     | `sha256:ab502094fae3972294b083ff2e01aad781452b9ce450efe820f1f6bd2f8d955f` |
 

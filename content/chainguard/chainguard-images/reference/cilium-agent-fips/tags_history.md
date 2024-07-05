@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-agent-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.15.6-dev` `latest-dev` `1.15-dev` | June 28th    | `sha256:9f140694703468f9f8b30ac91af61bc48c3fbb7b07f9a5e41ceaed46251a7342` |
-|  `1.14` `1.14.11`                             | June 28th    | `sha256:6a590603c328f447e5197c9c5d6c0892e880e91008f0aa07b9a18030f2397b3e` |
-|  `1.14-dev` `1.14.11-dev`                     | June 28th    | `sha256:fd1a2b621aee50027f4b1d336a560e3ab008cbd94d6e825cf40c5d0756bf40ba` |
-|  `1.15.6` `1` `1.15` `latest`                 | June 28th    | `sha256:aec82dc3e633c223e960bf0c68bc4ab0af409290865cd27f8ee64bbed0ee78ee` |
+|  `1.15-dev` `1.15.6-dev` `latest-dev` `1-dev` | July 4th     | `sha256:fac8e2d665b01ebb421db48d7d09741a35fb5aac9161dbd5ce3f03038647a85a` |
+|  `1.14.12-dev` `1.14-dev`                     | July 4th     | `sha256:3a2b93a5ccc50f447dce1fccf709b5910b180bcec35a8ee3ce9bd2073bf18c5a` |
+|  `latest` `1` `1.15` `1.15.6`                 | July 4th     | `sha256:a62aeecb6c52e610b11382f9a7605974d0cb798d282393052b0db66998b76893` |
+|  `1.14.12` `1.14`                             | July 4th     | `sha256:db8702dcc3307fd6f29149640a6d6ffd9e2412382c9dd52169c8f66478d13cbe` |
+|  `1.14.11`                                    | July 3rd     | `sha256:80d42d526084d7665fc1eeca04041658471f3ab244b0d861ccd569b348e59eeb` |
+|  `1.14.11-dev`                                | July 3rd     | `sha256:40bed78c1e1477556af7dffd5837a9a82b9d283eb2b4c02a4d24895b1313e4c1` |
 

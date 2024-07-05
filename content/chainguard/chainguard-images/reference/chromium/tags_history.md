@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the chromium Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 3rd     | `sha256:c96821010594f2b074741a939f2d9e2f7230d05a99f23a892e105f14ed6eddc8` |
 |  `latest`     | June 28th    | `sha256:6bbf943301d0d838a486e5254156c272545d1965592b0569a8dbc665ad156d23` |
-|  `latest-dev` | June 28th    | `sha256:9cf569f3e8e8a4cfa195de2310bb1d5a46e4a4136d8760f5982d47f4581e29b6` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                   | Last Changed | Digest                                                                    |
 |---------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `126.0.6478.126-dev` `126-dev` `latest-dev` `126.0-dev` `126.0.6478-dev` | June 28th    | `sha256:e4809b78320b2f8e1a4bd756cc50daa02c1a5df9886be11f13df73989f292024` |
-|  `126.0` `latest` `126.0.6478.126` `126` `126.0.6478`                     | June 28th    | `sha256:9bf1a62cb55813b8bd7968bcb6ae241a8de04248a776ea1c806a34ab17d59be8` |
+|  `126` `126.0` `126.0.6478.126` `126.0.6478` `latest`                     | July 4th     | `sha256:0dfa9d3f11e76453567d6db6451ee544b8afe95d9dbd06d58b5496a385f7e2b7` |
+|  `126.0-dev` `126-dev` `latest-dev` `126.0.6478-dev` `126.0.6478.126-dev` | July 4th     | `sha256:91de5d9333293e63d7d18038633b8bd6b51c15d5651b145d80bbb54971133109` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the memcached-exporter-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,12 +26,16 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-Currently, there are no Developer versions of this image available.
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 3rd     | `sha256:060b07bcf7e61153b18a3c8768030dd31de076ecac07597e4d31207dc908ca73` |
+
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.14-dev` `latest-dev` `0-dev` `0.14.4-dev` | June 28th    | `sha256:71e1c6b35fe868e109c1c43b9cc7d9da7beded1b798d681d7207597e65bc4959` |
+|  `0.14-dev` `latest-dev` `0.14.4-dev` `0-dev` | July 3rd     | `sha256:e7ffc1c2a9fe37a7190530df0ad464261423c48cee99ca7e5378d80d00c3b085` |
+|  `0` `0.14.4` `0.14` `latest`                 | July 3rd     | `sha256:ecaafde2edc37374e4982109951ccf537411ed132af66d23cd4b9ff994ba6021` |
 

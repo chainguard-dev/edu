@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the wasmer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:ea9599aa5a4ea2c80532ca2683ff31c089c94e7058d8dfe4eb628bc5c4855624` |
+|  `latest-dev` | July 3rd     | `sha256:80e11e40e589f37aa9fabd9776f12bbed6cc10376a54a3370d6294440cd88542` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +36,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.3.2-dev` `4.3-dev` `latest-dev` `4-dev` | June 28th    | `sha256:6a4add06c68a061c065bf59d3961ce7666fe1e0235bf8b9235a3dfca2b7086ce` |
+|  `4.3` `latest` `4` `4.3.3`                 | July 4th     | `sha256:c793de907b0878661ab892d8843381e8e80ec14e59709e3d68ea82dedae5dd63` |
+|  `4-dev` `4.3-dev` `latest-dev` `4.3.3-dev` | July 4th     | `sha256:a3481b22335229cfae45029abc1834e281cc5eb6e69e7b24681ea974f6c52337` |
+|  `4.3.2-dev`                                | July 3rd     | `sha256:a47240b09be2f47a4da99110f6f1ce0e1660617faf6ee8d58de19713dee6d34a` |
 
