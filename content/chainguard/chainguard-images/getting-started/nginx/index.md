@@ -1,7 +1,9 @@
 ---
 title: "Getting Started with the nginx Chainguard Image"
 type: "article"
-linktitle: "nginx"
+linktitle: "nginx "
+aliases: 
+- /chainguard/chainguard-images/getting-started/nginx
 description: "Tutorial on how to get started with the nginx Chainguard Image"
 date: 2023-01-09T11:07:52+02:00
 lastmod: 2024-06-17T18:39:59+00:00
