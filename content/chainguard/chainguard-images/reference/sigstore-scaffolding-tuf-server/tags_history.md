@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-tuf-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:b12c7fe7e98e576675f67df9b9b8de3bd01f18cc4d937bdf8e49ae6d80c318fa` |
+|  `latest-dev` | July 4th     | `sha256:68184b89cb08f199be11b7db0e268b148d710306c0ddeea308e2c00c5a9ee8b7` |
+|  `latest`     | July 4th     | `sha256:35a3538d04daf2def641a8fb34043fbebda2090b7f1f27027714f06ff3da54a2` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.7.2-dev` `latest-dev` `0.7-dev` | June 28th    | `sha256:df2f5e556a8220cef572aed6adc85e707bcb4a6240ad9308e4425fb72eb91657` |
+|  `0.7-dev` `0.7.3-dev` `latest-dev` `0-dev` | July 3rd     | `sha256:8daaba7515ff4904bd26c00e9802155975207d53fd2828c3efb347718a764935` |
+|  `0` `latest` `0.7` `0.7.3`                 | July 3rd     | `sha256:e10669ab1d879ce52860f61cfbd1f9f5cab4818d4d24834031b330416aeea2b7` |
+|  `0.7.2-dev`                                | July 3rd     | `sha256:abe05a2f458cfbf2c46df92dd7c8278eb233f1bf6ffa37a0e76f79b017e08202` |
+|  `0.7.2`                                    | July 3rd     | `sha256:3373d7ea4ef65b57cf8f8d6239578b3b5399ed980f66a9c70be5553b2c98e31f` |
 

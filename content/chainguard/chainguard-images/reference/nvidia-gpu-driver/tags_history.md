@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nvidia-gpu-driver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:865c55e038b1a18479ca3957b94ed6a0734e3829464be308745d327385680668` |
-|  `latest`     | June 28th    | `sha256:4e198a8a2d4a97914ff19fa7cac97653533db539e4252fba087109bc380793ee` |
+|  `latest-dev` | July 3rd     | `sha256:cf8a9aeb90bc8e37831580e2a7ac2d415e1e4a4c391b5b2f08f27aaad6f67e53` |
+|  `latest`     | July 3rd     | `sha256:c66ae592084e6916ece7a72f6fe88216d8b8c10764cc6b0cea2f60cf2cd439e5` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                              | Last Changed | Digest                                                                    |
 |------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `550-dev` `550.54-dev` `latest-dev` `550.54.14-dev` | June 28th    | `sha256:c0c23f60700d67c190e5aef6dbeb0fdbd35b5cce0b8033884907a7b4fe9780a8` |
-|  `550.54.14` `550.54` `latest` `550`                 | June 28th    | `sha256:3b945c7ed66ced4ca1c5d80fd2b7b87da8c111cedef85be2409e8991938e495d` |
+|  `550.54-dev` `550-dev` `latest-dev` `550.54.14-dev` | July 3rd     | `sha256:524bdda5c57fa2b6d191effad5bc9699fc3037562963cae702fb36c1193b84fd` |
+|  `550` `550.54` `550.54.14` `latest`                 | July 3rd     | `sha256:3bad1067f817ce77a41a371a67f604b12265dcdcc18774a122fc8100f80ace56` |
 

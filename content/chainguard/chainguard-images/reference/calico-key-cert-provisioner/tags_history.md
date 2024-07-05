@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the calico-key-cert-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,5 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                          | Last Changed | Digest                                                                    |
 |----------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.28-dev` `latest-dev` `v3.28.0-dev` `3.28.0-dev` `v3.28-dev` `3-dev` `v3-dev` | June 28th    | `sha256:41de4433a0e18c1612742d7c50a8cefb53d9f3217e0db68d9c226097e1bd6dad` |
+|  `latest` `3.28` `3` `v3` `3.28.0` `v3.28` `v3.28.0`                             | July 4th     | `sha256:4f5b0aaedcc02ba50723b27bb24bce57c35b9e9276ed17fd36ad8eaa08315381` |
+|  `3.28.0-dev` `3.28-dev` `latest-dev` `v3-dev` `v3.28-dev` `3-dev` `v3.28.0-dev` | July 4th     | `sha256:dbc7b2e239cde199b1afd4a99015e4281289c9ff3b3af38aec49df71c5d3db9c` |
 

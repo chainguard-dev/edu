@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for kubernetes-csi-external-snapshotter-snaphot-validation-webhook Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,7 +29,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 | Registry                     | Tags                                         |
 |------------------------------|----------------------------------------------|
 | `cgr.dev/chainguard`         | No public tags are available for this image. |
-| `cgr.dev/chainguard-private` | 6-dev, 6.0-dev, 6.0.1-dev                    |
+| `cgr.dev/chainguard-private` | 6, 6-dev, 6.0, 6.0-dev, 6.0.1, 6.0.1-dev     |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

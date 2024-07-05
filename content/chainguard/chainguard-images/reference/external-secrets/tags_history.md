@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the external-secrets Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:21826a09bb8b9496f74b65a9f5e47122ea60ea4d6118bbe5d4264cd9f8779d9a` |
+|  `latest-dev` | July 3rd     | `sha256:d8d8a9f5f9cd59954e862f0c7e7da8a66a8ebf07174c1961a2653e4cf5abdc9d` |
+|  `latest`     | July 3rd     | `sha256:dccefa500155d33e78d31c9158a1c1085b51e978c673e11e527032f8236976a7` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.7.3-dev` `0.7-dev`                       | June 28th    | `sha256:b0f81f3c652f3e76b01f7140fc635151d17fb0aa3078d39430bd0b09d64c8e6f` |
-|  `0.9.19-dev` `0-dev` `0.9-dev` `latest-dev` | June 28th    | `sha256:7961388999c2813ba062e2ab05d4c8350f9ce06d545aac97b3c0e66445d05335` |
+|  `latest-dev` `0.9-dev` `0-dev` `0.9.19-dev` | July 3rd     | `sha256:39d7b5e5c3700fc09959c0bdb96629765bae73679e33800ed61176f90c9c86f2` |
+|  `0.7-dev` `0.7.3-dev`                       | July 3rd     | `sha256:5d2b756d58df4cde4fe8d87de86a801f21e13d65be7649bce1b298b37cdacd1c` |
+|  `0.9.19` `0.9` `0` `latest`                 | July 3rd     | `sha256:7719a5d3712c551ee233173d5e8d89b0a4813cfde01558afb8143519483e0c58` |
 

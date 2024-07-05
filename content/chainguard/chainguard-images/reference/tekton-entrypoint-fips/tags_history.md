@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-entrypoint-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.61-dev` `0.61.0-dev` | June 28th    | `sha256:29b47f77b0c31dd5fdbab26dbe54bc0fd2a88642107e8d2c2bf0e142f8118e15` |
-|  `0` `0.61.0` `0.61` `latest`                 | June 28th    | `sha256:c961e6628106a0c5dc1c0d7b9ae21e8d40a5d736c631305a2f4f792b0b39190f` |
+|  `0.61-dev` `0.61.0-dev` `0-dev` `latest-dev` | July 3rd     | `sha256:1fc997bd2dcc2c86376ec021583189e739666387f753fd90599791a00e075ca9` |
+|  `0.61` `0` `0.61.0` `latest`                 | July 3rd     | `sha256:504cd7ed230dca4a212c56cea92acc6ed03e248d3cfeeca4f94f021229b43831` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cloudnative-pg Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.23-dev` `1-dev` `1.23.2-dev` | June 28th    | `sha256:aca916ba3dd7893433f13280f9140a1d406e91bdca0ec2641c9be54ac37045c2` |
-|  `1` `latest` `1.23.2` `1.23`                 | June 27th    | `sha256:9bc7c1480b4a97ba60d3e9495ba5eadb23af6c7acd34a9a688c82dd9c3813dd1` |
+|  `1-dev` `1.23-dev` `1.23.2-dev` `latest-dev` | July 3rd     | `sha256:7d68f08da47340b2dd5a761b7de67b84585cef9076fb63b659cde3e4349471bc` |
+|  `1.23` `1.23.2` `1` `latest`                 | July 3rd     | `sha256:c516a31944db4a6b12d833e686f3f2b1bd7ea4e0c863f2dd55c2ef3ce6c408fc` |
 

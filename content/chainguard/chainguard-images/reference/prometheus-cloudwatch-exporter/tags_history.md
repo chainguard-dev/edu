@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-cloudwatch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 28th    | `sha256:6fa2edc78673204cae35e5f25aa069e50a70e29ab1355caa239c24f6d5393da4` |
-|  `latest-dev` | June 28th    | `sha256:9b8901765e7afbfff7b4c67ede7eeabda0038197d515737de931da5257ea5488` |
+|  `latest-dev` | July 3rd     | `sha256:632767aea6378e38d1c15f03bee0b6cdba15e0e35f3644be80aaf3134eb7b533` |
+|  `latest`     | July 3rd     | `sha256:da95bf0de7eaf6056215c07d16af30e430fbd614d6270612eb462ae027076423` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.15.5-dev` `0.15-dev` `latest-dev` `0-dev` | July 2nd     | `sha256:5a2f3df9172cb8fa0a3cd88f8de835e6a291745933b452c89eadff5b9b014cc2` |
-|  `0.15.5` `0` `0.15` `latest`                 | July 2nd     | `sha256:755d3f58195790deb89f0b812a09d9fe5eaa18726e65a5d5abe77f3b3f920e7f` |
+|  `0` `latest` `0.15.5` `0.15`                 | July 4th     | `sha256:7ca3af8d9e92031dc2eed221af59fb9819fa4afd953c0b2a6e75718236520645` |
+|  `0-dev` `latest-dev` `0.15.5-dev` `0.15-dev` | July 4th     | `sha256:66203da21d9887add71e99c42ea0a9e15dd1f9f6a760238a827e4ef46dc87911` |
 

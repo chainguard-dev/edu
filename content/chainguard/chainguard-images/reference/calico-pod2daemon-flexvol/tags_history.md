@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the calico-pod2daemon-flexvol Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,12 +26,16 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-Currently, there are no Developer versions of this image available.
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 3rd     | `sha256:6c0a95b2ef2de255cbcc9148715d425bfe38c1bededd725331966d161b398b59` |
+
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                                                          | Last Changed | Digest                                                                    |
 |----------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `v3-dev` `v3.28-dev` `3.28.0-dev` `v3.28.0-dev` `3.28-dev` `3-dev` `latest-dev` | June 28th    | `sha256:730a729fc008e07cc92ba9129c993040d874260ea6d263d8a027444a7fe34433` |
+|  `v3.28.0-dev` `latest-dev` `3.28.0-dev` `v3-dev` `3.28-dev` `v3.28-dev` `3-dev` | July 4th     | `sha256:70605e6ca3722048b9c2fbe7936a77e15618e8ec9942cbc8e1a88d3b23da2bb7` |
+|  `v3.28` `3.28.0` `3` `latest` `v3.28.0` `3.28` `v3`                             | July 4th     | `sha256:4f4763a2cb840e68e3c580e52021c6c9d9fa6987133445b3077e9698941efcfa` |
 

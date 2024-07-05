@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the http-echo Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,5 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.0-dev` `1-dev` `latest-dev` `1.0.0-dev` | June 28th    | `sha256:c9f6b59c95ecc796cb96af2389122c69343b4549c0dac05bf9292359e21e00c3` |
+|  `latest` `1.0` `1.0.0` `1`                 | July 3rd     | `sha256:54256c7fe923f5e2be8b91b111f3fb7285ed5891342e707a58f36093646e282e` |
+|  `1.0-dev` `1-dev` `latest-dev` `1.0.0-dev` | July 3rd     | `sha256:eb51e45ca8d097e81de37d0982b32bf5cb1b7b9228f1f0b781bed0d5abd70733` |
 

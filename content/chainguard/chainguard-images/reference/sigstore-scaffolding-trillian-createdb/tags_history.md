@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-trillian-createdb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:cb6a3fc95d7a2088920c93a125c1270a828095d1c1a48ddb6e21e4ea95cc4d66` |
+|  `latest-dev` | July 4th     | `sha256:17887cd5eb948f79b5aaefd78349034b3391d1b006f4e244fba873f18c90755d` |
+|  `latest`     | July 4th     | `sha256:945910c3a9c860466d838080f3b45f42b474acebf17b27b582873337d3b3bb16` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.7-dev` `0.7.2-dev` `0-dev` `latest-dev` | June 28th    | `sha256:5151ebce192a7ee25e96456febe5fcb0daa4e2a116e77b2a925c1640f3408746` |
+|  `0.7.3-dev` `0.7-dev` `latest-dev` `0-dev` | July 3rd     | `sha256:843e6be0cfe2bc0f2d9e0f054b0fc892a2b02559a7de9d3929f83cb64b8885b0` |
+|  `0.7` `latest` `0.7.3` `0`                 | July 3rd     | `sha256:fc581be2b0abc70c0947afd596f4325f5178a67aadd14d525fcbe49f0f0fb476` |
+|  `0.7.2-dev`                                | July 3rd     | `sha256:9f5d25f34fb29454acc87584e0abbbaf4e336b74b3d2e71007faf074f00d237d` |
+|  `0.7.2`                                    | July 3rd     | `sha256:24cfc976747469513d14bbe92a91ec2a88fcc23aaf6283fdbf414e9236541b01` |
 

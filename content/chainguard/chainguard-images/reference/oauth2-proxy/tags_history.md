@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the oauth2-proxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:f9f03f2c3fc82d1e373c346d1b73ffad229f555168778d9f73ad8a86240caa46` |
+|  `latest-dev` | July 3rd     | `sha256:11fdaf0491dd961b3b58badcc6807a103f88a29e8851f51c50ee6914c0065098` |
+|  `latest`     | July 3rd     | `sha256:51fadddb9315e5831c1094425dd00f11cee81b8a65db92dc227f3637ed4da0ec` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.6.0-dev` `7-dev` `latest-dev` `7.6-dev` | June 28th    | `sha256:faec9d51fc3fe4930282558f2284d67e08482130bfc6f6a102098defdd5313cb` |
+|  `latest-dev` `7.6-dev` `7-dev` `7.6.0-dev` | July 3rd     | `sha256:fbde8fa9c4cea1a44444703bb8afdc3b44f700c6c8e179da1ec6828c2457cbc2` |
+|  `7` `7.6.0` `7.6` `latest`                 | July 3rd     | `sha256:50cd24cd77cf721377104603153149ee4f119e6fcf4382e6a3f531f64bb93558` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-elasticsearch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:9df0b4f05a19306e786389336a2cf5dc18fee295ffbfa9216462e85ceb56bfd6` |
+|  `latest`     | July 3rd     | `sha256:7160bc50dab75889fa3b0de1fb3f44707304e805b18f4e035dd454133b103de8` |
+|  `latest-dev` | July 3rd     | `sha256:c05d717d930cb9a7fe817b7ce281331fb72f0195ffaeca4e680ebc8de7c170f9` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.7.0-dev` `1.7-dev` `1-dev` | June 28th    | `sha256:6428a7a68497fb3ed701c39fe5f7edc611cd154ab2163470e4f0756b38a71121` |
+|  `1.7.0-dev` `1-dev` `1.7-dev` `latest-dev` | July 3rd     | `sha256:0b15e0816267e8e9bdcee7cf1a8fbef982035b2b480adc93535c495654ed44ca` |
+|  `1` `1.7.0` `1.7` `latest`                 | July 3rd     | `sha256:3b1c9302664cd92567f218139e351e8405419f2ed86d1fa543c1228ff806d3da` |
 

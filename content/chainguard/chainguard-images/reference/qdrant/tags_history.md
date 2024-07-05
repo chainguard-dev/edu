@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the qdrant Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | July 2nd     | `sha256:441bd1affae3b806e7b319bcfe59946c4bbcc31a5c8224e7b3d01431dafebb08` |
-|  `latest-dev` | July 2nd     | `sha256:b4515a54ebe02e5d7f90fb3c87c5621f8b45eb569be6018d6c37ecbabb411ef8` |
+|  `latest-dev` | July 3rd     | `sha256:a5a640d7ee9747cdcf739f4ffc5094f7800cb56324ab4218b6c71744fb869e29` |
+|  `latest`     | July 3rd     | `sha256:500d32cf62202309f6add2019d83472903a7752405118dd2ce1e372ed2971446` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.10-dev` `1-dev` `1.10.0-dev` `latest-dev` | July 2nd     | `sha256:729ba7039e18b17e0eed556b7913e19eebc55b2d06f2083903bb2cdb96abff4d` |
-|  `1.10.0` `1` `latest` `1.10`                 | July 2nd     | `sha256:e59d3a5628208a4666f630defe005cbc45e36a487ec33fe331657d4f6125bd7d` |
+|  `1.10.0` `latest` `1` `1.10`                 | July 3rd     | `sha256:53d02fab91b743b7d41abba168fd4bacf6705ea9b7934904a433f2f916974885` |
+|  `1.10.0-dev` `1-dev` `1.10-dev` `latest-dev` | July 3rd     | `sha256:7051328660fda3771a0aff336c9b9a4c2b061efecbf3f1f7a3f928a6b1e72397` |
 |  `1.9-dev` `1.9.7-dev`                        | June 28th    | `sha256:bf5fe6544b50b22585d5f1cd2d35ee6771b1c38d6b64093b4116a0a526956dec` |
 

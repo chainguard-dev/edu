@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-kubernetes Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:bd60aca9a211dda59147c5fa010fd2b210c4f341a84c5731f387bac342e46fc2` |
-|  `latest`     | June 28th    | `sha256:d1073cc9f461d2a0ee9a322493b034fee49bb6c0ca4d65f4bd2f8561479a92bf` |
+|  `latest`     | July 3rd     | `sha256:3f4cec7f80dab2d03cacf3754ff9678ff6550cff8f5d858f06183d23a3c78af6` |
+|  `latest-dev` | July 3rd     | `sha256:4f71aa0633b741de04420663c4b57d8285b4fe1957bbf822abc4d3bb10423481` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `3.29.0` `3` `3.29`                 | June 28th    | `sha256:7c894051c0aa0a123c67f34b35b39276d22945b19aa843956d04b78fb8e03972` |
-|  `3.29.0-dev` `latest-dev` `3-dev` `3.29-dev` | June 28th    | `sha256:0075e83d30835110c81560a3da844781c09fb506f48d8449e427058440bb06fc` |
+|  `3` `3.29` `latest` `3.29.0`                 | July 4th     | `sha256:234496154b35d1161268f43c502cd74ed6955e579cb582f5515217ef3a6d6cd3` |
+|  `3.29.0-dev` `latest-dev` `3-dev` `3.29-dev` | July 4th     | `sha256:c01e216dc614b7bedfc6b1a4cdfabaa325d79e7c5b895a0735c57b32ccb0e012` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cfssl-self-sign Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,5 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `17-dev` `17.1.0-dev` `17.1-dev` | June 28th    | `sha256:d20f3699340bd608b5dc49b932b147402235a5b44e960ce640f97fbbb46547b0` |
+|  `17.1-dev` `17-dev` `17.1.1-dev` `latest-dev` | July 3rd     | `sha256:4fab750e64487b9023b6f6b6b6e7d6673e71b3620c2d93ab1e45ad6643e27854` |
+|  `latest` `17.1` `17.1.1` `17`                 | July 3rd     | `sha256:eed73917a7db309d2c5f36add33563264c571071cfb2fe9d1460133453a7da90` |
+|  `17.1.0-dev`                                  | July 3rd     | `sha256:8ded75e4da4c21d5b6049a75a930b66290b36655e06e03c2e334c30d73100ca8` |
+|  `17.1.0`                                      | July 3rd     | `sha256:7e8f00351d6477b4667bcca61369fc4e58cfd9394571d24e59826c849d65c4d6` |
 

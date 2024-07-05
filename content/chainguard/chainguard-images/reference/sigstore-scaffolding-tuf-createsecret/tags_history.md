@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-tuf-createsecret Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:32690b7ac7a3e039b27355b9e82d8c0296a296c9eaf5e86bfc9aa7096fd4fb10` |
+|  `latest-dev` | July 4th     | `sha256:e501702bacfd4de22acd30e1036c37a82e11de823c2fc5ef2e7296a11a0e10f3` |
+|  `latest`     | July 4th     | `sha256:e596da7b5267a56ac19c154e55237fb9eb9b1877764c8dc54facd095662f04a4` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.7.2-dev` `0.7-dev` | June 28th    | `sha256:642d15f5c3d3300dd6778912c6822cadfba0ca41b3e183187fb5568554dd4ed7` |
+|  `latest` `0` `0.7.3` `0.7`                 | July 3rd     | `sha256:97246db47590205080a6df029bc8105b123bba34a57672f551df3b279ca8d232` |
+|  `0.7-dev` `0.7.3-dev` `latest-dev` `0-dev` | July 3rd     | `sha256:29d2217410fb4677ce5c867ee6e085f4f0264b8a69917f6b838d9aaa61a0a78b` |
+|  `0.7.2-dev`                                | July 3rd     | `sha256:cf4442cd60eb1cd5ad9af87e1912f94814e4685613ca718f0c88f0e1c8e3f271` |
+|  `0.7.2`                                    | July 3rd     | `sha256:44a70d12313e8cfa2eba8629fcfcfe2b3e92fe26bc8815c917508ac36bc87976` |
 

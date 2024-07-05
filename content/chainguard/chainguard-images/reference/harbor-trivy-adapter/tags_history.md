@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the harbor-trivy-adapter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 2nd     | `sha256:ba4cc2fd1511f7246001e1e3716bc40dc6c354b8e45354db91103f99c725b122` |
-|  `latest`     | July 2nd     | `sha256:955e0ff0abc52dd149c317cf83136eb30ac1e91362248e2de7219580a39b476c` |
+|  `latest`     | July 3rd     | `sha256:9bbda9c70652d5e935202a8e88fedaa9cefc37e67cc055dc602824c910af6a31` |
+|  `latest-dev` | July 3rd     | `sha256:8ac72254409fd411ed4ab60e6f231d0f8d30c5e933335d2675a048a0481b21f0` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.31` `0.31.3` `0` `latest`                 | July 2nd     | `sha256:9012ad30df690a2269bba9760c4632715a83b8ba6e987a3a4d5f84398ad39647` |
-|  `0.31-dev` `0-dev` `latest-dev` `0.31.3-dev` | July 2nd     | `sha256:5f734367e2eb81cedccfafc3aa00b99712513ae50cd9a5ffcbabdf724af1838d` |
+|  `0.31.3-dev` `latest-dev` `0.31-dev` `0-dev` | July 3rd     | `sha256:6975b6c1df95a56701d56fe884c9d75bde5d4ade7d023a0c05939124402b9fd9` |
+|  `0.31` `0` `latest` `0.31.3`                 | July 3rd     | `sha256:564b026c679de61357505bed28e1e8c749a91e91ede5b0b7f15ce3467bafbadf` |
 

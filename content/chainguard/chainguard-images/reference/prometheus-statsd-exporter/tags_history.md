@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-statsd-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:b78cfff775df81ede70991774bca47dd5517951598eb7cabdcda9fe22f8998ce` |
+|  `latest`     | July 3rd     | `sha256:69b9b54ef0d01746d0937e73013f8913e26f904c24d0f274531a99f57944dbae` |
+|  `latest-dev` | July 3rd     | `sha256:4bad72b79ca3ce8d1f7efb9a3f1c89f426bfea0454d1240e866f9209fd8c104e` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.26.1-dev` `0.26-dev` `latest-dev` `0-dev` | June 28th    | `sha256:92246937dd19680ab35a682fea22e5d0c11a7a40bd1348961ecd8f7137e01c4c` |
-|  `0.22-dev` `0.22.8-dev`                      | June 28th    | `sha256:e93cfa54841218fc60176b0ae14ff51f2a7d700dd6ea7e071ba1d2063cc1a760` |
+|  `0.26.1-dev` `latest-dev` `0.26-dev` `0-dev` | July 3rd     | `sha256:cacf83624cc5be19dcce2c8c1ba25cb3bbdaa69bc6688faa6557dc1879354f4c` |
+|  `0.22.8-dev` `0.22-dev`                      | July 3rd     | `sha256:ab0dc2b0a99594d3683d11db21ca8fc80b82d3302917da60c7e92bfd36874d90` |
+|  `0.22` `0.22.8`                              | July 3rd     | `sha256:a9ca889f0e7bdbc16d17de72a14958060a597c561a497c5ed8dd7e2b726006e6` |
+|  `0.26` `0.26.1` `0` `latest`                 | July 3rd     | `sha256:f352f0fab0241458198f7a391b16df8e35b01c17fe4e885f1c46c26675bec174` |
 

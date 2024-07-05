@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for kube-logging-operator Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for kube-logging-operator Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                    |
-|------------------------------|-----------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | No public tags are available for this image.                                            |
-| `cgr.dev/chainguard-private` | 3-dev, 3.17-dev, 3.17.11-dev, 4-dev, 4.1-dev, 4.1.0-dev, 4.7-dev, 4.7.0-dev, latest-dev |
+| Registry                     | Tags                                                                                                                                                             |
+|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                                                     |
+| `cgr.dev/chainguard-private` | 3, 3-dev, 3.17, 3.17-dev, 3.17.11, 3.17.11-dev, 4, 4-dev, 4.1, 4.1-dev, 4.1.0, 4.1.0-dev, 4.7-dev, 4.7.0-dev, 4.8, 4.8-dev, 4.8.0, 4.8.0-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

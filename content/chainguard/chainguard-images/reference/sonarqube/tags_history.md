@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sonarqube Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                           | Last Changed | Digest                                                                    |
 |-------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `10.6.0-dev` `10-dev` `latest-dev` `10.6.0.92116-dev` `10.6-dev` | July 2nd     | `sha256:8339d823b3880faf31798cc12f7c646c59b8ecd32615b3349d9a0a78d8ecd5a4` |
-|  `10.6` `10.6.0.92116` `10.6.0` `10` `latest`                     | July 2nd     | `sha256:1072ab44db0fdc17bc2de09b15bcb4c554b0423ada2dc6d5523306813969b27f` |
+|  `10.6-dev` `10.6.0-dev` `latest-dev` `10.6.0.92116-dev` `10-dev` | July 4th     | `sha256:f7f6cbf6a89cb5d7bd2e1d232ea39c5d381a7ad9f94b0cc53263e23b6974f23e` |
+|  `10.6.0` `10.6.0.92116` `latest` `10.6` `10`                     | July 4th     | `sha256:8ed02ad93d09cc0b7567ee2e85f9c36713150714ddd0a4fc741de19b6546361f` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the traefik Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,14 +26,17 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-Currently, there are no Developer versions of this image available.
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 3rd     | `sha256:b4a4dd6a03d1a741827574049923fc1c3ac2f1a20b1c1fe8e4e62d4a58418e60` |
+
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3` `3.0` `3.0.4` `latest`                 | July 2nd     | `sha256:ecf18f3313d3e71184f19349c25d02681a26f73ed1afec523148aecb4be3a44a` |
-|  `3.0.4-dev` `3-dev` `latest-dev` `3.0-dev` | July 2nd     | `sha256:66d8beb3d21feb26e05211b748e8dea5e2baa4a39bc41f2f27917f57c3668368` |
+|  `3-dev` `3.0-dev` `3.0.4-dev` `latest-dev` | July 3rd     | `sha256:588b5c08fc0b254b3c6997e32ce8b56ca4c4a8280053bf255731ba877f33eff3` |
+|  `3` `3.0` `latest` `3.0.4`                 | July 3rd     | `sha256:ef4a3693f2109d20687d412aedbc0a45442df58c9b3bc89545fb2f989e1f2082` |
 |  `3.0.3-dev`                                | June 28th    | `sha256:cc2b74219ec0892add507f39a0f986ce3b66f6f24e3a9d598c9dc4cfbd44070d` |
 

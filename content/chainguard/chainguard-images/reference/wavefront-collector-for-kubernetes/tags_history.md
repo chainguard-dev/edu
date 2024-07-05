@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the wavefront-collector-for-kubernetes Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)              | Last Changed | Digest                                                                    |
 |----------------------|--------------|---------------------------------------------------------------------------|
-|  `1.12.1` `1.12`     | June 20th    | `sha256:0ca8b83fdcb2e08e72b05cb092481f2433ef10f0021530050cc6872c35cdc8f4` |
-|  `1` `1.13.0` `1.13` | June 20th    | `sha256:def1548eef6de0610768c1419f63871c2b9b4b925edad343a62f80de93ded9cc` |
+|  `1.13` `1` `1.13.0` | July 3rd     | `sha256:124c3965030f5c6f53b18acee2a5f92837bbf1c9ae89ef200cb22a1ef1a4214f` |
+|  `1.12.1` `1.12`     | July 3rd     | `sha256:c976f7117f61c85fa5ffc20972b46f9b494c634626209169a71a095a5f8718db` |
 

@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: apko Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -34,7 +34,7 @@ Container image for running [apko](https://github.com/chainguard-dev/apko) conta
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard-private/apko:latest
+docker pull cgr.dev/chainguard/apko:latest
 ```
 
 

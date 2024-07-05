@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the keycloak-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:636404cbea647463ddc26e180b4d50df541932e6fdb8c8dc54a6dc84feb2c471` |
-|  `latest`     | June 28th    | `sha256:373748fa6fefffc5ab552af256fdd4c94ee9f763660082c5e1f76aa53811e0b0` |
+|  `latest-dev` | July 3rd     | `sha256:677444a4cb7471e07058cdfbbbd36a3e1c04b15b9d5a5fbe98005ae1ab6fb4a8` |
+|  `latest`     | July 3rd     | `sha256:2ac82e9547fd624e024a857f036f423544a06eae9a0e062e9d9db72e1483ed87` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `25-dev` `25.0.1-dev` `25.0-dev` | July 2nd     | `sha256:d5ec577b9e5150fb60fe8be803c7d695e19721bcb34cb1a3d41248e001ded19e` |
-|  `25.0.1` `25.0` `25` `latest`                 | July 2nd     | `sha256:8305db8b3ace7188f8c50c822388ee5dadf14894c686d30a36f3633031bf1550` |
+|  `25.0` `25` `25.0.1` `latest`                 | July 4th     | `sha256:5ef2cce1626cdaef1b8a39917f8ccac88b9214f056f5533469f9ddb06019ba52` |
+|  `25-dev` `25.0-dev` `latest-dev` `25.0.1-dev` | July 4th     | `sha256:61e51e4e30a638896068e45b2e68f54ac7c4e73aa73790c4db2e0c36058de68b` |
 

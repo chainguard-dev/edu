@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gatekeeper-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` `3-dev` `3.15.1-dev` `3.15-dev` | July 3rd     | `sha256:16d94bc3508709b1bd36c935f7dd3508dbbfffa64de31d560b61075272740325` |
+|  `3.14.2-dev` `3.14-dev`                      | July 3rd     | `sha256:d7d8650791e50bb569d814117ee9255104cd1975f1b7a5afc9d6e963ecdc68ff` |
+|  `3.13.4-dev` `3.13-dev`                      | July 3rd     | `sha256:970089be68db7c4288e74d400725ac2706cd7553cbf877639dd5980f8b175ce8` |
+|  `3` `latest` `3.15.1` `3.15`                 | July 3rd     | `sha256:b1fb5c00d29228c8f38495379f0db027f4284ef69fb753a9d9e9128eadf24393` |
 |  `3.14` `3.14.2`                              | June 28th    | `sha256:2ae2e48874a92b2641e9944c3a2ed3a6206474b4aab80735abfec3c62a71420c` |
-|  `3.15.1` `3` `latest` `3.15`                 | June 28th    | `sha256:5062cd0996cc470f1b8d6430806364892d48872992bbf6056265c73b549a0b02` |
 |  `3.13` `3.13.4`                              | June 28th    | `sha256:c83d8ece959a1bbfba69e60cebbf6963b8fa199a46fc9e2c0b3f91c50fb35770` |
-|  `3.15-dev` `latest-dev` `3.15.1-dev` `3-dev` | June 28th    | `sha256:39549493fae2e5dc2db26237ef9f14d3cdf5401ccca650af4628d65152bffbe0` |
-|  `3.13.4-dev` `3.13-dev`                      | June 28th    | `sha256:a5ab9270d540aed4ee315205c3430e2460c8a925de12fb0297ef48ad19192967` |
-|  `3.14.2-dev` `3.14-dev`                      | June 28th    | `sha256:9cfed0b4fa21aef95f068f4a7da99bcffb9d04b293479e532f85b8448af12f28` |
 

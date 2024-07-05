@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-getoidctoken Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:4246e4feff2aa7129478cdf4f056dde364cd1576890cd7b2e51f98a04f28d027` |
+|  `latest-dev` | July 4th     | `sha256:6945717c6f2edd565cb38fff9ce3f6c08365da7f361575e672dbf406931e759e` |
+|  `latest`     | July 4th     | `sha256:37682a92561671f4db5e878999f4028109a4a04844ba770a349dd2b669f4a43f` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.7.2-dev` `0.7-dev` | June 28th    | `sha256:3fc97b292192c4ed49ee287065f68a33b131012c5aede133c3a73ba9bd36dfd1` |
+|  `0.7-dev` `latest-dev` `0-dev` `0.7.3-dev` | July 3rd     | `sha256:369627d27104e5c974a7070241020127855366e1452dac70d844f9179524ab66` |
+|  `latest` `0.7.3` `0` `0.7`                 | July 3rd     | `sha256:09eb59e7079f156efccf0739b1d1d3672fc35710d4dcb302128e87032914aa2b` |
+|  `0.7.2-dev`                                | July 3rd     | `sha256:aa8e64718d6ea45410d462cd36b443c640c1591823b0a7e4318a02478c57623a` |
+|  `0.7.2`                                    | July 3rd     | `sha256:22c3dbdfda6fb428b8e223f2f70907db8d219347fc7ac786d5ef0751a1313498` |
 

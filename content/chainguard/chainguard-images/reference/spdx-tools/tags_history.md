@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the spdx-tools Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:4a8686bbfda27288f16676dd8e26490f7d6af0c667335dbaa9610faaed235223` |
-|  `latest`     | June 28th    | `sha256:80afd124a66c2097c69d1a6e947ab40fe6219ecfeab2490226a0568ebb855511` |
+|  `latest-dev` | July 3rd     | `sha256:df7da332275d9c4a3e4a236be8af53374a24ddbb334707407f23dcaffebb6ca9` |
+|  `latest`     | July 3rd     | `sha256:0ae6644fe229415360f6f3c061f1abe07c9ef3d053172df97ac95119de78e3bb` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.1` `latest` `1.1.8` `1`                 | July 2nd     | `sha256:bb2f1d9ba8a38f34620c1e294f696c13c1bfae719453337c1e50194e5eac536c` |
-|  `latest-dev` `1-dev` `1.1-dev` `1.1.8-dev` | July 2nd     | `sha256:3d9fea5fb0c57040d2ccdbeaf2435db8ac1ef40b43fa6b0fbd4e2e1f8f24b4c0` |
+|  `1-dev` `latest-dev` `1.1.8-dev` `1.1-dev` | July 4th     | `sha256:41d7641ed06dc066988b599a8ff947ea7352093468c5b9894abe57a30dc53e4f` |
+|  `1` `1.1` `latest` `1.1.8`                 | July 4th     | `sha256:e9eeead140f4561d70ace08045bedd25b7afc9d93b5a3901493232e92d749fb4` |
 

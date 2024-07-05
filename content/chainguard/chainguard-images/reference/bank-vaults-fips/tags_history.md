@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the bank-vaults-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.20` `1.20.4` `1` `latest`                 | June 28th    | `sha256:cc89015250de75b9c83c1cd1f7435026025f9d9166e11bea021ba3633bba2aa4` |
-|  `1.20.4-dev` `latest-dev` `1.20-dev` `1-dev` | June 28th    | `sha256:2eb2e4bef3c61338a703af6ed7cebcf2fea73e448eb5fcf2e89ae4ada590a56c` |
+|  `1.20-dev` `latest-dev` `1-dev` `1.20.4-dev` | July 3rd     | `sha256:a32e5e25f87874222bba2304a8bba9b56897dc6bc773f992eefba7e424dc1419` |
+|  `1.20.4` `1.20` `1` `latest`                 | July 3rd     | `sha256:a6abed99f73930560dd3d21eb7615e2c22e756d45c220e04cdd4884f0aa946f1` |
 

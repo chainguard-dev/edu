@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for melange Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,7 +29,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 | Registry                     | Tags                                                                                 |
 |------------------------------|--------------------------------------------------------------------------------------|
 | `cgr.dev/chainguard`         | latest, latest-dev                                                                   |
-| `cgr.dev/chainguard-private` | 0, 0-dev, 0.10, 0.10-dev, 0.10.0, 0.10.0-dev, 0.9-dev, 0.9.0-dev, latest, latest-dev |
+| `cgr.dev/chainguard-private` | 0, 0-dev, 0.10, 0.10-dev, 0.10.0, 0.10.0-dev, 0.10.1, 0.10.1-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

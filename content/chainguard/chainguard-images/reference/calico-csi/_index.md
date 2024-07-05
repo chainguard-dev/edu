@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: calico-csi Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -34,7 +34,7 @@ toc: true
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard-private/calico-csi:latest
+docker pull cgr.dev/chainguard/calico-csi:latest
 ```
 
 

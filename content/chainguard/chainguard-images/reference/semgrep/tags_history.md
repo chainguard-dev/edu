@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the semgrep Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-02 00:32:13
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 1st     | `sha256:8f48f207a0fb43d4cc62e23694fee59e83fa1f357f94b2e6b4da6cef9c71462e` |
-|  `latest`     | July 1st     | `sha256:5fce0b14313f70d63ba12fab697a891d4565f55d6149282e481e36e69f847e67` |
+|  `latest`     | July 4th     | `sha256:214d820fdfadbae918044595da86fa760ef4e5ab2a1bfbc33539dbb61498e8a2` |
+|  `latest-dev` | July 4th     | `sha256:fefffbe36d641200ef54c39a26754ccf3d3dd9c819cf9411d9c1a19cda9dd0cb` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1` `1.78` `1.78.0` `latest`                 | July 1st     | `sha256:0c278f28c2743a00a6a06ad3bd91494aaa41fe309bf61e86b0c328644f1dc3dd` |
-|  `1.78-dev` `1-dev` `1.78.0-dev` `latest-dev` | July 1st     | `sha256:f79e34fe7bbae43f4ce3365da1fa68e7ed696a18f1f8fff343034ea97241a994` |
-|  `1.77-dev` `1.77.0-dev`                      | June 26th    | `sha256:6236f17f98bd63a5f8b23c452ef7231b7343d221203777911e7243e50eaf7d21` |
-|  `1.77` `1.77.0`                              | June 26th    | `sha256:1387714e39579222e627089a7481048b914ad95b2054b42ac7c2cecde94bcc95` |
+|  `1.78.0` `latest` `1` `1.78`                 | July 4th     | `sha256:23434e6e8d128badd10dff537d9c37da13a2d4b5b55ced61d503a319967856ac` |
+|  `1.78-dev` `1-dev` `latest-dev` `1.78.0-dev` | July 4th     | `sha256:47d6af4b083c3514cb6f4691440e6539116d08af2d6a096148bdd7f1d5770ea0` |
 

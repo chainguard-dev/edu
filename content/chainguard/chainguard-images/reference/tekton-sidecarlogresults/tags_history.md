@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-sidecarlogresults Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:81d60cf43a2b32d2e1139e7f2c3d4c4bb385bcc13b3f69a5620796ce76a76ea2` |
-|  `latest`     | June 26th    | `sha256:a405c9d90627188667fb69997db113ba0ea313bab3d96e2f5368a4c4aa045429` |
+|  `latest-dev` | July 3rd     | `sha256:eff42b24c1b47c05e8f0ca268fd671a6261fd0475e06d84d87cfad1f0dfbe9c5` |
+|  `latest`     | July 3rd     | `sha256:1e930e87555b7a79d13b370087612cf75037e49d6ccc08d3d28aff64699ed7e0` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.61-dev` `0-dev` `latest-dev` `0.61.0-dev` | June 28th    | `sha256:cd6b80756e69566ea78c33b775814d7a3f6282d671e2ff067d2c1c5c5959db8a` |
-|  `0.61` `latest` `0` `0.61.0`                 | June 26th    | `sha256:89dfbc9f121c6dff0e79956a2c173ee0bdb76b6d19b99a38adb662520ca18cfd` |
+|  `0-dev` `0.61.0-dev` `latest-dev` `0.61-dev` | July 3rd     | `sha256:ffe6a4ba78840eaaa07928573a589ebe926fdff4a83b96b2a95dcac92dc4d5f8` |
+|  `0.61.0` `0.61` `latest` `0`                 | July 3rd     | `sha256:9e182c648c7f2b87d94145b6b6af1973a5f70d10d2fae5636c8e6511f3403c77` |
 

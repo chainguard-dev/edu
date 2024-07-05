@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public erlang-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -42,7 +42,7 @@ The table shows package distribution across variants.
 | `busybox`                     | X          | X      |
 | `ca-certificates-bundle`      | X          | X      |
 | `chainguard-baselayout`       | X          | X      |
-| `erlang-fips-26`              | X          | X      |
+| `erlang-fips-27`              | X          |        |
 | `git`                         | X          |        |
 | `glibc`                       | X          | X      |
 | `glibc-locale-posix`          | X          | X      |
@@ -69,4 +69,5 @@ The table shows package distribution across variants.
 | `wget`                        | X          |        |
 | `wolfi-baselayout`            | X          | X      |
 | `zlib`                        | X          | X      |
+| `erlang-fips-26`              |            | X      |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-workingdirinit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:b0c1629a4e68bd2af6c992355aad1227b8b67e6a4162fba9b13aa48525ff846e` |
-|  `latest`     | June 26th    | `sha256:5bf2db8d6f3faa926f29a7d44e32be499de037689054ae07c3fe0b8f2ddaab62` |
+|  `latest`     | July 3rd     | `sha256:ff363c6a92b01cfb59681790274d5bff2e550d9c3a688ded977b31fc09f06e47` |
+|  `latest-dev` | July 3rd     | `sha256:ac9d705fee4e36aeb5304611f177547bcdac5c1567304c1e7e5d38d567593cc5` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.61-dev` `0.61.0-dev` `latest-dev` `0-dev` | June 28th    | `sha256:ef95264c0e60299eb73f8391290ec4d5167bf107f20a95253710eb435cf65de6` |
-|  `0.61.0` `0` `0.61` `latest`                 | June 26th    | `sha256:8e6cabbafdd7426ca9f66019998c77fa279abaf31c59eb6b804345b2f6237ada` |
+|  `0.61-dev` `0-dev` `latest-dev` `0.61.0-dev` | July 3rd     | `sha256:223e4d319cc7b21d40478cf3f70437aa965ad10a6c9dc1446e74d38c99c32c3e` |
+|  `0.61.0` `0` `latest` `0.61`                 | July 3rd     | `sha256:dd503d6a2e9b89c19282102c1b1ca2cfd046a00b9224316d1266029e6d978f1e` |
 

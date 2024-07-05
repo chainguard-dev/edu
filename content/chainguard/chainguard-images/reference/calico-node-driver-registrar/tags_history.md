@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the calico-node-driver-registrar Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,13 +26,16 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-Currently, there are no Developer versions of this image available.
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 3rd     | `sha256:bb365e224f31a091f67773b97992f6b49f8638d1284a3a21a44150cc25b00747` |
+
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                                                          | Last Changed | Digest                                                                    |
 |----------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `v2.11.0-dev` `2.11-dev` `latest-dev` `2.11.0-dev` `2-dev` `v2-dev` `v2.11-dev` | July 3rd     | `sha256:ad372b6afb254df3246c241772d1d33eb2b56102a5afc3dd4364794ab949f056` |
 |  `3.28` `v2.11.0` `2.11` `latest` `2` `v2.11` `v2` `3.28.0` `3` `2.11.0`         | July 3rd     | `sha256:30ba215d4e54a6d6fd5e583e43fc1245639afb99919c755c58ded5eaedd82456` |
-|  `2.11-dev` `2-dev` `v2.11.0-dev` `v2-dev` `2.11.0-dev` `v2.11-dev` `latest-dev` | July 3rd     | `sha256:2fd0c68914c55979eab357ca776955917deeb230bc1dac833cff04a59b6579c9` |
 

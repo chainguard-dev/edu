@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-db-manager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,5 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.16.0-dev` `latest-dev` `0.16-dev` | June 28th    | `sha256:c0f7c79ad000a252bfcc78c3909db2dbae3b50a158699b332f72f7652e0a4ca2` |
+|  `0.16.0-dev` `latest-dev` `0-dev` `0.16-dev` | July 3rd     | `sha256:c777307a7d6b3873a38e0776d285620ed3caaec072d28a54d61ea82b0173d916` |
+|  `latest` `0.16` `0` `0.16.0`                 | July 3rd     | `sha256:2185518be24ee901571f3b07b696e5cce775bf3b0af3ad430919902a79c97686` |
 

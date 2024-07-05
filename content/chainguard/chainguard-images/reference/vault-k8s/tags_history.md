@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vault-k8s Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:d05207dcd789c6caf17ceebf5644c0b763563c96de5f1eb237f9ade7457ca620` |
+|  `latest-dev` | July 3rd     | `sha256:5bd2a0891d1c5ca899108dc2f45f09a12aa95e27b13619ab418d4d17ce69449b` |
+|  `latest`     | July 3rd     | `sha256:6ec277c8b4b9dc796aec9dad46bbddd9de8e62bf1f8e43b90ba0dd877c17a8eb` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.4-dev` `latest-dev` `1.4.1-dev` `1-dev` | June 28th    | `sha256:da7295956661dfa5def58878f37641d12818030d8703a73ab53675f90d3b33c5` |
+|  `latest-dev` `1-dev` `1.4.2-dev` `1.4-dev` | July 4th     | `sha256:0f5b5c19fb6381b7653b334286347af4e6938f3f7b4391d37cd3fdab3ace109c` |
+|  `1` `1.4.2` `1.4` `latest`                 | July 4th     | `sha256:6f67b717604394f3b72062ad51136c57aa74e0b73bb3cb8c312c57996169e319` |
+|  `1.4.1-dev`                                | July 3rd     | `sha256:02e4406ff9d516f992bd3f202f8a47fd5efac6d3136d88e3290e60886d8e4af5` |
+|  `1.4.1`                                    | July 3rd     | `sha256:7919ec1eb9191bdbe440135d1e4d35302ee67e81d8e52c97c0644041afa83f67` |
 

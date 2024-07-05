@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the wave-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.9-dev` `0.9.0-dev` | June 28th    | `sha256:f99c250b955d7d5e77be1ea67252ce7b84c231393e8fa674e6a38cc445a20407` |
-|  `0.9.0` `0` `latest` `0.9`                 | June 28th    | `sha256:4b68cedae837b872bf9962cd72909ce0f1b80901c97da6773552a2aa718dbb8f` |
+|  `latest-dev` `0-dev` `0.9.0-dev` `0.9-dev` | July 3rd     | `sha256:fe84391a8c6a31823497867589de36c4a8c7813d18b30271dfebbc13ff2fb509` |
+|  `0.9` `latest` `0.9.0` `0`                 | July 3rd     | `sha256:b49e8034c4c53f572dc0d53c8e8a10e30a7c33c46fa301cf0ec9147dff6c1cfd` |
 

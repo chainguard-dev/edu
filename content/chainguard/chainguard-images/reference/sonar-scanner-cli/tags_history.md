@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sonar-scanner-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 29th    | `sha256:7f1be47d158778b34fbfe5be1ac2ffbab51d355490682c492fa52002fc447480` |
-|  `latest`     | June 29th    | `sha256:d213c06c492f23b36d52f54f4f0ed81579463c215387f2553d7827c40ecf1bd5` |
+|  `latest`     | July 3rd     | `sha256:dfef3dc3c452be2eec844a7a472e5596c2d92c8727565dde8ae314d1603780c4` |
+|  `latest-dev` | July 3rd     | `sha256:0f61a3c17bfb0dd4f5cf47acccca4d75790c4a8d9ecd2b661b5b6e062feb7c7f` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                      | Last Changed | Digest                                                                    |
 |--------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `5.0.1-dev` `5-dev` `5.0-dev` `5.0.1.3006-dev` `latest-dev` | July 2nd     | `sha256:6ecb438ba12e04a39008de9dc027bffdaa2a15838029ec20a7ea172f0bfe8094` |
-|  `5` `5.0.1.3006` `5.0.1` `latest` `5.0`                     | July 2nd     | `sha256:401080a5c5a836fd1b14e7e3a4f9f5b2fcc8e86043e38e341e0812a316f19fd1` |
+|  `5.0.1.3006` `5` `latest` `5.0` `5.0.1`                     | July 4th     | `sha256:78e4dc3d17a41ffee5bf879771c7f0c1020933b2d1a271f2559b1a43f89a3f95` |
+|  `5-dev` `5.0.1.3006-dev` `5.0-dev` `latest-dev` `5.0.1-dev` | July 4th     | `sha256:774ce121461553c00e1d6ffa16812fda77517ca3a921e9def47dbdf2a6793d56` |
 

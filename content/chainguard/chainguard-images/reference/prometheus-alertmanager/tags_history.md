@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-alertmanager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | July 2nd     | `sha256:8704d40b9f1bd17e1efc85c09cc987adc040fdde2304ee26070bb8942c968b4d` |
-|  `latest-dev` | July 2nd     | `sha256:c07bb413ad760d5a628ec9b8c92eb0681e0328ea633c5db627d050eb2302e0d3` |
+|  `latest`     | July 4th     | `sha256:9cc64a097efcf9c14af702fe22e7f94c4846113236827bde156314e6c41c0b50` |
+|  `latest-dev` | July 4th     | `sha256:3fc9be1bed79c998c17e4a2e1f6308ee6bf2a6fde70e431d5a0f4a3313a7b913` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.27-dev` `0.27.0-dev` | July 3rd     | `sha256:1dca0e49da779cff98299716bf853ed61447d47482dfea162927369b49e32079` |
-|  `0.27` `0` `0.27.0` `latest`                 | July 3rd     | `sha256:c6659693051e02646d8e0f6ec3df1a5c133cd5d0647f1fe59d8ebeee62e78ead` |
+|  `0.27-dev` `0.27.0-dev` `latest-dev` `0-dev` | July 5th     | `sha256:8cacdb9521439a8af2a99baf5110827a9fa5759c0d540711db644de8c537a1c0` |
+|  `0` `0.27` `latest` `0.27.0`                 | July 5th     | `sha256:1c6110c8f321db3dca75ceb81fceb2ac2ebb35bb82c078a2c052fdd3174ad5aa` |
 

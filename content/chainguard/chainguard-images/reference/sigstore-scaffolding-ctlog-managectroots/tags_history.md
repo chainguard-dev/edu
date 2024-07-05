@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-ctlog-managectroots Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:f6ce3bfeb4664b278293e8aa2afc3cbaa70fd1ac9746582438b63b8574fa5086` |
+|  `latest-dev` | July 4th     | `sha256:9f188dcbfb89cbed954b6319c0b3407c47a9ff8e86518ae09d47e31366e51bed` |
+|  `latest`     | July 4th     | `sha256:f2036f424366041d19514ec47aa463f8b63345b69b4c24ecda15800a8d1d96c7` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.7.2-dev` `0-dev` `0.7-dev` | June 28th    | `sha256:f43817c07dc4724f2395751f2e5c449c131091682f732b819d116e835f138ba3` |
+|  `0.7` `0.7.3` `0` `latest`                 | July 3rd     | `sha256:853e7e5024fbe2bad013bf62411fc0a5c01a6b2e3f4be94d9a9623d7557dd295` |
+|  `0.7-dev` `latest-dev` `0.7.3-dev` `0-dev` | July 3rd     | `sha256:bcfe371822260bca4434b9d8c2b91809e8f3417309ec916049f3af332b994b9d` |
+|  `0.7.2-dev`                                | July 3rd     | `sha256:7349463ef4afff81ffa79f5ebcdc6b5bef6ec7e3a08e0591b414b5691defac97` |
+|  `0.7.2`                                    | July 3rd     | `sha256:36834c13b1b13f2f805fe90b5e2d07c21985a1c58d28e82af642b5d229359a13` |
 

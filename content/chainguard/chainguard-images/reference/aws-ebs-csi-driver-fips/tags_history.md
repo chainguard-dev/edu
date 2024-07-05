@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-ebs-csi-driver-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.32.0-dev` `1.32-dev` `1-dev` `latest-dev` | June 28th    | `sha256:d1bcfaa83599cf9fd5a4159232c83dfbd9cfadb39b10968b60814fce4c99862b` |
-|  `1` `1.32` `latest` `1.32.0`                 | June 28th    | `sha256:6eb9fe2474fc29fa17909586efdf316fc02a576571cf1842754d29e36473725e` |
+|  `latest` `1` `1.32.0` `1.32`                 | July 4th     | `sha256:9b402d080212b1bc996be322b6d12f66743ae5c1d2492ddc979bd17cb6250739` |
+|  `1.32.0-dev` `1-dev` `1.32-dev` `latest-dev` | July 4th     | `sha256:8beb0ecb805a28f0c6561d05e879468e3f300eac1fd795811d5b094d7f76a457` |
 
