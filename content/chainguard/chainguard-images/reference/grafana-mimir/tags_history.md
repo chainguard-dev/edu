@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grafana-mimir Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,5 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.12.0-dev` `2-dev` `2.12-dev` | June 28th    | `sha256:e68a97a9c3478a0d171f8a2a89d28f6257e37fd5551bcff975fc746a2398fbdf` |
+|  `2.12.0` `2.12` `2` `latest`                 | July 3rd     | `sha256:2d17fb72eeb859b91d547a429ea903436262789db5f7b188abdf7f20900e8f10` |
+|  `2.12-dev` `latest-dev` `2.12.0-dev` `2-dev` | July 3rd     | `sha256:e44eba844a44c9e93a2ed13c94af37a873f4038cc6ee950f0b0b25814b52f9bb` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-policy-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:1f63b8c811741bdd76c9b2a13f1ebfc4ef3a114f414e5df271ce0751d4a9c91f` |
-|  `latest`     | June 26th    | `sha256:688840f30cb5e5a8c0b5bb7ceff818b5e7af9a7709599bb78d1a7a5fc26a1261` |
+|  `latest-dev` | July 3rd     | `sha256:672698e4098015f4f9dbc65e249667ae5f5a132a1288c59e42fe653f28e7d384` |
+|  `latest`     | July 3rd     | `sha256:ea2f3ab1ee5915a5c4101bf26c490870e5fc4d71f4e7060dfbccda687a449a78` |
 
 
 ### Private/Dedicated Registry
@@ -37,5 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.9.0-dev` `0.9-dev` | June 28th    | `sha256:5fb6b834d7f54c9e73f1fd32f5dc4c3064913aa16348d172196814132fb91503` |
+|  `0-dev` `latest-dev` `0.9.0-dev` `0.9-dev` | July 3rd     | `sha256:59c7e181ac4bd90a952758a580318ec9b28a246c7972c3acc1d8fc4b59165fd7` |
+|  `0.9.0` `0` `0.9` `latest`                 | July 3rd     | `sha256:57a413a826d1b76711e33920958540532bd0e3e52d128ed583a6fdea6090935e` |
 

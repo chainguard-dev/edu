@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the configmap-reload Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:7ed8fbb8c95161d5493064be3c9f699bfc6c60b8b61e4e627e5122c725294917` |
+|  `latest-dev` | July 3rd     | `sha256:58dce9841065356a653fff846c428deae3ed199f1dbff64f48f4e5b24d153c7b` |
+|  `latest`     | July 3rd     | `sha256:fd5ef382b2bfa0bfc812ea054b8471dc47ad67948a295a45bff7b807738c2c5b` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.13-dev` `0-dev` `0.13.1-dev` | June 28th    | `sha256:5696506630da80f78427a4e77e588dab87691675ea98a697a43bad523b8eb67e` |
+|  `0-dev` `0.13.1-dev` `latest-dev` `0.13-dev` | July 3rd     | `sha256:6449920fcd9c27ef51e9622b4cdaa39809ad060fb0c67883a8b56f9891fd9550` |
+|  `0.13.1` `0` `0.13` `latest`                 | July 3rd     | `sha256:fe30c8cbc8148780c4516d7558eca5883b9fce1226b54b33987e36ba53fc048a` |
 

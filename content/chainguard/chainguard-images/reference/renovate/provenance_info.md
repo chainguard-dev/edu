@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for renovate Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,7 +29,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 | Registry                     | Tags                                                                                                                   |
 |------------------------------|------------------------------------------------------------------------------------------------------------------------|
 | `cgr.dev/chainguard`         | No public tags are available for this image.                                                                           |
-| `cgr.dev/chainguard-private` | 37, 37-dev, 37.416, 37.416-dev, 37.416.1, 37.416.1-dev, 37.420, 37.420-dev, 37.420.1, 37.420.1-dev, latest, latest-dev |
+| `cgr.dev/chainguard-private` | 37, 37-dev, 37.420, 37.420-dev, 37.420.1, 37.420.1-dev, 37.422, 37.422-dev, 37.422.4, 37.422.4-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

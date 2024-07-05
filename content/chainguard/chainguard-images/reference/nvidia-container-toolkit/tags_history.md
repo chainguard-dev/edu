@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nvidia-container-toolkit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:60b1db810270ae03b01b1a8980bd8111bf8eec309fadbea39c94ec900aca67a1` |
+|  `latest-dev` | July 3rd     | `sha256:6df1bdd2802dd1448ca59ceb585116f79e43bd883be0786f07488ca188918c88` |
+|  `latest`     | July 3rd     | `sha256:d2f2128d5413ef178e4b9c68911b7e420d5fc923397eec5b8e6d8bf5d7adcca5` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.15-dev` `1.15.0-dev` `latest-dev` `1-dev` | June 28th    | `sha256:aa061e4aecea807e74e14624bf1d613f5c8d27e6b42b4823f3102199050b544f` |
+|  `1.15-dev` `1-dev` `latest-dev` `1.15.0-dev` | July 3rd     | `sha256:75382412a2ca09c8ef2db7cebd2ee71bea335a494744ee9c2f93e5bf7b0cc005` |
+|  `1.15.0` `1.15` `1` `latest`                 | July 3rd     | `sha256:37512528faa88bce5f9077b59ccb5f0bf15199d678300b467cbb9ed5089763f5` |
 

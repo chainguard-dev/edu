@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mysqld-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:c78d0f9d6ce61929b846f1003577693fae54cd3f8865416e80c93d32943ed514` |
-|  `latest`     | June 28th    | `sha256:ded5751ae7ef080a51b1e3cd6b866200d407703ff38e007d5335ca1e22cd5747` |
+|  `latest`     | July 3rd     | `sha256:89b662ba37dc9b3ff6de9a48364580874b80ba692ff7397e7b1a1a1b3a86b8cc` |
+|  `latest-dev` | July 3rd     | `sha256:121716e6597febed1cf659fdfaea90a71493628a6eb2609e867a8f4ebc9bc359` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.15.1-dev` `latest-dev` `0.15-dev` | June 28th    | `sha256:325c94f88d7d6429c66dc6069212c28a833da2b15bb9213b7ee21e9babffcba2` |
-|  `0.15` `latest` `0` `0.15.1`                 | June 28th    | `sha256:65ed45280e867e3b7a4700fcb4f45919b30f31e7b4325ec5d0ef7748b96e3e9e` |
+|  `0.15.1-dev` `latest-dev` `0.15-dev` `0-dev` | July 3rd     | `sha256:b075a0079fef9f17285d51090cffe03cb38d8bd11c41e0db61472d1245cf0cde` |
+|  `latest` `0.15` `0.15.1` `0`                 | July 3rd     | `sha256:8a9a65c6291e5af9521c7dad280490f7198dceecde3bfca394b5c5398ad119ff` |
 

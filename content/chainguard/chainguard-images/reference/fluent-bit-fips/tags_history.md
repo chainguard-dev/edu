@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the fluent-bit-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2.2-dev` `2.2.3-dev` `2-dev`              | July 3rd     | `sha256:28268e33a9edd645f3365daecb4d46c502a0a681dc5631e7ee320895f64bbbcf` |
+|  `latest-dev` `3-dev` `3.0.7-dev` `3.0-dev` | July 3rd     | `sha256:38cac6fb4e70e9c258fce63db3175ee9a5878f9e4ee27702b5f263a36b2eccd3` |
 |  `3` `3.0.7` `latest` `3.0`                 | June 28th    | `sha256:38a88d7cb27637ea0d548c329f17b9117d5c505776c2fa5d0d85e0920f46e217` |
 |  `2` `2.2.3` `2.2`                          | June 28th    | `sha256:d73f189f77cf06a45743331f64bbe782b15f306d78b1b68815745f664194e7df` |
-|  `latest-dev` `3.0.7-dev` `3-dev` `3.0-dev` | June 28th    | `sha256:54889235f7e194201673527b9ba3ab7b22ac3fe51ba7417bb7fc0af9de1f8a5e` |
-|  `2.2-dev` `2.2.3-dev` `2-dev`              | June 28th    | `sha256:1bf02f2001fcdb627981999b8c15a595a09834642611bf82d7c1da864d16cc27` |
 

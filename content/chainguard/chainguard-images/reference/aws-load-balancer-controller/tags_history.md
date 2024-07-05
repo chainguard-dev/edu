@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-load-balancer-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:00b1de1d625c4200f4219cb1c493ab81e08f8f70c1a795a8edf40f75a789d5c2` |
+|  `latest-dev` | July 3rd     | `sha256:f6140f1d8825d81523198d0e458c55ed02f2a584796a55d6ce2c7f14d5b5a1b2` |
+|  `latest`     | July 3rd     | `sha256:043c68790618399f27e8dad894f4b87b7fa7c72fec04f3434967e9dbc5b5dc9c` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2.8-dev` `latest-dev` `2-dev` `2.8.1-dev` | July 3rd     | `sha256:18dc80b372df546248e010e475e418be551fabe1e273f6d601d183813351210f` |
 |  `latest` `2.8.1` `2` `2.8`                 | July 3rd     | `sha256:d4a8835f42b4a78575a52b8f29109c6499c5bdeb164cf3d796a352ae3f0fc6d7` |
-|  `2.8.1-dev` `2-dev` `2.8-dev` `latest-dev` | July 3rd     | `sha256:289707dddfdcef1e2cf3025721bdc75bae9b0d33d948e1d74deb9be86063a979` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the temporal-admin-tools Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 28th    | `sha256:0ea693ea63fd087312809188acfd770ce7834c9f6c8c937550a5c11f5d3bf14c` |
-|  `latest-dev` | June 28th    | `sha256:a058d6604105e5465a51cb3b576f4fbe9b47eea7d10b0b83dc4ae3392f367052` |
+|  `latest-dev` | July 3rd     | `sha256:24f301f0b9efa3382721030bed219e00f4be3d66c19bb3375c3b0953d7afcf46` |
+|  `latest`     | July 3rd     | `sha256:9fbfacd6ea38a9f15484a57d1d4b3dfca3c6b1b8598be8ad75c300f0e4ad24c2` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.24.2-dev` `1.24-dev` `latest-dev` | June 28th    | `sha256:153e7b7f89280a9c21481ad2c8c4dcae2cc7a4e9d4b2db843eccd6d0473eb5df` |
-|  `latest` `1` `1.24.2` `1.24`                 | June 28th    | `sha256:3fc4a0e1e6688982ccb569c29078e4676b3e831d3e68dd5ccffeceb42bdc5125` |
+|  `1.24.2-dev` `1.24-dev` `1-dev` `latest-dev` | July 3rd     | `sha256:ac989d0b6854c608e8495ccbb2b6399afe123ab6d0dfc854e5a5c45939ce04f4` |
+|  `1.24.2` `1.24` `1` `latest`                 | July 3rd     | `sha256:a46b64524a707bc84f4f322647b62e348762682363cf8d7f32059eb5b820a3dc` |
 

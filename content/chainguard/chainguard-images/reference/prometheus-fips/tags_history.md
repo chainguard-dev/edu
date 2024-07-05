@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,9 +33,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.45` `2.45.6`                              | June 28th    | `sha256:3ef028495e31c89c59d1da510d86a0708e3fea2b49c6ede99fb4a7eafe40ed1e` |
-|  `2-dev` `2.53-dev` `latest-dev` `2.53.0-dev` | June 28th    | `sha256:36db841ae8ac2dfa0f66fd8d3baab29a2c8d6be601563b25587936ae34781d26` |
-|  `2.45.6-dev` `2.45-dev`                      | June 28th    | `sha256:82a463acae91a8b774dedd3ca14929d4964c49952c7d6bf81f6157075c4f55ad` |
-|  `2.38-dev` `2.38.0-dev`                      | June 28th    | `sha256:5d933abef0baf3bde79cd11b3e2647dc742736b2330da02c50cb97334c1c4434` |
-|  `2` `2.53.0` `2.53` `latest`                 | June 28th    | `sha256:e1c1a5a120e0ae9859813ce567fbd9acf87db777cbfab90cfe566796db0ef8ba` |
+|  `2.53.0-dev` `latest-dev` `2.53-dev` `2-dev` | July 3rd     | `sha256:a209eb63b5de8bd59d19d1382e7100fd0220756bfbe433e84b0476d68704f3c4` |
+|  `2.53` `latest` `2.53.0` `2`                 | July 3rd     | `sha256:8d52f388147554a46bc9c9a08472cc27372e282d1505198ead5965c975e6b31b` |
+|  `2.45.6` `2.45`                              | July 3rd     | `sha256:20bca5fb23dd8fef03bcd613924fd116e9db3c7fc502cefe11c07b9b0bf7c6e5` |
+|  `2.45.6-dev` `2.45-dev`                      | July 3rd     | `sha256:56bd02bcbe34921cb016fb55dbf3bea2074d9593d397d59e5b50e7ff43736ac7` |
+|  `2.38.0-dev` `2.38-dev`                      | July 3rd     | `sha256:3e2690bfb847d6c48e2ce97966726cb76dcd63a33be2bdb543a97e233cf97975` |
 

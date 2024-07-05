@@ -3,8 +3,8 @@ title: "helm-chartmuseum-fips Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the helm-chartmuseum-fips Chainguard Image"
-date: 2024-07-02 00:32:13
-lastmod: 2024-07-02 00:32:13
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16` `0.16.2` `0` `latest`                 | July 1st     | `sha256:32d33ec9daa56f455741194d75d8bf13c50bd7f84c13a4843b26aebb9b6205dd` |
-|  `0.16.2-dev` `latest-dev` `0.16-dev` `0-dev` | July 1st     | `sha256:c8f43f9d982f20c0b54515bdc870c79d44d359e6a8563118591bbcee85cbe3c8` |
+|  `0.16.2-dev` `latest-dev` `0.16-dev` `0-dev` | July 3rd     | `sha256:da5152c04c86e571fef4b4e3a9e095a7595beff56579337984521437496a93b4` |
+|  `0.16` `0` `latest` `0.16.2`                 | July 3rd     | `sha256:702ef3ba94d4e92fd3b01485ab5e46125bafd9d8883655293a4a8014ee18635f` |
 

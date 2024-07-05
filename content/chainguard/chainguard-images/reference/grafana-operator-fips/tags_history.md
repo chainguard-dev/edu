@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grafana-operator-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,8 +31,10 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                     | Last Changed | Digest                                                                    |
-|---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `5` `5.9` `5.9.2`                 | June 28th    | `sha256:9b12a0a2991aeab845f22c9c1c2cd1c11f6938473c1d1e6b47369569efd11cf9` |
-|  `5-dev` `5.9.2-dev` `5.9-dev` `latest-dev` | June 28th    | `sha256:9951fa5f83c9d49437c3c99618169e0887b7ba1999ef1b8ebcfced8fc62531cf` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `5` `5.10.0` `latest` `5.10`                 | July 4th     | `sha256:3b28863d186b10359b9e2a8837eebb27655153e20ce4a30ef8a94c7c68208f0a` |
+|  `latest-dev` `5.10.0-dev` `5.10-dev` `5-dev` | July 4th     | `sha256:1fda0ef9d4374eaabf0ed66ca365997673d2b04dc6a3eef543b06c31d861d3f4` |
+|  `5.9.2-dev` `5.9-dev`                        | July 3rd     | `sha256:5d652e54d2cd351fb96acdca5865c2531540a8d27aebf3f1db3d9bdf31252a4d` |
+|  `5.9` `5.9.2`                                | July 3rd     | `sha256:d3f3123d12b7290ae23e2e39069f7c58107edc959efe32ce14729622ac980829` |
 

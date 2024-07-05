@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public atlantis Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -74,7 +74,7 @@ The table shows package distribution across variants.
 | `openssh-server-config`   | X          | X      |
 | `openssl`                 | X          | X      |
 | `openssl-provider-legacy` | X          | X      |
-| `terraform-1.8`           | X          | X      |
+| `terraform-1.9`           | X          | X      |
 | `wget`                    | X          |        |
 | `wolfi-baselayout`        | X          | X      |
 | `zlib`                    | X          | X      |

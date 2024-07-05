@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the velero-restore-helper Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-02 00:32:13
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | July 1st     | `sha256:b487dac637d392daeced647d8276d1bf28cce606069228fe2b865706fb8d0164` |
-|  `latest-dev` | July 1st     | `sha256:e2123b8b0f4d4d17ce249d85db2bc8f79cba1eee7b90b3527f480ffa9ebaeef9` |
+|  `latest`     | July 4th     | `sha256:84c9d24524d757c953b9edbaa0d563852636c598e65fa47dbdf4442feeb15abd` |
+|  `latest-dev` | July 4th     | `sha256:974e0884398f27a5d0d6a4aaf9bb5f6ccb3dc6f80f0e13e1a6f1b1dd4f3ebe81` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.14` `latest` `1.14.0` `1`                 | July 1st     | `sha256:a074e8968cbffdef61fa2aea3d3d894a6a67e835d2e16c60fc6c96332420b5f8` |
-|  `1-dev` `1.14.0-dev` `1.14-dev` `latest-dev` | July 1st     | `sha256:8d6a021f3eb7f911b6d8db77fa9a5be0c87d237da0417d0330e36d6c93e109b1` |
+|  `latest-dev` `1-dev` `1.14.0-dev` `1.14-dev` | July 3rd     | `sha256:5a9631c814d490985f001247a35dab81c19992578764de5c10299af38760029d` |
+|  `latest` `1` `1.14.0` `1.14`                 | July 3rd     | `sha256:3e21f927483b6a24e685bbc926794466a16f9606d3acfd5a7cefb75906830261` |
 

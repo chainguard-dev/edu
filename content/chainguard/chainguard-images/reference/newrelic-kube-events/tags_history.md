@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-kube-events Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-02 00:32:13
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:9d64d6b23563916e20d81c4498b2bd7f402f80f0da0746e480f1f65cb872b27d` |
+|  `latest-dev` | July 3rd     | `sha256:1271f9b2a451da209a00f84131d88189848cdf1da6a2bc0b0fbdff9e3451c647` |
+|  `latest`     | July 3rd     | `sha256:5eed4020fc77086cc75fa09dc2d1b405fe27a80d810a522241dd64843db0aaa3` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.10.0-dev` `2-dev` `2.10-dev` `latest-dev` | June 28th    | `sha256:28e7bbd98ed7226787487858ed0445c87f542d17bbdd45471297d9cf702113a3` |
-|  `1.9.3-dev` `1.9-dev` `1-dev`                | June 28th    | `sha256:83b39dbc0bb5b6b8a57bd929a496d61ff0c673c1a7d9f5a18a92b06fee513dc2` |
+|  `1.9-dev` `1.9.3-dev` `1-dev`                | July 3rd     | `sha256:9363e681f2ef1b26b95fd9c93c537e378b3cda8efb600a083a850172cd41a3a9` |
+|  `2.10.0-dev` `latest-dev` `2.10-dev` `2-dev` | July 3rd     | `sha256:1e2151593b03e19f307a9b03b7f77423ebf8ddec9cd49c912b1698dcf43da813` |
+|  `2.10.0` `2` `latest` `2.10`                 | July 3rd     | `sha256:71d785057b684672c4715fea8fe52fa4641d14650354020b3b64f1fbe1f5514d` |
+|  `1.9.3` `1.9` `1`                            | July 3rd     | `sha256:337f72bb1b314e312bf9834ac74827f82b9cd22d4e7c0d93f94f6dd9a9108b82` |
 

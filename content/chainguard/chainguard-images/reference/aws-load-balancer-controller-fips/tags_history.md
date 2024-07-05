@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-load-balancer-controller-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `2.8.1` `2` `2.8`                 | June 28th    | `sha256:1c712cc3ae35752a3c3dcfe9199a3c45126825d6ef7c890c6dcadf284d351f2a` |
-|  `latest-dev` `2.8-dev` `2.8.1-dev` `2-dev` | June 28th    | `sha256:0e4d6c77010818b24e2ec84f2d8c4a00f8690c8d719c8d0aa6346936f3a5bc88` |
+|  `latest-dev` `2.8-dev` `2-dev` `2.8.1-dev` | July 3rd     | `sha256:3003a4560b68f04d7c8bd1b8d83fd2b5135ab953a2ed3a2e4a297e7ae55ccec7` |
+|  `latest` `2.8` `2.8.1` `2`                 | July 3rd     | `sha256:f50308b075e65f9a4e4b01731164d519ed1b7eba631ac55e4d36dc53e4f423bd` |
 

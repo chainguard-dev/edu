@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the istio-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,11 +37,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.21` `1.21.4`                              | June 28th    | `sha256:f76203d102095809af4b661637fe67e0f8a9044e550aa79705428f1ac9c05cfc` |
-|  `latest-dev` `1.22-dev` `1.22.2-dev` `1-dev` | June 28th    | `sha256:f9feb08e428a3b4f8cb75cef2dfd61eefe8a16044165cd8d722007abad33b83f` |
-|  `1.21.4-dev` `1.21-dev`                      | June 28th    | `sha256:fc8142cca2c35d239c4b053fcbc5a9cc857a7ae3bbdd2810cfd0e98b97a759de` |
+|  `1.21-dev` `1.21.4-dev`                      | July 3rd     | `sha256:fd1a671ffd0c6d4eb4db60cc43de0cba3a108c130b6e883dbfd6c15d109f0c60` |
+|  `latest-dev` `1.22-dev` `1-dev` `1.22.2-dev` | July 3rd     | `sha256:4b946bc2ff913f0b20c6c2d4b0a6789e32c8275fa69730998a312466f9a73b57` |
+|  `latest` `1.22` `1` `1.22.2`                 | July 3rd     | `sha256:5dd887eb808a2d133b90b8a7b395ddf9bd3f4c7342f8138b61e59a8fead23523` |
+|  `1.21` `1.21.4`                              | July 3rd     | `sha256:65db360e97c7dd07e5b2e66711a7eff4baceaaa1ae888771b7933549cfe28ab1` |
 |  `1.20.7-dev` `1.20-dev`                      | June 28th    | `sha256:e1abfb28315cc8ebba7f14b44583712f82305a074f3064a916b34baa9ad6ab70` |
-|  `1.22` `1` `latest` `1.22.2`                 | June 28th    | `sha256:99ed9b33b2a2204fea62cc5742566f7350b70e90407b4c6f7b5b3b230b7805bb` |
-|  `1.21.3-dev`                                 | June 26th    | `sha256:eb6f5897e2bbe643b3a15e0ab58da6a61335126561fcef5353c598fcbebea606` |
-|  `1.22.1-dev`                                 | June 26th    | `sha256:7436250d5f6361552dcf0eac685aa7427eb44919d4250c1daaecf420447cbb3a` |
 

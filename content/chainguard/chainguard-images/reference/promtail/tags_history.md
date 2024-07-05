@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the promtail Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:7c98e449dd29b4315884c78ac4c9add024c709891ff81b39ac26ca9f6bbc5d4d` |
-|  `latest`     | June 26th    | `sha256:b3e87336cb1cace965c0d201b6f28b2dbed9bfb89d826ad477e59eaea5bd92bb` |
+|  `latest-dev` | July 3rd     | `sha256:396301696b540dbfed72665f7993b62f10c735778ee2570aae70ac315b146d4b` |
+|  `latest`     | July 3rd     | `sha256:8486bd14dd9723235c84be3bc0d29d1c4db55212461a4ba5c6126bc807ba0a20` |
 
 
 ### Private/Dedicated Registry
@@ -37,5 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.0-dev` `latest-dev` `3-dev` `3.0.0-dev` | June 28th    | `sha256:13fba53391c1afe95b158cbfb8e7e26ab629e299d75731b1bb5baf283548a2b0` |
+|  `latest-dev` `3.1-dev` `3.1.0-dev` `3-dev` | July 3rd     | `sha256:165347d06c8c6d461e4187104e0c784c7db921df3343e76135c05c9d64c784f4` |
+|  `latest` `3` `3.1` `3.1.0`                 | July 3rd     | `sha256:e0eaa486697084b03a8730e512a1ef916f72dcb8fec651b940dafae565bba159` |
+|  `3.0.0-dev` `3.0-dev`                      | July 3rd     | `sha256:90981973312e4212b570db8eccb9dc4020517e540fe3cc558447ac479ee2fb42` |
+|  `3.0.0` `3.0`                              | July 3rd     | `sha256:708545110e423bb7a3af7d83930593812828c49a7ac547613ae361c0b11ea0be` |
 
