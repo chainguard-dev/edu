@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the calicoctl Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | June 20th    | `sha256:15346fc093fb50d32c249a0bcfc16e26a2c1811f5f9cfa7b06aec148bd66cc67` |
+|  `latest` | July 5th     | `sha256:535e26475201d47a88b21affb4338718f14e3c22f5b27b90f1ef79ea00e685f0` |
 
 
 ### Private/Dedicated Registry

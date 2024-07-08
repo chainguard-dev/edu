@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the filebeat-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8.14` `8.14.2` `8` `latest`                 | July 4th     | `sha256:08077aa291bc10851705a31d0ae2f55aa76350f99159ad03d2ba9a59842f76ef` |
-|  `8.14-dev` `latest-dev` `8.14.2-dev` `8-dev` | July 4th     | `sha256:2ecb192fc9a3d6fd76042b9a768f841c2ef4caa42c3e8de79550f9ca031b8f4a` |
-|  `7.17-dev` `7-dev` `7.17.22-dev`             | July 3rd     | `sha256:8d4f46ab3ed79398b115b9aa160b05e038551d877ef9bfbd26a3678c316b0cbd` |
-|  `7` `7.17.22` `7.17`                         | July 3rd     | `sha256:dc097a9caeaa170a71b4212603dcb782ee531f12b72c88986c7382814d184f79` |
+|  `latest` `8.14` `8` `8.14.2`                 | July 6th     | `sha256:54f1c64c1194471d4457cf36262dd6ff9fb1b3ef77a56be83c0ad43233112769` |
+|  `7.17` `7.17.22` `7`                         | July 6th     | `sha256:caaf884ba3f34dd1fffe5b1e6cb703a6f4e0edaf0718eda08da5d833e00ef841` |
+|  `7.17.22-dev` `7.17-dev` `7-dev`             | July 6th     | `sha256:6f685908c2b0db071866c3466ac6d5db0641353a3865b6ca0fae5d1d9e209c70` |
+|  `latest-dev` `8.14-dev` `8-dev` `8.14.2-dev` | July 6th     | `sha256:c0900453127863491e4ff5a7ce80b1aec5d67b50c22d5e66c9d01b1cfe30eafa` |
 |  `8.14.1-dev`                                 | July 3rd     | `sha256:83c7915bc7bcc7de4bcbdf8a1458ac7b80e5949753eb2e6f513be078b3fd0c4f` |
 |  `8.14.1`                                     | July 3rd     | `sha256:b1c3aafaa210bd826e80ebfbf2e36483ee9c5a4767bfe3c17c8d0b57a49b2327` |
 

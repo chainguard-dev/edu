@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the neuvector-updater Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,7 +29,6 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
 |  `latest-dev` | July 3rd     | `sha256:95429a4cb3f1c99c43aebb0c88e7adfa25ca9eef722d230dcb7f037c465e9d8d` |
-|  `latest`     | June 28th    | `sha256:79dd2d555348035f89c001f7d8b4a54ce2b84a70584f523d9e85ef9bd0f5929d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8-dev` `latest-dev` `8.8.0-dev` `8.8-dev` | July 3rd     | `sha256:4b28abd1c2d9a3b02cb1f7e7815fca9702926ad42b86b67fcd530b3e4119efa1` |
-|  `8.8.0` `latest` `8` `8.8`                 | June 28th    | `sha256:365702f946f96c7f2ed8e0f4d082e407f18e77c75d4ba6041ac442e5f2e9f4b0` |
+|  `8.8.0-dev` `latest-dev` `8-dev` `8.8-dev` | July 6th     | `sha256:0ae4d8757b40b2dae91b5683c7f5d39e78c632a406d17996ef0b191b52c28c04` |
+|  `8.8` `8` `8.8.0` `latest`                 | July 6th     | `sha256:fda5c8311d3d7c5188d8d9cdfd0e4e126a60232e6b1a64a54f8b2d469e71624b` |
 

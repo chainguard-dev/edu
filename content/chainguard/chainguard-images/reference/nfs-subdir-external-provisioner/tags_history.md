@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nfs-subdir-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 3rd     | `sha256:2fef60fa4d13d18f3539c2418fabeb2ec62cf6fa74303b1c3a9edb33ef03a6cd` |
-|  `latest`     | July 3rd     | `sha256:9bfe15440f5bda189b7020822a0e52e7106890189a5ce08e6922503780bca10e` |
+|  `latest-dev` | July 5th     | `sha256:6600931f44515c6f6bb0d4d4a4660df960ee9196369435f322e1b017522b03c1` |
+|  `latest`     | July 5th     | `sha256:9f83d5051d7db8635efc40164c444f4cd220be3d80b3a0720db023cbf47e44cc` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4-dev` `latest-dev` `4.0-dev` `4.0.18-dev` | July 4th     | `sha256:e1e5cbc74147071e2ccdf37396abb9d6134f3a04a3c7e84974a8fa27f6f6b9ec` |
-|  `4.0.18` `latest` `4.0` `4`                 | July 4th     | `sha256:6de770c5f855d6c57264f65cbe8b37c708cbcefcbae6830d40aed4e3b1bc4a78` |
+|  `4.0.18-dev` `latest-dev` `4.0-dev` `4-dev` | July 6th     | `sha256:f6cbb73b1ee2e3ab246e54412b7966f1a0f56502e04e6098a145ddee345622a5` |
+|  `4.0` `latest` `4.0.18` `4`                 | July 6th     | `sha256:506aab1a5223ec836c08b560ec4e061ca6b033c0db9122179cfded47720b8270` |
 

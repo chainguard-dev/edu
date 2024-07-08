@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubectl-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.28.11` `1.28`                             | July 3rd     | `sha256:de37d050e98fadb01b5694f405eaeca1619b950f9ba6d503a5ac69d429b6e9ed` |
-|  `1.29.6` `1.29` `latest` `1`                 | July 3rd     | `sha256:d7f80bcb8bb3cdc33e8d5ede802abd1c0a73755b4da1dbfce88c99b31a8824f4` |
-|  `1.28-dev` `1.28.11-dev`                     | July 3rd     | `sha256:525c1a5737f7389681f2f1d10d62e575af30cb075d769b55fff628bad3e289ff` |
-|  `latest-dev` `1.29-dev` `1.29.6-dev` `1-dev` | July 3rd     | `sha256:e782cacb17f4becfaf7fbbf4c79a44919fd42bf550e103d73eb0ea1fbd0773fc` |
-|  `1.27.15-dev` `1.27-dev`                     | July 3rd     | `sha256:9fb4ec85140af226c35f954ce427b3af4f7dd3faa861cf3e6b7ff506e6dda461` |
-|  `1.27.15` `1.27`                             | June 28th    | `sha256:2a1d9b6110e71b4fe8a1fbb8c9591279dfdc2ad40ff6d1360d4d6106388c8aea` |
+|  `1.29` `1` `1.29.6` `latest`                 | July 6th     | `sha256:485a0dd35a91a03283ed8218e4558e98c81da7b068f1f484e9dfb603a1c0f63b` |
+|  `1.29.6-dev` `1-dev` `1.29-dev` `latest-dev` | July 6th     | `sha256:f33dc31dc736f1867bd74df76501af99f93692a414e018a5c4ec1bf49036c14f` |
+|  `1.27-dev` `1.27.15-dev`                     | July 6th     | `sha256:f9e4306770ad7b81d35bb701024c81c3d1e73f017b28c51ae016769a79aaaa95` |
+|  `1.28-dev` `1.28.11-dev`                     | July 6th     | `sha256:1e8ceee63e36acefeaf499a0d8f87c9796f09903ae282e73645f2da4c2e77da2` |
+|  `1.28.11` `1.28`                             | July 6th     | `sha256:90b8da1f4d2aeb5195c0bf1696414da0f735b4da17ad3c606446a112846a292b` |
+|  `1.27.15` `1.27`                             | July 6th     | `sha256:e459b3605dc89a0efd0d28c6455b3eca1831e589c4a27a9e2305c6e49fc3a252` |
 

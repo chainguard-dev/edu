@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-file-metrics-collector Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,16 +26,13 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:9161a5da8418fe7a67a96200c0fe1ebd29efe92923ab3865cd317344e3b2d733` |
-
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0-dev` `0.16-dev` `latest-dev` `0-dev` | July 3rd     | `sha256:7e338dc39b897ad160255b980b73984a32a5581e5265d9162692eb69daaef681` |
-|  `0` `0.16.0` `latest` `0.16`                 | July 3rd     | `sha256:a681c0448f81957ff8379245f5149707eafc54737ce6264264bd21824063b082` |
+|  `0.16.0-dev` `0-dev` `0.16-dev` `latest-dev` | July 6th     | `sha256:081554553da1f1cba8382b74417b0043938982773e51c460c0feaaf1ef13762a` |
+|  `latest` `0.16.0` `0` `0.16`                 | July 6th     | `sha256:51b0d6794b954745ca7d3a7ef089160306b78ad23c454cc4354aaa8ea6dd032a` |
 

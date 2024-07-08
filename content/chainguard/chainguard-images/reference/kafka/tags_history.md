@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kafka Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.7-dev` `latest-dev` `3.7.1-dev` `3-dev` | July 4th     | `sha256:69371b97b0bdb3dc6f62aa84fde539a6fdd4450f5e244127b0c32a799d2dd5dc` |
-|  `3.7.1` `3` `latest` `3.7`                 | July 4th     | `sha256:c31582c4f8e8a188d5b4e9a4b56a8607d8ad89a9ffc3968a62474a18be840146` |
-|  `3.7.0-dev`                                | June 28th    | `sha256:a540bf42b386f1a72c9fcfc6a8b593379df03d4f02c290c4689d1065d8cb15df` |
-|  `3.7.0`                                    | June 28th    | `sha256:b70c3c4a65f16a5e0ea56a001dbaa366349cde57733dd88c20ab3f395d43aea8` |
+|  `latest-dev` `3-dev` `3.7-dev` `3.7.1-dev` | July 6th     | `sha256:6ed62338731aca8ccc1ff50e555d4b33479939eb668d85de4212e75cde8aa350` |
+|  `3.7` `3` `3.7.1` `latest`                 | July 6th     | `sha256:c5eeaffd65fa371b49a90760f552b13b88294d244120d5abb7a9673a1127cacc` |
 

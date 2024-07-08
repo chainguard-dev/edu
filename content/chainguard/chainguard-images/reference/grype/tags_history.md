@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grype Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,17 +26,13 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:7573e3d97523ad890f5be13aaf1e500347470d534f2dcaf1b83013f9708bacde` |
-
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.79.2-dev` `0.79-dev` | July 3rd     | `sha256:b6e50851e79e75c4dc8d6f9e3a122b2de5ca0327488a8be50250c1be090c3787` |
-|  `0.79` `latest` `0.79.2` `0`                 | July 3rd     | `sha256:3534b312c440e3f4c214b79d33aa7a165345e58f5bab41e8b6f0bb674bf9450f` |
-|  `0.79.1-dev`                                 | June 28th    | `sha256:c1e70368439ab5a9e5bfe36755b9153d8fa364a41ca56817b3f146189019f8c7` |
+|  `0.79-dev` `0-dev` `latest-dev` `0.79.2-dev` | July 6th     | `sha256:3b9c2b49e3cd0e407042968e17e10cf07752f21553d03b4c5d05e06209b7dd53` |
+|  `0.79.2` `0` `latest` `0.79`                 | July 6th     | `sha256:05c9b02e917862b1ea39b68b83b940271b47d08a2c2e23ec95550d89026dc387` |
 

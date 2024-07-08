@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-hubble-relay Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.14-dev` `1.14.11-dev`                     | July 3rd     | `sha256:364137880ce5bbc6b0a1332dba4d026b6ae74c50af601cc0e68f65bc3c471d15` |
-|  `1.15-dev` `1-dev` `1.15.6-dev` `latest-dev` | July 3rd     | `sha256:5545d0239e70e05e0368e3ccbbd6f179b8371a8b1f2e3d229298c58cc30ced93` |
-|  `1.15` `1.15.6` `1` `latest`                 | July 3rd     | `sha256:0d98f62f62d93fa87c184ee81287f1a78d45afe6da579a366879b08ec45078b3` |
-|  `1.14` `1.14.11`                             | July 3rd     | `sha256:b59eea292f26af21bc03595aa5c9efaa54279ca94816b7068d9cb329db2647d5` |
+|  `1.15-dev` `1.15.6-dev` `latest-dev` `1-dev` | July 6th     | `sha256:de67ec383c831ad91b8a4f3451cd261de1ed1ad484a090bbb43c649c0eb7d29a` |
+|  `1.14` `1.14.11`                             | July 6th     | `sha256:bdb3157d9681e1229cc84340ec4bb704604de03b75bddfdbdda6cc315119844d` |
+|  `1` `1.15.6` `1.15` `latest`                 | July 6th     | `sha256:51f902784ada56dd44f6a704f33077886b515dd5c98650d4077efb84e778ce6a` |
+|  `1.14-dev` `1.14.11-dev`                     | July 6th     | `sha256:6680a9db030779d8cd84efd4eb3085170dcf5238a7a6637f34ad6393c5e068fe` |
 

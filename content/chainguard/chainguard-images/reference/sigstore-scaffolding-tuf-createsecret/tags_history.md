@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-tuf-createsecret Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0` `0.7.3` `0.7`                 | July 3rd     | `sha256:97246db47590205080a6df029bc8105b123bba34a57672f551df3b279ca8d232` |
-|  `0.7-dev` `0.7.3-dev` `latest-dev` `0-dev` | July 3rd     | `sha256:29d2217410fb4677ce5c867ee6e085f4f0264b8a69917f6b838d9aaa61a0a78b` |
+|  `latest-dev` `0.7-dev` `0.7.3-dev` `0-dev` | July 6th     | `sha256:55747aca1075503fe5ff73b847a536a058bd2b4538ad6a6fb3f31e49f9139731` |
+|  `latest` `0.7.3` `0.7` `0`                 | July 6th     | `sha256:66111566abf74eb2c0247bd0d707fa64990841b9f6b61ce51711074172f1b757` |
 |  `0.7.2-dev`                                | July 3rd     | `sha256:cf4442cd60eb1cd5ad9af87e1912f94814e4685613ca718f0c88f0e1c8e3f271` |
 |  `0.7.2`                                    | July 3rd     | `sha256:44a70d12313e8cfa2eba8629fcfcfe2b3e92fe26bc8815c917508ac36bc87976` |
 

@@ -4,8 +4,8 @@ linktitle: "grafana-operator"
 type: "article"
 layout: "single"
 description: "Overview: grafana-operator Chainguard Image"
-date: 2024-04-19 00:39:27
-lastmod: 2024-04-19 00:39:27
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -34,7 +34,7 @@ A Wolfi-powered operator for Grafana that installs and manages Grafana instances
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/grafana-operator:latest
+docker pull cgr.dev/chainguard-private/grafana-operator:latest
 ```
 
 

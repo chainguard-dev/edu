@@ -4,8 +4,8 @@ linktitle: "kubernetes-autoscaler-addon-resizer"
 type: "article"
 layout: "single"
 description: "Overview: kubernetes-autoscaler-addon-resizer Chainguard Image"
-date: 2024-04-16 00:44:43
-lastmod: 2024-04-16 00:44:43
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -34,7 +34,7 @@ Addon-resizer is a container that vertically scales a Deployment based on the nu
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/kubernetes-autoscaler-addon-resizer:latest
+docker pull cgr.dev/chainguard-private/kubernetes-autoscaler-addon-resizer:latest
 ```
 
 

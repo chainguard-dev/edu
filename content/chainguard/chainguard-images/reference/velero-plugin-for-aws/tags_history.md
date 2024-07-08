@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the velero-plugin-for-aws Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.10.0-dev` `1.10-dev` `latest-dev` `1-dev` | July 3rd     | `sha256:3f50adf83f4866e8014f83dc91a55b7e812c1e295e6a72e0c992dc320c94dc35` |
-|  `1` `latest` `1.10` `1.10.0`                 | July 3rd     | `sha256:85abaed79bef11cc46ebddc53ca42e0d9c2a18db59532e5c0710b882b378f8e7` |
+|  `1.10.0` `latest` `1.10` `1`                 | July 6th     | `sha256:1bf1169ce0665bfb89a7545feee32f9efa9436b32778860245d0414f63483ce9` |
+|  `latest-dev` `1.10.0-dev` `1-dev` `1.10-dev` | July 6th     | `sha256:f0f24dc4d964015611244dd06506b60355d2393d1b6d25189484c0e065311408` |
 

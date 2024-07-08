@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the postgres-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                           | Last Changed | Digest                                                                    |
 |-----------------------------------|--------------|---------------------------------------------------------------------------|
-|  `15` `15.7`                      | July 4th     | `sha256:e51801a95ceebc76b01d7fdae3cbaaf00a3d5d1eafc970a36cdb41d1b4c1954b` |
-|  `15-dev` `15.7-dev`              | July 4th     | `sha256:ea4c2d7467d0e5d8257e6f3a1caf281ff0e9d61b522355648fb9a2115b7fab0c` |
-|  `14.12-dev` `14-dev`             | July 4th     | `sha256:2a7e4922f88884cf536af7d88d24e371387f9fd75de8346d604fc5fc0ca73bfe` |
-|  `14` `14.12`                     | July 4th     | `sha256:0bc980d80410c7853e49339d416a8e4f0d6d73ac1ae5de2d016931c8db3e9773` |
-|  `16.3` `16` `latest`             | July 4th     | `sha256:aa44ca94248ff39376715e7fc7bab1beac3798ac6a816086e22df94699fafa52` |
-|  `latest-dev` `16.3-dev` `16-dev` | July 4th     | `sha256:3924f5f10cc9e4d0db1c1b5d712e9eead45be1f297161b0d307008b110cb362b` |
+|  `14.12` `14`                     | July 6th     | `sha256:ddd909ed1fa58d587556ff026fe32b95aa3496ad9ef7ddfd77ee4d5af71e6bd7` |
+|  `16-dev` `latest-dev` `16.3-dev` | July 6th     | `sha256:44ef2db454116cb9b65754c49ee6230ed3a39b6b42aab49a873ff9488be67591` |
+|  `14.12-dev` `14-dev`             | July 6th     | `sha256:78380997f81ddbe93378e01b46c09b3b50a3f776fdf74d9198ca9c3e0e7cf076` |
+|  `latest` `16` `16.3`             | July 6th     | `sha256:6cd323b4213d98b64b4fee58c83059d32fdc123b9fb0bd9ff8bac38b8b269a98` |
+|  `15.7-dev` `15-dev`              | July 6th     | `sha256:16d25ca58d42cf62f33b5a0c6087dd39c122c9232f17cc627a95a55cd082a239` |
+|  `15.7` `15`                      | July 6th     | `sha256:099366bffa14f3cf08c43e217d79a7a8f67af4b3b881654b51a1cfbac6d5122f` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tempo Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2-dev` `2.3-dev` `2.3.1-dev` | July 3rd     | `sha256:79a41a2cdb6796ea6253850394468497933928a1df48b32a1554b4fd17c1f95f` |
-|  `2.5.0-dev` `2.5-dev`                      | July 3rd     | `sha256:5c2198d83dea275a521ee0f8cb28f14ce9cffda49ad75fdb2c9245c7e45dfc7a` |
-|  `2.5` `2.5.0`                              | July 3rd     | `sha256:fa112ca6861a8d83d2b86a98e797669d6e8f6e24ce6baf6195d46b3b0f0db459` |
-|  `2.3.1` `2` `latest` `2.3`                 | July 3rd     | `sha256:2bd19f6a961bf865cf2e9b74cba9c8cb97ecd6a09e61b361d1c5cefd1d46eafb` |
+|  `2.3-dev` `2-dev` `2.3.1-dev` `latest-dev` | July 6th     | `sha256:061ee38d354a040c08d8b73709ed35a2b112bae280a122f1d37e39280f0ff0ef` |
+|  `2.5-dev` `2.5.0-dev`                      | July 6th     | `sha256:848895b1f4746cf1351a758196d43a8d25206b1fa31db90345310278562db4d5` |
+|  `2` `2.3` `2.3.1` `latest`                 | July 6th     | `sha256:861ce76f8069ce8708bf962d8cbcb9426400c2fe41cd83fb020cd25558e19f2a` |
+|  `2.5.0` `2.5`                              | July 6th     | `sha256:fb505e713b105cdeca83abd49eace2a502deffa0ec67009af108b6bc5e5bbb74` |
 

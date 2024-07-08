@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for grafana-operator Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 | Registry                     | Tags                                                                                             |
 |------------------------------|--------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest-dev                                                                                       |
+| `cgr.dev/chainguard`         | No public tags are available for this image.                                                     |
 | `cgr.dev/chainguard-private` | 5, 5-dev, 5.10, 5.10-dev, 5.10.0, 5.10.0-dev, 5.9, 5.9-dev, 5.9.2, 5.9.2-dev, latest, latest-dev |
 
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the datadog-cluster-agent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,9 +35,10 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                               | Last Changed | Digest                                                                    |
-|---------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7-dev`                              | July 5th     | `sha256:4c50075e073c3a8530674d8efa878158e3adbe3517497c92017db0e021ff8d99` |
-|  `7` `latest` `7.54` `7.54.1`         | July 5th     | `sha256:691d42bb41be8c424c668eadbd8f43b7ce1dbac2e963d3011037be6fb7c50fda` |
-|  `latest-dev` `7.54.1-dev` `7.54-dev` | July 5th     | `sha256:83a28c64d205393fbde42417c448052d983b0275bdea11f265b109c988d00f56` |
+| Tag (s)                            | Last Changed | Digest                                                                    |
+|------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `7-dev` `latest-dev` `7.54.1-dev` | July 8th     | `sha256:9567e6705592b58207a87de98c0e7edc5c3aa7952119e303ed5b66f6e76c207f` |
+|  `7` `7.54.1` `7.54`               | July 8th     | `sha256:8efa1e81b4d6f6b61814f55f30b05c99ef9866e8c159465209ae1070284f6f14` |
+|  `7.54-dev`                        | July 8th     | `sha256:8b44c704b662e1604ebf1a28c98e38ae5dfcd3f151b16445577a2f54a1616dd9` |
+|  `latest`                          | July 8th     | `sha256:483d8d9d094cd6d1e9493fea7b1f38d522c2a8a2867eb1feeca1fa0e5b2d208a` |
 

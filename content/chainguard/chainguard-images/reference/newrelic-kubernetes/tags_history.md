@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-kubernetes Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | July 3rd     | `sha256:3f4cec7f80dab2d03cacf3754ff9678ff6550cff8f5d858f06183d23a3c78af6` |
-|  `latest-dev` | July 3rd     | `sha256:4f71aa0633b741de04420663c4b57d8285b4fe1957bbf822abc4d3bb10423481` |
+|  `latest-dev` | July 5th     | `sha256:035e72c37ad3712726864c47f2db5eff34446c51c26ffe2e8765c3437238fd1e` |
+|  `latest`     | July 5th     | `sha256:9bc021ad2c5852f3b960c830461529a5e9b91ca535d752a7f93dfc5d2968e73d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3` `3.29` `latest` `3.29.0`                 | July 4th     | `sha256:234496154b35d1161268f43c502cd74ed6955e579cb582f5515217ef3a6d6cd3` |
-|  `3.29.0-dev` `latest-dev` `3-dev` `3.29-dev` | July 4th     | `sha256:c01e216dc614b7bedfc6b1a4cdfabaa325d79e7c5b895a0735c57b32ccb0e012` |
+|  `3-dev` `3.29.0-dev` `latest-dev` `3.29-dev` | July 7th     | `sha256:8d091c541b3da7220493193e38b341d9fe9da4eadafdf3f87029550fc8a553d7` |
+|  `3.29.0` `3.29` `3` `latest`                 | July 7th     | `sha256:807945253fec95a27d1759bc6797831d8d3c1a4af0abf63536b7d45347e6f577` |
 

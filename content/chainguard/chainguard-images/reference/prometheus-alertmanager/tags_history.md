@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-alertmanager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | July 4th     | `sha256:9cc64a097efcf9c14af702fe22e7f94c4846113236827bde156314e6c41c0b50` |
-|  `latest-dev` | July 4th     | `sha256:3fc9be1bed79c998c17e4a2e1f6308ee6bf2a6fde70e431d5a0f4a3313a7b913` |
+|  `latest`     | July 5th     | `sha256:ca85a9df8215098241cdf8b9768bb5f7e86236143afa734bab1a910e420c07df` |
+|  `latest-dev` | July 5th     | `sha256:ecbd15c5ddc7aa50cfb12b2f839fb83fdd1a54b74056488ea4e6041eef355527` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.27-dev` `0.27.0-dev` `latest-dev` `0-dev` | July 5th     | `sha256:8cacdb9521439a8af2a99baf5110827a9fa5759c0d540711db644de8c537a1c0` |
-|  `0` `0.27` `latest` `0.27.0`                 | July 5th     | `sha256:1c6110c8f321db3dca75ceb81fceb2ac2ebb35bb82c078a2c052fdd3174ad5aa` |
+|  `0.27` `0.27.0` `0` `latest`                 | July 8th     | `sha256:8b659cb7c8d669433399ed7d03ba3255e528fdd8161706785e17c6de4e5dad59` |
+|  `0.27.0-dev` `0-dev` `0.27-dev` `latest-dev` | July 8th     | `sha256:aa0c6ce6488464fee069adc6deeb965df1672517a1c308533dd5ad8b9e15a660` |
 

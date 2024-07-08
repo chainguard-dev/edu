@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sonar-scanner-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | July 3rd     | `sha256:dfef3dc3c452be2eec844a7a472e5596c2d92c8727565dde8ae314d1603780c4` |
-|  `latest-dev` | July 3rd     | `sha256:0f61a3c17bfb0dd4f5cf47acccca4d75790c4a8d9ecd2b661b5b6e062feb7c7f` |
+|  `latest-dev` | July 5th     | `sha256:9551f76801326bd70afe5f6dc0cbe1817fba61f06ab2622a895d34598a6e1392` |
+|  `latest`     | July 5th     | `sha256:41c176599638c639787d894247c88bd109c9c9a04dabf5519467ae106dc286f2` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                      | Last Changed | Digest                                                                    |
 |--------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `5.0.1.3006` `5` `latest` `5.0` `5.0.1`                     | July 4th     | `sha256:78e4dc3d17a41ffee5bf879771c7f0c1020933b2d1a271f2559b1a43f89a3f95` |
-|  `5-dev` `5.0.1.3006-dev` `5.0-dev` `latest-dev` `5.0.1-dev` | July 4th     | `sha256:774ce121461553c00e1d6ffa16812fda77517ca3a921e9def47dbdf2a6793d56` |
+|  `5.0.1.3006-dev` `5.0.1-dev` `latest-dev` `5.0-dev` `5-dev` | July 7th     | `sha256:77b31da40ef2e56358b4170e85138390bca39f88a246ae0647a9f5d317e4b901` |
+|  `5.0.1` `5` `latest` `5.0` `5.0.1.3006`                     | July 7th     | `sha256:e854c469932e84f4f256f137a5ae89ea7640b5e29b8daf7dfd425866a79a1d16` |
 

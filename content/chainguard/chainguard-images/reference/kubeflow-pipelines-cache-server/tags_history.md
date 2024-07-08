@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-cache-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,16 +26,13 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:cfda38709903b32e33d3318d53e73d0f86e2e40bce63085f0b548b1afcd773d3` |
-
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.2-dev` `2.2.0-dev` `2-dev` | July 3rd     | `sha256:19b7f2ce66d1e9ac4c2de6dbcadccdeb51df9987571eb874080b60588bae6fbb` |
-|  `2.2` `latest` `2.2.0` `2`                 | July 3rd     | `sha256:abe5369654e427d85d80d64172c374409d823e91d2086b75f2667470a7038301` |
+|  `2.2-dev` `2-dev` `2.2.0-dev` `latest-dev` | July 6th     | `sha256:80e1867e3e357c2b9de7388a366131c8d6147cb0f9ca9a8361ee170ffecf5f02` |
+|  `2.2` `2` `latest` `2.2.0`                 | July 6th     | `sha256:5a06405880ec873f174675c25526db8e2aab569e449f1efa1e132866f2dc5d19` |
 

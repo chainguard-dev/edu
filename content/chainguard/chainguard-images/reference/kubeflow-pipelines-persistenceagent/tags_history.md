@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-persistenceagent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,16 +26,13 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:c6c87970e214bcb06daf8fb0ea7d44689bd41255fdaa70a6b68c0c2646e75984` |
-
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.2-dev` `latest-dev` `2-dev` `2.2.0-dev` | July 3rd     | `sha256:861d79351b156181c857e0ee3e113253f046eaa285077e4974456e491bbb6ec1` |
-|  `2` `2.2.0` `latest` `2.2`                 | July 3rd     | `sha256:bca737d6c94f6edbb3f98635faa3571886cfabd62390a4c0e3352752f7512f23` |
+|  `2.2.0-dev` `2.2-dev` `2-dev` `latest-dev` | July 6th     | `sha256:9e9dd314080343c1d3285bd2dafdca971462761b6e0703ee2014ac8c5c7c6d94` |
+|  `2.2` `latest` `2` `2.2.0`                 | July 6th     | `sha256:5473712fbb68a464667e88282b568c702e5d86a11ed4158fe8bb29079edf7b11` |
 

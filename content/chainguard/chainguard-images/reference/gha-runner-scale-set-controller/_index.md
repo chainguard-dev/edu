@@ -4,8 +4,8 @@ linktitle: "gha-runner-scale-set-controller"
 type: "article"
 layout: "single"
 description: "Overview: gha-runner-scale-set-controller Chainguard Image"
-date: 2024-04-22 00:45:38
-lastmod: 2024-04-22 00:45:38
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -34,7 +34,7 @@ Kubernetes controller for GitHub Actions self-hosted runners
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/gha-runner-scale-set-controller:latest
+docker pull cgr.dev/chainguard-private/gha-runner-scale-set-controller:latest
 ```
 
 

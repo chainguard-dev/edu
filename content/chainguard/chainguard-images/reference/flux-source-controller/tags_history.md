@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-source-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,16 +26,13 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:fbcccb50e8b3f2e605401fcb7964b1848200847ed3880ea5236bffc8aebfcca4` |
-
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.3-dev` `1-dev` `latest-dev` `1.3.0-dev` | July 3rd     | `sha256:c9bd668c12a9f4dd0f176a8b137509d1599625d3b24c79aa81bde65716632f15` |
-|  `1.3.0` `latest` `1.3` `1`                 | July 3rd     | `sha256:3de620f9ca03a1183fb2197beaed22fdfc24d54c1b48423284864c04ff65195c` |
+|  `1.3-dev` `1-dev` `latest-dev` `1.3.0-dev` | July 6th     | `sha256:fe52716ef295225b18fba3ff0dd2ea116c60c2f48da0d71f16210bf643ef93a1` |
+|  `1` `latest` `1.3` `1.3.0`                 | July 6th     | `sha256:0e0499bd4195cfda2f617eb018b5d55e1a2f2ef130fa2301832f675006eac695` |
 

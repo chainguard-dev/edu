@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-cloudwatch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 3rd     | `sha256:632767aea6378e38d1c15f03bee0b6cdba15e0e35f3644be80aaf3134eb7b533` |
-|  `latest`     | July 3rd     | `sha256:da95bf0de7eaf6056215c07d16af30e430fbd614d6270612eb462ae027076423` |
+|  `latest-dev` | July 5th     | `sha256:923db50a8ddf1b21605b68775cd2f321a81efa51b09850506f55b0e25c21f64d` |
+|  `latest`     | July 5th     | `sha256:94efa61dcef5ba682f928f7a3878ded662c69de78cadd84b18e7496711e8cb7c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `latest` `0.15.5` `0.15`                 | July 4th     | `sha256:7ca3af8d9e92031dc2eed221af59fb9819fa4afd953c0b2a6e75718236520645` |
-|  `0-dev` `latest-dev` `0.15.5-dev` `0.15-dev` | July 4th     | `sha256:66203da21d9887add71e99c42ea0a9e15dd1f9f6a760238a827e4ef46dc87911` |
+|  `latest-dev` `0.15-dev` `0.15.5-dev` `0-dev` | July 6th     | `sha256:2b2ba4b8558c3ef52bd45a1fc461a0aa8c36d861d4a05cea6bb621f9923f7388` |
+|  `0.15` `0` `0.15.5` `latest`                 | July 6th     | `sha256:df5ab07e22aae01a6aba19dd42c54738e55662a2511e779a3987cf29938e87f2` |
 
