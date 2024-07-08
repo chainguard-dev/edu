@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the erlang Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,10 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                           | Last Changed | Digest                                                                    |
 |---------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `27.0` `27`                             | July 3rd     | `sha256:c0e6c2636bfa4ee40b7cb1ce3f8ea0abf77dee8c8ca0cba18dfb99d93e827fd3` |
-|  `26.2.5` `26.2.5.1` `26` `26.2`                  | July 3rd     | `sha256:35b9550943e194502f7955011752c00f28dd2ba517bfac187ef17517a6b7aaeb` |
-|  `25.3.2.12` `25.3.2` `25.3` `25`                 | July 3rd     | `sha256:03e96ec96da49fe5b4a0e22fe8969d8b19b6c8dd92793b30b9169cac4b3aa1b6` |
-|  `25.3.2-dev` `25-dev` `25.3.2.12-dev` `25.3-dev` | July 3rd     | `sha256:a6bd39b752e447d45e3920a7ad63c42cdab2256ab5baef4eed585fa3c7f06c1e` |
-|  `26.2-dev` `26.2.5.1-dev` `26.2.5-dev` `26-dev`  | July 3rd     | `sha256:7e0c301202da7e877e0292f86961bf526708daaa57b4665b2d193ce3b752fdb0` |
-|  `27-dev` `27.0-dev` `latest-dev`                 | July 3rd     | `sha256:c6a610015cd93d97b1daa8eaaf5040fe68963735f5e1640c5043430f295257a7` |
+|  `latest` `27.0` `27`                             | July 6th     | `sha256:10fee0f9a31d6d820882d7f8d0363d99f21c16e72620dac11338e7c88a905e3a` |
+|  `26.2.5.1` `26` `26.2.5` `26.2`                  | July 6th     | `sha256:fb6b6dcd8b6cefefd17b14b383b58768546744d18159236c92b124aec905b04b` |
+|  `25.3.2.12-dev` `25.3.2-dev` `25-dev` `25.3-dev` | July 6th     | `sha256:76db49b256748bb7b7339378c833ca59cb051129a3d1ea5087f622c4e65b87f2` |
+|  `26-dev` `26.2.5.1-dev` `26.2.5-dev` `26.2-dev`  | July 6th     | `sha256:639045ed3641c3013b59901b9ac725447a2323c47f8993507d94db6cc4120d88` |
+|  `25.3.2.12` `25` `25.3` `25.3.2`                 | July 6th     | `sha256:615ca500cf52fb01a51f8095f628485cbf939fb2480ad1571346a2143f7eb57e` |
+|  `27.0-dev` `27-dev` `latest-dev`                 | July 6th     | `sha256:2d291ea6d2fea6419a615a22d91f6615cc7eb815ac77e45a0ebd92297e117e17` |
 

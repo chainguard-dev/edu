@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the helm-chartmuseum Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,16 +26,13 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:e66a4de5f6a10e50523305840b7b754b39b3d6c85baa7f9f77e13ea43758594c` |
-
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.16-dev` `0.16.2-dev` `latest-dev` | July 3rd     | `sha256:e1cd13f225fee34de82d2026919101d88e34f636c3a2ba2ee0516f5a78943fdc` |
-|  `0.16` `0` `latest` `0.16.2`                 | July 3rd     | `sha256:cb24b4bfffcf8ff009c780a986ef55a6ca36db435a196fe44575075119b4cc17` |
+|  `0.16.2` `latest` `0.16` `0`                 | July 6th     | `sha256:3403c4420f68f602293f53d10ae63ebec52666b77f7db9d237d0ac96cb813c3f` |
+|  `0.16-dev` `0-dev` `latest-dev` `0.16.2-dev` | July 6th     | `sha256:1fbd36e3d94a1dda932c40017e470795d26ddd85e2a9da1dbe52403268d65c4a` |
 

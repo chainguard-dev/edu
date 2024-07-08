@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the etcd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `3.5-dev` `3-dev` `3.5.14-dev` | July 3rd     | `sha256:025c6a9a59adfbe882bc7faca037651795efbf2cf794a646d6170966ff2e4dfe` |
-|  `3.4-dev` `3.4.33-dev`                      | July 3rd     | `sha256:f1b879b841b34a387b302acedbcad9f659ba5bbb056fc9ec3d207231ba9b2325` |
-|  `3.4` `3.4.33`                              | July 3rd     | `sha256:d1bfe4cc63da80f6077e629dc582d12959850535f591dd2cd9d7f98a42b22325` |
-|  `3.5.14` `latest` `3.5` `3`                 | July 3rd     | `sha256:499bbc3b5eba96da75c8ccb704ef221dd11a8daf922d2b34bd3786f52606ace4` |
+|  `latest-dev` `3.5.14-dev` `3-dev` `3.5-dev` | July 6th     | `sha256:4545b184a3a7ee2de777fc7e0e8f1c89fd5a8fa55345f475f83a9a2aaaba9438` |
+|  `latest` `3.5` `3.5.14` `3`                 | July 6th     | `sha256:26423e9d65125c2ea28b0df3723dbcae69550f569b895b9af7089c6349ea2104` |
+|  `3.4.33-dev` `3.4-dev`                      | July 6th     | `sha256:22b51e7ca998be1431845c1971ab7f858b4d9408eb2fd0a315134e01efaae7ed` |
+|  `3.4` `3.4.33`                              | July 6th     | `sha256:df051310039fc22f807b014c61bec858bc4c8653998eda6aed0eb3683352ed5f` |
 

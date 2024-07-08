@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the istio-proxy-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,12 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.22-dev` `1.22.2-dev` | July 3rd     | `sha256:7309c90b23154322858b2226905974e5ea19f5553d24814fd1f6347ce49a3c8c` |
-|  `1.21-dev` `1.21.4-dev`                      | July 3rd     | `sha256:9aae275df20f47cd78c069801e7e4e345ad1a50451183d7a1f4e9327dc5f70de` |
-|  `1.21` `1.21.4`                              | July 3rd     | `sha256:eee911d6f56450728ca88c620dca3ef0417f1878235d2ef0ea6f1e4a795ca36d` |
-|  `latest` `1.22` `1` `1.22.2`                 | July 3rd     | `sha256:b5278fdef8dde09a6fa9e230e9a47f4cac590912a458ec0be78ede4d2567874e` |
-|  `1.20.7-dev` `1.20-dev`                      | June 28th    | `sha256:97491a17a8de9e19513c47cdcc92fb3d7ce9a891f3dade55fc24614194b146ae` |
-|  `1.20` `1.20.7`                              | June 28th    | `sha256:91e6bd330474d213888f2732bc6301b574b649a8e6bb5b66a8dacc7dbc1f9ba5` |
-|  `1.22.1-dev`                                 | June 28th    | `sha256:7aebd2d7ecf7cc2f59719afc23f60b1ccf3132a0a9cc95f86cae7a64a9683a46` |
-|  `1.22.1`                                     | June 28th    | `sha256:66d7bb4d5e72a32c6fed545acfbb49a73aa178c000e4231c08e4e955c6f88355` |
+|  `1.21` `1.21.4`                              | July 6th     | `sha256:5c53aba5540474f802eb34d1398514f582669631a1280f8fd04dccf512d0a887` |
+|  `1.21.4-dev` `1.21-dev`                      | July 6th     | `sha256:fbccba5123aba247c4bff0d6a15e92120f58b12a2e6129fcec29b0a8310983ff` |
+|  `1` `1.22.2` `latest` `1.22`                 | July 6th     | `sha256:fadbba185dc0477c4d6980380bdfbe42741bb9484d2315ab5e28b0ce0e2376fd` |
+|  `latest-dev` `1-dev` `1.22.2-dev` `1.22-dev` | July 6th     | `sha256:6b361c2be7fdc7bd0c46e004ee57494e5acdb6cc051624f22a10983798b8cf25` |
 

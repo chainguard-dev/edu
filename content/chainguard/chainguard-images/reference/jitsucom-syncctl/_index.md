@@ -4,8 +4,8 @@ linktitle: "jitsucom-syncctl"
 type: "article"
 layout: "single"
 description: "Overview: jitsucom-syncctl Chainguard Image"
-date: 2024-05-10 00:43:45
-lastmod: 2024-05-10 00:43:45
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -34,7 +34,7 @@ Service for bulk-loading data to databases with automatic schema management (Red
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/jitsucom-syncctl:latest
+docker pull cgr.dev/chainguard-private/jitsucom-syncctl:latest
 ```
 
 

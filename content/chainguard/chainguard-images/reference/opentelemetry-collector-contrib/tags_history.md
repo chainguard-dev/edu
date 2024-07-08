@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opentelemetry-collector-contrib Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,7 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                         | Last Changed | Digest                                                                    |
 |-------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.104.0-dev` `0.104-dev` `latest-dev` | July 3rd     | `sha256:22d693d5bf3d9731cb9df1492892dd108dfd1b7885811274597d382cafc7a5dd` |
-|  `0.104.0` `0` `0.104` `latest`                 | July 3rd     | `sha256:89eaa3dcacfd192c8e73fdb40e19ca65daaa4ed9b4f15ee5cd4f235673b02715` |
-|  `0.103.0-dev` `0.103-dev`                      | June 28th    | `sha256:b730f8695a9d16cfbf0b816238e01b7eb7824c616f68da26466b10b7addb6e7a` |
+|  `0-dev` `0.104.0-dev` `0.104-dev` `latest-dev` | July 6th     | `sha256:eb82d1c68f61ef509c57f32245e32b7e272d69f8887845ffc0fd7a0e2ce16b59` |
+|  `0` `0.104` `0.104.0` `latest`                 | July 6th     | `sha256:c7e644b70fa8e7963dcdac85e0d28c32a2b43b478fd0832811855372ec0d5625` |
 

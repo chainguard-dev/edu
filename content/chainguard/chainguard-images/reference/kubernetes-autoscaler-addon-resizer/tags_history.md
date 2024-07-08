@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-autoscaler-addon-resizer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,16 +26,13 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:cb8850a54f9ed3e7d0521da6954b67480104a773045ded5c2ad8518614ad1625` |
-
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.8-dev` `latest-dev` `1.8.22-dev` `1-dev` | July 3rd     | `sha256:f42a693523f24ac10cef2549595f559cffa6323c6ccdb279186f7bc1e465cfca` |
-|  `1.8` `1` `1.8.22` `latest`                 | July 3rd     | `sha256:f2f94b4e44b1d67b6356054937798ea8f4c406b9833a0416582d59a290b5ce32` |
+|  `1.8-dev` `latest-dev` `1.8.22-dev` `1-dev` | July 6th     | `sha256:116d45e8057d30115a9f758bf45a95627254d02e27d101c1e8001e914d5d82c0` |
+|  `1.8.22` `latest` `1.8` `1`                 | July 6th     | `sha256:04ae94a0fca25d056f4974b28e550571efcb4cfd001d915e824cc663e47916a5` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k8s-sidecar Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,17 +26,13 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:5e0417d7b17db6f4707f54faf1ac9c9bd8c59184da83d2cf7727335d234b60dd` |
-|  `latest`     | June 28th    | `sha256:56c5a8daa18ce1eba310d454e0df7e74ca47ea719e69467959f9bd1497a70062` |
-
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.27.4-dev` `latest-dev` `1.27-dev` `1-dev` | July 3rd     | `sha256:ce1fddeb824d0ac70b0ab8dde0cd0667a44ba7c2ce1f3b0b9dece37d506a0eb4` |
-|  `latest` `1.27.4` `1.27` `1`                 | July 3rd     | `sha256:53195f4fa885a7acd6750d72280751a3b6f4f82df47ab6a4093f2e2058db7a67` |
+|  `1` `1.27` `1.27.4` `latest`                 | July 7th     | `sha256:60b23fed836d306b8b0f8b4307b40be5d18eab7e1a479eb6fa16ed8faf714561` |
+|  `latest-dev` `1.27-dev` `1-dev` `1.27.4-dev` | July 7th     | `sha256:26d4865d19b5fca1ea77ec8a81355a943631003e5f36bbb95fe16a9d384fb71a` |
 

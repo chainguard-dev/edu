@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-scheduledworkflow Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,16 +26,13 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:37219ddca3d52bd9aeb388d77df2d8f975cf37772f42a5eea9c2e4ec35bfeee1` |
-
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.2-dev` `latest-dev` `2.2.0-dev` `2-dev` | July 3rd     | `sha256:9215eb3d41718828272e91deb476479e957082953085a302c146c8cd66dba51a` |
-|  `2.2.0` `latest` `2` `2.2`                 | July 3rd     | `sha256:e937833d74a7731872eccf97b40249ada0118064b876ca2f942f2a6973d12ce0` |
+|  `2` `latest` `2.2.0` `2.2`                 | July 6th     | `sha256:8ce85c7a7e1bf3604fe7dad058911abab930ae72d212fb1cd8a68472bd267a02` |
+|  `2.2.0-dev` `2.2-dev` `2-dev` `latest-dev` | July 6th     | `sha256:7f6f8c12f6470503712216991b8f9c341fb7ac43a42255656c5031ccf8859fbc` |
 

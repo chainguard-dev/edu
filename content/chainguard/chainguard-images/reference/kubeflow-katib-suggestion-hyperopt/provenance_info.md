@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for kubeflow-katib-suggestion-hyperopt Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-05 00:36:13
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 | Registry                     | Tags                                                             |
 |------------------------------|------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                                               |
+| `cgr.dev/chainguard`         | No public tags are available for this image.                     |
 | `cgr.dev/chainguard-private` | 0, 0-dev, 0.16, 0.16-dev, 0.16.0, 0.16.0-dev, latest, latest-dev |
 
 

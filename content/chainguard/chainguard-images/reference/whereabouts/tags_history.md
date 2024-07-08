@@ -3,8 +3,8 @@ title: "whereabouts Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the whereabouts Chainguard Image"
-date: 2024-07-05 00:42:00
-lastmod: 2024-07-05 00:42:00
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.7.0-dev` `0.7-dev` `0-dev` `latest-dev` | July 5th     | `sha256:1b0f90941f0da634266b10b98c243912ddaf69ce50f8900cb6770ac285a96efd` |
-|  `0` `latest` `0.7` `0.7.0`                 | July 5th     | `sha256:227d1f25206a28474f815594b66890500e34a055370a0ffb44ede7750b22c576` |
+|  `0.7-dev` `0.7.0-dev` `0-dev` `latest-dev` | July 6th     | `sha256:b03da3de3a80a5e62e73ed2cee67a147dc05495c001bc4f4a75920a522c8efe2` |
+|  `latest` `0` `0.7.0` `0.7`                 | July 6th     | `sha256:64b6c5d17886c702fb04cb5fc439182ff444fc2a7efcb8502bb8ed6724b29cc8` |
 

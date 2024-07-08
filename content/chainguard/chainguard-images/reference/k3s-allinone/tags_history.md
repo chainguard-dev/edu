@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k3s-allinone Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,17 +26,13 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 28th    | `sha256:8554b934ecd484c7fc51e2a262fb917419822aca9365bcc51cd50147acc61adc` |
-|  `latest-dev` | June 28th    | `sha256:b7187d1591616b21433dd5073ba1532a1b04c14901704d1de2abec9a4bc9b618` |
-
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1` `latest` `1.30.2` `1.30`                 | July 4th     | `sha256:a16a621d800535460650e39c09e73010f8b39e783111f2ed524142036c9e759d` |
-|  `1.30.2-dev` `1.30-dev` `1-dev` `latest-dev` | July 4th     | `sha256:9060b3897ad8352358ed5a58c3ba9962ce436ff3f52f219e2668cf4869d936c2` |
+|  `1.30.2` `1` `latest` `1.30`                 | July 6th     | `sha256:601be6f0037d935d33ddf3a8dba210ecef98283733145ee150d342d71f1e35cc` |
+|  `1.30.2-dev` `1.30-dev` `1-dev` `latest-dev` | July 6th     | `sha256:9989cefc04d28c7d74b6d6ecc9f661eb17d889bd0ed7a2336c0a632ee3c6f99d` |
 

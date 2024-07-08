@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the valkey Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.2` `7.2.5` `7` `latest`                 | July 3rd     | `sha256:60ae85a9391163c9f8dc7521e1ef353673207a41a88a5868fde530127c28195c` |
-|  `7-dev` `latest-dev` `7.2.5-dev` `7.2-dev` | July 3rd     | `sha256:0002db118e7e8e591f55469312591ae2cf3556d1b9763a9880c2db51aff9d84f` |
+|  `7.2.5` `7` `7.2` `latest`                 | July 6th     | `sha256:d7fe5d0bb33866f2fafcf2314373549e11baf79a2617c9dce06f3db52cf15ad1` |
+|  `7-dev` `7.2-dev` `latest-dev` `7.2.5-dev` | July 6th     | `sha256:d8ddce59315a6568d11293ddf3b09bf283620e44c131d0db152b98f1176bac23` |
 

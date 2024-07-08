@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the superset Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4` `4.0` `4.0.2` `latest`                 | July 3rd     | `sha256:54337ebf421a4a9cbe19dc34ec7c2cb44f55ffc2999fbf10eb331ffc91e77913` |
-|  `4.0.2-dev` `4-dev` `latest-dev` `4.0-dev` | July 3rd     | `sha256:7dbcec3da01b03d97e5ee5ea487fb522420ad05335377c9d7c5e83d17eaa0974` |
+|  `4.0.2-dev` `4.0-dev` `4-dev` `latest-dev` | July 6th     | `sha256:c675e06defbb57437d083c744a75d1cf1b5926c2b1d330c97b1d1367af1daa4a` |
+|  `4` `latest` `4.0.2` `4.0`                 | July 6th     | `sha256:045e38f3b55f6883b9100ea72b4e2df27c00b13e6ef91b6e63fbee803ec11687` |
 |  `4.0.1`                                    | July 3rd     | `sha256:bc2bc264ac98bc8edd7032624d0538e345a13c89efa0007ce01273369b0aeb40` |
 |  `4.0.1-dev`                                | July 3rd     | `sha256:db65c6ee9acc51e6591cdf762c14d1b60ba887f99d2b838999960861e3358624` |
 

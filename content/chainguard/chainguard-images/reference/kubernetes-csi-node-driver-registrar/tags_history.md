@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-node-driver-registrar Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,10 +36,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                     | Last Changed | Digest                                                                    |
 |-----------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.9.4` `latest` `2.9` `2` | July 3rd     | `sha256:ae7a35e6e9897c4bf5bcce7389aaf4e61a5fb3dd125b8d089b4ef0738b52c53e` |
-|  `2.10.1` `2.10`            | July 3rd     | `sha256:946d62f6cdb7e296c1fbe4d0489d0d176d34acee0ea1f20b733103f4c707d1d7` |
-|  `2.8.0` `2.8`              | July 3rd     | `sha256:1d5fef648e9047f970b7dcb60811483256554d3103719e7a96b8317c90e3efc3` |
-|  `2.6` `2.6.3`              | July 3rd     | `sha256:c9f8223040e09362bab6965b4b47f82575222ae2c93dff16e73e621ba477a695` |
-|  `2.7.0` `2.7`              | July 3rd     | `sha256:c5774237165f64253eeac76d1bcc4c25fb1263e13aa29d191d14e2d293bcbbe0` |
-|  `2.11.0` `2.11`            | July 3rd     | `sha256:951662fc2a59e7ae82e40e65608fa2242179ab2237a767c4b1c9825615b2966c` |
+|  `2.7` `2.7.0`              | July 6th     | `sha256:bac48f64e3d8e118175ef1d3f08b6db8d249393bc8fbb9b9da3443608988c6f2` |
+|  `2.10` `2.10.1`            | July 6th     | `sha256:18217d4bb7987d6fdd2b6d679a0db76c43bb261af4d830dc3619ed65754df94c` |
+|  `2.9` `latest` `2` `2.9.4` | July 6th     | `sha256:f43b4b3f223e1d21ff4b667d6394b34420e2c7b141e3d8c1a22523a458aaba49` |
+|  `2.6.3` `2.6`              | July 6th     | `sha256:a776badbc5f9cd58e7399eac11be706f5a24fbe1650bc3ea55ac0f4e6ab6ecd3` |
+|  `2.8` `2.8.0`              | July 6th     | `sha256:931103603d395953aaaf912ab2defd605f38eedc4d1668dc6c84004f54e5c1e7` |
+|  `2.11.0` `2.11`            | July 6th     | `sha256:78b2f1e219dc4c1cb57ab80ad2383a78f3517d6de05272a39fc026577916f50e` |
 

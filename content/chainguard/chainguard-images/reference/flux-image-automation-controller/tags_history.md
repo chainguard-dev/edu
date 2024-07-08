@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-image-automation-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,16 +26,13 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:606af32754664eab09189c635c307f9367de3b4d3007cc285ce38ec4838b7608` |
-
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.38.0-dev` `0.38-dev` | July 3rd     | `sha256:7a4e7a85b7f2a4aaec79ef455da2f4a125b91387990cecca13d41260e44f3506` |
-|  `0` `0.38.0` `latest` `0.38`                 | July 3rd     | `sha256:e31c0852863022530d7c47695fdc5b0b2d8d9206c7cc976a71338214239794f2` |
+|  `0.38` `0` `latest` `0.38.0`                 | July 6th     | `sha256:2031f2d200f0b9fcb994600338349926705122b43f32e1963d0e04a06bcedfbd` |
+|  `0.38-dev` `0-dev` `0.38.0-dev` `latest-dev` | July 6th     | `sha256:ed5833b09b4610fac6ee64f34780e4cf9b39ecc88f31ac0ca12fd235a3b0bd97` |
 

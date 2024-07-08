@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the meilisearch Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,5 +36,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                     | Last Changed | Digest                                                                    |
 |-----------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.9.0` `1.9` `1` `latest` | July 2nd     | `sha256:0c7d31aa039c9695dc2233670a1b93202c50ef15974376daf792c3813f102192` |
+|  `1` `latest` `1.9.0` `1.9` | July 6th     | `sha256:1ec0fe0053a708fa8549c08fabf2b3b84a786ea78a3e9f6e1c87376cf1a8e75c` |
 

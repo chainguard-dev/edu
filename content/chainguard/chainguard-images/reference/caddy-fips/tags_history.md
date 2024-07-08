@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the caddy-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.8.4-dev` `latest-dev` `2.8-dev` `2-dev` | July 3rd     | `sha256:2c82b2e65976acdc0f906173da93660facefccafbc5d4673e498546beee79b24` |
-|  `2` `2.8.4` `latest` `2.8`                 | July 3rd     | `sha256:59a4ffef7c74d53f25223317b848b44838c7e807015fcd799a72e36abd095243` |
+|  `2.8.4-dev` `2-dev` `latest-dev` `2.8-dev` | July 6th     | `sha256:7198bab470a30f5b1057764b70bd1a1f016288f62e10a6f31e961bd27f519d23` |
+|  `2.8` `2.8.4` `2` `latest`                 | July 6th     | `sha256:b10fc2fd73e26c5e5397c9774b08ea293513d5cf4ddb15a77394337e25b44270` |
 
