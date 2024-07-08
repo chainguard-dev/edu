@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the authservice Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.0.1-dev` `1.0-dev` `1-dev` | July 3rd     | `sha256:3a41dc25b73ef22eef687ce190d03ad834608fa2f4057dcdf37701daecee4a66` |
-|  `latest` `1.0.1` `1` `1.0`                 | July 3rd     | `sha256:7604c8449155622170f1e5fbb1e179bf04ab158fb5b0f8909f2ca7f6d8fc90d1` |
+|  `1` `1.0.1` `latest` `1.0`                 | July 6th     | `sha256:506666495f359750c95479e6a6f89e01bac343659b170c149b7df0f3493ec6b9` |
+|  `1.0.1-dev` `1-dev` `1.0-dev` `latest-dev` | July 6th     | `sha256:04d49e9ef79c3546052f827c7a75533ce22f65896c1198498027557a13f742ad` |
 

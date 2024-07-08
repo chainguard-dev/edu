@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-notification-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,16 +26,13 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:e0d9d6051aab7c882e0eff0170fa7b2335d23bd131e0a822fe0d1339f556c8c1` |
-
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.3-dev` `1.3.0-dev` `1-dev` `latest-dev` | July 3rd     | `sha256:b9a2d55495f41d3f9cbdea8619b0d63cb189fa542e085ba5fede66962fe6631b` |
-|  `1` `1.3.0` `1.3` `latest`                 | July 3rd     | `sha256:72032ab8def323c62e8b5cf19c36f425f3b14fa43ae9d0d681fdd29a451a11b8` |
+|  `1.3.0` `1` `latest` `1.3`                 | July 6th     | `sha256:2b8b45298f6a5b03a70080b1b8f8839b9a0337a0aca9c7a20f3d5cc72636c5fa` |
+|  `1-dev` `1.3-dev` `1.3.0-dev` `latest-dev` | July 6th     | `sha256:2bd9393c169749a42ff062f90eee93fbabf8d5217d1cbc7b958f15468437ed6d` |
 

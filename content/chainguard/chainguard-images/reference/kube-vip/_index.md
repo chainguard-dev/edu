@@ -4,8 +4,8 @@ linktitle: "kube-vip"
 type: "article"
 layout: "single"
 description: "Overview: kube-vip Chainguard Image"
-date: 2024-05-02 00:37:55
-lastmod: 2024-05-02 00:37:55
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -34,7 +34,7 @@ Kubernetes Control Plane Virtual IP and Load-Balancer
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/kube-vip:latest
+docker pull cgr.dev/chainguard-private/kube-vip:latest
 ```
 
 

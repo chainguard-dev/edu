@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the erlang-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                          | Last Changed | Digest                                                                    |
 |--------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `26` `26.2` `26.2.5.1` `26.2.5`        | July 5th     | `sha256:e26167f01b3306229f97bf84c429c9f6fe6fe09943e665c368e6bd6dc5e674e3` |
-|  `latest-dev` `27.0-dev` `27-dev`                | July 5th     | `sha256:ef19232284144ef020926581fd7402e2c310355e7df98f22b2f64b2c30c5e839` |
-|  `26.2-dev` `26-dev` `26.2.5-dev` `26.2.5.1-dev` | July 3rd     | `sha256:108f46b5858f9a228305df8f94d798bd276a97b2bfcd3593b920aedaa8a790ad` |
-|  `27.0` `27`                                     | July 3rd     | `sha256:d6d13d5f3c32ffff8812e0690c541c22841ddc545112395191b992a5463ffc83` |
+|  `latest` `26.2` `26.2.5.1` `26.2.5` `26`        | July 8th     | `sha256:796f435c0312e53628e13902a5249bc86d33fb9e0fbf9281b035fd93651a3eac` |
+|  `latest-dev` `27.0-dev` `27-dev`                | July 8th     | `sha256:092678db5249ac59bda9c893a01b77aaff60e24e2df5fa0f92ad4c94729a8df8` |
+|  `26.2.5-dev` `26.2.5.1-dev` `26.2-dev` `26-dev` | July 6th     | `sha256:bd14254b76db5301a7d5d108aa0772006aa5376017731f01dbc8fade7020f6a9` |
+|  `27.0` `27`                                     | July 6th     | `sha256:eca3312ef1bdfb8976ce1dd496107cc63ddb640f5e8c678916e9fc51c2ad4cdb` |
 

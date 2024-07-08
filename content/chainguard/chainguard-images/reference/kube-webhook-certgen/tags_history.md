@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-webhook-certgen Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,16 +26,13 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:131240029d1c5ccab34ae9571c77cbeae6206e05c6f95dcb0ace202090758183` |
-
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.10.1-dev` `latest-dev` `1.10-dev` `1-dev` | July 3rd     | `sha256:553a1073842f163f01b497e9e3857bf7a6dddb5c79d4f85593cf679180c1fe04` |
-|  `1.10.1` `1` `1.10` `latest`                 | July 3rd     | `sha256:4b9ea047cd5add7d2da31347f3989a19852581663e4f730b5440583c78969493` |
+|  `1.10.1` `latest` `1.10` `1`                 | July 6th     | `sha256:5dba566799d77f4fc8a8181cfde74cadcb8a16e49d58d249c6ed4f1cc51ed710` |
+|  `1-dev` `1.10.1-dev` `1.10-dev` `latest-dev` | July 6th     | `sha256:aaec179faa346d368b3c23ba83b4a8656ee49d5f9baff3febc41430985e914c8` |
 

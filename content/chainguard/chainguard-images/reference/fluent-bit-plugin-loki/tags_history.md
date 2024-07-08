@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the fluent-bit-plugin-loki Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | July 3rd     | `sha256:8e6a357ef63976f5c5e9e071d7848391d36abd29014e18321af42849025a24ca` |
-|  `latest-dev` | July 3rd     | `sha256:cb3b9218be3f44a2f9faf9ee2e7532488f4b4bb07fbc8dd978948da41c0ebd7c` |
+|  `latest-dev` | July 5th     | `sha256:28e92eb987999050c1a9e22c71dc26bfd0ba7ffbdd2a4be92803f904ecc52564` |
+|  `latest`     | July 5th     | `sha256:fad5e5b4ea23e94a8505ac8f4eabe700ae121704f574484f6a1c20cc08bc505f` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `3` `3.1` `3.1.0`                 | July 5th     | `sha256:fd1408b250054bcda2d4eee1cdaeef38119b92aa93464ae5271cc59cefbc59d2` |
-|  `3.1.0-dev` `3.1-dev` `3-dev` `latest-dev` | July 5th     | `sha256:04cbe78617bbbe4fc98ba73b32415cd3ca0c8df5c433aea002d23242669cabd4` |
+|  `3-dev` `latest-dev` `3.1.0-dev` `3.1-dev` | July 6th     | `sha256:2d7633731d9c5f4ee4ff29e4bfd09e9a9b267a7ecb0dc7011bd8addb5e5bab80` |
+|  `3.1.0` `3.1` `3` `latest`                 | July 6th     | `sha256:136a979b84aaca951c27f4ddf7889139502a18e594bb7b84fe28d683555c7c97` |
 |  `3.0.0-dev` `3.0-dev`                      | July 3rd     | `sha256:400768f369fb4213f04b7568496d8b74f1a322b7ac496edbccd0d4265465dc9f` |
 |  `3.0` `3.0.0`                              | July 3rd     | `sha256:d1d44f5b4f72e973faa40f38e743531afc05e32b64638549b28ad9c7122407df` |
 

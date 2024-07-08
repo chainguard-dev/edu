@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vault Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,10 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.15.9-dev` `1.15-dev`                      | July 3rd     | `sha256:7f12a588ea777548bf81e757bc6e0e0bc953d1f9b2cc7cf1457a6aba9ee31226` |
-|  `1.17-dev` `1-dev` `latest-dev` `1.17.1-dev` | July 3rd     | `sha256:094b83d34dc5b3f9228604fca5a804bb6c83a80c752cc1b12cffec14e2c8a746` |
-|  `1.16-dev` `1.16.3-dev`                      | July 3rd     | `sha256:0fef2dbfa01bf8dc4eb7d8a3c2653a593e2811a0daabd6febb3290fd94c221ab` |
-|  `1.15.9` `1.15`                              | July 3rd     | `sha256:4912910ed790cc3e24f681b950310b54c07d967f3f4aeb708b64525276e676a7` |
-|  `1.17.1` `1` `latest` `1.17`                 | July 3rd     | `sha256:1abfd38c2684c12a97f7e7e1e00fa8612b4ebfa1cb19c0fc2d060cff5115146d` |
-|  `1.16.3` `1.16`                              | July 3rd     | `sha256:64bc11df3b072eb40e64bbee715ee57cef447ccba7c3be1c8af84eb501ff2fc2` |
+|  `1.16.3-dev` `1.16-dev`                      | July 6th     | `sha256:68a1fd99d884af9b6ed1dd6fb2996b0c3e755dea5f1789719523aa4fb560a980` |
+|  `1.17.1` `1` `1.17` `latest`                 | July 6th     | `sha256:be6b6aee6eae20c020e919749b8055827e89307dbe616e683ebc116ab65a53b4` |
+|  `latest-dev` `1.17.1-dev` `1.17-dev` `1-dev` | July 6th     | `sha256:b530e70763b8d92e7f932213b5f0eaecf75a8e370ecbaf8c432864f264074a4f` |
+|  `1.16.3` `1.16`                              | July 6th     | `sha256:b132f19aa5bd89cdd6c16d724af487536a5805a5820acff1ce14e59c48de4ef2` |
+|  `1.15` `1.15.9`                              | July 6th     | `sha256:e3a417d91b20af0995b57a9baab2e0f655d6decc83cc28511802c4839916299f` |
+|  `1.15.9-dev` `1.15-dev`                      | July 6th     | `sha256:5a30e83441eb63044a78fa7df6ffe3c16ce29dacfedaa5b3f805897d0d0a4dd5` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kots Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,5 +33,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                         | Last Changed | Digest                                                                    |
 |---------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.110.0` `1.110` `1` `latest` | July 3rd     | `sha256:43b42fc3c865b584e990c338ba8aaa37977c382b86c86ccf27c077b3d7bdde43` |
+|  `1` `latest` `1.110.0` `1.110` | July 6th     | `sha256:a526443e3944d104ce4c3ae8f468b854e97754afc1dc480cc13c2fc788e74bde` |
 

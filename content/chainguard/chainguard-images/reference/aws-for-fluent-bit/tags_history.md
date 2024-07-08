@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-for-fluent-bit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | July 3rd     | `sha256:9469ab060df07334b46af136cdbabe954bedd5694bab578cd5253e791f41602c` |
+|  `latest` | July 5th     | `sha256:46cc648afa88273cf32d06a724fa9fc20885c6321157b96dc2028bbb3cb6f516` |
 
 
 ### Private/Dedicated Registry
@@ -36,8 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                       | Last Changed | Digest                                                                    |
 |-------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.32-dev` `2.32.2-dev` `2-dev`                                 | July 3rd     | `sha256:390f20462e0e6ba3882ace4767bea62e02f392acaa88d9b02ca83622c2ec7ea6` |
-|  `2-dev-flb-1.9` `2.32-dev-flb-1.9` `2.32.2-dev-flb-1.9` `latest-dev-flb-1.9` | July 3rd     | `sha256:803a6f5c61f77ca9eeba0674dffb310d45c88a49db5993ee1a393a10947be957` |
-|  `2.32-flb-1.9` `latest-flb-1.9` `2.32.2-flb-1.9` `2-flb-1.9`                 | July 3rd     | `sha256:0288090b250bd15a1387895d1fef50145384120d81a431a7abb168ef692312da` |
-|  `2` `2.32.2` `latest` `2.32`                                                 | July 3rd     | `sha256:b14095a58b394cd1c1f6fbe042c477f04bf94c58455a3e8da6e65b0c0cbb41b7` |
+|  `latest-dev-flb-1.9` `2.32.2-dev-flb-1.9` `2-dev-flb-1.9` `2.32-dev-flb-1.9` | July 6th     | `sha256:3a0b9ea38f50b2f2995ea71f5423ebb85a35ffc98e8807a0437625104e93914e` |
+|  `2-flb-1.9` `2.32.2-flb-1.9` `2.32-flb-1.9` `latest-flb-1.9`                 | July 6th     | `sha256:c6e0c3b0ca0d586de542fd8497c4eaa9fd34f5ecfe0fc6e315444b296f9efc87` |
+|  `2` `2.32` `latest` `2.32.2`                                                 | July 6th     | `sha256:a56143cf166511b87aae72a6fcc217a10999275ce74e20cf3efdbd645f2c0275` |
+|  `2-dev` `2.32-dev` `latest-dev` `2.32.2-dev`                                 | July 6th     | `sha256:778fb05d6c1361a18f011190d89c7a5f1332e4a6eed9a963ac82cc6f6e338207` |
 

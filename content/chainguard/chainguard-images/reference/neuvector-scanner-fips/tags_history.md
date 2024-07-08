@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the neuvector-scanner-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 3rd     | `sha256:96ae20e05363c219aa09c90048054c9d6df51f20d13477b33862d50eab2a9d44` |
-|  `latest`     | July 3rd     | `sha256:1d91d2ff354f90fe5e74c2cf5e694f051913bd9aebd7b8af75f3e3732aebc21e` |
+|  `latest-dev` | July 6th     | `sha256:de84db902db8ac55eef19d845efa06ca45602da9b5abce9060ab55a75407de34` |
+|  `latest`     | July 6th     | `sha256:aab9c5a5db71184da2a6579c20e28174f7dfc2d3b4704d50d9ca0cdfe8e6e7cc` |
 

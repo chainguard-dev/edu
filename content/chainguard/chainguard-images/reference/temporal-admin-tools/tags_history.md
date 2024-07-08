@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the temporal-admin-tools Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.24.2-dev` `1.24-dev` `1-dev` `latest-dev` | July 3rd     | `sha256:ac989d0b6854c608e8495ccbb2b6399afe123ab6d0dfc854e5a5c45939ce04f4` |
-|  `1.24.2` `1.24` `1` `latest`                 | July 3rd     | `sha256:a46b64524a707bc84f4f322647b62e348762682363cf8d7f32059eb5b820a3dc` |
+|  `1.24.2-dev` `1-dev` `latest-dev` `1.24-dev` | July 6th     | `sha256:cb4ab40f189faedf7f7ee7b889acd7796c3cf59431e73c59aa32b39aadaf4a64` |
+|  `1.24.2` `latest` `1.24` `1`                 | July 6th     | `sha256:52e5f079e65c2236a51cb122f60a9e95dc182cc581dfd39f9eb3b53d3526ef29` |
 

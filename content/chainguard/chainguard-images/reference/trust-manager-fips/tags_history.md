@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the trust-manager-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.11.0-dev` `0-dev` `0.11-dev` | July 3rd     | `sha256:c45e1c9e903ef86c5ca7bd5e2288b5cc7f8c30c1d895e0b73589000ef6a5c34f` |
-|  `0` `0.11` `latest` `0.11.0`                 | July 3rd     | `sha256:5f8658e1ab3b6d5d5a9a255d745118c99424492a072b618752aba935af19b76e` |
+|  `0.11-dev` `0.11.0-dev` `latest-dev` `0-dev` | July 6th     | `sha256:f5128071bb5f3663508f9de30cff512ba927892d106d487b1d1113e9ed9b6699` |
+|  `0.11` `latest` `0.11.0` `0`                 | July 6th     | `sha256:a48e18f285983f93e89498087bc88856c6a502974ac2e54ac3e1d6f6ca7e7189` |
 

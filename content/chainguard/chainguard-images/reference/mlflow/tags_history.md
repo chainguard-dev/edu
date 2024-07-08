@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mlflow Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2-dev` `2.14-dev` `2.14.1-dev` | July 3rd     | `sha256:410e502bf3fd0b4390f2f2a87e767f5a4ee69ea6a297b73c804d7e6d53c2817a` |
-|  `2` `2.14.1` `2.14` `latest`                 | July 3rd     | `sha256:3567d1b45290bdcea8152bd228386641d2c1a5741799964a02662d4aa67d99ad` |
+|  `2` `latest` `2.14.1` `2.14`                 | July 6th     | `sha256:a82e17d740ace0d6fe5721fd8c5a4e88bb184c775582e225fe55a3e1355b7580` |
+|  `2.14.1-dev` `latest-dev` `2.14-dev` `2-dev` | July 6th     | `sha256:49754afb81f3c2c53c7bc9ed150338bcd6ef6c0b8b13dfbb3254b8a68569bb88` |
 

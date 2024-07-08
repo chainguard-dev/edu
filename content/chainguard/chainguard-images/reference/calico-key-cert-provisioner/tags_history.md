@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the calico-key-cert-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,13 +26,16 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-Currently, there are no Developer versions of this image available.
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 5th     | `sha256:639704e1b923b9b26d786d7b4f8003c117c5567ab8cbb55865aeedeaa3edf79b` |
+
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                                                          | Last Changed | Digest                                                                    |
 |----------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `3.28` `3` `v3` `3.28.0` `v3.28` `v3.28.0`                             | July 4th     | `sha256:4f5b0aaedcc02ba50723b27bb24bce57c35b9e9276ed17fd36ad8eaa08315381` |
-|  `3.28.0-dev` `3.28-dev` `latest-dev` `v3-dev` `v3.28-dev` `3-dev` `v3.28.0-dev` | July 4th     | `sha256:dbc7b2e239cde199b1afd4a99015e4281289c9ff3b3af38aec49df71c5d3db9c` |
+|  `v3.28-dev` `3.28.0-dev` `v3.28.0-dev` `3.28-dev` `v3-dev` `3-dev` `latest-dev` | July 6th     | `sha256:6d0570487f60a4f63a9f601099aaa512ec67024e6801231d28927b7c58eec1ea` |
+|  `latest` `v3.28.0` `3` `v3.28` `v3` `3.28.0` `3.28`                             | July 6th     | `sha256:b76966736896269e724716d85f721d6b56a3ffeb5e6c808621fe62156f0dfb42` |
 

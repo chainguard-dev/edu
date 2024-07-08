@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kyverno-cli-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,5 +33,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                       | Last Changed | Digest                                                                    |
 |-------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1.12.4` `1.12` `1` | July 3rd     | `sha256:75d0d91de17bcb43c1d7e6e60dafc51b1d02221625b03523423a5b4b9a476ffd` |
+|  `1.12` `1` `latest` `1.12.4` | July 6th     | `sha256:98a2dd1c787be063f7ac8177ed73937b7a3d519c63807783398eca3a2ec267aa` |
 

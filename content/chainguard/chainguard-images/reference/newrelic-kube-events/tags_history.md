@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-kube-events Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.9-dev` `1.9.3-dev` `1-dev`                | July 3rd     | `sha256:9363e681f2ef1b26b95fd9c93c537e378b3cda8efb600a083a850172cd41a3a9` |
-|  `2.10.0-dev` `latest-dev` `2.10-dev` `2-dev` | July 3rd     | `sha256:1e2151593b03e19f307a9b03b7f77423ebf8ddec9cd49c912b1698dcf43da813` |
-|  `2.10.0` `2` `latest` `2.10`                 | July 3rd     | `sha256:71d785057b684672c4715fea8fe52fa4641d14650354020b3b64f1fbe1f5514d` |
-|  `1.9.3` `1.9` `1`                            | July 3rd     | `sha256:337f72bb1b314e312bf9834ac74827f82b9cd22d4e7c0d93f94f6dd9a9108b82` |
+|  `2.10-dev` `latest-dev` `2.10.0-dev` `2-dev` | July 6th     | `sha256:8ed8dd8309290bde240f67646905679950bf42335660d4cfe565e591e82b4fe5` |
+|  `1.9-dev` `1-dev` `1.9.3-dev`                | July 6th     | `sha256:b8ae272a9b09cb351075209a6682b0e94a63ea1a834eebe2123f97d1aae78b3a` |
+|  `1` `1.9.3` `1.9`                            | July 6th     | `sha256:32bdaf951eb3abc5d01107638973c2202589eaf2e01159c69da393e8097680a0` |
+|  `2.10.0` `2.10` `latest` `2`                 | July 6th     | `sha256:bfc46de475b4633b98eef9f855fac5b33014b4ccba665e06abc9ce7035152027` |
 

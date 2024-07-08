@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the harbor-trivy-adapter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.31.3-dev` `latest-dev` `0.31-dev` `0-dev` | July 3rd     | `sha256:6975b6c1df95a56701d56fe884c9d75bde5d4ade7d023a0c05939124402b9fd9` |
-|  `0.31` `0` `latest` `0.31.3`                 | July 3rd     | `sha256:564b026c679de61357505bed28e1e8c749a91e91ede5b0b7f15ce3467bafbadf` |
+|  `0.31.3-dev` `latest-dev` `0.31-dev` `0-dev` | July 6th     | `sha256:304b906fc8a0a61d2a74a20e3997e017e8491c8f224123fe112bdb3b40d6010c` |
+|  `0.31.3` `0` `0.31` `latest`                 | July 6th     | `sha256:0bda16c43fe1549779459710bc44ba680a9171e6529d101b309391ee17f38543` |
 

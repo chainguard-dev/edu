@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-db-manager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,16 +26,13 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:7d91e86910fd9d84332dc907f78e1ea738fc5558ef554e64bf340c4107ef6e06` |
-
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0-dev` `latest-dev` `0-dev` `0.16-dev` | July 3rd     | `sha256:c777307a7d6b3873a38e0776d285620ed3caaec072d28a54d61ea82b0173d916` |
-|  `latest` `0.16` `0` `0.16.0`                 | July 3rd     | `sha256:2185518be24ee901571f3b07b696e5cce775bf3b0af3ad430919902a79c97686` |
+|  `0` `latest` `0.16.0` `0.16`                 | July 6th     | `sha256:a0d3fcd731927431574295c63b4444bafc4f83533ee889eb62fc52c4d20f6746` |
+|  `0.16.0-dev` `0-dev` `0.16-dev` `latest-dev` | July 6th     | `sha256:9e644e0516bb5e1ed8c6948afb8f9d95290ac3e826a1570401bb5d753d3d876d` |
 

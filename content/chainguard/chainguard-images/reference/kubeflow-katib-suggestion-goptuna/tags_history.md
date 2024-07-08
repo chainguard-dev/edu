@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-goptuna Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,16 +26,13 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:b15d5f5abf6b5bc7aa368ba9c3010f8bc60b4d4e38c2a95d756d67ad0ca86214` |
-
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0-dev` `latest-dev` `0.16-dev` `0-dev` | July 3rd     | `sha256:19dae0e6300fcc248cf99e2a489cf3d0d9a4d7b64de33e79ba4693420fe834f4` |
-|  `0` `latest` `0.16.0` `0.16`                 | July 3rd     | `sha256:21124182ebe1375d278de0eab2f42b5c46d04d9b8b07b157069cd1ed1aa457b9` |
+|  `latest-dev` `0.16-dev` `0.16.0-dev` `0-dev` | July 6th     | `sha256:0ec2131903e0eadf83e478a0f17c4fdea270d3be44c721ec6c77f96255724ded` |
+|  `latest` `0` `0.16.0` `0.16`                 | July 6th     | `sha256:0305278647f91854534e1c043603ef5db8e1359d72477d1f50e25a6bd6d4570a` |
 

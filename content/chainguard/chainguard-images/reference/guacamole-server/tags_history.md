@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the guacamole-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,17 +26,13 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 28th    | `sha256:73dcc16871e23d31d0f671cfd7d1c81be529bb4cbc838258714ee4c101881593` |
-|  `latest-dev` | June 28th    | `sha256:e313a14666e67130da73aaff207fab03ffdbcb0fc2538d3f7186cf4cfc4440f7` |
-
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1` `1.5.5` `1.5`                 | July 4th     | `sha256:91fdbd438b877c9294ad26e5fcc3ce67c81792a74e5bac0781e558e5eee407ff` |
-|  `latest-dev` `1.5-dev` `1.5.5-dev` `1-dev` | July 4th     | `sha256:fbafc9d5a5f2d4f9f14856450544bfac29a9b2b9964cdfee75d529e8dc7115da` |
+|  `1.5.5-dev` `1-dev` `latest-dev` `1.5-dev` | July 6th     | `sha256:0597ec4daa0fe2f9094594142fc845bacf05e65ca78b551625da5711b730c0a7` |
+|  `1.5` `1` `1.5.5` `latest`                 | July 6th     | `sha256:05ba103a437eb4972983d1e66a72a23e35108249aad274227af5bd3fcca36074` |
 

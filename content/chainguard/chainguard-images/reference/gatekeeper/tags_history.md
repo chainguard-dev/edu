@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gatekeeper Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,18 +26,15 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:e7e7f8b90206f93d10030eea19c9d570691934ddf3f47a68b03e5c0e56d10ab6` |
-
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.16.3-dev` `3.16-dev` `latest-dev` `3-dev` | July 3rd     | `sha256:4530a12b37aeca95f0524bc4577a660285cf7360742119b44a3a1f08773f3f15` |
-|  `latest` `3` `3.16.3` `3.16`                 | July 3rd     | `sha256:6a26872b01608def45606413adb880a55fd046c9c372eeaf70904b733cd8b888` |
-|  `3.15-dev` `3.15.1-dev`                      | July 3rd     | `sha256:2c5790b6f7b1e01299d3d0d182425c4fdf0f7b285434cea4e8ef13d30485cb5e` |
-|  `3.15` `3.15.1`                              | July 3rd     | `sha256:e0abb14f1a6fa5a5344499423c1dceba512fc3bae50b9c1d3df53dccad669c9d` |
+|  `3` `3.16` `3.16.3` `latest`                 | July 6th     | `sha256:abafc295e6843e1de24d19fcc7a5d3f7e1546b3f7000154b4d0c5e7db11634ae` |
+|  `3.15-dev` `3.15.1-dev`                      | July 6th     | `sha256:bc392c86cc3f47e1cd46776636be06b5fa64b1d825a30bb173db151717433cb8` |
+|  `3-dev` `3.16-dev` `3.16.3-dev` `latest-dev` | July 6th     | `sha256:a7f07e04be98fb9985a24dc9b5154abea19e62c97c957795354296ff33577a26` |
+|  `3.15.1` `3.15`                              | July 6th     | `sha256:499248ea96eaa5d0cea39107874b4ea9d9763da67ca267a0ea93765e94304a0f` |
 

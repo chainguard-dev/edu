@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for wasmer Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 | Registry                     | Tags                                                                    |
 |------------------------------|-------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest-dev                                                              |
+| `cgr.dev/chainguard`         | latest, latest-dev                                                      |
 | `cgr.dev/chainguard-private` | 4, 4-dev, 4.3, 4.3-dev, 4.3.2-dev, 4.3.3, 4.3.3-dev, latest, latest-dev |
 
 

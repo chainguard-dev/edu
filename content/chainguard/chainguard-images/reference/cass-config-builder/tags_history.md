@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cass-config-builder Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | July 3rd     | `sha256:d1740ea0a61656d36b91eba93ce668b6087e9e390a33542b1356b94ded73dc24` |
-|  `latest-dev` | July 3rd     | `sha256:e5d2ff0aa73a9f19bbaf54baba0b2e92d06ff329bc5a5bcd991fbdbd52871fe3` |
+|  `latest-dev` | July 5th     | `sha256:3c24125fc8be86551b50562a73eb72a70c2b23e7406eeb6e7fc3825962ca1e83` |
+|  `latest`     | July 5th     | `sha256:8f3afb608fc60404ea7a78a4d9992b2215e23e86f5089b6ed8bf8d5998c1b5e7` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1.0` `1` `1.0.10`                 | July 4th     | `sha256:1862bb725e57e6abf00d53a87415eab82239fa44627e481b572464abcad63332` |
-|  `1.0-dev` `1.0.10-dev` `1-dev` `latest-dev` | July 4th     | `sha256:b9f7900aec8b3a2380183dac9d7998a310bc4cc4b79d9d88638bd9f26a7b75bc` |
+|  `1.0.10-dev` `1-dev` `1.0-dev` `latest-dev` | July 6th     | `sha256:ffbe1bd9d547cbc7abfeab0fcc563c5c5766940cdea2338f778d24d4b21a602e` |
+|  `1.0` `1` `latest` `1.0.10`                 | July 6th     | `sha256:21fb1684b31057f2dd36db823f64145228ac025f041d8fb784143bd41befdcbb` |
 

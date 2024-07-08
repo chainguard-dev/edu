@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ko Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.15-dev` `0-dev` `latest-dev` `0.15.4-dev` | July 3rd     | `sha256:399df2b8d29009042a11b884870a035be891438d94837b321673dbb4c7e3a797` |
-|  `0.15.4` `0.15` `latest` `0`                 | July 3rd     | `sha256:438bbbe30314bcd1abdce509a2413d2d77c76d721233e85f47b137ba2ea1d1f6` |
+|  `0` `0.15` `latest` `0.15.4`                 | July 6th     | `sha256:fff9a67db80036e7471ebf3353d93be1301e6e5dc2f773f11a21ef214ce69dee` |
+|  `0.15.4-dev` `0.15-dev` `latest-dev` `0-dev` | July 6th     | `sha256:6049e862f933e46f6b785bab49797974b982abdfb80cba25f8050a8dadf3c921` |
 

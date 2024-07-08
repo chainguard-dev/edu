@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the zot Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.0-dev` `latest-dev` `2-dev` `2.0.4-dev` | July 3rd     | `sha256:88b2f731e2e68e41fc3e713735fff165fafb09237aa38aee7c653d6bec6049e3` |
-|  `2.0.4` `2` `latest` `2.0`                 | July 3rd     | `sha256:5a754ef82da96531918d32edfbee70e977a098872621aeb157c393dba6650dc1` |
+|  `latest-dev` `2-dev` `2.0-dev` `2.0.4-dev` | July 6th     | `sha256:6a724e09b069feecc1df87fb3d3acaf308feaf2c090783d70f49d523876e676f` |
+|  `latest` `2.0` `2` `2.0.4`                 | July 6th     | `sha256:11074aeb78800bd62655ee1d89a46e159f6c4eff28b28b76c967edcf22b9b78e` |
 

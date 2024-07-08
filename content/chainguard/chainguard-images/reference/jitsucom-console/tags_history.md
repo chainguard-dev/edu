@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jitsucom-console Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,17 +26,13 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:ef1bace7c49081f2dd8ac1b20dd4d927172864601ccefd203c11e9402baafa0b` |
-|  `latest`     | June 28th    | `sha256:6e301a740e8fbd8b7f3040281883264c464ad026572809ae3e30aa925778b0aa` |
-
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.7.0` `2.7` `latest` `2`                 | July 4th     | `sha256:0f327affcbef8b3acb823dc4d1472e9ca19fc36af86c1e0fbd41920b33c0312c` |
-|  `2.7.0-dev` `2.7-dev` `latest-dev` `2-dev` | July 4th     | `sha256:7fe33f192234eb822bff4ffa6d12e635455a1262ac20d105c700332d87da3951` |
+|  `2.7.0-dev` `latest-dev` `2.7-dev` `2-dev` | July 7th     | `sha256:79be7621720b9e263a60dc44d636a59e2465b0da3fda96eb5cc4ec206dac4846` |
+|  `2` `2.7.0` `latest` `2.7`                 | July 7th     | `sha256:9b8cf20c0499549c3da8957567df4a8f37a4584badc90a369e7704d7944abf65` |
 

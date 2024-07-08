@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-logging-operator-fluentd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,17 +26,13 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 29th    | `sha256:92476d3bf9bfb3300364051604485232fbbee715b2d466cacb909891780ed2f6` |
-|  `latest-dev` | June 29th    | `sha256:169e435366178508e5afe9746e39a42d053c932c28864a91aa77768059eb3e52` |
-
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1` `1.16` `latest` `1.16.5`                 | July 3rd     | `sha256:cd9aa7c19c450364b6112ccee07cb7013d6316854741781ab917bebf68a9cafb` |
-|  `1-dev` `latest-dev` `1.16.5-dev` `1.16-dev` | July 3rd     | `sha256:f78c2ff6bbf653ee06d2b7deb4ad19a176d89b5b721329795b74b9af27a094e6` |
+|  `1.16` `1` `latest` `1.16.5`                 | July 6th     | `sha256:b435caf3d402c9d9593cee6de42589ce4e52c0a526754f2233b5ad50e1bbb40b` |
+|  `1.16-dev` `1.16.5-dev` `1-dev` `latest-dev` | July 6th     | `sha256:d268b77e15c3afcf2829b5877547b65e5137d898e203f6c3f192c9d7a26c0294` |
 

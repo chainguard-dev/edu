@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-cache-deployer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,17 +26,13 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 28th    | `sha256:a48cb12d68d88aa16caabaad8d9c9584ece7754162eb4bcb047dcc59673531b8` |
-|  `latest-dev` | June 28th    | `sha256:27e467f00531ba161b38e0012334e93105732eb56b1961fa940c614b2ce2dd7f` |
-
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.2` `2` `2.2.0` `latest`                 | July 3rd     | `sha256:66a3378bd4264019e7ae2b3fc866ea7e5e8849790919bbbabba8d9b946fc6f85` |
-|  `2.2.0-dev` `2-dev` `2.2-dev` `latest-dev` | July 3rd     | `sha256:1bbb7c2c0dcb38824af05b774154b3f5586d5347e26138bb6f1951c24a20c033` |
+|  `2.2.0` `latest` `2` `2.2`                 | July 6th     | `sha256:5879693d643f2d716d63acc0320e7f63a48f9f979d88bcd2c2d5d4a708fa56e6` |
+|  `2-dev` `2.2.0-dev` `2.2-dev` `latest-dev` | July 6th     | `sha256:13ab2a84ac1807914f0203ac4eb2a352b14b06a1511a2c60a96cfcbadec2a2ea` |
 

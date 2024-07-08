@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-oidc-proxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,5 +33,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                     | Last Changed | Digest                                                                    |
 |-----------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.0.6` `1.0` `1` `latest` | July 3rd     | `sha256:589158dce635512a6ca958ae402831be247d0b35467e79a1c2f002d406c4a2e2` |
+|  `1` `latest` `1.0.6` `1.0` | July 6th     | `sha256:74e5c3632dbe573c96e68d4ec11b6b473c16743b76a116812d91cab34dd7a298` |
 

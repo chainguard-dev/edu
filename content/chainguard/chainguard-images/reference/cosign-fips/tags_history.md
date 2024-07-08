@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cosign-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `latest-dev` `2.2.4-dev` `2.2-dev` | July 3rd     | `sha256:6a1e7182cc8d27cd7b763032a510b8b8ca69c0adc7e4c1393159204466db04c1` |
-|  `latest` `2` `2.2.4` `2.2`                 | July 3rd     | `sha256:5728410a5675920cb87fa5fd1072c6f315a35925812fb9c57698878862761e34` |
+|  `2.2-dev` `2-dev` `2.2.4-dev` `latest-dev` | July 6th     | `sha256:12f18a30a0cecc0c8132e2937d9d52e1c2e206c01d0648e3f9ef5e844d8ae326` |
+|  `2` `2.2.4` `latest` `2.2`                 | July 6th     | `sha256:a404fadba7673dc7c5a96026572fbe8887dcaa4bc18572d09b22484f1c463c49` |
 

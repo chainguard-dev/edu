@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,16 +26,13 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:83c372019b5d1cb0982935cedf1a81da5da45379395f2e1f39f836d296c10e32` |
-
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0-dev` `0.16-dev` `latest-dev` `0-dev` | July 3rd     | `sha256:7e41510585ddc87486b03d1d53451ca59b2ba3971a22d041b30400d48c7de3d5` |
-|  `latest` `0.16` `0` `0.16.0`                 | July 3rd     | `sha256:27f6c9edca435428a03f4087351bb1f5f0d5c909a5ec2077602ff3a8542efe60` |
+|  `0.16` `0` `latest` `0.16.0`                 | July 6th     | `sha256:64934b0712a4929d59a48b70f56cb9bd84a7bc353a1e915f8d26252dc3630e45` |
+|  `0.16.0-dev` `latest-dev` `0-dev` `0.16-dev` | July 6th     | `sha256:5996eca5d67cf90e17553e5bac0610bfc2b3893cf7ccac73c71747ecb6e2bc5d` |
 

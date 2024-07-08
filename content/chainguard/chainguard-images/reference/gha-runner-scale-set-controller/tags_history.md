@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gha-runner-scale-set-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,16 +26,13 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:96baad4896b4acaed20941bd2b6914c1ef80bb7e6671e427992986571b37a0d0` |
-
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.9.3-dev` `0.9-dev` `0-dev` `latest-dev` | July 4th     | `sha256:b22da4163586134412b2a7e76af2dc17b5eb3142151e0fe7690ec42923c27f2d` |
-|  `0` `latest` `0.9` `0.9.3`                 | July 3rd     | `sha256:d1193c45ded1fc0c84d47f66f82d00d962a5b90e5ea295940dcc755e8ff8b987` |
+|  `0.9-dev` `0-dev` `latest-dev` `0.9.3-dev` | July 6th     | `sha256:75943afd147974c8772c7fe4c9dd8d8987c8b09bc30a359e534aef91222a32c2` |
+|  `0.9.3` `0` `0.9` `latest`                 | July 6th     | `sha256:4d10fb4862df0edc2b4069fbc0bfeba56fe32159f6bc58ad9c6a1828d5422e01` |
 

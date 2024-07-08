@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the spark-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 3rd     | `sha256:ab55e19dc331397e51b9a812eb6cc778c6d4fade270737b6eb6456e0d7d6774c` |
-|  `latest`     | July 3rd     | `sha256:b453136b574e8adc867280cc01afa1552043bf3b7ed6f78e5d01159a54ac34f6` |
+|  `latest-dev` | July 5th     | `sha256:0ea264352b5dc5f238ed85946dca6ffcbb62b599ddf139718ce3b593d5516691` |
+|  `latest`     | July 5th     | `sha256:d6912c49af1a300eb9ec9ff015e1256d10afa0934041f7e46e1c212a35a94e85` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.4-dev` `1.4.3-dev` `1-dev` `latest-dev` | July 4th     | `sha256:dd8c0a81a32c7066ceff7757ce6afc1578f455291fdaff84585f89ddf9fb038d` |
-|  `1.4` `latest` `1` `1.4.3`                 | July 4th     | `sha256:fb0fc02705c6a8eeb039edc024856a67fe8d6f805133d97f824773a2657e55fb` |
+|  `latest` `1.4.3` `1` `1.4`                 | July 6th     | `sha256:81e0e201035e2c984ac5bda4599ee2d67535d1074ca9ed3bd31b8b895e3a5f60` |
+|  `1.4-dev` `1-dev` `latest-dev` `1.4.3-dev` | July 6th     | `sha256:6a35f13ed5f09353c2c9ab2ff4a1f093ea68a2c2b5119c45fe4e9d35fa41e8f1` |
 |  `1.4.2-dev`                                | July 3rd     | `sha256:6e10d2d1eb5cbef1cbd05f591df491bcb2f7a74b85026c27e13c346b3e792e87` |
 |  `1.4.2`                                    | July 3rd     | `sha256:0b26a338372e802b83a60b0feb3cc5635f510870ace3ac2f83d11483455407ba` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-viewer-crd-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,16 +26,13 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:ecfc74c501a505fc6067e820aeeaca0abb8167211a997789c05ef412e3e45fca` |
-
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.2-dev` `2-dev` `latest-dev` `2.2.0-dev` | July 3rd     | `sha256:a28131365a30004f50208a6c1989cd75c9a68da74672e747ef64220507bd7c3c` |
-|  `2` `2.2.0` `2.2` `latest`                 | July 3rd     | `sha256:3649cfdd1eaf5a57607a3944c50c0c696a7cda9a9a36e1bf733276faac0a72a9` |
+|  `latest` `2.2` `2.2.0` `2`                 | July 6th     | `sha256:5cf1457ddb02ffe55f178eed16b67f143e437a3ff8d42cffa05d532635f20693` |
+|  `2-dev` `latest-dev` `2.2-dev` `2.2.0-dev` | July 6th     | `sha256:f3b6f8ca0596f7275007b1167d0a9ad2298083f8749276fda10f8aa10787a06a` |
 

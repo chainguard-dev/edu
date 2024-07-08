@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-external-snapshot-validation-webhook Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                  | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `6-eks-1-23-33-dev` `6.3.0-eks-1-23-33-dev` `6.3.0-dev` `latest-dev` `6.3.0-r8-eks-1-23-33-dev` `6.3-eks-1-23-33-dev` `6.3-dev` `6-dev` | July 3rd     | `sha256:0eef82d4ea8e667f06ab98a5bad443bb1324360a50cd3ace6cd8e809a95ed564` |
-|  `6.3.0-eks-1-23-33` `latest` `6.3-eks-1-23-33` `6` `6.3.0` `6.3` `6.3.0-r8-eks-1-23-33` `6-eks-1-23-33`                                 | July 3rd     | `sha256:adae753e1ffc7292762acb4247b6e91581818abc8c5d2f168254d510ad8a5100` |
-|  `6.3.0-r7-eks-1-23-33-dev`                                                                                                              | June 28th    | `sha256:6668e5cd424bfb0d9f01dede8f71adfd3138554006d33366ba5eb7bc26529f44` |
+|  `6.3-eks-1-23-33-dev` `6-eks-1-23-33-dev` `6-dev` `6.3.0-r8-eks-1-23-33-dev` `6.3.0-dev` `6.3-dev` `latest-dev` `6.3.0-eks-1-23-33-dev` | July 6th     | `sha256:006a16180bcc5474bb1172c135bb6044700d450fca88075e21467e2a72bd3728` |
+|  `6.3` `6-eks-1-23-33` `6.3.0` `latest` `6.3.0-r8-eks-1-23-33` `6` `6.3-eks-1-23-33` `6.3.0-eks-1-23-33`                                 | July 6th     | `sha256:c173927dbdb67159dfcd5d1ee0697cf5fa914cc62b29f0775b98baf6734e37df` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the chromium Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 3rd     | `sha256:c96821010594f2b074741a939f2d9e2f7230d05a99f23a892e105f14ed6eddc8` |
-|  `latest`     | June 28th    | `sha256:6bbf943301d0d838a486e5254156c272545d1965592b0569a8dbc665ad156d23` |
+|  `latest`     | July 5th     | `sha256:fbb44318f1f5874c2aa1e94262e8e99d2a414bb61d80c247720849a4f229ef71` |
+|  `latest-dev` | July 5th     | `sha256:2c4471fd252457d677321105305e70ae116733b07fb4c3964687e09780b68267` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                   | Last Changed | Digest                                                                    |
 |---------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `126` `126.0` `126.0.6478.126` `126.0.6478` `latest`                     | July 4th     | `sha256:0dfa9d3f11e76453567d6db6451ee544b8afe95d9dbd06d58b5496a385f7e2b7` |
-|  `126.0-dev` `126-dev` `latest-dev` `126.0.6478-dev` `126.0.6478.126-dev` | July 4th     | `sha256:91de5d9333293e63d7d18038633b8bd6b51c15d5651b145d80bbb54971133109` |
+|  `126.0.6478.126` `126.0.6478` `126.0` `126` `latest`                     | July 6th     | `sha256:af147bc49ed54d982dc671ce75272718c74d2f4b4318a4fb92d8c6360fd46f82` |
+|  `126.0.6478.126-dev` `latest-dev` `126.0.6478-dev` `126-dev` `126.0-dev` | July 6th     | `sha256:1237da30ba6de6f7a0160adfb94dbcb83ad5a923001ce619bec0643378491a27` |
 

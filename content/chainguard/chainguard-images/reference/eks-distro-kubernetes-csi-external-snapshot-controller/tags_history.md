@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-external-snapshot-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                  | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `6-eks-1-23-33-dev` `6.3.0-r8-eks-1-23-33-dev` `6.3-eks-1-23-33-dev` `latest-dev` `6.3.0-dev` `6.3-dev` `6.3.0-eks-1-23-33-dev` `6-dev` | July 3rd     | `sha256:cd5b59bb36bcfe682fd45c55d82362c4ccc9ea950390b37cc4a02e5c6111621a` |
-|  `6.3.0` `6.3` `latest` `6` `6.3.0-r8-eks-1-23-33` `6.3.0-eks-1-23-33` `6.3-eks-1-23-33` `6-eks-1-23-33`                                 | July 3rd     | `sha256:36f9eba5b3cbc2da79a856d57b82f43a5eeb42e20232ed2acfb29c9c884912dd` |
-|  `6.3.0-r7-eks-1-23-33-dev`                                                                                                              | June 28th    | `sha256:8f581e32d8d6b2ca6262ad3f3a5fe1ab4c3ba7a229bb8d86fcc8c4bacd0df372` |
+|  `6.3.0` `6.3.0-eks-1-23-33` `6` `6.3` `6.3.0-r8-eks-1-23-33` `6.3-eks-1-23-33` `6-eks-1-23-33` `latest`                                 | July 6th     | `sha256:6ed9dfd58ef88a42a972fcbb57e411a90d0630d1e4277d8db7cd083c4d188bf6` |
+|  `6-dev` `latest-dev` `6-eks-1-23-33-dev` `6.3-eks-1-23-33-dev` `6.3.0-eks-1-23-33-dev` `6.3.0-r8-eks-1-23-33-dev` `6.3.0-dev` `6.3-dev` | July 6th     | `sha256:80808ba64c1ca5cbb265a3930d46fbf5656a3cb6e573ce446f352d289592eb94` |
 

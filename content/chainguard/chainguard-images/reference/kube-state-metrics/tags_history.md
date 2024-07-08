@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-state-metrics Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,16 +26,13 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:d04c0c61fa0d35eb515d6e8a588a46c8e447a6f9293f7a245df6fe8d2f6858f6` |
-
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2-dev` `2.12-dev` `2.12.0-dev` | July 3rd     | `sha256:64bd841accc132c70a4e97d270dcab50f1dfd7c5d0dd74d3961e8b5a1e5b8960` |
-|  `2.12` `latest` `2` `2.12.0`                 | July 3rd     | `sha256:2acf7dea0f54dee7f2288924cf077f9fbdf61af9e313bfe8dc651d75e42b7e6d` |
+|  `2` `2.12.0` `2.12` `latest`                 | July 6th     | `sha256:fdbbb992001bb929d5f817d8e2833a8a15acf6a5e8a8e7d6a4c1b52fb199a0b0` |
+|  `2.12.0-dev` `2-dev` `latest-dev` `2.12-dev` | July 6th     | `sha256:34ea91ed46c1f25398efae17ce09e1a5c714b28a6cf439b857782a72516c996b` |
 

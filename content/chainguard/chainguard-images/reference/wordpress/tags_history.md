@@ -3,8 +3,8 @@ title: "wordpress Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the wordpress Chainguard Image"
-date: 2024-07-05 00:42:00
-lastmod: 2024-07-05 00:42:00
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,5 +37,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                     | Last Changed | Digest                                                                    |
 |-----------------------------|--------------|---------------------------------------------------------------------------|
-|  `6` `latest` `6.5.5` `6.5` | July 5th     | `sha256:7959f970133765987116897191bfea17ca00b960a796bd9a8d1cd495e88abbfe` |
+|  `6` `latest` `6.5.5` `6.5` | July 8th     | `sha256:df6b9609a5a4172bd58e0d9b4eea0389cd2e0b8c9cb4fbc16a41e0a5be4730f1` |
 

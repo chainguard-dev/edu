@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public zig Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-07-02 00:32:13
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -21,56 +21,56 @@ toc: true
 
 This page shows detailed information about the Chainguard **zig** Image.
 
-|              | latest-dev     |
-|--------------|----------------|
-| Default User | `root`         |
-| Entrypoint   | `/usr/bin/zig` |
-| CMD          | `help`         |
-| Workdir      | not specified  |
-| Has apk?     | yes            |
-| Has a shell? | yes            |
+|              | latest-dev     | latest         |
+|--------------|----------------|----------------|
+| Default User | `root`         | `root`         |
+| Entrypoint   | `/usr/bin/zig` | `/usr/bin/zig` |
+| CMD          | `help`         | `help`         |
+| Workdir      | not specified  | not specified  |
+| Has apk?     | yes            | no             |
+| Has a shell? | yes            | yes            |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/zig/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                          | latest-dev |
-|--------------------------|------------|
-| `apk-tools`              | X          |
-| `bash`                   | X          |
-| `busybox`                | X          |
-| `ca-certificates-bundle` | X          |
-| `chainguard-baselayout`  | X          |
-| `git`                    | X          |
-| `glibc`                  | X          |
-| `glibc-locale-posix`     | X          |
-| `ld-linux`               | X          |
-| `libLLVM-18`             | X          |
-| `libbrotlicommon1`       | X          |
-| `libbrotlidec1`          | X          |
-| `libclang-cpp-18`        | X          |
-| `libcrypt1`              | X          |
-| `libcrypto3`             | X          |
-| `libcurl-openssl4`       | X          |
-| `libexpat1`              | X          |
-| `libffi`                 | X          |
-| `libgcc`                 | X          |
-| `libidn2`                | X          |
-| `libnghttp2-14`          | X          |
-| `libpcre2-8-0`           | X          |
-| `libpsl`                 | X          |
-| `libssl3`                | X          |
-| `libstdc++`              | X          |
-| `libunistring`           | X          |
-| `libxcrypt`              | X          |
-| `libxml2`                | X          |
-| `llvm-18`                | X          |
-| `ncurses`                | X          |
-| `ncurses-terminfo-base`  | X          |
-| `wget`                   | X          |
-| `wolfi-baselayout`       | X          |
-| `xz`                     | X          |
-| `zig`                    | X          |
-| `zlib`                   | X          |
+|                          | latest-dev | latest |
+|--------------------------|------------|--------|
+| `apk-tools`              | X          |        |
+| `bash`                   | X          |        |
+| `busybox`                | X          | X      |
+| `ca-certificates-bundle` | X          | X      |
+| `chainguard-baselayout`  | X          | X      |
+| `git`                    | X          |        |
+| `glibc`                  | X          | X      |
+| `glibc-locale-posix`     | X          | X      |
+| `ld-linux`               | X          | X      |
+| `libLLVM-18`             | X          | X      |
+| `libbrotlicommon1`       | X          |        |
+| `libbrotlidec1`          | X          |        |
+| `libclang-cpp-18`        | X          | X      |
+| `libcrypt1`              | X          | X      |
+| `libcrypto3`             | X          |        |
+| `libcurl-openssl4`       | X          |        |
+| `libexpat1`              | X          |        |
+| `libffi`                 | X          | X      |
+| `libgcc`                 | X          | X      |
+| `libidn2`                | X          |        |
+| `libnghttp2-14`          | X          |        |
+| `libpcre2-8-0`           | X          |        |
+| `libpsl`                 | X          |        |
+| `libssl3`                | X          |        |
+| `libstdc++`              | X          | X      |
+| `libunistring`           | X          |        |
+| `libxcrypt`              | X          | X      |
+| `libxml2`                | X          | X      |
+| `llvm-18`                | X          | X      |
+| `ncurses`                | X          |        |
+| `ncurses-terminfo-base`  | X          |        |
+| `wget`                   | X          |        |
+| `wolfi-baselayout`       | X          | X      |
+| `xz`                     | X          | X      |
+| `zig`                    | X          | X      |
+| `zlib`                   | X          | X      |
 

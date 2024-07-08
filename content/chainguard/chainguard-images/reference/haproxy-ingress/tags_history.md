@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the haproxy-ingress Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,17 +26,13 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:140769a6290218ef50edfed13cf9f530b2ce045d4f07c1850205225b83257c1d` |
-|  `latest`     | June 28th    | `sha256:4f8ffcfcf2c0e9281833d5e73a8934d589dc2bd46643664bfaa6925d650edef1` |
-
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `0.14` `0.14.7` `latest`                 | July 3rd     | `sha256:33f8190a68138ed806baac57a33192b0d486c24fe626d435123db88d19920ab1` |
-|  `0-dev` `0.14.7-dev` `0.14-dev` `latest-dev` | July 3rd     | `sha256:7637d1987220737871dbb96837ce272728eb92731b9713211eb0f0b1165624e2` |
+|  `latest-dev` `0.14.7-dev` `0.14-dev` `0-dev` | July 6th     | `sha256:faf2b22792808db258b9544c24e8f0423f2cbf3a2121468b71c535b10d6fdb78` |
+|  `0.14.7` `0` `latest` `0.14`                 | July 6th     | `sha256:8a75f02ccd9c92028b9f1cb633b20dc5cec2895fcf48a1e0225eb9ff3ff28a81` |
 

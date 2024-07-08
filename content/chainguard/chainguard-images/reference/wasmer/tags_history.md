@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the wasmer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 3rd     | `sha256:80e11e40e589f37aa9fabd9776f12bbed6cc10376a54a3370d6294440cd88542` |
+|  `latest-dev` | July 5th     | `sha256:a44417d6b424ba92981a45e49674fffa28028ca0d557831eb7a06fdac44f89ee` |
+|  `latest`     | July 5th     | `sha256:7681a847f7b1fc6826e137b45e4fde956924cbf5b5617946ab7d44d71d0ed6fc` |
 
 
 ### Private/Dedicated Registry
@@ -36,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.3` `latest` `4` `4.3.3`                 | July 4th     | `sha256:c793de907b0878661ab892d8843381e8e80ec14e59709e3d68ea82dedae5dd63` |
-|  `4-dev` `4.3-dev` `latest-dev` `4.3.3-dev` | July 4th     | `sha256:a3481b22335229cfae45029abc1834e281cc5eb6e69e7b24681ea974f6c52337` |
+|  `latest-dev` `4.3.3-dev` `4.3-dev` `4-dev` | July 6th     | `sha256:34a5e858d112f09de3f19ea7f08a1b8e2f53f63f4458d018e5fa3398297638c3` |
+|  `4.3` `4.3.3` `4` `latest`                 | July 6th     | `sha256:8194fa558457b0e0b82ffd4e13b5e6b81e33c567880824e7e41b155400706d1f` |
 |  `4.3.2-dev`                                | July 3rd     | `sha256:a47240b09be2f47a4da99110f6f1ce0e1660617faf6ee8d58de19713dee6d34a` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the powershell Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.4` `7` `latest` `7.4.1`                 | July 3rd     | `sha256:ee07898eb903804e6df9a351b41924672c6ffd09dfcd26956b70ba00692fb0d2` |
-|  `7.4-dev` `latest-dev` `7.4.1-dev` `7-dev` | July 3rd     | `sha256:01f18301cb189424266dce456a6bef642808587bceba6f7ee27ad216ccb7dd04` |
+|  `7.4-dev` `latest-dev` `7-dev` `7.4.1-dev` | July 6th     | `sha256:f0c0915b39045a9f50092c7f0bbab42d52370f149cc43fbfc03e1d0704f1a275` |
+|  `latest` `7.4.1` `7.4` `7`                 | July 6th     | `sha256:99f11de5b3741a8234d10aaefbc35719eff4bf1123531adee58ea475e098881c` |
 
