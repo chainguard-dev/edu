@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the postgres-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                           | Last Changed | Digest                                                                    |
 |-----------------------------------|--------------|---------------------------------------------------------------------------|
-|  `14.12` `14`                     | July 6th     | `sha256:ddd909ed1fa58d587556ff026fe32b95aa3496ad9ef7ddfd77ee4d5af71e6bd7` |
-|  `16-dev` `latest-dev` `16.3-dev` | July 6th     | `sha256:44ef2db454116cb9b65754c49ee6230ed3a39b6b42aab49a873ff9488be67591` |
-|  `14.12-dev` `14-dev`             | July 6th     | `sha256:78380997f81ddbe93378e01b46c09b3b50a3f776fdf74d9198ca9c3e0e7cf076` |
-|  `latest` `16` `16.3`             | July 6th     | `sha256:6cd323b4213d98b64b4fee58c83059d32fdc123b9fb0bd9ff8bac38b8b269a98` |
-|  `15.7-dev` `15-dev`              | July 6th     | `sha256:16d25ca58d42cf62f33b5a0c6087dd39c122c9232f17cc627a95a55cd082a239` |
-|  `15.7` `15`                      | July 6th     | `sha256:099366bffa14f3cf08c43e217d79a7a8f67af4b3b881654b51a1cfbac6d5122f` |
+|  `15` `15.7`                      | July 8th     | `sha256:72a330e15a64d7a38e284d4e91e7ec2a5774bcf60a5261034ed32c7832231aa8` |
+|  `latest-dev` `16-dev` `16.3-dev` | July 8th     | `sha256:1571e4020ec5f4ce5871955d7c1b4c3462de8de0a53355a26784adaee4cb28d8` |
+|  `16` `latest` `16.3`             | July 8th     | `sha256:decc92a5aea1439f938edf383dc2cb62d76dc482952609c892ff7749e8ce95cf` |
+|  `15.7-dev` `15-dev`              | July 8th     | `sha256:51f8a798bedb480bfd70422c193fe8e544d7abc9bef7a7f5381c320bcbeac021` |
+|  `14.12` `14`                     | July 8th     | `sha256:44833519f00ba248734e065d19c3cd801c0d7027a11b615f5e1d5a8555fa88bf` |
+|  `14-dev` `14.12-dev`             | July 8th     | `sha256:933f942cca7e651defb7d2bc56c3b594ed621cd56a2c9bf23fe9150a95e4f83c` |
 

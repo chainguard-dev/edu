@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the airflow Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 3rd     | `sha256:7c23be985c0236890ca7d3167978b09d880cfb1541f5a0473dbe72d7e6892e4c` |
-|  `latest`     | July 3rd     | `sha256:388454051c1d2a7606c403e7999d052d427d70524d0ce0d14d2f3610db17da4d` |
+|  `latest-dev` | July 8th     | `sha256:51593a1bc7e86a980382fca2c3e119a503b37865c53888908ae2bb076e06271a` |
+|  `latest`     | July 8th     | `sha256:5c6cd16e9e273a26f7503f5e6682135b75c13338e33ec6ac05645c28a4c4fd28` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `latest-dev` `2.9-dev` `2.9.2-dev` | July 6th     | `sha256:a7b861fb19365be1698639e99f790a094bee307afde85e63fcb4daca253b2e19` |
-|  `latest` `2.9` `2.9.2` `2`                 | July 6th     | `sha256:74bf9812bec73aa5ee976bc9926f0879746751333818b585829dc4cad74672ac` |
+|  `latest` `2.9.2` `2.9` `2`                 | July 8th     | `sha256:739331a7b6b9ba5c7a423b29fe3f7232e138fdeac555d11390cdff747eb64ae6` |
+|  `2.9.2-dev` `2-dev` `2.9-dev` `latest-dev` | July 8th     | `sha256:91450c1a8ce51780f96edcb8ba371dcb343dad9fd7fe253afa075fbb04b11eaa` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for gha-runner-scale-set-controller Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 | Registry                     | Tags                                                         |
 |------------------------------|--------------------------------------------------------------|
-| `cgr.dev/chainguard`         | No public tags are available for this image.                 |
+| `cgr.dev/chainguard`         | latest, latest-dev                                           |
 | `cgr.dev/chainguard-private` | 0, 0-dev, 0.9, 0.9-dev, 0.9.3, 0.9.3-dev, latest, latest-dev |
 
 

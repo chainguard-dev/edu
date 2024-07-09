@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the argo-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 3rd     | `sha256:36792886b22ba1bdb9bc1d92b724afdfc6c47cf258dca6f2c371b4dddcd4c018` |
-|  `latest`     | July 3rd     | `sha256:49ea11e6946cd3ba9ebd4fc27dca29cd8bac1b69a03a337f61b4f9dbbff27954` |
+|  `latest-dev` | July 8th     | `sha256:4af8d7eca59e183198da76ef4e33da70ed4081b51911bec817f324861b449f94` |
+|  `latest`     | July 8th     | `sha256:3eefea6ef0acf7248213491039975e0f8e9dd37528f4cfd56bda1dec6ea2cda5` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.5-dev` `latest-dev` `3-dev` `3.5.8-dev` | July 6th     | `sha256:21eba1e16b12cbe032e63c2270f9c77c8c417094791aca475e3c2fdeeeb75c0b` |
-|  `3.5.8` `3.5` `3` `latest`                 | July 6th     | `sha256:175ddf96f788a922b457f5377247b95f7d363710375b8f3874946cf466f140e5` |
+|  `3.5-dev` `3-dev` `latest-dev` `3.5.8-dev` | July 8th     | `sha256:ae83d7de6ecb6e0e583f9a15939de86eaaa5f845540fb34279171eb73f967079` |
+|  `3.5` `3` `latest` `3.5.8`                 | July 8th     | `sha256:dd5fe664ef694d51e58b91c2a1be7ff109b30fe3d13f82f18cf6291feee809e2` |
 

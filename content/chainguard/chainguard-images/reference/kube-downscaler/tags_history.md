@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-downscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 1st     | `sha256:0be2db0a20064c5dc35150d5c1d0acfc541631312a7e59c67ef384787644d094` |
-|  `latest`     | July 1st     | `sha256:82ae6501d1326079ca486e98f36978911ceed45f2219e6ca79495a308725c7d0` |
+|  `latest`     | July 8th     | `sha256:d6deb6035bccd23d83b864951096579d56c486fab9b29f40bc672f971117226d` |
+|  `latest-dev` | July 8th     | `sha256:388737cb7850c4398c8f9abee849c23fb861ebed3dcc33008ec53210059aef3a` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `23-dev` `latest-dev` `23.2.0-dev` `23.2-dev` | July 6th     | `sha256:966ca09143775a6f8525edf027c4d550e4dfcccbebba6b668fff1a5f2deb5cf2` |
-|  `23` `23.2.0` `23.2` `latest`                 | July 6th     | `sha256:6f07a8f97891cd6b46fb36919ad2365a9c1c4b5225b07bf29e5d84d798d1614e` |
+|  `23` `23.2.0` `23.2` `latest`                 | July 8th     | `sha256:6f3abe313949317a7eecff07b9dfcd6fbb434b57493c864c741fd0dcccb3537e` |
+|  `latest-dev` `23.2.0-dev` `23-dev` `23.2-dev` | July 8th     | `sha256:a3434aae3eb9937c4cb291c261a609d628caf3b8723ddcb10704b435f568f23a` |
 

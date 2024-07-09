@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crane Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 3rd     | `sha256:6f79916804543eb52c71d46e00628ad97842fe04ab7b0e330eceda72392f8d36` |
-|  `latest`     | July 3rd     | `sha256:0175f47f714ed7e1aefe54a4f0b0ea7ab03e7d3ffb275d6597bd0c5bf295ad59` |
+|  `latest-dev` | July 8th     | `sha256:4c911de8efcc98b65bb1e80e4e65829b958237e4b659946916fa2a6e7d6d99bf` |
+|  `latest`     | July 8th     | `sha256:1e3435e927669ecd4833df90d566741c799512ba5c5237c7a8fc978c011f542e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `0.19.2` `latest` `0.19`                 | July 6th     | `sha256:780ce230e14a6bdfd04002b1790f21b633e327ebfd34b499a7725dfd741eca79` |
-|  `0.19.2-dev` `latest-dev` `0-dev` `0.19-dev` | July 6th     | `sha256:eb72a139e655e954bcd44eff927e59fc5601145cc7df62aa2280d584f684efc4` |
+|  `0.20-dev` `0-dev` `0.20.0-dev` `latest-dev` | July 8th     | `sha256:ec1d572ab49b964648e81e767f2daafdf3b686f26c4f36aac8274b6b0ef3cc32` |
+|  `0.20` `0.20.0` `latest` `0`                 | July 8th     | `sha256:059d1319a6bed30af01165ac5df997c844c758db6d062ec4de9fef6743b65b4e` |
+|  `0.19` `0.19.2`                              | July 8th     | `sha256:6765ed3b6f03f54bbc7e54706a47d70453a8892e9c9811ab0029a21e645d7278` |
+|  `0.19.2-dev` `0.19-dev`                      | July 8th     | `sha256:7d8c43ecd99edcc585cf52b1d1cfe0e4d359bd66e9feadceb6990f3b5fa7b775` |
 

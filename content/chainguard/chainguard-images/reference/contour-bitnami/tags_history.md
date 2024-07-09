@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the contour-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.29-dev` `1-dev` `latest-dev` `1.29.1-dev` | July 6th     | `sha256:09b186eecfa5f035154a42d85531fbec1878753f4e735152a072cbcabba7e36e` |
-|  `1.28.5` `1.28`                              | July 6th     | `sha256:631d25d45b480aec9f90781ee2313973a49f9d6357189cfc25c561afdd7a7936` |
-|  `1.29.1` `1.29` `1` `latest`                 | July 6th     | `sha256:c996fd5e58c987dc42e6c40e0552421a2dd36a9fa2f4f259a404c5bbf7a4ac37` |
-|  `1.27` `1.27.4`                              | July 6th     | `sha256:cd0df54237331cd1f83a8c1785781b9b51b0e3f22b6d62a590d54c9b9409fadb` |
-|  `1.27.4-dev` `1.27-dev`                      | July 6th     | `sha256:1af5a3dfc4d68805ccae56d7adb28b60337559672647972c7dc2177c4a2764e5` |
-|  `1.28.5-dev` `1.28-dev`                      | July 6th     | `sha256:0e3a5e2f8cc20b77ff7ca246400984aac88d878b0c4072109f4b7ea54d668e29` |
+|  `1.28.5` `1.28`                              | July 8th     | `sha256:b6e0fdb8964d25279a4e85363a922a391629a14df2b14cb6cbc110d166ada7da` |
+|  `1.29-dev` `1-dev` `1.29.1-dev` `latest-dev` | July 8th     | `sha256:63e4bead113a6bad55476a2d8f61338fada38ae1f9da522bec4018e2d3e07794` |
+|  `latest` `1` `1.29.1` `1.29`                 | July 8th     | `sha256:3d9fe3594614d070a45615d3e56176bed1eb551e915b65711e4af716ada65e88` |
+|  `1.28.5-dev` `1.28-dev`                      | July 8th     | `sha256:e6bfc951943eb41a5255d417a65b20abf6ced88e2a4a75ec00053448c25df250` |
+|  `1.27.4` `1.27`                              | July 8th     | `sha256:2262adf1d050ce33c1502ca746d849f547fc9e69811dbe6ea1af07e5e4781563` |
+|  `1.27.4-dev` `1.27-dev`                      | July 8th     | `sha256:29391df1b71b37a30bf49874efe6a7cc8cbd55e6dc333eccd0bb2549cdc8edf5` |
 

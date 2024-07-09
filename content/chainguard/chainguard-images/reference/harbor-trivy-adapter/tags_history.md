@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the harbor-trivy-adapter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | July 3rd     | `sha256:9bbda9c70652d5e935202a8e88fedaa9cefc37e67cc055dc602824c910af6a31` |
-|  `latest-dev` | July 3rd     | `sha256:8ac72254409fd411ed4ab60e6f231d0f8d30c5e933335d2675a048a0481b21f0` |
+|  `latest-dev` | July 8th     | `sha256:5ec684f6e063654d270ed63d8ceea12d336ab046fd7f5c1c87c61fe87a1df9df` |
+|  `latest`     | July 8th     | `sha256:274b8fc66df9b337df4c30c36e32ee245a5f3ca4f98201f7e932a5972a761c54` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.31.3-dev` `latest-dev` `0.31-dev` `0-dev` | July 6th     | `sha256:304b906fc8a0a61d2a74a20e3997e017e8491c8f224123fe112bdb3b40d6010c` |
-|  `0.31.3` `0` `0.31` `latest`                 | July 6th     | `sha256:0bda16c43fe1549779459710bc44ba680a9171e6529d101b309391ee17f38543` |
+|  `0.31` `0` `latest` `0.31.3`                 | July 8th     | `sha256:ba1703749526392ef0001987ed52bb9d5b53a18cac22c86bb9f3b4061801ab6c` |
+|  `0-dev` `0.31-dev` `0.31.3-dev` `latest-dev` | July 8th     | `sha256:e1e783e1645d8112f5240845374a3effc31010726a76fbfa0f9ca0f0507f7a3e` |
 

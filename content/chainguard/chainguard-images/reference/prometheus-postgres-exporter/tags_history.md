@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-postgres-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 3rd     | `sha256:b5e6100f62fcbdfb7bf5bafe28848cf83987300a0bdfb3b946718eeba0732a4e` |
-|  `latest`     | July 3rd     | `sha256:ce87aa4e5ede8bfb56af23f494501d676058d11103aa5f311f491807edfc81d7` |
+|  `latest-dev` | July 8th     | `sha256:c81cca6cab42a4a352dd86d7366c076ebcf387adcf0ff939b90a3b362d9587b8` |
+|  `latest`     | July 8th     | `sha256:6d7da3bafb669e201c1c6f161ff7275b91562e27e4f3832815baf33a51fb2bbc` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.15.0-dev` `latest-dev` `0.15-dev` `0-dev` | July 6th     | `sha256:87bc0e9a9387591880c010778983c54b0df057f5817afb4fde4e530d8f4bf607` |
-|  `0` `0.15` `0.15.0` `latest`                 | July 6th     | `sha256:d8c25a042bac9408fc91d4d0bdc6fe42c4a78eea4630fd0c36e6453268a9f17b` |
+|  `0` `0.15.0` `0.15` `latest`                 | July 8th     | `sha256:fffc7ddfdb81738a7271372d902811815a9e23046ddb8aad0bed08f22acea7f8` |
+|  `0.15-dev` `latest-dev` `0.15.0-dev` `0-dev` | July 8th     | `sha256:5c8fd0609a3528671753dbc984194be156801ab7305fe73bfb5e258e78f9fb54` |
 

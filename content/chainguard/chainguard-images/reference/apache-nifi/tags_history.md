@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the apache-nifi Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 5th     | `sha256:c37a2951cec6ebccb094332d7691fc15a0b6253e793c891cbec12c603aeff170` |
-|  `latest`     | July 5th     | `sha256:31aa541fe6e7f26d9f7292ef2bd40ac32812575ad2ae5d487fe84c6eac540e4d` |
+|  `latest-dev` | July 8th     | `sha256:1848bb897a5ab863eb186d39b5e79187118ee56cd8ba1b696eb57a34f69a20b7` |
+|  `latest`     | July 8th     | `sha256:ff4118196d12b4643734e7a3155382404b8c1b61eded2535c3dd4a3617a781a6` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.26-dev` `1.26.0-dev` `1-dev` `latest-dev` | July 6th     | `sha256:d1c47047dad049a0781ac6f46b917635c9884c28f6be044040d1a6b7154a996e` |
-|  `1.26` `1.26.0` `1` `latest`                 | July 6th     | `sha256:cb7614b7fa0a3ca79e664ae2b5625c44172c0119a3d28c1f3b72a1042a9d5f97` |
+|  `1.27` `1.27.0` `1` `latest`                 | July 8th     | `sha256:9cc013c5a4b67358fc8c6547f6440d88208cfa9069f1e52fd8d2c76df16b781e` |
+|  `1-dev` `latest-dev` `1.27-dev` `1.27.0-dev` | July 8th     | `sha256:b10ffa08a17d73f63790b721ebd758f161233069076031f49b682b6554652dc1` |
+|  `1.26-dev` `1.26.0-dev`                      | July 6th     | `sha256:d1c47047dad049a0781ac6f46b917635c9884c28f6be044040d1a6b7154a996e` |
+|  `1.26` `1.26.0`                              | July 6th     | `sha256:cb7614b7fa0a3ca79e664ae2b5625c44172c0119a3d28c1f3b72a1042a9d5f97` |
 

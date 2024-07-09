@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opensearch-dashboards-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2` `latest` `2.15` `2.15.0`                 | July 7th     | `sha256:0341c2c3b7d539970abbde078ed192e8c919ad1bec69a856d4c75dc0e88fe7a3` |
-|  `latest-dev` `2.15.0-dev` `2.15-dev` `2-dev` | July 7th     | `sha256:7f2eac0a4782c8a41292b65592426b01258d8cc0feeb416b3d1f389e08ce7792` |
+|  `2.15-dev` `2.15.0-dev` `latest-dev` `2-dev` | July 8th     | `sha256:22c03b6b5c499b4002dad44409483ab70ef53358cf67ae78f5337043a0ed3249` |
+|  `2` `latest` `2.15.0` `2.15`                 | July 8th     | `sha256:c31c79bb648c457ea043be561098ae68347f2e372ecd474e91215913bfea4063` |
 |  `2.14.0` `2.14`                              | July 4th     | `sha256:7bae9f04a75b888d9a38e2c0090a7e77167884e14e7eb0b8a98b11688b61dbf7` |
 |  `2.14.0-dev` `2.14-dev`                      | July 4th     | `sha256:431ab95dcbde9860eec785beb0ee06cf8e8ca1963ab2b90ddaecf1ae5d0ea4b1` |
 

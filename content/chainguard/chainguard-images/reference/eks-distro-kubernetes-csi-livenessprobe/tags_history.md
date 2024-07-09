@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-livenessprobe Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.11.0-r7-eks-1-23-33` `2.11-eks-1-23-33` `2.11.0-eks-1-23-33` `2-eks-1-23-33` `2.11.0` `2.11`                                              | July 6th     | `sha256:2516acac3670764cdd76cbfff76bfcc1287b11b9b7b87efa34a0d873930bc28f` |
-|  `2.12.0-r9-eks-1-25-33` `2-eks-1-25-33` `latest` `2.12` `2.12-eks-1-25-33` `2.12.0` `2.12.0-eks-1-25-33` `2`                                 | July 6th     | `sha256:f58d368f4f8aa79348eb0119fe8c68621b316bf86592560f60534a45fa28912a` |
-|  `2.11.0-eks-1-23-33-dev` `2.11-dev` `2-eks-1-23-33-dev` `2.11.0-r7-eks-1-23-33-dev` `2.11-eks-1-23-33-dev` `2.11.0-dev`                      | July 6th     | `sha256:78457a98bbd7229c97e38118431dfc2e60f31d533d5433b8fe0d3b525195cd99` |
-|  `latest-dev` `2.12.0-eks-1-25-33-dev` `2-dev` `2.12-dev` `2.12.0-r9-eks-1-25-33-dev` `2-eks-1-25-33-dev` `2.12-eks-1-25-33-dev` `2.12.0-dev` | July 6th     | `sha256:18e080738276bad7548f9b7b1e4520cd7fed6faefd73c8493a416ad29ea65fac` |
+|  `2.12.0-r9-eks-1-25-33-dev` `2-eks-1-25-33-dev` `2-dev` `latest-dev` `2.12-dev` `2.12.0-dev` `2.12.0-eks-1-25-33-dev` `2.12-eks-1-25-33-dev` | July 8th     | `sha256:388d5dd305a7c2afdadaffbeb978a556de32c7bb947695556fd67c2a25d5e699` |
+|  `2.11.0-eks-1-23-33-dev` `2-eks-1-23-33-dev` `2.11.0-r7-eks-1-23-33-dev` `2.11-dev` `2.11.0-dev` `2.11-eks-1-23-33-dev`                      | July 8th     | `sha256:0b7368920279f9350de7196710f44f4c89e84bb2a009bdec5f508df264d95f2d` |
+|  `2.12-eks-1-25-33` `2-eks-1-25-33` `2.12.0` `2.12` `2.12.0-r9-eks-1-25-33` `2` `latest` `2.12.0-eks-1-25-33`                                 | July 8th     | `sha256:9f92bd8a55bdf7641b00fb4e3f0a5291eec48ad25b7429ee98bd474b25ce3434` |
+|  `2-eks-1-23-33` `2.11-eks-1-23-33` `2.11` `2.11.0-eks-1-23-33` `2.11.0-r7-eks-1-23-33` `2.11.0`                                              | July 8th     | `sha256:f21852bbe16939e68a9ec8bfd5c1a918e433c77e9b134f56fade676b1432f513` |
 

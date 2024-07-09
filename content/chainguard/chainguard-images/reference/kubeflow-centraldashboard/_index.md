@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: kubeflow-centraldashboard Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,7 +37,7 @@ For more information, see the [Kubeflow Central Dashboard](https://www.kubeflow.
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard-private/kubeflow-centraldashboard:latest
+docker pull cgr.dev/chainguard/kubeflow-centraldashboard:latest
 ```
 
 

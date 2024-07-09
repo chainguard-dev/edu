@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the chromium Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | July 5th     | `sha256:fbb44318f1f5874c2aa1e94262e8e99d2a414bb61d80c247720849a4f229ef71` |
-|  `latest-dev` | July 5th     | `sha256:2c4471fd252457d677321105305e70ae116733b07fb4c3964687e09780b68267` |
+|  `latest-dev` | July 8th     | `sha256:66909e0646353a4f029d33b7ab2bd017118c6cb6b9c710fd218f1f2122d5c132` |
+|  `latest`     | July 8th     | `sha256:0adca1cdba34b6d506441699452f12e0b3d5e298744526a3ff19ebfb2f23a119` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                   | Last Changed | Digest                                                                    |
 |---------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `126.0.6478.126` `126.0.6478` `126.0` `126` `latest`                     | July 6th     | `sha256:af147bc49ed54d982dc671ce75272718c74d2f4b4318a4fb92d8c6360fd46f82` |
-|  `126.0.6478.126-dev` `latest-dev` `126.0.6478-dev` `126-dev` `126.0-dev` | July 6th     | `sha256:1237da30ba6de6f7a0160adfb94dbcb83ad5a923001ce619bec0643378491a27` |
+|  `126.0.6478.126-dev` `126-dev` `126.0-dev` `latest-dev` `126.0.6478-dev` | July 8th     | `sha256:3ed9c6b1d1beab4ea051b3f364a825be612fe480a6978de71496e9b39b54b506` |
+|  `latest` `126.0.6478` `126` `126.0.6478.126` `126.0`                     | July 8th     | `sha256:00c77408c815f456277704f699a8c06d651f8796c6c8325edab1c2107f0358a2` |
 

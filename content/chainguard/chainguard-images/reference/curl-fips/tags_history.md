@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the curl-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8.8.0-dev` `8.8-dev` `latest-dev` `8-dev` | July 6th     | `sha256:a112808643d2a23ec5516419302befc01b807f39ecc75b174d142c17e817fd3e` |
-|  `8` `latest` `8.8.0` `8.8`                 | July 6th     | `sha256:934db6c6f8cb2824bfaf8075cc2c8066080dd2ff5dd77c56946f08f6c3c5b773` |
+|  `8.8.0` `8` `8.8` `latest`                 | July 8th     | `sha256:18640528027c1f509d0cbd57f849a5108e3deafe7a9984488cd9c4f3448ca82b` |
+|  `latest-dev` `8-dev` `8.8.0-dev` `8.8-dev` | July 8th     | `sha256:0e8befd9c98137dadf3653e44ed26f256997bb31f8f8f5bf8b61ec2f7a075bc0` |
 

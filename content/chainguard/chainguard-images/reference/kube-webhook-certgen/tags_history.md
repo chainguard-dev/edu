@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-webhook-certgen Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,13 +26,19 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-Currently, there are no Developer versions of this image available.
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | July 8th     | `sha256:01d124271c2dbe5cd8f5a2f7ff76183b4d4b1e81c62801e6083dd3b5011d14f4` |
+|  `latest-dev` | July 8th     | `sha256:467c97c7667ce97960250ca23b52540eaae541a8cc24607cd65e745089572c82` |
+
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.10.1` `latest` `1.10` `1`                 | July 6th     | `sha256:5dba566799d77f4fc8a8181cfde74cadcb8a16e49d58d249c6ed4f1cc51ed710` |
-|  `1-dev` `1.10.1-dev` `1.10-dev` `latest-dev` | July 6th     | `sha256:aaec179faa346d368b3c23ba83b4a8656ee49d5f9baff3febc41430985e914c8` |
+|  `latest-dev` `1-dev` `1.11-dev` `1.11.0-dev` | July 8th     | `sha256:5c69ec5f84f220f02869648bbbc04218c3f881445fb78dd3e28b05d39bab20cf` |
+|  `1.11.0` `1.11` `latest` `1`                 | July 8th     | `sha256:ef4dac57e2a704e54cca6f687c4d3e1fccded3ba8ea4788b0373b9b45d1308aa` |
+|  `1.10.1-dev` `1.10-dev`                      | July 8th     | `sha256:b3d6a12b77daff1fe62634a4e500709ec2d857b29b35548bd893f68f27bcf926` |
+|  `1.10` `1.10.1`                              | July 8th     | `sha256:5f2f65e351863c8dc7eac7ff5e44d1d152f92486c9c08e41b6dcc92da0f149d6` |
 
