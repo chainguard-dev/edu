@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the clickhouse Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 3rd     | `sha256:2cfeda71253ac7280eeaee35d79a293d9a1cf1dd4635d3f15c3525bb9d590c6a` |
+|  `latest`     | July 8th     | `sha256:1c0e14e379aaf6afd36d7a0d8565f657dcf45476a2b14107bc25527dd038e99e` |
+|  `latest-dev` | July 8th     | `sha256:36560b4029bf6c0067860d1b29bb0abf53a9b275e70791da5ec6d14278e5f5bb` |
 
 
 ### Private/Dedicated Registry
@@ -36,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                        | Last Changed | Digest                                                                    |
 |----------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `24.2.2` `24.2` `24.2.2.71` `24`                     | July 6th     | `sha256:881a84c9ebfbc63d5d528a735b14ba421364582b121a381fde5c9da17522eb89` |
-|  `23.8.15.35` `23` `23.8.15` `23.8`                            | July 6th     | `sha256:bebf883924797e0c695331cf33e3eef7cf3ac69a026104c69313395625b88c4d` |
-|  `24.2-dev` `latest-dev` `24.2.2-dev` `24-dev` `24.2.2.71-dev` | July 6th     | `sha256:4405d7e839a9c92c449bc956aca60d3e1563369bfa38f0a01a097201e57ec7f9` |
-|  `23.8.15.35-dev` `23.8.15-dev` `23-dev` `23.8-dev`            | July 6th     | `sha256:c65af1638dd6f1b454eadd3a7ba134a6047ba2a914938b54b26f1a25b574722b` |
+|  `24.2.2.71-dev` `24-dev` `24.2-dev` `latest-dev` `24.2.2-dev` | July 8th     | `sha256:5b277d1499d5f1f4618c3cfd07f86bff612c4d93a8fa6abb1c22e038760a6f0f` |
+|  `23` `23.8` `23.8.15.35` `23.8.15`                            | July 8th     | `sha256:a049468d22d5bf13dc6391d1affee7821f676a34cc660fa8b48912eae238bfa0` |
+|  `24.2.2` `24` `latest` `24.2` `24.2.2.71`                     | July 8th     | `sha256:930dc72128dd615488c2fc0de9fd582959754932ef451dba10120b7987765a85` |
+|  `23-dev` `23.8-dev` `23.8.15.35-dev` `23.8.15-dev`            | July 8th     | `sha256:c67873fee2173d39d3be14cd084295e2e6b97224855009b6477f1505cbb88203` |
 

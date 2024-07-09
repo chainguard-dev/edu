@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the secrets-store-csi-driver-provider-gcp Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 3rd     | `sha256:933486ab253778d04ce2ad79e73be38a335e0aba678ceeba0122054ba458149a` |
-|  `latest`     | July 3rd     | `sha256:583d3675a825fa7000b46e32c9f481e041e3d930a173da1acf23800fb69b49a8` |
+|  `latest-dev` | July 8th     | `sha256:a29c2b66c7eaf6918950f445fb4f624faf80bb689d6199a7643b5d7f3e99ae7b` |
+|  `latest`     | July 8th     | `sha256:6c0e8f78c63b71f86a0d5752f3abe6b685f85f642043e0f7efd35cde335180c4` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.5-dev` `1-dev` `latest-dev` `1.5.0-dev` | July 6th     | `sha256:b02fcdfe52e5c2a614910a759cc585d00ea21da418025ebbcd2a114d008f9a0d` |
-|  `1.5` `1` `1.5.0` `latest`                 | July 6th     | `sha256:9094fa1f947c7f72990157ffe9f81908ee8f7c66ad92708b389b0f21963ccd01` |
+|  `1-dev` `latest-dev` `1.5.0-dev` `1.5-dev` | July 8th     | `sha256:35af7ad94c108d7a440d18fc7b9900f460a6dcb6fe3fc5b1b3d27ac7a1f73459` |
+|  `1.5` `latest` `1` `1.5.0`                 | July 8th     | `sha256:08ba2145261694af3252ccef49129de97b4fc582135186885d0ebc0a018e54d6` |
 

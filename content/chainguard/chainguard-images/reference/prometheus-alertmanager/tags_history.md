@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-alertmanager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | July 5th     | `sha256:ca85a9df8215098241cdf8b9768bb5f7e86236143afa734bab1a910e420c07df` |
-|  `latest-dev` | July 5th     | `sha256:ecbd15c5ddc7aa50cfb12b2f839fb83fdd1a54b74056488ea4e6041eef355527` |
+|  `latest-dev` | July 8th     | `sha256:51c94d4f7318b49116110376c46b6d135319c43b90c8f77f4e9b660ba57257cf` |
+|  `latest`     | July 8th     | `sha256:883f3687950ee85021722d11a73239c3e99300ac40ebcaf05143137b904af7e8` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.27` `0.27.0` `0` `latest`                 | July 8th     | `sha256:8b659cb7c8d669433399ed7d03ba3255e528fdd8161706785e17c6de4e5dad59` |
-|  `0.27.0-dev` `0-dev` `0.27-dev` `latest-dev` | July 8th     | `sha256:aa0c6ce6488464fee069adc6deeb965df1672517a1c308533dd5ad8b9e15a660` |
+|  `latest-dev` `0.27-dev` `0.27.0-dev` `0-dev` | July 9th     | `sha256:6feb0f845fbcc2c00e5606b164c24c812c166ee4912963b3ca1a87714034e4c9` |
+|  `0` `0.27.0` `latest` `0.27`                 | July 9th     | `sha256:0d5368aede6abe3437456b6171a00f522e141a540113d2cccba14435f4d8a0f7` |
 

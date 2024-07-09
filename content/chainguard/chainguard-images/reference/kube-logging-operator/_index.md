@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: kube-logging-operator Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -34,7 +34,7 @@ Minimal Logging operator for Kubernetes Image
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard-private/kube-logging-operator:latest
+docker pull cgr.dev/chainguard/kube-logging-operator:latest
 ```
 
 

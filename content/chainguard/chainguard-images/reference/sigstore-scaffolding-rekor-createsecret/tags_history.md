@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-rekor-createsecret Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 4th     | `sha256:15f1f885cad4b7bf14ce9dd20db9986656e07b67224fbe54f40c795f9ca083ba` |
-|  `latest`     | July 4th     | `sha256:5c8f443f8ab4f8388306382af15a8b2204035048e990bb0810a75667051ad24d` |
+|  `latest-dev` | July 8th     | `sha256:298b85f0ca3ff5c8833da8383f6517ce5a082042a7aea08e5b0123093d63fd20` |
+|  `latest`     | July 8th     | `sha256:b3a43fd194898f7d61af73760962d3ea5e28e9add93013f4dcf1333da1ebe3c6` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `latest` `0.7` `0.7.3`                 | July 6th     | `sha256:82a1db608f47ffc3ca732b5f498f0095cbdf4a3346e8bcc0237bafd9ef30909e` |
-|  `0-dev` `0.7.3-dev` `0.7-dev` `latest-dev` | July 6th     | `sha256:c1b6b08795d1a8d887a1cf004da615f549f73d92154e029b2b5369732744a8d0` |
+|  `0.7.3` `0` `latest` `0.7`                 | July 8th     | `sha256:57f55c209b8210f6efa75f8eaa5bb11ab089e9fe4ca9ad29f654dbbb6c1cac93` |
+|  `latest-dev` `0.7.3-dev` `0.7-dev` `0-dev` | July 8th     | `sha256:1fd97574c2405c0b88d2b22cb09c871dc28f3c5ebc72d1bf500cc8fe4c143218` |
 |  `0.7.2-dev`                                | July 3rd     | `sha256:ce60831b770339b45f2b58688d3ecbb8d1d39f081422d7da94115c958f714459` |
 |  `0.7.2`                                    | July 3rd     | `sha256:c3757666fc1aa86fe5a175a07de559cf763c74698086a432003e7c462017daf9` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vertical-pod-autoscaler-updater Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | July 3rd     | `sha256:a1acf2503942082268ea951e4b7f3c87205cc15691ae4894494233977366a1fd` |
-|  `latest-dev` | July 3rd     | `sha256:0bf1ab7f7d5d248b54ff4b03149edbe1e38f497660321a5f000efe412daff1b1` |
+|  `latest-dev` | July 8th     | `sha256:10d3e6a8e4bea53af85ec80a11c28f0799739d8474b51f1fc781f8ffa0dfec68` |
+|  `latest`     | July 8th     | `sha256:b1b2113e239818f908c42e0bf030c8cb194e8808727757f78fe218d984201578` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1` `1.1.2` `1.1`                 | July 6th     | `sha256:50052a0b0cf879c02dc78a73163a727b5574b256b43a45c69510a5c581417201` |
-|  `1.1.2-dev` `latest-dev` `1.1-dev` `1-dev` | July 6th     | `sha256:c2142940c7040f3fffe8dbc37c5109aa6d74e7d2859aebc95a1909595b2f3671` |
+|  `1.1.2-dev` `latest-dev` `1-dev` `1.1-dev` | July 8th     | `sha256:b963466872ec3770d9b57dddc11e6107715b681d6518aabb68fbe15e6d196634` |
+|  `1.1` `1` `1.1.2` `latest`                 | July 8th     | `sha256:fbe5e76cc621e4a02176020d6c15d4c6a3c5e5ea0b9e0306c3aa3c0e671793bd` |
 

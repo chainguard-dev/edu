@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public multus-cni-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -63,8 +63,8 @@ The table shows package distribution across variants.
 | `libssl3`                     | X          | X      |
 | `libunistring`                | X          |        |
 | `libxcrypt`                   | X          |        |
+| `multus-cni-compat`           | X          | X      |
 | `multus-cni-fips`             | X          | X      |
-| `multus-cni-fips-compat`      | X          | X      |
 | `ncurses`                     | X          |        |
 | `ncurses-terminfo-base`       | X          |        |
 | `openssl`                     | X          |        |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nfs-subdir-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 5th     | `sha256:6600931f44515c6f6bb0d4d4a4660df960ee9196369435f322e1b017522b03c1` |
-|  `latest`     | July 5th     | `sha256:9f83d5051d7db8635efc40164c444f4cd220be3d80b3a0720db023cbf47e44cc` |
+|  `latest`     | July 8th     | `sha256:3f800edf37aa68ba219e1e1d7bf512f703cd51fdbfe84422ea61211fb1c0c58b` |
+|  `latest-dev` | July 8th     | `sha256:a2a0d0327ad6cb5f82a3a3321f2aca4d7af3aaefee1deb3bfdb7e076f7738996` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.0.18-dev` `latest-dev` `4.0-dev` `4-dev` | July 6th     | `sha256:f6cbb73b1ee2e3ab246e54412b7966f1a0f56502e04e6098a145ddee345622a5` |
-|  `4.0` `latest` `4.0.18` `4`                 | July 6th     | `sha256:506aab1a5223ec836c08b560ec4e061ca6b033c0db9122179cfded47720b8270` |
+|  `4.0.18` `latest` `4.0` `4`                 | July 8th     | `sha256:6d2131784697df417ba697f196ce1fa6b03333178c99db1f1e9e0661cbf2bb5d` |
+|  `4.0-dev` `latest-dev` `4.0.18-dev` `4-dev` | July 8th     | `sha256:d771ea6cb9666926df29c02069fa41c991fef0f95a8516bfda8cb651cb9e9ae0` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opentelemetry-collector-contrib Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 3rd     | `sha256:7bf96d6500221d771fd19c3f17fe63dd7359eded4728614e6a80106a4022b6cc` |
-|  `latest`     | July 3rd     | `sha256:054083c47812fb62ffafa216649d9a7ecbce8ef2c48d95f59ca188c24c44b557` |
+|  `latest-dev` | July 8th     | `sha256:e9078cdd4c1f0bb3e42656712667b1c89e405082bea205fb2265d96860323013` |
+|  `latest`     | July 8th     | `sha256:401756ce071dc7365f63ca34707f87af9d319b4da1d180f94998dfd80c83a868` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                         | Last Changed | Digest                                                                    |
 |-------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.104.0-dev` `0.104-dev` `latest-dev` | July 6th     | `sha256:eb82d1c68f61ef509c57f32245e32b7e272d69f8887845ffc0fd7a0e2ce16b59` |
-|  `0` `0.104` `0.104.0` `latest`                 | July 6th     | `sha256:c7e644b70fa8e7963dcdac85e0d28c32a2b43b478fd0832811855372ec0d5625` |
+|  `0.104` `0` `latest` `0.104.0`                 | July 8th     | `sha256:031913b077d39a305eb423cfb57580717d3c384117d47ee53eec31deb40ccca7` |
+|  `0.104-dev` `0.104.0-dev` `0-dev` `latest-dev` | July 8th     | `sha256:fa8d4d468673a96b690d578b43e2871dc49e50d27da5056058ef6f4ffafad162` |
 

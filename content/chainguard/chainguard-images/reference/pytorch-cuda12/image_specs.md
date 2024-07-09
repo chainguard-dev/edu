@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public pytorch-cuda12 Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -48,6 +48,8 @@ The table shows package distribution across variants.
 | `git`                          | X          |        |
 | `glibc`                        | X          | X      |
 | `glibc-locale-posix`           | X          | X      |
+| `gmp`                          | X          | X      |
+| `isl`                          | X          | X      |
 | `ld-linux`                     | X          | X      |
 | `libbrotlicommon1`             | X          |        |
 | `libbrotlidec1`                | X          |        |
@@ -58,6 +60,7 @@ The table shows package distribution across variants.
 | `libexpat1`                    | X          | X      |
 | `libffi`                       | X          | X      |
 | `libgcc`                       | X          | X      |
+| `libgfortran`                  | X          | X      |
 | `libgomp`                      | X          | X      |
 | `libidn2`                      | X          |        |
 | `libjpeg-turbo`                | X          | X      |
@@ -69,7 +72,9 @@ The table shows package distribution across variants.
 | `libstdc++`                    | X          | X      |
 | `libunistring`                 | X          |        |
 | `libxcrypt`                    | X          | X      |
+| `mpc`                          | X          | X      |
 | `mpdecimal`                    | X          | X      |
+| `mpfr`                         | X          | X      |
 | `ncurses`                      | X          | X      |
 | `ncurses-terminfo-base`        | X          | X      |
 | `nvidia-cuda-cudart-12.3`      | X          | X      |
@@ -95,8 +100,10 @@ The table shows package distribution across variants.
 | `nvidia-libnvjitlink-12.3`     | X          | X      |
 | `nvidia-libnvjitlink-12.3-dev` | X          |        |
 | `nvidia-nccl-cuda-12.3`        | X          | X      |
+| `openblas`                     | X          | X      |
 | `openmp-17`                    | X          | X      |
 | `openmp-17-dev`                | X          | X      |
+| `py3.11-numpy`                 | X          | X      |
 | `python-3.11-base`             | X          | X      |
 | `pytorch-cuda12`               | X          | X      |
 | `readline`                     | X          | X      |

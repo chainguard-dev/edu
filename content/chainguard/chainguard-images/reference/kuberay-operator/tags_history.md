@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kuberay-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,13 +26,17 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-Currently, there are no Developer versions of this image available.
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | July 8th     | `sha256:e939a97c1eb984d5cea863f05e72005121655193cff050cfc1fd8a5c673b1ca4` |
+|  `latest-dev` | July 8th     | `sha256:8cd576814b7469d6dbb6a65e00d0d4cf0d9d9e95bd9d0d030383ee87fe20c655` |
+
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.0` `1.0.0` `1` `latest`                 | July 6th     | `sha256:ee91cf85ea057da260c26b8aebffd5a9d5d346968f1c3874c49baa55574ffffe` |
-|  `1-dev` `1.0.0-dev` `1.0-dev` `latest-dev` | July 6th     | `sha256:d7c0877c8cf0aad5bb732504503ee410a2a186b0dfe5fd44f64c82d550311dfd` |
+|  `latest-dev` `1.0.0-dev` `1.0-dev` `1-dev` | July 8th     | `sha256:862c72f65555b15cf48384904310fb076e4bbc4d163c9bbdb138318bfc4014ca` |
+|  `1` `latest` `1.0.0` `1.0`                 | July 8th     | `sha256:4c6ca443b1ca418cda8f948a6e2236a07d8e469a9fb78ac5f24dd1fd4ec23abc` |
 

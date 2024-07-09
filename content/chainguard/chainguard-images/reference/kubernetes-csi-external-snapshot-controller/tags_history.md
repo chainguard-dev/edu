@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-snapshot-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 3rd     | `sha256:f71680adf44b766fe8a1237af94aa2d06bee18687599598596378213ecf5f143` |
-|  `latest`     | July 3rd     | `sha256:735a45a5f0a8cd6f43771cd509480f8242d6ed7a6127bbd655404082f124e592` |
+|  `latest-dev` | July 8th     | `sha256:98173033d2661d99bfd16f766f631072ad4929fba9e246ec8ccce1909c8bda9e` |
+|  `latest`     | July 8th     | `sha256:0ce13692a9ad589b35c220d9050bc18f2c0e7b72ec009cd9b374beedc3d8ca55` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `8` `8.0` `8.0.1`                 | July 6th     | `sha256:8e28adf8502a7c692ea948099e06469c903e280dd38144b01d7fbfd3f407d13c` |
-|  `8.0-dev` `8.0.1-dev` `latest-dev` `8-dev` | July 6th     | `sha256:98569f34a0152132a43e76c781f3886b980c3b6d3f8425751991a54c2f12e3c1` |
+|  `8-dev` `latest-dev` `8.0-dev` `8.0.1-dev` | July 8th     | `sha256:7045da22a4d73b24436e92d1a33a2985d32d9e8b35b6510017ea98145c96eba4` |
+|  `latest` `8.0.1` `8.0` `8`                 | July 8th     | `sha256:57a55c04a7025eda2168911dcb4d142deab0cf906473c6ce7a442cd6acc9d250` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gcc-glibc Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,13 +26,19 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-Currently, there are no Developer versions of this image available.
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | July 8th     | `sha256:3a6942c14322d9ae0dea6e0c50cbdf86e0267544708cd3b3e97b7e1763415006` |
+|  `latest-dev` | July 8th     | `sha256:1f497e19f190316cab39d5153274dfc7d290a94c7a69f8d3a1868406eddf9869` |
+
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `13.2.0` `13.2` `latest` `13`                 | July 6th     | `sha256:351b5ef6c727fc52823f3b8cd2b39e76227c2538a3a7fe12345646fbddc71a72` |
-|  `latest-dev` `13.2-dev` `13.2.0-dev` `13-dev` | July 6th     | `sha256:6f0abaa6d246cac748d7c4bdf3bb502ffafed8c96027d6b7a9b002460f17b5de` |
+|  `13.3-dev` `latest-dev` `13.3.0-dev` `13-dev` | July 8th     | `sha256:f564be12b10989b738a36c716b17e6ed167b370a6af4e57a7c80f3baa94ccbe4` |
+|  `latest` `13` `13.3` `13.3.0`                 | July 8th     | `sha256:d28206daf2dfedfd15cedc61743ac4af98249c58713596b44899f4bdab9a0442` |
+|  `13.2.0` `13.2`                               | July 6th     | `sha256:351b5ef6c727fc52823f3b8cd2b39e76227c2538a3a7fe12345646fbddc71a72` |
+|  `13.2-dev` `13.2.0-dev`                       | July 6th     | `sha256:6f0abaa6d246cac748d7c4bdf3bb502ffafed8c96027d6b7a9b002460f17b5de` |
 

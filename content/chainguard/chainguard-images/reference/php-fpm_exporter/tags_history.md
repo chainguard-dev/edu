@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the php-fpm_exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 3rd     | `sha256:828f86aa61acea9d8a3eae5571b02e01a9d55ecf96ea6e12e5cccdb1af32928a` |
+|  `latest-dev` | July 8th     | `sha256:f1ed9150a19d285fb9701bf4b43af3d9430d7ab5ee4da61c811e171bbdaec77d` |
+|  `latest`     | July 8th     | `sha256:252a6a9a129b0b2ec9e0a9df8a99b3db17c6b4a5a95db59e845718dcdbd07234` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2` `latest` `2.2.0` `2.2`                 | July 6th     | `sha256:688bcb0aff503935a2ffa7b6bd6c8ac6c807a120870c24355540c2cc5ed50424` |
-|  `2.2-dev` `2-dev` `2.2.0-dev` `latest-dev` | July 6th     | `sha256:74215d456d2985cdecbe95a76751a27f926053b6e08b863d3b173d0c3098129d` |
+|  `2.2.0-dev` `2-dev` `latest-dev` `2.2-dev` | July 8th     | `sha256:4f7fff97344d8851a649a443ad31ed24062e5d73b71bd97a821d346f7dcf2e1c` |
+|  `latest` `2` `2.2.0` `2.2`                 | July 8th     | `sha256:d19054bb3e0d9b547b482a6e8c25fd1dba7d2c32e1331046b4f80e1fd8b98c4a` |
 

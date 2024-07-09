@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grafana-rollout-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,13 +26,17 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-Currently, there are no Developer versions of this image available.
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 8th     | `sha256:715cd1037fdb91f7950dc3527d9d1ea00e35bab706ac5f52c21a5e688e61e38d` |
+|  `latest`     | July 8th     | `sha256:4a89398a7a35cd9dacf9bc0a48c8f700d03824fc257b929ef5ea835464e55e52` |
+
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `latest` `0.14.0` `0.14`                 | July 6th     | `sha256:76584ee9a5031b3d3a858769153576305a870cc4c70d821d01716fb5c9668eb2` |
-|  `0.14-dev` `latest-dev` `0.14.0-dev` `0-dev` | July 6th     | `sha256:713b3881005781ef1210fe1937bfa11f42b12524684401112a0f823bd110fe51` |
+|  `0.14-dev` `0-dev` `latest-dev` `0.14.0-dev` | July 8th     | `sha256:28ad3e99d36bc8095e95b33d96fb598466051a06f7c341a8db3501fb19f8a310` |
+|  `0.14` `0` `latest` `0.14.0`                 | July 8th     | `sha256:f1b330057f864b75730c8798f2fb6830aa7b19f6b24a1396caf3c655cabd3b1b` |
 

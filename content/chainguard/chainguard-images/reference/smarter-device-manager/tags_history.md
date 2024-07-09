@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the smarter-device-manager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | July 3rd     | `sha256:2e7750fc4ea8759254ede931260f5e13fab26863841eb3b136c824543bd56f50` |
-|  `latest-dev` | July 3rd     | `sha256:ccfa288c93d4f41d9c6ccae8d5120d34b927b5cc9ed4ececaff1e7f26625d5c5` |
+|  `latest-dev` | July 8th     | `sha256:185c50d7ae003fbe9062aae4378924f4210d6906d2754c8545bf55f22b053bfb` |
+|  `latest`     | July 8th     | `sha256:9b56bf6ab153d744d1574729963a1ce6c3742d8134db9d160d41f631816cbdbf` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1` `latest` `1.20.11` `1.20`                 | July 6th     | `sha256:93ab55c3e3ed89c23c84bb7202d81c0b8fcee7a75b481a7bf3da541a349f7daf` |
-|  `1.20.11-dev` `1-dev` `latest-dev` `1.20-dev` | July 6th     | `sha256:e42c6407752a8ef8947f5575715709c36dd80f708f9d5053c21ad9a7f5dc7e5b` |
+|  `1` `1.20.11` `1.20` `latest`                 | July 8th     | `sha256:6a005e3504ee62dc7811b229ae6331670006d8a1ea1ddc9b0f52c2bfc4fe6e3a` |
+|  `1-dev` `1.20-dev` `latest-dev` `1.20.11-dev` | July 8th     | `sha256:2dcc4148b1b2d5ad2b2c7be49cc089dd91f785539992cb842cddd8c39c523e7a` |
 

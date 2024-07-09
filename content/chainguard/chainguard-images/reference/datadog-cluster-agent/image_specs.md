@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public datadog-cluster-agent Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -43,8 +43,8 @@ The table shows package distribution across variants.
 | `ca-certificates-bundle`                | X          | X      |
 | `chainguard-baselayout`                 | X          | X      |
 | `coreutils`                             | X          | X      |
-| `datadog-cluster-agent`                 | X          |        |
-| `datadog-cluster-agent-oci-compat`      | X          |        |
+| `datadog-cluster-agent-fips`            | X          | X      |
+| `datadog-cluster-agent-oci-compat-fips` | X          | X      |
 | `git`                                   | X          |        |
 | `glibc`                                 | X          | X      |
 | `glibc-locale-posix`                    | X          | X      |
@@ -67,12 +67,10 @@ The table shows package distribution across variants.
 | `libxcrypt`                             | X          |        |
 | `ncurses`                               | X          | X      |
 | `ncurses-terminfo-base`                 | X          | X      |
+| `openssl-config-fipshardened`           | X          | X      |
+| `openssl-provider-fips`                 | X          | X      |
 | `tzdata`                                | X          | X      |
 | `wget`                                  | X          |        |
 | `wolfi-baselayout`                      | X          | X      |
 | `zlib`                                  | X          |        |
-| `datadog-cluster-agent-fips`            |            | X      |
-| `datadog-cluster-agent-oci-compat-fips` |            | X      |
-| `openssl-config-fipshardened`           |            | X      |
-| `openssl-provider-fips`                 |            | X      |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the spire-oidc-discovery-provider Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | July 3rd     | `sha256:c6f3ddec315ce7bf028bcf08bfaa9b8f7becf643edf94974ab07f5992691d985` |
-|  `latest-dev` | July 3rd     | `sha256:cbfab658c9767644f7b36ae0b26e81c31f51564088496eb95d239e3221a79f94` |
+|  `latest`     | July 8th     | `sha256:bf022b2f9de69b9b83eb6eaf4a8b86faeabaee80b2fb9e596650ff848680ef2f` |
+|  `latest-dev` | July 8th     | `sha256:7d9d1689dede642f6cf4ad864a09b6e97e265ab0459eb5b210bbd855e5cf46ad` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.10.0-dev` `1.10-dev` `1-dev` `latest-dev` | July 6th     | `sha256:841319af543287fb546f8a02b167a4cc6b96d0c5ce91f31cbca922f548cb627d` |
-|  `1` `latest` `1.10.0` `1.10`                 | July 6th     | `sha256:3948913630fcd964944c5955a842dfd8166b0963ab337a9c286029ca1942f705` |
+|  `1` `1.10` `1.10.0` `latest`                 | July 8th     | `sha256:78e826ebea18a7d8e38d8b1636ee11395699b56b857895d8dd5a3494a872d28e` |
+|  `1.10.0-dev` `latest-dev` `1.10-dev` `1-dev` | July 8th     | `sha256:2ea2f661adc78acc69c58c6551f55ca6db3845f814975b8e375e1355243acdee` |
 

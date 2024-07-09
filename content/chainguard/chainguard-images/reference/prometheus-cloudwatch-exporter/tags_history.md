@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-cloudwatch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 5th     | `sha256:923db50a8ddf1b21605b68775cd2f321a81efa51b09850506f55b0e25c21f64d` |
-|  `latest`     | July 5th     | `sha256:94efa61dcef5ba682f928f7a3878ded662c69de78cadd84b18e7496711e8cb7c` |
+|  `latest-dev` | July 8th     | `sha256:80de6538d413f5ce7b0361b8de7168dd2584ecb1f517235f34494dcd77a44780` |
+|  `latest`     | July 8th     | `sha256:c12aae0da0c0a02cb17939c46ef4a018bb6b75190db973e1ec4d58a5d4cd4cb8` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.15-dev` `0.15.5-dev` `0-dev` | July 6th     | `sha256:2b2ba4b8558c3ef52bd45a1fc461a0aa8c36d861d4a05cea6bb621f9923f7388` |
-|  `0.15` `0` `0.15.5` `latest`                 | July 6th     | `sha256:df5ab07e22aae01a6aba19dd42c54738e55662a2511e779a3987cf29938e87f2` |
+|  `0-dev` `0.15-dev` `0.15.5-dev` `latest-dev` | July 8th     | `sha256:82eaab12281a6e5acdc694db1f5bfd415784204323aba46f439aa438c3fca1c1` |
+|  `latest` `0.15.5` `0.15` `0`                 | July 8th     | `sha256:5102a2657496207d2a32f75ac7abf7bdfaa9802e135750afdc2a1a03fe6e0ea7` |
 

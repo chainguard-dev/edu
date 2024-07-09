@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the harbor-registry Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | July 3rd     | `sha256:eec0a16482c366966eed9d7cf7b2e62316e9081c9bb702c13a332ba855bbdc00` |
-|  `latest-dev` | July 3rd     | `sha256:c2396db1c55dd4fd32d87c45fe947edc6e502ef1a6ab77a7d3dea41765198ae4` |
+|  `latest-dev` | July 8th     | `sha256:64c24a7b0048c322af406b42131fa005e2c32ddce7f4f7037660cb3be0946382` |
+|  `latest`     | July 8th     | `sha256:b2c227d2959ce835de06c95c0605f034b0830fd1e9244e5b278551cf242ba0c3` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                            | Last Changed | Digest                                                                    |
 |----------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.0-dev` `3-dev` `3.0.0_alpha1-dev` `latest-dev` | July 6th     | `sha256:fd5f2f5a94404090e9898e205fdee2d0d3f58bf4cada3332a167ef5cfb1933df` |
-|  `3.0` `3` `3.0.0_alpha1` `latest`                 | July 6th     | `sha256:ed1c6d55b8f2a9527148ae4dfcbe60b3a90f9e44ad6fb4d02a17b0ab03b12ce9` |
+|  `latest-dev` `3.0-dev` `3.0.0_alpha1-dev` `3-dev` | July 8th     | `sha256:1b0ebb641b237ea0c37837d90bdb966fbd93b1644a3697111c2dd1934fb006a9` |
+|  `3.0.0_alpha1` `latest` `3` `3.0`                 | July 8th     | `sha256:9baccc2bc80ecf7f9b9d9ae784bdae8643eccc085c98af4eaa07eaa461b1bca8` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gitness Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,13 +26,17 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-Currently, there are no Developer versions of this image available.
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 8th     | `sha256:0eb1a5c1d2c2f8e3435f1282eee6036754c2e7573cf5219e0e4ab3ec28f5605d` |
+|  `latest`     | July 8th     | `sha256:6fd72f38687b5e740ef591df36d67a6397b5db85799e70304f725b5b3dec060c` |
+
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                           | Last Changed | Digest                                                                    |
 |---------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.0.0_beta6` `3` `3.0` `latest`                 | July 3rd     | `sha256:8f9101e3e5d9a5087a128a7e1a90565faa3669688ad2a684bab1b7f82b5b34f7` |
-|  `3.0-dev` `latest-dev` `3.0.0_beta6-dev` `3-dev` | July 3rd     | `sha256:d2410f2b23ca39e781e23cebf83eca531a7f33d2cc71bedc0d986c70360c15d9` |
+|  `3.0.0_beta6-dev` `latest-dev` `3-dev` `3.0-dev` | July 8th     | `sha256:2d438faeb9f9a648179a2a59ce2babc07d0e48498f7c178eae9b1ead442c76a2` |
+|  `latest` `3.0` `3` `3.0.0_beta6`                 | July 8th     | `sha256:7949d8056347a1669da96793295f68973eb6b53bf2920130cef2e2a4c7e5c040` |
 
