@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-prometheus-configurator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 3rd     | `sha256:b5961d4c3497675ad6ba80033edfcf4b8f77a230512429b1258d086e9dba1127` |
-|  `latest`     | July 3rd     | `sha256:7412ffbec0e396b88d0127a7e2f4534c86cf0c8faf925d1fc1c0c900237275be` |
+|  `latest-dev` | July 8th     | `sha256:7cd2b0181eb11662486f54f7edf048bbbb0e840bf6350261f8fdc48beb88a9d1` |
+|  `latest`     | July 8th     | `sha256:2fa59f18e6cf18c72e708af77ea985e3a5c14bddd03ce2800f59cd5bb671eb3e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.17.0-dev` `1.17-dev` `1-dev` `latest-dev` | July 6th     | `sha256:f77a3641e1d669cebd4a048c9ce7ef34c331dd479843ba31784246ab7877d51c` |
-|  `latest` `1` `1.17` `1.17.0`                 | July 6th     | `sha256:813e5051f3e80741282573fd33f55feea7e043e5f912362dc8247a3909f01709` |
+|  `1.17` `1.17.0` `latest` `1`                 | July 8th     | `sha256:70a8836e08d039aa67ac7a59bbbfaa3cd513cd3d630608d70764f5b271896c9d` |
+|  `1.17.0-dev` `1.17-dev` `1-dev` `latest-dev` | July 8th     | `sha256:7f47ac14be0ac5b20d9d8d202f08bec0e8617905b91e09bb62572a4e5a539b97` |
 

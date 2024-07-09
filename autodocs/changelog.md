@@ -1,3 +1,12 @@
+# 2024-07-09
+New images added:
+
+- adoptium-jdk
+- adoptium-jre
+- mattermost
+
+A total of **937** documents were updated.
+
 # 2024-07-08
 
 

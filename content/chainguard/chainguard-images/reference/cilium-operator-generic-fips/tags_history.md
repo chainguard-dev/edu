@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-operator-generic-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.15` `1` `1.15.6` `latest`                 | July 6th     | `sha256:fc7b603ed48e05d41b2a4e6d70649537ef35163e773c37cdf696685ea277d8d9` |
-|  `1-dev` `1.15.6-dev` `latest-dev` `1.15-dev` | July 6th     | `sha256:e310997e7a9424d4ef92c5985680f60b3cb6d4812728772c3ceccb688a753a19` |
-|  `1.14-dev` `1.14.12-dev`                     | July 6th     | `sha256:225458b3b913265af33d131c8549cb9db0079527a7101e343e4d887d574fe43b` |
-|  `1.14` `1.14.12`                             | July 6th     | `sha256:628d42bdfd7e4844942d4989819f2a33266f88bc983c5525455d2348c5f4058e` |
+|  `1.15-dev` `1.15.6-dev` `latest-dev` `1-dev` | July 8th     | `sha256:8badb96f9d7f2063529a9ef4d27bbda6ddd30cf9fb593bdc909d56444e9f1d63` |
+|  `1.14-dev` `1.14.12-dev`                     | July 8th     | `sha256:3727c4ae6716d6134f8903d355885897c0f4665193cd6195be44c6f9a1170273` |
+|  `1` `1.15.6` `latest` `1.15`                 | July 8th     | `sha256:b7df92ee54cc6f2550399c92d4c46b4a6832ac1b8e384e940dbeaa16b4151c78` |
+|  `1.14.12` `1.14`                             | July 8th     | `sha256:0a25b8cb10cd23247c7d17de81294e412491a3ff519244ba8b71f875d74764ce` |
 |  `1.14.11`                                    | July 3rd     | `sha256:c4d5f551a9441b6363208925215225a9f9469f07e462cd1c94afd90290c920bc` |
 |  `1.14.11-dev`                                | July 3rd     | `sha256:c5223ba79c0cab115ca703515073eac814301ea4a55ca4582f56a377c4ee9921` |
 

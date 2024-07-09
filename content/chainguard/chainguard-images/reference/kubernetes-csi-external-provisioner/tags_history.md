@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 3rd     | `sha256:0402de7b3ca7d8831a58fab04af8f8d7cf4bbdd9f2f309f1ff2e28d94f85b84f` |
-|  `latest`     | July 3rd     | `sha256:ab82c1f00028db7962167c2abd8d102ee83c6f323d8c4a162a983d89b56baff7` |
+|  `latest-dev` | July 8th     | `sha256:0b7bea71c2e03c6654596ec1c9ef6e198cd8100bc85beac109031f5e2002c63d` |
+|  `latest`     | July 8th     | `sha256:f913650fe8a61f4eb09bf889b1f570e1b0eb7d978a145e0a22552658783af992` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `5.0.1-dev` `5-dev` `latest-dev` `5.0-dev` | July 6th     | `sha256:37d68bfcb33400991e8473c6cabd39a4c827306016c905fb172c236e2a2c6d37` |
-|  `5.0` `5.0.1` `5` `latest`                 | July 6th     | `sha256:4d8f4df030685f75b2dfbeb1afe1dc0c26dfcdb7d403cae9f5c29d8b060085d0` |
+|  `5.0-dev` `5-dev` `latest-dev` `5.0.1-dev` | July 8th     | `sha256:cabc204a0e4065958f53241b5a2903f39c9cc9eaf380f41a13ecabbcd25ee5cd` |
+|  `5` `5.0` `5.0.1` `latest`                 | July 8th     | `sha256:f2deb5795d8a28803382310b8d586612f8dc391fd807c8a9255c07b5e6f2fe2d` |
 

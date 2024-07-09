@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-config-reloader Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | July 3rd     | `sha256:edaacbe7a345555bef4417b3749a360873db3fa64ec9ef59b33588736f62e8db` |
-|  `latest-dev` | July 3rd     | `sha256:4788908a6edc549dc6cbac9ba53bbc9dc8320d82e4277aa30f25285ea72ab9dd` |
+|  `latest-dev` | July 8th     | `sha256:ac427107771755b2f35d8811a664802cdc3b70f0b2a750b4e2248001aee6cd3d` |
+|  `latest`     | July 8th     | `sha256:5182a8dd44997b56dfbe1b9dfb3797a4acf67044c9753aa4fa89ed7969c2b5d7` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.75.1-dev` `0-dev` `latest-dev` `0.75-dev` | July 6th     | `sha256:d934ee28e4fe42214ed884c24a568f01b1e3449ee29041ef4eacc07ff73115aa` |
-|  `0.75` `0.75.1` `0` `latest`                 | July 6th     | `sha256:9e5d0d20fcfe003a57d0c0a8ce008bcf30f475ecdcb6f1cf4435994fc5fda9f1` |
-|  `0.75.0-dev`                                 | July 1st     | `sha256:0c5a06764351c99d08acc37e06db4ad9dbdb8a64e8c9ad102bd7fdf1a8ec3c2c` |
-|  `0.75.0`                                     | July 1st     | `sha256:891c3601cee6f4cc0db685c2981ea19ebe23d0a66fa80db6fd8318e2f5a5adc4` |
+|  `0.75` `0` `latest` `0.75.1`                 | July 8th     | `sha256:555fbdfaac0e2819c7dbb4c4f8aa868ad9190867cc33cb5b78a15cb8dbc80a71` |
+|  `0.75-dev` `latest-dev` `0-dev` `0.75.1-dev` | July 8th     | `sha256:190fe98e0e475697db78e66c547f11d60f3ddd2f7c0a19c4d739e6c9202d95e2` |
 

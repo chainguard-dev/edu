@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public glibc-openssl-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -21,53 +21,53 @@ toc: true
 
 This page shows detailed information about the Chainguard **glibc-openssl-fips** Image.
 
-|              | latest-dev    |
-|--------------|---------------|
-| Default User | `nonroot`     |
-| Entrypoint   | not specified |
-| CMD          | not specified |
-| Workdir      | not specified |
-| Has apk?     | yes           |
-| Has a shell? | yes           |
+|              | latest-dev    | latest        |
+|--------------|---------------|---------------|
+| Default User | `nonroot`     | `nonroot`     |
+| Entrypoint   | not specified | not specified |
+| CMD          | not specified | not specified |
+| Workdir      | not specified | not specified |
+| Has apk?     | yes           | no            |
+| Has a shell? | yes           | no            |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/glibc-openssl-fips/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                               | latest-dev |
-|-------------------------------|------------|
-| `apk-tools`                   | X          |
-| `bash`                        | X          |
-| `busybox`                     | X          |
-| `ca-certificates-bundle`      | X          |
-| `chainguard-baselayout`       | X          |
-| `git`                         | X          |
-| `glibc`                       | X          |
-| `glibc-locale-posix`          | X          |
-| `ld-linux`                    | X          |
-| `libbrotlicommon1`            | X          |
-| `libbrotlidec1`               | X          |
-| `libcrypt1`                   | X          |
-| `libcrypto3`                  | X          |
-| `libcurl-openssl4`            | X          |
-| `libexpat1`                   | X          |
-| `libgcc`                      | X          |
-| `libidn2`                     | X          |
-| `libnghttp2-14`               | X          |
-| `libpcre2-8-0`                | X          |
-| `libpsl`                      | X          |
-| `libssl3`                     | X          |
-| `libstdc++`                   | X          |
-| `libunistring`                | X          |
-| `libxcrypt`                   | X          |
-| `ncurses`                     | X          |
-| `ncurses-terminfo-base`       | X          |
-| `openssl`                     | X          |
-| `openssl-config-fipshardened` | X          |
-| `openssl-provider-fips`       | X          |
-| `openssl-provider-legacy`     | X          |
-| `wget`                        | X          |
-| `wolfi-baselayout`            | X          |
-| `zlib`                        | X          |
+|                               | latest-dev | latest |
+|-------------------------------|------------|--------|
+| `apk-tools`                   | X          |        |
+| `bash`                        | X          |        |
+| `busybox`                     | X          |        |
+| `ca-certificates-bundle`      | X          | X      |
+| `chainguard-baselayout`       | X          | X      |
+| `git`                         | X          |        |
+| `glibc`                       | X          | X      |
+| `glibc-locale-posix`          | X          | X      |
+| `ld-linux`                    | X          | X      |
+| `libbrotlicommon1`            | X          |        |
+| `libbrotlidec1`               | X          |        |
+| `libcrypt1`                   | X          |        |
+| `libcrypto3`                  | X          | X      |
+| `libcurl-openssl4`            | X          |        |
+| `libexpat1`                   | X          |        |
+| `libgcc`                      | X          | X      |
+| `libidn2`                     | X          |        |
+| `libnghttp2-14`               | X          |        |
+| `libpcre2-8-0`                | X          |        |
+| `libpsl`                      | X          |        |
+| `libssl3`                     | X          | X      |
+| `libstdc++`                   | X          | X      |
+| `libunistring`                | X          |        |
+| `libxcrypt`                   | X          |        |
+| `ncurses`                     | X          |        |
+| `ncurses-terminfo-base`       | X          |        |
+| `openssl`                     | X          | X      |
+| `openssl-config-fipshardened` | X          | X      |
+| `openssl-provider-fips`       | X          | X      |
+| `openssl-provider-legacy`     | X          | X      |
+| `wget`                        | X          |        |
+| `wolfi-baselayout`            | X          | X      |
+| `zlib`                        | X          |        |
 

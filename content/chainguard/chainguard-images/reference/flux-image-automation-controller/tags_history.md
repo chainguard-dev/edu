@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-image-automation-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,13 +26,17 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-Currently, there are no Developer versions of this image available.
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 8th     | `sha256:5f45d7811d3455b2bc8c9715aa2d628332cdb2786521117cf2c21b141564dda7` |
+|  `latest`     | July 8th     | `sha256:5008c3d8edd0b284bf61ebec8ab19619b60485df9a3769478dfac59bf1f2407e` |
+
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.38` `0` `latest` `0.38.0`                 | July 6th     | `sha256:2031f2d200f0b9fcb994600338349926705122b43f32e1963d0e04a06bcedfbd` |
-|  `0.38-dev` `0-dev` `0.38.0-dev` `latest-dev` | July 6th     | `sha256:ed5833b09b4610fac6ee64f34780e4cf9b39ecc88f31ac0ca12fd235a3b0bd97` |
+|  `0.38.0-dev` `latest-dev` `0.38-dev` `0-dev` | July 8th     | `sha256:7c8ca54aeb31cc8d179e65d0f3ab2df6eea0793bb60ee0b5f21d489ece4dbb8f` |
+|  `0.38.0` `0.38` `latest` `0`                 | July 8th     | `sha256:e6c7780e09c27f47883c9b651449377a69a5c0c67481de5aad6e6430fa1acc48` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gha-runner-scale-set-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,13 +26,17 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-Currently, there are no Developer versions of this image available.
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 8th     | `sha256:18626268967b80c3fb01120e88829905a7ff8b4efed571a4c4429f41330aa087` |
+|  `latest`     | July 8th     | `sha256:2c2b89d9cefd451af1135d0f8e4db25cf25432f585b10f6863d79fdca2372f40` |
+
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.9-dev` `0-dev` `latest-dev` `0.9.3-dev` | July 6th     | `sha256:75943afd147974c8772c7fe4c9dd8d8987c8b09bc30a359e534aef91222a32c2` |
-|  `0.9.3` `0` `0.9` `latest`                 | July 6th     | `sha256:4d10fb4862df0edc2b4069fbc0bfeba56fe32159f6bc58ad9c6a1828d5422e01` |
+|  `0.9.3` `latest` `0` `0.9`                 | July 8th     | `sha256:d317773ebc90fb419ea08f3de9702b5dc49693e8fb69ee5f6512419b03d19361` |
+|  `latest-dev` `0.9.3-dev` `0.9-dev` `0-dev` | July 8th     | `sha256:ebdbde5114aa4d3cb28cf645d145f4e6605e9a11ad9029f80835283e88616743` |
 

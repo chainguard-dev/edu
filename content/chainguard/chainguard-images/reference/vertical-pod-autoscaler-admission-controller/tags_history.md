@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vertical-pod-autoscaler-admission-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 3rd     | `sha256:d334c65d8684b948892290b105fa6b79ab82373ce94350a1a56aa923b0716513` |
-|  `latest`     | July 3rd     | `sha256:15ecb6ee6c0106094aa4f284a139f9e7a006160f3215110e69cabff623b954c1` |
+|  `latest-dev` | July 8th     | `sha256:e59023c5680b0f38fad9ddccb287befc538dbe8c0aa75860975019264d128930` |
+|  `latest`     | July 8th     | `sha256:f292068b20a67141ad2ebf16ebe30c632179a0839cf81784c73461e0b101fe0a` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.1.2` `1.1` `1` `latest`                 | July 6th     | `sha256:b7b98e7893d307bd60a819cfd85445375bf32bf5b6b820a5cad9dc8bc205340f` |
-|  `1.1.2-dev` `1-dev` `latest-dev` `1.1-dev` | July 6th     | `sha256:da26bb067b5e9f9f60965a858aaf5f069aa52199ca532ba1f45cd42aac5db700` |
+|  `1.1.2-dev` `latest-dev` `1-dev` `1.1-dev` | July 8th     | `sha256:0a13b393c2c4941163a380284bd3d1242fa634340bd9ebb310738afa94193f63` |
+|  `1.1.2` `1.1` `latest` `1`                 | July 8th     | `sha256:938ca84664aed099457f9cb11200b1442940b8834c8b72e75028f01afada053c` |
 

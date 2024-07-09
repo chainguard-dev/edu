@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-jupyter-web-app Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,13 +26,17 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-Currently, there are no Developer versions of this image available.
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 8th     | `sha256:b8e8954408867ad6f933cbd4e716851d46d6f5330dfef7d788991681d1b7183d` |
+|  `latest`     | July 8th     | `sha256:dcbbe17b9123c33cdb0947de14bac40413d8dc15f01d51635589157cc8d9bccc` |
+
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1` `1.8.0` `1.8`                 | July 6th     | `sha256:0d815f287b438030db6d124888c17cede96b8acf153528a096f57d3b31b47d7f` |
-|  `1.8-dev` `1-dev` `1.8.0-dev` `latest-dev` | July 6th     | `sha256:772716c66794c46cb960af7ff5771ea5b0ba119174596262d6e05345271ef0fb` |
+|  `latest-dev` `1.8-dev` `1-dev` `1.8.0-dev` | July 8th     | `sha256:4fb4217b620e6563731b88abeaa775d1bc767febfc5016c8800eb91f56644a0a` |
+|  `1` `1.8.0` `latest` `1.8`                 | July 8th     | `sha256:58d9bdc51ae6eb25e29aeacf2341133810e50fdb3b114b55f8cf175f1bb40ab6` |
 

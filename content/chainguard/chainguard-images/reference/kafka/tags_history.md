@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kafka Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 3rd     | `sha256:db5f6bf930ce4df70f398c4dc696f8ca09aa633d161a1166751c06b7d650d91f` |
-|  `latest`     | July 3rd     | `sha256:32fccfb5a3d0ba90d71a975ff36dd482384636e9da9c421bf5e9c986078495ea` |
+|  `latest-dev` | July 8th     | `sha256:f2b153528f5b6ab948f309725a1c619c0436a14537b16be49242a94fd1855e30` |
+|  `latest`     | July 8th     | `sha256:ee4aeee1bde57c068f3e3a25515030b864ba49c9883f950090a445cdf6b845f1` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `3-dev` `3.7-dev` `3.7.1-dev` | July 6th     | `sha256:6ed62338731aca8ccc1ff50e555d4b33479939eb668d85de4212e75cde8aa350` |
-|  `3.7` `3` `3.7.1` `latest`                 | July 6th     | `sha256:c5eeaffd65fa371b49a90760f552b13b88294d244120d5abb7a9673a1127cacc` |
+|  `3-dev` `latest-dev` `3.7.1-dev` `3.7-dev` | July 8th     | `sha256:f49270561aa1550fc0dd12dee1d9cc205f19af871123e9f06797189bdd62404d` |
+|  `latest` `3` `3.7` `3.7.1`                 | July 8th     | `sha256:9832b805553ca9df9023624a6f46a2a1f82bb1e8dc3bfa6fcce4f62c5c8a505e` |
 

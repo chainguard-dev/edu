@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-redis-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,13 +26,17 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-Currently, there are no Developer versions of this image available.
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 8th     | `sha256:53594a1bd9167d62a914c88804feb296396f7691a2947744d455824d42852225` |
+|  `latest`     | July 8th     | `sha256:b43a740a2bc243de71220538fa20862b3d3c5088ec95e3ac411b4a78b4f6be2d` |
+
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.61.0-dev` `1.61-dev` `latest-dev` `1-dev` | July 6th     | `sha256:f21cecb5d435399a4fd114802939054b06ca787d309ad35d6fbf14d00d8b2a09` |
-|  `1` `latest` `1.61` `1.61.0`                 | July 6th     | `sha256:a107c9d5b474cf34258358a773ffb15bd05640f185be278f15921b4cffeeb0fc` |
+|  `latest-dev` `1-dev` `1.61-dev` `1.61.0-dev` | July 8th     | `sha256:cf1a08139b1376db68e981ecbe36813f7cd3dc994c7d490e2f5b43d6913377eb` |
+|  `1` `1.61.0` `latest` `1.61`                 | July 8th     | `sha256:4792fcbc334bd8bdafb301c273e1f3982d2b81078023b109ab5330315b56a210` |
 

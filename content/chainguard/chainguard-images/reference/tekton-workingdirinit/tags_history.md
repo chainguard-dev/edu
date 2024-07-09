@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-workingdirinit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | July 3rd     | `sha256:ff363c6a92b01cfb59681790274d5bff2e550d9c3a688ded977b31fc09f06e47` |
-|  `latest-dev` | July 3rd     | `sha256:ac9d705fee4e36aeb5304611f177547bcdac5c1567304c1e7e5d38d567593cc5` |
+|  `latest-dev` | July 8th     | `sha256:35f0b57645e88694d3756e5fe340b99431219357edb3c4a4487d8f1e8583117e` |
+|  `latest`     | July 8th     | `sha256:26d999c88c61c907199bdeb50f34bc3b6b91084ff4363cdca99c2f7791cfcb60` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.61.0` `0.61` `0` `latest`                 | July 6th     | `sha256:2cfb1021a6a17748b1ab73351f450509015a1078f0f9807b715f4a41eba473ae` |
-|  `0.61-dev` `0-dev` `latest-dev` `0.61.0-dev` | July 6th     | `sha256:4422555cc631d83099ffcb652cbd0fac1dd8500a61a8848814c93a923e17dede` |
+|  `0.61-dev` `latest-dev` `0.61.0-dev` `0-dev` | July 8th     | `sha256:a904b782d50c2a3a8be99bcef16466526ec5a27a2ca1b148f7d02b38270a965e` |
+|  `0` `0.61` `latest` `0.61.0`                 | July 8th     | `sha256:e842b99e3a47602445b70c62404177db4387a6ec77cd14a871e28f5bc5add8d2` |
 

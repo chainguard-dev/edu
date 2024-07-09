@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-trillian-updatetree-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.7.3-dev` `0-dev` `0.7-dev` | July 6th     | `sha256:b5d033a2d945b4e08839d83687523065908f3e2712cd8171c57f6956d55e0fb6` |
-|  `0.7` `0.7.3` `0` `latest`                 | July 6th     | `sha256:841a3f05e006631612b97242aed941d8c27740d6421d746a2ec9a02df3c7e32a` |
+|  `0.7.3` `0` `latest` `0.7`                 | July 8th     | `sha256:de82c0863d7362e0e188ac25b50c32ab52cde77fddcc6b911473f8476da7f71f` |
+|  `0.7-dev` `latest-dev` `0-dev` `0.7.3-dev` | July 8th     | `sha256:f8aede4ce54e3c009861dda771f03c304dab4cde12e0f695342eed36f40108a8` |
 |  `0.7.2-dev`                                | July 3rd     | `sha256:73879d75c1eecb3b04fd1f17778b252e2daaf915937e8bc6b6f2158e967134a1` |
 |  `0.7.2`                                    | July 3rd     | `sha256:905f7bc2894dd4f1130932005e6d4fc661b57591cc23fd8330822f53df701bca` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mongodb-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | July 3rd     | `sha256:065244d66a77c626dc5c04c49a7332d4c74e2681cb969a16cea8d33da30fb6cf` |
-|  `latest-dev` | July 3rd     | `sha256:5bbd878a0a07eae22e6b68652d4d790408280e3d797822983af80ec6dc3348d4` |
+|  `latest-dev` | July 8th     | `sha256:61aa2543b5a8685f7b62af1244aa704a7b3b82590a88e82d53f0abc3f6051cf0` |
+|  `latest`     | July 8th     | `sha256:1832daead74023c7c523c0da6b411991201061f2926b9af8f40cde0eb85fd4bd` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.40.0` `0` `0.40`                 | July 6th     | `sha256:e7bdf9417fb2eff3c5c656f4afbc2fb27112fd1cbf3bb92f693fd1d9ca7f995f` |
-|  `latest-dev` `0.40.0-dev` `0.40-dev` `0-dev` | July 6th     | `sha256:7473915b643d7ea38e1fc77da62449efb3166c045bfe0b95e2a008781a8b0b04` |
+|  `0.40` `0` `latest` `0.40.0`                 | July 8th     | `sha256:fbe13442ff3788c4705f226aab5ff2f9dfd9ba05728abff27994697b455c0d6d` |
+|  `latest-dev` `0.40.0-dev` `0-dev` `0.40-dev` | July 8th     | `sha256:ee8e271d66d41fb20ac14edd4fb092d479303549d1b23bcd32cac367b589c876` |
 

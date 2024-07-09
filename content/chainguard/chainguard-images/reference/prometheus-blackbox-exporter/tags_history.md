@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-blackbox-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | July 3rd     | `sha256:6f7282b3bf079f26423d3731db82110a19d3f83656ba5ee8a8069a429f59c690` |
-|  `latest-dev` | July 3rd     | `sha256:977974e3fe25541fdd096f23ac6c00bf7c603f96a40c46f79b1aa78920a9cfde` |
+|  `latest-dev` | July 8th     | `sha256:eb71c93efd5290556a65970a826dd71af690f4701cfee4b1a9bda15b88c2e34e` |
+|  `latest`     | July 8th     | `sha256:28d6ace234888f57d43abca0a4a98a0f5a06551e7073e8e3f8553ed8b556d3ca` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `0.25` `0.25.0` `latest`                 | July 6th     | `sha256:fc41ec1d03bba48977c91c05d45f7f7b192d0ba6b74accaaf3d82ae57031768d` |
-|  `0.25.0-dev` `0.25-dev` `latest-dev` `0-dev` | July 6th     | `sha256:452c6843ab11e3ca9b190cd68aca0b03c5cbd544c6cfe7cabb2e7b1484b7c850` |
+|  `0.25.0` `latest` `0` `0.25`                 | July 8th     | `sha256:8707c21297c681a152dfff32ef6bb76d8bdcfa67e3041bae75f0eef2349eefd7` |
+|  `0-dev` `0.25-dev` `0.25.0-dev` `latest-dev` | July 8th     | `sha256:62d2ea23dbf2bfc25c73936f77a96dc537422465c5ddd9680a8c67bf9508e825` |
 

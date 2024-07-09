@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: kubeflow-pipelines-metadata-envoy Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -34,7 +34,7 @@ Minimalist Kubeflow Pipelines Images
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/kubeflow-pipelines-metadata-envoy:latest
+docker pull cgr.dev/chainguard-private/kubeflow-pipelines-metadata-envoy:latest
 ```
 
 

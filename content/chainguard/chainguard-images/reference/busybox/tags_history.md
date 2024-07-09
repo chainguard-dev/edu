@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the busybox Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,9 +26,10 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | July 5th     | `sha256:26ecba9abf174a7801803dfdbd45799afe8269fd14c890f3f7d22c55798645c1` |
+| Tag (s)         | Last Changed | Digest                                                                    |
+|-----------------|--------------|---------------------------------------------------------------------------|
+|  `latest-glibc` | July 8th     | `sha256:3761473f8439a41236a53082f8232e4ebf957f2ac43ec86a6ae037e49ba013ac` |
+|  `latest`       | July 5th     | `sha256:26ecba9abf174a7801803dfdbd45799afe8269fd14c890f3f7d22c55798645c1` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +37,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                            | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `glibc-1` `latest-glibc` `glibc-1.36` `glibc-1.36.1` `1.36.1` `1.36` `1` `latest` | July 6th     | `sha256:a2c6f501e422092d0399332e5d6061d50be531ad68dbe949220159f9aa27ecb7` |
+|  `glibc-1.36` `latest-glibc` `latest` `1` `1.36` `1.36.1` `glibc-1.36.1` `glibc-1` | July 8th     | `sha256:67d2869a13ab69d62bffba0c04162444a30b83933af6d7a315ea62c25d9cd192` |
 

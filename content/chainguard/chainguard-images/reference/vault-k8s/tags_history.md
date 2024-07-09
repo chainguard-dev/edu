@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vault-k8s Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 5th     | `sha256:ad564c8c2a7565cfcf5e88b2d18bb782deb7fec2487d04715fdb49394fa12664` |
-|  `latest`     | July 5th     | `sha256:6de87f70972672068ea2220b31dc11941491efd0efad5de814a4fb8ed2deee95` |
+|  `latest-dev` | July 8th     | `sha256:acf5d4a9b3fa4f0cb3bb17bd8d417b2c47d971759bcf22ad257ff7161ae9e65d` |
+|  `latest`     | July 8th     | `sha256:c9601dde37b8d3d27f079ea5c40f945244b5a118481eb1ca3f1c400d187c6039` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.4` `latest` `1.4.2` `1`                 | July 6th     | `sha256:d60bd9ac91c7951f5fd5f495df9690c85c05de50ad18dce4d0fd80560b2cd5ae` |
-|  `1.4.2-dev` `1-dev` `1.4-dev` `latest-dev` | July 6th     | `sha256:7a9cded4d08f26de3a82977fe38a75209083747ef38a8351758fa872468a421b` |
+|  `1.4.2-dev` `latest-dev` `1.4-dev` `1-dev` | July 8th     | `sha256:642d1e79c2b24d0ef4a35548caadd9ca9efd0c94aecd0c4a48eefd7c520c28d1` |
+|  `1.4` `latest` `1.4.2` `1`                 | July 8th     | `sha256:b45e2b8c29769321afe10c377d9e1fe681042b6914dcc479ea6ea083dc3284e2` |
 |  `1.4.1-dev`                                | July 3rd     | `sha256:02e4406ff9d516f992bd3f202f8a47fd5efac6d3136d88e3290e60886d8e4af5` |
 |  `1.4.1`                                    | July 3rd     | `sha256:7919ec1eb9191bdbe440135d1e4d35302ee67e81d8e52c97c0644041afa83f67` |
 

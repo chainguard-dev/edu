@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the velero-plugin-for-aws Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | July 3rd     | `sha256:9b1e06f45f4da33d2b7e46c5b3891806f18f0ceab2e4350bdbdf97ea88b50f18` |
-|  `latest-dev` | July 3rd     | `sha256:e695464febab7c9e3846cd7614363b1e6409b16126a7cb4712d8825d6c1140ad` |
+|  `latest-dev` | July 8th     | `sha256:6193bc4d0fc645a8d2d00374fee1af22476e8e3b2d9cd9cfb09ad8ff5461f4e8` |
+|  `latest`     | July 8th     | `sha256:121674eae4db6eb1a4136dab1bb701e32770cd72f9b7615823e7e4c6567a6cd7` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.10.0` `latest` `1.10` `1`                 | July 6th     | `sha256:1bf1169ce0665bfb89a7545feee32f9efa9436b32778860245d0414f63483ce9` |
-|  `latest-dev` `1.10.0-dev` `1-dev` `1.10-dev` | July 6th     | `sha256:f0f24dc4d964015611244dd06506b60355d2393d1b6d25189484c0e065311408` |
+|  `1-dev` `latest-dev` `1.10-dev` `1.10.0-dev` | July 8th     | `sha256:3f2ce4223e6b7f57fb36437407fe754f6ef2ef8fc40ab0243ce9796735e8469b` |
+|  `1` `latest` `1.10.0` `1.10`                 | July 8th     | `sha256:718c99e9e75bb298298f837a600e729279a85eed98688ea925629b1de4a5a28d` |
 

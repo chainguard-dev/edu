@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the wordpress Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 3rd     | `sha256:cdd3ad267dfb9b46d16170bc5bd0aeb0aa4c73d1f6633b207ef4acb195217a6f` |
-|  `latest`     | July 3rd     | `sha256:ccfc424c6b6f641a7f3beaddff244b8dce27ebbc8db3846723667e160842e4cd` |
+|  `latest-dev` | July 8th     | `sha256:9c10493947b89789f03589f10e20f885ad375ebd4157ca13f54ee1152e255b76` |
+|  `latest`     | July 8th     | `sha256:26031fad63890b2b665da27424957240d3a160f6697fdc5a880ba24c8fc6664a` |
 
 
 ### Private/Dedicated Registry
@@ -37,5 +37,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                     | Last Changed | Digest                                                                    |
 |-----------------------------|--------------|---------------------------------------------------------------------------|
-|  `6` `latest` `6.5.5` `6.5` | July 8th     | `sha256:df6b9609a5a4172bd58e0d9b4eea0389cd2e0b8c9cb4fbc16a41e0a5be4730f1` |
+|  `6.5.5` `6.5` `6` `latest` | July 9th     | `sha256:31f6820d4aad067c5f3a8971f913161dd4d2a01df22cb1d6dd14361258f61b65` |
 

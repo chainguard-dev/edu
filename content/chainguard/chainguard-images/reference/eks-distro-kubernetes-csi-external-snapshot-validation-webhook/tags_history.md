@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-external-snapshot-validation-webhook Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                  | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `6.3-eks-1-23-33-dev` `6-eks-1-23-33-dev` `6-dev` `6.3.0-r8-eks-1-23-33-dev` `6.3.0-dev` `6.3-dev` `latest-dev` `6.3.0-eks-1-23-33-dev` | July 6th     | `sha256:006a16180bcc5474bb1172c135bb6044700d450fca88075e21467e2a72bd3728` |
-|  `6.3` `6-eks-1-23-33` `6.3.0` `latest` `6.3.0-r8-eks-1-23-33` `6` `6.3-eks-1-23-33` `6.3.0-eks-1-23-33`                                 | July 6th     | `sha256:c173927dbdb67159dfcd5d1ee0697cf5fa914cc62b29f0775b98baf6734e37df` |
+|  `6.3` `6` `6.3.0` `6.3.0-r8-eks-1-23-33` `6.3.0-eks-1-23-33` `6-eks-1-23-33` `6.3-eks-1-23-33` `latest`                                 | July 8th     | `sha256:540bbf4bc9ba18ad70ce25ef7cb6d7f9579ea0a703999f35900a255d19582757` |
+|  `6.3.0-dev` `6.3-dev` `6.3-eks-1-23-33-dev` `6.3.0-r8-eks-1-23-33-dev` `latest-dev` `6.3.0-eks-1-23-33-dev` `6-dev` `6-eks-1-23-33-dev` | July 8th     | `sha256:6e017137d671c45a3b07a717e3fb462d0f6e93496edd937337a7e542485e68b5` |
 

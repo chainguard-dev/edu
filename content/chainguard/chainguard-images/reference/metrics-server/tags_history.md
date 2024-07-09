@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the metrics-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 3rd     | `sha256:cff91bdda4ee1d76439b017f3d367d8e207519d27965f03696a774cccdd1609a` |
-|  `latest`     | July 3rd     | `sha256:082874c9d2dfdfdb00296e68a9a0632af90373440047601de00f1b6a4abc07cc` |
+|  `latest-dev` | July 8th     | `sha256:d83be5ea3e33796f12447223f97946a338769396159917a73eccf75aa28bc6d4` |
+|  `latest`     | July 8th     | `sha256:f94fd74d622758a0bac5e631171165acaf305e880294ac24f4f1c16de00844f7` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.7.1-dev` `0.7-dev` | July 6th     | `sha256:be170f88a2bb23a8d617e1344ee1a6e5fa3b689288f26279290fdd541a524ab0` |
-|  `latest` `0.7.1` `0.7` `0`                 | July 6th     | `sha256:df0178f71e1de8732218b78dfc86ac5946878c4d49317d035c9a00e33f907209` |
+|  `0-dev` `0.7.1-dev` `0.7-dev` `latest-dev` | July 8th     | `sha256:6d13a233ac78ed48c426349aa7fd84901967c9edfb40e2cdacff1ee4780914f4` |
+|  `0.7.1` `latest` `0` `0.7`                 | July 8th     | `sha256:83879b1b256712c15207dd68c77ee27fecc2e5f43c79f4df2f77cbc49f1d58db` |
 

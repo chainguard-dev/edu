@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-cloudsqlproxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 4th     | `sha256:4c8b1edf99b9c5ae4f27d823d7f87865a6a8b354eff763977ce50fa6cf18efe5` |
-|  `latest`     | July 4th     | `sha256:3fe2c05dcbae8f4b51bbb43a3cabc2fc7ba316bb1b60d2d3063ea18af4fa068e` |
+|  `latest-dev` | July 8th     | `sha256:446ea026ac450f013896df7b86a9b93eef5295c334031cc64cab475937192b56` |
+|  `latest`     | July 8th     | `sha256:c4cd60a0bb4c4516a4bdc15762d472a88c781b24e1bb997dead14df063c0e15e` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.7.3` `0.7` `0` `latest`                 | July 6th     | `sha256:9d9eeacd963835c38b37ec095889ef9947033b1603b5a29fd45af5418fe305d6` |
-|  `latest-dev` `0.7.3-dev` `0-dev` `0.7-dev` | July 6th     | `sha256:4814cf655c06df8665a4fe8e08347e851a02a4bb286d8c970d0941de72fbfc9a` |
+|  `latest` `0.7.3` `0.7` `0`                 | July 8th     | `sha256:644ddccc19c769277f384611d1e514ac398ed08574481bf2881ee4a8afa7739b` |
+|  `0.7.3-dev` `0.7-dev` `latest-dev` `0-dev` | July 8th     | `sha256:869f5ddca12638ea66570ffd139fe57a6d3f9e2da443ca7431bcd3f3307909bd` |
 |  `0.7.2-dev`                                | July 3rd     | `sha256:dbe8245f4a8d774e23537b3ad82b7eaa36a82081e122171e877cb7a90d27417b` |
 |  `0.7.2`                                    | July 3rd     | `sha256:54a655e8002184e37e84356f34b38c628e12d19da725b7c332cffc24d64f4738` |
 

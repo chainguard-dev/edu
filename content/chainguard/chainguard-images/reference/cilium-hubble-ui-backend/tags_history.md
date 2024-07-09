@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-hubble-ui-backend Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 3rd     | `sha256:846d0f926140d11af93bde695f4ac299ff98a0a881285a5e7a38f8938247a607` |
-|  `latest`     | July 3rd     | `sha256:b13a25a8d55e0f55cc6fef931c9189fa7f97275d9f8e1c92861d0ecb6fba6b24` |
+|  `latest-dev` | July 8th     | `sha256:7b25a45f01ff5be04bf79bec75a656f5a24e066e50f1a6757e68679318879cc8` |
+|  `latest`     | July 8th     | `sha256:73cf14513dbe5be696e7a55ae4ea47378c700f945e7ed0ec38dfbc69687925bf` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.13.1-dev` `0.13-dev` `latest-dev` `0-dev` | July 6th     | `sha256:a84d808a4639b0a2e5f2ba2c05dda65046fe34c3444bbec5f00418d006dbc090` |
-|  `0.13` `0.13.1` `0` `latest`                 | July 6th     | `sha256:13d17c697f80124ed5de33177cb09c22ada5639ab2217dabeed8f2d6e5f95779` |
+|  `0.13` `latest` `0.13.1` `0`                 | July 8th     | `sha256:cac27c96e083391fb722fb15873145b8a79c81725a064005fc7fb96e4e6a3a16` |
+|  `0-dev` `0.13.1-dev` `0.13-dev` `latest-dev` | July 8th     | `sha256:df727272cb66a23a4ad413e81a458f408fa203911384d3b757bb1d3e12c5be5c` |
 

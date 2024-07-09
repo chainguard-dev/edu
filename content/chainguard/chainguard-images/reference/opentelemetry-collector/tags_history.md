@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opentelemetry-collector Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 3rd     | `sha256:d56e558931d2e2f152542163c27bb8134961b3e6c616b849c8cd9742631604ad` |
-|  `latest`     | July 3rd     | `sha256:d3341df763256fca86d74e5eea0f73d0c4f0d913da28de2d1c3fc9e0807f56cd` |
+|  `latest-dev` | July 8th     | `sha256:b9a9792476c8f22cd47efa0130cbb4af1f3edc5ae862e4ce1ef423aef3a7a0d1` |
+|  `latest`     | July 8th     | `sha256:c4152a6ae8ec5b74be4989c2da442ffec023ae263515884e5ddeb9b86660e3bf` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                         | Last Changed | Digest                                                                    |
 |-------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.104-dev` `latest-dev` `0-dev` `0.104.0-dev` | July 6th     | `sha256:535a5ccc0c9105e6528fb0f097d5c67d851e3e5e6aba36fe99c01d9fd1e5a4f6` |
-|  `0.104` `0` `0.104.0` `latest`                 | July 6th     | `sha256:ff6e7fb8f8e5ea12703c09d89867bcf231ce5445d0d589fc2fd8db5ffded5689` |
+|  `0.104` `0` `latest` `0.104.0`                 | July 8th     | `sha256:56c755b33eacabe0c768c265bbcde62ba95f349cbfb796a044da31027b4dabc4` |
+|  `0.104-dev` `0.104.0-dev` `latest-dev` `0-dev` | July 8th     | `sha256:2d33eae2b7e856b914486aa14439838413c085de69bb8aed30e9ab8484b5023f` |
 

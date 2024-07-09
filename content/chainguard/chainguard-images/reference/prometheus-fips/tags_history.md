@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.45` `2.45.6`                              | July 6th     | `sha256:3d7661359c78e2efa9ca15c5f3f66559d30a40db5177549c22af3deee2b6392a` |
-|  `2.38.0` `2.38`                              | July 6th     | `sha256:180ff032c003f5c977fc8fd792f635e7cf190430414e80073e0b59bd3bec100b` |
-|  `latest` `2.53.0` `2` `2.53`                 | July 6th     | `sha256:4b0c6f09c018cd7b7f2f0e53811fb71e41a607f963ece1f3bf95d60fe94d3f4f` |
-|  `2.53-dev` `2.53.0-dev` `latest-dev` `2-dev` | July 6th     | `sha256:70c2d8028cf7b40c5060da59972e1a7c7da5ef7b3ec31c88be935e791badec5e` |
-|  `2.45.6-dev` `2.45-dev`                      | July 6th     | `sha256:a176687960c28d7e8e120010004266ca35d35d0368ce0b8220e06a1a6ca29bb0` |
-|  `2.38.0-dev` `2.38-dev`                      | July 6th     | `sha256:9db2a4417b184e119687cb55906e936c2ee46ffcda898f4fa9dde54275032432` |
+|  `2` `2.53.0` `latest` `2.53`                 | July 8th     | `sha256:6f206ae7023d29ebe910bbde1de9cde15ee27f5b6d601e8f8e6a61dc450db3d7` |
+|  `2.53-dev` `2.53.0-dev` `2-dev` `latest-dev` | July 8th     | `sha256:23876a8dbe9aabb7c2165382f4f95817e2876416b9a3ae684a2c050bcbaa7f3e` |
+|  `2.45.6-dev` `2.45-dev`                      | July 8th     | `sha256:b115663f3ee6954c13dac002fab89d5cefb789731690dd379ec27ed837923f46` |
+|  `2.45.6` `2.45`                              | July 8th     | `sha256:28ca643ce8eb3dc9b7a15f6dfc67900481a936e212700c7ae8f64eea9c8b18d5` |
+|  `2.38` `2.38.0`                              | July 8th     | `sha256:4a5dcbc8c944430dcf27ec9b183f3964845039ef7bd310094a04caa3582a18d5` |
+|  `2.38-dev` `2.38.0-dev`                      | July 8th     | `sha256:e3439bef79e5a4f6cdd4071f36fcd974758d7d0785064588575fd3fbad127ca8` |
 

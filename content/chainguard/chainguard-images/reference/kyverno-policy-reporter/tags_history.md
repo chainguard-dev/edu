@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kyverno-policy-reporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 3rd     | `sha256:b6aff92847739eff3fad6393936c7e8a1a7fd43d67b159dba7430efa44ea15bf` |
-|  `latest`     | July 3rd     | `sha256:ad9efa8526323576a0e545a35139fcad1ace6c884a32ec08a5aa7b294ac33a75` |
+|  `latest-dev` | July 8th     | `sha256:ef7628e934340f8af9c075549e0ecaa5987546f97b23c4ef90273e16359aa63c` |
+|  `latest`     | July 8th     | `sha256:5108e1699734dec86b6aa123684cb24a5749374a39cd911f2d7bbaeb1b0a2df8` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2-dev` `2.20.0-dev` `2.20-dev` | July 6th     | `sha256:f8dd933a5d9fb12c59ec79de3acd05576ab670d15d251c2315fb17b8c99e121e` |
-|  `2.20.0` `latest` `2.20` `2`                 | July 6th     | `sha256:38870afa8b2f93c7f9aa506a35e72673850b387b4acc121ec4ea1d46929e15b7` |
+|  `2` `2.20.0` `latest` `2.20`                 | July 8th     | `sha256:50082de8c8f088c6d4fa782441ad2df2c13414e0925b7f95f4f4b51bf5ed7ab9` |
+|  `latest-dev` `2-dev` `2.20.0-dev` `2.20-dev` | July 8th     | `sha256:15eeccbccc64efea2c6a634221502f77d1151181fb169cd2757960b74950f57f` |
 

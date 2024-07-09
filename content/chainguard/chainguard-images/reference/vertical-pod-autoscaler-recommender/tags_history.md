@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vertical-pod-autoscaler-recommender Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 3rd     | `sha256:169d4220f54c0aa39e3e2db93c70f30159ea6c545c34390c126f4b033ed04a9c` |
-|  `latest`     | July 3rd     | `sha256:6ae89a23f5917d61e41c7f8c1783b140f35114e4e83cadc568f88ccf9eb21c4a` |
+|  `latest-dev` | July 8th     | `sha256:535585f56d1fd09d58da72af61a09927d097a6e517994128a671223564c2dd60` |
+|  `latest`     | July 8th     | `sha256:0bc10c35de89adbc1f73ed7fd437d11c6f0a6ec07f2a44176c2c6ae0d266add8` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1` `latest` `1.1.2` `1.1`                 | July 6th     | `sha256:de94deb09164534d3879a4a5f5010bd419546bb8dd4c3a63483bf296452a7b39` |
-|  `latest-dev` `1-dev` `1.1.2-dev` `1.1-dev` | July 6th     | `sha256:b227d269f82b0c21eb0e1bb58823e4918a47ac9638468c8c38806d9c0461a3e9` |
+|  `latest` `1.1.2` `1` `1.1`                 | July 8th     | `sha256:9b3fc49596d41976a7c14407d8d899fce43560b96fad40ae5edae65f481553e3` |
+|  `1-dev` `1.1-dev` `1.1.2-dev` `latest-dev` | July 8th     | `sha256:f98067511f3cd4bf2750e712b80fdac63ae46dda22708560e2c7782fedc575d1` |
 

@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: k3s Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -34,7 +34,7 @@ Minimal image of [K3s](https://k3s.io/), a lightweight Kubernetes distribution
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard-private/k3s:latest
+docker pull cgr.dev/chainguard/k3s:latest
 ```
 
 

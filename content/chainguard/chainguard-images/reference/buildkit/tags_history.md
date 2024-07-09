@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the buildkit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)            | Last Changed | Digest                                                                    |
 |--------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-root-dev` | July 3rd     | `sha256:f656298adf0a254412e7afe04104bc916a88155132013a99e576e95fe8ef633f` |
-|  `latest-root`     | July 3rd     | `sha256:937c0e138fce0b002fd35182f0eb7a0cccbb028f81b100df7a67400cf702dce2` |
+|  `latest-root`     | July 8th     | `sha256:eb1ed579773ff26117e303f8480fde5f988b7683729ba8f0fed72de88b7f802c` |
+|  `latest-root-dev` | July 8th     | `sha256:e7fa7857ad8b016db7b83f9bf2aa022fdfaba7129d3c934e92003ae5350b0da0` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.14.1-dev` `0.14-dev` | July 6th     | `sha256:fcaa23a9ed27ab3dd706210f753c2ae4386801e48dd4bf38c91f5cc20f838782` |
-|  `latest` `0` `0.14` `0.14.1`                 | July 6th     | `sha256:179c3fcf6f4c41632c33a8c8399e1bbb980c36ab8081157a8d1665e8bf552455` |
+|  `0.14-dev` `0-dev` `0.14.1-dev` `latest-dev` | July 8th     | `sha256:d3fe43915f1a1e7be42c7bc09863cc6d9bb39af0f20456a95a3c1ac2416a5fb7` |
+|  `0` `0.14.1` `0.14` `latest`                 | July 8th     | `sha256:03c144805b64d9cb5ae83f05d93092a2095e020da627d0ad31775539d2f40dda` |
 

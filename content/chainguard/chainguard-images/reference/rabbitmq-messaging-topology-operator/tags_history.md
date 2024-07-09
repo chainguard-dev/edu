@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rabbitmq-messaging-topology-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 3rd     | `sha256:f78aa828e91a8352fc7d5f0469a81459e3d802916a2f99b67074ae0b7504f45c` |
-|  `latest`     | July 3rd     | `sha256:ce8d6966df79631b1b86f3eac9d3999ccf6c83b140b4b5af209195f51ca3414c` |
+|  `latest-dev` | July 8th     | `sha256:8b0a51d80eff26c70a302d8d66201124d6836fde6a8abdf16a25adbff3737238` |
+|  `latest`     | July 8th     | `sha256:5c1295fc012e12781005e70c3b4c42d1eda44e59c60344bb9d5ceef28a3a9780` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.14.2-dev` `latest-dev` `1.14-dev` | July 6th     | `sha256:4b0d2ed2a9ceb8bf039c4f5c8737f69919fa7be3dd3821f6cf08d5c6a0a8aa24` |
-|  `1.14.2` `latest` `1` `1.14`                 | July 6th     | `sha256:f300122b04e943e59e8145ccf6873c3c9ac92a65434c86f80e139bdebecfa5d9` |
+|  `1.14` `1.14.2` `1` `latest`                 | July 8th     | `sha256:26c72cf3be80623e6cb23f9854e2fadfaa4b880e64d966eaf566a2f36c66fb51` |
+|  `1.14.2-dev` `1.14-dev` `latest-dev` `1-dev` | July 8th     | `sha256:cb9291b63d46723b4f2b1072f04694ab974533475917bdb811b4254b06823355` |
 

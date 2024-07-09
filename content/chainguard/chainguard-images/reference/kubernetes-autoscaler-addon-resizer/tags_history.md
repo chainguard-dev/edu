@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-autoscaler-addon-resizer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,13 +26,17 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-Currently, there are no Developer versions of this image available.
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 8th     | `sha256:7df2779c78708514dac184576a344aa21962e5e8874873cf80e834f36a60d2a8` |
+|  `latest`     | July 8th     | `sha256:ad0bccd82a96a3c0183bad550a10411c51a9cceab79cb625c87c620aa4463260` |
+
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.8-dev` `latest-dev` `1.8.22-dev` `1-dev` | July 6th     | `sha256:116d45e8057d30115a9f758bf45a95627254d02e27d101c1e8001e914d5d82c0` |
-|  `1.8.22` `latest` `1.8` `1`                 | July 6th     | `sha256:04ae94a0fca25d056f4974b28e550571efcb4cfd001d915e824cc663e47916a5` |
+|  `1` `1.8` `latest` `1.8.22`                 | July 8th     | `sha256:e1a9ec829d50b8b5e4365bbc83e4c8ffb6a98c0036a2ab442ae0aa157c6e6246` |
+|  `1.8.22-dev` `latest-dev` `1.8-dev` `1-dev` | July 8th     | `sha256:2960d198f2c0127f6c1ddd3005b56f7efc1ede50c5252df9e1d698ace878d798` |
 

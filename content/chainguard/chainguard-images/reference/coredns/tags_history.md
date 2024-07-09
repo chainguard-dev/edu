@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the coredns Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | July 3rd     | `sha256:1ad31cfe89c9c66fa8c5681d3ce0b1b07fe6b56c0355c86c2e3ab1e81d522f38` |
-|  `latest-dev` | July 3rd     | `sha256:e5a596a83b89aa8393b6ace94b0a26bda3330aeda8a55d4a3668976d99981e28` |
+|  `latest-dev` | July 8th     | `sha256:ddd2db8978ecedb450a2d15e7f126fde9d39ee2c340fb597ad25b46767794da6` |
+|  `latest`     | July 8th     | `sha256:bafd83538de9d50195283c706d451d74335a69fb1abd297fe34b67fbd51a3b11` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.11.3-dev` `latest-dev` `1-dev` `1.11-dev` | July 6th     | `sha256:b384daefb1438e1c3133b4808feabc559317ec6b0f522e1d7ea4be85d7bd099a` |
-|  `1` `latest` `1.11.3` `1.11`                 | July 6th     | `sha256:c2fc68dd6554f17fe3e699abcac51c9faba615f6808e24c4839d478be0a513ea` |
+|  `1.11-dev` `1.11.3-dev` `latest-dev` `1-dev` | July 8th     | `sha256:5938d701898c9739a3d9c9266ebe82ae6e013d314ba9f7df88d5bbffd28aaf24` |
+|  `1.11` `1.11.3` `latest` `1`                 | July 8th     | `sha256:91cf574840ce8d41d1e97bd50a5ec391122e80a5103d322e00b0578a95f4725f` |
 

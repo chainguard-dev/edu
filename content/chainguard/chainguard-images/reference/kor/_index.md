@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: kor Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-07-05 00:42:00
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -34,7 +34,7 @@ A Golang Tool to discover unused Kubernetes Resources
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard-private/kor:latest
+docker pull cgr.dev/chainguard/kor:latest
 ```
 
 

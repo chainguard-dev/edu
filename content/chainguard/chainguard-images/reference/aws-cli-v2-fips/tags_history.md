@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-cli-v2-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,14 +31,14 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                       | Last Changed | Digest                                                                    |
-|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `2.17` `2` `2.17.9`                 | July 6th     | `sha256:51051eb89b3e14d9d2aeecae22344fd5baa76f2976141a14e613636ce4ca8320` |
-|  `latest-dev` `2.17-dev` `2-dev` `2.17.9-dev` | July 6th     | `sha256:53ad0616e891b787bf73e117294ad2c9aa430279d8e8afeea0a77d13254e2a4f` |
-|  `2.17.8`                                     | July 3rd     | `sha256:a8b9ee2948f22dd3f45968fe482dac4b216a57de758aef0c870529c8bf4d19fe` |
-|  `2.17.8-dev`                                 | July 3rd     | `sha256:6d476757430b01f43127feb9b3c83cee12f8dad149c5f5b89eed27901ccb1abb` |
-|  `2.17.7-dev`                                 | July 3rd     | `sha256:63fa722050f6fa1655aa9e0ecc34c3d427b30f27dc24523a074c3b030b95e242` |
-|  `2.17.7`                                     | July 2nd     | `sha256:012e826842eb67350780fac6ffd264f457ae2cfcd005ba5db390bbb5af40d294` |
-|  `2.17.6-dev`                                 | July 1st     | `sha256:284a6c9986df4371ca4e963743f0105fe6af590a7abadc59afed6e170c485790` |
-|  `2.17.6`                                     | July 1st     | `sha256:3bd56273c5f735b638a0f0684486a4c879c9a768ec23b0226bcebd8a9096bc88` |
+| Tag (s)                                        | Last Changed | Digest                                                                    |
+|------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2-dev` `2.17.10-dev` `2.17-dev` `latest-dev` | July 9th     | `sha256:5a60b1f5a69333414e97442bab6ff9d05344e2496347caa4df225160d703b302` |
+|  `2` `2.17` `latest` `2.17.10`                 | July 9th     | `sha256:0eac63baaba5afd0e008d35ee701d6e5a600a804a32150c22ad718fe48c37b26` |
+|  `2.17.9-dev`                                  | July 8th     | `sha256:a0c28ed16714f6475b6472e04086b33b5e74a3e137b25284727a5c8906872f76` |
+|  `2.17.9`                                      | July 8th     | `sha256:65da4a840525c221546947e7febbd0968503ba5f32994744a79edee6643705d8` |
+|  `2.17.8`                                      | July 3rd     | `sha256:a8b9ee2948f22dd3f45968fe482dac4b216a57de758aef0c870529c8bf4d19fe` |
+|  `2.17.8-dev`                                  | July 3rd     | `sha256:6d476757430b01f43127feb9b3c83cee12f8dad149c5f5b89eed27901ccb1abb` |
+|  `2.17.7-dev`                                  | July 3rd     | `sha256:63fa722050f6fa1655aa9e0ecc34c3d427b30f27dc24523a074c3b030b95e242` |
+|  `2.17.7`                                      | July 2nd     | `sha256:012e826842eb67350780fac6ffd264f457ae2cfcd005ba5db390bbb5af40d294` |
 

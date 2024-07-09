@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-elasticsearch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | July 3rd     | `sha256:7160bc50dab75889fa3b0de1fb3f44707304e805b18f4e035dd454133b103de8` |
-|  `latest-dev` | July 3rd     | `sha256:c05d717d930cb9a7fe817b7ce281331fb72f0195ffaeca4e680ebc8de7c170f9` |
+|  `latest-dev` | July 8th     | `sha256:8c30ef71cb4b64dd6f6ba65f0381d0df3d7cbc52f8402566967a1ed418e4e06e` |
+|  `latest`     | July 8th     | `sha256:d69c660f2b49c2c86862c25516fc552591cae2dae320c2bb213acb492ae1b170` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.7` `1` `1.7.0` `latest`                 | July 6th     | `sha256:a3bac810c14b1fa6c9d4132b91dff50e4bef8b6b8bb67a2471606abe2083fff3` |
-|  `1-dev` `1.7.0-dev` `1.7-dev` `latest-dev` | July 6th     | `sha256:94e4d15853e999a3b9558ac2683e53990aad823789013f6cde8b7e4bb95355f2` |
+|  `1.7-dev` `1.7.0-dev` `latest-dev` `1-dev` | July 8th     | `sha256:8731851df80f5b52060e2cf18f65f8cf59b83d9e5326306c7d0b6c012e0b2718` |
+|  `1.7` `1` `latest` `1.7.0`                 | July 8th     | `sha256:735cdfe34efdfa20a2d3ac527fbdb29cc3c0d9727871f44b51cab2bdcf0fe837` |
 

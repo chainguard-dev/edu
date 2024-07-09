@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cluster-proportional-autoscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 3rd     | `sha256:4f4f9406d744cb3dc7ffef22813232a65c7116a056edffdfdc9c1251560a0212` |
-|  `latest`     | July 3rd     | `sha256:8544213c4ac523b556674243c5f01f79e74c9d982148dd556de72d8d196a8889` |
+|  `latest-dev` | July 8th     | `sha256:2df6813e9c9bffb721c9aae348d639815c767b3935673d4e497f1fd8b7893193` |
+|  `latest`     | July 8th     | `sha256:d9b2ffc72286ea3b5c77db8233816a34b52370ace9db84bd54b348d80eb16c1f` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1.8` `1` `1.8.11`                 | July 6th     | `sha256:6dfa7e6cb328fa16036bd1d71b5e9f15f40abd09441fed5e8adffb9848f98dc4` |
-|  `1.8.11-dev` `1.8-dev` `1-dev` `latest-dev` | July 6th     | `sha256:e20fa0da2be2c0f4dcd0326c7884c8140288c655c4147e808944a58697744150` |
+|  `1.8.11-dev` `1-dev` `latest-dev` `1.8-dev` | July 8th     | `sha256:353c995e2027064b4bd5c05e4f1d6f7c7ba60f3588d6198ac6fb5bafebd6111f` |
+|  `1.8` `1` `latest` `1.8.11`                 | July 8th     | `sha256:0aaa00b0ee5e6cfb80d42945d7bfae779df8e8d593345a13f0b5247722f198b2` |
 

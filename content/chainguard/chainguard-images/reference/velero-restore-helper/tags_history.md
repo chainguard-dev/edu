@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the velero-restore-helper Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | July 4th     | `sha256:84c9d24524d757c953b9edbaa0d563852636c598e65fa47dbdf4442feeb15abd` |
-|  `latest-dev` | July 4th     | `sha256:974e0884398f27a5d0d6a4aaf9bb5f6ccb3dc6f80f0e13e1a6f1b1dd4f3ebe81` |
+|  `latest-dev` | July 8th     | `sha256:7787bb52b26e2ede5c8a64551a13f688b738c54a065c785404c8a3efea235167` |
+|  `latest`     | July 8th     | `sha256:e623ff822cecfb6b5d9dd59aa58b76cfa4c5c4c9c45e8b539747b0fbf5262d0d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.14-dev` `1-dev` `latest-dev` `1.14.0-dev` | July 6th     | `sha256:e405fcf780f25630f84a4cbb18bc5a76cf525d64d36b87b9ff0b2317c30f0283` |
-|  `1.14` `1.14.0` `latest` `1`                 | July 6th     | `sha256:293497136a7291618afdb1e762288847acc82474a55cf5614b6a9d6334934860` |
+|  `1.14` `latest` `1` `1.14.0`                 | July 8th     | `sha256:a5d94d218f37f3a0f1d53c63b03a6a7e0d872cdd1e7b831deadde2f9bcb24135` |
+|  `1-dev` `1.14-dev` `1.14.0-dev` `latest-dev` | July 8th     | `sha256:102e07521d6a26c9ebcf0f261905183074d93ae317d84b4e9a27cba1966a30a1` |
 

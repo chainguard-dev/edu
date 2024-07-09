@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-dns-node-cache Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,13 +26,16 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-Currently, there are no Developer versions of this image available.
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 8th     | `sha256:ed84598d3a70d45d6c743aef001cfdb1604a91842500792d3625a2810bedeb78` |
+
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.23` `1` `1.23.1` `latest`                 | July 6th     | `sha256:05398fe211d4d5277eb32f01e7b685eccaf04bb31648b7e384274cbe9dd54b8b` |
-|  `latest-dev` `1.23-dev` `1.23.1-dev` `1-dev` | July 6th     | `sha256:c0cd8928ecad6f5bb5ba28f573867e0da7061a661eaf95463a34c2e4f7066f05` |
+|  `1.23.1` `1` `1.23` `latest`                 | July 8th     | `sha256:565999fc384be8100ab9441ea7e399b4837a6ec64fd075df55988ed6195b08bc` |
+|  `latest-dev` `1-dev` `1.23-dev` `1.23.1-dev` | July 8th     | `sha256:9a3de1af7eebb764fa8ec3ad6aeeefb42e1014fff744934b5d2902432630730a` |
 

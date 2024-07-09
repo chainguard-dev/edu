@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rekor-backfill-redis-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.3-dev` `1.3.6-dev` | July 6th     | `sha256:bae1c1400a7aa19187bf04f538e038e002a7c275758b387e0f4aea27e72a7391` |
-|  `1.3` `1` `latest` `1.3.6`                 | July 6th     | `sha256:ac79e82609f23aabf4dbc52903d7b17d508eaff8ac18f39880503ea5aef8aebb` |
+|  `latest` `1.3.6` `1.3` `1`                 | July 8th     | `sha256:ea01db07ed391909dbc550ca528db1d2d255de4b1358ea7bc199efd5f96e73f6` |
+|  `1-dev` `1.3-dev` `latest-dev` `1.3.6-dev` | July 8th     | `sha256:097fa6299136b73d7bffdc1019a6aa3b491573b4d6524adaa2f70cf81e78396f` |
 

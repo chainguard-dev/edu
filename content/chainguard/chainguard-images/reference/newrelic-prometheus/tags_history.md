@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-prometheus Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 3rd     | `sha256:0a01cbf617db2055e0ded8e5c51da7611ea7f60098bda7d6c00dc677fdb27382` |
-|  `latest`     | July 3rd     | `sha256:3675623283da4a702045f2acf7c3161b75864dffd856aca24d77b759565f8c72` |
+|  `latest`     | July 8th     | `sha256:6c5a0396305da7097113b7ef4b87413d8ea5c94e745a1dcbe5ac09f9b37b053f` |
+|  `latest-dev` | July 8th     | `sha256:d0d7103c9ee38c0b3e562739370265860f996daa7d1dbabac6b62028973c0481` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.21.3-dev` `2.21-dev` `2-dev` `latest-dev` | July 6th     | `sha256:2cbdc9255d8c7769a1b4c5662efb2b129faef20ce07a94584f50392b24db5620` |
-|  `2.21` `latest` `2.21.3` `2`                 | July 6th     | `sha256:c2aa67d567fbca5fd77412d5e0d165b49909d2963f34209ca0c6fba8e6c13851` |
+|  `2` `2.21.3` `2.21` `latest`                 | July 8th     | `sha256:b733af1d139aa7647028c137eb1df2ad0a4bee720bcfa283f1a0819289dd1e30` |
+|  `2.21-dev` `2-dev` `2.21.3-dev` `latest-dev` | July 8th     | `sha256:926eaecc2bcdf39627fa685d278b306e7239393e711129a88590f8246854fbda` |
 
