@@ -1,6 +1,6 @@
 ---
 title: "How to Set Up Pull Through from Chainguard Registry to Google Artifact Registry"
-linktitle: "Pull Through Google Artifact Registry"
+linktitle: "Google Artifact Registry"
 aliases: 
 - /chainguard/chainguard-registry/pull-through-guides/artifact-registry-pull-through/
 type: "article"
@@ -119,7 +119,7 @@ Alternatively, you can also provide the secret using the Google Cloud Console in
 
 ![Screenshot of the Google Secret Manager screen, showing the pull token secret configuration.](Google-Secret-Manager-1.png)
 
-Back in the Google Artifact Registry, click on the repository you want to configure for pulling through Production Images. Click on the **Edit** button to edit the repository configuration. In the **Remote repository source** section of the configuration screen choose **Authenticated**.
+Back in the Google Artifact Registry, click on the repository you want to configure for pulling through Production Images and then click on the **Edit** button to edit the repository configuration. In the **Remote repository source** section of the configuration screen, choose **Authenticated**.
 
 Enter the pull token `username` value in the **Username** field. In the **Password** field, select the secret you created in Google Secret Manager.
 
