@@ -10,7 +10,7 @@ tags: ["Chainguard Images", "Registry", "Product"]
 menu:
   docs:
     parent: "registry"
-weight: 50
+weight: 005
 toc: true
 ---
 
