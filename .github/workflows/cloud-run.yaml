@@ -47,14 +47,14 @@ jobs:
 
     - name: Docker Auth
       id: docker-auth
-      uses: 'docker/login-action@0d4c9c5ea7693da7b068278f7b52bda2a190a446' # v2
+      uses: docker/login-action@0d4c9c5ea7693da7b068278f7b52bda2a190a446 # v3.2.0
       with:
         username: 'oauth2accesstoken'
         password: '${{ steps.auth.outputs.access_token }}'
         registry: '${{ secrets.REGISTRY_URL }}'
 
     - name: Build and push
-      uses: 'docker/build-push-action@15560696de535e4014efeff63c48f16952e52dd1' # v3
+      uses: docker/build-push-action@1a162644f9a7e87d8f4b053101d1d9a712edc18c # v6.3.0
       with:
         context: .
         push: true
