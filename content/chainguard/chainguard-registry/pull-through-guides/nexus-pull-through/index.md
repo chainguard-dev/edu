@@ -1,10 +1,13 @@
 ---
 title: "How to Set Up Pull Through from Chainguard Registry to Nexus"
-linktitle: "Pull Through Nexus"
+linktitle: "Nexus"
+aliases: 
+- /chainguard/chainguard-registry/nexus-pull-through/
+- /chainguard/chainguard-registry/pull-through-guides/nexus-pull-through/
 type: "article"
 description: "Tutorial outlining how to set up a Nexus repository to pull Images through from a Chainguard Registry."
 date: 2024-03-28T15:56:52-07:00
-lastmod: 2024-03-28T15:56:52-07:00
+lastmod: 2024-07-09T15:56:52-07:00
 draft: false
 tags: ["Product", "Procedural", "Chainguard Images"]
 images: []
@@ -12,7 +15,7 @@ menu:
   docs:
     parent: "registry"
 toc: true
-weight: 600
+weight: 015
 ---
 
 Organizations can use Chainguard Images along with third-party software repositories in order to integrate with current workflows as the single source of truth for software artifacts. In this situation, you can set up a proxy repository to function as a mirror of the [Chainguard Registry](/chainguard/chainguard-registry/overview/). This mirror can then serve as a pull through cache for your Chainguard Images.
