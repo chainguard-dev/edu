@@ -30,7 +30,7 @@ A _distroless_ image is a minimal container image that typically doesn't include
 There are currently two main strategies for building distroless images with Wolfi:
 
 - **With a Dockerfile:** Use `-dev` variants **or** the `wolfi-base` image from [Chainguard Images](/chainguard/chainguard-images/overview/) to build the application, and copy the artifacts to a distroless runtime image. This option is typically more accessible for people who are already used to a Dockerfile workflow.
-- **With apko:** Use [apko](https://github.com/chainguard-dev/apko) to build a distroless image with only the packages you need, fully customized. This option requires a steeper learning curve to get used to how apko works, but it will give you smaller images with better SBOM coverage.
+- **With apko:** Use [apko](/open-source/apko/overview/) to build a distroless image with only the packages you need, fully customized. This option requires a steeper learning curve to get used to how apko works, but it will give you smaller images with better SBOM coverage. The [Getting Started with apko](/open-source/apko/getting-started-with-apko/) tutorial explains how that works in practice.
 
 The [wolfi-base](https://github.com/chainguard-images/images/tree/main/images/wolfi-base) image, which we'll be using in this tutorial, is not distroless, because it includes `apk-tools` and `bash`. It can still be used to build a final distroless image, when combined with a distroless runtime in a [Docker multi-stage build](https://docs.docker.com/build/building/multi-stage/).
 
@@ -220,6 +220,6 @@ And you'll notice that the `:distroless` version is significantly smaller, becau
 
 ## Final Considerations
 
-If your build requires dependencies that are not yet available on Wolfi, you can build your own apks using [melange](https://github.com/chainguard-dev/melange).
+If your build requires dependencies that are not yet available on Wolfi, you can build your own apks using [melange](/open-source/melange/overview/). Check the [Getting started with melange](/open-source/melange/tutorials/getting-started-with-melange/) guide for more details on how to go about that.
 
 Check also our public [Chainguard Images](/chainguard/chainguard-images/reference/) for application environments including `-dev` variants that can be used as builders for your specific application runtime.

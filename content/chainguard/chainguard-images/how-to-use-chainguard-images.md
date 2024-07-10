@@ -135,7 +135,7 @@ It often happens that you want a [distroless](/chainguard/chainguard-images/gett
 
 1. Compile the dependency from source and use a multi-stage Dockerfile to create a new base image. This works, but may require considerable effort to get the dependency compiling and to keep it up to date. This process quickly becomes untenable if you require several dependencies.
 2. Use the `wolfi-base` image that includes apk tools to install the package in the traditional Dockerfile manner. This works but sacrifices a lot of the advantages of the “distroless” philosophy.
-3. Use Chainguard’s [melange](https://github.com/chainguard-dev/melange) and [apko](https://github.com/chainguard-dev/apko) tooling to create a custom base image. This keeps the image as minimal as possible without sacrificing maintainability.
+3. Use Chainguard’s [melange and apko tooling to create a custom base image](/open-source/melange/tutorials/getting-started-with-melange/). This keeps the image as minimal as possible without sacrificing maintainability.
 
 ### Using the wolfi-base Image
 The `wolfi-base` image is a good starting point to try out Chainguard Images. Unlike most of the other images, which are strictly distroless, `wolfi-base` includes the `apk` package manager, which facilitates composing additional software into it. Just keep in mind that the resulting image will be a little larger due to the extra software and won't have a comprehensive SBOM that covers all your dependencies, since the new software will be added as a layer on top of `wolfi-base`.

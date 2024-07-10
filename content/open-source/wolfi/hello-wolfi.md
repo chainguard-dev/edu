@@ -94,6 +94,9 @@ docker run --privileged --rm -v "${PWD}":/work -- \
   --signing-key melange.rsa --keyring-append melange.rsa.pub
 ```
 
+_If you run into issues while running melange commands, check the [melange troubleshooting guide](/open-source/melange/troubleshooting/)._
+
+
 ### 4. Build the Composer package
 You can now build the Composer package with the following command on Linux operating systems:
 
@@ -138,6 +141,8 @@ Now that all dependencies are ready, you can now run `apko build` to build the i
 ```shell
 docker run --rm -v ${PWD}:/work cgr.dev/chainguard/apko build --debug apko.yaml hello-wolfi:latest hello-wolfi.tar -k melange.rsa.pub
 ```
+
+_If you run into issues while running apko commands, check the [apko troubleshooting guide](/open-source/apko/troubleshooting/)._
 
 ### 7. Load the container image
 You can now load the generated image into Docker with the following command:
