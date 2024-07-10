@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the git Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-09 00:39:12
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,13 +28,13 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)                  | Last Changed | Digest                                                                    |
 |--------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-root-dev`       | July 8th     | `sha256:d7b02c997340347eebdd4b924b0cdbd604cf1d44a4d72a8fc14e22733003efc9` |
+|  `latest-root`           | July 9th     | `sha256:d1ef4bf5336adda07ca3b1432ea57c80e09db26b0e5b645073fcea0d1ae7ed57` |
+|  `latest-dev`            | July 9th     | `sha256:8db53175353a102ac586bcdfb95f85c3840d23bec1452ba4e0dba196559aac3f` |
+|  `latest`                | July 9th     | `sha256:0a89f478616a1cd0541b484dc789761f3c95e59db21c61fd8b329e71b72d8d7c` |
+|  `latest-root-dev`       | July 9th     | `sha256:02a75c815b885088b3b72fdc81f175597c7d44a75bbadef9eb22850a4027e9b1` |
 |  `latest-glibc`          | July 8th     | `sha256:1eb8ab655bc4d63e0bb7baabc82d756570f38b81d010567798fea31747682324` |
-|  `latest`                | July 8th     | `sha256:34de649e402f6d8299847649085d26a1b2699e570db31b00d7df3be58fca4e7b` |
 |  `latest-glibc-root`     | July 8th     | `sha256:99fd90fc5890c63137a497b04eb61e5dfdd30776be9d85625736dd718cd83506` |
-|  `latest-root`           | July 8th     | `sha256:c4077f5b3c6eccb0b528fc0c0d3076bc3d25eca75452935263faa39de179169c` |
 |  `latest-glibc-root-dev` | July 8th     | `sha256:ad7056fedd631f80af5fb468e1ddee29f1bf1691123348ab6915f34c5bcad663` |
-|  `latest-dev`            | July 8th     | `sha256:4630f7e0ee21e898b353f2cead0fc2faec548cccbfa2677bd88dfd73823d5ae9` |
 |  `latest-glibc-dev`      | July 8th     | `sha256:5fbaed4d49eea190c55da35c3a648260ad9c3316aa35b93d854162e7fb3b86c5` |
 
 

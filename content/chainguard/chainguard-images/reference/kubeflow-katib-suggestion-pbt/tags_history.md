@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-pbt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-09 00:39:12
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,13 +26,17 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-Currently, there are no Developer versions of this image available.
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 9th     | `sha256:0480c9bbc1f887fd16d7f5e4d68d5db540ad794a386d759dc5f192c5f711d33e` |
+|  `latest`     | July 9th     | `sha256:27e89a303905b2a78f11961d595d55742e0237c7f38ee0ab4f88286628e12dfb` |
+
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0-dev` `0-dev` `latest-dev` `0.16-dev` | July 8th     | `sha256:cdd5b5aae7f5593cc2fcff214c101589224d7780f656a46901faa922a276bd75` |
-|  `latest` `0` `0.16` `0.16.0`                 | July 8th     | `sha256:c578d95acf0d99081550bc87bc1f049cca7fe274fb4d1746e80b6f93d86c6311` |
+|  `0-dev` `0.16-dev` `0.16.0-dev` `latest-dev` | July 9th     | `sha256:37028403195c536c4fece54c1bc3ead41c3d7fad0aed6089078c7ecd144afaab` |
+|  `latest` `0` `0.16.0` `0.16`                 | July 9th     | `sha256:49aaaab4c1b60f490f2ea8a4614d3c47b48d8df94b39d6eb8a8bbc5ce3cf8062` |
 

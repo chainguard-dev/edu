@@ -1,3 +1,13 @@
+# 2024-07-10
+New images added:
+
+- cfssl-self-sign-fips
+- gitlab-container-registry
+- gitlab-container-registry-fips
+- valkey-fips
+
+A total of **227** documents were updated.
+
 # 2024-07-09
 New images added:
 
