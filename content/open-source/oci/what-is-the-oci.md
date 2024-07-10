@@ -14,31 +14,31 @@ menu:
 weight: 100
 toc: true
 ---
-The [Open Container Initiative](https://opencontainers.org/) (OCI) is a Linux Foundation project dedicated to managing specifications and projects related to the storage, distribution, and execution of container images. The OCI was formed in 2015 when developers recognized that the quickly growing container industry needed standards to ensure the portability of containers across systems and platforms. As one of the most popular container developers, Docker was a key partner in the formation of the OCI and donated its specifications and associated code for OCI image formats and runtime specifications. Today, the OCI manages three specifications (the Image Specification, the Runtime Specification, and the Distribution Specification), which are evolving according to community participation and industry development. 
+The [Open Container Initiative](https://opencontainers.org/) (OCI) is a Linux Foundation project dedicated to managing specifications and projects related to the storage, distribution, and execution of container images. The OCI was formed in 2015 when developers recognized that the quickly growing container industry needed standards to ensure the portability of containers across systems and platforms. As one of the most popular container developers, Docker was a key partner in the formation of the OCI and donated its specifications and associated code for OCI image formats and runtime specifications. Today, the OCI manages three specifications (the Image Specification, the Runtime Specification, and the Distribution Specification), which are evolving according to community participation and industry development.
 
-The OCI is committed to promoting common, minimal, and open standards and specifications with the aim of protecting interoperability without sacrificing developers’ ability to innovate. These standards and specifications play a critical role in enabling developers to trust that their containers will work regardless of the infrastructure, cloud provider, and DevOps tooling they choose to use. They also are vital in modern software supply chain security as they provide a strong foundation for developing security tooling and best practices related to container technology. Understanding the purpose and use of OCI specifications can help you understand the conditions of container interoperability and prepare you to learn emerging methods for securing and trusting container applications. 
+The OCI is committed to promoting common, minimal, and open standards and specifications with the aim of protecting interoperability without sacrificing developers’ ability to innovate. These standards and specifications play a critical role in enabling developers to trust that their containers will work regardless of the infrastructure, cloud provider, and DevOps tooling they choose to use. They also are vital in modern software supply chain security as they provide a strong foundation for developing security tooling and best practices related to container technology. Understanding the purpose and use of OCI specifications can help you understand the conditions of container interoperability and prepare you to learn emerging methods for securing and trusting container applications.
 
-## What are the OCI Specifications? 
+## What are the OCI Specifications?
 
-The OCI currently manages three specifications: the Runtime Specification, the Image Specification, and the Distribution Specification. These specifications work together to ensure that any OCI-compliant image can be run on any OCI-compliant runtime, and that OCI-compliant registries (such as Docker, Amazon Elastic Container Registry, or Google Container Registry) are able to distribute OCI images according to OCI guidelines. 
+The OCI currently manages three specifications: the Runtime Specification, the Image Specification, and the Distribution Specification. These specifications work together to ensure that any OCI-compliant image can be run on any OCI-compliant runtime, and that OCI-compliant registries (such as Docker, Amazon Elastic Container Registry, or Google Container Registry) are able to distribute OCI images according to OCI guidelines.
 
 The OCI offers a testing and peer validation process for individuals and organizations to certify their images or runtime software as OCI compliant. You can find information about the certification process on the [OCI website](https://opencontainers.org/community/certified/).
 
-The three OCI specifications are outlined in the following sections. 
+The three OCI specifications are outlined in the following sections.
 
 ## OCI Image Format Specification
 
-This specification defines an OCI Image as consisting of an image manifest, an optional image index, a set of filesystem layers, and a configuration. 
+This specification defines an OCI Image as consisting of an image manifest, an optional image index, a set of filesystem layers, and a configuration.
 
 ### Image manifest
 
 This document provides a configuration and set of layers for a single container image for a specific architecture and operating system. Note that the manifest specification has three goals:
 
-* Enabling _content-addressable_ images, which means an image can be referred to by a unique ID — or digital fingerprint — that is generated by hashing its contents. Hashing is generated using the SHA256 algorithm, which generates a unique 32-byte signature for an image based on the contents of the image. Changing even one byte on the original image would result in a different hash, enabling developers to know with certainty that an image has not been altered.  
-* Allowing _multi-architecture_ images, or container images that can be used with different architectures such as AMD64 and ARM. Multi-architecture images enable a flexible approach to developing a container-based application or setting up CI/CD workflows without needing to commit to a specific architecture.  
+* Enabling _content-addressable_ images, which means an image can be referred to by a unique ID — or digital fingerprint — that is generated by hashing its contents. Hashing is generated using the SHA256 algorithm, which generates a unique 32-byte signature for an image based on the contents of the image. Changing even one byte on the original image would result in a different hash, enabling developers to know with certainty that an image has not been altered.
+* Allowing _multi-architecture_ images, or container images that can be used with different architectures such as AMD64 and ARM. Multi-architecture images enable a flexible approach to developing a container-based application or setting up CI/CD workflows without needing to commit to a specific architecture.
 * Ensuring that images are compatible with any OCI-compliant runtime.
 
-For an example manifest document and a list of properties, you can read the [OCI’s Image Manifest Specifications](https://github.com/opencontainers/image-spec/blob/main/manifest.md). 
+For an example manifest document and a list of properties, you can read the [OCI’s Image Manifest Specifications](https://github.com/opencontainers/image-spec/blob/main/manifest.md).
 
 ### Image index (optional)
 
@@ -46,7 +46,7 @@ This document is an optional higher-level manifest which allows developers to po
 
 ### A set of filesystem layers
 
-An image is composed of one or more _filesystem layers_, each of which represent a change to the file system such as the addition of another image or one or more commands. These layers are unpacked by the container engine to build the image and are referred to by their `digest`, a hash generated by applying the SHA 256 algorithm to their contents. Layers are described in the image manifest as follows: 
+An image is composed of one or more _filesystem layers_, each of which represent a change to the file system such as the addition of another image or one or more commands. These layers are unpacked by the container engine to build the image and are referred to by their `digest`, a hash generated by applying the SHA 256 algorithm to their contents. Layers are described in the image manifest as follows:
 
 ```json
  "layers": [
@@ -58,11 +58,11 @@ An image is composed of one or more _filesystem layers_, each of which represent
  ]
 ```
 
-For OCI guidance on filesystem layers, you can visit their [Image Layer Filesystem Changeset Documentation](https://github.com/opencontainers/image-spec/blob/main/layer.md). 
+For OCI guidance on filesystem layers, you can visit their [Image Layer Filesystem Changeset Documentation](https://github.com/opencontainers/image-spec/blob/main/layer.md).
 
-### Configuration  
+### Configuration
 
-The configuration document includes basic information like the author and creation date and describes execution parameters for translating the image to a container runtime. The configuration file is named after its cryptographic hash and can be located in the manifest as follows:  
+The configuration document includes basic information like the author and creation date and describes execution parameters for translating the image to a container runtime. The configuration file is named after its cryptographic hash and can be located in the manifest as follows:
 
 ```json
 {
@@ -75,17 +75,17 @@ The configuration document includes basic information like the author and creati
   },
 ```
 
-For more guidance on image configuration, visit the [official OCI documentation](https://github.com/opencontainers/image-spec/blob/main/config.md). 
+For more guidance on image configuration, visit the [official OCI documentation](https://github.com/opencontainers/image-spec/blob/main/config.md).
 
-## Runtime Specification  
+## Runtime Specification
 
-A container runtime is the software used to run and manage containers; essentially they create and run containers using specified images. The goal of the OCI Runtime Specification is to ensure consistency between different runtime environments and define common actions to manage a container’s lifecycle. An OCI-compliant image should run reliably on any OCI-compliant runtime.  More information about the Runtime Specification can be found in the [OCI documentation](https://github.com/opencontainers/runtime-spec/blob/main/spec.md). 
+A container runtime is the software used to run and manage containers; essentially they create and run containers using specified images. The goal of the OCI Runtime Specification is to ensure consistency between different runtime environments and define common actions to manage a container’s lifecycle. An OCI-compliant image should run reliably on any OCI-compliant runtime.  More information about the Runtime Specification can be found in the [OCI documentation](https://github.com/opencontainers/runtime-spec/blob/main/spec.md).
 
-In addition to overseeing this specification, OCI develops the runtime `runc`, a command line client for creating, configuring, and managing containers. Originally developed by Docker, `runc` was donated to OCI as the reference for the specification and serves as the foundation for a variety of popular container tools such as containerd and Podman. 
+In addition to overseeing this specification, OCI develops the runtime `runc`, a command line client for creating, configuring, and managing containers. Originally developed by Docker, `runc` was donated to OCI as the reference for the specification and serves as the foundation for a variety of popular container tools such as containerd and Podman.
 
 ## Distribution Specification
 
-The OCI Distribution Specification aims to standardize the way container registries and runtime tools push and pull container images and other content types. It is based on the specification for the Docker Registry HTTP API V2 protocol apdx-1, and has been adopted by major registries such as Amazon Elastic Container Registry, Google Container Registry, Azure Container Registry, and Github Container Registry. Any registry that is OCI-compliant supports interactions outlined by this specification, such as pushing, pulling, or storing images.  More information about the Distribution Specification can be found in the OCI documentation [here](https://github.com/opencontainers/distribution-spec/blob/main/spec.md). 
+The OCI Distribution Specification aims to standardize the way container registries and runtime tools push and pull container images and other content types. It is based on the specification for the Docker Registry HTTP API V2 protocol apdx-1, and has been adopted by major registries such as Amazon Elastic Container Registry, Google Container Registry, Azure Container Registry, and Github Container Registry. Any registry that is OCI-compliant supports interactions outlined by this specification, such as pushing, pulling, or storing images.  More information about the Distribution Specification can be found in the OCI documentation [here](https://github.com/opencontainers/distribution-spec/blob/main/spec.md).
 
 ## How to know if an image is OCI compliant
 
@@ -95,18 +95,18 @@ Currently, most images encountered in the wild are either OCI or Docker images. 
  "mediaType": "application/vnd.oci.image.manifest.v1+json",
 ```
 
-Otherwise, the mediatype string will likely include “docker” as follows: 
+Otherwise, the mediatype string will likely include “docker” as follows:
 
-```json 
+```json
 "mediaType": "application/vnd.docker.distribution.manifest.v2+json"
 ```
 
-There are a few interesting nuances about OCI images that are worth pointing out. First, because Docker donated its image specifications to OCI, Docker and OCI image specifications are the same in substance. In fact, most images on Docker are _Docker_ images and not OCI images, which you can confirm by inspecting the image manifests. This is largely due to the fact that Docker’s tools for publishing and building images create _Docker_ images – not _OCI_ images — by default, a convention set by historical practice. If you want to build and publish OCI images, you must use tools that support OCI, such as [apko](/open-source/apko/overview/), an open source OCI image builder.  
+There are a few interesting nuances about OCI images that are worth pointing out. First, because Docker donated its image specifications to OCI, Docker and OCI image specifications are the same in substance. In fact, most images on Docker are _Docker_ images and not OCI images, which you can confirm by inspecting the image manifests. This is largely due to the fact that Docker’s tools for publishing and building images create _Docker_ images – not _OCI_ images — by default, a convention set by historical practice. If you want to build and publish OCI images, you must use tools that support OCI, such as [apko](https://github.com/chainguard-dev/apko), an open source OCI image builder.
 
-Relatedly, a final nuance to point out is that OCI-compliant registries are only required to _support_  OCI images, but may distribute other image types as well. Thus, you should not expect all images distributed on an OCI-compliant registry to be OCI compliant themselves, such as evidenced by Docker Hub in the example above.  
+Relatedly, a final nuance to point out is that OCI-compliant registries are only required to _support_  OCI images, but may distribute other image types as well. Thus, you should not expect all images distributed on an OCI-compliant registry to be OCI compliant themselves, such as evidenced by Docker Hub in the example above.
 
 ## Wrap up
 
-You should now understand the purpose of OCI and the three container specifications it oversees. While the OCI’s core function is protecting interoperability across the complex container ecosystem, its protocols are being recognized as useful for _signing_ software, a method for authenticating that the software is from a trusted source and has not been tampered with by a third party. You can learn more about container signing and how to sign, verify, and store image artifacts in an OCI registry in our [introductory guide to Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign/).  
+You should now understand the purpose of OCI and the three container specifications it oversees. While the OCI’s core function is protecting interoperability across the complex container ecosystem, its protocols are being recognized as useful for _signing_ software, a method for authenticating that the software is from a trusted source and has not been tampered with by a third party. You can learn more about container signing and how to sign, verify, and store image artifacts in an OCI registry in our [introductory guide to Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign/).
 
 
