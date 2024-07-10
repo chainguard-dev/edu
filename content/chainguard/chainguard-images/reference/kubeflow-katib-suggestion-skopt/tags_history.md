@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-skopt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-09 00:39:12
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,13 +26,17 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-Currently, there are no Developer versions of this image available.
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 9th     | `sha256:403e18c66d259679165adeec97b624e4b583c802186b6b4363a0745e89646787` |
+|  `latest`     | July 9th     | `sha256:52920ec31874a3f3f3a01c12a451e8876c64cc13d248b8386f0ddec33aa3e0ae` |
+
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16-dev` `latest-dev` `0-dev` `0.16.0-dev` | July 8th     | `sha256:f8a6990977d344e9c389f42fda7c1498f45792745fe44fc6f493b9ad48115eba` |
-|  `latest` `0.16.0` `0.16` `0`                 | July 8th     | `sha256:c4083a1546f1bec2bfa84e92ead0a10ace73eac6a836bbe21c71abfec97e01f4` |
+|  `0.16` `0.16.0` `0` `latest`                 | July 9th     | `sha256:16643a5056731a94b8b0b2914195c8deb24cc340223448bad49dd30d53355529` |
+|  `0-dev` `0.16-dev` `latest-dev` `0.16.0-dev` | July 9th     | `sha256:5d4b3a1631120c082cf3fa9a1a8f4c1b7bd55defb565004a5634e8dc17acd902` |
 

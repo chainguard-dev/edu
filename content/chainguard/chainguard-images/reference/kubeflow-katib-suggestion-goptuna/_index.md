@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: kubeflow-katib-suggestion-goptuna Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-07-08 00:34:55
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -34,7 +34,7 @@ Minimalist Kubeflow Katib Images
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard-private/kubeflow-katib-suggestion-goptuna:latest
+docker pull cgr.dev/chainguard/kubeflow-katib-suggestion-goptuna:latest
 ```
 
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public grafana Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-23 00:43:06
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -45,7 +45,7 @@ The table shows package distribution across variants.
 | `git`                    | X          |        |
 | `glibc`                  | X          | X      |
 | `glibc-locale-posix`     | X          | X      |
-| `grafana-11.0`           | X          | X      |
+| `grafana-11.1`           | X          | X      |
 | `grafana-oci-compat`     | X          | X      |
 | `ld-linux`               | X          | X      |
 | `libbrotlicommon1`       | X          |        |

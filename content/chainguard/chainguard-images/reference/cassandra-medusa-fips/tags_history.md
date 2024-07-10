@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cassandra-medusa-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-09 00:39:12
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.21` `latest` `0.21.0` `0`                 | July 8th     | `sha256:c242ab7e51fac4d1ca5a35f2c8329315b6f193d762d9741e5540873db9c88cc5` |
-|  `0-dev` `latest-dev` `0.21.0-dev` `0.21-dev` | July 8th     | `sha256:325445b640500f44c6198c49ca0223bafd712c0631c99e2ad62a4dbce1755336` |
+|  `0.21.0` `0.21` `0` `latest`                 | July 9th     | `sha256:aca7e8393254d3a2cd55aad989ea7fe3aba75b362b97b36920b3b70a8a25f808` |
+|  `0-dev` `0.21-dev` `0.21.0-dev` `latest-dev` | July 9th     | `sha256:b235be6546318fa35094771e104b3e99db26002c82527d357a3cc4bdc35e4f06` |
 

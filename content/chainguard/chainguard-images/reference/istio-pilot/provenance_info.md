@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for istio-pilot Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-07-09 00:39:12
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 | Registry                     | Tags                                                                                                 |
 |------------------------------|------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest                                                                                               |
+| `cgr.dev/chainguard`         | latest, latest-dev                                                                                   |
 | `cgr.dev/chainguard-private` | 1, 1-dev, 1.21, 1.21-dev, 1.21.4, 1.21.4-dev, 1.22, 1.22-dev, 1.22.2, 1.22.2-dev, latest, latest-dev |
 
 
