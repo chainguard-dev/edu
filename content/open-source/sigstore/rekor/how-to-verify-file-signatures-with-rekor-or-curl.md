@@ -17,7 +17,7 @@ toc: true
 
 The `rekor-cli` tool or `curl` can be used to verify anything with a signature on a [Rekor transparency log](/open-source/sigstore/rekor/an-introduction-to-rekor/#transparency-log). This tutorial assumes you have the `rekor-cli` tool installed, which you can achieve by following our [How to Install the Rekor CLI](/open-source/sigstore/rekor/how-to-install-rekor/) guide. When verifying a signature using either tool, ensure that you have the `jq` utility installed so that you can parse their output.
 
-We’ll verify a binary artifact, in this case, a copy of [apko](/open-source/apko/overview/), which is a tool for building container images using a declarative language based on YAML. The methods in this tutorial apply to any blob file that Cosign has signed with a keyless signature.
+We’ll verify a binary artifact, in this case, a copy of [apko](https://github.com/chainguard-dev/apko), which is a tool for building container images using a declarative language based on YAML. The methods in this tutorial apply to any blob file that Cosign has signed with a keyless signature.
 
 ### Verifying a binary with rekor-cli
 
@@ -83,7 +83,7 @@ If you are using `curl` then run this command:
 curl -X GET "https://rekor.sigstore.dev/api/v1/log/entries/${UUID?}"
 ```
 
-In both cases, if you would like to extract the signature and public key to verify your binary matches what is in the Rekor log, you will need to parse the output. You will need to use tools like `base64` to decode the data, `jq` to extract the relevant fields, and `openssl` to verify the signature. 
+In both cases, if you would like to extract the signature and public key to verify your binary matches what is in the Rekor log, you will need to parse the output. You will need to use tools like `base64` to decode the data, `jq` to extract the relevant fields, and `openssl` to verify the signature.
 
 ##### Fetch a signature and public certificate using `rekor-cli`
 
