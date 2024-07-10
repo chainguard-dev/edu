@@ -3,8 +3,8 @@ title: "adoptium-jdk Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the adoptium-jdk Chainguard Image"
-date: 2024-07-09 00:39:12
-lastmod: 2024-07-09 00:39:12
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                | Last Changed | Digest                                                                    |
 |----------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `adoptium-openjdk-17.0` `adoptium-openjdk-17` `adoptium-openjdk-17.0.11`              | July 9th     | `sha256:b764cba48a78bdd96f6653f0aaf74ba6f9d487de51b57c629e9325a158a2794c` |
+|  `adoptium-openjdk-17.0-dev` `adoptium-openjdk-17.0.11-dev` `adoptium-openjdk-17-dev`  | July 9th     | `sha256:4b52ec51506035c12555e29ee43d77533db271119706468ff0b30bb4122f6fa8` |
 |  `adoptium-openjdk-8.412.08-dev` `adoptium-openjdk-8.412-dev` `adoptium-openjdk-8-dev` | July 8th     | `sha256:924d441de1c9315b44bc7732da21f88aff615704139d4fe212c44b07c8f70c79` |
 |  `adoptium-openjdk-8.412.08` `adoptium-openjdk-8.412` `adoptium-openjdk-8`             | July 8th     | `sha256:d6b778a8369b64e22949bebb1dc6b0260f5106f84b21792d6e975a276cb0ad96` |
 

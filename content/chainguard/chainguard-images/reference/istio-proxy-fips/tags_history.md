@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the istio-proxy-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-09 00:39:12
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.21` `1.21.4`                              | July 8th     | `sha256:2602207db98b7cde25202d7cfbc7755642189711c51c4d8049dfc94a929954d4` |
-|  `1-dev` `1.22-dev` `1.22.2-dev` `latest-dev` | July 8th     | `sha256:9c8a5013518f2cfed0292fa9c39f6ff6a050d9bd7ea0f88e623ccfbf775d30c8` |
-|  `1.22` `1` `latest` `1.22.2`                 | July 8th     | `sha256:b72ef1f38304d8eb4398533e5d2c843b74723b0c0aac17f5b2fb4980f72d60af` |
-|  `1.21.4-dev` `1.21-dev`                      | July 8th     | `sha256:cb64c6c5e168578d935d952f805adfa8eb04febd2bb9994acda52fa2d1d5a3a7` |
+|  `1.21` `1.21.4`                              | July 9th     | `sha256:5db122ddbf6a103abd3fbd70a7af91481eecc1056be77377ea8eb20336da1397` |
+|  `1.21-dev` `1.21.4-dev`                      | July 9th     | `sha256:b60c9b21b158c0bb8e5a619b37c4adc3cdfcab5f6c23ebf617dc36a2ccfe1cce` |
+|  `latest-dev` `1.22.2-dev` `1-dev` `1.22-dev` | July 9th     | `sha256:500c3ecae8ced179a79c50a874c79380aaf702f77ce58cb341fa40ae31691fdc` |
+|  `1.22.2` `1.22` `latest` `1`                 | July 9th     | `sha256:56dd2f7351a3d9a8303e60e106bbbb66bc4ffec1eceb43bc2f48c5dbeb1544a7` |
 

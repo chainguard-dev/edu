@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the renovate Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-09 00:39:12
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                            | Last Changed | Digest                                                                    |
 |----------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `37.426-dev` `37.426.0-dev` `37-dev` `latest-dev` | July 9th     | `sha256:4f7381ef3d06b172be61b9ec6ed6ff19b54151c81f54ddf6266da86306337d4d` |
-|  `37.426.0` `37` `37.426` `latest`                 | July 9th     | `sha256:86d6e04ac14353acdfd7dcb37535ddce330ccead0e42e3d226b171a6bb4cde58` |
+|  `37` `37.426.2` `latest` `37.426`                 | July 9th     | `sha256:a3fd62545f4405cc812f4d6b21018f492c118fcaef20b117bdf32dbde825a16b` |
+|  `37.426-dev` `latest-dev` `37.426.2-dev` `37-dev` | July 9th     | `sha256:7148f5aa56633afd1c58dcea325de1252f2f4211e5c18cd1091cefc1d735b300` |
+|  `37.426.0`                                        | July 9th     | `sha256:7de64c54ee94a160fe2a934ebab698f3349b93640367c06ed9ea01daf00f8c48` |
+|  `37.426.0-dev`                                    | July 9th     | `sha256:33cc17194f5ffa8e9edf21be28d09f0440ad8c4ac6166136c93de6b6f446a1d9` |
 |  `37.425-dev` `37.425.1-dev`                       | July 8th     | `sha256:277830f34a56d06fa457eb5f6ff64190f6ba8989573cccd8862c89e4a7d55d4c` |
 |  `37.425` `37.425.1`                               | July 8th     | `sha256:fd28695001d58914930b8c5743a6322ea57dd83a94b6701bfd7a2c564151abb0` |
 |  `37.422.4` `37.422`                               | July 7th     | `sha256:1e93cf1c825d57845b29bbe5d8148847312cfa6a1dc76d82531930bf246445f2` |

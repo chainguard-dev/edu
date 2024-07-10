@@ -3,8 +3,8 @@ title: "Provenance Information for adoptium-jre Images"
 type: "article"
 unlisted: true
 description: "Provenance information for adoptium-jre Chainguard Image"
-date: 2024-07-09 00:39:12
-lastmod: 2024-07-09 00:39:12
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for adoptium-jre Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                     |
-|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                                             |
-| `cgr.dev/chainguard-private` | adoptium-openjdk-8, adoptium-openjdk-8-dev, adoptium-openjdk-8.412, adoptium-openjdk-8.412-dev, adoptium-openjdk-8.412.08, adoptium-openjdk-8.412.08-dev |
+| Registry                     | Tags                                                                                                                                                                                                                                                                                                             |
+|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                                                                                                                                                                                                     |
+| `cgr.dev/chainguard-private` | adoptium-openjdk-17, adoptium-openjdk-17-dev, adoptium-openjdk-17.0, adoptium-openjdk-17.0-dev, adoptium-openjdk-17.0.11, adoptium-openjdk-17.0.11-dev, adoptium-openjdk-8, adoptium-openjdk-8-dev, adoptium-openjdk-8.412, adoptium-openjdk-8.412-dev, adoptium-openjdk-8.412.08, adoptium-openjdk-8.412.08-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

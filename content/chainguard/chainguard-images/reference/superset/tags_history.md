@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the superset Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-09 00:39:12
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 8th     | `sha256:233f3db5f304a9080e334c9e4607c74644b03061fa00fa1f457049e9911d27c4` |
-|  `latest`     | July 8th     | `sha256:d796b832c688337ce2368768f064e75df0f8e7eadf4ca494a9b6a44e5073d931` |
+|  `latest`     | July 9th     | `sha256:ee96a3d99517fbc83044dd312d0e3ba2db2765b9dd85bcf83dab9cd26076718e` |
+|  `latest-dev` | July 9th     | `sha256:b68d18d4b438e28ebfb6906f0ac43ec3541fe7d85f8d4a03c366e207776ea5da` |
 
 
 ### Private/Dedicated Registry

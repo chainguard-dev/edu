@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ko Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-09 00:39:12
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 3rd     | `sha256:b6e15356a02c1a691b2da3a377123faab7e2fd407991ed1eb5bb3b966a97ef5b` |
-|  `latest`     | July 3rd     | `sha256:1c6ef3ba87f14c0ddfec667c8e2968f7bdef80e065528966e4cd12d8187a19be` |
+|  `latest-dev` | July 9th     | `sha256:6ededa9c5504bf7a6a3282a64468561838217bdb4317787f291178105ee3cf04` |
+|  `latest`     | July 9th     | `sha256:30d35f3cfaba1439e1a78dd2b491b95eb798f49e23cee467640e0f3a16fb6cf3` |
 
 
 ### Private/Dedicated Registry
