@@ -16,7 +16,7 @@ weight: 400
 toc: true
 ---
 
-[apko](https://github.com/chainguard-dev/apko) uses the [apk](https://wiki.alpinelinux.org/wiki/Package_management) package manager to compose container images based on declarative pipelines.
+[apko](/open-source/apko/getting-started-with-apko/) uses the [apk](https://wiki.alpinelinux.org/wiki/Package_management) package manager to compose container images based on declarative pipelines.
 The apk format was introduced by [Alpine Linux](https://www.alpinelinux.org/) to address specific design requirements that could not be met by existing package managers such as `apt` and `dnf`. But what makes it different, and why does that matter in the context of apko?
 
 ## Manipulating the Desired State

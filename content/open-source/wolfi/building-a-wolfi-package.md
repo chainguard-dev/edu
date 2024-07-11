@@ -176,7 +176,7 @@ As indicated, a pipeline step will have either a `uses` or a `run` directive. Yo
 - `${{targets.destdir}}`: Directory where final package files will be stored. Everything that lives here will be packed into your final apk.
 - `${{targets.subpkgdir}}`: Directory where final subpackage files will be stored. Works the same way as `targets.destdir`, but for subpackages.
 
-You can find more details about available pipelines in the [melange documentation](https://github.com/chainguard-dev/melange).
+You can find more details about available pipelines in the [melange pipelines documentation](https://edu.chainguard.dev/open-source/melange/melange-pipelines).
 
 ### The `subpackages` Section
 As mentioned previously, a package may extract parts of its contents into subpackages in order to make for a slimmer final apk. Many packages have resources that are not required at execution time, including development headers, man pages, shared libraries that are optional. This part is really important in Wolfi, because we want packages to be minimal. The `subpackages` section of the melange YAML file looks a lot like the pipeline section, and it essentially works the same way. You'll just have to make sure you place any subpackage files in the `targets.subpkgdir` location.
@@ -265,7 +265,7 @@ Again, this section is only required when submitting the package to Wolfi. For m
 ## Building Packages
 When you feel your YAML is good for a first run, it's time to build the package with melange. In this guide we'll use Docker to execute melange in a local environment, using [Wolfi's SDK](https://github.com/wolfi-dev/tools/pkgs/container/sdk) image. This image contains everything you need to build Wolfi packages with melange and Wolfi-based images with apko.
 
-The procedure to build apk packages with melange is explained in more detail in our [melange GitHub repository](https://github.com/chainguard-dev/melange).
+The procedure to build apk packages with melange is explained in more detail in our [Getting Started with melange](https://edu.chainguard.dev/open-source/melange/tutorials/getting-started-with-melange/) tutorial.
 
 ### Setting Up a Local Development Environment
 
@@ -351,7 +351,7 @@ Another useful strategy is to include `set -x` before commands in your pipeline,
       chmod +x "${EXEC_DIR}/composer"
 ```
 
-Most build issues are caused by missed dependencies, even when the error message might be misleading. Another common reason for build errors are wrong file or directory paths.
+Most build issues are caused by missed dependencies, even when the error message might be misleading. Another common reason for build errors are wrong file or directory paths. The [melange documentation](https://edu.chainguard.dev/open-source/melange/troubleshooting/) has more pointers to help with debugging, in case you need it.
 
 As mentioned before, there might be cases where you'll need to first build a dependency, and then use this dependency to build the package you need.
 
