@@ -50,7 +50,7 @@ oscap-docker container target xccdf eval \
 _END_DOCKER_RUN
 ```
 
-Note that this is a highly privileged container since we're scanning a container being run by the host's docker daemon.
+Note that this is a highly privileged container since we're scanning a container being run by the host's Docker daemon.
 
 The results of the scan will be written to a new subdirectory named `out/` within the current working directory.  The `report.html` file will contain a human-readable report of the scan results, and the `results.xml` file will contain the raw results of the scan.
 
