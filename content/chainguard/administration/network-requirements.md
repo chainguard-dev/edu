@@ -7,9 +7,6 @@ description: "Using Chainguard Images with firewalls, access control lists, and 
 date: 2023-09-08T08:49:31+00:00
 lastmod: 2024-05-14T15:22:20+01:00
 draft: false
-aliases:
-  - /chainguard/chainguard-images/reference/network-requirements/
-  - /chainguard/chainguard-enforce/reference/network-requirements/
 tags: ["Chainguard Images", "Product", "Reference"]
 images: []
 toc: true

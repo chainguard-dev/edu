@@ -64,7 +64,7 @@ You can find complete lists of all the Developer and Production Images available
 
 ## Comparing Images
 
-The following graph shows a comparison between the official Nginx image and Chainguard's [Nginx image](/chainguard/chainguard-images/reference/nginx/overview/), based on the number of CVEs (common vulnerabilities and exposures) detected by [Grype](https://github.com/anchore/grype):
+The following graph shows a comparison between the official Nginx image and Chainguard's [Nginx image](https://images.chainguard.dev/directory/image/nginx/overview), based on the number of CVEs (common vulnerabilities and exposures) detected by [Grype](https://github.com/anchore/grype):
 
 {{< rumble title="Nginx" description="Comparing the latest official Nginx image with cgr.dev/chainguard/nginx" left="nginx:latest" right="cgr.dev/chainguard/nginx:latest" >}}
 

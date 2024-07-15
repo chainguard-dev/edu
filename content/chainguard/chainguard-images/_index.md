@@ -20,32 +20,32 @@ tutorials: [
   {
     title: "Go",
     description: "",
-    url: "/chainguard/chainguard-images/reference/go/"
+    url: "https://images.chainguard.dev/directory/image/go/overview"
   },
   {
     title: "Node",
     description: "",
-    url: "/chainguard/chainguard-images/reference/node/"
+    url: "https://images.chainguard.dev/directory/image/node/overview"
   },
   {
     title: "PHP",
     description: "",
-    url: "/chainguard/chainguard-images/reference/php/"
+    url: "https://images.chainguard.dev/directory/image/php/overview"
   },
   {
     title: "Python",
     description: "",
-    url: "/chainguard/chainguard-images/reference/python/"
+    url: "https://images.chainguard.dev/directory/image/python/overview"
   },
   {
     title: "NGINX",
     description: "",
-    url: "/chainguard/chainguard-images/reference/nginx/"
+    url: "https://images.chainguard.dev/directory/image/nginx/overview"
   },
   {
     title: "JDK (Java)",
     description: "",
-    url: "/chainguard/chainguard-images/reference/jdk/overview/"
+    url: "https://images.chainguard.dev/directory/image/jdk/overview"
   },
 ]
 

@@ -16,4 +16,4 @@
   note: |
     This image will switch from including a full complement of JDK binaries to a minimally required set in a forthcoming release. The work is being tracked in [this GitHub issue](https://github.com/chainguard-images/images/issues/297).
 
-    If you rely on any binaries or libraries that are included in this image beyond the core JRE runtime, consider switching to the [JDK Image](/chainguard/chainguard-images/reference/jdk/overview/).
+    If you rely on any binaries or libraries that are included in this image beyond the core JRE runtime, consider switching to the [JDK Image](https://images.chainguard.dev/directory/image/jdk/overview).
