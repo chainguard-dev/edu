@@ -41,7 +41,7 @@ In this article, we'll learn how to leverage Wolfi to create safer runtime envir
 You'll need Docker to build and run the application.
 
 ## Step 1: Obtaining the Demo Application
-We'll use the same demo application from the [Getting Started with the Python Chainguard Image](/chainguard/chainguard-images/reference/python/getting-started-python/) tutorial to demonstrate how to build a Wolfi Python image with a Dockerfile. The application files are available in the [edu-images-demos](https://github.com/chainguard-dev/edu-images-demos) repository. We'll start by cloning that repository in a temporary folder so that we can obtain the relevant application files to run the **second** demo from that tutorial.
+We'll use the same demo application from the [Getting Started with the Python Chainguard Image](/chainguard/chainguard-images/getting-started/python//) tutorial to demonstrate how to build a Wolfi Python image with a Dockerfile. The application files are available in the [edu-images-demos](https://github.com/chainguard-dev/edu-images-demos) repository. We'll start by cloning that repository in a temporary folder so that we can obtain the relevant application files to run the **second** demo from that tutorial.
 
 The following command will clone the demos repository in your `/tmp` folder:
 
@@ -81,7 +81,7 @@ if __name__ == "__main__":
     main()
 ```
 
-You'll notice that there's already a Dockerfile in that directory, but it uses the [Python Chainguard image](/chainguard/chainguard-images/reference/python/overview/) in a multi-stage build. In the next step, we'll replace that with a new Dockerfile that uses the [Wolfi-base](/chainguard/chainguard-images/reference/wolfi-base/image_specs/) image to build a Python image from scratch, using Wolfi apks.
+You'll notice that there's already a Dockerfile in that directory, but it uses the [Python Chainguard image](https://images.chainguard.dev/directory/image/python/overview) in a multi-stage build. In the next step, we'll replace that with a new Dockerfile that uses the [Wolfi-base](https://images.chainguard.dev/directory/image/wolfi-base/overview) image to build a Python image from scratch, using Wolfi apks.
 
 ## Step 2: Creating the Dockerfile
 
@@ -144,7 +144,7 @@ You’ll receive a representation of the Chainguard Inky logo on the command lin
 
 ## Step 4 (Optional): Composing Distroless Images in a Docker Multi-Stage Build
 
-As discussed in the introduction, it is possible to combine your fully-featured image with a distroless runtime in a Docker multistage build, and this will give you a final image that is also distroless. The [Getting Started with Python](/chainguard/chainguard-images/reference/python/getting-started-python/) tutorial shows in detail how to accomplish that using a `-dev` variant as **builder**, and the distroless Chainguard Python image as production image. You can also accomplish the same results by using your newly built image based on `wolfi-base` in place of the `-dev` variant of the Python image. We'll change the build to use a virtual environment to package the dependencies and add an extra step to create the final image.
+As discussed in the introduction, it is possible to combine your fully-featured image with a distroless runtime in a Docker multistage build, and this will give you a final image that is also distroless. The [Getting Started with Python](/chainguard/chainguard-images/getting-started/python/) tutorial shows in detail how to accomplish that using a `-dev` variant as **builder**, and the distroless Chainguard Python image as production image. You can also accomplish the same results by using your newly built image based on `wolfi-base` in place of the `-dev` variant of the Python image. We'll change the build to use a virtual environment to package the dependencies and add an extra step to create the final image.
 
 The following Dockerfile uses a multi-stage build to obtain a final distroless image that contains everything the application needs to run. The build requires additional software that is not carried along to the final image.
 
@@ -222,4 +222,4 @@ And you'll notice that the `:distroless` version is significantly smaller, becau
 
 If your build requires dependencies that are not yet available on Wolfi, you can build your own apks using [melange](/open-source/melange/overview/). Check the [Getting started with melange](/open-source/melange/tutorials/getting-started-with-melange/) guide for more details on how to go about that.
 
-Check also our public [Chainguard Images](/chainguard/chainguard-images/reference/) for application environments including `-dev` variants that can be used as builders for your specific application runtime.
+Check also our public [Chainguard Images Directory](https://images.chainguard.dev/directory) for application environments including `-dev` variants that can be used as builders for your specific application runtime.

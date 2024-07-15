@@ -64,6 +64,6 @@ Additionally, Chainguard performs automated tests on every package included in o
 
 ## Learn more
 
-Chainguard's rigorous Image testing standards and frequent updates ensure that they will work as expected with few (and often zero) vulnerabilities. If you're having trouble working with a specific Chainguard Image, we encourage you to check out its relevant Overview page in our [Image reference documentation](/chainguard/chainguard-images/reference/).
+Chainguard's rigorous Image testing standards and frequent updates ensure that they will work as expected with few (and often zero) vulnerabilities. If you're having trouble working with a specific Chainguard Image, we encourage you to check out its relevant Overview page in our [Chainguard Images Directory](https://images.chainguard.dev/directory).
 
-For general help with using Chainguard Images, you can refer to our [Debugging Distroless Images](/chainguard/chainguard-images/reference/) guide or our [Images FAQs](/chainguard/chainguard-images/faq/). For help with specific issues or questions not covered in these resources, please [contact our support team](https://support.chainguard.dev?utm=docs).
+For general help with using Chainguard Images, you can refer to our [Debugging Distroless Images](/chainguard/chainguard-images/debugging-distroless-images/) guide or our [Images FAQs](/chainguard/chainguard-images/faq/). For help with specific issues or questions not covered in these resources, please [contact our support team](https://support.chainguard.dev?utm=docs).
