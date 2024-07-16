@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for aws-cli-v2-fips Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for aws-cli-v2-fips Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                                 |
-|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                                                         |
-| `cgr.dev/chainguard-private` | 2, 2-dev, 2.17, 2.17-dev, 2.17.2, 2.17.2-dev, 2.17.3, 2.17.3-dev, 2.17.4, 2.17.4-dev, 2.17.5, 2.17.5-dev, 2.17.6, 2.17.6-dev, 2.17.7, 2.17.7-dev, latest, latest-dev |
+| Registry                     | Tags                                                                                                                   |
+|------------------------------|------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                           |
+| `cgr.dev/chainguard-private` | 2, 2-dev, 2.17, 2.17-dev, 2.17.10, 2.17.10-dev, 2.17.7-dev, 2.17.8, 2.17.8-dev, 2.17.9, 2.17.9-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

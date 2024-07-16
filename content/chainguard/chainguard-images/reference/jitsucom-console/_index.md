@@ -4,8 +4,8 @@ linktitle: "jitsucom-console"
 type: "article"
 layout: "single"
 description: "Overview: jitsucom-console Chainguard Image"
-date: 2024-05-17 00:44:46
-lastmod: 2024-05-17 00:44:46
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []

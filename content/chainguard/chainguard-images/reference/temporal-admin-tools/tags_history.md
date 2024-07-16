@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the temporal-admin-tools Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 28th    | `sha256:0ea693ea63fd087312809188acfd770ce7834c9f6c8c937550a5c11f5d3bf14c` |
-|  `latest-dev` | June 28th    | `sha256:a058d6604105e5465a51cb3b576f4fbe9b47eea7d10b0b83dc4ae3392f367052` |
+|  `latest-dev` | July 8th     | `sha256:f2a46a16d4d54ee92b1fc52c7d6f3eb0eaf00939f75aa7e411e6d9bc5a41248f` |
+|  `latest`     | July 8th     | `sha256:636f526e29fdee3ad767aa56f748b297398688656f5d32061e2297139029cf1d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.24.2-dev` `1.24-dev` `latest-dev` | June 28th    | `sha256:153e7b7f89280a9c21481ad2c8c4dcae2cc7a4e9d4b2db843eccd6d0473eb5df` |
-|  `latest` `1` `1.24.2` `1.24`                 | June 28th    | `sha256:3fc4a0e1e6688982ccb569c29078e4676b3e831d3e68dd5ccffeceb42bdc5125` |
+|  `1` `1.24` `latest` `1.24.2`                 | July 8th     | `sha256:eb6ccbe23484bac3a7f31a7140355784078fa0e1a1d17d3c4e93e2ffa746c924` |
+|  `1.24-dev` `1.24.2-dev` `1-dev` `latest-dev` | July 8th     | `sha256:553b669753611eea062e5d4f60e8b7e2bfa5b458be1e75944eb674e9ae806547` |
 

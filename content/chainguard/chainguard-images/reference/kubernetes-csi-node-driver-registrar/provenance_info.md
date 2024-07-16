@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for kubernetes-csi-node-driver-registrar Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-27 00:41:27
+lastmod: 2024-07-05 00:42:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 | Registry                     | Tags                                                                                  |
 |------------------------------|---------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | No public tags are available for this image.                                          |
+| `cgr.dev/chainguard`         | latest                                                                                |
 | `cgr.dev/chainguard-private` | 2, 2.10, 2.10.1, 2.11, 2.11.0, 2.6, 2.6.3, 2.7, 2.7.0, 2.8, 2.8.0, 2.9, 2.9.4, latest |
 
 

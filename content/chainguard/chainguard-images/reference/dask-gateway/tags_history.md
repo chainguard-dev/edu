@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dask-gateway Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:782e69811afcf7e84d05f8501c19fb95f2162a58ca96e7e63ec6ea08e9eeceac` |
-|  `latest`     | June 28th    | `sha256:4bb8435d3f62fc50248ffb78563ff4cb36d1454a3b0a9d751330aa7fbcf3930c` |
+|  `latest-dev` | July 8th     | `sha256:76da58e0bd6ba106c22bcc317afec7144d4c329e69a2ab9fa1f65f5e7686d862` |
+|  `latest`     | July 8th     | `sha256:d72a5d5b3aa849e0fa926b7d27230e68224e5dcfba10630ffbd850b2083e167b` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                              | Last Changed | Digest                                                                    |
 |------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `2024.1.0` `2024.1` `2024`                 | June 28th    | `sha256:a0ccd9b3dc352cccef04c3206e7bddafc2bd507dbceb9056e6fd9ed4979201c2` |
-|  `2024.1.0-dev` `2024.1-dev` `2024-dev` `latest-dev` | June 28th    | `sha256:372e672aee56579a5b91d332a9791f2115a8ab5331820a183dde3892705986ee` |
+|  `2024.1.0-dev` `2024.1-dev` `latest-dev` `2024-dev` | July 8th     | `sha256:764b404d8d20899bbfef8199058653611419ed55f489204afff71c9c391df469` |
+|  `2024.1` `latest` `2024` `2024.1.0`                 | July 8th     | `sha256:31800b6e8c328c31e66e04cb3abcfed469eec3456079b8b90075c80e6f5921ad` |
 

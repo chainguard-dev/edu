@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the redis-server-bitnami-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.2.5-dev` `7.2-dev` `7-dev` `latest-dev` | July 2nd     | `sha256:01495c5a3df4677b1e1c0883845a277505eccff22c683238f595a12987d914ce` |
-|  `7.2.5` `7.2` `latest` `7`                 | July 2nd     | `sha256:7559c960ed00743f5097d119b6da42ff449f6ef583cce0b1e29db7e6b18d66dd` |
-|  `6-dev` `6.2-dev` `6.2.14-dev`             | June 28th    | `sha256:ef5e8a4bb728ee8edef78eccfa088aacbc50d7367ecc975402d574b9686f007a` |
-|  `6.2` `6` `6.2.14`                         | June 28th    | `sha256:f23c5d4047450cc813ad8c5e7d419be46e63fc0eca883e222f15f9ab74925c2c` |
-|  `7.0-dev` `7.0.15-dev`                     | June 28th    | `sha256:53c47dd407887dd1efef37994be2761f374de2dadaa22349ee5d0b8ad43639fd` |
-|  `7.0.15` `7.0`                             | June 28th    | `sha256:70a862b08733323d37ed0eb7086fe119ec4a539cb0b7e21ed4d5c718ffa88e9d` |
+|  `6` `6.2.14` `6.2`                         | July 8th     | `sha256:bb0f7092d977b8a8077734b86257049a3f6f0ac075d5eeda73f402309eded8f1` |
+|  `6.2.14-dev` `6.2-dev` `6-dev`             | July 8th     | `sha256:e02e3f57f0ca75610148159525f50087b3e47864039e785b2c2aac9a1b138aa8` |
+|  `7.2` `latest` `7.2.5` `7`                 | July 8th     | `sha256:391201cffd84761a548011739c69661e506663f5740e8fd36a70b2448ccdfdee` |
+|  `7.0.15-dev` `7.0-dev`                     | July 8th     | `sha256:7118e29a74fb7d581e90e86f142bdaf61fd8aa83c377a3101df6e8ce228a8192` |
+|  `7-dev` `7.2.5-dev` `latest-dev` `7.2-dev` | July 8th     | `sha256:ec02b998f4760cc2423c55100c9315ce8ca17b64df6c900a63412690363c2113` |
+|  `7.0` `7.0.15`                             | July 8th     | `sha256:6a8351b65e14ef4298e1784113f6485cb95137a2e0b5ed52fe63cbf384775373` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for jitsucom-rotor Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-10 00:50:47
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []

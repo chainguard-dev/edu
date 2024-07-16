@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vertical-pod-autoscaler-recommender Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:f7170281a4feb950d5ae6becf51ea67d8482fe504ff58a0838b48292765887b7` |
+|  `latest-dev` | July 8th     | `sha256:535585f56d1fd09d58da72af61a09927d097a6e517994128a671223564c2dd60` |
+|  `latest`     | July 8th     | `sha256:0bc10c35de89adbc1f73ed7fd437d11c6f0a6ec07f2a44176c2c6ae0d266add8` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.1-dev` `1.1.2-dev` `latest-dev` | June 28th    | `sha256:20b77a5e533bf9cf159d5c9816aa06780c06eb5ea060216aa31bd31928fd49d7` |
+|  `latest` `1.1.2` `1` `1.1`                 | July 8th     | `sha256:9b3fc49596d41976a7c14407d8d899fce43560b96fad40ae5edae65f481553e3` |
+|  `1-dev` `1.1-dev` `1.1.2-dev` `latest-dev` | July 8th     | `sha256:f98067511f3cd4bf2750e712b80fdac63ae46dda22708560e2c7782fedc575d1` |
 

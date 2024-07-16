@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the confluent-kafka Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:8c52fb3384e078b1431e0f6fe6c19769a67a357081c77bb999892a8281fa9a1c` |
-|  `latest`     | June 28th    | `sha256:903f835daad5171750f89a2f56cde14da25b769728b0fb5f6a70f9fcfb077e9d` |
+|  `latest-dev` | July 8th     | `sha256:b59e60db0750ba83096950d487ba4b941b472feefe84d9ae0217dbd8791446c5` |
+|  `latest`     | July 8th     | `sha256:9939fb3d8cbc780e18a427dd42e5fdcb09fddc5ea15a487b74f27a0542383c38` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                     | Last Changed | Digest                                                                    |
 |-------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.8.0.103-dev` `latest-dev` `7.8-dev` `7-dev` `7.8.0-dev` | July 2nd     | `sha256:36f7caec72bc9a5e5af080b2fee21fa02e5d1bdf19d129a2f3ab8d3cfb213209` |
-|  `7.8` `latest` `7` `7.8.0` `7.8.0.103`                     | July 2nd     | `sha256:1ab27ff3ddc5ddfac7c8a7559bca3ceead20c3017f58592b47533e8b7e07b515` |
+|  `7.8` `7` `7.8.0.103` `7.8.0` `latest`                     | July 8th     | `sha256:351fe098b61d691a9d75e7b955228b911d6ff07c5bd2e822842c7f2a824580e8` |
+|  `7.8.0.103-dev` `7.8.0-dev` `7-dev` `latest-dev` `7.8-dev` | July 8th     | `sha256:c6caa3009bdabd4e2ce02ce67b9b1b137c71e7d4f73dda3f09068be6e8ba0c6a` |
 

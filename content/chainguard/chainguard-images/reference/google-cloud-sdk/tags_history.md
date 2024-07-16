@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the google-cloud-sdk Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | June 28th    | `sha256:cf12d8ec2ad6d7fda1ba71298bae77c93aa8c25279f6094f573ebc6f727ca22c` |
+|  `latest` | July 8th     | `sha256:4b84c99e94d03990b3052a28b82c14606f39fd5a0936bda54ee5b344231a3a0b` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                           | Last Changed | Digest                                                                    |
 |---------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `469` `469.0` `469.0.0`                 | June 28th    | `sha256:5bfcad4aadde57fefffe9fdf888915c8fb528d61c7a63b3163a3b980b839a80a` |
-|  `469.0-dev` `latest-dev` `469-dev` `469.0.0-dev` | June 28th    | `sha256:e9fdd4715e7e273903ffa9b4511e4ebb4add8bfa177657f4ad8ed723d07b8c92` |
+|  `latest` `469.0` `469.0.0` `469`                 | July 8th     | `sha256:5a4a686db801f86b38f8a314b9a9599d9b09f98144d37d9a1f24ecb9f373b957` |
+|  `469.0.0-dev` `469.0-dev` `469-dev` `latest-dev` | July 8th     | `sha256:2f56b127cb47ecaf3acc24004632585d3cee246d4e4f60a558247829590d55e8` |
 

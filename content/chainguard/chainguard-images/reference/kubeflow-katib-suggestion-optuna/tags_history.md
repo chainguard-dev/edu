@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-optuna Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 28th    | `sha256:1be34e87f4fb21b143be5818299046ac13c8e98ebaf41de0b8f62823d75e8320` |
-|  `latest-dev` | June 28th    | `sha256:4abbbb4a1263f46a214991b4ed2987ce59e0e55354be8f21da027a653fe43660` |
+|  `latest`     | July 9th     | `sha256:7322a749827c0106ad99b760cda1937084ecf8fa8373a506afe44fd7d1a5b641` |
+|  `latest-dev` | July 9th     | `sha256:6cc98864f3cd5a1c3c3e762851440b1684ba397f44f92a92c2ae3c5484e691f3` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16-dev` `0.16.0-dev` `latest-dev` `0-dev` | June 28th    | `sha256:062ab4d3e02e775955fc6855a8d7e30caa3bd7c2e59a4bcd367920e9aa87fdb7` |
-|  `0.16` `0` `latest` `0.16.0`                 | June 28th    | `sha256:4d4930a4880d9bd5e8165c7b5014ceee0c6b7aba0f3882e64707a184b057f2d7` |
+|  `0.16.0` `latest` `0` `0.16`                 | July 9th     | `sha256:ba633f3f1f5e6a40d4154125d77f7a2a6810ce11b294b1531017966972623e13` |
+|  `0-dev` `0.16-dev` `latest-dev` `0.16.0-dev` | July 9th     | `sha256:10c4b556a27f8abdf097a413c5db48a71398582afc0bd14c35daf4ad28fd9741` |
 

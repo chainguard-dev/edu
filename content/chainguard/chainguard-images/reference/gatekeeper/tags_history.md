@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gatekeeper Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:e7e7f8b90206f93d10030eea19c9d570691934ddf3f47a68b03e5c0e56d10ab6` |
+|  `latest`     | July 8th     | `sha256:428c2d6fd930044eb5a12e08c0521f398fb1c2acc0ef76f16ddf145aa38eb6a4` |
+|  `latest-dev` | July 8th     | `sha256:35b6b56dfbd15fed0fa30d1c925b1f7e321dc8f84131b5ff0a3ab474029cdc0b` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.16-dev` `3.16.3-dev` `3-dev` `latest-dev` | June 28th    | `sha256:1cf7b303c76b07854b4687f2a020c3a3dd1cd96284a5776362f41c807f9575bc` |
-|  `3.15.1-dev` `3.15-dev`                      | June 28th    | `sha256:d271d8814b8b231cdb5e9cf04ef9d028f06d9e3044736d9652a8d287135413da` |
+|  `latest-dev` `3-dev` `3.16-dev` `3.16.3-dev` | July 8th     | `sha256:c78899c454e9e1ee616c8a4ddf51f942627e03df2c77ddd4dc1263d72c4aa5e3` |
+|  `3.15` `3.15.1`                              | July 8th     | `sha256:32fbd6f2446b03e8710c4b9a7c32f902342177d0e610228ed9b6f0d6390e0e98` |
+|  `3.16.3` `3` `latest` `3.16`                 | July 8th     | `sha256:eae8871b1672efccdf39f933144da0b7fca0bac688f23616f6415e1181fc00cc` |
+|  `3.15-dev` `3.15.1-dev`                      | July 8th     | `sha256:9eaf96ea2f91dad9d56f1c3a103b279962674efe413ba8cce4a6cc3855572147` |
 

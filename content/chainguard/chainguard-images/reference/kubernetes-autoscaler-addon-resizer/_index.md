@@ -4,8 +4,8 @@ linktitle: "kubernetes-autoscaler-addon-resizer"
 type: "article"
 layout: "single"
 description: "Overview: kubernetes-autoscaler-addon-resizer Chainguard Image"
-date: 2024-04-16 00:44:43
-lastmod: 2024-04-16 00:44:43
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []

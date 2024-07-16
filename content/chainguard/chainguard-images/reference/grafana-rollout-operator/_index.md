@@ -4,8 +4,8 @@ linktitle: "grafana-rollout-operator"
 type: "article"
 layout: "single"
 description: "Overview: grafana-rollout-operator Chainguard Image"
-date: 2024-05-16 00:37:58
-lastmod: 2024-05-16 00:37:58
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []

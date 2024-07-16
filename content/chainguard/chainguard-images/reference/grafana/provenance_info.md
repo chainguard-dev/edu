@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for grafana Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for grafana Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                                                                                         |
-|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                           |
-| `cgr.dev/chainguard-private` | 10, 10-dev, 10.3-dev, 10.3.6-dev, 10.4, 10.4-dev, 10.4.4-dev, 10.4.5, 10.4.5-dev, 11, 11-dev, 11.0, 11.0-dev, 11.0.1, 11.0.1-dev, 8-dev, 8.5-dev, 8.5.27-dev, 9, 9-dev, 9.5, 9.5-dev, 9.5.20, 9.5.20-dev, latest, latest-dev |
+| Registry                     | Tags                                                                                                                                                                                                                                                                               |
+|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                                                                                 |
+| `cgr.dev/chainguard-private` | 10, 10-dev, 10.3, 10.3-dev, 10.3.6, 10.3.6-dev, 10.4, 10.4-dev, 10.4.5, 10.4.5-dev, 11, 11-dev, 11.0, 11.0-dev, 11.0.1, 11.0.1-dev, 11.1, 11.1-dev, 11.1.0, 11.1.0-dev, 8, 8-dev, 8.5, 8.5-dev, 8.5.27, 8.5.27-dev, 9, 9-dev, 9.5, 9.5-dev, 9.5.20, 9.5.20-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nvidia-gpu-driver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:865c55e038b1a18479ca3957b94ed6a0734e3829464be308745d327385680668` |
-|  `latest`     | June 28th    | `sha256:4e198a8a2d4a97914ff19fa7cac97653533db539e4252fba087109bc380793ee` |
+|  `latest`     | July 8th     | `sha256:f07c0a2c320c1db01c5be64e8bd4005970ba66cbb39fe930f7eebabfa8ae25c2` |
+|  `latest-dev` | July 8th     | `sha256:c28a55253d1378e667ee5de1bf419968cbe309cadec4a81ae279c83be1d43f72` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                              | Last Changed | Digest                                                                    |
 |------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `550-dev` `550.54-dev` `latest-dev` `550.54.14-dev` | June 28th    | `sha256:c0c23f60700d67c190e5aef6dbeb0fdbd35b5cce0b8033884907a7b4fe9780a8` |
-|  `550.54.14` `550.54` `latest` `550`                 | June 28th    | `sha256:3b945c7ed66ced4ca1c5d80fd2b7b87da8c111cedef85be2409e8991938e495d` |
+|  `550-dev` `latest-dev` `550.54.14-dev` `550.54-dev` | July 8th     | `sha256:29b74eaeed8aeac77920532bf46aab8b2939f0e01b0bd397f539d67112b9fb99` |
+|  `550` `550.54.14` `550.54` `latest`                 | July 8th     | `sha256:77007a9241b6d415fe2541e9058450fdf93fca4f950b4d86d08a3a4121943b1b` |
 

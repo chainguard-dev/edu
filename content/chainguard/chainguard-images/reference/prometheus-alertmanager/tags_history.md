@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-alertmanager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | July 2nd     | `sha256:8704d40b9f1bd17e1efc85c09cc987adc040fdde2304ee26070bb8942c968b4d` |
-|  `latest-dev` | July 2nd     | `sha256:c07bb413ad760d5a628ec9b8c92eb0681e0328ea633c5db627d050eb2302e0d3` |
+|  `latest-dev` | July 9th     | `sha256:151b2d71c189ae2a7a43c9d64182a022b6ca536419968eb10ba5d648cb95642a` |
+|  `latest`     | July 9th     | `sha256:755980c109f444c09a3a974037c3e4bd228f1e4c46b039918a191675c04918b4` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.27-dev` `0.27.0-dev` | July 3rd     | `sha256:1dca0e49da779cff98299716bf853ed61447d47482dfea162927369b49e32079` |
-|  `0.27` `0` `0.27.0` `latest`                 | July 3rd     | `sha256:c6659693051e02646d8e0f6ec3df1a5c133cd5d0647f1fe59d8ebeee62e78ead` |
+|  `0.27.0` `0.27` `latest` `0`                 | July 10th    | `sha256:3548320799f2274cb417c7b87eb4b0bdfe2803feaa2a85109fa3ca42ee0e533e` |
+|  `0.27.0-dev` `0-dev` `0.27-dev` `latest-dev` | July 10th    | `sha256:ef0c3ca7766d80a2f1de52b3b300708f97a4a10bd6cb49f72ff73abfafdc5260` |
 

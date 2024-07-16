@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the wasmtime Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 28th    | `sha256:1cb3489fbb6bf55f08b78161214b82b307f47930e3e4049714f612241f0782ad` |
-|  `latest-dev` | June 28th    | `sha256:1c13f1c24877bec1e4e8eda7632b0897ec67f11afbb0ecddf605229be848e8bf` |
+|  `latest-dev` | July 8th     | `sha256:d2f25dfe47957a479e87fb75971f8f7e2d69846efcb3b0a65b15df81c318ba7f` |
+|  `latest`     | July 8th     | `sha256:51a7511e79237fa586a9243dfb46287cfeb167b4a4ad99c38a3c7d8076f317e0` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `22.0.0-dev` `22.0-dev` `latest-dev` `22-dev` | June 28th    | `sha256:71f9009fd92077d869f730293fbcf31abdf9d2b876228fa821ece433d17230d3` |
-|  `22.0` `latest` `22.0.0` `22`                 | June 28th    | `sha256:d0f47c5ea01ca29fc4d96d6e5f48115880f184ac02a075d52bd6f3ffb63d479b` |
-|  `21.0-dev` `21.0.1-dev` `21-dev`              | June 28th    | `sha256:ec2ac77e6f70dc337c1a0cba7a8ef4d8221df81adabcc8d6d4ebd99b26eea471` |
+|  `22-dev` `22.0.0-dev` `22.0-dev` `latest-dev` | July 8th     | `sha256:265e0e7ed794c8f184a8aa7647e8ccd5f4b4767dc84da9568631e2e5f274eb26` |
+|  `22.0` `22` `latest` `22.0.0`                 | July 8th     | `sha256:2170638a3cf25bd5ff0e47c495f72bb711ddd7f8fa3eef41a8972570a7385c0f` |
 

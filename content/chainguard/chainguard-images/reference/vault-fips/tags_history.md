@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vault-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,9 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.14` `1.14.13`                             | June 28th    | `sha256:52fa9aeba3762ff35d49b37712b29f8d3a8ef41bf34ebb8e53c934ef542235ac` |
-|  `1-dev` `1.16-dev` `latest-dev` `1.16.3-dev` | June 28th    | `sha256:deb490c8a51165c646ee7c9e9ae82785c1189ece7af23910f3c08fa7334f65ec` |
-|  `1.14.13-dev` `1.14-dev`                     | June 28th    | `sha256:370f107dbde978cd09459102e4114c6a29f0128a7dd15c6148cbb296db3fd24c` |
-|  `1.15-dev` `1.15.9-dev`                      | June 28th    | `sha256:ffb9027f3574fd1c4d09ab27a6119b9d0f8cc3862969c245f053d51cbb0f7d98` |
-|  `1.16` `latest` `1` `1.16.3`                 | June 28th    | `sha256:64412fa21d8befff244f85191c56fb7838c82b53ed4f95772762f27e4391166d` |
+|  `1.16.3-dev` `1.16-dev` `1-dev` `latest-dev` | July 8th     | `sha256:4192ffdfac93678c00c71a70d63fe208eba1a38c26d4c455375a7dad9ca498fe` |
+|  `1.16.3` `1` `latest` `1.16`                 | July 8th     | `sha256:09f5eb0194004c91257df92cf14129fa08458ae2364310ac2535bc2438702228` |
+|  `1.15.9` `1.15`                              | July 8th     | `sha256:6d12cac7ea617ac8842c3193c5ac253ef9944bd44e9f70c7ffc41b6d32049c96` |
+|  `1.15.9-dev` `1.15-dev`                      | July 8th     | `sha256:a562033bc21f7fbc3341751236023071a8ce0cdcce4198f85468a1e004562c8d` |
+|  `1.14-dev` `1.14.13-dev`                     | July 8th     | `sha256:453558c8bfdb1c69084ba5dad0d7d0b6ea82286f6e21e939dd69c99639aa6328` |
+|  `1.14.13` `1.14`                             | July 8th     | `sha256:e4f732d6197e8f785ec6efd778ece44e8e0968c10c1c3a9f8e49228900b12698` |
 

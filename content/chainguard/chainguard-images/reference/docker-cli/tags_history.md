@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the docker-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:8afa223c3ce3e530d15d34ccea84c6182c6461d128ede49d7a3a0c909a716e73` |
-|  `latest`     | June 27th    | `sha256:bcae0448d83a7c83f98a72e1456654a2144a5f7b6b9b56f99c142e6b23689d0f` |
+|  `latest-dev` | July 8th     | `sha256:8a70347cff5792d9c9234ac5709f7700dd89abfdfe653daf277e5d20ac30dd75` |
+|  `latest`     | July 8th     | `sha256:203cd569f2e0af4ad21ea43efe6016002658c10e818c5c2dce7d45c82e5d919b` |
 
 
 ### Private/Dedicated Registry
@@ -37,9 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `27-dev` `27.0.3-dev` `latest-dev` `27.0-dev` | July 2nd     | `sha256:b561048d2809810fd053c099cc76be7aece241c96d1a6bdc23913131ff463f7e` |
-|  `latest` `27.0` `27.0.3` `27`                 | July 2nd     | `sha256:f7d50d2ab23526435209f39e8f6f180ddbc5444859915bebe8cceb9c41b640ea` |
-|  `27.0.2-dev`                                  | June 28th    | `sha256:19baaedc9cfd915892920e740baaf90c75119cbede35e791c8068dbcb327ab80` |
-|  `27.0.2`                                      | June 27th    | `sha256:6296d61af08919da35b0cdbbfb28ea7246285c3d827e146ca18e2c4d811c12f3` |
-|  `27.0.1-dev`                                  | June 26th    | `sha256:8524ea4e4932336342b139b3f936b629b246c258d2c406a647a4d750004e4f91` |
+|  `27.0` `27.0.3` `latest` `27`                 | July 8th     | `sha256:271e93fd15c9c6057adc52cb298a952bb0e7d1c81bfbbe340244f23167de4fe3` |
+|  `latest-dev` `27.0.3-dev` `27-dev` `27.0-dev` | July 8th     | `sha256:50ad32ae4f2d52adc07ebaf4a5981aa03a115884cf4df0e2eae7cce44c7e6f7e` |
 

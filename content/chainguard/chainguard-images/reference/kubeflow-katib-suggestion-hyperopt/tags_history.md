@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-hyperopt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 28th    | `sha256:96744906dbfd6b2f5a398f7a2b55164f5afd174ae8ade0a800ab580c06afa65b` |
-|  `latest-dev` | June 28th    | `sha256:4e94a48741effecb1073ddb86b25666899be765c8f41c147643d5029e71e93ce` |
+|  `latest-dev` | July 9th     | `sha256:4ae7e395605fdd75496cbb71d597f187b6d8003578d5344c7a0aef1c6c21e6ab` |
+|  `latest`     | July 9th     | `sha256:4370eaaa0f4bdf444298e12ef91ebdf701777368eabd10d91d3ee6cfe1d2281c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0` `latest` `0.16` `0`                 | June 28th    | `sha256:46670904d0d8ce709780e5de9d7af190f06d1c4c0583af8b20464ffcb3d5035a` |
-|  `0-dev` `latest-dev` `0.16-dev` `0.16.0-dev` | June 28th    | `sha256:6de5b006209dc97b689d33771809abae9b79e9fd495d2cf028f80ba1f3f8cb10` |
+|  `0.16-dev` `0-dev` `0.16.0-dev` `latest-dev` | July 9th     | `sha256:627665c132beb365f8dd2c1fca4b0834ce22c6ac71c6a07c5aafbb2ad619820c` |
+|  `0` `latest` `0.16` `0.16.0`                 | July 9th     | `sha256:22918da2cd34a8ce7987407c3d8bab4ff9a9c4cb26bce8d365858bb929d60369` |
 

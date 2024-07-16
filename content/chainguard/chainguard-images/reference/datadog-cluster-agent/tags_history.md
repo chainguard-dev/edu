@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the datadog-cluster-agent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:5a9c716d1383941b0e51784290a53abca18b3d8d49d06e3c07a17b10db37fffc` |
-|  `latest`     | June 28th    | `sha256:43aecb8978d1c618190091974f4891b86cfd38385d00449f7c7061290f4e8fa3` |
+|  `latest-dev` | July 8th     | `sha256:746a0ac8809f59b5cfa419a63d8e16e3c9bb32202cb9e44a87cc94b5bed5ebc2` |
+|  `latest`     | July 8th     | `sha256:7699ec7ecfebe982c87a6285d481bb3637a51216e5a7e1354a1f63bdeb9e8ae0` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.54.1-dev` `latest-dev` `7-dev` `7.54-dev` | July 3rd     | `sha256:500ebb019c2e038c40ac30c8104cb6b21ab46c9e50738e887bcecb3a2c231fb1` |
-|  `latest` `7.54.1` `7.54` `7`                 | July 3rd     | `sha256:666d6da1dff7d204d5088fa64fadf2b001507bbafbe21bc251944f8b6a551bff` |
+|  `latest-dev` `7.54.1-dev` `7.54-dev` `7-dev` | July 10th    | `sha256:aefbc40134533b167c87c37e51b8cae769cbf7aad9c185f9f937f6e82769ec64` |
+|  `7` `7.54` `7.54.1` `latest`                 | July 10th    | `sha256:d9cdfb3880bf59b5884f199b2912f5b9386260fb5ad7d64ea3776acd4e2fcd88` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-cache-deployer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 28th    | `sha256:a48cb12d68d88aa16caabaad8d9c9584ece7754162eb4bcb047dcc59673531b8` |
-|  `latest-dev` | June 28th    | `sha256:27e467f00531ba161b38e0012334e93105732eb56b1961fa940c614b2ce2dd7f` |
+|  `latest`     | July 9th     | `sha256:fea70d050bc6ea8f5ffa728350683a70a15db64baf39318987051f7c982c63a3` |
+|  `latest-dev` | July 9th     | `sha256:d9ec54f7a2807f39be26531a2559cacb4bc02baaedf9a6d74619cccf01a3d191` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.2.0-dev` `2-dev` `2.2-dev` `latest-dev` | June 28th    | `sha256:71fe1348e37e22950a54d3aa04fa38407c2e0e45f087835db9a9638c3ec0772f` |
-|  `2.2` `2` `2.2.0` `latest`                 | June 28th    | `sha256:88d0627d71f3428ee357d472730771a81da0f75188b1ef41b27e16c799628a74` |
+|  `2.2-dev` `2.2.0-dev` `latest-dev` `2-dev` | July 8th     | `sha256:1404e22eb0c74552ffbdae69553ba467bf02126e21691cfa9c885e413052a848` |
+|  `2.2.0` `2.2` `latest` `2`                 | July 8th     | `sha256:03413347b2064d2a4112fa7a2445834552e3ab6780fa5ba5e387eb2e9abd36fa` |
 

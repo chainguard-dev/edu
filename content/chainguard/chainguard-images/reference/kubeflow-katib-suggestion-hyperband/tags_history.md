@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-hyperband Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 28th    | `sha256:8444464ef764b828e6e77c963d042ffc352e147ac4ae8905ad05afc183e75833` |
-|  `latest-dev` | June 28th    | `sha256:eb7ca745a367e33e2091117f9381a362a76f9fe96e710f475df553e0c6f8c44e` |
+|  `latest`     | July 9th     | `sha256:aac1662f650a3f4513143fe153cfb649e45803549e4b9aba7adc5f3d74ca734a` |
+|  `latest-dev` | July 9th     | `sha256:2f0277453f14784b7d7bfb9f8c90a4e7d2b62aed3ecbb0985cfbf7f3d6786f04` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0` `latest` `0.16` `0`                 | June 28th    | `sha256:bd6dd2d54c4f2b7746fac9cdf3bfac53184f1c165b5914abc4cae14b0e0af4d4` |
-|  `0.16-dev` `0.16.0-dev` `0-dev` `latest-dev` | June 28th    | `sha256:26b6db9ae36debaa21268568d7f275cbb2c58db38ea54e512c67e2c4e1024e96` |
+|  `0.16-dev` `0-dev` `latest-dev` `0.16.0-dev` | July 9th     | `sha256:93820e9934841411e5778eae2b6da603460172d0c1f00c9c0dfca451aa82e920` |
+|  `latest` `0` `0.16.0` `0.16`                 | July 9th     | `sha256:49f3f6422ef7f2acf1ee6f3f9829cc05deaaab44e71799adf2e0ec506b949112` |
 

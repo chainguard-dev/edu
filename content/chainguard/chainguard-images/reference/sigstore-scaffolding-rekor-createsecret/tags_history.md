@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-rekor-createsecret Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:714c5e9ca6a1510e21fd4c09e0a0ac2d9130cf062dcfae1c182a69dd12ee2ab4` |
+|  `latest-dev` | July 8th     | `sha256:298b85f0ca3ff5c8833da8383f6517ce5a082042a7aea08e5b0123093d63fd20` |
+|  `latest`     | July 8th     | `sha256:b3a43fd194898f7d61af73760962d3ea5e28e9add93013f4dcf1333da1ebe3c6` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.7.2-dev` `0.7-dev` | June 28th    | `sha256:dbb9d6b4d24a2a2ec8b4eced9e6a2e1c3af12fc609a3e64363c698654c89902f` |
+|  `0.7.3` `0` `latest` `0.7`                 | July 8th     | `sha256:57f55c209b8210f6efa75f8eaa5bb11ab089e9fe4ca9ad29f654dbbb6c1cac93` |
+|  `latest-dev` `0.7.3-dev` `0.7-dev` `0-dev` | July 8th     | `sha256:1fd97574c2405c0b88d2b22cb09c871dc28f3c5ebc72d1bf500cc8fe4c143218` |
+|  `0.7.2-dev`                                | July 3rd     | `sha256:ce60831b770339b45f2b58688d3ecbb8d1d39f081422d7da94115c958f714459` |
+|  `0.7.2`                                    | July 3rd     | `sha256:c3757666fc1aa86fe5a175a07de559cf763c74698086a432003e7c462017daf9` |
 

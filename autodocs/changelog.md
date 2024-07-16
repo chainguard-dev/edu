@@ -1,3 +1,37 @@
+# 2024-07-10
+New images added:
+
+- cfssl-self-sign-fips
+- gitlab-container-registry
+- gitlab-container-registry-fips
+- valkey-fips
+
+A total of **227** documents were updated.
+
+# 2024-07-09
+New images added:
+
+- adoptium-jdk
+- adoptium-jre
+- mattermost
+
+A total of **937** documents were updated.
+
+# 2024-07-08
+
+
+A total of **1020** documents were updated.
+
+# 2024-07-05
+New images added:
+
+- curl-fips
+- kubernetes-dns-node-cache-fips
+- whereabouts
+- wordpress
+
+A total of **1300** documents were updated.
+
 # 2024-07-03
 
 

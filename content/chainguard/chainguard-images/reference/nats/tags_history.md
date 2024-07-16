@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nats Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:be2bf79839e2bf5a7aabed37e0cc2c6e9881d3167d40714ca05b3ac4cb793996` |
-|  `latest`     | June 28th    | `sha256:0f776be3eef61cf4e04cae7f610abe3f0c6e9366ad895acdbc3d3366f540f285` |
+|  `latest-dev` | July 8th     | `sha256:59207cd3e1d25e248163b1bf2013d70611f433f196b1ac082450a865d08fe377` |
+|  `latest`     | July 8th     | `sha256:d1509c8b61f70a7e56b6378a709ce0ac5fb4a4f3f77be32b32218eab0d03e30e` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.10-dev` `latest-dev` `2.10.17-dev` | July 3rd     | `sha256:2dd98e36b848e5c559a4138dcab734dceeb5cd2b417b8acb75669e63ce7c9557` |
-|  `2` `2.10.17` `2.10` `latest`                 | July 3rd     | `sha256:d0e95a7b749c0192e89319c62033a6f5847b6e401df7802ad635828a4cd963df` |
-|  `2.10.16-dev`                                 | June 26th    | `sha256:d8efba7cbded32fea36a9e74dfe4725ac1bc071bdcc251f76e930ce3d5bb82af` |
+|  `2-dev` `latest-dev` `2.10-dev` `2.10.17-dev` | July 8th     | `sha256:81f433ec0f10a1ff3ddab224079d03af974c5c597c3ecc2406cc861205195ef3` |
+|  `2.10` `2` `latest` `2.10.17`                 | July 8th     | `sha256:c19ccdeca420ac1526161b0a53a2f3b16cabf61f7b8aed959db03637b5c20e14` |
 

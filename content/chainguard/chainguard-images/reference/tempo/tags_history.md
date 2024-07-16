@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tempo Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:e45ab179269e8b8b9dce734f189c9fb9b28054bf3587248cfabe0a6843e49146` |
+|  `latest-dev` | July 8th     | `sha256:6c6abaf02454502562b2f71c32d4ebe05071bc74ec30990ad17b066ad623cc24` |
+|  `latest`     | July 8th     | `sha256:9826d26a4abbbeb102667fdd8b9b1c89b4d7ed3d2f0cab89c40efebb98ce6fcb` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.3-dev` `2.3.1-dev` `2-dev` | June 28th    | `sha256:6e3ddd3293ad848f53fe9a3e9a23601b5cd9ce70d4e2cd31e5c58f29038090e3` |
-|  `2.5.0-dev` `2.5-dev`                      | June 28th    | `sha256:eee49d582240b8b1f3529ce256d2ac0062f3046c4b0453796ec8c195e51f8183` |
+|  `2.3.1` `latest` `2.3` `2`                 | July 8th     | `sha256:49104763d2a017969ca561bc9f85ebb5ac1c37c0355eebdb4f76be5b99c5ac97` |
+|  `latest-dev` `2.3-dev` `2.3.1-dev` `2-dev` | July 8th     | `sha256:a8f2f2182f7f45bccd3627e1e52c6e3400da6d23b81759e9e62a1f32298f65e3` |
+|  `2.5-dev` `2.5.0-dev`                      | July 8th     | `sha256:0153ddeff978b0304aa779d87cdb4452d67bebf4ad6097ae9e7d518a3c811560` |
+|  `2.5` `2.5.0`                              | July 8th     | `sha256:0225ade8a5638b5e7645bb6c3c4285d476808e10635c3196b4e91fba741b1863` |
 

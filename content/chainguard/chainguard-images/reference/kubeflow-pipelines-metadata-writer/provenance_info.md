@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for kubeflow-pipelines-metadata-writer Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-06-06 00:48:16
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []

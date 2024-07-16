@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kibana Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:2c8eade7e16a50e5cd97786cdb68fe5ba5e7610974534ec3262bb236322fe0f9` |
+|  `latest-dev` | July 9th     | `sha256:a285eda4c1354ed5ff1e463c456e5e245e8287ef6bda403bdc5b8572854c7c6f` |
+|  `latest`     | July 9th     | `sha256:f7328adaf77d53ffd8b671daf84d46a92bd68870c3c7886147c88dd18178bab7` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `8.13.4-dev` `8-dev` `8.13-dev` | June 28th    | `sha256:ba2e274833207c92b74e5c23de5bef5c2fbf24ef681a12073c104441fcc9d0ec` |
-|  `7.17.22-dev` `7.17-dev` `7-dev`             | June 28th    | `sha256:8a2122d1f56b55c0713756a4a41c2057f642d049581d1dedac0839bd618892be` |
+|  `8.13.4-dev` `8-dev` `latest-dev` `8.13-dev` | July 8th     | `sha256:cb88de15a7fdfb33abaefc60fc9d7a06fced6d410e4d1d42aa9d7aae07049755` |
+|  `7.17.22` `7` `7.17`                         | July 8th     | `sha256:f66094e4a70669e9748bde2c3502e8c2bc0e4743443cae4e7c42349e7df3c53d` |
+|  `8` `latest` `8.13` `8.13.4`                 | July 8th     | `sha256:9b8306ee6e3f9bd71a80464e37952f0fb92f950a8a011fdd02d2e5668a8a7557` |
+|  `7.17-dev` `7-dev` `7.17.22-dev`             | July 8th     | `sha256:301377fa4cf35cac2073f09bfb09621f3a519b7f00e083f8d79fcfa526ba6690` |
 

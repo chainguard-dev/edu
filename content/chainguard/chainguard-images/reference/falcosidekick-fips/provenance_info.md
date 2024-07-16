@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for falcosidekick-fips Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-07-08 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,7 +29,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 | Registry                     | Tags                                                             |
 |------------------------------|------------------------------------------------------------------|
 | `cgr.dev/chainguard`         | No public tags are available for this image.                     |
-| `cgr.dev/chainguard-private` | 2, 2-dev, 2.28, 2.28-dev, 2.28.0, 2.28.0-dev, latest, latest-dev |
+| `cgr.dev/chainguard-private` | 2, 2-dev, 2.29, 2.29-dev, 2.29.0, 2.29.0-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

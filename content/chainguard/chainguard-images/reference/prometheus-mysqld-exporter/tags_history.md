@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mysqld-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:c78d0f9d6ce61929b846f1003577693fae54cd3f8865416e80c93d32943ed514` |
-|  `latest`     | June 28th    | `sha256:ded5751ae7ef080a51b1e3cd6b866200d407703ff38e007d5335ca1e22cd5747` |
+|  `latest`     | July 8th     | `sha256:ae2794634922ad7d8f64016bec8e0f8c59a2a425cb5e7679d8c5c155f6e3dcd6` |
+|  `latest-dev` | July 8th     | `sha256:3850ac337006f79ec02c6a4f8d4748110cd679a0b856ebc8d5fa53af3db645e8` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.15.1-dev` `latest-dev` `0.15-dev` | June 28th    | `sha256:325c94f88d7d6429c66dc6069212c28a833da2b15bb9213b7ee21e9babffcba2` |
-|  `0.15` `latest` `0` `0.15.1`                 | June 28th    | `sha256:65ed45280e867e3b7a4700fcb4f45919b30f31e7b4325ec5d0ef7748b96e3e9e` |
+|  `latest-dev` `0.15-dev` `0-dev` `0.15.1-dev` | July 8th     | `sha256:0ccf293d56fc2ef9009642847b630b2743a27a7c8190e7a36976c8c20b1a2e07` |
+|  `0.15` `latest` `0.15.1` `0`                 | July 8th     | `sha256:6f61f853cf9335307b73800e73ba4a618a8e90701e2aca33fd4da06f4c93f5ec` |
 

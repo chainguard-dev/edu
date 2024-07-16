@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-earlystopping-medianstop Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 28th    | `sha256:ff734a5d4905ee6de44b51befed441b081370df01ee34bab8a8141b02db7f75e` |
-|  `latest-dev` | June 28th    | `sha256:3b9fdefa70c93cf56facb56bc508783da65c00357e0dc1181b165eadd2fccb84` |
+|  `latest`     | July 9th     | `sha256:b51ca2baf445d445f2a3400684a9fc2ff0affc096bc3b835716fb2be9a2d95d7` |
+|  `latest-dev` | July 9th     | `sha256:84bccf369d6e81f1a6a13b852071a32b2a734d01cb7786358903d32285a3770a` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.16.0` `0` `0.16`                 | June 28th    | `sha256:fdb01a1ccf164de6b2cb74ac95058dbbec15d367bf9c64380fc6672057511fb4` |
-|  `latest-dev` `0-dev` `0.16-dev` `0.16.0-dev` | June 28th    | `sha256:64fafc59ed3da5335b38be1526a2b72cf819bdc4573cc0f323073a3b22e883a4` |
+|  `0.16.0` `latest` `0` `0.16`                 | July 9th     | `sha256:c901d7efaf0fe51bd88095d21493d1196dc89fbd591a32b5d2ed52d1ea964224` |
+|  `0.16-dev` `latest-dev` `0.16.0-dev` `0-dev` | July 9th     | `sha256:3f9e7d4e91dc84b4af3c4a9d166825240e913b861955b7a2a389f4141071841d` |
 

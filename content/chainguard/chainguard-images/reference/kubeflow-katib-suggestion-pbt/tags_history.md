@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-pbt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 28th    | `sha256:72be3c306011ec690025514cc19f0487c497298eb630eddf225372dd915667a0` |
-|  `latest-dev` | June 28th    | `sha256:8c8ae674d12f76c2040978b8a7acd6c56b392bc4f9f2eb15632cf93d049f73d8` |
+|  `latest-dev` | July 9th     | `sha256:0480c9bbc1f887fd16d7f5e4d68d5db540ad794a386d759dc5f192c5f711d33e` |
+|  `latest`     | July 9th     | `sha256:27e89a303905b2a78f11961d595d55742e0237c7f38ee0ab4f88286628e12dfb` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16-dev` `latest-dev` `0-dev` `0.16.0-dev` | June 28th    | `sha256:63ab06b8637aea62376650da09747fe606f2969c0cf936b6e8f5278165c97e74` |
-|  `0.16.0` `0.16` `0` `latest`                 | June 28th    | `sha256:84f2024ca5b3bd60c635ed54e2f9fa390532525e9fab6274a434a762b7235696` |
+|  `0-dev` `0.16-dev` `0.16.0-dev` `latest-dev` | July 9th     | `sha256:37028403195c536c4fece54c1bc3ead41c3d7fad0aed6089078c7ecd144afaab` |
+|  `latest` `0` `0.16.0` `0.16`                 | July 9th     | `sha256:49aaaab4c1b60f490f2ea8a4614d3c47b48d8df94b39d6eb8a8bbc5ce3cf8062` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the terraform Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,10 +28,10 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)                                 | Last Changed | Digest                                                                    |
 |-----------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev`                           | June 28th    | `sha256:4ace88632c7f364e8f0f55f6568ecb415717786a2810d4c03404da163bb2a85c` |
-|  `1.5-dev` `latest-mpl-dev` `1.5.7-dev` | June 28th    | `sha256:94bd99e5593c509def335bf6ea8fae37624b89132918732c98b4f42192c1c176` |
-|  `latest`                               | June 26th    | `sha256:8c9fd9822a1b2429d083bb3a257a3c98a6ce8871e464f3fa33daffef2a6216c1` |
-|  `1.5.7` `1.5` `latest-mpl`             | June 26th    | `sha256:6d87c921d17b959e98b65ab21e0105fe82ef2d265ae27c4e343a0c917fbfab55` |
+|  `1.5.7-dev` `1.5-dev` `latest-mpl-dev` | July 8th     | `sha256:275fa8159751501c5c2db9c179dbfa82aff0248f447ce7419dac0e1b3965d023` |
+|  `latest-dev`                           | July 8th     | `sha256:f62678cdf332d3b1a55ab6e9b323f649d656ac19ca36d7c2fb3e4e6cb7dfa985` |
+|  `1.5.7` `latest-mpl` `1.5`             | July 8th     | `sha256:7d5020217fc26541fe0aec387883fac0066af1b6378710d5c83f920ca3a2b011` |
+|  `latest`                               | July 8th     | `sha256:b202921d476d66d1eff8f76de46a57002e38a3af4abeb5544a40fc2dd101da84` |
 
 
 ### Private/Dedicated Registry
@@ -39,6 +39,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.7-dev` `1.7.5-dev` `1-dev` `latest-dev` | June 28th    | `sha256:4ae7b74e0a457a486b9925dee2dd7c3de4e2e90d9982eace27afabec322e2e3c` |
-|  `1` `1.7` `1.7.5` `latest`                 | June 26th    | `sha256:73acbadcf5cb306872aa635c4ccf474b04eb133d625790d5866df215b37ce7d8` |
+|  `1.7.5` `1.7`                              | July 8th     | `sha256:734f222bdaa2750fea00389a019ed087deb793b068935cbe1d4061b3869c5e93` |
+|  `1.7-dev` `1.7.5-dev`                      | July 8th     | `sha256:c89f7bca050552c8c497c1476bc0c9dd9a8129686ebe75944024e4991600bf51` |
+|  `latest-dev` `1.9.1-dev` `1.9-dev` `1-dev` | July 8th     | `sha256:18d386ed45f7bc5fc582b536801d1cc4de6cbb92d35bd478fd20bd0c312eaf47` |
+|  `1` `latest` `1.9` `1.9.1`                 | July 8th     | `sha256:e499bace6a64593dee7ac2007224d615a7ea1b22bb20ae7eca59661beed5adb5` |
+|  `1.8-dev` `1.8.5-dev`                      | July 8th     | `sha256:bae18ad7af9986ffba3ee9f6e67a90191bed220b770e70d60792ce3151edcc97` |
+|  `1.8.5` `1.8`                              | July 8th     | `sha256:e225e6ae3c82f79dece853f41f42b2ccf3ff7407394fc0631f79c432a7688d91` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-visualization-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 28th    | `sha256:aa5f20010e3eae74c4e3159fa05c9c1240b151cfe3fa9b893ea537c532905eba` |
-|  `latest-dev` | June 28th    | `sha256:94b23fa32ebb1a496a86f6c519dcb40fb59e56dedcf631b4bd83e5d074977953` |
+|  `latest-dev` | July 9th     | `sha256:86374ff0d51b054dbf6fe84c5d1848b4131dd25dc6738f9d03abebde1499b5b6` |
+|  `latest`     | July 9th     | `sha256:2c42528236ef2b55dbeaa1d0b808d191c5ead8f17bb798baa043de1ee83562c7` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `latest-dev` `2.2.0-dev` `2.2-dev` | June 28th    | `sha256:17190a4c218502190fcc677277d7c2ea107003c9e06a813fa7f0e6bacb4d33e0` |
-|  `latest` `2.2` `2.2.0` `2`                 | June 28th    | `sha256:47f4c6ca3cdb68b01e16695ab4e8a4b654f1c167108c457bdb86bf6eb4dc8c63` |
+|  `2.2` `2.2.0` `latest` `2`                 | July 8th     | `sha256:acfd13221f73111f8b25e02b62003cd838a3cfd38a46a9bdd8974871cf1d8759` |
+|  `latest-dev` `2-dev` `2.2.0-dev` `2.2-dev` | July 8th     | `sha256:0e3edced54ed79ff4548e701e95c2f0f75242dc6e3d8b589689a6531cf84c204` |
 

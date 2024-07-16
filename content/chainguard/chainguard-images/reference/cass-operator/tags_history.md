@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cass-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-02 00:32:13
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:c036af24ef02d36d7bbda5e0fce70397f481ad178cee48a4507ffa5b1ee57042` |
+|  `latest`     | July 8th     | `sha256:6b8f08eeb4f0af6b7e851ee3bb1dbb824bb017b85c3d7f00942a8e8474fad994` |
+|  `latest-dev` | July 8th     | `sha256:88624b5916a4cade8b89788f219f69c48b43bd6aa6800e8212086108e610ddfd` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.21.1-dev` `1.21-dev` `1-dev` | June 28th    | `sha256:d3cc4702511b4ae777500e2b7a6c1174c7df56e1986c00fdd20e894190be6d4a` |
+|  `1.21-dev` `1-dev` `1.21.1-dev` `latest-dev` | July 8th     | `sha256:a4bd7d661b1ffdab6ccbc0651ec4a16845db78c8eee3f861f58a54b92d0158a4` |
+|  `1` `1.21` `1.21.1` `latest`                 | July 8th     | `sha256:405643af09ed6011b47eed4885bed8faa4597dc46d579f2497eabde75ac960b3` |
 

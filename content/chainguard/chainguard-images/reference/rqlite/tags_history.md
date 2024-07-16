@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rqlite Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | July 2nd     | `sha256:4b0067f1d0a5eb20cd2d46dda2cfef84b25e059cc70a5316868d31bf58f6f180` |
-|  `latest-dev` | July 2nd     | `sha256:ca11499e8edd006b04de906426241aa1b5c27f8c033957ba194162fa37833c80` |
+|  `latest-dev` | July 8th     | `sha256:33050fca4d0074f0ae898b68b034a26859d4ad24797399300d110c5105e82bd9` |
+|  `latest`     | July 8th     | `sha256:5d433134e84439da01eb5974f82d2f8176ef3aec56a18ea8f9b153c2b489ef95` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `8.26.3` `8.26` `8`                 | July 1st     | `sha256:ef6f09fafe6c5c4ed469bd2174e90b33aafd565780845863573b61e33c1cda17` |
-|  `8.26-dev` `latest-dev` `8-dev` `8.26.3-dev` | July 1st     | `sha256:3509fce87cd685c99069107af1643fa0fae76b153ac119338f944e75fd5b47f8` |
-|  `8.26.2-dev`                                 | June 28th    | `sha256:234fdedc36c4a4f64c09fe9e19da5a758ea49bf3f61c1b6bd1d381a171ac4a20` |
+|  `8` `8.26.6` `8.26` `latest`                 | July 8th     | `sha256:5c9cb5704112cff71b862fae84cab54fd6d9771ab4d46b00ed708855dd2bde7c` |
+|  `latest-dev` `8-dev` `8.26.6-dev` `8.26-dev` | July 8th     | `sha256:d7a7ac20aeead456558501312c0aef82c9f5b34eb5f06906616d0dbd0d41c117` |
+|  `8.26.4-dev`                                 | July 4th     | `sha256:87148f5f89c08bf4e70b597a333ea66a76d45d6337143e1ed60c881674ff848b` |
+|  `8.26.4`                                     | July 4th     | `sha256:fba0700f7098e933947c63342a2674651ccf7511d42f47785d8d8b079c0642b5` |
+|  `8.26.3-dev`                                 | July 3rd     | `sha256:b44ccae90884b3540275d4f029a828657456b90bfeef49b7fabea5c8cdfadc01` |
+|  `8.26.3`                                     | July 3rd     | `sha256:3b14c0b8b96f618ae981748c0f1a042e7e467e664a6ae5119aeb108e5235e072` |
 

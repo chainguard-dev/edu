@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-webhook-certgen Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:131240029d1c5ccab34ae9571c77cbeae6206e05c6f95dcb0ace202090758183` |
+|  `latest`     | July 8th     | `sha256:01d124271c2dbe5cd8f5a2f7ff76183b4d4b1e81c62801e6083dd3b5011d14f4` |
+|  `latest-dev` | July 8th     | `sha256:467c97c7667ce97960250ca23b52540eaae541a8cc24607cd65e745089572c82` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.10.1-dev` `1.10-dev` | June 28th    | `sha256:a769332bad73e8385ff43b6d5e0912b57ec2c85875a2647351d02cedca154fef` |
+|  `latest-dev` `1-dev` `1.11-dev` `1.11.0-dev` | July 8th     | `sha256:5c69ec5f84f220f02869648bbbc04218c3f881445fb78dd3e28b05d39bab20cf` |
+|  `1.11.0` `1.11` `latest` `1`                 | July 8th     | `sha256:ef4dac57e2a704e54cca6f687c4d3e1fccded3ba8ea4788b0373b9b45d1308aa` |
+|  `1.10.1-dev` `1.10-dev`                      | July 8th     | `sha256:b3d6a12b77daff1fe62634a4e500709ec2d857b29b35548bd893f68f27bcf926` |
+|  `1.10` `1.10.1`                              | July 8th     | `sha256:5f2f65e351863c8dc7eac7ff5e44d1d152f92486c9c08e41b6dcc92da0f149d6` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the falcosidekick Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:56062db69916b60f04b3feb7b446f22750035a3b47a730308d3a9997bf3f2e8f` |
+|  `latest-dev` | July 8th     | `sha256:c3dc440066431731d5cca7ecfde8c5348f3e9c085437fe4fd355ed5f27181e8c` |
+|  `latest`     | July 8th     | `sha256:1e05fb9780fa67cc5d10f4bc1d611f5f48ba0f91df3a5828d34ac3158c0a0e83` |
 
 
 ### Private/Dedicated Registry
@@ -36,7 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.29.0-dev` `latest-dev` `2.29-dev` | July 2nd     | `sha256:13c1bf3d6552815190d4a67a8cdc809fe3e2c90801d5066c1b66b8c3bfa1a829` |
-|  `2` `latest` `2.29` `2.29.0`                 | July 2nd     | `sha256:fe2ac7aea6728692f22810acba908029efbeb25e3f3f92472de45ce9786845a3` |
-|  `2.28-dev` `2.28.0-dev`                      | June 28th    | `sha256:a84c614b860564822cb53617d1d798ce3e8335417ffd3025b536c312d61f10d8` |
+|  `latest` `2` `2.29` `2.29.0`                 | July 8th     | `sha256:096e2d1000998541451f270b454b56193c59ccc85282916a9a9e1d26f5c3a0fe` |
+|  `latest-dev` `2.29.0-dev` `2-dev` `2.29-dev` | July 8th     | `sha256:f59ef3c0969c2fabe5a3c8fc1aa836ba3225987570997714ca170b069bfb5526` |
 

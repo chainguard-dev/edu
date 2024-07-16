@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-snapshot-validation-webhook Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,13 +26,16 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-Currently, there are no Developer versions of this image available.
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 8th     | `sha256:dc96f9dac21b38ec8d3cdb22cc589f172771bf997d0b77d04a509dff15ad26a5` |
+
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8-dev` `latest-dev` `8.0-dev` `8.0.1-dev` | July 3rd     | `sha256:10bf8cff06fe53ed6d373db50234ba59999460dc180eae00177d7bd22e415c28` |
-|  `latest` `8.0.1` `8` `8.0`                 | July 3rd     | `sha256:4f013d6b41728e4b0159cb7051af3ccbd3e095b8d8b617f96883ad36c47aa249` |
+|  `8.0` `latest` `8` `8.0.1`                 | July 8th     | `sha256:d55b536a5d0229b9a828526c2f776c870751d7d8bab52d0451d82ddb2e6f8320` |
+|  `latest-dev` `8.0-dev` `8-dev` `8.0.1-dev` | July 8th     | `sha256:dcb38cfdcfdfd8aca2cb6077c476ece8d08a89ba5bd732df6e0c3455efe30a66` |
 

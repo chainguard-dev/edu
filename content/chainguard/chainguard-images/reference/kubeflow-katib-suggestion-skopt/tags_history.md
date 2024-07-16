@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-skopt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 28th    | `sha256:6371766ffbc40cee42692e35eace3c69fc1e743b68c1417cf221edfe32307311` |
-|  `latest-dev` | June 28th    | `sha256:f0a4d15bb6ba9c6904b6cbbf72adcc372d4fcce734e7d45e64f099e2c523d18b` |
+|  `latest-dev` | July 9th     | `sha256:403e18c66d259679165adeec97b624e4b583c802186b6b4363a0745e89646787` |
+|  `latest`     | July 9th     | `sha256:52920ec31874a3f3f3a01c12a451e8876c64cc13d248b8386f0ddec33aa3e0ae` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0-dev` `0.16-dev` `latest-dev` `0-dev` | June 28th    | `sha256:1ac91fcc5177a01603824efa3abf6b1731bdd803194c21d8abe65e9d444aea3d` |
-|  `0` `0.16` `0.16.0` `latest`                 | June 28th    | `sha256:0b1339c9ce6918fe751c23cfe6b4b24fdaec10ea2ad81b62c9a92532839b4199` |
+|  `0.16` `0.16.0` `0` `latest`                 | July 9th     | `sha256:16643a5056731a94b8b0b2914195c8deb24cc340223448bad49dd30d53355529` |
+|  `0-dev` `0.16-dev` `latest-dev` `0.16.0-dev` | July 9th     | `sha256:5d4b3a1631120c082cf3fa9a1a8f4c1b7bd55defb565004a5634e8dc17acd902` |
 

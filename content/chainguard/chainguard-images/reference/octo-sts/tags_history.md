@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the octo-sts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:eb913254cf3b877435dd6752a41695ee140f29c8f7d4871f685211b63034b8b7` |
+|  `latest-dev` | July 8th     | `sha256:e5357a134613cbe6e507102dba87aa894c8325863b93cfd8b6683d3ba97dca81` |
+|  `latest`     | July 8th     | `sha256:cd27a815ff79e0d2793feb6555c51782631bac831b11bcac1bb95113afbf1fc6` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.2.0-dev` `latest-dev` `0.2-dev` `0-dev` | June 28th    | `sha256:fe1ba99064142e9d953586864b5ae2ed1ce36764c97a4f52e04cf13decc68ccd` |
+|  `latest` `0.2` `0.2.0` `0`                 | July 8th     | `sha256:fb2b6f94afc5e77069398ef59e38d95dc39ffd3803548ec50a6a6c896d34648b` |
+|  `0.2-dev` `0-dev` `0.2.0-dev` `latest-dev` | July 8th     | `sha256:e4a2c47da942c466a087247a4ad12b68a5ee70ffd73a6167af73a61a558cc0e0` |
 

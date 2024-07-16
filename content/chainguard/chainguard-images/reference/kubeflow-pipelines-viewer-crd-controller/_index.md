@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: kubeflow-pipelines-viewer-crd-controller Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []

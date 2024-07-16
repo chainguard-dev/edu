@@ -31,7 +31,7 @@ jobs:
         egress-policy: audit
 
     - name: 'Checkout default branch to $GITHUB_WORKSPACE dir'
-      uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
+      uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
 
     - name: Authenticate to Google Cloud
       id: auth
@@ -61,7 +61,7 @@ jobs:
       env:
         SLACK_ICON: http://github.com/chainguard-dev.png?size=48
         SLACK_USERNAME: guardian
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         SLACK_CHANNEL: 'alerts-edu'
         SLACK_COLOR: '#8E1600'
         MSG_MINIMAL: 'true'
@@ -86,7 +86,7 @@ jobs:
         egress-policy: audit
 
     - name: 'Checkout default branch to $GITHUB_WORKSPACE dir'
-      uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3.2.0
+      uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
 
     - name: 'Setup gitsign'
       uses: chainguard-dev/actions/setup-gitsign@main
@@ -145,7 +145,7 @@ jobs:
       env:
         SLACK_ICON: http://github.com/chainguard-dev.png?size=48
         SLACK_USERNAME: guardian
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         SLACK_CHANNEL: 'alerts-edu'
         SLACK_COLOR: '#8E1600'
         MSG_MINIMAL: 'true'

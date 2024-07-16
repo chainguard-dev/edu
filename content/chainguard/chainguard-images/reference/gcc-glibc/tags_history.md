@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gcc-glibc Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:38f6d1b1e5f3f28e83c7d8ebe2a29169645ffa3fcef3ff48a3ed7c2927bd3728` |
+|  `latest`     | July 8th     | `sha256:3a6942c14322d9ae0dea6e0c50cbdf86e0267544708cd3b3e97b7e1763415006` |
+|  `latest-dev` | July 8th     | `sha256:1f497e19f190316cab39d5153274dfc7d290a94c7a69f8d3a1868406eddf9869` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `13-dev` `13.2.0-dev` `13.2-dev` `latest-dev` | June 28th    | `sha256:8371c15513761443cc527ccf9f1a5601180eb0dc5a5c033db38367479df22d50` |
+|  `13.3-dev` `latest-dev` `13.3.0-dev` `13-dev` | July 8th     | `sha256:f564be12b10989b738a36c716b17e6ed167b370a6af4e57a7c80f3baa94ccbe4` |
+|  `latest` `13` `13.3` `13.3.0`                 | July 8th     | `sha256:d28206daf2dfedfd15cedc61743ac4af98249c58713596b44899f4bdab9a0442` |
+|  `13.2.0` `13.2`                               | July 6th     | `sha256:351b5ef6c727fc52823f3b8cd2b39e76227c2538a3a7fe12345646fbddc71a72` |
+|  `13.2-dev` `13.2.0-dev`                       | July 6th     | `sha256:6f0abaa6d246cac748d7c4bdf3bb502ffafed8c96027d6b7a9b002460f17b5de` |
 

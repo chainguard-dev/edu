@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the contour Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-02 00:32:13
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.28.5-dev` `1.28-dev`                      | June 28th    | `sha256:cdca8d93034eb5a308617d9527c13d47563139de22dc8ab310f1debaf3524e88` |
-|  `1.27.4-dev` `1.27-dev`                      | June 28th    | `sha256:887c66c8eddaca42a91e4918768ef1d8d20b170c018c8f44c9897964c5fd1f9b` |
-|  `latest-dev` `1-dev` `1.29.1-dev` `1.29-dev` | June 28th    | `sha256:3b49916ebad84afa0bbc936eb87367b21799bd00accb641561a7ddb1fdf3ed25` |
+|  `1.27.4-dev` `1.27-dev`                      | July 8th     | `sha256:c9f51eaa827e9e856fbc56aeadab2347726af75f971106c7d971735eddfbbe30` |
+|  `1.28` `1.28.5`                              | July 8th     | `sha256:a785bcf1c5b13ad2f862a338a2b2ba624d4bd78b10ebc4747440dfd760c508c3` |
+|  `1.28.5-dev` `1.28-dev`                      | July 8th     | `sha256:3a4ad6594dc4b4d0f23d965ebf4f86989780d4dd22e82db78a16a5357e9e7bf1` |
+|  `1.27` `1.27.4`                              | July 8th     | `sha256:a9597b071f5364b4e20ae983c3ec7eeeeebfd7061c23d6f7e5c32955de07fb4e` |
+|  `1.29.1` `latest` `1` `1.29`                 | July 8th     | `sha256:d05f882edc915b83d5a1409d7006faf2d6c088406e41245a4e9e45a01a2d786a` |
+|  `1.29-dev` `1-dev` `latest-dev` `1.29.1-dev` | July 8th     | `sha256:35913554d6bbc7dbdebdb641ccdddaed34b4f3ae7bc68cea1a639b634938c343` |
 

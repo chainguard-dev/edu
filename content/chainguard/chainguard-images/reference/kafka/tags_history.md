@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kafka Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:7a46b681f8129921820ad895fa6cbd27ef03f543ce28a2754a78363fbc24f6c0` |
-|  `latest`     | June 28th    | `sha256:5bcd924337ef7c1a3fbd34a5f6048c838538a3048afd571beaf61f478c376d79` |
+|  `latest-dev` | July 8th     | `sha256:f2b153528f5b6ab948f309725a1c619c0436a14537b16be49242a94fd1855e30` |
+|  `latest`     | July 8th     | `sha256:ee4aeee1bde57c068f3e3a25515030b864ba49c9883f950090a445cdf6b845f1` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.7.1-dev` `3.7-dev` `3-dev` `latest-dev` | July 2nd     | `sha256:fc4afc2377d2097de28073bc78d3f752603631c44c8a6363aa7e25463701f683` |
-|  `3.7.1` `3` `3.7` `latest`                 | July 2nd     | `sha256:5614dcb32c4d5fc0f6b567c117758c3a34df16688a0c03ca3b1c102558822e70` |
-|  `3.7.0-dev`                                | June 28th    | `sha256:a540bf42b386f1a72c9fcfc6a8b593379df03d4f02c290c4689d1065d8cb15df` |
-|  `3.7.0`                                    | June 28th    | `sha256:b70c3c4a65f16a5e0ea56a001dbaa366349cde57733dd88c20ab3f395d43aea8` |
+|  `3-dev` `latest-dev` `3.7.1-dev` `3.7-dev` | July 8th     | `sha256:f49270561aa1550fc0dd12dee1d9cc205f19af871123e9f06797189bdd62404d` |
+|  `latest` `3` `3.7` `3.7.1`                 | July 8th     | `sha256:9832b805553ca9df9023624a6f46a2a1f82bb1e8dc3bfa6fcce4f62c5c8a505e` |
 

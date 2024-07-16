@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mariadb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:a8d9f7a38047a81aabca046fdd75e8d431ac8f7ff3e68d3f86570a4e77447bb5` |
-|  `latest`     | June 28th    | `sha256:d3ae0028c68897359ae7a47300a5c87ecc285d87c25418f20d244b90051dcece` |
+|  `latest-dev` | July 8th     | `sha256:339778fe003040f818c24aa69beb6a5a21670f4fce74cb7cb374bc7ed26868dd` |
+|  `latest`     | July 8th     | `sha256:48c52e2aa2c4b2323931ea4b1c16c0568f0b6fc1001b4e8c49ba66d975e16604` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `10.11-dev` `10.11.8-dev` `10-dev`            | June 28th    | `sha256:a212fdde213e8df24bb3576d29a4165548ac38a67bf3f6755c485f0d98aa99df` |
-|  `11.2-dev` `11.2.4-dev` `latest-dev` `11-dev` | June 28th    | `sha256:4756c3c877e1ed06bc7a076c403ba00056c87c2015c2d266f720ad496b96b386` |
-|  `latest` `11.2.4` `11.2` `11`                 | June 28th    | `sha256:346aecf59bf1f6d8ed102cecdf86ce1075c67db9daa0330ecc701c94588ed0f2` |
-|  `10` `10.11.8` `10.11`                        | June 28th    | `sha256:88aaa85a90d13f8ac335531f0f654bc88c993a785ac83ef190883ae8253d4c10` |
+|  `10.11.8` `10` `10.11`                        | July 8th     | `sha256:11480be5984ceda09047784ddf634b0299fa4787e5a091c94d85e690f121fdaa` |
+|  `11.2.4` `11` `11.2` `latest`                 | July 8th     | `sha256:79c46fd58c0142e00d0ecf06dd79fb9856afc7aebdd7f54db0e825751ef80812` |
+|  `11.2.4-dev` `11.2-dev` `11-dev` `latest-dev` | July 8th     | `sha256:d888d60c284b533104d9248562115ff4b184038225163ec2d7fd9c49382ad830` |
+|  `10-dev` `10.11.8-dev` `10.11-dev`            | July 8th     | `sha256:ad78eeb83189ff32a3e6ffce53d06648665424577b7874236f06f27c6a8b99f8` |
 

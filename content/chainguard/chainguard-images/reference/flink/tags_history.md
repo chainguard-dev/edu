@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flink Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.18.1` `1.18`                              | July 2nd     | `sha256:0bc7348139d333ae703b71577b3acde2673d79bdb8fcf17987d7821478d25dcc` |
-|  `1.18-dev` `1.18.1-dev`                      | July 2nd     | `sha256:9c42d91803816aa55d458d4a1379cc81dc8bc341eff71ffa00d63335ac48e33a` |
-|  `1.19.1-dev` `1-dev` `latest-dev` `1.19-dev` | July 2nd     | `sha256:4ff98503121c71f11de66ee068b9118f33065e4fef98f9e058e6d8f6db005580` |
-|  `1.19.1` `1.19` `latest` `1`                 | July 2nd     | `sha256:e08731b6c83d3f9171073823a27ad0d47586b62b20148a5f80d8bda179b79446` |
-|  `1.17.2-dev` `1.17-dev`                      | July 2nd     | `sha256:59a9011c33bbdd04578552c2a6cd89ef3007c95e3f6c681e10f89521b44d2842` |
-|  `1.17` `1.17.2`                              | July 2nd     | `sha256:86004bf8a0a81863706f20ffa2603c3efb7836c7eb3f9dbe77449e280c844318` |
+|  `1` `latest` `1.19.1` `1.19`                 | July 8th     | `sha256:635b69b5d10ac30a96afe8d03b7547e296305abc9549a36e8890d87b160d9836` |
+|  `1.19.1-dev` `latest-dev` `1.19-dev` `1-dev` | July 8th     | `sha256:a30defb306d388a3a1e8840b88b5252ce9063bee5524b6c567b81aab150dd4ca` |
+|  `1.17-dev` `1.17.2-dev`                      | July 8th     | `sha256:76d857622f66383ca344e21a1eb3045411b81d2bb4e6dafa3d9cfbbdcdfe2c76` |
+|  `1.18.1` `1.18`                              | July 8th     | `sha256:0a9f14107ca678dee442a84f2f8c74db637d083029d5c8e9676d8fc094c668ef` |
+|  `1.17` `1.17.2`                              | July 8th     | `sha256:cc76510f3044814584ea78f2d0c3b65163ebd92f62d2b1e5e3b4752f46122e9a` |
+|  `1.18-dev` `1.18.1-dev`                      | July 8th     | `sha256:0db65862516010af255b9b47d845a17f34b0ed66bd49d08d08d2c7055e06a741` |
 

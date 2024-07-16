@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cfssl-self-sign Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,5 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `17-dev` `17.1.0-dev` `17.1-dev` | June 28th    | `sha256:d20f3699340bd608b5dc49b932b147402235a5b44e960ce640f97fbbb46547b0` |
+|  `latest-dev` `17.1.1-dev` `17.1-dev` `17-dev` | July 9th     | `sha256:c30f4687c6911ae3cb9e66e7076c44b554a3124c4b463caa4ef2f0b76eee634f` |
+|  `17.0.3-dev` `17.0-dev`                       | July 9th     | `sha256:e719a2e9d694d8bd2e9048017efc95e0d6ae4fdecb42b2873ee5003189ca7dbb` |
+|  `17.1.1` `latest` `17.1` `17`                 | July 9th     | `sha256:ec3211a7230433cdc90994e96735d571febb854ac465d4a16de7a00c3bdeb7a4` |
+|  `17.0` `17.0.3`                               | July 9th     | `sha256:630c2885040168df659c1ca40afc24b0a9f42d255c5647c4fd533498493fa6da` |
+|  `17.1.0-dev`                                  | July 3rd     | `sha256:8ded75e4da4c21d5b6049a75a930b66290b36655e06e03c2e334c30d73100ca8` |
+|  `17.1.0`                                      | July 3rd     | `sha256:7e8f00351d6477b4667bcca61369fc4e58cfd9394571d24e59826c849d65c4d6` |
 

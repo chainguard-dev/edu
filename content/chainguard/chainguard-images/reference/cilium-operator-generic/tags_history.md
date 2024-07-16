@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-operator-generic Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:47b698c93a41f20524556bd3dfec23dad8daa1aa94b2e848996fefe6ca68dfb6` |
+|  `latest-dev` | July 8th     | `sha256:18d48335308964194535ebae8d4ac3aeb5eb266d08b9f25bc9fc2b138da365ee` |
+|  `latest`     | July 8th     | `sha256:47022dedf2a1e7fc7bf224b5c2db4b265b7c4f43e3ec7814d37019898cf163b4` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.14-dev` `1.14.11-dev`                     | June 28th    | `sha256:88640951dae9d437d32ec5edadefe9435dc846dbee1315620290e348277f79b9` |
-|  `1-dev` `1.15.6-dev` `1.15-dev` `latest-dev` | June 28th    | `sha256:ddf0ad395651d9fbd7d63c8023ebdfef306daa82bff63f5e43218b753dce9a9c` |
+|  `latest` `1.15` `1.15.6` `1`                 | July 8th     | `sha256:696a56b1b0b32b622df4b88bce5e3722ae6e4e2f415a1b10fa3b00d55d049c9a` |
+|  `1.14-dev` `1.14.11-dev`                     | July 8th     | `sha256:1f3364d1e1b779dcfa29da8c4223bbec0669983d296bc0312b351200d5b8fde9` |
+|  `1.15.6-dev` `1-dev` `latest-dev` `1.15-dev` | July 8th     | `sha256:c2373d66afadfc997869f9c85a3a952ef281d06ed34556bbd38a9f0f92244389` |
+|  `1.14.11` `1.14`                             | July 8th     | `sha256:cd006c28403924c9f03fca5b4264f20a9b44fb1a48c0c01277348b176b820122` |
 

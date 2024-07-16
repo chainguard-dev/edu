@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the calico-kube-controllers Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,12 +26,16 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-Currently, there are no Developer versions of this image available.
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 8th     | `sha256:a78c416386dcb6012b50990657e31ee28ea5e0f471e0b09a0067ddbbf08f8f7e` |
+
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                                                          | Last Changed | Digest                                                                    |
 |----------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.28-dev` `3-dev` `v3.28-dev` `3.28.0-dev` `latest-dev` `v3-dev` `v3.28.0-dev` | June 28th    | `sha256:aeb38f8279f8e944c38ed53272aebf0be7fdb921b459c5369fc7faa61589a51f` |
+|  `v3-dev` `v3.28.0-dev` `3.28.0-dev` `v3.28-dev` `3-dev` `latest-dev` `3.28-dev` | July 8th     | `sha256:a9135c509a6930787fd86cea574737bbb54af7e7818d9fc87fef493f9820bbfe` |
+|  `latest` `3.28.0` `v3.28.0` `3` `v3` `v3.28` `3.28`                             | July 8th     | `sha256:b40fea3ce49e9922279b07e6f6c9d3f88b0b908881d12f1c431fef5bc5c8bc06` |
 

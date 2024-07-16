@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the wasmer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:ea9599aa5a4ea2c80532ca2683ff31c089c94e7058d8dfe4eb628bc5c4855624` |
+|  `latest`     | July 9th     | `sha256:eb0a563b22a062b443628f3f68a8d0c0a6c77dd0b8a777f548c2c4288c2eddc1` |
+|  `latest-dev` | July 9th     | `sha256:ebc9c4d24a77749e3abeb89abd3d6a1cbce01e1ab1b811586b3d785d16b73ecf` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +37,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.3.2-dev` `4.3-dev` `latest-dev` `4-dev` | June 28th    | `sha256:6a4add06c68a061c065bf59d3961ce7666fe1e0235bf8b9235a3dfca2b7086ce` |
+|  `latest-dev` `4.3.4-dev` `4.3-dev` `4-dev` | July 9th     | `sha256:18dcfab942cf2cae8b3b30dae108bf8b3ea71108dda308a9146306e78ded6bed` |
+|  `4` `4.3.4` `latest` `4.3`                 | July 9th     | `sha256:f82261406653da849bea8596612164bb6160fdc92074816af442d551297a4e11` |
+|  `4.3.3-dev`                                | July 8th     | `sha256:e9e29119e9e27c5c992b81659d6d2ceb6de11b42406de034db3dc493ad54baa9` |
+|  `4.3.3`                                    | July 8th     | `sha256:8844c3191e275989c55d6fc5efc0c6dd971a683a7ac0a8d5231b11e992e5ebed` |
+|  `4.3.2-dev`                                | July 3rd     | `sha256:a47240b09be2f47a4da99110f6f1ce0e1660617faf6ee8d58de19713dee6d34a` |
 

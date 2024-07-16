@@ -4,7 +4,7 @@ linktitle: "STIGs"
 type: "article"
 description: "A conceptual overview of Security Technical Implementation Guides, which are available for Chainguard Images."
 date: 2024-06-13T15:56:52-07:00
-lastmod: 2024-06-13T15:56:52-07:00
+lastmod: 2024-07-12T15:56:52-07:00
 draft: false
 tags: ["IMAGES", "PRODUCT", "CONCEPTUAL"]
 images: []
@@ -17,7 +17,42 @@ toc: true
 
 The practice of using Security Technical Implementation Guides, or "STIGs," to secure various technologies originated with the United States Department of Defense (DoD). If an organization uses a certain kind of software, say MySQL 8.0, they must ensure that their implementation of it meets the requirements of the [associated Security Requirements Guide (SRG)](https://public.cyber.mil/announcement/stig-update-disa-has-released-the-oracle-mysql-8-0-stig/) in order to qualify as a vendor for the DoD. More recently, other compliance frameworks have begun acknowledging the value of STIGS, with some going so far as to require the use of STIGs in their guidelines.
 
-[Chainguard announced](https://www.chainguard.dev/unchained/stig-hardening-container-images) the release of a STIG for the [General Purpose Operating System (GPOS) SRG](https://www.stigviewer.com/stig/general_purpose_operating_system_srg/) — an SRG that specifies security requirements for general purpose operating systems running in a network. The goal for this new STIG is that it will help customers confidently and securely integrate Chainguard Images into their workflows. This conceptual article aims to give a brief overview of what STIGs are and how they can be valuable in the context of container images.
+[Chainguard announced](https://www.chainguard.dev/unchained/stig-hardening-container-images) the release of a STIG for the [General Purpose Operating System (GPOS) SRG](https://www.stigviewer.com/stig/general_purpose_operating_system_srg/) — an SRG that specifies security requirements for general purpose operating systems running in a network. The goal for this new STIG is that it will help customers confidently and securely integrate Chainguard Images into their workflows. This conceptual article aims to give a brief overview of what STIGs are and how they can be valuable in the context of container images. It also includes instructions on how to get started with Chainguard's STIG for the GPOS SRG. 
+
+
+## Getting Started
+
+The recommended way to get started with Chainguard's STIG for the GPOS SRG is to use the Chainguard [`openscap`](https://images.chainguard.dev/directory/image/openscap/overview) Image. This includes the `openscap` tool itself, the `oscap-docker` libraries, and the Chainguard GPOS STIG profile. This image is built with the same capabilities and low-to-zero CVEs as every other Chainguard Image, and makes the `openscap` tool — which can be difficult to set up — more portable.
+
+The following instructions assume that you have `docker` installed and running on your system, and are intended to be performed on a non-production system, similar to the process outlined in [DISA's Container Hardening Whitepaper](https://dl.dod.cyber.mil/wp-content/uploads/devsecops/pdf/Final_DevSecOps_Enterprise_Container_Hardening_Guide_1.2.pdf).
+
+For ease of use, we'll use the datastream file sourced from [the Chainguard STIGs repository](https://github.com/chainguard-dev/stigs), and available within Chainguard's openscap image. We'll refer to this as the `scan` image, and the `target` image we'll be scanning will be: `cgr.dev/chainguard/wolfi-base:latest`.
+
+First, start the target image:
+
+```bash
+docker run --name target -d cgr.dev/chainguard/wolfi-base:latest tail -f /dev/null
+```
+
+Next, run the scan image against the target image. 
+
+```bash
+docker run -i --rm -u 0:0 --pid=host \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v $(pwd)/out:/out \
+  --entrypoint sh \
+  cgr.dev/chainguard/openscap:latest-dev <<_END_DOCKER_RUN
+oscap-docker container target xccdf eval \
+  --profile "xccdf_basic_profile_.check" \
+  --report /out/report.html \
+  --results /out/results.xml \
+  /usr/share/xml/scap/ssg/content/ssg-chainguard-gpos-ds.xml
+_END_DOCKER_RUN
+```
+
+Note that this is a highly privileged container since we're scanning a container being run by the host's Docker daemon.
+
+The results of the scan will be written to a new subdirectory named `out/` within the current working directory.  The `report.html` file will contain a human-readable report of the scan results, and the `results.xml` file will contain the raw results of the scan.
 
 
 ## What are STIGs?

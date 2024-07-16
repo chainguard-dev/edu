@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-writer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-02 00:32:13
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | July 1st     | `sha256:df3102ff417a04793c12d76be6b4423108d94b7c43797d22b768eff4fd72c356` |
-|  `latest-dev` | July 1st     | `sha256:35e1b8f6de779f141bafb6b0c6e6c24f4dc4ab010adf6f17c653b55c9fb523f0` |
+|  `latest`     | July 9th     | `sha256:dc6cec13b42862791a49faf13718ed3e429fd7bd90ee85f7d95f1cf39c725f5f` |
+|  `latest-dev` | July 9th     | `sha256:903d1709df1cf0b27587b10df7aae98ded0e4f6b1d19f15e4ab05b7c5e61563c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.2.0-dev` `2-dev` `2.2-dev` `latest-dev` | July 1st     | `sha256:df0fb77a0c7d6fd02623b400bee30ab939cce6d3e45625e7d0332055d0941c4b` |
-|  `2.2` `2` `latest` `2.2.0`                 | July 1st     | `sha256:46907f166bcda8d8e9bd16d12be93aebf717973c55b70df15a699b42db0e2725` |
+|  `latest-dev` `2-dev` `2.2-dev` `2.2.0-dev` | July 9th     | `sha256:2ff63ba79a4c24836525fcc3126104eea388b755aa3c6c46b457e7ea7ee3ba6d` |
+|  `latest` `2.2` `2.2.0` `2`                 | July 9th     | `sha256:e829ca3c21a391911d4ddb8408c210c689ceddaf0867bc955d768ded130a023b` |
 

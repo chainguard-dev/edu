@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-chains Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:421c5a8f3ff75a0439db16b32b89d61f8ae6f17d40824cf293a7a8650373490b` |
-|  `latest`     | June 26th    | `sha256:61f231a2427b9ff16507b11264984f0c9ab74db94b0dd012c0b6fe053979cd6a` |
+|  `latest-dev` | July 8th     | `sha256:3ddaa717f70b3b08beac7cc96d2512d7b138478b3cf75a267ddafbdb531d780c` |
+|  `latest`     | July 8th     | `sha256:22ab81a27baa7414266815554a9c8bf5d38e24b487de62c58c43dcb808178c62` |
 
 
 ### Private/Dedicated Registry
@@ -37,5 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.21-dev` `0.21.1-dev` `0-dev` `latest-dev` | June 28th    | `sha256:1c39583a815e8fb72a674d5c6c9f03cc1045aeb0d3c6ed6f50d879bcfb1fc265` |
+|  `0` `0.21.1` `0.21` `latest`                 | July 8th     | `sha256:02921d737aa9a55448e1a233ccb8b756f7d0e721e7371130320f5653f1dc4b2b` |
+|  `latest-dev` `0.21-dev` `0-dev` `0.21.1-dev` | July 8th     | `sha256:7478bc85a9bd2c547ad008fe44c5bf740c5edbf8d10ffe23c8b854acbf30a576` |
 

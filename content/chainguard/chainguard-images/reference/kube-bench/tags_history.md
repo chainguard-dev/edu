@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-bench Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,14 +26,16 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-Currently, there are no Developer versions of this image available.
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 8th     | `sha256:d9dc2ae4eb8ac7b221cee705db0c147a29c0eb98874993fbe58f1e77fd9d3ad5` |
+
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.8.0-dev` `latest-dev` `0.8-dev` | July 2nd     | `sha256:4ef54cb5c4db6d36a5e9d9d1d155d35ea61a3877971fc2ebba59a6abdc9077b8` |
-|  `latest` `0.8.0` `0.8` `0`                 | July 2nd     | `sha256:5e8c345ccb57af63ba5b7d1e4d2d0c6b862e1c883ffb2df85842bae9116dc973` |
-|  `0.7-dev` `0.7.3-dev`                      | June 28th    | `sha256:5d6f28de8344d0ae8265b111010f4080268a42d4f02e1be8fef110d8af4eb944` |
+|  `0` `0.8` `0.8.0` `latest`                 | July 8th     | `sha256:2ffad46ec7c4add740bbfcb55dba2166cd9462a06d8501b69051c2eccfdc9167` |
+|  `latest-dev` `0.8-dev` `0-dev` `0.8.0-dev` | July 8th     | `sha256:0b09be06e8c318d820ae47455d581ee3c2e52e76476c857521687e7f8014def6` |
 

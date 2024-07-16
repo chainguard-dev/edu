@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the neuvector-prometheus-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:a4e70ede1cd372177f466ba45c85a22a095583e73cd797e74164d4731f85b71f` |
-|  `latest`     | June 28th    | `sha256:bcca71d5c1e173bcf5c8ffc443abdf44439807107854da8f9048ff726ea9d648` |
+|  `latest`     | July 8th     | `sha256:bca9fbfe8775e4e01c4d9a8d93a03756e73a2d8dfb126c5cc7e49e539188d31f` |
+|  `latest-dev` | July 8th     | `sha256:957c8322df8dcd32d6d80faa4e669efabff0b5f5714e513286de92e274ff6d24` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                   | Last Changed | Digest                                                                    |
 |-----------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.1` `latest` `1.1.0.0` `1` `1.1.0`                     | June 28th    | `sha256:e3a0d88d266b81a72eca5c6b6c60b16ac96d8140dcd67bcc5ca76d25ff779c80` |
-|  `latest-dev` `1.1.0.0-dev` `1.1.0-dev` `1.1-dev` `1-dev` | June 28th    | `sha256:1083ae3c8d2697dd1541c4f2f5fab0067c4283fece0747943fec47b6889377a9` |
+|  `1.1-dev` `1-dev` `latest-dev` `1.1.0-dev` `1.1.0.0-dev` | July 8th     | `sha256:8221262fa61d1332652ddb01812af1ee198118b5a69cc0ceda01e3cd35c8cf88` |
+|  `1` `1.1.0` `1.1` `latest` `1.1.0.0`                     | July 8th     | `sha256:3cde7edaacfd8cb3d8930260b5eeab65e8cb65d33bbf60cb9e1dfcd90d1458fe` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the az Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 28th    | `sha256:0ada231962425850c726e82a557c209c4e55b7717335d9ad3772c2727130c4ee` |
-|  `latest-dev` | June 28th    | `sha256:88196e9db20bb39c3ee286e1b73a996126b07fece1aa3aa0e96b67c0615c878c` |
+|  `latest-dev` | July 9th     | `sha256:17101745c7acd697d81273eba8b11c3577f8112fb20d2626581e34699e359332` |
+|  `latest`     | July 9th     | `sha256:6ab815c6cd6d99bd21ba0fc93b5f1aff5e34cb5aa91202e9018dadfdcb5ed95a` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.61.0` `2` `latest` `2.61`                 | June 28th    | `sha256:b944e58b88aa1cbbe200f4ecaf438922300476581b912d667104f32818fa2919` |
-|  `2.61-dev` `latest-dev` `2-dev` `2.61.0-dev` | June 28th    | `sha256:73a080c5f1eff91e6930d5a56f986ed3ee84a4f869b5c83e20413e923c34d660` |
+|  `2.62.0-dev` `latest-dev` `2.62-dev` `2-dev` | July 9th     | `sha256:8fb916a63111753db2dd1b597bd20b0569a54a91c654bdbeb6ec1128b0477dfc` |
+|  `2.62` `latest` `2.62.0` `2`                 | July 9th     | `sha256:efcdf81251caacb8b5bdf11080678ed24fc2d92a682c45dfb05a7fe104efbbdc` |
+|  `2.61` `2.61.0`                              | July 8th     | `sha256:9ab7f514b9476c5709ae90bab366020e34b74ab42958b87b23e1d68f2e7b4c5d` |
+|  `2.61.0-dev` `2.61-dev`                      | July 8th     | `sha256:46cc216d5e3b46ad73f90b2bec77484fcd4c85852d2f56cbc802841434f3f5cb` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-attacher Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:8371d3604b9102f4a2bf015befaaea303bced10484a714445479a51e5aac23a6` |
+|  `latest`     | July 8th     | `sha256:5a1afed94b5c990a78e95440f07ee4d23b7ee3afc5f4a68e975a102e63c01a9c` |
+|  `latest-dev` | July 8th     | `sha256:7cf6d353b197c4131d0fdba1d98a279d16fc644dac3c7adb73a5876bf06c5f2e` |
 
 
 ### Private/Dedicated Registry
@@ -36,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.3-dev` `4.3.0-dev`                      | July 3rd     | `sha256:afc0bb33737b93e5bfcbe3085e1d0e874f0848cf39a311490dc86d1b0ed406e3` |
-|  `4.4.4` `4` `latest` `4.4`                 | July 3rd     | `sha256:10f5f7d888ad5be147b4f43aee99662babf6e6cb887bb07ea90c9c1da97bcef4` |
-|  `4.3` `4.3.0`                              | July 3rd     | `sha256:d06fadba6705e73f6ee136bbc60a9891ee00561e4b21aa2a8de476aa1c777e35` |
-|  `4.4-dev` `latest-dev` `4.4.4-dev` `4-dev` | July 3rd     | `sha256:fc5ccb4a0055293e653f83c00463eed9003e74762ede5ebaf1f7a36232238f2c` |
+|  `4.3.0-dev` `4.3-dev`                      | July 8th     | `sha256:dda24bafbc468a120109d33699485056da2852ac4d2437815513362d10d1e5be` |
+|  `4.4.4-dev` `latest-dev` `4.4-dev` `4-dev` | July 8th     | `sha256:0f218e116ae35cee11a0ea657e62a2afe325e0d5ae6cc981a893f2f20833e6c7` |
+|  `4.3` `4.3.0`                              | July 8th     | `sha256:462da72a6eb77cf095357381387912faad7eeb46421569dd11bd0ed9a25ff5a6` |
+|  `4.4` `4` `latest` `4.4.4`                 | July 8th     | `sha256:1e1603628ec30b0fc82b50a4c1d788571c45f4c898860665ae0ce7881e963c23` |
 

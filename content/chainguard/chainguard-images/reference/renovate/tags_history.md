@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the renovate Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,14 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                            | Last Changed | Digest                                                                    |
 |----------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `37-dev` `latest-dev` `37.420-dev` `37.420.1-dev` | July 2nd     | `sha256:c2ee80d19b1510ca30674d028ca84bf89d4c53e04b17b337843d5a62f67b7d35` |
-|  `latest` `37.420.1` `37` `37.420`                 | July 2nd     | `sha256:1f0d65b9dc4eac36e448346fd2ccca8139599d8972cd044f4ecc3fac4ccb5055` |
-|  `37.416.1` `37.416`                               | June 26th    | `sha256:ae500e79286cdba71733cddc12171c714481e1962072de766d4407ddf18117ea` |
-|  `37.416-dev` `37.416.1-dev`                       | June 26th    | `sha256:e62cf7ce68d78ea8311a36cf78153939ac9e4cfcde00bb5ffb18d3ad9e559556` |
+|  `37` `37.426.2` `latest` `37.426`                 | July 9th     | `sha256:a3fd62545f4405cc812f4d6b21018f492c118fcaef20b117bdf32dbde825a16b` |
+|  `37.426-dev` `latest-dev` `37.426.2-dev` `37-dev` | July 9th     | `sha256:7148f5aa56633afd1c58dcea325de1252f2f4211e5c18cd1091cefc1d735b300` |
+|  `37.426.0`                                        | July 9th     | `sha256:7de64c54ee94a160fe2a934ebab698f3349b93640367c06ed9ea01daf00f8c48` |
+|  `37.426.0-dev`                                    | July 9th     | `sha256:33cc17194f5ffa8e9edf21be28d09f0440ad8c4ac6166136c93de6b6f446a1d9` |
+|  `37.425-dev` `37.425.1-dev`                       | July 8th     | `sha256:277830f34a56d06fa457eb5f6ff64190f6ba8989573cccd8862c89e4a7d55d4c` |
+|  `37.425` `37.425.1`                               | July 8th     | `sha256:fd28695001d58914930b8c5743a6322ea57dd83a94b6701bfd7a2c564151abb0` |
+|  `37.422.4` `37.422`                               | July 7th     | `sha256:1e93cf1c825d57845b29bbe5d8148847312cfa6a1dc76d82531930bf246445f2` |
+|  `37.422-dev` `37.422.4-dev`                       | July 7th     | `sha256:f2fe1b2f2966fcb0bc6af36d9e09737e76c3a1fa1127528f66ad86fc25b1212e` |
+|  `37.420-dev` `37.420.1-dev`                       | July 3rd     | `sha256:0d6e55a0e1093c39b928cd2c42293f57e466974c5d3d784178520972a8a62725` |
+|  `37.420` `37.420.1`                               | July 3rd     | `sha256:e6b9c65384355909b54677755934e18f6016c2dd83b2a99eacc076d5accccf0f` |
 

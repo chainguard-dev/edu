@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-fulcio-createcerts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:beb6c35b959b104e6e09897a575df72990b95244b14e87b118cb8fff165342ff` |
+|  `latest-dev` | July 8th     | `sha256:ef1145354bdffe7c5cf6aee120a59cb8e925d741f00b449381efab1bdcdd8cb7` |
+|  `latest`     | July 8th     | `sha256:6dcd2ebae123c71e77f0625bc89d76c4d500ca6658844bb0d9ffca7b7801c62c` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.7-dev` `latest-dev` `0.7.2-dev` `0-dev` | June 28th    | `sha256:004228fb3186ddc10005d4405b5c9a7035653ffb24e534b4058a12fc2d1e7000` |
+|  `latest-dev` `0.7.3-dev` `0-dev` `0.7-dev` | July 8th     | `sha256:b365b5f93248b637fb47986078630300ed6ae4afe6139af5db0439dfa6e75710` |
+|  `0` `latest` `0.7.3` `0.7`                 | July 8th     | `sha256:6d315ad2e661de7ac1962695eee6138c5a1d553123c2026edd57477cc16b4230` |
+|  `0.7.2-dev`                                | July 3rd     | `sha256:e98fec9b21283a0f734fbbd03c7fde31142a0acc9b8e0d6f834f7bd371ecf677` |
+|  `0.7.2`                                    | July 3rd     | `sha256:72a72895ae6b84a0ead009a69c193da958361d0c216e801e5ed987b4c875781d` |
 

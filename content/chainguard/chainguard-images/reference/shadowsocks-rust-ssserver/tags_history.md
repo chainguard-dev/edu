@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the shadowsocks-rust-ssserver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:5d914f21ecd4a54f1b1c38798f885888fde2cfec6b5126cb4231aa923537f363` |
-|  `latest`     | June 28th    | `sha256:ff9268a04ce3e7c016845d4b1157e223d3481404a376a7ffae35aa16bd465f32` |
+|  `latest`     | July 8th     | `sha256:f76ce150e57dd2b7ebe3829751617422c3d33f548814c00b880a8fb33ea221b5` |
+|  `latest-dev` | July 8th     | `sha256:5dbd6d05ca98d5b90f1400ceadd4bd2cebe5e272662e0b80be3ffc67879058b8` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.20.1-dev` `1.20-dev` `1-dev` `latest-dev` | June 28th    | `sha256:2cf451066639f2db4a418cc61196379a9247ebc2ef57017fefaaf1c4ab991931` |
-|  `1.20` `latest` `1.20.1` `1`                 | June 27th    | `sha256:8b433bea027c960e22ce56c572e457dbb2c062ffbba928981445b3e1d23c2448` |
-|  `1.20.0-dev`                                 | June 26th    | `sha256:33e7cc29da7dacfff657411994915fa2446bfd9e57a38ba3470bdd587339b16c` |
+|  `latest` `1` `1.20.1` `1.20`                 | July 8th     | `sha256:a17841ab00f93a751bd83eb406cfd47f00e364751ae50e1fcc411494417c37e4` |
+|  `1.20.1-dev` `1.20-dev` `1-dev` `latest-dev` | July 8th     | `sha256:7c11ca9d26c133a0eda454f9359d39b077e7cbcdc6ed8790cd2450c6e2b923e8` |
 

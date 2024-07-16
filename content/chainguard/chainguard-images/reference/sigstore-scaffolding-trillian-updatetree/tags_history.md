@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-trillian-updatetree Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:b7c6d4e3c0c3a05e84a26c7e8d1d89838fd2e3bd4abd5faff5b777bb343fd5cf` |
+|  `latest-dev` | July 8th     | `sha256:ce1c2475147847b0796b380a59d28a5aed0d72fe227ef877015cc0b71b8dec6f` |
+|  `latest`     | July 8th     | `sha256:93ac01c370c9b9c52b9ed31de2360c37060595767b96baeb0182afe2d885e285` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.7.2-dev` `0-dev` `latest-dev` `0.7-dev` | June 28th    | `sha256:c44d4d54000b76e8872bd03deeb001b19eecd76dd87eabf0506c0c1bcf00c6d9` |
+|  `0.7.3-dev` `0.7-dev` `latest-dev` `0-dev` | July 8th     | `sha256:84b9db58834f0901343c046e8d002869fdb93b6248a968fb596dcbb227a77043` |
+|  `0.7` `0` `0.7.3` `latest`                 | July 8th     | `sha256:9df9cc70537b441dcc22fb9ec0c2bcc18d60693112d162150bda668cca561e96` |
+|  `0.7.2-dev`                                | July 3rd     | `sha256:a665ddee3f72b21a30b522b2bbd09b7ef7d5bea3251681a2d8909d9d3b5a388a` |
+|  `0.7.2`                                    | July 3rd     | `sha256:8ee15398a25b999605380a7f16e4ccab0c9d9432c7bcf65958d302fe60a8efde` |
 

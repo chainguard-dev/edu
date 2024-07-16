@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public erlang-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the istio-install-cni-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,14 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.22.2-dev` `1-dev` `1.22-dev` | June 28th    | `sha256:09c32ce1404b53a575b5945afc969cc4b808bbba30736e5477603cdf2ecd7784` |
-|  `1` `latest` `1.22` `1.22.2`                 | June 28th    | `sha256:b6889e527417dd7eebd76ed05f989ee967cf86e8886ba135b9865dc92eb7ba0b` |
-|  `1.21.4-dev` `1.21-dev`                      | June 28th    | `sha256:6e5501f65fa84ca979272eab5f4af6818f8c6b359db007a33769bff42b9570b7` |
-|  `1.22.1-dev`                                 | June 28th    | `sha256:6e966b3a2a9c72ce6028858334fc22506a60cbb0e9d40fe7b67c143ebd7ab756` |
-|  `1.22.1`                                     | June 28th    | `sha256:8e92e321c0b1379dca941b80e2dcca574c1e04afbc600a74a156500dec3a03f7` |
-|  `1.20` `1.20.7`                              | June 28th    | `sha256:9726ab1472516422c769c2e1e35085e50db64b00f4681f0997786ef71cfda14a` |
-|  `1.20.7-dev` `1.20-dev`                      | June 28th    | `sha256:6653adc865d0f80600282662ccf27defed6e1639c3d0a52f0110b467b35b01c9` |
-|  `1.21` `1.21.4`                              | June 28th    | `sha256:80bb2fdb3892c2930bc7424c7a100624b0db09ba56694a81343e51aaaaa11dfd` |
-|  `1.21.3-dev`                                 | June 26th    | `sha256:e06c0367129c9935c66eac47e9239028f289421c058d1c9b705d7bb2eeb74c48` |
-|  `1.21.3`                                     | June 26th    | `sha256:af4dc5f832fa04469d165bd3b348072ba0e482ed6db9e6136c90132972b5468f` |
+|  `1.22.2` `latest` `1` `1.22`                 | July 9th     | `sha256:57c131d88ebc5a7642bfc7ccd3f92263c5fb99a195dac59e84a4be5204aae50e` |
+|  `latest-dev` `1.22.2-dev` `1.22-dev` `1-dev` | July 9th     | `sha256:a589714f3f8badbf8dce2ffea005025ea8e80343c9c28815f71474bec4fb721e` |
+|  `1.21-dev` `1.21.4-dev`                      | July 9th     | `sha256:e760dbedf37d32019d49a2db85a98f6f57db1f7e0cdce4390a996660be43d8b1` |
+|  `1.21.4` `1.21`                              | July 9th     | `sha256:e7cab3f8e4a7d90e4c3a72f3a98516b6a8aca4f0ae3c452a759acbdf633e7865` |
 

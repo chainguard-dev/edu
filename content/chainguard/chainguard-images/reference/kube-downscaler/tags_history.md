@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-downscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-02 00:32:13
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 1st     | `sha256:0be2db0a20064c5dc35150d5c1d0acfc541631312a7e59c67ef384787644d094` |
-|  `latest`     | July 1st     | `sha256:82ae6501d1326079ca486e98f36978911ceed45f2219e6ca79495a308725c7d0` |
+|  `latest`     | July 9th     | `sha256:fa11bb1615421bdc02751120a6b24e96c90d86e0f2a47c6b75b1fb4aeb4dbd15` |
+|  `latest-dev` | July 9th     | `sha256:2de516090fe520984ab8b0d39c44eb60a0a30788b4049dffba36b07e0617d1b9` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `23` `23.2` `23.2.0`                 | July 1st     | `sha256:914b8e21868a5b7b2fe70e72665ac301179da24d3657a79c59cb256b68ad7c28` |
-|  `latest-dev` `23.2-dev` `23-dev` `23.2.0-dev` | July 1st     | `sha256:4f48695a54b9cff806d7cbe07ff888c7f6cacb3d7fb681e34344c3ec33719d12` |
+|  `23.2.0-dev` `latest-dev` `23-dev` `23.2-dev` | July 9th     | `sha256:9d7a0b0cc8f414adf9afb91546e3cacbacffbbb612b40b6e51d89ef8e62c6477` |
+|  `latest` `23.2.0` `23` `23.2`                 | July 9th     | `sha256:b71641ca45885b76b765403d358088304f11fa83e9be614cf1e7424386cf68d4` |
 

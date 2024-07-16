@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the temporal-ui-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:a7f93876fccdce3c69742dce9af0bdda99936ca35b39359ad3afba0da02ffb67` |
+|  `latest-dev` | July 8th     | `sha256:3e46654071075bf7dd8911f201be5234bafb500a79827d18fe6f00af8e819c36` |
+|  `latest`     | July 8th     | `sha256:ce318b800357e30f77178ad47822fa701ebf9da281d39d0331a5cdc83e7f5b16` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.27-dev` `2.27.3-dev` `latest-dev` `2-dev` | June 28th    | `sha256:9d3af1aa93f1dfdc0b810b4da6334e43f4b3aeb16c26b4f383252a06c97bbe7d` |
+|  `2-dev` `latest-dev` `2.28.0-dev` `2.28-dev` | July 8th     | `sha256:e56251be047bf21d33785b1c476b864bc9eed17a08fc80b68e7e427ca7a009e0` |
+|  `2.28` `2` `latest` `2.28.0`                 | July 8th     | `sha256:d602cb771d41c79bb9134eaf7d57783aaaaf0d23514b70f24d764150091bb04c` |
+|  `2.27-dev` `2.27.3-dev`                      | July 3rd     | `sha256:7e6ed7d134d451fcbd3787d1b9a6b56375a8ff17ffb5937deeff24c1cc420937` |
+|  `2.27.3` `2.27`                              | July 3rd     | `sha256:afd1319e5d11f8cd5efb3de680cf514468030029422a70898e7b64ba54ecf2e3` |
 

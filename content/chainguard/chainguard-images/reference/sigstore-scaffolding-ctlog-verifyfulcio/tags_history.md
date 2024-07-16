@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-ctlog-verifyfulcio Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:c16ac2709b0c58e27daa5c55ccdc5f55786c27a90f4368146ebb09fecd82c602` |
+|  `latest-dev` | July 8th     | `sha256:e9064c9550cf401df94be6f1faf655d363887998c06d52cc0a6c4bd2a301f6db` |
+|  `latest`     | July 8th     | `sha256:dd5dce6efa80f72f916868b5e443b20b0f8dedb317ba33cc72696fa5b27ae374` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.7.2-dev` `latest-dev` `0.7-dev` `0-dev` | June 28th    | `sha256:f7a152cf40fa1f09f2568c79764db245ce898f73b4e14a44541bc5448049cf66` |
+|  `0.7-dev` `0.7.3-dev` `latest-dev` `0-dev` | July 8th     | `sha256:89e0395a064378dbc76f7142e8188d4c477714ad5fc8ed944ca4121ea2cc3cae` |
+|  `0.7.3` `0` `0.7` `latest`                 | July 8th     | `sha256:fd365d4342634e7dea2c614afd5ee6ce97b1cbb53934d2ac3a57369b1ab3debb` |
+|  `0.7.2-dev`                                | July 3rd     | `sha256:fdfb829d52dc575f56791591535d68b5cf5ec50360aef0fb4784c118c98a1c90` |
+|  `0.7.2`                                    | July 3rd     | `sha256:a7ec0752c4112ac3b90d10d68b4194a3d7925d03b0cf14b569fa8eecaa2348a6` |
 

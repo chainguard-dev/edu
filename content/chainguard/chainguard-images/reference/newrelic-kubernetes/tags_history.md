@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-kubernetes Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:bd60aca9a211dda59147c5fa010fd2b210c4f341a84c5731f387bac342e46fc2` |
-|  `latest`     | June 28th    | `sha256:d1073cc9f461d2a0ee9a322493b034fee49bb6c0ca4d65f4bd2f8561479a92bf` |
+|  `latest-dev` | July 8th     | `sha256:640ce2c7e50dc5422f115001fdc6a954fe2f06e731b5f8e04add73b470b93a0a` |
+|  `latest`     | July 8th     | `sha256:b38d5e1573b5d1cb52f611395da50e4bf44803c7cf83c13bfe94121dc7510de6` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `3.29.0` `3` `3.29`                 | June 28th    | `sha256:7c894051c0aa0a123c67f34b35b39276d22945b19aa843956d04b78fb8e03972` |
-|  `3.29.0-dev` `latest-dev` `3-dev` `3.29-dev` | June 28th    | `sha256:0075e83d30835110c81560a3da844781c09fb506f48d8449e427058440bb06fc` |
+|  `3-dev` `3.29.1-dev` `latest-dev` `3.29-dev` | July 8th     | `sha256:eedaabfac945160a1468eddf37a3c77a806ad6574f32477ecc7eebbff518625c` |
+|  `latest` `3.29.1` `3.29` `3`                 | July 8th     | `sha256:4e56d56cde24c95b41429bd24271e40f648ef9bd5ceda342448216180c0795fd` |
+|  `3.29.0-dev`                                 | July 8th     | `sha256:9da859dbc6f5fe55e4d6771c2f75e63384bd0164012d66f90d5b220f3983dd49` |
+|  `3.29.0`                                     | July 8th     | `sha256:08c14806842f2f2bd453e7b00e20a835f1335595c3c6b890227633d453c2b4ca` |
 

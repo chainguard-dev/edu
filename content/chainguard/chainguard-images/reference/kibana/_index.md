@@ -4,8 +4,8 @@ linktitle: "kibana"
 type: "article"
 layout: "single"
 description: "Overview: kibana Chainguard Image"
-date: 2024-05-20 00:48:18
-lastmod: 2024-05-20 00:48:18
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []

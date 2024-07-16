@@ -33,7 +33,7 @@ There are currently hundreds of Chainguard Images available, which are segmented
 
 To review all available Chainguard Images, you can check out the Chainguard Console at [https://images.chainguard.dev](https://images.chainguard.dev).
 
-To review Chainguard's Developer Images, you can check out either the [Chainguard Images Reference Docs](https://edu.chainguard.dev/chainguard/chainguard-images/reference/) or the  [GitHub Repository](https://github.com/chainguard-images).
+To review Chainguard's Developer Images, you can check out either the [Chainguard Images Directory](https://images.chainguard.dev/directory?category=developer) or the  [GitHub Repository](https://github.com/chainguard-images).
 
 Chainguard Images are available through the [Chainguard Registry](/chainguard/chainguard-images/registry/overview/).
 

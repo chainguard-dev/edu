@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the shadowsocks-rust-sslocal Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:2fa9bf32410a89b70a1bcb62e2f82e0c48745d37dc1abec4c06dc5d43398f5c1` |
-|  `latest`     | June 28th    | `sha256:68888e27463dae02dc48c7ffd5711fbf23c5bc760af694f4939712cb8c35d4ce` |
+|  `latest-dev` | July 8th     | `sha256:e1145c132d58acf9c6987be790fd2eabd38dd11baa60b190559a1207547e0f54` |
+|  `latest`     | July 8th     | `sha256:4f46b93a7e0bdba776a4a7796b5670fa58bd4f0b1244760588e20036a3ff519c` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.20.1-dev` `1.20-dev` `latest-dev` | June 28th    | `sha256:b9313e2f69b03c1cf474509553cd49a9983ced75a6a251bb86182d9707c9f936` |
-|  `latest` `1.20` `1.20.1` `1`                 | June 27th    | `sha256:b1c70d116e46cfe645d70bc6b0358801f883b1b070c9c7d7be23660bce35d544` |
-|  `1.20.0-dev`                                 | June 26th    | `sha256:2895a7e540f0fbb473ffbd1abb144569beb5d37e71d85c664b6e722b116c6ed4` |
+|  `1.20` `1` `1.20.1` `latest`                 | July 8th     | `sha256:24f06815523276933a4e1de593afad3138368ecdfa0e34239191ce170a8605cc` |
+|  `1-dev` `1.20.1-dev` `latest-dev` `1.20-dev` | July 8th     | `sha256:566c1520326950ce861eea53fa0a154f23ac08b45cc98e34ff13a7a21838a3ac` |
 

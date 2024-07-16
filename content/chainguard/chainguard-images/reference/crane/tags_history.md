@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crane Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:f2601b3a7fc860e3eba97987aae52a88766ab518abe059199f1bcc50725bcaeb` |
+|  `latest-dev` | July 8th     | `sha256:4c911de8efcc98b65bb1e80e4e65829b958237e4b659946916fa2a6e7d6d99bf` |
+|  `latest`     | July 8th     | `sha256:1e3435e927669ecd4833df90d566741c799512ba5c5237c7a8fc978c011f542e` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.19.2-dev` `0.19-dev` `0-dev` | June 28th    | `sha256:a382ff379e343eaea41c99e9999fda4e4e04f97ea7b6114333158ba92d51121a` |
+|  `0.20-dev` `0-dev` `0.20.0-dev` `latest-dev` | July 8th     | `sha256:ec1d572ab49b964648e81e767f2daafdf3b686f26c4f36aac8274b6b0ef3cc32` |
+|  `0.20` `0.20.0` `latest` `0`                 | July 8th     | `sha256:059d1319a6bed30af01165ac5df997c844c758db6d062ec4de9fef6743b65b4e` |
+|  `0.19` `0.19.2`                              | July 8th     | `sha256:6765ed3b6f03f54bbc7e54706a47d70453a8892e9c9811ab0029a21e645d7278` |
+|  `0.19.2-dev` `0.19-dev`                      | July 8th     | `sha256:7d8c43ecd99edcc585cf52b1d1cfe0e4d359bd66e9feadceb6990f3b5fa7b775` |
 

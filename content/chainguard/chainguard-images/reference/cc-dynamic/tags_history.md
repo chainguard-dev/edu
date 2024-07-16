@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cc-dynamic Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:ae957ed7a7c8a2d15a1c176b20e793aad99387ef86452ae109371e0acdcc5007` |
+|  `latest-dev` | July 8th     | `sha256:9c8b83d168156d02946bab3f043ec121b607afa13023bc9b630b33bdd71b5289` |
+|  `latest`     | July 8th     | `sha256:f42a65249c8af1b6c9d74781b1245ae21c09e271565d708792d58cf833ca8be4` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `13.2.0-dev` `latest-dev` `13-dev` `13.2-dev` | June 28th    | `sha256:ce0099df335d8f10816b40542046051ae0f4d0ac8b37d147b11ee501ea302731` |
+|  `latest-dev` `13.3.0-dev` `13-dev` `13.3-dev` | July 8th     | `sha256:b38d477e65def83d53dcbff4a35ca890a403d4ccd1ecbccf71491025ceeaffdb` |
+|  `13.3` `latest` `13.3.0` `13`                 | July 8th     | `sha256:ffa599b9ce68adaf5d69bca70bbc0587ff5e89efc088e28291d8a55586a61f2e` |
+|  `13.2.0` `13.2`                               | July 6th     | `sha256:c65b33237175ac9447470b8a0829eb8fac34df48838584519ca4029b4e9e090f` |
+|  `13.2-dev` `13.2.0-dev`                       | July 6th     | `sha256:87fa2a93ea432952f6aacca6b93ea4b9b096fc16ced2a2771aa8c8136a8d61b1` |
 

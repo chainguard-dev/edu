@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-webhook-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1` `1.15` `latest` `1.15.1`                 | June 28th    | `sha256:bc090b43efbac2d70a400f7725123d1c2524c60460acf9956afd54b0644e0175` |
-|  `latest-dev` `1.15-dev` `1.15.1-dev` `1-dev` | June 28th    | `sha256:4c15c59bbef7527d17d3e9abe5df2c9f48d218dd796deec253d80868509ad3a9` |
-|  `1.12` `1.12.12`                             | June 28th    | `sha256:cb1e3d9d8f1ed364ca2c8f7fce8924a961fff6f31536059e5253c7084f1b9c18` |
-|  `1.14-dev` `1.14.7-dev`                      | June 28th    | `sha256:07c957ac0ad093e8cdeeb9d91596e9816c32b7e0db2a846e6d2098aaee6d5753` |
-|  `1.14.7` `1.14`                              | June 28th    | `sha256:b21bcbafaaf3058f7310d1be279894b9a9e2fe515467a22a5fc37e31c68c5c60` |
-|  `1.12-dev` `1.12.12-dev`                     | June 28th    | `sha256:0f2489c6dea2c1e2264489ddd77caabe2c10593970233c33e10428af9b10ec08` |
+|  `1.12-dev` `1.12.12-dev`                     | July 8th     | `sha256:a3b5b1f93fe295105d2f3efc683c4a67195136f22ddddbe73822132ec267e918` |
+|  `latest` `1.15` `1` `1.15.1`                 | July 8th     | `sha256:c53076dc95148589d8876a924a2a06905ed3a9b8874d125343c275a4dae6a97e` |
+|  `1.15-dev` `1.15.1-dev` `latest-dev` `1-dev` | July 8th     | `sha256:3e87d20b86aac2f622df4f4818f8a3625388e8679553caaf335470514a56e677` |
+|  `1.14-dev` `1.14.7-dev`                      | July 8th     | `sha256:7962a6ce5f91d7abfab1ade4fba7c91f31b69364aa9b886be9d193e60b4666e2` |
+|  `1.12.12` `1.12`                             | July 8th     | `sha256:56d2ef93d1f87e85e991def45710bc286acae223eebc46f3129d729584eb098a` |
+|  `1.14` `1.14.7`                              | July 8th     | `sha256:b94ba2499a3d59a5ce6531f7ae6480c09a939c9f9944fd6df8588010a4b6d1b4` |
 

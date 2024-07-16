@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the busybox-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,5 +33,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                       | Last Changed | Digest                                                                    |
 |-------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.36` `1` `latest` `1.36.1` | June 28th    | `sha256:ca9512e7f8fe085971baeb38c5b39f51a0092767d1e27321b88d13e5cb90f5ff` |
+|  `latest` `1.36.1` `1.36` `1` | July 8th     | `sha256:e7fc0beb04371ae538169bffe1a8c781cfc84867528e6cf56833bf74618ae08c` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-sidecarlogresults Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:81d60cf43a2b32d2e1139e7f2c3d4c4bb385bcc13b3f69a5620796ce76a76ea2` |
-|  `latest`     | June 26th    | `sha256:a405c9d90627188667fb69997db113ba0ea313bab3d96e2f5368a4c4aa045429` |
+|  `latest-dev` | July 8th     | `sha256:471e90f37e88a90f45c36c32e85e45db0433c580f0b9a0c079a9cab9af295b72` |
+|  `latest`     | July 8th     | `sha256:5b663f6d01fdf6003f2765a96306f56648833d629e7eec9c7242ae1ffe78861e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.61-dev` `0-dev` `latest-dev` `0.61.0-dev` | June 28th    | `sha256:cd6b80756e69566ea78c33b775814d7a3f6282d671e2ff067d2c1c5c5959db8a` |
-|  `0.61` `latest` `0` `0.61.0`                 | June 26th    | `sha256:89dfbc9f121c6dff0e79956a2c173ee0bdb76b6d19b99a38adb662520ca18cfd` |
+|  `0.61-dev` `0-dev` `0.61.0-dev` `latest-dev` | July 8th     | `sha256:a7ff16e1778ae0b2c516cafea72556a2cb781f2ee02347024c2400d23668babc` |
+|  `0.61` `latest` `0.61.0` `0`                 | July 8th     | `sha256:31fcdedd3e70f4c4e2ecfa3435996b57b744702a4cc18986c86d76bdc3062b66` |
 

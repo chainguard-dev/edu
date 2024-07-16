@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-vip Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,15 +26,13 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:2762786487d5bc0a905f861729f14ad3bccf70f31d85e33acfd9e9cd05074cbf` |
-
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.8-dev` `0.8.1-dev` `latest-dev` `0-dev` | June 28th    | `sha256:65c9a18b50b66a963eab0ff0f97d2b6e7016b74c85973aa9c2abb2ba13298811` |
+|  `0.8.1` `0` `0.8` `latest`                 | July 8th     | `sha256:a2a19d7c23cc1f7abc60e87ffbb9a699a1ac6f999e4071b6d23c20e8039a1590` |
+|  `0.8.1-dev` `0.8-dev` `latest-dev` `0-dev` | July 8th     | `sha256:fab8631f105dcf5e83a2b97d00bc65956474cd74a9ed373e60d043c83777c612` |
 

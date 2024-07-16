@@ -40,7 +40,7 @@ For example, the following table shows a comparison between the `dev` variants o
 | `composer`           	|    	| X      	|        	|
 | `php-fpm`            	|    	|        	| X      	|
 
-You can find similar comparison tables for all Chainguard Images in their respective "Image Variants" page, on the [Images Reference](/chainguard/chainguard-images/reference/) section of the documentation.
+You can find similar detailed package information for all [Chainguard Images](https://images.chainguard.dev) in their respective image details pages under the SBOM section.
 
 Once you have changed your Dockerfile base image to use a `-dev` variant, you can overwrite the entry point command to get a shell on the container:
 
@@ -58,11 +58,11 @@ That being said, it's worth noting that the `-dev` variants of Chainguard Images
 ### Language Ecosystem Guides
 The following guides show how to use these `-dev` images in combination with their distroless variants in order to build a final image that is also distroless, but contains everything the application needs to run:
 
-- [Getting Started with the Python Chainguard Image](/chainguard/chainguard-images/reference/python/getting-started-python/)
-- [Getting Started with the Ruby Chainguard Image](/chainguard/chainguard-images/reference/ruby/getting-started-ruby/)
-- [Getting Started with the Go Chainguard Image](/chainguard/chainguard-images/reference/go/getting-started-go/)
-- [Getting Started with the Node Chainguard Image](/chainguard/chainguard-images/reference/node/getting-started-node/)
-- [Getting Started with the PHP Chainguard Image](/chainguard/chainguard-images/reference/php/getting-started-php/)
+- [Getting Started with the Python Chainguard Image](/chainguard/chainguard-images/getting-started/python/)
+- [Getting Started with the Ruby Chainguard Image](/chainguard/chainguard-images/getting-started/ruby/)
+- [Getting Started with the Go Chainguard Image](/chainguard/chainguard-images/getting-started/go/)
+- [Getting Started with the Node Chainguard Image](/chainguard/chainguard-images/getting-started/node/)
+- [Getting Started with the PHP Chainguard Image](/chainguard/chainguard-images/getting-started/php/)
 
 Check also the guide on [Creating Wolfi Images with Dockerfiles](/open-source/wolfi/wolfi-with-dockerfiles/) for guidance on how to build a custom image that can be used for development and debugging.
 

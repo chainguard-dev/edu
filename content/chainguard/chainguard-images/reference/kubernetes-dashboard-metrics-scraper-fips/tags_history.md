@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-dashboard-metrics-scraper-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.0.9` `1.0` `latest` `1`                 | June 28th    | `sha256:33fc82bd2784d7f7cfdc0d41802529644b1b66908f062b2bd06a516678c2edd2` |
-|  `1.0.9-dev` `latest-dev` `1.0-dev` `1-dev` | June 28th    | `sha256:f5082dce4aa20067f3612aa93fd98ca4b081aa13db5d0f605f074a33e19a54e6` |
+|  `1.0-dev` `latest-dev` `1.0.9-dev` `1-dev` | July 8th     | `sha256:5ab508a4b9ac03b7a01ccb46492602971ec421632c8305384b1b3bc4a6fa4f83` |
+|  `1` `1.0` `latest` `1.0.9`                 | July 8th     | `sha256:1c9a2508dd7fc4fccd14d2eb9392372dbe8ad5dd7cefbd96b9e82cda36f3a411` |
 

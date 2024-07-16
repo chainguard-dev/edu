@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the keycloak-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-03 00:33:11
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:636404cbea647463ddc26e180b4d50df541932e6fdb8c8dc54a6dc84feb2c471` |
-|  `latest`     | June 28th    | `sha256:373748fa6fefffc5ab552af256fdd4c94ee9f763660082c5e1f76aa53811e0b0` |
+|  `latest-dev` | July 8th     | `sha256:49574b190322fee4e3abcbd256b5abc7ae847dba780fc9a9c87ab4d1b9cfc426` |
+|  `latest`     | July 8th     | `sha256:1d6c44b25ce58975134cfb12cafe14eba9ebf4d2934af370131859a88a22612f` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `25-dev` `25.0.1-dev` `25.0-dev` | July 2nd     | `sha256:d5ec577b9e5150fb60fe8be803c7d695e19721bcb34cb1a3d41248e001ded19e` |
-|  `25.0.1` `25.0` `25` `latest`                 | July 2nd     | `sha256:8305db8b3ace7188f8c50c822388ee5dadf14894c686d30a36f3633031bf1550` |
+|  `25` `latest` `25.0.1` `25.0`                 | July 8th     | `sha256:de4b473e21a1ec2ddd73f541999299647e70ffcb977ac078833a4fd976022714` |
+|  `25.0.1-dev` `25.0-dev` `25-dev` `latest-dev` | July 8th     | `sha256:26ff9af17b037bea63009d556142a520beca6c4e3c85766497081eb81ebd15b7` |
 

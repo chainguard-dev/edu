@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rust Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-07-01 00:36:20
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 28th    | `sha256:4a9759ca8c412a73c31837fbd8f1b38b2f8082e808ef4ed2f8213f350918a6dd` |
-|  `latest`     | June 28th    | `sha256:8d66cda206047252b39305a7c5c3196f7d519c14c2634ab01000a454d6675571` |
+|  `latest`     | July 8th     | `sha256:0a0878bd6e21912e8d24fa749a8608faf62f0785fba50bd464c3520b62905a0f` |
+|  `latest-dev` | July 8th     | `sha256:a8201169852037133969f5c6bce4cdd57d3677eb422285babaa1a8fe3330f9be` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.79-dev` `1-dev` `1.79.0-dev` | June 28th    | `sha256:105fc4359aef973aab767f12209d2a4ae0b054eb4ad45fc771db5c4200e8252d` |
-|  `1.79.0` `latest` `1.79` `1`                 | June 28th    | `sha256:83ea904f1dabb7f8292a3d538118a622d04a2b88c2e981320412c9a809c4a7a8` |
+|  `1.79-dev` `1-dev` `1.79.0-dev` `latest-dev` | July 8th     | `sha256:fa7205e50a0b2eedc87861ec076df718df3a443437586fdb274d2751d69a1225` |
+|  `latest` `1.79.0` `1.79` `1`                 | July 8th     | `sha256:46f863c3499914943b82ab993377860b6ffc5c66c2ec1777c626dff61ebde9c2` |
 

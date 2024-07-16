@@ -4,8 +4,8 @@ linktitle: "jitsucom-ingest"
 type: "article"
 layout: "single"
 description: "Overview: jitsucom-ingest Chainguard Image"
-date: 2024-05-10 00:43:45
-lastmod: 2024-05-10 00:43:45
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-07-09 00:39:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public datadog-cluster-agent Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-06-28 00:31:38
+lastmod: 2024-07-10 00:36:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
