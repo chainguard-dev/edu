@@ -17,23 +17,18 @@ weight: 120
 toc: true
 ---
 
-[Trivy](https://github.com/aquasecurity/trivy) is a vulnerability scanner for a wide variety of software artifacts and deployments. Trivy is written in the Go programming language and is maintained by [Aqua Security](https://www.aquasec.com/). Trivy targets container images, VMs, filesystems, remote GitHub repositories, and Kubernetes and Amazon Web Services deployments. The tool can be used to detect known vulnerabilities (CVEs), generate SBOMs, analyze licenses, and scan for misconfigurations and exposed secrets.
+[Trivy](https://github.com/aquasecurity/trivy) is a vulnerability scanner for a wide variety of software artifacts and deployments. Trivy is written in the Go programming language and is maintained by [Aqua Security](https://www.aquasec.com/). Trivy targets container images, VMs, filesystems, remote GitHub repositories, and Kubernetes and Amazon Web Services deployments. The tool can be used to detect known vulnerabilities (CVEs), generate SBOMs, analyze licenses, and scan for misconfigurations and exposed secrets. Trivy can be installed from [package managers](#package-managers) or as a [binary](#binary-installation), and can also be run as a [container image](#container-image).
 
 ## Installation
 
-### Container Image
+### Package Managers
 
-Container images for Trivy are hosted on a variety of registries. When running Trivy as a container image, it is recommended to mount a cache directory as a volume. For scanning container images, it is also recommended to mount `docker.sock`. 
-
-The following command will pull Trivy from Docker Hub, mount the two volumes, run the Trivy container, and use the running container to scan the official nginx image on Docker Hub:
+For Homebrew, use:
 
 ```bash
-docker run \
-  -v /var/run/docker.sock:/var/run/docker.sock \
-  -v $HOME/Library/Caches:/root/.cache/ \
-  aquasec/trivy:0.52.2 \
-  image nginx
+brew install trivy
 ```
+Aqua Security [maintains sources and packages for a variety of additional operating systems and distributions](https://aquasecurity.github.io/trivy/latest/getting-started/installation/) on their installation page.
 
 ### Binary Installation
 
@@ -51,14 +46,19 @@ curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/inst
 
 You can also manually install Trivy by downloading the binary for your operating system and architecture from the [Trivy releases page](https://github.com/aquasecurity/trivy/releases/tag/v0.52.2) and manually placing the binary on your path.
 
-### Package Managers
+### Container Image
 
-For Homebrew, use:
+Container images for Trivy are hosted on a variety of registries. When running Trivy as a container image, it is recommended to mount a cache directory as a volume. For scanning container images, it is also recommended to mount `docker.sock`. 
+
+The following command will pull Trivy from Docker Hub, mount the two volumes, run the Trivy container, and use the running container to scan the official nginx image on Docker Hub:
 
 ```bash
-brew install trivy
+docker run \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v $HOME/Library/Caches:/root/.cache/ \
+  aquasec/trivy:0.52.2 \
+  image nginx
 ```
-Aqua Security [maintains sources and packages for a variety of additional operating systems and distributions](https://aquasecurity.github.io/trivy/latest/getting-started/installation/) on their installation page.
 
 ## Basic Usage
 
@@ -166,7 +166,13 @@ trivy sbom results.cdx.json
 
 By default, the `sbom` subcommand scans only for vulnerabilities. License scanning can be enabled using the `--scanners license` flag. 
 
-Learn more on SBOMs and other output formats in the section on [specifying output formats](#specifying-output-formats).
+Some image providers, such as Chainguard, associate images with an [SBOM attestation](https://edu.chainguard.dev/open-source/sbom/sboms-and-attestations/) verifying that the image has not been tampered with since the time of creation. Trivy provides functionality to query attestations registered in the [Rekor transparency log](https://github.com/sigstore/rekor). To retrieve an SBOM attestation from a Rekor transparency log, set the `--sbom-sources` flag to `rekor` and provide the `--rekor-url` flag to the instance of the transparency log you wish to query against. The following will perform a scan using the SBOM attestation for Chainguard's `nginx` image as registered on the [Rekor public server](https://rekor.sigstore.dev/):
+
+```bash
+trivy image --sbom-sources rekor --rekor-url https://rekor.sigstore.dev/ cgr.dev/chainguard/nginx
+```
+
+Learn more about SBOMs and other output formats in the section on [specifying output formats](#specifying-output-formats). 
 
 ## Comprehending Trivy Output
 
@@ -186,9 +192,9 @@ You will receive output similar to the following:
 
 ### Interpreting Trivy Output
 
-The initial logging portion of Trivy's output indicates which [scanners](#scanners) are enabled and shows warnings if Trivy has an issueperforming the scan. 
+The initial logging portion of Trivy's output indicates which [scanners](#scanners) are enabled and shows warnings if Trivy has an issue performing the scan. 
 
-In the initial portion of its results output, Trivy summarizes information on the scanned artifact and gives an overview of known vulnerabilities. In the case of a scanned image, the output includes the image digest, a unique hash of the image that can be used as an identifier. 
+In the initial portion of its results output, Trivy summarizes information on the scanned artifact and gives an overview of known vulnerabilities. In the case of a scanned image, the output includes the image digest. This is a unique hash of the image that can be used as an identifier. 
 
 Following the log, Trivy shows the name of the image and a count of issues by severity.
 
@@ -319,3 +325,20 @@ The following resources may complement your use of Trivy:
 
 
 
+
+
+
+IMAGE=nginx
+cosign verify \
+  --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
+  --certificate-identity=https://github.com/chainguard-images/images/.github/workflows/release.yaml@refs/heads/main \
+  cgr.dev/chainguard/${IMAGE} | jq
+  
+  
+  
+
+cosign download attestation \
+  --predicate-type=https://spdx.dev/Document \
+  --platform=linux/amd64 \
+  cgr.dev/chainguard/nginx | jq -r .payload | base64 -d | jq .predicate > attestation.json
+  
