@@ -122,7 +122,7 @@ The host's container execution environment further reduces the risk of unauthori
 ASLR configuration is the responsibility of the host operating system on which containers run. Applications running within a container on a host that has ASLR enabled will automatically be protected by the configuration. No additional action is needed to ensure that container-based applications are protected.
 
 
-### Host firmware
+### Host firewall
 
 Linux containers inherit the firewall configuration of their host operating system which dictates which ports on the container can be accessed from the network. Selection of which ports to make accessible on the applications running on the container is the responsibility of the host firewall configuration — an additional application-level firewall inside the container is not necessary.
 
