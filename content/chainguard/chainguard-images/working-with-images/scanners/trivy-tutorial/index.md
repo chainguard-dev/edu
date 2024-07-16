@@ -204,7 +204,7 @@ Total: 8 (UNKNOWN: 0, LOW: 0, MEDIUM: 8, HIGH: 0, CRITICAL: 0)
 
  When scanning for vulnerabilities, this severity categorization sorts CVEs into four categories based on the Common Vulnerability Scoring System (CVSS).
 
-{{< details "What is CVSS??" >}}
+{{< details "What is CVSS?" >}}
 {{< blurb/cvss >}}
 {{< /details >}}
 
@@ -319,26 +319,3 @@ The following resources may complement your use of Trivy:
 - [Trivy Documentation](https://aquasecurity.github.io/trivy/latest) — Documentation on the latest version of Trivy
 - [Trivy Operator for Kubernetes](https://github.com/aquasecurity/trivy-operator) — An operator to continuous scan a Kubernetes cluster for issues
 - [Trivy Announcements](https://github.com/aquasecurity/trivy/discussions/categories/announcements) — News on Trivy from Aqua Security
-
-
-
-
-
-
-
-
-
-IMAGE=nginx
-cosign verify \
-  --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
-  --certificate-identity=https://github.com/chainguard-images/images/.github/workflows/release.yaml@refs/heads/main \
-  cgr.dev/chainguard/${IMAGE} | jq
-  
-  
-  
-
-cosign download attestation \
-  --predicate-type=https://spdx.dev/Document \
-  --platform=linux/amd64 \
-  cgr.dev/chainguard/nginx | jq -r .payload | base64 -d | jq .predicate > attestation.json
-  
