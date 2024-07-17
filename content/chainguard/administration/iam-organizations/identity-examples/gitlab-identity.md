@@ -14,7 +14,7 @@ images: []
 weight: 010
 ---
 
-Chainguard's [*assumable identities*](/chainguard/chainguard-enforce/iam-groups/assumable-ids/) are identities that can be assumed by external applications or workflows in order to perform certain tasks that would otherwise have to be done by a human.
+Chainguard's [*assumable identities*](/chainguard/administration/iam-organizations/assumable-ids/) are identities that can be assumed by external applications or workflows in order to perform certain tasks that would otherwise have to be done by a human.
 
 This procedural tutorial outlines how to create an identity using Terraform, and then create a GitLab CI/CD pipeline that will assume the identity to interact with Chainguard resources.
 
@@ -296,4 +296,4 @@ Following that, all of the example resources created in this guide will be remov
 
 ## Learn more
 
-For more information about how assumable identities work in Chainguard, check out our [conceptual overview of assumable identities](/chainguard/chainguard-enforce/iam-groups/assumable-ids/). Additionally, the Terraform documentation includes a section on [recommended best practices](https://developer.hashicorp.com/terraform/cloud-docs/recommended-practices) which you can refer to if you'd like to build on this Terraform configuration for a production environment. Likewise, for more information on using GitLab CI/CD pipelines, we encourage you to check out the [official documentation on the subject](https://docs.gitlab.com/ee/ci/pipelines/).
+For more information about how assumable identities work in Chainguard, check out our [conceptual overview of assumable identities](/chainguard/administration/iam-organizations/assumable-ids/). Additionally, the Terraform documentation includes a section on [recommended best practices](https://developer.hashicorp.com/terraform/cloud-docs/recommended-practices) which you can refer to if you'd like to build on this Terraform configuration for a production environment. Likewise, for more information on using GitLab CI/CD pipelines, we encourage you to check out the [official documentation on the subject](https://docs.gitlab.com/ee/ci/pipelines/).

@@ -3,6 +3,8 @@ title : "Overview of Assumable Identities in Chainguard"
 linktitle: "Assumable Identities"
 aliases: 
 - /chainguard/chainguard-enforce/authentication/assumable-ids/
+- /chainguard/chainguard-enforce/iam-groups/assumable-ids/
+- /chainguard/administration/iam-organizations/assumable-ids/
 lead: ""
 description: "An overview of what assumable identities are and how they can be used with Chainguard assets."
 type: "article"
