@@ -13,7 +13,7 @@ tags: ["Product", "Procedural", "Chainguard Images"]
 images: []
 menu:
   docs:
-    parent: "registry"
+    parent: "pull-through-guides"
 toc: true
 weight: 010
 ---
