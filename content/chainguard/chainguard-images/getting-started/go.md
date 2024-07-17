@@ -13,7 +13,7 @@ images: []
 menu:
   docs:
     parent: "getting-started"
-weight: 610
+weight: 010
 toc: true
 ---
 
