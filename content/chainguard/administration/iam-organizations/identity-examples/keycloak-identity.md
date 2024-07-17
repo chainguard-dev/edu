@@ -14,7 +14,7 @@ images: []
 weight: 040
 ---
 
-Chainguard's [*assumable identities*](/chainguard/chainguard-enforce/iam-groups/assumable-ids/) are identities that can be assumed by external applications or workflows in order to perform certain tasks that would otherwise have to be done by a human.
+Chainguard's [*assumable identities*](/chainguard/administration/iam-organizations/assumable-ids/) are identities that can be assumed by external applications or workflows in order to perform certain tasks that would otherwise have to be done by a human.
 
 This procedural tutorial outlines how to create an identity using Terraform, and then assume the identity with the CLI to interact with Chainguard resources.
 
@@ -289,4 +289,4 @@ Following that, all of the example resources created in this guide will be remov
 
 ## Learn more
 
-For more information about how assumable identities work in Chainguard, check out our [conceptual overview of assumable identities](/chainguard/chainguard-enforce/iam-groups/assumable-ids/). Additionally, the Terraform documentation includes a section on [recommended best practices](https://developer.hashicorp.com/terraform/cloud-docs/recommended-practices) which you can refer to if you'd like to build on this Terraform configuration for a production environment. For more information about OIDC you can find a lot of documentation on the [OpenID Foundation website](https://openid.net/). For Keycloak specific information, we encourage you to check out the [official Keycloak documentation](https://www.keycloak.org/documentation)
+For more information about how assumable identities work in Chainguard, check out our [conceptual overview of assumable identities](/chainguard/administration/iam-organizations/assumable-ids/). Additionally, the Terraform documentation includes a section on [recommended best practices](https://developer.hashicorp.com/terraform/cloud-docs/recommended-practices) which you can refer to if you'd like to build on this Terraform configuration for a production environment. For more information about OIDC you can find a lot of documentation on the [OpenID Foundation website](https://openid.net/). For Keycloak specific information, we encourage you to check out the [official Keycloak documentation](https://www.keycloak.org/documentation)
