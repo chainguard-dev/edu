@@ -4,7 +4,7 @@ linktitle: "STIGs"
 type: "article"
 description: "A conceptual overview of Security Technical Implementation Guides, which are available for Chainguard Images."
 date: 2024-06-13T15:56:52-07:00
-lastmod: 2024-07-12T15:56:52-07:00
+lastmod: 2024-07-16T15:56:52-07:00
 draft: false
 tags: ["IMAGES", "PRODUCT", "CONCEPTUAL"]
 images: []
@@ -149,6 +149,4 @@ These containers can be validated against the General Purpose Operating System S
 
 ## Learn more
 
-If interested, you can access Chainguard's General Purpose Operating System STIG through the Early Access Program. If you’re interested in participating in the program, please fill out the [interest form](https://docs.google.com/forms/d/e/1FAIpQLSdKqtAziDyLpTtQw5v77orKup5jap0QP1T-VrAj4g32Y1pE6w/viewform?utm_source=blog&utm_medium=website&utm_campaign=FY25-EC-Blog_sourced) or email [compliance@chainguard.dev](mailto:compliance@chainguard.dev).
-
-If you'd like to learn more about how Chainguard Images can help you meet FedRAMP compliance, we encourage you to refer to our overview of [Chainguard's FIPS-ready Images](/chainguard/chainguard-images/working-with-images/fips-images/).
+Chainguard's STIG hardened FIPS Images are now generally available. You can check out our [STIG repo](https://github.com/chainguard-dev/stigs?utm_source=docs) or [contact us](https://get.chainguard.dev/simplify-fedramp-compliance-5?utm_source=docs) for more information. If you'd like to learn more about how Chainguard Images can help you meet FedRAMP compliance, we encourage you to refer to our overview of [Chainguard's FIPS-ready Images](/chainguard/chainguard-images/working-with-images/fips-images/).
