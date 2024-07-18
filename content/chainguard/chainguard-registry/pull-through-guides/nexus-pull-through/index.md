@@ -5,7 +5,7 @@ aliases:
 - /chainguard/chainguard-registry/nexus-pull-through/
 - /chainguard/chainguard-registry/pull-through-guides/nexus-pull-through/
 type: "article"
-description: "Tutorial outlining how to set up a Nexus repository to pull Images through from a Chainguard Registry."
+description: "Tutorial outlining how to set up a Nexus repository to pull Images through from the Chainguard Registry."
 date: 2024-03-28T15:56:52-07:00
 lastmod: 2024-07-09T15:56:52-07:00
 draft: false

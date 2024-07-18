@@ -4,7 +4,7 @@ linktitle: "Cloudsmith"
 aliases: 
 - /chainguard/chainguard-registry/pull-through-guides/cloudsmith-pull-through/
 type: "article"
-description: "Tutorial outlining how to set up a Cloudsmith repository to pull Images through from a Chainguard Registry."
+description: "Tutorial outlining how to set up a Cloudsmith repository to pull Images through from the Chainguard Registry."
 date: 2024-07-16T15:56:52-07:00
 lastmod: 2024-07-16T15:56:52-07:00
 draft: false
@@ -17,7 +17,7 @@ toc: true
 weight: 020
 ---
 
-Organizations can use Chainguard Images along with third-party software repositories in order to integrate with current workflows as the single source of truth for software artifacts. In this situation, you can set up a proxy repository to function as a mirror of the [Chainguard Registry](/chainguard/chainguard-registry/overview/). This mirror can then serve as a pull through cache for your Chainguard Images.
+Organizations often have their own internal software repositories and registries integrated into their systems. This guide explains how to set-up the Cloudsmith artifact repository to ingest [Chainguard Images](/chainguard/chainguard-images/overview/) by acting as a pull-through cache.
 
 This tutorial outlines how to set up a remote repository with [Cloudsmith](https://cloudsmith.com/). It will walk you through how to set up a Cloudsmith repository you can use as a pull through cache for Chainguard's public Developer Images or for Production Images originating from a private Chainguard repository.
 
@@ -105,13 +105,15 @@ Then configure a pull token:
 chainctl auth configure-docker --pull-token
 ```
 
+By default, this will create a pull token that lasts for 30 days. You can adjust this by appending the command with the `--ttl` flag (for example, `--ttl=24h`).
+
 This command will prompt you to select an organization. Be sure to select the organization whose Production images you want to pull through your Cloudsmith repository.
 
 This will create a pull token and print a `docker login` command that can be run in a CI environment to log in with the token. This command includes both `--username` and `--password` arguments. You don't need to run this `docker login` command, but you will need the username and password values in a moment so note them down.
 
 Following that, you'll need to create another upstream source. Return to the Cloudsmith web app and navigate to the **Upstream Proxying** page. Click the **➕ Create Upstream** button and select **Docker** as the upstream source. Again, set a **Name** and **Priority** level for this source and ensure that the **Mode** is set to **Cache and Proxy**. 
 
-When pulling from a private Chainguard Registry, the **Upstream URL** must be set to `https://cgr.dev`; any other URL here will cause an error.
+When pulling from a private Chainguard Registry, the **Upstream URL** must be set to `https://cgr.dev/`; any other URL here will cause an error.
 
 Lastly, you need to add the username and password you received when you generated the pull token to the upstream source. To do this, expand the **Authentication** section and under **Method** select **Username and Password**. Then enter the username and password you noted down earlier in their respective fields. 
 

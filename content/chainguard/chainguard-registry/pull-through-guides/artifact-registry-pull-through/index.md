@@ -4,7 +4,7 @@ linktitle: "Google Artifact Registry"
 aliases: 
 - /chainguard/chainguard-registry/pull-through-guides/artifact-registry-pull-through/
 type: "article"
-description: "Tutorial outlining how to set up a Google Artifact Registry repository to pull Images through from a Chainguard Registry."
+description: "Tutorial outlining how to set up a Google Artifact Registry repository to pull Images through from the Chainguard Registry."
 date: 2024-07-08T15:56:52-07:00
 lastmod: 2024-07-17T15:56:52-07:00
 draft: false
