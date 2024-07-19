@@ -121,7 +121,7 @@ Because our app will be built into an apk and later on embedded on a container i
 Place the following code in your `minicli` file:
 
 ```php
-#!/usr/bin/env php
+#!/usr/bin/env php81
 
 <?php
 
@@ -243,6 +243,7 @@ environment:
     repositories:
       - https://dl-cdn.alpinelinux.org/alpine/edge/main
       - https://dl-cdn.alpinelinux.org/alpine/edge/community
+      - https://dl-cdn.alpinelinux.org/alpine/edge/testing
     packages:
       - alpine-baselayout-data
       - ca-certificates-bundle
@@ -340,6 +341,7 @@ contents:
   repositories:
     - https://dl-cdn.alpinelinux.org/alpine/edge/main
     - https://dl-cdn.alpinelinux.org/alpine/edge/community
+    - https://dl-cdn.alpinelinux.org/alpine/edge/testing
     - '@local /work/packages'
   packages:
     - alpine-baselayout-data
