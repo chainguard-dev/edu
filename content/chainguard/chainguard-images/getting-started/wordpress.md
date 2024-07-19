@@ -15,7 +15,7 @@ weight: 610
 toc: true
 ---
 
-The [WordPress](https://images.chainguard.dev/directory/image/wordpress/overview) Chainguard Image is a container image suitable for creating and running WordPress projects. Designed to work as a drop-in replacement for the official [WordPress FPM-Alpine image](https://hub.docker.com/_/wordpress), the Chainguard WordPress image features a distroless variant for increased security on production environments. The image is built with the latest PHP and WordPress versions, and includes the necessary PHP extensions to run WordPress.
+The [WordPress](https://images.chainguard.dev/directory/image/wordpress/overview) Chainguard Image is a container image suitable for creating and running WordPress projects. Designed to work as a drop-in replacement for the official [WordPress FPM-Alpine image](https://hub.docker.com/_/wordpress), the Chainguard WordPress image features a [distroless](/chainguard/chainguard-images/getting-started-distroless/) variant for increased security on production environments. The image is built with the latest PHP and WordPress versions, and includes the necessary PHP extensions to run WordPress.
 
 In this guide, we'll demonstrate 3 different ways in which you can use the WordPress Chainguard Image to build and run WordPress projects.
 
