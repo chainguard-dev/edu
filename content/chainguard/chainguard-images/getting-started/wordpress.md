@@ -302,4 +302,4 @@ Please notice that although this setup allows for customizations through the Wor
 
 ## Advanced Usage
 
-{{< blurb/images-advanced image="Laravel" >}}
+{{< blurb/images-advanced image="WordPress" >}}
