@@ -24,7 +24,7 @@
   --code-color: #f3f3f3;
   --contact-us-button-background: #3443f4;
   --contact-us-button-color: #ffffff;
-  --docs-navigation-border: #e9ecef;
+  --docs-navigation-border: #7AF0FE;
   --docs-navigation-button-border: #dcdcdc;
   --docs-navigation-button-color: #14003D;
   --docs-navigation-color: inherit;
@@ -82,8 +82,8 @@
   --suggestion-description-color: inherit;
   --suggestion-title-color: inherit;
   --suggestions-background: #f9f9f9;
-  --suggestions-border: #e9ecef;
-  --suggestions-hover-background: #e9ecef;
+  --suggestions-border: #7AF0FE;
+  --suggestions-hover-background: #7AF0FE;
   --tab-active-color: #14003D;
   --table-header-background: #F3F3F3;
   --table-row-hover-background: #F3F3F3;
@@ -95,7 +95,7 @@
   --tag-background: #f5f0f0;
   --tag-color: #f3f3f3;
   --terminal-background: #ffffff;
-  --terminal-border: #e9ecef;
+  --terminal-border: #7AF0FE!;
   --terminal-color: #14003D;
   --terminal-handle: #dcdcdc;
   --terminal-title-color: #14003D;
@@ -123,26 +123,26 @@
 
   --a-original-color: #c5c5c5;
   --active-element-background: #0e0e0e;
-  --active-element-shadow: #99a1f9;
+  --active-element-shadow: #7AF0FE;
   --active-link-color: #ffffff;
-  --article-link-color: #99a1f9;
-  --basics-card-background: #0e0e0e;
-  --basics-card-border: #7545FB;
+  --article-link-color: #7AF0FE;
+  --basics-card-background: #190d30;
+  --basics-card-border: #D0CFEE;
   --blockquote-background: #232323;
   --blockquote-border: #c5c5c5;
   --blockquote-color: #eeeeee;
-  --board-background-color: #0e0e0e;
-  --body-background: #040404;
-  --body-color: #dee2e6;
+  --board-background-color: #190d30;
+  --body-background: #14003D;
+  --body-color: #FEC7EE;
   --body-table-color: inherit;
   --bs-table-bg: inherit;
   --caption-color: #c5c5c5;
   --caption-title-color: #ffffff;
-  --card-background-0: #3443f4;
-  --card-background-1: #f99afb;
+  --card-background-0: #FE5B3C;
+  --card-background-1: #F6EB61;
   --center-title-color: #ffffff;
   --code-color: #232323;
-  --contact-us-button-background: #6772f7;
+  --contact-us-button-background: ##3443F4;
   --contact-us-button-color: #ffffff;
   --docs-navigation-border: #7545FB;
   --docs-navigation-button-border: #383838;
@@ -153,15 +153,15 @@
   --expand-button-color: #ffffff;
   --footer-item-color: #ffffff;
   --footer-title-color: #ffffff;
-  --form-check-input-background: #383838;
-  --form-check-input-checked-background: #383838;
-  --form-check-input-checked-border: #383838;
+  --form-check-input-background: #7545FB;
+  --form-check-input-checked-background: #7545FB;
+  --form-check-input-checked-border: #7AF0FE;
   --form-check-input-color: #ffffff;
-  --form-check-input-focus-border: #383838;
-  --header-background: #0e0e0e;
-  --home-background: #040404;
+  --form-check-input-focus-border: #7AF0FE;
+  --header-background: #14003D;
+  --home-background: #14003D;
   --index-logo-color: #7545FB;
-  --language-selector-color: #ffffff;
+  --Language-selector-color: #ffffff;
   --leftnav-border: #7545FB;
   --navbar-contact-border: #7545FB;
   --navbar-contact-color: #ffffff;
@@ -178,7 +178,7 @@
   --pre-container-background: #0e0e0e;
   --pre-container-border: #383838;
   --righthand-title-color: #8c8c8c;
-  --search-background: #232323;
+  --search-background: #876ad6;
   --search-box-background: #232323;
   --search-slash-border: #7545FB;
   --segmented-button-background: #232323;
@@ -190,7 +190,7 @@
   --severity-hover-background: #0E0E0E;
   --severity-search-background: #232323;
   --sidebar-bottom-item-color: #c5c5c5;
-  --sidebar-bottom-item-hover-color: #99a1f9;
+  --sidebar-bottom-item-hover-color: #7AF0FE;
   --sidebar-category-color: #8c8c8c;
   --sidebar-item-active-color: #ffffff;
   --sidebar-item-color: #8c8c8c;
@@ -208,7 +208,7 @@
   --table-row-background: #040404;
   --table-row-hover-background: #0E0E0E;
   --table-vulnerability-color: #fff;
-  --tabs-active-color: #99a1f9;
+  --tabs-active-color: #7AF0FE;
   --tabs-color: #8c8c8c;
   --tag-background: #232323;
   --tag-color: #232323;
@@ -254,3 +254,6 @@
 :root[mode-loaded][data-dark-mode] {
   @include dark-mode;
 }
+
+
+
