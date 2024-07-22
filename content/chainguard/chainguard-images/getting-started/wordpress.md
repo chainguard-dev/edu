@@ -87,7 +87,11 @@ In this Docker Compose example, we define 3 services: `app`, `nginx`, and `maria
 - The `nginx` service uses the [Chainguard nginx Image](https://images.chainguard.dev/directory/image/nginx/overview), and is configured to serve the WordPress application on port 8000.
 - The `mariadb` service uses the [Chainguard MariaDB Image](https://images.chainguard.dev/directory/image/mariadb/overview), and is configured with the necessary environment variables to create a database for the WordPress application.
 
-The environment variables used in this example are defined in a `.env` file located in the same directory as the `docker-compose.yaml` file:
+The environment variables used in this example are defined in a `.env` file located in the same directory as the `docker-compose.yaml` file. To check for its contents, run:
+
+```bash
+cat .env
+```
 
 ```ini
 WORDPRESS_DB_HOST=mariadb
@@ -96,7 +100,9 @@ WORDPRESS_DB_PASSWORD=wp-password
 WORDPRESS_DB_NAME=wordpress
 ```
 
-You can change these values to suit your needs. You can start the services by running:
+Although not necessary, you can change these values to suit your needs. Notice this is a hidden file and might not be visible in your file explorer, but you can open it in your terminal using a text editor like `nano` or `vim`.
+
+To start the services, run:
 
 ```bash
 docker compose up
