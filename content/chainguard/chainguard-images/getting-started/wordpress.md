@@ -99,7 +99,7 @@ WORDPRESS_DB_NAME=wordpress
 You can change these values to suit your needs. You can start the services by running:
 
 ```bash
-docker-compose up
+docker compose up
 ```
 
 If you navigate to `http://localhost:8000` in your browser, you should access the WordPress installation page. Follow the on-screen instructions to complete the WordPress setup. Keep in mind that any customizations will be lost once the environment is turned down.
@@ -107,10 +107,10 @@ If you navigate to `http://localhost:8000` in your browser, you should access th
 To stop the services, type `CTRL+C` in the terminal where the services are running, and then run:
 
 ```bash
-docker-compose down
+docker compose down
 ```
 
-This will remove the containers and networks created by the `docker-compose up` command. In the next example, we'll demonstrate how you can set up a volume with proper permissions to be able to persist customizations such as themes and plugins.
+This will remove the containers and networks created by the `docker compose up` command. In the next example, we'll demonstrate how you can set up a volume with proper permissions to be able to persist customizations such as themes and plugins.
 
 ## Example 2: Customizing a New WordPress Installation
 To persist customizations made to your WordPress site, such as the installation of new themes and plugins, you'll need to set up a volume with proper permissions in order to keep data between container rebuilds. This requires having a system user in the container with the same UID as your local system user on the host machine. To set this up, we'll create a custom Dockerfile that adds a `wordpress` user with the specified UID (set to `1000` by default, which is typically the UID of a regular user on Linux-based systems) to the `latest-dev` variant of the Chainguard WordPress Image. The Dockerfile also changes default permissions on the `/var/www/html` directory to allow the `wordpress` user to write to it.
@@ -179,13 +179,13 @@ Only the `app` service has changed in this example. We've added a `build` sectio
 To build your custom image and pass along your own UID as build argument, run:
 
 ```shell
-docker-compose build --build-arg UID=$(id -u) app
+docker compose build --build-arg UID=$(id -u) app
 ```
 
 You should get output indicating that the image was successfully built. Now you can get your environment up with:
 
 ```shell
-docker-compose up
+docker compose up
 ```
 
 Once the environment is up and running, you can access your WordPress installation from your browser at `localhost:8000`.
@@ -296,7 +296,7 @@ The behavior of this WordPress setup should be the same as in the previous examp
 To stop the services, type `CTRL+C` in the terminal where the services are running, and then run:
 
 ```bash
-docker-compose down
+docker compose down
 ```
 Please notice that although this setup allows for customizations through the WordPress dashboard, changes won't be persisted through container rebuilds.
 
