@@ -210,7 +210,7 @@ You can now install new themes and plugins, and they will persist between contai
 To stop the services, type `CTRL+C` in the terminal where the services are running, and then run:
 
 ```bash
-docker-compose down
+docker compose down
 ```
 
 In the next example, we'll see how you can create a distroless WordPress runtime for your production environment.
