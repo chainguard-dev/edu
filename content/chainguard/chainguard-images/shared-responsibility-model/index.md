@@ -110,7 +110,7 @@ Chainguard Base Images are foundational container images designed for use in mul
 * Toolchains Layer: CVE removal in development tools and runtimes.
 * System Layer: Addressing vulnerabilities in base system libraries and utilities.
 
-## Types of Chainguard images based on Container Hardening Policy (CHP) Levels (source)
+## Types of Chainguard images based on Container Hardening Policy (CHP) Levels
 Chainguard has developed Container Hardening Policy (CHP) Levels which are designed to complement [Supply-chain Levels for Software Artifacts](/open-source/slsa/what-is-slsa/) (SLSA). These offer practical guidance on what actually constitutes a hardened container image.
 
 The following table highlights Chainguard's Container Hardening Policy Levels:
