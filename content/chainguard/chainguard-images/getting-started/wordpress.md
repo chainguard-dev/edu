@@ -263,6 +263,11 @@ services:
       WORDPRESS_DB_USER: $WORDPRESS_DB_USER
       WORDPRESS_DB_PASSWORD: $WORDPRESS_DB_PASSWORD
       WORDPRESS_DB_NAME: $WORDPRESS_DB_NAME
+      WORDPRESS_CONFIG_EXTRA: |
+        # Disable plugin and theme update and installation
+        define( 'DISALLOW_FILE_MODS', true );
+        # Disable automatic updates
+        define( 'AUTOMATIC_UPDATER_DISABLED', true );
     volumes:
       - document-root:/var/www/html
 
@@ -297,14 +302,14 @@ You can now build and run your environment with:
 docker compose up --build
 ```
 
-The behavior of this WordPress setup should be the same as in the previous examples, but this time, the image is self-contained and doesn't rely on volumes set up within the host machine to work, in addition to not allowing new package installations or login through a shell.
+The behavior of this WordPress setup should be similar to the previous examples, but this time, the image is self-contained and doesn't rely on volumes set up within the host machine to work, in addition to not allowing new package installations or login through a shell. We also set up the `WORDPRESS_CONFIG_EXTRA` environment variable to disable the installation of new themes and plugins, and to block automatic updates. This increases security by blocking file changes in the container.
 
 To stop the services, type `CTRL+C` in the terminal where the services are running, and then run:
 
 ```bash
 docker compose down
 ```
-Please notice that although this setup allows for customizations through the WordPress dashboard, changes won't be persisted through container rebuilds.
+To keep your WordPress installation up-to-date with latest versions, you can use [digestabot](https://edu.chainguard.dev/chainguard/chainguard-images/videos/digestabot/), a GitHub Action that works in a similar way to Dependabot, sending a pull request to a repository whenever a new version of a container image is available. This will ensure you're always running the most recent version of WordPress available in Wolfi.
 
 ## Advanced Usage
 
