@@ -1,0 +1,305 @@
+---
+title: "Migrating to Chainguard Images"
+linktitle: "Overview"
+type: "article"
+description: "This overview serves as a collection of information and resources on migrating to Chainguard Images."
+date: 2024-07-220T12:56:52-00:00
+lastmod: 2024-07-22T14:44:52-00:00
+draft: false
+tags: ["Images", "Product", "Procedural"]
+images: []
+menu:
+  docs:
+    parent: "migration"
+weight: 005
+toc: true
+---
+
+[Chainguard Images](https://www.chainguard.dev/chainguard-images?utm_source=docs) are a collection of container images designed for security and minimalism. Many Chainguard Images are [distroless](/chainguard/chainguard-images/getting-started-distroless/); they contain only an open-source application and its runtime dependencies. These images do not even contain a shell or package manager, because the fewer dependencies a given piece of software uses, the lower likelihood that it will be impacted by CVEs.
+
+By minimizing the number of dependencies and thus reducing their potential attack surface, Chainguard Images inherently contain few to zero CVEs. Chainguard Images are rebuilt nightly to ensure they are completely up-to-date and contain all available security patches. With this nightly build approach, our engineering team sometimes [fixes vulnerabilities before they’re detected](https://www.chainguard.dev/unchained/how-chainguard-fixes-vulnerabilities?utm_source=docs).
+
+The main features of Chainguard Images include:
+
+* Minimalist design, with no unnecessary software bloat
+* Automated nightly builds to ensure Images are completely up-to-date and contain all available security patches
+* [High quality build-time SBOMs](/chainguard/chainguard-images/working-with-images/retrieve-image-sboms/) (software bill of materials) attesting the provenance of all artifacts within the Image
+* [Verifiable signatures](/chainguard/chainguard-images/working-with-images/retrieve-image-sboms/) provided by [Sigstore](/open-source/sigstore/cosign/an-introduction-to-cosign/)
+* Reproducible builds with Cosign and apko ([read more about reproducibility](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds))
+
+Because of their minimalist design, Chainguard Images sometimes require users to adjust their image workflows. This document is intended to serve as a migration guide for customers transitioning their organizations to use Chainguard Images. It includes general tips and strategies for migrating to Chainguard Images as well as a curated set of migration-related resources.
+
+## Migrating to Chainguard Images
+
+### TL;DR: Porting Key Points
+
+* Chainguard's distroless Images have no shell or package manager by default. This is great for security, but sometimes you need these things, especially in builder images. For those cases we have `-dev` images (such as `cgr.dev/chainguard/python:latest-dev`) which do include a shell and package manager.
+* Chainguard Images typically don't run as root, so a `USER root` statement may be required before installing software.
+* The `-dev` images and `wolfi-base` use BusyBox by default, so any `groupadd` or `useradd` commands will need to be ported to `addgroup` and `adduser`.
+* The free Developer tier of Images provides `:latest` and `:latest-dev` versions. Our paid Production Images offer tags or older versions.
+* We use apk tooling, so `apt get` commands will become `apk add`.
+* Chainguard Images are based on `glibc` and our packages cannot be mixed with Alpine packages.
+* The entrypoint on Chainguard Images is likely to be different from other common images (due to the lack of a shell) which can be confusing; for example, shell commands may get unexpectedly run by the Python interpreter.
+* In general, Chainguard recommends using `chainguard-base` or a `-dev` image to install an application's OS-level dependencies.
+
+Perhaps the best place for most users to get started with migrating to Chainguard Images is by following our guide on [How to Port a Sample Application to Chainguard Images](/chainguard/migration/porting-apps-to-chainguard/). This guide involves updating a sample application made up of three services to use Chainguard Images. Although the application involved is fairly simple, the concepts outlined in the guide can also be useful for migrating more complex applications.
+
+### Tips for migrating to Chainguard Images
+
+#### Use `-dev` Images when you need a shell
+
+Chainguard Images have no shell or package manager by default. This is great for security, but sometimes you need these things, especially for build stages in mutli-stage Dockerfiles and for debugging.  For these cases there are `-dev` image variants which do include a shell and package manager. 
+
+For example, the `-dev` variant of the `nginx:latest` Image is `nginx:latest-dev`. These images typically contain a shell and tools like a package manager to allow users to more easily debug and modify the image.
+
+To illustrate, if you try to get a shell in the `cgr.dev/chainguard/nginx:latest` image:
+
+```Example
+docker run -it --entrypoint /bin/sh --user root cgr.dev/chainguard/nginx:latest
+
+docker: Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: exec: "/bin/sh": stat /bin/sh: no such file or directory: unknown.
+```
+
+But this is possible with the `latest-dev` variant:
+
+```Example
+docker run -it --entrypoint /bin/sh --user root cgr.dev/chainguard/nginx:latest-dev
+
+/ # apk add php
+fetch https://packages.wolfi.dev/os/aarch64/APKINDEX.tar.gz
+(1/6) Installing xz (5.4.6-r0)
+(2/6) Installing libxml2 (2.12.6-r0)
+(3/6) Installing php-8.2-config (8.2.18-r0)
+(4/6) Installing readline (8.2-r3)
+(5/6) Installing sqlite-libs (3.45.1-r0)
+(6/6) Installing php-8.2 (8.2.18-r0)
+OK: 66 MiB in 38 packages
+
+/ #
+```
+
+Although the `-dev` image variants have similar security features as their distroless versions, such as complete SBOMs and signatures, they feature additional software that is typically not necessary in production environments. The general recommendation is to use the `-dev` variants only to build the application and then copy all application artifacts into a distroless image, which will result in a final container image that has a minimal attack surface and won't allow package installations or logins.
+
+That being said, it's worth noting that `-dev` variants of Chainguard Images are completely fine to run in production environments as long as you are willing to accept the risk of having a shell or package manager included in your container. After all, the `-dev` variants are still **more secure** than many popular container images based on fully-featured operating systems such as Debian and Ubuntu since they carry less software, follow a more frequent patch cadence, and offer attestations for what they include.
+
+#### If necessary, install a different shell
+
+The `-dev` images and `wolfi-base` images use the [ash](https://en.wikipedia.org/wiki/Almquist_shell) shell from BusyBox by default. This is nice from a minimalism perspective, but it's not so great if you need to port a bash and Debian centric entrypoint script to Chainguard Images.
+
+In these cases you have a choice — you can persevere and update your scripts to work in ash, or you can install the shell that works with your scripts. There's no reason to be stuck on the ash shell if you really need bash or zsh.
+
+For example:
+
+```Example
+docker run -it cgr.dev/chainguard/chainguard-base
+
+423450e3fd52:/# echo {1..5}
+{1..5}
+
+423450e3fd52:/# apk add bash
+fetch https://packages.wolfi.dev/os/aarch64/APKINDEX.tar.gz
+(1/3) Installing ncurses-terminfo-base (6.4_p20231125-r1)
+(2/3) Installing ncurses (6.4_p20231125-r1)
+(3/3) Installing bash (5.2.21-r1)
+OK: 20 MiB in 17 packages
+
+423450e3fd52:/# bash
+
+423450e3fd52:/# echo {1..5}
+1 2 3 4 5
+
+423450e3fd52:/#
+```
+
+#### Use `apk search`
+
+Following on from the last point, you'll often need to install extra utilities to provide required dependencies for applications and scripts. These dependencies are likely to have different package names compared to other Linux distributions, so the apk search command can be very useful for finding the package you need. 
+
+For example, say we are porting a Dockerfile that uses the groupadd command. We could convert this to the busybox addgroup equivalent, but it's also perfectly fine to add the groupadd utility. The only issue is that there's no groupadd package, so we have to search for it:
+
+```Example
+docker run -it cgr.dev/chainguard/chainguard-base
+
+ae154854dc6d:/# groupadd
+/bin/sh: groupadd: not found
+
+ae154854dc6d:/# apk add groupadd
+ERROR: unable to select packages:
+  groupadd (no such package):
+    required by: world[groupadd]
+
+ae154854dc6d:/# apk search groupadd
+shadow-4.15.1-r0
+
+ae154854dc6d:/# apk add shadow
+(1/4) Installing libmd (1.1.0-r1)
+(2/4) Installing libbsd (0.12.2-r0)
+(3/4) Installing linux-pam (1.6.1-r0)
+(4/4) Installing shadow (4.15.1-r0)
+OK: 20 MiB in 18 packages
+
+ae154854dc6d:/# groupadd
+Usage: groupadd [options] GROUP
+
+Options:
+  -f, --force                   exit successfully if the group already exists,
+                                and cancel -g if the GID is already used
+  -g, --gid GID                 use GID for the new group
+  -h, --help                    display this help message and exit
+  -K, --key KEY=VALUE           override /etc/login.defs defaults
+  -o, --non-unique              allow to create groups with duplicate
+                                (non-unique) GID
+  -p, --password PASSWORD       use this encrypted password for the new group
+  -r, --system                  create a system account
+  -R, --root CHROOT_DIR         directory to chroot into
+  -P, --prefix PREFIX_DIR       directory prefix
+  -U, --users USERS             list of user members of this group
+```
+
+Another useful trick is the `cmd:` syntax for finding packages that provide commands. For example, searching for `ldd` returns multiple results:
+
+```Examplev
+ae154854dc6d:/# apk search ldd
+dpkg-dev-1.22.6-r0
+nfs-utils-2.6.4-r1
+posix-libc-utils-2.39-r1
+```
+
+But if we use the `cmd:` syntax we only get a single result:
+
+```Example
+ae154854dc6d:/# apk search cmd:ldd
+posix-libc-utils-2.39-r1
+```
+
+And we can even use the syntax directly in `apk add`:
+
+```Example
+ae154854dc6d:/# apk add cmd:ldd
+(1/4) Installing ncurses-terminfo-base (6.4_p20231125-r1)
+(2/4) Installing ncurses (6.4_p20231125-r1)
+(3/4) Installing bash (5.2.21-r1)
+(4/4) Installing posix-libc-utils (2.39-r1)
+OK: 27 MiB in 22 packages
+```
+
+#### Watch out for entrypoint differences
+
+The entrypoint on Chainguard images is often different compared to other common images. This is due to the lack of a shell in our images, but it can be confusing. 
+
+For example, if you run Docker Hub's official Python image, it opens the Python interpreter by default:
+
+```Example
+docker run -it python
+Python 3.12.3 (main, Apr 10 2024, 11:26:46) [GCC 12.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+```
+
+And the Chainguard Image works in the same way:
+
+```Example
+docker run -it cgr.dev/chainguard/python
+Python 3.12.3 (main, Apr  9 2024, 16:36:34) [GCC 13.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> exit()
+```
+
+But if you pass a Linux command to the Docker Hub image, it will be run from a shell:
+
+```Example
+docker run -it python echo "in a shell"
+in a shell
+```
+
+This is made possible by a clever entrypoint script in the Docker Hub image. As we don't have a shell in the Chainguard Image, it instead tries to parse the command as an argument to the Python interpreter:
+
+```Example
+docker run -it cgr.dev/chainguard/python echo "in a shell"
+/usr/bin/python: can't open file '//echo': [Errno 2] No such file or directory
+```
+
+Because we wanted to keep the entrypoint consistent between our standard and `-dev` images, the same results are seen when running `cgr.dev/chainguard/python:latest-dev`:
+
+```Example
+docker run -it cgr.dev/chainguard/python:latest-dev echo "in a shell"
+/usr/bin/python: can't open file '//echo': [Errno 2] No such file or directory
+```
+
+When using Chainguard's `-dev` Images in production environments, we recommend that you use them in a multi-stage Docker build. This will allow you to use a `-dev` variant image as a builder container, and then promote that build to an image that removes any unnecessary components.
+
+
+## Migration Resources
+
+Chainguard Academy hosts a number of resources that can be useful when migrating to Chainguard Images.
+
+As mentioned previously, most new users of Chainguard Images would benefit from following our guide on [How to Port a Sample Application to Chainguard Images](/chainguard/migration/porting-apps-to-chainguard/#tldr-porting-key-points). In addition to this guide, Chainguard Academy includes several types of resources that can be useful when migrating to Chainguard Images:
+
+* **Compatibility Guides** — These guides highlight the differences between Chainguard Images and Alpine third-party images.
+* **Migration Guides** — These provide guidance migrating workloads based on a specific language or platform to use Chainguard Images.
+* **Getting Started Guides** — These resources outline how to work with specific Images, with some including a sample application used in examples.
+
+
+### Language- or Platform-specific resources
+
+We currently offer both Migration and Getting Started Guides for these Images:
+
+| **Image** | **Migration Guide** | **Getting Started Guide** |
+|-----------|:-------------------:|:-------------------------:|
+| Node   | [✅ (link)](/chainguard/migration/migrating-node/)   | [✅ (link)](/chainguard/chainguard-images/getting-started/node/) |
+| Python | [✅ (link)](/chainguard/migration/migrating-python/) | [✅ (link)](/chainguard/chainguard-images/getting-started/python/)
+| PHP    | [✅ (link)](/chainguard/migration/migrating-php/)    | [✅ (link)](/chainguard/chainguard-images/getting-started/php/) |
+
+
+### Migration Guides
+
+* [Node](/chainguard/migration/migrating-node/) 
+* [PHP](/chainguard/migration/migrating-python/)
+* [Python](/chainguard/migration/migrating-php/)
+
+In addition, we have a few migration guides in the form of videos:
+
+* [Go (video)](/chainguard/chainguard-images/videos/migrating_go/)
+* [Java (video)](/chainguard/chainguard-images/videos/java-images/)
+* [Node (video)](/chainguard/chainguard-images/videos/node-images/)
+
+
+### Compatibility Guides
+
+* [Alpine](/chainguard/migration/alpine-compatibility/)
+* [Debian](/chainguard/migration/debian-compatibility/)
+* [Red Hat](/chainguard/migration/red-hat-compatibility/)
+* [Ubuntu](/chainguard/migration/ubuntu-compatibility/)
+
+
+### Getting Started Guides
+
+* [Cilium](/chainguard/chainguard-images/getting-started/cilium/)
+* [Go](/chainguard/chainguard-images/getting-started/go/)
+* [Istio](/chainguard/chainguard-images/getting-started/istio/)
+* [Laravel](/chainguard/chainguard-images/getting-started/laravel/)
+* [MariaDB](/chainguard/chainguard-images/getting-started/mariadb/)
+* [NeMo](/chainguard/chainguard-images/getting-started/nemo/)
+* [nginx](/chainguard/chainguard-images/getting-started/nginx/)
+* [Node](/chainguard/chainguard-images/getting-started/node/)
+* [PHP](/chainguard/chainguard-images/getting-started/php/)
+* [PostgreSQL](/chainguard/chainguard-images/getting-started/postgres/)
+* [Python](/chainguard/chainguard-images/getting-started/python/)
+* [PyTorch / CUDA 12](/chainguard/chainguard-images/getting-started/pytorch-cuda/)
+* [Ruby](/chainguard/chainguard-images/getting-started/ruby/)
+
+## Troubleshooting Resources
+
+Even with these migration resources, the move to a distroless workflow can lead to confusion. To help with troubleshooting issues that can occur, Chainguard Academy has a guide on [Debugging Distroless Images](/chainguard/chainguard-images/debugging-distroless-images/).
+
+We also have a video on [Debugging Distroless Containers with Docker Debug](/chainguard/chainguard-images/videos/debugging_distroless/).
+
+Lastly, you might also find help in the [Chainguard Images FAQs](/chainguard/chainguard-images/faq/).
+
+## Further Reading
+
+* [Overview of Chainguard Images]()
+* [How to Use Chainguard Images]()
+* [How to transition to secure container images with new migration guides (Blog)]()
+* [Getting Started with Distroless Images]()
+
