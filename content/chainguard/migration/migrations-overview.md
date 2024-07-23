@@ -298,8 +298,8 @@ Lastly, you might also find help in the [Chainguard Images FAQs](/chainguard/cha
 
 ## Further Reading
 
-* [Overview of Chainguard Images]()
-* [How to Use Chainguard Images]()
-* [How to transition to secure container images with new migration guides (Blog)]()
-* [Getting Started with Distroless Images]()
+* [Overview of Chainguard Images](/chainguard/chainguard-images/overview/)
+* [How to Use Chainguard Images](/chainguard/chainguard-images/how-to-use-chainguard-images/)
+* [How to transition to secure container images with new migration guides (Blog)](https://www.chainguard.dev/unchained/how-to-transition-to-secure-container-images-with-new-migration-guides)
+* [Getting Started with Distroless Images](/chainguard/chainguard-images/getting-started-distroless/)
 
