@@ -1,10 +1,11 @@
 ---
-title: "Getting Started with the PyTorch-CUDA12 Chainguard Image"
+title: "Getting Started with the PyTorch Chainguard Image"
 type: "article"
-linktitle: "PyTorch / CUDA 12"
+linktitle: "PyTorch"
 aliases: 
 - /chainguard/chainguard-images/getting-started/getting-started-pytorch-cuda12
-description: "Tutorial on the PyTorch-CUDA12 Chainguard Image"
+- /chainguard/chainguard-images/getting-started/getting-started-pytorch
+description: "Tutorial on the PyTorch Chainguard Image"
 date: 2024-04-25:08:00+02:00
 lastmod: 2024-04-25:08:00+00:00
 tags: ["Chainguard Images", "Products"]
@@ -17,14 +18,14 @@ weight: 060
 toc: true
 ---
 
-Chainguard offers a minimal, low-CVE image for deep learning with [PyTorch](https://pytorch.org/) that includes the [CUDA 12](https://developer.nvidia.com/about-cuda) parallel computing platform for performing computation on NVIDIA GPUs. This introductory guide to Chainguard's [pytorch-cuda12](https://images.chainguard.dev/directory/image/pytorch-cuda12/overview) image will walk you through fine-tuning an image classification model, saving the model, and running it securely for inference. We'll also compare the security and footprint of the PyTorch-CUDA12 Chainguard Image to the official runtime image distributed by PyTorch and present ways to adapt the resources in this tutorial to your own deep learning projects powered by PyTorch.
+Chainguard offers a minimal, low-CVE image for deep learning with [PyTorch](https://pytorch.org/) that includes support for the [CUDA](https://developer.nvidia.com/about-cuda) parallel computing platform for performing computation on supported GPUs. This introductory guide to Chainguard's [pytorch](https://images.chainguard.dev/directory/image/pytorch-cuda12/overview) image will walk you through fine-tuning an image classification model, saving the model, and running it securely for inference. We'll also compare the security and footprint of the PyTorch Chainguard Image to the official runtime image distributed by PyTorch and present ways to adapt the resources in this tutorial to your own deep learning projects powered by PyTorch.
 
-{{< details "Chainguard Images" >}}
-{{< blurb/images >}}
+{{< details "What is Deep Learning?" >}}
+{{< blurb/deep-learning >}}
 {{< /details >}}
 
-{{< details "What is Wolfi" >}}
-{{< blurb/wolfi >}}
+{{< details "Setting up CUDA" >}}
+{{< blurb/cuda >}}
 {{< /details >}}
 
 This guide is designed for use in an environment with access to one or more NVIDIA GPUs. However, the code below is written to also run in a CPU-only environment. Please note that tuning the model will take significantly longer in a CPU-only environment.
@@ -44,7 +45,7 @@ docker run --rm -it \
  -c python
 ```
 
-Running the above for the first time may take a few minutes to pull the pytorch-cuda12 Chainguard Image, currently 3.3GB. Once the image runs, you will be interacting with a Python interpreter in the running container. Enter the following commands at the prompt to check the availability of your GPU.
+Running the above for the first time may take a few minutes to pull the `pytorch` Chainguard Image, currently 3.3GB. Once the image runs, you will be interacting with a Python interpreter in the running container. Enter the following commands at the prompt to check the availability of your GPU.
 
 ```
 Python 3.11.9 (main, Apr  2 2024, 15:40:32) [GCC 13.2.0] on linux
@@ -95,7 +96,7 @@ curl https://codeload.github.com/chainguard-dev/pytorch-cuda-getting-started/tar
 
 In the current version of the image, you may see the following message: `UserWarning: Attempt to open cnn_infer failed: handle=0 error` during model training. This is only a warning and can safely be ignored.
 
-The above command creates a new folder, `image_classification`, and changes the working directory to that folder. It then uses `curl` to download the training script and training and validation images from GitHub as a tar file and extracts the files. A container based on the pytorch-cuda12 image is then created and the script and data are shared between host and container in a volume. The model is trained using the provided script and data, and the resulting model is saved to the volume.
+The above command creates a new folder, `image_classification`, and changes the working directory to that folder. It then uses `curl` to download the training script and training and validation images from GitHub as a tar file and extracts the files. A container based on the `pytorch` image is then created and the script and data are shared between host and container in a volume. The model is trained using the provided script and data, and the resulting model is saved to the volume.
 
 Training should take 1-3 minutes in a GPU-equipped environment, and 20-30 minutes in a CPU-only environment. Once the command completes, you can check your current working directory for a trained model as a `.pt` file:
 
@@ -127,7 +128,7 @@ In the below steps, the prompt of your host machine will be denoted as `(host) $
     (host) $ cd pytorch-cuda-getting-started
     ```
 
-3. Run the below command to start an interactive session in a running pytorch-cuda12 Chainguard Image with root access. If your environment doesn't have access to GPU, remove the ` --gpus all \` line before running. Note the volume option, which creates a volume on the container based on the current working directory, allowing access to our training script and data inside the container. Remember that this guide assumes you are training the model in a controlled development environment—do not use root access in any production senario.
+3. Run the below command to start an interactive session in a running `pytorch` Chainguard Image with root access. If your environment doesn't have access to GPU, remove the ` --gpus all \` line before running. Note the volume option, which creates a volume on the container based on the current working directory, allowing access to our training script and data inside the container. Remember that this guide assumes you are training the model in a controlled development environment—do not use root access in any production senario.
 
     ```bash
     (host) $ docker run --user root --rm -it \
@@ -210,7 +211,7 @@ Feel free to try the above inference on other images of octopuses, whales, and p
 
 ## Advantages of Chainguard Images for Production ML
 
-Chainguard Images are built with security in mind, from the ground up. They include fewer packages, a lighter footprint, SBOMs, and undergo active and ongoing CVE remediation. Let's compare the pytorch/pytorch:2.2.2-cuda12.1-cudnn8-runtime provided by PyTorch with the pytorch-cuda12 Chainguard Image using [Docker Scout](https://docs.docker.com/scout/). 
+Chainguard Images are built with security in mind, from the ground up. They include fewer packages, a lighter footprint, SBOMs, and undergo active and ongoing CVE remediation. Let's compare the pytorch/pytorch:2.2.2-cuda12.1-cudnn8-runtime provided by PyTorch with the `pytorch` Chainguard Image using [Docker Scout](https://docs.docker.com/scout/). 
 
 ### Official PyTorch Runtime Image
 
@@ -226,15 +227,15 @@ $ docker scout cves pytorch/pytorch:2.2.2-cuda12.1-cudnn8-runtime
 </table>
 </details>
 
-Now let's compare with the pytorch-cuda12 Chainguard Image:
+Now let's compare with the `pytorch` Chainguard Image:
 
-### PyTorch-CUDA12 Chainguard Image
+### PyTorch Chainguard Image
 
 ```bash
 $ docker scout cves cgr.dev/chainguard/pytorch-cuda12:latest 
 ```
 
-<details open="true"><summary>:package: Image Reference</strong> <code>cgr.dev/chainguard/pytorch-cuda12:latest</code></summary>
+<details open="true"><summary>:package: Image Reference</strong> <code>cgr.dev/chainguard/pytorch:latest</code></summary>
 <table>
 <tr><td>digest</td><td><code>sha256:8ec67ed18d1a0404af74dd1e2621ea6d4aace2903be9b7a7c8671ef0a11b1996</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 0" src="critical-0.png"/> <img alt="high: 0" src="high-0.png"/> <img alt="medium: 0" src="medium-0.png"/> <img alt="low: 0" src="low-0.png"/> <!-- unspecified: 0 --></td></tr>
 <tr><td>size</td><td>3.3 GB</td></tr>
@@ -245,7 +246,7 @@ $ docker scout cves cgr.dev/chainguard/pytorch-cuda12:latest
 
 <table></table>
 
-As of April 18, 2024, the pytorch-cuda12:latest image has no CVEs recognized by Docker Scout. Further, the Chainguard Image has 33 packages compared to 268 in the image provided by PyTorch. That's 235 fewer packages to worry about remediating in the future.
+As of April 18, 2024, the `pytorch`:latest image has no CVEs recognized by Docker Scout. Further, the Chainguard Image has 33 packages compared to 268 in the image provided by PyTorch. That's 235 fewer packages to worry about remediating in the future.
 
 Many packages included by default in the official PyTorch image, such as the `dash` package for dashboard creation or the `pillow` package for image manipulation, are needed for some projects but not others. If you decide you need additional packages for your project, you can install them with the pip package manager. 
 
