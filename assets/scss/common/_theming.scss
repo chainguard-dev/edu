@@ -1,3 +1,18 @@
+:root {
+    --primary-1: #3443F4; // blue
+    --primary-2: #7AF0FE; // pale blue
+    --primary-3: #14003D; // dark purple
+    --secondary-1: #FEC7EE; // light pink
+    --secondary-2: #7545FB; // purple
+    --secondary-3: #D0CFEE;  // very light purple
+    --tertiary-1: #81FEA0;   // pale green
+    --tertiary-2: #01A178;   // green
+    --tertiary-3: #FE5B3C;   // orange
+    --tertiary-4: #F6EB61;   // yellow
+    --desaturated-primary-3: #190d30; // desaturated dark purple
+    --desaturated-secondary-1: #876ad6; // desaturated light purple
+}
+
 @mixin light-mode {
   color-scheme: light;
 
@@ -9,29 +24,29 @@
   --basics-card-background: inherit;
   --basics-card-border: #dcdcdc;
   --blockquote-background: #f3f3f3;
-  --blockquote-border: #14003D;
-  --blockquote-color: #7545FB;
+  --blockquote-border: var(--primary-3);
+  --blockquote-color: var(--secondary-2);
   --board-background-color: #f9f9f9;
   --body-background: #ffffff;
-  --body-color: #14003D;
+  --body-color: var(--primary-3);
   --body-table-color: inherit;
   --bs-table-bg: inherit;
-  --caption-color: #14003D;
-  --caption-title-color: #14003D;
-  --card-background-0: #FE5B3C;
-  --card-background-1: #F6EB61;
+  --caption-color: var(--primary-3);
+  --caption-title-color: var(--primary-3);
+  --card-background-0: var(--tertiary-1);
+  --card-background-1: var(--tertiary-2);
   --center-title-color: inherit;
   --code-color: #f3f3f3;
   --contact-us-button-background: #3443f4;
   --contact-us-button-color: #ffffff;
-  --docs-navigation-border: #7AF0FE;
+  --docs-navigation-border: var(--primary-2);
   --docs-navigation-button-border: #dcdcdc;
-  --docs-navigation-button-color: #14003D;
+  --docs-navigation-button-color: var(--primary-3);
   --docs-navigation-color: inherit;
   --expand-button-background: #f3f3f3;
   --expand-button-border: inherit;
   --expand-button-color: #000000;
-  --footer-item-color: #14003D;
+  --footer-item-color: var(--primary-3);
   --footer-item-hover-color: #3443f4;
   --footer-title-color: inherit;
   --form-check-input-background: #ebecfe;
@@ -48,57 +63,57 @@
   --navbar-contact-color: #3443f4;
   --note-deprecated: lightyellow;
   --note-notice: lightblue;
-  --note-warning: darkorange;
+  --note-warning: -var(--tertiary-3);
   --notification-background: #0e0e0e;
   --notification-color: #c5c5c5;
-  --offcanvas-close-color: #14003D;
-  --page-link-active-color: #14003D;
-  --page-link-color: #14003D;
+  --offcanvas-close-color: var(--primary-3);
+  --page-link-active-color: var(--primary-3);
+  --page-link-color: var(--primary-3);
   --pills-icon-background: #f3f3f3;
   --placeholder-color: #8c8c8c;
   --pre-container-background: #ffffff;
   --pre-container-border: #dcdcdc;
-  --righthand-title-color: #14003D;
+  --righthand-title-color: var(--primary-3);
   --search-background: #eeeeee;
   --search-box-background: inherit;
   --search-slash-border: #dcdcdc;
   --segmented-button-background: #F3F3F3;
-  --segmented-button-checked: #3443F4;
+  --segmented-button-checked: var(--primary-1);
   --segmented-button-color: #8C8C8C;
   --severity-background: #fff;
   --severity-border: #DCDCDC;
-  --severity-color: #14003D;
+  --severity-color: var(--primary-3);
   --severity-hover-background: #EBECFE;
   --severity-search-background: #F3F3F3;
   --severity-search-border: #3443f4;
-  --sidebar-bottom-item-color: #14003D;
+  --sidebar-bottom-item-color: var(--primary-3);
   --sidebar-bottom-item-hover-color: #3443f4;
-  --sidebar-category-color: #14003D;
-  --sidebar-item-active-color: #14003D;
-  --sidebar-item-color: #14003D;
+  --sidebar-category-color: var(--primary-3);
+  --sidebar-item-active-color: var(--primary-3);
+  --sidebar-item-color: var(--primary-3);
   --sidebar-item-list-item-selected-background: #eeeeee;
-  --sidebar-item-top-color: #14003D;
+  --sidebar-item-top-color: var(--primary-3);
   --step-background: #f3f3f3;
   --suggestion-description-color: inherit;
   --suggestion-title-color: inherit;
   --suggestions-background: #f9f9f9;
-  --suggestions-border: #7AF0FE;
-  --suggestions-hover-background: #7AF0FE;
-  --tab-active-color: #14003D;
+  --suggestions-border: var(--primary-2);
+  --suggestions-hover-background: var(--primary-2);
+  --tab-active-color: var(--primary-3);
   --table-header-background: #F3F3F3;
   --table-row-hover-background: #F3F3F3;
   --table-row-background: #FFF;
   --table-row-border-color: #DCDCDC;
-  --table-vulnerability-color: #14003D;
+  --table-vulnerability-color: var(--primary-3);
   --tabs-active-color: #3443f4;
-  --tabs-color: #14003D;
+  --tabs-color: var(--primary-3);
   --tag-background: #f5f0f0;
   --tag-color: #f3f3f3;
   --terminal-background: #ffffff;
-  --terminal-border: #7AF0FE!;
-  --terminal-color: #14003D;
+  --terminal-border: var(--primary-2)!;
+  --terminal-color: var(--primary-3);
   --terminal-handle: #dcdcdc;
-  --terminal-title-color: #14003D;
+  --terminal-title-color: var(--primary-3);
   --toggle-icon-color: inherit;
   --tooltip-background: #232323;
   --tooltip-color: #ffffff;
@@ -107,7 +122,7 @@
   --tutorial-divider-color: #dcdcdc;
   --tutorial-hover-color: #3443f4;
   --watch-btn-border: #dcdcdc;
-  --watch-btn-color: #14003D;
+  --watch-btn-color: var(--primary-3);
   --watch-btn-hover-background: #f5f0f0;
 
   --info-icon-url: url("/info.svg");
@@ -122,29 +137,29 @@
   color-scheme: dark;
 
   --a-original-color: #c5c5c5;
-  --active-element-background: #0e0e0e;
-  --active-element-shadow: #7AF0FE;
+  --active-element-background: var(--secondary-2);
+  --active-element-shadow: var(--primary-2);
   --active-link-color: #ffffff;
-  --article-link-color: #7AF0FE;
+  --article-link-color: var(--primary-2);
   --basics-card-background: #190d30;
-  --basics-card-border: #D0CFEE;
+  --basics-card-border: var(--secondary-3);
   --blockquote-background: #232323;
   --blockquote-border: #c5c5c5;
   --blockquote-color: #eeeeee;
   --board-background-color: #190d30;
-  --body-background: #14003D;
-  --body-color: #FEC7EE;
+  --body-background: var(--primary-3);
+  --body-color: var(--secondary-3);
   --body-table-color: inherit;
   --bs-table-bg: inherit;
-  --caption-color: #c5c5c5;
-  --caption-title-color: #ffffff;
-  --card-background-0: #FE5B3C;
-  --card-background-1: #F6EB61;
-  --center-title-color: #ffffff;
+  --caption-color: var(--secondary-3);
+  --caption-title-color: var(--secondary-3);
+  --card-background-0: #7AF0FE;
+  --card-background-1: var(--tertiary-1);
+  --center-title-color: var(--tertiary-2);
   --code-color: #232323;
-  --contact-us-button-background: ##3443F4;
-  --contact-us-button-color: #ffffff;
-  --docs-navigation-border: #7545FB;
+  --contact-us-button-background: var(--secondary-2);
+  --contact-us-button-color: var(--primary-2);
+  --docs-navigation-border: var(--secondary-2);
   --docs-navigation-button-border: #383838;
   --docs-navigation-button-color: #ffffff;
   --docs-navigation-color: #ffffff;
@@ -153,23 +168,23 @@
   --expand-button-color: #ffffff;
   --footer-item-color: #ffffff;
   --footer-title-color: #ffffff;
-  --form-check-input-background: #7545FB;
-  --form-check-input-checked-background: #7545FB;
-  --form-check-input-checked-border: #7AF0FE;
+  --form-check-input-background: var(--secondary-2);
+  --form-check-input-checked-background: var(--secondary-2);
+  --form-check-input-checked-border: var(--primary-2);
   --form-check-input-color: #ffffff;
-  --form-check-input-focus-border: #7AF0FE;
-  --header-background: #14003D;
-  --home-background: #14003D;
-  --index-logo-color: #7545FB;
+  --form-check-input-focus-border: var(--primary-2);
+  --header-background: var(--primary-3);
+  --home-background: var(--primary-3);
+  --index-logo-color: var(--secondary-2);
   --Language-selector-color: #ffffff;
-  --leftnav-border: #7545FB;
-  --navbar-contact-border: #7545FB;
+  --leftnav-border: var(--secondary-2);
+  --navbar-contact-border: var(--secondary-2);
   --navbar-contact-color: #ffffff;
   --note-deprecated: yellowgreen;
   --note-notice: darkcyan;
   --note-warning: darkorchid;
   --notification-background: #f9f9f9;
-  --notification-color: #14003D;
+  --notification-color: var(--primary-3);
   --offcanvas-close-color: #c5c5c5;
   --page-link-active-color: #ffffff;
   --page-link-color: #c5c5c5;
@@ -178,19 +193,19 @@
   --pre-container-background: #0e0e0e;
   --pre-container-border: #383838;
   --righthand-title-color: #8c8c8c;
-  --search-background: #876ad6;
-  --search-box-background: #232323;
-  --search-slash-border: #7545FB;
+  --search-background: var(--primary-3);
+  --search-box-background: var(--primary-3);
+  --search-slash-border: var(--secondary-2);
   --segmented-button-background: #232323;
-  --segmented-button-checked: #3443F4;
+  --segmented-button-checked: var(--primary-1);
   --segmented-button-color: #8C8C8C;
   --severity-background: #0E0E0E;
-  --severity-border: #7545FB;
+  --severity-border: var(--secondary-2);
   --severity-color: #FFF;
   --severity-hover-background: #0E0E0E;
   --severity-search-background: #232323;
   --sidebar-bottom-item-color: #c5c5c5;
-  --sidebar-bottom-item-hover-color: #7AF0FE;
+  --sidebar-bottom-item-hover-color: var(--primary-2);
   --sidebar-category-color: #8c8c8c;
   --sidebar-item-active-color: #ffffff;
   --sidebar-item-color: #8c8c8c;
@@ -200,20 +215,20 @@
   --suggestion-description-color: #8c8c8c;
   --suggestion-title-color: #ffffff;
   --suggestions-background: #0e0e0e;
-  --suggestions-border: #7545FB;
+  --suggestions-border: var(--secondary-2);
   --suggestions-hover-background: #232323;
   --tab-active-color: #ffffff;
   --table-header-background: #0E0E0E;
-  --table-row-border-color: #7545FB;
+  --table-row-border-color: var(--secondary-2);
   --table-row-background: #040404;
   --table-row-hover-background: #0E0E0E;
   --table-vulnerability-color: #fff;
-  --tabs-active-color: #7AF0FE;
+  --tabs-active-color: var(--primary-2);
   --tabs-color: #8c8c8c;
   --tag-background: #232323;
   --tag-color: #232323;
   --terminal-background: #0e0e0e;
-  --terminal-border: #7545FB;
+  --terminal-border: var(--secondary-2);
   --terminal-color: #ffffff;
   --terminal-handle: #d9d9d9;
   --terminal-title-color: #ffffff;
@@ -224,7 +239,7 @@
   --topic-card-hover: #232323;
   --tutorial-divider-color: inherit;
   --tutorial-hover-color: #ffffff;
-  --watch-btn-border: #7545FB;
+  --watch-btn-border: var(--secondary-2);
   --watch-btn-color: #ffffff;
   --watch-btn-hover-background: #232323;
 
@@ -254,6 +269,3 @@
 :root[mode-loaded][data-dark-mode] {
   @include dark-mode;
 }
-
-
-
