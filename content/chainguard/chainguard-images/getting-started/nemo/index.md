@@ -25,7 +25,7 @@ toc: true
 
 In this getting started guide, we will use the NeMo Chainguard Image to generate speech from plain text using models provided by NeMo's text-to-speech (TTS) and natural language processing (NLP) collections. In doing so, we'll compare the security and footprint of the NeMo Chainguard Image to the official runtime image and consider further approaches and resources for applying the NeMo Chainguard Image to additional tasks in conversational AI.
 
-This guide is primarily designed for use in an environment with access to one or more NVIDIA GPUs. However, NVIDIA NeMo is built on [PyTorch Lightning](https://lightning.ai/docs/pytorch/stable/), which supports a wide variety of [accelerators](https://pytorch-lightning.readthedocs.io/en/1.1.8/accelerators.html), or interfaces to categories of processing units (CPU, GPU, TPU) or high-level clustering mechanisms such as [Distributed Data Parallel](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html). Some consideration will be given to alternative computing environments such as CPU in this tutorial.
+This guide is primarily designed for use in an environment with access to one or more NVIDIA GPUs. However, NeMo is built on [PyTorch Lightning](https://lightning.ai/docs/pytorch/stable/), which supports a wide variety of [accelerators](https://pytorch-lightning.readthedocs.io/en/1.1.8/accelerators.html), or interfaces to categories of processing units (CPU, GPU, TPU) or high-level clustering mechanisms such as [Distributed Data Parallel](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html). Some consideration will be given to alternative computing environments such as CPU in this tutorial.
 
 ## Prerequisites
 
