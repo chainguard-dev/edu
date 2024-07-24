@@ -124,7 +124,7 @@ docker run -it --rm \
  --ulimit stack=67108864 \
   -v $PWD:/home/nonroot/nemo-test \
   cgr.dev/chainguard/nemo:latest \
-  -c "python /home/nonroot/nemo-test/tts.py"
+ "/home/nonroot/nemo-test/tts.py"
 ```
 Note that we ran the above script as root. This allows us to share the script and output `.wav` file between the host and container. Remember not to run your image as root in a production environment.
 
