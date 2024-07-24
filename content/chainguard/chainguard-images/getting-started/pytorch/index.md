@@ -18,7 +18,7 @@ weight: 060
 toc: true
 ---
 
-Chainguard offers a minimal, low-CVE image for deep learning with [PyTorch](https://pytorch.org/) that includes support for the [CUDA](https://developer.nvidia.com/about-cuda) parallel computing platform for performing computation on supported GPUs. This introductory guide to Chainguard's [pytorch](https://images.chainguard.dev/directory/image/pytorch-cuda12/overview) image will walk you through fine-tuning an image classification model, saving the model, and running it securely for inference. We'll also compare the security and footprint of the PyTorch Chainguard Image to the official runtime image distributed by PyTorch and present ways to adapt the resources in this tutorial to your own deep learning projects powered by PyTorch.
+Chainguard offers a minimal, low-CVE image for deep learning with [PyTorch](https://pytorch.org/) that includes support for the [CUDA](https://developer.nvidia.com/about-cuda) parallel computing platform for performing computation on supported GPUs. This introductory guide to Chainguard's [pytorch](https://images.chainguard.dev/directory/image/pytorch/overview) image will walk you through fine-tuning an image classification model, saving the model, and running it securely for inference. We'll also compare the security and footprint of the PyTorch Chainguard Image to the official runtime image distributed by PyTorch and present ways to adapt the resources in this tutorial to your own deep learning projects powered by PyTorch.
 
 {{< details "What is Deep Learning?" >}}
 {{< blurb/deep-learning >}}
@@ -41,8 +41,7 @@ Run the below command to pull the image, run it with GPU access, and start a Pyt
 ```bash
 docker run --rm -it \
  --gpus all \
- cgr.dev/chainguard/pytorch-cuda12:latest \
- -c python
+ cgr.dev/chainguard/pytorch:latest
 ```
 
 Running the above for the first time may take a few minutes to pull the `pytorch` Chainguard Image, currently 3.3GB. Once the image runs, you will be interacting with a Python interpreter in the running container. Enter the following commands at the prompt to check the availability of your GPU.
@@ -90,11 +89,9 @@ curl https://codeload.github.com/chainguard-dev/pytorch-cuda-getting-started/tar
  docker run --user root --rm -it \
  --gpus all \
  -v "$PWD/:/home/nonroot/octopus-detector" \
- cgr.dev/chainguard/pytorch-cuda12:latest \
- -c "python /home/nonroot/octopus-detector/image_classification.py"
+ cgr.dev/chainguard/pytorch:latest \
+ "/home/nonroot/octopus-detector/image_classification.py"
 ```
-
-In the current version of the image, you may see the following message: `UserWarning: Attempt to open cnn_infer failed: handle=0 error` during model training. This is only a warning and can safely be ignored.
 
 The above command creates a new folder, `image_classification`, and changes the working directory to that folder. It then uses `curl` to download the training script and training and validation images from GitHub as a tar file and extracts the files. A container based on the `pytorch` image is then created and the script and data are shared between host and container in a volume. The model is trained using the provided script and data, and the resulting model is saved to the volume.
 
@@ -108,7 +105,7 @@ data       octopus_whale_penguin_model.pt
 
 ## Manual Steps to Fine-Tune the Model
 
-Below are manual steps to perform the above download and training procedure interactively. You may wish to follow these steps if you need to modify the above for your own use case, if you'd like to better understand the steps involved, or if you have difficulty running the above command in your environment. These steps use `git clone` rather than `curl`.
+Below are manual steps to perform the above download and training procedure interactively. You may wish to follow these steps if you need to modify the above for your own use case, if you'd like to better understand the steps involved, or if you have difficulty running the above command in your environment. These steps use `git clone` rather than `curl`. Also note that this manual process uses the `:latest-dev` version of the image, since the `:latest` production image does not include shells such as bash for increased security.
 
 In the below steps, the prompt of your host machine will be denoted as `(host) $`, while the prompt of the container machine will be denoted as `(container) $`
 
@@ -133,8 +130,9 @@ In the below steps, the prompt of your host machine will be denoted as `(host) $
     ```bash
     (host) $ docker run --user root --rm -it \
      --gpus all \
+     --entrypoint bash \
      -v "$PWD/:/home/nonroot/octopus-detector" \
-     cgr.dev/chainguard/pytorch-cuda12:latest
+     cgr.dev/chainguard/pytorch:latest-dev
     ```
 
 4. You should now have access to an interactive shell inside the container. Navigate to the created volume:
@@ -197,8 +195,9 @@ Now that we have a novel input, let's run inference to classify the image:
  docker run --rm -it \
  --gpus all \
  -v "$PWD/:/home/nonroot/octopus-detector" \
- cgr.dev/chainguard/pytorch-cuda12:latest \
- -c "python /home/nonroot/octopus-detector/image_classification.py /home/nonroot/octopus-detector/octopus.jpg"
+ cgr.dev/chainguard/pytorch:latest \
+ "/home/nonroot/octopus-detector/image_classification.py" \
+ "/home/nonroot/octopus-detector/octopus.jpg"
 ```
 
 After running this, you should see the model's classification of the image as output:
@@ -208,47 +207,6 @@ octopus
 ```
 
 Feel free to try the above inference on other images of octopuses, whales, and penguins. The model should have high accuracy for images similar to those in the training set, which consists of photorealistic images.
-
-## Advantages of Chainguard Images for Production ML
-
-Chainguard Images are built with security in mind, from the ground up. They include fewer packages, a lighter footprint, SBOMs, and undergo active and ongoing CVE remediation. Let's compare the pytorch/pytorch:2.2.2-cuda12.1-cudnn8-runtime provided by PyTorch with the `pytorch` Chainguard Image using [Docker Scout](https://docs.docker.com/scout/). 
-
-### Official PyTorch Runtime Image
-
-```bash
-$ docker scout cves pytorch/pytorch:2.2.2-cuda12.1-cudnn8-runtime
-```
-
-<details open="true"><summary>:package: Image Reference</strong> <code>pytorch/pytorch:2.2.2-cuda12.1-cudnn8-runtime</code></summary>
-<table>
-<tr><td>digest</td><td><code>sha256:3a352be3ede6b499065c8fc0fe5a1122875ac1d619af113ddf902d788c1ba8d2</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 0" src="critical-0.png"/> <img alt="high: 2" src="high.png"/> <img alt="medium: 96" src="medium.png"/> <img alt="low: 47" src="low.png"/> <!-- unspecified: 0 --></td></tr>
-<tr><td>size</td><td>4.1 GB</td></tr>
-<tr><td>packages</td><td>268</td></tr>
-</table>
-</details>
-
-Now let's compare with the `pytorch` Chainguard Image:
-
-### PyTorch Chainguard Image
-
-```bash
-$ docker scout cves cgr.dev/chainguard/pytorch-cuda12:latest 
-```
-
-<details open="true"><summary>:package: Image Reference</strong> <code>cgr.dev/chainguard/pytorch:latest</code></summary>
-<table>
-<tr><td>digest</td><td><code>sha256:8ec67ed18d1a0404af74dd1e2621ea6d4aace2903be9b7a7c8671ef0a11b1996</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 0" src="critical-0.png"/> <img alt="high: 0" src="high-0.png"/> <img alt="medium: 0" src="medium-0.png"/> <img alt="low: 0" src="low-0.png"/> <!-- unspecified: 0 --></td></tr>
-<tr><td>size</td><td>3.3 GB</td></tr>
-<tr><td>packages</td><td>33</td></tr>
-</table>
-</details>
-
-
-<table></table>
-
-As of April 18, 2024, the `pytorch`:latest image has no CVEs recognized by Docker Scout. Further, the Chainguard Image has 33 packages compared to 268 in the image provided by PyTorch. That's 235 fewer packages to worry about remediating in the future.
-
-Many packages included by default in the official PyTorch image, such as the `dash` package for dashboard creation or the `pillow` package for image manipulation, are needed for some projects but not others. If you decide you need additional packages for your project, you can install them with the pip package manager. 
 
 ## Notes on the Script
 
