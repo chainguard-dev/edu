@@ -84,8 +84,8 @@ Note: if you're following this tutorial in an environment without access to GPU,
 
 ```bash
 mkdir image_classification && cd image_classification
-curl https://codeload.github.com/chainguard-dev/pytorch-cuda-getting-started/tar.gz/main | \
- tar -xz --strip=1 pytorch-cuda-getting-started-main/ && \
+curl https://codeload.github.com/chainguard-dev/pytorch-getting-started/tar.gz/main | \
+ tar -xz --strip=1 pytorch-getting-started-main/ && \
  docker run --user root --rm -it \
  --gpus all \
  -v "$PWD/:/home/nonroot/octopus-detector" \
@@ -118,11 +118,11 @@ In the below steps, the prompt of your host machine will be denoted as `(host) $
     Docker version 20.10.17, build 100c701
     ```
 
-2. Clone the [repository with the training and validation data and the training script](https://github.com/chainguard-dev/pytorch-cuda-getting-started) and `cd` into the cloned repository:
+2. Clone the [repository with the training and validation data and the training script](https://github.com/chainguard-dev/pytorch-getting-started) and `cd` into the cloned repository:
 
     ```bash
-    (host) $ git clone https://github.com/chainguard-dev/pytorch-cuda-getting-started.git
-    (host) $ cd pytorch-cuda-getting-started
+    (host) $ git clone https://github.com/chainguard-dev/pytorch-getting-started.git
+    (host) $ cd pytorch-getting-started
     ```
 
 3. Run the below command to start an interactive session in a running `pytorch` Chainguard Image with root access. If your environment doesn't have access to GPU, remove the ` --gpus all \` line before running. Note the volume option, which creates a volume on the container based on the current working directory, allowing access to our training script and data inside the container. Remember that this guide assumes you are training the model in a controlled development environment—do not use root access in any production senario.
@@ -181,12 +181,12 @@ In the below steps, the prompt of your host machine will be denoted as `(host) $
 
 You have now downloaded the resnet18 pretrained model and fine-tuned it to detect three classes of images: octopuses, whales, and penguins. Now that the model is trained, we can load it, pass in a new image, and receive the model's prediction. Using an existing model for prediction is called inference, and in many common scenarios inference is run in a production environment. For this reason, we'll access our existing model with the nonroot user in this section.
 
-The script ([image_classification.py](https://github.com/chainguard-dev/pytorch-cuda-getting-started/blob/main/image_classification.py)) run in the above commands has been written to check if a model exists in the same folder and, if present, load it. It will also perform inference if a path to an image is passed as an argument when the script is run. Since we should now have a model file present on our host machine, let's go ahead and run inference on a new image of an octopus.
+The script ([image_classification.py](https://github.com/chainguard-dev/pytorch-getting-started/blob/main/image_classification.py)) run in the above commands has been written to check if a model exists in the same folder and, if present, load it. It will also perform inference if a path to an image is passed as an argument when the script is run. Since we should now have a model file present on our host machine, let's go ahead and run inference on a new image of an octopus.
 
-Feel free to find your own image of an octopus on the web, or run the below command to download [an image](https://raw.githubusercontent.com/chainguard-dev/pytorch-cuda-getting-started/main/inference-images/octopus.jpg) not in the training data. The training data used realistic images, so you may not wish to choose, for example, a stylized or cartoon image of an octopus.
+Feel free to find your own image of an octopus on the web, or run the below command to download [an image](https://raw.githubusercontent.com/chainguard-dev/pytorch-getting-started/main/inference-images/octopus.jpg) not in the training data. The training data used realistic images, so you may not wish to choose, for example, a stylized or cartoon image of an octopus.
 
 ```bash
-curl https://raw.githubusercontent.com/chainguard-dev/pytorch-cuda-getting-started/main/inference-images/octopus.jpg > octopus.jpg
+curl https://raw.githubusercontent.com/chainguard-dev/pytorch-getting-started/main/inference-images/octopus.jpg > octopus.jpg
 ```
 
 Now that we have a novel input, let's run inference to classify the image:
