@@ -1,7 +1,7 @@
 ---
 title: "Using Grype to Scan Container Images for Vulnerabilities"
 type: "article"
-linktitle: "grype-tutorial"
+linktitle: "Grype"
 aliases: 
 - /chainguard/chainguard-images/working-with-images/scanners/grype-tutorial
 description: "Learn to use Grype to detect CVEs in images"
