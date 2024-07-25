@@ -1,5 +1,5 @@
 ---
-title: "Migrating to Chainguard Images"
+title: "Overview of Migrating to Chainguard Images"
 linktitle: "Overview"
 type: "article"
 description: "This overview serves as a collection of information and resources on migrating to Chainguard Images."
@@ -15,7 +15,7 @@ weight: 005
 toc: true
 ---
 
-[Chainguard Images](https://www.chainguard.dev/chainguard-images?utm_source=docs) are a collection of container images designed for security and minimalism. Many Chainguard Images are [distroless](/chainguard/chainguard-images/getting-started-distroless/); they contain only an open-source application and its runtime dependencies. These images do not even contain a shell or package manager, because the fewer dependencies a given piece of software uses, the lower likelihood that it will be impacted by CVEs.
+[Chainguard Images](https://www.chainguard.dev/chainguard-images?utm_source=docs) are a collection of container images designed for security and minimalism. Many Chainguard Images are [distroless](/chainguard/chainguard-images/getting-started-distroless/); they contain only an open-source application and its runtime dependencies. These images do not even contain a shell or package manager, because fewer dependencies reduce the potential attack surface of images.
 
 By minimizing the number of dependencies and thus reducing their potential attack surface, Chainguard Images inherently contain few to zero CVEs. Chainguard Images are rebuilt nightly to ensure they are completely up-to-date and contain all available security patches. With this nightly build approach, our engineering team sometimes [fixes vulnerabilities before they’re detected](https://www.chainguard.dev/unchained/how-chainguard-fixes-vulnerabilities?utm_source=docs).
 
@@ -36,11 +36,11 @@ Because of their minimalist design, Chainguard Images sometimes require users to
 * Chainguard's distroless Images have no shell or package manager by default. This is great for security, but sometimes you need these things, especially in builder images. For those cases we have `-dev` images (such as `cgr.dev/chainguard/python:latest-dev`) which do include a shell and package manager.
 * Chainguard Images typically don't run as root, so a `USER root` statement may be required before installing software.
 * The `-dev` images and `wolfi-base` use BusyBox by default, so any `groupadd` or `useradd` commands will need to be ported to `addgroup` and `adduser`.
-* The free Developer tier of Images provides `:latest` and `:latest-dev` versions. Our paid Production Images offer tags or older versions.
+* The free Developer tier of Images provides `:latest` and `:latest-dev` versions. Our paid Production Images offer tags for older versions.
 * We use apk tooling, so `apt get` commands will become `apk add`.
 * Chainguard Images are based on `glibc` and our packages cannot be mixed with Alpine packages.
 * The entrypoint on Chainguard Images is likely to be different from other common images (due to the lack of a shell) which can be confusing; for example, shell commands may get unexpectedly run by the Python interpreter.
-* In general, Chainguard recommends using `chainguard-base` or a `-dev` image to install an application's OS-level dependencies.
+* In general, Chainguard recommends using a base image like `chainguard-base` or a `-dev` image to install an application's OS-level dependencies.
 
 Perhaps the best place for most users to get started with migrating to Chainguard Images is by following our guide on [How to Port a Sample Application to Chainguard Images](/chainguard/migration/porting-apps-to-chainguard/). This guide involves updating a sample application made up of three services to use Chainguard Images. Although the application involved is fairly simple, the concepts outlined in the guide can also be useful for migrating more complex applications.
 
@@ -80,7 +80,7 @@ OK: 66 MiB in 38 packages
 
 Although the `-dev` image variants have similar security features as their distroless versions, such as complete SBOMs and signatures, they feature additional software that is typically not necessary in production environments. The general recommendation is to use the `-dev` variants only to build the application and then copy all application artifacts into a distroless image, which will result in a final container image that has a minimal attack surface and won't allow package installations or logins.
 
-That being said, it's worth noting that `-dev` variants of Chainguard Images are completely fine to run in production environments as long as you are willing to accept the risk of having a shell or package manager included in your container. After all, the `-dev` variants are still **more secure** than many popular container images based on fully-featured operating systems such as Debian and Ubuntu since they carry less software, follow a more frequent patch cadence, and offer attestations for what they include.
+That being said, it's worth noting that `-dev` variants of Chainguard Images are completely fine to run in production environments. After all, the `-dev` variants are still **more secure** than many popular container images based on fully-featured operating systems such as Debian and Ubuntu since they carry less software, follow a more frequent patch cadence, and offer attestations for what they include.
 
 #### If necessary, install a different shell
 
@@ -111,11 +111,13 @@ OK: 20 MiB in 17 packages
 423450e3fd52:/#
 ```
 
+Note that this example uses the `chainguard-base` image, which is only available as a paid Production Image.
+
 #### Use `apk search`
 
-Following on from the last point, you'll often need to install extra utilities to provide required dependencies for applications and scripts. These dependencies are likely to have different package names compared to other Linux distributions, so the apk search command can be very useful for finding the package you need. 
+Following on from the last point, you'll often need to install extra utilities to provide required dependencies for applications and scripts. These dependencies are likely to have different package names compared to other Linux distributions, so the `apk search` command can be very useful for finding the package you need. 
 
-For example, say we are porting a Dockerfile that uses the groupadd command. We could convert this to the busybox addgroup equivalent, but it's also perfectly fine to add the groupadd utility. The only issue is that there's no groupadd package, so we have to search for it:
+For example, say we are porting a Dockerfile that uses the `groupadd` command. We could convert this to the BusyBox `addgroup` equivalent, but it's also perfectly fine to add the `groupadd` utility. The only issue is that there's no `groupadd` package, so we have to search for it:
 
 ```Example
 docker run -it cgr.dev/chainguard/chainguard-base
