@@ -2,10 +2,8 @@
 {{ $walkpages := slice }}
 
 {{ range $index, $section := sort .Site.Sections "Weight" }}
-{{ if not (eq .Title "Uis") }}
-{{ $allsections = $allsections | append . }}
 
-{{ end }}
+{{ $allsections = $allsections | append . }}
 
 {{ range .Sections }}
 {{ $allsections = $allsections | append . }}
