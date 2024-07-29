@@ -1,7 +1,7 @@
 ---
 title: "Using Trivy to Scan Software Artifacts"
 type: "article"
-linktitle: "trivy-tutorial"
+linktitle: "Trivy"
 aliases: 
 - /chainguard/chainguard-images/working-with-images/scanners/trivy-tutorial
 description: "Learn to use Trivy to analyze container images and other software artifacts for a variety of issues"
