@@ -86,7 +86,7 @@ git switch v1
 ## Updating the Node.js Microservice
 
 To begin, we'll update the heart of the application – the dnmonster service. dnmonster is based on
-[monsterid.js](monsterid.js) by Kevin Gaudin. The dnmonster container hosts an API which returns an
+[monsterid.js](https://github.com/KevinGaudin/monsterid.js/) by Kevin Gaudin. The dnmonster container hosts an API which returns an
 [identicon](https://en.wikipedia.org/wiki/Identicon) based on the input it's given.
 
 ```bash

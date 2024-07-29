@@ -72,7 +72,7 @@ The major advantage of distroless images is the reduced size and complexity, whi
 
 You can review more comparisons of Chainguard Images and external images by checking out our [Vulnerability Comparisons](/chainguard/chainguard-images/vuln-comparison/) dashboard.
 
-To compare different versions of Chainguard Images, you can use the [Images Diff API](/chainguard/chainguard-images/comparing-images/using-the-image-diff-api/). `chainctl`, Chainguard's command line interface tool, comes with a useful `diff` feature that also allows you to [compare two Chainguard Images](/chainguard/chainguard-images/comparing-images/comparing-images/).  
+To compare different versions of Chainguard Images, you can use the [Images Diff API](/chainguard/chainguard-images/working-with-images/comparing-images/). `chainctl`, Chainguard's command line interface tool, comes with a useful `diff` feature that also allows you to [compare two Chainguard Images](/chainguard/chainguard-images/comparing-images/comparing-images/).  
 
 
 ## Architecture

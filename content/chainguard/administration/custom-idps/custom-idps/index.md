@@ -169,7 +169,7 @@ The `oidc-issuer`, `oidc-client-id`, and `oidc-issuer-secret` values are require
 
 Be aware that if you don't include the `--parent` or `--default-role` options in the command, you will be prompted to select these values interactively.
 
-The `--default-role` option. This defines the default role granted to users registering with this identity provider. This example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. For more information, refer to the [IAM and Security section](/#iam-and-security).
+The `--default-role` option. This defines the default role granted to users registering with this identity provider. This example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. For more information, refer to the [IAM and Security section](#iam-and-security).
 
 The `--parent` option specifies which Chainguard IAM organization your identity provider will be installed under. You can retrieve a list of all your Chainguard organizations — along with their UIDPs — with the following command.
 

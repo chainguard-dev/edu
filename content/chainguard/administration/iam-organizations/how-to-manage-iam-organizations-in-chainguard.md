@@ -76,7 +76,7 @@ To do so, run the following command, making sure to replace `$ORGANIZATION` with
 chainctl iam invite create $ORGANIZATION
 ```
 
-You will be prompted for the scope that the invite code will be granted. After selecting the [role-bindings](/chainguard/administration/iam-groups/roles-role-bindings), this command will generate both an invite code and an invite link.  If you ever lose the invite code, you can retrieve a list of active invite codes with the following `chainctl` command:
+You will be prompted for the scope that the invite code will be granted. After selecting the [role-bindings](/chainguard/administration/iam-organizations/roles-role-bindings/), this command will generate both an invite code and an invite link.  If you ever lose the invite code, you can retrieve a list of active invite codes with the following `chainctl` command:
 
 ```sh
 chainctl iam invite list
@@ -111,6 +111,6 @@ In this example, the invitation is scoped to a user with the email address `inky
 
 ## Learn more
 
-In addition to inviting other users to your organization, you can set up [assumable identities]() to allow automation systems — like Buildkite or GitHub Actions — to perform certain administrative tasks for your organization. To learn more, we encourage you to check out our [Overview of Assumable Identities](/chainguard/administration/iam-groups/assumable-ids/) as well as our collection of [Assumable Identity Examples](/chainguard/administration/iam-groups/identity-examples/).
+In addition to inviting other users to your organization, you can set up [assumable identities](/chainguard/administration/iam-organizations/assumable-ids/) to allow automation systems — like Buildkite or GitHub Actions — to perform certain administrative tasks for your organization. To learn more, we encourage you to check out our [Overview of Assumable Identities](/chainguard/administration/iam-groups/assumable-ids/) as well as our collection of [Assumable Identity Examples](/chainguard/administration/iam-groups/identity-examples/).
 
 You may also be interested in setting up a [Custom Identity Provider](/chainguard/administration/custom-idps/custom-idps/) for your organization. By default, users can log in with GitHub GitLab, and Google, but a Custom IDP can allow members of your organization to log in to Chainguard with a corporate identity provider like [Okta](/chainguard/administration/custom-idps/okta/), [Azure Active Directory](/chainguard/administration/custom-idps/azure-ad/), or [Ping Identity](/chainguard/administration/custom-idps/ping-id/).
