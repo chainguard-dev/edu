@@ -1,4 +1,4 @@
----
+!---
 title: "Authenticating to Chainguard Registry"
 type: "article"
 description: "A guide on authenticating to the Chainguard Registry to get images"
@@ -44,7 +44,7 @@ Pulls authenticated in this way are associated with your user.
 
 You can also create a "pull token" using `chainctl`. This generates a longer-lived token that can be used to pull images from other environments that don't support OIDC, such as some CI environments, Kubernetes clusters, or with registry mirroring tools like Artifactory.
 
-First [install `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/), then log in and configure a pull token:
+First [install `chainctl`](/chainguard/administration/how-to-install-chainctl/), then log in and configure a pull token:
 
 ```sh
 chainctl auth configure-docker --pull-token

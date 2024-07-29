@@ -56,7 +56,7 @@ Once set, the configured identity provider will be used automatically any time y
 
 ### Authenticate with `chainctl` using a Verified Organization
 
-If your organization is [verified](/chainguard/chainguard-enforce/iam-groups/verified-orgs/), you can use your organization name instead of the ID of your identity provider to authenticate.
+If your organization is [verified](/chainguard/administration/iam-organizations/verified-orgs/), you can use your organization name instead of the ID of your identity provider to authenticate.
 
 ```sh
 chainctl auth login --org-name example.com
@@ -103,7 +103,7 @@ In order to set up SSO for your identity provider, you must configure an OIDC ap
 
 If your identity provider is Okta, Ping Identity or Azure Active Directory, we’ve published step-by-step integration guides for your platform.
 
-* [Okta](/chainguard/chainguard-enforce/authentication/example-idps/okta/)
+* [Okta]()
 * [Ping Identity](/chainguard/chainguard-enforce/authentication/example-idps/ping-id/)
 * [Azure Active Directory](/chainguard/chainguard-enforce/authentication/example-idps/azure-ad/)
 

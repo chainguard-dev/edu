@@ -24,7 +24,7 @@ This procedural tutorial outlines how to create an identity using Terraform, and
 To complete this guide, you will need the following.
 
 * `terraform` installed on your local machine. Terraform is an open-source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
-* `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to Install `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) to set this up.
+* `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to Install `chainctl`](/chainguard/administration/how-to-install-chainctl/) to set this up.
 * A Bitbucket pipeline you can use to test out the identity you'll create. We recommend following Bitbucket's [Getting Started guide](https://support.atlassian.com/bitbucket-cloud/docs/get-started-with-bitbucket-pipelines/) to set this up. If you need to enable pipelines for your repository, visit Bitbucket's [Configure your first pipeline](https://support.atlassian.com/bitbucket-cloud/docs/configure-your-first-pipeline/) page to get started.
 
 ## Creating Terraform Files
