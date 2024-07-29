@@ -53,6 +53,26 @@
                      </div>
                      <div class="collapse{{ if $active }} show{{ end }}" id="section-{{ md5 .LinkTitle }}">
                        <ul class="btn-toggle-nav list-unstyled fw-normal small">
+
+
+
+                         {{ range where .Pages ".Params.unlisted" "!=" "true" }}
+                           {{ if .IsNode }}
+                             {{ $active := in $currentPage.RelPermalink .RelPermalink }}
+                             {{ $selected := eq $currentPage.RelPermalink .RelPermalink }}
+                             <li class="sidebar-item-list-item {{if $selected }} sidebar-item-list-item-selected {{ end }}">
+                               <div class="d-flex gap-1 justify-content-between align-items-center sidebar-item {{if $active }} sidebar-item-active {{ end }}">
+                                  <button class="{{if $active }} sidebar-item-active {{ end }} border-0 bg-transparent d-flex align-items-center justify-content-between rounded sidebar-subcategory w-100 sidebar-item {{if not $active }} collapsed {{end}}" data-bs-toggle="collapse" data-bs-target="#section-{{ md5 .LinkTitle }}" aria-expanded="{{ if $active }}true{{ else }}false{{ end }}">
+                                    <a href="{{if $selected }}#{{ else }}{{ .Permalink }}{{ end }}" class="sidebar-item mx-0 p-0">
+                                      <span>{{ .LinkTitle }}</span>
+                                    </a>
+                                    <div class="chevron-rotator">
+                                      <i class="bi bi-chevron-right {{if $active }} sidebar-icon-active {{ end }}"></i>
+                                    </div>
+                                  </button>
+                               </div>
+                               <div class="collapse{{ if $active }} show{{ end }}" id="section-{{ md5 .LinkTitle }}">
+                                 <ul class="btn-toggle-nav list-unstyled fw-normal small">
                          {{ range where .Pages ".Params.unlisted" "!=" "true" }}
                            {{ if .IsNode }}
                              {{ $active := in $currentPage.RelPermalink .RelPermalink }}
@@ -86,6 +106,22 @@
                              </li>
                            {{ end }}
                          {{ end }}
+                                 </ul>
+                               </div>
+                             </li>
+                           {{ else }}
+                             {{ $active := in $currentPage.RelPermalink .RelPermalink }}
+                             <li class="sidebar-item-list-item {{if $active }} sidebar-item-list-item-selected {{ end }}">
+                              <a class="sidebar-subcategory docs-link rounded {{ if $active }} sidebar-item-active active {{ end }} sidebar-item" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+                             </li>
+                           {{ end }}
+                         {{ end }}
+
+
+
+
+
+
                        </ul>
                      </div>
                    </li>
