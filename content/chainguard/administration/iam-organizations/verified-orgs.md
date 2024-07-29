@@ -15,7 +15,7 @@ weight: 025
 toc: true
 ---
 
-Resources on the Chainguard platform are organized in a hierarchical structure called [IAM Organizations](/chainguard/chainguard-enforce/iam-organizations/how-to-manage-iam-organizations-in-chainguard-enforce/). Single customers or organizations typically use a single root-level _Organization_ to manage their
+Resources on the Chainguard platform are organized in a hierarchical structure called [IAM Organizations](https://edu.chainguard.dev/chainguard/administration/iam-organizations/overview-of-chainguard-iam-model/). Single customers or organizations typically use a single root-level _Organization_ to manage their
 Chainguard resources.
 
 Organizations can optionally be verified. Verification modifies some aspects of the Chainguard platform user experience to help large organizations guide their user base to the correct resources.
@@ -46,7 +46,7 @@ Verified organizations will have a field `verified: true` set.
 
 ## Verified Organizations and Custom Identity providers
 
-If you've configured a [custom identity provider](/chainguard/chainguard-enforce/authentication/custom-idps/) and your organization is verified, you can select your identity provider by providing the name of your organization when authenticating.
+If you've configured a [custom identity provider](/chainguard/administration/custom-idps/custom-idps/) and your organization is verified, you can select your identity provider by providing the name of your organization when authenticating.
 
 When authenticating with `chainctl`, the `--org-name` flag can be passed. Here, the command uses the example organization name `example.com`.
 

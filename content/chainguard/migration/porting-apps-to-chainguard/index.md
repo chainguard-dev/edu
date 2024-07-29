@@ -192,7 +192,7 @@ with a more minimal image such as `:latest` used in the final production image.
 If you try building this image, you'll find that it breaks in several places. The image needs to
 install various libraries so that it can compile the
 <code>[node-canvas](https://github.com/Automattic/node-canvas)</code> dependency, and this looks a
-bit different in Debian than it does in [Wolfi](http://wolfi.dev) (the OS powering Chainguard
+bit different in Debian than it does in [Wolfi](https://github.com/wolfi-dev/) (the OS powering Chainguard
 Images). In Wolfi, we first need to switch to the root user to install software and we use <code>apk
 add</code> instead of <code>apt-get</code>. We then need to figure out the Wolfi equivalents of the
 various Debian packages, which may not always have a one-to-one correspondence. There are tools to

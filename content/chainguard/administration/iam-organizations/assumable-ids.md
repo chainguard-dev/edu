@@ -1,4 +1,4 @@
-!!!!!!---
+---
 title : "Overview of Assumable Identities in Chainguard"
 linktitle: "Assumable Identities"
 aliases: 
@@ -110,7 +110,7 @@ resource "chainguard_role-binding" "view-stuff" {
 
 This means that the identity this Terraform configuration will create will only be able to view the resources tied to the same organization the identity is tied to.
 
-Applying this configuration will create the assumable identity. You can follow any of our [identity examples](/chainguard/chainguard-enforce/iam-groups/identity-examples/) to create an assumable identity that can be used by a continuous integration workflow to interact with Chainguard. The Terraform files used in the linked tutorials are based closely on the template outlined here.
+Applying this configuration will create the assumable identity. You can follow any of our [identity examples](/chainguard/administration/iam-organizations/identity-examples/) to create an assumable identity that can be used by a continuous integration workflow to interact with Chainguard. The Terraform files used in the linked tutorials are based closely on the template outlined here.
 
 
 ## Managing identities with `chainctl`

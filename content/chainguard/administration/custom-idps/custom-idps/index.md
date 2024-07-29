@@ -69,7 +69,7 @@ defaults:
   org-name: example.com
 ```
 
-To learn more about working with your `chainctl` config, you can read our doc on  [How to Manage chainctl Configuration](/chainguard/chainguard-enforce/manage-chainctl-config/).
+To learn more about working with your `chainctl` config, you can read our doc on  [How to Manage chainctl Configuration](/chainguard/administration/manage-chainctl-config/).
 
 ### Authenticate with the Chainguard Console
 
@@ -103,9 +103,9 @@ In order to set up SSO for your identity provider, you must configure an OIDC ap
 
 If your identity provider is Okta, Ping Identity or Azure Active Directory, we’ve published step-by-step integration guides for your platform.
 
-* [Okta]()
-* [Ping Identity](/chainguard/chainguard-enforce/authentication/example-idps/ping-id/)
-* [Azure Active Directory](/chainguard/chainguard-enforce/authentication/example-idps/azure-ad/)
+* [Okta](/chainguard/administration/custom-idps/okta/)
+* [Ping Identity](/chainguard/administration/custom-idps/ping-id/)
+* [Azure Active Directory](/chainguard/administration/custom-idps/azure-ad/)
 
 If you aren't using one of these identity providers, you can complete the following Generic Integration Guide to configure your provider to work with Chainguard. However, be aware that Chainguard does not actively support identity providers other than the ones listed previously. If you are using an alternate identity provider, we encourage you to [contact us](https://www.chainguard.dev/contact?utm_source=docs) to learn more.
 
@@ -143,7 +143,7 @@ Next, use `chainctl` to log in to Chainguard with an OIDC provider (such as Goog
 chainctl auth login
 ```
 
-This bootstrap account can be used as a [backup account](/chainguard/chainguard-enforce/authentication/custom-idps/#backup-accounts) (that is, a backup account you can use to log in if you ever lose access to your primary account). However, if you prefer to remove this role-binding after configuring the custom IDP, you may also do so.
+This bootstrap account can be used as a [backup account](/chainguard/administration/custom-idps/custom-idps/#backup-accounts) (that is, a backup account you can use to log in if you ever lose access to your primary account). However, if you prefer to remove this role-binding after configuring the custom IDP, you may also do so.
 
 Create a new identity provider using the details you noted from your OIDC application. Be sure to update the details in the following example `export` commands to align with your own application/client ID, client secret, and issuer URL.
 
