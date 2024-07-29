@@ -65,7 +65,7 @@ Your browser will now be opened to:
 ...
 ```
 
-At this point, a browser window will open and you will be directed to a page that asks you to log in to Sigstore. You can authenticate with GitHub, Google, or Microsoft. Note that the email address that is tied to these credentials will be permanently visible in the Rekor transparency log. This makes it publicly visible that you are the one who signed the given artifact, and helps others trust the given artifact. That said, it is worth keeping this in mind when choosing your authentication method. Once you log in and are authenticated, you’ll receive feedback of “`Sigstore Auth Successful`”, and you may now safely close the window. 
+At this point, a browser window will open and you will be directed to a page that asks you to log in to Sigstore. You can authenticate with GitHub, Google, or Microsoft. Note that the email address that is tied to these credentials will be permanently visible in the Rekor transparency log. This makes it publicly visible that you are the one who signed the given artifact, and helps others trust the given artifact. That said, it is worth keeping this in mind when choosing your authentication method. Once you log in and are authenticated, you’ll receive feedback of “`Sigstore Authentication Successful!`”, and you may now safely close the window. 
 
 On the terminal, you’ll receive output that you were successfully verified, and you’ll get confirmation that the signature was pushed. 
 
@@ -116,7 +116,7 @@ Public key written to cosign.pub
 You can sign a container and store the signature in the registry with the cosign sign command. 
 
 ```sh
-cosign sign --key cosign.key sigstore-course/demo 
+cosign sign --key cosign.key docker-username/demo-container
 ```
 
 ```
@@ -127,7 +127,7 @@ Pushing signature to: index.docker.io/sigstore-course/demo:sha256-87ef60f558bad7
 Finally, you can verify a software artifact against a public key with the cosign verify command. This command will return 0 if at least one Cosign formatted signature for the given artifact is found that matches the public key. Any valid formats are printed to standard output in a JSON format.
 
 ```sh
-cosign verify --key cosign.pub sigstore-course/demo
+cosign verify --key cosign.pub docker-username/demo-container
 ```
 
 ```

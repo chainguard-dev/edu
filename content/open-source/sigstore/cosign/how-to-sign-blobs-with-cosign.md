@@ -19,7 +19,7 @@ _An earlier version of this material was published in the [Cosign chapter](https
 
 Cosign can sign more than just containers. Blobs, or binary large objects, and standard files can be signed in a similar way. You can publish a blob or other artifact to an OCI (Open Container Initiative) registry with Cosign. This tutorial assumes you have a Cosign key pair set up, which you can achieve by following our [Introduction to Cosign](c/open-source/sigstore/cosign/an-introduction-to-cosign.md) guide.
 
-First, we’ll create an artifact (in this case, a standard file that contains text). We’ll call the file `artifact` and fill it with the “hello, cosign” text.
+Navigate to the directory which contains your `cosign.pub` and `cosign.key` key pair as generated in the [Introduction to Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign) guide. We’ll create an artifact (in this case, a standard file that contains text). We’ll call the file `artifact` and fill it with the “hello, cosign” text.
 
 ```sh
 echo "hello, cosign" > artifact

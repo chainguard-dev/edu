@@ -167,7 +167,7 @@ Pushing signature to: index.docker.io/docker-username/hello-container
 
 You can verify the signature on the SBOM as you can with any other signature.
 
-```
+```sh
 cosign verify --key cosign.pub docker-username/hello-container:sha256-690ecfd885f008330a66d08be13dc6c115a439e1cc935c04d181d7116e198f9c.sbom
 ```
 
