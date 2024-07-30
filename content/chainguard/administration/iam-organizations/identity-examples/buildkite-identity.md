@@ -191,7 +191,7 @@ Outputs:
 buildkite-identity = "<your buildkite identity>"
 ```
 
-This is the identity's [UIDP (unique i!dentity path)](/chainguard/administration/cloudevents/events-reference/#uidp-identifiers), which you configured the `buildkite.tf` file to emit in the previous section. Note this value down, as you'll need it when you test this identity using a Buildkite workflow. If you need to retrieve this UIDP later on, though, you can always run the following `chainctl` command to obtain a list of the UIDPs of all your existing identities.
+This is the identity's [UIDP (unique identity path)](/chainguard/administration/cloudevents/events-reference/#uidp-identifiers), which you configured the `buildkite.tf` file to emit in the previous section. Note this value down, as you'll need it when you test this identity using a Buildkite workflow. If you need to retrieve this UIDP later on, though, you can always run the following `chainctl` command to obtain a list of the UIDPs of all your existing identities.
 
 ```sh
 chainctl iam identities ls
