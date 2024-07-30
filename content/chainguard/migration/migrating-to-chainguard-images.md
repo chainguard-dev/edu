@@ -37,10 +37,10 @@ If you are coming from a Debian-based Dockerfile, you'll need to adapt some of y
 | Remove a package             | `apt remove`            | `apk del`              |
 | Update package manager cache | `apt update`            | `apk update`           |
 
-Our [Debian Compatibility](/chainguard/migration-guides/debian-compatibility/) page has a table listing common tools and their corresponding package(s) in both Wolfi and Debian distributions. For Ubuntu-based Dockerfiles, check our [Ubuntu Compatibility](/chainguard/migration-guides/ubuntu-compatibility/) page.
+Our [Debian Compatibility](/chainguard/migration/debian-compatibility/) page has a table listing common tools and their corresponding package(s) in both Wolfi and Debian distributions. For Ubuntu-based Dockerfiles, check our [Ubuntu Compatibility](/chainguard/migration/ubuntu-compatibility/) page.
 
 ## Migrating from Red Hat UBI Dockerfiles
-If you are coming from a Red Hat UBI (Universal Base Image) Dockerfile, you'll also need to adapt some of your commands to be compatible with the apk ecosystem. Wolfi uses BusyBox utilities, which offer a smaller footprint compared to GNU coreutils in Red Hat images. Our [Red Hat Compatibility](/chainguard/migration-guides/debian-compatibility/) page has a table listing common tools and their corresponding package(s) in both Wolfi and Red Hat distributions.
+If you are coming from a Red Hat UBI (Universal Base Image) Dockerfile, you'll also need to adapt some of your commands to be compatible with the apk ecosystem. Wolfi uses BusyBox utilities, which offer a smaller footprint compared to GNU coreutils in Red Hat images. Our [Red Hat Compatibility](/chainguard/migration/red-hat-compatibility/) page has a table listing common tools and their corresponding package(s) in both Wolfi and Red Hat distributions.
 
 If you are coming from a Red Hat UBI based Dockerfile, you'll need to adapt some of your commands to be compatible with the apk ecosystem:
 
@@ -51,7 +51,7 @@ If you are coming from a Red Hat UBI based Dockerfile, you'll need to adapt some
 | Update package manager cache | `yum makecache`        | `apk update`           |
 
 ## Migrating from Alpine Dockerfiles
-If your Dockerfile is based on Alpine, the process for migrating to Chainguard Images should be more straightforward, since you're already using `apk` commands. Wolfi packages typically match what is available in Alpine, with some exceptions. For instance, the Wolfi busybox package is slimmer and doesn't include all tools available in Alpine's busybox. Check the [Alpine Compatibility](/chainguard/migration-guides/alpine-compatibility/) page for a list of common tools and their corresponding packages in Wolfi and Alpine.
+If your Dockerfile is based on Alpine, the process for migrating to Chainguard Images should be more straightforward, since you're already using `apk` commands. Wolfi packages typically match what is available in Alpine, with some exceptions. For instance, the Wolfi busybox package is slimmer and doesn't include all tools available in Alpine's busybox. Check the [Alpine Compatibility](/chainguard/migration/alpine-compatibility/) page for a list of common tools and their corresponding packages in Wolfi and Alpine.
 
 ## Searching for Packages
 Packages from Debian and other base distributions might have a different name in Wolfi. To search for packages, log into an ephemeral container based on `cgr.dev/chainguard/wolfi-base`:

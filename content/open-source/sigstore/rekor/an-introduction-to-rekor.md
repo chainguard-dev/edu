@@ -29,7 +29,7 @@ The Fulcio certificate authority enables a downstream user to trust that a publi
 
 ## Public instance of Rekor
 
-A public instance of Rekor is run as a non-profit, public good transparency service that the open source software community can use. The service lives at [https://rekor.sigstore.dev/](https://rekor.sigstore.dev/). Those who are interested in helping to operate or maintain the Rekor public instance, or those who would like to discuss a production use case of the public instance can reach out via the [mailing list](https://docs.sigstore.dev/community).
+A public instance of Rekor is run as a non-profit, public good transparency service that the open source software community can use. The service lives at [https://rekor.sigstore.dev/](https://rekor.sigstore.dev/). Those who are interested in helping to operate or maintain the Rekor public instance, or those who would like to discuss a production use case of the public instance can reach out via the [mailing list](https://docs.sigstore.dev/about/contributing/#mailing-list).
 
 The latest Signed Tree hashes of Rekor are published on Google Cloud Storage. These are stored in both unverified raw and verified decoded formats; the signatures can be verified by users against Rekor’s public key. Entries include a short representation of the state of Rekor, which is posted to GCS, and can be verified by users against Rekor's public key. These representations can be used to check that a given entry was in the log at a given time.
 

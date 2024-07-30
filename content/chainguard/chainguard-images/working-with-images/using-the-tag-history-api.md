@@ -29,7 +29,7 @@ If you have a container environment that was working fine but suddenly breaks wi
 
 ## Obtaining a Registry Token
 
-Before making API calls, you'll need to generate a token within the [Chainguard Registry](/chainguard/chainguard-images/registry/overview/).
+Before making API calls, you'll need to generate a token within the [Chainguard Registry](/chainguard/chainguard-registry/overview/).
 
 The Registry API endpoint for obtaining the token is:
 
@@ -48,7 +48,7 @@ tok=$(curl "https://cgr.dev/token?scope=repository:chainguard/python:pull" \
   | jq -r .token)
 ```
 
-For images that are not public, you'll need to exchange your Chainguard token for a registry token. This assumes you've set up authentication with [chainctl auth configure-docker](https://edu.chainguard.dev/chainguard/chainguard-images/registry/authenticating/):
+For images that are not public, you'll need to exchange your Chainguard token for a registry token. This assumes you've set up authentication with [chainctl auth configure-docker](https://edu.chainguard.dev/chainguard/chainguard-registry/authenticating/)):
 
 ```shell
 tok=$(curl -H "Authorization: Bearer \

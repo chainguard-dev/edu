@@ -43,7 +43,7 @@ terraform {
 
 If you don't have an active Chainguard token when you apply the configuration, the provider will automatically launch a browser to complete the Oauth 2 flow with one of the default identity providers: GitHub, GitLab, or Google. This means the Terraform provider does not require `chainctl` to be installed to manage authentication with Chainguard.
 
-You can customize the behavior of the authentication flow in a number of ways. For example, you can specify an identity to assume, or a [verified organization](/chainguard/administration/iam-groups/verified-orgs/) name in order to use a previously-configured custom identity provider:
+You can customize the behavior of the authentication flow in a number of ways. For example, you can specify an identity to assume, or a [verified organization](/chainguard/administration/iam-organizations/verified-orgs/) name in order to use a previously-configured custom identity provider:
 
 ```
 provider "chainguard" {
@@ -210,5 +210,5 @@ After applying this Terraform configuration, any user whose GitHub ID was includ
 
 The [Chainguard Terraform provider documentation](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs) includes examples of how you can use it to manage your Chainguard resources.
 
-For more information on setting up custom identity providers, we encourage you to check out our documentation on setting up [custom IDPs](/chainguard/administration/custom-idps/custom-idps/), as well as our examples for [Okta](/chainguard/administration/custom-idps/okta/), [Ping Identity](/chainguard/administration/custom-idps/ping-id/), and [Azure Active Directory](/chainguard/administration/custom-idps/azure-ad/). Additionally, [our tutorial](/chainguard/administration/iam-groups/rolebinding-terraform-gh/) on using the Terraform provider to grant members of a GitHub team access to the resources managed by a Chainguard organization provides more context and information to the method outlined in this guide.
+For more information on setting up custom identity providers, we encourage you to check out our documentation on setting up [custom IDPs](/chainguard/administration/custom-idps/custom-idps/), as well as our examples for [Okta](/chainguard/administration/custom-idps/okta/), [Ping Identity](/chainguard/administration/custom-idps/ping-id/), and [Azure Active Directory](/chainguard/administration/custom-idps/azure-ad/). Additionally, [our tutorial](/chainguard/administration/iam-organizations/rolebinding-terraform-gh/) on using the Terraform provider to grant members of a GitHub team access to the resources managed by a Chainguard organization provides more context and information to the method outlined in this guide.
 

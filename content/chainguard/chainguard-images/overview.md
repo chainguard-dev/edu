@@ -28,7 +28,7 @@ The main features of Chainguard Images include:
 - [Verifiable signatures](/chainguard/chainguard-images/working-with-images/retrieve-image-sboms/) provided by [Sigstore](/open-source/sigstore/cosign/an-introduction-to-cosign/)
 - Reproducible builds with Cosign and apko ([read more about reproducibility](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds))
 
-Chainguard Images are available from the [Chainguard Registry](/chainguard/chainguard-images/registry/overview/) and can be pulled from `cgr.dev`. You can review images files [on GitHub](https://github.com/chainguard-images) and can find complete lists of available Chainguard Images in the [public Images Directory](https://images.chainguard.dev/) or within the [Chainguard Console](https://console.enforce.dev/). 
+Chainguard Images are available from the [Chainguard Registry](/chainguard/chainguard-registry/overview/) and can be pulled from `cgr.dev`. You can review images files [on GitHub](https://github.com/chainguard-images) and can find complete lists of available Chainguard Images in the [public Images Directory](https://images.chainguard.dev/) or within the [Chainguard Console](https://console.enforce.dev/). 
 
 
 ## Why Minimal Container Images
@@ -72,7 +72,7 @@ The major advantage of distroless images is the reduced size and complexity, whi
 
 You can review more comparisons of Chainguard Images and external images by checking out our [Vulnerability Comparisons](/chainguard/chainguard-images/vuln-comparison/) dashboard.
 
-To compare different versions of Chainguard Images, you can use the [Images Diff API](/chainguard/chainguard-images/comparing-images/using-the-image-diff-api/). `chainctl`, Chainguard's command line interface tool, comes with a useful `diff` feature that also allows you to [compare two Chainguard Images](/chainguard/chainguard-images/comparing-images/comparing-images/).  
+`chainctl`, Chainguard's command line interface tool, comes with a useful `diff` feature that also allows you to [compare two Chainguard Images](/chainguard/chainguard-images/comparing-images/comparing-images/).  
 
 
 ## Architecture

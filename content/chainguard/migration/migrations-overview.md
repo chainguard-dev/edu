@@ -287,7 +287,7 @@ In addition, we have a few migration guides in the form of videos:
 * [PHP](/chainguard/chainguard-images/getting-started/php/)
 * [PostgreSQL](/chainguard/chainguard-images/getting-started/postgres/)
 * [Python](/chainguard/chainguard-images/getting-started/python/)
-* [PyTorch / CUDA 12](/chainguard/chainguard-images/getting-started/pytorch-cuda/)
+* [PyTorch](/chainguard/chainguard-images/getting-started/pytorch/)
 * [Ruby](/chainguard/chainguard-images/getting-started/ruby/)
 
 ## Troubleshooting Resources
