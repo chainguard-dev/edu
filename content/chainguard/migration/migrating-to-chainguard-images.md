@@ -40,7 +40,7 @@ If you are coming from a Debian-based Dockerfile, you'll need to adapt some of y
 Our [Debian Compatibility](/chainguard/migration/debian-compatibility/) page has a table listing common tools and their corresponding package(s) in both Wolfi and Debian distributions. For Ubuntu-based Dockerfiles, check our [Ubuntu Compatibility](/chainguard/migration/ubuntu-compatibility/) page.
 
 ## Migrating from Red Hat UBI Dockerfiles
-If you are coming from a Red Hat UBI (Universal Base Image) Dockerfile, you'll also need to adapt some of your commands to be compatible with the apk ecosystem. Wolfi uses BusyBox utilities, which offer a smaller footprint compared to GNU coreutils in Red Hat images. Our [Red Hat Compatibility](/chainguard/migration/debian-compatibility/) page has a table listing common tools and their corresponding package(s) in both Wolfi and Red Hat distributions.
+If you are coming from a Red Hat UBI (Universal Base Image) Dockerfile, you'll also need to adapt some of your commands to be compatible with the apk ecosystem. Wolfi uses BusyBox utilities, which offer a smaller footprint compared to GNU coreutils in Red Hat images. Our [Red Hat Compatibility](/chainguard/migration/red-hat-compatibility/) page has a table listing common tools and their corresponding package(s) in both Wolfi and Red Hat distributions.
 
 If you are coming from a Red Hat UBI based Dockerfile, you'll need to adapt some of your commands to be compatible with the apk ecosystem:
 
