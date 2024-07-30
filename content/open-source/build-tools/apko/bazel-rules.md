@@ -238,7 +238,7 @@ translate_apko_lock(<a href="#translate_apko_lock-name">name</a>, <a href="#tran
 
 ## Repository rule to generate starlark code from an `apko.lock.json` file.
 
-Review [the section above](http://localhost:1313/open-source/apko/bazel-rules/#fetching-and-caching-contents) for more information.
+Review [the section above](#fetching-and-caching-contents) for more information.
 
 
 ### Attributes

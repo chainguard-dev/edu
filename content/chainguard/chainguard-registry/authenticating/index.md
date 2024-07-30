@@ -24,7 +24,7 @@ As of August 16, 2023, all other tags for Chainguard Images are unavailable with
 
 You can register a Chainguard account through our [sign up form](https://console.enforce.dev/auth/login?utm_source=docs). This will create your account and a [Chainguard IAM organization](/chainguard/chainguard-enforce/iam-groups/overview-of-enforce-iam-model/). If you already have an account, you can log in through the [login page](https://console.enforce.dev/auth/login?utm_source=docs).
 
-For more details on signing in, you can review our [sign in guidance](/chainguard/chainguard-enforce/authentication/log-in-chainguard-enforce/). If your organization is interested in (or already using) custom identity providers like Okta, you can read [how to authenticate to Chainguard with custom identity providers](/chainguard/chainguard-enforce/authentication/custom-idps/).
+For more details on signing in, you can review our [sign in guidance](/chainguard/administration/iam-organizations/how-to-manage-iam-organizations-in-chainguard/#logging-in). If your organization is interested in (or already using) custom identity providers like Okta, you can read [how to authenticate to Chainguard with custom identity providers](/chainguard/administration/custom-idps/custom-idps/).
 
 ## Authenticating with the `chainctl` Credential Helper
 
@@ -44,7 +44,7 @@ Pulls authenticated in this way are associated with your user.
 
 You can also create a "pull token" using `chainctl`. This generates a longer-lived token that can be used to pull images from other environments that don't support OIDC, such as some CI environments, Kubernetes clusters, or with registry mirroring tools like Artifactory.
 
-First [install `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/), then log in and configure a pull token:
+First [install `chainctl`](/chainguard/administration/how-to-install-chainctl/), then log in and configure a pull token:
 
 ```sh
 chainctl auth configure-docker --pull-token

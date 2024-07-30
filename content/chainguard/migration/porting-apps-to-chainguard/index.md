@@ -86,7 +86,7 @@ git switch v1
 ## Updating the Node.js Microservice
 
 To begin, we'll update the heart of the application – the dnmonster service. dnmonster is based on
-[monsterid.js](monsterid.js) by Kevin Gaudin. The dnmonster container hosts an API which returns an
+[monsterid.js](https://github.com/KevinGaudin/monsterid.js/) by Kevin Gaudin. The dnmonster container hosts an API which returns an
 [identicon](https://en.wikipedia.org/wiki/Identicon) based on the input it's given.
 
 ```bash
@@ -192,12 +192,12 @@ with a more minimal image such as `:latest` used in the final production image.
 If you try building this image, you'll find that it breaks in several places. The image needs to
 install various libraries so that it can compile the
 <code>[node-canvas](https://github.com/Automattic/node-canvas)</code> dependency, and this looks a
-bit different in Debian than it does in [Wolfi](http://wolfi.dev) (the OS powering Chainguard
+bit different in Debian than it does in [Wolfi](https://github.com/wolfi-dev/) (the OS powering Chainguard
 Images). In Wolfi, we first need to switch to the root user to install software and we use <code>apk
 add</code> instead of <code>apt-get</code>. We then need to figure out the Wolfi equivalents of the
 various Debian packages, which may not always have a one-to-one correspondence. There are tools to
 help here – you can consult our [migration
-guides](https://edu.chainguard.dev/chainguard/migration-guides/debian-compatibility/) and use apk
+guides](/chainguard/migration/debian-compatibility/) and use apk
 tools (like <code>apk search libjpeg</code>), but searching the [Wolfi
 GitHub](https://github.com/wolfi-dev/os) repository for package names will often provide you with
 what you’re looking for.
