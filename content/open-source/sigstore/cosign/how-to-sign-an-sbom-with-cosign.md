@@ -2,9 +2,9 @@
 title: "How to Sign an SBOM with Cosign"
 type: "article"
 description: "Signing software bills of materials with Cosign"
-lead: "Use Cosign to sign a software bill of materials"
+lead: "Use Cosign to sign software bills of materials"
 date: 2022-13-07T15:22:20+01:00
-lastmod: 2022-13-07T15:22:20+01:00
+lastmod: 2024-07-29T15:12:18+00:00
 draft: false
 tags: ["Cosign", "Procedural", "SBOM"]
 images: []
@@ -27,7 +27,7 @@ Let’s demonstrate how to create an SBOM and sign the SBOM using the `hello-con
 
 ## Install Syft
 
-We can create an SBOM with the open source Syft tool from the Anchore community. First, to install Syft, you can review the guidance on installation on the project’s [README file](https://github.com/anchore/syft#installation). Please note that Syft’s current recommended installation is to use curl to download a script that is hosted in their GitHub repository. We recommend that you inspect the script to make sure you know what you’re executing.
+We can create an SBOM with the open source Syft tool from the Anchore community. First, to install Syft, you can review the guidance on installation on the project’s [README file](https://github.com/anchore/syft#installation). Please note that Syft’s current recommended installation is to use `curl` to download a script that is hosted in their GitHub repository. We recommend that you inspect the script to make sure you know what you’re executing.
 
 You can alternatively use Homebrew for macOS or Linux as a package manager to install Syft:
 
@@ -36,19 +36,19 @@ brew tap anchore/syft
 brew install syft
 ```
 
-If you will use curl to install Syft, we recommend inspecting the [install.sh](https://github.com/anchore/syft/blob/main/install.sh) file prior to downloading. Before piping the command through, it is always a good idea to audit the script. Let’s first download the file.
+If you will use `curl` to install Syft, we recommend inspecting the [install.sh](https://github.com/anchore/syft/blob/main/install.sh) file prior to downloading. Before piping the command through, it is always a good idea to audit the script. Let’s first download the file.
 
 ```sh
 curl -O https://raw.githubusercontent.com/anchore/syft/main/install.sh
 ```
 
-You can now open the file and review it in a text editor such as nano or vi. Once you are satisfied with your audit of the file, and if you are happy to move forward, you can now run the install script. 
+You can now open the file and review it in a text editor such as `nano` or `vi`. Once you are satisfied with your audit of the file, and if you are happy to move forward, you can now run the install script. 
 
 ```sh
 curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
 ```
 
-With Syft installed, you can generate an SBOM with the syft command. 
+With Syft installed, you can generate an SBOM with the `syft` command. 
 
 ## Generate an SBOM
 
@@ -136,6 +136,10 @@ You will now attach the SBOM via Cosign to the container that you have hosted on
 cosign attach sbom --sbom latest.spdx docker-username/hello-container:latest
 ```
 
+<blockquote>
+    <p><b>Note</b>: The cosign attach sbom command will be deprecated in a future Cosign version. You can find more information about this change at its associated GitHub issue: https://github.com/sigstore/cosign/issues/2755
+</blockquote>
+
 You’ll receive feedback once the SBOM is pushed to the container registry.
 
 ```
@@ -167,7 +171,7 @@ Pushing signature to: index.docker.io/docker-username/hello-container
 
 You can verify the signature on the SBOM as you can with any other signature.
 
-```
+```sh
 cosign verify --key cosign.pub docker-username/hello-container:sha256-690ecfd885f008330a66d08be13dc6c115a439e1cc935c04d181d7116e198f9c.sbom
 ```
 

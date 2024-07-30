@@ -11,21 +11,21 @@ images: []
 menu:
   docs:
     parent: "cosign"
-weight: 005
+weight: 006
 toc: true
 ---
 
-Cosign can be used to verify file signatures as these are binary artifacts, as long as these are published to an OCI registry. This tutorial assumes you have Cosign installed, which you can achieve by following our [How to Install Cosign guide](/open-source/sigstore/cosign/how-to-sign-a-container-with-cosign/).
+Cosign can be used to verify file signatures as these are binary artifacts, as long as they are published to an OCI registry. This tutorial assumes you have Cosign installed, which you can achieve by following our [How to Install Cosign guide](/open-source/sigstore/cosign/how-to-sign-a-container-with-cosign/).
 
 We’ll verify a binary artifact, in this case, a copy of [`apko`](/open-source/apko/overview/), which is a command-line tool for building container images using a declarative language based on YAML. The methods in this tutorial apply to any blob file Cosign has signed with a keyless signature.
 
 ### Verifying a binary with Cosign keyless signatures
 
-All apko releases are released with [keyless signatures using Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign/#keyless-signing). You can verify the signature for an apko release using the `cosign` tool directly, or by calculating the SHA256 hash of the release and finding the corresponding Rekor transparency log entry.
+All `apko` releases are released with [keyless signatures using Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign/#keyless-signing). You can verify the signature for an apko release using the `cosign` tool directly, or by calculating the SHA256 hash of the release and finding the corresponding Rekor transparency log entry.
 
-If you would like to learn how to verify a binary using Rekor or curl, follow the steps in our guide [How to Verify File Signatures with Rekor or curl](/open-source/sigstore/rekor/how-to-verify-file-signatures-with-rekor-or-curl/).
+If you would like to learn how to verify a binary using Rekor or `curl`, follow the steps in our guide [How to Verify File Signatures with Rekor or curl](/open-source/sigstore/rekor/how-to-verify-file-signatures-with-rekor-or-curl/).
 
-We'll use the `apko_0.6.0_linux_arm64.tar.gz` tar archive from the apko [GitHub Release v0.6.0 page](https://github.com/chainguard-dev/apko/releases/tag/v0.6.0) in this example.
+We'll use the `apko_0.6.0_linux_arm64.tar.gz` tar archive from the `apko` [GitHub Release v0.6.0 page](https://github.com/chainguard-dev/apko/releases/tag/v0.6.0) in this example.
 
 There are three URLs from the list of assets on that page that you will need to copy:
 
@@ -50,7 +50,7 @@ Running the command may take a moment, but when it completes you will receive th
 Verified OK
 ```
 
-If any of the URLs are incorrect, of if there was a problem with the apko release file, a mismatching signature or certificate identity, or if the release file was not signed, you will receive an error like the following:
+If any of the URLs are incorrect, of if there was a problem with the `apko` release file, a mismatching signature or certificate identity, or if the release file was not signed, you will receive an error like the following:
 
 ```
 Error: verifying blob https://github.com/chainguard-dev/apko/releases/download/v0.6.0/apko_0.6.0_linux_amd64.tar.gz: invalid signature when validating ASN.1 encoded signature

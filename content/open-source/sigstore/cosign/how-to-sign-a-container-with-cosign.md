@@ -4,7 +4,7 @@ type: "article"
 lead: "Container signing using Cosign"
 description: "Signing containers with Cosign"
 date: 2022-07-13T13:26:54+01:00
-lastmod: 2022-11-15T13:26:54+01:00
+lastmod: 2024-07-29T15:12:18+00:00
 draft: false
 tags: ["Cosign", "Procedural"]
 images: []
@@ -30,7 +30,7 @@ Additionally, you will need Cosign installed, which you can achieve by following
 
 ## Creating a Container
 
-With your keys set up, you’ll now be creating a new container. Create a new directory within your user directory that is the same as your Docker username and, within that, a directory called `hello-container`. If you will be opting to use a registry other than Docker, feel free to use the relevant username for that registry. 
+You’ll now be creating a new container. Create a new directory within your user directory that is the same as your Docker username and, within that, a directory called `hello-container`. If you will be opting to use a registry other than Docker, feel free to use the relevant username for that registry. 
 
 ```sh
 mkdir -p ~/docker-username/hello-container
@@ -52,7 +52,7 @@ nano Dockerfile
 
 Type the following into your editor:
 
-```
+```Dockerfile
 FROM alpine
 CMD ["echo", "Hello, Cosign!"]
 ```

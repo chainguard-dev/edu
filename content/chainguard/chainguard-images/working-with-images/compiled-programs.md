@@ -5,9 +5,9 @@ aliases:
 type: "article"
 description: "An overview comparing various Chainguard Images for compiled programs"
 date: 2024-07-12T17:55:01+00:00
-lastmod: 2024-07-17T17:36:30+00:00
+lastmod: 2024-07-22T13:45:38+00:00
 draft: false
-tags: ["Chainguard Images", "Product"]
+tags: ["Chainguard Images", "Product", "Cheatsheet"]
 images: []
 menu:
   docs:

@@ -2,13 +2,13 @@
 title: "Cosign"
 lead: ""
 type: "article"
-date: 2020-10-06T08:49:15+00:00
-lastmod: 2020-10-06T08:49:15+00:00
+date: 2024-07-29T15:12:18+00:00
+lastmod: 2024-07-29T15:12:18+00:00
 draft: false
 menu:
   docs:
-    parent: "rekor"
+    parent: "sigstore"
 images: []
 ---
 
-A tool to sign and verify software artifacts
+A Sigstore tool used to sign and verify software artifacts
