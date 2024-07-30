@@ -197,7 +197,7 @@ Images). In Wolfi, we first need to switch to the root user to install software 
 add</code> instead of <code>apt-get</code>. We then need to figure out the Wolfi equivalents of the
 various Debian packages, which may not always have a one-to-one correspondence. There are tools to
 help here – you can consult our [migration
-guides](https://edu.chainguard.dev/chainguard/migration/debian-compatibility/) and use apk
+guides](/chainguard/migration/debian-compatibility/) and use apk
 tools (like <code>apk search libjpeg</code>), but searching the [Wolfi
 GitHub](https://github.com/wolfi-dev/os) repository for package names will often provide you with
 what you’re looking for.
