@@ -21,14 +21,19 @@ Thanks to a fine-tuned maintenance process combining top-notch automation and es
 That being said, it's important to note that Wolfi is rather new; it just recently crossed the mark of 1,000 packages in the Wolfi OS repository. That means some packages that you would find in a more established distro won't be available yet in Wolfi. In this article, we'll cover the whole process involved in building a new Wolfi package, or how a Wolfi package comes to be.
 
 > Note: Many of the examples shown in this article are based on the [Wolfi PHP package](https://github.com/wolfi-dev/os/blob/main/php-8.2.yaml), which is a slightly complex build that generates several subpackages from a single melange YAML file. You can keep that link open in a separate tab to use as reference as you go through this guide.
+
 ## How Does it Compile?
+
 The first step in building a new Wolfi package is finding official documentation with guidance on how to build the package from source. All Wolfi packages need to be built from source in order to assure provenance and authenticity of package contents.
 
 Because Wolfi uses [apk](https://wiki.alpinelinux.org/wiki/Alpine_Package_Keeper) and thus has some similar design principles to Alpine, it is a good idea to review the [Alpine package index](https://pkgs.alpinelinux.org/packages) to find out how the package is built there. This can give you insights about configuration options, dependencies, and eventual subpackages that can be stripped from the main package. For example, when compiling PHP from source, you have the choice of compiling several extensions either as built-in or as shared libraries. Although compiling said extensions as built-in packages makes for a simpler build, it also increases the size of the original package and creates a wider surface for possible vulnerabilities.
 
 If you aren't very familiar with building packages from source using tools such as `cmake` and `autoconf`, it's a good idea to compile the package locally first - you don't need to run `make install`  at the end to get the package installed on your own system, but running the `configure` and `make` processes will give you a better understanding of the build requirements and configure options.
+
 ## The melange YAML File
+
 The melange YAML file is where you'll define the details about the package and its build pipeline. If you are familiar with GitHub Actions, you'll find out that melange definitions are very similar to GitHub Actions workflows.
+
 ### The `package` Section
 
 The melange YAML file starts with a `package` section, used to define metadata information and runtime dependencies. The following excerpt demonstrates how this section is declared in the Wolfi [PHP package](https://github.com/wolfi-dev/os/blob/34aa71ac4898c2b7c529548eafa51b0ea7a4dbd3/php.yaml#L1C3-L1C3) YAML:
@@ -193,6 +198,7 @@ For example, this is how a step in the subpackages section would be written, usi
 ```
 
 ### Looping with Ranges
+
 In some cases, you may find yourself repeating the same task over and over with just a couple different values (such as package names). In such scenarios, you can define a range of data that you can "loop" through in a step. For example, let's have a look at how the PHP package uses this feature to create its subpackages.
 
 First, we define an `extensions` range. This should go on a `data` node at the same level as the `pipelines` section of your YAML:
@@ -236,6 +242,7 @@ In the subpackages section, we define a pipeline for that range:
 And this will loop through all values of the `extensions` range and execute the described pipeline.
 
 ### The `update` Section
+
 This final section of the YAML file is only required when submitting the package to the Wolfi OS repository. The `update` section is used by Wolfi CI/CD systems to detect new package releases.
 
 Wolfi uses multiple tools and services to keep track of upstream releases, including the [Release Monitoring](https://release-monitoring.org/) service. For packages that are released via GitHub, tracking occurs using the project org/name and a monitored tag.
@@ -263,6 +270,7 @@ update:
 Again, this section is only required when submitting the package to Wolfi. For more details about Wolfi's automated package updates, check [the official docs](https://github.com/wolfi-dev/os/blob/main/docs/UPDATES.md) on the subject.
 
 ## Building Packages
+
 When you feel your YAML is good for a first run, it's time to build the package with melange. In this guide we'll use Docker to execute melange in a local environment, using [Wolfi's SDK](https://github.com/wolfi-dev/tools/pkgs/container/sdk) image. This image contains everything you need to build Wolfi packages with melange and Wolfi-based images with apko.
 
 The procedure to build apk packages with melange is explained in more detail in our [Getting Started with melange](https://edu.chainguard.dev/open-source/melange/tutorials/getting-started-with-melange/) tutorial.
@@ -328,6 +336,7 @@ make[1]: Leaving directory '/home/erika/Projects/os'
 When the build is finished, you can find the newly built apk(s) in a `./packages` directory, in the root of your cloned Wolfi repository.
 
 ### When the build fails
+
 It is likely that your build won't work on the first run, and that is completely normal because there are many moving parts and hidden dependencies when building packages from source.
 
 In this scenario, it is often useful to check the build environment, which is preserved for debugging. The build output will inform you where to find these files in your development environment.
@@ -373,6 +382,7 @@ environment:
 This will look for a package named "mypackage" in your local packages/ folder.
 
 ### When the build is successful
+
 First of all, celebrate! 🎉
 
 Check the packages folder, you should find a directory for each built architecture (in my case I get x86_64) with your built apks (package + subpackages) along with an `APKINDEX.tar.gz` file:
@@ -398,9 +408,11 @@ Check the packages folder, you should find a directory for each built architectu
 In the next section, we'll demonstrate how you can use the Wolfi SDK for running these checks.
 
 ## Testing your Packages
+
 With a successful build, it's time to test the packages to make sure they are installable and functional, and also to verify they are free of CVEs.
 
 ### Local Installation
+
 The first test you'll want to run with your package is to check if you can use `apk` to install it without errors. For that, we'll use the `local-wolfi` environment, which brings up a new container environment using the Wolfi-base image, with additional settings to make your new package available in the test environment alongside the melange keys that were created to sign your package at build time. We'll call this your **Wolfi Test Environment**.
 
 ```shell
