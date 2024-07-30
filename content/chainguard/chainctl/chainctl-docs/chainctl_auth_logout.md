@@ -20,7 +20,7 @@ chainctl auth logout [--audience=AUDIENCE]
 ### Options
 
 ```
-  -h, --help   help for logout
+  -h, --help  help for logout
 ```
 
 ### Options inherited from parent commands
