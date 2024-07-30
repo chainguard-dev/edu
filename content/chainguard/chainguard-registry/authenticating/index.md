@@ -24,7 +24,7 @@ As of August 16, 2023, all other tags for Chainguard Images are unavailable with
 
 You can register a Chainguard account through our [sign up form](https://console.enforce.dev/auth/login?utm_source=docs). This will create your account and a [Chainguard IAM organization](/chainguard/chainguard-enforce/iam-groups/overview-of-enforce-iam-model/). If you already have an account, you can log in through the [login page](https://console.enforce.dev/auth/login?utm_source=docs).
 
-For more details on signing in, you can review our [sign in guidance](https://edu.chainguard.dev/chainguard/administration/iam-organizations/). If your organization is interested in (or already using) custom identity providers like Okta, you can read [how to authenticate to Chainguard with custom identity providers](/chainguard/administration/custom-idps/custom-idps/).
+For more details on signing in, you can review our [sign in guidance](/chainguard/administration/iam-organizations/how-to-manage-iam-organizations-in-chainguard/#logging-in). If your organization is interested in (or already using) custom identity providers like Okta, you can read [how to authenticate to Chainguard with custom identity providers](/chainguard/administration/custom-idps/custom-idps/).
 
 ## Authenticating with the `chainctl` Credential Helper
 
