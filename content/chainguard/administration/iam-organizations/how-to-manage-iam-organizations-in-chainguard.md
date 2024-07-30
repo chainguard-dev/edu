@@ -1,4 +1,4 @@
-!---
+---
 title: "How to Manage Chainguard IAM Organizations"
 linktitle: "Manage IAM Organizations"
 aliases:
