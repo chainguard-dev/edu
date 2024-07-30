@@ -136,6 +136,10 @@ You will now attach the SBOM via Cosign to the container that you have hosted on
 cosign attach sbom --sbom latest.spdx docker-username/hello-container:latest
 ```
 
+<blockquote>
+    <p><b>Note</b>: The cosign attach sbom command will be deprecated in a future Cosign version. You can find more information about this change at its associated GitHub issue: https://github.com/sigstore/cosign/issues/2755
+</blockquote>
+
 You’ll receive feedback once the SBOM is pushed to the container registry.
 
 ```
