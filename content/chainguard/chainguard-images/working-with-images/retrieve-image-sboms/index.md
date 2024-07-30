@@ -70,10 +70,83 @@ The following example shows the **SBOM** tab for the `postgres` Image.
 
 ![Screenshot of the postgres Image's "SBOM" tab, showing the first five rows of the latest version's SBOM.](imgs-dir-5.png)
 
-You can use the drop-down menu above the table to select which version of the image you want to view. You can also use the search box to find specific packages in the SBOM or use the button to the right of the search box to download the SBOM to your machine.
+You can use the drop-down menu above the table to select which version and architecture of the image you want to view. You can also use the search box to find specific packages in the SBOM or use the button to the right of the search box to download the SBOM to your machine.
 
 Check out our guide on [using the Chainguard Images Directory](/chainguard/chainguard-images/images-directory/) for more details.
 
+## Licence Information and Source Code references
+
+The SBOM downloaded using either Cosign or Console methods described above contain identical information. It lists binary packages present in the image, their licensing information using SPDX [license](https://spdx.org/licenses/) and [exceptions](https://spdx.org/licenses/exceptions-index.html) lists and external source code references.
+
+Source code references are encoded in the [external references](https://spdx.github.io/spdx-spec/v2.3/package-information/#721-external-reference-field) field, using [external repository identifiers](https://spdx.github.io/spdx-spec/v2.3/external-repository-identifiers/#f35-purl) in PURL format. PURL [specification](https://github.com/package-url/purl-spec/blob/master/PURL-SPECIFICATION.rst) allows for many schemes and types. The following PURLs are used in Chainguard SPDX SBOM:
+
+ * `pkg:apk` denotes binary package origin, name, full version number with epoch and architecture. Example:
+
+```
+pkg:apk/wolfi/ca-certificates-bundle@20240315-r4?arch=x86_64
+```
+
+ * `pkg:github` is used for upstream source code reference for packages built from GitHub repositories. For upstream source code PURL with a fixed commit hash is always provided. When available, a tag-version PURL is also provided. Examples:
+
+```
+pkg:github/openssl/openssl.git@openssl-3.3.1
+pkg:github/openssl/openssl.git@db2ac4f6ebd8f3d7b2a60882992fbea1269114e2
+```
+
+ * `pkg:github` is also used to reference melange packaging files from Wolfi and Chainguard. These are provided with a subpath component and a fixed commit hash. Example:
+
+```
+pkg:github/wolfi-dev/os@f18ff825f94b9177cf603c6e3d72936683a504d2#glibc.yaml
+```
+
+ * `pkg:generic` is used to reference any other upstream download locations, most commonly tarballs. Example:
+
+```
+pkg:generic/gcc@13.2.0?
+checksum=sha256%3A8cb4be3796651976f94b9356fa08d833524f62420d6292c5033a9a26af315078&
+download_url=https%3A%2F%2Fftp.gnu.org%2Fgnu%2Fgcc%2Fgcc-13.2.0%2Fgcc-13.2.0.tar.gz
+```
+
+ * `pkg:generic` is also used to reference upstream git repositories, outside of GitHub. Example:
+
+```
+pkg:generic/ca-certificates@20240315?
+vcs_url=git%2Bhttps%3A%2F%2Fgitlab.alpinelinux.org%2Falpine%2Fca-certificates%4009e5e43336e532ec8217ae3bfc912bcb7048f65a
+```
+
+PURLs are human readable, but can also be parsed using many [implementations](https://github.com/package-url/purl-spec?tab=readme-ov-file#known-implementations) in various programming and scripting languages.
+
+As SPDX SBOM is distributed within Chainguard Images repository, along side each image hash, source code access compliance can be achieve by ensuring all attestations are mirrored together with each image.
+
+A snippet of a binary package SPDX stanza with license, version and source code references is shown below  for the `glibc-locale-posix` binary package, distributed under LGPL license, build from `glibc-2.39.tar.xz` upstream tarball, using `glibc.yaml` Wolfi Melange yaml:
+
+```json
+    {
+      "SPDXID": "SPDXRef-Package-glibc-locale-posix-2.39-r6",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceLocator": "pkg:apk/wolfi/glibc-locale-posix@2.39-r6?arch=x86_64",
+          "referenceType": "purl"
+        },
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceLocator": "pkg:generic/glibc@2.39?checksum=sha256%3Af77bd47cf8170c57365ae7bf86696c118adb3b120d3259c64c502d3dc1e2d926&download_url=http%3A%2F%2Fftp.gnu.org%2Fgnu%2Flibc%2Fglibc-2.39.tar.xz",
+          "referenceType": "purl"
+        },
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceLocator": "pkg:github/wolfi-dev/os@f18ff825f94b9177cf603c6e3d72936683a504d2#glibc.yaml",
+          "referenceType": "purl"
+        }
+      ],
+      "licenseDeclared": "LGPL-2.1-or-later",
+      "name": "glibc-locale-posix",
+      "originator": "Organization: Wolfi",
+      "supplier": "Organization: Wolfi",
+      "versionInfo": "2.39-r6"
+    }
+```
 
 ## Learn more
 
