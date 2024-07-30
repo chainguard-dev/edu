@@ -11,7 +11,7 @@ toc: true
 ---
 ## chainctl auth login
 
-Login to the Chainguard platform.
+Log in to the Chainguard platform.
 
 ```
 chainctl auth login [--invite-code=INVITE_CODE] [--identity-token=PATH_TO_TOKEN] [--identity=IDENTITY_ID] [--identity-provider=IDP_ID] [--org-name=ORG_NAME] [--social-login={google|github|gitlab}] [--headless] [--prefer-ambient-credentials] [--refresh] [--output table|id|json|none]

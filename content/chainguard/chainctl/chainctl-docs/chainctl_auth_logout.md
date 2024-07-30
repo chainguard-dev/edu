@@ -11,7 +11,7 @@ toc: true
 ---
 ## chainctl auth logout
 
-Logout from the Chainguard platform.
+Log out from the Chainguard platform.
 
 ```
 chainctl auth logout [--audience=AUDIENCE]
