@@ -1,5 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400..600&family=Urbanist&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono");
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Bw Fusiona";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/bw-fusiona.woff2") format("woff2");
+}
+
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 
 @import "resets";
@@ -1140,7 +1146,7 @@ code {
 }
 
 h4, .h4 {
-    font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+    font-family: $TextFont;
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
