@@ -15,17 +15,16 @@
 
 @mixin light-mode {
   color-scheme: light;
-
   --a-original-color: inherit;
   --active-element-background: #f3f3f3;
-  --active-element-shadow: #3443f4;
-  --active-link-color: #000000;
-  --article-link-color: #3443f4;
+  --active-element-shadow: var(--primary-1);
+  --active-link-color: var(--primary-1);
+  --article-link-color: var(--primary-1);
   --basics-card-background: inherit;
-  --basics-card-border: #dcdcdc;
-  --blockquote-background: #f3f3f3;
-  --blockquote-border: var(--primary-3);
-  --blockquote-color: var(--secondary-2);
+  --basics-card-border: var(--secondary-1);
+  --blockquote-background: var(--primary-1);
+  --blockquote-border: var(--secondary-1);
+  --blockquote-color: var(--tertiary-1);
   --board-background-color: #f9f9f9;
   --body-background: #ffffff;
   --body-color: var(--primary-3);
@@ -37,7 +36,7 @@
   --card-background-1: var(--tertiary-2);
   --center-title-color: inherit;
   --code-color: #f3f3f3;
-  --contact-us-button-background: #3443f4;
+  --contact-us-button-background: var(--primary-1);
   --contact-us-button-color: #ffffff;
   --docs-navigation-border: var(--primary-2);
   --docs-navigation-button-border: #dcdcdc;
@@ -47,30 +46,30 @@
   --expand-button-border: inherit;
   --expand-button-color: #000000;
   --footer-item-color: var(--primary-3);
-  --footer-item-hover-color: #3443f4;
+  --footer-item-hover-color: var(--primary-1);
   --footer-title-color: inherit;
-  --form-check-input-background: #ebecfe;
+  --form-check-input-background: var(--primary-1);
   --form-check-input-checked-background: inherit;
   --form-check-input-checked-border: inherit;
-  --form-check-input-color: #3443f4;
+  --form-check-input-color: var(--secondary-1);
   --form-check-input-focus-border: inherit;
   --header-background: #f9f9f9;
   --home-background: #ffffff;
   --index-logo-color: #eeeeee;
   --language-selector-color: #000000;
-  --leftnav-border: #dcdcdc;
-  --navbar-contact-border: #c2c7fc;
-  --navbar-contact-color: #3443f4;
-  --note-deprecated: lightyellow;
-  --note-notice: lightblue;
+  --leftnav-border: var(--secondary-1);
+  --navbar-contact-border: var(--secondary-3);
+  --navbar-contact-color: var(--primary-1);
+  --note-deprecated: var(--tertiary-4);
+  --note-notice: var(--secondary-2);
   --note-warning: -var(--tertiary-3);
   --notification-background: #0e0e0e;
-  --notification-color: #c5c5c5;
+  --notification-color: var(--secondary-1);
   --offcanvas-close-color: var(--primary-3);
-  --page-link-active-color: var(--primary-3);
+  --page-link-active-color: var(--desaturated-primary-3);
   --page-link-color: var(--primary-3);
   --pills-icon-background: #f3f3f3;
-  --placeholder-color: #8c8c8c;
+  --placeholder-color: var(--secondary-1);
   --pre-container-background: #ffffff;
   --pre-container-border: #dcdcdc;
   --righthand-title-color: var(--primary-3);
@@ -85,27 +84,27 @@
   --severity-color: var(--primary-3);
   --severity-hover-background: #EBECFE;
   --severity-search-background: #F3F3F3;
-  --severity-search-border: #3443f4;
+  --severity-search-border: var(--primary-1);
   --sidebar-bottom-item-color: var(--primary-3);
-  --sidebar-bottom-item-hover-color: #3443f4;
+  --sidebar-bottom-item-hover-color: var(--primary-1);
   --sidebar-category-color: var(--primary-3);
   --sidebar-item-active-color: var(--primary-3);
   --sidebar-item-color: var(--primary-3);
-  --sidebar-item-list-item-selected-background: #eeeeee;
+  --sidebar-item-list-item-selected-background: var(--secondary-3);
   --sidebar-item-top-color: var(--primary-3);
   --step-background: #f3f3f3;
-  --suggestion-description-color: inherit;
-  --suggestion-title-color: inherit;
+  --suggestion-description-color: var(--primary-3);
+  --suggestion-title-color: var(--primary-3);
   --suggestions-background: #f9f9f9;
-  --suggestions-border: var(--primary-2);
-  --suggestions-hover-background: var(--primary-2);
+  --suggestions-border: var(--primary-3);
+  --suggestions-hover-background: var(--secondary-3);
   --tab-active-color: var(--primary-3);
-  --table-header-background: #F3F3F3;
-  --table-row-hover-background: #F3F3F3;
+  --table-header-background: var(--secondary-2);
+  --table-row-hover-background: var(--secondary-1);
   --table-row-background: #FFF;
-  --table-row-border-color: #DCDCDC;
+  --table-row-border-color: var(--secondary-3);
   --table-vulnerability-color: var(--primary-3);
-  --tabs-active-color: #3443f4;
+  --tabs-active-color: var(--primary-1);
   --tabs-color: var(--primary-3);
   --tag-background: #f5f0f0;
   --tag-color: #f3f3f3;
@@ -119,13 +118,12 @@
   --tooltip-color: #ffffff;
   --tooltip-container-color: inherit;
   --topic-card-hover: #f5f0f0;
-  --tutorial-divider-color: #dcdcdc;
-  --tutorial-hover-color: #3443f4;
+  --tutorial-divider-color: var(--secondary-1);
+  --tutorial-hover-color: var(--primary-1);
   --watch-btn-border: #dcdcdc;
   --watch-btn-color: var(--primary-3);
   --watch-btn-hover-background: #f5f0f0;
-
-  --info-icon-url: url("/info.svg");
+  --info-icon-url: url("/iconography/linky.svg");
   --chevron-icon-url: url("/chevron.svg");
   --search-icon-url: url("/search.svg");
   --copy-icon-url: url("/copy.svg");
@@ -135,7 +133,6 @@
 
 @mixin dark-mode {
   color-scheme: dark;
-
   --a-original-color: #c5c5c5;
   --active-element-background: var(--secondary-2);
   --active-element-shadow: var(--primary-2);
@@ -143,9 +140,9 @@
   --article-link-color: var(--primary-2);
   --basics-card-background: #190d30;
   --basics-card-border: var(--secondary-3);
-  --blockquote-background: #232323;
-  --blockquote-border: #c5c5c5;
-  --blockquote-color: #eeeeee;
+  --blockquote-background: var(--secondary-3);
+  --blockquote-border: var(--tertiary-2);
+  --blockquote-color: var(--primary-3);
   --board-background-color: #190d30;
   --body-background: var(--primary-3);
   --body-color: var(--secondary-3);
@@ -153,7 +150,7 @@
   --bs-table-bg: inherit;
   --caption-color: var(--secondary-3);
   --caption-title-color: var(--secondary-3);
-  --card-background-0: #7AF0FE;
+  --card-background-0: var(--primary-2);
   --card-background-1: var(--tertiary-1);
   --center-title-color: var(--tertiary-2);
   --code-color: #232323;
@@ -243,7 +240,7 @@
   --watch-btn-color: #ffffff;
   --watch-btn-hover-background: #232323;
 
-  --info-icon-url: url("/info-dark.svg");
+  --info-icon-url: url("/iconography/blue/linky.svg");
   --chevron-icon-url: url("/chevron-dark.svg");
   --search-icon-url: url("/search-dark.svg");
   --copy-icon-url: url("/copy-dark.svg");
