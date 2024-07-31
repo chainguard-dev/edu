@@ -74,4 +74,5 @@ Chainguard’s Security Advisory feed is a great tool to have at hand when scann
 
 For more information on how to use Chainguard’s Security Advisories page to inform your vulnerability remediation, consider reading our article on [How to Use Chainguard Security Advisories](
 /chainguard/chainguard-images/working-with-images/security-advisories).
-Readers wishing to contribute to the public vulnerability advisory repository for the [Wolfi OS](https://github.com/wolfi-dev/os) can learn how to do so in our [How to Interact with a Security Advisory Using wolfictl](/content/chainguard/chainguard-images/working-with-images/security-advisories/how-to-create/) guide. If you are using Chainguard Images at your organization or want to learn more about advisories for enterprise Images, please [contact us!](https://www.chainguard.dev/contact)
+
+If you are using Chainguard Images at your organization or want to learn more about advisories for enterprise Images, please [contact us!](https://www.chainguard.dev/contact)
