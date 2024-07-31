@@ -40,7 +40,7 @@ This enables you to create identities that can only be assumed by specific autom
 * [Buildkite](/chainguard/administration/iam-organizations/identity-examples/buildkite-identity/)
 * [Bitbucket](/chainguard/administration/iam-organizations/identity-examples/bitbucket-identity/)
 
-A notable difference between registered users and identities in Chainguard's IAM model is that identities are tied to a specific [IAM organization](/chainguard/chainguard-enforce/iam-groups/overview-of-enforce-iam-model/). When you create an identity, you must specify a Chainguard organization under which the identity will be created.
+A notable difference between registered users and identities in Chainguard's IAM model is that identities are tied to a specific [IAM organization](/chainguard/administration/iam-organizations/overview-of-chainguard-iam-model/). When you create an identity, you must specify a Chainguard organization under which the identity will be created.
 
 However, an identity won't automatically have access to the other resources associated with that organization. In order for an identity to be able to interact with a organization's resources — including the Images, repositories, and users associated with the organization — it must be granted the permissions it needs to do so. To do this, you must also tie the identity to a role. Chainguard comes with a few built-in roles, including `viewer`, `editor`, and `owner`. You can also create custom role-bindings with `chainctl`. Check out the [`chainctl iam role-bindings` documentation](/chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings/) for more details. 
 
@@ -161,4 +161,4 @@ If a workflow is authorized to assume the identity — meaning that its token ma
 
 ## Learn More
 
-As mentioned previously, we've published a few tutorials that outline how you can [set up an identity for a CI/CD workflow to assume](/chainguard/chainguard-enforce/iam-groups/identity-examples/). We strongly encourage you to follow these guides to better understand how assumable identities work in Chainguard.
+As mentioned previously, we've published a few tutorials that outline how you can [set up an identity for a CI/CD workflow to assume](/chainguard/administration/iam-organizations/identity-examples/). We strongly encourage you to follow these guides to better understand how assumable identities work in Chainguard.
