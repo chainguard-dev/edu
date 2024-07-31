@@ -395,18 +395,22 @@
     }
 
     .navbar-title {
+        color: var(--center-title-color);
         font-weight: 500;
-        font-size: 0.96em;
-        height: 50px;
-        padding-top: 10px;
-        padding-left: 5px;
+        font-size: 1em;
+    }
+
+    .navbar-title span {
+        margin-top:.25em;
+    }
+    
+    .block {
+        display:block;
     }
 
     .navbar-title-padding {
-        padding-top: 10px;
-        padding-right: 10px;
-        padding-bottom: 32px;
-        padding-left: 1px;
+        padding-top: .75em;
+        padding-bottom: 1.5em;
     }
 
     .a--original {
@@ -423,7 +427,7 @@
 
     .search-container {
         flex: 1;
-        padding: 24px 12px;
+        padding: 0 24px 12px;
         position: sticky;
         top: 0;
         background-color: var(--board-background-color);
