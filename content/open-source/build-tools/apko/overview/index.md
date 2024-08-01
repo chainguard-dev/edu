@@ -16,22 +16,10 @@ weight: 10
 toc: true
 ---
 
-[apko](http://github.com/chainguard-dev/apko) is a command-line tool that was developed for [Chainguard Images](/chainguard/chainguard-images). 
+[apko](http://github.com/chainguard-dev/apko) is a command-line tool designed to create single-layer container images based on the [apk](https://wiki.alpinelinux.org/wiki/Package_management) package format. It was so named as it uses the apk package format and is inspired by the [ko](https://github.com/google/ko) build tool.
 
-apko is so named as it uses the [APK](https://wiki.alpinelinux.org/wiki/Package_management) package format and is inspired by the [ko](https://github.com/google/ko) build tool.
-
-The following image contains an overview of the apko ecosystem and how it interacts with melange for building apk-based images, using either Alpine or Wolfi as base system.
+apko is part of the open source toolkit developed by Chainguard to build [Chainguard Images](/chainguard/chainguard-images/overview/). The following diagram contains an overview of the apko ecosystem and how it interacts with [melange](/open-source/build-tools/melange/overview/) for building apk-based images, using either [Wolfi](/open-source/wolfi/overview/) or Alpine as base system.
 
 ![The following image contains an overview of the apko ecosystem and how it interacts with melange for building apk-based images, using either Alpine or Wolfi as base system.](apko_melange_ecosystem.png)
 
-apko and [melange](/open-source/melange) are part of the open source toolkit developed by Chainguard to build [Wolfi](/open-source/wolfi) and [Chainguard Images](/chainguard/chainguard-images).
-
-### apko Features
-
-- **Fully reproducible by default.** Run apko twice and you will get exactly the same binary.
-- **Fast.** apko aims to build images in ms.
-- **Small.** apko generated images only contain what's needed by the application, in the style of distroless.
-- **SBOM Support.** apko produces a Software Bill of Materials (SBOM) for images, detailing all the packages inside.
-- **Services.** apko supports using the s6 supervision suite to run multiple processes in a container without reaping or signalling issues.
-
-
+For more information and up-to-date examples on how to use apko, please refer to the [apko repository on GitHub](http://github.com/chainguard-dev/apko).
