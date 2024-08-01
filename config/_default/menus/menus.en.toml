@@ -148,122 +148,146 @@
   weight = 1
   parent = "products"
 
+
 [[footer]]
-  name = "Chainguard Services"
-  url = "https://www.chainguard.dev/services"
+  name = "Images Directory"
+  url = "https://images.chainguard.dev/"
+  weight = 2
+  parent = "products"
+
+[[footer]]
+  name = "Pricing"
+  url = "https://chainguard.dev/chainguard-images#pricing"
   weight = 3
   parent = "products"
 
 [[footer]]
-  name = "Developer"
-  weight = 2
-  identifier = "developer"
-
-[[footer]]
-  name = "Open source"
-  url = "https://www.chainguard.dev/open-source"
-  weight = 1
-  parent = "developer"
-
-[[footer]]
-  name = "Docs"
-  url = "/"
-  weight = 2
-  parent = "developer"
-
-[[footer]]
-  name = "Resources"
+  name = "Why Chainguard"
   weight = 3
-  identifier = "resources"
+  identifier = "why"
 
 [[footer]]
-  name = "Unchained blog"
-  url = "https://www.chainguard.dev/unchained"
+  name = "Container Image Security"
+  url = "https://chainguard.dev/solutions/container-image-security"
   weight = 1
-  parent = "resources"
+  parent = "why"
 
 [[footer]]
-  name = "Customer stories"
-  url = "https://www.chainguard.dev/customers"
+  name = "Vulnerability Remediation"
+  url = "https://chainguard.dev/solutions/vulnerability-remediation"
   weight = 2
-  parent = "resources"
+  parent = "why"
 
 [[footer]]
-  name = "Security"
-  url = "https://www.chainguard.dev/security"
+  name = "Compliance & Risk Mitigation"
+  url = "https://chainguard.dev/solutions/compliance-and-risk-mitigation"
   weight = 3
-  parent = "resources"
+  parent = "why"
 
 [[footer]]
-  name = "Education"
-  url = "/"
+  name = "Software Supply Chain Security"
+  url = "https://chainguard.dev/solutions/software-supply-chain-security"
   weight = 4
-  parent = "resources"
+  parent = "why"
+
+[[footer]]
+  name = "AI/ML Security"
+  url = "https://get.chainguard.dev/ai-images"
+  weight = 5
+  parent = "why"
+
+[[footer]]
+  name = "Customers"
+  weight = 5
+  identifier = "customers"
+
+
+[[footer]]
+  name = "Customers"
+  url = "https://chainguard.dev/customers"
+  weight = 1
+  parent = "customers"
+
+
+[[footer]]
+  name = "Chainguard Love"
+  url = "https://chainguard.dev/chainguard-love"
+  weight = 2
+  parent = "customers"
+
 
 [[footer]]
   name = "Company"
-  weight = 4
+  weight = 7
   identifier = "company"
 
 [[footer]]
-  name = "About"
-  url = "https://www.chainguard.dev/about-us"
+  name = "About Us"
+  url = "https://chainguard.dev/about-us"
   weight = 1
   parent = "company"
 
 [[footer]]
-  name = "Newsroom"
-  url = "https://www.chainguard.dev/newsroom"
+  name = "Open Source"
+  url = "https://chainguard.dev/open-source"
   weight = 2
   parent = "company"
 
 [[footer]]
   name = "Careers"
-  url = "https://www.chainguard.dev/careers"
+  url = "https://chainguard.dev/careers"
   weight = 3
   parent = "company"
 
 [[footer]]
-  name = "Legal"
-  url = "https://www.chainguard.dev/acceptable-use-policy"
+  name = "Newsroom"
+  url = "https://chainguard.dev/newsroom"
   weight = 4
+  parent = "company"
+
+[[footer]]
+  name = "Legal"
+  url = "https://chainguard.dev/legal"
+  weight = 5
   parent = "company"
 
 [[footer]]
   name = "Contact"
   url = "https://www.chainguard.dev/contact"
-  weight = 5
+  weight = 6
   parent = "company"
 
-[[footer]]
-  name = "Follow"
-  weight = 5
-  identifier = "follow"
 
 [[footer]]
-  name = "Twitter"
-  url = "https://twitter.com/chainguard_dev"
+  name = "Resources"
+  weight = 9
+  identifier = "resources"
+
+[[footer]]
+  name = "Unchained Blog"
+  url = "https://chainguard.dev/unchained"
+  weight = 1
+  parent = "resources"
+
+[[footer]]
+  name = "Research"
+  url = "https://chainguard.dev/labs"
   weight = 2
-  parent = "follow"
-  pre = "<svg width=\"8\" height=\"14\" viewBox=\"0 1 8 9\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0.77 8L0 7.23L6.146 1.084H0.916V0H8V7.084H6.916V1.854L0.77 8Z\" fill=\"currentColor\"/></svg>"
+  parent = "resources"
 
 [[footer]]
-  name = "GitHub"
-  url = "https://github.com/chainguard-dev/edu"
+  name = "Events"
+  url = "https://chainguard.dev/events"
   weight = 3
-  parent = "follow"
-  pre = "<svg width=\"8\" height=\"14\" viewBox=\"0 1 8 9\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0.77 8L0 7.23L6.146 1.084H0.916V0H8V7.084H6.916V1.854L0.77 8Z\" fill=\"currentColor\"/></svg>"
+  parent = "resources"
 
 [[footer]]
-  name = "LinkedIn"
-  url = "https://www.linkedin.com/company/chainguard-dev"
-  weight = 4
-  parent = "follow"
-  pre = "<svg width=\"8\" height=\"14\" viewBox=\"0 1 8 9\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0.77 8L0 7.23L6.146 1.084H0.916V0H8V7.084H6.916V1.854L0.77 8Z\" fill=\"currentColor\"/></svg>"
+  name = "Trust Center"
+  url = "https://security.chainguard.dev/"
+  parent = "resources"
 
 [[footer]]
-  name = "TikTok"
-  url = "https://www.tiktok.com/@chainguard_dev"
+  name = "Documentation"
+  url = "/"
   weight = 5
-  parent = "follow"
-  pre = "<svg width=\"8\" height=\"14\" viewBox=\"0 1 8 9\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0.77 8L0 7.23L6.146 1.084H0.916V0H8V7.084H6.916V1.854L0.77 8Z\" fill=\"currentColor\"/></svg>"
+  parent = "resources"

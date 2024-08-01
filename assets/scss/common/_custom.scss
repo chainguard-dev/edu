@@ -654,13 +654,14 @@
     }
 
     .footer-column {
-        max-width: 172px;
+        padding: 0 1em;
         flex: 1 1 0px;
     }
 
     .footer-column-container {
         display: flex;
-        gap: 24px;
+        padding: 0 10%;
+        // gap: .5em;
         justify-content: center;
         flex-wrap: wrap;
     }
