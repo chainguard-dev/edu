@@ -24,7 +24,7 @@ No. Chainguard built [apko](https://github.com/chainguard-dev/apko) as part of i
 apko images are defined declaratively using a YAML file. It was designed this way to facilitate reproducible builds — run apko twice, and you'll get the same output.
 
 ## Does apko provide SBOMs?
-Yes, apko builds include high-quality SBOMs (software bills of materials) for all builds. This is a key feature of the tooling that Chainguard has developed to ensure that users can trust the software they are running.
+Yes, apko builds include high-quality [SBOMs](/open-source/sbom/what-is-an-sbom/) (software bills of materials) for all builds. This is a key feature of the tooling that Chainguard has developed to ensure that users can trust the software they are running.
 
 ## Can I use apko images with Docker?
 Yes, images built with apko are fully OCI compliant and can be used with any container runtime that supports the OCI image format.
