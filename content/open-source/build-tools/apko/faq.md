@@ -21,7 +21,7 @@ toc: true
 No. Chainguard built [apko](https://github.com/chainguard-dev/apko) as part of its open source tooling around the [Wolfi](/open-source/wolfi) operating system. While you can check out the [project on GitHub](https://github.com/chainguard-dev/apko) and learn more, it's not a prerequisite for using or [working with Chainguard Images](/chainguard/chainguard-images/working-with-images).
 
 ## How are apko images defined?
-apko images are defined declaratively using a YAML file. It was designed this way to facilitate reproducible builds - run apko twice, and you'll get the same output.
+apko images are defined declaratively using a YAML file. It was designed this way to facilitate reproducible builds — run apko twice, and you'll get the same output.
 
 ## Does apko provide SBOMs?
 Yes, apko builds include high-quality SBOMs (software bills of materials) for all builds. This is a key feature of the tooling that Chainguard has developed to ensure that users can trust the software they are running.
