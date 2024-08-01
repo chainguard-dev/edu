@@ -19,17 +19,11 @@ toc: true
 # terminalImage: melange:latest
 ---
 
-[melange](https://github.com/chainguard-dev/melange) is an [apk](https://wiki.alpinelinux.org/wiki/Package_management) builder tool that uses declarative pipelines to create apk packages. From a single YAML file, users are able to generate multi-architecture apks that can be injected directly into [apko](https://github.com/chainguard-dev/apko) builds, which renders apko and melange a [powerful combination for any container image factory](https://blog.chainguard.dev/secure-your-software-factory-with-melange-and-apko/).
+[melange](https://github.com/chainguard-dev/melange) is an [apk](https://wiki.alpinelinux.org/wiki/Package_management) builder tool that uses declarative pipelines to create apk packages. From a single YAML file, users are able to generate multi-architecture apks that can be injected directly into [apko](https://github.com/chainguard-dev/apko) builds.
 
-Understanding melange can help you better understand the [Wolfi](/open-source/wolfi) operating system and how [Chainguard Images](/chainguard/chainguard-images) are made to be minimal and secure, but it is not necessary to have a background in melange in order to use Chainguard Images. 
+Understanding melange can help you better understand the [Wolfi](/open-source/wolfi) operating system and how [Chainguard Images](/chainguard/chainguard-images) are made to be minimal and secure, but it is not necessary to have a background in melange in order to use Chainguard Images.
 
-## Why melange
-
-Software supply chain threats have been growing exponentially in the last few years, according to [industry leaders and security researchers (PDF)](https://www.usenix.org/system/files/login/articles/login_winter20_17_geer.pdf). With the popularization of automated workflows and cloud native deployments, it is more important than ever to provide users with the ability to attest the provenance of all relevant software artifacts.
-
-Instead of building your application together with your components and system dependencies, you can build your application once and compose it into different architectures and distributions using melange, as if they were any other component of an image.
-
-In this guide, you'll learn how to build a software package with melange. To demonstrate the versatile combination of melange and apko builds, we'll package a small command-line PHP script and build a minimalist container image with the generated apk. All files used in this demo are open source and available at the [melange-php-demos](https://github.com/chainguard-dev/melange-php-demos/tree/main/hello-minicli) repository.
+In this guide, you'll learn how to build a software package with melange. To demonstrate the versatile combination of melange and apko builds, we'll package a small command-line PHP script and build a minimalist container image based on Wolfi with the generated apk. All files used in this demo are open source and available at the [melange-php-demos](https://github.com/chainguard-dev/melange-php-demos/tree/main/hello-minicli) repository.
 
 ## Requirements
 
@@ -39,7 +33,7 @@ You won't need PHP or Composer installed on your system, since we'll be using Do
 
 ### Note for Linux Users
 
-In order to be able to build apks for multiple architectures using Docker, you'll need to register additional QEMU headers within your kernel. This is done automatically for Docker Desktop users, so if you are on macOS you don't need to run this additional step.
+In order to be able to build apks for multiple architectures using Docker, you may need to register additional QEMU headers within your kernel. This is done automatically for Docker Desktop users, so if you are on macOS you don't need to run this additional step.
 
 Run the following command to register the necessary handlers within your kernel, using the [multiarch/qemu-user-static](https://github.com/multiarch/qemu-user-static) image.
 
@@ -47,17 +41,17 @@ Run the following command to register the necessary handlers within your kernel,
 docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 ```
 
-You should now be able to build apks for all architectures that melange supports.
+You should now be able to build apks for all architectures supported by melange.
 
-## Step 1 — Downloading the melange Image
+## 1 — Downloading the melange Image
 
-The fastest way to get melange up and running on your system is by using the [official melange image](https://images.chainguard.dev/directory/image/melange/versions) with Docker. Start by pulling the official melange image into your local system:
+The fastest way to get melange up and running on your system is by using the [official melange image](https://images.chainguard.dev/directory/image/melange/versions) with Docker. Start by pulling the melange image into your local system:
 
 ```shell
 docker pull cgr.dev/chainguard/melange:latest
 ```
 
-This will download the latest version of the distroless melange image, which is rebuilt every night for extra freshness.
+This will download the latest version of the melange image, which is rebuilt every night for extra freshness.
 
 Check that you're able to run melange with `docker run`.
 
@@ -75,122 +69,33 @@ You should get output similar to the following:
  |_|  |_| |_____| |_____| /_/   \_\ |_| \_|  \____| |_____|
 melange
 
-GitVersion:    v0.1.0-67-g108fd6a
-GitCommit:     108fd6a5e400bd100ef6db813380de44516de6e6
+GitVersion:    v0.11.1
+GitCommit:     a52edcc075ebf1dc89aea87893e3821944171ee3
 GitTreeState:  clean
-BuildDate:     2022-08-01T13:36:41
-GoVersion:     go1.18.5
+BuildDate:     '2024-07-19T16:04:17Z'
+GoVersion:     go1.22.5
 Compiler:      gc
 Platform:      linux/amd64
+
 ```
 
 With melange installed, you’re ready to proceed.
 
-## Step 2 — Preparing the Demo App
+## 2 — Cloning the Demo Repository
 
-To demonstrate melange's features with a minimalist application that has real-world functionality, we'll create a PHP command line app that queries the [Slip advice](https://api.adviceslip.com/) API and outputs a random piece of advice. The app is a single-file script built with [Minicli](https://github.com/minicli).
+To demonstrate melange's features with a minimalist application that has real-world functionality, our demo consists of a PHP command line app that queries the [Slip advice](https://api.adviceslip.com/) API and outputs a random piece of advice. The app is a single-file script built with [Minicli](https://github.com/minicli).
 
-Create a folder in your home directory to place your demo files, then `cd` into it:
-
-```shell
-mkdir ~/hello-minicli && cd $_
-```
-
-Run the following command, which will use the official Composer image to generate a `composer.json` file and download `minicli/minicli`:
+Start by cloning the demo repository to your local machine and navigating to the `melange-php-demos/hello-minicli` directory:
 
 ```shell
-docker run --rm -it -v "${PWD}":/app composer require minicli/minicli
+git clone git@github.com:chainguard-dev/melange-php-demos.git
+cd melange-php-demos/hello-minicli
 ```
 
-Once you receive confirmation that the download was completed, we'll need a second dependency to query the advice slip API. Run the following command to include `minicli/curly`, a simple curl wrapper for Minicli:
+Now you can run the application to make sure it's functional. You can do that using Docker and Chainguard's PHP image:
 
 ```shell
-docker run --rm -it -v "${PWD}":/app composer require minicli/curly
-```
-
-Next, create a new file called `minicli` using your text editor of choice. This will be the executable we'll ship with our apk package.
-
-```shell
-nano minicli
-```
-
-The following code will set up a new Minicli application and define a single command called `advice`. This will make a GET query to the advice slip API, check the return code, and print the resulting quote when the query is successful.
-
-Because our app will be built into an apk and later on embedded on a container image, we'll check for the right location of the vendor folder before requiring the `autoload.php` file. This file must be included before the application is instantiated. The `MINICLI_HOME` environment variable can be used to customize the vendor location, which is by default set to `/usr/share/minicli`.
-
-Place the following code in your `minicli` file:
-
-```php
-#!/usr/bin/env php
-
-<?php
-
-use Minicli\App;
-use Minicli\Curly\Client;
-use Minicli\Exception\CommandNotFoundException;
-
-if (php_sapi_name() !== 'cli') {
-    exit;
-}
-
-$vendor_path = __DIR__ . '/vendor/autoload.php';
-
-if (!file_exists($vendor_path)) {
-    $minicli_home = getenv('MINICLI_HOME') ?: '/usr/share/minicli';
-    $vendor_path = $minicli_home . '/vendor/autoload.php';
-}
-
-require $vendor_path;
-
-
-$app = new App([
-    'debug' => true
-]);
-
-$app->setSignature('Usage: ./minicli advice');
-
-$app->registerCommand('advice', function () use ($app) {
-    $client = new Client();
-
-    $response = $client->get('https://api.adviceslip.com/advice');
-    if ($response['code'] !== 200) {
-        $app->getPrinter()->error('An API error has occurred.');
-        return;
-    }
-
-    $advice = json_decode($response['body'], true);
-    $app->getPrinter()->info($advice['slip']['advice']);
-});
-
-try {
-    $app->runCommand($argv);
-} catch (CommandNotFoundException $notFoundException) {
-    $app->getPrinter()->error("Command Not Found.");
-    return 1;
-} catch (Exception $exception) {
-    if ($app->config->debug) {
-        $app->getPrinter()->error("An error occurred:");
-        $app->getPrinter()->error($exception->getMessage());
-    }
-    return 1;
-}
-
-return 0;
-
-```
-
-Save and close the file when you're done. If you're using `nano`, you can do that by typing `CTRL+X`, then `Y` and `ENTER` to confirm.
-
-Set the script as executable with:
-
-```shell
-chmod +x minicli
-```
-
-Now you can run the application to make sure it's functional. We'll also use Docker for that:
-
-```shell
-docker run --rm -it -v "${PWD}":/app php:8.1-cli php /app/minicli advice
+docker run --rm -it -v "${PWD}":/app cgr.dev/chainguard/php /app/minicli advice
 ```
 
 You should get a random piece of advice such as:
@@ -201,14 +106,8 @@ Gratitude is said to be the secret to happiness.
 
 With the application ready, you can start building your package.
 
-## Step 3 — Creating the melange YAML File
-The `melange.yaml` file is where you'll declare the details and specifications of your apk package. For code that generates self-contained binaries, this is typically where you'll build your application artifacts with compiler tools. In the case of interpreted languages, you'll likely build your application by downloading vendor dependencies, setting up relevant paths, and setting the environment up for production.
-
-Create a new file in your `hello-minicli` folder called `melange.yaml`:
-
-```shell
-nano melange.yaml
-```
+## 3 — The melange YAML File
+The `melange.yaml` file is where you declare the details and specifications of your apk package. For code that generates self-contained binaries, this is typically where you'll build your application artifacts with compiler tools. In the case of interpreted languages, you'll likely build your application by downloading vendor dependencies, setting up relevant paths, and setting the environment up for production.
 
 The melange specification file contains three main sections:
 
@@ -216,9 +115,9 @@ The melange specification file contains three main sections:
 - **environment**: defines how the environment should be prepared for the build, including required packages and their source repositories. Anything that is only required at build time goes here, and shouldn't be part of the runtime dependencies.
 - **pipeline**: defines the build pipeline for this package.
 
-One of the best advantages of using melange is to be able to control all steps of your build pipeline, and include only what's absolutely necessary. This way, you'll be able to build smaller and more secure container images by removing unnecessary dependencies.
+One of the best advantages of using melange is to be able to control all steps of your build pipeline, and include only what's necessary. This way, you'll be able to build smaller and more secure container images by removing unnecessary dependencies.
 
-Place the following content in your `melange.yaml` file:
+This is what the `melange.yaml` included in our demo looks like, for your reference:
 
 ```yaml
 package:
@@ -228,29 +127,29 @@ package:
   target-architecture:
     - all
   copyright:
-    - license: Apache-2.0
-      paths:
-        - "*"
+    - license: MIT
   dependencies:
     runtime:
-      - php81
-      - php81-common
-      - php81-curl
-      - php81-openssl
+      - php
+      - php-curl
 
 environment:
   contents:
+    keyring:
+      - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
+      - ./melange.rsa.pub
     repositories:
-      - https://dl-cdn.alpinelinux.org/alpine/edge/main
-      - https://dl-cdn.alpinelinux.org/alpine/edge/community
+      - https://packages.wolfi.dev/os
     packages:
-      - alpine-baselayout-data
       - ca-certificates-bundle
+      - busybox
       - curl
-      - php81
-      - php81-common
-      - php81-curl
-      - php81-openssl
+      - git
+      - php
+      - php-phar
+      - php-iconv
+      - php-openssl
+      - php-curl
       - composer
 
 pipeline:
@@ -266,15 +165,11 @@ pipeline:
 
 ```
 
-Save and close the file when you're done.
-
 Our build pipeline will set up two distinct directories, separating the application dependencies from its executable entry point. The executable `minicli` script will be copied into `/usr/bin`, while the vendor files will be located at `/usr/share/minicli`.
 
-## Step 4 — Building your apk
+## 4 — Building the minicli apk with melange
 
-First make sure you're at the `~/hello-minicli` directory.
-
-To get started, create a temporary keypair to sign your melange packages:
+Before building the package, you'll need to create a temporary keypair to sign it. You can use the following command for that:
 
 ```shell
 docker run --rm -v "${PWD}":/work cgr.dev/chainguard/melange keygen
@@ -282,9 +177,9 @@ docker run --rm -v "${PWD}":/work cgr.dev/chainguard/melange keygen
 This will generate a `melange.rsa` and `melange.rsa.pub` files in the current directory.
 
 ```
-2022/08/05 14:46:05 generating keypair with a 4096 bit prime, please wait...
-2022/08/05 14:46:08 wrote private key to melange.rsa
-2022/08/05 14:46:08 wrote public key to melange.rsa.pub
+2024/08/01 16:55:31 INFO generating keypair with a 4096 bit prime, please wait...
+2024/08/01 16:55:33 INFO wrote private key to melange.rsa
+2024/08/01 16:55:33 INFO wrote public key to melange.rsa.pub
 ```
 
 Next, build the apk defined in the `melange.yaml` file with the following command:
@@ -292,57 +187,49 @@ Next, build the apk defined in the `melange.yaml` file with the following comman
 ```shell
 docker run --privileged --rm -v "${PWD}":/work \
   cgr.dev/chainguard/melange build melange.yaml \
-  --arch x86,amd64,aarch64,armv7 \
+  --arch amd64,aarch64 \
   --signing-key melange.rsa
 ```
-This will set up a volume sharing your current folder with the location `/work` inside the container. We'll build packages for `x86`, `amd64`, `aarch64`, and `armv7` platforms and sign them using the `melange.rsa` key.
+This will set up a volume sharing your current folder with the location `/work` inside the container. We'll build packages for `amd64` and `aarch64` platforms and sign them using the `melange.rsa` key created in the previous command.
 
 When the build is finished, you should be able to find a `packages` folder containing the generated apks (and associated apk index files):
 
 ```
 packages
 ├── aarch64
+│   ├── APKINDEX.json
 │   ├── APKINDEX.tar.gz
-│   └── hello-minicli-0.1.0-r0.apk
-├── armv7
-│   ├── APKINDEX.tar.gz
-│   └── hello-minicli-0.1.0-r0.apk
-├── x86
-│   ├── APKINDEX.tar.gz
-│   └── hello-minicli-0.1.0-r0.apk
+│   └── hello-minicli-0.1.0-r0.apk
 └── x86_64
-│   ├── APKINDEX.tar.gz
+    ├── APKINDEX.json
+    ├── APKINDEX.tar.gz
     └── hello-minicli-0.1.0-r0.apk
 
-4 directories, 8 files
+3 directories, 6 files
 ```
 
 You have successfully built a multi-architecture software package with melange!
 
-## Step 5 — Building a Container Image with apko
+## 5 — Building a Container Image with apko
 
 With the apk packages and apk index in place, you can now build a container image and have your apk(s) installed within it.
 
-Create a new file called `apko.yaml` in your `~/hello-minicli` directory:
-
-```shell
-nano apko.yaml
-```
-
-The following apko specification will create a container image tailored to the application we built in the previous steps. Because we defined the PHP dependencies as runtime dependencies within the apk, you don't need to require these packages again here. The container entrypoint command will be set to `/usr/bin/minicli`, where the application executable is located.
+The following `apko.yaml` file will create a container image tailored to the application we built in the previous steps. Because we defined the PHP dependencies as runtime dependencies within the apk, you don't need to require these packages again here. The container entrypoint command will be set to `/usr/bin/minicli`, where the application executable is located.
 
 One important thing to note is how we reference the `hello-minicli` apk as a local package within the `repositories` section of the YAML file. The `@local` notation tells apko to search for apks in the specified directory, in this case `/work/packages`.
 
-Place the following text in your `apko.yaml` file:
+This is what the `apko.yaml` file included in our demo looks like, for your reference:
 
 ```yaml
 contents:
+  keyring:
+    - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
+    - ./melange.rsa.pub
   repositories:
-    - https://dl-cdn.alpinelinux.org/alpine/edge/main
-    - https://dl-cdn.alpinelinux.org/alpine/edge/community
+    - https://packages.wolfi.dev/os
     - '@local /work/packages'
   packages:
-    - alpine-baselayout-data
+    - wolfi-base
     - ca-certificates-bundle
     - hello-minicli@local
 accounts:
@@ -357,22 +244,17 @@ entrypoint:
   command: /usr/bin/minicli advice
 ```
 
-Save and close the file when you're done. You are now ready to build your container image.
-
 The following command will set up a volume sharing your current folder with the location `/work` in the apko container, running the `apko build` command to generate an image based on your `apko.yaml` definition file.
 
 ```shell
 docker run --rm --workdir /work -v ${PWD}:/work cgr.dev/chainguard/apko \
-  build apko.yaml hello-minicli:test hello-minicli.tar \
-  --arch host \
-  -k melange.rsa.pub
+  build apko.yaml hello-minicli:test hello-minicli.tar --arch host
 ```
 This will build an OCI image based on your host system's architecture (specified by the `--arch host` flag). If you receive warnings at this point, those are likely related to the types of SBOMs being uploaded and can be safely ignored.
 
 The command will generate a few new files in the app's directory:
 
 - `hello-minicli.tar` — the packaged OCI image that can be imported with a `docker load` command
-- `sbom-%host-architecture%.cdx` — an SBOM file for your host architecture in `cdx` format
 - `sbom-%host-architecture%.spdx.json` — an SBOM file for your host architecture in `spdx-json` format
 
 Next, load your image within Docker:
@@ -381,11 +263,11 @@ Next, load your image within Docker:
 docker load < hello-minicli.tar
 ```
 ```
-10f951ac3cd2: Loading layer [==================================================>]  7.764MB/7.764MB
+7cbaefdf1c30: Loading layer   13.7MB/13.7MB
 Loaded image: hello-minicli:test-%host-architecture%
 ```
 
-Note that the `%host-architecture%` will vary, and there may be multiple images loaded into your Docker daemon. Be sure to edit the variable in the following `docker run` command to match your target architecture. You can also click to edit it inline on this page.
+Note that the `%host-architecture%` will vary, and there may be multiple images loaded into your Docker daemon. Be sure to edit the variable in the following `docker run` command to match your target architecture.
 
 Now you can run your Minicli program with:
 
@@ -402,6 +284,6 @@ You have successfully built a minimalist container image with your apk package i
 
 ## Conclusion
 
-In this guide, we built a demo command line application and packaged it with melange. We also built a container image to install and run our custom apk, using the apko tool. For more information about apko, check our [Getting Started with apko](/open-source/apko/getting-started-with-apko/) guide.
+In this guide, we packaged a PHP command-line app with melange. We also built a container image to install and run our custom apk, using the apko tool. For more information about apko, check our [Getting Started with apko](/open-source/apko/getting-started-with-apko/) guide.
 
-The demo files are available at the repository [melange-php-demos](https://github.com/chainguard-dev/melange-php-demos), in the `hello-minicli` subfolder. For more information on how to debug your builds, please refer to the demo's [README](https://github.com/chainguard-dev/melange-php-demos/tree/main/hello-minicli) file and check the official documentation for [melange](https://github.com/chainguard-dev/melange) and [apko](https://github.com/chainguard-dev/apko).
+The demo files are available at the [melange-php-demos](https://github.com/chainguard-dev/melange-php-demos) repository, in the `hello-minicli` subfolder. For additional information on how to debug your builds and other features, check the [melange](https://github.com/chainguard-dev/melange) and [apko](https://github.com/chainguard-dev/apko) repositories on GitHub.
