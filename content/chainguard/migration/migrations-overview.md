@@ -1,6 +1,6 @@
 ---
 title: "Overview of Migrating to Chainguard Images"
-linktitle: "Overview"
+linktitle: "Migration Overview"
 type: "article"
 description: "This overview serves as a collection of information and resources on migrating to Chainguard Images."
 date: 2024-07-220T12:56:52-00:00
@@ -230,6 +230,53 @@ docker run -it cgr.dev/chainguard/python:latest-dev echo "in a shell"
 
 When using Chainguard's `-dev` Images in production environments, we recommend that you use them in a multi-stage Docker build. This will allow you to use a `-dev` variant image as a builder container, and then promote that build to an image that removes any unnecessary components.
 
+#### Images don't run as root by default
+
+Although there are exceptions, Chainguard Images typically don’t run as the root user. The reason for this is that distroless containers should have no privileged capabilities, and containers that run as a non-root user and use a minimal seccomp profile are ideal from a security perspective.
+
+Because they don't run as the root user, you may need to include a `USER root` statement in your Dockerfile before installing software on a Chainguard Image.
+
+Additionally, be aware that `-dev` images also do not run as root in most cases, which can result in permission errors like the following:
+
+```Example
+docker run -it --entrypoint bin/bash chainguard/python:latest-dev
+
+bash-5.2$ mkdir test
+mkdir: can't create directory 'test': Permission denied
+
+bash-5.2$ sudo mkdir test
+bash: sudo: command not found
+```
+
+In cases like this, you can instead run a command like the following to access the container's shell as the root user:
+
+```sh
+docker run -it --user root --entrypoint bin/bash chainguard/python:latest-dev
+```
+
+Here, the `--user` option tells Docker to assume the root user role.
+
+
+#### Packages not found
+
+Container images are usually meant to support every possible use case. Because of this, they often contain packages that aren't necessary for many use cases, which increases the container image's attack surface and makes it more likely to contain CVEs.
+
+Chainguard Images are built with minimalism in mind, and thus contain the bare minimum packages needed for an image to function. However, this also means that Chainguard Images may not contain the packages that you'd expect to find in third-party alternatives.
+
+If a Chainguard Image is missing certain packages that are required for your application, we recommend using a base image and installing the required dependencies on top of it, preferably in a multi-stage Docker build. Our guides on [How to Use Chainguard Images](/chainguard/chainguard-images/how-to-use-chainguard-images/#extending-chainguard-base-images) and [Getting Started with Distroless](/chainguard/migration/migrations-overview/) include guidance on how you can extend Chainguard base images. 
+
+In some cases you may have Docker builds that copy in binaries to run agents or similar tooling. You may find these binaries don’t work as expected as they are designed to run on a different Linux distribution. Be aware that Chainguard Images may not have the dependencies required by 3prd party binaries, or they may be stored at a different path.
+
+
+### Troubleshooting resources
+
+Even with these tips and potential pitfalls in mind, the move to a distroless workflow can lead to confusion. To help with troubleshooting issues that can occur, Chainguard Academy has a guide on [Debugging Distroless Images](/chainguard/chainguard-images/debugging-distroless-images/).
+
+We also have a video on [Debugging Distroless Containers with Docker Debug](/chainguard/chainguard-images/videos/debugging_distroless/).
+
+Lastly, you might also find help in the [Chainguard Images FAQs](/chainguard/chainguard-images/faq/).
+
+
 
 ## Migration Resources
 
@@ -290,13 +337,6 @@ In addition, we have a few migration guides in the form of videos:
 * [PyTorch](/chainguard/chainguard-images/getting-started/pytorch/)
 * [Ruby](/chainguard/chainguard-images/getting-started/ruby/)
 
-## Troubleshooting Resources
-
-Even with these migration resources, the move to a distroless workflow can lead to confusion. To help with troubleshooting issues that can occur, Chainguard Academy has a guide on [Debugging Distroless Images](/chainguard/chainguard-images/debugging-distroless-images/).
-
-We also have a video on [Debugging Distroless Containers with Docker Debug](/chainguard/chainguard-images/videos/debugging_distroless/).
-
-Lastly, you might also find help in the [Chainguard Images FAQs](/chainguard/chainguard-images/faq/).
 
 ## Further Reading
 
