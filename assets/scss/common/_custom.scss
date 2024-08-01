@@ -653,6 +653,27 @@
         padding-bottom: 96px;
     }
 
+
+    .footer-left-container {
+        display: flex;
+        justify-content: start;
+        flex-wrap: wrap;
+    }
+
+    .socials-copyright-footer {
+        margin: 0 10%;
+    }
+
+    .footer-social-icons {
+        margin-right: 2em;
+    }
+
+    .footer-social-icons img {
+        height:5em;
+        padding: .5em;
+        // transform: scale(1);
+    }
+
     .footer-column {
         padding: 0 1em;
         flex: 1 1 0px;
