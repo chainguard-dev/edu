@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "A brief tutorial on how to use Cosign to retrieve Chainguard Image SBOMs."
 date: 2023-11-17T11:07:52+02:00
-lastmod: 2023-11-17T11:07:52+02:00
+lastmod: 2024-08-01T11:07:52+02:00
 draft: false
 tags: ["Conceptual", "Chainguard Images", "SBOM"]
 images: []
@@ -74,32 +74,34 @@ You can use the drop-down menu above the table to select which version and archi
 
 Check out our guide on [using the Chainguard Images Directory](/chainguard/chainguard-images/images-directory/) for more details.
 
-## Licence Information and Source Code references
+## License Information and Source Code references
 
-The SBOM downloaded using either Cosign or Console methods described above contain identical information. It lists binary packages present in the image, their licensing information using SPDX [license](https://spdx.org/licenses/) and [exceptions](https://spdx.org/licenses/exceptions-index.html) lists and external source code references.
+The SBOM downloaded using either Cosign or Console methods described previously contain identical information. It lists binary packages present in the image, their licensing information using [SPDX license](https://spdx.org/licenses/) and [exceptions lists](https://spdx.org/licenses/exceptions-index.html), and external source code references.
 
-Source code references are encoded in the [external references](https://spdx.github.io/spdx-spec/v2.3/package-information/#721-external-reference-field) field, using [external repository identifiers](https://spdx.github.io/spdx-spec/v2.3/external-repository-identifiers/#f35-purl) in PURL format. PURL [specification](https://github.com/package-url/purl-spec/blob/master/PURL-SPECIFICATION.rst) allows for many schemes and types. The following PURLs are used in Chainguard SPDX SBOM:
+These source code references are encoded in the [external references](https://spdx.github.io/spdx-spec/v2.3/package-information/#721-external-reference-field) field, using [external repository identifiers](https://spdx.github.io/spdx-spec/v2.3/external-repository-identifiers/#f35-purl) in the package URL (purl) format. The [purl specification](https://github.com/package-url/purl-spec/blob/master/PURL-SPECIFICATION.rst) allows for various different schemes and types. 
 
- * `pkg:apk` denotes binary package origin, name, full version number with epoch and architecture. Example:
+The following The following purls are used in Chainguard SPDX SBOM:
+
+* `pkg:apk` denotes binary package origin, name, full version number with epoch, and architecture:
 
 ```
 pkg:apk/wolfi/ca-certificates-bundle@20240315-r4?arch=x86_64
 ```
 
- * `pkg:github` is used for upstream source code reference for packages built from GitHub repositories. For upstream source code PURL with a fixed commit hash is always provided. When available, a tag-version PURL is also provided. Examples:
+* `pkg:github` is used for upstream source code reference for packages built from GitHub repositories. These purls always include a fixed commit hash and, when available, also include a tag-version:
 
 ```
 pkg:github/openssl/openssl.git@openssl-3.3.1
 pkg:github/openssl/openssl.git@db2ac4f6ebd8f3d7b2a60882992fbea1269114e2
 ```
 
- * `pkg:github` is also used to reference melange packaging files from Wolfi and Chainguard. These are provided with a subpath component and a fixed commit hash. Example:
+    * Note that `pkg:github` is also used to reference melange packaging files from Wolfi and Chainguard. These are provided with a subpath component and a fixed commit hash:
 
 ```
 pkg:github/wolfi-dev/os@f18ff825f94b9177cf603c6e3d72936683a504d2#glibc.yaml
 ```
 
- * `pkg:generic` is used to reference any other upstream download locations, most commonly tarballs. Example:
+* `pkg:generic` is used to reference any other upstream download locations, most commonly tarballs:
 
 ```
 pkg:generic/gcc@13.2.0?
@@ -107,18 +109,18 @@ checksum=sha256%3A8cb4be3796651976f94b9356fa08d833524f62420d6292c5033a9a26af3150
 download_url=https%3A%2F%2Fftp.gnu.org%2Fgnu%2Fgcc%2Fgcc-13.2.0%2Fgcc-13.2.0.tar.gz
 ```
 
- * `pkg:generic` is also used to reference upstream git repositories, outside of GitHub. Example:
+    * Also note that `pkg:generic` is used to reference upstream git repositories, outside of GitHub:
 
 ```
 pkg:generic/ca-certificates@20240315?
 vcs_url=git%2Bhttps%3A%2F%2Fgitlab.alpinelinux.org%2Falpine%2Fca-certificates%4009e5e43336e532ec8217ae3bfc912bcb7048f65a
 ```
 
-PURLs are human readable, but can also be parsed using many [implementations](https://github.com/package-url/purl-spec?tab=readme-ov-file#known-implementations) in various programming and scripting languages.
+purls are human-readable, but various programming and scripting languages have [implementations](https://github.com/package-url/purl-spec?tab=readme-ov-file#known-implementations) that can parse them.
 
-As SPDX SBOM is distributed within Chainguard Images repository, along side each image hash, source code access compliance can be achieve by ensuring all attestations are mirrored together with each image.
+Because SPDX SBOMs are distributed within the Chainguard Images repository alongside each image hash, you can achieve source code access compliance by ensuring all attestations are mirrored together with each image.
 
-A snippet of a binary package SPDX stanza with license, version and source code references is shown below  for the `glibc-locale-posix` binary package, distributed under LGPL license, build from `glibc-2.39.tar.xz` upstream tarball, using `glibc.yaml` Wolfi Melange yaml:
+As an example, a snippet of a binary package SPDX stanza with license, version, and source code references is shown here:
 
 ```json
     {
@@ -147,6 +149,8 @@ A snippet of a binary package SPDX stanza with license, version and source code 
       "versionInfo": "2.39-r6"
     }
 ```
+
+This snippet shows that the `glibc-locale-posix` binary package is distributed under LGPL license, built from the `glibc-2.39.tar.xz` upstream tarball, using the `glibc.yaml` file from the `wolfi-dev/os` repository.
 
 ## Learn more
 
