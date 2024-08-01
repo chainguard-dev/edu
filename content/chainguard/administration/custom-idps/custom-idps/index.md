@@ -77,7 +77,7 @@ To authenticate with the Chainguard Consle using SSO, click the **Use your ident
 
 <center><img src="chainguard-sign-in.gif" alt="Screenshot showing an example Chainguard login page, with a yellow ellipse around the `Use your identity provider` link." style="width:600px;"></center>
 
-On the next page, you can choose to sign in with your organization email. When authenticating to a [Verified Organization](/chainguard/chainguard-enforce/iam-groups/verified-orgs/) via the Chainguard Console, your organization name will be detected from your email address and you do not need to supply the identity provider ID.
+On the next page, you can choose to sign in with your organization email. When authenticating to a [Verified Organization](/chainguard/administration/iam-organizations/verified-orgs/) via the Chainguard Console, your organization name will be detected from your email address and you do not need to supply the identity provider ID.
 
 <center><img src="chainguard-email-sign-in.png" alt"Screenshot showing an example Chainguard login page with a field reading `Enter your organization's email address`" style="width:600px;"></center>
 
