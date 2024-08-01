@@ -31,6 +31,8 @@ If you have a container environment that was working fine but suddenly breaks wi
 
 Before making API calls, you'll need to generate a token within the [Chainguard Registry](/chainguard/chainguard-registry/overview/).
 
+### For Public Images
+
 The Registry API endpoint for obtaining the token is:
 
 ```
@@ -48,7 +50,9 @@ auth_header="Authorization: Bearer $(curl 'https://cgr.dev/token?scope=repositor
   | jq -r .token)"
 ```
 
-For private images, you'll need to use your Chainguard Docker credentials. This assumes you've set up authentication with [chainctl auth configure-docker](https://edu.chainguard.dev/chainguard/chainguard-registry/authenticating/)):
+### For Private Images
+
+You'll need to use your Chainguard Docker credentials. This assumes you've set up authentication with [chainctl auth configure-docker](https://edu.chainguard.dev/chainguard/chainguard-registry/authenticating/):
 
 ```shell
 auth_header="Authorization: Bearer $(echo 'cgr.dev' | docker-credential-cgr get | jq -r .Secret)"
@@ -61,70 +65,37 @@ auth_header="$(crane auth token -H cgr.dev/ORGANIZATION_NAME/IMAGE_NAME)"
 ```
 Where `ORGANIZATION_NAME` is the name of your organization, for example: `company.com`, `IMAGE_NAME` is the name of the image, for example: `chainguard-base` (Note: the image name specified here does not need to be the same image you pass to the API later! But it needs to be a valid image from your registry.)
 
-To make sure your token is set, you can run the following command:
+
+## Calling the API
+
+Make sure your authorization header is set, by running the following command:
 
 ```shell
 echo $auth_header
 ```
 
-And you should get a long string token as output.
-
-You should now be ready to call the API, either manually or programmatically.
-
-## Calling the API
-
-Once you have your token available, you can run a `curl` query passing on your token within an `Authorization: Bearer` header to the appropriate endpoint.
-
-### For Public Images
-
-For public images use this endpoint:
-
-```
-https://cgr.dev/v2/chainguard/IMAGE_NAME/_chainguard/history/IMAGE_TAG
-```
-
-Where `IMAGE_NAME` is the name of the image, for instance: `python`, and `IMAGE_TAG` is the tag that you want to pull history from.
-
-For example, this is how you can fetch the tag history of the **python:latest** Chainguard image using `curl` on the command line:
-
-```shell
-curl -H "$auth_header" \
-  https://cgr.dev/v2/chainguard/python/_chainguard/history/latest | jq
-```
-
-You should get output like the following:
-
-```
-{
-  "history": [
-	{
-  	"updateTimestamp": "2023-05-12T13:46:10.555Z",
-  	"digest": "sha256:81c334de6dd4583897f9e8d0691cbb75ad41613474360740824d8a7fa6a8fecb"
-	},
-	{
-  	"updateTimestamp": "2023-05-12T20:50:19.702Z",
-  	"digest": "sha256:a8724b7a80cae14263a3b55f7acb5d195fcbb24afbc8067aa5198aa2a9131cde"
-	},
-	...
-
-  ]
-}
-```
-### For Private Images
-
-For private images use this endpoint:
+And you should get `Authorization: Bearer` followed by a long string (a [JWT](https://jwt.io/introduction)) as output. You can now run a `curl` query to this endpoint:
 
 ```
 https://cgr.dev/v2/ORGANIZATION_NAME/IMAGE_NAME/_chainguard/history/IMAGE_TAG
 ```
-
-Where `ORGANIZATION_NAME` is the name of your organization, for example: `company.com`, `IMAGE_NAME` is the name of the image, for example: `chainguard-base`, and `IMAGE_TAG` is the tag that you want to pull history from.
+Where:
+- For private images `ORGANIZATION_NAME` is the name of your organization, for example: `company.com`.
+- For public images `ORGANIZATION_NAME` is always `chainguard`.
+- `IMAGE_NAME` is the name of the image, for example: `chainguard-base` or `python`.
+- `IMAGE_TAG` is the tag that you want to pull history from.
 
 For example, this is how you can fetch the tag history of **company.com's** **chainguard-base:latest** Chainguard image using `curl` on the command line:
 
 ```shell
 curl -H "$auth_header" \
   https://cgr.dev/v2/company.com/chainguard-base/_chainguard/history/latest | jq
+```
+
+Or for a public image such as **python:latest**:
+```shell
+curl -H "$auth_header" \
+  https://cgr.dev/v2/chainguard/python/_chainguard/history/latest | jq
 ```
 
 You should get output like the following:
