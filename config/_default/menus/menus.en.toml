@@ -267,7 +267,3 @@
   weight = 5
   parent = "follow"
   pre = "<svg width=\"8\" height=\"14\" viewBox=\"0 1 8 9\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0.77 8L0 7.23L6.146 1.084H0.916V0H8V7.084H6.916V1.854L0.77 8Z\" fill=\"currentColor\"/></svg>"
-
-[[footer]]
-  name = "@2023 Chainguard, Inc."
-  url = "https://www.chainguard.dev"
