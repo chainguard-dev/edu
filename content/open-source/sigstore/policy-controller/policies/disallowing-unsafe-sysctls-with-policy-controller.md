@@ -14,20 +14,18 @@ menu:
     parent: "policy-controller"
 weight: 006
 toc: true
-terminalImage: policy-controller-base:latest
+# terminalImage: policy-controller-base:latest
 ---
 
 This guide demonstrates how to use the [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) to only allow pods that use `sysctls` to modify kernel behaviour to run with the [safe set](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/#safe-and-unsafe-sysctls) of parameters. You will create a `ClusterImagePolicy` that uses the [CUE](https://cuelang.org/) language to examine a pod spec that uses sysctls, and only allow admission into a cluster if the pod is running a safe set parameters.
 
 ## Prerequisites
 
-To follow along with this guide outside of the terminal that is embedded on this page, you will need the following:
+To follow along with this guide, you will need the following:
 
 * A Kubernetes cluster with administrative access. You can set up a local cluster using [**kind**](https://kind.sigs.k8s.io/docs/user/quick-start/#installation) or use an existing cluster.
 * **kubectl** — to work with your cluster. Install `kubectl` for your operating system by following the official [Kubernetes kubectl documentation](https://kubernetes.io/docs/tasks/tools/#kubectl).
 * [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) installed in your cluster. Follow our [How To Install Sigstore Policy Controller](/open-source/sigstore/policy-controller/how-to-install-policy-controller/) guide if you do not have it installed, and be sure to label any namespace that you intend to use with the `policy.sigstore.dev/include=true` label.
-
-If you are using the terminal that is embedded on this page, then all the prerequsites are installed for you. Note that it may take a minute or two for the Kubernetes cluster to finish provisioning. If you receive any errors while running commands, retry them after waiting a few seconds.
 
 Once you have everything in place you can continue to the first step and confirm that the Policy Controller is working as expected.
 
@@ -165,18 +163,23 @@ Edit the `/tmp/pod.yaml` file and change the `sysctls` section to use the follow
       value: "1"
     - name: net.ipv4.tcp_syncookies
       value: "1"
+
 ```
 
 Save and apply the spec:
 
 ```
+
 kubectl apply -f /tmp/pod.yaml
+
 ```
 
 The pod will be admitted into the cluster with the following message:
 
 ```
+
 pod/yolo created
+
 ```
 
 Since the `net.ipv4.tcp_syncookies` sysctl is considered safe and only runs in specific Kubernetes namespaces, the Policy Controller evaluates the pod spec against the CUE policy and admits the pod into the cluster.
@@ -184,5 +187,6 @@ Since the `net.ipv4.tcp_syncookies` sysctl is considered safe and only runs in s
 Delete the pod once you're done experimenting with it:
 
 ```
+
 kubectl delete pod yolo
 ```

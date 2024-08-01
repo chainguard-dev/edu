@@ -14,20 +14,18 @@ menu:
     parent: "policy-controller"
 weight: 006
 toc: true
-terminalImage: policy-controller-base:latest
+# terminalImage: policy-controller-base:latest
 ---
 
 This guide demonstrates how to use the [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) to verify image attestations before admitting an image into a Kubernetes cluster. In this guide, you will create a `ClusterImagePolicy` that checks the existence of a SBOM attestation attached to a container image, and then test the admission controller by running a `registry.enforce.dev/chainguard/node` image with SBOM attestations.
 
 ## Prerequisites
 
-To follow along with this guide outside of the terminal that is embedded on this page, you will need the following:
+To follow along with this guide, you will need the following:
 
 * A Kubernetes cluster with administrative access. You can set up a local cluster using [**kind**](https://kind.sigs.k8s.io/docs/user/quick-start/#installation) or use an existing cluster.
 * **kubectl** — to work with your cluster. Install `kubectl` for your operating system by following the official [Kubernetes kubectl documentation](https://kubernetes.io/docs/tasks/tools/#kubectl).
 * [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) installed in your cluster. Follow our [How To Install Sigstore Policy Controller](/open-source/sigstore/policy-controller/how-to-install-policy-controller/) guide if you do not have it installed, and be sure to label any namespace that you intend to use with the `policy.sigstore.dev/include=true` label.
-
-If you are using the terminal that is embedded on this page, then all the prerequisites are installed for you. Note that it may take a minute or two for the Kubernetes cluster to finish provisioning. If you receive any errors while running commands, retry them after waiting a few seconds.
 
 Once you have everything in place you can continue to the first step and confirm that the Policy Controller is working as expected.
 
@@ -125,7 +123,6 @@ clusterimagepolicy.policy.sigstore.dev/must-have-spdx-cue created
 
 Now run the `k8s.gcr.io/pause:3.9` image which does not have a SBOM attestation:
 
-
 ```bash
 kubectl run --image k8s.gcr.io/pause:3.9 noattestedimage
 ```
@@ -156,4 +153,3 @@ kubectl delete pod mysbomattestedimage
 ```
 
 To learn more about how the Policy Controller uses Cosign to verify and admit images, review the [Cosign](https://docs.sigstore.dev/cosign/overview/) Sigstore documentation.
-

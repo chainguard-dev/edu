@@ -14,20 +14,18 @@ menu:
     parent: "policy-controller"
 weight: 006
 toc: true
-terminalImage: policy-controller-base:latest
+# terminalImage: policy-controller-base:latest
 ---
 
 This guide demonstrates how to use the [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) to prevent running containers with elevated privileges. You will create a `ClusterImagePolicy` that uses the [CUE](https://cuelang.org/) language to examine a pod spec, and only allow admission into a cluster if the pod is running without the `privileged: true` setting.
 
 ## Prerequisites
 
-To follow along with this guide outside of the terminal that is embedded on this page, you will need the following:
+To follow along with this guide, you will need the following:
 
 * A Kubernetes cluster with administrative access. You can set up a local cluster using [**kind**](https://kind.sigs.k8s.io/docs/user/quick-start/#installation) or use an existing cluster.
 * **kubectl** — to work with your cluster. Install `kubectl` for your operating system by following the official [Kubernetes kubectl documentation](https://kubernetes.io/docs/tasks/tools/#kubectl).
 * [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) installed in your cluster. Follow our [How To Install Sigstore Policy Controller](/open-source/sigstore/policy-controller/how-to-install-policy-controller/) guide if you do not have it installed, and be sure to label any namespace that you intend to use with the `policy.sigstore.dev/include=true` label.
-
-If you are using the terminal that is embedded on this page, then all the prerequsites are installed for you. Note that it make take a minute or two for the Kubernetes cluster to finish provisioning. If you receive any errors while running commands, retry them after waiting a few seconds.
 
 Once you have everything in place you can continue to the first step and confirm that the Policy Controller is working as expected.
 
@@ -188,4 +186,3 @@ Delete the pod once you're done experimenting with it:
 ```
 kubectl delete pod yolo
 ```
-
