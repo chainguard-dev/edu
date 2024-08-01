@@ -40,7 +40,6 @@ The following packages are included in the `wolfi-base:latest` Chainguard Image:
 - `glibc-locale-posix`
 - `ld-linux`
 
-You can find the complete inventory of packages for the `wolfi-base` Chainguard Image at [its listing on the Chainguard Registry](https://images.chainguard.dev/directory/image/wolfi-base/versions).
 
 ### chainguard-base
 
