@@ -14,20 +14,18 @@ menu:
     parent: "policy-controller"
 weight: 006
 toc: true
-terminalImage: policy-controller-base:latest
+# terminalImage: policy-controller-base:latest
 ---
 
 This guide demonstrates how to use the [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) to prevent running containers as the `root` user in a Kubernetes cluster. You will create a `ClusterImagePolicy` that uses the [CUE](https://cuelang.org/) language to examine a pod spec, and only allow admission into a cluster if the pod is running as a non-root user.
 
 ## Prerequisites
 
-To follow along with this guide outside of the terminal that is embedded on this page, you will need the following:
+To follow along with this guide, you will need the following:
 
 * A Kubernetes cluster with administrative access. You can set up a local cluster using [**kind**](https://kind.sigs.k8s.io/docs/user/quick-start/#installation) or use an existing cluster.
 * **kubectl** — to work with your cluster. Install `kubectl` for your operating system by following the official [Kubernetes kubectl documentation](https://kubernetes.io/docs/tasks/tools/#kubectl).
 * [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) installed in your cluster. Follow our [How To Install Sigstore Policy Controller](/open-source/sigstore/policy-controller/how-to-install-policy-controller/) guide if you do not have it installed, and be sure to label any namespace that you intend to use with the `policy.sigstore.dev/include=true` label.
-
-If you are using the terminal that is embedded on this page, then all the prerequsites are installed for you. Note that it make take a minute or two for the Kubernetes cluster to finish provisioning. If you receive any errors while running commands, retry them after waiting a few seconds.
 
 Once you have everything in place you can continue to the first step and confirm that the Policy Controller is working as expected.
 
@@ -161,7 +159,6 @@ kubectl apply -f /tmp/pod.yaml
 Error from server (BadRequest): error when creating "/tmp/pod.yaml": admission webhook "policy.sigstore.dev" denied the request: validation failed: failed policy: disallow-runasuser-root-cue: spec.containers[0].image
 index.docker.io/library/ubuntu@sha256:2adf22367284330af9f832ffefb717c78239f6251d9d0f58de50b86229ed1427 failed evaluating cue policy for ClusterImagePolicy: failed to evaluate the policy with error: spec.containers.0.securityContext.runAsUser: invalid value 0 (out of bound !=0)
 ```
-
 
 The first line shows the error message and the failing `ClusterImagePolicy` name. The second line contains the image ID, along with the specific CUE error message showing the policy violation.
 
