@@ -4,7 +4,7 @@ linktitle: "Wolfi Images with Dockerfiles"
 type: "article"
 description: "This tutorial demonstrates how to build a Wolfi Python image from scratch, using a Dockerfile workflow."
 date: 2022-12-19T08:49:31+00:00
-lastmod: 2023-8-11T42:49:31+00:00
+lastmod: 2024-08-01T10:00:31+00:00
 draft: false
 tags: ["Wolfi", "Procedural"]
 images: []
@@ -17,16 +17,9 @@ toc: true
 
 ## Introduction
 
-[Wolfi](/open-source/wolfi/overview/) is a minimal open source Linux distribution created
-specifically for cloud workloads, with an emphasis on software supply chain security. Using
-[apk](https://wiki.alpinelinux.org/wiki/Package_management) for package management, Wolfi differs
-from Alpine in a few important aspects, most notably the use of glibc instead of musl and the fact
-that Wolfi doesn't have a kernel as it is intended to be used with a container runtime. This minimal
-footprint makes Wolfi an ideal base for both _distroless_ images and fully-featured builder images.
+[Wolfi](/open-source/wolfi/overview/) is a minimal open source Linux distribution created specifically for cloud workloads, with an emphasis on software supply chain security. Using [apk](https://wiki.alpinelinux.org/wiki/Package_management) for package management, Wolfi differs from Alpine in a few important aspects, most notably the use of glibc instead of musl and the fact that Wolfi doesn't have a kernel as it is intended to be used with a container runtime. This minimal footprint makes Wolfi an ideal base for both _distroless_ images and fully-featured builder images.
 
-A distroless image is a minimal container image that typically doesn't include a shell or package manager. The extra tightness improves security in several aspects, but it requires a more sophisticated strategy for image composition since you can't install packages so easily. You can learn more about distroless in our [Going Distroless](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started-distroless/) guide.
-
-Wolfi-based builder images are still a better and more secure option to use as base images in your Dockerfile than using a full-fledged Linux distribution, as they are smaller and have fewer CVEs.
+A distroless image is a minimal container image that typically doesn't include a shell or package manager. The extra tightness improves security in several aspects, but it requires a more sophisticated strategy for image composition since you can't install packages so easily. Wolfi-based builder images are still a better and more secure option to use as base images in your Dockerfile than using a full-fledged Linux distribution, as they are smaller and have fewer CVEs. You can learn more about distroless in our [Going Distroless](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started-distroless/) guide.
 
 The [wolfi-base](https://github.com/chainguard-images/images/tree/main/images/wolfi-base) image, which we'll be using in this tutorial, is not distroless because it includes `apk-tools` and `bash`. In some cases, it can still be used to build a final distroless image, when combined with a distroless runtime in a [Docker multi-stage build](https://docs.docker.com/build/building/multi-stage/). That depends on the complexity of the image, the number of dependencies required, and whether these dependencies are system libraries or language ecosystem packages, for example.
 
