@@ -59,7 +59,7 @@ You may use the `crane` tool to get your token instead:
 ```shell
 auth_header="$(crane auth token -H cgr.dev/ORGANIZATION_NAME/IMAGE_NAME)"
 ```
-Where `ORGANIZATION_NAME` is the name of your organization, for example: `company.com`, `IMAGE_NAME` is the name of the image, for example: `chainguard-base` (Note: the image name specified here does not need to be the same image you pass to the API later! But it need to be a valid image from your registry.)
+Where `ORGANIZATION_NAME` is the name of your organization, for example: `company.com`, `IMAGE_NAME` is the name of the image, for example: `chainguard-base` (Note: the image name specified here does not need to be the same image you pass to the API later! But it needs to be a valid image from your registry.)
 
 To make sure your token is set, you can run the following command:
 
