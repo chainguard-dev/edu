@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "A brief tutorial on how to use Cosign to retrieve Chainguard Image SBOMs."
 date: 2023-11-17T11:07:52+02:00
-lastmod: 2023-11-17T11:07:52+02:00
+lastmod: 2024-08-01T11:07:52+02:00
 draft: false
 tags: ["Conceptual", "Chainguard Images", "SBOM"]
 images: []
@@ -70,10 +70,87 @@ The following example shows the **SBOM** tab for the `postgres` Image.
 
 ![Screenshot of the postgres Image's "SBOM" tab, showing the first five rows of the latest version's SBOM.](imgs-dir-5.png)
 
-You can use the drop-down menu above the table to select which version of the image you want to view. You can also use the search box to find specific packages in the SBOM or use the button to the right of the search box to download the SBOM to your machine.
+You can use the drop-down menu above the table to select which version and architecture of the image you want to view. You can also use the search box to find specific packages in the SBOM or use the button to the right of the search box to download the SBOM to your machine.
 
 Check out our guide on [using the Chainguard Images Directory](/chainguard/chainguard-images/images-directory/) for more details.
 
+## License Information and Source Code references
+
+The SBOM downloaded using either Cosign or Console methods described previously contain identical information. It lists binary packages present in the image, their licensing information using [SPDX license](https://spdx.org/licenses/) and [exceptions lists](https://spdx.org/licenses/exceptions-index.html), and external source code references.
+
+These source code references are encoded in the [external references](https://spdx.github.io/spdx-spec/v2.3/package-information/#721-external-reference-field) field, using [external repository identifiers](https://spdx.github.io/spdx-spec/v2.3/external-repository-identifiers/#f35-purl) in the package URL (purl) format. The [purl specification](https://github.com/package-url/purl-spec/blob/master/PURL-SPECIFICATION.rst) allows for various different schemes and types. 
+
+The following purls are used in Chainguard SPDX SBOM:
+
+* `pkg:apk` denotes binary package origin, name, full version number with epoch, and architecture:
+
+```
+pkg:apk/wolfi/ca-certificates-bundle@20240315-r4?arch=x86_64
+```
+
+* `pkg:github` is used for upstream source code reference for packages built from GitHub repositories. These purls always include a fixed commit hash and, when available, also include a tag-version:
+
+```
+pkg:github/openssl/openssl.git@openssl-3.3.1
+pkg:github/openssl/openssl.git@db2ac4f6ebd8f3d7b2a60882992fbea1269114e2
+```
+
+    * Note that `pkg:github` is also used to reference melange packaging files from Wolfi and Chainguard. These are provided with a subpath component and a fixed commit hash:
+
+```
+pkg:github/wolfi-dev/os@f18ff825f94b9177cf603c6e3d72936683a504d2#glibc.yaml
+```
+
+* `pkg:generic` is used to reference any other upstream download locations, most commonly tarballs:
+
+```
+pkg:generic/gcc@13.2.0?
+checksum=sha256%3A8cb4be3796651976f94b9356fa08d833524f62420d6292c5033a9a26af315078&
+download_url=https%3A%2F%2Fftp.gnu.org%2Fgnu%2Fgcc%2Fgcc-13.2.0%2Fgcc-13.2.0.tar.gz
+```
+
+    * Also note that `pkg:generic` is used to reference upstream git repositories, outside of GitHub:
+
+```
+pkg:generic/ca-certificates@20240315?
+vcs_url=git%2Bhttps%3A%2F%2Fgitlab.alpinelinux.org%2Falpine%2Fca-certificates%4009e5e43336e532ec8217ae3bfc912bcb7048f65a
+```
+
+purls are human-readable, but various programming and scripting languages have [implementations](https://github.com/package-url/purl-spec?tab=readme-ov-file#known-implementations) that can parse them.
+
+Because SPDX SBOMs are distributed within the Chainguard Images repository alongside each image hash, you can achieve source code access compliance by ensuring all attestations are mirrored together with each image.
+
+As an example, a snippet of a binary package SPDX stanza with license, version, and source code references is shown here:
+
+```json
+    {
+      "SPDXID": "SPDXRef-Package-glibc-locale-posix-2.39-r6",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceLocator": "pkg:apk/wolfi/glibc-locale-posix@2.39-r6?arch=x86_64",
+          "referenceType": "purl"
+        },
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceLocator": "pkg:generic/glibc@2.39?checksum=sha256%3Af77bd47cf8170c57365ae7bf86696c118adb3b120d3259c64c502d3dc1e2d926&download_url=http%3A%2F%2Fftp.gnu.org%2Fgnu%2Flibc%2Fglibc-2.39.tar.xz",
+          "referenceType": "purl"
+        },
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceLocator": "pkg:github/wolfi-dev/os@f18ff825f94b9177cf603c6e3d72936683a504d2#glibc.yaml",
+          "referenceType": "purl"
+        }
+      ],
+      "licenseDeclared": "LGPL-2.1-or-later",
+      "name": "glibc-locale-posix",
+      "originator": "Organization: Wolfi",
+      "supplier": "Organization: Wolfi",
+      "versionInfo": "2.39-r6"
+    }
+```
+
+This snippet shows that the `glibc-locale-posix` binary package is distributed under LGPL license, built from the `glibc-2.39.tar.xz` upstream tarball, using the `glibc.yaml` file from the `wolfi-dev/os` repository.
 
 ## Learn more
 
