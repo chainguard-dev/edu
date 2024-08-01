@@ -80,7 +80,7 @@ The SBOM downloaded using either Cosign or Console methods described previously 
 
 These source code references are encoded in the [external references](https://spdx.github.io/spdx-spec/v2.3/package-information/#721-external-reference-field) field, using [external repository identifiers](https://spdx.github.io/spdx-spec/v2.3/external-repository-identifiers/#f35-purl) in the package URL (purl) format. The [purl specification](https://github.com/package-url/purl-spec/blob/master/PURL-SPECIFICATION.rst) allows for various different schemes and types. 
 
-The following The following purls are used in Chainguard SPDX SBOM:
+The following purls are used in Chainguard SPDX SBOM:
 
 * `pkg:apk` denotes binary package origin, name, full version number with epoch, and architecture:
 
