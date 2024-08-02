@@ -31,6 +31,8 @@
 
     .docs-content {
         padding-bottom: 0;
+        margin-left: 0 em;
+        padding: 0em;
     }
 
     .docs-content>h1:first-child {
@@ -626,8 +628,8 @@
         max-width: $MaxContentWidth;
         margin: auto;
         flex: 1;
-        padding-left: 144px;
-        padding-right: 144px;
+        padding-left: 3em;
+        padding-right:3em;
     }
 
     .toggle-icon {
@@ -1159,8 +1161,8 @@
     // Reduce center padding under specified screen width
     @media (max-width: $ReduceContentPaddingWidth) {
         .docs-content {
-            padding-left: 48px;
-            padding-right: 48px;
+            padding-left: 3em;
+            padding-right: 3em;
         }
     }
 
@@ -1208,4 +1210,9 @@
         font-size: 16px;
         line-height: 112%;
         letter-spacing: -0.02em;
+    }
+
+
+    body {
+        margin: 0  3%;
     }
