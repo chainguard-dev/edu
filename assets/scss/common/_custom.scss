@@ -330,7 +330,7 @@
     }
 
     .sidebar-category {
-        font-family: $SidebarCateforyFont;
+        font-family: $titleFont;
         font-size: 12px !important;
         font-weight: 400 !important;
         line-height: 20px !important;
@@ -648,7 +648,21 @@
         overflow-y: auto;
         overflow-x: visible;
         padding-right: 12px;
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        scrollbar-width: none;  /* Firefox */
     }
+
+
+    #sidebar-default::-webkit-scrollbar { 
+        display: none;  /* Safari and Chrome */
+    }
+
+    #sidebar-default:hover {
+        overflow-y: scroll;
+        display: block;
+        scrollbar-width: thin;
+    }
+
 
     #sidebar-default .search-container+.sidebar-category {
         margin-top: 12px;
@@ -1060,7 +1074,7 @@
         padding-bottom: 0;
         background: var(--code-color);
         padding: 0 8px;
-        font-family: $SidebarCateforyFont;
+        font-family: $monoFont;
         line-height: 22px;
         letter-spacing: 0.0025em;
     }
