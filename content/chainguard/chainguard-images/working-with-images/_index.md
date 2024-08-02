@@ -20,9 +20,9 @@ banner: {
 sectiontitle: "Chainguard Images Features & Resources"
 tutorials: [
   {
-    title: "Custom Certificates",
+    title: "Chainguard Images Directory",
     description: "",
-    url: "/chainguard/chainguard-images/working-with-images/incert-custom-certs/"
+    url: "/chainguard/chainguard-images/working-with-images/images-directory/"
   },
   {
     title: "FIPS-enabled Images",
@@ -35,6 +35,11 @@ tutorials: [
     url: "/chainguard/chainguard-images/working-with-images/image-stigs/"
   },
   {
+    title: "Custom Certificates",
+    description: "",
+    url: "/chainguard/chainguard-images/working-with-images/incert-custom-certs/"
+  },
+  {
     title: "Tag History API",
     description: "",
     url: "/chainguard/chainguard-images/working-with-images/using-the-tag-history-api/"
@@ -43,11 +48,6 @@ tutorials: [
     title: "EOL Notifications",
     description: "",
     url: "/chainguard/chainguard-images/working-with-images/eol-notifications/"
-  },
-    {
-    title: "Chainguard Images Directory",
-    description: "",
-    url: "/chainguard/chainguard-images/working-with-images/images-directory/"
   },
 ]
 
