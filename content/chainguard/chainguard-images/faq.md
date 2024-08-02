@@ -35,11 +35,11 @@ To review all available Chainguard Images, you can check out the Chainguard Cons
 
 To review Chainguard's Developer Images, you can check out either the [Chainguard Images Directory](https://images.chainguard.dev/directory?category=developer) or the  [GitHub Repository](https://github.com/chainguard-images).
 
-Chainguard Images are available through the [Chainguard Registry](/chainguard/chainguard-images/registry/overview/).
+Chainguard Images are available through the [Chainguard Registry](/chainguard/chainguard-registry/overview/).
 
 ## Are Chainguard Images available on Docker Hub?
 
-Yes, Chainguard Developer Images are available on [Docker Hub](https://hub.docker.com/u/chainguard?utm_source=academy&utm_medium=referral&utm_campaign=FY25-DockerHub-Orgprofile). As a Docker Verified Publisher, Chainguard has met Docker's stringent standards for security, quality, and transparency. This status signifies that our container images are trusted, reliable, and have undergone rigorous verification processes. If you wish to use Production Images, you need to use the [Chainguard Registry](/chainguard/chainguard-images/registry/overview/).
+Yes, Chainguard Developer Images are available on [Docker Hub](https://hub.docker.com/u/chainguard?utm_source=academy&utm_medium=referral&utm_campaign=FY25-DockerHub-Orgprofile). As a Docker Verified Publisher, Chainguard has met Docker's stringent standards for security, quality, and transparency. This status signifies that our container images are trusted, reliable, and have undergone rigorous verification processes. If you wish to use Production Images, you need to use the [Chainguard Registry](/chainguard/chainguard-registry/overview/).
 
 ## What options do I have to use Chainguard Images?
 
@@ -85,4 +85,4 @@ Logging in is optional if you are only using `:latest` and `:latest-dev` tags or
 
 There are benefits for all users who authenticate to the Chainguard Registry, as Chainguard provides notifications of version updates, breaking changes, or critical security updates. However, users can continue to pull Images by digest or Images tagged `:latest` anonymously.
 
-To learn how to authenticate into the Chainguard Registry, you can review our [authentication documentation](/chainguard/chainguard-images/registry/authenticating/). You can read more about the thought process behind authentication in our blog post, [Scaling Chainguard Images with a growing catalog and proactive security updates](https://www.chainguard.dev/unchained/scaling-chainguard-images-with-a-growing-catalog-and-proactive-security-updates).
+To learn how to authenticate into the Chainguard Registry, you can review our [authentication documentation](/chainguard/chainguard-registry/authenticating/) . You can read more about the thought process behind authentication in our blog post, [Scaling Chainguard Images with a growing catalog and proactive security updates](https://www.chainguard.dev/unchained/scaling-chainguard-images-with-a-growing-catalog-and-proactive-security-updates).

@@ -4,7 +4,7 @@ type: "article"
 lead: "Details for installing Cosign across operating systems to sign software artifacts"
 description: "Details for installing Cosign across operating systems"
 date: 2022-13-07T08:49:31+00:00
-lastmod: 2022-13-07T08:49:31+00:00
+lastmod: 2024-07-29T15:12:18+00:00
 draft: false
 tags: ["Cosign", "Procedural"]
 images: []
@@ -17,7 +17,7 @@ toc: true
 
 _An earlier version of this material was published in the [Cosign chapter](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/block-v1:LinuxFoundationX+LFS182x+2T2022+type@sequential+block@204b98f35bca48c194d1868e0356bef1/block-v1:LinuxFoundationX+LFS182x+2T2022+type@vertical+block@2f0ad9cb8f124a39ab555ac8bf1a114c) of the Linux Foundation [Sigstore course](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/home)._
 
-Cosign supports software artifact signing, verification, and storage in an OCI (Open Container Initiative) registry. By signing software artifacts, you can authenticate that you are who you say you are, which can in turn enable a trust root so that developers who leverage your software and consumers who use your software can verify that you created the software artifact that you have said you’ve created. They can also ensure that that artifact was not tampered with by a third party. As someone who may use software libraries, containers, or other artifacts as part of your development lifecycle, a signed artifact can give you greater assurance that the code or container you are incorporating is from a trusted source.  
+Cosign supports software artifact signing, verification, and storage in an OCI (Open Container Initiative) registry. By signing software, you can authenticate that you are who you say you are, which can in turn enable a trust root so that developers and consumers who leverage your software can verify that you created the software artifact that you have said you’ve created. They can also ensure that that artifact was not tampered with by a third party. As someone who may use software libraries, containers, or other artifacts as part of your development lifecycle, a signed artifact can give you greater assurance that the code or container you are incorporating is from a trusted source.  
 
 There are a few different ways to install Cosign to your local machine or remote server. The approach you choose should be based on the way you set up packages, the tooling that you use, or the way that your organization recommends. We will go through several options. Please refer to the [official Cosign installation documentation](https://docs.sigstore.dev/cosign/installation) for additional context and updates. 
 

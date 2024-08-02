@@ -3,6 +3,8 @@ title : "Overview of Assumable Identities in Chainguard"
 linktitle: "Assumable Identities"
 aliases: 
 - /chainguard/chainguard-enforce/authentication/assumable-ids/
+- /chainguard/chainguard-enforce/iam-groups/assumable-ids/
+- /chainguard/administration/iam-organizations/assumable-ids/
 lead: ""
 description: "An overview of what assumable identities are and how they can be used with Chainguard assets."
 type: "article"
@@ -31,14 +33,14 @@ Assumable identities essentially reverse the lookup process of literal identitie
 
 This enables you to create identities that can only be assumed by specific automated workflows, providing greater security for your build and deployment processes. We have a number of examples of how to create assumable identities for specific providers.
 
-* [GitHub](/chainguard/administration/iam-groups/identity-examples/github-identity/)
-* [GitLab](/chainguard/administration/iam-groups/identity-examples/gitlab-identity/)
-* [AWS Lambda](/chainguard/administration/iam-groups/identity-examples/aws-identity/)
-* [Jenkins](/chainguard/administration/iam-groups/identity-examples/jenkins-identity/)
-* [Buildkite](/chainguard/administration/iam-groups/identity-examples/buildkite-identity/)
-* [Bitbucket](/chainguard/administration/iam-groups/identity-examples/bitbucket-identity/)
+* [GitHub](/chainguard/administration/iam-organizations/identity-examples/github-identity/)
+* [GitLab](/chainguard/administration/iam-organizations/identity-examples/gitlab-identity/)
+* [AWS Lambda](/chainguard/administration/iam-organizations/identity-examples/aws-identity/)
+* [Jenkins](/chainguard/administration/iam-organizations/identity-examples/jenkins-identity/)
+* [Buildkite](/chainguard/administration/iam-organizations/identity-examples/buildkite-identity/)
+* [Bitbucket](/chainguard/administration/iam-organizations/identity-examples/bitbucket-identity/)
 
-A notable difference between registered users and identities in Chainguard's IAM model is that identities are tied to a specific [IAM organization](/chainguard/chainguard-enforce/iam-groups/overview-of-enforce-iam-model/). When you create an identity, you must specify a Chainguard organization under which the identity will be created.
+A notable difference between registered users and identities in Chainguard's IAM model is that identities are tied to a specific [IAM organization](/chainguard/administration/iam-organizations/overview-of-chainguard-iam-model/). When you create an identity, you must specify a Chainguard organization under which the identity will be created.
 
 However, an identity won't automatically have access to the other resources associated with that organization. In order for an identity to be able to interact with a organization's resources — including the Images, repositories, and users associated with the organization — it must be granted the permissions it needs to do so. To do this, you must also tie the identity to a role. Chainguard comes with a few built-in roles, including `viewer`, `editor`, and `owner`. You can also create custom role-bindings with `chainctl`. Check out the [`chainctl iam role-bindings` documentation](/chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings/) for more details. 
 
@@ -108,7 +110,7 @@ resource "chainguard_role-binding" "view-stuff" {
 
 This means that the identity this Terraform configuration will create will only be able to view the resources tied to the same organization the identity is tied to.
 
-Applying this configuration will create the assumable identity. You can follow any of our [identity examples](/chainguard/chainguard-enforce/iam-groups/identity-examples/) to create an assumable identity that can be used by a continuous integration workflow to interact with Chainguard. The Terraform files used in the linked tutorials are based closely on the template outlined here.
+Applying this configuration will create the assumable identity. You can follow any of our [identity examples](/chainguard/administration/iam-organizations/identity-examples/) to create an assumable identity that can be used by a continuous integration workflow to interact with Chainguard. The Terraform files used in the linked tutorials are based closely on the template outlined here.
 
 
 ## Managing identities with `chainctl`
@@ -159,4 +161,4 @@ If a workflow is authorized to assume the identity — meaning that its token ma
 
 ## Learn More
 
-As mentioned previously, we've published a few tutorials that outline how you can [set up an identity for a CI/CD workflow to assume](/chainguard/chainguard-enforce/iam-groups/identity-examples/). We strongly encourage you to follow these guides to better understand how assumable identities work in Chainguard.
+As mentioned previously, we've published a few tutorials that outline how you can [set up an identity for a CI/CD workflow to assume](/chainguard/administration/iam-organizations/identity-examples/). We strongly encourage you to follow these guides to better understand how assumable identities work in Chainguard.

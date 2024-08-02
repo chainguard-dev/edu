@@ -4,7 +4,7 @@ type: "article"
 description: "Use Cosign to sign non-container software artifacts"
 lead: "Cosign can sign software artifacts beyond containers"
 date: 2022-13-07T15:22:20+01:00
-lastmod: 2022-13-07T15:22:20+01:00
+lastmod: 2024-07-29T15:12:18+00:00
 draft: false
 tags: ["Cosign", "Procedural"]
 images: []
@@ -17,9 +17,9 @@ toc: true
 
 _An earlier version of this material was published in the [Cosign chapter](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/block-v1:LinuxFoundationX+LFS182x+2T2022+type@sequential+block@204b98f35bca48c194d1868e0356bef1/block-v1:LinuxFoundationX+LFS182x+2T2022+type@vertical+block@2f0ad9cb8f124a39ab555ac8bf1a114c) of the Linux Foundation [Sigstore course](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/home)._
 
-Cosign can sign more than just containers. Blobs, or binary large objects, and standard files can be signed in a similar way. You can publish a blob or other artifact to an OCI (Open Container Initiative) registry with Cosign. This tutorial assumes you have a Cosign key pair set up, which you can achieve by following our [How to Sign a Container with Cosign](/open-source/sigstore/cosign/how-to-sign-a-container-with-cosign/) tutorial.
+Cosign can sign more than just containers. Blobs, or binary large objects, and standard files can be signed in a similar way. You can publish a blob or other artifact to an OCI (Open Container Initiative) registry with Cosign. This tutorial assumes you have a Cosign key pair set up, which you can achieve by following our [Introduction to Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign) guide.
 
-First, we’ll create an artifact (in this case, a standard file that contains text). We’ll call the file `artifact` and fill it with the “hello, cosign” text.
+Navigate to the directory which contains your `cosign.pub` and `cosign.key` key pair as generated in the [Introduction to Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign) guide. We’ll create an artifact (in this case, a standard file that contains text). We’ll call the file `artifact` and fill it with the “hello, cosign” text.
 
 ```sh
 echo "hello, cosign" > artifact

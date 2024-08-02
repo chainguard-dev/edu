@@ -4,7 +4,7 @@ linktitle: "Wolfi Images with Dockerfiles"
 type: "article"
 description: "This tutorial demonstrates how to build a Wolfi Python image from scratch, using a Dockerfile workflow."
 date: 2022-12-19T08:49:31+00:00
-lastmod: 2023-8-11T42:49:31+00:00
+lastmod: 2024-08-01T10:00:31+00:00
 draft: false
 tags: ["Wolfi", "Procedural"]
 images: []
@@ -17,24 +17,13 @@ toc: true
 
 ## Introduction
 
-[Wolfi](/open-source/wolfi/overview/) is a minimal open source Linux distribution created
-specifically for cloud workloads, with an emphasis on software supply chain security. Using
-[apk](https://wiki.alpinelinux.org/wiki/Package_management) for package management, Wolfi differs
-from Alpine in a few important aspects, most notably the use of glibc instead of musl and the fact
-that Wolfi doesn't have a kernel as it is inteded to be used with a container runtime. The minimal
-footprint makes Wolfi an ideal base for both _distroless_ images and fully-featured builder
-images.
+[Wolfi](/open-source/wolfi/overview/) is a minimal open source Linux distribution created specifically for cloud workloads, with an emphasis on software supply chain security. Using [apk](https://wiki.alpinelinux.org/wiki/Package_management) for package management, Wolfi differs from Alpine in a few important aspects, most notably the use of glibc instead of musl and the fact that Wolfi doesn't have a kernel as it is intended to be used with a container runtime. This minimal footprint makes Wolfi an ideal base for both _distroless_ images and fully-featured builder images.
 
-A _distroless_ image is a minimal container image that typically doesn't include a shell or package manager. The extra tightness improves security in several aspects, but it requires a more sophisticated strategy for image composition since you can't install packages so easily.
+A distroless image is a minimal container image that typically doesn't include a shell or package manager. The extra tightness improves security in several aspects, but it requires a more sophisticated strategy for image composition since you can't install packages so easily. Wolfi-based builder images are still a better and more secure option to use as base images in your Dockerfile than using a full-fledged Linux distribution, as they are smaller and have fewer CVEs. You can learn more about distroless in our [Going Distroless](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started-distroless/) guide.
 
-There are currently two main strategies for building distroless images with Wolfi:
+The [wolfi-base](https://github.com/chainguard-images/images/tree/main/images/wolfi-base) image, which we'll be using in this tutorial, is not distroless because it includes `apk-tools` and `bash`. In some cases, it can still be used to build a final distroless image, when combined with a distroless runtime in a [Docker multi-stage build](https://docs.docker.com/build/building/multi-stage/). That depends on the complexity of the image, the number of dependencies required, and whether these dependencies are system libraries or language ecosystem packages, for example.
 
-- **With a Dockerfile:** Use `-dev` variants **or** the `wolfi-base` image from [Chainguard Images](/chainguard/chainguard-images/overview/) to build the application, and copy the artifacts to a distroless runtime image. This option is typically more accessible for people who are already used to a Dockerfile workflow.
-- **With apko:** Use [apko](/open-source/apko/overview/) to build a distroless image with only the packages you need, fully customized. This option requires a steeper learning curve to get used to how apko works, but it will give you smaller images with better SBOM coverage. The [Getting Started with apko](/open-source/apko/getting-started-with-apko/) tutorial explains how that works in practice.
-
-The [wolfi-base](https://github.com/chainguard-images/images/tree/main/images/wolfi-base) image, which we'll be using in this tutorial, is not distroless, because it includes `apk-tools` and `bash`. It can still be used to build a final distroless image, when combined with a distroless runtime in a [Docker multi-stage build](https://docs.docker.com/build/building/multi-stage/).
-
-In this article, we'll learn how to leverage Wolfi to create safer runtime environments based on containers. To demonstrate Wolfi usage in a Dockerfile workflow (using a Dockerfile to build your image), we'll create an image based on the [wolfi-base](https://github.com/chainguard-images/images/tree/main/images/wolfi-base) image maintained by Chainguard. The goal is to have a final runtime image able to execute a Python application. The [Step 4](#step-4-optional-composing-distroless-images-in-a-docker-multi-stage-build) of this guide, which is optional, demonstrates how to turn that into a distroless image by combining it with a Python distroless image.
+In this article, we'll learn how to leverage Wolfi to create safer runtime environments based on containers. To demonstrate Wolfi usage in a Dockerfile workflow (using a Dockerfile to build your image), we'll create an image based on the [wolfi-base](https://github.com/chainguard-images/images/tree/main/images/wolfi-base) image maintained by Chainguard. The goal is to have a final runtime image able to execute a Python application. [Step 4](#step-4-optional-composing-distroless-images-in-a-docker-multi-stage-build) of this guide, which is optional, demonstrates how to turn that into a distroless image by combining it with a Python distroless image, also provided by Chainguard.
 
 ## Requirements
 
@@ -117,7 +106,7 @@ RUN  pip install -r requirements.txt --user
 ENTRYPOINT [ "python", "/app/inky.py" ]
 ```
 
-This Dockerfile uses a variable called `version` to define which Python version is going to be installed on the resulting image. You can change this to one of the available Python versions on the [wolfi-dev/os](https://github.com/wolfi-dev/os) repository.
+This Dockerfile uses a variable called `version` to define which Python version is going to be installed in the resulting image. You can change this to one of the Python versions available in Wolfi. To find out which versions are available, please refer to the [Searching for Packages](https://edu.chainguard.dev/chainguard/migration/migrating-to-chainguard-images/#searching-for-packages) section of our migration guide.
 
 Save the file when you're done. In the next step, we'll build and run the image with `docker`.
 
@@ -144,7 +133,9 @@ You’ll receive a representation of the Chainguard Inky logo on the command lin
 
 ## Step 4 (Optional): Composing Distroless Images in a Docker Multi-Stage Build
 
-As discussed in the introduction, it is possible to combine your fully-featured image with a distroless runtime in a Docker multistage build, and this will give you a final image that is also distroless. The [Getting Started with Python](/chainguard/chainguard-images/getting-started/python/) tutorial shows in detail how to accomplish that using a `-dev` variant as **builder**, and the distroless Chainguard Python image as production image. You can also accomplish the same results by using your newly built image based on `wolfi-base` in place of the `-dev` variant of the Python image. We'll change the build to use a virtual environment to package the dependencies and add an extra step to create the final image.
+As discussed in the introduction, in some cases it is possible to combine your fully-featured image with a distroless runtime in a Docker multistage build, and this will give you a final image that is also distroless. Keep in mind that this technique for building distroless images is only viable when there aren't additional system dependencies that require installation via `apk`.
+
+The [Getting Started with Python](/chainguard/chainguard-images/getting-started/python/) tutorial shows in detail how to accomplish that using a `-dev` variant as **builder**, and the distroless Chainguard Python image as production image. You can also accomplish the same results by using your newly-built image based on `wolfi-base` in place of the `-dev` variant of the Python image. We'll change the build to use a virtual environment to package the dependencies and add an extra step to create the final image.
 
 The following Dockerfile uses a multi-stage build to obtain a final distroless image that contains everything the application needs to run. The build requires additional software that is not carried along to the final image.
 
@@ -216,10 +207,15 @@ inky-demo    distroless   619ef9b6c52d   6 seconds ago   90.3MB
 inky-demo    latest       4832e9093348   4 minutes ago   110MB
 ```
 
-And you'll notice that the `:distroless` version is significantly smaller, because it doesn't carry along all the software necessary to build the application. More important than size, however, is the smaller attack surface that results in fewer CVEs.
+You'll notice that the `:distroless` version is significantly smaller, because it doesn't carry along all the software necessary to build the application. More important than size, however, is the smaller attack surface that results in fewer CVEs.
 
 ## Final Considerations
 
-If your build requires dependencies that are not yet available on Wolfi, you can build your own apks using [melange](/open-source/melange/overview/). Check the [Getting started with melange](/open-source/melange/tutorials/getting-started-with-melange/) guide for more details on how to go about that.
+In this tutorial, we've demonstrated how to build a Python image from scratch using the `wolfi-base` image. We've also shown how to compose a distroless image using a multi-stage build. This technique is useful when you need to reduce the attack surface of your application runtime, which is especially important in security-sensitive environments.
 
-Check also our public [Chainguard Images Directory](https://images.chainguard.dev/directory) for application environments including `-dev` variants that can be used as builders for your specific application runtime.
+If your application runtime requires system dependencies that are not already included within a distroless variant available in our [images directory](https://images.chainguard.dev), you can still use a builder image (identified by the `-dev` suffix) or the `wolfi-base` image in a standard Dockerfile to build a suitable runtime. These images come with `apk` and a shell, allowing for further customization based on your application's requirements.
+
+If you can't find an image that is a good match for your use case, or if your build has dependencies that cannot be met with the regular catalog, [get in touch with us](https://www.chainguard.dev/contact?utm_source=docs) for alternative options.
+
+
+

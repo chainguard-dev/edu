@@ -9,4 +9,5 @@ images: []
 weight: 100
 ---
 
-Documentation and resources explaining what Chainguard [CloudEvents](https://cloudevents.io/) are and how to use them.
+Documentation and resources explaining how to set-up various third-party registries as pull-through caches
+or mirrors of the Chainguard registry.

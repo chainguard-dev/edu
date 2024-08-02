@@ -4,7 +4,7 @@ linktitle: "STIGs"
 type: "article"
 description: "A conceptual overview of Security Technical Implementation Guides, which are available for Chainguard Images."
 date: 2024-06-13T15:56:52-07:00
-lastmod: 2024-07-12T15:56:52-07:00
+lastmod: 2024-07-16T15:56:52-07:00
 draft: false
 tags: ["IMAGES", "PRODUCT", "CONCEPTUAL"]
 images: []
@@ -122,7 +122,7 @@ The host's container execution environment further reduces the risk of unauthori
 ASLR configuration is the responsibility of the host operating system on which containers run. Applications running within a container on a host that has ASLR enabled will automatically be protected by the configuration. No additional action is needed to ensure that container-based applications are protected.
 
 
-### Host firmware
+### Host firewall
 
 Linux containers inherit the firewall configuration of their host operating system which dictates which ports on the container can be accessed from the network. Selection of which ports to make accessible on the applications running on the container is the responsibility of the host firewall configuration — an additional application-level firewall inside the container is not necessary.
 
@@ -149,6 +149,4 @@ These containers can be validated against the General Purpose Operating System S
 
 ## Learn more
 
-If interested, you can access Chainguard's General Purpose Operating System STIG through the Early Access Program. If you’re interested in participating in the program, please fill out the [interest form](https://docs.google.com/forms/d/e/1FAIpQLSdKqtAziDyLpTtQw5v77orKup5jap0QP1T-VrAj4g32Y1pE6w/viewform?utm_source=blog&utm_medium=website&utm_campaign=FY25-EC-Blog_sourced) or email [compliance@chainguard.dev](mailto:compliance@chainguard.dev).
-
-If you'd like to learn more about how Chainguard Images can help you meet FedRAMP compliance, we encourage you to refer to our overview of [Chainguard's FIPS-ready Images](/chainguard/chainguard-images/working-with-images/fips-images/).
+Chainguard's STIG hardened FIPS Images are now generally available. You can check out our [STIG repo](https://github.com/chainguard-dev/stigs?utm_source=docs) or [contact us](https://get.chainguard.dev/simplify-fedramp-compliance-5?utm_source=docs) for more information. If you'd like to learn more about how Chainguard Images can help you meet FedRAMP compliance, we encourage you to refer to our overview of [Chainguard's FIPS-ready Images](/chainguard/chainguard-images/working-with-images/fips-images/).

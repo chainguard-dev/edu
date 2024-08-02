@@ -15,7 +15,7 @@ menu:
     parent: "policy-controller"
 weight: 001
 toc: true
-terminalImage: policy-controller-install:latest
+# terminalImage: policy-controller-install:latest
 ---
 
 The [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) is a Kubernetes [admission controller](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/) that can verify image signatures and policies. You can define policies using the [CUE](https://cuelang.org/) or [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/) policy languages.
@@ -24,13 +24,11 @@ This guide will demonstrate how to install the Policy Controller in your Kuberne
 
 ## Prerequisites
 
-To follow along with this guide outside of the terminal that is embedded on this page, you will need the following:
+To follow along with this guide, you will need the following:
 
 * A Kubernetes cluster with administrative access. You can set up a local cluster using [**kind**](https://kind.sigs.k8s.io/docs/user/quick-start/#installation) or use an existing cluster.
 * **kubectl** — to work with your cluster. Install `kubectl` for your operating system by following the official [Kubernetes kubectl documentation](https://kubernetes.io/docs/tasks/tools/#kubectl).
 * The [Helm](https://helm.sh) command line tool to install the Policy Controller.
-
-If you are using the terminal that is embedded on this page, then all the prerequsites are installed for you.
 
 Once you have everything in place you can continue to the next step and install the Policy Controller.
 

@@ -6,14 +6,14 @@ aliases:
 - /chainguard/chainguard-images/getting-started/nginx
 description: "Tutorial on how to get started with the nginx Chainguard Image"
 date: 2023-01-09T11:07:52+02:00
-lastmod: 2024-06-17T18:39:59+00:00
+lastmod: 2024-07-22T14:03:47+00:00
 tags: ["Chainguard Images", "Products"]
 draft: false
 images: []
 menu:
   docs:
     parent: "getting-started"
-weight: 610
+weight: 035
 toc: true
 ---
 
@@ -39,7 +39,7 @@ You will need to have [nginx](https://nginx.org/en/download.html) and [Docker En
 
 We'll start by serving static content to a local web server with nginx.
 
-For this tutorial, you will be copying code to files you create locally. You can find the demo code throughout this tutorial, or you can find the complete demo at the [demo GitHub repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/nginx).
+For this tutorial, you will be copying code to files you create locally. You can find the demo code throughout this tutorial, or you can find the complete demo at the [demo GitHub repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/nginx). Additionally, you can follow along with our [Getting Started with the nginx Chainguard Image video](https://youtu.be/KirTeDMzzxk) as you work through this tutorial.
 
 With nginx installed, create a directory for your demo. In this guide we'll call the directory `nginxdemo`:
 

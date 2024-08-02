@@ -1,10 +1,10 @@
 ---
-title: "Getting Started with the NVIDIA NeMo Chainguard Image"
+title: "Getting Started with the NeMo Chainguard Image"
 type: "article"
 linktitle: "NeMo"
 aliases: 
 - /chainguard/chainguard-images/getting-started/nemo
-description: "Get started with the Chainguard Image for NVIDIA's NeMo framework for generative deep learning"
+description: "Get started with the NeMo Chainguard Image for generative deep learning"
 date: 2024-05-16:08:00+02:00
 lastmod: 2024-05-16:08:00+02:00
 tags: ["Chainguard Images", "Products"]
@@ -13,19 +13,19 @@ images: []
 menu:
   docs:
     parent: "getting-started"
-weight: 612
+weight: 030
 toc: true
 ---
 
-[NVIDIA NeMo](https://github.com/NVIDIA/NeMo) is a deep learning framework for building conversational AI models that provides standalone module collections for Automatic Speech Recognition (ASR), Natural Language Processing (NLP), and Text-to-Speech (TTS) tasks. The [NeMo Chainguard Image](https://images.chainguard.dev/directory/image/nemo/overview) is a comparatively lightweight NeMo environment with low to no CVEs, making it ideal for both training and production inference. The NeMo Chainguard Image is designed to work with the [CUDA 12](https://developer.nvidia.com/about-cuda) parallel computing platform, and is suited to workloads that take advantage of connected GPUs.
+[NeMo](https://github.com/NVIDIA/NeMo) is a deep learning framework for building conversational AI models that provides standalone module collections for Automatic Speech Recognition (ASR), Natural Language Processing (NLP), and Text-to-Speech (TTS) tasks. The [NeMo Chainguard Image](https://images.chainguard.dev/directory/image/nemo/overview) is a comparatively lightweight NeMo environment with low to no CVEs, making it ideal for both training and production inference. The NeMo Chainguard Image is designed to work with the [CUDA 12](https://developer.nvidia.com/about-cuda) parallel computing platform, and is suited to workloads that take advantage of connected GPUs.
 
 {{< details "What is Deep Learning?" >}}
 {{< blurb/deep-learning >}}
 {{< /details >}}
 
-In this getting started guide, we will use the NeMo Chainguard Image to generate speech from plain text using models provided by NeMo's text-to-speech (TTS) and natural language processing (NLP) collections. In doing so, we'll compare the security and footprint of the NeMo Chainguard Image to the official runtime image distributed by NVIDIA and consider further approaches and resources for applying the NeMo Chainguard Image to additional tasks in conversational AI.
+In this getting started guide, we will use the NeMo Chainguard Image to generate speech from plain text using models provided by NeMo's text-to-speech (TTS) and natural language processing (NLP) collections. In doing so, we'll compare the security and footprint of the NeMo Chainguard Image to the official runtime image and consider further approaches and resources for applying the NeMo Chainguard Image to additional tasks in conversational AI.
 
-This guide is primarily designed for use in an environment with access to one or more NVIDIA GPUs. However, NVIDIA NeMo is built on [PyTorch Lightning](https://lightning.ai/docs/pytorch/stable/), which supports a wide variety of [accelerators](https://pytorch-lightning.readthedocs.io/en/1.1.8/accelerators.html), or interfaces to categories of processing units (CPU, GPU, TPU) or high-level clustering mechanisms such as [Distributed Data Parallel](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html). Some consideration will be given to alternative computing environments such as CPU in this tutorial.
+This guide is primarily designed for use in an environment with access to one or more NVIDIA GPUs. However, NeMo is built on [PyTorch Lightning](https://lightning.ai/docs/pytorch/stable/), which supports a wide variety of [accelerators](https://pytorch-lightning.readthedocs.io/en/1.1.8/accelerators.html), or interfaces to categories of processing units (CPU, GPU, TPU) or high-level clustering mechanisms such as [Distributed Data Parallel](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html). Some consideration will be given to alternative computing environments such as CPU in this tutorial.
 
 ## Prerequisites
 
@@ -124,7 +124,7 @@ docker run -it --rm \
  --ulimit stack=67108864 \
   -v $PWD:/home/nonroot/nemo-test \
   cgr.dev/chainguard/nemo:latest \
-  -c "python /home/nonroot/nemo-test/tts.py"
+ "/home/nonroot/nemo-test/tts.py"
 ```
 Note that we ran the above script as root. This allows us to share the script and output `.wav` file between the host and container. Remember not to run your image as root in a production environment.
 
@@ -150,7 +150,7 @@ The `test.wav` file should contain audio similar to this output:
 
 ## Final Considerations and Next Steps
 
-This section will consider next steps for applying the NVIDIA NeMo Chainguard Image to other tasks in conversational AI.
+This section will consider next steps for applying the NeMo Chainguard Image to other tasks in conversational AI.
 
 In the [tts.py](https://github.com/chainguard-dev/nemo-examples/blob/main/tts.py) script run above, we used two models provided by NeMo, both contained within the TTS collection. 
 

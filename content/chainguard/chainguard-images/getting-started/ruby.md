@@ -13,7 +13,7 @@ images: []
 menu:
   docs:
     parent: "getting-started"
-weight: 610
+weight: 065
 toc: true
 ---
 
@@ -58,20 +58,20 @@ The following Ruby code will read a random line from the `facts.txt` file and pr
 #!/usr/bin/env ruby
 
 class OctoFact
-    attr_accessor :source
+  attr_accessor :source
 
-    def initialize(source = "facts.txt")
-        @source = source
-    end
+  def initialize(source = "facts.txt")
+    @source = source
+  end
 
-    def random_line
-        puts File.readlines(@source).sample
-    end
+  def random_line
+    puts File.readlines(@source).sample
+  end
 end
 
 if __FILE__ == $0
-    fact = OctoFact.new
-    fact.random_line
+  fact = OctoFact.new
+  fact.random_line
 end
 ```
 Copy this code to your `octo.rb` script, then save and close the file.
@@ -181,25 +181,25 @@ require 'rainbow'
 Rainbow.enabled = true
 
 class Inky
-    def says(message = "Hello World")
-        colors = [:purple, :magenta]
-        words = message.split(" ")
+  def says(message = "Hello World")
+    colors = [:purple, :magenta]
+    words = message.split(" ")
 
-        print "\n ".ljust(40, " ")
-        words.each do |n|
-            print Rainbow(n).color(colors.sample) + " "
-        end
-
-        print "\n"
-        puts File.readlines('inky.txt')
+    print "\n ".ljust(40, " ")
+    words.each do |n|
+      print Rainbow(n).color(colors.sample) + " "
     end
+
+    print "\n"
+    puts File.readlines('inky.txt')
+  end
 end
 
 if __FILE__ == $0
-    inky = Inky.new
-    inputArray = ARGV
-    message = inputArray.length > 0 ? inputArray.join(' ') : "Hello Wolfi"
-    inky.says(message)
+  inky = Inky.new
+  inputArray = ARGV
+  message = inputArray.length > 0 ? inputArray.join(' ') : "Hello Wolfi"
+  inky.says(message)
 end
 ```
 

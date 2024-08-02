@@ -56,8 +56,7 @@ images](/chainguard/chainguard-images/getting-started-distroless/).
 Dockerfiles will often contain commands specific to the Linux Distribution they are based on. Most
 commonly this will be package installation instructions (e.g. `apt` vs `yum` vs `apk`) but also
 differences in default shell (e.g. `bash` vs `ash`) and default utilities (e.g. `groupadd` vs `addgroup`).
-Our high-level guide on [Migrating to Chainguard
-Images](https://edu.chainguard.dev/chainguard/migration-guides/migrating-to-chainguard-images/)
+Our high-level guide on [Migrating to Chainguard Images](/chainguard/migration/migrating-to-chainguard-images/)
 contains details about distro-based migration and package compatibility when migrating from Debian,
 Alpine, Ubuntu and Red Hat UBI base images.
 
@@ -92,7 +91,7 @@ py3-cairo-dev-1.26.0-r0
 
 These packages can then be easily added to your Dockerfile.
 For more searching tips, check the [Searching for
-Packages](/chainguard/migration-guides/migrating-to-chainguard-images/#searching-for-packages)
+Packages](/chainguard/migration/migrating-to-chainguard-images/#searching-for-packages)
 section of our base migration guide.
 
 ## Differences to Docker Official Image

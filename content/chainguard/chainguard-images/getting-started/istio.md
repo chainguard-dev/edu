@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Istio"
 aliases: 
 - /chainguard/chainguard-images/getting-started/getting-started-istio
-description: "Tutorial on how to get started with the Chainguard Istio Images"
+description: "Tutorial on how to get started with the Istio Chainguard Images"
 date: 2023-12-14T00:00:00+00:00
 lastmod: 2023-12-14T11:07:52+02:00
 tags: ["Chainguard Images", "Products"]
@@ -13,7 +13,7 @@ images: []
 menu:
   docs:
     parent: "getting-started"
-weight: 610
+weight: 015
 toc: true
 ---
 

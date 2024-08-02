@@ -5,7 +5,7 @@ aliases:
 - /chainguard/chainguard-registry/artifactory-pull-through/
 - /chainguard/chainguard-registry/pull-through-guides/artifactory-pull-through/
 type: "article"
-description: "Tutorial outlining how to set up a remote Artifactory repository to pull Images through from a Chainguard Registry."
+description: "Tutorial outlining how to set up a remote Artifactory repository to pull Images through from the Chainguard Registry."
 date: 2024-02-13T15:56:52-07:00
 lastmod: 2024-07-09T15:56:52-07:00
 draft: false
@@ -13,7 +13,7 @@ tags: ["Product", "Procedural", "Chainguard Images"]
 images: []
 menu:
   docs:
-    parent: "registry"
+    parent: "pull-through-guides"
 toc: true
 weight: 010
 ---
