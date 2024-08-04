@@ -2,22 +2,40 @@
   <div class="container footer">
     <div class="footer-column-container">
       {{ range .Site.Menus.footer }}
-        <div class="footer-column">
-          {{ if .HasChildren}}
-            <div class="footer-title">{{ .Name }}</div>
-            <div class="d-flex flex-column gap-1">
-                {{ range .Children -}}
-                  <a href="{{ .URL }}" class="footer-item">{{ .Name }}<span>{{ .Pre | safeHTML }}</span></a>
-                {{ end }}
-            </div>
-          {{ else }}
-            <div><a class="footer-item" href="{{ .URL }}"> {{ .Name }}</a></div>
+      <div class="footer-column">
+        {{ if .HasChildren}}
+        <div class="footer-title">{{ .Name }}</div>
+        <div class="d-flex flex-column gap-1">
+          {{ range .Children -}}
+          <a href="{{ .URL }}" class="footer-item">{{ .Name }}<span>{{ .Pre | safeHTML }}</span></a>
           {{ end }}
         </div>
+        {{ else }}
+        <div><a class="footer-item" href="{{ .URL }}"> {{ .Name }}</a></div>
+        {{ end }}
+      </div>
       {{ end }}
     </div>
+
+    {{- /* Copyright notice. */ -}}
+    <div class="socials-copyright-footer">
+      <span class="footer-social-icons ">
+      {{ range .Site.Menus.social }}
+
+        <span>
+          <a target="_blank" href="{{ .URL }}">
+            <img src="/iconography/socials/{{ .Params.icon }}" alt="Follow Chainguard on {{ .Name}}">
+          </a>              
+        </span>
+        {{ end }}
+    </span>
+
+    <span>
+      <a class="footer-item" href="https://www.chainguard.dev">© {{ time.Now.Year }} Chainguard.</a></div>
+    </span>
   </div>
 </footer>
+
 <div id="notification">
   <i class="bi bi-files-opposite"></i>
   <div id="notification-text"></div>

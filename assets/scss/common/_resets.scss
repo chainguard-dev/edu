@@ -67,7 +67,7 @@ blockquote {
 }
 
 h1 {
-  font-family: $TextFont;
+  font-family: $titleFont;
   font-style: normal;
   font-weight: 600;
   font-size: 36px;
@@ -76,7 +76,7 @@ h1 {
 }
 
 h2 {
-  font-family: $TextFont;
+  font-family: $titleFont;
   font-style: normal;
   font-weight: 600;
   font-size: 24px;
@@ -85,7 +85,7 @@ h2 {
 }
 
 h3 {
-  font-family: $TextFont;
+  font-family: $titleFont;
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
@@ -96,7 +96,7 @@ h3 {
 
 h4,
 h5 {
-  font-family: $TextFont;
+  font-family:$titleFont;
 }
 
 // Link element reset, beats _dark.scss selectors
