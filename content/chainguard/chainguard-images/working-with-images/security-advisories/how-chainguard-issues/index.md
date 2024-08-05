@@ -5,7 +5,7 @@ aliases:
 type: "article"
 description: "The life cycle of Chainguard-Issued Security Advisories"
 date: 2024-07-26T18:09:12+00:00
-lastmod: 2024-08-05T14:04:31+00:00
+lastmod: 2024-08-05T14:33:23+00:00
 draft: false
 tags: ["Overview", "Product", "Chainguard Images", "CVE"]
 images: []
@@ -70,7 +70,44 @@ Sometimes, a vulnerability may be present in a piece of software, but remediatio
 
 Rarely, a vulnerability is found in a package but there is no current status update on whether it can be remediated, or if plans exist to remediate it. In these few situations, the package is simply marked as being "Affected" by the vulnerability. This status is likely to be updated soon as the next steps towards remediation are established.
 
-![Summary of the vulnerability status types listed on the Chainguard Security Advisories Page](cve-summary.png)
+### Summary of Advisory Statuses
+<table>
+<thead>
+<th>Status</th>
+<th>Description</th>
+<th>Metadata</th>
+</thead>
+<tr>
+<td>Under investigation</td>
+<td>A vulnerability has been detected for the package and is awaiting further investigation to determine its impact.</td>
+<td>detection</td>
+</tr>
+<tr>
+<td>Affected</td>
+<td>A vulnerability finding has been determined to be present and effect the package.</td>
+<td>true-positive-determination</td>
+</tr>
+<tr>
+<td>Not affected</td>
+<td>The vulnerability was determined to not impact the package, making it a false positive finding.</td>
+<td>false-positive-determination</td>
+</tr>
+<tr>
+<td>Pending upstream fix</td>
+<td>Remediating the vulnerability is not possible until an upstream fix is made available.</td>
+<td>pending-upstream-fix</td>
+</tr>
+<tr>
+<td>Fixed</td>
+<td>A patch has been applied to the affected package and the vulnerability is no longer present.</td>
+<td>fixed</td>
+</tr>
+<tr>
+<td>Fix not planned</td>
+<td>There are no plans to address the vulnerability in the package at this time.</td>
+<td>fix-not-planned</td>
+</tr>
+</table>
 
 ## Further Reading
 
