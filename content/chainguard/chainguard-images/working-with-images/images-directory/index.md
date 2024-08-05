@@ -23,7 +23,7 @@ There are hundreds of Chainguard Images available for use. To help users explore
 
 ## Accessing the Images Directory
 
-This guide is framed around the Images Directory found in the Chainguard Console. The Console is accessible to anyone, including users who aren't Chainguard customers. To access the Console, you'll first need to [create an account and sign in](https://console.enforce.dev/auth/login).
+This guide is framed around the Images Directory found in the Chainguard Console. The Console is accessible to anyone, including users who aren't Chainguard customers. To access the Console, you'll first need to [create an account and sign in](https://console.chainguard.dev/auth/login).
 
 If you're not ready to create a Chainguard account, you can also follow along with the public [Chainguard Images Directory](https://images.chainguard.dev/). As of this writing, there are some differences between the two directories, but both should provide a similar experience for users.
 

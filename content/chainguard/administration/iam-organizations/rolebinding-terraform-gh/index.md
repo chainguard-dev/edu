@@ -299,7 +299,7 @@ After pressing `ENTER`, the command will complete.
 Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
 ```
 
-Following this, any members of your GitHub team for whom you've created role-bindings will be able to view the resources associated with the Chainguard organization you specified. To do so, they need to log in to the Chainguard platform, either by logging into the [Chainguard Console](https://console.enforce.dev/) or with the following command.
+Following this, any members of your GitHub team for whom you've created role-bindings will be able to view the resources associated with the Chainguard organization you specified. To do so, they need to log in to the Chainguard platform, either by logging into the [Chainguard Console](https://console.chainguard.dev/) or with the following command.
 
 ```sh
 chainctl auth login

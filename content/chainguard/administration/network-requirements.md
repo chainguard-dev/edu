@@ -25,7 +25,6 @@ This table lists the DNS hostnames, associated ports, and protocols that will ne
 | ----------------------- | ---- | -------- | ----------------------------------------------- |
 | cgr.dev                 | 443  | HTTPS    | Main image registry                             |
 | console.chainguard.dev  | 443  | HTTPS    | Chainguard dashboard                            |
-| console.enforce.dev     | 443  | HTTPS    | Chainguard dashboard                            |
 | console-api.enforce.dev | 443  | HTTPS    | Registry API endpoint                           |
 | enforce.dev             | 443  | HTTPS    | Registry authentication                         |
 | dl.enforce.dev          | 443  | HTTPS    | `chainctl` downloads                            |
