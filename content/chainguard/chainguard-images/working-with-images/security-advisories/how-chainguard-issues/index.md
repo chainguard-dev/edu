@@ -5,7 +5,7 @@ aliases:
 type: "article"
 description: "The life cycle of Chainguard-Issued Security Advisories"
 date: 2024-07-26T18:09:12+00:00
-lastmod: 2024-07-30T14:59:20+00:00
+lastmod: 2024-08-05T14:04:31+00:00
 draft: false
 tags: ["Overview", "Product", "Chainguard Images", "CVE"]
 images: []
@@ -18,43 +18,45 @@ toc: true
 
 When you scan a newly-built Chainguard Image with a vulnerability scanner, typically, no CVEs will be reported. However, as software packages age, more vulnerabilities are reported and CVEs will begin to accumulate in images. When this happens, Chainguard releases security advisories to communicate these vulnerabilities to downstream Images users.
 
-Chainguard publishes its security advisories to a dedicated [Security Advisories page](https://images.chainguard.dev/security/) on its Images Registry. Here, you can find a complete listing of CVEs found in various Chainguard Images, including their CVE ID, affected packages, and vulnerability status. Essentially, these security advisories act as metadata for a security vulnerability.
+Chainguard publishes its security advisories to a dedicated [Security Advisories page](https://images.chainguard.dev/security/) on its Images Directory. There, you can find a complete listing of CVEs found in various Chainguard Images, including their CVE ID, affected packages, and vulnerability status. Each advisory is built from the metadata associated with a security vulnerability.
 
 ![Snapshot of the Chainguard Security Advisories Page](advisories-page.png)
 
 
 You can also find consumable Alpine-style `secdb` security advisory feeds at the following URLs:
-[Wolfi OS repository feed](https://github.com/wolfi-dev/os): https://packages.wolfi.dev/os/security.json
-Chainguard Enterprise feed: https://packages.cgr.dev/chainguard/security.json 
-More information regarding these security feeds can be found at our [foundational concepts overview page](https://github.com/chainguard-dev/vulnerability-scanner-support/blob/main/docs/foundational_concepts.md) of our [vulnerability scanner support](https://github.com/chainguard-dev/vulnerability-scanner-support/tree/main) GitHub repository.
+
+- [Wolfi OS](https://github.com/wolfi-dev/os) feed: [packages.wolfi.dev/os/security.json](https://packages.wolfi.dev/os/security.json)
+- Chainguard Enterprise feed: [packages.cgr.dev/chainguard/security.json](https://packages.cgr.dev/chainguard/security.json)
+
+You can find more information regarding these security feeds at our [foundational concepts overview page](https://github.com/chainguard-dev/vulnerability-scanner-support/blob/main/docs/foundational_concepts.md) in our [vulnerability scanner support](https://github.com/chainguard-dev/vulnerability-scanner-support/tree/main) GitHub repository.
 
 If you’re wondering how these security advisories are made, you’re in the right place! In this article, we will walk through the life of a security advisory, starting from a CVE’s disclosure, all the way to its remediation. We’ll also explore what happens after an advisory is released and how its record may be updated over time.
 
 ## Stages of a Security Advisory
 
 
-### Step 1: A CVE is Disclosed
+### Stage 1: A CVE is Disclosed
 
 All security advisories begin with the disclosure of a security vulnerability. The [CVE Project](https://www.cve.org/) coordinates the processing of reported vulnerabilities through a network of CVE Numbering Authorities (CNAs). CNAs assign CVE IDs to new entries, and they are then added to a CVE Catalog. Each catalog entry contains information such as what packages or components are affected by the vulnerability, their versions, and remediation procedures, if applicable. 
 
 
-### Step 2: Scanners Detect the CVE
+### Stage 2: Scanners Detect the CVE
 
 The [National Vulnerability Database (NVD)](https://nvd.nist.gov/), the U.S. government vulnerability repository, will pick up these CVE records and review them further. During this secondary review process, the CVE entry is enriched with details that scanners later use to identify affected software. This process can take some time, so there will be issued CVEs that have not yet been analyzed by the NVD. These CVEs pending review will be marked as such by the NVD, as shown in the following image.
 
 ![NVD notice stating a vulnerability has not yet been analyzed](nvd-analyze.png)
 
-In addition to the NVD, other vulnerability databases, such as the [GitHub Advisory Database](https://github.com/advisories) (GHSA) and the [Go Vulnerability Database](https://vuln.go.dev/) are also referenced by vulnerability scanners.
+In addition to the NVD, vulnerability scanners also reference other databases such as the [GitHub Advisory Database](https://github.com/advisories) (GHSA) and the [Go Vulnerability Database](https://vuln.go.dev/).
 
 
-### Step 3: Advisory is Issued
+### Stage 3: Advisory is Issued
 
 Once a CVE has been reviewed by the NVD, it will be picked up by vulnerability scanners and reported in any affected container images. Chainguard uses [Grype](https://github.com/anchore/grype), an open-source vulnerability scanner from Anchore, as its primary tool for vulnerability detection.
 
-The newly detected CVE is then moved into the next phase where it waits for a team member to assess it. A security advisory will be issued with the status of “Under Investigation” to alert downstream users that Chainguard is aware of its presence. Security advisories are issued per package, as one CVE may impact different packages in different ways. This security advisory will be updated over time, as shown in the next step.
+The newly detected CVE is then moved into the next phase where it waits for a team member to assess it. A security advisory will be issued with the status of "Under Investigation" to alert downstream users that Chainguard is aware of its presence. Security advisories are issued per package, as one CVE may impact different packages in different ways. From there, this security advisory will be updated over time.
 
 
-### Step 4: Advisory is Updated
+### Stage 4: Advisory is Updated
 
 With an advisory issued for the package, further investigation is often needed to determine the impact of the CVE. In some cases, it will be determined that the CVE is not truly present in the package, therefore making it a [false positive](/chainguard/chainguard-images/recommended-practices/false-results/). The associated security advisory would have its status updated to "Not Affected", and further updates to the advisory would not occur.
 
