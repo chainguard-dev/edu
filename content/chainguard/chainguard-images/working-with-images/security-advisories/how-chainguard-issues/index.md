@@ -16,7 +16,7 @@ weight: 020
 toc: true
 ---
 
-When you scan a newly-built Chainguard Image with a vulnerability scanner, typically, no CVEs will be reported. However, as software packages age, more vulnerabilities are reported, and CVEs begin to accumulate in images. When this happens, Chainguard releases security advisories to communicate these vulnerabilities to downstream Images users.
+When you scan a newly-built Chainguard Image with a vulnerability scanner, typically, no CVEs will be reported. However, as software packages age, more vulnerabilities are reported and CVEs will begin to accumulate in images. When this happens, Chainguard releases security advisories to communicate these vulnerabilities to downstream Images users.
 
 Chainguard publishes its security advisories to a dedicated [Security Advisories page](https://images.chainguard.dev/security/) on its Images Registry. Here, you can find a complete listing of CVEs found in various Chainguard Images, including their CVE ID, affected packages, and vulnerability status. Essentially, these security advisories act as metadata for a security vulnerability.
 
@@ -56,21 +56,23 @@ The newly detected CVE is then moved into the next phase where it waits for a te
 
 ### Step 4: Advisory is Updated
 
-With an advisory issued for the package, further investigation is often needed to determine the impact of the CVE. In some cases, it will be determined that the CVE is not truly present in the package, therefore making it a [false positive vulnerability](/chainguard/chainguard-images/recommended-practices/false-results/). The associated security advisory would have its status updated to “Not Affected”, and further updates to the advisory would not occur.
+With an advisory issued for the package, further investigation is often needed to determine the impact of the CVE. In some cases, it will be determined that the CVE is not truly present in the package, therefore making it a [false positive](/chainguard/chainguard-images/recommended-practices/false-results/). The associated security advisory would have its status updated to "Not Affected", and further updates to the advisory would not occur.
 
-If the vulnerability is a true positive finding, then it is present in the package and further action must be taken. When an  upstream fix is available, such as a newer package version which remediates the CVE, then this update will be made, and the advisory modified to state the vulnerability is now “Fixed”. Chainguard may even proactively bump a vulnerable dependency to its newer, patched version before upstream projects have done so themselves. Or, patches issued outside of the upstream repository may be applied to remediate the vulnerability when a new package version is not yet available. Note that an end user would need to pull the new version of the container image with the updated fix for the CVE as older versions of the image would still be vulnerable. 
+If the vulnerability is a true positive finding, then it is present in the package and further action must be taken. When an  upstream fix is available, such as a newer package version which remediates the CVE, then this update will be made and the advisory modified to state the vulnerability is now "Fixed".
 
-In some cases, a fix for the CVE may not yet be available. A package will be marked as having the “Pending upstream fix” status in this situation. Once an upstream fix is released, then it will be applied to the package, and the advisory status updated to “Fixed”.
+Chainguard may even proactively bump a vulnerable dependency to its newer, patched version before upstream projects have done so themselves. Or, patches issued outside of the upstream repository may be applied to remediate the vulnerability when a new package version is not yet available. Note that an end user would need to pull the new version of the container image with the updated fix for the CVE as older versions of the image would still be vulnerable. 
 
-Sometimes, a vulnerability may be present in a piece of software, but remediation is not planned. This could be because the package is no longer supported such as in the case of an outdated package version or because the software is reaching the end of its life. If this is the case, then the security advisory status will be marked as “Fix not planned”. 
+In some cases, a fix for the CVE may not yet be available. A package will be marked as having the "Pending upstream fix" status in this situation. Once an upstream fix is released, then it will be applied to the package and the advisory status updated to "Fixed".
 
-Rarely, a vulnerability is found in a package, but there is no current status update on whether it can be remediated, or if plans exist to remediate it. In these few situations, the package is simply marked as being “Affected” by the vulnerability. This status is likely to be updated soon as the next steps towards remediation are established.
+Sometimes, a vulnerability may be present in a piece of software, but remediation is not planned. This could be because the package is no longer supported, such as in the case of an outdated package version or because the software is reaching the end of its life. If this is the case, then the security advisory status will be marked as "Fix not planned". 
+
+Rarely, a vulnerability is found in a package but there is no current status update on whether it can be remediated, or if plans exist to remediate it. In these few situations, the package is simply marked as being "Affected" by the vulnerability. This status is likely to be updated soon as the next steps towards remediation are established.
 
 ![Summary of the vulnerability status types listed on the Chainguard Security Advisories Page](cve-summary.png)
 
 ## Further Reading
 
-Chainguard’s Security Advisory feed is a great tool to have at hand when scanning your containers for the presence of vulnerabilities. Though you won’t need it often thanks to the low CVE counts of our Images, it is a useful reference when working with your scans, giving you insight into how you can approach and fix any vulnerabilities which pop up.
+Chainguard’s Security Advisory feed is a helpful tool to have at hand when scanning your containers for the presence of vulnerabilities. Though you won’t need it often thanks to the low CVE counts of our Images, it is a useful reference when working with your scans, giving you insight into how you can approach and fix any vulnerabilities which pop up.
 
 For more information on how to use Chainguard’s Security Advisories page to inform your vulnerability remediation, consider reading our article on [How to Use Chainguard Security Advisories](
 /chainguard/chainguard-images/working-with-images/security-advisories).
