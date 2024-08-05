@@ -7,7 +7,7 @@ aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-c++
 description: "Tutorial on how to get started with the C/C++ Chainguard Images"
 date: 2024-07-30T15:54:33+00:00
-lastmod: 2024-07-30T15:54:33+00:00
+lastmod: 2024-08-05T16:08:38+00:00
 tags: ["Chainguard Images", "Products"]
 draft: false
 images: []
@@ -18,15 +18,15 @@ weight: 002
 toc: true
 ---
 
-C and its derivative, C++, are two examples of widely adopted compiled languages used by developers. Chainguard offers a variety of minimal, low-CVE container images built on the [Wolfi un-distro](/open-source/wolfi/overview/) which are suitable for running and deploying C-based compiled programs. In this guide, we will explore two ways you can use Chainguard Images to compile and run a C-based binary.
+C and its derivative, C++, are two widely adopted compiled languages. Chainguard offers a variety of minimal, low-CVE container images built on the [Wolfi un-distro](/open-source/wolfi/overview/) which are suitable for deploying C-based compiled programs. In this guide, we will explore three ways you can use Chainguard Images to compile and run a C-based binary.
 
-There are a few options for how you can run your compiled programs. Static binaries can be executed in the minimal `static` Chainguard Image, while dynamically linked binaries can be run in the `glibc-dynamic` Image. For our demonstration, we will first compile a C binary using the `gcc-glibc` Chainguard Image, and then learn how to use a multi-stage build to run the resulting binary in the `glibc-dynamic` image. We'll also cover an example showing the multi-stage build process for the C++ programming language. To learn more about the differences between these images, read our article on [Choosing an Image for your Compiled Programs](/chainguard/chainguard-images/working-with-images/compiled-programs/). 
+The image with which you choose to run your compiled program depends on the nature of your binaries. Static binaries can be executed in the minimal `static` Chainguard Image, while dynamically linked binaries can be run in the `glibc-dynamic` Image. For our demonstration, we will first compile a C binary using the `gcc-glibc` Chainguard Image, and then learn how to use a multi-stage build to run the resulting binary in the `glibc-dynamic` image. We'll also cover an example showing the multi-stage build process for the C++ programming language. To learn more about the differences between these images, read our article on [Choosing an Image for your Compiled Programs](/chainguard/chainguard-images/working-with-images/compiled-programs/). 
 
-{{< details "What is distroless" >}}
+{{< details "What is distroless?" >}}
 {{< blurb/distroless >}}
 {{< /details >}}
 
-{{< details "What is Wolfi" >}}
+{{< details "What is Wolfi?" >}}
 {{< blurb/wolfi >}}
 {{< /details >}}
 
@@ -40,10 +40,10 @@ To follow along with this guide, you will need to have [Docker Engine](https://d
 
 ### Step 1: Setting up a Demo Application
 
-To start, let's create a simple demonstration application for us to use in our container. First we will create a folder to contain our files. The following command will create a new directory `cguide` and navigate to it.
+To start, let's create a simple demonstration application for us to run in our container. First we will create a folder to contain our files. The following command will create a new directory `cguide` and navigate to it.
 
 ```sh
-mkdir -p cguide && $_ cd cguide
+mkdir -p cguide && cd cguide
 ```
 
 Within this directory, we will create a file to hold the code for our first example. Execute the following command in your terminal to begin editing a new file using the text editor of your choice. We will demonstrate using `nano`:
@@ -54,7 +54,7 @@ nano hello.c
 
 Inside of our `hello.c` file, copy in the following code. This code will execute a simple "Hello, world!" application.
 
-```hello.c
+```C
 /* Chainguard Academy (edu.chainguard.dev)
 *  Getting Started with the C/C++ Chainguard Images
 *  Examples 1 & 2 - C
@@ -88,7 +88,7 @@ Once your program is successfuly compiled, you can run it with the following com
 
 You should see the "Hello, world!" program output in your terminal if the program executed successfully.
 
-```
+```Output
 Hello, world!
 I am a demo from the Chainguard Academy.
 My code was written in C.
@@ -96,7 +96,7 @@ My code was written in C.
 
 ### Step 2: Creating the Dockerfile
 
-Now that we have successfully ran our simple program locally, next, we will run it inside of an image. A notable advantage of choosing to run your code inside of containerized environments is flexibility. When we compile our binary locally, `gcc` is compiling the binary to run with our local system. However, if you were to send this binary to your friend running a different operating system, they may not be able to run it, as they need a binary file compiled for their machine's architecture. Using a container ensures that your program will run on either machine as the container environment will be consistent across platforms.
+Now that we have successfully tested our example program locally, next, we will compile and run it inside of an image. An advantage of choosing to run your code inside of containerized environments is portability. In the previous step, `gcc` compiled the binary to run on your machine. However, if you were to run this binary on a different operating system, it likely will fail to execute properly. Using a container ensures that your program will run on any machine as the containerized environment will be consistent across platforms.
 
 Let us begin by creating a Dockerfile called `Dockerfile1` for our image. Execute the following code with the text editor of your choice to begin editing a new file.
 
@@ -127,7 +127,7 @@ ENTRYPOINT ["./hello"]
 
 Copy the text in to your Dockerfile, save, and close it.
 
-Now, with our Dockerfile created, we can build the image. Start Docker Engine on your machine, and execute the following command in your terminal. The `-f` flag specifies the Dockerfile which we are using to build from, and the `-t` flag will tag our image with a meaningful name.
+Next, start Docker Engine on your machine. Execute the following command in your terminal. The `-f` flag specifies the Dockerfile which we are using to build from, and the `-t` flag will tag our image with a meaningful name.
 
 ```sh
 docker build -f Dockerfile1 -t example1:latest .
@@ -135,13 +135,13 @@ docker build -f Dockerfile1 -t example1:latest .
 
 With your image built, we can now run it with the following command.
 
-```
+```sh
 docker run --name example1 example1:latest
 ```
 
 You should see output in your terminal identical to that of the binary we compiled locally.
 
-```
+```Output
 Hello, world!
 I am a demo from the Chainguard Academy.
 My code was written in C.
@@ -149,7 +149,7 @@ My code was written in C.
 
 ## Example 2 --- Multi-Stage Build for C Applications
 
-In our first example, we successfully compiled and executed our C binary in the `gcc-glibc` image. To go a step further, we can use a multi-stage build, which allows us to compile our program in one image, and execute it in another image. A multi-stage build gives you more control over your final image, as you can transfer your program to an image with a smaller footprint after build time, making it lightweight and safer to deploy. The `glibc-dynamic` image, which we will use as our second stage in the build, does not contain `gcc`. Because of this, a malicious binary could not be compiled and executed by an attacker tampering with the image.
+In our first example, we successfully compiled and executed our C binary in the `gcc-glibc` image. To go a step further, we can use a multi-stage build, which allows us to compile our program in one image and execute it in another image. A multi-stage build gives you more control over your final image, as you can transfer your program to an image with a smaller footprint after build time to reduce your program's attack surface. The `glibc-dynamic` image, which we will use as our second stage in the build, does not contain `gcc`. Because of this, a malicious binary could not be compiled by an attacker tampering with the image.
 
 ### Step 1: Creating the Dockerfile
 
@@ -160,7 +160,7 @@ nano Dockerfile2
 ```
 
 The following Dockerfile will:
-1. Use the `gcc-glibc` Chainguard Image as a builder;
+1. Use the `gcc-glibc` Chainguard Image as the builder stage;
 2. Set the current working directory of the image to `/usr/bin`;
 3. Copy our `hello.c` program code to the current directory;
 4. Compile the program using `gcc` and name it `hello`;
@@ -199,23 +199,23 @@ docker build -f Dockerfile2 -t example2:latest .
 
 With your image built, we can now run it with the following command.
 
-```
+```sh
 docker run --name example2 example2:latest
 ```
 
 You should see output in your terminal identical to that of the previous example.
 
-```
+```Output
 Hello, world!
 I am a demo from the Chainguard Academy.
 My code was written in C.
 ```
 
-Great! Having your program execute from a smaller image with less packages reduces your potential attack surface, making it a more secure option for production-facing builds.
+Great! Having your program execute from a smaller image with less packages reduces your potential attack surface, making it a more secure approach for production-facing builds.
 
 ## Example 3 --- Multi-Stage Build for C++ Applications
 
-So far, our demonstration has featured a program coded in C. A very similar process applies to binaries compiled for the C++ programming language. 
+So far, our demonstrations have featured a program coded in C. A similar image building process applies to binaries compiled for the C++ programming language. 
 
 ### Step 1: Setting up a Demo Application
 
@@ -225,9 +225,9 @@ In your terminal, create a new file called `hello.cpp` with the text editor of y
 nano hello.cpp
 ```
 
-Copy the following C++ code to the file you just created. This code will display a simple greeting, specifying that it was written in C++.
+Copy the following C++ code to the file you just created. This code will display a simple greeting specifying that it was written in C++.
 
-```hello.cpp
+```C++
 /* Chainguard Academy (edu.chainguard.dev)
 *  Getting Started with the C/C++ Chainguard Images
 *  Example 3 - C++
@@ -248,7 +248,7 @@ int main(){
 
 When you are done editing your file, save and close it.
 
-You can now compile your C++ program using `gcc`. Execute the following command in your terminal to compile the program. The command will display any compiler warnings or errors and will name the resultant binary `hello`.
+You can now compile your C++ program using `g++`. Execute the following command in your terminal to compile the program. The command will display any compiler warnings or errors and will name the resultant binary `hello`.
 
 ```sh
 g++ -Wall -o hello hello.cpp
@@ -262,7 +262,7 @@ Now you can test your compiled binary.
 
 You should see the following output in your terminal.
 
-```
+```Output
 Hello, world!
 I am a demo from the Chainguard Academy.
 My code was written in C++.
@@ -277,13 +277,13 @@ nano Dockerfile3
 ```
 
 The following Dockerfile will:
-1. Use the `gcc-glibc` Chainguard Image as a builder;
+1. Use the `gcc-glibc` Chainguard Image as the builder stage;
 2. Set the current working directory of the image to `/usr/bin`;
-3. Copy our `hello.c` program code to the current directory;
-4. Compile the program using `gcc` and name it `hello`;
+3. Copy our `hello.cpp` program code to the current directory;
+4. Compile the program using `g++` and name it `hello`;
 5. Begin a new stage using the `glibc-dynamic` Chainguard Image;
 6. Set the current working directory of the new image to `/usr/bin`;
-7. Copy the compiled `hello` C binary from our builder stage;
+7. Copy the compiled `hello` C++ binary from our builder stage;
 8. Execute our binary from the `glibc-dynamic` image when the container is started.
 
 ```Dockerfile3
@@ -322,7 +322,7 @@ docker run --name example3 example3:latest
 
 You should see output in your terminal identical to that of the C++ binary you compiled locally.
 
-```
+```Output
 Hello, world!
 I am a demo from the Chainguard Academy.
 My code was written in C++.
