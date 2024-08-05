@@ -1084,11 +1084,11 @@
     }
 
     [data-dark-mode] body a code:not(.hljs) {
-        color: var(--primary-2)
+        color: var(--article-link-color)
     }
 
     [data-dark-mode] body code:not(.hljs) a {
-        color: var(--primary-2)
+        color: var(--article-link-color)
     }
 
     .pagination {
