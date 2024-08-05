@@ -1083,7 +1083,11 @@
         letter-spacing: 0.0025em;
     }
 
-    [data-dark-mode] body code:not(.hljs) {
+    [data-dark-mode] body a code:not(.hljs) {
+        color: var(--primary-1)
+    }
+
+    [data-dark-mode] body code:not(.hljs) a {
         color: var(--primary-1)
     }
 
