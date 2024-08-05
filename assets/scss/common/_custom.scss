@@ -1083,6 +1083,14 @@
         letter-spacing: 0.0025em;
     }
 
+    [data-dark-mode] body a code:not(.hljs) {
+        color: var(--article-link-color)
+    }
+
+    [data-dark-mode] body code:not(.hljs) a {
+        color: var(--article-link-color)
+    }
+
     .pagination {
         justify-content: center;
         margin-top: 48px;
