@@ -128,14 +128,15 @@ Below these is a table listing the vulnerabilities. However, most Chainguard Ima
 
 To illustrate how this table appears when vulnerabilities are actually present, you can select different versions in the drop-down until you find one with a vulnerability. This example shows the `latest` version of the `ruby` Image.
 
-![Screenshot of the ruby Image's "Vulnerabilities" tab, with "latest" selected in the version drop-down menu. The table shows two vulnerability: "CVE-2024-41946" and "CVE-2024-41123", both with a "Medium" severity. These CVEs are associated with version 3.3.2 of the "rexml" package.](imgs-dir-G.png)
+![Screenshot of the ruby Image's "Vulnerabilities" tab, with "latest" selected in the version drop-down menu. The table shows two vulnerabilities: "CVE-2024-41946" and "CVE-2024-41123", both with a "Medium" severity. These CVEs are associated with version 3.3.2 of the "rexml" package.](imgs-dir-G.png)
 
-The Vulnerabilities table has four columns.
+The Vulnerabilities table has five columns.
 
 * **CVE ID**: the official identification number of each vulnerability present in the table.
 * **Severity**: the severity of each given vulnerability. This can either read **Critical**, **High**, **Medium**, **Low**, or **Unknown**
 * **Package**: showing the package where the vulnerability was found
 * **Version**: the version of the package containing the vulnerability
+* **Last detected**: the date and time when the vulnerability last appeared in a scan of the Image
 
 To the left of each row in the table is down-pointing chevron (**˅**). If you click on this symbol, more information about the given vulnerability will appear below the vulnerability's row.
 
