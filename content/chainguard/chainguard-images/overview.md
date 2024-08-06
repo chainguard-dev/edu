@@ -28,7 +28,7 @@ The main features of Chainguard Images include:
 - [Verifiable signatures](/chainguard/chainguard-images/working-with-images/retrieve-image-sboms/) provided by [Sigstore](/open-source/sigstore/cosign/an-introduction-to-cosign/)
 - Reproducible builds with Cosign and apko ([read more about reproducibility](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds))
 
-Chainguard Images are available from the [Chainguard Registry](/chainguard/chainguard-registry/overview/) and can be pulled from `cgr.dev`. You can review images files [on GitHub](https://github.com/chainguard-images) and can find complete lists of available Chainguard Images in the [public Images Directory](https://images.chainguard.dev/) or within the [Chainguard Console](https://console.enforce.dev/). 
+Chainguard Images are available from the [Chainguard Registry](/chainguard/chainguard-registry/overview/) and can be pulled from `cgr.dev`. You can review images files [on GitHub](https://github.com/chainguard-images) and can find complete lists of available Chainguard Images in the [public Images Directory](https://images.chainguard.dev/) or within the [Chainguard Console](https://console.chainguard.dev/). 
 
 
 ## Why Minimal Container Images
@@ -59,7 +59,7 @@ Production Images are enterprise-ready images that come with patch SLAs and feat
 
 You can access Images directly from the [Chainguard Registry](/chainguard/chainguard-registry/overview/). The Chainguard Registry provides public access to all public Chainguard Images, and provides customer access for Production Images after logging in and authenticating.
 
-You can find complete lists of all the Developer and Production Images available to you in [the Chainguard Console](https://console.enforce.dev/?utm=docs). After logging in you will be able to find all the current Developer Images in the **Public images** tab. If you've selected an appropriate Organization in the drop-down menu above the left hand navigation, you can find your organization's Production Images in the **Organization images** tab.
+You can find complete lists of all the Developer and Production Images available to you in [the Chainguard Console](https://console.chainguard.dev/?utm=docs). After logging in you will be able to find all the current Developer Images in the **Public images** tab. If you've selected an appropriate Organization in the drop-down menu above the left hand navigation, you can find your organization's Production Images in the **Organization images** tab.
 
 
 ## Comparing Images

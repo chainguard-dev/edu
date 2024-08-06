@@ -16,7 +16,7 @@ images: []
 weight: 015
 ---
 
-Both [`chainctl`](/chainguard/chainctl/) and the [Chainguard Console](https://console.enforce.dev/) are useful tools for interacting with Chainguard. However, there may be times that you want to hand off certain administrative tasks to an automation system, like Buildkite or GitHub Actions. 
+Both [`chainctl`](/chainguard/chainctl/) and the [Chainguard Console](https://console.chainguard.dev/) are useful tools for interacting with Chainguard. However, there may be times that you want to hand off certain administrative tasks to an automation system, like Buildkite or GitHub Actions. 
 
 In such cases, you can create a Chainguard identity for these systems to assume, allowing them to perform certain tasks within a specific scope. You can restrict access to an identity so that only workflows that present tokens matching a specific issuer and subject can assume it. Likewise, assumable identities can be tied to certain roles — like `viewer`, `owner`, or `editor` — letting you place strict limits on what a given identity is allowed to do. 
 
