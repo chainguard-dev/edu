@@ -38,7 +38,7 @@ Select **OIDC - OpenID Connect** as the sign-in method and **Web Application** a
 Next, in the **General Settings** window, configure the application as follows.
 
 * **App integration name**: Enter a descriptive name (like "Chainguard") here.
-* **Logo**: You can optionally add a Chainguard logo icon here to help your users visually identify this integration. If you'd like, you can use the icon from the [Chainguard Console](https://console.enforce.dev/logo512.png).
+* **Logo**: You can optionally add a Chainguard logo icon here to help your users visually identify this integration. If you'd like, you can use the icon from the [Chainguard Console](https://console.chainguard.dev/logo512.png).
 * **Grant type**: Ensure that the grant type is set to **Authorization Code** only.
 
 > **Warning**: DO NOT select other grant types as this may compromise your security.

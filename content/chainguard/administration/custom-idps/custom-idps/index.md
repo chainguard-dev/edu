@@ -114,11 +114,11 @@ If you aren't using one of these identity providers, you can complete the follow
 
 For a generic OIDC-compatible identity provider, start by creating an OIDC application. If possible, set as much metadata as possible for the application so that your users can identify this application as the Chainguard platform. The following assets and details can be helpful to include in metadata.
 
-* The Console homepage is [https://console.enforce.dev/](https://console.enforce.dev)
+* The Console homepage is [console.chainguard.dev/](https://console.chainguard.dev)
 * Our terms of service can be found at [chainguard.dev/terms-of-service](https://www.chainguard.dev/terms-of-service)
 * Our terms of use can be found at [chainguard.dev/terms-of-use](https://www.chainguard.dev/terms-of-use)
 * Our privacy policy is located at [chainguard.dev/privacy-notice](https://www.chainguard.dev/privacy-notice)
-* You can also add a Chainguard logo icon here to help your users visually identify this integration. The icon from the [Chainguard Console](https://console.enforce.dev/logo512.png) will be suitable for most platforms.
+* You can also add a Chainguard logo icon here to help your users visually identify this integration. The icon from the [Chainguard Console](https://console.chainguard.dev/logo512.png) will be suitable for most platforms.
 
 Next, configure your OIDC application as follows:
 

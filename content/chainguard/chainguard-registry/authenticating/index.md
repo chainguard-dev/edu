@@ -22,7 +22,7 @@ As of August 16, 2023, all other tags for Chainguard Images are unavailable with
 
 ## Signing Up
 
-You can register a Chainguard account through our [sign up form](https://console.enforce.dev/auth/login?utm_source=docs). This will create your account and a [Chainguard IAM organization](/chainguard/administration/iam-organizations/overview-of-chainguard-iam-model/). If you already have an account, you can log in through the [login page](https://console.enforce.dev/auth/login?utm_source=docs).
+You can register a Chainguard account through our [sign up form](https://console.chainguard.dev/auth/login?utm_source=docs). This will create your account and a [Chainguard IAM organization](/chainguard/administration/iam-organizations/overview-of-chainguard-iam-model/). If you already have an account, you can log in through the [login page](https://console.chainguard.dev/auth/login?utm_source=docs).
 
 For more details on signing in, you can review our [sign in guidance](/chainguard/administration/iam-organizations/how-to-manage-iam-organizations-in-chainguard/#logging-in). If your organization is interested in (or already using) custom identity providers like Okta, you can read [how to authenticate to Chainguard with custom identity providers](/chainguard/administration/custom-idps/custom-idps/).
 
@@ -80,7 +80,7 @@ chainctl iam identity delete <identity UUID>
 
 ### Managing Pull Tokens in the Chainguard Console
 
-You can also create and view pull tokens in the [Chainguard Console](https://console.enforce.dev/).
+You can also create and view pull tokens in the [Chainguard Console](https://console.chainguard.dev/).
 
 After navigating to the Console, click on **Settings** in the left-hand navigation menu. From the **Settings** pane, click on **Pull tokens**. There, you'll be presented with a table listing of all the active pull tokens for your selected organization.
 

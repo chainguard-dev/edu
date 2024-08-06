@@ -64,7 +64,7 @@ The other extra argument is the `--predicate-type` flag, required to specify whi
 
 ## Image SBOMs in the Chainguard Console
 
-You can also find Image SBOMs in the [Chainguard Console](https://console.enforce.dev). After signing in to the Console and clicking either the **Public images** or, if available, **Organization images** you'll be presented with a list of images. Clicking on any of these will take you to the image's landing page. There, you can click on the [**SBOM** tab](/chainguard/chainguard-images/images-directory/#sboms-tab) to find and download the SBOM for the given Image. 
+You can also find Image SBOMs in the [Chainguard Console](https://console.chainguard.dev). After signing in to the Console and clicking either the **Public images** or, if available, **Organization images** you'll be presented with a list of images. Clicking on any of these will take you to the image's landing page. There, you can click on the [**SBOM** tab](/chainguard/chainguard-images/images-directory/#sboms-tab) to find and download the SBOM for the given Image. 
 
 The following example shows the **SBOM** tab for the `postgres` Image.
 
