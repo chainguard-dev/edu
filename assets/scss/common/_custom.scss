@@ -413,7 +413,7 @@
     .navbar-title span {
         font-family: $titleFont;
         font-style: normal;
-        margin-top:.25em;
+        margin-top: 1.25em;
     }
     
     .block {
@@ -421,7 +421,7 @@
     }
 
     .navbar-title-padding {
-        padding-top: .75em;
+        padding-top: 1.75em;
         padding-bottom: 1.5em;
     }
 
@@ -439,7 +439,7 @@
 
     .search-container {
         flex: 1;
-        padding: 0 24px 12px;
+        padding: 0  12px;
         position: sticky;
         top: 0;
         background-color: var(--board-background-color);
@@ -694,8 +694,7 @@
         margin-right: 2em;
     }
 
-    .footer-social-icons img {
-        height:5em;
+    .footer-social-icons img {;
         padding: .5em;
         // transform: scale(1);
     }
@@ -1220,9 +1219,4 @@
         font-size: 16px;
         line-height: 112%;
         letter-spacing: -0.02em;
-    }
-
-
-    body {
-        margin: 0  3%;
     }
