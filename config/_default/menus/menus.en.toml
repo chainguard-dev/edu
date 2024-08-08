@@ -155,7 +155,7 @@
     icon = "linkedin.svg"
 
 [[footer]]
-  name = "Products"
+  name = "Product"
   weight = 1
   identifier = "products"
 
@@ -170,12 +170,6 @@
   name = "Images Directory"
   url = "https://images.chainguard.dev/"
   weight = 2
-  parent = "products"
-
-[[footer]]
-  name = "Pricing"
-  url = "https://chainguard.dev/chainguard-images#pricing"
-  weight = 3
   parent = "products"
 
 [[footer]]
@@ -220,7 +214,7 @@
 
 
 [[footer]]
-  name = "Customers"
+  name = "Customer Stories"
   url = "https://chainguard.dev/customers"
   weight = 1
   parent = "customers"
@@ -296,11 +290,6 @@
   name = "Events"
   url = "https://chainguard.dev/events"
   weight = 3
-  parent = "resources"
-
-[[footer]]
-  name = "Trust Center"
-  url = "https://security.chainguard.dev/"
   parent = "resources"
 
 [[footer]]
