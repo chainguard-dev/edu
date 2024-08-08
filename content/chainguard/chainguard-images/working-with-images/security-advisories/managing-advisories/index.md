@@ -16,16 +16,16 @@ weight: 030
 toc: true
 ---
 
-Chainguard operates its own [Security Advisories](https://images.chainguard.dev/security/) page to alert users about the status of vulnerabilities found in Chainguard Images. To maintain this database, we use [`wolfictl`](https://github.com/wolfi-dev/wolfictl/), a tool which is used to work with the [Wolfi un-distro](https://github.com/wolfi-dev/).
+Chainguard operates its own [Security Advisories](https://images.chainguard.dev/security/) page to alert users about the status of vulnerabilities found in Chainguard Images. To maintain this database, we use [`wolfictl`](https://github.com/wolfi-dev/wolfictl/), a tool developed for working with the [Wolfi un-distro](https://github.com/wolfi-dev/).
 
-In this guide, we will walk through using `wolfictl` to create an advisory for a vulnerable package. We’ll also learn how to update this advisory as more information about the vulnerability is disclosed over time. To follow along, you will need to have [‘git’](https://git-scm.com/) and the [go programming language](https://go.dev/dl/) installed on your machine. 
+In this guide, we will walk through using `wolfictl` to create an advisory for a vulnerable package. We’ll also learn how to update this advisory as more information about the vulnerability is disclosed over time. To follow along, you will need to have [`git`](https://git-scm.com/) and the [Go programming language](https://go.dev/dl/) installed on your machine. 
 
 This guide will focus on the packages and advisories issued for Wolfi.
 
 
 ## How to Install `wolfictl`
 
-To work with security advisories, we will need to install the `wolfictl` tool to our machine. First, execute the following command in your terminal to clone the `wolfictl` repository locally, and navigate to it. 
+To work with security advisories, you will need to install the `wolfictl` tool onto your machine. First, execute the following command in your terminal to clone the `wolfictl` repository locally, and navigate to it. 
 
 ```shell
 git clone git@github.com:wolfi-dev/wolfictl.git wolfictl && cd $_
@@ -36,10 +36,9 @@ Then, using `go`, install the `wolfictl` command:
 ```shell
 go install
 ```
-If you encounter any errors during installation, your installed version of `go` may be out of date. You can check what version of go you have installed by running `go version` in your terminal. Check the [`go.mod` file](https://github.com/wolfi-dev/wolfictl/blob/main/go.mod) in the `wolfictl` repository to determine what version of `go` you will need, and be sure to update `go` to this version or a later release to continue.
+If you encounter any errors during installation, your installed version of `go` may be out of date. You can check what version of go you have installed by running `go version` in your terminal. Check the [`go.mod` file](https://github.com/wolfi-dev/wolfictl/blob/main/go.mod) in the `wolfictl` repository to determine what version of `go` you will need, and be sure to update `go` to this version or a later release to continue. Alternatively, you may need to add the `wolfictl` binary to your `$PATH` after installation if your system does not recognize the command.
 
 You can verify that you have successfully installed `wolfictl` by executing the `wolfictl version` command in your terminal, with output expected to be shown as follows. Note that the exact output will vary over time as new `wolfictl` versions are released. 
-You may need to add the `wolfictl` binary to your `$PATH` after installation if your system does not recognize the command.
 
 ```shell
 wolfictl version
@@ -62,7 +61,7 @@ Platform:      darwin/arm64
 
 ## Cloning Package and Advisory Repositories
 
-We will need to clone a couple more repositories to continue: the `wolfi-dev/packages` repository and the `wolfi-dev/advisories` repository. Enter the following commands in your terminal to clone each of these repositories. We will also navigate to the `advisories` repository after cloning it.
+You will need to clone a couple more repositories to continue: the `wolfi-dev/packages` repository and the `wolfi-dev/advisories` repository. Enter the following commands in your terminal to clone each of these repositories. We will also navigate to the `advisories` repository after cloning it.
 
 ```shell
 git clone git@github.com:wolfi-dev/os.git 
@@ -78,11 +77,12 @@ git clone git@github.com:wolfi-dev/advisories.git && cd advisories
 Before we add to the database, we will take a look at the existing advisories issued for packages in Wolfi. Keep in mind that the results shown here, and on your own machine, are snapshots in time. You should regularly check for changes to the upstream repository as new packages and advisories are issued. 
 
 We will be using the `wolfi advisory list` command to view existing advisories. There are a variety of flags which we can append to assist in our search.
-`-p` lists all advisories for a given package name.
-`-V` lists all advisories for a given CVE ID, across all packages.
-`-t` lists all advisories by their most recent event type.
-`-c` lists all advisories by detected component type.
-`--history` reports the full list of events for displayed advisories.
+* `-p` lists all advisories for a given package name.
+* `-V` lists all advisories for a given CVE ID, across all packages.
+* `-t` lists all advisories by their most recent event type.
+* `-c` lists all advisories by detected component type.
+* `--history` reports the full list of events for displayed advisories.
+
 Multiple flags can be combined together to produce a more granular search. For a full listing of available flags, you can run the `wolfictl advisory list -h` command in your terminal.
 
 For example, let’s say you want to find advisories for the `glibc` package, and we want to see the full history of these advisories. Note that the output of this command may change as vulnerability entries are added and updated over time.
@@ -91,7 +91,7 @@ For example, let’s say you want to find advisories for the `glibc` package, an
 wolfictl advisory list -p glibc
 ```
 
-The following shows a small sample of output from this command at the time of execution.
+The following shows a small sample of output from this command at the time of this writing. Note that the output of this command may change as vulnerability entries are added and updated over time.
 ```
 …
 CGA-pjj8-8gh5-2qwh (CVE-2024-33599, GHSA-9gvm-vcgf-x5xw)   2024-05-14T11:00:49Z detected (glibc)
@@ -108,7 +108,7 @@ CGA-pjj8-8gh5-2qwh (CVE-2024-33599, GHSA-9gvm-vcgf-x5xw)   2024-05-14T11:00:49Z 
 
 From this snapshot, we can get an idea of the timeline of a vulnerability’s remediation process. The first CVE displayed, CVE-2024-33599, was detected on 5/14/2023 and remediated within the next 24 hours. Similar results are shown for other advisories, including the versions of the package in which the vulnerability was remediated.
 
-We encourage you to experiment with these flags to see what information you can gather from your various searches.
+We encourage you to experiment with these flags to find what information you can gather from your various searches.
 
 ## Creating and Updating Advisories
 
@@ -141,7 +141,7 @@ Type:
 
 We can now check that our advisory has been successfully added with the `wolfictl advisory diff` command. This will show us what advisories have been modified by us.
 
-Let’s say that you upgrade a vulnerable package to a newer, patched version. You are now ready to update the security advisory so its status is now “Fixed”. We can do so using the `wolfictl advisory update` command. Again, this command will walk you through the steps of updating an advisory by requesting information about the advisory you wish to modify. The following shows an example of this workflow in action.
+Let’s say that you upgrade a vulnerable package to a newer, patched version. You are now ready to update the security advisory so its status is now “Fixed”. You can do so using the `wolfictl advisory update` command. Again, this command will walk you through the steps of updating an advisory by requesting information about the advisory you wish to modify. The following shows an example of this workflow in action.
 
 ```sh
 Auto-detected distro: Wolfi
@@ -153,13 +153,13 @@ Type:
 Fixed Version: 2.39-r7 
 ```
 
-The same process can be followed for other status updates, whether you wish to mark a vulnerability as “Not affected” in the case of a [false positive finding](https://edu.chainguard.dev/chainguard/chainguard-images/recommended-practices/false-results/), “Fix not planned”, or another applicable status. 
+The same process can be followed for other status updates, whether you wish to mark a vulnerability as “Not affected” in the case of a [false positive finding](/chainguard/chainguard-images/recommended-practices/false-results/), “Fix not planned”, or another applicable status. 
 
 ## Further Reading
 
 In this guide, you learned how to use the `wolfictl` tool to interact with Chainguard’s Security Advisories feed. You used `wolfictl` to explore existing advisories, and also created and updated your new security advisory. The steps shown in this guide allowed you to make local changes to your advisory feed. If you wish to contribute to the open-source Wolfi OS advisory feed, please read through our [How To Patch CVEs](
 https://github.com/wolfi-dev/os/blob/main/HOW_TO_PATCH_CVES.md) guide and our [How Chainguard Issues Security Advisories](/chainguard/chainguard-images/working-with-images/security-advisories/how-chainguard-issues/) article first.
 
-Be sure to routinely check [our Security Advisories page](https://images.chainguard.dev/security/) when your scanners pick up new CVEs in your images. If you want to learn more about how you can interpret a security advisory, and what its status means for your security, read our [article on using advisories](/chainguard/chainguard-images/working-with-images/security-advisories/how-to-use/). 
+Be sure to routinely check [our Security Advisories page](https://images.chainguard.dev/security/) when your scanners pick up new CVEs in your images. If you want to learn more about how you can interpret a security advisory and what its status means for your security, read our [article on using advisories](/chainguard/chainguard-images/working-with-images/security-advisories/how-to-use/). 
 
 We also have a video walkthrough showing how to use the [Security Advisories page and `chainctl diff` API](/chainguard/chainguard-images/videos/security_advisories/).
