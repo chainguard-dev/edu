@@ -1,6 +1,6 @@
 ---
 title: "How Chainguard Issues Security Advisories"
-linktitle: "Chainguard's Advisories"
+linktitle: "Advisory Life Cycle"
 aliases: 
 type: "article"
 description: "The life cycle of Chainguard-Issued Security Advisories"

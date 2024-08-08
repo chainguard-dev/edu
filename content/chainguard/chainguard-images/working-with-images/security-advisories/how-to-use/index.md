@@ -1,6 +1,6 @@
 ---
 title: "How to Use Chainguard Security Advisories"
-linktitle: "Security Advisories"
+linktitle: "Using Advisories"
 aliases: 
 - /chainguard/chainguard-images/security-advisories
 - /chainguard/chainguard-images/images-features/security-advisories
@@ -15,7 +15,7 @@ images: []
 menu:
   docs:
     parent: "chainguard-images"
-weight: 030
+weight: 010
 toc: true
 ---
 
