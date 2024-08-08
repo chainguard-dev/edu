@@ -38,6 +38,8 @@ Latest versions | Major and minor versions
 Community support | Enterprise SLAs
 [Developer Docs](https://edu.chainguard.dev/chainguard/chainguard-images/) | Customer support
 
+You can read more about the differences between Developer and Production Images in our [Images Overview](/chainguard/chainguard-images/overview/#production-and-developer-images).
+
 ## Are Chainguard Images available on Docker Hub?
 
 Yes, Chainguard Developer Images are available on [Docker Hub](https://hub.docker.com/u/chainguard?utm_source=academy&utm_medium=referral&utm_campaign=FY25-DockerHub-Orgprofile). As a Docker Verified Publisher, Chainguard has met Docker's stringent standards for security, quality, and transparency. This status signifies that our container images are trusted, reliable, and have undergone rigorous verification processes. If you wish to use Production Images, you need to use the [Chainguard Registry](/chainguard/chainguard-registry/overview/).
@@ -71,6 +73,6 @@ Chainguard investigates the CVE and marks relevant images as affected or not. If
 Chainguard is not responsible for CVEs in software you add on top of base images.
 
 ## Do I need to authenticate into Chainguard to use Chainguard Images?
-Logging in is optional if you are only using Developer Images. That being said, there are benefits for all users who authenticate to the Chainguard Registry, as Chainguard provides notifications of version updates, breaking changes, or critical security updates. 
+Logging in is optional if you are only using Developer Images. That being said, there are benefits for all users who authenticate to the Chainguard Registry, as Chainguard provides notifications of version updates, breaking changes, or critical security updates.
 
 To learn how to authenticate into the Chainguard Registry, you can review our [authentication documentation](/chainguard/chainguard-registry/authenticating/) . You can read more about the thought process behind authentication in our blog post, [Scaling Chainguard Images with a growing catalog and proactive security updates](https://www.chainguard.dev/unchained/scaling-chainguard-images-with-a-growing-catalog-and-proactive-security-updates).
