@@ -68,18 +68,11 @@ In the next section, you will complete your local setup so you can begin using t
 
 Before you can interact with security advisories, the  `wolfictl` tool will need access to existing Wolfi package and advisory information.
 
-You will need to clone two additional repositories: the [`wolfi-dev/os`](https://github.com/wolfi-dev/os) repository and the [`wolfi-dev/advisories`](https://github.com/wolfi-dev/advisories) repository. Execute the following commands to clone each of these repositories to your machine. Then, navigate to the `advisories` directory.
+You will need to clone two additional repositories: the [`wolfi-dev/os`](https://github.com/wolfi-dev/os) repository and the [`wolfi-dev/advisories`](https://github.com/wolfi-dev/advisories) repository. Execute the following commands to clone each of these repositories to your machine and then navigate to the `advisories` directory.
 
 ```sh
 git clone git@github.com:wolfi-dev/os.git 
-```
-
-```sh
-git clone git@github.com:wolfi-dev/advisories.git
-```
-
-```sh
-cd advisories
+git clone git@github.com:wolfi-dev/advisories.git && cd_
 ```
 
 With `wolfictl` installed and these two repositories cloned locally, you are now ready to interact with the security advisory database.
