@@ -34,13 +34,15 @@ The image with which you choose to run your compiled program depends on the natu
 {{< blurb/images >}}
 {{< /details >}}
 
-To follow along with this guide, you will need to have [Docker Engine](https://docs.docker.com/engine/install/) and `gcc`, the [GNU Compiler Collection](https://gcc.gnu.org/) installed on your machine. You can find the code and Dockerfiles used in this repository at our [Demos GitHub repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/c).
+## Prerequisites
+
+To follow along with this guide, you will need to have [Docker Engine](https://docs.docker.com/engine/install/) and `gcc`, the [GNU Compiler Collection](https://gcc.gnu.org/), installed on your machine. You can find the code and Dockerfiles used in our [Images demos GitHub repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/c).
 
 ## Example 1 --- Minimal C Chainguard Image
 
 ### Step 1: Setting up a Demo Application
 
-To start, let's create a simple demonstration application for us to run in our container. First we will create a folder to contain our files. The following command will create a new directory `cguide` and navigate to it.
+To start, let's create a demo application for us to run in our container. First we will create a folder to contain our files. The following command will create a new directory `cguide` and navigate to it.
 
 ```sh
 mkdir -p cguide && cd cguide
@@ -74,19 +76,19 @@ int main(){
 
 When you are done editing the file, save and close it.
 
-Now, let's compile this file with `gcc`. The command uses the `-Wall` flag to display compiler errors and warnings, if any occur, and uses the `-o` flag to rename our executable to `hello`.
+Now, let's compile this file with `gcc`. This command uses the `-Wall` flag to display compiler errors and warnings, if any occur, and includes the `-o` flag to rename our executable to `hello`.
 
 ```sh
 gcc -Wall -o hello hello.c
 ```
 
-Once your program is successfuly compiled, you can run it with the following command:
+Once your program is successfuly compiled you can run it with the following command:
 
 ```sh
 ./hello
 ```
 
-You should see the "Hello, world!" program output in your terminal if the program executed successfully.
+This will return the "Hello, world!" program output in your terminal if the program executed successfully.
 
 ```Output
 Hello, world!
@@ -94,17 +96,19 @@ I am a demo from the Chainguard Academy.
 My code was written in C.
 ```
 
+Now that we have successfully tested our example program locally, next, we will compile and run it inside of an image.
+
 ### Step 2: Creating the Dockerfile
 
-Now that we have successfully tested our example program locally, next, we will compile and run it inside of an image. An advantage of choosing to run your code inside of containerized environments is portability. In the previous step, `gcc` compiled the binary to run on your machine. However, if you were to run this binary on a different operating system, it likely will fail to execute properly. Using a container ensures that your program will run on any machine as the containerized environment will be consistent across platforms.
+An advantage of choosing to run your code inside of containerized environments is portability. In the previous step, `gcc` compiled the binary to run on your machine. However, if you were to run this binary on a different operating system, it likely will fail to execute properly. Using a container ensures that your program will run on any machine as the containerized environment will be consistent across platforms.
 
-Let us begin by creating a Dockerfile called `Dockerfile1` for our image. Execute the following code with the text editor of your choice to begin editing a new file.
+Let us begin by creating a Dockerfile called `Dockerfile1` for our image.
 
 ```sh
 nano Dockerfile1
 ```
 
-The following Dockerfile will:
+This Dockerfile will do the following:
 1. Use the `gcc-glibc:latest` Chainguard Image as the base image;
 2. Set the current working directory to `/usr/bin`;
 3. Copy our `hello.c` program code to the current directory;
@@ -125,7 +129,7 @@ RUN ["gcc", "-Wall", "-o", "hello", "hello.c"]
 ENTRYPOINT ["./hello"]
 ```
 
-Copy the text in to your Dockerfile, save, and close it.
+Add this text to your Dockerfile, save, and close it.
 
 Next, start Docker Engine on your machine. Execute the following command in your terminal. The `-f` flag specifies the Dockerfile which we are using to build from, and the `-t` flag will tag our image with a meaningful name.
 
@@ -153,16 +157,16 @@ In our first example, we successfully compiled and executed our C binary in the 
 
 ### Step 1: Creating the Dockerfile
 
-Using the text editor of your choice, create a new Dockerfile called `Dockerfile2`.
+Create a new Dockerfile called `Dockerfile2`.
 
 ```sh
 nano Dockerfile2
 ```
 
-The following Dockerfile will:
+This time, the Dockerfile will do the following:
 1. Use the `gcc-glibc` Chainguard Image as the builder stage;
 2. Set the current working directory of the image to `/usr/bin`;
-3. Copy our `hello.c` program code to the current directory;
+3. Copy our example `hello.c` program code to the current directory;
 4. Compile the program using `gcc` and name it `hello`;
 5. Begin a new stage using the `glibc-dynamic` Chainguard Image;
 6. Set the current working directory of the new image to `/usr/bin`;
@@ -191,19 +195,19 @@ ENTRYPOINT ["./hello"]
 
 When you are finished editing your Dockerfile, save and close it.
 
-With our new Dockerfile created, we can build the image. Execute the following command in your terminal to build your multi-stage image.
+With the new Dockerfile created, you can build the image. Execute the following command in your terminal to build your multi-stage image.
 
 ```sh
 docker build -f Dockerfile2 -t example2:latest .
 ```
 
-With your image built, we can now run it with the following command.
+With your image built, you can now run it with the following command.
 
 ```sh
 docker run --name example2 example2:latest
 ```
 
-You should see output in your terminal identical to that of the previous example.
+You will see output in your terminal identical to that of the previous example.
 
 ```Output
 Hello, world!
@@ -211,7 +215,7 @@ I am a demo from the Chainguard Academy.
 My code was written in C.
 ```
 
-Great! Having your program execute from a smaller image with less packages reduces your potential attack surface, making it a more secure approach for production-facing builds.
+Having your program execute from a smaller image with less packages reduces your potential attack surface, making it a more secure approach for production-facing builds.
 
 ## Example 3 --- Multi-Stage Build for C++ Applications
 
@@ -219,13 +223,13 @@ So far, our demonstrations have featured a program coded in C. A similar image b
 
 ### Step 1: Setting up a Demo Application
 
-In your terminal, create a new file called `hello.cpp` with the text editor of your choice.
+In your terminal, create a new file called `hello.cpp`.
 
 ```sh
 nano hello.cpp
 ```
 
-Copy the following C++ code to the file you just created. This code will display a simple greeting specifying that it was written in C++.
+Add the following C++ code to the file you just created. This code will display a greeting specifying that it was written in C++.
 
 ```C++
 /* Chainguard Academy (edu.chainguard.dev)
@@ -260,7 +264,7 @@ Now you can test your compiled binary.
 ./hello
 ```
 
-You should see the following output in your terminal.
+You will see the following output in your terminal.
 
 ```Output
 Hello, world!
@@ -270,7 +274,7 @@ My code was written in C++.
 
 ### Step 2: Creating the Dockerfile
 
-Now, with a working C++ example, we can compile and run our program using a multi-stage build. With the text editor of your choice, create a new file named `Dockerfile3`.
+With a working C++ example, you can compile and run our program using a multi-stage build. With the text editor of your choice, create a new file named `Dockerfile3`.
 
 ```sh
 nano Dockerfile3
@@ -308,19 +312,19 @@ ENTRYPOINT ["./hello"]
 
 When you are finished editing your Dockerfile, save and close it.
 
-With our new Dockerfile created, we can build the image. Execute the following command in your terminal to build your multi-stage C++ image.
+With your new Dockerfile created, you can build the image. Execute the following command in your terminal to build your multi-stage C++ image.
 
 ```sh
 docker build -f Dockerfile3 -t example3:latest .
 ```
 
-With your image built, we can now run it with the following command.
+With your image built, you can now run it with the following command.
 
 ```
 docker run --name example3 example3:latest
 ```
 
-You should see output in your terminal identical to that of the C++ binary you compiled locally.
+You will see output in your terminal identical to that of the C++ binary you compiled locally.
 
 ```Output
 Hello, world!
