@@ -1,7 +1,7 @@
 ---
 title: "Documentation Requirements for CMMC 2.0"
 description: "Documentation Requirements for CMMC 2.0"
-lead: "Learn about the different documentation requirements for CMMC 2.0's maturity levels. "
+lead: "Learn about the different documentation requirements for each of CMMC 2.0's maturity levels. "
 type: "article"
 date: 2024-08-09T19:10:09+00:00
 lastmod: 2024-08-09T19:10:09+00:00
