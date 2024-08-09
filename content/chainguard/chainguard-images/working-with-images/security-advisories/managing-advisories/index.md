@@ -109,7 +109,7 @@ glibc CGA-49g3-q5cv-7m6g (CVE-2023-4527, GHSA-hmf7-f8gf-8f4p)    2023-09-22T14:1
 …
 ```
 
-From this snapshot, you can get an idea of the timeline of a vulnerability’s remediation process. For example, CVE-2024-22600 was detected on May 14th, 2024, and was remediated within the next 24 hours. Similar results are shown for other advisories, including the versions of the package in which the vulnerability was remediated.
+From this snapshot, you can get an idea of the timeline of a vulnerability’s remediation process. For example, CVE-2024-33600 was detected on May 14th, 2024, and was remediated within the next 24 hours. Similar results are shown for other advisories, including the versions of the package in which the vulnerability was remediated.
 
 We encourage you to experiment with these flags to find what information you can gather from your various searches.
 
