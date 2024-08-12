@@ -5,7 +5,7 @@ lead: "Learn about the differences between CMMC 2.0's maturity levels."
 type: "article"
 date: 2024-08-09T19:10:09+00:00
 lastmod: 2024-08-09T19:10:09+00:00
-contributors: ["Erin Glass"]
+contributors: []
 draft: false
 tags: ["compliance", "CMMC 2.0", "standards"]
 images: []

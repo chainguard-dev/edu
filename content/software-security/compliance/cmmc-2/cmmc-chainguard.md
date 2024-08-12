@@ -5,7 +5,7 @@ lead: "Chainguard Images reduce the time and effort for establishing CMMC 2.0 co
 type: "article"
 date: 2024-08-09T19:10:09+00:00
 lastmod: 2024-08-09T19:10:09+00:00
-contributors: ["Erin Glass"]
+contributors: []
 draft: false
 tags: ["compliance", "CMMC 2.0", "standards"]
 images: []
