@@ -1,7 +1,7 @@
 ---
 title: "Simplify Your Path to CMMC 2.0 Compliance with Chainguard"
-description: "Simplify Your Path to CMMC 2.0 Compliance with Chainguard"
-lead: "Chainguard Images reduce the time and effort for establishing CMMC 2.0 compliance."
+description: "Chainguard Images reduce the time and effort for establishing CMMC 2.0 compliance"
+lead: "Chainguard Images reduce the time and effort for establishing CMMC 2.0 compliance"
 type: "article"
 date: 2024-08-09T19:10:09+00:00
 lastmod: 2024-08-09T19:10:09+00:00
