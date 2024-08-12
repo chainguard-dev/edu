@@ -18,7 +18,7 @@ toc: true
 Learn answers to your questions about [Chainguard Images](https://www.chainguard.dev/chainguard-images?utm_source=docs).
 
 ## Which Linux distribution is used as base for Chainguard Images?
-Chainguard Images are based on [Wolfi](/open-source/wolfi/), a Linux _undistro_ we built specifically to address software supply chain security issues. We call it an undistro because it doesn't contain software you'd normally find in a traditional Linux distribution such as Debian or Alpine. Wolfi a minimal Linux distribution designed specifically to be used as a base for stripped-down container images.
+Chainguard Images are based on [Wolfi](/open-source/wolfi/), a Linux _undistro_ we built specifically to address software supply chain security issues. We call it an undistro because it doesn't contain certain software you'd normally find in a traditional Linux distribution such as Debian or Alpine. Wolfi is a minimal Linux distribution designed specifically to be used as a base for stripped-down container images.
 
 ## How do Chainguard Images relate to the Google Distroless Images?
 The [Google distroless](https://github.com/GoogleContainerTools/distroless) images follow a similar philosophy to many of our images: they are minimal images that don't include package managers or shells. The main difference is in the implementation. The Google distroless images are built with [Bazel](https://bazel.build) and based on the Debian distribution, whereas Chainguard Images are built with [apko](/open-source/apko) and based on [Wolfi](/open-source/wolfi). We believe our approach is more maintainable and extensible.
@@ -29,7 +29,7 @@ There are currently hundreds of Chainguard Images available, which are segmented
 Chainguard Images are primarily available from the [Chainguard Registry](/chainguard/chainguard-registry/overview/), but a selection of developer images is also available on [Docker Hub](https://hub.docker.com/u/chainguard). You can find the complete list of available Chainguard Images in our public [Images Directory](https://images.chainguard.dev/) or within the [Chainguard Console](https://console.chainguard.dev/).
 
 ## What options do I have to use Chainguard Images?
-You can get free Chainguard Images for your organization; you can also upgrade for more versions, SLAs, and dedicated support.
+You can get free Chainguard Images for your organization. You can also upgrade for more versions, SLAs, and dedicated support.
 
 Developer | Production
 -------|-----------------------
@@ -56,7 +56,7 @@ SBOMs provide visibility into the software you depend on. They can allow automat
 Chainguard Images are rebuilt every night to ensure that new package versions and security updates in upstream Wolfi are quickly applied.
 
 ## Can I simply replace my current base image with a Chainguard Image and it will work out of the box?
-Chainguard Images are designed to be minimalist, and many of them don't come with a package manager. Depending on your stack and specific dependencies, you may need to include additional software by combining development images and our undistro images in a multi-stage Docker build.
+Chainguard Images are designed to be minimal, and many of them don't come with a package manager. Depending on your stack and specific dependencies, you may need to include additional software by combining `-dev` images and our [distroless](/chainguard/chainguard-images/getting-started-distroless/) images in a multi-stage Docker build.
 
 ## What packages are available in Chainguard Images?
 

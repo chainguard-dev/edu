@@ -31,7 +31,7 @@ Because of their minimalist design, Chainguard Images sometimes require users to
 
 ## Migrating to Chainguard Images
 
-### TL;DR: Porting Key Points
+### Porting Key Points
 
 * Chainguard's distroless Images have no shell or package manager by default. This is great for security, but sometimes you need these things, especially in builder images. For those cases we have `-dev` images (such as `cgr.dev/chainguard/python:latest-dev`) which do include a shell and package manager.
 * Chainguard Images typically don't run as root, so a `USER root` statement may be required before installing software.
@@ -49,7 +49,7 @@ Perhaps the best place for most users to get started with migrating to Chainguar
 
 #### Use `-dev` Images when you need a shell
 
-Chainguard Images have no shell or package manager by default. This is great for security, but sometimes you need these things, especially for build stages in multi-stage Dockerfiles and for debugging.  For these cases there are `-dev` image variants which do include a shell and package manager.
+Chainguard Images have no shell or package manager by default. Although this is great for security on production environments, you'll eventually need to install additional packages and log into a container or run shell commands, especially for build stages in multi-stage Dockerfiles and for debugging. For these cases there are `-dev` image variants which do include a shell and package manager.
 
 For example, the `-dev` variant of the `nginx:latest` Image is `nginx:latest-dev`. These images typically contain a shell and tools like a package manager to allow users to more easily debug and modify the image.
 

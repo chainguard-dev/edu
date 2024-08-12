@@ -17,7 +17,7 @@ weight: 20
 toc: true
 ---
 
-### TL;DR: Porting Key Points
+### Porting Key Points
 
 * Chainguard's distroless Images have no shell or package manager by default. This is great for security, but sometimes you need these things, especially in builder images. For those cases we have `-dev` images (such as `cgr.dev/chainguard/python:latest-dev`) which do include a shell and package manager.
 * Chainguard Images typically don't run as root, so a `USER root` statement may be required before installing software.
