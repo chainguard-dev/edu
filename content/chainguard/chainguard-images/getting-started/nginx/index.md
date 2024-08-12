@@ -21,7 +21,9 @@ The nginx images maintained by Chainguard include development and production dis
 
 In this tutorial, we will create a local demo website using nginx to serve static HTML content to a local port on your machine. Then we will use the nginx Chainguard Image to build and execute the demo in a lightweight containerized environment.
 
-You will need to have [nginx](https://nginx.org/en/download.html) and [Docker Engine](https://docs.docker.com/engine/install/) installed on your machine to follow along.
+You will need to have [nginx](https://nginx.org/en/download.html) and [Docker Engine](https://docs.docker.com/engine/install/) installed on your machine to follow along. Additionally, you can watch our [Getting Started with the nginx Chainguard Image video](https://youtu.be/KirTeDMzzxk) as you work through this tutorial.
+
+{{< youtube KirTeDMzzxk >}}
 
 {{< details "What is distroless" >}}
 {{< blurb/distroless >}}
@@ -39,7 +41,7 @@ You will need to have [nginx](https://nginx.org/en/download.html) and [Docker En
 
 We'll start by serving static content to a local web server with nginx.
 
-For this tutorial, you will be copying code to files you create locally. You can find the demo code throughout this tutorial, or you can find the complete demo at the [demo GitHub repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/nginx). Additionally, you can follow along with our [Getting Started with the nginx Chainguard Image video](https://youtu.be/KirTeDMzzxk) as you work through this tutorial.
+For this tutorial, you will be copying code to files you create locally. You can find the demo code throughout this tutorial, or you can find the complete demo at the [demo GitHub repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/nginx).
 
 With nginx installed, create a directory for your demo. In this guide we'll call the directory `nginxdemo`:
 
