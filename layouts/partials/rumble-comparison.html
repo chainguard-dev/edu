@@ -4,7 +4,7 @@
 
 <div id="rumble">
   <h2>Comparison chart for {{ $i.image }} images</h2>
-  <p>The following chart shows the past 30 days of Grype scans against the <code>{{ $i.left}}</code> image, and the
+  <p>The following chart shows the past 30 days of Grype scans against the <code>{{ $i.left}}</code> image and the
     <code>{{$i.right}}</code> Chainguard Image.</code> Note that all scanners may find false positives or
     miss false negative vulnerabilities. For more information about false results, visit our <a href="/chainguard/chainguard-images/scanners/false-results">False Positives and False Negatives with Images Scanners page</a>.
   </p>
@@ -17,8 +17,8 @@
   <h3>Vulnerability Details for {{ $i.image }} images</h3>
   <p>The following tables of vulnerabilities include the total number of unique vulnerabilities detected in the last 30
     days in
-    the refereced external <code>{{ $i.left}}</code> image, and the <code>{{$i.right}}</code> Chainguard Image. The
-    totals include patched, withdrawn, or contested vulnerabilites within the 30 day window. Refer to the individual
+    the referenced external <code>{{ $i.left}}</code> image, and the <code>{{$i.right}}</code> Chainguard Image. The
+    totals include patched, withdrawn, or contested vulnerabilities within the 30 day window. Refer to the individual
     vulnerabilities for more
     date information and extended
     descriptions.</p>
@@ -36,7 +36,7 @@
     <form class="search">
       <ul>
         <li>
-          <input class="form-control is-search" id="filterInput" placeholder="Search packages and vulnerabilities"
+          <input class="form-control is-search" id="filterInput" placeholder="Search packages and CVEs"
             size="25" />
         </li>
         <li id="severity-picker">
