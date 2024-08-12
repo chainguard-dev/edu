@@ -57,7 +57,6 @@ To learn more about requirements for tracking compliance, continue to the next a
 - [Introduction to CMMC 2.0](./intro-cmmc-2.md)
 - [CMMC 2.0 Maturity Levels](./cmmc-2-levels.md)
 - (Current article) Overview of CMMC 2.0 Practice/Control Groups
-- [CMMC 2.0 Documentation Requirements](./cmmc-documentation.md)
 - [How Chainguard Can Help With CMMC 2.0](./cmmc-chainguard.md)
 
 **[Get started with Chainguard FIPS Images today!](https://images.chainguard.dev/?category=fips)**

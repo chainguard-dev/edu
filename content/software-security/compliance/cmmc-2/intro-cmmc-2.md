@@ -52,7 +52,6 @@ Achieving compliance with CMMC 2.0 is not just a regulatory requirement but a cr
 - (Current article) Introduction to CMMC 2.0
 - [CMMC 2.0 Maturity Levels](./cmmc-2-levels.md)
 - [Overview of CMMC 2.0 Practice/Control Groups](./cmmc-practices.md)
-- [CMMC 2.0 Documentation Requirements](./cmmc-documentation.md)
 - [How Chainguard Can Help With CMMC 2.0](./cmmc-chainguard.md)
 
 **[Get started with Chainguard FIPS Images today!](https://images.chainguard.dev/?category=fips)**

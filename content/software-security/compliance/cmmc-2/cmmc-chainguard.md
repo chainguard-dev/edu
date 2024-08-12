@@ -42,7 +42,6 @@ By leveraging Chainguard’s resources, organizations can accelerate their path 
 - [Introduction to CMMC 2.0](./intro-cmmc-2.md)
 - [CMMC 2.0 Maturity Levels](./cmmc-2-levels.md)
 - [Overview of CMMC 2.0 Practice/Control Groups](./cmmc-practices.md)
-- [CMMC 2.0 Documentation Requirements](./cmmc-documentation.md)
 - (Current article) How Chainguard Can Help With CMMC 2.0
 
 **[Get started with Chainguard FIPS Images today!](https://images.chainguard.dev/?category=fips)**
