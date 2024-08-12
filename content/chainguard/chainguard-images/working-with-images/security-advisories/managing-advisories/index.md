@@ -5,7 +5,7 @@ aliases:
 type: "article"
 description: "Guide on how to use the wolfictl tool to create, update, and manage security advisories"
 date: 2024-08-05T20:23:51+00:00
-lastmod: 2024-08-08T15:10:06+00:00
+lastmod: 2024-08-09T14:55:03+00:00
 draft: false
 tags: ["Overview", "Product", "Chainguard Images", "CVE"]
 images: []
@@ -72,7 +72,7 @@ You will need to clone two additional repositories: the [`wolfi-dev/os`](https:/
 
 ```sh
 git clone git@github.com:wolfi-dev/os.git 
-git clone git@github.com:wolfi-dev/advisories.git && cd_
+git clone git@github.com:wolfi-dev/advisories.git && cd advisories
 ```
 
 With `wolfictl` installed and these two repositories cloned locally, you are now ready to interact with the security advisory database.
@@ -94,25 +94,22 @@ You can combine multiple flags together to conduct a more granular search. For a
 For example, let’s say you want to find advisories for the `glibc` package as well as the full history of these advisories. 
 
 ```sh
-wolfictl advisory list -p glibc
+wolfictl advisory list -p glibc --history
 ```
 
 The following shows a small sample of output from this command at the time of this writing. Note that the output of this command may change as vulnerability entries are added and updated over time.
 ```Output
-…
-CGA-pjj8-8gh5-2qwh (CVE-2024-33599, GHSA-9gvm-vcgf-x5xw)   2024-05-14T11:00:49Z detected (glibc)
-                                                                 2024-05-15T04:39:53Z fixed (2.39-r5)
+glibc CGA-49g3-q5cv-7m6g (CVE-2023-4527, GHSA-hmf7-f8gf-8f4p)    2023-09-22T14:14:01Z fixed (2.38-r2)
+      CGA-573p-mg38-75fh (CVE-2019-1010024, GHSA-3q29-89cr-qgvj) 2023-03-06T13:22:06Z false positive (vulnerability-record-analysis-contested)
+      CGA-57wh-hj4x-5342 (CVE-2023-4911, GHSA-m77w-6vjw-wh2f)    2023-10-03T22:58:32Z fixed (2.38-r5)
+      CGA-5vfg-gqch-hcj5 (CVE-2010-4756, GHSA-x2r9-jfjp-jvp9)    2023-03-06T17:47:28Z false positive (vulnerability-record-analysis-contested)
+                                                                 2024-07-26T16:49:42Z fixed (2.40-r0)
       CGA-7fr2-v9gg-pg28 (CVE-2024-33600, GHSA-jv3g-6pg3-v9j8)   2024-05-14T11:00:51Z detected (glibc)
                                                                  2024-05-15T04:40:16Z fixed (2.39-r5)
-      CGA-vjpp-g2r4-c8gc (CVE-2024-33601, GHSA-f4cf-2w52-c853)   2024-05-14T11:00:53Z detected (glibc)
-                                                                 2024-05-15T04:40:32Z fixed (2.39-r5)
-      CGA-wfxf-8642-f6f5 (CVE-2024-33602, GHSA-f4pv-q5f7-2h55)   2024-05-14T11:00:56Z detected (glibc)
-                                                                 2024-05-15T04:40:42Z fixed (2.39-r5)
-
 …
 ```
 
-From this snapshot, you can get an idea of the timeline of a vulnerability’s remediation process. The first CVE displayed, CVE-2024-33599, was detected on 5/14/2023 and remediated within the next 24 hours. Similar results are shown for other advisories, including the versions of the package in which the vulnerability was remediated.
+From this snapshot, you can get an idea of the timeline of a vulnerability’s remediation process. For example, CVE-2024-33600 was detected on May 14th, 2024, and was remediated within the next 24 hours. Similar results are shown for other advisories, including the versions of the package in which the vulnerability was remediated.
 
 We encourage you to experiment with these flags to find what information you can gather from your various searches.
 
@@ -134,7 +131,7 @@ First, you will be asked to enter the package in which the CVE was found. For th
 - `fix-not-planned` (Fix not planned)
 - `pending-upstream-fix` (Pending upstream fix)
 
-To learn more about the meanings of each of these identifiers, please refer to our [documentation on event types](https://github.com/wolfi-dev/advisories/blob/main/docs/event_types.md). The following shows an example of the `wolfictl advisory create` command in action. **Please note that the vulnerability referenced is an arbitary CVE ID for demonstration purposes and does not reflect an actual vulnerability found in the `glibc` package.**
+To learn more about the meanings of each of these identifiers, please refer to our [documentation on event types](https://github.com/wolfi-dev/advisories/blob/main/docs/event_types.md). The following shows an example of the `wolfictl advisory create` command in action. **Please note that the vulnerability referenced is an arbitrary CVE ID for demonstration purposes and does not reflect an actual vulnerability found in the `glibc` package.**
 
 ```sh
 Auto-detected distro: Wolfi
