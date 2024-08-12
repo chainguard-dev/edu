@@ -16,13 +16,13 @@ weight: 001
 toc: true
 ---
 
-CMMC 2.0, or Cybersecurity Maturity Model Certification, is a cybersecurity framework established by the U.S. Department of Defense (DoD). It aims to ensure that contractors and subcontractors within the Defense Industrial Base (DIB) comply with rigorous cybersecurity standards.  CMMC 2.0 replaces the previous CMMC model with a streamlined and updated version that incorporates lessons learned and feedback from industry stakeholders.
+CMMC 2.0, or Cybersecurity Maturity Model Certification, is a cybersecurity framework established by the U.S. Department of Defense (DoD). It aims to ensure that contractors and subcontractors within the Defense Industrial Base (DIB) comply with rigorous cybersecurity standards. CMMC 2.0 replaces the previous CMMC model with a streamlined and updated version that incorporates lessons learned and feedback from industry stakeholders.
 
 If you are a contractor, subcontractor, or supplier contracting with the DoD, you will need to meet the requirements of CMMC 2.0 regardless of the size of your organization or the type of product or service you are providing. This guide will provide a comprehensive overview of CMMC 2.0, detailing its practices, the importance of compliance, and practical guidance on meeting its requirements. At the end of this guide, you will learn how Chainguard Images can be used to significantly reduce the toil and time needed to achieve CMMC 2.0 compliance.
 
 ## Who is Required to be Compliant?
 
-CMMC 2.0 compliance is mandatory for all organizations involved in DoD contracts where Controlled Unclassified Information (CUI) and Federal Contract Information (FCI)  is handled. This includes:
+CMMC 2.0 compliance is mandatory for all organizations involved in DoD contracts where Controlled Unclassified Information (CUI) and Federal Contract Information (FCI) is handled. This includes:
 
 - **Prime Contractors**: Organizations directly awarded contracts by the DoD that must meet specific CMMC certification levels based on contract requirements.
 - **Subcontractors**: Companies providing goods or services to prime contractors, especially if they handle or access CUI or FCI.
@@ -45,14 +45,14 @@ Failure to comply with CMMC 2.0 can have several significant impacts:
 - **Legal and Financial Penalties**: Organizations may face legal actions and financial penalties, especially if a security breach occurs involving sensitive information.
 - **Increased Risk**: Non-compliance increases the risk of data breaches and cyberattacks, which can compromise organizational and client data.
 
-Achieving compliance with CMMC 2.0 is not just a regulatory requirement but a critical step in safeguarding national security and contracting with the DoD. To prepare your organization for CMMC 2.0, continued on to the next section of our guide, [Overview of CMMC 2.0 Framework](TBD), or read about [how Chainguard Images can help simplify fulfilling CMMC 2.0 requirements](TBD).
+Achieving compliance with CMMC 2.0 is not just a regulatory requirement but a critical step in safeguarding national security and contracting with the DoD. To prepare your organization for CMMC 2.0, continue on to the next section of our guide, [CMMC 2.0 Maturity Levels](./cmmc-2-levels.md), or read about [how Chainguard Images can help simplify fulfilling CMMC 2.0 requirements](./cmmc-chainguard.md).
 
 ## Browse all CMMC 2.0 articles:
 
-- (Current article) [Introduction to CMMC 2.0](TBD)
-- [Overview of CMMC 2.0 Framework](TBD)
-- [Overview of CMMC 2.0 Practice/Control Groups](TBD)
-- [CMMC 2.0 Documentation Requirements](TBD)
-- [How Chainguard Can Help With CMMC 2.0](TBD)
+- (Current article) Introduction to CMMC 2.0
+- [CMMC 2.0 Maturity Levels](./cmmc-2-levels.md)
+- [Overview of CMMC 2.0 Practice/Control Groups](./cmmc-practices.md)
+- [CMMC 2.0 Documentation Requirements](./cmmc-documentation.md)
+- [How Chainguard Can Help With CMMC 2.0](./cmmc-chainguard.md)
 
-**[Get started with Chainguard FIPS Images today!](TBD)**
+**[Get started with Chainguard FIPS Images today!](https://images.chainguard.dev/?category=fips)**

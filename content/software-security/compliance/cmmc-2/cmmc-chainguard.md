@@ -20,7 +20,7 @@ Achieving Cybersecurity Maturity Model Certification (CMMC) 2.0 Level 2 or Level
 
 ## What are STIG-Hardened FIPS Images?
 
-STIG-hardened FIPS images are pre-configured container images that have been secured according to the Security Technical Implementation Guide (STIG) standards set by the Defense Information Systems Agency (DISA). These images are designed to meet stringent federal security requirements, combining FIPS-compliant encryption with robust security configurations that protect against vulnerabilities and threats. By using STIG-hardened FIPS images, organizations ensure that their systems adhere to federal encryption standards and best practices for cybersecurity, making them particularly valuable in environments that require high levels of security, such as those governed by CMMC 2.0.
+STIG-hardened FIPS images are pre-configured container images that have been secured according to the Security Technical Implementation Guide (STIG) standards set by the Defense Information Systems Agency (DISA). These images meet stringent federal security requirements, combining FIPS-compliant encryption with robust security configurations that protect against vulnerabilities and threats. By using STIG-hardened FIPS images, organizations ensure that their systems adhere to federal encryption standards and best practices for cybersecurity, making them particularly valuable in environments that require high levels of security, such as those governed by CMMC 2.0.
 
 ## Why STIG-Hardened FIPS Images for CMMC 2.0?
 
@@ -39,10 +39,10 @@ By leveraging Chainguard’s resources, organizations can accelerate their path 
 
 ## Browse all CMMC 2.0 articles:
 
-- [Introduction to CMMC 2.0](TBD)
-- [Overview of CMMC 2.0 Framework](TBD)
-- [Overview of CMMC 2.0 Practice/Control Groups](TBD)
-- [CMMC 2.0 Documentation Requirements](TBD)
-- (Current article) [How Chainguard Can Help With CMMC 2.0](TBD)
+- [Introduction to CMMC 2.0](./intro-cmmc-2.md)
+- [CMMC 2.0 Maturity Levels](./cmmc-2-levels.md)
+- [Overview of CMMC 2.0 Practice/Control Groups](./cmmc-practices.md)
+- [CMMC 2.0 Documentation Requirements](./cmmc-documentation.md)
+- (Current article) How Chainguard Can Help With CMMC 2.0
 
-**[Get started with Chainguard FIPS Images today!](TBD)**
+**[Get started with Chainguard FIPS Images today!](https://images.chainguard.dev/?category=fips)**

@@ -26,18 +26,20 @@ For example, organizations may maintain basic policies and procedures for access
 
 ## Level 2 and 3 Documentation: Advanced and Expert
 
-At Level 2, the documentation requirements are moderate, reflecting the need for intermediate cyber hygiene and addressing a subset of the NIST SP 800-171 requirements. Organizations must maintain a System Security Plan (SSP) that outlines security strategies and vulnerability assessment and remediation plans. They must also create a Plan of Action and Milestones (POA&M) addressing any aspects of the organization which are note yet implemented. Other documentation requirements may include audit logs, incident response reports, inventory of the organization’s systems, location of CUI in the organization’s environment, and other documents related to the implementation and management of cybersecurity practices.
+At Level 2, the documentation requirements are moderate, reflecting the need for intermediate cyber hygiene and addressing a subset of the NIST SP 800-171 requirements. Organizations must maintain a System Security Plan (SSP) that outlines security strategies and vulnerability assessment and remediation plans. They must also create a Plan of Action and Milestones (POA&M) addressing any aspects of the organization which are note yet implemented.
 
-Level 3 requires the same documentation requirements as Level 2, including the SSP and POA&M. Further documentation requirements will be clear once the DoD determines which additional practices from NIST SP 800-172 will also be required.
+Other Level 2 documentation requirements may include audit logs, incident response reports, inventory of the organization’s systems, location of [Controlled Unclassified Information](https://www.ftc.gov/policy-notices/controlled-unclassified-information) (CUI) in the organization’s environment, and other documents related to the implementation and management of cybersecurity practices.
 
-To learn about how Chainguard Images can assist documentation and other compliance efforts, continue to the next article, [How Chainguard Can Help With CMMC 2.0](TBD).
+Level 3 requires the same documentation requirements as Level 2, including the [System Security Plan](https://csrc.nist.gov/glossary/term/system_security_plan) (SSP) and [Plan of Action and Milestones](https://csrc.nist.gov/glossary/term/poaandm) (POA&M). Further documentation requirements will be clear once the DoD determines which additional practices from NIST SP 800-172 will also be required.
+
+To learn about how Chainguard Images can assist documentation and other compliance efforts, continue to the next article, [How Chainguard Can Help With CMMC 2.0](./cmmc-chainguard.md).
 
 ## Browse all CMMC 2.0 articles:
 
-- [Introduction to CMMC 2.0](TBD)
-- [Overview of CMMC 2.0 Framework](TBD)
-- [Overview of CMMC 2.0 Practice/Control Groups](TBD)
-- (Current article) [CMMC 2.0 Documentation Requirements](TBD)
-- [How Chainguard Can Help With CMMC 2.0](TBD)
+- [Introduction to CMMC 2.0](./intro-cmmc-2.md)
+- [CMMC 2.0 Maturity Levels](./cmmc-2-levels.md)
+- [Overview of CMMC 2.0 Practice/Control Groups](./cmmc-practices.md)
+- (Current article) CMMC 2.0 Documentation Requirements
+- [How Chainguard Can Help With CMMC 2.0](./cmmc-chainguard.md)
 
-**[Get started with Chainguard FIPS Images today!](TBD)**
+**[Get started with Chainguard FIPS Images today!](https://images.chainguard.dev/?category=fips)**
