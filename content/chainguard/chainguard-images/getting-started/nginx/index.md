@@ -21,7 +21,7 @@ The nginx images maintained by Chainguard include development and production dis
 
 In this tutorial, we will create a local demo website using nginx to serve static HTML content to a local port on your machine. Then we will use the nginx Chainguard Image to build and execute the demo in a lightweight containerized environment.
 
-You will need to have [nginx](https://nginx.org/en/download.html) and [Docker Engine](https://docs.docker.com/engine/install/) installed on your machine to follow along. Additionally, you can watch our [Getting Started with the nginx Chainguard Image video](https://youtu.be/KirTeDMzzxk) as you work through this tutorial.
+If you'd like, you can watch our [Getting Started with the nginx Chainguard Image video](https://youtu.be/KirTeDMzzxk) as you work through this tutorial.
 
 {{< youtube KirTeDMzzxk >}}
 
