@@ -135,7 +135,7 @@ docker scout cves cgr.dev/chainguard-private/go:1.21.5
   No vulnerable packages detected
 ```
 
-> Note: Version `1.21.5` was the current version of the Node Image at the time of this writing. It may have accumulated CVEs since this guide was published.
+> Note: Version `1.21.5` was the current version of the Go Image at the time of this writing. It may have accumulated CVEs since this guide was published.
 
 You can go a step further by comparing these two images directly with the `chainctl images diff` command, as in this example.
 

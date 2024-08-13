@@ -6,7 +6,7 @@ aliases:
 - /chainguard/chainguard-images/getting-started/nginx
 description: "Tutorial on how to get started with the nginx Chainguard Image"
 date: 2023-01-09T11:07:52+02:00
-lastmod: 2024-07-22T14:03:47+00:00
+lastmod: 2024-08-13T13:25:40+00:00
 tags: ["Chainguard Images", "Products"]
 draft: false
 images: []
@@ -21,7 +21,9 @@ The nginx images maintained by Chainguard include development and production dis
 
 In this tutorial, we will create a local demo website using nginx to serve static HTML content to a local port on your machine. Then we will use the nginx Chainguard Image to build and execute the demo in a lightweight containerized environment.
 
-You will need to have [nginx](https://nginx.org/en/download.html) and [Docker Engine](https://docs.docker.com/engine/install/) installed on your machine to follow along.
+If you'd like, you can watch our [Getting Started with the nginx Chainguard Image video](https://youtu.be/KirTeDMzzxk) as you work through this tutorial, which will walk through the same steps that are detailed here.
+
+{{< youtube KirTeDMzzxk >}}
 
 {{< details "What is distroless" >}}
 {{< blurb/distroless >}}
@@ -35,11 +37,15 @@ You will need to have [nginx](https://nginx.org/en/download.html) and [Docker En
 {{< blurb/images >}}
 {{< /details >}}
 
+## Prerequisites
+
+You will need to have [nginx](https://nginx.org/en/download.html) and [Docker Engine](https://docs.docker.com/engine/install/) installed on your machine to follow along with this demonstration.
+
+For this tutorial, you will be copying code to files you create locally. You can find the demo code throughout this tutorial, or you can find the complete demo at the [demo GitHub repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/nginx).
+
 ## Step 1: Setting up a Demo Website 
 
 We'll start by serving static content to a local web server with nginx.
-
-For this tutorial, you will be copying code to files you create locally. You can find the demo code throughout this tutorial, or you can find the complete demo at the [demo GitHub repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/nginx). Additionally, you can follow along with our [Getting Started with the nginx Chainguard Image video](https://youtu.be/KirTeDMzzxk) as you work through this tutorial.
 
 With nginx installed, create a directory for your demo. In this guide we'll call the directory `nginxdemo`:
 
