@@ -4,7 +4,7 @@ description: "How to prepare your organization to meet the requirements of CMMC 
 lead: "How to prepare your organization to meet the requirements of CMMC 2.0"
 type: "article"
 date: 2024-08-09T19:10:09+00:00
-lastmod: 2024-08-09T19:10:09+00:00
+lastmod: 2024-08-15T19:10:09+00:00
 contributors: []
 draft: false
 tags: ["compliance", "CMMC 2.0", "standards"]
@@ -47,11 +47,11 @@ Failure to comply with CMMC 2.0 can have several significant impacts:
 
 Achieving compliance with CMMC 2.0 is not just a regulatory requirement but a critical step in safeguarding national security and contracting with the DoD. To prepare your organization for CMMC 2.0, continue on to the next section of our guide, [CMMC 2.0 Maturity Levels](./cmmc-2-levels.md), or read about [how Chainguard Images can help simplify fulfilling CMMC 2.0 requirements](./cmmc-chainguard.md).
 
-## Browse all CMMC 2.0 articles:
+## Browse all CMMC 2.0 Articles
 
 - (Current article) Introduction to CMMC 2.0
-- [CMMC 2.0 Maturity Levels](./cmmc-2-levels.md)
-- [Overview of CMMC 2.0 Practice/Control Groups](./cmmc-practices.md)
-- [How Chainguard Can Help With CMMC 2.0](./cmmc-chainguard.md)
+- [CMMC 2.0 Maturity Levels](/software-security/compliance/cmmc-2/cmmc-2-levels/)
+- [Overview of CMMC 2.0 Practice/Control Groups](/software-security/compliance/cmmc-2/cmmc-practices/)
+- [How Chainguard Can Help With CMMC 2.0](/software-security/compliance/cmmc-2/cmmc-chainguard/)
 
-**[Get started with Chainguard FIPS Images today!](https://images.chainguard.dev/?category=fips)**
+**[Get started with Chainguard FIPS Images today!](https://images.chainguard.dev/?category=fips?utm_source=docs)**

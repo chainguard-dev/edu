@@ -4,7 +4,7 @@ description: "Chainguard Images reduce the time and effort for establishing CMMC
 lead: "Chainguard Images reduce the time and effort for establishing CMMC 2.0 compliance"
 type: "article"
 date: 2024-08-09T19:10:09+00:00
-lastmod: 2024-08-09T19:10:09+00:00
+lastmod: 2024-08-15T19:10:09+00:00
 contributors: []
 draft: false
 tags: ["compliance", "CMMC 2.0", "standards"]
@@ -37,11 +37,12 @@ STIG-hardened FIPS images are highly beneficial for achieving CMMC 2.0 complianc
 
 By leveraging Chainguard’s resources, organizations can accelerate their path to CMMC 2.0 certification while effectively managing and reporting on critical security controls. Our integrated approach not only ensures that compliance requirements are met but also enhances overall security posture, allowing organizations to focus on their core operations with confidence.
 
-## Browse all CMMC 2.0 articles:
+## Browse all CMMC 2.0 Articles
 
-- [Introduction to CMMC 2.0](./intro-cmmc-2.md)
-- [CMMC 2.0 Maturity Levels](./cmmc-2-levels.md)
-- [Overview of CMMC 2.0 Practice/Control Groups](./cmmc-practices.md)
+- [Introduction to CMMC 2.0](/software-security/compliance/cmmc-2/intro-cmmc-2/)
+- [CMMC 2.0 Maturity Levels](/software-security/compliance/cmmc-2/cmmc-2-levels/)
+- [Overview of CMMC 2.0 Practice/Control Groups](/software-security/compliance/cmmc-2/cmmc-practices/)
 - (Current article) How Chainguard Can Help With CMMC 2.0
 
-**[Get started with Chainguard FIPS Images today!](https://images.chainguard.dev/?category=fips)**
+
+**[Get started with Chainguard FIPS Images today!](https://images.chainguard.dev/?category=fips?utm_source=docs)**
