@@ -307,7 +307,7 @@ chainctl auth login
 
 After navigating to the Console or running the login command, they will be presented with the following login flow.
 
-![Screenshot of the default Chainguard login flow. It includes the Inky logo above the words "Welcome. Log in to Chainguard to continue to Chainguard." Below this are three buttons, one reading "Continue with Google", one reading "Continue with GitHUb", and a third reading "Continue with GitLab".](login-flow.png)
+![Screenshot of the default Chainguard login flow. It includes the Linky logo above the words "Welcome. Log in to Chainguard to continue to Chainguard." Below this are three buttons, one reading "Continue with Google", one reading "Continue with GitHUb", and a third reading "Continue with GitLab".](login-flow.png)
 
 There, they must click the **Continue with GitHub** button to continue logging in under their GitHub account. Chainguard will immediately recognize their GitHub account because it is tied to the role-binding you created in the previous step, and they will be able to view the resources associated with the Chainguard organization specified in your Terraform configuration.
 

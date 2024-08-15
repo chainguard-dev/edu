@@ -158,10 +158,10 @@ tools for production.
 
 We'll start by creating a Python application that will take in an image file and convert it to ANSI escape sequences on the CLI to render an image.
 
-To begin, create a directory for your app. You can use any meaningful name and path that resonates with you, our example will use `inky/`.
+To begin, create a directory for your app. You can use any meaningful name and path that resonates with you, our example will use `linky/`.
 
 ```shell
-mkdir ~/inky/ && cd $_
+mkdir ~/linky/ && cd $_
 ```
 
 We'll first write out the requirements for our app in a new file, for example we named our file `requirements.txt`. You can edit this file in your preferred code editor, in our case we will use Nano.
@@ -177,13 +177,13 @@ setuptools==68.2.2
 climage==0.2.0
 ```
 
-Save the file and we will next create a new file with our python code called `inky.py`. You can edit this file in whatever code editor you would like. We’ll use Nano as an example.
+Save the file and we will next create a new file with our python code called `linky.py`. You can edit this file in whatever code editor you would like. We’ll use Nano as an example.
 
 ```shell
-nano inky.py
+nano linky.py
 ```
 
-Add the following Python code which defines a CLI app that takes in an image file, `inky.png`, and
+Add the following Python code which defines a CLI app that takes in an image file, `linky.png`, and
 prints a representation of that file to the terminal:
 
 ```python
@@ -193,27 +193,27 @@ from climage import convert
 
 def main():
     '''Take in PNG and output as ANSI to terminal'''
-    output = convert('inky.png', is_unicode=True)
+    output = convert('linky.png', is_unicode=True)
     print(output)
 
 if __name__ == "__main__":
     main()
 ```
 
-Next, pull down the `inky.png` image file with `curl`. [Inspect the URL](https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/main/python/inky/inky.png) before downloading it to ensure it is safe to do so. Make sure you are still in the same directory where your `inky.py` script is.
+Next, pull down the `linky.png` image file with `curl`. [Inspect the URL](https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/main/python/linky/linky.png) before downloading it to ensure it is safe to do so. Make sure you are still in the same directory where your `linky.py` script is.
 
 ```shell
-curl -O https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/main/python/inky/inky.png
+curl -O https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/main/python/linky/linky.png
 ```
 
 If you have python and pip installed in your local environment, you can now install the dependencies with `pip` and run our program. Don't worry if you don't have python installed, you can simply skip this step and move onto the Dockerfile.
 
 ```shell
 pip install -r requirements.txt
-python inky.py
+python linky.py
 ```
 
-You'll receive a representation of the Chainguard Inky logo on the command line. With your demo application ready, you're ready to move onto the container stage.
+You'll receive a representation of the Chainguard Linky logo on the command line. With your demo application ready, you're ready to move onto the container stage.
 
 ### Step 2: Creating the Dockerfile
 
@@ -233,7 +233,7 @@ The following Dockerfile will:
 
 1. Start a new build stage based on the `python:latest-dev` image and call it `builder`;
 2. Create a new virtual environment to cleanly hold the application's dependencies;
-2. Copy `requirements.txt` from the current directory to the `/inky` location in the container;
+2. Copy `requirements.txt` from the current directory to the `/linky` location in the container;
 3. Run `pip install --no-cache-dir -r requirements.txt` to install dependencies;
 4. Start a new build stage based on the `python:latest` image;
 5. Copy the dependencies in the virtual environment from the builder stage, and the source code from
@@ -248,26 +248,26 @@ FROM cgr.dev/chainguard/python:latest-dev as builder
 ENV LANG=C.UTF-8
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
-ENV PATH="/inky/venv/bin:$PATH"
+ENV PATH="/linky/venv/bin:$PATH"
 
-WORKDIR /inky
+WORKDIR /linky
 
-RUN python -m venv /inky/venv
+RUN python -m venv /linky/venv
 COPY requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
 FROM cgr.dev/chainguard/python:latest
 
-WORKDIR /inky
+WORKDIR /linky
 
 ENV PYTHONUNBUFFERED=1
 ENV PATH="/venv/bin:$PATH"
 
-COPY inky.py inky.png ./
-COPY --from=builder /inky/venv /venv
+COPY linky.py linky.png ./
+COPY --from=builder /linky/venv /venv
 
-ENTRYPOINT [ "python", "/inky/inky.py" ]
+ENTRYPOINT [ "python", "/linky/linky.py" ]
 ```
 
 Save the file when you’re finished.
@@ -275,16 +275,16 @@ Save the file when you’re finished.
 You can now build the image. If you receive a permission error, try running under `sudo`.
 
 ```shell
-docker build -t inky .
+docker build -t linky .
 ```
 
 Once the build is finished, run the image with:
 
 ```shell
-docker run --rm inky
+docker run --rm linky
 ```
 
-And you should get output similar to what you got before, with a printed Inky on the command line.
+And you should get output similar to what you got before, with a printed Linky on the command line.
 
 ## Advanced Usage
 

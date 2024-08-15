@@ -49,7 +49,7 @@ Next, you can optionally set additional branding for the application by selectin
 
 There, you can set additional metadata for the application, including a Chainguard logo icon here to help your users visually identify this integration. If you'd like, you can use the icon from the [Chainguard Console](https://console.chainguard.dev/logo512.png). The console homepage is [console.chainguard.dev](https://console.chainguard.dev), and our terms of service and private statements can be found at [chainguard.dev/terms-of-service](https://www.chainguard.dev/terms-of-service) and [chainguard.dev/privacy-notice](https://www.chainguard.dev/privacy-notice), respectively.
 
-![Screenshot of the Branding & properties screen with the following settings: Name is set to "Chainguard"; Logo shows the sample Inky logo uploaded; Home page URL is set to "https://console.chainguard.dev"; Terms of service URL is set to "https://www.chainguard.dev/terms-of-service"; and the Privacy statement URL is set to "https://www.chainguard.dev/privacy-notice".](aad-branding.png)
+![Screenshot of the Branding & properties screen with the following settings: Name is set to "Chainguard"; Logo shows the sample Linky logo uploaded; Home page URL is set to "https://console.chainguard.dev"; Terms of service URL is set to "https://www.chainguard.dev/terms-of-service"; and the Privacy statement URL is set to "https://www.chainguard.dev/privacy-notice".](aad-branding.png)
 
 Finally, navigate to the **Certificates & secrets** tab to create a client secret to authenticate the Chainguard platform to Azure Active Directory. Select **New client secret** to add a client secret. In the resulting modal window, add a description and set an expiration date.
 

@@ -37,7 +37,7 @@ Configure the application as follows:
 * **Icon**: You can optionally add a Chainguard logo icon here to help your users visually identify this integration. If you'd like, you can use the icon from the [Chainguard Console](https://console.chainguard.dev/logo512.png).
 * **Application Type**: Select **OIDC Web App**.
 
-![Screenshot showing the Add Application modal window with the following settings in place: Application Name is set to "Chainguard"; Description reads "Build it right, Build it safe, Build it fast, https://console.chainguard.dev"; the example Inky icon has been uploaded to the Icon field; and the Application Type is set to "OIDC Web App."](ping-2-add-app.png)
+![Screenshot showing the Add Application modal window with the following settings in place: Application Name is set to "Chainguard"; Description reads "Build it right, Build it safe, Build it fast, https://console.chainguard.dev"; the example Linky icon has been uploaded to the Icon field; and the Application Type is set to "OIDC Web App."](ping-2-add-app.png)
 
 After setting these details, click the **Save** button.
 
