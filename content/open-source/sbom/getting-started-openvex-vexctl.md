@@ -249,12 +249,12 @@ Assessing the impact of CVEs on a software product is process that takes time an
 
 To understand how this may work in practice, below is an example timeline for the VEX documents associated with a given product and CVE.
 
-1. The software product _Inky App_ becomes aware of `CVE-2014-123456`, associated with one of its components.
-2. _Inky App_ developers issue a VEX data file with a status of `under_investigation` to inform their users that they are aware of the CVE, but are reviewing whether it has an impact on _Inky App_.
-3. After investigation, the developers determine the CVE has no impact on _Inky App_ because the vulnerable function in the component is never executed.
+1. The software product _Linky App_ becomes aware of `CVE-2014-123456`, associated with one of its components.
+2. _Linky App_ developers issue a VEX data file with a status of `under_investigation` to inform their users that they are aware of the CVE, but are reviewing whether it has an impact on _Linky App_.
+3. After investigation, the developers determine the CVE has no impact on _Linky App_ because the vulnerable function in the component is never executed.
 4. The developers issue a second VEX document with a status of `not_affected` using the `vulnerable_code_not_in_execute_path` justification.
 
-When analyzing the VEX documents associated with _Inky App_, `vexctl` will review them chronologically and "replay" the known impact statuses in the order they were found, effectively computing the `not_affected` status.
+When analyzing the VEX documents associated with _Linky App_, `vexctl` will review them chronologically and "replay" the known impact statuses in the order they were found, effectively computing the `not_affected` status.
 
 If a SARIF report is formatted as a VEX document with `vexctl`, any entries alerting of `CVE-2014-123456` will be filtered out.
 

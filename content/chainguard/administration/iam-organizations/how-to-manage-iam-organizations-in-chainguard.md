@@ -103,10 +103,10 @@ You can also securely distribute the invite link and have users open it in their
 Note that you can tighten the scope of an invite code by including the `--email` and `--ttl` flags when creating the invite.
 
 ```sh
-chainctl iam invite create $ORGANIZATION --email inky@example.com --ttl 24h
+chainctl iam invite create $ORGANIZATION --email linky@example.com --ttl 24h
 ```
 
-In this example, the invitation is scoped to a user with the email address `inky@example.com`. If someone with a different email address tries to use the code it will not work. The `--ttl` option in this example means that the code will expire in 24 hours.
+In this example, the invitation is scoped to a user with the email address `linky@example.com`. If someone with a different email address tries to use the code it will not work. The `--ttl` option in this example means that the code will expire in 24 hours.
 
 
 ## Learn more

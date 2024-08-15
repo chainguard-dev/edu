@@ -145,10 +145,10 @@ This demo will use the [rainbow](https://rubygems.org/gems/rainbow) Ruby gem to 
 
 ### Step 1: Setting up the Application
 
-First, create a directory for your app. Here we'll use `inky-says`:
+First, create a directory for your app. Here we'll use `linky-says`:
 
 ```shell
-mkdir ~/inky-says && cd ~/inky-says
+mkdir ~/linky-says && cd ~/linky-says
 ```
 
 Then, set up your Gemfile:
@@ -166,13 +166,13 @@ gem 'rainbow'
 ```
 Save and close the file.
 
-Next, create a new Ruby script file called `inky.rb`:
+Next, create a new Ruby script file called `linky.rb`:
 
 ```shell
-nano inky.rb
+nano linky.rb
 ```
 
-The following code outputs a colorful quote provided at runtime, incorporating an ASCII representation of Inky that is pulled from an `inky.txt` file located at the same directory as the ruby script. The printed quote colors alternate randomly between purple and magenta.
+The following code outputs a colorful quote provided at runtime, incorporating an ASCII representation of Linky that is pulled from an `linky.txt` file located at the same directory as the ruby script. The printed quote colors alternate randomly between purple and magenta.
 
 ```ruby
 #!/usr/bin/env ruby
@@ -180,7 +180,7 @@ The following code outputs a colorful quote provided at runtime, incorporating a
 require 'rainbow'
 Rainbow.enabled = true
 
-class Inky
+class Linky
   def says(message = "Hello World")
     colors = [:purple, :magenta]
     words = message.split(" ")
@@ -191,24 +191,24 @@ class Inky
     end
 
     print "\n"
-    puts File.readlines('inky.txt')
+    puts File.readlines('linky.txt')
   end
 end
 
 if __FILE__ == $0
-  inky = Inky.new
+  linky = Linky.new
   inputArray = ARGV
   message = inputArray.length > 0 ? inputArray.join(' ') : "Hello Wolfi"
-  inky.says(message)
+  linky.says(message)
 end
 ```
 
-Copy this code to your `inky.rb` script, then save and close the file.
+Copy this code to your `linky.rb` script, then save and close the file.
 
-Next, pull down the ASCII `inky.txt` file with `curl`. You can [inspect the file contents](https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/main/ruby/inky-says/inky.txt) before downloading it to ensure it is safe to do so. Make sure you are still in the same directory where your `inky.rb` script is.
+Next, pull down the ASCII `linky.txt` file with `curl`. You can [inspect the file contents](https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/main/ruby/linky-says/linky.txt) before downloading it to ensure it is safe to do so. Make sure you are still in the same directory where your `linky.rb` script is.
 
 ```shell
-curl -O https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/main/ruby/inky-says/inky.txt
+curl -O https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/main/ruby/linky-says/linky.txt
 ```
 
 With everything in place, you can now work on the Dockerfile that will install the application dependencies and execute your Ruby script.
@@ -231,8 +231,8 @@ The following Dockerfile will:
 5. Start a new build stage based on the `cgr.dev/chainguard/ruby:latest` image;
 6. Set up environment variables that define the default location of installed Gems;
 7. Copy build artifacts from `builder` and into the final image
-8. Copy the `inky.rb` and `inky.txt` files into the final image
-9. Set up the application entry point as `ruby inky.rb`.
+8. Copy the `linky.rb` and `linky.txt` files into the final image
+9. Set up the application entry point as `ruby linky.rb`.
 
 Copy this content to your own `Dockerfile`:
 
@@ -250,9 +250,9 @@ ENV GEM_HOME=/work/vendor
 ENV GEM_PATH=${GEM_PATH}:/work/vendor
 
 COPY --from=builder /work/ /work/
-COPY inky.rb inky.txt /work/
+COPY linky.rb linky.txt /work/
 
-ENTRYPOINT [ "ruby", "inky.rb" ]
+ENTRYPOINT [ "ruby", "linky.rb" ]
 
 ```
 Save the file when you're finished.
@@ -260,13 +260,13 @@ Save the file when you're finished.
 You can now build the image with:
 
 ```shell
-docker build . -t inky-says
+docker build . -t linky-says
 ```
 
 Once the build is finished, run the image with:
 
 ```shell
-docker run --rm inky-says Wolfi says hi
+docker run --rm linky-says Wolfi says hi
 ```
 
 And you should get output like this:
@@ -291,10 +291,10 @@ And you should get output like this:
 
 ```
 
-If you inspect the image with a `docker image inspect inky-says`, you'll notice that it has only **three** layers, thanks to the use of a multi-stage Docker build.
+If you inspect the image with a `docker image inspect linky-says`, you'll notice that it has only **three** layers, thanks to the use of a multi-stage Docker build.
 
 ```shell
-docker image inspect inky-says
+docker image inspect linky-says
 ```
 ```shell
 ...

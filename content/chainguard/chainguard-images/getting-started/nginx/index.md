@@ -65,7 +65,7 @@ Using a text editor of your choice, create a new file `index.html` for the HTML 
 nano index.html
 ```
 
-The following HTML file displays an image of Inky alongside a fun octopus fact.
+The following HTML file displays an image of Linky alongside a fun octopus fact.
 
 ```HTML
 <!DOCTYPE html>
@@ -81,7 +81,7 @@ The following HTML file displays an image of Inky alongside a fun octopus fact.
 
 <h2>from the <a href="https://edu.chainguard.dev/" target="_blank">Chainguard Academy</a></h2>
 
-<img src="inky.png" class="corners" width="250px">
+<img src="linky.png" class="corners" width="250px">
 
 <i><h3>Did you know?</h3></i>
 <p>The Wolfi octopus is the world's smallest octopus, weighing in on average at less than a gram!</p>
@@ -133,10 +133,10 @@ p {
 
 After copying the code into the `stylesheet.css` file, save and close it.
 
-Next, you will pull down the `inky.png` file using `curl`. Always [inspect the URL](https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/734e6171ee69f0e0dbac95e6ebc1759ac18bf00a/nginx/data/inky.png) before downloading it to ensure it comes from a safe and trustworthy location.
+Next, you will pull down the `linky.png` file using `curl`. Always [inspect the URL](https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/734e6171ee69f0e0dbac95e6ebc1759ac18bf00a/nginx/data/linky.png) before downloading it to ensure it comes from a safe and trustworthy location.
 
 ```shell
-curl -O https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/734e6171ee69f0e0dbac95e6ebc1759ac18bf00a/nginx/data/inky.png
+curl -O https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/734e6171ee69f0e0dbac95e6ebc1759ac18bf00a/nginx/data/linky.png
 ```
 
 Now, return to the `nginxdemo` directory you made earlier. 
@@ -221,7 +221,7 @@ chmod +wx /opt/homebrew/var/log/nginx/
 
 With the directory permissions updated, you should now be able to initialize the nginx server.
 
-To view the HTML content, navigate to `localhost:8080` in your web browser of choice. You will see a simple landing page with a picture of Inky and a fun fact about the Wolfi octopus.
+To view the HTML content, navigate to `localhost:8080` in your web browser of choice. You will see a simple landing page with a picture of Linky and a fun fact about the Wolfi octopus.
 
 If you make any changes to the files nginx is serving, run `nginx -s reload` in your terminal to allow the changes to render. When you are finished with your website, run `nginx -s quit` to allow nginx to safely shut down.
 
@@ -263,7 +263,7 @@ Once the build is complete, run the image with:
 docker run -d --name nginxcontainer -p 8080:8080 nginx-demo
 ```
 
-The `-d` flag configures our container to run as a background process. The `--name` flag will name our container `nginxcontainer`, making it easy to identify from other containers. The `-p` flag publishes the port that the container listens on to a port on your local machine. This allows us to navigate to `localhost:8080` in a web browser of our choice to view the HTML content served by the container. You should see the same HTML page as before, with Inky and an octopus fun fact.
+The `-d` flag configures our container to run as a background process. The `--name` flag will name our container `nginxcontainer`, making it easy to identify from other containers. The `-p` flag publishes the port that the container listens on to a port on your local machine. This allows us to navigate to `localhost:8080` in a web browser of our choice to view the HTML content served by the container. You should see the same HTML page as before, with Linky and an octopus fun fact.
 
 If you wish to publish to a different port on your machine, such as `1313`, you can do so by altering the command-line argument as shown:
 
