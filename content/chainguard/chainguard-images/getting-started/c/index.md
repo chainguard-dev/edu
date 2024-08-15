@@ -7,7 +7,7 @@ aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-c++
 description: "Tutorial on how to get started with the C/C++ Chainguard Images"
 date: 2024-07-30T15:54:33+00:00
-lastmod: 2024-08-05T16:08:38+00:00
+lastmod: 2024-08-15T19:37:29+00:00
 tags: ["Chainguard Images", "Products"]
 draft: false
 images: []
@@ -110,23 +110,29 @@ nano Dockerfile1
 
 This Dockerfile will do the following:
 1. Use the `gcc-glibc:latest` Chainguard Image as the base image;
-2. Set the current working directory to `/usr/bin`;
-3. Copy your `hello.c` program code to the current directory;
-4. Compile your program and name it `hello`;
-5. Execute the compiled binary when the container is started.
+2. Create and set the current working directory to `/home/build`;
+3. Copy the `hello.c` program code to the current directory;
+4. Compile the program and name it `hello`;
+5. Copy the compiled binary to `/usr/bin`;
+6. Set the image to run as a non-root user; and,
+7. Execute the compiled binary when the container is started.
 
 ```Dockerfile
 # Example 1 - Single Stage Build for C
 
 FROM cgr.dev/chainguard/gcc-glibc:latest
 
-WORKDIR /usr/bin
+RUN ["mkdir", "/home/build"]
+WORKDIR /home/build
 
 COPY hello.c ./
 
 RUN ["gcc", "-Wall", "-o", "hello", "hello.c"]
+RUN ["cp", "hello", "/usr/bin/hello"]
 
-ENTRYPOINT ["./hello"]
+USER 65532
+
+ENTRYPOINT ["/usr/bin/hello"]
 ```
 
 Add this text to your Dockerfile, save, and close it.
@@ -169,20 +175,21 @@ nano Dockerfile2
 
 This time, the Dockerfile will do the following:
 1. Use the `gcc-glibc` Chainguard Image as the builder stage;
-2. Set the current working directory of the image to `/usr/bin`;
+2. Create and set the current working directory to `/home/build`;
 3. Copy your example `hello.c` program code to the current directory;
 4. Compile the program using `gcc` and name it `hello`;
 5. Begin a new stage using the `glibc-dynamic` Chainguard Image;
-6. Set the current working directory of the new image to `/usr/bin`;
-7. Copy the compiled `hello` C binary from your builder stage;
+6. Copy the compiled binary to `/usr/bin` from the builder stage;
+7. Set the image to run as a non-root user; and,
 8. Execute your binary from the `glibc-dynamic` image when the container is started.
 
-```Dockerfile2
+```Dockerfile
 # Example 2 - Multi-Stage Build for C
 
 FROM cgr.dev/chainguard/gcc-glibc:latest AS builder
 
-WORKDIR /usr/bin
+RUN ["mkdir", "/home/build"]
+WORKDIR /home/build
 
 COPY hello.c ./
 
@@ -190,11 +197,11 @@ RUN ["gcc", "-Wall", "-o", "hello", "hello.c"]
 
 FROM cgr.dev/chainguard/glibc-dynamic:latest
 
-WORKDIR /usr/bin
+COPY --from=builder /home/build/hello /usr/bin/
 
-COPY --from=builder /usr/bin/hello ./
+USER 65532
 
-ENTRYPOINT ["./hello"]
+ENTRYPOINT ["/usr/bin/hello"]
 ```
 
 When you are finished editing your Dockerfile, save and close it.
@@ -288,20 +295,21 @@ nano Dockerfile3
 
 This Dockerfile will do the following:
 1. Use the `gcc-glibc` Chainguard Image as the builder stage;
-2. Set the current working directory of the image to `/usr/bin`;
-3. Copy your `hello.cpp` program code to the current directory;
+2. Create and set the current working directory to `/home/build`;
+3. Copy your example `hello.cpp` program code to the current directory;
 4. Compile the program using `g++` and name it `hello`;
 5. Begin a new stage using the `glibc-dynamic` Chainguard Image;
-6. Set the current working directory of the new image to `/usr/bin`;
-7. Copy the compiled `hello` C++ binary from your builder stage;
+6. Copy the compiled binary to `/usr/bin` from the builder stage;
+7. Set the image to run as a non-root user; and,
 8. Execute your binary from the `glibc-dynamic` image when the container is started.
 
-```Dockerfile3
+```Dockerfile
 # Example 3 - Multi-Stage Build for C++
 
 FROM cgr.dev/chainguard/gcc-glibc:latest AS builder
 
-WORKDIR /usr/bin
+RUN ["mkdir", "/home/build"]
+WORKDIR /home/build
 
 COPY hello.cpp ./
 
@@ -309,11 +317,11 @@ RUN ["g++", "-Wall", "-o", "hello", "hello.cpp"]
 
 FROM cgr.dev/chainguard/glibc-dynamic:latest
 
-WORKDIR /usr/bin
+COPY --from=builder /home/build/hello /usr/bin/
 
-COPY --from=builder /usr/bin/hello ./
+USER 65532
 
-ENTRYPOINT ["./hello"]
+ENTRYPOINT ["/usr/bin/hello"]
 ```
 
 When you are finished editing your Dockerfile, save and close it.
