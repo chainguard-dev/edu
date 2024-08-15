@@ -4,7 +4,7 @@ description: "Learn about the 14 differenct domains of practices required for CM
 lead: "Learn about the 14 differenct domains of practices required for CMMC 2.0"
 type: "article"
 date: 2024-08-09T19:10:09+00:00
-lastmod: 2024-08-09T19:10:09+00:00
+lastmod: 2024-08-15T19:10:09+00:00
 contributors: []
 draft: false
 tags: ["compliance", "CMMC 2.0", "standards"]
@@ -53,10 +53,11 @@ Physics Laboratory LLC and funded by the Department of Defense (DoD).
 
 To learn more about requirements for tracking compliance, continue to the next article in our guide, [CMMC 2.0 Documentation Requirements](./cmmc-documentation.md)
 
-## Browse all CMMC 2.0 articles:
-- [Introduction to CMMC 2.0](./intro-cmmc-2.md)
-- [CMMC 2.0 Maturity Levels](./cmmc-2-levels.md)
-- (Current article) Overview of CMMC 2.0 Practice/Control Groups
-- [How Chainguard Can Help With CMMC 2.0](./cmmc-chainguard.md)
+## Browse all CMMC 2.0 Articles
 
-**[Get started with Chainguard FIPS Images today!](https://images.chainguard.dev/?category=fips)**
+- [Introduction to CMMC 2.0](/software-security/compliance/cmmc-2/intro-cmmc-2/)
+- [CMMC 2.0 Maturity Levels](/software-security/compliance/cmmc-2/cmmc-2-levels/)
+- (Current article) Overview of CMMC 2.0 Practice/Control Groups
+- [How Chainguard Can Help With CMMC 2.0](/software-security/compliance/cmmc-2/cmmc-chainguard/)
+
+**[Get started with Chainguard FIPS Images today!](https://images.chainguard.dev/?category=fips?utm_source=docs)**
