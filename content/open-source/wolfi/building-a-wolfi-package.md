@@ -181,7 +181,7 @@ As indicated, a pipeline step will have either a `uses` or a `run` directive. Yo
 - `${{targets.destdir}}`: Directory where final package files will be stored. Everything that lives here will be packed into your final apk.
 - `${{targets.subpkgdir}}`: Directory where final subpackage files will be stored. Works the same way as `targets.destdir`, but for subpackages.
 
-You can find more details about available pipelines in the [melange pipelines documentation](https://edu.chainguard.dev/open-source/melange/melange-pipelines).
+You can find more details about available pipelines in the [melange pipelines documentation](https://github.com/chainguard-dev/melange/blob/main/docs/PIPELINES.md).
 
 ### The `subpackages` Section
 As mentioned previously, a package may extract parts of its contents into subpackages in order to make for a slimmer final apk. Many packages have resources that are not required at execution time, including development headers, man pages, shared libraries that are optional. This part is really important in Wolfi, because we want packages to be minimal. The `subpackages` section of the melange YAML file looks a lot like the pipeline section, and it essentially works the same way. You'll just have to make sure you place any subpackage files in the `targets.subpkgdir` location.
