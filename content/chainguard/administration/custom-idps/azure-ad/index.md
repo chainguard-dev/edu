@@ -6,7 +6,7 @@ description: "Procedural tutorial on how to register an Azure Active Directory A
 type: "article"
 date: 2023-04-17T08:48:45+00:00
 lastmod: 2024-06-26T15:22:20+01:00
-draft: false
+draft: true
 tags: ["Chainguard Images", "Procedural"]
 images: []
 weight: 020
