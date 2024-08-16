@@ -68,7 +68,7 @@ At the time of publication, specific Level 3 practices are still being determine
 
 Each CMMC level builds upon the previous one, ensuring that as organizations progress through the levels, their cybersecurity posture becomes more robust and capable of addressing increasingly sophisticated threats. This tiered approach allows organizations of varying sizes and capabilities to incrementally improve their cybersecurity measures while meeting the specific requirements necessary to handle sensitive information.
 
-To learn more about the specific required practices of CMMC 2.0, continue to the [Overview of CMMC 2.0 Practice/Control Groups](./cmmc-practices.md).
+To learn more about the specific required practices of CMMC 2.0, continue to the [Overview of CMMC 2.0 Practice/Control Groups](/software-security/compliance/cmmc-2/cmmc-practices/).
 
 ## Browse all CMMC 2.0 Articles
 
