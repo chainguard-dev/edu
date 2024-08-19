@@ -12,7 +12,7 @@ images: []
 weight: 005
 ---
 
-The Chainguard platform supports Single Sign-on (SSO) authentication for users. By default, users can log in with GitHub, GitLab and Google, but SSO support allows users to bring their own identity provider for authentication. This is helpful when your organization mandates using a corporate identity provider — like Okta or Azure Active Directory — to authenticate to SaaS products.
+The Chainguard platform supports Single Sign-on (SSO) authentication for users. By default, users can log in with GitHub, GitLab, and Google, but SSO support allows users to bring their own identity provider for authentication. This is helpful when your organization mandates using a corporate identity provider — like Okta or Azure Active Directory — to authenticate to SaaS products.
 
 ## Usage
 
@@ -20,7 +20,7 @@ Once an administrator has [configured an identity provider](#setup-and-administr
 
 ### Authenticate with `chainctl`
 
-[`chainctl`, the Chainguard command line interface (CLI)](https://edu.chainguard.dev/chainguard/chainctl/), supports SSO authentication by supplying the identity provider organization name as a flag or by setting it as a default in configuration. To use a flag to authenticate using SSO, pass the `--identity-provider` flag to `chainctl auth login`.
+[`chainctl`, the Chainguard command line interface (CLI)](/chainguard/chainctl/), supports SSO authentication by supplying the identity provider organization name as a flag or by setting it as a default in configuration. To use a flag to authenticate using SSO, pass the `--identity-provider` flag to `chainctl auth login`.
 
 ```sh
 export IDP_ID=<your identity provider id here>
@@ -35,14 +35,14 @@ As an alternative to remembering identity provider IDs, you can set the default 
 chainctl config edit
 ```
 
-This will open a text editor (`nano`, by default) where you can edit the local `chainctl` config. Add the following lines to this file.
+This will open your system's default text editor where you can edit the local `chainctl` config. Add the following lines to this file.
 
 ```
 default:
   identity-provider: <your identity provider id here>
 ```
 
-Then save and close the file. If you used the default editor, `nano`, you can do so by pressing `CTRL + X`, `Y`, and then `ENTER`.
+Then save and close the file. If your system's default editor is `nano`, for example, you can do so by pressing `CTRL + X`, `Y`, and then `ENTER`.
 
 You can also set this with a single command using the `chainctl config set` subcommand, as in this example.
 
@@ -89,25 +89,21 @@ After adding your ID, click the **Login with provider** button. You'll then be r
 
 ## Setup and Administration
 
-Chainguard SSO requires identity providers compatible with OpenID Connect (OIDC). In particular, identity providers must also support the following:
+Chainguard SSO supports OpenID Connect (OIDC) compatible identity providers. In addition, identity providers must support the following:
 
 * The `authorization code` grant type (sometimes called the `authorization code` *flow*).
-* The standard `openid`, `email` and `profile` scopes. Note that the Chainguard platform will partially function with only the `openid` scope, but full functionality requires the `email` and `profile` scopes as well.
+* The standard `openid`, `email`, and `profile` scopes. Note that the Chainguard platform [will partially function](https://openid.net/specs/openid-connect-basic-1_0.html#Scopes) with only the `openid` scope, but full functionality requires the `email` and `profile` scopes as well.
 
 Customer-managed identity providers must also have a public, unauthenticated OIDC discovery endpoint.
 
-In order to set up SSO for your identity provider, you must configure an OIDC application that the Chainguard platform can use on your identity provider. Following that, you have to configure the Chainguard platform to use that application.
+Typically, identity providers enable you to set up SSO by creating a specific resource on the provider's platform. For example, Ping Identity requires you to [add an application](https://docs.pingidentity.com/r/en-us/pingone/p1_c_applicationtypes), while Okta has you create [an app integration](https://help.okta.com/en-us/content/topics/apps/apps_apps.htm).
+
+To set up SSO for your identity provider, you must configure one of these resources to use OIDC so that the Chainguard platform can interact with the provider. Following that, you have to configure the Chainguard platform to use that application.
 
 
 ### Integration Guides for supported identity providers
 
-If your identity provider is Okta, Ping Identity or Azure Active Directory, we’ve published step-by-step integration guides for your platform.
-
-* [Okta](/chainguard/administration/custom-idps/okta/)
-* [Ping Identity](/chainguard/administration/custom-idps/ping-id/)
-* [Azure Active Directory](/chainguard/administration/custom-idps/azure-ad/)
-
-If you aren't using one of these identity providers, you can complete the following Generic Integration Guide to configure your provider to work with Chainguard. However, be aware that Chainguard does not actively support identity providers other than the ones listed previously. If you are using an alternate identity provider, we encourage you to [contact us](https://www.chainguard.dev/contact?utm_source=docs) to learn more.
+We have [published guides for multiple platforms](/chainguard/administration/custom-idps/), including Okta and Ping Identity. If you aren’t using one of these identity providers, you can complete the following Generic Integration Guide to configure your provider to work with Chainguard. However, be aware that Chainguard does not actively support identity providers other than the ones listed previously. If you are using an alternate identity provider, we encourage you to contact us to learn more.
 
 
 ### Generic Integration Guide
@@ -143,7 +139,7 @@ Next, use `chainctl` to log in to Chainguard with an OIDC provider (such as Goog
 chainctl auth login
 ```
 
-This bootstrap account can be used as a [backup account](/chainguard/administration/custom-idps/custom-idps/#backup-accounts) (that is, a backup account you can use to log in if you ever lose access to your primary account). However, if you prefer to remove this role-binding after configuring the custom IDP, you may also do so.
+The bootstrap account can use any supported IDP -- for example you may choose to temporarily use a personal Google account. You can leave this account active as a [backup account](/chainguard/administration/custom-idps/custom-idps/#backup-accounts) or, if you prefer, you can delete the account by removing the role-binding after configuring the custom IDP.
 
 Create a new identity provider using the details you noted from your OIDC application. Be sure to update the details in the following example `export` commands to align with your own application/client ID, client secret, and issuer URL.
 
@@ -237,7 +233,7 @@ The IAM capabilities `identity_providers.create`, `identity_providers.update`, `
 
 ## Backup accounts
 
-In the case of an outage or misconfiguration of your identity provider, it can be helpful to have an authentication mechanism to the Chainguard outside of your SSO identity provider to recover. For this purpose, you can use one of our OIDC login providers (currently Google, GitHub, or GitLab) to create a backup account
+In the case of an outage or misconfiguration of your identity provider, it can be helpful to have an authentication mechanism to the Chainguard platform outside of your SSO identity provider for recovery purposes. To this end, you can use one of our OIDC login providers (currently Google, GitHub, or GitLab) to create a backup account. 
 
 As an OIDC login account needs to be set up to bootstrap the SSO identity provider initially, it’s possible to keep this account as a backup account in case you need it for recovery. However, the nature of these OIDC provider accounts is such that it is difficult to share them as a backup resource since they’re often tied to a single user.
 
