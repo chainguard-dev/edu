@@ -139,7 +139,7 @@ Next, use `chainctl` to log in to Chainguard with an OIDC provider (such as Goog
 chainctl auth login
 ```
 
-This bootstrap account — which can be any personal Chainguard account with access to your organization — can be used as a [backup account](/chainguard/administration/custom-idps/custom-idps/#backup-accounts) (that is, a backup account you can use to log in if you ever lose access to your primary account). However, you can also disable this account by removing the role-binding.
+The bootstrap account can use any supported IDP -- for example you may choose to temporarily use a personal Google account. You can leave this account active as a [backup account](/chainguard/administration/custom-idps/custom-idps/#backup-accounts) or, if you prefer, you can delete the account by removing the role-binding after configuring the custom IDP.
 
 Create a new identity provider using the details you noted from your OIDC application. Be sure to update the details in the following example `export` commands to align with your own application/client ID, client secret, and issuer URL.
 
