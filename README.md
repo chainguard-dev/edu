@@ -8,7 +8,7 @@ You can find the educational resource files in markdown under the `content` dire
 
 ## Development
 
-This site is based off of the [Doks Hugo theme](https://github.com/h-enk/doks). 
+This site is based on the [Doks Hugo theme](https://github.com/h-enk/doks). 
 
 If you would like to develop this project, clone this repo and install dependencies with npm. 
 
