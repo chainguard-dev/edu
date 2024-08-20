@@ -41,10 +41,10 @@ Chainguard Developer Images are also available on Docker Hub. Check out [Chaingu
 
 ### Pulling by Tag
 
-You can also add a relevant tag that you have access to. In the case of the Git image, you can pull the `:latest-glibc` tag for the Git image. [Note that not all tags are available for public images](/chainguard/chainguard-images/faq/#do-i-need-to-authenticate-into-chainguard-to-use-chainguard-images).
+You can also add a relevant tag that you have access to. In the case of the public Git image, you can always pull the `:latest` tag. [Note that not all tags are available for public images](/chainguard/chainguard-images/faq/#do-i-need-to-authenticate-into-chainguard-to-use-chainguard-images).
 
 ```sh
-docker pull cgr.dev/chainguard/git:latest-glibc
+docker pull cgr.dev/chainguard/git:latest
 ```
 
 You may use tags to pull a specific version of a software like Git, or programming language version in a catalog you have access to. The Chainguard Images Directory has tag history pages for each image, for example, the [Git Image Tags History](https://images.chainguard.dev/directory/image/git/versions), [PHP Image Tags History](https://images.chainguard.dev/directory/image/php/versions), and [JDK Image Tags History](https://images.chainguard.dev/directory/image/jdk/versions).

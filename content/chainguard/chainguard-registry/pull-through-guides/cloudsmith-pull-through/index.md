@@ -157,7 +157,7 @@ If you run into issues when trying to pull Images from Chainguard's Registry to 
 
 * Ensure that all Images [network requirements](https://edu.chainguard.dev/chainguard/administration/network-requirements/) are met.
 * When configuring a remote Cloudsmith repository, ensure that the **URL** field is set correctly. For Developer Images, this should be `https://cgr.dev/chainguard`; for Production Images this should be `https://cgr.dev/`. This field **must not** contain any additional components.
-* You can troubleshoot by running `docker login` from another node (using the Cloudsmith pull token credentials) and try pulling an Image from `cgr.dev/chainguard/<image name>` or `cgr.dev/<company domain>/<image name>`.
+* You can troubleshoot by running `docker login` from another node (using the Cloudsmith pull token credentials) and try pulling an Image from `cgr.dev/chainguard/<image name>` or `cgr.dev/<example.com>/<image name>`, using your own organization's registry name in place of `<example.com>`.
 * It could be that your Cloudsmith repository was misconfigured. In this case, create and configure a new Cloudsmith repository to test with.
 
 ## Learn More

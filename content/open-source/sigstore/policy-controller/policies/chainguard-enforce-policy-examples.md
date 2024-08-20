@@ -38,13 +38,12 @@ spec:
         url: https://rekor.sigstore.dev
 ```
 
-Examples using Chainguard Images from the Chainguard Registry or the GitHub Container Registry, respectively:
+Example using Chainguard Images from the Chainguard Registry:
 
 ```
 ...
   images:
     - glob: cgr.dev/chainguard/**
-    - glob: ghcr.io/chainguard-images/**
 ...
 ```
 

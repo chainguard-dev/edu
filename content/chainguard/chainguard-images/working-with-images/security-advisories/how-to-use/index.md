@@ -36,6 +36,8 @@ To follow along with these examples, you'll need the following tools installed.
 * [`chainctl`](/chainguard/chainctl/) — Chainguard's command-line interface tool. To install `chainctl`, follow our [installation guide](/chainguard/administration/how-to-install-chainctl/). 
 * [`jq`](https://jqlang.github.io/jq/) — `jq` is a command-line JSON processor that allows you to filter and manipulate streaming JSON data. Although it isn’t strictly necessary for the purposes of this guide, this tutorial includes commands that use `jq` to filter command output that would otherwise be difficult to read. You can install `jq` by following the instructions on [the project’s Download jq page](https://jqlang.github.io/jq/download/).
 
+Lastly, note that this guide includes examples involving an example organization with a private Chainguard Registry named `example.com`. If you would like to follow along with your own private Chainguard Images, be sure to change this where relevant to reflect your own setup. If you don't have access to a private Chainguard Registry, you can also follow along using Chainguard's public Developer Images but note that these are limited to only the `latest` or `latest-dev` tags.
+
 
 ## So you've encountered a CVE in a Chainguard Image
 
@@ -44,7 +46,7 @@ Say you use a vulnerability scanner like Grype or Docker Scout to inspect a cert
 As of this writing, the `go:1.21.2` image points to the image digest `sha256:04ab6905552b54a6977bed40a4105e9c95f78033e1cde67806259efc4beb959d`. Be aware that this tag will be withdrawn in the future, but the digest will remain available.
 
 ```sh
-docker scout cves cgr.dev/chainguard-private/go:1.21.2
+docker scout cves cgr.dev/example.com/go:1.21.2
 ```
 
 Because this is the digest for an older version of Chainguard's Go Image, this command's output will show a number of vulnerabilities that have been found to exist within this specific version of the Image. 
@@ -115,14 +117,14 @@ Chainguard's Security Advisories have told us that the CVE-2023-44487 was fixed 
 If you inspect a later version of the Image with Docker Scout, you'll find that this time it reports no CVEs. This example inspects version `1.21.5` of the Image.
 
 ```shell
-docker scout cves cgr.dev/chainguard-private/go:1.21.5
+docker scout cves cgr.dev/example.com/go:1.21.5
 ```
 ```
 ## Overview
 
                 	│         	Analyzed Image         	 
 ────────────────────┼─────────────────────────────────────────
-  Target        	│  cgr.dev/chainguard-private/go:1.21.5   
+  Target        	│  cgr.dev/example.com/go:1.21.5   
 	digest      	│  65008b35ef40                      	 
 	platform    	│ linux/amd64                        	 
 	vulnerabilities │	0C 	0H 	0M 	0L         	 
@@ -141,8 +143,8 @@ You can go a step further by comparing these two images directly with the `chain
 
 ```sh
 chainctl images diff \
-cgr.dev/chainguard-private/go:1.21.2 \
-cgr.dev/chainguard-private/go:1.21.5 | jq .
+cgr.dev/example.com/go:1.21.2 \
+cgr.dev/example.com/go:1.21.5 | jq .
 ```
 
 This example will return a lot of output, as there are significant differences from version `1.21.2` to `1.21.5` of the Go Image. If you scroll down to the `vulnerabilities` section of this output, you'll find a list of vulnerabilities that are present in version `1.21.2` but have been removed by version `1.21.5`.
