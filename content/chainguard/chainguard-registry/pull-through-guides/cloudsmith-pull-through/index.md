@@ -8,7 +8,7 @@ description: "Tutorial outlining how to set up a Cloudsmith repository to pull I
 date: 2024-07-16T15:56:52-07:00
 lastmod: 2024-08-19T15:56:52-07:00
 draft: false
-tags: ["Product", "Procedural", "Chainguard Images"]
+tags: ["PRODUCT", "PROCEDURAL", "CHAINGUARD IMAGES"]
 images: []
 menu:
   docs:

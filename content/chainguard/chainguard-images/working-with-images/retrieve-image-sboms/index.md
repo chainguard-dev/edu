@@ -9,7 +9,7 @@ description: "A brief tutorial on how to use Cosign to retrieve Chainguard Image
 date: 2023-11-17T11:07:52+02:00
 lastmod: 2024-08-19T11:07:52+02:00
 draft: false
-tags: ["Conceptual", "Chainguard Images", "SBOM"]
+tags: ["CONCEPTUAL", "CHAINGUARD IMAGES", "SBOM"]
 images: []
 menu:
   docs:

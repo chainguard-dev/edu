@@ -7,7 +7,7 @@ lead: "A primer on how to migrate to Chainguard Images"
 date: 2022-09-01T08:49:31+00:00
 lastmod: 2024-08-19T15:56:52-07:00
 draft: false
-tags: ["Chainguard Images", "Procedural", "Product"]
+tags: ["CHAINGUARD IMAGES", "PROCEDURAL", "PRODUCT"]
 images: []
 menu:
   docs:

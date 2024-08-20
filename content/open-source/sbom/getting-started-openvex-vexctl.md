@@ -7,7 +7,7 @@ type: "article"
 date: 2023-01-30T15:21:01+02:00
 lastmod: 2024-05-21T15:21:01+02:00
 draft: false
-tags: ["SBOM", "VEX", "Procedural"]
+tags: ["SBOM", "VEX", "PROCEDURAL"]
 images: []
 menu:
   docs:
