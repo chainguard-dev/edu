@@ -10,7 +10,7 @@ description: "Article outlining how one can explore and use the Security Advisor
 date: 2023-12-27T11:07:52+02:00
 lastmod: 2024-08-19T15:56:52-07:00
 draft: false
-tags: ["Overview", "Product", "Chainguard Images", "CVE"]
+tags: ["OVERVIEW", "PRODUCT", "CHAINGUARD IMAGES", "CVE"]
 images: []
 menu:
   docs:
@@ -36,7 +36,7 @@ To follow along with these examples, you'll need the following tools installed.
 * [`chainctl`](/chainguard/chainctl/) — Chainguard's command-line interface tool. To install `chainctl`, follow our [installation guide](/chainguard/administration/how-to-install-chainctl/). 
 * [`jq`](https://jqlang.github.io/jq/) — `jq` is a command-line JSON processor that allows you to filter and manipulate streaming JSON data. Although it isn’t strictly necessary for the purposes of this guide, this tutorial includes commands that use `jq` to filter command output that would otherwise be difficult to read. You can install `jq` by following the instructions on [the project’s Download jq page](https://jqlang.github.io/jq/download/).
 
-Lastly, note that this guide includes examples involving an example organization with a private Chainguard Registry named `example.com`. If you would like to follow along with your own private Chainguard Images, be sure to change this where relevant to reflect your own setup. If you don't have access to a private Chainguard Registry, you can also follow along using Chainguard's public Developer Images but note that these are limited to only the `latest` or `latest-dev` tags.
+Lastly, note that this guide includes examples involving an example organization with a private Chainguard Registry named `example.com`. If you would like to follow along with your own private Chainguard Images, be sure to change this where relevant to reflect your own setup. If you don't have access to a private Chainguard Registry, you can also follow along using Chainguard's public Developer Images but be aware that these are limited to only the `latest` or `latest-dev` tags. You can download public Developer Images from the `cgr.dev/chainguard` registry, as in `cgr.dev/chainguard/go:latest`.
 
 
 ## So you've encountered a CVE in a Chainguard Image
