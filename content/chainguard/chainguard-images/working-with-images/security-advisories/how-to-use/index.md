@@ -8,7 +8,7 @@ aliases:
 type: "article"
 description: "Article outlining how one can explore and use the Security Advisories found on the Chainguard Image Directory."
 date: 2023-12-27T11:07:52+02:00
-lastmod: 2023-12-27T11:07:52+02:00
+lastmod: 2024-08-19T15:56:52-07:00
 draft: false
 tags: ["Overview", "Product", "Chainguard Images", "CVE"]
 images: []

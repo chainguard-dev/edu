@@ -5,7 +5,7 @@ aliases:
 type: "article"
 description: "Policy recipes"
 date: 2022-07-15T15:22:20+01:00
-lastmod: 2024-05-10T13:11:29+08:29
+lastmod: 2024-08-19T15:56:52-07:00
 draft: false
 tags: ["Open Source", "Procedural", "Policy", "policy-controller", "Reference", "SBOM"]
 images: []
