@@ -7,9 +7,9 @@ aliases:
 type: "article"
 description: "Tutorial outlining how to set up a remote Artifactory repository to pull Images through from the Chainguard Registry."
 date: 2024-02-13T15:56:52-07:00
-lastmod: 2024-07-09T15:56:52-07:00
+lastmod: 2024-08-19T15:56:52-07:00
 draft: false
-tags: ["Product", "Procedural", "Chainguard Images"]
+tags: ["PRODUCT", "PROCEDURAL", "CHAINGUARD IMAGES"]
 images: []
 menu:
   docs:
@@ -62,7 +62,7 @@ Following that, click the **Create Remote Repository** button. If everything wor
 
 After clicking the **Set Up Docker Client** button, a modal window will appear from the right side of the page. Click the **Generate Token & Create Instructions** button, which will generate two code blocks whose contents you can copy.
 
-The first will be a `docker login` command similar to the following example. Copy this command and run it in your terminal.
+The first will be a `docker login` command similar to the following example. Run the following command in your terminal:
 
 ```sh
 docker login -u<linky@chainguard.dev> <myproject>.jfrog.io
@@ -70,10 +70,10 @@ docker login -u<linky@chainguard.dev> <myproject>.jfrog.io
 
 After running this command, you'll be prompted to enter a password. Copy the token from the second code block and paste it into your terminal.
 
-After running the `docker login` command, you will be able to pull a Chainguard Developer Image through Artifactory. The following example pulls the `wolfi-base` Image.
+After running the `docker login` command, you will be able to pull a Chainguard Developer Image through Artifactory. The following example pulls the `go` Image:
 
 ```sh
-docker pull <myproject>.jfrog.io/cgr-public/chainguard/wolfi-base
+docker pull <myproject>.jfrog.io/cgr-public/chainguard/go
 ```
 
 Be sure the `docker pull` command you run includes the name of your project as well as your own repository key in place of `cgr-public`.
@@ -85,7 +85,7 @@ Production Chainguard Images are enterprise-ready images that come with patch SL
 
 To get started, you will need to create [a pull token](/chainguard/chainguard-registry/authenticating/#authenticating-with-a-pull-token) for your organization's Chainguard Registry. Pull tokens are longer-lived tokens that can be used to pull Images from other environments that don't support OIDC, such as some CI environments, Kubernetes clusters, or with registry mirroring tools like Artifactory.
 
-To create a pull token with `chainctl`, run the following command. 
+To create a pull token with `chainctl`, run the following command: 
 
 ```sh
 chainctl auth configure-docker --pull-token --parent <organization>
@@ -95,7 +95,7 @@ Be sure to replace `<organization>` with your organization's name or ID.
 
 > **Note**: You can find your organization's name or ID by running `chainctl iam groups list -o table`.
 
-This command will return a `docker login` command like the following.
+This command will return a `docker login` command like the following:
 
 ```
 . . .
@@ -127,7 +127,7 @@ Following that, click the **Create Remote Repository** button. If everything wor
 
 After clicking the **Set Up Docker Client** button, a modal window will appear from the right side of the page. Click the **Generate Token & Create Instructions** button, which will generate two code blocks.
 
-The first will be a `docker login` command similar to the following example. Copy this command and run it in your terminal.
+The first will be a `docker login` command similar to the following example. Copy this command and run it in your terminal:
 
 ```sh
 docker login -u<linky@chainguard.dev> <myproject>.jfrog.io
@@ -137,13 +137,13 @@ Be sure to include your own username and Artifactory instance.
 
 After running this command, you'll be prompted to enter a password. Copy the token from the second code block, paste it into your terminal, and press `ENTER`.
 
-After running the `docker login` command, you will be able to pull a Chainguard Production Image through Artifactory. The following example pulls the `wolfi-base` Image.
+After running the `docker login` command, you will be able to pull a Chainguard Production Image through Artifactory. The following example will pull the `chainguard-base` Image if your organization has access to it:
 
 ```sh
-docker pull <myproject>.jfrog.io/cgr-private/<organization-name>/wolfi-base
+docker pull <myproject>.jfrog.io/cgr-private/<example.com>/chainguard-base:latest
 ```
 
-Be sure the `docker pull` command you run includes the name of your artifactory project and the proper name of your organization's registry. Additionally, if you entered a different repository key in the setup section, use it in place of `cgr-private`.
+Be sure the `docker pull` command you run includes the name of your artifactory project and the name of your organization's registry. Additionally, if you entered a different repository key in the setup section, use it in place of `cgr-private`.
 
 
 ## Debugging pull through from Chainguard’s registry to Artifactory

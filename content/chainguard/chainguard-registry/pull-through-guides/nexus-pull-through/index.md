@@ -7,9 +7,9 @@ aliases:
 type: "article"
 description: "Tutorial outlining how to set up a Nexus repository to pull Images through from the Chainguard Registry."
 date: 2024-03-28T15:56:52-07:00
-lastmod: 2024-07-09T15:56:52-07:00
+lastmod: 2024-08-19T15:56:52-07:00
 draft: false
-tags: ["Product", "Procedural", "Chainguard Images"]
+tags: ["PRODUCT", "PROCEDURAL", "CHAINGUARD IMAGES"]
 images: []
 menu:
   docs:
@@ -63,7 +63,7 @@ docker login -u<user> <Nexus URL>
 
 After running this command, you'll be prompted to enter a password.
 
-After running the `docker login` command, you will be able to pull a Chainguard Developer Image through Nexus. The following example pulls the `wolfi-base` Image.
+After running the `docker login` command, you will be able to pull a Chainguard Developer Image through Nexus. The following example pulls the `wolfi-base` Image:
 
 ```sh
 docker pull <Nexus URL>/chainguard/wolfi-base
@@ -100,10 +100,10 @@ docker login -u<user> <Nexus URL>
 
 After running this command, you'll be prompted to enter a password.
 
-After running the `docker login` command, you will be able to pull a Chainguard Production Image through Nexus. If your organization has access to it, the following example will pull the `argo-cli-fips` Image.
+After running the `docker login` command, you will be able to pull a Chainguard Production Image through Nexus. If your organization has access to it, the following example will pull the `chainguard-base` Image:
 
 ```sh
-docker pull <Nexus URL>/<company domain>/argo-cli-fips
+docker pull <Nexus URL>/<company domain>/chainguard-base
 ```
 
 Be sure the `docker pull` command you run includes the name of your organization's registry.
@@ -115,7 +115,7 @@ If you run into issues when trying to pull Images from Chainguard's Registry to 
 
 * Ensure that all Images [network requirements](https://edu.chainguard.dev/chainguard/administration/network-requirements/) are met.
 * When configuring a remote Nexus repository, ensure that the **URL** field is set to `https://cgr.dev/`. This field **must not** contain additional components. 
-* You can troubleshoot by running `docker login` from another node (using the Nexus pull token credentials) and try pulling an Image from `cgr.dev/chainguard/<image name>` or `cgr.dev/<company domain>/<image name>`.
+* You can troubleshoot by running `docker login` from another node (using the Nexus pull token credentials) and try pulling an Image from `cgr.dev/chainguard/<image name>` or `cgr.dev/<example.com>/<image name>`, using your own organization's registry name in place of `<example.com>`.
 * It could be that your Nexus repository was misconfigured. In this case, create and configure a new Nexus repository to test with.
 
 
