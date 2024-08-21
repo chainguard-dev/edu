@@ -7,9 +7,9 @@ aliases:
 type: "article"
 description: "A brief tutorial on how to use Cosign to retrieve Chainguard Image SBOMs."
 date: 2023-11-17T11:07:52+02:00
-lastmod: 2024-08-01T11:07:52+02:00
+lastmod: 2024-08-19T11:07:52+02:00
 draft: false
-tags: ["Conceptual", "Chainguard Images", "SBOM"]
+tags: ["CONCEPTUAL", "CHAINGUARD IMAGES", "SBOM"]
 images: []
 menu:
   docs:
@@ -48,13 +48,13 @@ Notice that this example syntax includes `download attestation` rather than `dow
 
 This attestation data is encoded in base64, making it unreadable without further processing. This is why the output from the first part of the command is piped into `jq` in order to filter out the payload section of the output containing the SBOM. This filtered output is then passed into the `base64` command to be decoded before that output is piped into another `jq` command. The final `jq` command extracts the attestation predicate from the `base64` output and returns it to your terminal.
 
-As an example, to retrieve the `argocd` image's attestation you would run a command like this.
+As an example, to retrieve the `apko` image's attestation you would run a command like this.
 
 ```shell
 cosign download attestation \
   --platform=linux/amd64 \
   --predicate-type=https://spdx.dev/Document \
-  cgr.dev/chainguard/argocd | jq -r .payload | base64 -d | jq .predicate
+  cgr.dev/chainguard/apko | jq -r .payload | base64 -d | jq .predicate
 ```
 
 This example includes two extra arguments not included in the example syntax outlined previously. First, it includes the `--platform` flag which allows you to download the attestation for a specific platform image. This example specifies the `linux/amd64` platform, but you could also use `linux/arm64`. Be aware, though, that in order to use the `--platform` option you'll need to have Cosign version 2.2.1 or newer installed.
