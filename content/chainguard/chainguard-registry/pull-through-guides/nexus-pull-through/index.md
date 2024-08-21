@@ -100,10 +100,10 @@ docker login -u<user> <Nexus URL>
 
 After running this command, you'll be prompted to enter a password.
 
-After running the `docker login` command, you will be able to pull a Chainguard Production Image through Nexus. If your organization has access to it, the following example will pull the `argo-cli-fips` Image:
+After running the `docker login` command, you will be able to pull a Chainguard Production Image through Nexus. If your organization has access to it, the following example will pull the `chainguard-base` Image:
 
 ```sh
-docker pull <Nexus URL>/<company domain>/argo-cli-fips
+docker pull <Nexus URL>/<company domain>/chainguard-base
 ```
 
 Be sure the `docker pull` command you run includes the name of your organization's registry.

@@ -137,10 +137,10 @@ Be sure to include your own username and Artifactory instance.
 
 After running this command, you'll be prompted to enter a password. Copy the token from the second code block, paste it into your terminal, and press `ENTER`.
 
-After running the `docker login` command, you will be able to pull a Chainguard Production Image through Artifactory. The following example will pull the `argo-cli-fips` Image if your organization has access to it:
+After running the `docker login` command, you will be able to pull a Chainguard Production Image through Artifactory. The following example will pull the `chainguard-base` Image if your organization has access to it:
 
 ```sh
-docker pull <myproject>.jfrog.io/cgr-private/<example.com>/argo-cli-fips:latest
+docker pull <myproject>.jfrog.io/cgr-private/<example.com>/chainguard-base:latest
 ```
 
 Be sure the `docker pull` command you run includes the name of your artifactory project and the name of your organization's registry. Additionally, if you entered a different repository key in the setup section, use it in place of `cgr-private`.

@@ -139,10 +139,10 @@ gcloud auth configure-docker us-central1-docker.pkg.dev
 Be sure to change `us-central1` to reflect the location of your Artifact Registry repository.
 
 
-After running the command, you will be able to pull any Production Images that your organization has access to through Google Artifact Registry. For example, the following command will pull the `argo-cli-fips` Image if your organization has access to it:
+After running the command, you will be able to pull any Production Images that your organization has access to through Google Artifact Registry. For example, the following command will pull the `chainguard-base` Image if your organization has access to it:
 
 ```sh
-docker pull us-central1-docker.pkg.dev/<your-project-id>/chainguard-pull-through/<example.com>/argo-cli-fips:latest
+docker pull us-central1-docker.pkg.dev/<your-project-id>/chainguard-pull-through/<example.com>/chainguard-base:latest
 ```
 
 Be sure the `docker pull` command you run includes the name of your Chainguard organization's registry.
