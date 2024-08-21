@@ -3,8 +3,8 @@ title: "Simplify Your Path to PCI DSS 4.0 Compliance with Chainguard"
 description: "Chainguard Images reduce the time and effort for establishing PCI DSS 4.0 compliance"
 lead: "Chainguard Images reduce the time and effort for establishing PCI DSS 4.0 compliance"
 type: "article"
-date: 2024-08-09T19:10:09+00:00
-lastmod: 2024-08-15T19:10:09+00:00
+date: 2024-08-21T14:05:09+00:00
+lastmod: 2024-08-21T14:05:09+00:00
 contributors: []
 draft: false
 tags: ["compliance", "PCI DSS 4.0", "standards"]

@@ -3,8 +3,8 @@ title: "Introduction to the PCI Data Security Standard (DSS) 4.0"
 description: "How to prepare your organization to meet the requirements of PCI DSS 4.0"
 lead: "How to prepare your organization to meet the requirements of PCI DSS 4.0"
 type: "article"
-date: 2024-08-09T19:10:09+00:00
-lastmod: 2024-08-15T19:10:09+00:00
+date: 2024-08-21T14:05:09+00:00
+lastmod: 2024-08-21T14:05:09+00:00
 contributors: []
 draft: false
 tags: ["compliance", "PCI DSS 4.0", "standards"]
