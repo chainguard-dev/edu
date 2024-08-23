@@ -16,7 +16,7 @@ weight: 005
 toc: true
 ---
 
-Compliance with PCI DSS 4.0 requires adherence to strong security standards. Rigorous requirements must be met in order to secure your networks, systems, storage, and access according to the guidelines.
+Compliance with PCI DSS 4.0, or Payment Card Industry Data Security Standard, requires adherence to strong security standards. Rigorous requirements must be met in order to secure your networks, systems, storage, and access according to the guidelines.
 
 Chainguard doesn't build images specifically for PCI DSS, but our images can help you meet the requirements in many ways, easing your burden in the process of achieving compliance. Securing your software supply chain provides a solid foundation for minimizing vulnerabilities.
 

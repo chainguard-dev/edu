@@ -16,13 +16,19 @@ weight: 003
 toc: true
 ---
 
-PCI DSS 4.0, or PCI Data Security Standard is intended for all entities that store, process, or transmit cardholder data and/or authentication data that could impact the security of the cardholder data environment. This includes all entities interacting with information such as the following:
+PCI DSS 4.0, or Payment Card Industry Data Security Standard is intended for all entities that store, process, or transmit cardholder data and/or authentication data that could impact the security of the cardholder data environment. This includes all entities interacting with information such as the following:
 
-| Cardholder Data | Authentication Data |
-|------------------------|-------------------------------------------------------|
-| Primary account number | Full track data, such as on a magnetic stripe or chip |
-| Cardholder name | Card verification code (the number on the back) |
-| Expiration data | PINs |
+| Cardholder Data |
+|------------------------|
+| Primary account number |
+| Cardholder name |
+| Expiration data |
+
+| Authentication Data |
+|-------------------------------------------------------|
+| Full track data, such as on a magnetic stripe or chip |
+| Card verification code (the number on the back) |
+| PINs |
 
 PCI DSS 4.0 requires compliance with a set of requirements, each related to an information security practice or goal. All of these are intended to protect cardholder data from theft and fraud.
 
