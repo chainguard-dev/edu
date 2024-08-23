@@ -26,13 +26,15 @@ The recommended way to get started with Chainguard's STIG for the GPOS SRG is to
 
 The following instructions assume that you have `docker` installed and running on your system, and are intended to be performed on a non-production system, similar to the process outlined in [DISA's Container Hardening Whitepaper](https://dl.dod.cyber.mil/wp-content/uploads/devsecops/pdf/Final_DevSecOps_Enterprise_Container_Hardening_Guide_1.2.pdf).
 
-For ease of use, we'll use [the datastream file](https://raw.githubusercontent.com/chainguard-dev/stigs/main/gpos/xml/scap/ssg/content/ssg-chainguard-gpos-ds.xml) sourced from [the Chainguard STIGs repository](https://github.com/chainguard-dev/stigs/tree/main/gpos/xml/scap/ssg/content), and available within Chainguard's openscap image. If you'd like, you can download this datastream file — named `ssg-chainguard-gpos-ds.xml` — with a command like the following:
+For ease of use, we'll use [the datastream file](https://raw.githubusercontent.com/chainguard-dev/stigs/main/gpos/xml/scap/ssg/content/ssg-chainguard-gpos-ds.xml) sourced from [the Chainguard STIGs repository](https://github.com/chainguard-dev/stigs/tree/main/gpos/xml/scap/ssg/content), and available within Chainguard's `openscap` image. This file serves as a sort of checklist, outlining each of the requirements that must be met in order to conform with the STIG. 
+
+If you'd like, you can download this datastream file — named `ssg-chainguard-gpos-ds.xml` — with a command like the following:
 
 ```bash
 curl -fsSLO https://raw.githubusercontent.com/chainguard-dev/stigs/main/gpos/xml/scap/ssg/content/ssg-chainguard-gpos-ds.xml
 ```
 
-The `-O` option in this example will redirect the datastrean file contents into a local file also named `ssg-chainguard-gpos-ds.xml` in your working directory. You can then view this file locally.
+The `-O` option in this example will redirect the file's contents into a local file also named `ssg-chainguard-gpos-ds.xml` in your working directory. You can then view the checklist locally.
 
 We'll refer to this as the `scan` image, and the `target` image we'll be scanning will be: `cgr.dev/chainguard/wolfi-base:latest`.
 
