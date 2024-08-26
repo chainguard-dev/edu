@@ -51,7 +51,7 @@ Below is a table overview of the domains:
 For a list of all required practices, see pages 9 to 18 in the [Cybersecurity Maturity Model Certification - Model Overview](https://dodcio.defense.gov/Portals/0/Documents/CMMC/ModelOverview_V2.0_FINAL2_20211202_508.pdf) published by Carnegie Mellon University and The Johns Hopkins University Applied
 Physics Laboratory LLC and funded by the Department of Defense (DoD).
 
-To learn more about requirements for tracking compliance, continue to the next article in our guide, [CMMC 2.0 Documentation Requirements](./cmmc-documentation.md)
+To learn more about requirements for tracking compliance, continue to the next article in our guide, [CMMC 2.0 Documentation Requirements](/software-security/compliance/cmmc-2/cmmc-chainguard/)
 
 ## Browse all CMMC 2.0 Articles
 
