@@ -22,7 +22,7 @@ Chainguard doesn't build images specifically for PCI DSS, but our images can hel
 
 All Chainguard Images save time and costs required to triage, patch, and remediate CVEs. They are created by and officially maintained by Chainguard engineers. Our images are designed to be minimal, removing unnecessary software that is not specifically used. This eliminates a number of potential attack vectors.
 
-On top of this, you must authenticate into Chainguard to use Chainguard Images, giving you reassurance of the provenance of your images. They include digitally signed [build-time SBOMs](/content/chainguard/chainguard-images/working-with-images/retrieve-image-sboms/) (software bill of materials) documenting and attesting to the full provenance.
+On top of this, you must authenticate into Chainguard to use Chainguard Images, giving you reassurance of the provenance of your images. They include digitally signed [build-time SBOMs](/chainguard/chainguard-images/working-with-images/retrieve-image-sboms/) (software bill of materials) documenting and attesting to the full provenance.
 
 Our FIPS-compliant (Federal Information Processing Standard) images, combined with  STIG-hardened (Security Technical Implementation Guide) configurations, provide an even stronger foundation for meeting the requirements of PCI DSS even because they are hardened further to meet the more stringent FedRAMP requirements.
 
