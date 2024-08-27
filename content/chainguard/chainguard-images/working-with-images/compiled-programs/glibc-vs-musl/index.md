@@ -5,7 +5,7 @@ aliases:
 type: "article"
 description: "An overview of the differences between glibc and musl."
 date: 2024-08-26T18:42:57+00:00
-lastmod: 2024-08-26T18:42:57+00:00
+lastmod: 2024-08-27T10:42:34+00:00
 draft: false
 tags: ["Chainguard Images", "Product", "Cheatsheet"]
 images: []
@@ -16,7 +16,7 @@ weight: 210
 toc: true
 ---
 
-Over the years, various implementations of the [C standard library](https://en.wikipedia.org/wiki/C_standard_library), such as the [GNU C library](https://www.gnu.org/software/libc/), [musl](https://musl.libc.org/about.html), [dietlibc](https://www.fefe.de/dietlibc/), [μClibc](https://uclibc.org/), and many others, have emerged with different goals and characteristics. These various implementations exist because the C standard library defines the required functionality for operating system services (e.g., file input/output, memory management) but does not specify implementation details. Among these implementations, the GNU C Library ([glibc](https://www.gnu.org/software/libc/)) and [musl](https://musl.libc.org/about.html) are of the most popular. Here, we\'ll provide insights into the differences between the two implementations so you can understand some of Chainguard's choices for using glibc over musl.
+Over the years, various implementations of the [C standard library](https://en.wikipedia.org/wiki/C_standard_library), such as the [GNU C library](https://www.gnu.org/software/libc/), [musl](https://musl.libc.org/about.html), [dietlibc](https://www.fefe.de/dietlibc/), [μClibc](https://uclibc.org/), and many others, have emerged with different goals and characteristics. These various implementations exist because the C standard library defines the required functionality for operating system services (e.g., file input/output, memory management) but does not specify implementation details. Among these implementations, the GNU C Library ([glibc](https://www.gnu.org/software/libc/)) and [musl](https://musl.libc.org/about.html) are of the most popular. Here, we'll provide insights into the differences between the two implementations so you can understand some of Chainguard's choices for using glibc over musl.
 
 The GNU C Library ([glibc](https://www.gnu.org/software/libc/)), driven by the [GNU Project](https://www.gnu.org/gnu/thegnuproject.en.html), was first released in 1988. glibc aims to provide a consistent interface for developers to help them write software that will work across multiple platforms. Today, glibc has become the default implementation of the C standard library across the majority of Linux distributions, including Ubuntu, Debian, Fedora, and even Chainguard's Wolfi.
 
@@ -46,9 +46,9 @@ Below, we highlight common differences between glibc and musl.
 
 ## Library and Binary Size
 
-Musl is significantly smaller than glibc. A primary reason for this is due to the differing approaches of adhering to the Portable Operating System Interface ([POSIX](https://en.wikipedia.org/wiki/POSIX)). POSIX is a family of standards specified by the IEEE Computer Society to ensure consistent application behavior across different systems. musl adheres strictly to POSIX standards without incorporating additional extensions. glibc, while also adhering to the POSIX standards, includes additional GNU-specific extensions and features. These extensions provide enhanced functionality and convenience, offering developers a comprehensive set of tools. As an example, glibc provides support for Intel Control Enforcement Technology (CET) when running on compatible hardware providing control flow security guarantees at runtime - a feature that doesn't exist on musl. However, this extensive functionality results in larger library sizes for glibc, with glibc's [function index](http://gnu.org/software/libc/manual/html_node/Function-Index.html) listing over 1700 functions. The backtrace function is an example of this, not included in POSIX but available in glibc.
+Musl is significantly smaller than glibc. A primary reason for this is due to the differing approaches adhering to the Portable Operating System Interface ([POSIX](https://en.wikipedia.org/wiki/POSIX)). POSIX is a family of standards specified by the IEEE Computer Society to ensure consistent application behavior across different systems. musl adheres strictly to POSIX standards without incorporating additional extensions. glibc, while adhering to the POSIX standards, includes additional GNU-specific extensions and features. These extensions provide enhanced functionality and convenience, offering developers comprehensive tools. As an example, glibc provides support for Intel Control Enforcement Technology (CET) when running on compatible hardware, providing control flow security guarantees at runtime - a feature that doesn't exist on musl. However, this extensive functionality results in larger library sizes for glibc, with glibc's [function index](http://gnu.org/software/libc/manual/html_node/Function-Index.html) listing over 1700 functions. The backtrace function is an example of this, not included in POSIX but available in glibc.
 
-What does this look like in practice? The decreased binary size for musl is noticeable in a simple "hello world" program, whether linked statically or dynamically. As we can observe since musl is much smaller than glibc the statically linked binary is much smaller on Alpine. In the case of dynamic linking, the binary size is smaller for musl compared to glibc due to a simplified implementation of the dynamic linker as can be seen in the [design philosophy](https://wiki.musl-libc.org/design-concepts) of musl.
+What does this look like in practice? The decreased binary size for musl is noticeable in a simple "hello world" program, whether linked statically or dynamically. As we can observe, since musl is much smaller than glibc, the statically linked binary is much smaller on Alpine. In the case of dynamic linking, the binary size is smaller for musl compared to glibc due to a simplified implementation of the dynamic linker as can be seen in the [design philosophy](https://wiki.musl-libc.org/design-concepts) of musl.
 
 **Table 2**: Binary size of a "hello world" program demonstrating static and dynamic linking. Setup Dockerfiles found [here](https://github.com/ashamedbit/musl-vs-glibc/tree/main/binary-bloat). The smaller the binary size, the better the system is at debloating.
 
@@ -59,9 +59,9 @@ What does this look like in practice? The decreased binary size for musl is noti
 
 ## Portability of Applications
 
-The portability of an application refers to its ability to run on various hardware or software environments without requiring significant modifications. Developers can run into portability issues when moving an application from one libc implementation to another. That said, [Hyrum\'s Law](https://www.hyrumslaw.com/) reminds us that achieving perfect portability is tough. Even when you design an application to be portable, it might still unintentionally depend on certain quirks of the environment or libc implementation.
+The portability of an application refers to its ability to run on various hardware or software environments without requiring significant modifications. Developers can encounter portability issues when moving an application from one libc implementation to another. That said, [Hyrum's Law](https://www.hyrumslaw.com/) reminds us that achieving perfect portability is tough. Even when you design an application to be portable, it might still unintentionally depend on certain quirks of the environment or libc implementation.
 
-One issue encountered is the [smaller thread stack size](https://ariadne.space/2021/06/25/understanding-thread-stack-sizes-and-how-alpine-is-different/) used by musl. Musl has a default thread stack size of 128k. glibc has varying stack sizes, determined based on the resource limit, but usually ends up being 2-10 MB. Therefore, this can lead to crashes with multithreaded code in musl, which assumes it has \> 2MiB available for each thread (as in a glibc system). Such issues cause [application crashes](https://www.madetech.com/blog/a-tale-in-adopting-alpine-linux-for-docker-problems-we-faced-with-rspec-testing/) and potentially [introduce new vulnerabilities](https://github.com/devpi/devpi/issues/474), such as stack overflows.
+One issue encountered is the [smaller thread stack size](https://ariadne.space/2021/06/25/understanding-thread-stack-sizes-and-how-alpine-is-different/) used by musl. Musl has a default thread stack size of 128k. glibc has varying stack sizes, determined based on the resource limit, but usually ends up being 2-10 MB. Therefore, this can lead to crashes with multithreaded code in musl, which assumes it has > 2MiB available for each thread (as in a glibc system). Such issues cause [application crashes](https://www.madetech.com/blog/a-tale-in-adopting-alpine-linux-for-docker-problems-we-faced-with-rspec-testing/) and potentially [introduce new vulnerabilities](https://github.com/devpi/devpi/issues/474), such as stack overflows.
 
 ## Building from Source Performance
 
@@ -82,13 +82,13 @@ Now we look at the build from source performance for individual projects using t
 
 From the table, we observe that musl-gcc has **a lower compilation time** than gcc on Wolfi for these projects **if it can build the project successfully.**
 
-Musl-gcc fails to compile binutils-gdb because it conforms to POSIX standards, and binutils-gdb uses certain code features that are not conformant to these standards. The [binutils project](https://github.com/bminor/binutils-gdb) on master branch fails to configure with native musl-gcc.
+musl-gcc fails to compile binutils-gdb because it conforms to POSIX standards, and binutils-gdb uses certain code features that are not conformant to these standards. The [binutils project](https://github.com/bminor/binutils-gdb) on the main branch fails to configure with native musl-gcc.
 
 ## Python Builds
 
 Since July 2023, Python has been the [most popular programming language](https://www.tiobe.com/tiobe-index/). A common way to use existing Python packages is through precompiled binary wheels distributed from the Python Package Index ([PyPI](https://pypi.org/)). The wheels are typically built against glibc. Because musl and glibc are different implementations of the C standard library, binaries compiled against glibc may not work correctly or at all on systems using musl. Due to the incompatibility of many glibc-based precompiled binary wheels with musl, PyPI defaults to compiling from source on Alpine Linux. This implies you need to **compile all the C source code** required for every Python package.
 
-This also means you must figure out every system library dependency needed to build the Python package from the source. i.e., You have to install the dependencies beforehand using 'apk add \<long list of dependencies\>' before you perform 'pip install X.'
+This also means you must determine every system library dependency needed to build the Python package from the source. i.e., You have to install the dependencies beforehand using 'apk add <long list of dependencies>' before you perform 'pip install X.'
 
 **Table 4**: PIP install times across Alpine (musl) and Wolfi (glibc). Scripts can be found [here](https://github.com/ashamedbit/musl-vs-glibc/tree/main/python-build-comparison). The shorter the build time, the better the system's performance.
 
@@ -100,21 +100,21 @@ This also means you must figure out every system library dependency needed to bu
 
 This results in long build times whenever you want to use Python-based applications with musl.
 
-We also show an example of the difficulty involved in installing certain Python packages below. Take the example of pwntools - a Python package installed to easily construct exploits for software. When using glibc-based distros this would be of the form 'pip3 install pwntools'. To install pwntools on a musl-based distro (i.e., Alpine), the [Dockerfile](https://github.com/ashamedbit/musl-vs-glibc/blob/main/python-build-comparison/alpine/alpine-pwntools/Dockerfile) is much more complicated:
+Below, we also show an example of the difficulty of installing certain Python packages. Take the example of pwntools, a Python package that allows for the construction of exploits in software. When using glibc-based distros, the installation would be in the form 'pip3 install pwntools'. To install pwntools on a musl-based distro (i.e., Alpine), the [Dockerfile](https://github.com/ashamedbit/musl-vs-glibc/blob/main/python-build-comparison/alpine/alpine-pwntools/Dockerfile) is much more complicated:
 
 ```dockerfile
 FROM alpine:latest
 
-# Prebuilt alpine packages required to build from source
+# Prebuilt Alpine packages required to build from source
 RUN apk add --no-cache musl-dev gcc python3 python3-dev libffi-dev libcap-dev make curl git pkgconfig openssl-dev bash alpine-sdk py3-pip
 RUN python -m venv my-venv
 RUN my-venv/bin/python -m pip install --upgrade pip
 
 # Build from source cmake for latest version
 RUN git clone https://github.com/Kitware/CMake.git && cd CMake && ./bootstrap && make && make install
-ENV PATH=\$PATH:/usr/local/bin
+ENV PATH=$PATH:/usr/local/bin
 
-# Build from source rust for latest version
+# Build from source Rust for latest version
 RUN curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf > setup-rust.sh
 RUN bash setup-rust.sh -y
 ENV PATH=$PATH:/root/.cargo/bin
@@ -123,7 +123,7 @@ ENV PATH=$PATH:/root/.cargo/bin
 RUN pip3 install pwn
 ```
 
-As we can see from the Dockerfile, pwntools requires a set of other packages, which in turn require the most up to date version of Rust and cmake, which is not available in the default prebuilt packages in Alpine. Therefore you would have to build both from source before installing the python dependencies and finally pwntools itself. Such dependencies will have to be identified iteratively through the trial and error process while building from source.
+As we can see from the Dockerfile, pwntools requires a set of other packages, which in turn require the most up-to-date version of Rust and cmake, which is not available in the default prebuilt packages in Alpine. Therefore, you would have to build both from source before installing the Python dependencies and, finally, pwntools. Such dependencies will have to be identified iteratively through the trial and error process while building from source.
 
 ## Runtime Performance
 
@@ -135,7 +135,7 @@ Time is critical. One bottleneck is often in allocating large chunks of memory r
 | ---------------------------- | ------------- | ------------- |
 | Memory Allocations Benchmark | 102.25 sec    | 51.01 sec     |
 
-Excessive memory allocations [can cause musl (used by Alpine) to perform up to **2x slower** than glibc (used by Wolfi)]{.mark}. Therefore, a memory-intensive application needs to be wary of performance issues when migrating to the musl-alpine ecosystem. Technical details on why memory allocation (malloc) is slow can be found in the [musl discussion thread](https://musl.openwall.narkive.com/J9ymcXt2/what-s-wrong-with-s-malloc).
+Excessive memory allocations can cause musl (used by Alpine) to perform up to **2x slower** than glibc (used by Wolfi). Therefore, a memory-intensive application needs to be wary of performance issues when migrating to the musl-alpine ecosystem. Technical details on why memory allocation (malloc) is slow can be found in the [musl discussion thread](https://musl.openwall.narkive.com/J9ymcXt2/what-s-wrong-with-s-malloc).
 
 Apart from memory allocations, multi-threading has also been problematic for musl (in [GitHub issues](https://github.com/rust-lang/rust/issues/70108) and [discussion threads](https://news.ycombinator.com/item?id=38616023)). Glibc provides a thread-safe system, while musl is not thread-safe. The POSIX standard only requires stream operations to be atomic; there are no requirements on thread safety, so musl does not provide additional thread-safe features. This means unexpected behavior or race conditions can occur during multiple threads.
 
@@ -166,7 +166,7 @@ The [Go](https://hub.docker.com/_/golang) image also mentions that Alpine is not
 
 Certain applications that rely on debug features for testing, [such as sanitizers](https://wiki.musl-libc.org/open-issues#Sanitizer-compatibility) ([Addressanitizer](https://clang.llvm.org/docs/AddressSanitizer.html), [threadsanitizer](https://clang.llvm.org/docs/ThreadSanitizer.html), etc.) and profilers (e.g., [gprof](https://ftp.gnu.org/old-gnu/Manuals/gprof-2.9.1/html_mono/gprof.html)), are not supported by musl.
 
-Sanitizers help with debugging and detecting certain behaviors such as buffer overflows or dangling pointers. According to the [musl wiki open issues](https://wiki.musl-libc.org/open-issues), GCC and LLVM sanitizer implementations rely on libc internals and are not compatible with musl. Feature requests ([issue1](https://github.com/google/sanitizers/issues/1080), [issue2](https://github.com/google/sanitizers/issues/1544)) have been made in the LLVM sanitizer repository for support for musl, but they have not been addressed and closed.
+Sanitizers help debug and detect behaviors such as buffer overflows or dangling pointers. According to the [musl wiki open issues](https://wiki.musl-libc.org/open-issues), GCC and LLVM sanitizer implementations rely on libc internals and are incompatible with musl. Feature requests ([issue1](https://github.com/google/sanitizers/issues/1080), [issue2](https://github.com/google/sanitizers/issues/1544)) have been made in the LLVM sanitizer repository for support for musl, but they have not been addressed and closed.
 
 ## Buffer Overflows
 
@@ -184,7 +184,7 @@ int main() {
 
   strcpy(buffer, "This is a very long string that will overflow the buffer.");
 
-  printf("Buffer content: %s\n", buffer);
+  printf("Buffer content: %sn", buffer);
 
   return 0;
 }
@@ -245,7 +245,7 @@ glibc naturally provides buffer overflow detection, whereas musl does not.
 
 The Domain Name System (DNS) is the backbone of the internet. It is like the phonebook of the internet, mapping internet protocol (IP) addresses to easy-to-remember website names. Multiple historical sources (see below) on the web have pointed out DNS issues when using musl-related distros. Some have pointed out issues with TCP (which is [fixed in Alpine 3.18](https://www.theregister.com/2023/05/16/alpine_linux_318/)), and others have pointed out random cases with DNS resolution issues.
 
-Further resources regarding musl\'s history of DNS can be found at the following links:
+Further resources regarding musl's history of DNS can be found at the following links:
 
 -   [DNS Resolution in K3s using Alpine Linux](https://github.com/k3s-io/k3s/issues/6132) - GitHub Issue
 
@@ -253,17 +253,17 @@ Further resources regarding musl\'s history of DNS can be found at the following
 
 -   [Does Alpine resolve DNS properly?](https://purplecarrot.co.uk/post/2021-09-04-does_alpine-resolve_dns_properly/) - Blog
 
--   [musl-libc - Alpine\'s Greatest Weakness](https://www.linkedin.com/pulse/musl-libc-alpines-greatest-weakness-rogan-lynch/) - Blog
+-   [musl-libc - Alpine's Greatest Weakness](https://www.linkedin.com/pulse/musl-libc-alpines-greatest-weakness-rogan-lynch/) - Blog
 
 ## Additional References
 
-Below are an additional set of articles and discussions around others experiences with musl:
+Below is an additional set of articles and discussions about others experiences with musl:
 
 -   [Why I Will Never Use Alpine Linux Ever Again](https://martinheinz.dev/blog/92) - Blog
 
 -   [Why does musl make my Rust code so slow?](https://andygrove.io/2020/05/why-musl-extremely-slow/) - Blog
 
--   [What\'s wrong with musl\'s malloc](https://musl.openwall.narkive.com/J9ymcXt2/what-s-wrong-with-s-malloc) - Mailing List
+-   [What's wrong with musl's malloc](https://musl.openwall.narkive.com/J9ymcXt2/what-s-wrong-with-s-malloc) - Mailing List
 
 -   [Using Alpine and musl instead of GNU libc affect performance?](https://elixirforum.com/t/using-alpine-and-musl-instead-of-gnu-libc-affect-performance/57670) - Forum
 
@@ -275,12 +275,12 @@ Below are an additional set of articles and discussions around others experience
 
 -   [Comparison of C/POSIX standard library implementations for Linux](http://www.etalabs.net/compare_libcs.html) - Blog
 
--   [\[Chore\] Officially support musl the same way glibc is supported](https://github.com/php/php-src/issues/13877) - GitHub Issue
+-   [[Chore] Officially support musl the same way glibc is supported](https://github.com/php/php-src/issues/13877) - GitHub Issue
 
 -   [Musl as default instead of glibc](https://github.com/NixOS/nixpkgs/issues/90147) - GitHub Issue
 
--   [Convert docker builds to use debian / glibc images, away from docker alpine / musl.](https://github.com/LemmyNet/lemmy/issues/3972) - GitHub Issue
+-   [Convert docker builds to use debian/glibc images, away from docker alpine/musl.](https://github.com/LemmyNet/lemmy/issues/3972) - GitHub Issue
 
 ## Contributing
 
-If you spot anything we\'ve overlooked regarding glibc or musl, or if you have additional insights to contribute, please feel free to raise the issue in [chainguard-dev/edu](https://github.com/chainguard-dev/edu). For example, we welcome further discussion of existing topics of weakness in glibc, such as its larger codebase and complexity compared to musl. We would be happy to incorporate your suggestions into this document!
+If you spot anything we've overlooked regarding glibc or musl or have additional insights to contribute, please feel free to raise the issue in [chainguard-dev/edu](https://github.com/chainguard-dev/edu). We welcome further discussion on weaknesses in glibc, such as its larger codebase and complexity compared to musl. Additionally, insights into the intricacies of compiler toolchains for cross-compilation are welcomed, especially when dealing with glibc and musl.
