@@ -1,7 +1,7 @@
 ---
 title: "How Chainguard Issues Security Advisories"
 linktitle: "Advisory Life Cycle"
-aliases: 
+aliases:
 type: "article"
 description: "The life cycle of Chainguard-Issued Security Advisories"
 date: 2024-07-26T18:09:12+00:00
@@ -37,7 +37,7 @@ If you’re wondering how these security advisories are made, you’re in the ri
 
 ### Stage 1: A CVE is Disclosed
 
-All security advisories begin with the disclosure of a security vulnerability. The [CVE Project](https://www.cve.org/) coordinates the processing of reported vulnerabilities through a network of CVE Numbering Authorities (CNAs). CNAs assign CVE IDs to new entries, and they are then added to a CVE Catalog. Each catalog entry contains information such as what packages or components are affected by the vulnerability, their versions, and remediation procedures, if applicable. 
+All security advisories begin with the disclosure of a security vulnerability. The [CVE Project](https://www.cve.org/) coordinates the processing of reported vulnerabilities through a network of CVE Numbering Authorities (CNAs). CNAs assign CVE IDs to new entries, and they are then added to a CVE Catalog. Each catalog entry contains information such as what packages or components are affected by the vulnerability, their versions, and remediation procedures, if applicable.
 
 
 ### Stage 2: Scanners Detect the CVE
@@ -62,11 +62,11 @@ With an advisory issued for the package, further investigation is often needed t
 
 If the vulnerability is a true positive finding, then it is present in the package and further action must be taken. When an  upstream fix is available, such as a newer package version which remediates the CVE, then this update will be made and the advisory modified to state the vulnerability is now "Fixed".
 
-Chainguard may even proactively bump a vulnerable dependency to its newer, patched version before upstream projects have done so themselves. Or, patches issued outside of the upstream repository may be applied to remediate the vulnerability when a new package version is not yet available. Note that an end user would need to pull the new version of the container image with the updated fix for the CVE as older versions of the image would still be vulnerable. 
+Chainguard may even proactively bump a vulnerable dependency to its newer, patched version before upstream projects have done so themselves. Or, patches issued outside of the upstream repository may be applied to remediate the vulnerability when a new package version is not yet available. Note that an end user would need to pull the new version of the container image with the updated fix for the CVE as older versions of the image would still be vulnerable.
 
 In some cases, a fix for the CVE may not yet be available. A package will be marked as having the "Pending upstream fix" status in this situation. Once an upstream fix is released, then it will be applied to the package and the advisory status updated to "Fixed".
 
-Sometimes, a vulnerability may be present in a piece of software, but remediation is not planned. This could be because the package is no longer supported, such as in the case of an outdated package version or because the software is reaching the end of its life. If this is the case, then the security advisory status will be marked as "Fix not planned". 
+Sometimes, a vulnerability may be present in a piece of software, but remediation is not planned. This could be because the package is no longer supported, such as in the case of an outdated package version or because the software is reaching the end of its life. If this is the case, then the security advisory status will be marked as "Fix not planned".
 
 Rarely, a vulnerability is found in a package but there is no current status update on whether it can be remediated, or if plans exist to remediate it. In these few situations, the package is simply marked as being "Affected" by the vulnerability. This status is likely to be updated soon as the next steps towards remediation are established.
 
@@ -84,7 +84,7 @@ Rarely, a vulnerability is found in a package but there is no current status upd
 </tr>
 <tr>
 <td>Affected</td>
-<td>A vulnerability finding has been determined to be present and effect the package.</td>
+<td>A vulnerability finding has been determined to be present and affect the package.</td>
 <td>true-positive-determination</td>
 </tr>
 <tr>
