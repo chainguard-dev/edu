@@ -1,7 +1,7 @@
 ---
 title : "Overview of Assumable Identities in Chainguard"
 linktitle: "Assumable Identities"
-aliases: 
+aliases:
 - /chainguard/chainguard-enforce/authentication/assumable-ids/
 - /chainguard/chainguard-enforce/iam-groups/assumable-ids/
 - /chainguard/administration/iam-organizations/assumable-ids/
@@ -16,18 +16,18 @@ images: []
 weight: 015
 ---
 
-Both [`chainctl`](/chainguard/chainctl/) and the [Chainguard Console](https://console.chainguard.dev/) are useful tools for interacting with Chainguard. However, there may be times that you want to hand off certain administrative tasks to an automation system, like Buildkite or GitHub Actions. 
+Both [`chainctl`](/chainguard/chainctl/) and the [Chainguard Console](https://console.chainguard.dev/) are useful tools for interacting with Chainguard. However, there may be times that you want to hand off certain administrative tasks to an automation system, like Buildkite or GitHub Actions.
 
-In such cases, you can create a Chainguard identity for these systems to assume, allowing them to perform certain tasks within a specific scope. You can restrict access to an identity so that only workflows that present tokens matching a specific issuer and subject can assume it. Likewise, assumable identities can be tied to certain roles — like `viewer`, `owner`, or `editor` — letting you place strict limits on what a given identity is allowed to do. 
+In such cases, you can create a Chainguard identity for these systems to assume, allowing them to perform certain tasks within a specific scope. You can restrict access to an identity so that only workflows that present tokens matching a specific issuer and subject can assume it. Likewise, assumable identities can be tied to certain roles — like `viewer`, `owner`, or `editor` — letting you place strict limits on what a given identity is allowed to do.
 
 This guide provides a general overview of assumable identities in Chainguard, outlining how they work and how to create them.
- 
+
 
 ## About Assumable Identities
 
 Chainguard's *assumable identities* are identities that can be assumed by workflows in order to complete tasks without manual authorization. In many ways, these are similar to AWS roles or Google Service accounts, as Chainguard identities allow you to delegate access to your Chainguard resources to external applications or services.
 
-Chainguard originally only supported what are referred to as *literal identities*. These are identities that consist of a unique mapping of verified issuer and subject to refer to an individual user. Literal identities can work well for self-service enrollment in some cases. However, they start to run into problems in several scenarios, such as with systems that use variable `subject` claims (like Buildkite, which injects commit SHAs) or automation systems (like continuous integration systems), which can be difficult to register to literal identities on their first use. 
+Chainguard originally only supported what are referred to as *literal identities*. These are identities that consist of a unique mapping of verified issuer and subject to refer to an individual user. Literal identities can work well for self-service enrollment in some cases. However, they start to run into problems in several scenarios, such as with systems that use variable `subject` claims (like Buildkite, which injects commit SHAs) or automation systems (like continuous integration systems), which can be difficult to register to literal identities on their first use.
 
 Assumable identities essentially reverse the lookup process of literal identities. Instead of Chainguard analyzing at a token's issuer and subject to determine their literal identity, the client presents an assumable identity's UIDP (unique identifier path). Chainguard then checks this UIDP against the client's token. If the token's issuer and subject match those required by the identity, then the client may assume the identity.
 
@@ -42,7 +42,7 @@ This enables you to create identities that can only be assumed by specific autom
 
 A notable difference between registered users and identities in Chainguard's IAM model is that identities are tied to a specific [IAM organization](/chainguard/administration/iam-organizations/overview-of-chainguard-iam-model/). When you create an identity, you must specify a Chainguard organization under which the identity will be created.
 
-However, an identity won't automatically have access to the other resources associated with that organization. In order for an identity to be able to interact with a organization's resources — including the Images, repositories, and users associated with the organization — it must be granted the permissions it needs to do so. To do this, you must also tie the identity to a role. Chainguard comes with a few built-in roles, including `viewer`, `editor`, and `owner`. You can also create custom role-bindings with `chainctl`. Check out the [`chainctl iam role-bindings` documentation](/chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings/) for more details. 
+However, an identity won't automatically have access to the other resources associated with that organization. In order for an identity to be able to interact with a organization's resources — including the Images, repositories, and users associated with the organization — it must be granted the permissions it needs to do so. To do this, you must also tie the identity to a role. Chainguard comes with a few built-in roles, including `viewer`, `editor`, and `owner`. You can also create custom role-bindings with `chainctl`. Check out the [`chainctl iam role-bindings` documentation](/chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings/) for more details.
 
 Now that you have a better understanding of what assumable identities are, let's go over how you can set up an assumable identity. There are currently two main ways you can create an identity: with Terraform and with `chainctl`. Let's first go over how to set up an identity with Terraform.
 
@@ -70,7 +70,7 @@ Here, `parent_id` defines the Chainguard organization that the identity will be 
 
 The `claim_match` block within this section is what specifies the users and workloads allowed to assume the identity. You must specify an issuer and subject in the claim match block, but you can optionally specify an `audience` here as well.
 
-This example provides literal values for both the `issuer` and `subject` fields. This means that any workload or individual attempting to use this identity must have a signature whose issuer and subject match those within the `claim_match` block exactly. You can instead use the `issuer_pattern`, `subject_pattern`, or `audience_pattern` fields to pass regular expression patterns which clients must match in order to assume the identity. 
+This example provides literal values for both the `issuer` and `subject` fields. This means that any workload or individual attempting to use this identity must have a signature whose issuer and subject match those within the `claim_match` block exactly. You can instead use the `issuer_pattern`, `subject_pattern`, or `audience_pattern` fields to pass regular expression patterns which clients must match in order to assume the identity.
 
 ```
   claim_match {
@@ -101,7 +101,7 @@ data "chainguard_roles" "viewer" {
 Then you need to include another `resource` block to create the role-binding using the determined role. The identity will have the permissions of that role over the organization specified within this block.
 
 ```
-resource "chainguard_role-binding" "view-stuff" {
+resource "chainguard_rolebinding" "view-stuff" {
   identity = chainguard_identity.<id-ref>.id
   group    = chainguard_group.user-group.id
   role     = data.chainguard_roles.viewer.items[0].id
@@ -151,9 +151,9 @@ Whether you create an identity with `chainctl` or with Terraform, Chainguard wil
 chainctl iam identities ls -o table
 ```
 ```
-                             ID                             |      NAME      |    TYPE     | DESCRIPTION |         ROLES         |                   ISSUER                    | EXPIRES  
+                             ID                             |      NAME      |    TYPE     | DESCRIPTION |         ROLES         |                   ISSUER                    | EXPIRES
 ------------------------------------------------------------+----------------+-------------+-------------+-----------------------+---------------------------------------------+----------
-  c95870ebffa72a258df087ea727ee92daf177e29/f067a9080d45a098 | sampleidentity | claim_match |             | example-group: viewer | https://token.actions.githubusercontent.com | n/a      
+  c95870ebffa72a258df087ea727ee92daf177e29/f067a9080d45a098 | sampleidentity | claim_match |             | example-group: viewer | https://token.actions.githubusercontent.com | n/a
 ```
 
 If a workflow is authorized to assume the identity — meaning that its token matches the `issuer` and `subject` specified for the identity — then it only needs to present this identification number in order to assume it.
