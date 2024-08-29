@@ -2,7 +2,7 @@
 title: "Getting Started with the C/C++ Chainguard Images"
 type: "article"
 linktitle: "C/C++"
-aliases: 
+aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-c
 - /chainguard/chainguard-images/getting-started/getting-started-c++
 description: "Tutorial on how to get started with the C/C++ Chainguard Images"
@@ -20,7 +20,7 @@ toc: true
 
 C and its derivative, C++, are two widely adopted compiled languages. Chainguard offers a variety of minimal, low-CVE container images built on the [Wolfi un-distro](/open-source/wolfi/overview/) which are suitable for deploying C-based compiled programs. In this guide, you will explore three ways you can use Chainguard Images to compile and run a C-based binary.
 
-The image with which you choose to run your compiled program depends on the nature of your binaries. Static binaries can be executed in the minimal `static` Chainguard Image, while dynamically linked binaries can be run in the `glibc-dynamic` Image. For this demonstration, you will first compile a C binary using the `gcc-glibc` Chainguard Image, and then learn how to use a multi-stage build to run the resulting binary in the `glibc-dynamic` image. You'll also cover an example showing the multi-stage build process for the C++ programming language. To learn more about the differences between these images, read our article on [Choosing an Image for your Compiled Programs](/chainguard/chainguard-images/working-with-images/compiled-programs/). 
+The image with which you choose to run your compiled program depends on the nature of your binaries. Static binaries can be executed in the minimal `static` Chainguard Image, while dynamically linked binaries can be run in the `glibc-dynamic` Image. For this demonstration, you will first compile a C binary using the `gcc-glibc` Chainguard Image, and then learn how to use a multi-stage build to run the resulting binary in the `glibc-dynamic` image. You'll also cover an example showing the multi-stage build process for the C++ programming language. To learn more about the differences between these images, read our article on [Choosing an Image for your Compiled Programs](/chainguard/chainguard-images/working-with-images/compiled-programs/).
 
 {{< details "What is distroless?" >}}
 {{< blurb/distroless >}}
@@ -33,6 +33,12 @@ The image with which you choose to run your compiled program depends on the natu
 {{< details "Chainguard Images" >}}
 {{< blurb/images >}}
 {{< /details >}}
+
+## Video
+
+The content in this article is also available as a video.
+
+{{< youtube g7fCIRJ8\_pE >}}
 
 ## Prerequisites
 
@@ -69,7 +75,7 @@ int main(){
 	printf("Hello, world!\n");
 	printf("I am a demo from the Chainguard Academy.\n");
 	printf("My code was written in C.\n");
-	
+
 	return 0;
 }
 ```
@@ -161,7 +167,7 @@ In the next example, we will look at an alternative way to run your binary using
 
 ## Example 2 --- Multi-Stage Build for C Applications
 
-In our first example, you successfully compiled and executed your C binary in the `gcc-glibc` image. To go a step further, you can use a multi-stage build, allowing you to compile your program in one image and execute it in another image. 
+In our first example, you successfully compiled and executed your C binary in the `gcc-glibc` image. To go a step further, you can use a multi-stage build, allowing you to compile your program in one image and execute it in another image.
 
 A multi-stage build gives you more control over your final image, as you can transfer your program to an image with a smaller footprint after build time to reduce your program's attack surface. The `glibc-dynamic` image, which you will use as your second stage in the build, does not contain `gcc`. Because of this, a malicious binary could not be compiled by an attacker tampering with the image.
 
@@ -230,7 +236,7 @@ Having your program execute from a smaller image with less packages reduces your
 
 ## Example 3 --- Multi-Stage Build for C++ Applications
 
-So far, our demonstrations have featured a program coded in C. A similar image building process applies to binaries compiled for the C++ programming language. 
+So far, our demonstrations have featured a program coded in C. A similar image building process applies to binaries compiled for the C++ programming language.
 
 ### Step 1: Setting up a Demo Application
 
@@ -283,7 +289,7 @@ I am a demo from the Chainguard Academy.
 My code was written in C++.
 ```
 
-Now that you have confirmed that your C++ program executes, you are ready to build it inside of an image. 
+Now that you have confirmed that your C++ program executes, you are ready to build it inside of an image.
 
 ### Step 2: Creating the Dockerfile
 
