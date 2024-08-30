@@ -38,7 +38,7 @@ The image with which you choose to run your compiled program depends on the natu
 
 The content in this article is also available as a video.
 
-{{< youtube g7fCIRJ8\_pE >}}
+{{< youtube g7fCIRJ8_pE >}}
 
 ## Prerequisites
 
