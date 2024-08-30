@@ -6,8 +6,8 @@ aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-c
 - /chainguard/chainguard-images/getting-started/getting-started-c++
 description: "Tutorial on how to get started with the C/C++ Chainguard Images"
-date: 2024-07-30T15:54:33+00:00
-lastmod: 2024-08-15T19:37:29+00:00
+date: 2024-08-30T15:54:33+00:00
+lastmod: 2024-08-30T19:37:29+00:00
 tags: ["Chainguard Images", "Products"]
 draft: false
 images: []
@@ -38,7 +38,7 @@ The image with which you choose to run your compiled program depends on the natu
 
 The content in this article is also available as a video.
 
-{{< youtube g7fCIRJ8\_pE >}}
+{{< youtube g7fCIRJ8_pE >}}
 
 ## Prerequisites
 
