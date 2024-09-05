@@ -2,17 +2,18 @@
 title: "Choosing an Image for your Compiled Programs"
 linktitle: "Images for Compiled Programs"
 aliases: 
+- /chainguard/chainguard-images/working-with-images/compiled-programs/
 type: "article"
 description: "An overview comparing various Chainguard Images for compiled programs"
 date: 2024-07-12T17:55:01+00:00
-lastmod: 2024-07-22T13:45:38+00:00
+lastmod: 2024-08-26T18:42:57+00:00
 draft: false
 tags: ["Chainguard Images", "Product", "Cheatsheet"]
 images: []
 menu:
   docs:
     parent: "chainguard-images"
-weight: 200
+weight: 205
 toc: true
 ---
 
@@ -129,7 +130,7 @@ You can find the complete inventory of packages for the `glibc-openssl` Chaingua
 
 At the time of this writing, no Chainguard Images come packaged with `musl`. Chainguard builds `glibc`-based images because `glibc` is commonly used, which makes it easier for most developers to start consuming Chainguard Images in their environments. Additionally, `glibc` is widely tested, making it a dependable choice for a C standard library implementation. As `glibc` is a well-established option, choosing to use `glibc` ensures more applications will be compatible with new images.
 
-Though `musl` is sometimes chosen because of its minimal footprint, Chainguard’s distroless approach based on [Wolfi](https://www.chainguard.dev/unchained/introducing-wolfi-the-first-linux-un-distro) often results in a container image of comparable (or smaller) size than official `musl` based images. 
+Though `musl` is sometimes chosen because of its minimal footprint, Chainguard’s distroless approach based on [Wolfi](https://www.chainguard.dev/unchained/introducing-wolfi-the-first-linux-un-distro) often results in a container image of comparable (or smaller) size than official `musl` based images. For more information, please refer to our [glibc vs. musl](/chainguard/chainguard-images/working-with-images/compiled-programs/glibc-vs-musl) article. 
 
 ## Next Steps
 
