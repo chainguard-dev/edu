@@ -54,9 +54,9 @@ Depending on how Renovate was set up, you can add this to `config.json` or `conf
 }
 ```
 
-*DO NOT* check this file into source control with the exposed secret. Instead, you can use environment variables which you pass in at runtime e.g:
+_DO NOT_ check this file into source control with the exposed secret. Instead, you can use environment variables which you pass in at runtime e.g:
 
-```
+```json
 {
 ...
    "hostRules": [
@@ -71,11 +71,11 @@ Depending on how Renovate was set up, you can add this to `config.json` or `conf
 
 But an even better solution is to create a script which automatically updates the configuration with the correct values by calling `chainctl`. If you do this, you should also set the credential lifetime to a much shorter period with the `–ttl` flag e.g:
 
-```
+```shell
 chainctl auth configure-docker --pull-token –ttl 10m
 ```
 
-This will set the lifetime to 10 minutes, which limits the risk posed by the token leaking.
+This will set the lifetime to 10 minutes, which limits the risk posed if the token should leak.
 
 You can also set the lifetime to a longer period for more manual configurations.
 
@@ -83,7 +83,6 @@ You can also set the lifetime to a longer period for more manual configurations.
 
 By default, Renovate should now open PRs for any out-of-date versions of images. For example, given the following Dockerfile:
 
-```
 ```
 FROM cgr.dev/chainguard.edu/python:3.11-dev AS builder
 ...
