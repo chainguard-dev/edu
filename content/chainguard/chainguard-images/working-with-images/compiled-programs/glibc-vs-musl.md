@@ -134,7 +134,7 @@ docker build -t glibc-test -f Dockerfile.glibc .
 
 Then you can run the containers to test them.
 
-First run the `musl-test` continer:
+First run the `musl-test` container:
 
 ```shell
 docker run --rm musl-test
@@ -158,7 +158,7 @@ glibc has built-in protection, so the output here will only let you know that th
 *** stack smashing detected ***: terminated
 ```
 
-> **Note**: As mentioned previously, several of the remaining sections in this guide present data about the differences between glibc and musl across various categories. You can recreate some of these examples by following the same procedure of setting creating and testing images based on the Dockerfiles and program files relevant to the example you're exploring. You can find appropriate files in the `glibc-vs-musl` directory of the [Chainguard Academy Images Demos repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/glibc-vs-musl).
+> **Note**: As mentioned previously, several of the remaining sections in this guide present data about the differences between glibc and musl across various categories. You can recreate some of these examples by following the same procedure of setting creating and testing images based on the Dockerfiles and program files relevant to the example you're exploring. You can find the appropriate files in the `glibc-vs-musl` directory of the [Chainguard Academy Images Demos repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/glibc-vs-musl).
 
 
 ## Library and Binary Size
@@ -282,7 +282,7 @@ The [Go](https://hub.docker.com/_/golang) image also mentions that Alpine is not
 
 ## Unsupported Debug Features
 
-Certain applications that rely on debug features for testing — including [sanitizers](https://wiki.musl-libc.org/open-issues#Sanitizer-compatibility) (including [Addressanitizer](https://clang.llvm.org/docs/AddressSanitizer.html), [threadsanitizer](https://clang.llvm.org/docs/ThreadSanitizer.html), etc.) and profilers (such as [gprof](https://ftp.gnu.org/old-gnu/Manuals/gprof-2.9.1/html_mono/gprof.html)) — are not supported by musl.
+Certain applications that rely on debug features for testing — including [sanitizers](https://wiki.musl-libc.org/open-issues#Sanitizer-compatibility) (such as [Addressanitizer](https://clang.llvm.org/docs/AddressSanitizer.html), [threadsanitizer](https://clang.llvm.org/docs/ThreadSanitizer.html), etc.) and profilers (such as [gprof](https://ftp.gnu.org/old-gnu/Manuals/gprof-2.9.1/html_mono/gprof.html)) — are not supported by musl.
 
 Sanitizers help debug and detect behaviors such as buffer overflows or dangling pointers. According to the [musl wiki open issues](https://wiki.musl-libc.org/open-issues), GCC and LLVM sanitizer implementations rely on libc internals and are incompatible with musl. Feature requests have been made in the LLVM sanitizer repository for support for musl (check out [this issue](https://github.com/google/sanitizers/issues/1080) or [this one](https://github.com/google/sanitizers/issues/1544) for examples), but they have not been addressed.
 
@@ -304,7 +304,7 @@ Please refer to the following resources regarding musl's history with DNS:
 
 ## Conclusion
 
-glibc and musl both serve well as C implementations. Our goal for this article is that it explains Chainguard's rationale for choosing to use glibc for Wolfi. We believe that's what made the most sense for our project, but you should continue your own research to determine if one C implementation would suit your needs better than another.
+glibc and musl both serve well as C implementations. Our goal for this article to explain Chainguard's rationale for choosing to use glibc for Wolfi. We believe that's what made the most sense for our project, but you should continue your own research to determine if one C implementation would suit your needs better than another.
 
 If you spot anything we've overlooked regarding glibc or musl or have additional insights to contribute, please feel free to raise the issue in [chainguard-dev/edu](https://github.com/chainguard-dev/edu). We welcome further discussion on weaknesses in glibc, such as its larger codebase and complexity compared to musl. Additionally, insights into the intricacies of compiler toolchains for cross-compilation are welcomed, especially when dealing with glibc and musl.
 
