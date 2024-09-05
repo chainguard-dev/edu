@@ -134,12 +134,14 @@ If you have problems getting Renovate to monitor cgr.dev, please double check th
 
 You may see errors such as the following:
 
-`DEBUG: getReleaseList error (repository=chainguard-images/images-private, branch=renovate/cgr.dev-chainguard.edu-python-3.x)`
-       `"type": "github",`
-       `"apiBaseUrl": "https://api.github.com/",`
-       `"err": {`
-         ``"message": "`chainguard-images` forbids access via a personal access token (classic). Please use a GitHub App, OAuth App, or a personal access token with fine-grained permissions.",``
-         ``"stack": "Error: `chainguard-images` forbids access via a personal access token (classic). Please use a GitHub App, OAuth App, or a personal access token with fine-grained permissions.\n    at``
-`…`
+```
+DEBUG: getReleaseList error (repository=chainguard-images/images-private, branch=renovate/cgr.dev-chainguard.edu-python-3.x)
+       "type": "github",
+       "apiBaseUrl": "https://api.github.com/",
+       "err": {
+         "message": "`chainguard-images` forbids access via a personal access token (classic). Please use a GitHub App, OAuth App, or a personal access token with fine-grained permissions.",
+         "stack": "Error: `chainguard-images` forbids access via a personal access token (classic). Please use a GitHub App, OAuth App, or a personal access token with fine-grained permissions.\n    at
+…
+```
 
 These can be safely ignored. They are caused by Renovate using the `org.opencontainers.image.source` label on our images to look for a changelog. As this source is set to the private images-private GitHub repository, this request fails.
