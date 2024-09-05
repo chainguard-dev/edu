@@ -81,7 +81,7 @@ You can also set the lifetime to a longer period for more manual configurations.
 
 ## Updating Versioned Images
 
-By default, Renovate should now open PRs for any out-of-date versions of images. For example, given the following Dockerfile:
+By default, Renovate should now open PRs for any out-of-date versions of images. For example, you can run Renovate with the following Dockerfile:
 
 ```
 FROM cgr.dev/chainguard.edu/python:3.11-dev AS builder
@@ -101,7 +101,7 @@ Ideally image references should also be pinned to a digest, as shown in the foll
 
 ## Updating :latest Images
 
-Renovate also supports updating image references that are pinned to digests. This allows you to keep floating tags such as :latest in sync with the most up-to-date version. For example, for the following Dockerfile:
+Renovate also supports updating image references that are pinned to digests. This allows you to keep floating tags such as `:latest` in sync with the most up-to-date version. For example, for the following Dockerfile:
 
 ```
 FROM cgr.dev/chainguard/go:latest-dev@sha256:ff187ecd4bb5b45b65d680550eed302545e69ec4ed45f276f385e1b4ff0c6231 as builder
