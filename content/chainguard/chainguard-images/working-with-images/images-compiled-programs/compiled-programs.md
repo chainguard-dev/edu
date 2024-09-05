@@ -2,6 +2,7 @@
 title: "Choosing an Image for your Compiled Programs"
 linktitle: "Images for Compiled Programs"
 aliases: 
+- /chainguard/chainguard-images/working-with-images/compiled-programs/
 type: "article"
 description: "An overview comparing various Chainguard Images for compiled programs"
 date: 2024-07-12T17:55:01+00:00
