@@ -1,6 +1,6 @@
 ---
 title: "Using Renovate with Chainguard Images"
-linktitle: "Renovate"
+linktitle: "Using Renovate"
 type: "article"
 description: "How to use Renovate to automatically keep Chainguard Images updated"
 date: 2023-09-05T11:07:52+02:00
@@ -17,22 +17,23 @@ toc: true
 
 Renovate can be used to alert on updates to Chainguard Images. This can be an effective way to keep your images up-to-date and CVE free. This article will explain how to configure Renovate to support Chainguard Images.
 
-This following assumes you have successfully installed and configured renovate. If not, please refer to the installation instructions.
+This following assumes you have successfully installed and configured Renovate. If not, please refer to the installation instructions.
 
-> *NOTE:* This article is about using Renovate to alert on new versions of _Images_. It is not about alerts for Wolfi package updates which is not supported at the time of writing.
+> *NOTE:* This article describes using Renovate to alert on new versions of *Images*. It is not about alerts for Wolfi packages (which is unsupported at the time of writing).
 
-In order to support versioned images from a private repository you will need to provide renovate with credentials to access the Chainguard registry at `cgr.dev`. This can be done by creating a token with `chainctl` e.g:
+In order to support versioned images from a private repository you will need to provide Renovate with credentials to access the Chainguard registry at `cgr.dev`. This can be done by creating a token with `chainctl` e.g:
 
-```
+```shell
 chainctl auth configure-docker --pull-token
 ```
 
 This will respond with output such as:
 
-```
+```shell
 To use this pull token in another environment, run this command:
 
     docker login "cgr.dev" --username "<USERNAME>" --password "<PASSWORD>"
+```
 
 By default, this credential is good for 30 days.
 
