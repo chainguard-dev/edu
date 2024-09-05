@@ -304,7 +304,7 @@ Please refer to the following resources regarding musl's history with DNS:
 
 ## Conclusion
 
-glibc and musl both serve well as C implementations. Our goal for this article to explain Chainguard's rationale for choosing to use glibc for Wolfi. We believe that's what made the most sense for our project, but you should continue your own research to determine if one C implementation would suit your needs better than another.
+glibc and musl both serve well as C implementations. Our goal for this article is to explain Chainguard's rationale for choosing to use glibc for Wolfi. We believe that's what made the most sense for our project, but you should continue your own research to determine if one C implementation would suit your needs better than another.
 
 If you spot anything we've overlooked regarding glibc or musl or have additional insights to contribute, please feel free to raise the issue in [chainguard-dev/edu](https://github.com/chainguard-dev/edu). We welcome further discussion on weaknesses in glibc, such as its larger codebase and complexity compared to musl. Additionally, insights into the intricacies of compiler toolchains for cross-compilation are welcomed, especially when dealing with glibc and musl.
 
