@@ -38,7 +38,7 @@ The following table highlights some of the main differences between glibc and mu
 | Binary Size     	| Larger Binaries                                            	| Smaller Binaries                                                   	|
 | Runtime Performance | Optimized for performance                                  	| Slower performance                                                 	|
 | Build Performance   | Slower                                                     	| Faster                                                             	|
-| POSIX Compliance	| High, complete implementation                              	| Subset, core functionalities                                       	|
+| Compatibility | POSIX Compliant + GNU Extensions | POSIX Compliant
 | Memory Usage    	| Efficient, higher memory usage                             	| Potential performance issues with large memory allocations (e.g. Rust) |
 | Dynamic Linking 	| Supports lazy binding, unloads libraries                   	| No lazy binding, libraries loaded permanently                      	|
 | Threading       	| Native POSIX Thread Library, robust thread safety          	| Simpler threading model, not fully thread-safe                     	|
