@@ -93,7 +93,7 @@ FROM cgr.dev/chainguard.edu/python:3.11
 
 At the time of writing, 3.12 was the current version of the Python image, so the following PR was opened by Renovate:
 
-![Screenshot showing GitHub PR from Renovate updating python version][python_update.png]
+![Screenshot showing GitHub PR from Renovate updating python version](python_update.png)
 
 Not all images use semantic versioning. See the [Renovate documentation](https://docs.renovatebot.com/modules/manager/dockerfile/\#additional-information) for details on how to support different schemes.
 
@@ -122,7 +122,7 @@ ENTRYPOINT ["/hello"]
 
 Renovate opened two similar PRs, the following image shows the PR to update the static image:
 
-![Screenshot showing Renovate PR to update static image digest][static_update.png]
+![Screenshot showing Renovate PR to update static image digest](static_update.png)
 
 ## Troubleshooting
 
