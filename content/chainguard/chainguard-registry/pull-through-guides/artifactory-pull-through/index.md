@@ -38,7 +38,7 @@ Lastly, part of this guide assumes you have access to a private Chainguard Regis
 
 Chainguard's Developer Images are free to use, publicly available, and always represent versions tagged as `:latest`.
 
-To set up a remote repository in Artifactory from which you can pull Chainguard Developer Images, log in to the JFrog platform. Once there, click on the **Artifactory** tab in the left-hand menu and select **Repositories** from the drop-down. On the Repositories page, click the **Create a Repository** button and select the **Remote** option.
+To set up a remote repository in Artifactory from which you can pull Chainguard Developer Images, log in to the JFrog platform. Once there, click on the **Administration** tab near the top of the screen and select **Repositories** from the left-hand navigation menu. On the Repositories page, click the **Create a Repository** button and select the **Remote** option.
 
 ![Screenshot of the JFrog Artifactory Repositories tab, showing the drop-down menu that appears when you click the "Create a Repository" button. This screenshot highlights the "Remote" option with a red box.](artifactory-1.png)
 
@@ -93,7 +93,7 @@ chainctl auth configure-docker --pull-token --parent <organization>
 
 Be sure to replace `<organization>` with your organization's name or ID.
 
-> **Note**: You can find your organization's name or ID by running `chainctl iam groups list -o table`.
+> **Note**: You can find your organization's name or ID by running `chainctl iam organizations list -o table`.
 
 This command will return a `docker login` command like the following:
 
@@ -174,10 +174,16 @@ Be sure to include your own username and Artifactory instance.
 
 After running this command, you'll be prompted to enter a password. Copy the token from the second code block, paste it into your terminal, and press `ENTER`.
 
-After running the `docker login` command, you will be able to pull any Chainguard Image available to you through the public registry or your organization's private registry through Artifactory. The following example will pull the `node:22` Image if your organization has access to it:
+After running the `docker login` command, you will be able to pull Chainguard Images through Artifactory. To pull a public image, you would run a command like the following example which will download the public `mariadb` image:
 
 ```sh
-docker pull <myproject>.jfrog.io/cgr-virt/<example.com>/node:22
+docker pull <myproject>.jfrog.io/cgr-virt/chainguard/mariadb:latest
+```
+
+To pull a production Image, you would replace `chainguard` with the name of your organization's registry. The following example will pull the `chainguard-base` Image if your organization has access to it:
+
+```sh
+docker pull <myproject>.jfrog.io/cgr-virt/<example.com>/chainguard-base:latest
 ```
 
 Be sure the `docker pull` command you run includes the name of your Artifactory project and the name of your organization's registry. Also, be sure to enter your own repository key if you entered a different one in place of `cgr-virt`.
