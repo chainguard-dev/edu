@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "Tutorial outlining how to set up a remote Artifactory repository to pull Images through from the Chainguard Registry."
 date: 2024-02-13T15:56:52-07:00
-lastmod: 2024-08-19T15:56:52-07:00
+lastmod: 2024-09-04T15:56:52-07:00
 draft: false
 tags: ["PRODUCT", "PROCEDURAL", "CHAINGUARD IMAGES"]
 images: []
@@ -20,7 +20,7 @@ weight: 010
 
 Organizations can use Chainguard Images along with third-party software repositories in order to integrate with current workflows as the single source of truth for software artifacts. In this situation, you can set up a remote repository to function as a mirror of a [Chainguard Registry](/chainguard/chainguard-registry/overview/) — either the public registry or a private one belonging to your organization. This mirror can then serve as a pull through cache for your Chainguard Images.
 
-This tutorial outlines how to set up remote repositories with [JFrog Artifactory](https://jfrog.com/artifactory/). Specifically, it will walk you through how to set up one repository you can use as a pull through cache for Chainguard's public Developer Images and another you can use with Production Images originating from a private Chainguard repository.
+This tutorial outlines how to set up remote repositories with [JFrog Artifactory](https://jfrog.com/artifactory/). Specifically, it will walk you through how to set up one repository you can use as a pull through cache for Chainguard's public Developer Images and another you can use with Production Images originating from a private Chainguard repository. It will also outline how you can use one of Artifactory's virtual repositories as a pull through cache.
 
 
 ## Prerequisites
@@ -34,11 +34,11 @@ In order to complete this tutorial, you will need the following:
 Lastly, part of this guide assumes you have access to a private Chainguard Registry containing one or more Production Images. If you don't already have access to these, you can [contact our sales team](https://www.chainguard.dev/contact?utm_source=docs). 
 
 
-## Setting up Artifactory as a pull through for Developer Images
+## Setting Up Artifactory as a pull through for Developer Images
 
 Chainguard's Developer Images are free to use, publicly available, and always represent versions tagged as `:latest`.
 
-To set up a remote repository in Artifactory from which you can pull Chainguard Developer Images, log in to the JFrog platform. Once there, click on the **Artifactory** tab in the left-hand menu and select **Repositories** from the drop-down. On the Repositories page, click the **Create a Repository** button and select the **Remote** option.
+To set up a remote repository in Artifactory from which you can pull Chainguard Developer Images, log in to the JFrog platform. Once there, click on the **Administration** tab near the top of the screen and select **Repositories** from the left-hand navigation menu. On the Repositories page, click the **Create a Repository** button and select the **Remote** option.
 
 ![Screenshot of the JFrog Artifactory Repositories tab, showing the drop-down menu that appears when you click the "Create a Repository" button. This screenshot highlights the "Remote" option with a red box.](artifactory-1.png)
 
@@ -79,7 +79,7 @@ docker pull <myproject>.jfrog.io/cgr-public/chainguard/go
 Be sure the `docker pull` command you run includes the name of your project as well as your own repository key in place of `cgr-public`.
 
 
-## Setting up Artifactory as a pull through for Production Images
+## Setting Up Artifactory as a pull through for Production Images
 
 Production Chainguard Images are enterprise-ready images that come with patch SLAs and features such as Federal Information Processing Standard (FIPS) readiness. The process for setting up an Artifactory repository that you can use as a pull through cache for Chainguard Production Images is similar to the one outlined previously for Developer Images, but with a few extra steps.
 
@@ -93,7 +93,7 @@ chainctl auth configure-docker --pull-token --parent <organization>
 
 Be sure to replace `<organization>` with your organization's name or ID.
 
-> **Note**: You can find your organization's name or ID by running `chainctl iam groups list -o table`.
+> **Note**: You can find your organization's name or ID by running `chainctl iam organizations list -o table`.
 
 This command will return a `docker login` command like the following:
 
@@ -123,7 +123,7 @@ Lastly, in the **Advanced** configuration tab, ensure that the **Block Mismatchi
 
 Following that, click the **Create Remote Repository** button. If everything worked as expected, a modal window will appear letting you know that the repository was created successfully. You can click the **Set Up Docker Client** button at the bottom of this window to retrieve the commands you'll use to test that you can pull Images through this repository.
 
-### Testing pull through of a Chainguard Production image: 
+### Testing pull through of a Chainguard Production image 
 
 After clicking the **Set Up Docker Client** button, a modal window will appear from the right side of the page. Click the **Generate Token & Create Instructions** button, which will generate two code blocks.
 
@@ -143,7 +143,50 @@ After running the `docker login` command, you will be able to pull a Chainguard 
 docker pull <myproject>.jfrog.io/cgr-private/<example.com>/chainguard-base:latest
 ```
 
-Be sure the `docker pull` command you run includes the name of your artifactory project and the name of your organization's registry. Additionally, if you entered a different repository key in the setup section, use it in place of `cgr-private`.
+Be sure the `docker pull` command you run includes the name of your Artifactory project and the name of your organization's registry. Additionally, if you entered a different repository key in the setup section, use it in place of `cgr-private`.
+
+
+## Setting Up an Artifactory Virtual Repository as a Pull Through Cache
+
+Artifactory allows you to create what it refers to as [*virtual repositories*](https://jfrog.com/help/r/jfrog-artifactory-documentation/virtual-repositories). A virtual repository is a collection of one or more repositories (such as local, remote, or other virtual repositories) that have the same package type. The benefit of this is that you can access resources from multiple locations using a single logical URL.
+
+You can also use a virtual repository as a pull through cache. To illustrate create a new virtual repository.
+
+From the **Repositories** tab, click the **Create a Repository** button. This time, select the **Virtual** option and then **Docker**. On the **New Virtual Repository** page, enter a key of your choosing into the **Repository Key** field. Again, you can enter whatever you'd like here, but for this guide we will refer to this repository as `cg-virt`.
+
+Next, you must select existing repositories to include within this virtual repository. To keep things simple, we will use the `cg-public` and `cg-private` repositories created previously. Select your repositories by clicking their respective checkboxes. Then be sure to click the right-pointing chevron to move them to the **Selected Repositories** column.
+
+![Screenshot showing a portion of the "New Virtual Repository" page. The "cgr-public" and "cgr-private" repositories have been checked and moved to the "Selected Repositories" column.](artifactory-5.png)
+
+Finally, click the **Create Virtual Repository** button. As before, a modal window will appear letting you know that the repository was created successfully. Click the **Set Up Docker Client** button at the bottom of this window to retrieve the `docker login` command and password you'll need to test whether you can pull Images through this repository.
+
+### Testing pull through with a virtual repository
+
+After clicking the **Set Up Docker Client** button, a modal window will appear from the right side of the page. Again, click the **Generate Token & Create Instructions** button to generate two code blocks.
+
+The first will be a `docker login` command similar to the following example. Copy this command and run it in your terminal:
+
+```sh
+docker login -u<linky@chainguard.dev> <myproject>.jfrog.io
+```
+
+Be sure to include your own username and Artifactory instance.
+
+After running this command, you'll be prompted to enter a password. Copy the token from the second code block, paste it into your terminal, and press `ENTER`.
+
+After running the `docker login` command, you will be able to pull Chainguard Images through Artifactory. To pull a public image, you would run a command like the following example which will download the public `mariadb` image:
+
+```sh
+docker pull <myproject>.jfrog.io/cgr-virt/chainguard/mariadb:latest
+```
+
+To pull a production Image, you would replace `chainguard` with the name of your organization's registry. The following example will pull the `chainguard-base` Image if your organization has access to it:
+
+```sh
+docker pull <myproject>.jfrog.io/cgr-virt/<example.com>/chainguard-base:latest
+```
+
+Be sure the `docker pull` command you run includes the name of your Artifactory project and the name of your organization's registry. Also, be sure to enter your own repository key if you entered a different one in place of `cgr-virt`.
 
 
 ## Debugging pull through from Chainguard’s registry to Artifactory
