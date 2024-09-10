@@ -58,7 +58,7 @@ The headless login flow is when you invoke `chainctl auth login --headless` in t
 chainctl auth login --headless
 ```
 
-By including this option, `chainctl` will output an eight-character code as well as a URL ([`https://auth.chainguard.dev/activate`](https://auth.chainguard.dev/activate)). You can then navigate to the URL on another device's browser and enter the code, and then you can log in to Chainguard from that device.
+By including this option, `chainctl` will output an eight-character code as well as a URL ([`https://auth.chainguard.dev/activate`](https://auth.chainguard.dev/activate)). You can then navigate to the URL on another device's browser and enter the code, and then you can complete the login process to Chainguard from that device.
 
 Be aware that the `--headless` login code will only be valid for 900 seconds. 
 
