@@ -50,7 +50,7 @@ A web browser window will open to prompt you to log in via your chosen OIDC flow
 
 ### Using the headless login flow
 
-Note that you can also use `chainctl`'s `--headless` option to log in. This option allows you to log in to the Chainguard platform from a device that doesn't have `chainctl` installed, such as a smartphone or tablet.
+Note that you can also use `chainctl`'s `--headless` option to log in. This option allows you to log in to the Chainguard platform from a device that doesn't have a browser installed, such as a container or remote server.
 
 The headless login flow is when you invoke `chainctl auth login --headless` in the terminal. 
 

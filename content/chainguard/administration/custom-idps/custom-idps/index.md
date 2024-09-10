@@ -29,15 +29,20 @@ chainctl auth login --identity-provider=$IDP_ID
 
 You can retrieve all your identity provider's unique IDs by running `chainctl iam identity-providers list`.
 
-Note that you can also use `chainctl`'s `--headless` option to log in with a custom IDP.
+Note that you can also use the `--headless` option to log in with a custom IDP in an environment that doesn't have a browser installed, such as a container or a remote server.
 
-The headless login flow is when you invoke `chainctl auth login --headless` in the terminal. By including this option, `chainctl` will output an eight-character code as well as a URL ([`https://auth.chainguard.dev/activate`](https://auth.chainguard.dev/activate)). You can then navigate to the URL on another device's browser and enter the code, and then you can log in to Chainguard from that device.
+The headless login flow is when you invoke `chainctl auth login --headless` in the terminal. By including this option, `chainctl` will output an eight-character code as well as a URL ([`https://auth.chainguard.dev/activate`](https://auth.chainguard.dev/activate)). You can then navigate to the URL on another device's browser and enter the code when prompted. Following that, you'll be able to log in to the Chainguard platfrom using your custom IDP.
 
 To log in with a custom IDP using the `--headless` option, you would run a command like the following:
 
 ```sh
 chainctl auth login --headless --identity-provider=$IDP_ID
 ```
+
+Then you can complete the login flow from another device's browser.
+
+
+### Setting a default identity provider
 
 As an alternative to remembering identity provider IDs, you can set the default identity provider by editing the `chainctl` configuration file. You can do so with the following command.
 
