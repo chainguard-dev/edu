@@ -4,14 +4,14 @@ lead: ""
 description: "Chainguard Events"
 type: "article"
 date: 2022-11-15T12:05:04
-lastmod: 2024-06-04T22:20:29
+lastmod: 2024-08-19T22:20:29
 draft: false
 tags: ["Platform", "Reference", "Product"]
 images: []
 weight: 780
 ---
 
-Chainguard generates and emits [CloudEvents](https://cloudevents.io/) based on actions that occur within a Chainguard account, such as registering a Kubernetes cluster or creating an IAM invitation. Chainguard also emits events when workloads or policies are changed in a cluster.
+Chainguard generates and emits [CloudEvents](https://cloudevents.io/) based on actions that occur within a Chainguard account, such as creating an IAM invitation or an image being pushed to your repository.
 
 Check out [this GitHub repository](https://github.com/chainguard-dev/enforce-events) for some sample applications that demonstrate how to use events to create Slack notifications, open GitHub issues, and mirror images.
 
@@ -23,7 +23,7 @@ chainctl events subscriptions create –parent $YOUR_ORGANIZATION_OR_FOLDER http
 
 Once you are subscribed to Chainguard events, you will start receiving HTTP POST requests. Each request has a common set of CloudEvent header fields, denoted by the `Ce-` prefix. The event body is encoded using JSON and will have two top-level keys, `actor` and `body`.
 
-The `actor` field is the identity of the actor in your Chainguard account that triggered the event, such as a team member or a Kubernetes cluster. The `body` field contains the specific data about the event, for example the response status for an invite creation request, or a cluster delete request.
+The `actor` field is the identity of the actor in your Chainguard account that triggered the event (e.g. the team member who pulled an image) . The `body` field contains the specific data about the event, for example the response status for an invite creation request.
 
 ## UIDP Identifiers
 
