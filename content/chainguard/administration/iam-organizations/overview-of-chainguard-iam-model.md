@@ -37,3 +37,28 @@ In order to create an invitation for a new user, you must choose a role for that
 
 You can also create assumable identities. These are typically used to allow automation tools like GitHub Actions or Amazon Lambda to connect to and manage Chainguard resources. Refer to our [guide on assumable identities](/chainguard/administration/iam-organizations/assumable-ids/) to learn more.
 
+
+## Logging in to the Chainguard Platform
+
+To authenticate into the Chainguard platform, run the following login command.
+
+```sh
+chainctl auth login
+```
+
+A web browser window will open to prompt you to log in via your chosen OIDC flow. Select the account which you wish to log in as, and you can then begin managing your Chainguard resources.
+
+### Using the headless login flow
+
+Note that you can also use `chainctl`'s `--headless` option to log in. This option allows you to log in to the Chainguard platform from a device that doesn't have `chainctl` installed, such as a smartphone or tablet.
+
+The headless login flow is when you invoke `chainctl auth login --headless` in the terminal. 
+
+```sh
+chainctl auth login --headless
+```
+
+By including this option, `chainctl` will output an eight-character code as well as a URL ([`https://auth.chainguard.dev/activate`](https://auth.chainguard.dev/activate)). You can then navigate to the URL on another device's browser and enter the code, and then you can log in to Chainguard from that device.
+
+Be aware that the `--headless` login code will only be valid for 900 seconds. 
+
