@@ -2,9 +2,11 @@
     --primary-1: #3443F4; // blue
     --primary-2: #7AF0FE; // pale blue
     --primary-3: #14003D; // dark purple
+    --primary-3-border: #14003D1F;
     --secondary-1: #FEC7EE; // light pink
     --secondary-2: #7545FB; // purple
     --secondary-3: #D0CFEE;  // very light purple
+    --secondary-3-border: #D0CFEE2E;
     --tertiary-1: #81FEA0;   // pale green
     --tertiary-2: #01A178;   // green
     --tertiary-3: #FE5B3C;   // orange
@@ -21,7 +23,7 @@
     --active-link-color: var(--secondary-2);
     --article-link-color: var(--primary-1);
     --basics-card-background: inherit;
-    --basics-card-border: var(--secondary-1);
+    --basics-card-border: var(--primary-3-border);
     --blockquote-background: var(--primary-1);
     --blockquote-link-color: var(--tertiary-3);
     --blockquote-border: var(--secondary-1);
@@ -40,7 +42,7 @@
     --contact-us-button-background: var(--primary-1);
     --contact-us-button-color: #ffffff;
     --docs-navigation-border: var(--primary-2);
-    --docs-navigation-button-border: #dcdcdc;
+    --docs-navigation-button-border: var(--primary-3-border);
     --docs-navigation-button-color: var(--primary-3);
     --docs-navigation-color: inherit;
     --expand-button-background: #f3f3f3;
@@ -58,7 +60,7 @@
     --home-background: #ffffff;
     --index-logo-color: #eeeeee;
     --language-selector-color: #000000;
-    --leftnav-border: var(--secondary-2)
+    --leftnav-border: var(--primary-3-border);
     --navbar-contact-border: var(--secondary-3);
     --navbar-contact-color: var(--primary-1);
     --note-deprecated: var(--tertiary-4);
@@ -135,12 +137,12 @@
 @mixin dark-mode {
     color-scheme: dark;
     --a-original-color: #c5c5c5;
-    --active-element-background: var(--secondary-2);
+    --active-element-background: #ffffff29;
     --active-element-shadow: var(--primary-2);
     --active-link-color: var(--secondary-1);
     --article-link-color: var(--primary-2);
     --basics-card-background: -var(-desaturated-primary-3);
-    --basics-card-border: var(--secondary-3);
+    --basics-card-border: var(--secondary-3-border);
     --blockquote-background: var(--secondary-3);
     --blockquote-border: var(--tertiary-2);
     --blockquote-color: var(--primary-3);
@@ -159,7 +161,7 @@
     --contact-us-button-background: var(--secondary-2);
     --contact-us-button-color: var(--primary-2);
     --docs-navigation-border: var(--secondary-2);
-    --docs-navigation-button-border: #383838;
+    --docs-navigation-button-border: var(--secondary-3-border);
     --docs-navigation-button-color: #ffffff;
     --docs-navigation-color: #ffffff;
     --expand-button-background: #232323;
@@ -176,7 +178,7 @@
     --home-background: var(--primary-3);
     --index-logo-color: var(--secondary-2);
     --language-selector-color: #ffffff;
-    --leftnav-border: var(--secondary-2);
+    --leftnav-border: var(--secondary-3-border);
     --navbar-contact-border: var(--secondary-2);
     --navbar-contact-color: var(--secondary-2);
     --note-deprecated: var(--tertiary-2);
@@ -208,7 +210,7 @@
     --sidebar-category-color: #8c8c8c;
     --sidebar-item-active-color: #ffffff;
     --sidebar-item-color: #8c8c8c;
-    --sidebar-item-list-item-selected-background: #232323;
+    --sidebar-item-list-item-selected-background: #ffffff29;
     --sidebar-item-top-color: #c5c5c5;
     --step-background: #232323;
     --suggestion-description-color: #8c8c8c;
