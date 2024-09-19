@@ -46,6 +46,7 @@
 }
 
 .docs-content > table {
+    --bs-table-bg: transparent !important;
     table-layout: fixed;
     word-wrap: anywhere;
 }
@@ -673,6 +674,7 @@ header .search-container {
 }
 
 .footer {
+    border-top-color: var(--leftnav-border) !important;
     margin: 0;
     max-width: unset;
     padding-top: 96px;
