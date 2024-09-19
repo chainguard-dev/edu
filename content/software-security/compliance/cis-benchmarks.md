@@ -39,7 +39,7 @@ CIS Benchmarks are distributed as PDF documents from the CIS website at no cost.
 
 > **Note**: By signing up for a CIS SecureSuite Membership you can download Benchmarks in a variety of other formats, including Word or Excel documents.
 
-CIS Benchmark starts with a brief overview of what it covers and lays out any typographical conventions or definitions specific to the Benchmark. They also define configuration profiles which can help users understand what recommendations they actually need to implement.
+CIS Benchmarks start with a brief overview of what they covers and lay out any typographical conventions or definitions specific to the Benchmark. They also define configuration profiles which can help users understand what recommendations they actually need to implement.
 
 For example, the CIS Google Chrome Benchmark has two profiles: Level 1 is for general use in Corporate/Enterprise environments and Level 2 is for High Security or Sensitive Data environments that only need limited functionality. In this case, Level 2 is an extension of Level 1; any recommendations for organizations that fit the Level 1 profile should also be implemented for Level 2 organizations, but not vice versa.
 
