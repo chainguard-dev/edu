@@ -6,29 +6,29 @@ SPDX-License-Identifier: Apache-2.0
 package cgbigquery
 
 const (
-	LegacyCsvHeader    = `f0_,image,scanner,scanner_version,scanner_db_version,time,low_cve_cnt,med_cve_cnt,high_cve_cnt,crit_cve_cnt,unknown_cve_cnt,tot_cve_cnt,digest`
-	ImageScanCsvHeader = `image,package,vulnerability,version,type,s`
+    vulnsTable   = "`cloudevents_grype_scan_results.dev_chainguard_image_scan_grype_vulns`"
+    summaryTable = "`cloudevents_grype_scan_results.dev_chainguard_image_scan_grype_summary`"
 
-	AllVulnsQuery = `
+    LegacyCsvHeader    = `f0_,image,scanner,scanner_version,scanner_db_version,time,low_cve_cnt,med_cve_cnt,high_cve_cnt,crit_cve_cnt,unknown_cve_cnt,tot_cve_cnt,digest`
+    ImageScanCsvHeader = `image,package,vulnerability,version,type,s`
+
+    AllVulnsQuery = `
 SELECT DISTINCT vulnerability
-FROM ` + "`" + `cloudevents_scan_recorder_grype.dev_scan-results_grype_vulns` + "`" + ``
+FROM ` + vulnsTable
 
-
-	AffectedImagesQuery = `
-SELECT s1.image, s1.time as time,
-FROM ` + "`" + `cloudevents_scan_recorder_grype.dev_scan-results_grype_vulns` + "`" + `
-AS s2
-INNER JOIN ` + "`" + `cloudevents_scan_recorder_grype.dev_scan-results_grype_summary` + "`" + `
-AS s1
-ON s1.id = s2.scan_id
-WHERE s2.vulnerability = @vulnerability
-AND s1.image NOT LIKE "cgr.dev/chainguard-private/%"
-AND s1.image NOT LIKE "cgr.dev/custom%"
-GROUP BY s1.time, s1.image
-ORDER BY s1.image, s1.time
+    AffectedImagesQuery = `
+SELECT summ.image, summ.time as time,
+FROM ` + vulnsTable + ` AS vulns
+INNER JOIN ` + summaryTable + ` AS scan
+ON scan.id = vulns.scan_id
+WHERE vulns.vulnerability = @vulnerability
+AND scan.image NOT LIKE "cgr.dev/chainguard-private/%"
+AND scan.image NOT LIKE "cgr.dev/custom%"
+GROUP BY scan.time, scan.image
+ORDER BY scan.image, scan.time
 `
 
-	LegacyCsvQuery = `
+    LegacyCsvQuery = `
 SELECT
 	ROW_NUMBER() OVER (ORDER BY time),
 	image,
@@ -43,29 +43,26 @@ SELECT
 	unknown_cve_count as unknown_cve_cnt,
 	low_cve_count + med_cve_count + high_cve_count + crit_cve_count + unknown_cve_count AS tot_cve_cnt,
 	digest
-FROM ` + "`" + `cloudevents_scan_recorder_grype.dev_scan-results_grype_summary` + "`" + `
+FROM ` + summaryTable + `
 WHERE DATE(time) BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY) AND CURRENT_DATE()
 AND scanner = "grype"
 AND image NOT LIKE "cgr.dev/chainguard-private/%"
 AND image NOT LIKE "cgr.dev/custom%"
 `
-
-	ImageComparisonCsvQuery = `
+    
+    ImageComparisonCsvQuery = `
 WITH ruuuumble AS (
-	SELECT s1.image,
-		s1.time as t,
-		s2.name as package,
-		s2.vulnerability,
-		s2.installed as version,
-		s2.type,
-		s2.severity
-	FROM ` + "`" + `cloudevents_scan_recorder_grype.dev_scan-results_grype_vulns` + "`" + `
-	AS s2
-	INNER JOIN ` + "`" + "cloudevents_scan_recorder_grype.dev_scan-results_grype_summary" + "`" + `
-	AS s1
-	ON s1.id = s2.scan_id
-	WHERE s1.image = @theirs
-	OR s1.image = @ours
+	SELECT scan.image,
+		scan.time as t,
+		vulns.name as package,
+		vulns.vulnerability,
+		vulns.installed as version,
+		vulns.type,
+		vulns.severity
+	FROM ` + vulnsTable + ` AS vulns
+	INNER JOIN ` + summaryTable + ` AS scan ON scan.id = vulns.scan_id
+	WHERE (scan.image = @theirs AND scan.tags = @their_tag)
+	OR (scan.image = @ours AND scan.tags = @our_tag)
 	)
 	SELECT image, package, vulnerability, version, type, severity FROM ruuuumble
 	WHERE DATE(t) BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY) AND CURRENT_DATE()

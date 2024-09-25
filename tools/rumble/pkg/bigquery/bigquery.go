@@ -72,7 +72,7 @@ func (b *BqClient) Query(q *bigquery.Query, queryType string) ([]interface{}, er
 	q.DefaultProjectID = b.Client.Project()
 	it, err := q.Read(b.Ctx)
 	if err != nil {
-		return nil, fmt.Errorf("%v", err)
+		return nil, err
 	}
 
 	var records []interface{}
@@ -91,7 +91,7 @@ func (b *BqClient) Query(q *bigquery.Query, queryType string) ([]interface{}, er
 			break
 		}
 		if err != nil {
-			return nil, fmt.Errorf("%v", err)
+			return nil, fmt.Errorf("querying %s type: %w", queryType, err)
 		}
 		records = append(records, values)
 	}
