@@ -8,7 +8,6 @@ SPDX-License-Identifier: Apache-2.0
 package cmd
 
 import (
-	"context"
 	"encoding/csv"
 	"fmt"
 	"log"
@@ -17,37 +16,17 @@ import (
 	"strings"
 
 	cgbigquery "github.com/chainguard-dev/edu/tools/rumble/pkg/bigquery"
-	cloudstorage "github.com/chainguard-dev/edu/tools/rumble/pkg/cloudstorage"
 	"github.com/spf13/cobra"
 )
-
-type legacyCsv struct {
-	ctx           context.Context
-	bqClient      cgbigquery.BqClient
-	storageClient cloudstorage.GcsClient
-	opts          *options
-}
 
 func cmdLegacyCsv(o *options) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "legacy-csv",
 		Short: "Single CSV with all scanned images and vulns",
 		RunE: func(cmd *cobra.Command, args []string) error {
-			db, _ := cmd.Flags().GetString("db")
-			project, _ := cmd.Flags().GetString("project")
-			gcsProject, _ := cmd.Flags().GetString("gcs-project")
-			bucket, _ := cmd.Flags().GetString("bucket")
-			up, _ := cmd.Flags().GetBool("upload")
-
-			l := legacyCsv{
-				ctx: cmd.Context(),
-				opts: &options{
-					dbProject:      project,
-					storageProject: gcsProject,
-					db:             db,
-					storageBucket:  bucket,
-					upload:         up,
-				},
+			l := rumbleBase{
+				ctx:  cmd.Context(),
+				opts: o,
 			}
 			return l.generateCsv()
 		},
@@ -55,40 +34,25 @@ func cmdLegacyCsv(o *options) *cobra.Command {
 	return cmd
 }
 
-func (l *legacyCsv) setupClients() error {
-	var err error
-
-	l.bqClient, err = cgbigquery.NewBqClient(l.opts.dbProject, l.opts.db)
+func (c *rumbleBase) generateCsv() error {
+	closer, err := c.setupClients()
 	if err != nil {
-		log.Fatalf("error initializing bq client: %v", err)
-	}
-
-	l.storageClient, err = cloudstorage.NewGcsClient(l.ctx, l.opts.storageBucket)
-	if err != nil {
-		log.Fatalf("error initializing gcs client: %v", err)
-	}
-	return nil
-}
-
-func (l *legacyCsv) generateCsv() error {
-	if err := l.setupClients(); err != nil {
 		return err
 	}
-	defer l.bqClient.Client.Close()
-	defer l.storageClient.Client.Close()
+	defer closer()
 
-	q := l.bqClient.Client.Query(cgbigquery.LegacyCsvQuery)
+	q := c.bqClient.Client.Query(cgbigquery.LegacyCsvQuery)
 
-	rows, err := l.bqClient.Query(q, cgbigquery.LegacyScanQueryType)
+	rows, err := c.bqClient.Query(q, cgbigquery.LegacyScanQueryType)
 	if err != nil {
 		log.Fatalf("error fetching scan results: %v", err)
 	}
 
 	var w *csv.Writer
-	switch l.opts.upload {
+	switch c.opts.upload {
 	case true:
 		fName := "cve-data/data.csv"
-		gcsCsvWriter, err := l.storageClient.GetCsvWriter(fName)
+		gcsCsvWriter, err := c.storageClient.GetCsvWriter(fName)
 		if err != nil {
 			return err
 		}
