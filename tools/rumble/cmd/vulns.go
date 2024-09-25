@@ -8,7 +8,6 @@ SPDX-License-Identifier: Apache-2.0
 package cmd
 
 import (
-	"context"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -17,7 +16,6 @@ import (
 
 	"cloud.google.com/go/bigquery"
 	cgbigquery "github.com/chainguard-dev/edu/tools/rumble/pkg/bigquery"
-	cloudstorage "github.com/chainguard-dev/edu/tools/rumble/pkg/cloudstorage"
 	"github.com/chainguard-dev/edu/tools/rumble/pkg/grype"
 	"github.com/spf13/cobra"
 	"golang.org/x/sync/errgroup"
@@ -25,12 +23,10 @@ import (
 )
 
 type vulnsJson struct {
-	ctx           context.Context
-	opts          *options
-	bqClient      cgbigquery.BqClient
-	storageClient cloudstorage.GcsClient
-	grypeDb       grype.GrypeDB
-	vulns         []grype.Vuln
+	rumbleBase
+
+	grypeDb grype.GrypeDB
+	vulns   []grype.Vuln
 }
 
 // vulnJsonCmd represents the vulnJson command
@@ -39,20 +35,10 @@ func cmdVulns(o *options) *cobra.Command {
 		Use:   "vulns",
 		Short: "JSON file per discovered CVE",
 		RunE: func(cmd *cobra.Command, args []string) error {
-			db, _ := cmd.Flags().GetString("db")
-			project, _ := cmd.Flags().GetString("project")
-			gcsProject, _ := cmd.Flags().GetString("gcs-project")
-			bucket, _ := cmd.Flags().GetString("bucket")
-			up, _ := cmd.Flags().GetBool("upload")
-
 			v := &vulnsJson{
-				ctx: cmd.Context(),
-				opts: &options{
-					dbProject:      project,
-					storageProject: gcsProject,
-					db:             db,
-					storageBucket:  bucket,
-					upload:         up,
+				rumbleBase: rumbleBase{
+					ctx:  cmd.Context(),
+					opts: o,
 				},
 			}
 			return v.generateJSON()
@@ -61,17 +47,10 @@ func cmdVulns(o *options) *cobra.Command {
 	return cmd
 }
 
-func (v *vulnsJson) setupClients() error {
-	var err error
-
-	v.bqClient, err = cgbigquery.NewBqClient(v.opts.dbProject, v.opts.db)
+func (v *vulnsJson) setupClients() (func(), error) {
+	closer, err := v.rumbleBase.setupClients()
 	if err != nil {
-		log.Fatalf("error initializing bq client: %v", err)
-	}
-
-	v.storageClient, err = cloudstorage.NewGcsClient(v.ctx, v.opts.storageBucket)
-	if err != nil {
-		log.Fatalf("error initializing gcs client: %v", err)
+		return closer, err
 	}
 
 	v.grypeDb, err = grype.NewGrypeClient()
@@ -79,18 +58,20 @@ func (v *vulnsJson) setupClients() error {
 		log.Fatalf("error initializing grype client: %v", err)
 	}
 
-	return nil
+	return func() {
+		closer()
+		if err := v.grypeDb.DB.Close(); err != nil {
+			log.Println(err)
+		}
+	}, nil
 }
 
 func (v *vulnsJson) generateJSON() error {
-	var err error
-
-	if err := v.setupClients(); err != nil {
+	closer, err := v.setupClients()
+	if err != nil {
 		return err
 	}
-	defer v.bqClient.Client.Close()
-	defer v.storageClient.Client.Close()
-	defer v.grypeDb.DB.Close()
+	defer closer()
 
 	q := v.bqClient.Client.Query(cgbigquery.AllVulnsQuery)
 	allVulnRecords, err := v.bqClient.Query(q, cgbigquery.CveQueryType)
@@ -124,9 +105,9 @@ func (v *vulnsJson) generateJSON() error {
 	return nil
 }
 
-func (vs *vulnsJson) saveFiles(vulns []grype.Vuln) error {
+func (v *vulnsJson) saveFiles(vulns []grype.Vuln) error {
 	eg := new(errgroup.Group)
-	fmt.Printf("Found %d vulnerabilities\n", len(vulns))
+	log.Printf("Found %d vulnerabilities", len(vulns))
 	eg.SetLimit(50)
 	for _, v := range vulns {
 		vulnerability := v
@@ -141,7 +122,7 @@ func (vs *vulnsJson) saveFiles(vulns []grype.Vuln) error {
 				return err
 			}
 
-			fmt.Printf("Wrote %s\n", fName)
+			log.Printf("Wrote %s", fName)
 			return nil
 		})
 	}
@@ -155,7 +136,7 @@ func (v *vulnsJson) queryAffectedImages() error {
 		vulnerability := vuln
 		i := idx
 		eg.Go(func() error {
-			fmt.Printf("querying %v\n", vulnerability.Id)
+			log.Printf("querying %v", vulnerability.Id)
 			q := v.bqClient.Client.Query(cgbigquery.AffectedImagesQuery)
 			q.DefaultProjectID = v.bqClient.Client.Project()
 			q.Parameters = []bigquery.QueryParameter{
@@ -204,7 +185,7 @@ func (v *vulnsJson) queryAffectedImages() error {
 	}
 
 	if err := eg.Wait(); err == nil {
-		fmt.Println("Successfully saved all vulnerabilities.")
+		log.Println("Successfully saved all vulnerabilities.")
 	}
 	return nil
 }

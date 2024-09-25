@@ -9,7 +9,6 @@ SPDX-License-Identifier: Apache-2.0
 package cmd
 
 import (
-	"context"
 	"encoding/csv"
 	"encoding/json"
 	"fmt"
@@ -19,7 +18,6 @@ import (
 
 	"cloud.google.com/go/bigquery"
 	cgbigquery "github.com/chainguard-dev/edu/tools/rumble/pkg/bigquery"
-	cloudstorage "github.com/chainguard-dev/edu/tools/rumble/pkg/cloudstorage"
 	"github.com/spf13/cobra"
 )
 
@@ -30,10 +28,8 @@ type rumbleJson []struct {
 }
 
 type imageCsv struct {
-	ctx            context.Context
-	bqClient       cgbigquery.BqClient
-	storageClient  cloudstorage.GcsClient
-	opts           *options
+	rumbleBase
+
 	rumbleJsonPath string
 	comparisons    *rumbleJson
 }
@@ -45,20 +41,10 @@ func cmdImageCsvs(o *options) *cobra.Command {
 		Use:   "image-csv",
 		Short: "CSV for a single external/third party image and a Chainguard image",
 		RunE: func(cmd *cobra.Command, args []string) error {
-			db, _ := cmd.Flags().GetString("db")
-			project, _ := cmd.Flags().GetString("project")
-			gcsProject, _ := cmd.Flags().GetString("gcs-project")
-			bucket, _ := cmd.Flags().GetString("bucket")
-			up, _ := cmd.Flags().GetBool("upload")
-
 			i := imageCsv{
-				ctx: cmd.Context(),
-				opts: &options{
-					dbProject:      project,
-					storageProject: gcsProject,
-					db:             db,
-					storageBucket:  bucket,
-					upload:         up,
+				rumbleBase: rumbleBase{
+					ctx:  cmd.Context(),
+					opts: o,
 				},
 				rumbleJsonPath: rumbleJsonPath,
 			}
@@ -69,21 +55,6 @@ func cmdImageCsvs(o *options) *cobra.Command {
 	cmd.Flags().StringVar(&rumbleJsonPath, "rumble-json-path", "", "Path to rumble.json with image pairs to compare")
 
 	return cmd
-}
-
-func (i *imageCsv) setupClients() error {
-	var err error
-
-	i.bqClient, err = cgbigquery.NewBqClient(i.opts.dbProject, i.opts.db)
-	if err != nil {
-		log.Fatalf("error initializing bq client: %v", err)
-	}
-
-	i.storageClient, err = cloudstorage.NewGcsClient(i.ctx, i.opts.storageBucket)
-	if err != nil {
-		log.Fatalf("error initializing gcs client: %v", err)
-	}
-	return nil
 }
 
 func (i *imageCsv) parseRumbleJson() error {
@@ -99,6 +70,16 @@ func (i *imageCsv) parseRumbleJson() error {
 	return nil
 }
 
+// splitRepoTag splits an image references like foo:bar into
+// the repo and tag components. If a ref doesn't have a tag,
+// latest is assumed.
+func splitRepoTag(ref string) (string, string) {
+	if repo, tag, ok := strings.Cut(ref, ":"); ok {
+		return repo, tag
+	}
+	return ref, "latest"
+}
+
 func (i *imageCsv) generateCsvs() error {
 	if i.rumbleJsonPath == "" {
 		return fmt.Errorf("missing --theirs or --ours argument")
@@ -108,14 +89,19 @@ func (i *imageCsv) generateCsvs() error {
 		return err
 	}
 
-	if err := i.setupClients(); err != nil {
+	closer, err := i.setupClients()
+	if err != nil {
 		return err
 	}
-	defer i.bqClient.Client.Close()
-	defer i.storageClient.Client.Close()
+	defer closer()
 
 	for _, img := range *i.comparisons {
+		log.Printf("querying %v", img)
+
 		q := i.bqClient.Client.Query(cgbigquery.ImageComparisonCsvQuery)
+		theirRepo, theirTag := splitRepoTag(img.Theirs)
+		ourRepo, ourTag := splitRepoTag(img.Ours)
+
 		q.DefaultProjectID = i.bqClient.Client.Project()
 		q.Parameters = []bigquery.QueryParameter{
 			{
@@ -124,7 +110,16 @@ func (i *imageCsv) generateCsvs() error {
 					Type: bigquery.StandardSQLDataType{
 						TypeKind: "STRING",
 					},
-					Value: img.Theirs,
+					Value: theirRepo,
+				},
+			},
+			{
+				Name: "their_tag",
+				Value: &bigquery.QueryParameterValue{
+					Type: bigquery.StandardSQLDataType{
+						TypeKind: "STRING",
+					},
+					Value: theirTag,
 				},
 			},
 			{
@@ -133,7 +128,16 @@ func (i *imageCsv) generateCsvs() error {
 					Type: bigquery.StandardSQLDataType{
 						TypeKind: "STRING",
 					},
-					Value: img.Ours,
+					Value: ourRepo,
+				},
+			},
+			{
+				Name: "our_tag",
+				Value: &bigquery.QueryParameterValue{
+					Type: bigquery.StandardSQLDataType{
+						TypeKind: "STRING",
+					},
+					Value: ourTag,
 				},
 			},
 		}
@@ -153,7 +157,7 @@ func (i *imageCsv) generateCsvs() error {
 			}
 			defer gcsCsvWriter.Close()
 			w = csv.NewWriter(gcsCsvWriter)
-			fmt.Printf("Writing %s to GCS bucket\n", fName)
+			log.Printf("Writing %s to GCS bucket", fName)
 		default:
 			f, err := os.Create(fName)
 			if err != nil {
@@ -161,7 +165,7 @@ func (i *imageCsv) generateCsvs() error {
 			}
 			defer f.Close()
 			w = csv.NewWriter(f)
-			fmt.Printf("Writing to %s\n", f.Name())
+			log.Printf("Writing to %s", f.Name())
 		}
 
 		err = w.Write(strings.Split(cgbigquery.ImageScanCsvHeader, ","))

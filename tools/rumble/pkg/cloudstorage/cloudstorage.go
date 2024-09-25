@@ -9,6 +9,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"log"
 
 	"cloud.google.com/go/storage"
 	"github.com/chainguard-dev/edu/tools/rumble/pkg/grype"
@@ -35,7 +36,7 @@ func NewGcsClient(ctx context.Context, bucket string) (g GcsClient, err error) {
 // this should live over in vulns.go and be a vulnsJson method
 func (g *GcsClient) SaveVulnJSON(vulns []grype.Vuln) error {
 	eg := new(errgroup.Group)
-	fmt.Printf("Found %d vulnerabilities\n", len(vulns))
+	log.Printf("Found %d vulnerabilities", len(vulns))
 	eg.SetLimit(50)
 	for _, v := range vulns {
 		vulnerability := v
@@ -66,13 +67,13 @@ func (g *GcsClient) SaveVulnJSON(vulns []grype.Vuln) error {
 				return err
 			}
 
-			fmt.Printf("Wrote %s\n", fName)
+			log.Printf("Wrote %s", fName)
 			return nil
 		})
 	}
 
 	if err := eg.Wait(); err == nil {
-		fmt.Println("Successfully saved all vulnerabilities.")
+		log.Println("Successfully saved all vulnerabilities.")
 	}
 	return nil
 }

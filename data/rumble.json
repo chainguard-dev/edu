@@ -3,7 +3,7 @@
   {"image":"busybox","left":"busybox:latest","right":"cgr.dev/chainguard/busybox:latest"},
   {"image":"cassandra","left":"cassandra:latest","right":"cgr.dev/chainguard/cassandra:latest"},
   {"image":"curl","left":"curlimages/curl:latest","right":"cgr.dev/chainguard/curl:latest"},
-  {"image":"deno","left":"deno:latest","right":"cgr.dev/chainguard/deno:latest"},
+  {"image":"deno","left":"denoland/deno:latest","right":"cgr.dev/chainguard/deno:latest"},
   {"image":"dotnet-runtime","left":"mcr.microsoft.com/dotnet/runtime:latest","right":"cgr.dev/chainguard/dotnet-runtime:latest"},
   {"image":"dotnet-sdk","left":"mcr.microsoft.com/dotnet/sdk:latest","right":"cgr.dev/chainguard/dotnet-sdk:latest"},
   {"image":"dex","left":"dexidp/dex:latest","right":"cgr.dev/chainguard/dex:latest"},
