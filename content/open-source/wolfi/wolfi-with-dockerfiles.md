@@ -43,18 +43,18 @@ mkdir /tmp/images-demos &&  \
 We'll now copy the demo application to a location inside your home folder.
 
 ```shell
-mkdir ~/inky && cp -R /tmp/images-demos/python/inky/* ~/inky/
+mkdir ~/linky && cp -R /tmp/images-demos/python/linky/* ~/linky/
 ```
 
 You can now enter the newly created directory in your home folder and inspect its contents:
 
 ```shell
-cd ~/inky && ls -la
+cd ~/linky && ls -la
 ```
 
-This application will take in an image (`inky.png`) file and convert it to ANSI escape sequences to render it on the CLI. The code is on the `inky.py` file, while the `requirements.txt` file has the dependencies required by the application: [setuptools](https://pypi.org/project/setuptools/) and [climage](https://pypi.org/project/climage/).
+This application will take in an image (`linky.png`) file and convert it to ANSI escape sequences to render it on the CLI. The code is on the `linky.py` file, while the `requirements.txt` file has the dependencies required by the application: [setuptools](https://pypi.org/project/setuptools/) and [climage](https://pypi.org/project/climage/).
 
-For your reference, here is the complete `inky.py` script:
+For your reference, here is the complete `linky.py` script:
 
 ```python
 '''import climage module to display images on terminal'''
@@ -63,7 +63,7 @@ from climage import convert
 
 def main():
     '''Take in PNG and output as ANSI to terminal'''
-    output = convert('inky.png', is_unicode=True)
+    output = convert('linky.png', is_unicode=True)
     print(output)
 
 if __name__ == "__main__":
@@ -100,10 +100,10 @@ RUN apk add python-${version} py${version}-pip && \
 	chown -R nonroot.nonroot /app/
 
 USER nonroot
-COPY requirements.txt inky.png inky.py /app/
+COPY requirements.txt linky.png linky.py /app/
 RUN  pip install -r requirements.txt --user
 
-ENTRYPOINT [ "python", "/app/inky.py" ]
+ENTRYPOINT [ "python", "/app/linky.py" ]
 ```
 
 This Dockerfile uses a variable called `version` to define which Python version is going to be installed in the resulting image. You can change this to one of the Python versions available in Wolfi. To find out which versions are available, please refer to the [Searching for Packages](https://edu.chainguard.dev/chainguard/migration/migrating-to-chainguard-images/#searching-for-packages) section of our migration guide.
@@ -118,7 +118,7 @@ With the Dockerfile ready, you can now build your application runtime. If you're
 Build your image with:
 
 ```shell
-docker build . -t inky-demo
+docker build . -t linky-demo
 ```
 
 If you run into issues, try using `sudo`.
@@ -126,10 +126,10 @@ If you run into issues, try using `sudo`.
 Finally, run the image with:
 
 ```shell
-docker run --rm inky-demo
+docker run --rm linky-demo
 ```
 
-You’ll receive a representation of the Chainguard Inky logo on the command line.
+You’ll receive a representation of the Chainguard Linky logo on the command line.
 
 ## Step 4 (Optional): Composing Distroless Images in a Docker Multi-Stage Build
 
@@ -176,35 +176,35 @@ WORKDIR /app
 
 COPY --from=builder /app/venv /app
 
-COPY inky.py inky.png /app/
+COPY linky.py linky.png /app/
 
-ENTRYPOINT [ "python", "/app/inky.py" ]
+ENTRYPOINT [ "python", "/app/linky.py" ]
 ```
 
 Save and close the file when you're finished.
 
-Now, build this image using a custom tag so that you can compare the previously built `inky-demo` image with its distroless version:
+Now, build this image using a custom tag so that you can compare the previously built `linky-demo` image with its distroless version:
 
 ```shell
-docker build . -f DockerfileDistroless -t inky-demo:distroless
+docker build . -f DockerfileDistroless -t linky-demo:distroless
 ```
 
 If you run the new image, it should give you the same result as before.
 
 ```shell
-docker run --rm inky-demo:distroless
+docker run --rm linky-demo:distroless
 ```
 
 But these images are not the same. The following command will give you a glimpse of their differences:
 
 ```shell
-docker images inky-demo
+docker images linky-demo
 ```
 
 ```
 REPOSITORY   TAG          IMAGE ID       CREATED         SIZE
-inky-demo    distroless   619ef9b6c52d   6 seconds ago   90.3MB
-inky-demo    latest       4832e9093348   4 minutes ago   110MB
+linky-demo    distroless   619ef9b6c52d   6 seconds ago   90.3MB
+linky-demo    latest       4832e9093348   4 minutes ago   110MB
 ```
 
 You'll notice that the `:distroless` version is significantly smaller, because it doesn't carry along all the software necessary to build the application. More important than size, however, is the smaller attack surface that results in fewer CVEs.
