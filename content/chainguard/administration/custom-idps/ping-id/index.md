@@ -5,7 +5,7 @@ lead: ""
 description: "Procedural tutorial on how to create a Ping Identity Application"
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2024-06-26T15:22:20+01:00
+lastmod: 2024-09-25T15:22:20+01:00
 draft: false
 tags: ["Chainguard Images", "Procedural"]
 images: []
@@ -27,29 +27,29 @@ To complete this guide, you will need the following.
 
 ## Create a Ping Identity Application
 
-To integrate the Ping identity provider with the Chainguard platform, [sign on to Ping Identity](https://www.pingidentity.com/en.html) and navigate to the Dashboard. Click on the **Connections** tab in the left hand sidebar menu, and then click on **Applications** in the resulting dropdown menu. From the Applications landing page, click the plus sign (**➕**) to set up a new application.
+To integrate the Ping identity provider with the Chainguard platform, [sign on to Ping Identity](https://www.pingidentity.com/en.html) and navigate to the Dashboard. Click on the **Applications** tab in the left-hand sidebar menu, and then click on **Applications** in the resulting dropdown menu. From the Applications landing page, click the plus sign (**➕**) to set up a new application.
 
-![Screenshot of the Ping Identity Dashboard, showing the applications landing page. The Applications tab in the left hand sidebar and the "add application" plus sign icon are circled in magenta.](ping-1.png)
+![Screenshot of the Ping Identity Dashboard, showing the applications landing page. The Applications tab in the left hand sidebar and the "add application" plus sign icon are highlighted in yellow.](ping-1.png)
 
 Configure the application as follows:
 
-* **Application Name**: Set a name and option description (such as "Chainguard") to ensure users recognize this application is for authentication to the Chainguard platform.
+* **Application Name**: Set a descriptive name (such as "Chainguard") and optional description to ensure users recognize this application is for authentication to the Chainguard platform.
 * **Icon**: You can optionally add a Chainguard logo icon here to help your users visually identify this integration. If you'd like, you can use the icon from the [Chainguard Console](https://console.chainguard.dev/logo512.png).
 * **Application Type**: Select **OIDC Web App**.
 
-![Screenshot showing the Add Application modal window with the following settings in place: Application Name is set to "Chainguard"; Description reads "Build it right, Build it safe, Build it fast, https://console.chainguard.dev"; the example Linky icon has been uploaded to the Icon field; and the Application Type is set to "OIDC Web App."](ping-2-add-app.png)
+![Screenshot showing the Add Application modal window with the following settings in place: Application Name is set to "Chainguard"; Description reads "Safe Source for Open Source, https://console.chainguard.dev"; the example Linky icon has been uploaded to the Icon field; and the Application Type is set to "OIDC Web App."](ping-2.png)
 
 After setting these details, click the **Save** button.
 
 Next, configure scopes for the application. In the **Overview** tab, click the **Resource Access** scope button.
 
-![Screenshot of the Overview tab, with the Resource Access scope button highlighted in a magenta circle.](ping-3.png)
+![Screenshot of the Overview tab, with the Resource Access scope button highlighted in a yellow box.](ping-3.png)
 
 Add **email** and **profile** scopes, then save.
 
 ![Screenshot of the Edit Resources modal window, showing the email and profile scopes selected.](ping-4.png)
 
-Next, configure the OIDC application. Navigate to the **Configuration** tab and click the "edit" icon.
+Next, configure the OIDC application. Navigate to the **Configuration** tab and click the pencil-shaped "edit" icon.
 
 To configure the application, add the following settings.
 
@@ -60,13 +60,13 @@ To configure the application, add the following settings.
 
 * **Redirect URIs**: Set the Redirect URI to [`https://issuer.enforce.dev/oauth/callback`](https://issuer.enforce.dev/oauth/callback).
 
-![Screenshot of the Edit Configuration modal window with the following settings: Resource type is set to "Code"; Grant type is set to "Authorization Code" (with PKCE enforcement set to "Optional"); Redirect URIs has one option set (https://issuer.enforce.dev/oauth/callback).](ping-7-edit-conf.png)
+![Screenshot of the Edit Configuration modal window with the following settings: Resource type is set to "Code"; Grant type is set to "Authorization Code" (with PKCE enforcement set to "Optional"); Redirect URIs has one option set (https://issuer.enforce.dev/oauth/callback).](ping-5.png)
 
 Click the **Save** button to save your configuration.
 
-Finally, enable the Chainguard application by toggling the knob in the top right corner.
+Finally, enable the Chainguard application by toggling the button in the top right corner.
 
-![Screenshot of the Overview tab, with the toggle button turned on. Additionally, the toggle button is highlighted with a magenta circle.](ping-8-2.png)
+![Screenshot of the Overview tab, with the toggle button turned on. The toggle button is highlighted with a yellow box.](ping-6.png)
 
 This completes configuration of the Ping application. You're now ready to configure the Chainguard platform to use it.
 
@@ -126,6 +126,5 @@ chainctl iam identity-provider create \
 ```
 
 Note the `--default-role` option. This defines the default role granted to users registering with this identity provider. This example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. If you don't include this option, you'll be prompted to specify the role interactively. For more information, refer to the [IAM and Security section](/chainguard/administration/custom-idps/custom-idps/#iam-and-security) of our Introduction to Custom Identity Providers in Chainguard tutorial.
-
 
 You can refer to our [Generic Integration Guide](/chainguard/administration/custom-idps/custom-idps/#generic-integration-guide) in our Introduction to Custom Identity Providers guide for more information about the `chainctl iam identity-provider create` command and its required options.
