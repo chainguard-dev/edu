@@ -128,27 +128,6 @@ ExternalRef: PACKAGE_MANAGER purl pkg:alpine/zlib@1.2.12-r0?arch=aarch64&upstrea
 
 Next, you’ll use Cosign to work with the SBOM and the image.
 
-## Attach the SBOM to the Image
-
-You will now attach the SBOM via Cosign to the container that you have hosted on Docker Hub or other container registry.
-
-```sh
-cosign attach sbom --sbom latest.spdx docker-username/hello-container:latest
-```
-
-<blockquote>
-    <p><b>Note</b>: The cosign attach sbom command will be deprecated in a future Cosign version. You can find more information about this change at its associated GitHub issue: https://github.com/sigstore/cosign/issues/2755
-</blockquote>
-
-You’ll receive feedback once the SBOM is pushed to the container registry.
-
-```
-…
-Uploading SBOM file for [index.docker.io/docker-username/hello-container:latest] to [index.docker.io/docker-username/hello-container:sha256-690ecfd885f008330a66d08be13dc6c115a439e1cc935c04d181d7116e198f9c.sbom] with mediaType [text/spdx].
-```
-
-Though you have pushed the SBOM with Cosign, you haven’t signed the SBOM. Depending on your organization’s approach to security, an SBOM and a signed container may be adequate. In the next section we will demonstrate how to sign the SBOM to have an additional layer of security.
-
 ## Sign the SBOM
 
 You will sign the SBOM in a similar way to signing other software artifacts. 
