@@ -43,7 +43,7 @@ blockquote {
   font-size: 16px;
   line-height: 24px;
   padding: 24px;
-  border-radius: 0px 8px 8px 0px;
+  border-radius: 0px 4px 4px 0px;
   display: flex;
   &::before {
     content: var(--info-icon-url);
@@ -54,7 +54,6 @@ blockquote {
 
   background: var(--blockquote-background);
   border-left: 2px solid var(--blockquote-border) !important;
-  color: var(--blockquote-color);
 
   p {
     margin-bottom: 0;
