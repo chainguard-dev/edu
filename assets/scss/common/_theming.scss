@@ -24,9 +24,9 @@
     --article-link-color: var(--primary-1);
     --basics-card-background: inherit;
     --basics-card-border: var(--primary-3-border);
-    --blockquote-background: var(--primary-1);
+    --blockquote-background: var(--secondary-3-border);
     --blockquote-link-color: var(--tertiary-3);
-    --blockquote-border: var(--secondary-1);
+    --blockquote-border: var(--secondary-2);
     --blockquote-color: var(--secondary-1);
     --board-background-color: #f9f9f9;
     --body-background: #ffffff;
@@ -38,7 +38,7 @@
     --card-background-0: var(--primary-2);
     --card-background-1: var(--secondary-2);
     --center-title-color: var(--primary-3);
-    --code-color: #f3f3f3;
+    --code-color: var(--primary-3-border);
     --contact-us-button-background: var(--primary-1);
     --contact-us-button-color: #ffffff;
     --docs-navigation-border: var(--primary-2);
@@ -71,7 +71,7 @@
     --offcanvas-close-color: var(--primary-3);
     --page-link-active-color: var(--desaturated-primary-3);
     --page-link-color: var(--primary-3);
-    --pills-icon-background: #f3f3f3;
+    --pills-icon: var(--primary-1);
     --placeholder-color: var(--secondary-1);
     --pre-container-background: #ffffff;
     --pre-container-border: #dcdcdc;
@@ -95,7 +95,7 @@
     --sidebar-item-color: var(--primary-3);
     --sidebar-item-list-item-selected-background: var(--secondary-3);
     --sidebar-item-top-color: var(--primary-3);
-    --step-background: #f3f3f3;
+    --step-background: var(--secondary-3-border);
     --suggestion-description-color: var(--primary-3);
     --suggestion-title-color: var(--primary-3);
     --suggestions-background: #f9f9f9;
@@ -109,8 +109,8 @@
     --table-vulnerability-color: var(--primary-3);
     --tabs-active-color: var(--primary-1);
     --tabs-color: var(--primary-3);
-    --tag-background: #f5f0f0;
-    --tag-color: #f3f3f3;
+    --tag-background: var(--secondary-3);
+    --tag-color: var(--primary-3);
     --terminal-background: #ffffff;
     --terminal-border: var(--primary-2)!;
     --terminal-color: var(--primary-3);
@@ -141,10 +141,10 @@
     --active-element-shadow: var(--primary-2);
     --active-link-color: var(--secondary-1);
     --article-link-color: var(--primary-2);
-    --basics-card-background: -var(-desaturated-primary-3);
+    --basics-card-background: -var(--desaturated-primary-3);
     --basics-card-border: var(--secondary-3-border);
-    --blockquote-background: var(--secondary-3);
-    --blockquote-border: var(--tertiary-2);
+    --blockquote-background: var(--secondary-3-border);
+    --blockquote-border: var(--secondary-2);
     --blockquote-color: var(--primary-3);
     --blockquote-link-color: var(--secondary-2);
     --board-background-color: #190d30;
@@ -157,7 +157,7 @@
     --card-background-0: var(--primary-2);
     --card-background-1: var(--tertiary-1);
     --center-title-color: var(--secondary-3);
-    --code-color: #232323;
+    --code-color: var(--secondary-3-border);
     --contact-us-button-background: var(--secondary-2);
     --contact-us-button-color: var(--primary-2);
     --docs-navigation-border: var(--secondary-2);
@@ -189,7 +189,7 @@
     --offcanvas-close-color: var(--secondary-1);
     --page-link-active-color: var(--primary-2);
     --page-link-color: var(--secondary-1);
-    --pills-icon-background: #232323;
+    --pills-icon: var(--primary-2);
     --placeholder-color: #c5c5c5;
     --pre-container-background: #1c0c3e;
     --pre-container-border: #d0cfee2e;
@@ -212,7 +212,7 @@
     --sidebar-item-color: #8c8c8c;
     --sidebar-item-list-item-selected-background: #ffffff29;
     --sidebar-item-top-color: #c5c5c5;
-    --step-background: #232323;
+    --step-background: var(--secondary-3-border);
     --suggestion-description-color: #8c8c8c;
     --suggestion-title-color: #ffffff;
     --suggestions-background: #0e0e0e;
@@ -226,7 +226,7 @@
     --table-vulnerability-color: #fff;
     --tabs-active-color: var(--primary-2);
     --tabs-color: #8c8c8c;
-    --tag-background: #232323;
+    --tag-background: var(--secondary-3);
     --tag-color: #232323;
     --terminal-background: #0e0e0e;
     --terminal-border: var(--secondary-2);
