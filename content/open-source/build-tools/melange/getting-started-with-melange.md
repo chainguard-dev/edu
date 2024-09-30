@@ -92,6 +92,18 @@ git clone git@github.com:chainguard-dev/melange-php-demos.git
 cd melange-php-demos/hello-minicli
 ```
 
+Run the following command, which will use the official Composer image to generate a composer.json file and download minicli/minicli:
+
+```shell
+docker run --rm -it -v "${PWD}":/app composer require minicli/minicli
+```
+
+Once you receive confirmation that the download was completed, we'll need a second dependency to query the advice slip API. Run the following command to include minicli/curly, a simple curl wrapper for Minicli:
+
+```shell
+docker run --rm -it -v "${PWD}":/app composer require minicli/curly
+```
+
 Now you can run the application to make sure it's functional. You can do that using Docker and Chainguard's PHP image:
 
 ```shell
