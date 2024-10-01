@@ -26,19 +26,18 @@ type BqClient struct {
 }
 
 type LegacyScan struct {
-	Row                int64
-	Image              string
-	Scanner            string
-	Scanner_version    string
-	Scanner_db_version string
-	Time               string
-	Low_cve_cnt        int64
-	Med_cve_cnt        int64
-	High_cve_cnt       int64
-	Crit_cve_cnt       int64
-	Unknown_cve_cnt    int64
-	Tot_cve_cnt        int64
-	Digest             string
+	Row             int64
+	Image           string
+	Tags            string
+	Scanner         string
+	Time            string
+	Low_cve_cnt     int64
+	Med_cve_cnt     int64
+	High_cve_cnt    int64
+	Crit_cve_cnt    int64
+	Unknown_cve_cnt int64
+	Tot_cve_cnt     int64
+	Digest          string
 }
 
 type ImageScan struct {
