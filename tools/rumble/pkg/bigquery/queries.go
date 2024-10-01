@@ -9,7 +9,7 @@ const (
 	vulnsTable   = "`cloudevents_grype_scan_results.rumble_vulns`"
 	summaryTable = "`cloudevents_grype_scan_results.rumble_summary`"
 
-	LegacyCsvHeader    = `f0_,image,scanner,scanner_version,scanner_db_version,time,low_cve_cnt,med_cve_cnt,high_cve_cnt,crit_cve_cnt,unknown_cve_cnt,tot_cve_cnt,digest`
+	LegacyCsvHeader    = `f0_,image,scanner,time,low_cve_cnt,med_cve_cnt,high_cve_cnt,crit_cve_cnt,unknown_cve_cnt,tot_cve_cnt,digest`
 	ImageScanCsvHeader = `image,package,vulnerability,version,type,s`
 
 	AllVulnsQuery = `
@@ -17,7 +17,7 @@ SELECT DISTINCT vulnerability
 FROM ` + vulnsTable
 
 	AffectedImagesQuery = `
-SELECT summ.image, summ.time as time,
+SELECT scan.image, scan.time as time,
 FROM ` + vulnsTable + ` AS vulns
 INNER JOIN ` + summaryTable + ` AS scan
 ON scan.id = vulns.scan_id
@@ -30,9 +30,8 @@ ORDER BY scan.image, scan.time
 SELECT
 	ROW_NUMBER() OVER (ORDER BY time),
 	image,
+    tags,
 	scanner,
-	scanner_version,
-	scanner_db_version,
 	FORMAT_DATETIME("%Y-%m-%d %H:%M:%S", DATE(time)) as time,
 	low_cve_count as low_cve_cnt,
 	med_cve_count as med_cve_cnt,
@@ -41,7 +40,8 @@ SELECT
 	unknown_cve_count as unknown_cve_cnt,
 	low_cve_count + med_cve_count + high_cve_count + crit_cve_count + unknown_cve_count AS tot_cve_cnt,
 	digest
-FROM ` + summaryTable
+FROM ` + summaryTable + `
+WHERE tags NOT LIKE '%latest-dev%'`
 
 	ImageComparisonCsvQuery = `
 WITH ruuuumble AS (
