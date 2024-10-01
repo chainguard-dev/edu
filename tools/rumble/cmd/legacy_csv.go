@@ -79,10 +79,8 @@ func (c *rumbleBase) generateCsv() error {
 		if !strings.Contains(image, "cgr.dev") || strings.Contains(image, "cgr.dev/chainguard/") {
 			csvRow := []string{
 				strconv.Itoa(i + 1),
-				r.(*cgbigquery.LegacyScan).Image,
+				fmt.Sprintf("%s:%s", r.(*cgbigquery.LegacyScan).Image, r.(*cgbigquery.LegacyScan).Tags),
 				r.(*cgbigquery.LegacyScan).Scanner,
-				r.(*cgbigquery.LegacyScan).Scanner_version,
-				r.(*cgbigquery.LegacyScan).Scanner_db_version,
 				r.(*cgbigquery.LegacyScan).Time,
 				strconv.FormatInt(r.(*cgbigquery.LegacyScan).Low_cve_cnt, 10),
 				strconv.FormatInt(r.(*cgbigquery.LegacyScan).Med_cve_cnt, 10),
