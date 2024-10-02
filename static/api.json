@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Enforce OpenAPI Specification (Alpha)",
+    "title": "Chainguard OpenAPI Specification (Alpha)",
     "version": "alpha"
   },
   "paths": {
@@ -74,6 +74,73 @@
         },
         "tags": [
           "SecurityAdvisory"
+        ]
+      }
+    },
+    "/apk/v1/packages": {
+      "get": {
+        "operationId": "APK_ListAPKs",
+        "parameters": [
+          {
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "in": "query",
+            "name": "uidp.inRoot",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "A name to filter by.",
+            "in": "query",
+            "name": "packageName",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "An architecture to filter by (e.g., x86_64 or aarch64).",
+            "in": "query",
+            "name": "architecture",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apkAPKList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "summary": "ListAPKs lists all APKs that match the filter.",
+        "tags": [
+          "APK"
         ]
       }
     },
@@ -207,7 +274,8 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "properties": {}
+              "properties": {},
+              "type": "object"
             }
           },
           "default": {
@@ -318,7 +386,8 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "properties": {}
+              "properties": {},
+              "type": "object"
             }
           },
           "default": {
@@ -348,32 +417,7 @@
             "name": "body",
             "required": true,
             "schema": {
-              "properties": {
-                "amazon": {
-                  "$ref": "#/definitions/AccountAssociationsAmazon",
-                  "description": "amazon holds information associating an Amazon account with the group."
-                },
-                "chainguard": {
-                  "$ref": "#/definitions/AccountAssociationsChainguard"
-                },
-                "description": {
-                  "description": "a short description of this association.",
-                  "type": "string"
-                },
-                "github": {
-                  "$ref": "#/definitions/AccountAssociationsGitHubInstallation",
-                  "description": "github holds information associating a GitHub installation with the group.\nNote: this AccountAssociation type is EXPERIMENTAL."
-                },
-                "google": {
-                  "$ref": "#/definitions/AccountAssociationsGoogle",
-                  "description": "google holds information associating a Google project with the group."
-                },
-                "name": {
-                  "description": "name of the association.",
-                  "type": "string"
-                }
-              },
-              "type": "object"
+              "$ref": "#/definitions/GroupAccountAssociationsCreateBody"
             }
           }
         ],
@@ -411,32 +455,7 @@
             "name": "body",
             "required": true,
             "schema": {
-              "properties": {
-                "amazon": {
-                  "$ref": "#/definitions/AccountAssociationsAmazon",
-                  "description": "amazon holds information associating an Amazon account with the group."
-                },
-                "chainguard": {
-                  "$ref": "#/definitions/AccountAssociationsChainguard"
-                },
-                "description": {
-                  "description": "a short description of this association.",
-                  "type": "string"
-                },
-                "github": {
-                  "$ref": "#/definitions/AccountAssociationsGitHubInstallation",
-                  "description": "github holds information associating a GitHub installation with the group.\nNote: this AccountAssociation type is EXPERIMENTAL."
-                },
-                "google": {
-                  "$ref": "#/definitions/AccountAssociationsGoogle",
-                  "description": "google holds information associating a Google project with the group."
-                },
-                "name": {
-                  "description": "name of the association.",
-                  "type": "string"
-                }
-              },
-              "type": "object"
+              "$ref": "#/definitions/GroupAccountAssociationsUpdateBody"
             }
           }
         ],
@@ -476,12 +495,7 @@
             "name": "body",
             "required": true,
             "schema": {
-              "properties": {
-                "accountType": {
-                  "$ref": "#/definitions/AccountAssociationsCheckRequestAccountType"
-                }
-              },
-              "type": "object"
+              "$ref": "#/definitions/GroupAccountAssociationsCheckBody"
             }
           }
         ],
@@ -566,25 +580,7 @@
             "name": "body",
             "required": true,
             "schema": {
-              "properties": {
-                "email": {
-                  "description": "email is the exact email address that may accept this invite code, if specified.",
-                  "type": "string"
-                },
-                "role": {
-                  "description": "role is the Role UIDP the invited identity will be role-bound to the group with.",
-                  "type": "string"
-                },
-                "singleUse": {
-                  "description": "if single_use is set to true, then the invite will be deleted after a user joins the group.",
-                  "type": "boolean"
-                },
-                "ttl": {
-                  "description": "expiration, timestamp this invite becomes no longer valid.",
-                  "type": "string"
-                }
-              },
-              "type": "object"
+              "$ref": "#/definitions/GroupInvitesCreateBody"
             }
           }
         ],
@@ -624,7 +620,8 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "properties": {}
+              "properties": {},
+              "type": "object"
             }
           },
           "default": {
@@ -722,7 +719,8 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "properties": {}
+              "properties": {},
+              "type": "object"
             }
           },
           "default": {
@@ -752,29 +750,7 @@
             "name": "body",
             "required": true,
             "schema": {
-              "properties": {
-                "description": {
-                  "description": "description, human readable of group.",
-                  "type": "string"
-                },
-                "name": {
-                  "description": "name, human readable name of group.",
-                  "type": "string"
-                },
-                "resourceLimits": {
-                  "additionalProperties": {
-                    "format": "int32",
-                    "type": "integer"
-                  },
-                  "description": "resource_limits indicate the maximum number of resources allowed for this group by type.",
-                  "type": "object"
-                },
-                "verified": {
-                  "title": "verified means we've verified the owners of this organization. Restrictions include:\n- Only organizations (root groups) can be verified\n- Property can only be set by manually by Chainguardians\n- If verified is set, the organizations name field must be globally unique\n- If verified is set the organizations name should be a domain name",
-                  "type": "boolean"
-                }
-              },
-              "type": "object"
+              "$ref": "#/definitions/GroupsUpdateBody"
             }
           }
         ],
@@ -984,7 +960,8 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "properties": {}
+              "properties": {},
+              "type": "object"
             }
           },
           "default": {
@@ -1014,43 +991,7 @@
             "name": "body",
             "required": true,
             "schema": {
-              "properties": {
-                "awsIdentity": {
-                  "$ref": "#/definitions/IdentityAWSIdentity",
-                  "title": "aws_identity matches AWS IAM users and roles to an identity"
-                },
-                "claimMatch": {
-                  "$ref": "#/definitions/IdentityClaimMatch",
-                  "description": "claim_match checks the third party IdP token's claims against one\nor more configured patterns."
-                },
-                "createdAt": {
-                  "description": "created_at is the timestamp for when the identity was created.",
-                  "format": "date-time",
-                  "type": "string"
-                },
-                "description": {
-                  "description": "description, human readable of identity.",
-                  "type": "string"
-                },
-                "name": {
-                  "description": "name, human readable name of identity.",
-                  "type": "string"
-                },
-                "servicePrincipal": {
-                  "$ref": "#/definitions/iamServicePrincipal",
-                  "description": "service_principal is the name of the Chainguard service that is\nallowed to assume this identity.  These names correlate with the\nservice names used in impersonation with account associations."
-                },
-                "static": {
-                  "$ref": "#/definitions/IdentityStaticKeys",
-                  "description": "static is equivalent to literal, but instead of discovering the\nIdP's verification keys we verify the identity using pre-registered\nverification keys.  This is intended for use with identities from\nproviders without an \"online\" issuer (network accessible to our IdP),\nsuch as a KinD/minikube cluster.\nNOTE: because this path does not have a mechanism for key rotation\nthe identity will expire, with a maximum lifetime of 30d."
-                },
-                "updatedAt": {
-                  "description": "updated_at is the timestamp for when the identity was last updated.",
-                  "format": "date-time",
-                  "type": "string"
-                }
-              },
-              "type": "object"
+              "$ref": "#/definitions/IdentitiesUpdateBody"
             }
           }
         ],
@@ -1197,7 +1138,8 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "properties": {}
+              "properties": {},
+              "type": "object"
             }
           },
           "default": {
@@ -1227,22 +1169,7 @@
             "name": "body",
             "required": true,
             "schema": {
-              "properties": {
-                "defaultRole": {
-                  "description": "default_role is the UIDP of an optional default role\nto grant users of this identity provider.",
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "oidc": {
-                  "$ref": "#/definitions/IdentityProviderOIDC"
-                }
-              },
-              "type": "object"
+              "$ref": "#/definitions/IdentityProvidersUpdateBody"
             }
           }
         ],
@@ -1381,7 +1308,8 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "properties": {}
+              "properties": {},
+              "type": "object"
             }
           },
           "default": {
@@ -1411,21 +1339,7 @@
             "name": "body",
             "required": true,
             "schema": {
-              "properties": {
-                "group": {
-                  "description": "group, UIDP of the group to bind. This field is ignored and will be removed\nin the future. The group is always the parent of the UIDP.",
-                  "type": "string"
-                },
-                "identity": {
-                  "description": "identity, UID of the Identity to bind.",
-                  "type": "string"
-                },
-                "role": {
-                  "title": "role, UIDP of the Role to bind",
-                  "type": "string"
-                }
-              },
-              "type": "object"
+              "$ref": "#/definitions/RoleBindingsUpdateBody"
             }
           }
         ],
@@ -1579,7 +1493,8 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "properties": {}
+              "properties": {},
+              "type": "object"
             }
           },
           "default": {
@@ -1609,24 +1524,7 @@
             "name": "body",
             "required": true,
             "schema": {
-              "properties": {
-                "capabilities": {
-                  "description": "capabilities, human readable list of capabilities supported by the group.",
-                  "items": {
-                    "type": "string"
-                  },
-                  "type": "array"
-                },
-                "description": {
-                  "description": "description, human readable description of group.",
-                  "type": "string"
-                },
-                "name": {
-                  "description": "name, human readable name of group.",
-                  "type": "string"
-                }
-              },
-              "type": "object"
+              "$ref": "#/definitions/RolesUpdateBody"
             }
           }
         ],
@@ -1687,6 +1585,51 @@
         },
         "tags": [
           "Roles"
+        ]
+      }
+    },
+    "/notifications/v1/notifications": {
+      "get": {
+        "operationId": "Notifications_List",
+        "parameters": [
+          {
+            "description": "The id of the notification.",
+            "in": "query",
+            "name": "id",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "UNSPECIFIED",
+            "description": "Location of where notifications are displayed.\n\n - UNSPECIFIED: The \"unset\" value.\n - CONSOLE: Console.\n - DIRECTORY: Directory.\n - CHAINCTL: Chainctl.",
+            "enum": [
+              "UNSPECIFIED",
+              "CONSOLE",
+              "DIRECTORY",
+              "CHAINCTL"
+            ],
+            "in": "query",
+            "name": "location",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/notificationsNotificationsList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Notifications"
         ]
       }
     },
@@ -1795,7 +1738,8 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "properties": {}
+              "properties": {},
+              "type": "object"
             }
           },
           "default": {
@@ -1825,32 +1769,7 @@
             "name": "body",
             "required": true,
             "schema": {
-              "properties": {
-                "bundles": {
-                  "description": "bundles is a list of tags/labels that allow us to group repositories to each other for sales purposes.",
-                  "items": {
-                    "type": "string"
-                  },
-                  "type": "array"
-                },
-                "catalogTier": {
-                  "$ref": "#/definitions/registryCatalogTier",
-                  "description": "catalog_tier is the catalog tier this repository belongs to."
-                },
-                "name": {
-                  "description": "name is the human-readable name of the repository.",
-                  "type": "string"
-                },
-                "readme": {
-                  "description": "readme is raw Markdown file contents describing the repo.",
-                  "type": "string"
-                },
-                "sync_config": {
-                  "$ref": "#/definitions/registrySyncConfig",
-                  "title": "(optional) Repository sync configuration. If enabled, images are synced from the source to this repo.\nNOTE: This property can only be set by Chainguard.\nNote: the json_name defaults to \"syncConfig\" which causes our eventing\nsystem to not work properly (since the protobuf name is \"sync_config\")"
-                }
-              },
-              "type": "object"
+              "$ref": "#/definitions/RegistryUpdateRepoBody"
             }
           }
         ],
@@ -1898,6 +1817,60 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/registryRepo"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      }
+    },
+    "/registry/v1/repos/{repoId}/digest/{digest}/rawsbom": {
+      "get": {
+        "operationId": "Registry_GetRawSbom",
+        "parameters": [
+          {
+            "description": "The UIDP of the image repo to get config for.",
+            "in": "path",
+            "name": "repoId",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The digest of the image to get config for.",
+            "in": "path",
+            "name": "digest",
+            "pattern": "[^/]+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The oci reference to get sbom for.",
+            "in": "query",
+            "name": "reference",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The architecture to get config for.",
+            "in": "query",
+            "name": "arch",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryRawSbom"
             }
           },
           "default": {
@@ -2276,7 +2249,8 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "properties": {}
+              "properties": {},
+              "type": "object"
             }
           },
           "default": {
@@ -2306,33 +2280,7 @@
             "name": "body",
             "required": true,
             "schema": {
-              "properties": {
-                "bundles": {
-                  "description": "bundles is a list of tags/labels for sales purposes.",
-                  "items": {
-                    "type": "string"
-                  },
-                  "type": "array"
-                },
-                "deprecated": {
-                  "description": "deprecated, true if the tag is deprecated.",
-                  "type": "boolean"
-                },
-                "digest": {
-                  "description": "digest, the digest of the manifest with this tag.",
-                  "type": "string"
-                },
-                "lastUpdated": {
-                  "description": "last time this tag was updated.",
-                  "format": "date-time",
-                  "type": "string"
-                },
-                "name": {
-                  "description": "name, the unique name of the Tag.",
-                  "type": "string"
-                }
-              },
-              "type": "object"
+              "$ref": "#/definitions/RegistryUpdateTagBody"
             }
           }
         ],
@@ -2440,6 +2388,171 @@
         ]
       }
     },
+    "/registry/v1/versions/{package}": {
+      "get": {
+        "operationId": "Registry_GetPackageVersionMetadata",
+        "parameters": [
+          {
+            "description": "The name of the package.",
+            "in": "path",
+            "name": "package",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryPackageVersionMetadata"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      }
+    },
+    "/registry/v1/vuln_reports": {
+      "get": {
+        "operationId": "Vulnerabilities_ListVulnReports",
+        "parameters": [
+          {
+            "description": "repo_id is the UIDP of the repo to list reports for.\nOne of repo_id and digest are required.",
+            "in": "query",
+            "name": "repoId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "digest is the exact digest of the image to list reports for.\nOne of repo_id and digest are required. If populated, digest takes precedence over repo_id.",
+            "in": "query",
+            "name": "digest",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "tag is the optional name of the tag to pull reports for.\nIgnored if digest is populated.",
+            "in": "query",
+            "name": "tag",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "UNKNOWN",
+            "description": "name is the name of the scanner.",
+            "enum": [
+              "UNKNOWN",
+              "GRYPE",
+              "TRIVY"
+            ],
+            "in": "query",
+            "name": "scanner.name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "scanner_version is the version of the scanner used to generate the report.",
+            "in": "query",
+            "name": "scanner.version",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "db_build_time is the time the vulnerability database was built that was used\nto generate the report.",
+            "format": "date-time",
+            "in": "query",
+            "name": "scanner.dbBuildTime",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "created_since returns reports that have been created\nafter the given time.",
+            "format": "date-time",
+            "in": "query",
+            "name": "createdSince",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryVulnReportList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Vulnerabilities"
+        ]
+      }
+    },
+    "/registry/v1/vuln_reports/raw": {
+      "get": {
+        "operationId": "Vulnerabilities_GetRawVulnReport",
+        "parameters": [
+          {
+            "description": "digest is the exact digest of the image to request the raw scan result of.",
+            "in": "query",
+            "name": "digest",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "UNKNOWN",
+            "description": "scanner is the scanner to request the raw report from.",
+            "enum": [
+              "UNKNOWN",
+              "GRYPE",
+              "TRIVY"
+            ],
+            "in": "query",
+            "name": "scanner",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "created_at is an optional timestamp to retrieve a scan report for.\nIf not given, the latest report is returned.",
+            "format": "date-time",
+            "in": "query",
+            "name": "createdAt",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryRawVulnReport"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Vulnerabilities"
+        ]
+      }
+    },
     "/sts/exchange": {
       "get": {
         "operationId": "SecurityTokenService_Exchange2",
@@ -2462,12 +2575,6 @@
           },
           {
             "in": "query",
-            "name": "cluster",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "in": "query",
             "name": "identity",
             "required": false,
             "type": "string"
@@ -2484,11 +2591,11 @@
             "type": "array"
           },
           {
-            "description": "Whether or not to include the upstream token in the response",
+            "description": "Empty or the UIDP of the custom identity provider.",
             "in": "query",
-            "name": "includeUpstreamToken",
+            "name": "identityProvider",
             "required": false,
-            "type": "boolean"
+            "type": "string"
           }
         ],
         "responses": {
@@ -2530,12 +2637,6 @@
           },
           {
             "in": "query",
-            "name": "cluster",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "in": "query",
             "name": "identity",
             "required": false,
             "type": "string"
@@ -2552,11 +2653,11 @@
             "type": "array"
           },
           {
-            "description": "Whether or not to include the upstream token in the response",
+            "description": "Empty or the UIDP of the custom identity provider.",
             "in": "query",
-            "name": "includeUpstreamToken",
+            "name": "identityProvider",
             "required": false,
-            "type": "boolean"
+            "type": "string"
           }
         ],
         "responses": {
@@ -2626,6 +2727,36 @@
         },
         "tags": [
           "SecurityTokenService"
+        ]
+      }
+    },
+    "/sts/headless_sessions": {
+      "get": {
+        "operationId": "Auth_GetHeadlessSession",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "code",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authHeadlessSession"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Auth"
         ]
       }
     },
@@ -2802,6 +2933,7 @@
         "DEPENDS_ON",
         "GENERATED_FROM"
       ],
+      "title": "- GENERATED_FROM: and so on...; for inspiration, see https://spdx.github.io/spdx-spec/v2.3/relationships-between-SPDX-elements/",
       "type": "string"
     },
     "ComponentGraphNode": {
@@ -2838,6 +2970,155 @@
         "WONT_FIX"
       ],
       "type": "string"
+    },
+    "GroupAccountAssociationsCheckBody": {
+      "properties": {
+        "accountType": {
+          "$ref": "#/definitions/AccountAssociationsCheckRequestAccountType"
+        }
+      },
+      "type": "object"
+    },
+    "GroupAccountAssociationsCreateBody": {
+      "properties": {
+        "amazon": {
+          "$ref": "#/definitions/AccountAssociationsAmazon",
+          "description": "amazon holds information associating an Amazon account with the group."
+        },
+        "chainguard": {
+          "$ref": "#/definitions/AccountAssociationsChainguard"
+        },
+        "description": {
+          "description": "a short description of this association.",
+          "type": "string"
+        },
+        "github": {
+          "$ref": "#/definitions/AccountAssociationsGitHubInstallation",
+          "description": "github holds information associating a GitHub installation with the group.\nNote: this AccountAssociation type is EXPERIMENTAL."
+        },
+        "google": {
+          "$ref": "#/definitions/AccountAssociationsGoogle",
+          "description": "google holds information associating a Google project with the group."
+        },
+        "name": {
+          "description": "name of the association.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "GroupAccountAssociationsUpdateBody": {
+      "properties": {
+        "amazon": {
+          "$ref": "#/definitions/AccountAssociationsAmazon",
+          "description": "amazon holds information associating an Amazon account with the group."
+        },
+        "chainguard": {
+          "$ref": "#/definitions/AccountAssociationsChainguard"
+        },
+        "description": {
+          "description": "a short description of this association.",
+          "type": "string"
+        },
+        "github": {
+          "$ref": "#/definitions/AccountAssociationsGitHubInstallation",
+          "description": "github holds information associating a GitHub installation with the group.\nNote: this AccountAssociation type is EXPERIMENTAL."
+        },
+        "google": {
+          "$ref": "#/definitions/AccountAssociationsGoogle",
+          "description": "google holds information associating a Google project with the group."
+        },
+        "name": {
+          "description": "name of the association.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "GroupInvitesCreateBody": {
+      "properties": {
+        "email": {
+          "description": "email is the exact email address that may accept this invite code, if specified.",
+          "type": "string"
+        },
+        "role": {
+          "description": "role is the Role UIDP the invited identity will be role-bound to the group with.",
+          "type": "string"
+        },
+        "singleUse": {
+          "description": "if single_use is set to true, then the invite will be deleted after a user joins the group.",
+          "type": "boolean"
+        },
+        "ttl": {
+          "description": "expiration, timestamp this invite becomes no longer valid.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "GroupsUpdateBody": {
+      "properties": {
+        "description": {
+          "description": "description, human readable of group.",
+          "type": "string"
+        },
+        "name": {
+          "description": "name, human readable name of group.",
+          "type": "string"
+        },
+        "resourceLimits": {
+          "additionalProperties": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "description": "resource_limits indicate the maximum number of resources allowed for this group by type.",
+          "type": "object"
+        },
+        "verified": {
+          "title": "verified means we've verified the owners of this organization. Restrictions include:\n- Only organizations (root groups) can be verified\n- Property can only be set by manually by Chainguardians\n- If verified is set, the organizations name field must be globally unique\n- If verified is set the organizations name should be a domain name",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "IdentitiesUpdateBody": {
+      "properties": {
+        "awsIdentity": {
+          "$ref": "#/definitions/IdentityAWSIdentity",
+          "title": "aws_identity matches AWS IAM users and roles to an identity"
+        },
+        "claimMatch": {
+          "$ref": "#/definitions/IdentityClaimMatch",
+          "description": "claim_match checks the third party IdP token's claims against one\nor more configured patterns."
+        },
+        "createdAt": {
+          "description": "created_at is the timestamp for when the identity was created.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "description": {
+          "description": "description, human readable of identity.",
+          "type": "string"
+        },
+        "name": {
+          "description": "name, human readable name of identity.",
+          "type": "string"
+        },
+        "servicePrincipal": {
+          "$ref": "#/definitions/iamServicePrincipal",
+          "description": "service_principal is the name of the Chainguard service that is\nallowed to assume this identity.  These names correlate with the\nservice names used in impersonation with account associations."
+        },
+        "static": {
+          "$ref": "#/definitions/IdentityStaticKeys",
+          "description": "static is equivalent to literal, but instead of discovering the\nIdP's verification keys we verify the identity using pre-registered\nverification keys.  This is intended for use with identities from\nproviders without an \"online\" issuer (network accessible to our IdP),\nsuch as a KinD/minikube cluster.\nNOTE: because this path does not have a mechanism for key rotation\nthe identity will expire, with a maximum lifetime of 30d."
+        },
+        "updatedAt": {
+          "description": "updated_at is the timestamp for when the identity was last updated.",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
     },
     "IdentityAWSIdentity": {
       "properties": {
@@ -2946,6 +3227,24 @@
       },
       "type": "object"
     },
+    "IdentityProvidersUpdateBody": {
+      "properties": {
+        "defaultRole": {
+          "description": "default_role is the UIDP of an optional default role\nto grant users of this identity provider.",
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "oidc": {
+          "$ref": "#/definitions/IdentityProviderOIDC"
+        }
+      },
+      "type": "object"
+    },
     "IdentityStaticKeys": {
       "properties": {
         "expiration": {
@@ -2973,6 +3272,63 @@
       "type": "object"
     },
     "ImageConfigVolume": {
+      "type": "object"
+    },
+    "RegistryUpdateRepoBody": {
+      "properties": {
+        "bundles": {
+          "description": "bundles is a list of tags/labels that allow us to group repositories to each other for sales purposes.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "catalogTier": {
+          "$ref": "#/definitions/registryCatalogTier",
+          "description": "catalog_tier is the catalog tier this repository belongs to."
+        },
+        "name": {
+          "description": "name is the human-readable name of the repository.",
+          "type": "string"
+        },
+        "readme": {
+          "description": "readme is raw Markdown file contents describing the repo.",
+          "type": "string"
+        },
+        "sync_config": {
+          "$ref": "#/definitions/registrySyncConfig",
+          "title": "(optional) Repository sync configuration. If enabled, images are synced from the source to this repo.\nNOTE: This property can only be set by Chainguard.\nNote: the json_name defaults to \"syncConfig\" which causes our eventing\nsystem to not work properly (since the protobuf name is \"sync_config\")"
+        }
+      },
+      "type": "object"
+    },
+    "RegistryUpdateTagBody": {
+      "properties": {
+        "bundles": {
+          "description": "bundles is a list of tags/labels for sales purposes.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "deprecated": {
+          "description": "deprecated, true if the tag is deprecated.",
+          "type": "boolean"
+        },
+        "digest": {
+          "description": "digest, the digest of the manifest with this tag.",
+          "type": "string"
+        },
+        "lastUpdated": {
+          "description": "last time this tag was updated.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "name": {
+          "description": "name, the unique name of the Tag.",
+          "type": "string"
+        }
+      },
       "type": "object"
     },
     "RoleBindingListBinding": {
@@ -3017,6 +3373,43 @@
       },
       "type": "object"
     },
+    "RoleBindingsUpdateBody": {
+      "properties": {
+        "group": {
+          "description": "group, UIDP of the group to bind. This field is ignored and will be removed\nin the future. The group is always the parent of the UIDP.",
+          "type": "string"
+        },
+        "identity": {
+          "description": "identity, UID of the Identity to bind.",
+          "type": "string"
+        },
+        "role": {
+          "title": "role, UIDP of the Role to bind",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RolesUpdateBody": {
+      "properties": {
+        "capabilities": {
+          "description": "capabilities, human readable list of capabilities supported by the group.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "description": {
+          "description": "description, human readable description of group.",
+          "type": "string"
+        },
+        "name": {
+          "description": "name, human readable name of group.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Sbom2Source": {
       "default": "UNKNOWN",
       "enum": [
@@ -3026,6 +3419,44 @@
       ],
       "title": "Type",
       "type": "string"
+    },
+    "ScannerName": {
+      "default": "UNKNOWN",
+      "enum": [
+        "UNKNOWN",
+        "GRYPE",
+        "TRIVY"
+      ],
+      "type": "string"
+    },
+    "VulnerabilityCVSS": {
+      "properties": {
+        "score": {
+          "description": "score is on a scale of 0 - 10 where 0 indicates low severity and 10 indicates high severity.",
+          "type": "string"
+        },
+        "version": {
+          "description": "version used to populate score and severity.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "VulnerabilityFix": {
+      "properties": {
+        "state": {
+          "$ref": "#/definitions/FixState",
+          "description": "state reflects the state of the fix, e.g. fixed, unknown, not-fixed, won't-fix."
+        },
+        "versions": {
+          "description": "List of in versions of the package on which the vulnerability has been solved.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
     },
     "VulnerabilityRecordCvss": {
       "properties": {
@@ -3064,6 +3495,17 @@
       ],
       "type": "string"
     },
+    "VulnerabilitySeverity": {
+      "default": "UNKNOWN",
+      "enum": [
+        "UNKNOWN",
+        "LOW",
+        "MEDIUM",
+        "HIGH",
+        "CRITICAL"
+      ],
+      "type": "string"
+    },
     "advisoryAdvisory": {
       "properties": {
         "aliases": {
@@ -3074,7 +3516,8 @@
         },
         "events": {
           "items": {
-            "$ref": "#/definitions/advisoryEvent"
+            "$ref": "#/definitions/advisoryEvent",
+            "type": "object"
           },
           "type": "array"
         },
@@ -3108,7 +3551,8 @@
       "properties": {
         "advisories": {
           "items": {
-            "$ref": "#/definitions/advisoryAdvisory"
+            "$ref": "#/definitions/advisoryAdvisory",
+            "type": "object"
           },
           "type": "array"
         },
@@ -3122,7 +3566,8 @@
       "properties": {
         "items": {
           "items": {
-            "$ref": "#/definitions/advisoryDocument"
+            "$ref": "#/definitions/advisoryDocument",
+            "type": "object"
           },
           "type": "array"
         }
@@ -3281,13 +3726,15 @@
         },
         "references": {
           "items": {
-            "$ref": "#/definitions/advisoryReference"
+            "$ref": "#/definitions/advisoryReference",
+            "type": "object"
           },
           "type": "array"
         },
         "severity": {
           "items": {
-            "$ref": "#/definitions/advisorySeverity"
+            "$ref": "#/definitions/advisorySeverity",
+            "type": "object"
           },
           "type": "array"
         },
@@ -3301,9 +3748,131 @@
       "properties": {
         "items": {
           "items": {
-            "$ref": "#/definitions/advisoryVulnerabilityMetadata"
+            "$ref": "#/definitions/advisoryVulnerabilityMetadata",
+            "type": "object"
           },
           "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "apkAPKList": {
+      "description": "APKList is a list of APKs.",
+      "properties": {
+        "items": {
+          "description": "The APKs returned by the list request.",
+          "items": {
+            "$ref": "#/definitions/apkAPKPackage",
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "apkAPKPackage": {
+      "description": "APKPackage is an APK package and its metadata.\n\nAn APK can be downloaded by requesting\nhttps://apk.cgr.dev/{group}/{arch}/{pkgname}-{pkgver}.apk\nwith suitable credentials.\n\nThe fields 10+ are the fields that make up the APKINDEX format\nfrom here: https://wiki.alpinelinux.org/wiki/Apk_spec#APKINDEX_Format",
+      "properties": {
+        "architecture": {
+          "description": "Package architecture, the architecture of the package (e.g., x86_64 or\naarch64).",
+          "type": "string"
+        },
+        "buildTime": {
+          "description": "Package build time, the time the package was built.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "checksum": {
+          "description": "Checksum, the checksum of the package.",
+          "format": "byte",
+          "type": "string"
+        },
+        "depend": {
+          "description": "Package depend, the direct runtime dependencies of the package.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "description": {
+          "description": "Package description, a description of the package.",
+          "type": "string"
+        },
+        "id": {
+          "description": "id, identifier of this APK, a UIDP under a Group.",
+          "type": "string"
+        },
+        "installIf": {
+          "description": "Package install if, the conditions under which the package is installed.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "installedSize": {
+          "description": "Installed size, the size of the package when installed in bytes.",
+          "format": "uint64",
+          "type": "string"
+        },
+        "license": {
+          "description": "Package license, the license of the package.",
+          "type": "string"
+        },
+        "maintainer": {
+          "description": "Package maintainer, unused.",
+          "type": "string"
+        },
+        "origin": {
+          "description": "Package origin, the origin of the package (if the package is a subpackage).",
+          "type": "string"
+        },
+        "packageName": {
+          "description": "Package name, the name of the package.",
+          "type": "string"
+        },
+        "providerPriority": {
+          "description": "Package provider priority, the priority of the package provider.\nIf multiple packages provide the same virtual package, the package\nwith the highest provider priority is selected.",
+          "format": "uint64",
+          "type": "string"
+        },
+        "provides": {
+          "description": "Package provides, the virtual packages provided by the package.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "repoCommit": {
+          "description": "Package commit, the commit of the package.",
+          "type": "string"
+        },
+        "size": {
+          "description": "Package size, the size of the package in bytes.",
+          "format": "uint64",
+          "type": "string"
+        },
+        "url": {
+          "description": "Package URL, a URL for the package.",
+          "type": "string"
+        },
+        "version": {
+          "description": "Package version, the version of the package (e.g., 1.2.3-r4).",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "authHeadlessSession": {
+      "properties": {
+        "ecdhPublicKey": {
+          "description": "When establishing a headless session, the client must first provide\ntheir ECDH public key. The server will then generate an ephemeral\nECHD keypair and use the client's public key to establish a symmetric\nkey.\n\nThis symmetric key will be used to encrypt the idtoken and stored the\nencrypted idtoken in the database for a short period, as well as\nreturning it to the client.\n\nAfter the idtoken is encrypted, the server will discard both the shared\nsymmetric key and the ephemeral ECDH private key. The server ECDH will\nbe sent back to the client.\n\nThe client, with their private key, can use this public key to\nestablish the same symmetric key, which can be used to decrypt\nthe idtoken.\n\nechd_public_key is the client's ECDH public key.",
+          "format": "byte",
+          "type": "string"
+        },
+        "encryptedIdtoken": {
+          "description": "encrypted_idtoken is the encrypted idtoken.",
+          "format": "byte",
+          "type": "string"
         }
       },
       "type": "object"
@@ -3346,7 +3915,8 @@
         "capabilities": {
           "description": "The capabilities referenced in the token.",
           "items": {
-            "$ref": "#/definitions/authWhoAmICapability"
+            "$ref": "#/definitions/authWhoAmICapability",
+            "type": "object"
           },
           "type": "array"
         },
@@ -3470,7 +4040,8 @@
       "properties": {
         "items": {
           "items": {
-            "$ref": "#/definitions/eventsSubscription"
+            "$ref": "#/definitions/eventsSubscription",
+            "type": "object"
           },
           "type": "array"
         }
@@ -3513,7 +4084,8 @@
       "properties": {
         "items": {
           "items": {
-            "$ref": "#/definitions/iamAccountAssociations"
+            "$ref": "#/definitions/iamAccountAssociations",
+            "type": "object"
           },
           "type": "array"
         }
@@ -3593,7 +4165,8 @@
       "properties": {
         "items": {
           "items": {
-            "$ref": "#/definitions/iamStoredGroupInvite"
+            "$ref": "#/definitions/iamStoredGroupInvite",
+            "type": "object"
           },
           "type": "array"
         }
@@ -3604,7 +4177,8 @@
       "properties": {
         "items": {
           "items": {
-            "$ref": "#/definitions/iamGroup"
+            "$ref": "#/definitions/iamGroup",
+            "type": "object"
           },
           "type": "array"
         }
@@ -3658,7 +4232,8 @@
       "properties": {
         "items": {
           "items": {
-            "$ref": "#/definitions/iamIdentity"
+            "$ref": "#/definitions/iamIdentity",
+            "type": "object"
           },
           "type": "array"
         }
@@ -3691,7 +4266,8 @@
       "properties": {
         "items": {
           "items": {
-            "$ref": "#/definitions/iamIdentityProvider"
+            "$ref": "#/definitions/iamIdentityProvider",
+            "type": "object"
           },
           "type": "array"
         }
@@ -3747,7 +4323,8 @@
       "properties": {
         "items": {
           "items": {
-            "$ref": "#/definitions/RoleBindingListBinding"
+            "$ref": "#/definitions/RoleBindingListBinding",
+            "type": "object"
           },
           "type": "array"
         }
@@ -3758,7 +4335,8 @@
       "properties": {
         "items": {
           "items": {
-            "$ref": "#/definitions/iamRole"
+            "$ref": "#/definitions/iamRole",
+            "type": "object"
           },
           "type": "array"
         }
@@ -3771,7 +4349,8 @@
         "UNKNOWN",
         "COSIGNED",
         "INGESTER",
-        "CATALOG_SYNCER"
+        "CATALOG_SYNCER",
+        "APKO_BUILDER"
       ],
       "type": "string"
     },
@@ -3810,8 +4389,168 @@
       },
       "type": "object"
     },
+    "notificationsAccount": {
+      "properties": {
+        "createdAt": {
+          "description": "when the account was created.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "id": {
+          "description": "id of the account.",
+          "type": "string"
+        },
+        "name": {
+          "description": "name of the account.",
+          "type": "string"
+        },
+        "updatedAt": {
+          "description": "when the account was last updated.",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "notificationsAuthor": {
+      "properties": {
+        "email": {
+          "description": "email of the author.",
+          "type": "string"
+        },
+        "id": {
+          "description": "id of the author.",
+          "type": "string"
+        },
+        "name": {
+          "description": "name of the author.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "notificationsNotification": {
+      "properties": {
+        "account": {
+          "$ref": "#/definitions/notificationsAccount",
+          "description": "account associated with the notification."
+        },
+        "accountId": {
+          "description": "account id associated with the notification.",
+          "type": "string"
+        },
+        "author": {
+          "$ref": "#/definitions/notificationsAuthor",
+          "description": "author associated with the notification."
+        },
+        "authorId": {
+          "description": "author id associated with the notification.",
+          "type": "string"
+        },
+        "categoryId": {
+          "description": "id of the category the notification belongs to.",
+          "type": "string"
+        },
+        "createdAt": {
+          "description": "when the notification was created.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "id": {
+          "description": "id is the identifier of this specific notification.",
+          "type": "string"
+        },
+        "note": {
+          "description": "the body of the notification.",
+          "type": "string"
+        },
+        "noteDate": {
+          "description": "date when the notification was created.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "subject": {
+          "description": "subject or title of the notification.",
+          "type": "string"
+        },
+        "tags": {
+          "description": "tags associated with the notification.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "traits": {
+          "$ref": "#/definitions/notificationsTraits",
+          "description": "traits associated with the notification."
+        },
+        "updatedAt": {
+          "description": "when the notification was last updated.",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "notificationsNotificationsFilterLocation": {
+      "default": "UNSPECIFIED",
+      "description": " - UNSPECIFIED: The \"unset\" value.\n - CONSOLE: Console.\n - DIRECTORY: Directory.\n - CHAINCTL: Chainctl.",
+      "enum": [
+        "UNSPECIFIED",
+        "CONSOLE",
+        "DIRECTORY",
+        "CHAINCTL"
+      ],
+      "type": "string"
+    },
+    "notificationsNotificationsList": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/notificationsNotification",
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "notificationsTraits": {
+      "properties": {
+        "approved": {
+          "description": "whether or not notification has been approved.",
+          "type": "boolean"
+        },
+        "chainctl": {
+          "description": "show notification for chainctl users.",
+          "type": "boolean"
+        },
+        "console": {
+          "description": "show notification in console.",
+          "type": "boolean"
+        },
+        "directory": {
+          "description": "show notification in directory.",
+          "type": "boolean"
+        },
+        "expires": {
+          "description": "expiration date of the notification.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "starts": {
+          "description": "start date of the notification.",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "oidcRawToken": {
       "properties": {
+        "refreshToken": {
+          "type": "string"
+        },
         "token": {
           "type": "string"
         }
@@ -3865,7 +4604,11 @@
         "UNKNOWN",
         "FREE",
         "STANDARD",
-        "PREMIUM"
+        "PREMIUM",
+        "APPLICATION",
+        "BASE",
+        "FIPS",
+        "AI"
       ],
       "type": "string"
     },
@@ -3936,7 +4679,8 @@
         "pkgMetadata": {
           "description": "List of packages that are part of image.",
           "items": {
-            "$ref": "#/definitions/registryPkgMetadata"
+            "$ref": "#/definitions/registryPkgMetadata",
+            "type": "object"
           },
           "type": "array"
         }
@@ -3973,11 +4717,71 @@
       "properties": {
         "items": {
           "items": {
-            "$ref": "#/definitions/registryManifestMetadata"
+            "$ref": "#/definitions/registryManifestMetadata",
+            "type": "object"
           },
           "type": "array"
         }
       },
+      "type": "object"
+    },
+    "registryPackageVersion": {
+      "properties": {
+        "eolDate": {
+          "title": "the date when this version goes eol",
+          "type": "string"
+        },
+        "exists": {
+          "title": "whether or not the package exists in an apk repo",
+          "type": "boolean"
+        },
+        "fips": {
+          "title": "whether or not a FIPS-enabled version of the package exists in an apk repo",
+          "type": "boolean"
+        },
+        "lts": {
+          "title": "may be set to a date or true if the software is marked as lts",
+          "type": "string"
+        },
+        "releaseDate": {
+          "title": "the date this version was release",
+          "type": "string"
+        },
+        "version": {
+          "title": "the version stream identifier",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "registryPackageVersionMetadata": {
+      "properties": {
+        "eolVersions": {
+          "items": {
+            "$ref": "#/definitions/registryPackageVersion",
+            "type": "object"
+          },
+          "title": "list of versions which are now eol",
+          "type": "array"
+        },
+        "lastUpdatedTimestamp": {
+          "title": "the last time this data was updated",
+          "type": "string"
+        },
+        "latestVersion": {
+          "title": "the latest version of the software",
+          "type": "string"
+        },
+        "versions": {
+          "items": {
+            "$ref": "#/definitions/registryPackageVersion",
+            "type": "object"
+          },
+          "title": "list of versions which are active",
+          "type": "array"
+        }
+      },
+      "title": "This type mimics the \"status\" section from the original\nYAML files located at https://github.com/chainguard-dev/package-version-metadata",
       "type": "object"
     },
     "registryPkgMetadata": {
@@ -4003,6 +4807,40 @@
         "purl": {
           "title": "purl of package or subpackage; spec https://github.com/package-url/purl-spec",
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "registryRawSbom": {
+      "properties": {
+        "rawSbom": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "registryRawVulnReport": {
+      "properties": {
+        "createdAt": {
+          "description": "created_at is the time the report was generated.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "digest": {
+          "description": "digest is the exact digest of the scanned image.",
+          "type": "string"
+        },
+        "rawReport": {
+          "description": "raw_report is a JSON string of the raw report output from the scanner.\nThis is only populated for reports with size less than the maximum allowed.",
+          "type": "string"
+        },
+        "rawReportUrl": {
+          "description": "raw_report_url is an expiring URL for a direct download of the\nraw scan report.",
+          "type": "string"
+        },
+        "scanner": {
+          "$ref": "#/definitions/registryScanner",
+          "description": "scanner is the details of the scanner that generated this report."
         }
       },
       "type": "object"
@@ -4043,9 +4881,28 @@
       "properties": {
         "items": {
           "items": {
-            "$ref": "#/definitions/registryRepo"
+            "$ref": "#/definitions/registryRepo",
+            "type": "object"
           },
           "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "registryScanner": {
+      "properties": {
+        "dbBuildTime": {
+          "description": "db_build_time is the time the vulnerability database was built that was used\nto generate the report.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "name": {
+          "$ref": "#/definitions/ScannerName",
+          "description": "name is the name of the scanner."
+        },
+        "version": {
+          "description": "scanner_version is the version of the scanner used to generate the report.",
+          "type": "string"
         }
       },
       "type": "object"
@@ -4066,14 +4923,30 @@
     },
     "registrySyncConfig": {
       "properties": {
+        "amazon": {
+          "description": "AWS ECR repo to sync to.",
+          "type": "string"
+        },
+        "apkoOverlay": {
+          "description": "An apko configuration overlay to rebuild images with when syncing them.",
+          "type": "string"
+        },
         "expiration": {
           "description": "When the catalog syncer should stop syncing from the source repository.",
           "format": "date-time",
           "type": "string"
         },
+        "google": {
+          "description": "GCP Artifact Registry repo to sync to.",
+          "type": "string"
+        },
         "source": {
           "description": "Repo ID to sync from.",
           "type": "string"
+        },
+        "syncApks": {
+          "description": "Controls whether to synchronize APKs for the images in this repository\nto the enclosing Chainguard group.",
+          "type": "boolean"
         },
         "uniqueTags": {
           "description": "Controls whether exported tags will be uniquely labeled.",
@@ -4131,7 +5004,8 @@
       "properties": {
         "items": {
           "items": {
-            "$ref": "#/definitions/registryTagHistory"
+            "$ref": "#/definitions/registryTagHistory",
+            "type": "object"
           },
           "type": "array"
         }
@@ -4142,9 +5016,109 @@
       "properties": {
         "items": {
           "items": {
-            "$ref": "#/definitions/registryTag"
+            "$ref": "#/definitions/registryTag",
+            "type": "object"
           },
           "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "registryVulnReport": {
+      "properties": {
+        "createdAt": {
+          "description": "created_at is the time the report was generated.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "digest": {
+          "description": "digest is the exact digest of the scanned image.",
+          "type": "string"
+        },
+        "scanner": {
+          "$ref": "#/definitions/registryScanner",
+          "description": "scanner is the details of the scanner used to generate the report."
+        },
+        "vulnerabilities": {
+          "items": {
+            "$ref": "#/definitions/registryVulnerability",
+            "type": "object"
+          },
+          "title": "vulnerabilities are the found vulns in the scanned image.\nFor Create",
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "registryVulnReportList": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/registryVulnReport",
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "registryVulnerability": {
+      "properties": {
+        "aliases": {
+          "description": "aliases are other identifiers for this vulnerability.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "cvss": {
+          "description": "List of CVSS information about the exploitability of the vulnerability.",
+          "items": {
+            "$ref": "#/definitions/VulnerabilityCVSS",
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "description": {
+          "description": "description is a short description of the vulnerability.",
+          "type": "string"
+        },
+        "details": {
+          "description": "details give additional textual details about the vulnerability.",
+          "type": "string"
+        },
+        "fix": {
+          "$ref": "#/definitions/VulnerabilityFix",
+          "description": "fix is the version and state of a potential fix for this vulnerability."
+        },
+        "id": {
+          "title": "The unique identifier for the vulnerability.\ne.g. CVE-2024-12345",
+          "type": "string"
+        },
+        "locations": {
+          "description": "locations are paths affected by the vulnerability.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "purls": {
+          "description": "purls are the package URLs of the affected packages.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "relatedUrls": {
+          "description": "URLs related to this vulnerability.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "severity": {
+          "$ref": "#/definitions/VulnerabilitySeverity",
+          "description": "severity is the value representing the severity of the vulnerability."
         }
       },
       "type": "object"
@@ -4157,7 +5131,8 @@
         },
         "details": {
           "items": {
-            "$ref": "#/definitions/protobufAny"
+            "$ref": "#/definitions/protobufAny",
+            "type": "object"
           },
           "type": "array"
         },
@@ -4207,7 +5182,8 @@
       "properties": {
         "items": {
           "items": {
-            "$ref": "#/definitions/tenantAttestation"
+            "$ref": "#/definitions/tenantAttestation",
+            "type": "object"
           },
           "type": "array"
         }
@@ -4218,13 +5194,15 @@
       "properties": {
         "edges": {
           "items": {
-            "$ref": "#/definitions/ComponentGraphEdge"
+            "$ref": "#/definitions/ComponentGraphEdge",
+            "type": "object"
           },
           "type": "array"
         },
         "nodes": {
           "items": {
-            "$ref": "#/definitions/ComponentGraphNode"
+            "$ref": "#/definitions/ComponentGraphNode",
+            "type": "object"
           },
           "type": "array"
         }
@@ -4347,7 +5325,8 @@
       "properties": {
         "items": {
           "items": {
-            "$ref": "#/definitions/tenantSbom2"
+            "$ref": "#/definitions/tenantSbom2",
+            "type": "object"
           },
           "type": "array"
         }
@@ -4400,7 +5379,8 @@
         "vulnerabilityMatches": {
           "description": "Report's list of vulnerability matches(s).",
           "items": {
-            "$ref": "#/definitions/tenantVulnerabilityMatch"
+            "$ref": "#/definitions/tenantVulnerabilityMatch",
+            "type": "object"
           },
           "type": "array"
         }
@@ -4411,7 +5391,8 @@
       "properties": {
         "items": {
           "items": {
-            "$ref": "#/definitions/tenantVulnReport"
+            "$ref": "#/definitions/tenantVulnReport",
+            "type": "object"
           },
           "type": "array"
         }
@@ -4454,7 +5435,8 @@
         "cvss": {
           "description": "List of cvss information about the exploitability of the vulnerability.",
           "items": {
-            "$ref": "#/definitions/VulnerabilityRecordCvss"
+            "$ref": "#/definitions/VulnerabilityRecordCvss",
+            "type": "object"
           },
           "type": "array"
         },
@@ -4480,7 +5462,8 @@
         "relatedVulnerabilities": {
           "description": "related vulnerabilities to the main vulnerability reported here.",
           "items": {
-            "$ref": "#/definitions/VulnerabilityRecordRelatedVulnerability"
+            "$ref": "#/definitions/VulnerabilityRecordRelatedVulnerability",
+            "type": "object"
           },
           "type": "array"
         },
@@ -4501,6 +5484,9 @@
   "tags": [
     {
       "name": "SecurityAdvisory"
+    },
+    {
+      "name": "APK"
     },
     {
       "name": "Auth"
@@ -4533,6 +5519,9 @@
       "name": "RoleBindings"
     },
     {
+      "name": "Notifications"
+    },
+    {
       "name": "SecurityTokenService"
     },
     {
@@ -4540,6 +5529,9 @@
     },
     {
       "name": "Registry"
+    },
+    {
+      "name": "Vulnerabilities"
     },
     {
       "name": "Attestations"
