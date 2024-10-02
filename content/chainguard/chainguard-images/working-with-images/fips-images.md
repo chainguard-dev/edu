@@ -56,6 +56,8 @@ In order to help customers ensure their applications are running in FIPS mode, C
 
 Be aware that this tool can only detect whether or not OpenSSL is properly configured. This tool does not validate whether any other element in an overall delivered configuration is, or is not, FIPS 140-2/140-3 compliant. It only tests whether OpenSSL is properly configured and makes use of the FIPS module correctly. Any applications and languages must be built to use the [OpenSSL Cryptographic library](https://www.openssl.org/docs/man3.0/man7/crypto.html) (also known as `libcrypto`) in order for the OpenSSL FIPS configuration to be useful.
 
+You will need to pay attention to how you deploy your Chainguard Images. For example, sometimes people configure installations via Helm in a way that copies an application from an image and deploys it, which would mean that you cannot ensure the code or configuration are unchanged and could put you into a state of non-compliance.
+
 
 ## Learn more
 
