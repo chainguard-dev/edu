@@ -97,7 +97,7 @@ ARG version=3.12
 WORKDIR /app
 
 RUN apk add python-${version} py${version}-pip && \
-	chown -R nonroot.nonroot /app/
+	chown -R nonroot:nonroot /app/
 
 USER nonroot
 COPY requirements.txt linky.png linky.py /app/
@@ -160,7 +160,7 @@ ENV PATH="/app/venv/bin:$PATH"
 WORKDIR /app
 
 RUN apk update && apk add python-$version py${version}-pip && \
-	chown -R nonroot.nonroot /app/
+	chown -R nonroot:nonroot /app/
 USER nonroot
 RUN python -m venv /app/venv
 
