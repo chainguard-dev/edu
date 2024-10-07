@@ -266,7 +266,7 @@ Chainguard Images are built with minimalism in mind, and thus contain the bare m
 
 If a Chainguard Image is missing certain packages that are required for your application, we recommend using a base image and installing the required dependencies on top of it, preferably in a multi-stage Docker build. Our guides on [How to Use Chainguard Images](/chainguard/chainguard-images/how-to-use-chainguard-images/#extending-chainguard-base-images) and [Getting Started with Distroless](/chainguard/migration/migrations-overview/) include guidance on how you can extend Chainguard base images.
 
-In some cases you may have Docker builds that copy in binaries to run agents or similar tooling. You may find these binaries don’t work as expected as they are designed to run on a different Linux distribution. Be aware that Chainguard Images may not have the dependencies required by 3prd party binaries, or they may be stored at a different path.
+In some cases you may have Docker builds that copy in binaries to run agents or similar tooling. You may find these binaries don’t work as expected as they are designed to run on a different Linux distribution. Be aware that Chainguard Images may not have the dependencies required by third-party binaries, or they may be stored at a different path.
 
 
 ### Troubleshooting resources
