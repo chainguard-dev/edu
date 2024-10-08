@@ -82,7 +82,7 @@ With `wolfictl` installed and these two repositories cloned locally, you are now
 
 First we will take a look at the existing advisories issued for packages in Wolfi. Keep in mind that the results shown here, and on your own machine, are snapshots in time. You should regularly check for changes to the upstream repository as new packages and advisories are issued. 
 
-You will be using the `wolfi advisory list` command to view existing advisories. There are a variety of flags which you can append to assist in your search.
+You will be using the `wolfictl advisory list` command to view existing advisories. There are a variety of flags which you can append to assist in your search.
 * `-p` lists all advisories for a given package name.
 * `-V` lists all advisories for a given CVE ID, across all packages.
 * `-t` lists all advisories by their most recent event type.
