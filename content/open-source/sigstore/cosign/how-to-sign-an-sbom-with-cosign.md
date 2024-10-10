@@ -82,7 +82,7 @@ You can test out the image by running it:
 docker run $DH_USERNAME/example-image
 ```
 
-This should display the 
+This should display the "I love FOSS!" message along with some ASCII art.
 
 ## Generating an SBOM with Syft
 
@@ -123,16 +123,16 @@ In the next section, we'll associate this SBOM with our container image using Co
 
 Now that we have our SBOM file, let's associate it with our image using an attestation. In this attestation, the image will be our subject, and the generated SBOM will serve as our predicate (an assertion about the subject). In this case, we will be attesting that the image contains the packages listed in our SBOM file.
 
-Our `example-image` still has attestations derived from our base image, since all Chainguard Images come with SBOM and SLSA provenance attestations. Let's remove these attestations with the `cosign clean` command.
-
-```sh
-cosign clean $DH_USERNAME/example-image
-```
-
-Now let's push our image to Docker Hub. This allows us to refer to a repository digest when attesting, a more reliable approach than attesting by tag.
+Before proceeding, let's push our image to Docker Hub, since the following commands will refer to the image on the OCI repository.
 
 ```sh
 docker push $DH_USERNAME/example-image
+```
+
+Our `example-image` still has attestations derived from our base image, since all Chainguard Images come with SBOM and SLSA provenance attestations. Let's remove these attestations with the `cosign clean` command:
+
+```sh
+cosign clean $DH_USERNAME/example-image
 ```
 
 We're now ready to add our attestation. Sigstore recommends referring to the image by digest and not by tag to avoid attesting to the wrong image, and attesting by tag will be removed in a future version of Cosign. The following command will set a variable to the digest of our newly pushed image:
