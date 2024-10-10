@@ -37,7 +37,7 @@ In the following, we'll generate an SBOM and associate it with a specific OCI co
 
 Since we'll be attaching an SBOM to a container image, we'll first need to create an example image. We'll base this image on Chainguard's [`wolfi-base`](https://edu.chainguard.dev/open-source/wolfi/overview), and add a single additional package, the venerable `cowsay` utility that prints a message along with some ASCII art. We then set the entrypoint so that, when the image is run, a message will be displayed.
 
-Create a new folder for our Dockerfile build and change your workin directory to that folder:
+Create a new folder for our Dockerfile build and change your working directory to that folder:
 
 ```sh
 mkdir -p ~/example-image && cd ~/example-image
@@ -56,7 +56,7 @@ RUN apk add cowsay
 ENTRYPOINT ["cowsay", "-f", "tux", "I love FOSS!"]
 ```
 
-Save the file and close Nano by pressing `Control-x`, `y`, and `Enter` in succession.
+Save the file and close Nano by pressing `CTRL + X`, `y`, and `ENTER` in succession.
 
 Since we'll be pushing to a repository on your Docker Hub account, let's set a variable to your Docker Hub username that we can use in further commands.
 
@@ -86,19 +86,19 @@ This should display the
 
 ## Generating an SBOM with Syft
 
-[Syft](https://github.com/anchore/syft) is a tool that allows us to create SBOMs. If you don't already have Syft, use the instructions below to install this utility.
+[Syft](https://github.com/anchore/syft) is a tool that allows us to create SBOMs. If you don't already have Syft, use the following instructions to install this utility.
 
 {{< details "How to Install Syft" >}}
 {{< blurb/install_syft >}}
 {{< /details >}}
 
-Once you have Syft installed, you can generate an SBOM with the `syft` command, passing in the target image as an argument. For example, the following will use Syft to generate a list of packages presentin the official `python` image on Docker Hub:
+Once you have Syft installed, you can generate an SBOM with the `syft` command, passing in the target image as an argument. For example, the following will use Syft to generate a list of packages present in the official `python` image on Docker Hub:
 
 ```sh
 syft python
 ```
 
-Now let's generate an SBOM for `example-image`, the image we built in the previous section. Run the following Syft command to generate an SBOM in SPDX format
+Now let's generate an SBOM for `example-image`, the image we built in the previous section. Run the following Syft command to generate an SBOM in SPDX format:
 
 ```sh
 syft $DH_USERNAME/example-image:latest -o spdx-json > example-image.spdx.json
@@ -107,7 +107,7 @@ syft $DH_USERNAME/example-image:latest -o spdx-json > example-image.spdx.json
 {{< blurb/spdx >}}
 {{< /details >}}
 
-If you take a look at the contents of the file, you will find our installed package, `cowsay`, represented alongside the otherpackages already in our base image, `wolfi-base`. You can also check that `cowsay` is detected by Syft with the following:
+If you take a look at the contents of the file, you will find our installed package, `cowsay`, represented alongside the other packages already in our base image, `wolfi-base`. You can also check that `cowsay` is detected by Syft with the following:
 
 ```sh
 syft --quiet $DH_USERNAME/example-image:latest | grep cowsay
@@ -166,7 +166,7 @@ By typing 'y', you attest that (1) you are not submitting the personal data of a
 Are you sure you would like to continue? [y/N] 
 ```
 
-Note the warnings—a record of the attestation will be recorded to an immutable log maintained by the Sigstore project. When you're ready, press `y` to agree and attest.
+Note the warnings — a record of the attestation will be recorded to an immutable log maintained by the Sigstore project. When you're ready, press `y` to agree and attest.
 
 ## Retrieving the Signed SBOM
 
@@ -179,7 +179,7 @@ cosign download attestation \
  | jq .predicate
 ```
 
-In the above, we download the `in-toto attestation` envelope using the `cosign download attestation` command. This envelope contains information on the attestation's subject (the image) and predicate (a statement about the subject, in this case the generated SBOM). We decode this envelope from base64, an encoding used to reduce information loss while transferring data, then extract the predicate. The result should be our SBOM in SPDX-JSON:
+This command will download the `in-toto attestation` envelope using the `cosign download attestation` command. This envelope contains information on the attestation's subject (the image) and predicate (a statement about the subject, in this case the generated SBOM). We decode this envelope from base64, an encoding used to reduce information loss while transferring data, then extract the predicate. The result should be our SBOM in SPDX-JSON:
 
 ```json
 {
@@ -254,7 +254,7 @@ To verify that an attestation was issued by a specific entity, we use the `cosig
 cosign verify-attestation \
  --certificate-oidc-issuer=https://github.com/login/oauth \
  --type https://spdx.dev/Document \
- --certificate-identity=<emailaddress@emailprovider.com> \
+ --certificate-identity=emailaddress@emailprovider.com \
  $DIGEST
 ```
 
@@ -276,7 +276,7 @@ The remainder of the message consists of an `in-toto attestation` envelope encod
 cosign verify-attestation \
  --certificate-oidc-issuer=https://github.com/login/oauth \
  --type https://spdx.dev/Document \
- --certificate-identity=<you@domain.com> \
+ --certificate-identity=emailaddress@emailprovider.com \
  $DIGEST | \
  jq -r .payload | \
  base64 -d | jq .predicate
