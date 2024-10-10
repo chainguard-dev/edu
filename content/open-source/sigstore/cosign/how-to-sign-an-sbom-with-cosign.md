@@ -23,7 +23,7 @@ _An earlier version of this material was published in the [Cosign chapter](https
 {{< blurb/attestation >}}
 {{< /details >}}
 
-One common use case for attestations is associating a software artifact, such as an OCI container image, with a [software bill of materials (SBOM)](/open-source/sbom/what-is-an-sbom/)), an inventory of the components that make up a given software artifact. Increasingly, SBOMs are considered an essential component in maintaining a secure software supply chain.
+One common use case for attestations is associating a software artifact, such as an OCI container image, with a [software bill of materials (SBOM)](/open-source/sbom/what-is-an-sbom/), an inventory of the components that make up a given software artifact. Increasingly, SBOMs are considered an essential component in maintaining a secure software supply chain.
 
 {{< details "What is a Software Bill of Materials (SBOM?" >}}
 {{< blurb/sbom >}}
