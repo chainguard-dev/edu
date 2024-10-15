@@ -472,5 +472,5 @@ The [Wolfi Contributing Guide](https://github.com/wolfi-dev/os/blob/main/CONTRIB
 
 If you haven't yet, check the [Wolfi PHP package source file](https://github.com/wolfi-dev/os/blob/main/php-8.2.yaml) for a more comprehensive view of the melange YAML structure and how that looks in a more complex build.
 
-If you'd like to learn more about Wolfi, check the [documentation](https://edu.chainguard.dev/open-source/wolfi/overview/) and [FAQ](https://edu.chainguard.dev/open-source/wolfi/faq/) for more details about the ecosystem surrounding it. You can also join our monthly Wolfi community calls to connect with Wolfi users and developers. The meetings happen on the first Wednesday of each month, and typically showcase talks and interesting use cases related to Wolfi and container security in general. You can add [Wolfi's public](https://calendar.google.com/calendar/u/0/embed?src=c_7ec60f485931f9056040a3e24273400de41a143ec60703b411d77b1f534ec15f@group.calendar.google.com) calendar to your agenda to be notified about upcoming events.
+If you'd like to learn more about Wolfi, check the [documentation](https://edu.chainguard.dev/open-source/wolfi/overview/) and [FAQ](https://edu.chainguard.dev/open-source/wolfi/faq/) for more details about the ecosystem surrounding it.
 
