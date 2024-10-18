@@ -1,6 +1,6 @@
 ---
 title: "How to Install Sigstore Policy Controller"
-aliases: 
+aliases:
 - /open-source/sigstore/policy-controller/enforce-sbom-attestation-with-policy-controller/
 type: "article"
 description: "Install the Sigstore Policy Controller into a Kubernetes Cluster"
@@ -15,7 +15,6 @@ menu:
     parent: "policy-controller"
 weight: 001
 toc: true
-# terminalImage: policy-controller-install:latest
 ---
 
 The [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) is a Kubernetes [admission controller](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/) that can verify image signatures and policies. You can define policies using the [CUE](https://cuelang.org/) or [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/) policy languages.

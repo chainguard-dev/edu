@@ -1,6 +1,6 @@
 ---
 title: "Enforce SBOM attestation with Policy Controller"
-aliases: 
+aliases:
 - /open-source/sigstore/policy-controller/enforce-sbom-attestation-with-policy-controller/
 type: "article"
 description: "Enforce SBOM attestation with Policy Controller"
@@ -14,7 +14,6 @@ menu:
     parent: "policy-controller"
 weight: 006
 toc: true
-# terminalImage: policy-controller-base:latest
 ---
 
 This guide demonstrates how to use the [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) to verify image attestations before admitting an image into a Kubernetes cluster. In this guide, you will create a `ClusterImagePolicy` that checks the existence of a SBOM attestation attached to a container image, and then test the admission controller by running a `registry.enforce.dev/chainguard/node` image with SBOM attestations.

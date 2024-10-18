@@ -30,7 +30,7 @@
           </div>
           <span class="pills-text">{{ $parentTitle }}</span>
         </a>
-      </div> 
+      </div>
 
       {{ if not .Params.hide_title -}}
         <h1>{{ .Title }}</h1>
@@ -68,7 +68,7 @@
         {{end}}
         </div>
       {{end}}
-      
+
       {{ if .Params.images }}
         <div class="mt-4">
           {{range .Params.images}}
@@ -76,7 +76,7 @@
           {{end}}
         </div>
       {{ end }}
-          
+
       <!-- {{ if ne .Params.toc false -}}
       <nav class="d-xl-none" aria-label="Quaternary navigation">
         {{ partial "sidebar/docs-toc.html" . }}
@@ -86,7 +86,7 @@
       {{ partial "rumble.html" . }}
       <div class="mb-5"></div>
       {{ .Content }}
-      
+
       <div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
         {{ if .Site.Params.lastMod -}}
           {{ partial "main/last-modified.html" . }}
@@ -116,7 +116,6 @@
   </div>
 
   <div class="row terminal resizable">
-    {{ partial "terminal.html" . }}
     {{ partial "replacer.html" . }}
   </div>
   </div>

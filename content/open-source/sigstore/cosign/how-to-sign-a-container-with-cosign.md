@@ -12,25 +12,24 @@ menu:
   docs:
     parent: "cosign"
 weight: 003
-terminalImage: cosign:latest
 toc: true
 ---
 
 _An earlier version of this material was published in the [Cosign chapter](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/block-v1:LinuxFoundationX+LFS182x+2T2022+type@sequential+block@204b98f35bca48c194d1868e0356bef1/block-v1:LinuxFoundationX+LFS182x+2T2022+type@vertical+block@2f0ad9cb8f124a39ab555ac8bf1a114c) of the Linux Foundation [Sigstore course](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/home)._
 
-Cosign is a tool you can use to sign software artifacts, which in turn allows you to verify that you are who you say you are, and instills trust across the software ecosystem. Signing software also allows people to understand the provenance of the software, and prevents tampering. 
+Cosign is a tool you can use to sign software artifacts, which in turn allows you to verify that you are who you say you are, and instills trust across the software ecosystem. Signing software also allows people to understand the provenance of the software, and prevents tampering.
 
-Let’s step through signing a container with Cosign. We are using a container to provide a sense of how you may use Sigstore with containerized workloads, but the steps we are taking to sign a container are very similar to the steps that we would take to sign any other software artifact that can be published in a container registry, and we will discuss signing blobs a little later. 
+Let’s step through signing a container with Cosign. We are using a container to provide a sense of how you may use Sigstore with containerized workloads, but the steps we are taking to sign a container are very similar to the steps that we would take to sign any other software artifact that can be published in a container registry, and we will discuss signing blobs a little later.
 
 ## Prerequisites
 
-Before beginning this section, ensure that you have Docker installed and that you are running Docker Desktop if that is relevant for your operating system. For guidance on installing and using Docker, refer to the [official Docker documentation](https://docs.docker.com/get-docker/). In order to push to the Docker container registry, you will need a [Docker Hub account](https://hub.docker.com/signup). If you are familiar with using a different container registry, feel free to use that. 
+Before beginning this section, ensure that you have Docker installed and that you are running Docker Desktop if that is relevant for your operating system. For guidance on installing and using Docker, refer to the [official Docker documentation](https://docs.docker.com/get-docker/). In order to push to the Docker container registry, you will need a [Docker Hub account](https://hub.docker.com/signup). If you are familiar with using a different container registry, feel free to use that.
 
 Additionally, you will need Cosign installed, which you can achieve by following our [How to Install Cosign guide](/open-source/sigstore/cosign/how-to-install-cosign/).
 
 ## Creating a Container
 
-You’ll now be creating a new container. Create a new directory within your user directory that is the same as your Docker username and, within that, a directory called `hello-container`. If you will be opting to use a registry other than Docker, feel free to use the relevant username for that registry. 
+You’ll now be creating a new container. Create a new directory within your user directory that is the same as your Docker username and, within that, a directory called `hello-container`. If you will be opting to use a registry other than Docker, feel free to use the relevant username for that registry.
 
 ```sh
 mkdir -p ~/docker-username/hello-container
@@ -44,7 +43,7 @@ cd ~/docker-username/hello-container
 
 Let’s create the Dockerfile that describes the container. This will be essentially a “Hello, World” container for demonstration purposes.
 
-Use the text editor of your choice to create the Dockerfile. You can use [Visual Studio Code](https://code.visualstudio.com/) or a command line text editor like nano. Just ensure that the file is called exactly `Dockerfile` with a titlecase and no extension. 
+Use the text editor of your choice to create the Dockerfile. You can use [Visual Studio Code](https://code.visualstudio.com/) or a command line text editor like nano. Just ensure that the file is called exactly `Dockerfile` with a titlecase and no extension.
 
 ```sh
 nano Dockerfile
@@ -59,7 +58,7 @@ CMD ["echo", "Hello, Cosign!"]
 
 This file is instructing the container to use the Alpine Linux distribution, which is lightweight and secure. Then, it prints a “Hello, Cosign!” message onto the command-line interface.
 
-Once you are satisfied that your Dockerfile is the same as the text above, you can save and close the file. Now you are ready to build the container. 
+Once you are satisfied that your Dockerfile is the same as the text above, you can save and close the file. Now you are ready to build the container.
 
 ## Building and Running a Container
 
@@ -74,16 +73,16 @@ If you receive an error message or a “failed” message, check that your user 
 You should get guidance in the output that your build was successful when you receive no errors.
 
 ```
-=> => naming to docker.io/docker-username/hello-container    
+=> => naming to docker.io/docker-username/hello-container
 ```
 
-At this point your container is built and you can verify that the container is working as expected by running the container. 
+At this point your container is built and you can verify that the container is working as expected by running the container.
 
 ```sh
 docker run docker-username/hello-container
 ```
 
-You should receive the expected output of the echo message you added to the Dockerfile. 
+You should receive the expected output of the echo message you added to the Dockerfile.
 
 ```
 Hello, Cosign!
@@ -102,21 +101,21 @@ c828db494203   hello-container   "echo 'Hello, Cosign…"   13 seconds ago   Exi
 
 Your output will be similar to the above, but the timestamps and name will be different.
 
-Now that you have built your container and are satisfied that it is working as expected, you can publish and sign your container. 
+Now that you have built your container and are satisfied that it is working as expected, you can publish and sign your container.
 
 ## Publishing a Container to a Registry
 
-We will be publishing our container to the Docker registry. If you are opting to use a different registry, your steps will be similar. 
+We will be publishing our container to the Docker registry. If you are opting to use a different registry, your steps will be similar.
 
-At this point, you can access the Docker container registry at [hub.docker.com](https://hub.docker.com/) and create a new repository under your username called `hello-container`. We will be making this public, but you can make it private if you prefer. If you are happy for it to be public, you can skip this step as the repository will be created when pushing the container. In any case, you can delete this once you are satisfied that you have signed the container. 
+At this point, you can access the Docker container registry at [hub.docker.com](https://hub.docker.com/) and create a new repository under your username called `hello-container`. We will be making this public, but you can make it private if you prefer. If you are happy for it to be public, you can skip this step as the repository will be created when pushing the container. In any case, you can delete this once you are satisfied that you have signed the container.
 
-Once this is set up, you can push the container you created to the Docker Hub repository. 
+Once this is set up, you can push the container you created to the Docker Hub repository.
 
 ```sh
 docker push docker-username/hello-container
 ```
 
-You should be able to now access your published container via your Docker Hub account. Once you ensure that this is there, you are ready to push a signature to the container. 
+You should be able to now access your published container via your Docker Hub account. Once you ensure that this is there, you are ready to push a signature to the container.
 
 ## Signing a Container and Pushing the Signature to a Registry
 
@@ -139,7 +138,7 @@ Retrieving signed certificate...
 	This information will be used for signing this artifact and will be stored in public transparency logs and cannot be removed later.
 
 By typing 'y', you attest that you grant (or have permission to grant) and agree to have this information stored permanently in transparency logs.
-Are you sure you would like to continue? [y/N] 
+Are you sure you would like to continue? [y/N]
 Your browser will now be opened to:
 ...
 ```
@@ -148,7 +147,7 @@ You’ll receive output indicating that the signature was pushed to the containe
 
 ```
 Successfully verified SCT...
-tlog entry created with index: 
+tlog entry created with index:
 Pushing signature to: index.docker.io/docker-username/hello-container
 ```
 
@@ -164,12 +163,12 @@ Let’s use Cosign to verify that the signature exists on the transparency log a
 cosign verify \
     --certificate-identity username@gmail.com \
     --certificate-oidc-issuer https://accounts.google.com \
-    docker-username/hello-container 
+    docker-username/hello-container
 ```
 
-Here, we are passing the public key contained in the cosign.pub file to the `cosign verify` command. 
+Here, we are passing the public key contained in the cosign.pub file to the `cosign verify` command.
 
-You should receive output indicating that the Cosign claims were validated. 
+You should receive output indicating that the Cosign claims were validated.
 
 ```
 Verification for index.docker.io/docker-username/hello-container:latest --

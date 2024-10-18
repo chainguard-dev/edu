@@ -1,6 +1,6 @@
 ---
 title: "Disallowing Unsafe sysctls"
-aliases: 
+aliases:
 - /open-source/sigstore/policy-controller/disallowing-unsafe-sysctls-with-policy-controller/
 type: "article"
 description: "Use Policy Controller to limit pods to safe sysctls"
@@ -14,7 +14,6 @@ menu:
     parent: "policy-controller"
 weight: 006
 toc: true
-# terminalImage: policy-controller-base:latest
 ---
 
 This guide demonstrates how to use the [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) to only allow pods that use `sysctls` to modify kernel behaviour to run with the [safe set](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/#safe-and-unsafe-sysctls) of parameters. You will create a `ClusterImagePolicy` that uses the [CUE](https://cuelang.org/) language to examine a pod spec that uses sysctls, and only allow admission into a cluster if the pod is running a safe set parameters.
