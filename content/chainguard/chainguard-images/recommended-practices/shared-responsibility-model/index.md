@@ -66,7 +66,7 @@ Upstream projects are responsible for staying on API-compatible versions of libr
 
 These are Chainguard images that users extend with their own packages and applications (such as with a Dockerfile). We created the following diagram to clarify where the division of responsibility is drawn for these images:
 
-<center><img src="csrm-3.png" alt="Diagram representing Chainguard's shared responsibility model for Base Images. The diagram takes the shape of a pyramid with 3 tiers: User App, Toolchains (go, java, php, …), and System (glibc, openssl, …). To the left of this pyramid are two brackets, showing that user apps (the custom code level) are serviced by customers and the Toolchains and System levels are serviced by Chainguard." style="width:821px;"></center>
+<center><img src="csrm-4.png" alt="Diagram representing Chainguard's shared responsibility model for Base Images. The diagram takes the shape of a pyramid with 3 tiers: User App, Toolchains (go, java, php, …), and System (glibc, openssl, …). To the left of this pyramid are two brackets, showing that user apps (the custom code level) are serviced by customers and the Toolchains and System levels are serviced by Chainguard." style="width:821px;"></center>
 <br /> 
 
 Upstream projects are responsible for patching supported releases in a timely manner. Chainguard is responsible for releasing fully patched toolchain and base images. Customers are responsible for patching any applications and dependencies they add to a Chainguard image. We recommend using a fully patched Chainguard toolchain image to build the application, and using a fully patched Chainguard base image to layer the final application on.
