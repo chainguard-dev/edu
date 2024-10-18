@@ -1,0 +1,36 @@
+{
+  "name": "erikaheidi/autodocs-tools",
+  "description": "Autodocs Maintenance Tools",
+  "license": "MIT",
+  "homepage": "https://github.com/minicli/application",
+  "keywords": ["cli","command-line", "template"],
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  },
+  "require": {
+    "php": ">=8.2",
+    "minicli/minicli": "^4.2",
+    "minicli/command-help": "^1.0",
+    "librarianphp/parsed": "^1.0"
+  },
+  "require-dev": {
+    "pestphp/pest": "^3.3",
+    "laravel/pint": "^1.17"
+  },
+  "scripts": {
+    "lint" : ["pint"],
+    "test:lint" : ["pint --test"],
+    "test:unit" : ["pest"],
+    "test" : [
+      "@test:lint",
+      "@test:unit"
+    ]
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  }
+}
