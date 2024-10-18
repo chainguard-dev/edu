@@ -10,7 +10,6 @@ images: []
 menu:
   docs:
     parent: "rekor"
-terminalImage: rekor:latest
 weight: 003
 toc: true
 ---
@@ -59,7 +58,7 @@ The next command will produce the same output but uses the UUID to retrieve the 
 rekor-cli get --uuid 2343d145e62b1051b6a2a54582b69a821b13f31054539660a020963bac0b33dc
 ```
 
-It is also possible to use a web API to return results that are similar to those above. For instance, we can use curl to fetch the same artifact by its UUID with the following query: 
+It is also possible to use a web API to return results that are similar to those above. For instance, we can use curl to fetch the same artifact by its UUID with the following query:
 
 ```sh
 curl -X GET "https://rekor.sigstore.dev/api/v1/log/entries/2343d145e62b1051b6a2a54582b69a821b13f31054539660a020963bac0b33dc"

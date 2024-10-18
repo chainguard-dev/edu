@@ -14,10 +14,9 @@ menu:
     parent: "sbom"
 weight: 10
 toc: true
-terminalImage: vexctl:latest
 ---
 
-The `vexctl` CLI is a tool to make VEX work. As part of the open source [OpenVex](/open-source/sbom/what-is-openvex/) project, `vexctl` enables you to create, apply, and attest VEX (Vulnerability Exploitability eXchange) data in order to filter out false positive security alerts. 
+The `vexctl` CLI is a tool to make VEX work. As part of the open source [OpenVex](/open-source/sbom/what-is-openvex/) project, `vexctl` enables you to create, apply, and attest VEX (Vulnerability Exploitability eXchange) data in order to filter out false positive security alerts.
 
 The `vexctl` tool was built to help with the creation and management of VEX documents, communicate transparently to users as time progresses, and enable the "turning off" of security scanner alerts of vulnerabilities known not to affect a given product. Using VEX, software authors can communicate to their users that an otherwise vulnerable component has no security implications for their product.
 
@@ -25,7 +24,7 @@ This tutorial will walk you through some common commands in `vexctl`.
 
 ## Installing vexctl
 
-If you would like to install `vexctl` on your local or virtual machine, you will need Go 1.16 or higher. You can install by following the official [Go documentation](https://go.dev/doc/install). 
+If you would like to install `vexctl` on your local or virtual machine, you will need Go 1.16 or higher. You can install by following the official [Go documentation](https://go.dev/doc/install).
 
 Using Go, run the following to install `vexctl`:
 
@@ -33,11 +32,11 @@ Using Go, run the following to install `vexctl`:
 go install github.com/openvex/vexctl@latest
 ```
 
-Alternately, you can follow along with this tutorial on the embedded browser terminal, which has `vexctl` already installed.
+This command will install the latest version of `vexctl` on your machine.
 
 ## Confirming Installation
 
-You can confirm that `vexctl` was installed and is ready to use by running the following command, which you can run on the embedded terminal.
+You can confirm that `vexctl` was installed and is ready to use by running the following command:
 
 ```sh
 vexctl version
@@ -65,7 +64,7 @@ This indicates the current version of `vexctl` on your working machine. You are 
 
 With `vexctl`, VEX data can be created to a file on disk, or it can be captured in a signed attestation that can be attached to a container image. You can create a VEX document by using the `vexctl create` command.
 
-For example, to create a VEX document with a single statement asserting that the [WolfiOS](https://github.com/wolfi-dev/) package `git-2.38.1-r0` is not affected by a given common vulnerability and exposure (CVE) — let's say,  `CVE-2014-123456` — because it has already been mitigated in the distribution, you can run the following. 
+For example, to create a VEX document with a single statement asserting that the [WolfiOS](https://github.com/wolfi-dev/) package `git-2.38.1-r0` is not affected by a given common vulnerability and exposure (CVE) — let's say,  `CVE-2014-123456` — because it has already been mitigated in the distribution, you can run the following.
 
 ```sh
 vexctl create --product="pkg:apk/wolfi/git@2.38.1-r0?arch=x86_64" \
@@ -112,13 +111,13 @@ You can also create a VEX document with abbreviated information. For instance, w
 vexctl create "pkg:apk/wolfi/git@2.39.0-r1?arch=x86_64" CVE-2023-12345 fixed
 ```
 
-The above workflow demonstrates how to create a VEX document with `vexctl` on the command line. 
+The above workflow demonstrates how to create a VEX document with `vexctl` on the command line.
 
 ## Merging Existing VEX Documents
 
-When more than one stakeholder is issuing VEX metadata about a piece of software, `vexctl` can merge the documents to get the most up-to-date impact assessment of a vulnerability. 
+When more than one stakeholder is issuing VEX metadata about a piece of software, `vexctl` can merge the documents to get the most up-to-date impact assessment of a vulnerability.
 
-Let's begin with two test documents. You can create these two test documents with a CLI editor such as nano. 
+Let's begin with two test documents. You can create these two test documents with a CLI editor such as nano.
 
 The first document is `document1.vex.json`:
 
@@ -184,7 +183,7 @@ vexctl merge --product=pkg:apk/wolfi/bash@1.0.0 \
              document2.vex.json
 ```
 
-The resulting document combines the VEX statements that express data about `bash@1.0.0` into a single document. 
+The resulting document combines the VEX statements that express data about `bash@1.0.0` into a single document.
 
 ```json
 {
@@ -215,7 +214,7 @@ The resulting document combines the VEX statements that express data about `bash
 }
 ```
 
-This final document tells the whole story of how `CVE-2014-123456` was `under_investigation` and then `fixed` four hours later, all documented in a single VEX file that was merged with `vexctl`. 
+This final document tells the whole story of how `CVE-2014-123456` was `under_investigation` and then `fixed` four hours later, all documented in a single VEX file that was merged with `vexctl`.
 
 ## Attesting and Attaching VEX Documents
 
@@ -227,25 +226,25 @@ For example, if you have a container image `your-username/your-container-image:l
 vexctl attest --attach --sign hello.vex.json your-username/your-container-image:latest
 ```
 
-Upon running this command, you'll be taken through a signing workflow with [Sigstore](https://www.sigstore.dev/). Your terminal output will indicate your progess. 
+Upon running this command, you'll be taken through a signing workflow with [Sigstore](https://www.sigstore.dev/). Your terminal output will indicate your progress.
 
 ```
 Generating ephemeral keys...
 Retrieving signed certificate...
 ```
 
-A browser window will open for you to select an OIDC provider. When the attestation is complete, you'll receive feedback that it was successful. 
+A browser window will open for you to select an OIDC provider. When the attestation is complete, you'll receive feedback that it was successful.
 
 ```
 Successfully verified SCT...
 {"payloadType":"application/vnd.in-toto+json","payload":"e...o=","signatures":[{"keyid":"","sig":"MEY...z"}]}
 ```
 
-This attestation with `.att` extension will now live in the container registry as an attachment to your container. 
+This attestation with `.att` extension will now live in the container registry as an attachment to your container.
 
 ## Chronology and VEX Documents
 
-Assessing the impact of CVEs on a software product is process that takes time and the status will change over time. VEX is designed to communicate with users as the status changes, and there may therefore be multiple VEX documents associated with a product. 
+Assessing the impact of CVEs on a software product is process that takes time and the status will change over time. VEX is designed to communicate with users as the status changes, and there may therefore be multiple VEX documents associated with a product.
 
 To understand how this may work in practice, below is an example timeline for the VEX documents associated with a given product and CVE.
 

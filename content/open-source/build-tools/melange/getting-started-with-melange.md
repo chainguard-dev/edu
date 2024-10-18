@@ -16,7 +16,6 @@ menu:
     parent: "melange-tutorials"
 weight: 100
 toc: true
-# terminalImage: melange:latest
 ---
 
 [melange](https://github.com/chainguard-dev/melange) is an [apk](https://wiki.alpinelinux.org/wiki/Package_management) builder tool that uses declarative pipelines to create apk packages. From a single YAML file, users are able to generate multi-architecture apks that can be injected directly into [apko](https://github.com/chainguard-dev/apko) builds.

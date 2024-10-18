@@ -14,7 +14,6 @@ menu:
     parent: "policy-controller"
 weight: 006
 toc: true
-# terminalImage: policy-controller-base:latest
 ---
 
 This guide demonstrates how to use the [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) to prevent running containers as the `root` user in a Kubernetes cluster. You will create a `ClusterImagePolicy` that uses the [CUE](https://cuelang.org/) language to examine a pod spec, and only allow admission into a cluster if the pod is running as a non-root user.
