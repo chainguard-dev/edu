@@ -12,7 +12,6 @@ menu:
   docs:
     parent: "rekor"
 weight: 004
-terminalImage: rekor:latest
 toc: true
 ---
 
@@ -44,7 +43,7 @@ Then within the file, we can type some text into it, such as the following.
 Hello, Rekor!
 ```
 
-Save and close the file. 
+Save and close the file.
 
 Next, sign this file with the following command. This command produces a signature file ending in the .sig extension.
 
@@ -71,7 +70,7 @@ https://rekor.sigstore.dev/api/v1/log/entries/83140d699ebc33dc84b702d2f95b209dc7
 
 Save the UUID returned after using this command. In this example, the UUID is `83140d699ebc33dc84b702d2f95b209dc71f47a3dce5cce19a197a401852ee97`.
 
-Now you can query Rekor for your recently saved entry. Run the following command, replacing UUID with the UUID number obtained in the previous command. 
+Now you can query Rekor for your recently saved entry. Run the following command, replacing UUID with the UUID number obtained in the previous command.
 
 ```sh
 rekor-cli get --uuid UUID

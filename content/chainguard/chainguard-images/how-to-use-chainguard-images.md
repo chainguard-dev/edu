@@ -13,7 +13,6 @@ menu:
   docs:
     parent: "chainguard-images"
 weight: 020
-terminalImage: academy/chainguard-images:latest
 toc: true
 ---
 
