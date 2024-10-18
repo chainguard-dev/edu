@@ -74,7 +74,7 @@ Upstream projects are responsible for patching supported releases in a timely ma
 
 ## Testing
 
-Upstream projects are responsible for defining conformance criteria and establishing conformance benchmarks (such as [Java TCK](https://en.wikipedia.org/wiki/Technology_Compatibility_Kit), [Kubernetes Conformance](https://github.com/cncf/k8s-conformance/blob/master/instructions.md), [Knative Conformance](https://github.com/knative/specs)) that clearly outline the criteria for a downstream distribution to represent itself as a "conformant" distribution of the software.
+Upstream projects are responsible for defining conformance criteria and establishing conformance benchmarks (such as [Java TCK](https://www.chainguard.dev/unchained/chainguards-openjdk-java-images-are-now-jck-conformant), [Kubernetes Conformance](https://github.com/cncf/k8s-conformance/blob/master/instructions.md), [Knative Conformance](https://github.com/knative/specs)) that clearly outline the criteria for a downstream distribution to represent itself as a "conformant" distribution of the software.
 
 Chainguard is responsible for producing conformant distributions of upstream applications; where the upstream project does not define conformance criteria Chainguard is responsible for using its discretion in validating the functionality of the application and (within reason) accepting scenarios from Customers to run as part of the Chainguard qualification process. Refer to our conceptual article on [How Chainguard Images are Tested](/chainguard/chainguard-images/images-testing/) for more information.
 
