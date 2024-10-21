@@ -23,7 +23,7 @@ There are hundreds of Chainguard Images available for use. To help users explore
 
 ## Accessing the Images Directory
 
-This guide is primarily framed around the Public Images Directory found in the Chainguard Console. The Console is accessible to anyone, including users who aren't Chainguard customers. To access the Console, you'll first need to [create an account and sign in](https://console.enforce.dev/auth/login).
+This guide is primarily framed around the Public Images Directory found in the Chainguard Console. The Console is accessible to anyone, including users who aren't Chainguard customers. To access the Console, you'll first need to [create an account and sign in](https://console.chainguard.dev/auth/login).
 
 If you're not ready to create a Chainguard account, you can also follow along with the public [Chainguard Images Directory](https://images.chainguard.dev/). As of this writing, there are some differences between the two directories, but both should provide a similar experience for users.
 
@@ -40,13 +40,7 @@ Click **Public Images** in the left-hand navigation to be taken to the Public Im
 
 > **Note**: If you are part of an organization, you may have access to resources in the **Organization images** tab. If so, you explore the images there as you would with the Public Images Directory.
 
-You can toggle between a table view and a card-based view by clicking the buttons to the upper right of the Images directory.
-
-![Screenshot of the public Images directory in the Console showing the card view. The toggle buttons that switch between the card view and the table view are highlighted in a yellow box.](imgs-dir-C-box.png)
-
-Let's continue using the tabular view for now, as this contains some more information than the card view.
-
-The table view has five columns:
+The table view above has five columns:
 
 * **Name**: the name of each given Image.
 * **Latest version**: the latest available version of the Image. Note that this column's value could be a version number or it may read `latest`. In the former case, this means that the latest version Chainguard offers is a different, later version than the one the publicly available Image tagged with `:latest`.
