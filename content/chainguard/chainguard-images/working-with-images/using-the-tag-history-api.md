@@ -103,6 +103,48 @@ You should get output like the following:
 }
 ```
 
+## Using the start and end parameters
+
+In some cases it may be helpful to specify digests created in a given time period rather than querying the entire history of a tag. For this, you can use the `start` and `end` parameters. These optional parameters can be added to requests to the Tag History API and should be specified in the `IS0 8601` format.
+
+To illustrate how to query digests of an image created in the last week, first create a local shell variable named `timestamp`. On Ubuntu, you would create the `timestamp` variable as follows:
+
+```shell
+timestamp=$(date -d "-1 week" +%Y-%m-%dT%H:%M:%SZ)
+```
+
+And on Wolfi, you would create it like this:
+
+```shell
+timestamp=$(date -d @$(( $(date +%s ) - 604800 )) +%Y-%m-%dT%H:%M:%SZ)
+```
+
+Then to query digests of the **python:latest** Chainguard image created in the last week you would run a command like the following:
+
+```shell
+curl -s -H "Authorization: Bearer $tok" \
+	"https://cgr.dev/v2/chainguard/python/_chainguard/history/latest?start=${timestamp}" | jq
+```
+
+To query digests of the **python:latest** Chainguard image created before 2024, first create a new `timestamp` variable like this:
+
+```shell
+timestamp="2024-01-01T00:00:00Z"
+```
+
+Then run the query like this:
+
+```shell
+curl -s -H "Authorization: Bearer $tok" \
+	"https://cgr.dev/v2/chainguard/python/_chainguard/history/latest?end=${timestamp}" | jq
+```
+
+Both of these examples filter the `curl` command's output through [`jq`](https://jqlang.github.io/jq/), a useful tool for processing JSON on the command line.
+
+## Page limit
+
+Please note that the Tag History API will return a maximum of 1000 records on a single request. For tags with many digests, since the oldest digests are ordered first, it may be necessary to specify the timestamp of the desired digests - for this, the `start` and `end` parameters may be used as specified above.
+
 ## Using Image Digests within a Dockerfile
 
 Setting up your Dockerfile to use an older build is a matter of modifying your `FROM` line to use an image digest instead of a tag. For instance, let's say you want to make sure you keep using the current latest build of the Python image. In a previous section of this page we obtained the tag history of the Python image, and the most recent build digest is listed as `sha256:81c334de6dd4583897f9e8d0691cbb75ad41613474360740824d8a7fa6a8fecb`. With that information, you can edit your Dockerfile and replace:
@@ -118,4 +160,5 @@ FROM cgr.dev/chainguard/python@sha256:81c334de6dd4583897f9e8d0691cbb75ad41613474
 ```
 
 And your image will then be locked into that specific build of the `python:latest` image variant.
+
 
