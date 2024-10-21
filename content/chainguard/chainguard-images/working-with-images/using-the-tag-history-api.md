@@ -110,7 +110,10 @@ In some cases it may be helpful to specify digests created in a given time perio
 For example, to query digests of the **python:latest** Chainguard image created in the last week:
 
 ```
+#On Ubuntu (GNU date):
 timestamp=$(date -d "-1 week" +%Y-%m-%dT%H:%M:%SZ)
+#On Wolfi (Busybox date):
+timestamp=$(date -d @$(( $(date +%s ) - 604800 )) +%Y-%m-%dT%H:%M:%SZ)
 
 curl -s -H "Authorization: Bearer $tok" \
 	"https://cgr.dev/v2/chainguard/python/_chainguard/history/latest?start=${timestamp}" | jq
