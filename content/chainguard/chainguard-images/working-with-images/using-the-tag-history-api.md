@@ -105,28 +105,41 @@ You should get output like the following:
 
 ## Using the start and end parameters
 
-In some cases it may be helpful to specify digests created in a given time period rather than querying the entire history of a tag. For this, the `start` and `end` parameters may be used. These optional parameters can be added to requests to the Tag History API and should be specified in the `IS0 8601` format.
+In some cases it may be helpful to specify digests created in a given time period rather than querying the entire history of a tag. For this, you can use the `start` and `end` parameters. These optional parameters can be added to requests to the Tag History API and should be specified in the `IS0 8601` format.
 
-For example, to query digests of the **python:latest** Chainguard image created in the last week:
+To illustrate how to query digests of an image created in the last week, first create a local shell variable named `timestamp`. On Ubuntu, you would create the `timestamp` variable as follows:
 
-```
-#On Ubuntu (GNU date):
+```shell
 timestamp=$(date -d "-1 week" +%Y-%m-%dT%H:%M:%SZ)
-#On Wolfi (Busybox date):
-timestamp=$(date -d @$(( $(date +%s ) - 604800 )) +%Y-%m-%dT%H:%M:%SZ)
+```
 
+And on Wolfi, you would create it like this:
+
+```shell
+timestamp=$(date -d @$(( $(date +%s ) - 604800 )) +%Y-%m-%dT%H:%M:%SZ)
+```
+
+Then to query digests of the **python:latest** Chainguard image created in the last week you would run a command like the following:
+
+```shell
 curl -s -H "Authorization: Bearer $tok" \
 	"https://cgr.dev/v2/chainguard/python/_chainguard/history/latest?start=${timestamp}" | jq
 ```
 
-To query digests of the **python:latest** Chainguard image created before 2024:
+To query digests of the **python:latest** Chainguard image created before 2024, first create a new `timestamp` variable like this:
 
-```
+```shell
 timestamp="2024-01-01T00:00:00Z"
+```
 
+Then run the query like this:
+
+```shell
 curl -s -H "Authorization: Bearer $tok" \
 	"https://cgr.dev/v2/chainguard/python/_chainguard/history/latest?end=${timestamp}" | jq
 ```
+
+Both of these examples filter the `curl` command's output through [`jq`](https://jqlang.github.io/jq/), a useful tool for processing JSON on the command line.
 
 ## Page limit
 
