@@ -87,7 +87,7 @@ If you run into issues pulling images like this, ensure that your `docker pull` 
 
 ## Setting up Cloudsmith as a Pull Through for Production Images
 
-Production Chainguard Images are enterprise-ready images that come with patch SLAs and features such as [Federal Information Processing Standard](../../../chainguard-images/working-with-images/fips-images.md) (FIPS) readiness. The process for setting up a Cloudsmith repository that you can use as a pull through cache for Chainguard Production Images is similar to the one outlined previously for Developer Images, but with a few extra steps.
+Production Chainguard Images are enterprise-ready images that come with patch SLAs and features such as [Federal Information Processing Standard](/chainguard/chainguard-images/working-with-images/fips-images.md) (FIPS) readiness. The process for setting up a Cloudsmith repository that you can use as a pull through cache for Chainguard Production Images is similar to the one outlined previously for Developer Images, but with a few extra steps.
 
 You can create a new Cloudsmith repository or use the same repository you used as a pull through cache for Developer Images.
 
