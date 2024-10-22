@@ -1,8 +1,11 @@
-# Chainguard Academy
+<p align="center">
+  <a href="https://edu.chainguard.dev" target="_blank"><img src="https://edu.chainguard.dev/logos/3d-linky.png" width="200" heght="auto"></a>
+</p>
+<h1 align="center">Chainguard Academy</h1>
 
-Our mission is to provide education on software supply chain security. 
+<a href="https://chainguard.dev/" target="_blank"><img alt="Chainguard" src="https://img.shields.io/badge/Chainguard-4445E7.svg?style=for-the-badge&logo=Chainguard&logoColor=white"></a>
 
-Visit our website at [edu.chainguard.dev](https://edu.chainguard.dev)
+Our **mission** is to provide education on software supply chain security. Visit our website at 🔗 [edu.chainguard.dev](https://edu.chainguard.dev)
 
 You can find the educational resource files in markdown under the `content` directory.
 
@@ -10,7 +13,7 @@ You can find the educational resource files in markdown under the `content` dire
 
 This site is based on the [Doks Hugo theme](https://github.com/h-enk/doks). 
 
-If you would like to develop this project, clone this repo and install dependencies with npm. 
+If you would like to develop this project, clone this repo and install dependencies with `npm`. 
 
 ```sh
 npm install
@@ -24,7 +27,7 @@ npm run start
 
 You'll then navigate to `localhost:1313` within the web browser of your choice. 
 
-## Contributing
+## 📑 Contributing
 
 If you identify something that is a major change, please file an [issue](https://github.com/chainguard-dev/edu/issues/new). If you identify a minor change like a typo that needs to be updated, or tech tooling that has a newer package, you are welcome to open a pull request for review from the team.
 
@@ -34,7 +37,7 @@ In each post's header, the date format should follow year-month-day as `YYYY-MM-
 
 ### Adding Images
 
-Please reduce the image's file size prior to adding the image to this project to make page loadtimes faster and more accessible. You can use a tool such as [TinyPNG](https://tinypng.com/). 
+Please reduce the image's file size before adding the image to this project to make page loadtimes faster and more accessible. You can use a tool such as [TinyPNG](https://tinypng.com/). 
 
 If you are using images, it's best to bundle it together with the appropriate markdown file. Create a directory with the name of the new page. Within the directory, create an `index.md` file and add the images within the directory as well.
 
@@ -67,7 +70,7 @@ Run a local development environment to ensure that your file structure is set up
 
 ### Adding Videos
 
-Use a liquid tag within markdown to embed a YouTube video. For example, if you would like to link to the YouTube video located at [https://www.youtube.com/watch?v=rqIcDrg1XOs](https://www.youtube.com/watch?v=rqIcDrg1XOs), you can pull the string after `v=` and use the following liquid tag on its own line within markdown.
+Use a liquid tag within the markdown to embed a YouTube video. For example, if you would like to link to the YouTube video located at [https://www.youtube.com/watch?v=rqIcDrg1XOs](https://www.youtube.com/watch?v=rqIcDrg1XOs), you can pull the string after `v=` and use the following liquid tag on its own line within markdown.
 
 ```
 {{< youtube rqIcDrg1XOs >}}
@@ -120,7 +123,7 @@ When applying tags, please make sure they conform to the working tag list below 
 
 Tags are based on:
 * _Content topics_ covered in the content, such as tools (Enforce, apko, etc), orgs/standards (OCI, SLSA, etc), and other relevant topics (SBOMs, etc).
-* _Content types_ represented by the content, such procedural, conceptual, interactive, troubleshooting, etc. 
+* _Content types_ represented by the content, such as procedural, conceptual, interactive, troubleshooting, etc. 
 
 **Tags Working List**
 
