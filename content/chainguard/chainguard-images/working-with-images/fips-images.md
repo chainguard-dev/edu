@@ -50,13 +50,13 @@ The full FIPS compliance of a Java application and its related image depends hea
 
 ## A note about FIPS compliance
 
-To ensure your organization is FIPS compliant, you'll need to do more than just install the OpenSSL module. Your organization's software must also be correctly configured to use only approved cryptographic algorithms. 
+To ensure your organization is FIPS compliant, you'll need to do more than just install the OpenSSL module. Your organization's software must also be correctly configured to use only approved cryptographic algorithms.
 
 In order to help customers ensure their applications are running in FIPS mode, Chainguard provides [`openssl-fips-test`](https://github.com/chainguard-dev/openssl-fips-test), a useful utility in our FIPS-enabled Images that allows you to verify that the OpenSSL FIPS module is properly installed and configured. When called, this utility will run a series of tests to make sure only the approved algorithms are active and will return an error if the FIPS module is not correctly configured.
 
 Be aware that this tool can only detect whether or not OpenSSL is properly configured. This tool does not validate whether any other element in an overall delivered configuration is, or is not, FIPS 140-2/140-3 compliant. It only tests whether OpenSSL is properly configured and makes use of the FIPS module correctly. Any applications and languages must be built to use the [OpenSSL Cryptographic library](https://www.openssl.org/docs/man3.0/man7/crypto.html) (also known as `libcrypto`) in order for the OpenSSL FIPS configuration to be useful.
 
-You will need to pay attention to how you deploy your Chainguard Images. For example, sometimes people configure installations via Helm in a way that copies an application from an image and deploys it, which would mean that you cannot ensure the code or configuration are unchanged and could put you into a state of non-compliance.
+You must to pay attention to how you deploy your Chainguard Images. For example, sometimes people configure installations via Helm in a way that copies an application from an image and deploys it into an environment, which would mean that we cannot ensure the code or configuration are unchanged and could put you into a state of non-compliance. It also means you cannot ensure that all related software is _only_ using approved cryptographic algorithms. In instances like these, you have to make sure that your host OS is a FIPS-compatible environment and YOU are responsible for ensuring that everything works appropriately, even the Chainguard-supplied FIPS images, because they are not being used as designed or in a supported manner.
 
 
 ## Learn more
