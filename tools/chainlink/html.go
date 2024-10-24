@@ -42,7 +42,7 @@ func (n *htmlWalker) scan() error {
 			for _, attr := range node.Attr {
 				if attr.Key == "href" {
 					l := link{RawURL: attr.Val}
-					l.processLink(&n.path)
+					l.processLink(n.path)
 				}
 			}
 		}

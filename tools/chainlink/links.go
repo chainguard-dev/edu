@@ -13,7 +13,7 @@ import (
 	"regexp"
 )
 
-func (l *link) processLink(path *string) {
+func (l *link) processLink(path string) {
 	if ignores.check(l.RawURL, path) {
 		fmt.Printf("ignoring %v in %v\n", l.RawURL, path)
 		return
@@ -33,7 +33,7 @@ func (l *link) processLink(path *string) {
 	if u.Host == "" {
 		if _, ok = unchecked.Links[l.RawURL]; !ok {
 			ul = link{URL: u, Files: make(map[string]interface{}), RawURL: l.RawURL}
-			ul.Files[*path] = nil
+			ul.Files[path] = nil
 			unchecked.Links[l.RawURL] = ul
 			return
 		}
@@ -46,8 +46,8 @@ func (l *link) processLink(path *string) {
 	}
 
 	// add file to link files map for quick lookup
-	if _, ok := nl.Files[*path]; !ok {
-		nl.Files[*path] = nil
+	if _, ok := nl.Files[path]; !ok {
+		nl.Files[path] = nil
 	}
 
 	// add link to checked links map for scanning
