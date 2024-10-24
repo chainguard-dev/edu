@@ -24,6 +24,7 @@ var (
 	extractMode = false
 	contentDir  = ""
 	fileType    = ""
+	jobs        = 10
 
 	// url rules
 	correctURLregex = &regexp.Regexp{}
