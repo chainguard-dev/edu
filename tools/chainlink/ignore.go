@@ -31,7 +31,7 @@ func (i *ignoreURLs) compile() error {
 	return nil
 }
 
-func (i *ignoreURLs) check(l string, path *string) bool {
+func (i *ignoreURLs) check(l string, path string) bool {
 	// skip any URL in the ignore list of URLs and regexes
 	for _, u := range i.URLS {
 		if l == u {
