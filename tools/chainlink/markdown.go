@@ -56,6 +56,6 @@ func (n *mdWalker) walkNodeFunc(node ast.Node, entering bool) (ast.WalkStatus, e
 
 	// got a link, extract it
 	l := link{RawURL: string(node.(*ast.Link).Destination)}
-	l.processLink(&n.path)
+	l.processLink(n.path)
 	return ast.WalkContinue, nil
 }
