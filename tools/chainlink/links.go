@@ -11,7 +11,6 @@ import (
 	"net/http"
 	"net/url"
 	"regexp"
-	"sync"
 )
 
 func (l *link) processLink(path *string) {
@@ -77,9 +76,7 @@ func (l *link) parseURL() (*url.URL, error) {
 	return u, nil
 }
 
-func (l *link) check(wg *sync.WaitGroup) {
-	defer wg.Done()
-
+func (l *link) check() {
 	if !checkAll {
 		// this check is the default and ensures only fetching URLs
 		// with the `-hostname` in them e.g. to only check

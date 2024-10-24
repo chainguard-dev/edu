@@ -10,7 +10,8 @@ import (
 	"log"
 	"path/filepath"
 	"regexp"
-	"sync"
+
+	"golang.org/x/sync/errgroup"
 )
 
 func init() {
@@ -21,6 +22,7 @@ func init() {
 	flag.StringVar(&resultsFile, "resultsFile", "results.json", "Path to json file with results of HTTP requests")
 	flag.StringVar(&contentDir, "contentDir", "./content", "Path to directory with markdown (.md suffixed) files to scan")
 	flag.StringVar(&fileType, "fileType", "md", "Type of files to scan (md or html). md is more accurate")
+	flag.IntVar(&jobs, "jobs", 10, "Number of concurrent HTTP requests to make")
 
 	flag.BoolVar(&checkAll, "checkAll", false, "Check all detected URLs, or those belonging to -hostname")
 	flag.BoolVar(&extractMode, "extractOnly", false, "Only extract URLs, don't check them")
@@ -58,14 +60,20 @@ func main() {
 		}
 	}
 
+	var errg errgroup.Group
+	errg.SetLimit(jobs)
 	if !extractMode {
 		// make HTTP requests to each detected link
-		var wg = &sync.WaitGroup{}
 		for _, l := range checked.Links {
-			wg.Add(1)
-			l.check(wg)
+			l := l
+			errg.Go(func() error {
+				l.check()
+				return nil
+			})
 		}
-		wg.Wait()
+		if err := errg.Wait(); err != nil {
+			log.Fatalf("this should never happen: %v\n", err)
+		}
 	}
 
 	// marshal the results to json
