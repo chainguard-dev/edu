@@ -56,7 +56,13 @@ In order to help customers ensure their applications are running in FIPS mode, C
 
 Be aware that this tool can only detect whether or not OpenSSL is properly configured. This tool does not validate whether any other element in an overall delivered configuration is, or is not, FIPS 140-2/140-3 compliant. It only tests whether OpenSSL is properly configured and makes use of the FIPS module correctly. Any applications and languages must be built to use the [OpenSSL Cryptographic library](https://www.openssl.org/docs/man3.0/man7/crypto.html) (also known as `libcrypto`) in order for the OpenSSL FIPS configuration to be useful.
 
-You must pay attention to how you deploy your Chainguard Images. For example, sometimes people configure installations via Helm in a way that copies an application from an image and deploys it into an environment, which would mean that we cannot ensure the code or configuration are unchanged and could put you into a state of non-compliance. It also means you cannot ensure that all related software is _only_ using approved cryptographic algorithms. In instances like these, you have to make sure that your host OS is a FIPS-compatible environment and YOU are responsible for ensuring that everything works appropriately, even the Chainguard-supplied FIPS images, because they are not being used as designed or in a supported manner.
+## Practical tips
+
+You must pay attention to how you deploy your Chainguard Images. For example, sometimes people configure installations via Helm in a way that copies an application from an image and deploys it into an environment, which would mean that we cannot ensure the code or configuration are unchanged and could put you into a state of non-compliance. It also means you cannot ensure that all related software is _only_ using approved cryptographic algorithms.
+
+Using FIPS can impact communication within your application between services. FIPS requires the use of very specific cryptography. If your other services are not using the same, the FIPS services will not interact with them and retain FIPS compliance.
+
+This means that using FIPS images may impact some of your other application dependencies, not just the dependencies included in the FIPS image.
 
 
 ## Learn more
