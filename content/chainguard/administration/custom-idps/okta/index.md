@@ -48,7 +48,7 @@ Next, in the **General Settings** window, configure the application as follows.
 * **Sign-in redirect URIs**: Set the redirect URI to `https://issuer.enforce.dev/oauth/callback`
 * **Sign-out redirect URIs**: This will have a URI field set to `http://localhost:8080` by default. Click the **X** icon to remove the sign-out redirect entirely, leaving this field blank.
 
-<center><img src="okta_3_new-web-app-int.png" alt="Screenshot of the New Web App Integration process, showing the General Settings window. This window shows the following options: App integration name is set to 'Chainguard'; Grant type is set to 'Authorization Code'; Sign-in redirect URIs is set to 'https://issuer.enforce.dev/oauth/callback'; and there are no URIs listed under Sign-out redirect URIs." style="width:750px;"></center>
+<center><img src="okta-3.png" alt="Screenshot of the New Web App Integration process, showing the General Settings window. This window shows the following options: App integration name is set to 'Chainguard'; Grant type is set to 'Authorization Code'; Sign-in redirect URIs is set to 'https://issuer.enforce.dev/oauth/callback'; and there are no URIs listed under Sign-out redirect URIs." style="width:750px;"></center>
 <br /> 
 
 Click the **Save** button. Then, select the **Sign On** tab. Find the **OpenID Connect ID Token** section and click the **Edit** button.
@@ -58,7 +58,7 @@ Click the **Save** button. Then, select the **Sign On** tab. Find the **OpenID C
 
 Set the **Issuer** option to **Okta URL**, then click the **Save** button.
 
-<center><img src="okta_6_open_id_connect-2.png" alt="Screenshot showing the OpenID Connect ID Token section being edited. The Issuer field is set to the 'Okta URL' option, while the rest of the options are set as their default options." style="width:750px;"></center>
+<center><img src="okta-6.png" alt="Screenshot showing the OpenID Connect ID Token section being edited. The Issuer field is set to the 'Okta URL' option, while the rest of the options are set as their default options." style="width:750px;"></center>
 <br />
 
 That completes our configuration of the Okta Application. Next, we need to configure the Chainguard platform to use our Okta application.
@@ -122,7 +122,7 @@ Note the `--default-role` option. This defines the default role granted to users
 
 You can refer to our [Generic Integration Guide](/chainguard/administration/custom-idps/custom-idps/#generic-integration-guide) in our Introduction to Custom Identity Providers article for more information about the `chainctl iam identity-provider create` command and its required options.
 
-To log in to the Chainguard Console with the new identity provider you just created, navigate to [console.chainguard.dev]() and click **Use Your Identity Provider**. Next, click **Use Your Organization Name** and enter the name of the organization associated with the new identity provider. Finally, click the **Login with Provider** button. This will open up a new window with the Okta login flow, allowing you to complete the login process through there.
+To log in to the Chainguard Console with the new identity provider you just created, navigate to [console.chainguard.dev](https://console.chainguard.dev) and click **Use Your Identity Provider**. Next, click **Use Your Organization Name** and enter the name of the organization associated with the new identity provider. Finally, click the **Login with Provider** button. This will open up a new window with the Okta login flow, allowing you to complete the login process through there.
 
 You can also use the custom identity provider to log in through `chainctl`. To do this, run the `chainctl auth login` command and add the `--identity-provider` option followed by the identity provider's ID value:
 

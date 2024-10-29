@@ -129,7 +129,7 @@ Note the `--default-role` option. This defines the default role granted to users
 
 You can refer to our [Generic Integration Guide](/chainguard/administration/custom-idps/custom-idps/#generic-integration-guide) in our Introduction to Custom Identity Providers doc for more information about the `chainctl iam identity-provider create` command and its required options.
 
-To log in to the Chainguard Console with the new identity provider you just created, navigate to [console.chainguard.dev]() and click **Use Your Identity Provider**. Next, click **Use Your Organization Name** and enter the name of the organization associated with the new identity provider. Finally, click the **Login with Provider** button. This will open up a new window with the Microsoft Entra ID login flow, allowing you to complete the login process through there.
+To log in to the Chainguard Console with the new identity provider you just created, navigate to [console.chainguard.dev](https://console.chainguard.dev) and click **Use Your Identity Provider**. Next, click **Use Your Organization Name** and enter the name of the organization associated with the new identity provider. Finally, click the **Login with Provider** button. This will open up a new window with the Microsoft Entra ID login flow, allowing you to complete the login process through there.
 
 You can also use the custom identity provider to log in through `chainctl`. To do this, run the `chainctl auth login` command and add the `--identity-provider` option followed by the identity provider's ID value:
 
