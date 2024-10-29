@@ -145,9 +145,6 @@ Next, configure your OIDC application as follows:
 Finally, configure a set of client credentials and make note of the following details to configure Chainguard:
 
 * The issuer URL
-
-> **Note**: It is critical that you add `/.well-known/openid-configuration` to this URL to find the OIDC discovery page and that this URL matches the `iss` claim in identity tokens issued by this identity provider exactly.
-
 * Client ID
 * Client Secret
 
@@ -183,7 +180,7 @@ The `oidc-issuer`, `oidc-client-id`, and `oidc-issuer-secret` values are require
 
 Be aware that if you don't include the `--parent` or `--default-role` options in the command, you will be prompted to select these values interactively
 
-* The `--parent` option specifies which Chainguard IAM organization your identity provider will be installed under. 
+* The `--parent` option specifies which Chainguard IAM organization your identity provider will be installed under.
 * The `--default-role` option defines the default role granted to users registering with this identity provider. The previous example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. For more information, refer to the [IAM and Security section](#iam-and-security).
 
 You can retrieve a list of all your Chainguard organizations — along with their UIDPs — with the following command.
@@ -251,7 +248,7 @@ The IAM capabilities `identity_providers.create`, `identity_providers.update`, `
 
 ## Backup accounts
 
-In the case of an outage or misconfiguration of your identity provider, it can be helpful to have an authentication mechanism to the Chainguard platform outside of your SSO identity provider for recovery purposes. To this end, you can use one of our OIDC login providers (currently Google, GitHub, or GitLab) to create a backup account. 
+In the case of an outage or misconfiguration of your identity provider, it can be helpful to have an authentication mechanism to the Chainguard platform outside of your SSO identity provider for recovery purposes. To this end, you can use one of our OIDC login providers (currently Google, GitHub, or GitLab) to create a backup account.
 
 As an OIDC login account needs to be set up to bootstrap the SSO identity provider initially, it’s possible to keep this account as a backup account in case you need it for recovery. However, the nature of these OIDC provider accounts is such that it is difficult to share them as a backup resource since they’re often tied to a single user.
 
