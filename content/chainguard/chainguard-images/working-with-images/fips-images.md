@@ -24,7 +24,7 @@ One of the primary requirements of federal compliance frameworks — including [
 
 ‍Chainguard warranties the following with respect to Chainguard container images:
 
-Chainguard’s FIPS Images available to be delivered in compliance with FIPS specifications are listed here (each a “Chainguard FIPS Image”). Images will be made available in compliance with FIPS specifications provided a customer’s applicable order form designates the purchase of Chainguard FIPS images.
+Chainguard’s FIPS Images available to be delivered in compliance with FIPS specifications are listed [here](https://images.chainguard.dev/?category=fips)  (each a "Chainguard FIPS Image"). Images will be made available in compliance with FIPS specifications provided a customer’s applicable order form designates the purchase of Chainguard FIPS images.
 
 The Chainguard FIPS images contain FIPS-validated software cryptographic modules. Entropy must be provided as specified in its cryptographic policy. The cryptographic module may provide non-approved algorithms, which will result in operating in FIPS non-approved mode. The cryptographic FIPS modules currently provided are:
 
@@ -42,7 +42,7 @@ Additional guidance is available for specific images, like these:
 
 You can find more at: [https://images.chainguard.dev/?category=fips](https://images.chainguard.dev/?category=fips).
 
-All of Chainguard's FIPS Images have [STIGs](https://edu.chainguard.dev/chainguard/chainguard-images/working-with-images/image-stigs/).
+All of Chainguard's FIPS Images have [STIGs](/chainguard/chainguard-images/working-with-images/image-stigs/).
 
 ‍Chainguard will take commercially reasonable efforts to ensure applications utilize FIPS-validated cryptographic modules for any cryptographic operations, provided that the parties acknowledge and agree that certain behaviors or functionalities within such applications, which are beyond the direct control of Chainguard, may not fully adhere to FIPS requirements. In the event there are common vulnerabilities and exposures identified, the Chainguard SLA will apply.
 
