@@ -10,6 +10,7 @@ import (
 	"log"
 	"path/filepath"
 	"regexp"
+	"sync"
 
 	"golang.org/x/sync/errgroup"
 )
@@ -60,6 +61,7 @@ func main() {
 		}
 	}
 
+	var mu sync.Mutex
 	var errg errgroup.Group
 	errg.SetLimit(jobs)
 	if !extractMode {
@@ -67,6 +69,8 @@ func main() {
 		for _, l := range checked.Links {
 			l := l
 			errg.Go(func() error {
+				mu.Lock()
+				defer mu.Unlock()
 				l.check()
 				return nil
 			})

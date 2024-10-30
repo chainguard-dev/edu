@@ -87,7 +87,11 @@ func (l *link) check() {
 	}
 	fmt.Printf("checking %v\n", l.URL.String())
 
-	link, _ := checked.Links[l.URL.String()]
+	link, ok := checked.Links[l.URL.String()]
+	if !ok {
+		fmt.Printf("client: %v not found in checked links\n", l.URL.String())
+		return
+	}
 
 	req, err := http.NewRequest(httpMethod, l.URL.String(), nil)
 	if err != nil {
