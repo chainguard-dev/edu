@@ -1,6 +1,6 @@
 ---
 title: "Differences Between Development and Production Images"
-linktitle: "Differences Between Development and Production Images"
+linktitle: " Dev vs. Production Images"
 type: "article"
 description: "Learn about the differences between development and production Chainguard Images"
 date: 2024-11-01:07:52+02:00
@@ -11,7 +11,7 @@ images: []
 menu:
   docs:
     parent: "chainguard-images"
-weight: 029
+weight: 605
 toc: true
 ---
 
