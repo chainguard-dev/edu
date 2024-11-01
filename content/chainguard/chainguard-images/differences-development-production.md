@@ -37,7 +37,7 @@ While our production images can be considered to have advantages for security, t
 
 Though we encourage the use of production images in your final deployment, development images have many use cases. These include:
 
-- **Building**: In many Dockerfile builds, you will need to generate software artifacts such as static binaries or virtual environments as part of the build process. Development images are ideal for this use case, and after generation artifacts can be copied to a production image for use. See [How to Port a Sample Application to Chainguard Images]](/chainguard/migration/porting-apps-to-chainguard/) for a detailed example.
+- **Building**: In many Dockerfile builds, you will need to generate software artifacts such as static binaries or virtual environments as part of the build process. Development images are ideal for this use case, and after generation artifacts can be copied to a production image for use. See [How to Port a Sample Application to Chainguard Images](/chainguard/migration/porting-apps-to-chainguard/) for a detailed example.
 - **Debuging**: Our development images contain a number of useful utilities, but are otherwise designed to be as close as possible to the production variant. This makes them useful for debugging, since you can test out build steps or the build environment using interactive shells and package managers. See [Debugging Distroless Images](/chainguard/chainguard-images/debugging-distroless-images/) for more on this use case.
 - **Training**: In the case of AI images, you can use a development variant to train a model, then run the model in inference using a production image.  
 - **Deploying**: Though we encourage you to use our production images in your live deployment where possible, our development images are low-to-no CVE and are suitable for production.
@@ -57,5 +57,5 @@ Taking the step into distroless by using our production Chainguard Images can be
 
 * [Blog: Minimal container images: Towards a more secure future](https://www.chainguard.dev/unchained/minimal-container-images-towards-a-more-secure-future)  
 * [Chainguard Academy: Overview of Chainguard Images](/chainguard/chainguard-images/overview#why-distroless)  
-* [Chainguard Academy: Debugging Distroless Images](https://edu.chainguard.dev/chainguard/chainguard-images/debugging-distroless-images/)
+* [Chainguard Academy: Debugging Distroless Images](/chainguard/chainguard-images/debugging-distroless-images/)
 
