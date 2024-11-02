@@ -107,6 +107,5 @@ True: Fewer known vulnerabilities, all things equal, makes the attacker's job ha
 
 <br/>
 
-> [!TIP]
 > For those seeking examples of container images that meet the criteria outlined above, [Chainguard Images](https://github.com/chainguard-images) presents a compelling option.
 
