@@ -3,8 +3,8 @@ title: "An Introduction to Fulcio"
 type: "article"
 lead: "A primer to the Fulcio certificate authority"
 description: "Understanding Fulcio, a new kind of root certificate authority for code signing under Sigstore"
-date: 2022-19-08T08:49:31+00:00
-lastmod: 2022-19-08T08:49:31+00:00
+date: 2022-08-19T08:49:31+00:00
+lastmod: 2022-08-19T08:49:31+00:00
 draft: false
 tags: ["Fulcio", "Overview"]
 images: []
@@ -17,7 +17,7 @@ toc: true
 
 _An earlier version of this material was published in the [Fulcio chapter](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/block-v1:LinuxFoundationX+LFS182x+2T2022+type@sequential+block@2fbe6328019c4b1fbf934bd3bfb7e308/block-v1:LinuxFoundationX+LFS182x+2T2022+type@vertical+block@1f71fcbe8219471fb82e25731b18be11) of the Linux Foundation [Sigstore course](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/home)._
 
-Fulcio is a certificate authority that binds public keys to identities such as email addresses (such as a Google account) using OpenID Connect, essentially notarizing a short-lived key pair against a particular login. A certificate authority issues digital certificates that certify that a particular public key is owned by a particular entity. The certificate authority therefore serves as a trusted third party, helping parties that need to attest and verify identities. 
+Fulcio is a certificate authority that binds public keys to identities such as email addresses (such as a Google account) using OpenID Connect, essentially notarizing a short-lived key pair against a particular login. A certificate authority issues digital certificates that certify that a particular public key is owned by a particular entity. The certificate authority therefore serves as a trusted third party, helping parties that need to attest and verify identities.
 
 By connecting their identity to a verified email or other unique identifier, Fulcio enables software developers to confirm certain credentials associated with themselves. Developers can attest that they truly did create their signed artifacts and later software consumers can then verify that the software artifacts they use really did come from the expected software developers.
 

@@ -3,7 +3,7 @@ title: "How to Install Cosign"
 type: "article"
 lead: "Details for installing Cosign across operating systems to sign software artifacts"
 description: "Details for installing Cosign across operating systems"
-date: 2022-13-07T08:49:31+00:00
+date: 2022-07-13T08:49:31+00:00
 lastmod: 2024-07-29T15:12:18+00:00
 draft: false
 tags: ["Cosign", "Procedural"]
@@ -17,9 +17,9 @@ toc: true
 
 _An earlier version of this material was published in the [Cosign chapter](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/block-v1:LinuxFoundationX+LFS182x+2T2022+type@sequential+block@204b98f35bca48c194d1868e0356bef1/block-v1:LinuxFoundationX+LFS182x+2T2022+type@vertical+block@2f0ad9cb8f124a39ab555ac8bf1a114c) of the Linux Foundation [Sigstore course](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/home)._
 
-Cosign supports software artifact signing, verification, and storage in an OCI (Open Container Initiative) registry. By signing software, you can authenticate that you are who you say you are, which can in turn enable a trust root so that developers and consumers who leverage your software can verify that you created the software artifact that you have said you’ve created. They can also ensure that that artifact was not tampered with by a third party. As someone who may use software libraries, containers, or other artifacts as part of your development lifecycle, a signed artifact can give you greater assurance that the code or container you are incorporating is from a trusted source.  
+Cosign supports software artifact signing, verification, and storage in an OCI (Open Container Initiative) registry. By signing software, you can authenticate that you are who you say you are, which can in turn enable a trust root so that developers and consumers who leverage your software can verify that you created the software artifact that you have said you’ve created. They can also ensure that that artifact was not tampered with by a third party. As someone who may use software libraries, containers, or other artifacts as part of your development lifecycle, a signed artifact can give you greater assurance that the code or container you are incorporating is from a trusted source.
 
-There are a few different ways to install Cosign to your local machine or remote server. The approach you choose should be based on the way you set up packages, the tooling that you use, or the way that your organization recommends. We will go through several options. Please refer to the [official Cosign installation documentation](https://docs.sigstore.dev/cosign/installation) for additional context and updates. 
+There are a few different ways to install Cosign to your local machine or remote server. The approach you choose should be based on the way you set up packages, the tooling that you use, or the way that your organization recommends. We will go through several options. Please refer to the [official Cosign installation documentation](https://docs.sigstore.dev/cosign/installation) for additional context and updates.
 
 ## Installing Cosign with Homebrew or Linuxbrew
 
@@ -31,7 +31,7 @@ To install Cosign with Homebrew, run the following command.
 brew install cosign
 ```
 
-To update Cosign in the future, you can run `brew upgrade cosign` to get the newest version. 
+To update Cosign in the future, you can run `brew upgrade cosign` to get the newest version.
 
 ## Installing Cosign with Linux Package Managers
 
@@ -89,9 +89,9 @@ As long as your output indicates that you are at Go 1.16 or above, you’ll be r
 go version go1.17.6 darwin/arm64
 ```
 
-If you run into an error or don’t receive output like the above, you’ll need to install Go in order to install Cosign with Go. Navigate to the official Go website in order to download the appropriate version of Go for your machine. 
+If you run into an error or don’t receive output like the above, you’ll need to install Go in order to install Cosign with Go. Navigate to the official Go website in order to download the appropriate version of Go for your machine.
 
-With Go 1.16 or above installed, you are ready to install Cosign with Go, using the following command. 
+With Go 1.16 or above installed, you are ready to install Cosign with Go, using the following command.
 
 ```sh
 go install github.com/sigstore/cosign/cmd/cosign@latest
@@ -101,33 +101,33 @@ The resulting binary from this installation will be placed at `$GOPATH/bin/cosig
 
 ### Installing a Cosign release with Go
 
-You can install Cosign with Go directly from the [Cosign GitHub releases page](https://github.com/sigstore/cosign/releases). 
+You can install Cosign with Go directly from the [Cosign GitHub releases page](https://github.com/sigstore/cosign/releases).
 
-At the time of writing, the newest release is [v2.0.0](https://github.com/sigstore/cosign/releases/tag/v2.0.0). You can download this version with the following command. 
+At the time of writing, the newest release is [v2.0.0](https://github.com/sigstore/cosign/releases/tag/v2.0.0). You can download this version with the following command.
 
 ```sh
 go install github.com/sigstore/cosign/v2/cmd/cosign@v2.0.0
 ```
 
-The resulting binary from this installation will be placed at `$GOPATH/bin/cosign`. Check the [release page]([Cosign GitHub releases page](https://github.com/sigstore/cosign/releases) for additional releases. 
+The resulting binary from this installation will be placed at `$GOPATH/bin/cosign`. Check the [release page]([Cosign GitHub releases page](https://github.com/sigstore/cosign/releases) for additional releases.
 
 ## Installing Cosign with the Cosign Binary
 
-Installing Cosign via its binary offers you greater control over your installation, but this method also requires you to manage your installation yourself. In order to install via binary, check for the most updated version in the open source GitHub repository for Cosign under the [releases page](https://github.com/sigstore/cosign/releases). 
+Installing Cosign via its binary offers you greater control over your installation, but this method also requires you to manage your installation yourself. In order to install via binary, check for the most updated version in the open source GitHub repository for Cosign under the [releases page](https://github.com/sigstore/cosign/releases).
 
 You can use the `wget` command to install the most recent binary. In our example, the release we are installing is 2.0.0.
 
 ```sh
-wget "https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linux-amd64" 
+wget "https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linux-amd64"
 ```
 
 Next, move the Cosign binary to your bin folder.
 
 ```sh
-sudo mv cosign-linux-amd64 /usr/local/bin/cosign 
+sudo mv cosign-linux-amd64 /usr/local/bin/cosign
 ```
 
-Finally, update permissions so that Cosign can execute within your filesystem. 
+Finally, update permissions so that Cosign can execute within your filesystem.
 
 ```sh
 sudo chmod +x /usr/local/bin/cosign

@@ -3,8 +3,8 @@ title: "An Introduction to Rekor"
 type: "article"
 lead: "The Rekor transparency log"
 description: "Understanding Rekor, the transparency log of Rekor"
-date: 2022-20-087T08:49:31+00:00
-lastmod: 2022-20-08T08:49:31+00:00
+date: 2022-08-20T08:49:31+00:00
+lastmod: 2022-08-20T08:49:31+00:00
 draft: false
 tags: ["Rekor", "Overview"]
 images: []
@@ -21,9 +21,9 @@ Rekor stores records of artifact metadata, providing transparency for signatures
 
 ## Transparency log
 
-Rekor’s role as a _transparency log_ is the source of its security benefits for the software supply chain. Because the Rekor log is tamper-evident — meaning that any tampering can be detected — malicious parties will be less likely to tamper with the software artifacts protected by sigstore. 
+Rekor’s role as a _transparency log_ is the source of its security benefits for the software supply chain. Because the Rekor log is tamper-evident — meaning that any tampering can be detected — malicious parties will be less likely to tamper with the software artifacts protected by sigstore.
 
-In order to detect tampering, we can use _monitors_ — software that examines the Rekor log and searches for anomalies — to verify that nothing has been manipulated outside of standard practices. Additionally, downstream users can search Rekor for signatures associated with signed artifact metadata, can verify the signature, and can make an informed judgment about what security guarantees to trust about a signed artifact. 
+In order to detect tampering, we can use _monitors_ — software that examines the Rekor log and searches for anomalies — to verify that nothing has been manipulated outside of standard practices. Additionally, downstream users can search Rekor for signatures associated with signed artifact metadata, can verify the signature, and can make an informed judgment about what security guarantees to trust about a signed artifact.
 
 The Fulcio certificate authority enables a downstream user to trust that a public key associated with a particular artifact metadata entry from Rekor is associated with a particular identity, and Cosign performs this verification with a single convenient command.
 
@@ -35,13 +35,13 @@ The latest Signed Tree hashes of Rekor are published on Google Cloud Storage. Th
 
 ## Rekor usage
 
-Rekor provides a restful API based server for validation and a transparency log for storage, accessible via a command-line interface (CLI) application: `rekor-cli`. You can install `rekor-cli` with Go, which we will discuss in the lab section below. Alternatively, you can navigate to the [Rekor release page](https://github.com/sigstore/rekor/releases) to grab the most recent release, or you can build the [Rekor CLI manually](https://docs.sigstore.dev/rekor/installation#build-rekor-cli-manually). 
+Rekor provides a restful API based server for validation and a transparency log for storage, accessible via a command-line interface (CLI) application: `rekor-cli`. You can install `rekor-cli` with Go, which we will discuss in the lab section below. Alternatively, you can navigate to the [Rekor release page](https://github.com/sigstore/rekor/releases) to grab the most recent release, or you can build the [Rekor CLI manually](https://docs.sigstore.dev/rekor/installation#build-rekor-cli-manually).
 
 Through the CLI, you can make and verify entries, query the transparency log to prove the inclusion of an artifact, verify the integrity of the transparency log, or retrieve entries by either public key or artifact.
 
 To access the data stored in Rekor, the `rekor-cli` requires either the log index of an entry or the universally unique identifier (UUID) of an artifact.
 
-The log index of an entry identifies the order in which the entry was entered into the log. Someone who wants to collect all the log entries or perhaps a large subset of the entries might use the log index, and receive an object as below, in their standard output. 
+The log index of an entry identifies the order in which the entry was entered into the log. Someone who wants to collect all the log entries or perhaps a large subset of the entries might use the log index, and receive an object as below, in their standard output.
 
 ```
 LogID: c0d23d6ad406973f9559f3ba2d1ca01f84147d8ffc5b8445c224f98b9591801d
@@ -73,7 +73,7 @@ There are a number of different formats stored in the Rekor log, each associated
 
 Users of Rekor also have an offline method for determining whether a particular entry exists in a Rekor log by leveraging inclusion proofs, which are enabled through Merkle trees. Merkle trees are a data structure that enable a party to use cryptographic hash functions — a way of mapping potentially large values to relatively short digests — to prove that a piece of data is contained within a much larger data structure. This proof is accomplished by providing a series of hashes to the user, hashes that if recombined prove to the user that an entry is indeed in the Rekor log. Sigstore users can “staple” such an inclusion proof to an artifact, attaching the inclusion proof next to an artifact in a repository, and therefore proving that the artifact is indeed included in Rekor. For a detailed description of Merkle trees and inclusion proofs, refer to the “helpful resources” section at the end of this chapter.
 
-## Setting up an internal Rekor instance 
+## Setting up an internal Rekor instance
 
 Your organization can also set up its own instance of Rekor, or you can individually set up a Rekor server to more fully understand it. You can deploy the Rekor server through Project Sigstore’s [Docker Compose file](https://github.com/sigstore/rekor/blob/main/docker-compose.yml), through a [Kubernetes operator](https://github.com/sigstore/rekor-operator), with a [Helm chart](https://github.com/sigstore/helm-charts), or you can build a Rekor server yourself.
 

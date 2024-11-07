@@ -2,11 +2,11 @@
 title: "Getting Started with the NeMo Chainguard Image"
 type: "article"
 linktitle: "NeMo"
-aliases: 
+aliases:
 - /chainguard/chainguard-images/getting-started/nemo
 description: "Get started with the NeMo Chainguard Image for generative deep learning"
-date: 2024-05-16:08:00+02:00
-lastmod: 2024-05-16:08:00+02:00
+date: 2024-05-16T08:00:00+02:00
+lastmod: 2024-05-16T08:00:00+02:00
 tags: ["Chainguard Images", "Products"]
 draft: false
 images: []
@@ -29,7 +29,7 @@ This guide is primarily designed for use in an environment with access to one or
 
 ## Prerequisites
 
-If Docker Engine (or Docker Desktop) is not already installed, follow the [instructions for installing Docker Engine on your host machine](https://docs.docker.com/engine/install/). 
+If Docker Engine (or Docker Desktop) is not already installed, follow the [instructions for installing Docker Engine on your host machine](https://docs.docker.com/engine/install/).
 
 To take advantage of connected GPUs, you'll need to install CUDA Toolkit on your host machine.
 
@@ -81,7 +81,7 @@ Once you've determined that your environment has access to CUDA and connected GP
 
 ## NeMo Overview
 
-NeMo is a generative AI toolkit and framework with a focus on conversational AI tasks such as NLP, ASR, and TTS, as well as large language models (LLM) and multimodal (MM) models. NeMo uses a system of [neural modules](https://docs.nvidia.com/nemo-framework/user-guide/latest/nemotoolkit/core/neural_modules.html), an abstraction over a variety of common elements in model training and inference such as encoders, decoders, loss functions, layers, or models. NeMo also provides [collections of modules](https://docs.nvidia.com/nemo-framework/user-guide/latest/nemotoolkit/collections.html) targeting specific areas of concern in conversational and generative AI, such as LLMs, speech AI / NLP, and TTS. 
+NeMo is a generative AI toolkit and framework with a focus on conversational AI tasks such as NLP, ASR, and TTS, as well as large language models (LLM) and multimodal (MM) models. NeMo uses a system of [neural modules](https://docs.nvidia.com/nemo-framework/user-guide/latest/nemotoolkit/core/neural_modules.html), an abstraction over a variety of common elements in model training and inference such as encoders, decoders, loss functions, layers, or models. NeMo also provides [collections of modules](https://docs.nvidia.com/nemo-framework/user-guide/latest/nemotoolkit/collections.html) targeting specific areas of concern in conversational and generative AI, such as LLMs, speech AI / NLP, and TTS.
 
 NeMo is built on [PyTorch Lightning](https://lightning.ai/docs/pytorch/stable/), a high-level interface to PyTorch with a focus on scalability, and uses the [Hydra](https://hydra.cc/) library for configuration management.
 
@@ -128,11 +128,11 @@ docker run -it --rm \
 ```
 Note that we ran the above script as root. This allows us to share the script and output `.wav` file between the host and container. Remember not to run your image as root in a production environment.
 
-If your host machine does not have attached GPUs and you'd like to run the above on your CPU, omit the `  --gpus all \` line. The script tests for availability of the CUDA platform and sets the accelerator to CPU if CUDA is not detected, so the script will also function on CPU. 
+If your host machine does not have attached GPUs and you'd like to run the above on your CPU, omit the `  --gpus all \` line. The script tests for availability of the CUDA platform and sets the accelerator to CPU if CUDA is not detected, so the script will also function on CPU.
 
-Since we're using pretrained models to perform text to speech, this example will only take a few minutes using a CPU only. However, other tasks such as model training and finetuning may take significantly longer without connected GPUs. 
+Since we're using pretrained models to perform text to speech, this example will only take a few minutes using a CPU only. However, other tasks such as model training and finetuning may take significantly longer without connected GPUs.
 
-Note that NeMo collections are large, and initial imports can take up to a minute depending on your environment. The script may appear to hang during that time. 
+Note that NeMo collections are large, and initial imports can take up to a minute depending on your environment. The script may appear to hang during that time.
 
 After imports are complete, you should see a large amount of output as NeMo pulls models and works through the steps in the script (tokenizing, generating a spectrogram, generating audio, and writing audio to disk). On completion, the script outputs a `test.wav` file. Because we mounted a volume, this file should now be present in the working directory of your host machine.
 
@@ -152,7 +152,7 @@ The `test.wav` file should contain audio similar to this output:
 
 This section will consider next steps for applying the NeMo Chainguard Image to other tasks in conversational AI.
 
-In the [tts.py](https://github.com/chainguard-dev/nemo-examples/blob/main/tts.py) script run above, we used two models provided by NeMo, both contained within the TTS collection. 
+In the [tts.py](https://github.com/chainguard-dev/nemo-examples/blob/main/tts.py) script run above, we used two models provided by NeMo, both contained within the TTS collection.
 
 - [Tacotron2 speech synthesis model](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/nemo/models/tts_en_tacotron2)
 - [HiFi-GAN speech synthesis model](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/tao/models/speechsynthesis_hifigan)

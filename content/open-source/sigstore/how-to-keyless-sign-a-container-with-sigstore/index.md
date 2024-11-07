@@ -4,8 +4,8 @@ linktitle: "Keyless Signing"
 type: "article"
 lead: "Using GitHub Actions with Cosign"
 description: "Use Cosign and GitHub Actions to Keyless Sign a Django Container Image"
-date: 2022-24-087T08:49:31+00:00
-lastmod: 2022-24-08T08:49:31+00:00
+date: 2022-08-24T08:49:31+00:00
+lastmod: 2022-08-24T08:49:31+00:00
 draft: false
 tags: ["cosign", "Sigstore", "Procedural"]
 images: []
@@ -29,7 +29,7 @@ You should have the following in place before continuing:
 * The Rekor CLI installed, follow the [installation guide](/open-source/sigstore/rekor/how-to-install-rekor/)
 * Familiarity with Git, GitHub, and GitHub Actions is helpful, but we'll provide some context and also walk you through setting up a GitHub account.
 
-With these prerequisites in place, let's begin. 
+With these prerequisites in place, let's begin.
 
 ## Sign up for GitHub
 
@@ -43,9 +43,9 @@ If you are not familiar with Git and GitHub, you can review the official GitHub 
 
 ## Create a GitHub Repository
 
-When you are logged into GitHub, create a new repository by clicking on the **+** button in the upper right-hand corner of the page (next to your user icon). The menu will drop down and you can select **New repository**. 
+When you are logged into GitHub, create a new repository by clicking on the **+** button in the upper right-hand corner of the page (next to your user icon). The menu will drop down and you can select **New repository**.
 
-On the Create a new repository page, you can create a repository, you can leave the defaults, but write a meaningful name for the Repository name field, such as django-keyless-signing. Note that you’ll need to keep the repository public so that the signed image you build will be able to be uploaded to Rekor’s public transparency log. 
+On the Create a new repository page, you can create a repository, you can leave the defaults, but write a meaningful name for the Repository name field, such as django-keyless-signing. Note that you’ll need to keep the repository public so that the signed image you build will be able to be uploaded to Rekor’s public transparency log.
 
 ## Create a Local Directory for the Repository
 
@@ -55,7 +55,7 @@ Now, you’ll need to create a local directory for this repository. For our exam
 cd ~/Documents/GitHub
 ```
 
-Within the GitHub folder, create the new directory for your repository, and move into it. 
+Within the GitHub folder, create the new directory for your repository, and move into it.
 
 ```sh
 mkdir django-keyless-signing && cd $_
@@ -75,7 +75,7 @@ Create your file with a text editor like nano.
 nano requirements.txt
 ```
 
-Once the file is open, write the following into it to set and pin your dependencies. 
+Once the file is open, write the following into it to set and pin your dependencies.
 
 ```
 Django>=3.0,<4.0
@@ -90,7 +90,7 @@ Next, create your `Dockerfile`, again with a text editor like nano.
 nano Dockerfile
 ```
 
-Within this file you will set up the version of Python, the environments, and tell the container to install the dependencies in `requirements.txt`. 
+Within this file you will set up the version of Python, the environments, and tell the container to install the dependencies in `requirements.txt`.
 
 ```js
 # syntax=docker/dockerfile:1
@@ -105,19 +105,19 @@ COPY . /code/
 
 Once you are satisfied that your `Dockerfile` reflects the content above, you can save and close the file.
 
-Finally, you’ll create a `docker-compose.yml` file. This file allows you to document and configure all of your application’s service dependencies. If you would like to read more about [Docker Compose](https://docs.docker.com/compose/), please refer to the official Docker documentation. 
+Finally, you’ll create a `docker-compose.yml` file. This file allows you to document and configure all of your application’s service dependencies. If you would like to read more about [Docker Compose](https://docs.docker.com/compose/), please refer to the official Docker documentation.
 
-Again, use nano or similar text editor to create your file. 
+Again, use nano or similar text editor to create your file.
 
 ```sh
 nano docker-compose.yml
 ```
 
-You can add the following contents to this file. This sets up the environment and Postgres database, and can build the web server on port 8000 of the present machine. 
+You can add the following contents to this file. This sets up the environment and Postgres database, and can build the web server on port 8000 of the present machine.
 
 ```js
 version: "3.9"
-   
+
 services:
   db:
     image: postgres
@@ -142,7 +142,7 @@ services:
       - db
 ```
 
-At this point, your Django container is set up. You can run the `tree` command to review the file structure. Note, `tree` may not come automatically installed on your machine; use your package manager to install it if you would like to run this optional command. 
+At this point, your Django container is set up. You can run the `tree` command to review the file structure. Note, `tree` may not come automatically installed on your machine; use your package manager to install it if you would like to run this optional command.
 
 ```sh
 tree
@@ -163,11 +163,11 @@ If your output matches the output above, you are all set to continue.
 
 We next create a GitHub Actions YAML file. There is some boilerplate in this file common to GitHub Actions, but the high-level overview of this is that we need to enable OIDC, install Cosign, build and push the container image, and then sign the container image.
 
-We’ll discuss each of these steps here, and then write the entire file in the next section. 
+We’ll discuss each of these steps here, and then write the entire file in the next section.
 
-After a cron job to automate the Actions, your first step will be to enable GitHub Actions OIDC tokens. Fulcio is a free root certificate authority that issues certificates based on an OIDC email address. This is essentially enabling the certificate step of our action. 
+After a cron job to automate the Actions, your first step will be to enable GitHub Actions OIDC tokens. Fulcio is a free root certificate authority that issues certificates based on an OIDC email address. This is essentially enabling the certificate step of our action.
 
-The key piece here is `id-token: write`, which you will have under `build` and under `jobs` in your Actions workflow. 
+The key piece here is `id-token: write`, which you will have under `build` and under `jobs` in your Actions workflow.
 
 ```js
 jobs:
@@ -180,18 +180,18 @@ jobs:
         id-token: write
 ```
 
-The rest of this build is telling us that the container is running on the latest version of Ubuntu, that the contents are to be read, and the packages are to be written. 
+The rest of this build is telling us that the container is running on the latest version of Ubuntu, that the contents are to be read, and the packages are to be written.
 
 The `id-token: write` line enables our job to create tokens as this workflow. This permission may only be granted to workflows on the main repository, so it cannot be granted during pull request workflows. You can learn more about GitHub Actions’s OIDC support from their document on “[Security hardening your deployments](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#updating-your-actions-for-oidc).”
 
-The next major part of this YAML file is installing Cosign. 
+The next major part of this YAML file is installing Cosign.
 
 ```js
       - name: Install cosign
         uses: sigstore/cosign-installer@main
 ```
 
-Cosign is available through the [GitHub Action Marketplace](https://github.com/marketplace/actions/cosign-installer), which is why we can add it to our GitHub Action as above. 
+Cosign is available through the [GitHub Action Marketplace](https://github.com/marketplace/actions/cosign-installer), which is why we can add it to our GitHub Action as above.
 
 You can pin your workflow to a particular release of Cosign. For example, here you will use version 2.1.1.
 
@@ -209,7 +209,7 @@ After this step, there will be some actions to setup the Docker build, log into 
         run: cosign sign --yes ghcr.io/${{ github.repository }}@${{ steps.push-step.outputs.digest }}
 ```
 
-Here you’ll run the `cosign sign` command on the container we are pushing to GitHub Container Registry with the relevant variable calling our repository and digest. 
+Here you’ll run the `cosign sign` command on the container we are pushing to GitHub Container Registry with the relevant variable calling our repository and digest.
 
 Because we are doing a public repository, this will automatically be pushed to the public instance of the Rekor transparency log
 
@@ -230,9 +230,9 @@ Within this directory, you’ll be creating a YAML file to run a GitHub Action W
 nano docker-publish.yml
 ```
 
-This is how we will be building, publishing, and signing the container. We will start by naming it **Publish and Sign Container Image** and then will set up a scheduled cron job for continuous running, and also when there is a push to the main branch or pull request that is merged into the main branch. 
+This is how we will be building, publishing, and signing the container. We will start by naming it **Publish and Sign Container Image** and then will set up a scheduled cron job for continuous running, and also when there is a push to the main branch or pull request that is merged into the main branch.
 
-The rest of the file will follow what we discussed in the previous section. 
+The rest of the file will follow what we discussed in the previous section.
 
 ```js
 name: Publish and Sign Container Image
@@ -286,9 +286,9 @@ jobs:
         run: cosign sign ghcr.io/${{ github.repository }}@${{ steps.push-step.outputs.digest }}
 ```
 
-Now, your demo Django container project is complete and ready for GitHub Actions to run on it. 
+Now, your demo Django container project is complete and ready for GitHub Actions to run on it.
 
-Verify that your project is configured correctly. Run the `tree` command with the `-a` flag from your project’s root directory to view invisible directories. 
+Verify that your project is configured correctly. Run the `tree` command with the `-a` flag from your project’s root directory to view invisible directories.
 
 ```sh
 cd ~/Documents/GitHub/django-keyless-signing
@@ -311,13 +311,13 @@ If your setup matches, we can proceed.
 
 ## Generate GitHub Personal Access Token
 
-In order to use GitHub on the command line and run GitHub Actions, you’ll need a personal access token. 
+In order to use GitHub on the command line and run GitHub Actions, you’ll need a personal access token.
 
-In your web browser, navigate to https://github.com/settings/tokens in order to set those up. 
+In your web browser, navigate to https://github.com/settings/tokens in order to set those up.
 
 You’ll click on the **Generate new token** button and fill out the form on the next page.
 
-Fill in the Note field about what the token is for, the 30 days expiration is adequate, and you’ll need to select the **repo**, **workflow**, and **write:packages** scopes, as indicated in the screenshot below. 
+Fill in the Note field about what the token is for, the 30 days expiration is adequate, and you’ll need to select the **repo**, **workflow**, and **write:packages** scopes, as indicated in the screenshot below.
 
 ![GitHub Generate New Token Example](github-token.png)
 
@@ -327,19 +327,19 @@ _Be sure to copy this token_; you won’t have access to it again. You’ll be u
 
 ## Initialize Git Repository and Push Changes
 
-From your local repository of `django-keyless-signing` you will be initializing your repository to use with Git. 
+From your local repository of `django-keyless-signing` you will be initializing your repository to use with Git.
 
 ```sh
 git init
 ```
 
-Next, you will add the files you created to the Git stage. 
+Next, you will add the files you created to the Git stage.
 
 ```sh
 git add .github Dockerfile docker-compose.yml requirements.txt
 ```
 
-At this point, you can check that your Git stage is all set for committing and then pushing your changes to the remote GitHub repository. 
+At this point, you can check that your Git stage is all set for committing and then pushing your changes to the remote GitHub repository.
 
 ```sh
 git status
@@ -385,18 +385,18 @@ So far we have not connected to the remote repository. You should add that repos
 git remote add origin https://github.com/github-username/django-keyless-signing.git
 ```
 
-With this set up, you’ll be able to push your changes to the remote repository that’s hosted on GitHub. 
+With this set up, you’ll be able to push your changes to the remote repository that’s hosted on GitHub.
 
 ```sh
 git push -u origin main
 ```
 
-With this command, you will be prompted to enter your GitHub username and the GitHub personal access token. In the first prompt, enter your GitHub username, where it reads `Username`. In the second prompt, where it reads `Password`, enter your personal access token, _not your GitHub password_. 
+With this command, you will be prompted to enter your GitHub username and the GitHub personal access token. In the first prompt, enter your GitHub username, where it reads `Username`. In the second prompt, where it reads `Password`, enter your personal access token, _not your GitHub password_.
 
-Username for 'https://github.com': 
+Username for 'https://github.com':
 Password for 'https://github-username@github.com':
 
-Once you enter these, you’ll receive output that your changes were committed to the remote repository. 
+Once you enter these, you’ll receive output that your changes were committed to the remote repository.
 
 ```
 Enumerating objects: 8, done.
@@ -416,9 +416,9 @@ With this complete, you can navigate to the URL of your GitHub repository.
 
 With your repository set up, you can move to the **Actions** tab of your GitHub repository.
 
-Here, you’ll be able to inspect the workflows that have run. Since there is only one workflow in this repo, you can inspect the one for `first commit`. 
+Here, you’ll be able to inspect the workflows that have run. Since there is only one workflow in this repo, you can inspect the one for `first commit`.
 
-Here, a green checkmark and **build** will be displayed on the page under `docker-publish.yml`. This action ran when you pushed your code into the repository. You can click on **build** and inspect the steps of the action. 
+Here, a green checkmark and **build** will be displayed on the page under `docker-publish.yml`. This action ran when you pushed your code into the repository. You can click on **build** and inspect the steps of the action.
 
 Your page will appear similar to the following. Ensure that your action ran and that your output is similar.
 
@@ -444,9 +444,9 @@ You can also inspect the image itself under **Packages** on the main page of you
 
 ## Verify Signatures
 
-With your container signed by Cosign keyless signing in GitHub Actions, you next need to verify that everything worked as expected and that the container is indeed signed, and that an entry for that was generated in Rekor. 
+With your container signed by Cosign keyless signing in GitHub Actions, you next need to verify that everything worked as expected and that the container is indeed signed, and that an entry for that was generated in Rekor.
 
-You can do that by using the `cosign verify` command against the published container image. 
+You can do that by using the `cosign verify` command against the published container image.
 
 ```sh
 cosign verify ghcr.io/github-username/django-keyless-signing \
@@ -492,7 +492,7 @@ The following checks were performed on each of these signatures:
 
 You can also review the log on Rekor by using the logIndex as above, which matches the `tlog entry created with index` you found in the output from the GitHub Actions.
 
-You can use either `verify` or `get` with the Rekor CLI. In the first case, your command will be formatted like so and provide a lot of output with a full inclusion proof. Note that this output is abbreviated. Substitute the Xs in the command for your log index number. 
+You can use either `verify` or `get` with the Rekor CLI. In the first case, your command will be formatted like so and provide a lot of output with a full inclusion proof. Note that this output is abbreviated. Substitute the Xs in the command for your log index number.
 
 ```sh
 rekor-cli verify --rekor_server https://rekor.sigstore.dev --log-index XXXXXX
@@ -512,7 +512,7 @@ SHA256(0x01 | efb36cfc54705d8cd921a621a9389ffa03956b15d68bfabadac2b4853852079b |
     2c0c0e511e071ab024da0ebd89f67b39ae7a1ce1a05f2ec146e503d78649c093
 ```
 
-In the second instance, you’ll receive JSON formatted output. Note the output here is abbreviated. Substitute the Xs in the command for your log index number. 
+In the second instance, you’ll receive JSON formatted output. Note the output here is abbreviated. Substitute the Xs in the command for your log index number.
 
 ```sh
 rekor-cli get --rekor_server https://rekor.sigstore.dev --log-index XXXXXX
