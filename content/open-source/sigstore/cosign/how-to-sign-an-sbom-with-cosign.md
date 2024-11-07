@@ -3,7 +3,7 @@ title: "How to Sign an SBOM with Cosign"
 type: "article"
 description: "Signing software bills of materials with Cosign"
 lead: "Use Cosign to sign software bills of materials (SBOMs)"
-date: 2022-13-07T15:22:20+01:00
+date: 2022-07-13T15:22:20+01:00
 lastmod: 2024-10-10T15:12:18+00:00
 draft: false
 tags: ["Cosign", "Procedural", "SBOM"]
@@ -17,7 +17,7 @@ toc: true
 
 _An earlier version of this material was published in the [Cosign chapter](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/block-v1:LinuxFoundationX+LFS182x+2T2022+type@sequential+block@204b98f35bca48c194d1868e0356bef1/block-v1:LinuxFoundationX+LFS182x+2T2022+type@vertical+block@2f0ad9cb8f124a39ab555ac8bf1a114c) of the Linux Foundation [Sigstore course](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/home)._
 
-[Cosign](https://github.com/sigstore/cosign), developed as part of the [Sigstore project](https://www.sigstore.dev/), is a command line utility for signing, verifying, storing, and retrieving software artifacts through interface with an OCI (Open Container Initiative) registry. Cosign can be used to sign attestations, or a verifiable assertion or statement about a software artifact. 
+[Cosign](https://github.com/sigstore/cosign), developed as part of the [Sigstore project](https://www.sigstore.dev/), is a command line utility for signing, verifying, storing, and retrieving software artifacts through interface with an OCI (Open Container Initiative) registry. Cosign can be used to sign attestations, or a verifiable assertion or statement about a software artifact.
 
 {{< details "What is an Attestation?" >}}
 {{< blurb/attestation >}}
@@ -141,7 +141,7 @@ We're now ready to add our attestation. Sigstore recommends referring to the ima
 DIGEST=$(docker inspect $DH_USERNAME/example-image |jq -c 'first'| jq .RepoDigests | jq -c 'first' | tr -d '"')
 ```
 
-Alternatively, you can find the digest manually by visiting your repository on Docker Hub. 
+Alternatively, you can find the digest manually by visiting your repository on Docker Hub.
 
 We can now attest using our image as the subject and our generated SBOM as the predicate:
 
@@ -163,7 +163,7 @@ Retrieving signed certificate...
 	This information will be used for signing this artifact and will be stored in public transparency logs and cannot be removed later, and is subject to the Immutable Record notice at https://lfprojects.org/policies/hosted-project-tools-immutable-records/.
 
 By typing 'y', you attest that (1) you are not submitting the personal data of any other person; and (2) you understand and agree to the statement and the Agreement terms at the URLs listed above.
-Are you sure you would like to continue? [y/N] 
+Are you sure you would like to continue? [y/N]
 ```
 
 Note the warnings — a record of the attestation will be recorded to an immutable log maintained by the Sigstore project. When you're ready, press `y` to agree and attest.

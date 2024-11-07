@@ -3,7 +3,7 @@ title: "How to Sign Blobs and Standard Files with Cosign"
 type: "article"
 description: "Use Cosign to sign non-container software artifacts"
 lead: "Cosign can sign software artifacts beyond containers"
-date: 2022-13-07T15:22:20+01:00
+date: 2022-07-13T15:22:20+01:00
 lastmod: 2024-07-29T15:12:18+00:00
 draft: false
 tags: ["Cosign", "Procedural"]
@@ -31,23 +31,23 @@ Cosign offers support for signing blobs with the `cosign sign-blob` and `cosign 
 cosign sign-blob --key cosign.key artifact
 ```
 
-You’ll get output similar to the following, and a prompt to enter your password for your signing key. 
+You’ll get output similar to the following, and a prompt to enter your password for your signing key.
 
 ```
 Using payload from: artifact
 Enter password for private key:
 ```
 
-With your password entered, you’ll receive your signature output. 
+With your password entered, you’ll receive your signature output.
 
 ```
-MEUCIAb9Jxbbk9w8QF4/m5ADd+AvvT6pm/gp0HE6RMPp3SfOAiEAsWnpkaVZanjhQDyk5b0UPnlsMhodCcvYaGl1sj9exJI= 
+MEUCIAb9Jxbbk9w8QF4/m5ADd+AvvT6pm/gp0HE6RMPp3SfOAiEAsWnpkaVZanjhQDyk5b0UPnlsMhodCcvYaGl1sj9exJI=
 ```
 
-You will need this signature output to verify the artifact signature. Use the `cosign verify-blob` command and pass in the public key, the signature, and the name of your file. 
+You will need this signature output to verify the artifact signature. Use the `cosign verify-blob` command and pass in the public key, the signature, and the name of your file.
 
 ```sh
-cosign verify-blob --key cosign.pub --signature MEUCIAb9Jxbbk9w8QF4/m5ADd+AvvT6pm/gp0HE6RMPp3SfOAiEAsWnpkaVZanjhQDyk5b0UPnlsMhodCcvYaGl1sj9exJI= artifact  
+cosign verify-blob --key cosign.pub --signature MEUCIAb9Jxbbk9w8QF4/m5ADd+AvvT6pm/gp0HE6RMPp3SfOAiEAsWnpkaVZanjhQDyk5b0UPnlsMhodCcvYaGl1sj9exJI= artifact
 ```
 
 Note that the whole output of the signature needed to be passed to this command. You’ll get feedback that the blob’s signature was verified.
@@ -56,7 +56,7 @@ Note that the whole output of the signature needed to be passed to this command.
 Verified OK
 ```
 
-You can also publish the artifact to a container registry such as Docker Hub and sign the artifact’s generated image with Cosign. Running this command will create a new repository in your Docker Hub account . We will call this `artifact` but you can use an alternate meaningful name for you. 
+You can also publish the artifact to a container registry such as Docker Hub and sign the artifact’s generated image with Cosign. Running this command will create a new repository in your Docker Hub account . We will call this `artifact` but you can use an alternate meaningful name for you.
 
 ```sh
 cosign upload blob -f artifact docker-username/artifact
@@ -71,4 +71,4 @@ Uploaded image to:
 index.docker.io/docker-username/artifact@sha256:d10846…
 ```
 
-Being able to sign blobs provides you with the opportunity to sign README files and scripts rather than just containers. This can ensure that every piece of a software project is accounted for through signatures and provenance. 
+Being able to sign blobs provides you with the opportunity to sign README files and scripts rather than just containers. This can ensure that every piece of a software project is accounted for through signatures and provenance.
