@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Command\CatalogItem;
 use Minicli\App;
 use Minicli\ServiceInterface;
 use Parsed\Content;
@@ -13,39 +14,45 @@ class CatalogService implements ServiceInterface
 
     protected string $dataPath;
 
-    /** @var Content[] */
+    /** @var CatalogItem[] */
     protected array $catalog = [];
 
-    /** @var array */
+    /** @var CatalogItem[] */
     protected array $deprecated = [];
 
-    /** @var array */
+    /** @var CatalogItem[] */
     protected array $invalid = [];
 
-    /** @var array */
+    /** @var CatalogItem[] */
     protected array $updated = [];
+
+    public static int $DEPRECATION_CAP = 7;
 
     public function load(App $app): void
     {
         $this->dataPath = $app->config->data_path;
-        $this->contentParser = new ContentParser();
-        $this->buildCatalog($this->dataPath, $this->contentParser);
+        $this->buildCatalog($this->dataPath);
     }
 
-    public function buildCatalog(string $path, ContentParser $contentParser): void
+    public function buildCatalog(string $path): void
     {
         foreach (glob($path . '/*') as $path) {
             if (is_dir($path)) {
-                $this->buildCatalog($path, $contentParser);
+                $this->buildCatalog($path);
             }
 
             if (pathinfo($path, PATHINFO_EXTENSION) !== 'md') {
                 continue;
             }
 
-            $article = $contentParser->parse(new Content(file_get_contents($path)));
-            $this->audit($article);
-            $this->catalog[] = $article;
+            if (basename($path) === '_index.md') {
+                continue;
+            }
+
+            $item = new CatalogItem();
+            $item->load($path);
+            $this->audit($item);
+            $this->catalog[] = $item;
         }
     }
 
@@ -54,27 +61,20 @@ class CatalogService implements ServiceInterface
         return $this->catalog;
     }
 
-    public function audit(Content $content): void
+    public function audit(CatalogItem $item): void
     {
-        $timestamp = $content->frontMatterHas('lastmod') ? $content->frontMatterGet('lastmod') : $content->frontMatterGet('date');
-        if (!$timestamp) {
-            $this->invalid[] = $content;
-            return;
-        }
-        try  {
-            $lastmod = new \DateTime($timestamp);
-            $now = new \DateTime();
-        } catch (\Exception $e) {
-            $this->invalid[] = $content;
+        if ($item->lastmod === null) {
+            $this->invalid[] = $item;
             return;
         }
 
-        if ($now->diff($lastmod)->m > 7) {
-            $this->deprecated[] = [ 'content' => $content, 'lastmod' => $lastmod ];
+        $now = new \DateTime();
+        if ($now->diff($item->lastmod)->m > self::$DEPRECATION_CAP) {
+            $this->deprecated[] = $item;
             return;
         }
 
-        $this->updated[] = [ 'content' => $content, 'lastmod' => $lastmod ];
+        $this->updated[] = $item;
     }
 
     public function getDeprecated(): array
@@ -94,18 +94,25 @@ class CatalogService implements ServiceInterface
 
     protected function getAudited(array $audit): array
     {
-        $result = [];
         $this->orderByLastMod($audit);
-        foreach ($audit as $item) {
-            $result[] = $item['content'];
-        }
 
-        return $result;
+        return $audit;
     }
     protected function orderByLastMod(array &$array): void
     {
         usort($array, function ($a, $b) {
-            return $a['lastmod'] <=> $b['lastmod'];
+            return $a->lastmod <=> $b->lastmod;
         });
+    }
+
+    public function findByRoute(string $route): ?CatalogItem
+    {
+        foreach ($this->catalog as $item) {
+            if (in_array($route, $item->routes)) {
+                return $item;
+            }
+        }
+
+        return null;
     }
 }
