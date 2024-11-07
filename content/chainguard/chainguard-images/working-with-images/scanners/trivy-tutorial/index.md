@@ -2,11 +2,11 @@
 title: "Using Trivy to Scan Software Artifacts"
 type: "article"
 linktitle: "Trivy"
-aliases: 
+aliases:
 - /chainguard/chainguard-images/working-with-images/scanners/trivy-tutorial
 description: "Learn to use Trivy to analyze container images and other software artifacts for a variety of issues"
-date: 2024-07-03:20:00+02:00
-lastmod: 2024-07-03:20:00+00:00
+date: 2024-07-03T20:00:00+02:00
+lastmod: 2024-07-03T20:00:00+00:00
 tags: ["Conceptual", "CVE"]
 draft: false
 images: []
@@ -48,7 +48,7 @@ You can also manually install Trivy by downloading the binary for your operating
 
 ### Container Image
 
-Container images for Trivy are hosted on a variety of registries. When running Trivy as a container image, it is recommended to mount a cache directory as a volume. For scanning container images, it is also recommended to mount `docker.sock`. 
+Container images for Trivy are hosted on a variety of registries. When running Trivy as a container image, it is recommended to mount a cache directory as a volume. For scanning container images, it is also recommended to mount `docker.sock`.
 
 The following command will pull Trivy from Docker Hub, mount the two volumes, run the Trivy container, and use the running container to scan the official nginx image on Docker Hub:
 
@@ -70,7 +70,7 @@ To use Trivy, provide a subcommand indicating the type of artifact or deployment
 trivy image python
 ```
 
-Trivy will output a series of informational messages, a short summary of CVEs found, including severity, and an itemized list of CVEs. 
+Trivy will output a series of informational messages, a short summary of CVEs found, including severity, and an itemized list of CVEs.
 
 ### Valid Targets
 
@@ -164,7 +164,7 @@ Trivy can scan this generated CycloneDX SBOM with the following:
 trivy sbom results.cdx.json
 ```
 
-By default, the `sbom` subcommand scans only for vulnerabilities. License scanning can be enabled using the `--scanners license` flag. 
+By default, the `sbom` subcommand scans only for vulnerabilities. License scanning can be enabled using the `--scanners license` flag.
 
 Some image providers, such as Chainguard, associate images with an [SBOM attestation](https://edu.chainguard.dev/open-source/sbom/sboms-and-attestations/) verifying that the image has not been tampered with since the time of creation. Trivy provides functionality to query attestations registered in the [Rekor transparency log](https://github.com/sigstore/rekor). To retrieve an SBOM attestation from a Rekor transparency log, set the `--sbom-sources` flag to `rekor` and provide the `--rekor-url` flag to the instance of the transparency log you wish to query against. The following will perform a scan using the SBOM attestation for Chainguard's `nginx` image as registered on the [Rekor public server](https://rekor.sigstore.dev/):
 
@@ -172,7 +172,7 @@ Some image providers, such as Chainguard, associate images with an [SBOM attesta
 trivy image --sbom-sources rekor --rekor-url https://rekor.sigstore.dev/ cgr.dev/chainguard/nginx
 ```
 
-Learn more about SBOMs and other output formats in the section on [specifying output formats](#specifying-output-formats). 
+Learn more about SBOMs and other output formats in the section on [specifying output formats](#specifying-output-formats).
 
 ## Comprehending Trivy Output
 
@@ -192,9 +192,9 @@ You will receive output similar to the following:
 
 ### Interpreting Trivy Output
 
-The initial logging portion of Trivy's output indicates which [scanners](#scanners) are enabled and shows warnings if Trivy has an issue performing the scan. 
+The initial logging portion of Trivy's output indicates which [scanners](#scanners) are enabled and shows warnings if Trivy has an issue performing the scan.
 
-In the initial portion of its results output, Trivy summarizes information on the scanned artifact and gives an overview of known vulnerabilities. In the case of a scanned image, the output includes the image digest. This is a unique hash of the image that can be used as an identifier. 
+In the initial portion of its results output, Trivy summarizes information on the scanned artifact and gives an overview of known vulnerabilities. In the case of a scanned image, the output includes the image digest. This is a unique hash of the image that can be used as an identifier.
 
 Following the log, Trivy shows the name of the image and a count of issues by severity.
 

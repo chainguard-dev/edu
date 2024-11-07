@@ -2,12 +2,12 @@
 title: "Getting Started with the PyTorch Chainguard Image"
 type: "article"
 linktitle: "PyTorch"
-aliases: 
+aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-pytorch-cuda12
 - /chainguard/chainguard-images/getting-started/getting-started-pytorch
 description: "Tutorial on the PyTorch Chainguard Image"
-date: 2024-04-25:08:00+02:00
-lastmod: 2024-04-25:08:00+00:00
+date: 2024-04-25T08:00:00+02:00
+lastmod: 2024-04-25T08:00:00+00:00
 tags: ["Chainguard Images", "Products"]
 draft: false
 images: []
@@ -34,7 +34,7 @@ This guide is designed for use in an environment with access to one or more NVID
 
 Our first step is to check whether our PyTorch-CUDA environment has access to connected GPUs.
 
-If you don't already have Docker Engine installed, follow the [instructions for installing Docker Engine on your host machine](https://docs.docker.com/engine/install/). 
+If you don't already have Docker Engine installed, follow the [instructions for installing Docker Engine on your host machine](https://docs.docker.com/engine/install/).
 
 Run the below command to pull the image, run it with GPU access, and start a Python interpreter inside the running container.
 
@@ -146,19 +146,19 @@ In the below steps, the prompt of your host machine will be denoted as `(host) $
 5. Run the model-training script:
 
     ```bash
-    (container) $ python image_classification.py 
+    (container) $ python image_classification.py
     Downloading: "https://download.pytorch.org/models/resnet18-f37072fd.pth" to /root/.cache/torch/hub/checkpoints/resnet18-f37072fd.pth
     100.0%
     🐙 Epoch 0/24
     🐳 train Loss: 0.9276 Acc: 0.5583
     🐧 val Loss: 0.2275 Acc: 0.9500
-    
+
     [...]
-    
+
     🐙 Epoch 24/24
     🐳 train Loss: 0.1940 Acc: 0.9167
     🐧 val Loss: 0.0248 Acc: 1.0000
-    
+
     Training complete in 1m 39s
     Best val Acc: 1.000000
     ```
@@ -212,7 +212,7 @@ Feel free to try the above inference on other images of octopuses, whales, and p
 
 In this section, we'll review the script provided in the above steps, highlighting some common options and approaches and a few ways the script might be adapted to other use cases. Deep learning is a complex and emerging field, so this section can only provide a high-level overview and a few recommendations for moving forward.
 
-To fine-tune a model for image classification as we did here, you can replace the provided training and validation data with your own. The script examines the number of folders in the training set to determine the targeted number of classes. The folder names are used as class labels. We used 40 training and 20 validation images for each class, but a ratio of 5:1 training to validation may also produce good results. 
+To fine-tune a model for image classification as we did here, you can replace the provided training and validation data with your own. The script examines the number of folders in the training set to determine the targeted number of classes. The folder names are used as class labels. We used 40 training and 20 validation images for each class, but a ratio of 5:1 training to validation may also produce good results.
 
 By fine-tuning a pretrained model, we took advantage of transfer learning, meaning that the pretrained model (resnet18) was already trained on inputs with relevance to our classification task. Because we used transfer learning, the relatively small amount of input data was still sufficient for good accuracy in our fine-tuned model. If you're working with a large amount of input data, you might consider using a larger pretrained model, such as resnet34. In addition, if training using significantly more data or training using limited computation relative to the task, you may consider the more efficient convolutional neural network as fixed feature extractor approach, which trains only one attached layer rather than updates the original model.
 

@@ -5,7 +5,7 @@ description: "An overview of the structure, contents, and applications of contai
 lead: "An overview of the structure, contents, and applications of container technology"
 type: "article"
 date: 2023-10-17T20:02:23+00:00
-lastmod: 22023-10-31T15:12:31+00:00
+lastmod: 2023-10-31T15:12:31+00:00
 contributors: ["Michelle McAveety"]
 draft: false
 tags: ["Conceptual", "Overview"]
