@@ -1,0 +1,28 @@
+#!/usr/bin/env php
+<?php
+
+if (php_sapi_name() !== 'cli') {
+    exit;
+}
+
+require __DIR__ . '/vendor/autoload.php';
+
+use Minicli\App;
+use Minicli\Exception\CommandNotFoundException;
+
+$app = new App();
+
+try {
+    $app->runCommand($argv);
+} catch (CommandNotFoundException $notFoundException) {
+    $app->error("Command Not Found.");
+    return 1;
+} catch (Exception $exception) {
+    if ($app->config->debug) {
+        $app->error("An error occurred:");
+        $app->error($exception->getMessage());
+    }
+    return 1;
+}
+
+return 0;
