@@ -5,7 +5,7 @@ namespace App;
 use App\Command\CatalogItem;
 use Minicli\App;
 use Minicli\ServiceInterface;
-use Parsed\Content;
+use Minicli\FileNotFoundException;
 use Parsed\ContentParser;
 
 class CatalogService implements ServiceInterface
@@ -25,6 +25,8 @@ class CatalogService implements ServiceInterface
 
     /** @var CatalogItem[] */
     protected array $updated = [];
+
+    protected array $topContent = [];
 
     public static int $DEPRECATION_CAP = 7;
 
@@ -114,5 +116,62 @@ class CatalogService implements ServiceInterface
         }
 
         return null;
+    }
+
+    /**
+     * @throws FileNotFoundException
+     */
+    public function ingestAnalytics(string $inputCsv, int $skipRows = 8): void
+    {
+        if (!is_file($inputCsv)) {
+            throw new FileNotFoundException('File not found: ' . $inputCsv);
+        }
+
+        $count = 0;
+
+        /**
+         * data[0]: Route
+         * data[1]: Views
+         * data[2]: Active Users
+         * data[3]: Views per Active User
+         * data[4]: Event count
+         * data[5]: Bounce Rate
+         */
+
+        if (($handle = fopen($inputCsv, "r")) !== FALSE) {
+            while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                $count++;
+                if  ($count <= $skipRows) {
+                    continue;
+                }
+
+                if ($data[0] === null) {
+                    continue;
+                }
+
+                $item = $this->findByRoute($data[0]);
+                if ($item and $item->lastmod instanceof \DateTimeInterface) {
+                    $this->topContent[] = ['item' => $item, 'views' => $data[1], 'active_users' => $data[2], 'views_per_user' => $data[3], 'event_count' => $data[4], 'bounce_rate' => $data[5]];
+                }
+            }
+            fclose($handle);
+        }
+
+    }
+
+    public function getTopContent(?int $olderThanMonths = null): array
+    {
+        if (!$olderThanMonths) {
+            return $this->topContent;
+        }
+
+        $topContent = [];
+        foreach ($this->topContent as $content) {
+            $now = new \DateTimeImmutable();
+            if ($now->diff($content['item']->lastmod)->m > $olderThanMonths) {
+                $topContent[] = $content;
+            }
+        }
+        return $topContent;
     }
 }

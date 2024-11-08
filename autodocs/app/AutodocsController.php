@@ -24,12 +24,41 @@ abstract class AutodocsController extends CommandController
         foreach ($items as $item) {
             $lastmod = $item->lastmod ? $item->lastmod->format('F jS, Y') : 'N/A';
             if ($item->content->frontMatterHas('title')) {
-                //$table->addRow([$this->unquote($item->content->frontMatterGet('title')), $lastmod_string]);
                 $table->addRow([$this->unquote($item->routes[0]), $lastmod]);
             }
         }
 
         return $table;
+    }
+
+    public function getCsv(array $items): string
+    {
+        $csv = "Title,Last Updated\n";
+
+        /** @var CatalogItem $item */
+        foreach ($items as $item) {
+            $lastmod = $item->lastmod ? $item->lastmod->format('Y-m-d') : 'N/A';
+            if ($item->content->frontMatterHas('title')) {
+                $csv .= $this->unquote($item->routes[0]) . ',' . $lastmod . "\n";
+            }
+        }
+
+        return $csv;
+    }
+
+    public function getTopContentCsv(array $items): string
+    {
+        $csv = "Title, Views, Last Updated\n";
+
+        foreach ($items as $content) {
+            $item = $content['item'];
+            $lastmod = $item->lastmod ? $item->lastmod->format('Y-m-d') : 'N/A';
+            if ($item->content->frontMatterHas('title')) {
+                $csv .= $this->unquote($item->routes[0]) . ',' . $content['views'] . ',' . $lastmod . "\n";
+            }
+        }
+
+        return $csv;
     }
 
     public function buildCatalog(bool $verbose = false): void
