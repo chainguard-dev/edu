@@ -3,7 +3,7 @@ title: "Overview of Migrating to Chainguard Images"
 linktitle: "Migration Overview"
 type: "article"
 description: "This overview serves as a collection of information and resources on migrating to Chainguard Images."
-date: 2024-07-220T12:56:52-00:00
+date: 2024-07-22T12:56:52-00:00
 lastmod: 2024-08-08T14:44:52-00:00
 draft: false
 tags: ["Images", "Product", "Procedural"]
