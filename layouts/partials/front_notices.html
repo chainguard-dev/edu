@@ -1,0 +1,5 @@
+{{ range site.Data.front_notices }}
+<div class="alert alert-{{ .type | lower }}">
+  {{ .note | markdownify }}
+  </div>
+{{ end }}

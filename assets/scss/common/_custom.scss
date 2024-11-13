@@ -1222,3 +1222,11 @@ h4, .h4 {
 blockquote p a {
     color: var(--blockquote-link-color) !important;
 }
+
+.alert-primary a  {
+    color: var(--secondary-1) !important;
+}
+
+.alert-secondary a  {
+    color: var(--secondary-1) !important;
+}

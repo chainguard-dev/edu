@@ -1,0 +1,15 @@
+# This file is used to create temporary notices on pages on an as needed basis.
+# For example when something is going to be deprecated, but has not been yet.
+# To use it, add a YAML object matching the following structure:
+#
+# - title: "This must match the page title"
+#   note: |
+#     A line, or multi-line message with details.
+#
+#     The note can be plain text, or use Markdown.
+#   type: One of NOTICE, WARNING, or DEPRECATED
+#
+# The 'type' field will render the div with the selfsame class applied.
+
+- type: primary
+  note:   Ready to secure your Python deployment? Join our <a href="https://events.chainguard.dev/f237831f-f984-45d1-938b-aa4c1faff90a?utm_source=cg-academy-frontpage"> Learning Lab on the Chainguard Image for Python on November 19th </a>
