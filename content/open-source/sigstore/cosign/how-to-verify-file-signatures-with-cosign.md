@@ -25,11 +25,11 @@ All `apko` releases are released with [keyless signatures using Cosign](/open-so
 
 If you would like to learn how to verify a binary using Rekor or `curl`, follow the steps in our guide [How to Verify File Signatures with Rekor or curl](/open-source/sigstore/rekor/how-to-verify-file-signatures-with-rekor-or-curl/).
 
-We'll use the `apko_0.6.0_linux_arm64.tar.gz` tar archive from the `apko` [GitHub Release v0.6.0 page](https://github.com/chainguard-dev/apko/releases/tag/v0.6.0) in this example.
+We'll use the `apko_0.19.9_linux_arm64.tar.gz` tar archive from the `apko` [GitHub Release v0.19.9 page](https://github.com/chainguard-dev/apko/releases/tag/v0.19.9) in this example.
 
 There are three URLs from the list of assets on that page that you will need to copy:
 
-1. The release itself: `https://github.com/chainguard-dev/apko/releases/download/v0.6.0/apko_0.6.0_linux_amd64.tar.gz`
+1. The release itself: [apko_0.19.9_linux_arm64.tar.gz](https://github.com/chainguard-dev/apko/releases/download/v0.19.9/apko_0.19.9_linux_arm64.tar.g)
 2. The signature file: `https://github.com/chainguard-dev/apko/releases/download/v0.6.0/apko_0.6.0_linux_amd64.tar.gz.sig`
 3. The public certificate: `https://github.com/chainguard-dev/apko/releases/download/v0.6.0/apko_0.6.0_linux_amd64.tar.gz.crt`
 
@@ -50,7 +50,7 @@ Running the command may take a moment, but when it completes you will receive th
 Verified OK
 ```
 
-If any of the URLs are incorrect, of if there was a problem with the `apko` release file, a mismatching signature or certificate identity, or if the release file was not signed, you will receive an error like the following:
+If any of the URLs are incorrect, if there was a problem with the `apko` release file, if the signature or certificate identity don't match, or if the release file was not signed, you will receive an error like the following:
 
 ```
 Error: verifying blob https://github.com/chainguard-dev/apko/releases/download/v0.6.0/apko_0.6.0_linux_amd64.tar.gz: invalid signature when validating ASN.1 encoded signature
