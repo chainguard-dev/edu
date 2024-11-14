@@ -1,5 +1,5 @@
 ---
-date: 2024-06-04T22:20:27Z
+date: 2024-11-13T00:36:09Z
 title: "chainctl iam identities create"
 slug: chainctl_iam_identities_create
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create/
@@ -14,7 +14,7 @@ toc: true
 Create a new identity.
 
 ```
-chainctl iam identities create NAME {--filename FILE | {--identity-issuer=ISS | --identity-issuer-pattern=PAT} {--subject=SUB | --subject-pattern=PAT} [--audience=AUD | --audience-pattern=PAT] [--claim-pattern=claim:pattern,claim:pattern...] | --identity-issuer=ISS --issuer-keys=KEYS --subject=SUB [--expiration=yyyy-mm-dd]} [--parent=PARENT] [--description=DESC] [--role=ROLE,ROLE,...] [--output id|table|json]
+chainctl iam identities create NAME {--filename FILE | {--identity-issuer=ISS | --identity-issuer-pattern=PAT} {--subject=SUB | --subject-pattern=PAT} [--audience=AUD | --audience-pattern=PAT] [--claim-pattern=claim:pattern,claim:pattern...] | --identity-issuer=ISS --issuer-keys=KEYS --subject=SUB [--expiration=yyyy-mm-dd]} [--parent=PARENT] [--description=DESC] [--role=ROLE,ROLE,...] [--output=id|json|table]
 ```
 
 ### Examples
@@ -58,12 +58,14 @@ chainctl iam identities create NAME {--filename FILE | {--identity-issuer=ISS | 
 ### Options inherited from parent commands
 
 ```
-      --api string       The url of the Chainguard platform API. (default "https://console-api.enforce.dev")
-      --config string    A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
-      --console string   The url of the Chainguard platform Console. (default "https://console.enforce.dev")
-      --issuer string    The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
-  -o, --output string    Output format. One of: ["", "json", "id", "table", "terse", "tree", "wide"]
-  -v, --v int            Set the log verbosity level.
+      --api string         The url of the Chainguard platform API. (default "https://console-api.enforce.dev")
+      --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
+      --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
+      --force-color        Force color output even when stdout is not a TTY.
+      --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
+      --log-level string   Set the log level (debug, info) (default "ERROR")
+  -o, --output string      Output format. One of: ["", "json", "id", "table", "terse", "tree", "wide"]
+  -v, --v int              Set the log verbosity level.
 ```
 
 ### SEE ALSO
