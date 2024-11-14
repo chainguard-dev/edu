@@ -7,7 +7,7 @@ aliases:
 description: "Tutorial on the Cilium Chainguard Images"
 date: 2023-12-14T00:00:00+00:00
 lastmod: 2023-12-14T00:00:00+00:00 
-tags: ["Chainguard Images", "Products"]
+tags: ["CHAINGUARD IMAGES", "PRODUCTS"]
 draft: false
 images: []
 menu:
@@ -35,6 +35,8 @@ We will demonstrate how to get started with the Chainguard Cilium images on an e
 {{< details "Chainguard Images" >}}
 {{< blurb/images >}}
 {{< /details >}}
+
+> **Note**: In November 2024, after this article was first written, Chainguard [made changes to its free tier of Developer Imgages](https://www.chainguard.dev/unchained/changes-to-chainguard-images-developer-tier). In order to access the Cilium images used in this guide, you will need to be part of an organization that has access to these images. For a full list of Developer Images that will remain in Chainguard's free tier, please refer to [this support page](https://support.chainguard.dev/hc/en-us/articles/28452542784667-Customer-Notice-Free-Image-Tier-Changes).
 
 ## Start up a K3s cluster
 
@@ -90,12 +92,15 @@ With that, you're ready to install Cilium.
 We will use the Cilium CLI to install Cilium. In order to use Chainguard Images, we will need to set the following values:
 
 ```sh
-export AGENT_IMAGE=cgr.dev/chainguard/cilium-agent:latest
-export HUBBLE_RELAY_IMAGE=cgr.dev/chainguard/cilium-hubble-relay:latest
-export HUBBLE_UI_IMAGE=cgr.dev/chainguard/cilium-hubble-ui:latest
-export HUBBLE_UI_BACKEND_IMAGE=cgr.dev/chainguard/cilium-hubble-ui-backend:latest
-export OPERATOR_IMAGE=cgr.dev/chainguard/cilium-operator-generic:latest
+export ORGANIZATION=<your-Chainguard-organization>
+export AGENT_IMAGE=cgr.dev/$ORGANIZATION/cilium-agent:latest
+export HUBBLE_RELAY_IMAGE=cgr.dev/$ORGANIZATION/cilium-hubble-relay:latest
+export HUBBLE_UI_IMAGE=cgr.dev/$ORGANIZATION/cilium-hubble-ui:latest
+export HUBBLE_UI_BACKEND_IMAGE=cgr.dev/$ORGANIZATION/cilium-hubble-ui-backend:latest
+export OPERATOR_IMAGE=cgr.dev/$ORGANIZATION/cilium-operator-generic:latest
 ```
+
+> **Note**: If you don't remember the name of your Chainguard organization, you can find it by running `chainctl iam organizations list -o table`.
 
 After that, you can install Cilium using the following command:
 

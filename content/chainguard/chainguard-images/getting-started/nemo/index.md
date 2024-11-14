@@ -7,7 +7,7 @@ aliases:
 description: "Get started with the NeMo Chainguard Image for generative deep learning"
 date: 2024-05-16T08:00:00+02:00
 lastmod: 2024-05-16T08:00:00+02:00
-tags: ["Chainguard Images", "Products"]
+tags: ["CHAINGUARD IMAGES", "PRODUCTS"]
 draft: false
 images: []
 menu:
@@ -26,6 +26,8 @@ toc: true
 In this getting started guide, we will use the NeMo Chainguard Image to generate speech from plain text using models provided by NeMo's text-to-speech (TTS) and natural language processing (NLP) collections. In doing so, we'll compare the security and footprint of the NeMo Chainguard Image to the official runtime image and consider further approaches and resources for applying the NeMo Chainguard Image to additional tasks in conversational AI.
 
 This guide is primarily designed for use in an environment with access to one or more NVIDIA GPUs. However, NeMo is built on [PyTorch Lightning](https://lightning.ai/docs/pytorch/stable/), which supports a wide variety of [accelerators](https://pytorch-lightning.readthedocs.io/en/1.1.8/accelerators.html), or interfaces to categories of processing units (CPU, GPU, TPU) or high-level clustering mechanisms such as [Distributed Data Parallel](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html). Some consideration will be given to alternative computing environments such as CPU in this tutorial.
+
+> **Note**: In November 2024, after this article was first written, Chainguard [made changes to its free tier of Developer Imgages](https://www.chainguard.dev/unchained/changes-to-chainguard-images-developer-tier). In order to access the NeMo image used in this guide, you will need to be part of an organization that has access to it. For a full list of Developer Images that will remain in Chainguard's free tier, please refer to [this support page](https://support.chainguard.dev/hc/en-us/articles/28452542784667-Customer-Notice-Free-Image-Tier-Changes).
 
 ## Prerequisites
 
@@ -51,8 +53,10 @@ docker run -it --rm \
   --shm-size=8g \
   --ulimit memlock=-1 \
   --ulimit stack=67108864 \
-  cgr.dev/chainguard/nemo:latest
+  cgr.dev/$ORGANIZATION/nemo:latest
 ```
+
+> **Note**: Be aware that you will need to change `$ORGANIZATION` to reflect the name of your organization's repository within the Chainguard Registry.
 
 These options allow access to all available GPUs, allocate a custom amount of shared memory (8 GB) to the container, and set an upper bound on container memory use.
 
@@ -123,7 +127,7 @@ docker run -it --rm \
   --ulimit memlock=-1 \
  --ulimit stack=67108864 \
   -v $PWD:/home/nonroot/nemo-test \
-  cgr.dev/chainguard/nemo:latest \
+  cgr.dev/$ORGANIZATION/nemo:latest \
  "/home/nonroot/nemo-test/tts.py"
 ```
 Note that we ran the above script as root. This allows us to share the script and output `.wav` file between the host and container. Remember not to run your image as root in a production environment.

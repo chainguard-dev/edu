@@ -7,7 +7,7 @@ aliases:
 description: "Tutorial on how to get started with the Istio Chainguard Images"
 date: 2023-12-14T00:00:00+00:00
 lastmod: 2023-12-14T11:07:52+02:00
-tags: ["Chainguard Images", "Products"]
+tags: ["CHAINGUARD IMAGES", "PRODUCTS"]
 draft: false
 images: []
 menu:
@@ -33,6 +33,7 @@ installed. If you are missing any, you can follow the relevant link to get start
 * [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 * [istioctl](https://istio.io/latest/docs/setup/getting-started/#download)
 
+> **Note**: In November 2024, after this article was first written, Chainguard [made changes to its free tier of Developer Imgages](https://www.chainguard.dev/unchained/changes-to-chainguard-images-developer-tier). In order to access the Istio images used in this guide, you will need to be part of an organization that has access to these images. For a full list of Developer Images that will remain in Chainguard's free tier, please refer to [this support page](https://support.chainguard.dev/hc/en-us/articles/28452542784667-Customer-Notice-Free-Image-Tier-Changes).
 
 {{< details "What is Wolfi" >}}
 {{< blurb/wolfi >}}
@@ -74,7 +75,10 @@ Following that, you can install the Istio Chainguard Image with `istioctl`.
 
 We will be using the `istioctl` command to install Istio. In order to use the
 Chainguard Images, we will need to set these following values:
-- `hub = cgr.dev/chainguard`
+- `hub = cgr.dev/$ORGANIZATION`
+
+> **Note**: Be aware that you will need to change `cgr.dev/$ORGANIZATION` to reflect the name of your organization's repository within the Chainguard Registry.
+
 - `tag = latest`
 - `values.pilot.image = istio-pilot`
 - `values.global.proxy.image = istio-proxy`
@@ -83,7 +87,7 @@ Chainguard Images, we will need to set these following values:
 We can set these values with the following `istioctl` command:
 
 ```sh
-istioctl install --set tag=latest --set hub=cgr.dev/chainguard \
+istioctl install --set tag=latest --set hub=cgr.dev/$ORGANIZATION \
   --set values.pilot.image=istio-pilot \
   --set values.global.proxy.image=istio-proxy \
   --set values.global.proxy_init.image=istio-proxy

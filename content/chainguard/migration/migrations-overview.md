@@ -6,7 +6,7 @@ description: "This overview serves as a collection of information and resources 
 date: 2024-07-22T12:56:52-00:00
 lastmod: 2024-08-08T14:44:52-00:00
 draft: false
-tags: ["Images", "Product", "Procedural"]
+tags: ["IMAGES", "PRODUCT", "OVERVIEW"]
 images: []
 menu:
   docs:
@@ -92,7 +92,7 @@ In these cases you have a choice — you can update your scripts to work in ash,
 For example:
 
 ```bash
-docker run -it cgr.dev/chainguard/chainguard-base
+docker run -it cgr.dev/$ORGANIZATION/chainguard-base
 
 423450e3fd52:/# echo {1..5}
 {1..5}
@@ -112,7 +112,7 @@ OK: 20 MiB in 17 packages
 423450e3fd52:/#
 ```
 
-Note that this example uses the `chainguard-base` image, which is only available as a paid Production Image.
+Note that this example uses the `chainguard-base` image, which is only available as a paid Production Image. To follow along with this example, you would need to be part of an organization that has access to this image and replace `$ORGANIZATION` in the `docker pull` command with the name of your organization's private Chainguard registry.
 
 #### Use `apk search`
 
@@ -121,7 +121,7 @@ Following on from the last point, you'll often need to install extra utilities t
 For example, say we are porting a Dockerfile that uses the `groupadd` command. We could convert this to the BusyBox `addgroup` equivalent, but it's also perfectly fine to add the `groupadd` utility. The only issue is that there's no `groupadd` package, so we have to search for it:
 
 ```bash
-docker run -it cgr.dev/chainguard/chainguard-base
+docker run -it cgr.dev/$ORGANIZATION/chainguard-base
 
 ae154854dc6d:/# groupadd
 /bin/sh: groupadd: not found
