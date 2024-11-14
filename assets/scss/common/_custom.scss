@@ -1223,10 +1223,18 @@ blockquote p a {
     color: var(--blockquote-link-color) !important;
 }
 
-.alert-primary a  {
-    color: var(--secondary-1) !important;
+.note,.cta {
+    padding: 1em;
+    background:  var(--note-cta-background);
+    color: var(--note-cta) !important;
+    a {
+    color: var(--note-cta-link) !important;
+    }
 }
 
-.alert-secondary a  {
-    color: var(--secondary-1) !important;
-}
+.section-cta {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-top: 1em;
+    margin-bottom: -3em;
+;}
