@@ -21,7 +21,7 @@ toc: true
 No. Chainguard built [melange](https://github.com/chainguard-dev/melange) as part of its open source tooling used for the [Wolfi](/open-source/wolfi) operating system. While you can check out the [project on GitHub](https://github.com/chainguard-dev/melange) and learn more, it’s not a prerequisite for using or working with [Chainguard Images](/chainguard/chainguard-images).
 
 ## How are melange packages defined?
-melange apks are defined declaratively using a YAML file. This design feature allows for reproducible builds: run melange twice and you'll get exactly the same binary.
+melange apks are defined declaratively using a YAML file.
 
 ## Is melange compatible with Alpine?
 Yes, melange is built to be compatible with apk-based systems including Alpine.
