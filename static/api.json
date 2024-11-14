@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Chainguard OpenAPI Specification (Alpha)",
+    "title": "Enforce OpenAPI Specification (Alpha)",
     "version": "alpha"
   },
   "paths": {
@@ -141,6 +141,86 @@
         "summary": "ListAPKs lists all APKs that match the filter.",
         "tags": [
           "APK"
+        ]
+      }
+    },
+    "/apko/v1/build/{repoUidp}": {
+      "post": {
+        "operationId": "Apko_BuildImage",
+        "parameters": [
+          {
+            "description": "Repo UIDP to push to.",
+            "in": "path",
+            "name": "repoUidp",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ApkoBuildImageBody"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryBuildImageResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Apko"
+        ]
+      }
+    },
+    "/apko/v1/resolve/{repoUidp}": {
+      "post": {
+        "operationId": "Apko_ResolveConfig",
+        "parameters": [
+          {
+            "description": "The repository context in which to perform the resolution.\nThis is relevant for how we authenticate for APK access.",
+            "in": "path",
+            "name": "repoUidp",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ApkoResolveConfigBody"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryApkoConfig"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Apko"
         ]
       }
     },
@@ -1655,6 +1735,66 @@
         ]
       }
     },
+    "/registry/v1/buildreports": {
+      "get": {
+        "operationId": "Registry_ListBuildReports",
+        "parameters": [
+          {
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "in": "query",
+            "name": "uidp.inRoot",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "use to choose reports started after this time.\ndefaults to 1 day ago.",
+            "format": "date-time",
+            "in": "query",
+            "name": "startedSince",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryBuildReportList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      }
+    },
     "/registry/v1/repos": {
       "get": {
         "operationId": "Registry_ListRepos",
@@ -2211,6 +2351,13 @@
             "name": "id",
             "required": false,
             "type": "string"
+          },
+          {
+            "description": "only return tags with this digest.",
+            "in": "query",
+            "name": "digest",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2487,6 +2634,60 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/registryVulnReportList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Vulnerabilities"
+        ]
+      }
+    },
+    "/registry/v1/vuln_reports/counts": {
+      "get": {
+        "operationId": "Vulnerabilities_ListVulnCountReports",
+        "parameters": [
+          {
+            "description": "repo is the name of the repo to retrieve vulnerability summaries for",
+            "in": "query",
+            "name": "repo",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "tag is the version of the image to retrieve vulnerability summaries for.",
+            "in": "query",
+            "name": "tag",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "from defines the beginning of the date range of vulnerability summaries, inclusive.",
+            "format": "date-time",
+            "in": "query",
+            "name": "from",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "end defines the end of the date range of vulnerability summaries, inclusive.",
+            "format": "date-time",
+            "in": "query",
+            "name": "to",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryVulnCountReportList"
             }
           },
           "default": {
@@ -2910,6 +3111,167 @@
       ],
       "type": "string"
     },
+    "AccountsGroup": {
+      "properties": {
+        "gid": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "groupName": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "AccountsUser": {
+      "properties": {
+        "gid": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "groupName": {
+          "type": "string"
+        },
+        "uid": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "userName": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ApkoBuildImageBody": {
+      "properties": {
+        "config": {
+          "$ref": "#/definitions/registryApkoConfig",
+          "description": "Config to build. It must be resolved before it can be built."
+        },
+        "mediaType": {
+          "description": "The media type of the layer to build.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ApkoConfigAccounts": {
+      "properties": {
+        "groups": {
+          "items": {
+            "$ref": "#/definitions/AccountsGroup",
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "runAs": {
+          "type": "string"
+        },
+        "users": {
+          "items": {
+            "$ref": "#/definitions/AccountsUser",
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ApkoConfigContents": {
+      "properties": {
+        "buildRepositories": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "keyring": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "packages": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "repositories": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ApkoConfigEntrypoint": {
+      "properties": {
+        "command": {
+          "type": "string"
+        },
+        "services": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "shellFragment": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ApkoConfigPathMutation": {
+      "properties": {
+        "gid": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "path": {
+          "type": "string"
+        },
+        "permissions": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "recursive": {
+          "type": "boolean"
+        },
+        "source": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "uid": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "ApkoResolveConfigBody": {
+      "properties": {
+        "config": {
+          "$ref": "#/definitions/registryApkoConfig"
+        }
+      },
+      "type": "object"
+    },
+    "BuildReportResult": {
+      "default": "Unknown",
+      "enum": [
+        "Unknown",
+        "Success",
+        "Failure"
+      ],
+      "type": "string"
+    },
     "ComponentGraphEdge": {
       "properties": {
         "predicateId": {
@@ -3276,6 +3638,13 @@
     },
     "RegistryUpdateRepoBody": {
       "properties": {
+        "aliases": {
+          "description": "aliases is a list of equivalent images.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
         "bundles": {
           "description": "bundles is a list of tags/labels that allow us to group repositories to each other for sales purposes.",
           "items": {
@@ -3286,6 +3655,10 @@
         "catalogTier": {
           "$ref": "#/definitions/registryCatalogTier",
           "description": "catalog_tier is the catalog tier this repository belongs to."
+        },
+        "customOverlay": {
+          "$ref": "#/definitions/registryCustomOverlay",
+          "description": "(optional) custom apko image configuration that gets applied to images in this repo."
         },
         "name": {
           "description": "name is the human-readable name of the repository.",
@@ -3502,7 +3875,8 @@
         "LOW",
         "MEDIUM",
         "HIGH",
-        "CRITICAL"
+        "CRITICAL",
+        "NEGLIGIBLE"
       ],
       "type": "string"
     },
@@ -4586,12 +4960,163 @@
       },
       "type": "object"
     },
+    "registryApkoConfig": {
+      "properties": {
+        "accounts": {
+          "$ref": "#/definitions/ApkoConfigAccounts"
+        },
+        "annotations": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "archs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "cmd": {
+          "type": "string"
+        },
+        "contents": {
+          "$ref": "#/definitions/ApkoConfigContents"
+        },
+        "entrypoint": {
+          "$ref": "#/definitions/ApkoConfigEntrypoint"
+        },
+        "environment": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "include": {
+          "type": "string"
+        },
+        "paths": {
+          "items": {
+            "$ref": "#/definitions/ApkoConfigPathMutation",
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "stopSignal": {
+          "type": "string"
+        },
+        "vcsUrl": {
+          "type": "string"
+        },
+        "volumes": {
+          "description": "These are unused, and only provided for compatibility with\nImageConfiguration.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "workDir": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "registryArchs": {
       "properties": {
         "archs": {
           "description": "Architectures belonging to the requested digest's manifests.",
           "items": {
             "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "registryBuildImageResponse": {
+      "properties": {
+        "buildDateEpoch": {
+          "description": "The \"build date epoch\" of the produced image.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "buildReportId": {
+          "description": "The ID of the Build Report.",
+          "type": "string"
+        },
+        "digest": {
+          "description": "Digest of the built image.",
+          "type": "string"
+        },
+        "userError": {
+          "description": "The user error message, if any.\nThis is to distinguish between an error in the build process\nand an error in the user's configuration (like accessing a\nnon-existent package).",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "registryBuildReport": {
+      "description": "BuildReport is a record of a build, including the configuration used, the result, and the log.\n\nThese are created by the build system, the clients should not create/update these themselves,\nbut can read them to see the build information as well as build results.",
+      "properties": {
+        "apkoVersion": {
+          "description": "The version of the APKO used to build the image.",
+          "type": "string"
+        },
+        "completedAt": {
+          "description": "The end time of the build. Must be after the started_at time.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "config": {
+          "description": "The configuration used to build the image, in APKO build config JSON.",
+          "type": "string"
+        },
+        "digest": {
+          "description": "The digest of the image built, in case of success.",
+          "type": "string"
+        },
+        "id": {
+          "description": "id, identifier of this BuildReport, a UIDP under a Repo.",
+          "type": "string"
+        },
+        "lockedConfig": {
+          "description": "The version-locked configuration used to build the image, in APKO build config JSON.",
+          "type": "string"
+        },
+        "log": {
+          "description": "The build log. For the moment, this is the build log's content.\nThis could later change to an URI if the build log gets large enough.",
+          "type": "string"
+        },
+        "mediaType": {
+          "description": "The media type of the layer being built.",
+          "type": "string"
+        },
+        "result": {
+          "$ref": "#/definitions/BuildReportResult",
+          "description": "The result of the build."
+        },
+        "startedAt": {
+          "description": "The start time of the build. It is set by the server automatically,\nanything written by the client will be ignored.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "warnings": {
+          "description": "The warnings generated during the build.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "registryBuildReportList": {
+      "description": "BuildReportList is a list of BuildReports.",
+      "properties": {
+        "reports": {
+          "items": {
+            "$ref": "#/definitions/registryBuildReport",
+            "type": "object"
           },
           "type": "array"
         }
@@ -4611,6 +5136,15 @@
         "AI"
       ],
       "type": "string"
+    },
+    "registryCustomOverlay": {
+      "properties": {
+        "contents": {
+          "$ref": "#/definitions/registryImageContents",
+          "description": "Mirrors apko configuration for image contents."
+        }
+      },
+      "type": "object"
     },
     "registryImageConfig": {
       "properties": {
@@ -4666,6 +5200,18 @@
         "workingDir": {
           "description": "WorkingDir sets the current working directory of the entrypoint process in the container.",
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "registryImageContents": {
+      "properties": {
+        "packages": {
+          "description": "Packages to append to the image config.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         }
       },
       "type": "object"
@@ -4764,6 +5310,11 @@
           "title": "list of versions which are now eol",
           "type": "array"
         },
+        "gracePeriodMonths": {
+          "format": "int32",
+          "title": "the grace period to extend the EOL of the package",
+          "type": "integer"
+        },
         "lastUpdatedTimestamp": {
           "title": "the last time this data was updated",
           "type": "string"
@@ -4847,6 +5398,13 @@
     },
     "registryRepo": {
       "properties": {
+        "aliases": {
+          "description": "aliases is a list of equivalent images.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
         "bundles": {
           "description": "bundles is a list of tags/labels that allow us to group repositories to each other for sales purposes.",
           "items": {
@@ -4857,6 +5415,10 @@
         "catalogTier": {
           "$ref": "#/definitions/registryCatalogTier",
           "description": "catalog_tier is the catalog tier this repository belongs to."
+        },
+        "customOverlay": {
+          "$ref": "#/definitions/registryCustomOverlay",
+          "description": "(optional) custom apko image configuration that gets applied to images in this repo."
         },
         "id": {
           "description": "id is the identifier of this specific repository.",
@@ -4940,6 +5502,10 @@
           "description": "GCP Artifact Registry repo to sync to.",
           "type": "string"
         },
+        "gracePeriod": {
+          "description": "Controls whether the image grace period functionality is enabled or not.",
+          "type": "boolean"
+        },
         "source": {
           "description": "Repo ID to sync from.",
           "type": "string"
@@ -5017,6 +5583,58 @@
         "items": {
           "items": {
             "$ref": "#/definitions/registryTag",
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "registryVulnCount": {
+      "properties": {
+        "count": {
+          "description": "count is the number of CVEs at this severity detected.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "severity": {
+          "$ref": "#/definitions/VulnerabilitySeverity",
+          "title": "severity is the CVE severity being enumerated"
+        }
+      },
+      "type": "object"
+    },
+    "registryVulnCountReport": {
+      "properties": {
+        "date": {
+          "description": "date is when the image was scanned.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "repo": {
+          "description": "repo is the name of the image scanned.",
+          "type": "string"
+        },
+        "tag": {
+          "description": "tag is the version of the image scanned.",
+          "type": "string"
+        },
+        "vulnCounts": {
+          "description": "vuln_counts enumerate the number of each CVE per severity found.",
+          "items": {
+            "$ref": "#/definitions/registryVulnCount",
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "registryVulnCountReportList": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/registryVulnCountReport",
             "type": "object"
           },
           "type": "array"
@@ -5526,6 +6144,9 @@
     },
     {
       "name": "PingService"
+    },
+    {
+      "name": "Apko"
     },
     {
       "name": "Registry"
