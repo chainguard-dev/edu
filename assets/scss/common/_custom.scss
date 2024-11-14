@@ -1222,3 +1222,19 @@ h4, .h4 {
 blockquote p a {
     color: var(--blockquote-link-color) !important;
 }
+
+.note,.cta {
+    padding: 1em;
+    background:  var(--note-cta-background);
+    color: var(--note-cta) !important;
+    a {
+    color: var(--note-cta-link) !important;
+    }
+}
+
+.section-cta {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-top: 1em;
+    margin-bottom: -3em;
+;}

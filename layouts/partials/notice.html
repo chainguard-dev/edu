@@ -1,8 +1,18 @@
+{{ $page := .Page }}
+
 {{ range $i := $.Site.Data.notices }}
 {{ if eq $i.title $.Params.Title }}
 <div id="note" class="{{ $i.type | lower }}">
   <h2>{{ $i.type }}</h2>
   {{ $i.note | markdownify}}
 </div>
+{{ else if eq $i.title "home" }}
+{{ if $page.IsHome }}
+<section class="section section-cta">
+  <div class="note {{ .type | lower }}">
+    {{ .note | markdownify }}
+  </div>
+</section>
+{{ end }}
 {{ end }}
 {{ end }}
