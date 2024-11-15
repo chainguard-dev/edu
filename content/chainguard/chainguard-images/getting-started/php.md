@@ -6,7 +6,7 @@ aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-php
 description: "Tutorial on how to get started with the PHP Chainguard Image"
 date: 2023-01-09T11:07:52+02:00
-lastmod: 2024-01-24T11:07:52+02:00
+lastmod: 2024-11-15T11:07:52+02:00
 tags: ["Chainguard Images", "Products"]
 draft: false
 images: []
