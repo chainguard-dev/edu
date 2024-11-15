@@ -23,6 +23,8 @@ toc: true
 * [Grype](https://github.com/anchore/grype)
 * [Wolfi Secuirty Advisories](https://github.com/wolfi-dev/advisories)
 
+{{< blurb/free-tier-message >}}
+
 ## Transcript
 
 I sometimes get asked how Chainguard manages to create images with zero CVEs.
