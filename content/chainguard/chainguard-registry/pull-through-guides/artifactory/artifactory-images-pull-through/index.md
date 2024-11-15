@@ -1,9 +1,10 @@
 ---
 title: "How to Set Up Pull Through from Chainguard Registry to Artifactory"
-linktitle: "Artifactory"
+linktitle: "Images"
 aliases: 
 - /chainguard/chainguard-registry/artifactory-pull-through/
 - /chainguard/chainguard-registry/pull-through-guides/artifactory-pull-through/
+- /chainguard/chainguard-registry/pull-through-guides/artifactory/artifactory-images-pull-through/
 type: "article"
 description: "Tutorial outlining how to set up a remote Artifactory repository to pull Images through from the Chainguard Registry."
 date: 2024-02-13T15:56:52-07:00
@@ -15,7 +16,7 @@ menu:
   docs:
     parent: "pull-through-guides"
 toc: true
-weight: 010
+weight: 005
 ---
 
 Organizations can use Chainguard Images along with third-party software repositories in order to integrate with current workflows as the single source of truth for software artifacts. In this situation, you can set up a remote repository to function as a mirror of a [Chainguard Registry](/chainguard/chainguard-registry/overview/) — either the public registry or a private one belonging to your organization. This mirror can then serve as a pull through cache for your Chainguard Images.
