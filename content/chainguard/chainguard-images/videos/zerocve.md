@@ -23,11 +23,7 @@ toc: true
 * [Grype](https://github.com/anchore/grype)
 * [Wolfi Secuirty Advisories](https://github.com/wolfi-dev/advisories)
 
-### A note regarding free tier images
-
-In November 2024, after this video was created, Chainguard [made changes to its free tier of Developer Imgages](https://www.chainguard.dev/unchained/changes-to-chainguard-images-developer-tier). In order to access the Flux image referenced in this video you will need to be part of an organization that has access to it.
-
-For a full list of Developer Images that will remain in Chainguard's free tier, please refer to [this support page](https://support.chainguard.dev/hc/en-us/articles/28452542784667-Customer-Notice-Free-Image-Tier-Changes).
+{{< blurb/free-tier-message >}}
 
 ## Transcript
 

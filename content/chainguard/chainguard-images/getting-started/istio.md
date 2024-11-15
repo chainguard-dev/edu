@@ -33,7 +33,7 @@ installed. If you are missing any, you can follow the relevant link to get start
 * [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 * [istioctl](https://istio.io/latest/docs/setup/getting-started/#download)
 
-> **Note**: In November 2024, after this article was first written, Chainguard [made changes to its free tier of Developer Imgages](https://www.chainguard.dev/unchained/changes-to-chainguard-images-developer-tier). In order to access the Istio images used in this guide, you will need to be part of an organization that has access to these images. For a full list of Developer Images that will remain in Chainguard's free tier, please refer to [this support page](https://support.chainguard.dev/hc/en-us/articles/28452542784667-Customer-Notice-Free-Image-Tier-Changes).
+{{< blurb/free-tier-message >}}
 
 {{< details "What is Wolfi" >}}
 {{< blurb/wolfi >}}

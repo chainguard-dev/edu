@@ -112,7 +112,9 @@ OK: 20 MiB in 17 packages
 423450e3fd52:/#
 ```
 
-Note that this example uses the `chainguard-base` image, which is only available as a paid Production Image. To follow along with this example, you would need to be part of an organization that has access to this image and replace `$ORGANIZATION` in the `docker pull` command with the name of your organization's private Chainguard registry.
+Note that this example uses the `chainguard-base` image, which is only available as a paid Production Image. To follow along with this example, you would need to be part of an organization that has access to this image. 
+
+If you do have access to the `chainguard-base` image, replace `$ORGANIZATION` in the `docker run` command with your organization's name. If you don't, but would like access, you can [reach out to our sales team](https://www.chainguard.dev/contact?utm_source=docs).
 
 #### Use `apk search`
 

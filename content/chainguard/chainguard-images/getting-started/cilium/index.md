@@ -28,6 +28,8 @@ We will demonstrate how to get started with the Chainguard Cilium images on an e
 * [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 * [cilium CLI](https://docs.cilium.io/en/stable/gettingstarted/k8s-install-default/#install-the-cilium-cli)
 
+{{< blurb/free-tier-message >}}
+
 {{< details "What is Wolfi" >}}
 {{< blurb/wolfi >}}
 {{< /details >}}
@@ -35,8 +37,6 @@ We will demonstrate how to get started with the Chainguard Cilium images on an e
 {{< details "Chainguard Images" >}}
 {{< blurb/images >}}
 {{< /details >}}
-
-> **Note**: In November 2024, after this article was first written, Chainguard [made changes to its free tier of Developer Imgages](https://www.chainguard.dev/unchained/changes-to-chainguard-images-developer-tier). In order to access the Cilium images used in this guide, you will need to be part of an organization that has access to these images. For a full list of Developer Images that will remain in Chainguard's free tier, please refer to [this support page](https://support.chainguard.dev/hc/en-us/articles/28452542784667-Customer-Notice-Free-Image-Tier-Changes).
 
 ## Start up a K3s cluster
 
