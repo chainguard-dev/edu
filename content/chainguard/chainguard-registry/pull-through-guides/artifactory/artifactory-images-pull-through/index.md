@@ -19,6 +19,8 @@ toc: true
 weight: 005
 ---
 
+Organizations can use Chainguard Images along with third-party software repositories in order to integrate with current workflows as the single source of truth for software artifacts. In this situation, you can set up a remote repository to function as a mirror of a [Chainguard Registry](https://edu.chainguard.dev/chainguard/chainguard-registry/overview/) — either the public registry or a private one belonging to your organization. This mirror can then serve as a pull through cache for your Chainguard Images.
+
 This tutorial outlines how to set up remote repositories with [JFrog Artifactory](https://jfrog.com/artifactory/). Specifically, it will walk you through how to set up one repository you can use as a pull through cache for Chainguard's public Developer Images and another you can use with Production Images originating from a private Chainguard repository. It will also outline how you can use one of Artifactory's virtual repositories as a pull through cache.
 
 
