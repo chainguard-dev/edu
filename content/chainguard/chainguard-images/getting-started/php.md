@@ -76,7 +76,7 @@ Next, make sure permissions are set correctly on the generated files.
 On Linux systems run the following:
 
 ```shell
-sudo chown -R ${USER}.${USER} .
+sudo chown -R ${USER}:${USER} .
 ```
 
 On macOS systems, run this:
@@ -128,11 +128,6 @@ In the next step, you'll build the application in a multi-stage Dockerfile.
 
 We'll now build a distroless image for the application. To be able to install dependencies with Composer, our build will consist of **two** stages. First, we'll build the application using the `dev` image variant, a Wolfi-based image that includes Composer and other useful tools for development. Then, we'll create a separate stage for the final image. The resulting image will be based on the distroless PHP Wolfi image, which means it doesn't come with Composer or even a shell.
 
-Open the `Dockerfile` included within the root of the application folder. You can use your code editor of choice, for example `nano`:
-
-```shell
-nano Dockerfile
-```
 For reference, here is the content of the included `Dockerfile`:
 
 ```Dockerfile
@@ -229,10 +224,10 @@ The `latest-fpm` image variant is suitable for running PHP applications over Fas
 
 The `namegen-api` demo is a variation of the previous demo, but it serves the random name generation over HTTP. The application responds with a JSON payload containing the animal and adjective combination, and accepts an optional `animal` parameter to specify the animal for the final suggested name.
 
-Start by accessing the `namegen-api` demo folder:
+Start by accessing the `namegen-api` demo folder. This should be at the same level as the previous `namegen` demo in the `edu-images-demos` repository. If your terminal is still open on the previous demo, you can navigate to the `namegen-api` folder with:
 
 ```shell
-cd edu-images-demos/php/namegen-api
+cd ../namegen-api
 ```
 
 The `index.php` file contains the following code:
