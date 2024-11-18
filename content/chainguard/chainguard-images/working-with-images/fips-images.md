@@ -1,11 +1,11 @@
 ---
-title: "Chainguard's Kernel Independent FIPS-Enabled Images"
+title: "Chainguard's FIPS Images"
 linktitle: "FIPS Images"
 aliases: 
 - /chainguard/chainguard-images/fips-images
 - /chainguard/chainguard-images/images-features/fips-images
 type: "article"
-description: "A conceptual overview of Chainguard's Kernel Independent FIPS-Enabled Images."
+description: "A conceptual overview of Chainguard's FIPS Images."
 date: 2024-02-08T15:56:52-07:00
 lastmod: 2024-02-08T15:56:52-07:00
 draft: false
@@ -20,7 +20,7 @@ toc: true
 
 ## What is FIPS? 
 
-One of the primary requirements of federal compliance frameworks — including [FedRAMP](https://www.fedramp.gov/program-basics/) — is to use FIPS-validated cryptography. To help customers meet these requirements, Chainguard offers FIPS-enabled versions of many images. This article provides a high-level overview of what FIPS is, what to expect from Chainguard’s FIPS-enabled Images, and how Chainguard's Kernel-Independent FIPS images stand out from alternatives.
+One of the primary requirements of federal compliance frameworks — including [FedRAMP](https://www.fedramp.gov/program-basics/) — is to use FIPS-validated cryptography. To help customers meet these requirements, Chainguard offers FIPS-enabled versions of many images. This article provides a high-level overview of what FIPS is, what to expect from Chainguard’s FIPS Images, and how Chainguard's Kernel-Independent FIPS images stand out from alternatives.
 
 [Federal Information Processing Standards](https://www.nist.gov/itl/publications-0/federal-information-processing-standards-fips) (FIPS) are publicly announced standards developed by the National Institute of Standards and Technology (NIST) in accordance with the Federal Information Security Management Act (FISMA) and approved by the Secretary of Commerce. FIPS compliance ensures that cryptographic security services within applications meet strict security and integrity standards, and are implemented and configured correctly.
 
@@ -38,13 +38,17 @@ The Chainguard FIPS images contain FIPS-validated software cryptographic modules
 
 These modules may be updated occasionally; for further information, contact <fips-contact@chainguard.dev>.
 
-## Chainguard's Kernel Independent FIPS Images
+## Chainguard's Kernel-Independent FIPS Images
 
 Cryptographic protection relies on the secure implementation of a trusted algorithm and a random bit generator that cannot be reasonably predicted at any greater accuracy than random chance. Traditionally, to achieve this compliance requirement, developers were required to provision dedicated hardware and VMs with the host kernel configured in FIPS mode. This is because container historically accessed the entropy source provided by a certified kernel. In cloud native or shared environments, this requirement significantly increased operational complexity by forcing a dependence on a limited set of FIPS-enabled kernels. 
 
 Chainguard FIPS Images remove this friction with a novel design that replaces a kernel entropy source with a userspace one. This implementation enables developers to deploy FIPS workloads using any of the latest kernels, hardware, and instance types. Chainguard FIPS Images thus unlock the ability to run FIPS workloads on developer machines, existing CI/CD deployments, and even on readily available non-FIPS managed cloud offerings. All this can be done using the latest userspace runtimes like NodeJS, Python, Go, PHP, .NET, and C/C++, among others. Under Chainguard’s novel design, the container image for a given FIPS application can be entirely self-contained, minimal, and distroless.
 
-## Available FIPS Images
+Note: There are some workloads that require a kernel SP 800-90B entropy source or a kernel FIPS module. These include but are not limited to Chainguard FIPS images shipping Java, k8s CNI plugins, LUKS2 full-disk encryption, and StrongSwan VPN. These use cases will continue to require a kernel in FIPS mode.
+
+Read our full blog about Chainguard's Kernel-Independent FIPS Images at: [https://www.chainguard.dev/unchained/kernel-independent-fips-images].
+
+## Developer Guidance for Available FIPS Images
 
 Additional guidance is available for specific images, like these:
 
