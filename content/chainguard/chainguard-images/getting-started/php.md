@@ -126,14 +126,14 @@ In the next step, you'll build the application in a multi-stage Dockerfile.
 
 ## 2. Building a Distroless Image for the Application
 
-We'll now build a distroless image for the application. To be able to install dependencies with Composer, our build will consist of **two** stages: first, we'll build the application using the `dev` image variant, a Wolfi-based image that includes Composer and other useful tools for development. Then, we'll create a separate stage for the final image. The resulting image will be based on the distroless PHP Wolfi image, which means it doesn't come with Composer or even a shell.
+We'll now build a distroless image for the application. To be able to install dependencies with Composer, our build will consist of **two** stages. First, we'll build the application using the `dev` image variant, a Wolfi-based image that includes Composer and other useful tools for development. Then, we'll create a separate stage for the final image. The resulting image will be based on the distroless PHP Wolfi image, which means it doesn't come with Composer or even a shell.
 
 Open the `Dockerfile` included within the root of the application folder. You can use your code editor of choice, for example `nano`:
 
 ```shell
 nano Dockerfile
 ```
-For convenience, here is the content of the included `Dockerfile`:
+For reference, here is the content of the included `Dockerfile`:
 
 ```Dockerfile
 FROM cgr.dev/chainguard/php:latest-dev AS builder
@@ -225,7 +225,7 @@ It's worth highlighting that nothing is carried from one stage to the other unle
 
 ## 3. Working with the PHP-FPM Image Variant
 
-The `latest-fpm` image variant is suitable for running PHP applications over FastCGI, to be server via a web server such as Nginx. In this section, we'll run a Docker Compose setup using the `latest-fpm` image variant and the Chainguard Nginx image.
+The `latest-fpm` image variant is suitable for running PHP applications over FastCGI, to be served by a web server such as Nginx. In this section, we'll run a Docker Compose setup using the `latest-fpm` image variant and the Chainguard Nginx image.
 
 The `namegen-api` demo is a variation of the previous demo, but it serves the random name generation over HTTP. The application responds with a JSON payload containing the animal and adjective combination, and accepts an optional `animal` parameter to specify the animal for the final suggested name.
 
