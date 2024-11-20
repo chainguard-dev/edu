@@ -98,8 +98,7 @@ Run the following command, which will use the official Composer image to generat
 docker run --rm -it -v "${PWD}":/app composer require minicli/minicli
 ```
 
-Once you receive confirmation that the download was completed, we'll need a second dependency to query the advice slip API. Run the following command to include minicli/curly, a simple curl wrapper for Minicli:
-
+Once you receive confirmation that the download was completed, you'll need a second dependency to query the Advice Slip API. Run the following command to include `minicli/curly`, a `curl` wrapper for Minicli:
 ```shell
 docker run --rm -it -v "${PWD}":/app composer require minicli/curly
 ```
