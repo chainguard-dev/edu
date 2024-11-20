@@ -20,7 +20,8 @@
 
     If you rely on any binaries or libraries that are included in this image beyond the core JRE runtime, consider switching to the [JDK Image](https://images.chainguard.dev/directory/image/jdk/overview).
 
-- title: "home"
-  type: cta
-  note: |
-    Ready to secure your Python deployment? Join our <a href="https://events.chainguard.dev/f237831f-f984-45d1-938b-aa4c1faff90a?utm_source=cg-academy-frontpage"> Learning Lab on the Chainguard Image for Python on November 19th </a>!
+# Uncomment and edit to add a call to action to the front page of Academy
+# - title: "home"
+#   type: cta
+#   note: |
+#     Ready to secure your Python deployment? Join our <a href="https://events.chainguard.dev/f237831f-f984-45d1-938b-aa4c1faff90a?utm_source=cg-academy-frontpage"> Learning Lab on the Chainguard Image for Python on November 19th </a>!
