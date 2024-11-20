@@ -66,7 +66,7 @@ curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | t
 Move `chainctl` into your `/usr/local/bin` directory and elevate its permissions so that it can execute as needed.
 
 ```sh
-sudo install -o $UID -g $(id -g) -m 0755 chainctl /usr/local/bin/
+sudo install -o $UID -g $(id -g) -m 0755 chainctl /usr/local/bin/ 
 ```
 
 At this point, you'll be able to use the `chainctl` command.
