@@ -1,7 +1,6 @@
 [
   {"image":"bash","left":"bash:latest","right":"cgr.dev/chainguard/bash:latest"},
   {"image":"busybox","left":"busybox:latest","right":"cgr.dev/chainguard/busybox:latest"},
-  {"image":"cassandra","left":"cassandra:latest","right":"cgr.dev/chainguard/cassandra:latest"},
   {"image":"curl","left":"curlimages/curl:latest","right":"cgr.dev/chainguard/curl:latest"},
   {"image":"deno","left":"deno:latest","right":"cgr.dev/chainguard/deno:latest"},
   {"image":"dotnet-runtime","left":"mcr.microsoft.com/dotnet/runtime:latest","right":"cgr.dev/chainguard/dotnet-runtime:latest"},
@@ -14,7 +13,6 @@
   {"image":"haproxy","left":"haproxy:latest","right":"cgr.dev/chainguard/haproxy:latest"},
   {"image":"jenkins","left":"jenkins/jenkins:lts","right":"cgr.dev/chainguard/jenkins:latest"},
   {"image":"kube-state-metrics","left":"bitnami/kube-state-metrics:latest","right":"cgr.dev/chainguard/kube-state-metrics:latest"},
-  {"image":"influxdb","left":"influxdb:latest","right":"cgr.dev/chainguard/influxdb:latest"},
   {"image":"mariadb","left":"mariadb:latest","right":"cgr.dev/chainguard/mariadb:latest"},
   {"image":"maven","left":"maven:latest","right":"cgr.dev/chainguard/maven:latest"},
   {"image":"memcached","left":"memcached:latest","right":"cgr.dev/chainguard/memcached:latest"},
