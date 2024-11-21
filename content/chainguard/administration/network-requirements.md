@@ -5,7 +5,7 @@ lead: "Using Chainguard Images with firewalls, access control lists, and proxies
 type: "article"
 description: "Using Chainguard Images with firewalls, access control lists, and proxies"
 date: 2023-09-08T08:49:31+00:00
-lastmod: 2024-05-14T15:22:20+01:00
+lastmod: 2024-11-20T15:22:20+01:00
 draft: false
 tags: ["Chainguard Images", "Product", "Reference"]
 images: []
@@ -29,6 +29,7 @@ This table lists the DNS hostnames, associated ports, and protocols that will ne
 | enforce.dev             | 443  | HTTPS    | Registry authentication                         |
 | dl.enforce.dev          | 443  | HTTPS    | `chainctl` downloads                            |
 | issuer.enforce.dev      | 443  | HTTPS    | Registry STS (Security Token Service)           |
+| apk.cgr.dev             | 443  | HTTPS    | Package repository                              |
 | packages.wolfi.dev      | 443  | HTTPS    | Package repository (Developer Images)           |
 
 ## Chainguard Images Third-party Hosts
