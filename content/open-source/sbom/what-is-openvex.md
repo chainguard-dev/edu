@@ -19,7 +19,7 @@ toc: true
 
 [OpenVEX](https://github.com/openvex) is an open source specification, library, and suite of tools designed to enable software users to eliminate vulnerability noise and focus their security efforts on vulnerabilities that pose an immediate risk. [Released by Chainguard in January 2023](https://www.chainguard.dev/unchained/accelerate-vex-adoption-through-openvex), it’s the first set of open source tools to support the VEX specification championed by the [United States National Telecommunications and Information Administration (NTIA)](https://ntia.gov/) and the [Cybersecurity and Infrastructure Security Agency (CISA)](https://www.cisa.gov/). 
 
-With OpenVEX, stakeholders from across the software supply chain can collaborate on identifying and remediating exploitable vulnerabilities and use automation to enable more precise and efficient methods of security management. In this guide you will learn more about the emerging supply chain security standards that OpenVEX supports, as well as how OpenVEX tooling can help you leverage them in your security management processes. 
+With OpenVEX, stakeholders from across the software supply chain can collaborate on identifying and remediating exploitable vulnerabilities and use automation to enable more precise and efficient methods of security management. In this guide, you will learn more about the emerging supply chain security standards that OpenVEX supports, as well as how OpenVEX tooling can help you leverage them in your security management processes. 
 
 
 ## SBOMs and VEX
@@ -34,8 +34,7 @@ Though the SBOM's improvement of visibility can greatly improve an organization'
 
 This increase in false positives can hinder an SBOM's security utility as organizations are tasked with investigating the broadened list of vulnerabilities to see which ones pose genuine threats to their codebase. In cases like this, organizations may once again struggle to efficiently identify and respond to vulnerabilities before it is too late.  
 
-To address this problem, SBOM working groups came up with the idea of the Vulnerability Exploitability eXchange (VEX), a system designed to help users eliminate vulnerability “noise” and focus on vulnerabilities that present a genuine risk to their organization. VEX is a mechanism that enables software suppliers and third party stakeholders (such as security researchers) to publish machine-readable security advisories on the status of Common Vulnerabilities and Exposures (CVEs).
-
+Though the SBOM's improvement of visibility can greatly improve an organization's security posture, it can also be accompanied by an overproduction of false positives. In this context, [false positives](/chainguard/chainguard-images/recommended-practices/false-results/) are vulnerabilities that are associated with an organization's codebase but have been determined to not be exploitable in specific circumstances. 
 When publishing a VEX document for a known software vulnerability, the author assigns the product a status drawn from the following list: 
 
 * NOT AFFECTED — No remediation is required regarding this vulnerability. 
