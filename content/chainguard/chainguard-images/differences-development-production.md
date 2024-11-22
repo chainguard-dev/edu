@@ -3,8 +3,8 @@ title: "Differences Between Development and Production Images"
 linktitle: " Dev vs. Production Images"
 type: "article"
 description: "Learn about the differences between development and production Chainguard Images"
-date: 2024-11-01T07:52+02:00
-lastmod: 2024-11-01T07:52+02:00
+date: 2024-11-01T07:52:00+02:00
+lastmod: 2024-11-01T07:52:00+02:00
 draft: false
 tags: ["Chainguard Images", "Product", ]
 images: []
@@ -40,7 +40,7 @@ Though we encourage the use of production images in your final deployment, devel
 - **Building**: In many Dockerfile builds, you will need to generate software artifacts such as static binaries or virtual environments as part of the build process. Development images are ideal for this use case, and after generation artifacts can be copied to a production image for use. See [How to Port a Sample Application to Chainguard Images](/chainguard/migration/porting-apps-to-chainguard/) for a detailed example.
 <<<<<<< Updated upstream
 - **Debugging**: Our development images contain a number of useful utilities, but are otherwise designed to be as close as possible to the production variant. This makes them useful for debugging, since you can test out build steps or the build environment using interactive shells and package managers. See [Debugging Distroless Images](/chainguard/chainguard-images/debugging-distroless-images/) for more on this use case.
-- **Training**: In the case of AI images, you can use a development variant to train a model, then run the model in inference using a production image.  
+- **Training**: In the case of AI images, you can use a development variant to train a model, then run the model in inference using a production image.
 =======
 - **Debuging**: Our development images contain a number of useful utilities, but are otherwise designed to be as close as possible to the production variant. This makes them useful for debugging, since you can test out build steps or the build environment using interactive shells and package managers. See [Debugging Distroless Images](/chainguard/chainguard-images/debugging-distroless-images/) for more on this use case.
 - **Training**: In the case of AI images, you can use a development variant to train a model, then run the model in inference using a production image.
