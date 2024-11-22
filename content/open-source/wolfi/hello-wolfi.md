@@ -3,7 +3,7 @@ title: "Hello Wolfi Workshop Kit"
 type: "article"
 description: "Community workshop kit about Wolfi for beginners"
 date: 2022-12-19T08:49:31+00:00
-lastmod: 2022-12-19T08:49:31+00:00
+lastmod: 2024-11-22T08:49:31+00:00
 draft: false
 tags: ["Wolfi", "Workshop Kit"]
 images: []
@@ -23,6 +23,10 @@ The following materials are included:
 - A [YouTube Video](https://www.youtube.com/watch?v=2pqhLXA6NaI) with the original talk presented at the [Wolfi 101 Webinar](https://www.crowdcast.io/c/wolfi-101);
 - A [GitHub repository](https://github.com/chainguard-dev/hello-wolfi-demo) containing all files necessary to build and execute a demo showcasing Wolfi, melange, and apko;
 - This guide, which includes instructions on how to execute the demo.
+
+{{< note >}}
+This presentation was recorded on November 16, 2022. The demo files and instructions have been updated to reflect the latest versions of the tools used in the workshop. Although the demo is fully functional, the packages and images generated during the workshop are for demonstration purposes only and should not be used in production environments. If you're looking for a low CVE PHP image based on Wolfi, check our [Images Directory](https://images.chainguard.dev/directory/image/php/overview).
+{{< /note >}}
 
 {{< youtube 2pqhLXA6NaI >}}
 
@@ -80,18 +84,16 @@ docker run --rm -v "${PWD}":/work cgr.dev/chainguard/melange keygen
 Next, build the PHP package with melange. On a Linux machine, follow the next command:
 
 ```shell
-docker run --privileged --rm -v "${PWD}":/work -- \
-  cgr.dev/chainguard/melange build melange-php.yaml \
-  --arch x86_64 \
-  --signing-key melange.rsa --keyring-append melange.rsa.pub
+docker run --privileged --rm -v ${PWD}:/work cgr.dev/chainguard/melange \
+  build melange-php.yaml --signing-key melange.rsa \
+  --arch aarch64 --keyring-append melange.rsa.pub
 ```
 On a macOS machine, use the following command.
 
 ```shell
-docker run --privileged --rm -v "${PWD}":/work -- \
-  cgr.dev/chainguard/melange build melange-php.yaml \
-  --arch aarch64 \
-  --signing-key melange.rsa --keyring-append melange.rsa.pub
+docker run --privileged --rm -v "${PWD}":/work cgr.dev/chainguard/melange \
+  build melange-php.yaml --signing-key melange.rsa \
+  --keyring-append melange.rsa.pub
 ```
 
 _If you run into issues while running melange commands, check the [melange troubleshooting guide](/open-source/melange/troubleshooting/)._
@@ -101,18 +103,16 @@ _If you run into issues while running melange commands, check the [melange troub
 You can now build the Composer package with the following command on Linux operating systems:
 
 ```shell
-docker run --privileged --rm -v "${PWD}":/work -- \
-  cgr.dev/chainguard/melange build melange-composer.yaml \
-  --arch x86_64 \
-  --signing-key melange.rsa --keyring-append melange.rsa.pub
+docker run --privileged --rm -v ${PWD}:/work cgr.dev/chainguard/melange \
+  build melange-composer.yaml --signing-key melange.rsa \
+  --keyring-append melange.rsa.pub
 ```
 On macOS, you can build the Composer package with the following command:
 
 ```shell
-docker run --privileged --rm -v "${PWD}":/work -- \
-  cgr.dev/chainguard/melange build melange-composer.yaml \
-  --arch aarch64 \
-  --signing-key melange.rsa --keyring-append melange.rsa.pub
+docker run --privileged --rm -v "${PWD}":/work cgr.dev/chainguard/melange \
+  build melange-composer.yaml --signing-key melange.rsa \
+  --arch aarch64 --keyring-append melange.rsa.pub
 ```
 
 ### 5. Build the app package
@@ -121,19 +121,17 @@ With both the PHP and Composer dependencies in place, you can now build the appl
 On Linux systems, use the following command:
 
 ```shell
-docker run --privileged --rm -v "${PWD}":/work -- \
-  cgr.dev/chainguard/melange build melange-app.yaml \
-  --arch x86_64 \
-  --signing-key melange.rsa --keyring-append melange.rsa.pub
+docker run --privileged --rm -v ${PWD}:/work cgr.dev/chainguard/melange \
+  build melange-app.yaml --signing-key melange.rsa \
+  --keyring-append melange.rsa.pub
 ```
 On macOS, you can build the application with:
 
 ```shell
-docker run --privileged --rm -v "${PWD}":/work -- \
- cgr.dev/chainguard/melange build melange-app.yaml \
- --arch aarch64 \
- --signing-key melange.rsa --keyring-append melange.rsa.pub
- ```
+docker run --privileged --rm -v "${PWD}":/work cgr.dev/chainguard/melange \
+  build melange-composer.yaml --signing-key melange.rsa \
+  --arch aarch64 --keyring-append melange.rsa.pub
+```
 
 ### 6. Build the container image
 Now that all dependencies are ready, you can now run `apko build` to build the image that runs the demo app.
