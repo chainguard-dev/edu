@@ -32,7 +32,7 @@ Chainguard FIPS Images available to be delivered in compliance with FIPS specifi
 
 The Chainguard FIPS images contain FIPS-validated software cryptographic modules. Entropy must be provided as specified in its cryptographic policy. The cryptographic module may provide non-approved algorithms, which will result in operating in FIPS non-approved mode. The cryptographic FIPS modules currently provided are:
 
-- OpenSSL FIPS 3.0 Provider Module (CVMP [#4856] (https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4856))
+- OpenSSL FIPS 3.0 Provider Module (CVMP [#4856](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4856))
 - Bouncy Castle FIPS Java API (CMVP [#4743](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4743), CMVP [#4616](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4616))
 - Chainguard CPU Time Jitter RNG Entropy Source (ESV Entropy Certificate [#E191](https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations/certificate/191))
 
