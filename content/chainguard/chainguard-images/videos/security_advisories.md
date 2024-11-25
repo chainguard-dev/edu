@@ -20,7 +20,7 @@ toc: true
 
 ## Tools used in this video
 
-* [Chainguard Security Advisories](https://images.chainguard.dev/security)
+* [Chainguard Security Advisories](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=chainguard/chainguard-images/videos/security_advisories)
 * [chainctl](/chainguard/administration/how-to-install-chainctl/)
 * [Docker](https://docker.com)
 * [Docker Scout](https://docs.docker.com/scout/)

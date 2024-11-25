@@ -18,7 +18,7 @@ weight: 060
 toc: true
 ---
 
-Chainguard offers a minimal, low-CVE image for deep learning with [PyTorch](https://pytorch.org/) that includes support for the [CUDA](https://developer.nvidia.com/about-cuda) parallel computing platform for performing computation on supported GPUs. This introductory guide to Chainguard's [pytorch](https://images.chainguard.dev/directory/image/pytorch/overview) image will walk you through fine-tuning an image classification model, saving the model, and running it securely for inference. We'll also compare the security and footprint of the PyTorch Chainguard Image to the official runtime image distributed by PyTorch and present ways to adapt the resources in this tutorial to your own deep learning projects powered by PyTorch.
+Chainguard offers a minimal, low-CVE image for deep learning with [PyTorch](https://pytorch.org/) that includes support for the [CUDA](https://developer.nvidia.com/about-cuda) parallel computing platform for performing computation on supported GPUs. This introductory guide to Chainguard's [pytorch](https://images.chainguard.dev/directory/image/pytorch/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=chainguard/chainguard-images/getting-started/pytorch) image will walk you through fine-tuning an image classification model, saving the model, and running it securely for inference. We'll also compare the security and footprint of the PyTorch Chainguard Image to the official runtime image distributed by PyTorch and present ways to adapt the resources in this tutorial to your own deep learning projects powered by PyTorch.
 
 {{< details "What is Deep Learning?" >}}
 {{< blurb/deep-learning >}}

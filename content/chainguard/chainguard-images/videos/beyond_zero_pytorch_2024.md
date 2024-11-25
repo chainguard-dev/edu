@@ -27,7 +27,7 @@ Container images are increasingly the future of production applications at scale
 
 ## Resources from this Video
 
-- [PyTorch Chainguard Image](https://images.chainguard.dev/directory/image/pytorch/overview)
+- [PyTorch Chainguard Image](https://images.chainguard.dev/directory/image/pytorch/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=chainguard/chainguard-images/videos/beyond_zero_pytorch_2024)
 - [Course: Securing the AI/ML Supply Chain](https://courses.chainguard.dev/securing-ai) <!--  -->
 - [Learning Lab: Chainguard's AI Images](https://www.chainguard.dev/events/chainguards-ai-images)
 - [Chainguard Academy: Getting Started with the PyTorch Chainguard Image](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/pytorch/)

@@ -70,7 +70,7 @@ if __name__ == "__main__":
     main()
 ```
 
-You'll notice that there's already a Dockerfile in that directory, but it uses the [Python Chainguard image](https://images.chainguard.dev/directory/image/python/overview) in a multi-stage build. In the next step, we'll replace that with a new Dockerfile that uses the [Wolfi-base](https://images.chainguard.dev/directory/image/wolfi-base/overview) image to build a Python image from scratch, using Wolfi apks.
+You'll notice that there's already a Dockerfile in that directory, but it uses the [Python Chainguard image](https://images.chainguard.dev/directory/image/python/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=open-source/wolfi/wolfi-with-dockerfiles) in a multi-stage build. In the next step, we'll replace that with a new Dockerfile that uses the [Wolfi-base](https://images.chainguard.dev/directory/image/wolfi-base/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=open-source/wolfi/wolfi-with-dockerfiles) image to build a Python image from scratch, using Wolfi apks.
 
 ## Step 2: Creating the Dockerfile
 

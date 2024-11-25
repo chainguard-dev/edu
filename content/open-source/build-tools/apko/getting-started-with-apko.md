@@ -28,7 +28,7 @@ In this guide, we'll learn how to use apko to build a base [Wolfi](/open-source/
 
 ## Requirements
 
-The fastest way to get apko up and running on your system is by using the [official apko image](https://images.chainguard.dev/directory/image/apko/overview) with Docker. This method is compatible with all operating systems that support Docker and shared volumes. Please follow the [appropriate Docker installation instructions](https://docs.docker.com/get-docker/) for your operating system.
+The fastest way to get apko up and running on your system is by using the [official apko image](https://images.chainguard.dev/directory/image/apko/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=open-source/build-tools/apko/getting-started-with-apko) with Docker. This method is compatible with all operating systems that support Docker and shared volumes. Please follow the [appropriate Docker installation instructions](https://docs.docker.com/get-docker/) for your operating system.
 
 If you want to run apko on CI/CD pipelines built on top of GitHub Actions, check the [apko build action](https://github.com/chainguard-images/actions/tree/main/apko-build) on GitHub.
 

@@ -22,7 +22,7 @@ The practice of using Security Technical Implementation Guides, or "STIGs," to s
 
 ## Getting Started
 
-The recommended way to get started with Chainguard's STIG for the GPOS SRG is to use the Chainguard [`openscap`](https://images.chainguard.dev/directory/image/openscap/overview) Image. This includes the `openscap` tool itself, the `oscap-docker` libraries, and the Chainguard GPOS STIG profile. This image is built with the same capabilities and low-to-zero CVEs as every other Chainguard Image, and makes the `openscap` tool — which can be difficult to set up — more portable.
+The recommended way to get started with Chainguard's STIG for the GPOS SRG is to use the Chainguard [`openscap`](https://images.chainguard.dev/directory/image/openscap/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=chainguard/chainguard-images/working-with-images/image-stigs) Image. This includes the `openscap` tool itself, the `oscap-docker` libraries, and the Chainguard GPOS STIG profile. This image is built with the same capabilities and low-to-zero CVEs as every other Chainguard Image, and makes the `openscap` tool — which can be difficult to set up — more portable.
 
 The following instructions assume that you have `docker` installed and running on your system, and are intended to be performed on a non-production system, similar to the process outlined in [DISA's Container Hardening Whitepaper](https://dl.dod.cyber.mil/wp-content/uploads/devsecops/pdf/Final_DevSecOps_Enterprise_Container_Hardening_Guide_1.2.pdf).
 

@@ -52,9 +52,9 @@ Read our full blog about Chainguard's Kernel-Independent FIPS Images at: [https:
 
 Additional guidance is available for specific images, like these:
 
-- [go-fips](https://images.chainguard.dev/directory/image/go-fips/overview)
-- [node-fips](https://images.chainguard.dev/directory/image/node-fips/overview)
-- [jdk-fips](https://images.chainguard.dev/directory/image/jdk-fips/overview)
+- [go-fips](https://images.chainguard.dev/directory/image/go-fips/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=chainguard/chainguard-images/working-with-images/fips-images)
+- [node-fips](https://images.chainguard.dev/directory/image/node-fips/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=chainguard/chainguard-images/working-with-images/fips-images)
+- [jdk-fips](https://images.chainguard.dev/directory/image/jdk-fips/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=chainguard/chainguard-images/working-with-images/fips-images)
 
 You can find a full list Chainguard FIPS Images at: [https://images.chainguard.dev/?category=fips](https://images.chainguard.dev/?category=fips).
 
@@ -66,6 +66,6 @@ All of Chainguard's FIPS Images have [STIGs](/chainguard/chainguard-images/worki
 
 ## Learn more
 
-We encourage you to check our list of FIPS Images in the [Chainguard Images Directory](https://images.chainguard.dev/). After navigating to the directory, you can either click the **FIPS** tag in the left-hand sidebar menu to filter out any non-FIPS Images, or use the search function to find every Image with "fips" in its name. Additionally, we encourage you to check out the documentation for [the OpenSSL FIPS module](https://www.openssl.org/docs/manmaster/man7/fips_module.html) and the [Bouncy Castle FIPS Crypto package](https://www.bouncycastle.org/about/bouncy-castle-fips-faq/) to better understand how they work.
+We encourage you to check our list of FIPS Images in the [Chainguard Images Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=chainguard/chainguard-images/working-with-images/fips-images). After navigating to the directory, you can either click the **FIPS** tag in the left-hand sidebar menu to filter out any non-FIPS Images, or use the search function to find every Image with "fips" in its name. Additionally, we encourage you to check out the documentation for [the OpenSSL FIPS module](https://www.openssl.org/docs/manmaster/man7/fips_module.html) and the [Bouncy Castle FIPS Crypto package](https://www.bouncycastle.org/about/bouncy-castle-fips-faq/) to better understand how they work.
 
 Chainguard's FIPS Images are not included in our free tier of Developer Images. If you'd like access to one or more of our FIPS-ready Images, please [contact us](https://www.chainguard.dev/contact?utm_source=docs).
