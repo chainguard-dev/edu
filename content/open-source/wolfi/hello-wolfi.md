@@ -84,16 +84,17 @@ docker run --rm -v "${PWD}":/work cgr.dev/chainguard/melange keygen
 Next, build the PHP package with melange. On a Linux machine, follow the next command:
 
 ```shell
-docker run --privileged --rm -v ${PWD}:/work cgr.dev/chainguard/melange \
-  build melange-php.yaml --signing-key melange.rsa \
-  --arch aarch64 --keyring-append melange.rsa.pub
-```
-On a macOS machine, use the following command.
-
-```shell
 docker run --privileged --rm -v "${PWD}":/work cgr.dev/chainguard/melange \
   build melange-php.yaml --signing-key melange.rsa \
   --keyring-append melange.rsa.pub
+```
+
+On a macOS machine, use the following command.
+
+```shell
+docker run --privileged --rm -v ${PWD}:/work cgr.dev/chainguard/melange \
+  build melange-php.yaml --signing-key melange.rsa \
+  --arch aarch64 --keyring-append melange.rsa.pub
 ```
 
 _If you run into issues while running melange commands, check the [melange troubleshooting guide](/open-source/melange/troubleshooting/)._
