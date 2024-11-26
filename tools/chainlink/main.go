@@ -7,7 +7,9 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"log"
+	"os"
 	"path/filepath"
 	"regexp"
 	"sync"
@@ -28,8 +30,6 @@ func init() {
 	flag.BoolVar(&checkAll, "checkAll", false, "Check all detected URLs, or those belonging to -hostname")
 	flag.BoolVar(&extractMode, "extractOnly", false, "Only extract URLs, don't check them")
 
-	flag.Parse()
-
 	// won't match anything like `../` or `./` or non-leading `/` URLs
 	// unmatched urls will go into the unchecked result accumulator
 	correctURLregex = regexp.MustCompile(`^(http|https|\/).+`)
@@ -43,21 +43,34 @@ func init() {
 }
 
 func main() {
-	// start with a scan of contentDir for files
+	flag.Parse()
+
+	err := processContentDir()
+	if err != nil {
+		log.Fatalf("error processing contentDir: %v", err)
+	}
+}
+
+func processContentDir() error {
+	// if not a dir or some other error, stop right here
+	if _, err := os.Stat(contentDir); err != nil {
+		return fmt.Errorf("invalid contentDir: %v", err)
+	}
+
 	w := filepathWalker{}
 	if err := filepath.WalkDir(contentDir, w.walkDirFunc); err != nil {
-		log.Fatalf("error scanning %s: %v\n", contentDir, err)
+		return fmt.Errorf("error scanning %s: %w", contentDir, err)
 	}
-	log.Printf("discovered %d files in %s directory\n", len(w.paths), contentDir)
+	log.Printf("discovered %d files in %s directory", len(w.paths), contentDir)
 
 	switch fileType {
 	case "md":
 		if err := processMarkdown(&w); err != nil {
-			log.Fatalf("error processing markdown: %v\n", err)
+			return fmt.Errorf("error processing markdown: %w", err)
 		}
 	case "html":
 		if err := processHTML(&w); err != nil {
-			log.Fatalf("error processing html: %v\n", err)
+			return fmt.Errorf("error processing html: %w", err)
 		}
 	}
 
@@ -90,4 +103,5 @@ func main() {
 	if err := r.write(); err != nil {
 		log.Fatalf("error writing results json file: %v\n", err)
 	}
+	return nil
 }
