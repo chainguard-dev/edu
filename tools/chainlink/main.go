@@ -33,6 +33,10 @@ func init() {
 	// won't match anything like `../` or `./` or non-leading `/` URLs
 	// unmatched urls will go into the unchecked result accumulator
 	correctURLregex = regexp.MustCompile(`^(http|https|\/).+`)
+}
+
+func main() {
+	flag.Parse()
 
 	if err := ignores.read(); err != nil {
 		log.Fatalf("error loading ignores json: %v\n", err)
@@ -40,10 +44,6 @@ func init() {
 	if err := ignores.compile(); err != nil {
 		log.Fatalf("error compiling ignores json: %v\n", err)
 	}
-}
-
-func main() {
-	flag.Parse()
 
 	err := processContentDir()
 	if err != nil {
