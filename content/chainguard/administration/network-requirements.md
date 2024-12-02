@@ -30,6 +30,7 @@ This table lists the DNS hostnames, associated ports, and protocols that will ne
 | dl.enforce.dev          | 443  | HTTPS    | `chainctl` downloads                            |
 | issuer.enforce.dev      | 443  | HTTPS    | Registry STS (Security Token Service)           |
 | apk.cgr.dev             | 443  | HTTPS    | Package repository                              |
+| packages.cgr.dev        | 443  | HTTPS    | Package repository (Extra packages)             |
 | packages.wolfi.dev      | 443  | HTTPS    | Package repository (Developer Images)           |
 
 ## Chainguard Images Third-party Hosts
