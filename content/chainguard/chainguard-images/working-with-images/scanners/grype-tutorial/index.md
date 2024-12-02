@@ -287,5 +287,6 @@ The following resources may also be useful while working with Grype:
 
 ### More on Grype
 
+- [Chainguard Deep Dive 🤿: Where Does Grype Data Come From?](https://dev.to/chainguard/deep-dive-where-does-grype-data-come-from-n9e)
 - [Grype on the Anchore blog](https://anchore.com/search/?search=grype) - Blog posts from Anchore related to Grype
 - [Why Chainguard uses Grype](https://www.chainguard.dev/unchained/why-chainguard-uses-grype-as-its-first-line-of-defense-for-cves) - Why Chainguard contributes to and recommends Grype for vulnerability scanning in container images
