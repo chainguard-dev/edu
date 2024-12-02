@@ -40,7 +40,7 @@ We will demonstrate how to get started with the Chainguard Cilium images on an e
 
 ## Start up a K3s cluster
 
-Cilium does not work with the default Container Network Interface (CNI) plugin in K3s, so we'll start up a K3s cluster CNI and disable the network policy.
+Cilium does not work with the default Container Network Interface (CNI) plugin in K3s, so we'll start up a CNI for our K3s cluster and disable the network policy.
 
 To do so, create a YAML manifest named `k3d.yaml` with the following command:
 
@@ -103,7 +103,7 @@ export OPERATOR_IMAGE=cgr.dev/$ORGANIZATION/cilium-operator-generic:latest
 
 > **Note**: If you don't remember the name of your Chainguard organization, you can find it by running `chainctl iam organizations list -o table`.
 
-After that, you install Cilium using the following command:
+After that, install Cilium using the following command:
 
 ```sh
 cilium install \
