@@ -6,7 +6,7 @@ aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-cilium
 description: "Tutorial on the Cilium Chainguard Images"
 date: 2023-12-14T00:00:00+00:00
-lastmod: 2023-12-14T00:00:00+00:00 
+lastmod: 2024-12-2T00:00:00+00:00 
 tags: ["CHAINGUARD IMAGES", "PRODUCTS"]
 draft: false
 images: []
@@ -17,7 +17,7 @@ weight: 005
 toc: true
 ---
 
-Cilium is open source software for transparently securing the network connectivity between application services deployed using Linux container management platforms like Docker and Kubernetes. At the foundation of Cilium is a new Linux kernel technology called eBPF, which enables the dynamic insertion of powerful security visibility and control logic within Linux itself. Because eBPF runs inside the Linux kernel, Cilium security policies can be applied and updated without any changes to the application code or container configuration.
+Cilium is open source software for transparently securing the network connectivity between application services deployed using Linux container management platforms like Docker and Kubernetes. At the foundation of Cilium is a new Linux kernel technology called [eBPF](https://ebpf.io/), which enables the dynamic insertion of powerful security visibility and control logic within Linux itself. Because eBPF runs inside the Linux kernel, Cilium security policies can be applied and updated without any changes to the application code or container configuration.
 
 Chainguard offers a set of minimal, security-hardened Cilium images, built on top the Wolfi OS.
 
@@ -40,7 +40,7 @@ We will demonstrate how to get started with the Chainguard Cilium images on an e
 
 ## Start up a K3s cluster
 
-Cilium does not work with the default Container Network Interface (CNI) plugin in K3s, so we'll start up a K3s cluster CNI and network policy disabled.
+Cilium does not work with the default Container Network Interface (CNI) plugin in K3s, so we'll start up a CNI for our K3s cluster and disable the network policy.
 
 To do so, create a YAML manifest named `k3d.yaml` with the following command:
 
@@ -67,8 +67,9 @@ Then, we'll start up the cluster:
 ```sh
 k3d cluster create --config k3d.yaml
 ```
+If cluster creation fails with errors, check that Docker is running.
 
-Also, Cilium requires some system mounts the nodes. Run the following command to configure the mounts:
+Next, Cilium requires some system mounts for the nodes. Run the following command to configure the mounts:
 
 ```sh
 for node in $(kubectl get nodes -o jsonpath='{.items[*].metadata.name}'); do
@@ -89,7 +90,7 @@ With that, you're ready to install Cilium.
 
 ## Install Cilium using Chainguard Images
 
-We will use the Cilium CLI to install Cilium. In order to use Chainguard Images, we will need to set the following values:
+We will use the Cilium CLI to install Cilium. In order to use Chainguard Images, we must first set the following values:
 
 ```sh
 export ORGANIZATION=<your-Chainguard-organization>
@@ -102,7 +103,7 @@ export OPERATOR_IMAGE=cgr.dev/$ORGANIZATION/cilium-operator-generic:latest
 
 > **Note**: If you don't remember the name of your Chainguard organization, you can find it by running `chainctl iam organizations list -o table`.
 
-After that, you can install Cilium using the following command:
+After that, install Cilium using the following command:
 
 ```sh
 cilium install \
@@ -136,7 +137,7 @@ When all the Pods have have a status of `Running` or `Completed`, press `Ctrl+C`
 Cilium comes with the `connectivity test` command, which is useful for verifying whether the Cilium installation was successful. Run the following command to run the connectivity test:
 
 ```sh
-# We skip one of the test because it needs `jq` util on the agent image, which we don't bundle.
+# We skip one of the tests because it needs `jq` util on the agent image, which we don't bundle.
 cilium connectivity test \
     --external-cidr 8.0.0.0/8 \
     --external-ip 8.8.8.8 \
