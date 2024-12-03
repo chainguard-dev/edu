@@ -64,6 +64,14 @@ All of Chainguard's FIPS Images have [STIGs](/chainguard/chainguard-images/worki
 
 ‍If Customer requests an image not currently available as a Chainguard FIPS Image, Chainguard will use commercially reasonable efforts to determine if such request is feasible. For further information, contact <fips-contact@chainguard.dev>.
 
+### Regarding Java-based FIPS Images
+As mentioned previously, Chainguard provides several FIPS-ready Images that are based on Java. However, this presents some challenges because Java applications generally don't leverage OpenSSL for cryptography and there isn't another cryptographic library serving as a widely-used standard for Java applications. For these reasons, Chainguard's Java-based Images instead ship with the [FIPS variant of the Bouncy Castle Crypto package](https://www.bouncycastle.org/about/bouncy-castle-fips-faq/), a Java implementation of cryptographic algorithms. 
+
+Some Java applications may bundle their own cryptographic libraries at the application level. In these cases, Chainguard can only build a FIPS-enabled Image if the bundled libraries are FIPS-compliant or the applications in question support use with FIPS-compliant variants like Bouncy Castle's. Other Java applications do not bundle cryptographic libraries, instead relying on the bundled cryptography providers from the JRE.
+
+If the underlying JRE/JDK on the host system is FIPS compliant, then theoretically, the application could also be considered FIPS compliant. However, without explicit support or documentation for FIPS compliance, there is no guarantee that the application will consistently use these FIPS-compliant features. You can refer to the [Java Cryptography Architecture documentation](https://docs.oracle.com/en/java/javase/21/security/java-cryptography-architecture-jca-reference-guide.html#GUID-2BCFDD85-D533-4E6C-8CE9-29990DEB0190) for more information.
+The full FIPS compliance of a Java application and its related image depends heavily on the application itself, specifically how it is architected and what it supports.
+
 ## Learn more
 
 We encourage you to check our list of FIPS Images in the [Chainguard Images Directory](https://images.chainguard.dev/). After navigating to the directory, you can either click the **FIPS** tag in the left-hand sidebar menu to filter out any non-FIPS Images, or use the search function to find every Image with "fips" in its name. Additionally, we encourage you to check out the documentation for [the OpenSSL FIPS module](https://www.openssl.org/docs/manmaster/man7/fips_module.html) and the [Bouncy Castle FIPS Crypto package](https://www.bouncycastle.org/about/bouncy-castle-fips-faq/) to better understand how they work.
