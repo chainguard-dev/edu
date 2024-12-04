@@ -19,7 +19,7 @@ The CVE Visualizations feature helps teams measure the engineering, security and
 benefits gained from using Chainguard Images. The primary feature is a comparison of CVE counts in
 Chainguard Images vs equivalent images from other sources.
 
-> **NOTE: This is a beta feature and changes should be expected. In particular, we plan to add more
+> **NOTE**: This is a beta feature and changes should be expected. In particular, we plan to add more
 metrics such as counts of CVEs identified and remediated, MTTR and image size comparisons.
 
 
