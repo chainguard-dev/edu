@@ -1,11 +1,22 @@
 {{ $page := .Page }}
 
-{{ range $i := $.Site.Data.notices }}
-{{ if eq $i.title $.Params.Title }}
-<div id="note" class="{{ $i.type | lower }}">
-  <h2>{{ $i.type }}</h2>
-  {{ $i.note | markdownify}}
-</div>
+{{ $notices := $.Site.Data.notices }}
+
+{{ $previewmessage := "This is a preview of an unreleased feature, and this documentation is subject to change. Please do not reshare this documentation." }}
+
+
+{{if $page.Params.preview }}
+{{ $previewnotice := dict "note" $previewmessage "preview" "true" "type" "cta"}}
+{{ $notices = $notices | append $previewnotice }}
+{{ end }}
+
+{{ range $i := $notices }}
+{{ if or (eq $i.title $.Params.Title) (eq $i.preview "true") }}
+<section style="margin-bottom:-1em" class="section section-cta">
+  <div class="note {{ .type | lower }}">
+    {{ .note | markdownify }}
+  </div>
+</section>
 {{ else if eq $i.title "home" }}
 {{ if $page.IsHome }}
 <section class="section section-cta">
