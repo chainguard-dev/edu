@@ -3,4 +3,4 @@ Allow: /
 {{ range where .Pages "Params.preview" "eq" true }}Disallow: {{ .RelPermalink }}
 {{ end }}
 
-Sitemap: http://localhost:1313/sitemap.xml
+
