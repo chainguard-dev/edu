@@ -3,6 +3,7 @@ title: "Strategies and Tooling for Updating Container Images"
 linktitle: "Update Strategies and Tools"
 aliases: 
 - /chainguard/chainguard-images/recommended-practices/strategies-tools-updating-images
+canonicalUrl: "https://www.chainguard.dev/unchained/stay-secure-strategies-and-tooling-for-updating-container-images"
 type: "article"
 description: "A conceptual article outlining different strategies and tools for keeping images up to date and avoiding the use of end-of-life software."
 date: 2024-12-02T11:07:52+02:00

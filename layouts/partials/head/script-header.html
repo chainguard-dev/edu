@@ -24,3 +24,9 @@
 {{ if hugo.IsProduction }}
   {{ template "_internal/google_analytics.html" . }}
 {{ end }}
+
+{{ if .Params.canonicalUrl }}
+<link rel="canonical" href="{{ .Params.canonicalUrl }}">
+{{ else }}
+<link rel="canonical" href="{{ .RelPermalink }}">
+{{ end }}
