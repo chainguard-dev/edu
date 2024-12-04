@@ -15,9 +15,9 @@ weight: 020
 toc: true
 ---
 
-The CVE Visualizations feature helps teams measure the engineering, security and economic
-benefits gained from using Chainguard Images. The primary feature is a comparison of CVE counts in
-Chainguard Images vs equivalent images from other sources.
+The CVE Visualizations feature in the Chainguard Console helps teams measure the engineering,
+security and economic benefits gained from using Chainguard Images. The primary feature is a
+comparison of CVE counts in Chainguard Images vs equivalent images from other sources.
 
 > **NOTE**: This is a beta feature and changes should be expected. In particular, we plan to add more
 metrics such as counts of CVEs identified and remediated, MTTR and image size comparisons.
@@ -41,10 +41,10 @@ select between them using the drop down.
 The period drop down is used to select a time-period for the report.
 
 Below the controls, you will find several boxes with statistics and graphs:
-  - An overview section showing the current and average CVE counts for the images
-  - The "CVEs by Severity" section holds bar graphs showing the CVE count per day for both
+  - An overview section showing the current and average CVE counts for the images.
+  - A "CVEs by Severity" section holding bar graphs with the CVE count per day for both
     images, broken down by severity. Any grey bars indicate we are missing data for that day.
-  - The "Total CVEs over time" section shows a line graph with the total number of CVEs for any
+  - A "Total CVEs over time" section showing a line graph with the total number of CVEs for any
     given day for each image. This gives a simple visual comparison of the difference in CVE
     count between the images.
 
