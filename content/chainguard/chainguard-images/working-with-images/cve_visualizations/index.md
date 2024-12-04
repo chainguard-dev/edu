@@ -25,7 +25,7 @@ metrics such as counts of CVEs identified and remediated, MTTR and image size co
 
 ## Accessing CVE Visualizations
 
-Visualizations can be found at http://console.chainguard.dev/reports and via the "Reports" section
+Visualizations can be found under the [Reports](https://console.chainguard.dev/reports) section
 on the left-hand navigation bar.
 
 The reports page should look similar to the following:
@@ -58,3 +58,11 @@ images, under the "Comparison" tab.
 We only have data for a limited subset of alternative images. We will expand this set over time, but
 please let us know of any particular comparison data you are looking for.
 
+## Learn More
+
+The CVE data used in these reports is from the [Grype vulnerability
+scanner](https://github.com/anchore/grype). Vulnerability data is constantly evolving, so we scan
+images each day and store the results. The results shown are the vulnerabilities found on the day in
+question; scanning the images again with a newer database will show different results.
+
+For more information on CVEs see [What Are Software Vulnerabilities and CVEs](/software-security/cves/cve-intro/).
