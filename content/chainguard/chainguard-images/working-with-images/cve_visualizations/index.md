@@ -15,13 +15,13 @@ weight: 020
 toc: true
 ---
 
-The CVE Visualizations feature in the Chainguard Console helps teams measure the engineering,
-security and economic benefits gained from using Chainguard Images. The primary feature is a
-comparison of CVE counts in Chainguard Images vs equivalent images from other sources.
+CVE Visualizations provide insight into image health and can help teams measure the engineering,
+security, and economic benefits gained from using Chainguard Images. The feature creates reports
+with CVE comparisons between Chainguard Images and popular alternatives, as well as historical CVE
+remediation metrics.
 
 > **NOTE**: This is a beta feature and changes should be expected. In particular, we plan to add more
-metrics such as counts of CVEs identified and remediated, MTTR and image size comparisons.
-
+metrics in the near future.
 
 ## Accessing CVE Visualizations
 
