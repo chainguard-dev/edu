@@ -6,7 +6,7 @@ aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-go
 description: "Tutorial on the distroless Go Chainguard Image"
 date: 2023-02-28T11:07:52+02:00
-lastmod: 2024-01-24T11:07:52+02:00
+lastmod: 2024-12-06T11:07:52+02:00
 tags: ["Chainguard Images", "Products"]
 draft: false
 images: []
@@ -95,7 +95,7 @@ docker run go-greeter
 ```
 You should get output similar to the following:
 
-```shell
+```
 Hello, Linky 🐙!
 ```
 
@@ -106,17 +106,17 @@ docker run go-greeter -g Greetings "Chainguard user"
 ```
 This will produce the following output:
 
-```shell
+```
 Greetings, Chainguard user!
 ```
-The application will also share usage instructions when prompted with the --help flag or when invalid flags are passed.
+The application will also share usage instructions when prompted with the `--help` flag or when invalid flags are passed.
 
-Because we used the static Chainguard Image as our runtime, the final image only requires a few megabytes on disk:
+Because we used the `static` Chainguard Image as our runtime, the final image only requires a few megabytes on disk:
 
 ```shell
 docker inspect go-greeter | jq -c 'first' | jq .Size | numfmt --to iec --format "%8.4f"
 ```
-```shell
+```
  3.3009M
 ```
 The final size, `3.309M`, is orders of magnitude smaller than it would be running the application using a Go image. However, if your application is dynamically linked to shared objects, consider using the `glibc-dynamic` Chainguard Image for your runtime or take extra steps to build your Go binary statically. In the next example, we'll build a web application and use the `glibc-dynamic` Chainguard Image as runtime.
@@ -160,13 +160,13 @@ docker run -p 8080:8080 greet-server
 
 Visit `http://0.0.0.0:8080/` using a web browser on your host machine. You should get a greeting message:
 
-```shell
+```
 Hello, Linky 🐙!
 ```
 
 Changes to the URI will be routed to the application. Try visiting [http://0.0.0.0:8080/Chainguard%20Customer](http://0.0.0.0:8080/Chainguard%20Customer). You should see the following output:
 
-```shell
+```
 Hello, Chainguard Customer!
 ```
 
@@ -189,7 +189,7 @@ go run main.go
 ```
 You should obtain output similar to this:
 
-```shell
+```
 The latest digest of the go Chainguard Image is sha256:86178b42db2e32763304e37f4cf3c6ec25b7bb83660dcb985ab603e3726a65a6
 ```
 We'll now use ko to build an image that is suitable to run the application defined on `main.go`. By default, ko uses the `cgr.dev/chainguard/static` image as the base image for the build. You can override this by setting the `KO_DEFAULTBASEIMAGE` environment variable to a different base image.
@@ -232,7 +232,7 @@ docker run --rm ko.local/go-digester-edc0ed689c7fb820a565f76425bed013:0914a85d80
 ```
 Here, you'll expect to receive the same output as before that shows the digest of the Go image.
 
-```shell
+```
 The latest digest of the go Chainguard Image is sha256:86178b42db2e32763304e37f4cf3c6ec25b7bb83660dcb985ab603e3726a65a6
 ```
 
@@ -242,7 +242,7 @@ You can also pass in an optional argument to specify which Chainguard Image to p
 docker run --rm ko.local/go-digester-edc0ed689c7fb820a565f76425bed013:0914a85d803988ab10964323c0cd7b4bf89aed2603f6e8e276f798491c731336 mariadb
 ```
 
-```shell
+```
 The latest digest of the mariadb Chainguard Image is sha256:6ba5d792d463b69f93e8d99541384d11b0f9b274e93efdeb91497f8f0aae03d1
 ```
 
