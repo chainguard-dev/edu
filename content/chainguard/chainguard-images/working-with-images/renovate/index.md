@@ -58,7 +58,7 @@ You can now configure `hostRules` in Renovate to support our registry. Depending
 }
 ```
 
-Be aware that you **SHOULD NOT** check this file into source control with the exposed secret. Instead, you can use environment variables which you pass in at runtime:
+Be aware that you **SHOULD NOT** check this file into source control with the exposed secret. Instead, you can use environment variables which you pass in at runtime. For example, if the configuration is within a `.js` file, you can use something like:
 
 ```json
 {
@@ -67,8 +67,8 @@ Be aware that you **SHOULD NOT** check this file into source control with the ex
     {
       "hostType": "docker",
       "matchHost": "cgr.dev",
-      "username:" process.env.CGR_USERNAME,
-      "password:" process.env.CGR_PASSWORD,
+      "username": process.env.CGR_USERNAME,
+      "password": process.env.CGR_PASSWORD
      }]
 }
 ```
@@ -104,7 +104,7 @@ Ideally, image references should also be pinned to a digest, as shown in the fol
 
 ## Updating `:latest` Images
 
-Renovate also supports updating image references that are pinned to digests. This allows you to keep floating tags such as `:latest` in sync with the most up-to-date version. 
+Renovate also supports updating image references that are pinned to digests. This allows you to keep floating tags such as `:latest` in sync with the most up-to-date version.
 
 As an example, for the following Dockerfile Renovate opened two similar pull requests:
 
