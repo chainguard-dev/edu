@@ -6,7 +6,7 @@ description: "How to use security advisories and the diff API to investigate vul
 affecting Chainguard images"
 type: "article"
 date: 2024-01-18T01:21:01+00:00
-lastmod: 2024-01-18T15:21:01+00:00
+lastmod: 2024-12-06T15:16:50+01:00
 draft: false
 images: []
 menu:
@@ -18,17 +18,20 @@ toc: true
 
 {{< youtube ExZxIWmnm1s >}}
 
+## Updated Written Article
+
+You may wish to refer to the up-to-date written article covering the same material as this video:
+
+ [How to Use Chainguard Security Advisories](/chainguard/chainguard-images/security-advisories/)
+
+
+
 ## Tools used in this video
 
 * [Chainguard Security Advisories](https://images.chainguard.dev/security)
 * [chainctl](/chainguard/administration/how-to-install-chainctl/)
 * [Docker](https://docker.com)
 * [Docker Scout](https://docs.docker.com/scout/)
-
-## Related Article
-
-See [How to Use Chainguard Security Advisories](/chainguard/chainguard-images/security-advisories/) for a written article covering similar
-content to this video.
 
 ## Transcript
 
