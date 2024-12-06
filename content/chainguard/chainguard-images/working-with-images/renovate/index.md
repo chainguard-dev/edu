@@ -133,7 +133,7 @@ The following screenshot shows the PR to update the static image:
 
 ### Validate Renovate configuration
 
-If you find Renovate is not working as expected then try running in debug mode and/or dumping the resolved configuration.
+If Renovate isn't working as expected, try running it in debug mode and/or dumping the resolved configuration.
 
 For example:
 ```
