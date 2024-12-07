@@ -34,9 +34,7 @@
 
 {{ end }}
 
-{{ $walkpages = where $walkpages ".Params.unlisted" "!=" "true"}}
-
-
+{{ $walkpages = where (where $walkpages ".Params.unlisted" "!=" "true") ".Params.preview" "!=" true }}
 
 {{ $prevpage := false }}
 {{ $thispage := false }}
