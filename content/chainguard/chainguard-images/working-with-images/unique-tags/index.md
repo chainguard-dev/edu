@@ -37,8 +37,7 @@ Unique Tags also allow for individual image repositories within a registry to be
 
 This granular level of control ensures that organizations can implement unique tagging in a way that best suits their organization's specific needs. It offers a tailored approach to image management, allowing for precise and efficient tracking of image versions and builds across different environments.
 
-Additionally, the Unique Tags feature is integrated with Chainguard's [Tag History](/chainguard/chainguard-images/using-the-tag-history-api/) and [Diff APIs](/chainguard/chainguard-images/using-the-image-diff-api/), as well as the [`chainctl diff` command](/chainguard/chainguard-images/comparing-images/) and [event notifications](/chainguard/administration/cloudevents/events-reference/). These integrations allow you to track changes, compare different image versions, and understand the differences between various builds. It empowers organizations to maintain a detailed and accessible record of their container images, facilitating easier analysis and decision-making.
-
+Additionally, the Unique Tags feature is integrated with Chainguard's [Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) and [event notifications](/chainguard/administration/cloudevents/events-reference/). These integrations allow you to track changes over time.
 
 ## How do I find Unique Tags?
 
