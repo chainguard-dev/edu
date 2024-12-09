@@ -1,7 +1,7 @@
 ---
 title: "Unique Tags for Chainguard Images"
 linktitle: "Unique Tags"
-aliases:
+aliases: 
 - /chainguard/chainguard-images/unique-tags
 - /chainguard/chainguard-images/images-features/unique-tags
 type: "article"
@@ -18,9 +18,9 @@ weight: 060
 toc: true
 ---
 
-Some organizations use image tags as an indication that there is a new container image available in a registry. Oftentimes, these organizations' internal automation and policies expect each new build to have its own distinct tag.
+Some organizations use image tags as an indication that there is a new container image available in a registry. Oftentimes, these organizations' internal automation and policies expect each new build to have its own distinct tag. 
 
-To help with cases like this, Chainguard offers Unique Tags for private registries. Unique Tags are ideal for organizations that require a strict tag per release or update of their images. They benefit teams looking for precise tracking and management of container images.
+To help with cases like this, Chainguard offers Unique Tags for private registries. Unique Tags are ideal for organizations that require a strict tag per release or update of their images. They benefit teams looking for precise tracking and management of container images. 
 
 This guide provides an overview of what these Unique Tags are, the kinds of problems they aim to solve, and how you can access them in the Chainguard Console.
 
@@ -37,13 +37,13 @@ Unique Tags also allow for individual image repositories within a registry to be
 
 This granular level of control ensures that organizations can implement unique tagging in a way that best suits their organization's specific needs. It offers a tailored approach to image management, allowing for precise and efficient tracking of image versions and builds across different environments.
 
-Additionally, the Unique Tags feature is integrated with Chainguard's [Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) allowing you to see the progression of tags over time.
+Additionally, the Unique Tags feature is integrated with Chainguard's [Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) and [event notifications](/chainguard/administration/cloudevents/events-reference/). These integrations allow you to track changes over time.
 
 ## How do I find Unique Tags?
 
 After signing into the Chainguard Console, click on **Organization images** in the left-hand navigation. This will take you to your organization's Images directory where you'll be presented with a list of all the Chainguard Production Images your organization has access to.
 
-To the right of the search box and **Category** drop-down menu is a toggle button labeled **Include unique tags**.
+To the right of the search box and **Category** drop-down menu is a toggle button labeled **Include unique tags**. 
 
 ![Screenshot of the Organization images page, showing four Images in a table. The "Include unique tags" button is highlighted with a yellow box.](unique-tags-1.png)
 
@@ -65,7 +65,7 @@ As mentioned previously, Unique Tags are an opt-in feature that is only availabl
 
 It should be noted that by their design, container image tags are mutable, meaning that they can change over time. Although Unique Tags are meant to serve as a secure solution for teams whose internal workflows assume tag immutability, we still recommend that users pull Images by their digests whenever possible. Check out the ["Pulling by Digest" section](/chainguard/chainguard-images/how-to-use-chainguard-images/#pulling-by-digest) of our guide on How to Use Chainguard Images for more information. You may also find our video on [How to Use Container Image Digests to Improve Reproducibility](/chainguard/chainguard-images/videos/container-image-digests/) to be useful.
 
-Additionally, you may find our three-part blog series on Chainguard's image tagging philosophy to be of interest.
+Additionally, you may find our three-part blog series on Chainguard's image tagging philosophy to be of interest. 
 
 * [Part 1](https://www.chainguard.dev/unchained/chainguards-image-tagging-philosophy-enabling-high-velocity-updates-pt-1-of-3)
 * [Part 2](https://www.chainguard.dev/unchained/chainguards-image-tagging-philosophy-enabling-high-velocity-updates-pt-2-of-3)
