@@ -53,7 +53,7 @@ cd edu-images-demos/go
 Here you will find three folders, each with a different demo that we'll cover in this guide.
 
 ## Example 1: CLI Application in Multi-Stage Build
-The following build demonstrates a command line application with support for flags and positional arguments. The application prints a modifiable greeting message and provides usage information if the wrong number of arguments are passed by a user or the user passes an unrecognized flag.
+The following example demonstrates a command line application with support for flags and positional arguments. The application prints a modifiable greeting message and provides usage information if the wrong number of arguments are passed by a user or the user passes an unrecognized flag.
 
 Start by accessing the `go-greeter` folder in the demos repository:
 
@@ -125,10 +125,10 @@ The final size, `3.309M`, is orders of magnitude smaller than it would be runnin
 
 The second example demonstrates an application that's accessible by HTTP server. The application renders a simple message that changes based on the URI.
 
-Start by accessing the `greeter-server` folder in the demos repository:
+Start by accessing the `greet-server` folder in the Go demos repository:
 
 ```shell
-cd greeter-server
+cd greet-server
 ```
 
 For reference, here is the content of the `Dockerfile` for this demo:
@@ -152,7 +152,7 @@ Use the following command to build the image, tagging it `greet-server`:
 docker build . -t greet-server
 ```
 
-Now you can run the image with:
+Now you can run the image with the following command:
 
 ```shell
 docker run -p 8080:8080 greet-server
@@ -176,13 +176,13 @@ The application will also share version information at [http://0.0.0.0:8080/vers
 
 In this example, we'll build a distroless Go Chainguard Image with [ko](https://ko.build/). ko offers fast container image builds for Go applications without requiring a Dockerfile. Additionally, ko produces [SBOMs](/open-source/sbom/what-is-an-sbom/) by default, supporting a holistic approach to software security.
 
-Start by accessing the `greeter-server` folder in the demos repository:
+Start by accessing the `go-digester` folder in the Go demos repository:
 
 ```shell
-cd greeter-server
+cd go-digester
 ```
 
-The `go-digester` demo uses the `go-containerregistry` library to print out the digest of the latest build of a Chainguard image, using `go` as default for image to pull the digest from, and with an optional parameter to specify a different image name. If you have Go installed locally, you can run the application with:
+The `go-digester` demo uses the `go-containerregistry` library to print out the digest of the latest build of a Chainguard image, using `go` as the default image to pull the digest from, and with an optional parameter to specify a different image name. If you have Go installed locally, you can run the application with:
 
 ```shell
 go run main.go
@@ -192,9 +192,9 @@ You should obtain output similar to this:
 ```
 The latest digest of the go Chainguard Image is sha256:86178b42db2e32763304e37f4cf3c6ec25b7bb83660dcb985ab603e3726a65a6
 ```
-We'll now use ko to build an image that is suitable to run the application defined on `main.go`. By default, ko uses the `cgr.dev/chainguard/static` image as the base image for the build. You can override this by setting the `KO_DEFAULTBASEIMAGE` environment variable to a different base image.
+We'll now use ko to build an image that is suitable to run the application defined in `main.go`. By default, ko uses the `cgr.dev/chainguard/static` image as the base image for the build. You can override this by setting the `KO_DEFAULTBASEIMAGE` environment variable to a different base image.
 
-Before building the image, you'll need to set up the environment variable `KO_DOCKER_REPO`. This environment variable identifies where ko should push images that it builds. This is usually a remote registry like GitHub Container registry or Docker Hub, but you can publish to your local machine for testing and demonstration purposes.
+Before building the image, you'll need to set up the environment variable `KO_DOCKER_REPO`. This environment variable identifies where ko should push images that it builds. This is usually a remote registry like the GitHub Container registry or Docker Hub, but you can publish to your local machine for testing and demonstration purposes.
 
 Run the following command to set the `KO_DOCKER_REPO` environment variable to your local machine:
 
