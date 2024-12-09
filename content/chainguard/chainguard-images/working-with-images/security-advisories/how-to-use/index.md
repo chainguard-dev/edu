@@ -1,7 +1,7 @@
 ---
 title: "How to Use Chainguard Security Advisories"
 linktitle: "Using Advisories"
-aliases: 
+aliases:
 - /chainguard/chainguard-images/security-advisories
 - /chainguard/chainguard-images/images-features/security-advisories
 - /chainguard/chainguard-images/working-with-images/security-advisories/
@@ -32,7 +32,7 @@ You don't need any special access or software to explore Chainguard's Security A
 To follow along with these examples, you'll need the following tools installed.
 
 * A security scanner like [Trivy](https://aquasecurity.github.io/trivy/v0.18.3/installation/), [Grype](https://github.com/anchore/grype#installation), or [Docker Scout](https://docs.docker.com/get-docker/) — This guide's examples use Grype to scan container images and identify vulnerabilities. However, you should be able to follow along with any container vulnerability scanning tool.
-* [`chainctl`](/chainguard/chainctl/) — Chainguard's command-line interface tool. To install `chainctl`, follow our [installation guide](/chainguard/administration/how-to-install-chainctl/). 
+* [`chainctl`](/chainguard/chainctl/) — Chainguard's command-line interface tool. To install `chainctl`, follow our [installation guide](/chainguard/administration/how-to-install-chainctl/).
 * [`jq`](https://jqlang.github.io/jq/) — `jq` is a command-line JSON processor that allows you to filter and manipulate streaming JSON data. Although it isn’t strictly necessary for the purposes of this guide, this tutorial includes commands that use `jq` to filter command output that would otherwise be difficult to read. You can install `jq` by following the instructions on [the project’s Download jq page](https://jqlang.github.io/jq/download/).
 
 Lastly, note that this guide includes examples involving a sample organization with a private Chainguard Registry named `example.com`. If you would like to follow along with your own private Chainguard Images, be sure to change this where relevant to reflect your own setup. If you don't have access to a private Chainguard Registry, you can also follow along using Chainguard's public Developer Images, but be aware that these are limited to only the `latest` or `latest-dev` tags. You can download public Developer Images from the `cgr.dev/chainguard` registry, as in `cgr.dev/chainguard/go:latest`.
@@ -48,7 +48,7 @@ As of this writing, the `go:1.21.2` image points to the image digest `sha256:04a
 grype cgr.dev/example.com/go:1.21.2
 ```
 
-Because this is the digest for an older version of Chainguard's Go Image, this command's output will show a number of vulnerabilities that have been found to exist within this specific version of the Image. 
+Because this is the digest for an older version of Chainguard's Go Image, this command's output will show a number of vulnerabilities that have been found to exist within this specific version of the Image.
 
 ```
 . . .
@@ -61,7 +61,7 @@ This output shows that this particular image has many critical and high vulnerab
 
 > Note: All of these vulnerabilities have been addressed in newer versions of the Chainguard Go Image.
 
-Within this output,, we find that the package `nghttp2` is referenced. 
+Within this output,, we find that the package `nghttp2` is referenced.
 
 ```sh
 grype cgr.dev/example.com/go:1.21.2| grep nghttp2
@@ -69,14 +69,14 @@ grype cgr.dev/example.com/go:1.21.2| grep nghttp2
 
 ```
 ...
-libnghttp2-14        1.56.0-r0  1.57.0-r0        apk        CVE-2023-44487       High      
-libnghttp2-14        1.56.0-r0  1.61.0-r0        apk        CVE-2024-28182       Medium    
-libnghttp2-14        1.56.0-r0  1.57.0-r0        apk        GHSA-qppj-fm5r-hxr3  Unknown   
+libnghttp2-14        1.56.0-r0  1.57.0-r0        apk        CVE-2023-44487       High
+libnghttp2-14        1.56.0-r0  1.61.0-r0        apk        CVE-2024-28182       Medium
+libnghttp2-14        1.56.0-r0  1.57.0-r0        apk        GHSA-qppj-fm5r-hxr3  Unknown
 ```
 
 We'll use the `HIGH` severity vulnerability listed here as an example when we explore Chainguard's Security Advisories in the next section.
 
-Copy or note down the CVE identifier (`2023-44487` in this case). Additionally, note down the name of the affected package (`nghttp2`). You'll use these details to retrieve more information about the CVE shortly. 
+Copy or note down the CVE identifier (`2023-44487` in this case). Additionally, note down the name of the affected package (`nghttp2`). You'll use these details to retrieve more information about the CVE shortly.
 
 
 ## Searching the Security Advisories
@@ -126,7 +126,7 @@ This example will return a lot of output, as there are significant differences f
   "vulnerabilities": {
 
 . . .
-  	
+
 {
     	"id": "CVE-2023-44487",
     	"reference": "chainguard:distro:chainguard:rolling",
@@ -142,4 +142,4 @@ As this output indicates, `CVE0223-44487` is no longer present in later versions
 
 The Security Advisories page serves as a helpful resource for anyone who wants to learn more about CVEs reported within Chainguard Images. You can search the database of advisories to learn more about any CVEs you encounter as you work with Chainguard Images.
 
-Additionally, we encourage you to explore the [Chainguard Images Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-security-advisories-how-to-use), the parent site of the Security Advisories page. The Directory allows users to explore the complete inventory of Chainguard Images. You may also be interested in our guide on [How To Compare Chainguard Images with `chainctl`](/chainguard/chainguard-images/comparing-images/) to learn more about how you can use the Diff API to compare Chainguard Images. Finally, we encourage you to learn more about [noisy scan results](/chainguard/chainguard-images/scanners/false-results/) when scanning Chainguard Images. 
+Additionally, we encourage you to explore the [Chainguard Images Directory](https://images.chainguard.dev/), the parent site of the Security Advisories page. The Directory allows users to explore the complete inventory of Chainguard Images. Finally, we encourage you to learn more about [noisy scan results](/chainguard/chainguard-images/scanners/false-results/) when scanning Chainguard Images.
