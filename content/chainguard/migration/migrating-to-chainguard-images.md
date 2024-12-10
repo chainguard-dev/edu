@@ -16,7 +16,7 @@ Based on the [Wolfi](/open-source/wolfi/overview/) Linux _undistro_, Chainguard 
 
 A general migration process would involve the following steps:
 
-1. **Identify the base image you need**. Check out the [Chainguard Images Directory](https://images.chainguard.dev/directory) to identify the image that is the closest match to what you currently use. You may also use [wolfi-base](https://images.chainguard.dev/directory/image/wolfi-base/overview) as a flexible starting point for your experimentation.
+1. **Identify the base image you need**. Check out the [Chainguard Images Directory](https://images.chainguard.dev/directory?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-to-chainguard-images) to identify the image that is the closest match to what you currently use. You may also use [wolfi-base](https://images.chainguard.dev/directory/image/wolfi-base/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-to-chainguard-images) as a flexible starting point for your experimentation.
 2. **Try the `-dev` variant of the image first.** Chainguard Images typically have a **distroless** variant, which is very minimal and doesn't include `apk`, and a **dev** variant that contains tooling necessary to build applications and install new packages. Start with the **dev** variant or the **wolfi-base** image to have more room for customization.
 3. **Identify packages you need to install**. Depending on your current base image, you may need to include additional packages to meet dependencies. Refer to the [Searching for Packages](#searching-for-packages) section for more details on how to find packages.
 4. **Migrate to a distroless image**. Evaluate the option of using a Docker multi-stage build to create a final distroless image containing only what you need. Check the [Getting Started with Distroless images](/chainguard/chainguard-images/getting-started-distroless/) for more details of how to work with distroless images. Although not required, this process should give you a smaller image with additional safeguards.
@@ -139,6 +139,6 @@ For detailed information about apk options and flags when searching for packages
 
 ## Resources to Learn More
 
-Our [Getting Started Guides](/chainguard/chainguard-images/getting-started/) have detailed examples for different language ecosystems and stacks. Make sure to also check image-specific information in our [Chainguard Images Directory](https://images.chainguard.dev/directory).
+Our [Getting Started Guides](/chainguard/chainguard-images/getting-started/) have detailed examples for different language ecosystems and stacks. Make sure to also check image-specific information in our [Chainguard Images Directory](https://images.chainguard.dev/directory?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-to-chainguard-images).
 
 If you can't find an image that is a good match for your use case, or if your build has dependencies that cannot be met with the regular catalog, [get in touch with us](https://www.chainguard.dev/contact?utm_source=docs) for alternative options.

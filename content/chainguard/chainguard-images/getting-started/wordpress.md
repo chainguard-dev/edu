@@ -15,7 +15,7 @@ weight: 70
 toc: true
 ---
 
-The [WordPress](https://images.chainguard.dev/directory/image/wordpress/overview) Chainguard Image is a container image suitable for creating and running WordPress projects. Designed to work as a drop-in replacement for the official [WordPress FPM-Alpine image](https://hub.docker.com/_/wordpress), the Chainguard WordPress Image features a [distroless](/chainguard/chainguard-images/getting-started-distroless/) variant for increased security on production environments. The image is built with the latest PHP and WordPress versions, and includes the necessary PHP extensions to run WordPress.
+The [WordPress](https://images.chainguard.dev/directory/image/wordpress/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-wordpress) Chainguard Image is a container image suitable for creating and running WordPress projects. Designed to work as a drop-in replacement for the official [WordPress FPM-Alpine image](https://hub.docker.com/_/wordpress), the Chainguard WordPress Image features a [distroless](/chainguard/chainguard-images/getting-started-distroless/) variant for increased security on production environments. The image is built with the latest PHP and WordPress versions, and includes the necessary PHP extensions to run WordPress.
 
 In this guide, we'll demonstrate 3 different ways in which you can use the WordPress Chainguard Image to build and run WordPress projects.
 
@@ -84,8 +84,8 @@ volumes:
 In this Docker Compose example, we define 3 services: `app`, `nginx`, and `mariadb`. Here's a breakdown of each service:
 
 - The `app` service uses the `latest-dev` variant of the Chainguard WordPress Image, and is configured to connect to the `mariadb` service. The entrypoint script in the WordPress image looks for environment variables to set up a custom `wp-config.php` file. The volume `document-root` defines a volume that will be shared between the `app` and the `nginx` services.
-- The `nginx` service uses the [Chainguard nginx Image](https://images.chainguard.dev/directory/image/nginx/overview), and is configured to serve the WordPress application on port 8000.
-- The `mariadb` service uses the [Chainguard MariaDB Image](https://images.chainguard.dev/directory/image/mariadb/overview), and is configured with the necessary environment variables to create a database for the WordPress application.
+- The `nginx` service uses the [Chainguard nginx Image](https://images.chainguard.dev/directory/image/nginx/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-wordpress), and is configured to serve the WordPress application on port 8000.
+- The `mariadb` service uses the [Chainguard MariaDB Image](https://images.chainguard.dev/directory/image/mariadb/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-wordpress), and is configured with the necessary environment variables to create a database for the WordPress application.
 
 The environment variables used in this example are defined in a `.env` file located in the same directory as the `docker-compose.yaml` file. To check for its contents, run:
 

@@ -17,7 +17,7 @@ weight: 040
 toc: true
 ---
 
-The [Node Chainguard Image](https://images.chainguard.dev/directory/image/node/overview) is a distroless container image that has the tooling necessary to build and execute Node applications, including  `npm`.
+The [Node Chainguard Image](https://images.chainguard.dev/directory/image/node/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-node) is a distroless container image that has the tooling necessary to build and execute Node applications, including  `npm`.
 
 In this guide, we'll set up a demo application and create a Dockerfile to build and execute the demo using the Node Chainguard Image as base.
 

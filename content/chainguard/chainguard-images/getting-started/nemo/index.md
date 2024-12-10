@@ -17,7 +17,7 @@ weight: 030
 toc: true
 ---
 
-[NeMo](https://github.com/NVIDIA/NeMo) is a deep learning framework for building conversational AI models that provides standalone module collections for Automatic Speech Recognition (ASR), Natural Language Processing (NLP), and Text-to-Speech (TTS) tasks. The [NeMo Chainguard Image](https://images.chainguard.dev/directory/image/nemo/overview) is a comparatively lightweight NeMo environment with low to no CVEs, making it ideal for both training and production inference. The NeMo Chainguard Image is designed to work with the [CUDA 12](https://developer.nvidia.com/about-cuda) parallel computing platform, and is suited to workloads that take advantage of connected GPUs.
+[NeMo](https://github.com/NVIDIA/NeMo) is a deep learning framework for building conversational AI models that provides standalone module collections for Automatic Speech Recognition (ASR), Natural Language Processing (NLP), and Text-to-Speech (TTS) tasks. The [NeMo Chainguard Image](https://images.chainguard.dev/directory/image/nemo/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-nemo) is a comparatively lightweight NeMo environment with low to no CVEs, making it ideal for both training and production inference. The NeMo Chainguard Image is designed to work with the [CUDA 12](https://developer.nvidia.com/about-cuda) parallel computing platform, and is suited to workloads that take advantage of connected GPUs.
 
 {{< details "What is Deep Learning?" >}}
 {{< blurb/deep-learning >}}
