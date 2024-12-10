@@ -3,8 +3,8 @@ title: "Differences Between Development and Production Images"
 linktitle: " Dev vs. Production Images"
 type: "article"
 description: "Learn about the differences between development and production Chainguard Images"
-date: 2024-11-01T07:52+02:00
-lastmod: 2024-11-01T07:52+02:00
+date: 2024-11-01T07:52:00+02:00
+lastmod: 2024-11-01T07:52:00+02:00
 draft: false
 tags: ["Chainguard Images", "Product", ]
 images: []
