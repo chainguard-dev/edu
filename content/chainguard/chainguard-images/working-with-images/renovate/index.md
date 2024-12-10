@@ -160,7 +160,7 @@ DEBUG: found labels in manifest (repository=local)
          "org.opencontainers.image.authors": "Chainguard Team https://www.chainguard.dev/",
          "org.opencontainers.image.created": "2024-12-04T19:55:37Z",
          "org.opencontainers.image.source": "https://github.com/chainguard-images/images-private/tree/main/images/static",
-         "org.opencontainers.image.url": "https://images.chainguard.dev/directory/image/static/overview",
+         "org.opencontainers.image.url": "https://images.chainguard.dev/directory/image/static/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-renovate",
          "org.opencontainers.image.vendor": "Chainguard"
        }
 ```

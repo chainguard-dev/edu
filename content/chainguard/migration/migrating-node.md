@@ -32,7 +32,7 @@ Chainguard Images base.
 
 ## Chainguard Node.js Images
 
-The [Node.js](https://images.chainguard.dev/directory/image/node/overview) images come in two main
+The [Node.js](https://images.chainguard.dev/directory/image/node/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-node) images come in two main
 flavours; runtime images intended for production usage and builder images intended for use in the
 build-step of multi-stage builds. The builder images are distinguished by the `-dev` suffix (e.g.,
 `latest-dev`).
@@ -213,7 +213,7 @@ instead of `npm install` to ensure the correct version of all dependencies is us
 
 ## Additional Resources
 
- - The [Node.js image documentation](https://images.chainguard.dev/directory/image/node/overview)
+ - The [Node.js image documentation](https://images.chainguard.dev/directory/image/node/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-node)
 contains full details on our images, including usage documentation, provenance and security
 advisories.
 
