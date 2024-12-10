@@ -20,32 +20,32 @@ tutorials: [
   {
     title: "Go",
     description: "",
-    url: "https://images.chainguard.dev/directory/image/go/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=chainguard/chainguard-images"
+    url: "https://images.chainguard.dev/directory/image/go/overview"
   },
   {
     title: "Node",
     description: "",
-    url: "https://images.chainguard.dev/directory/image/node/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=chainguard/chainguard-images"
+    url: "https://images.chainguard.dev/directory/image/node/overview"
   },
   {
     title: "PHP",
     description: "",
-    url: "https://images.chainguard.dev/directory/image/php/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=chainguard/chainguard-images"
+    url: "https://images.chainguard.dev/directory/image/php/overview"
   },
   {
     title: "Python",
     description: "",
-    url: "https://images.chainguard.dev/directory/image/python/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=chainguard/chainguard-images"
+    url: "https://images.chainguard.dev/directory/image/python/overview"
   },
   {
     title: "NGINX",
     description: "",
-    url: "https://images.chainguard.dev/directory/image/nginx/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=chainguard/chainguard-images"
+    url: "https://images.chainguard.dev/directory/image/nginx/overview"
   },
   {
     title: "JDK (Java)",
     description: "",
-    url: "https://images.chainguard.dev/directory/image/jdk/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=chainguard/chainguard-images"
+    url: "https://images.chainguard.dev/directory/image/jdk/overview"
   },
 ]
 

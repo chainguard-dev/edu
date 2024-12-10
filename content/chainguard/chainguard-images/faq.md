@@ -26,7 +26,7 @@ The [Google distroless](https://github.com/GoogleContainerTools/distroless) imag
 ## Which images are available?
 There are currently hundreds of Chainguard Images available, which are segmented as **Developer** or **Production**. You can read more about this in the [next question](#what-options-do-i-have-to-use-chainguard-images).
 
-Chainguard Images are primarily available from the [Chainguard Registry](/chainguard/chainguard-registry/overview/), but a selection of developer images is also available on [Docker Hub](https://hub.docker.com/u/chainguard). You can find the complete list of available Chainguard Images in our public [Images Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=chainguard/chainguard-images/faq) or within the [Chainguard Console](https://console.chainguard.dev/).
+Chainguard Images are primarily available from the [Chainguard Registry](/chainguard/chainguard-registry/overview/), but a selection of developer images is also available on [Docker Hub](https://hub.docker.com/u/chainguard). You can find the complete list of available Chainguard Images in our public [Images Directory](https://images.chainguard.dev/) or within the [Chainguard Console](https://console.chainguard.dev/).
 
 ## What options do I have to use Chainguard Images?
 You can get free Chainguard Images for your organization. You can also upgrade for more versions, SLAs, and dedicated support.

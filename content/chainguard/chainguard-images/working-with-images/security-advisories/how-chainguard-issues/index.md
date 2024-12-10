@@ -18,7 +18,7 @@ toc: true
 
 When you scan a newly-built Chainguard Image with a vulnerability scanner, typically, no CVEs will be reported. However, as software packages age, more vulnerabilities are reported and CVEs will begin to accumulate in images. When this happens, Chainguard releases security advisories to communicate these vulnerabilities to downstream Images users.
 
-Chainguard publishes its security advisories to a dedicated [Security Advisories page](https://images.chainguard.dev/security/?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=chainguard/chainguard-images/working-with-images/security-advisories/how-chainguard-issues) on its Images Directory. There, you can find a complete listing of CVEs found in various Chainguard Images, including their CVE ID, affected packages, and vulnerability status. Each advisory is built from the metadata associated with a security vulnerability.
+Chainguard publishes its security advisories to a dedicated [Security Advisories page](https://images.chainguard.dev/security/) on its Images Directory. There, you can find a complete listing of CVEs found in various Chainguard Images, including their CVE ID, affected packages, and vulnerability status. Each advisory is built from the metadata associated with a security vulnerability.
 
 ![Snapshot of the Chainguard Security Advisories Page](advisories-page.png)
 

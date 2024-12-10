@@ -15,7 +15,7 @@ weight: 020
 toc: true
 ---
 
-The [Laravel Chainguard Image](https://images.chainguard.dev/directory/image/laravel/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=chainguard/chainguard-images/getting-started/laravel) is a container image that has the tooling necessary to develop, build, and execute [Laravel](https://laravel.com) applications, including required extensions. Laravel is a full-stack PHP framework that enables developers to build complex applications using modern tools and techniques that help streamline the development process.
+The [Laravel Chainguard Image](https://images.chainguard.dev/directory/image/laravel/overview) is a container image that has the tooling necessary to develop, build, and execute [Laravel](https://laravel.com) applications, including required extensions. Laravel is a full-stack PHP framework that enables developers to build complex applications using modern tools and techniques that help streamline the development process.
 
 In this guide, we'll set up a demo and demonstrate how you can use Chainguard Images to develop, build, and run Laravel applications.
 
