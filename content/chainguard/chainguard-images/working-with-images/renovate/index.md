@@ -45,7 +45,7 @@ By default, this credential is good for 30 days.
 
 You can now configure `hostRules` in Renovate to support our registry. Depending on how Renovate was set up, you can add this to `renovate.json` or `config.json` with a setting such as:
 
-```
+```json
 {
 ...
    "hostRules": [
@@ -58,19 +58,19 @@ You can now configure `hostRules` in Renovate to support our registry. Depending
 }
 ```
 
-Be aware that you **SHOULD NOT** check this file into source control with the exposed secret. Instead, you can use environment variables which you pass in at runtime:
+Be aware that you **SHOULD NOT** check this file into source control with the exposed secret. Instead, you can use environment variables which you pass in at runtime if you use a `config.js` file:
 
 ```json
-{
+module.exports = {
 ...
    "hostRules": [
     {
       "hostType": "docker",
       "matchHost": "cgr.dev",
-      "username:" process.env.CGR_USERNAME,
-      "password:" process.env.CGR_PASSWORD,
+      "username": process.env.CGR_USERNAME,
+      "password": process.env.CGR_PASSWORD,
      }]
-}
+};
 ```
 
 But an even more secure solution would be to create a script which automatically updates the configuration with the correct values by calling `chainctl`. If you do this, you should also set the credential lifetime to a much shorter period with the `–ttl` flag:
@@ -131,11 +131,45 @@ The following screenshot shows the PR to update the static image:
 
 ## Troubleshooting
 
+### Validate Renovate configuration
+
+If Renovate isn't working as expected, try running it in debug mode and/or dumping the resolved configuration.
+
+For example:
+```
+LOG_LEVEL=debug renovate --print-config
+...
+       "hostRules": [
+         {
+           "hostType": "docker",
+           "matchHost": "cgr.dev",
+           "username": "<Organizations ID>/<pull token ID>",
+           "password": "***********",
+           "resolvedHost": "cgr.dev"
+         },
+         {"matchHost": null, "hostType": "local"}
+       ]
+...
+DEBUG: hostRules: basic auth for https://cgr.dev (repository=local)
+DEBUG: getLabels(https://cgr.dev, ORGANIZATION/static, latest) (repository=local)
+DEBUG: getManifestResponse(https://cgr.dev, ORGANIZATION/static, latest, get) (repository=local)
+DEBUG: getManifestResponse(https://cgr.dev, ORGANIZATION/static, sha256:76d71eb53b1b44ec955529ece91c6da222a54fed660ca6b25124935bdd96e133, get) (repository=local)
+DEBUG: found labels in manifest (repository=local)
+       "labels": {
+         "dev.chainguard.package.main": "static",
+         "org.opencontainers.image.authors": "Chainguard Team https://www.chainguard.dev/",
+         "org.opencontainers.image.created": "2024-12-04T19:55:37Z",
+         "org.opencontainers.image.source": "https://github.com/chainguard-images/images-private/tree/main/images/static",
+         "org.opencontainers.image.url": "https://images.chainguard.dev/directory/image/static/overview",
+         "org.opencontainers.image.vendor": "Chainguard"
+       }
+```
+
 ### Connection Errors
 
 If you have problems getting Renovate to monitor `cgr.dev`, please double check the connection details. Make sure the token is still valid (you can verify with `chainctl iam identities list`) and it has access to the repository you are referring to. You can test these credentials by running a `docker login` and `docker pull` in a clean environment.
 
-### getRelaseList error
+### getReleaseList error
 
 You may encounter errors such as the following:
 
