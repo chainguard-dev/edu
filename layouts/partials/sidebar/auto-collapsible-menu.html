@@ -29,7 +29,8 @@
   </p>
   <div class="show" id="section-{{ md5 .LinkTitle }}">
     <ul class="btn-toggle-nav list-unstyled fw-normal small">
-      {{ range where .Pages ".Params.unlisted" "!=" "true" }}
+      {{ range where (where .Pages ".Params.unlisted" "!=" "true") ".Params.preview" "!=" true }}
+
       {{ if .IsNode }}
       {{ $active := in $currentPage.RelPermalink .RelPermalink }}
       {{ $selected := eq $currentPage.RelPermalink .RelPermalink }}
@@ -50,7 +51,7 @@
 
 
 
-            {{ range where .Pages ".Params.unlisted" "!=" "true" }}
+      {{ range where (where .Pages ".Params.unlisted" "!=" "true") ".Params.preview" "!=" true }}
             {{ if .IsNode }}
             {{ $active := in $currentPage.RelPermalink .RelPermalink }}
             {{ $selected := eq $currentPage.RelPermalink .RelPermalink }}
@@ -67,7 +68,7 @@
               </div>
               <div class="collapse{{ if $active }} show{{ end }}" id="section-{{ md5 .LinkTitle }}">
                 <ul class="btn-toggle-nav list-unstyled fw-normal small">
-                  {{ range where .Pages ".Params.unlisted" "!=" "true" }}
+                  {{ range where (where .Pages ".Params.unlisted" "!=" "true") ".Params.preview" "!=" true }}
                   {{ if .IsNode }}
                   {{ $active := in $currentPage.RelPermalink .RelPermalink }}
                   {{ $selected := eq $currentPage.RelPermalink .RelPermalink }}
@@ -84,7 +85,7 @@
                     </div>
                     <div class="collapse{{ if $active }} show{{ end }}" id="section-{{ md5 .LinkTitle }}">
                       <ul class="btn-toggle-nav list-unstyled fw-normal small">
-                        {{ range where .Pages ".Params.unlisted" "!=" "true" }}
+                              {{ range where (where .Pages ".Params.unlisted" "!=" "true") ".Params.preview" "!=" true }}
                         {{ $active := in $currentPage.RelPermalink .RelPermalink }}
                         <li class="sidebar-item-list-item {{if $active }} sidebar-item-list-item-selected {{ end }}">
                           <a class="sidebar-subcategory docs-link rounded {{ if $active }} sidebar-item-active active {{ end }} sidebar-item" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
