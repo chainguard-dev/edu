@@ -36,7 +36,7 @@ When referencing an image, it's important to know exactly what image you are wor
 [host]/[repository][image_name][:tag]
 ```
 
-For example, the full name for the [Chainguard Go Image](https://images.chainguard.dev/directory/image/go/versions), is `cgr.dev/chainguard/go:latest`. 
+For example, the full name for the [Chainguard Go Image](https://images.chainguard.dev/directory/image/go/versions?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-recommended-practices-considerations-for-image-updates), is `cgr.dev/chainguard/go:latest`. 
 
 Certain elements of this name format are optional in many cases. For instance, if you omit the hostname portion of an image name in either Docker or Kubernetes, both will default to using the public Docker registry.
 

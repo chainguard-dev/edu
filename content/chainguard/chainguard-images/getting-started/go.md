@@ -17,11 +17,11 @@ weight: 010
 toc: true
 ---
 
-The [Go Chainguard image](https://images.chainguard.dev/directory/image/go/overview) is a container image suitable for building Go applications. The `latest` variant is a distroless image without a package manager, while the `latest-dev` variant offers additional building tools and the apk package manager.
+The [Go Chainguard image](https://images.chainguard.dev/directory/image/go/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-go) is a container image suitable for building Go applications. The `latest` variant is a distroless image without a package manager, while the `latest-dev` variant offers additional building tools and the apk package manager.
 
 In this guide, we'll demonstrate how to build and execute Go applications using Chainguard Images, using three examples from our [demos repository](https://github.com/chainguard-dev/edu-images-demos). In the first example, we'll build a CLI application using a Docker multi-stage build. In the second example, we'll build an application that's accessible by HTTP server, also using a Docker multi-stage build to obtain an optimized runtime. The third example shows how to build an image using [ko](https://ko.build/), a tool that enables you to build images from Go programs and push them to container registries without requiring a Dockerfile.
 
-The examples in this guide recommend executing Go binaries from one of our runtime Chainguard Images, such as the [`glibc-dynamic`](https://images.chainguard.dev/directory/image/glibc-dynamic/overview) or [`static`](https://images.chainguard.dev/directory/image/static/overview) Chainguard Images. That is possible because Go applications are compiled and the toolchain is not typically required in a runtime image.
+The examples in this guide recommend executing Go binaries from one of our runtime Chainguard Images, such as the [`glibc-dynamic`](https://images.chainguard.dev/directory/image/glibc-dynamic/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-go) or [`static`](https://images.chainguard.dev/directory/image/static/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-go) Chainguard Images. That is possible because Go applications are compiled and the toolchain is not typically required in a runtime image.
 
 {{< details "What is distroless" >}}
 {{< blurb/distroless >}}

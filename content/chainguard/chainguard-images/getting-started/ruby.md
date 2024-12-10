@@ -17,7 +17,7 @@ weight: 065
 toc: true
 ---
 
-The [Ruby images](https://images.chainguard.dev/directory/image/ruby/versions) maintained by Chainguard are a mix of development and production distroless images that are suitable for building and running Ruby workloads.
+The [Ruby images](https://images.chainguard.dev/directory/image/ruby/versions?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-ruby) maintained by Chainguard are a mix of development and production distroless images that are suitable for building and running Ruby workloads.
 
 Because Ruby applications typically require the installation of third-party dependencies via [Rubygems](https://rubygems.org/), using a pure distroless image for building your application would not work. In cases like this, you'll need to implement a [multi-stage Docker build](https://docs.docker.com/build/building/multi-stage/) that uses one of the `-dev` images to set up the application.
 

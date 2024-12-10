@@ -25,7 +25,7 @@ There are hundreds of Chainguard Images available for use. To help users explore
 
 This guide is primarily framed around the Public Images Directory found in the Chainguard Console. The Console is accessible to anyone, including users who aren't Chainguard customers. To access the Console, you'll first need to [create an account and sign in](https://console.chainguard.dev/auth/login).
 
-If you're not ready to create a Chainguard account, you can also follow along with the public [Chainguard Images Directory](https://images.chainguard.dev/). As of this writing, there are some differences between the two directories, but both should provide a similar experience for users.
+If you're not ready to create a Chainguard account, you can also follow along with the public [Chainguard Images Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory). As of this writing, there are some differences between the two directories, but both should provide a similar experience for users.
 
 
 ## The Images Directory
@@ -144,9 +144,9 @@ Please be aware that, as with SBOM data, Chainguard began generating vulnerabili
 
 The last tab is the **Advisories** tab. When you scan a newly-built Chainguard Image with a vulnerability scanner, typically, no CVEs will be reported. However, as software packages age, more vulnerabilities are reported and CVEs will begin to accumulate in images. When this happens, Chainguard releases security advisories to communicate these vulnerabilities to downstream Images users. You can find all the advisories issued for a given Image in its Advisories tab. 
 
-To learn more about Chainguard security advisories, we encourage you to read our article on [How Chainguard Issues Security Advisories](/chainguard/chainguard-images/working-with-images/security-advisories/how-chainguard-issues/) as well as our guide on [How to Use Chainguard Security Advisories](/chainguard/chainguard-images/working-with-images/security-advisories/how-to-use/). You an also find every security advisory published for Chainguard Images by exploring our self-service [Security Advisories page](https://images.chainguard.dev/security)/ 
+To learn more about Chainguard security advisories, we encourage you to read our article on [How Chainguard Issues Security Advisories](/chainguard/chainguard-images/working-with-images/security-advisories/how-chainguard-issues/) as well as our guide on [How to Use Chainguard Security Advisories](/chainguard/chainguard-images/working-with-images/security-advisories/how-to-use/). You an also find every security advisory published for Chainguard Images by exploring our self-service [Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory)/ 
 
 
 ## Learn More
 
-The Chainguard Images Directory is a useful tool for understanding what Chainguard Images are available. To better understand how to work with individual Images, you can see if we have a [getting started guide](/chainguard/chainguard-images/getting-started/) available. We also provide a guide on [how to view security advisories](/chainguard/chainguard-images/security-advisories/) through our [self-service public Security Advisories page](https://images.chainguard.dev/security).
+The Chainguard Images Directory is a useful tool for understanding what Chainguard Images are available. To better understand how to work with individual Images, you can see if we have a [getting started guide](/chainguard/chainguard-images/getting-started/) available. We also provide a guide on [how to view security advisories](/chainguard/chainguard-images/security-advisories/) through our [self-service public Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory).
