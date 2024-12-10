@@ -29,11 +29,6 @@ tutorials: [
     url: "/chainguard/chainguard-images/videos/static-base-image/"
   },
   {
-    title: "Chainguard Security Advisories and the Diff API",
-    description: "",
-    url: "/chainguard/chainguard-images/videos/security_advisories/"
-  },
-  {
     title: "Debugging Distroless Containers ",
     description: "",
     url: "/chainguard/chainguard-images/videos/debugging_distroless/"
