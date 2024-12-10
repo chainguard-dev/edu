@@ -22,7 +22,7 @@ With the popularization of automated workflows and cloud native deployments, it 
 In this workshop, you'll learn more about Wolfi, a community Linux _undistro_ designed for the container and cloud-native era. You'll also learn about melange and apko, Chainguard's open source toolkit created to build more secure container images.
 
 {{< note >}}
-This presentation was recorded on November 16, 2022. Although most of the content holds true to date, some commands and configurations have changed, which caused the demo to become obsolete. For a more up-to-date resource on how to build Wolfi packages, check the [Building a Wolfi Package](http://localhost:1313/open-source/wolfi/building-a-wolfi-package/) guide. If you are looking for Wolfi-based image for your containerized workloads, check our [Images Directory](https://images.chainguard.dev/directory/image/php/overview).
+This presentation was recorded on November 16, 2022. Although most of the content holds true to date, some commands and configurations have changed, which caused the demo to become obsolete. For a more up-to-date resource on how to build Wolfi packages, check the [Building a Wolfi Package](http://localhost:1313/open-source/wolfi/building-a-wolfi-package/) guide. If you are looking for Wolfi-based images for your containerized workloads, check our [Images Directory](https://images.chainguard.dev/directory/image/php/overview).
 {{< /note >}}
 
 {{< youtube 2pqhLXA6NaI >}}
