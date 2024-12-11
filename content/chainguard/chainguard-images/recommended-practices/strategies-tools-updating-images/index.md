@@ -17,7 +17,6 @@ weight: 035
 toc: true
 ---
 
-
 When it comes to keeping a system secure, one of the most important measures you can take is to regularly apply updates. In modern, containerized infrastructures, this normally means updating containers to use only the latest container images that are still maintained. A casual observer might expect such a standard and important task to have agreed-on best practices and standardized tooling, but they might be surprised by the wide variety of different solutions and opinions on this problem.
 
 This conceptual article will delve into some of the options and offer guidance on which might work best for readers. This article assumes that you are familiar with [semantic versioning](https://semver.org/) (SemVer) and image tagging. If you aren't acquainted with these concepts, please check out this guide on [Considerations for Keeping Images Up to Date](/chainguard/chainguard-images/recommended-practices/considerations-for-image-updates/).
@@ -32,7 +31,7 @@ Larger software projects (like PostgreSQL, Java, and Node.js) often have multipl
 
 ## Not Updating Means More Risk
 
-End of Life (EOL) software [presents a host of security risks](https://www.chainguard.dev/unchained/why-end-of-life-software-means-400-cves-per-year). Upgrading may require a great deal of work and proper testing, but it's a small price to pay to keep your systems from being at risk and accruing technical debt.
+End of Life (EOL) software [presents a host of security risks](/chainguard/chainguard-images/recommended-practices/how-eol-software-accumulates-cves). Upgrading may require a great deal of work and proper testing, but it's a small price to pay to keep your systems from being at risk and accruing technical debt.
 
 If your application has an automated test suite with good coverage, you can be confident that any breakages caused by upgrades will be caught before deployment to production. Of course, whenever a test failure occurs, there will be work required to address it. Putting off that work by delaying upgrades will only mean that more work is required in the future as further changes pile up.
 
