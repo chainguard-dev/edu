@@ -38,17 +38,17 @@ When a vulnerability appears directly in the source code of the application, tha
 
 ## Vulnerability accumulation in EOL images
 
-To perform this analysis, Chainguard's researchers reviewed a set of software projects listed on [endoflife.date](https://endoflife.date/), a website that keeps track of when products are no longer supported. We matched these projects directly with their official Docker Hub images, finding 38 projects across 237 EOL version releases from 2020–2024. This included popular images such as Traefik, NGINX, Rust, and Python. Each version is the last within the project lifecycle right before the EOL date, representing the final updates to the project before it goes EOL. We then used [Grype](https://github.com/anchore/grype) to scan each release to determine where vulnerabilities are appearing in the projects.
+To perform this analysis, Chainguard's researchers reviewed a set of software projects listed on [endoflife.date](https://endoflife.date/), a website that keeps track of when products are no longer supported. We matched these projects directly with their official Docker Hub images, finding 38 projects across 237 EOL version releases from 2020–2024. This included popular images such as Traefik, nginx, Rust, and Python. Each version is the last within the project lifecycle right before the EOL date, representing the final updates to the project before it goes EOL. We then used [Grype](https://github.com/anchore/grype) to scan each release to determine where vulnerabilities are appearing in the projects.
 
 When scanning an image for vulnerabilities, our researchers would classify a vulnerability as being in one of three locations:
 
-- **Application:** The core software intended for execution, fulfilling the container's primary purpose. Think of images such as Traefik, Consul, or Nginx.
+- **Application:** The core software intended for execution, fulfilling the container's primary purpose. Think of images such as Traefik, Consul, or nginx.
 - **Application dependencies:** Software or libraries the application requires to function and are dependent on the core application source code. For example, Traefik [depends on a TOML parser for Golang](https://github.com/traefik/traefik/blob/master/go.mod#L6C2-L6C28).
 - **Image components:** Additional packages or libraries included within the image, often influenced by the base image. For example, Traefik uses the base Alpine image and thus includes many of its packages.
 
 Within this dataset, the support lifespan for these projects was almost two years, with the median support duration being one year. By aggregating vulnerability counts in six-month intervals based on the EOL date, we calculated the average number of vulnerabilities per project. We noted these versions as the last version prior to the EOL date, representing the final updates for that project lifecycle.
 
-The number of vulnerabilities between older EOL versions and recently EOL versions drastically differ, as shown in the following diagram. For example, the average number of vulnerabilities of an image that went EOL in early 2020 contained 2,065 by 2024, compared to images that reached EOL in 2024 containing 323 vulnerabilities. On average, this equates to an accumulation rate of 218 vulnerabilities every six months in EOL images.
+The number of vulnerabilities between older EOL versions and recent EOL versions drastically differ, as shown in the following diagram. For example, the average number of vulnerabilities of an image that went EOL in early 2020 contained 2,065 by 2024, compared to images that reached EOL in 2024 containing 323 vulnerabilities. On average, this equates to an accumulation rate of 218 vulnerabilities every six months in EOL images.
 
 <center><img src="EOL_1.png" alt="Chart aggregating vulnerabilities every six months to depict the accumulation of vulnerabilities based on the application EOL date. As the chart moves right along the x-axis (meaning newer versions) the number of vulnerabilities decreases." style="width:950px;"></center>
 <br />
@@ -56,8 +56,11 @@ The number of vulnerabilities between older EOL versions and recently EOL versio
 
 ## Where are the vulnerabilities?
 
-<center><img src="EOL_2.png" alt="Table showing accumulation of vulnerabilities (CVEs) broken down by where the vulnerability appears within the image based on time since EOL. Table has four columns: Time since EOL, Application Vulns, Application Dependency Vulns, and Image Component Vulns." style="width:950px;"></center>
-<br />
+| Time since EOL | Application Vulns | Application Dependency Vulns | Image Component Vulns |
+|:----------|---------:|----------:|----------:|
+| 0-6 months | <1 CVE | 3 CVEs | 351 CVEs |
+| 6-12 months | 1 CVE | 11 CVEs | 542 CVEs |
+| 12+ months | 3 CVEs | 33 CVEs | 1,601 CVEs |
 
 ### Application vulnerabilities
 
@@ -118,7 +121,7 @@ Following the release of version 2.9.10, 55 vulnerabilities were reported: four 
 
 End-of-life software represents a significant security risk. This issue becomes particularly critical when vulnerabilities are found directly in the target application of the image.
 
-The only option when that occurs is to update. However, the vast majority of vulnerabilities that appear in an EOL image will come from its additional components, meaning just the application software may not significantly reduce the overall number of vulnerabilities. Thus the best option is to have a plan to keep your software updated to the latest versions promptly. 
+The only option when that occurs is to update. However, the vast majority of vulnerabilities that appear in an EOL image will come from its additional components, meaning that updating just the application software may not significantly reduce the overall number of vulnerabilities. Thus the best option is to have a plan to keep your software updated to the latest versions promptly. 
 
 To learn more about keeping container images up to date, we encourage you to check out our article on [Considerations for Keeping Images Up to Date](/chainguard/chainguard-images/recommended-practices/considerations-for-image-updates/) as well as our overview of [Strategies and Tooling for Updating Container Images](/chainguard/chainguard-images/recommended-practices/strategies-tools-updating-images/).
 
