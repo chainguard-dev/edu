@@ -21,10 +21,9 @@ It is essential to keep container images up-to-date in order to receive critical
 
 Due to the complexity involved in modern containerized applications, there is no one-size-fits-all approach to keeping your container images up to date. With these conflicting approaches in mind, this article will explore how best to keep container images up-to-date.
 
-
 ## Understanding image versioning and naming conventions
 
-Before discussing  image updates, it's helpful to have a baseline understanding of how images are typically versioned and named.
+Before discussing image updates, it's helpful to have a baseline understanding of how images are typically versioned and named.
 
 [*Semantic versioning*](https://semver.org/) — also known as "semver" — is a system for determining how version numbers are assigned to a given piece of software. Software using semver has versions numbered in the format of `X.Y.Z`. `X` is reserved for major versions that are backwards incompatible, `Y` is used for minor versions that are backward compatible, and `Z` is used for patches and bug fixes. As an example, for a piece of software with the version number `3.5.2`, `3` is the major version, `5` is the minor version, and `2` is the patch number.
 
@@ -39,7 +38,6 @@ When referencing an image, it's important to know exactly what image you are wor
 For example, the full name for the [Chainguard Go Image](https://images.chainguard.dev/directory/image/go/versions?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-recommended-practices-considerations-for-image-updates), is `cgr.dev/chainguard/go:latest`.
 
 Certain elements of this name format are optional in many cases. For instance, if you omit the hostname portion of an image name in either Docker or Kubernetes, both will default to using the public Docker registry.
-
 
 ## Automating updates
 
@@ -58,7 +56,6 @@ There are some tools that can automate some or all of the process of updating yo
 
 If you're going to use tools like these to automate image updates, it is a recommended that you have testing and monitoring in place. Monitoring, alerting, and logging support you and your organization in making the information you need for debugging, security-related analysis, and compliance requirements available while also keeping a history of relevant data.
 
-
 ## Be mindful about tagging practices
 
 Developers will often create multiple variations of the same image. Sometimes these different images may represent distinct numbered versions of the image, or they may contain unique sets of packages. Typically, these different images in the same series will share a name and be stored in the same repository, but the developer will differentiate them by giving them different *tags*.
@@ -76,13 +73,13 @@ When it comes to container versions, pinning an application to a major version i
 ```sh
 docker images --digests cgr.dev/chainguard/wolfi-base
 ```
+
 ```
-REPOSITORY                  	TAG   	DIGEST                                                                	IMAGE ID   	CREATED  	SIZE
-cgr.dev/chainguard/wolfi-base   latest	sha256:490977f0fd3d8596d173839dbb314153797312553b43f6a24b0e341cf2e8d473   2606ed78c658   9 days ago   10.9MB
+REPOSITORY                   TAG    DIGEST                                                                 IMAGE ID    CREATED   SIZE
+cgr.dev/chainguard/wolfi-base   latest sha256:490977f0fd3d8596d173839dbb314153797312553b43f6a24b0e341cf2e8d473   2606ed78c658   9 days ago   10.9MB
 ```
 
 To clarify, using tags to keep your images may work for you and your organization. However, if you're concerned about ensuring reproducibility — or you just want more control over what images you're running — using digests can be a better approach for your situation.
-
 
 ## Recommendations
 
@@ -95,7 +92,6 @@ Of course, digests do come with their own drawbacks. Image digests are not human
 As with the recommendation stated previously, Chainguard requires a human to approve the digestabot's update before it's deployed. Technically, we could set up an automatic approval for the bot's updates, but requiring a human approval combines the stability and reproducibility of using a digest with the good security hygiene of keeping images regularly updated.
 
 There are many factors to consider when developing a process for keeping your images up to date, so you're unlikely to find useful advice on the subject beyond the general strategies outlined in this guide. Of course, different update strategies will work for different circumstances. Ultimately, whatever process you or your organization land on for keeping images up to date should suit the needs of your users without becoming a burden to you or your organization.
-
 
 ## Learn more
 
