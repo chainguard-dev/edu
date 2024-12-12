@@ -63,7 +63,7 @@ You will receive output like the following:
 
 ```
 Found matching entries (listed by UUID):
-24296fb24b8ad77a9ec23abb6326ebbaa6932f720847080e8f5e0b2925a1643b63962691917c8137
+108e9186e8c5677a8d6736bdd79170adf94bd127aea751274d1d62504e88b058af7552d91dea0f26
 ```
 
 Set a shell variable called `UUID` to the returned entry:
