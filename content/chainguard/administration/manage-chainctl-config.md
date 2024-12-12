@@ -1,11 +1,11 @@
 ---
 title: "How to Manage chainctl Configuration"
 linktitle: "chainctl Config"
-aliases: 
+aliases:
 - /chainguard/chainguard-enforce/manage-chainctl-config/
 type: "article"
 date: 2023-07-07T05:56:52-07:00
-lastmod: 2023-12-07T05:56:52-07:00
+lastmod: 2024-12-12T05:56:52-07:00
 draft: false
 tags: ["chainctl", "Product"]
 images: []
@@ -18,15 +18,15 @@ weight: 006
 
 The Chainguard command line interface (CLI) tool, `chainctl`, will help you interact with the account model that Chainguard provides, and enable you to make queries into what's available to you on the Chainguard platform.
 
-## chainctl config CLI 
+## chainctl config CLI
 
-`chainctl` has a config you can manage, `chainctl config -h` will show you all the options. 
+`chainctl` has a local configuration you can manage. To get a list of all options available, you can run:
 
 ```sh
 chainctl config -h
 ```
 
-You'll receive output like the following.
+You'll receive output like the following:
 
 ```
 Local config file commands for chainctl.
@@ -58,39 +58,55 @@ Global Flags:
 Use "chainctl config [command] --help" for more information about a command.
 ```
 
-The default `chainctl` config is similar to the following.
+To view your current `chainctl` config, run:
 
+```shell
+chainctl config view
 ```
-Base Config file: none
+
+You'll receive output similar to this:
+
+```shell
+# Base Config file: /home/erika/.config/chainctl/config.yaml
+auth:
+    mode: browser
+    device-flow: ""
 default:
     active-within: 24h0m0s
+    autoclose: true
+    autoclose-timeout: "10"
+    group: ""
+    identity-provider: ""
+    org-name: ""
+    skip-auto-login: false
+    skip-version-check: false
+    social-login: google-oauth2
+    use-refresh-token: true
 output:
     color:
-      fail: '#ff0000'
-      pass: '#00ff00'
-      warn: '#ffa500'
-    records:
-      notable: []
+        fail: '#ff0000'
+        pass: '#00ff00'
+        warn: '#ffa500'
+    silent: false
 platform:
     api: https://console-api.enforce.dev
     audience: https://console-api.enforce.dev
     console: https://console.enforce.dev
     issuer: https://issuer.enforce.dev
     registry: https://cgr.dev
-    timestamp-authority: https://tsa.enforce.dev
 ```
 
 The full documentation for the `chainctl config` command is available on the relevant [reference page](/chainguard/chainctl/chainctl-docs/chainctl_config/).
- 
+
 ## Edit chainctl config
 
-You can edit the `chainctl` config directly with an editor. The following command will open a text editor (nano, by default) where you can edit the local `chainctl` config. 
+You can edit the `chainctl` config directly with an editor. The following command will open a text editor (`nano`, by default) where you can edit the local `chainctl` config.
 
 ```sh
 chainctl config edit
 ```
 
-Alternatively, you can update one attribute at a time with the `set` option, as demonstrated in the next command. 
+Alternatively, you can update one attribute at a time with the `set` option, as demonstrated in the next command:
 
 ```sh
 chainctl config set platform.api=https://console-api.enforce.dev
@@ -100,10 +116,10 @@ You can review the `chainctl config set` options on the relevant [docs page](/ch
 
 ## Reset the configuration
 
-If you run into issues with your `chainctl` configuration, you can use the below command to reset it to the default state.
+If you run into issues with your `chainctl` configuration, you can use the following command to reset it to the default state:
 
 ```sh
 chainctl config reset
 ```
- 
-You can review all the available `chainctl` commands on our [`chainctl` reference documentation](/chainguard/chainctl/chainctl-docs/chainctl/).
+
+You can review all the available `chainctl` commands in our [`chainctl` reference documentation](/chainguard/chainctl/chainctl-docs/chainctl/).
