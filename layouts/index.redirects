@@ -3,3 +3,6 @@
 {{ . }} {{ $p.RelPermalink -}}
 {{- end }}
 {{- end -}}
+{{- range $p := .Site.Data.redirects }}
+{{ .redirected }} {{ .outbound }}
+{{ end }}

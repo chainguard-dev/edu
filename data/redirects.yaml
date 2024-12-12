@@ -1,0 +1,2 @@
+- redirected: /chainguard/chainguard-images/getting-started/istio
+  outbound: https://images.chainguard.dev/directory/image/istio-pilot/overview
