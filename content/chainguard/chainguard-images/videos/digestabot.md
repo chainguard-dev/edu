@@ -1,11 +1,11 @@
 ---
-title: "Keep your Chainguard Images up to date with digestabot"
+title: "Keep your Chainguard Images Up to Date with digestabot"
 linktitle: "Up-to-date Images with Digestabot"
 lead: ""
-description: "This video explains how to use digesabot, a free GitHub action we created to make it easier for public users to keep their Chainguard Images fresh."
+description: "This video explains how to use digestabot, a free GitHub action we created to make it easier for public users to keep their Chainguard Images fresh."
 type: "article"
 date: 2024-02-07T15:21:01+00:00
-lastmod: 2024-02-08T15:21:01+00:00
+lastmod: 2024-12-12T15:21:01+00:00
 draft: false
 images: []
 menu:
@@ -60,3 +60,9 @@ So for my example, it would check the Chainguard registry for the current digest
 We use Digestabot internally at Chainguard, and this pattern nicely balances the tension between keeping images up to date and vulnerability-free with the need to test and verify changes before shipping to production.
 
 So please try it out and let me know if you have any questions.
+
+## Relevant Resources
+- [Reproducible Dockerfiles with Frizbee and Digestabot](https://edu.chainguard.dev/chainguard/chainguard-images/videos/digestabot_frizbee/) (Video)
+- [Reproducibility and Chainguard Images](https://edu.chainguard.dev/chainguard/chainguard-images/videos/repro/) (Video)
+- [Considerations for Keeping Images Up to Date](https://edu.chainguard.dev/chainguard/chainguard-images/recommended-practices/considerations-for-image-updates/) (Article)
+- [Strategies and Tooling for Updating Container Images](https://edu.chainguard.dev/chainguard/chainguard-images/recommended-practices/strategies-tools-updating-images/) (Article)
