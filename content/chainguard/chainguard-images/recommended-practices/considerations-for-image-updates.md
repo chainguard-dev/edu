@@ -1,7 +1,7 @@
 ---
 title: "Considerations for Keeping Images Up to Date"
 linktitle: "Image Update Considerations"
-aliases: 
+aliases:
 - /chainguard/chainguard-images/considerations-for-images-updates
 type: "article"
 description: "A conceptual article on best practices for keeping images up to date."
@@ -17,14 +17,14 @@ weight: 005
 toc: true
 ---
 
-It is essential to keep container images up-to-date in order to receive critical security updates and leverage new features. However, updates come with a risk: any time new code is introduced, there is a chance for breaking changes or other impacts on dependent systems. 
+It is essential to keep container images up-to-date in order to receive critical security updates and leverage new features. However, updates come with a risk: any time new code is introduced, there is a chance for breaking changes or other impacts on dependent systems.
 
 Due to the complexity involved in modern containerized applications, there is no one-size-fits-all approach to keeping your container images up to date. With these conflicting approaches in mind, this article will explore how best to keep container images up-to-date.
 
 
 ## Understanding image versioning and naming conventions
 
-Before discussing image updates, it's helpful to have a baseline understanding of how images are typically versioned and named.
+Before discussing  image updates, it's helpful to have a baseline understanding of how images are typically versioned and named.
 
 [*Semantic versioning*](https://semver.org/) — also known as "semver" — is a system for determining how version numbers are assigned to a given piece of software. Software using semver has versions numbered in the format of `X.Y.Z`. `X` is reserved for major versions that are backwards incompatible, `Y` is used for minor versions that are backward compatible, and `Z` is used for patches and bug fixes. As an example, for a piece of software with the version number `3.5.2`, `3` is the major version, `5` is the minor version, and `2` is the patch number.
 
@@ -36,34 +36,34 @@ When referencing an image, it's important to know exactly what image you are wor
 [host]/[repository][image_name][:tag]
 ```
 
-For example, the full name for the [Chainguard Go Image](https://images.chainguard.dev/directory/image/go/versions?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-recommended-practices-considerations-for-image-updates), is `cgr.dev/chainguard/go:latest`. 
+For example, the full name for the [Chainguard Go Image](https://images.chainguard.dev/directory/image/go/versions?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-recommended-practices-considerations-for-image-updates), is `cgr.dev/chainguard/go:latest`.
 
 Certain elements of this name format are optional in many cases. For instance, if you omit the hostname portion of an image name in either Docker or Kubernetes, both will default to using the public Docker registry.
 
 
 ## Automating updates
 
-One solution to avoiding out-of-date container images would be to automate the process of updating images. This may be a system that scans a container registry for new versions of a given image and updates the application any time a new version of an image is released. 
+One solution to avoiding out-of-date container images would be to automate the process of updating images. This may be a system that scans a container registry for new versions of a given image and updates the application any time a new version of an image is released.
 
 However, you will need to consider a few specific details around your particular software and organization's situation prior to fully automating container image updates, as you may run into issues with breaking changes upstream. You’ll want to think through the following:
 
 * What is your risk appetite: is your software part of critical infrastructure or is its function of less urgent importance?
-* What tests do you have in place? If you have confidence in your test suite, you may have a higher risk tolerance as you’ll trust that tests will fail and prevent broken images from going live. 
+* What tests do you have in place? If you have confidence in your test suite, you may have a higher risk tolerance as you’ll trust that tests will fail and prevent broken images from going live.
 
 You’ll also want to consider what exact version of an image you are updating, whether you are pinning to a digest to guarantee reproducibility, defaulting to a tag, or automating minor or patch version updates.
 
-Even with safeguards in place, there is still a risk that at some point your application will use a version of an image it’s no longer fully compatible with, and you’ll need to have a plan in place to remedy this. 
+Even with safeguards in place, there is still a risk that at some point your application will use a version of an image it’s no longer fully compatible with, and you’ll need to have a plan in place to remedy this.
 
 There are some tools that can automate some or all of the process of updating your images. One such example is [watchtower](https://github.com/containrrr/watchtower), which will update the running version of your app when an appropriately tagged image is pushed to a relevant registry. Additionally, there are [FluxCD](https://fluxcd.io/flux/guides/image-update/) and [Argo CD's Image Update tool](https://argocd-image-updater.readthedocs.io/en/stable/).
 
-If you're going to use tools like these to automate image updates, it is a recommended that you have testing and monitoring in place. Monitoring, alerting, and logging support you and your organization in making the information you need for debugging, security-related analysis, and compliance requirements available while also keeping a history of relevant data. 
+If you're going to use tools like these to automate image updates, it is a recommended that you have testing and monitoring in place. Monitoring, alerting, and logging support you and your organization in making the information you need for debugging, security-related analysis, and compliance requirements available while also keeping a history of relevant data.
 
 
 ## Be mindful about tagging practices
 
 Developers will often create multiple variations of the same image. Sometimes these different images may represent distinct numbered versions of the image, or they may contain unique sets of packages. Typically, these different images in the same series will share a name and be stored in the same repository, but the developer will differentiate them by giving them different *tags*.
 
-In the context of containers, a tag is a human-readable identifier associated with an image. These make it easier to distinguish between different versions of images within the same repository. Oftentimes, developers will pin their project to a specific tag. As an example, imagine a project that uses an image named `example_image` and it is pinned to version `1.9`, as in `cgr.dev/chainguard/example_image:1.9`. One day, version `2.0` is released, but the project developers choose not to upgrade, as doing so would introduce breaking changes. 
+In the context of containers, a tag is a human-readable identifier associated with an image. These make it easier to distinguish between different versions of images within the same repository. Oftentimes, developers will pin their project to a specific tag. As an example, imagine a project that uses an image named `example_image` and it is pinned to version `1.9`, as in `cgr.dev/chainguard/example_image:1.9`. One day, version `2.0` is released, but the project developers choose not to upgrade, as doing so would introduce breaking changes.
 
 There may be situations where different tags point to the same image. For example, the first version of an image named `sample_image` is released with the tag `1`. Later on, a minor version is released with the tag `1.2`, and then even later  patch is released with the tag `1.2.3`. In this case, the images tagged `1` and `1.2` would point to the same image as the one tagged `1.2.3`, since `1.2.3` is the latest patch of both these major and minor versions. Conversely, if the developer later decides to patch version `1.1` of the `sample_image` and tags it as `1.1.4`, the image tagged `1` will still point to `1.2.3`, as that's the latest iteration of the most recent minor version.
 
