@@ -24,7 +24,7 @@ Due to the complexity involved in modern containerized applications, there is no
 
 ## Understanding image versioning and naming conventions
 
-Before discussion image updates, it's helpful to have a baseline understanding of how images are typically versioned and named.
+Before discussing image updates, it's helpful to have a baseline understanding of how images are typically versioned and named.
 
 [*Semantic versioning*](https://semver.org/) — also known as "semver" — is a system for determining how version numbers are assigned to a given piece of software. Software using semver has versions numbered in the format of `X.Y.Z`. `X` is reserved for major versions that are backwards incompatible, `Y` is used for minor versions that are backward compatible, and `Z` is used for patches and bug fixes. As an example, for a piece of software with the version number `3.5.2`, `3` is the major version, `5` is the minor version, and `2` is the patch number.
 
