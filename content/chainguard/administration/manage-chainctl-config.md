@@ -22,7 +22,7 @@ The Chainguard command line interface (CLI) tool, `chainctl`, will help you inte
 
 `chainctl` has a local configuration you can manage. To get a list of all options available, you can run:
 
-```sh
+```shell
 chainctl config -h
 ```
 
@@ -98,27 +98,27 @@ platform:
 
 The full documentation for the `chainctl config` command is available on the relevant [reference page](/chainguard/chainctl/chainctl-docs/chainctl_config/).
 
-## Edit chainctl config
+## Edit the chainctl Configuration
 
 You can edit the `chainctl` config directly with an editor. The following command will open a text editor (`nano`, by default) where you can edit the local `chainctl` config.
 
-```sh
+```shell
 chainctl config edit
 ```
 
 Alternatively, you can update one attribute at a time with the `set` option, as demonstrated in the next command:
 
-```sh
+```shell
 chainctl config set platform.api=https://console-api.enforce.dev
 ```
 
 You can review the `chainctl config set` options on the relevant [docs page](/chainguard/chainctl/chainctl-docs/chainctl_config_set/).
 
-## Reset the configuration
+## Reset the Configuration
 
 If you run into issues with your `chainctl` configuration, you can use the following command to reset it to the default state:
 
-```sh
+```shell
 chainctl config reset
 ```
 
