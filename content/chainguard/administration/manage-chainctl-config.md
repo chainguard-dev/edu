@@ -100,7 +100,7 @@ The full documentation for the `chainctl config` command is available on the rel
 
 ## Edit the chainctl Configuration
 
-You can edit the `chainctl` config directly with an editor. The following command will open a text editor (`nano`, by default) where you can edit the local `chainctl` config.
+You can edit the `chainctl` config directly with an editor. The following command will open your default command line text editor (typically `nano`) where you can edit the local `chainctl` config.
 
 ```shell
 chainctl config edit
