@@ -32,7 +32,7 @@ curl -L -O https://github.com/chainguard-dev/apko/releases/download/v0.20.1/apko
 
 Then, set up a shell variable to store the SHA256 hash of the `apko_0.20.1_linux_amd64.tar.gz` release file:
 
-```sh
+```shell
 SHASUM=$(shasum -a 256 apko_0.20.1_linux_amd64.tar.gz |awk '{print $1}')
 ```
 
