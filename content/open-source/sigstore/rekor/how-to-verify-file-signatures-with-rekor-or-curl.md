@@ -16,7 +16,7 @@ toc: true
 ---
 
 
-You can use the `rekor-cli` tool to verify signatures of artifacts other than container images. For example, you can verify the signature of a binary file that has been signed using a keyless signature as part of their release process. By querying the [Rekor transparency log](/open-source/sigstore/rekor/an-introduction-to-rekor/#transparency-log), you can verify that the binary file you downloaded matches the one that was signed using Cosign. If you prefer, you can also query the Rekor API directly using `curl`.
+You can use the `rekor-cli` tool to verify signatures of artifacts other than container images. For example, you can verify the signature of a binary file that has been signed using a keyless signature as part of its release process. By querying the [Rekor transparency log](/open-source/sigstore/rekor/an-introduction-to-rekor/#transparency-log), you can verify that the binary file you downloaded matches the one that was signed using Cosign. If you prefer, you can also query the Rekor API directly using `curl`.
 
 In this tutorial, we'll demonstrate how to verify a binary file using `rekor-cli` and `curl`. We'll use [apko](/open-source/apko/overview/) as an example, since all its releases are signed with Cosign. The methods in this tutorial apply to any blob file that Cosign has signed with a keyless signature.
 
@@ -26,7 +26,7 @@ To follow up with all commands in this tutorial, you need to have `curl` and the
 ### Download the Example File
 We'll use the `apko_0.20.1_linux_amd64.tar.gz` tar archive from the apko [GitHub Release v0.20.1 page](https://github.com/chainguard-dev/apko/releases/tag/v0.20.1) for the examples in this tutorial. You can download the file using `curl` or your browser:
 
-```sh
+```shell
 curl -L -O https://github.com/chainguard-dev/apko/releases/download/v0.20.1/apko_0.20.1_linux_amd64.tar.gz
 ```
 
@@ -38,7 +38,7 @@ SHASUM=$(shasum -a 256 apko_0.20.1_linux_amd64.tar.gz |awk '{print $1}')
 
 You can verify that the variable has been set correctly by running:
 
-```sh
+```shell
 echo $SHASUM
 ```
 
@@ -56,7 +56,7 @@ We'll now use the `rekor-cli` tool to verify the signature of the `apko_0.20.1_l
 
 To search for the hash in the Rekor log using `rekor-cli`, run the following command:
 
-```sh
+```shell
 rekor-cli search --sha "${SHASUM?}"
 ```
 You will receive output like the following:
@@ -68,13 +68,13 @@ Found matching entries (listed by UUID):
 
 Set a shell variable called `UUID` to the returned entry:
 
-```sh
+```shell
 UUID="108e9186e8c5677a8d6736bdd79170adf94bd127aea751274d1d62504e88b058af7552d91dea0f26"
 ```
 
 Now you can use the returned UUID to retrieve the associated Rekor log entry:
 
-```sh
+```shell
 rekor-cli get --uuid "${UUID?}"
 ```
 
@@ -85,7 +85,7 @@ To query the Rekor API directly for the hash using `curl`, you'll need to make a
 
 Run the following command to query the Rekor API for the hash:
 
-```sh
+```shell
 curl -X POST -H "Content-type: application/json" 'https://rekor.sigstore.dev/api/v1/index/retrieve' --data-raw "{\"hash\":\"sha256:$SHASUM\"}"
 ```
 You will get output like this:
@@ -96,13 +96,13 @@ You will get output like this:
 
 Next, set a shell variable called `UUID` to the returned entry:
 
-```sh
+```shell
 UUID="108e9186e8c5677a8d6736bdd79170adf94bd127aea751274d1d62504e88b058af7552d91dea0f26"
 ```
 
 Now you can use the returned UUID to retrieve the associated Rekor log entry:
 
-```sh
+```shell
 curl -X GET "https://rekor.sigstore.dev/api/v1/log/entries/${UUID?}"
 ```
 
@@ -116,7 +116,7 @@ If you would like to extract the signature and public key to verify your binary 
 
 The following commands will fetch the Rekor entry for a release using `rekor-cli`, parse and extract the signature and public certificate using `jq`, and decode it using `base64`:
 
-```sh
+```shell
 rekor-cli get --uuid "${UUID?}" --format json \
   | jq -r '.Body .HashedRekordObj .signature .content' \
   | base64 -d > apko_0.20.1_linux_amd64.tar.gz.sig
@@ -131,7 +131,7 @@ rekor-cli get --uuid "${UUID?}" --format json \
 
 The following commands will fetch the Rekor entry for a release using `curl`, parse and extract the signature and public certificate using `jq`, and decode it using `base64`:
 
-```sh
+```shell
 curl -s -X GET "https://rekor.sigstore.dev/api/v1/log/entries/${UUID?}" \
   | jq -r '.[] | .body' \
   | base64 -d |jq -r '.spec .signature .content' \
@@ -151,19 +151,19 @@ After running both commands from the previous section and whether you used `reko
 
 First, extract the public key portion of the `apko_0.20.1_linux_amd64.tar.gz.crt` certificate file:
 
-```sh
+```shell
 openssl x509 -in apko_0.20.1_linux_amd64.tar.gz.crt -noout -pubkey > apko_0.20.1_linux_amd64.tar.gz.pubkey.crt
 ```
 
 Now you can use `openssl` to verify the signature against your local apko binary. Run the following command:
 
-```sh
+```shell
 openssl sha256 -verify apko_0.20.1_linux_amd64.tar.gz.pubkey.crt -signature apko_0.20.1_linux_amd64.tar.gz.sig apko_0.20.1_linux_amd64.tar.gz
 ```
 
 If your `apko_0.20.1_linux_amd64.tar.gz` download matches the one that was signed using Cosign, you will receive the following line of output:
 
-```
+```Output
 Verified OK
 ```
 
