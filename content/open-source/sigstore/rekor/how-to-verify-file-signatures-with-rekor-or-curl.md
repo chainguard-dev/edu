@@ -21,7 +21,7 @@ You can use the `rekor-cli` tool to verify signatures of artifacts other than co
 In this tutorial, we'll demonstrate how to verify a binary file using `rekor-cli` and `curl`. We'll use [apko](/open-source/apko/overview/) as an example, since all its releases are signed with Cosign. The methods in this tutorial apply to any blob file that Cosign has signed with a keyless signature.
 
 ## Preparation
-To follow up with all commands in this tutorial, you need to have `curl` and the `rekor-cli` tool installed. You can install it by following our [How to Install the Rekor CLI](/open-source/sigstore/rekor/how-to-install-rekor/) guide. You also need to have the `jq` utility installed to parse the output of `rekor-cli` and `curl`.
+To follow up with all commands in this tutorial, you need to have `curl` and the `rekor-cli` tool installed. You can install it by following our [How to Install the Rekor CLI](/open-source/sigstore/rekor/how-to-install-rekor/) guide. Alternatively, you can follow the [official docs](https://docs.sigstore.dev/logging/installation/#build-rekor-cli-manually) for instructions on how to build Rekor CLI from source. You also need to have the `jq` utility installed to parse the output of `rekor-cli` and `curl`.
 
 ### Download the Example File
 We'll use the `apko_0.20.1_linux_amd64.tar.gz` tar archive from the apko [GitHub Release v0.20.1 page](https://github.com/chainguard-dev/apko/releases/tag/v0.20.1) for the examples in this tutorial. You can download the file using `curl` or your browser:
