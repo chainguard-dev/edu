@@ -4,7 +4,7 @@ type: "article"
 lead: "Details for installing Cosign across operating systems to sign software artifacts"
 description: "Details for installing Cosign across operating systems"
 date: 2022-07-13T08:49:31+00:00
-lastmod: 2024-07-29T15:12:18+00:00
+lastmod: 2024-12-16T15:16:50+01:00
 draft: false
 tags: ["Cosign", "Procedural"]
 images: []
@@ -19,7 +19,7 @@ _An earlier version of this material was published in the [Cosign chapter](https
 
 Cosign supports software artifact signing, verification, and storage in an OCI (Open Container Initiative) registry. By signing software, you can authenticate that you are who you say you are, which can in turn enable a trust root so that developers and consumers who leverage your software can verify that you created the software artifact that you have said you’ve created. They can also ensure that that artifact was not tampered with by a third party. As someone who may use software libraries, containers, or other artifacts as part of your development lifecycle, a signed artifact can give you greater assurance that the code or container you are incorporating is from a trusted source.
 
-There are a few different ways to install Cosign to your local machine or remote server. The approach you choose should be based on the way you set up packages, the tooling that you use, or the way that your organization recommends. We will go through several options. Please refer to the [official Cosign installation documentation](https://docs.sigstore.dev/cosign/installation) for additional context and updates.
+There are a few different ways to install Cosign to your local machine or remote server. The approach you choose should be based on the way you set up packages, the tooling that you use, or the way that your organization recommends. We will go through several options. Please refer to the [official Cosign installation documentation](https://docs.sigstore.dev/cosign/system_config/installation/) for additional context and updates.
 
 ## Installing Cosign with Homebrew or Linuxbrew
 
@@ -77,24 +77,22 @@ You can check to ensure that Cosign is successfully installed using the `cosign 
 
 ## Installing Cosign with Go
 
-You may choose to install Cosign with Go if you already are working in the programming language Go. Additionally, installing with Go will work across different distributions. First, check that you have Go installed on your machine, and ensure that it is Go version 1.16 or later.
+You can install Cosign using the Go package manager. Installing with Go will work across different operating systems and distributions. First, check that you have Go installed on your machine, and ensure that it is Go version `1.22.7` or later.
 
 ```sh
 go version
 ```
 
-As long as your output indicates that you are at Go 1.16 or above, you’ll be ready to install Cosign with Go. Your output should appear similar to the following.
-
-```sh
-go version go1.17.6 darwin/arm64
+```
+go version go1.23.4 linux/amd64
 ```
 
 If you run into an error or don’t receive output like the above, you’ll need to install Go in order to install Cosign with Go. Navigate to the official Go website in order to download the appropriate version of Go for your machine.
 
-With Go 1.16 or above installed, you are ready to install Cosign with Go, using the following command.
+With Go installed, you are ready to install Cosign using the following command.
 
 ```sh
-go install github.com/sigstore/cosign/cmd/cosign@latest
+go install github.com/sigstore/cosign/v2/cmd/cosign@latest
 ```
 
 The resulting binary from this installation will be placed at `$GOPATH/bin/cosign`.
