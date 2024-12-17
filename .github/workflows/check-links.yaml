@@ -41,7 +41,7 @@ jobs:
           sudo chmod +x /usr/local/bin/yq
 
       - name: Set up Go
-        uses: actions/setup-go@3041bf56c941b39c61721a86cd11f3bb1338122a # actions/setup-go@v4
+        uses: actions/setup-go@3041bf56c941b39c61721a86cd11f3bb1338122a #v5.2.0
         with:
           go-version: '^1.20.0'
 
