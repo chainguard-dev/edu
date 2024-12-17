@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "Overview of what Chainguard's Unique Tags are and how to access them."
 date: 2024-02-29T08:49:31+00:00
-lastmod: 2024-02-29T08:49:31+00:00
+lastmod: 2024-12-12T08:49:31+00:00
 draft: false
 tags: ["Chainguard Images", "Product", "Overview"]
 images: []
@@ -22,8 +22,9 @@ Some organizations use image tags as an indication that there is a new container
 
 To help with cases like this, Chainguard offers Unique Tags for private registries. Unique Tags are ideal for organizations that require a strict tag per release or update of their images. They benefit teams looking for precise tracking and management of container images.
 
-This guide provides an overview of what these Unique Tags are, the kinds of problems they aim to solve, and how you can access them in the Chainguard Console.
+Unique Tags are an opt-in feature that is only available for private registries. If your organization is interested in using Unique Tags, please [contact support](https://support.chainguard.dev/hc/en-us) and we will enable this feature for you.
 
+This guide provides an overview of what these Unique Tags are, the kinds of problems they aim to solve, and how you can access them in the Chainguard Console.
 
 ## Chainguard's Unique Tags
 
@@ -54,11 +55,6 @@ To illustrate, toggle this button on and then click on any Production Image list
 ![This screenshot shows the ten most recently built versions of an image that has unique tags enabled.](unique-tags-02.png)
 
 Here there are a number of Image versions with tags similar to `:openjdk-17-202412120223`. This means that this particular version of the Image was last updated on December 12, 2024, at 2:23 AM. You can use this version's **Pull URL** (`cgr.dev/$ORGANIZATION/jdk-fips:openjdk-17-202412120223`) to download this Image, and you can be confident that this Pull URL will always refer to the same Image.
-
-
-## Accessing Unique Tags
-
-As mentioned previously, Unique Tags are an opt-in feature that is only available for private registries. If your organization is interested in using Unique Tags, please [contact support](https://support.chainguard.dev/hc/en-us) and we will enable this feature for you.
 
 
 ## Learn More
