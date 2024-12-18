@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "A conceptual overview of Chainguard FIPS Images."
 date: 2024-02-08T15:56:52-07:00
-lastmod: 2024-11-24T15:56:52-07:00
+lastmod: 2024-12-18T15:56:52-07:00
 draft: false
 tags: ["IMAGES", "PRODUCT", "CONCEPTUAL"]
 images: []
@@ -65,12 +65,12 @@ All of Chainguard's FIPS Images have [STIGs](/chainguard/chainguard-images/worki
 ‍If Customer requests an image not currently available as a Chainguard FIPS Image, Chainguard will use commercially reasonable efforts to determine if such request is feasible. For further information, contact <fips-contact@chainguard.dev>.
 
 ### Regarding Java-based FIPS Images
-As mentioned previously, Chainguard provides several FIPS-ready Images that are based on Java. However, this presents some challenges because Java applications generally don't leverage OpenSSL for cryptography and there isn't another cryptographic library serving as a widely-used standard for Java applications. For these reasons, Chainguard's Java-based Images instead ship with the [FIPS variant of the Bouncy Castle Crypto package](https://www.bouncycastle.org/about/bouncy-castle-fips-faq/), a Java implementation of cryptographic algorithms. 
 
-Some Java applications may bundle their own cryptographic libraries at the application level. In these cases, Chainguard can only build a FIPS-enabled Image if the bundled libraries are FIPS-compliant or the applications in question support use with FIPS-compliant variants like Bouncy Castle's. Other Java applications do not bundle cryptographic libraries, instead relying on the bundled cryptography providers from the JRE.
+FIPS 140-3 is now supported for Java base images (`jdk-fips` and `jre-fips`) using the newly certified Bouncy Castle 2.0 cryptographic modules.
 
-If the underlying JRE/JDK on the host system is FIPS compliant, then theoretically, the application could also be considered FIPS compliant. However, without explicit support or documentation for FIPS compliance, there is no guarantee that the application will consistently use these FIPS-compliant features. You can refer to the [Java Cryptography Architecture documentation](https://docs.oracle.com/en/java/javase/21/security/java-cryptography-architecture-jca-reference-guide.html#GUID-2BCFDD85-D533-4E6C-8CE9-29990DEB0190) for more information.
-The full FIPS compliance of a Java application and its related image depends heavily on the application itself, specifically how it is architected and what it supports.
+The Bouncy Castle 1.x certificate providing FIPS 140-2 verification has moved to Historical. Most likely, those using it in an existing FedRAMP environment can continue using it, but you should check with your auditor. 
+
+You can learn more by reviewing the [blog announcement](https://www.chainguard.dev/unchained/chainguard-java-images-now-support-fips-140-3). 
 
 ## Learn more
 
