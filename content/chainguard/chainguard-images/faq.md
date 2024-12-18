@@ -79,4 +79,4 @@ To learn how to authenticate into the Chainguard Registry, you can review our [a
 
 ## Is Chainguard FedRAMP certified?
 
-You will need to ingest Chainguard Images into an image repository within your FedRAMP boundary. Your repo requires FedRAMP but Chainguard does not since we're outside the boundary. Please reach out if you need more details.
+You will need to ingest Chainguard Images into an image repository within your FedRAMP boundary. Your repo requires FedRAMP but Chainguard does not since we're outside the boundary. Please [reach out](https://www.chainguard.dev/contact?utm=docs) if you need more details.
