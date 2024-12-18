@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "A walkthrough of the Chainguard Images directory."
 date: 2024-02-23T11:07:52+02:00
-lastmod: 2024-08-05T11:07:52+02:00
+lastmod: 2024-12-18T11:07:52+02:00
 draft: false
 tags: ["CONCEPTUAL", "CHAINGUARD IMAGES", "PRODUCT"]
 images: []
