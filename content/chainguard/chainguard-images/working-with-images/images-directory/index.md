@@ -25,6 +25,12 @@ There are hundreds of Chainguard Images available for use. To help users explore
 
 This guide is primarily framed around the Public Images Directory found in the Chainguard Console. The Console is accessible to anyone, including users who aren't Chainguard customers. To access the Console, you'll first need to [create an account and sign in](https://console.chainguard.dev/auth/login).
 
+If you would like to open the console with your Organization already selected, you can use (and bookmark) a link like this, replacing ORGANIZATION with your organization's name:
+
+```html
+https://console.chainguard.dev/auth/login?org=ORGANIZATION
+```
+
 If you're not ready to create a Chainguard account, you can also follow along with the public [Chainguard Images Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory). As of this writing, there are some differences between the two directories, but both should provide a similar experience for users.
 
 
