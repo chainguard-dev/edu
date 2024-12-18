@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "A conceptual overview of Chainguard FIPS Images."
 date: 2024-02-08T15:56:52-07:00
-lastmod: 2024-11-24T15:56:52-07:00
+lastmod: 2024-12-18T15:56:52-07:00
 draft: false
 tags: ["IMAGES", "PRODUCT", "CONCEPTUAL"]
 images: []
