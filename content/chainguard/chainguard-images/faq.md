@@ -4,7 +4,7 @@ linktitle: "FAQs"
 type: "article"
 description: "Frequently asked questions about Chainguard Images"
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2024-08-08T08:49:31+00:00
+lastmod: 2024-12-18T08:49:31+00:00
 draft: false
 tags: ["Chainguard Images", "FAQ", "Product"]
 images: []
@@ -79,4 +79,4 @@ To learn how to authenticate into the Chainguard Registry, you can review our [a
 
 ## Is Chainguard FedRAMP certified?
 
-The enterprise repo that you mirror requires FedRAMP but we do not since we're outside the boundary. Please reach out if you need more details.
+You will need to ingest Chainguard Images into an image repository within your FedRAMP boundary. Your repo requires FedRAMP but Chainguard does not since we're outside the boundary. Please reach out if you need more details.
