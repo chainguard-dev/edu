@@ -4,7 +4,7 @@ linktitle: "FAQs"
 type: "article"
 description: "Frequently asked questions about Chainguard Images"
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2024-08-08T08:49:31+00:00
+lastmod: 2024-12-18T08:49:31+00:00
 draft: false
 tags: ["Chainguard Images", "FAQ", "Product"]
 images: []
@@ -76,3 +76,7 @@ Chainguard is not responsible for CVEs in software you add on top of base images
 Logging in is optional if you are only using Developer Images. That being said, there are benefits for all users who authenticate to the Chainguard Registry, as Chainguard provides notifications of version updates, breaking changes, or critical security updates.
 
 To learn how to authenticate into the Chainguard Registry, you can review our [authentication documentation](/chainguard/chainguard-registry/authenticating/) . You can read more about the thought process behind authentication in our blog post, [Scaling Chainguard Images with a growing catalog and proactive security updates](https://www.chainguard.dev/unchained/scaling-chainguard-images-with-a-growing-catalog-and-proactive-security-updates).
+
+## Is Chainguard FedRAMP certified?
+
+You will need to ingest Chainguard Images into an image repository within your FedRAMP boundary. Your repo requires FedRAMP but Chainguard does not since we're outside the boundary. Please [reach out](https://www.chainguard.dev/contact?utm=docs) if you need more details.
