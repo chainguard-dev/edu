@@ -4,7 +4,7 @@ linktitle: "Product Release Lifecycle"
 type: "article"
 description: "Understanding Chainguard's Approach to Image Versions"
 date: 2024-01-08T08:49:31+00:00
-lastmod: 2024-03-29T08:49:31+00:00
+lastmod: 2024-12-17T08:49:31+00:00
 draft: false
 tags: ["Chainguard Images", "Product"]
 images: []
