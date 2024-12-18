@@ -4,7 +4,7 @@ linktitle: "Product Release Lifecycle"
 type: "article"
 description: "Understanding Chainguard's Approach to Image Versions"
 date: 2024-01-08T08:49:31+00:00
-lastmod: 2024-03-29T08:49:31+00:00
+lastmod: 2024-12-17T08:49:31+00:00
 draft: false
 tags: ["Chainguard Images", "Product"]
 images: []
@@ -15,13 +15,13 @@ weight: 600
 toc: true
 ---
 
-[Chainguard Images](https://images.chainguard.dev/?utm_source=docs) are able to offer low-to-zero known vulnerabilities because they are updated frequently. Because of this continuous release cycle, the best way to mitigate vulnerabilities is to use the newest build of each Chainguard Image available. Chainguard keeps Images up to date by doing one or more of the following:
+[Chainguard Images](https://images.chainguard.dev/?utm_source=docs) are able to offer few-to-zero known vulnerabilities because they are updated frequently. Because of this continuous release cycle, the best way to mitigate vulnerabilities is to use the newest build of each Chainguard Image available. Chainguard keeps Images up to date by doing one or more of the following:
 
 * Applying new releases from upstream projects
 * Rapidly applying upstream patches to current releases — you can read more about this in our blog post, “[How Chainguard fixes vulnerabilities before they're detected](https://www.chainguard.dev/unchained/how-chainguard-fixes-vulnerabilities?utm_source=docs)”
 * Applying Chainguard patches to OSS software
 
-Upstream projects are updated frequently for many reasons, including to combat CVEs, and Chainguard ensures that the most up-to-date software is available in all Chainguard Images. Additionally, Chainguard often identifies CVEs and other issues before scanners can detect them, so Chainguard may offer a patch to a vulnerable dependency to support a low-to-zero vulnerability Chainguard Image. 
+Upstream projects are updated frequently for many reasons, including to combat CVEs, and Chainguard ensures that the most up-to-date software is available in all Chainguard Images. Additionally, Chainguard often identifies CVEs and other issues before scanners can detect them, so Chainguard may offer a patch to a vulnerable dependency to support Chainguard Image with few-to-zero vulnerabilities. 
 
 The best way to mitigate vulnerabilities is to continually update to the latest patched releases of software, but testing and updating can take time and effort. To support flexibility and user choice, Chainguard aims to offer multiple versions of a Chainguard Image that provide the lowest number of vulnerabilities realistically possible. 
 
@@ -41,20 +41,20 @@ Many open source projects support only a single stream of releases that are cont
 
 ## What Chainguard Supports and Maintains for Chainguard Images
 
-There are several scenarios that define what Chainguard agrees to maintain regarding software versions in the Chainguard Images Directory. All Images that Chainguard currently supports are those with upstream software that is still supported and maintained, and Chainguard patches and rebuilds these Images daily. If you have purchased an Image during its lifecycle that is no longer being supported upstream, you will still be able to access this Image, _but_ Chainguard will not be patching or rebuilding this Image and the Image will start to accrue CVEs. It is recommended to upgrade to an actively maintained version. 
+There are several scenarios that define what Chainguard agrees to maintain regarding software versions in the [Chainguard Images Directory](/chainguard/chainguard-images/working-with-images/images-directory/). All Images that Chainguard currently supports are those with upstream software that is still supported and maintained, and Chainguard patches and rebuilds these Images daily. If you have purchased an Image during its lifecycle that is no longer being supported upstream, you will still be able to access this Image, _but_ Chainguard will not be patching or rebuilding this Image and the Image will start to accrue CVEs. It is recommended to upgrade to an actively maintained version. 
 
 The table provides some example scenarios to help illustrate our approach. 
 
 | **Category**	| **Example** | **Maintained Upstream Releases** | **Chainguard Patches** | **Chainguard No Longer Patches** | 
 |---------------|-------------|----------------------------------|------------------------|----------------------------------|
-| **Multiple Release Tracks** | [Go](https://images.chainguard.dev/directory/image/go/versions?utm_source=docs)       | 1.21, 1.20                 | `:latest`, 1, 1.21, 1.20 | 1.21.old, 1.20.old, 1.19, 1.18 |
-|                             | [Python](https://images.chainguard.dev/directory/image/python/versions?utm_source=docs)   | 3.12, 3.11, 3.10, 3.9, 3.8 | `:latest`, 3, 3.8 and above | 3.7 and below, 3.8.old, 3.9.old, 3.10.old, 3.11.old, 3.12.old | 
-|                             | [Postgres](https://images.chainguard.dev/directory/image/postgres/version?utm_source=docs) | 16, 15, 14, 13, 12         | `:latest`, 16, 15, 14, 13, 12 | 11 (EOL November 9, 2023) | 
-| **Single Release Track**    | [Cosign](https://images.chainguard.dev/directory/image/cosign/versions?utm_source=docs)   | 2                          | `:latest`, 2, 2.2 | 2.1, 2.0, 1.x, 0.x | 
+| **Multiple Release Tracks** | [Go](https://images.chainguard.dev/directory/image/go/versions?utm_source=docs)       | 1.23, 1.22                 | `:latest`, 1, 1.23, 1.22 | 1.23.old, 1.22.old, 1.21 and below |
+|                             | [Python](https://images.chainguard.dev/directory/image/python/versions?utm_source=docs)   | 3.13, 3.12, 3.11, 3.10, 3.9 | `:latest`, 3, 3.9 and above | 3.8 and below, 3.8.old, 3.9.old, 3.10.old, 3.11.old, 3.12.old | 
+|                             | [Postgres](https://images.chainguard.dev/directory/image/postgres/version?utm_source=docs) | 17, 16, 15, 14, 13         | `:latest`, 17, 16, 15, 14, 13 | 12 (EOL November 21, 2024) and below | 
+| **Single Release Track**    | [Cosign](https://images.chainguard.dev/directory/image/cosign/versions?utm_source=docs)   | 2                          | `:latest`, 2, 2.4 | 2.3, 2.2, 2.1, 2.0, 1.x, 0.x | 
 |                             | [Bank-Vaults](https://images.chainguard.dev/directory/image/bank-vaults/versions?utm_source=docs) | 1 | `:latest`, 1 | Any previous version tag
 | **No Release Track**        | [envoyproxy/ratelimit](https://images.chainguard.dev/directory/image/envoy-ratelimit/versions?utm_source=docs) | No versioned releases | `:latest` | Any previous version tag |
 
-_Note that "Maintained Upstream Releases" is current as of November 2023._
+> **Note**: The "Maintained Upstream Releases" column is current as of December 2024.
 
 ## What Chainguard Image Versions to Expect
 
@@ -83,7 +83,7 @@ This change ensures that Chainguard can provide the most up-to-date patches to a
 
 ## SLAs
 
-A vulnerability and patch service-level agreement (SLA) is available for Chainguard Production Images. If you are currently using Chainguard Developer Images, there are no SLAs available, but you will have access to frequently updated and patched Images with low-to-zero CVEs.
+A vulnerability and patch service-level agreement (SLA) is available for Chainguard Production Images. There are no SLAs available for Chainguard's free tier of Images, but you will have access to frequently updated and patched Images with low-to-zero CVEs.
 
 If you are a Chainguard Production Images user, Chainguard vulnerability and patch SLAs apply only to supported and maintained versions of upstream projects as clearly published by the upstream projects or published images that can be rebuilt using updated compilers and/or libraries. In the case of single-release track projects, this means that the Chainguard vulnerability and patch SLAs apply only to the latest version and corresponding version tags of the upstream projects. Images that use open source applications that have reached their end of life are no longer patched.
 
@@ -91,6 +91,6 @@ If you are a Chainguard Production Images user, Chainguard vulnerability and pat
 
 When an open source application version is no longer maintained by the upstream project or has otherwise met its end of life (EOL), Chainguard will generally no longer provide patches to that software. While the Chainguard Production Images organization directory will continue to have previously purchased Images available, new builds will no longer be published and vulnerabilities are expected to accumulate in those Images over time. It is recommended to move to an up-to-date, actively maintained version. 
 
-For software applications that maintain multiple concurrent release tracks, Chainguard will endeavor to provide reasonable notice when a particular software release version is expected to reach EOL status, thus no longer updated.
+For software applications that maintain multiple concurrent release tracks, Chainguard will endeavor to provide [reasonable notice](/chainguard/chainguard-images/working-with-images/eol-notifications/) when a particular software release version is expected to reach EOL status, thus no longer updated.
 
 No EOL notice will be provided for single-release applications where the only supported release is the `:latest` or corresponding version tag.
