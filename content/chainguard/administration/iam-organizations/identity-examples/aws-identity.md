@@ -1,10 +1,10 @@
 ---
-title : "Create an Assumable Identity for an AWS role"
-linktitle: "AWS Assumable Identity"
+title : "Create an Assumable Identity for an AWS role in Lambda"
+linktitle: "AWS Assumable Identity in Lambda"
 aliases: 
 - /chainguard/chainguard-enforce/authentication/identity-examples/enforce-aws-identity/
 lead: ""
-description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by an AWS role."
+description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by an AWS role in Lambda."
 type: "article"
 date: 2023-11-28T08:48:45+00:00
 lastmod: 2024-05-09T08:48:45+00:00
