@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "A conceptual overview of Chainguard FIPS Images."
 date: 2024-02-08T15:56:52-07:00
-lastmod: 2024-12-18T15:56:52-07:00
+lastmod: 2024-12-19T15:56:52-07:00
 draft: false
 tags: ["IMAGES", "PRODUCT", "CONCEPTUAL"]
 images: []
@@ -46,7 +46,7 @@ Chainguard FIPS Images remove this friction with a novel design that replaces a 
 
 Note: There are some workloads that require a kernel SP 800-90B entropy source or a kernel FIPS module. These include but are not limited to Chainguard FIPS images shipping Java, k8s CNI plugins, LUKS2 full-disk encryption, and StrongSwan VPN. These use cases will continue to require a kernel in FIPS mode.
 
-Read our full blog about Chainguard's Kernel-Independent FIPS Images at: [https://www.chainguard.dev/unchained/kernel-independent-fips-images].
+Read our full blog about [Chainguard's Kernel-Independent FIPS Images](https://www.chainguard.dev/unchained/kernel-independent-fips-images).
 
 ## Developer Guidance for Available FIPS Images
 
