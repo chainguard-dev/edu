@@ -179,5 +179,3 @@ In this guide, you learned how to use the `wolfictl` tool to interact with Chain
 https://github.com/wolfi-dev/os/blob/main/HOW_TO_PATCH_CVES.md) guide and our [How Chainguard Issues Security Advisories](/chainguard/chainguard-images/working-with-images/security-advisories/how-chainguard-issues/) article first.
 
 Be sure to routinely check [our Security Advisories page](https://images.chainguard.dev/security/?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-security-advisories-managing-advisories) when your scanners pick up new CVEs in your images. If you want to learn more about how you can interpret a security advisory and what its status means for your security, read our [article on using advisories](/chainguard/chainguard-images/working-with-images/security-advisories/how-to-use/). 
-
-We also have a video walkthrough showing how to use the [Security Advisories page and `chainctl diff` API](/chainguard/chainguard-images/videos/security_advisories/).
