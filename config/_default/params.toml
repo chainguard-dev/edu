@@ -49,8 +49,8 @@ themeColor = "#fff"
 # Images
 quality = 85
 bgColor = "#fff"
-landscapePhotoWidths = [900, 800, 700, 600, 500]
-portraitPhotoWidths = [800, 700, 600, 500]
+landscapePhotoWidths = [1920, 1280, 900, 700, 500]
+portraitPhotoWidths = [1280, 900, 700, 500]
 lqipWidth = "20x"
 smallLimit = "300"
 
