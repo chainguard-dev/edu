@@ -4,7 +4,7 @@ linktitle: "CVE Visualizations"
 type: "article"
 description: "Getting started with the CVE Visualization feature."
 date: 2024-12-04T11:07:52+02:00
-lastmod: 2024-12-04T11:07:52+02:00
+lastmod: 2024-19-04T11:07:52+02:00
 draft: false
 tags: ["CONCEPTUAL", "CHAINGUARD IMAGES", "PRODUCT"]
 images: []
@@ -41,7 +41,7 @@ select between them using the drop down.
 The period drop down is used to select a time-period for the report.
 
 Below the controls, you will find several boxes with statistics and graphs:
-  - An overview section showing the current and average CVE counts for the images.
+  - An overview section showing the current and average CVE counts as well as image size for the images.
   - A "CVEs by Severity" section holding bar graphs with the CVE count per day for both
     images, broken down by severity. Any grey bars indicate we are missing data for that day.
   - A "Total CVEs over time" section showing a line graph with the total number of CVEs for any
