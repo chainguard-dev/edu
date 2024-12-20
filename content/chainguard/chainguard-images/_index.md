@@ -13,7 +13,7 @@ banner: {
     title: "Migrate to Chainguard Images",
     subtitle: "Learn how to reduce your CVE attack surface by using Chainguard Images",
     cta: "Read more",
-    link: "/chainguard/chainguard-images/how-to-use-chainguard-images/"
+    link: "/chainguard/chainguard-images/how-to-use/how-to-use-chainguard-images/"
 }
 sectiontitle: "Popular Chainguard Images"
 tutorials: [
