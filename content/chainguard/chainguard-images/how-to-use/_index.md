@@ -6,7 +6,7 @@ aliases:
 description: "Resources on working with Chainguard Images"
 type: "article"
 date: 2024-12-19T08:49:15+00:00
-lastmod: 2024-12-19T08:49:15+00:00
+lastmod: 2024-12-20T08:49:15+00:00
 draft: false
 images: []
 weight: 025
