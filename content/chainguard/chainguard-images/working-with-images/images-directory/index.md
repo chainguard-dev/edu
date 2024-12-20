@@ -1,11 +1,11 @@
 ---
-title: "Using the Chainguard Images Directory"
+title: "Using the Chainguard Directory and Console"
 linktitle: "Images Directory"
 aliases: 
 - /chainguard/chainguard-images/images-directory
 - /chainguard/chainguard-images/images-features/images-directory
 type: "article"
-description: "A walkthrough of the Chainguard Images directory."
+description: "A walkthrough of the Chainguard directory and console."
 date: 2024-02-23T11:07:52+02:00
 lastmod: 2024-12-18T11:07:52+02:00
 draft: false
@@ -18,12 +18,12 @@ weight: 020
 toc: true
 ---
 
-There are hundreds of Chainguard Images available for use. To help users explore and better understand all of these Images, we've developed the Chainguard Images Directory. This guide serves as a walkthrough of the Directory, including how to access it and get the most out of its features.
+There are hundreds of Chainguard Images available for use. To help users explore and better understand all of these Images, we've developed the Chainguard Directory. This guide serves as a walkthrough of the browsing experience for Chainguard Images in the Directory and Console, including how to access it and get the most out of its features.
 
 
-## Accessing the Images Directory
+## Accessing the Chainguard Directory and Console
 
-This guide is primarily framed around the Public Images Directory found in the Chainguard Console. The Console is accessible to anyone, including users who aren't Chainguard customers. To access the Console, you'll first need to [create an account and sign in](https://console.chainguard.dev/auth/login).
+This guide is primarily framed around the Chainguard Directory and the Chainguard Console. The Console is accessible to anyone, including users who aren't Chainguard customers. To access the Console, you'll first need to [create an account and sign in](https://console.chainguard.dev/auth/login).
 
 If you would like to open the console with your Organization already selected, you can use (and bookmark) a link like this, replacing ORGANIZATION with your organization's name:
 
@@ -31,20 +31,20 @@ If you would like to open the console with your Organization already selected, y
 https://console.chainguard.dev/auth/login?org=ORGANIZATION
 ```
 
-If you're not ready to create a Chainguard account, you can also follow along with the public [Chainguard Images Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory). As of this writing, there are some differences between the two directories, but both should provide a similar experience for users.
+If you're not ready to create a Chainguard account, you can follow along with the public [Chainguard Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory). As of this writing, there are some differences between the two websites, but both should provide a similar Chainguard Images browsing experience.
 
 
-## The Images Directory
+## Browse Chainguard Images
 
 After signing in to the Chainguard Console, your browser will take you to a landing page like the following.
 
 ![Screenshot showing the Chainguard Console's Overview page.](imgs-dir-A.png)
 
-Click **Public Images** in the left-hand navigation to be taken to the Public Images Directory. There, you'll be presented with a list of all of Chainguard's Developer Images.
+Click **Public Images** in the left-hand navigation to browse all available Chainguard Images. There, you'll be presented with a list of all of Chainguard's available Images.
 
 ![Screenshot of the public Images directory in the Console, showing the tabular view. The table is sorted by the "Updated" column in ascending order, meaning that the most recently updated Images are shown first.](imgs-dir-B.png)
 
-> **Note**: If you are part of an organization, you may have access to resources in the **Organization images** tab. If so, you explore the images there as you would with the Public Images Directory.
+> **Note**: If you are part of an organization, you may have access to resources in the **Organization images** tab. If so, you explore the images there as you would with the **Public Images** tab.
 
 The table view above has five columns:
 
