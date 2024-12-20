@@ -1,6 +1,6 @@
 ---
 title: "Beyond Zero: Eliminating Vulnerabilities in PyTorch Container Images (PyTorch 2024)"
-linktitle: "(Video) Beyond Zero at PyTorch 2024"
+linktitle: "Video: Beyond Zero at PyTorch 2024"
 aliases:
 - /chainguard/chainguard-images/videos/beyond_zero_pytorch_2024/
 - /chainguard/chainguard-images/about/beyond_zero_pytorch_2024/

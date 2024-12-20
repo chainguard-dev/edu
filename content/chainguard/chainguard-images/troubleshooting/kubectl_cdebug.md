@@ -1,6 +1,6 @@
 ---
 title: "Debugging Distroless Images with Kubectl Debug and CDebug"
-linktitle: "(Video) Debugging with Kubectl and CDebug"
+linktitle: "Video: Debugging with Kubectl and CDebug"
 aliases:
 - /chainguard/chainguard-images/videos/kubectl_cdebug/
 - /chainguard/chainguard-images/troubleshooting/kubectl_cdebug/

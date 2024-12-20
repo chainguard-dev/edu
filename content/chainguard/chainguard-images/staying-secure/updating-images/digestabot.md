@@ -1,6 +1,6 @@
 ---
 title: "Keep your Chainguard Images Up to Date with digestabot"
-linktitle: "(Video) Up-to-date Images with Digestabot"
+linktitle: "Video: Up-to-date Images with Digestabot"
 aliases:
 - /chainguard/chainguard-images/videos/digestabot/
 - /chainguard/chainguard-images/troubleshooting/digestabot/

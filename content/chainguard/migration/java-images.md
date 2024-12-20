@@ -1,6 +1,6 @@
 ---
 title: "How to Migrate a Java Application to Chainguard Images"
-linktitle: "(Video) Migrate Java Applications to Chainguard"
+linktitle: "Video: Migrate Java Applications to Chainguard"
 aliases:
 - /chainguard/chainguard-images/videos/java-images/
 - /chainguard/migration/java-images/

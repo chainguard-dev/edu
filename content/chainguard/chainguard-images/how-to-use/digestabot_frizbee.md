@@ -1,6 +1,6 @@
 ---
 title: "Reproducible Dockerfiles with Frizbee and Digestabot"
-linktitle: "Reproducible Dockerfiles with Frizbee and Digestabot"
+linktitle: "Video: Reproducible Dockerfiles with Frizbee and Digestabot"
 aliases:
 - /chainguard/chainguard-images/videos/digestabot_frizbee/
 - /chainguard/chainguard-images/how-to-use/digestabot_frizbee/

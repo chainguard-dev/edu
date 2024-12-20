@@ -1,6 +1,6 @@
 ---
 title: "Migrating a Dockerfile for a Go application to use Chainguard Images"
-linktitle: "(Video) Migrating Go Applications to Chainguard"
+linktitle: "Video: Migrating Go Applications to Chainguard"
 aliases:
 - /chainguard/chainguard-images/videos/migrating_go/
 - /chainguard/migration/migrating_go/

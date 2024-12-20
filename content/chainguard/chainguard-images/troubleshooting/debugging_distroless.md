@@ -1,6 +1,6 @@
 ---
 title: "Debugging Distroless Containers with Docker Debug"
-linktitle: "(Video) Debugging Distroless Containers"
+linktitle: "Video: Debugging Distroless Containers"
 aliases: 
 - /chainguard/chainguard-images/videos/debugging_distroless/
 - /chainguard/chainguard-images/troubleshooting/debugging_distroless/

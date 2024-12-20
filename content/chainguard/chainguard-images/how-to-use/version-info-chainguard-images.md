@@ -1,6 +1,6 @@
 ---
 title: "Getting Software Versions from Chainguard Images"
-linktitle: "(Video) Software Versions"
+linktitle: "Video: Software Versions"
 aliases:
 - /chainguard/chainguard-images/videos/version-info-chainguard-images/
 - /chainguard/chainguard-images/how-to-use/version-info-chainguard-images/

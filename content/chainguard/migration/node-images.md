@@ -1,6 +1,6 @@
 ---
 title: "How to Migrate a Node.js Application to Chainguard Images"
-linktitle: "(Video) Migrate Node.js Applications to Chainguard"
+linktitle: "Video: Migrate Node.js Applications to Chainguard"
 aliases:
 - /chainguard/chainguard-images/videos/node-images/
 - /chainguard/migration/node-images/

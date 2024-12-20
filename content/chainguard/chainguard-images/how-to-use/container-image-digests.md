@@ -1,9 +1,9 @@
 ---
 title: "How to Use Container Image Digests to Improve Reproducibility "
-linktitle: "(Video) Image Digests"
+linktitle: "Video: Image Digests"
 aliases:
 - /chainguard/chainguard-images/videos/container-image-digests/
-- /chainguard/chainguard-images/about/container-image-digests/
+- /chainguard/chainguard-images/how-to-use/container-image-digests/
 lead: ""
 description: "Video demonstration of using digests with Chainguard Images"
 type: "article"
@@ -14,7 +14,7 @@ images: []
 menu:
   docs:
     parent: "chainguard-images"
-weight: 040
+weight: 037
 toc: true
 ---
 

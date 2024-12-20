@@ -1,9 +1,9 @@
 ---
 title: "Building Minimal Images for Applications with Runtimes"
-linktitle: "(Video) Minimal Runtime Images"
+linktitle: "Video: Minimal Runtime Images"
 aliases:
 - /chainguard/chainguard-images/videos/minimal-runtime-images/
-- /chainguard/chainguard-images/about/minimal-runtime-images/
+- /chainguard/chainguard-images/how-to-use/minimal-runtime-images/
 lead: ""
 description: "Video demonstration of creating minimal images for applications with runtimes, such as Java"
 type: "article"

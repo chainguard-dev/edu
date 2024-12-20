@@ -33,9 +33,9 @@ tutorials: [
     url: "/chainguard/chainguard-images/about/zerocve/"
   },
   {
-    title: "How Chainguard Images are Tested",
+    title: "Images for Compiled Programs",
     description: "",
-    url: "/chainguard/chainguard-images/about/images-testing/"
+    url: "/chainguard/chainguard-images/working-with-images/about/images-compiled-programs/compiled-programs"
   },
   {
     title: "Dev vs. Production Images",
