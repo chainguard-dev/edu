@@ -7,14 +7,14 @@ lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by a Bitbucket workflow."
 type: "article"
 date: 2023-05-17T08:48:45+00:00
-lastmod: 2024-05-09T08:48:45+00:00
+lastmod: 2024-12-26T08:48:45+00:00
 draft: false
 tags: ["Chainguard Images", "Product", "Procedural"]
 images: []
 weight: 020
 ---
 
-Chaingaurd's [*assumable identities*](/chainguard/administration/iam-organizations/assumable-ids/) are identities that can be assumed by external applications or workflows in order to perform certain tasks that would otherwise have to be done by a human.
+Chainguard's [*assumable identities*](/chainguard/administration/iam-organizations/assumable-ids/) are identities that can be assumed by external applications or workflows in order to perform certain tasks that would otherwise have to be done by a human.
 
 This procedural tutorial outlines how to create an identity using Terraform, and then how to update a Bitbucket pipeline so that it can assume the identity and interact with Chainguard resources.
 
