@@ -8,7 +8,7 @@ aliases:
 type: "article"
 description: "Learn how to use the Chainguard Images Tag History API to fetch the tag history of image variants."
 date: 2023-05-26T08:49:31+00:00
-lastmod: 2024-08-02T15:22:20+01:00
+lastmod: 2024-12-26T15:22:20+01:00
 draft: false
 tags: ["Chainguard Images", "Product"]
 images: []
@@ -32,6 +32,8 @@ If you have a container environment that was working fine but suddenly breaks wi
 
 Before making API calls, you'll need to generate a token within the [Chainguard Registry](/chainguard/chainguard-registry/overview/).
 
+### Public Images
+
 The Registry API endpoint for obtaining the token is:
 
 ```
@@ -42,46 +44,66 @@ Where `IMAGE_NAME` is the name of the image that you want to pull the tag histor
 
 For public images (tagged as `latest` or `latest-dev`), you can request a registry token anonymously, without providing any pre-existing auth.
 
-The following command will obtain a token for the **Python** image and register a variable called `tok` with the resulting value, which you can use in a subsequent command to obtain the tag history:
+The following command will obtain a token for the **Python** image and register a variable called `auth_header` with the resulting value, which you can use in a subsequent command to obtain the tag history:
 
 ```shell
-tok=$(curl "https://cgr.dev/token?scope=repository:chainguard/python:pull" \
-  | jq -r .token)
+auth_header="Authorization: Bearer $(curl 'https://cgr.dev/token?scope=repository:chainguard/python:pull' \
+  | jq -r .token)"
 ```
 
-For images that are not public, you'll need to exchange your Chainguard token for a registry token. This assumes you've set up authentication with [chainctl auth configure-docker](https://edu.chainguard.dev/chainguard/chainguard-registry/authenticating/)):
+### Private Images
+
+You'll need to use your Chainguard Docker credentials. This assumes you've set up authentication with [chainctl auth configure-docker](https://edu.chainguard.dev/chainguard/chainguard-registry/authenticating/):
 
 ```shell
-tok=$(curl -H "Authorization: Bearer \
-  $(echo 'cgr.dev' | docker-credential-cgr get)" \
-  -v "https://cgr.dev/token?scope=repository:chainguard/python:pull" \
-  | jq -r .token)
+auth_header="Authorization: Bearer $(echo 'cgr.dev' | docker-credential-cgr get | jq -r .Secret)"
 ```
 
-To make sure your token is set, you can run the following command:
+You may use the [`crane` tool](https://github.com/google/go-containerregistry/tree/main/cmd/crane) to get your token instead:
 
 ```shell
-echo $tok
+auth_header="$(crane auth token -H cgr.dev/ORGANIZATION_NAME/IMAGE_NAME)"
 ```
 
-And you should get a long string token as output.
+Replace `ORGANIZATION_NAME` and `IMAGE_NAME` as required. For example, if your organization is `foo.com` and you're interested in the `chainguard-base` image, you will use the following command:
+
+```shell
+auth_header="$(crane auth token -H cgr.dev/foo.com/chainguard-base)
+```
 
 You should now be ready to call the API, either manually or programmatically.
 
 ## Calling the API
 
-Once you have your token available, you can run a `curl` query passing on your token within an `Authorization: bearer` header to the following endpoint:
-
-```
-https://cgr.dev/v2/chainguard/IMAGE_NAME/_chainguard/history/IMAGE_TAG
-```
-
-Where `IMAGE_NAME` is the name of the image, for instance: `python`, and `IMAGE_TAG` is the tag that you want to pull history from.
-
-For example, this is how you can fetch the tag history of the **python:latest** Chainguard image using `curl` on the command line:
+Make sure your authorization header is set, by running the following command:
 
 ```shell
-curl -H "Authorization: Bearer $tok" \
+echo $auth_header
+```
+
+You should receive `Authorization: Bearer` followed by a long string (a [JWT](https://jwt.io/introduction)) as output. You can now run a `curl` query to this endpoint, following the below format.
+
+```shell
+https://cgr.dev/v2/ORGANIZATION_NAME/IMAGE_NAME/_chainguard/history/IMAGE_TAG
+```
+
+Where:
+- For private images `ORGANIZATION_NAME` is the name of your organization, for example: `foo.com`.
+- For public images `ORGANIZATION_NAME` is always `chainguard`.
+- `IMAGE_NAME` is the name of the image, for example: `chainguard-base` or `python`.
+- `IMAGE_TAG` is the tag that you want to pull history from.
+
+For example, this is how you can fetch the tag history of **foo.com's** **chainguard-base:latest** Chainguard image using `curl` on the command line:
+
+```shell
+curl -H "$auth_header" \
+  https://cgr.dev/v2/foo.com/chainguard-base/_chainguard/history/latest | jq
+```
+
+Or for a public image such as **python:latest**:
+
+```shell
+curl -H "$auth_header" \
   https://cgr.dev/v2/chainguard/python/_chainguard/history/latest | jq
 ```
 
