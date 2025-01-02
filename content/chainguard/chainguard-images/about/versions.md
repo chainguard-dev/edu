@@ -44,7 +44,7 @@ Many open source projects support only a single stream of releases that are cont
 
 ## What Chainguard Supports and Maintains for Chainguard Images
 
-There are several scenarios that define what Chainguard agrees to maintain regarding software versions in the [Chainguard Images Directory](/chainguard/chainguard-images/working-with-images/images-directory/). All Images that Chainguard currently supports are those with upstream software that is still supported and maintained, and Chainguard patches and rebuilds these Images daily. If you have purchased an Image during its lifecycle that is no longer being supported upstream, you will still be able to access this Image, _but_ Chainguard will not be patching or rebuilding this Image and the Image will start to accrue CVEs. It is recommended to upgrade to an actively maintained version. 
+There are several scenarios that define what Chainguard agrees to maintain regarding software versions in the [Chainguard Images Directory](/chainguard/chainguard-images/how-to-use/images-directory/). All Images that Chainguard currently supports are those with upstream software that is still supported and maintained, and Chainguard patches and rebuilds these Images daily. If you have purchased an Image during its lifecycle that is no longer being supported upstream, you will still be able to access this Image, _but_ Chainguard will not be patching or rebuilding this Image and the Image will start to accrue CVEs. It is recommended to upgrade to an actively maintained version. 
 
 The table provides some example scenarios to help illustrate our approach. 
 
