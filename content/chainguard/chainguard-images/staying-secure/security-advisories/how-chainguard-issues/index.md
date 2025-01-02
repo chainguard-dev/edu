@@ -116,6 +116,6 @@ Rarely, a vulnerability is found in a package but there is no current status upd
 Chainguard’s Security Advisory feed is a helpful tool to have at hand when scanning your containers for the presence of vulnerabilities. Though you won’t need it often thanks to the low CVE counts of our Images, it is a useful reference when working with your scans, giving you insight into how you can approach and fix any vulnerabilities which pop up.
 
 For more information on how to use Chainguard’s Security Advisories page to inform your vulnerability remediation, consider reading our article on [How to Use Chainguard Security Advisories](
-/chainguard/chainguard-images/working-with-images/security-advisories).
+/chainguard/chainguard-images/staying-secure/security-advisories/how-to-use/).
 
 If you are using Chainguard Images at your organization or want to learn more about advisories for enterprise Images, please [contact us!](https://www.chainguard.dev/contact)
