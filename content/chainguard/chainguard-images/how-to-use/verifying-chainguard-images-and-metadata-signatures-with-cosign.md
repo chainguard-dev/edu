@@ -3,6 +3,7 @@ title: "Verifying Chainguard Images and Metadata Signatures with Cosign"
 linktitle: "Verifying Images"
 aliases:
   - /chainguard/chainguard-images/verifying-images-with-cosign
+  - /chainguard/chainguard-images/verifying-chainguard-images-and-metadata-signatures-with-cosign/
   - /chainguard/chainguard-images/how-to-use/verifying-images-with-cosign
 type: "article"
 description: "A walkthrough of verifying Chainguard Images and metadata signatures with Cosign."
