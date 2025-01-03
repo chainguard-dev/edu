@@ -151,4 +151,4 @@ Delete the pod once you're done experimenting with it:
 kubectl delete pod mysbomattestedimage
 ```
 
-To learn more about how the Policy Controller uses Cosign to verify and admit images, review the [Cosign](https://docs.sigstore.dev/cosign/overview/) Sigstore documentation.
+To learn more about how the Policy Controller uses Cosign to verify and admit images, review the [Cosign](https://docs.sigstore.dev/cosign/signing/overview/) Sigstore documentation.

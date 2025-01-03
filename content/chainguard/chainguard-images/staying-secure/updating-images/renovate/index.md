@@ -101,7 +101,7 @@ At the time of writing, version 3.12 was the current version of the Python image
 
 ![Screenshot showing GitHub PR from Renovate updating python version](python_update.png)
 
-Not all images use semantic versioning. Refer to the [Renovate documentation](https://docs.renovatebot.com/modules/manager/dockerfile/\#additional-information) for details on how to support different schemes.
+Not all images use semantic versioning. Refer to the [Renovate documentation](https://docs.renovatebot.com/) for details on how to support different schemes.
 
 Ideally, image references should also be pinned to a digest, as shown in the following section.
 

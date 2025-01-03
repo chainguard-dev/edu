@@ -101,4 +101,4 @@ To reiterate, there's no one-size-fits-all approach to keeping one's images up t
 
 * [How to Use Chainguard Images](/chainguard/chainguard-images/how-to-use-chainguard-images/)
 * [How to Use Container Image Digests to Improve Reproducibility](/chainguard/chainguard-images/videos/container-image-digests/)
-* [How To Compare Chainguard Images with chainctl](/chainguard/chainguard-images/comparing-images/)
+* [How To Compare Chainguard Images with chainctl](/chainguard/chainguard-images/how-to-use/comparing-images/)
