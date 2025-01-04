@@ -99,7 +99,7 @@ Ninety-seven percent of these vulnerabilities are within Debian packages. Per [t
 <center><img src="EOL_3.png" alt="Chart highlighting vulnerability counts across the latest cycle release version of Traefik and the associated EOL date for each cycle. The chart shows older versions have significantly more vulnerabilities than newer ones." style="width:950px;"></center>
 <br />
 
-When scanning the official [Alpine-based image for Traefik](https://github.com/traefik/traefik-library-image/tree/master/alpine) with Grype, Chainguard's researchers found that the image versions generally accumulated fewer vulnerabilities than typical, with an average of 25 vulnerabilities identified every six months, as shown in the previous table.
+When scanning the official [Alpine-based image for Traefik](https://github.com/traefik/traefik-library-image/tree/master/tmpl/alpine) with Grype, Chainguard's researchers found that the image versions generally accumulated fewer vulnerabilities than typical, with an average of 25 vulnerabilities identified every six months, as shown in the previous table.
 
 Take version 2.9 of Traefik as an example. It was released on October 3, 2022, with security support provided until April 24, 2023, which is roughly six months. The final update for this version, 2.9.10, was made available on April 6, 2023, just three weeks before the end of its support lifecycle.
 
