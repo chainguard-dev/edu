@@ -273,7 +273,7 @@ Again, this section is only required when submitting the package to Wolfi. For m
 
 When you feel your YAML is good for a first run, it's time to build the package with melange. In this guide we'll use Docker to execute melange in a local environment, using [Wolfi's SDK](https://github.com/wolfi-dev/tools/pkgs/container/sdk) image. This image contains everything you need to build Wolfi packages with melange and Wolfi-based images with apko.
 
-The procedure to build apk packages with melange is explained in more detail in our [Getting Started with melange](https://edu.chainguard.dev/open-source/melange/tutorials/getting-started-with-melange/) tutorial.
+The procedure to build apk packages with melange is explained in more detail in our [Getting Started with melange](/open-source/build-tools/melange/getting-started-with-melange/) tutorial.
 
 ### Setting Up a Local Development Environment
 

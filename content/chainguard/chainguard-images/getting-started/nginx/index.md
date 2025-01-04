@@ -133,10 +133,10 @@ p {
 
 After copying the code into the `stylesheet.css` file, save and close it.
 
-Next, you will pull down the `linky.png` file using `curl`. Always [inspect the URL](https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/734e6171ee69f0e0dbac95e6ebc1759ac18bf00a/nginx/data/linky.png) before downloading it to ensure it comes from a safe and trustworthy location.
+Next, you will pull down the `linky.png` file using `curl`. Always [inspect the URL](https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/fb54a9767a5474716398ac33de81d66e263d4c6f/nginx/data/linky.png) before downloading it to ensure it comes from a safe and trustworthy location.
 
 ```shell
-curl -O https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/734e6171ee69f0e0dbac95e6ebc1759ac18bf00a/nginx/data/linky.png
+curl -O https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/fb54a9767a5474716398ac33de81d66e263d4c6f/nginx/data/linky.png
 ```
 
 Now, return to the `nginxdemo` directory you made earlier. 
