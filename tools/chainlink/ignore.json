@@ -1,5 +1,8 @@
 {
-  "urls": [],
+  "urls": [
+    "http://0.0.0.0:8080/Chainguard%20Customer",
+    "http://0.0.0.0:8080/version"
+  ],
   "regexps": [
     "^#",
     "^/$",
