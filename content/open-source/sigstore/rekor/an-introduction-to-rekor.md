@@ -35,7 +35,7 @@ The latest Signed Tree hashes of Rekor are published on Google Cloud Storage. Th
 
 ## Rekor usage
 
-Rekor provides a restful API based server for validation and a transparency log for storage, accessible via a command-line interface (CLI) application: `rekor-cli`. You can install `rekor-cli` with Go, which we will discuss in the lab section below. Alternatively, you can navigate to the [Rekor release page](https://github.com/sigstore/rekor/releases) to grab the most recent release, or you can build the [Rekor CLI manually](https://docs.sigstore.dev/rekor/installation#build-rekor-cli-manually).
+Rekor provides a restful API based server for validation and a transparency log for storage, accessible via a command-line interface (CLI) application: `rekor-cli`. You can install `rekor-cli` with Go, which we will discuss in the lab section below. Alternatively, you can navigate to the [Rekor release page](https://github.com/sigstore/rekor/releases) to grab the most recent release, or you can build the [Rekor CLI manually](https://docs.sigstore.dev/logging/installation/#build-rekor-cli-manually).
 
 Through the CLI, you can make and verify entries, query the transparency log to prove the inclusion of an artifact, verify the integrity of the transparency log, or retrieve entries by either public key or artifact.
 
