@@ -74,7 +74,7 @@ The following example shows the **SBOM** tab for the `postgres` Image.
 
 You can use the drop-down menu above the table to select which version and architecture of the image you want to view. You can also use the search box to find specific packages in the SBOM or use the button to the right of the search box to download the SBOM to your machine.
 
-Check out our guide on [using the Chainguard Images Directory](/chainguard/chainguard-images/images-directory/) for more details.
+Check out our guide on [using the Chainguard Images Directory](/chainguard/chainguard-images/how-to-use/images-directory/) for more details.
 
 ## License Information and Source Code references
 
