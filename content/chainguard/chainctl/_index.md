@@ -1,10 +1,10 @@
 ---
-title: "chainctl"
+title: "chainctl Reference"
 lead: ""
 description: "chainctl Reference Documentation"
 type: "article"
 date: 2022-09-20
-lastmod: 2024-05-15
+lastmod: 2025-01-07
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
