@@ -1,6 +1,6 @@
 ---
 title: "Chainguard CloudEvents"
-linkTitle: "CloudEvents
+linkTitle: "CloudEvents"
 lead: ""
 type: "article"
 date: 2023-04-19T08:49:15+00:00
