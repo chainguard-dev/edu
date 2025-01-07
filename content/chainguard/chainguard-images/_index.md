@@ -1,9 +1,10 @@
 ---
-title: "Images"
+title: "Chainguard Images"
+linkTitle: "Images"
 description: "Suite of minimalist images powered by Wolfi"
 type: "article"
 date: 2022-09-05T08:49:15+00:00
-lastmod: 2024-02-08T08:49:15+00:00
+lastmod: 2025-01-07T08:49:15+00:00
 draft: false
 images: []
 weight: 001
@@ -20,32 +21,32 @@ tutorials: [
   {
     title: "Go",
     description: "",
-    url: "https://images.chainguard.dev/directory/image/go/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images"
+    url: "/chainguard/chainguard-images/getting-started/go/"
   },
   {
     title: "Node",
     description: "",
-    url: "https://images.chainguard.dev/directory/image/node/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images"
+    url: "/chainguard/chainguard-images/getting-started/node/"
   },
   {
     title: "PHP",
     description: "",
-    url: "https://images.chainguard.dev/directory/image/php/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images"
+    url: "/chainguard/chainguard-images/getting-started/php/"
   },
   {
     title: "Python",
     description: "",
-    url: "https://images.chainguard.dev/directory/image/python/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images"
+    url: "/chainguard/chainguard-images/getting-started/python/"
   },
   {
-    title: "NGINX",
+    title: "nginx",
     description: "",
-    url: "https://images.chainguard.dev/directory/image/nginx/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images"
+    url: "/chainguard/chainguard-images/getting-started/nginx/"
   },
   {
-    title: "JDK (Java)",
+    title: "C/C++",
     description: "",
-    url: "https://images.chainguard.dev/directory/image/jdk/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images"
+    url: "/chainguard/chainguard-images/getting-started/c/"
   },
 ]
 
