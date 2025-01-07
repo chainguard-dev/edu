@@ -1,11 +1,11 @@
 ---
 title : "Using Custom Identity Providers to Authenticate to Chainguard"
 linktitle: "Custom IDPs"
-lead: ""
+lead: "Chainguard Custom IDPs"
 description: "An introduction to and overview of Chainguard's custom IDP support features"
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2024-08-15T15:22:20+01:00
+lastmod: 2025-01-07T15:22:20+01:00
 draft: false
 tags: ["CHAINGUARD IMAGES", "OVERVIEW"]
 images: []
