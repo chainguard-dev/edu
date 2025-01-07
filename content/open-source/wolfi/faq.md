@@ -16,7 +16,7 @@ toc: true
 ## What is Wolfi and how does it compare to Alpine?
 Wolfi is our Linux _undistro_  designed from the ground up to support newer computing paradigms such as containers. Although Wolfi has a few similar design principles as Alpine (such as using apk), it is a different distribution that is focused on supply chain security. Unlike Alpine, Wolfi does not currently build its own Linux kernel, instead relying on the host environment (e.g. a container runtime) to provide one.
 
-## Why building a new Linux distribution from scratch?
+## Why build a new Linux distribution from scratch?
 Without building packages from source, you are at the mercy of an intermediary provider (such as Debian or Alpine) for obtaining the software you need, and none of those intermediaries offer our SLA around zero CVEs. Each intermediary also joins your supply chain’s root of trust. We built Wolfi to achieve an unmatched CVE SLA where Chainguard is the only intermediary you need to trust. The following resources have more details around why and how we built  Wolfi:
 
 1. [Building the first memory safe distro](https://www.chainguard.dev/unchained/building-the-first-memory-safe-distro)
