@@ -6,6 +6,7 @@ aliases:
 - /chainguard/chainguard-images/comparing-images/comparing-images/
 - /chainguard/chainguard-images/using-the-image-diff-api
 - /chainguard/chainguard-images/comparing-images/using-the-image-diff-api/
+- /chainguard/chainguard-images/working-with-images/comparing-images/
 - /chainguard/chainguard-images/how-to-use/comparing-images/
 type: "article"
 description: "An overview of how to use the chainctl images diff command to compare two Chainguard Images."
