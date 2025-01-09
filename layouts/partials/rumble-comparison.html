@@ -66,13 +66,13 @@
 
 </div>
 
-{{ $rumbleBase := resources.Get "js/rumble/base.js" }}
-{{ $rumbleComparison := resources.Get "js/rumble/comparison.js" }}
+{{ $rumbleBase := resources.Get "js/rumble/base.js" | minify | fingerprint "sha512" }}
+{{ $rumbleComparison := resources.Get "js/rumble/comparison.js" | minify | fingerprint "sha512" }}
 {{ $rumble := slice $rumbleBase $rumbleComparison | resources.Concat "js/rumble-comparison.js" }}
 <script type="module" src="{{ $rumble.Permalink }}" integrity="{{ $rumble.Data.Integrity }}"></script>
 
 {{ $scss := resources.Get "scss/rumble.scss" }}
-{{ $rumble_style := $scss | resources.ToCSS }}
+{{ $rumble_style := $scss | resources.ToCSS | minify | fingerprint "sha512" }}
 <link rel="stylesheet" href="{{ $rumble_style.Permalink }}" />
 
 {{ end }}

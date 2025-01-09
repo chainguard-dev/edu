@@ -1,63 +1,63 @@
-{{ $indexTemplate := resources.Get "js/index.js" -}}
+{{ $indexTemplate := resources.Get "js/index.js" | minify | fingerprint "sha512" -}}
 {{ $index := $indexTemplate | resources.ExecuteAsTemplate "index.js" . -}}
 
-{{ $bs := resources.Get "js/bootstrap.js" -}}
+{{ $bs := resources.Get "js/bootstrap.js" | minify | fingerprint "sha512" -}}
 {{ $bs := $bs | js.Build -}}
 
-{{ $highlight := resources.Get "js/highlight.js" -}}
+{{ $highlight := resources.Get "js/highlight.js" | minify | fingerprint "sha512" -}}
 {{ $highlight := $highlight | js.Build -}}
 
-{{ $katex := resources.Get "js/vendor/katex/dist/katex.js" -}}
-{{ $katexAutoRender := resources.Get "js/vendor/katex/dist/contrib/auto-render.js" -}}
+{{ $katex := resources.Get "js/vendor/katex/dist/katex.js" | minify | fingerprint "sha512" -}}
+{{ $katexAutoRender := resources.Get "js/vendor/katex/dist/contrib/auto-render.js" | minify | fingerprint "sha512" -}}
 
-{{ $mermaid := resources.Get "js/mermaid.js" | js.Build -}}
+{{ $mermaid := resources.Get "js/mermaid.js" | minify | fingerprint "sha512" | js.Build -}}
 
-{{ $app := resources.Get "js/app.js" -}}
+{{ $app := resources.Get "js/app.js" | minify | fingerprint "sha512" -}}
 
 {{ $slice := slice $app -}}
 
 {{ if .Site.Params.options.lazySizes -}}
-  {{ $lazySizes := resources.Get "js/lazysizes.js" -}}
+  {{ $lazySizes := resources.Get "js/lazysizes.js" | minify | fingerprint "sha512" -}}
   {{ $lazySizes := $lazySizes | js.Build -}}
   {{ $slice = $slice | append $lazySizes -}}
 {{ end -}}
 
 {{ if .Site.Params.options.clipBoard -}}
-  {{ $clipBoard := resources.Get "js/clipboard.js" -}}
+  {{ $clipBoard := resources.Get "js/clipboard.js" | minify | fingerprint "sha512" -}}
   {{ $clipBoard := $clipBoard | js.Build -}}
   {{ $slice = $slice | append $clipBoard -}}
 {{ end -}}
 
 {{ if .Site.Params.options.instantPage -}}
-  {{ $instantPage := resources.Get "js/instant.page.js" -}}
+  {{ $instantPage := resources.Get "js/instant.page.js" | minify | fingerprint "sha512" -}}
   {{ $instantPage := $instantPage | js.Build -}}
   {{ $slice = $slice | append $instantPage -}}
 {{ end -}}
 
 {{ if .Site.Params.options.flexSearch -}}
-  {{ $flexSearch := resources.Get "js/vendor/flexsearch/dist/flexsearch.bundle.js" -}}
+  {{ $flexSearch := resources.Get "js/vendor/flexsearch/dist/flexsearch.bundle.js" | minify | fingerprint "sha512" -}}
   {{ $slice = $slice | append $flexSearch -}}
 {{ end -}}
 
 {{ if .Site.Params.options.darkMode -}}
-  {{ $darkMode := resources.Get "js/darkmode.js" -}}
+  {{ $darkMode := resources.Get "js/darkmode.js" | minify | fingerprint "sha512" -}}
   {{ $darkMode := $darkMode | js.Build -}}
   {{ $slice = $slice | append $darkMode -}}
 {{ end -}}
 
 {{ if and (.Site.Params.alert) (.Site.Params.alertDismissable) -}}
-  {{ $alert := resources.Get "js/alert.js" -}}
+  {{ $alert := resources.Get "js/alert.js" | minify | fingerprint "sha512" -}}
   {{ $alert := $alert | js.Build -}}
   {{ $slice = $slice | append $alert -}}
 {{ end -}}
 
 {{ if .Site.Params.options.kaTex -}}
-  {{ $katexConfig := resources.Get "js/katex.js" -}}
+  {{ $katexConfig := resources.Get "js/katex.js" | minify | fingerprint "sha512" -}}
   {{ $katexConfig := $katexConfig | js.Build -}}
   {{ $slice = $slice | append $katexConfig -}}
 {{ end -}}
 
-{{ $js := $slice | resources.Concat "main.js" -}}
+{{ $js := $slice | resources.Concat "main.js" | minify | fingerprint "sha512" -}}
 
 {{ if eq (hugo.Environment) "development" -}}
   {{ if .Site.Params.options.bootStrapJs -}}
