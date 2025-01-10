@@ -114,7 +114,7 @@ You can find the complete inventory of packages for the `gcc-glibc` Chainguard I
 ### glibc-openssl
 
 *Paid Image* \
-The [`glibc-openssl`](https://images.chainguard.dev/directory/image/glibc-openssl/versions?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-compiled-programs-compiled-programs) Chainguard Image is designed for C applications which depend on OpenSSL. It contains the `openssl` and `openssl-provider-legacy` pcakages to support this use-case. It comes in two variants,`latest` and `latest-dev`. As in the aforementioned images, `latest` is designed for deployment, while `latest-dev` contains additional packages to assist in program development such as a shell and package manager.
+The [`glibc-openssl`](https://images.chainguard.dev/directory/image/glibc-openssl/versions?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-compiled-programs-compiled-programs) Chainguard Image is designed for C applications which depend on OpenSSL. It contains the `openssl` and `openssl-provider-legacy` packages to support this use-case. It comes in two variants,`latest` and `latest-dev`. As in the aforementioned images, `latest` is designed for deployment, while `latest-dev` contains additional packages to assist in program development such as a shell and package manager.
 
 The following packages are included in the `glibc-openssl:latest` Chainguard Image:
 - `ca-certificates-bundle`
