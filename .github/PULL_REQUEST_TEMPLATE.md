@@ -1,3 +1,5 @@
+[ ] Check if this is a typo or other quick fix and ignore the rest :)
+
 ## Type of change
 <!-- Please be sure to add the appropriate label to your PR. -->
 
