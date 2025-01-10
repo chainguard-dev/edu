@@ -27,6 +27,7 @@
 {{ $rumbleBase := resources.Get "js/rumble/base.js" | minify | fingerprint "sha256" }}
 {{ $rumbleVulnerability := resources.Get "/js/rumble/vulnerability.js" | minify | fingerprint "sha256" }}
 {{ $rumble := slice $rumbleBase $rumbleVulnerability | resources.Concat "js/rumble-vulnerability.js" }}
+{{ $rumble := $rumble | minify | fingerprint "sha256" }}
 <script type="module" src="{{ $rumble.Permalink }}" integrity="{{ $rumble.Data.Integrity }}"></script>
 
 {{ $scss := resources.Get "/scss/rumble.scss" }}

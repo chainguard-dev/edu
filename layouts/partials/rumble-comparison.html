@@ -69,6 +69,7 @@
 {{ $rumbleBase := resources.Get "js/rumble/base.js" | minify | fingerprint "sha256" }}
 {{ $rumbleComparison := resources.Get "js/rumble/comparison.js" | minify | fingerprint "sha256" }}
 {{ $rumble := slice $rumbleBase $rumbleComparison | resources.Concat "js/rumble-comparison.js" }}
+{{ $rumble := $rumble | minify | fingerprint "sha512" }}
 <script type="module" src="{{ $rumble.Permalink }}" integrity="{{ $rumble.Data.Integrity }}"></script>
 
 {{ $scss := resources.Get "scss/rumble.scss" }}
