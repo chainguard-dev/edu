@@ -30,7 +30,7 @@ Because it is error prone, difficult to support, and fragile, Chainguard does no
 
 From the Images Directory or Images Console, search for the Image you would like to know more about, and check if it has the "Bring Your Own License" badge. If it does, one can or must (depending on the Image) bring their own license keys for the product. Review the Overview documentation (for example, the [`elasticsearch-fips` Overview](https://images.chainguard.dev/directory/image/elasticsearch-fips/overview)) for the given image, and review the application’s documentation for further guidance.
 
-![fips-image-console-directory.png](elasticsearch-fips example in the user interface)
+![elasticsearch-fips example in the user interface](fips-image-console-directory.png)
 
 ## Which Chainguard Images tags have kernel-independent FIPS?
 
