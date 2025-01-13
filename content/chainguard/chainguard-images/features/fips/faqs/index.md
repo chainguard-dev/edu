@@ -4,7 +4,7 @@ linktitle: "FIPS FAQs"
 type: "article"
 description: "Frequently Asked Questions about Chainguard FIPS Container Images"
 date: 2025-01-10T15:56:52-07:00
-lastmod: 2025-01-10T15:56:52-07:00
+lastmod: 2025-01-13T05:56:52-07:00
 draft: false
 tags: ["IMAGES", "PRODUCT", "CONCEPTUAL", "FIPS"]
 images: []
@@ -20,7 +20,7 @@ Answers to your questions about Chainguard FIPS Container Images.
 
 ## Is there a way to enable or disable the FIPS mode in a FIPS image?
 
-All Chainguard FIPS Images are configured in approved-only mode as noted in our (FIPS commitment)[https://www.chainguard.dev/legal/fips-commitment].
+All Chainguard FIPS Images are configured in approved-only mode as noted in our [FIPS commitment](https://www.chainguard.dev/legal/fips-commitment).
 
 For non-approved mode, our recommendation is to purchase and use a non-FIPS Chainguard Image.
 
