@@ -114,7 +114,7 @@ Chainguard SSO supports OpenID Connect (OIDC) compatible identity providers. In 
 
 Customer-managed identity providers must also have a public, unauthenticated OIDC discovery endpoint.
 
-Typically, identity providers enable you to set up SSO by creating a specific resource on the provider's platform. For example, Ping Identity requires you to [add an application](https://docs.pingidentity.com/r/en-us/pingone/p1_c_applicationtypes), while Okta has you create [an app integration](https://help.okta.com/en-us/content/topics/apps/apps_apps.htm).
+Typically, identity providers enable you to set up SSO by creating a specific resource on the provider's platform. For example, Ping Identity requires you to [add an application](https://docs.pingidentity.com/pingone/applications/p1_applications_add_applications.html), while Okta has you create [an app integration](https://help.okta.com/en-us/content/topics/apps/apps_apps.htm).
 
 To set up SSO for your identity provider, you must configure one of these resources to use OIDC so that the Chainguard platform can interact with the provider. Following that, you have to configure the Chainguard platform to use that application.
 
