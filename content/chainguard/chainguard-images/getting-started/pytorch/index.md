@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with the PyTorch Chainguard Image"
+title: "Getting Started with the PyTorch Chainguard ContainerImage"
 type: "article"
 linktitle: "PyTorch"
 aliases:
@@ -8,7 +8,7 @@ aliases:
 description: "Tutorial on the PyTorch Chainguard Image"
 date: 2024-04-25T08:00:00+02:00
 lastmod: 2024-04-25T08:00:00+00:00
-tags: ["Chainguard Images", "Products"]
+tags: ["Chainguard Images", "Products", "AI"]
 draft: false
 images: []
 menu:

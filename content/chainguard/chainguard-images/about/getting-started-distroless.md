@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with Distroless Images"
+title: "Getting Started with Distroless Container Images"
 linktitle: "Going Distroless"
 aliases: 
 - /chainguard/chainguard-images/getting-started-distroless/
@@ -13,7 +13,7 @@ tags: ["Chainguard Images", "Product", "Overview"]
 images: []
 menu:
   docs:
-    parent: "chainguard-images"
+    parent: "about"
 weight: 010
 toc: true
 ---
