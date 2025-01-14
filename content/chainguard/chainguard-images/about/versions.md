@@ -78,11 +78,13 @@ Actively maintained Chainguard Images are rebuilt on a daily cadence, so you can
 
 ### A note about `-r` tags
 
-In some cases, Chainguard will fix vulnerabilities in tools without waiting for the external project to release patches. As an example, say there's a CVE in Go `1.21.3` and the Go team is uncharacteristically slow releasing a fix. In this case, Chainguard could patch a fix into `1.21.3`, and release it as `1.21.3-r2`. Chainguard would continue to make the original package available as `-r1`, and future fixes would be available in -r3, -r4, etc. We call this the *epoch number*. We may take steps like this in order to patch vulnerabilities, remove unnecessary bloat, rebuild the same source with newer tools, or to address bugs in our build configs and build tooling.
+In some cases, Chainguard will fix vulnerabilities in tools without waiting for the external project to release patches. As an example, say there's a CVE in Go `1.21.3` and the Go team is uncharacteristically slow releasing a fix. In this case, Chainguard could patch a fix into `1.21.3`, and release it as `1.21.3-r2`. Chainguard would continue to make the original package available in an image tagged as `1.21.3-r1`. If Chainguard had to apply further patches to Go `1.21.3`, it would tag these later patched images with `-r3`, `-r4`, and so on. We call this the *epoch number*. We may take steps like this in order to patch vulnerabilities, remove unnecessary bloat, rebuild the same source with newer tools, or to address bugs in our build configs and build tooling.
 
-Bear in mind that Chainguard's images, although minimal, will almost always contain more than one package. At the time of writing this, the Go image has more than 60 distinct packages in it, such as bash, busybox, git, glibc, make, and zlib. When we fix a vulnerability in bash for example, we likewise ensure that fix gets rolled out to every image that includes bash, including the `go:1.21.3` image. The image tagged `1.21.3-r2` will get that bash fix, and fixes for any of the other packages in the image.‍
+Bear in mind that Chainguard's images, although minimal, will almost always contain more than one package. At the time of writing this, the Go image has more than 60 distinct packages in it, such as bash, busybox, git, glibc, make, and zlib. When we fix a vulnerability in bash for example, we likewise ensure that fix gets rolled out to every image that includes bash, including the `go:1.21.3` image. The image tagged `1.21.3-r2` will pull in that bash fix, and fixes for any of the other packages in the image.‍
 
 Put simply, when you opt in to pulling `go:1.21.3-r2`, you're opting in to a consistent version of Go, and potentially floating versions of all the other packages. This means you get CVE fixes as well as patch, and minor, and even major version releases of bash, and every other package the image contains.
+
+You can learn more about our approach by reviewing our [blog on image tagging philosophy](https://www.chainguard.dev/unchained/chainguards-image-tagging-philosophy-enabling-high-velocity-updates-pt-1-of-3?utm=docs).
 
 
 ## Wolfi Packages in Chainguard Images
