@@ -6,6 +6,8 @@ labels: ''
 assignees: ''
 ---
 
+PLEASE NOTE THAT THIS IS A PUBLIC REPO. FOR INTERNAL REQUESTS, PLEASE [FOLLOW OUR GUIDE](https://docs.google.com/document/d/1oai3EbkTYKjcgg6yea4oapbFoXCxACh51izxKKqS-DE/edit?tab=t.0).
+
 **Is your feature request related to a problem? Please describe.**
 A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
 
