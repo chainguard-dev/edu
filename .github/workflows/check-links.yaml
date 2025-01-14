@@ -78,7 +78,7 @@ jobs:
           if [ -z "${existing}" ]; then
             gh issue create \
               --title "[chainlink] check links on edu.chainguard.dev" \
-              --assignees SharpRake, erikaheidi \
+              --assignee SharpRake,erikaheidi \
               --label automated \
               --body-file issue-body.txt
           else
