@@ -6,7 +6,7 @@ description: "Frequently Asked Questions about Chainguard FIPS Container Images"
 date: 2025-01-10T15:56:52-07:00
 lastmod: 2025-01-13T05:56:52-07:00
 draft: false
-tags: ["IMAGES", "PRODUCT", "CONCEPTUAL", "FIPS"]
+tags: ["images", "product", "conceptual", "FIPS"]
 images: []
 menu:
   docs:
@@ -67,9 +67,9 @@ Once the testing and patching are done, a project moves onto getting entropy cer
 
 The current average wait time from submission to certificate received is 590 days.
 
-## Many popular applications use [Mozilla NSS](https://firefox-source-docs.mozilla.org/security/nss/index.html), and have no alternative (that is, they cannot switch to use OpenSSL or Bouncy Castle). Can these applications get Chainguard FIPS Images?
+## Many popular applications use Mozilla NSS, and have no alternative (that is, they cannot switch to use OpenSSL or Bouncy Castle). Can these applications get Chainguard FIPS Images?
 
-Given NSS’s [rapid release cycles](https://wiki.mozilla.org/NSS:Release_Versions) that quickly reach EOL (end-of-life), coupled with the length of time necessary for FIPS certification, the likely scenarios where NSS could become FIPS certified would not be compatible with Chainguard’s product commitments. Because Chainguard provides up-to-date software with zero-to-limited CVEs, it is not currently feasible for us to offer FIPS Images of software that use NSS.
+Given [Mozilla NSS](https://firefox-source-docs.mozilla.org/security/nss/index.html)’s [rapid release cycles](https://wiki.mozilla.org/NSS:Release_Versions) that quickly reach EOL (end-of-life), coupled with the length of time necessary for FIPS certification, the likely scenarios where NSS could become FIPS certified would not be compatible with Chainguard’s product commitments. Because Chainguard provides up-to-date software with zero-to-limited CVEs, it is not currently feasible for us to offer FIPS Images of software that use NSS.
 
 NSS does not have a stable API/ABI as it is a collection of low-level libraries, which typically are tightly coupled with the application that uses them. 
 

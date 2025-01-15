@@ -13,7 +13,7 @@ tags: ["Chainguard Images", "Product", ]
 images: []
 menu:
   docs:
-    parent: "chainguard-images"
+    parent: "about"
 weight: 020
 toc: true
 ---
