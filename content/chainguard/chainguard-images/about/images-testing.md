@@ -1,5 +1,5 @@
 ---
-title: "How Chainguard Images are Tested"
+title: "How Chainguard Container Images are Tested"
 linktitle: "How Images are Tested"
 aliases:
 - /chainguard/chainguard-images/images-testing/
@@ -13,7 +13,7 @@ tags: ["Overview", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "chainguard-images"
+    parent: "about"
 weight: 015
 toc: true
 ---

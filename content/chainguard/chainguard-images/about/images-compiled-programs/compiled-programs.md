@@ -1,5 +1,5 @@
 ---
-title: "Choosing an Image for your Compiled Programs"
+title: "Choosing a Container Image for your Compiled Programs"
 linktitle: "Images for Compiled Programs"
 aliases: 
 - /chainguard/chainguard-images/working-with-images/compiled-programs/
@@ -14,7 +14,7 @@ tags: ["Chainguard Images", "Product", "Cheatsheet"]
 images: []
 menu:
   docs:
-    parent: "chainguard-images"
+    parent: "about"
 weight: 205
 toc: true
 ---

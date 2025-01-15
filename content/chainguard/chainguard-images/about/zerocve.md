@@ -1,6 +1,6 @@
 ---
 title: "How Chainguard Creates Container Images with Low-to-No CVEs"
-linktitle: "Video: Why Our Images Have Low-to-No CVEs"
+linktitle: "Video: Low-to-No CVEs"
 aliases:
 - /chainguard/chainguard-images/videos/zerocve/
 - /chainguard/chainguard-images/about/zerocve/
@@ -8,13 +8,14 @@ lead: ""
 description: "This video explains how Chainguard is able to create container images with low-to-no
 CVEs."
 type: "article"
+tags: ["video", "Chainguard Images", "product"]
 date: 2024-05-31T12:21:01+00:00
 lastmod: 2024-05-31T12:21:01+00:00
 draft: false
 images: []
 menu:
   docs:
-    parent: "chainguard-images"
+    parent: "about"
 weight: 035
 toc: true
 ---

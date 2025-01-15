@@ -1,5 +1,5 @@
 ---
-title: "Chainguard Images Product Release Lifecycle"
+title: "Chainguard Container Images Product Release Lifecycle"
 linktitle: "Product Release Lifecycle"
 aliases:
 - /chainguard/chainguard-images/versions/
@@ -13,7 +13,7 @@ tags: ["Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "chainguard-images"
+    parent: "about"
 weight: 025
 toc: true
 ---

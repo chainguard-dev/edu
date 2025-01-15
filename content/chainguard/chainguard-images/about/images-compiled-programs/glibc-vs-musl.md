@@ -9,11 +9,11 @@ description: "An overview of the differences between glibc and musl."
 date: 2024-08-26T18:42:57+00:00
 lastmod: 2024-08-27T10:42:34+00:00
 draft: false
-tags: ["CHAINGUARD IMAGES", "PRODUCT", "CHEATSHEET"]
+tags: ["Chainguard Images", "product", "cheatsheet"]
 images: []
 menu:
   docs:
-    parent: "chainguard-images"
+    parent: "about"
 weight: 210
 toc: true
 ---
