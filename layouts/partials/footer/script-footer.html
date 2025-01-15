@@ -1,7 +1,7 @@
 {{ $indexTemplate := resources.Get "js/index.js" -}}
 {{ $index := $indexTemplate | resources.ExecuteAsTemplate "index.js" . | minify | fingerprint "sha512" -}}
 
-{{ $bs := resources.Get "js/bootstrap.js"  -}}
+{{ $bs := resources.Get "js/bootstrap.js" -}}
 {{ $bs := $bs | js.Build -}}
 
 {{ $highlight := resources.Get "js/highlight.js" | minify | fingerprint "sha256" -}}
