@@ -4,5 +4,5 @@
         src="/rumble/bar/?left={{ .Get "left" }}&right={{ .Get "right" }}">
 </iframe>
 
-{{ $rumble := resources.Get "js/rumble/base.js" | minify | fingerprint "sha256" }}
+{{ $rumble := resources.Get "js/rumble/base.js" | minify }}
 <script type="module" src="{{ $rumble.Permalink }}" integrity="{{ $rumble.Data.Integrity }}"></script>

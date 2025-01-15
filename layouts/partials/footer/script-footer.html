@@ -4,60 +4,60 @@
 {{ $bs := resources.Get "js/bootstrap.js" -}}
 {{ $bs := $bs | js.Build -}}
 
-{{ $highlight := resources.Get "js/highlight.js" | minify | fingerprint "sha256" -}}
+{{ $highlight := resources.Get "js/highlight.js" | minify -}}
 {{ $highlight := $highlight | js.Build -}}
 
-{{ $katex := resources.Get "js/vendor/katex/dist/katex.js" | minify | fingerprint "sha256" -}}
-{{ $katexAutoRender := resources.Get "js/vendor/katex/dist/contrib/auto-render.js" | minify | fingerprint "sha256" -}}
+{{ $katex := resources.Get "js/vendor/katex/dist/katex.js" | minify -}}
+{{ $katexAutoRender := resources.Get "js/vendor/katex/dist/contrib/auto-render.js" | minify -}}
 
-{{ $mermaid := resources.Get "js/mermaid.js" | minify | fingerprint "sha256" | js.Build -}}
+{{ $mermaid := resources.Get "js/mermaid.js" | minify | js.Build -}}
 
-{{ $app := resources.Get "js/app.js" | minify | fingerprint "sha256" -}}
+{{ $app := resources.Get "js/app.js" | minify -}}
 
 {{ $slice := slice $app -}}
 
 {{ if .Site.Params.options.lazySizes -}}
-  {{ $lazySizes := resources.Get "js/lazysizes.js" | minify | fingerprint "sha256" -}}
+  {{ $lazySizes := resources.Get "js/lazysizes.js" | minify -}}
   {{ $lazySizes := $lazySizes | js.Build -}}
   {{ $slice = $slice | append $lazySizes -}}
 {{ end -}}
 
 {{ if .Site.Params.options.clipBoard -}}
-  {{ $clipBoard := resources.Get "js/clipboard.js" | minify | fingerprint "sha256" -}}
+  {{ $clipBoard := resources.Get "js/clipboard.js" | minify -}}
   {{ $clipBoard := $clipBoard | js.Build -}}
   {{ $slice = $slice | append $clipBoard -}}
 {{ end -}}
 
 {{ if .Site.Params.options.instantPage -}}
-  {{ $instantPage := resources.Get "js/instant.page.js" | minify | fingerprint "sha256" -}}
+  {{ $instantPage := resources.Get "js/instant.page.js" | minify -}}
   {{ $instantPage := $instantPage | js.Build -}}
   {{ $slice = $slice | append $instantPage -}}
 {{ end -}}
 
 {{ if .Site.Params.options.flexSearch -}}
-  {{ $flexSearch := resources.Get "js/vendor/flexsearch/dist/flexsearch.bundle.js" | minify | fingerprint "sha256" -}}
+  {{ $flexSearch := resources.Get "js/vendor/flexsearch/dist/flexsearch.bundle.js" | minify -}}
   {{ $slice = $slice | append $flexSearch -}}
 {{ end -}}
 
 {{ if .Site.Params.options.darkMode -}}
-  {{ $darkMode := resources.Get "js/darkmode.js" | minify | fingerprint "sha256" -}}
+  {{ $darkMode := resources.Get "js/darkmode.js" | minify -}}
   {{ $darkMode := $darkMode | js.Build -}}
   {{ $slice = $slice | append $darkMode -}}
 {{ end -}}
 
 {{ if and (.Site.Params.alert) (.Site.Params.alertDismissable) -}}
-  {{ $alert := resources.Get "js/alert.js" | minify | fingerprint "sha256" -}}
+  {{ $alert := resources.Get "js/alert.js" | minify -}}
   {{ $alert := $alert | js.Build -}}
   {{ $slice = $slice | append $alert -}}
 {{ end -}}
 
 {{ if .Site.Params.options.kaTex -}}
-  {{ $katexConfig := resources.Get "js/katex.js" | minify | fingerprint "sha256" -}}
+  {{ $katexConfig := resources.Get "js/katex.js" | minify -}}
   {{ $katexConfig := $katexConfig | js.Build -}}
   {{ $slice = $slice | append $katexConfig -}}
 {{ end -}}
 
-{{ $js := $slice | resources.Concat "main.js" | minify | fingerprint "sha256" -}}
+{{ $js := $slice | resources.Concat "main.js" | minify -}}
 
 {{ if eq (hugo.Environment) "development" -}}
   {{ if .Site.Params.options.bootStrapJs -}}
@@ -79,12 +79,12 @@
   {{ end -}}
 {{ else -}}
   {{ $js := $js -}}
-  {{ $index := $index | minify | fingerprint "sha256" -}}
-  {{ $bs := $bs | minify | fingerprint "sha256" -}}
-  {{ $highlight := $highlight | minify | fingerprint "sha256" -}}
-  {{ $katex := $katex | minify | fingerprint "sha256" -}}
-  {{ $katexAutoRender := $katexAutoRender | minify | fingerprint "sha256" -}}
-  {{ $mermaid := $mermaid | minify | fingerprint "sha256" -}}
+  {{ $index := $index | minify -}}
+  {{ $bs := $bs | minify -}}
+  {{ $highlight := $highlight | minify -}}
+  {{ $katex := $katex | minify -}}
+  {{ $katexAutoRender := $katexAutoRender | minify -}}
+  {{ $mermaid := $mermaid | minify -}}
   {{ if .Site.Params.options.bootStrapJs -}}
     <script src="{{ $bs.RelPermalink }}" integrity="{{ $bs.Data.Integrity }}" crossorigin="anonymous" defer></script>
   {{ end -}}

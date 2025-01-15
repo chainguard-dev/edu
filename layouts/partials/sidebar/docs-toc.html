@@ -7,10 +7,10 @@
   </div>
 {{ end -}}
 
-{{- $righthand := resources.Get "js/righthand.js" | minify | fingerprint "sha256" -}}
-{{ $scrollRighthand := resources.Get "js/scrollRighthand.js" | minify | fingerprint "sha256" }}
+{{- $righthand := resources.Get "js/righthand.js" | minify -}}
+{{ $scrollRighthand := resources.Get "js/scrollRighthand.js" | minify }}
 {{ $scss := resources.Get "scss/righthand.scss" }}
-{{ $righthand_style := $scss | resources.ToCSS | minify | fingerprint "sha256"}}
+{{ $righthand_style := $scss | resources.ToCSS | minify}}
 
 
 {{/* Add righthand.css styling */}}

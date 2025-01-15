@@ -1,10 +1,10 @@
 {{ if eq (hugo.Environment) "development" -}}
   {{ $options := (dict "targetPath" "main.css" "enableSourceMap" true "includePaths" (slice "node_modules")) -}}
-  {{ $css := resources.Get "scss/app.scss" | toCSS $options | minify | fingerprint "sha256" -}}
+  {{ $css := resources.Get "scss/app.scss" | toCSS $options | minify -}}
   <link rel="stylesheet" href="{{ $css.Permalink | relURL }}">
 {{ else -}}
   {{ $options := (dict "targetPath" "main.css" "outputStyle" "compressed" "includePaths" (slice "node_modules")) -}}
-  {{ $css := resources.Get "scss/app.scss" | toCSS $options | postCSS (dict "config" "config/postcss.config.js") | minify | fingerprint "sha256" -}}
+  {{ $css := resources.Get "scss/app.scss" | toCSS $options | postCSS (dict "config" "config/postcss.config.js") | minify -}}
   <link rel="stylesheet" href="{{ $css.Permalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
 {{ end -}}
 <noscript><style>img.lazyload { display: none; }</style></noscript>
