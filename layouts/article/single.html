@@ -113,10 +113,10 @@
       {{ partial "footer/main/docs-navigation.html" . }}
 
     </main>
-    {{ $snippetsStyle := resources.Get "scss/snippets.scss" | resources.ToCSS }}
+    {{ $snippetsStyle := resources.Get "scss/snippets.scss" | resources.ToCSS | minify | fingerprint "sha256" }}
     <link rel="stylesheet" href="{{ $snippetsStyle.Permalink }}" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    {{- $snippets := resources.Get "js/snippets.js" -}}
+    {{- $snippets := resources.Get "js/snippets.js" | minify | fingerprint "sha256" -}}
     <script src="{{ $snippets.Permalink }}" integrity="{{ $snippets.Data.Integrity }}"></script>
     {{- $titles := resources.Get "js/titles.js" -}}
     <script src="{{ $titles.Permalink }}" integrity="{{ $titles.Data.Integrity }}"></script>

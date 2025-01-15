@@ -1,6 +1,6 @@
-{{- $replacer := resources.Get "js/replacer.js" -}}
+{{- $replacer := resources.Get "js/replacer.js" | minify | fingerprint "sha256" -}}
 {{ $scss := resources.Get "scss/replacer.scss" }}
-{{ $replacer_style := $scss | resources.ToCSS }}
+{{ $replacer_style := $scss | resources.ToCSS | minify | fingerprint "sha256" }}
 
 
 {{/* Add replacer.css styling */}}
