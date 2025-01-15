@@ -1,63 +1,63 @@
 {{ $indexTemplate := resources.Get "js/index.js" -}}
-{{ $index := $indexTemplate | resources.ExecuteAsTemplate "index.js" . -}}
+{{ $index := $indexTemplate | resources.ExecuteAsTemplate "index.js" . | minify | fingerprint "sha512" -}}
 
 {{ $bs := resources.Get "js/bootstrap.js" -}}
 {{ $bs := $bs | js.Build -}}
 
-{{ $highlight := resources.Get "js/highlight.js" -}}
+{{ $highlight := resources.Get "js/highlight.js" | minify | fingerprint "sha256" -}}
 {{ $highlight := $highlight | js.Build -}}
 
-{{ $katex := resources.Get "js/vendor/katex/dist/katex.js" -}}
-{{ $katexAutoRender := resources.Get "js/vendor/katex/dist/contrib/auto-render.js" -}}
+{{ $katex := resources.Get "js/vendor/katex/dist/katex.js" | minify | fingerprint "sha256" -}}
+{{ $katexAutoRender := resources.Get "js/vendor/katex/dist/contrib/auto-render.js" | minify | fingerprint "sha256" -}}
 
-{{ $mermaid := resources.Get "js/mermaid.js" | js.Build -}}
+{{ $mermaid := resources.Get "js/mermaid.js" | minify | fingerprint "sha256" | js.Build -}}
 
-{{ $app := resources.Get "js/app.js" -}}
+{{ $app := resources.Get "js/app.js" | minify | fingerprint "sha256" -}}
 
 {{ $slice := slice $app -}}
 
 {{ if .Site.Params.options.lazySizes -}}
-  {{ $lazySizes := resources.Get "js/lazysizes.js" -}}
+  {{ $lazySizes := resources.Get "js/lazysizes.js" | minify | fingerprint "sha256" -}}
   {{ $lazySizes := $lazySizes | js.Build -}}
   {{ $slice = $slice | append $lazySizes -}}
 {{ end -}}
 
 {{ if .Site.Params.options.clipBoard -}}
-  {{ $clipBoard := resources.Get "js/clipboard.js" -}}
+  {{ $clipBoard := resources.Get "js/clipboard.js" | minify | fingerprint "sha256" -}}
   {{ $clipBoard := $clipBoard | js.Build -}}
   {{ $slice = $slice | append $clipBoard -}}
 {{ end -}}
 
 {{ if .Site.Params.options.instantPage -}}
-  {{ $instantPage := resources.Get "js/instant.page.js" -}}
+  {{ $instantPage := resources.Get "js/instant.page.js" | minify | fingerprint "sha256" -}}
   {{ $instantPage := $instantPage | js.Build -}}
   {{ $slice = $slice | append $instantPage -}}
 {{ end -}}
 
 {{ if .Site.Params.options.flexSearch -}}
-  {{ $flexSearch := resources.Get "js/vendor/flexsearch/dist/flexsearch.bundle.js" -}}
+  {{ $flexSearch := resources.Get "js/vendor/flexsearch/dist/flexsearch.bundle.js" | minify | fingerprint "sha256" -}}
   {{ $slice = $slice | append $flexSearch -}}
 {{ end -}}
 
 {{ if .Site.Params.options.darkMode -}}
-  {{ $darkMode := resources.Get "js/darkmode.js" -}}
+  {{ $darkMode := resources.Get "js/darkmode.js" | minify | fingerprint "sha256" -}}
   {{ $darkMode := $darkMode | js.Build -}}
   {{ $slice = $slice | append $darkMode -}}
 {{ end -}}
 
 {{ if and (.Site.Params.alert) (.Site.Params.alertDismissable) -}}
-  {{ $alert := resources.Get "js/alert.js" -}}
+  {{ $alert := resources.Get "js/alert.js" | minify | fingerprint "sha256" -}}
   {{ $alert := $alert | js.Build -}}
   {{ $slice = $slice | append $alert -}}
 {{ end -}}
 
 {{ if .Site.Params.options.kaTex -}}
-  {{ $katexConfig := resources.Get "js/katex.js" -}}
+  {{ $katexConfig := resources.Get "js/katex.js" | minify | fingerprint "sha256" -}}
   {{ $katexConfig := $katexConfig | js.Build -}}
   {{ $slice = $slice | append $katexConfig -}}
 {{ end -}}
 
-{{ $js := $slice | resources.Concat "main.js" -}}
+{{ $js := $slice | resources.Concat "main.js" | minify | fingerprint "sha256" -}}
 
 {{ if eq (hugo.Environment) "development" -}}
   {{ if .Site.Params.options.bootStrapJs -}}
@@ -78,13 +78,13 @@
     <script src="{{ $index.RelPermalink }}" defer></script>
   {{ end -}}
 {{ else -}}
-  {{ $js := $js | minify | fingerprint "sha512" -}}
-  {{ $index := $index | minify | fingerprint "sha512" -}}
-  {{ $bs := $bs | minify | fingerprint "sha512" -}}
-  {{ $highlight := $highlight | minify | fingerprint "sha512" -}}
-  {{ $katex := $katex | minify | fingerprint "sha512" -}}
-  {{ $katexAutoRender := $katexAutoRender | minify | fingerprint "sha512" -}}
-  {{ $mermaid := $mermaid | minify | fingerprint "sha512" -}}
+  {{ $js := $js | minify | fingerprint "sha256" -}}
+  {{ $index := $index | minify | fingerprint "sha256" -}}
+  {{ $bs := $bs | minify | fingerprint "sha256" -}}
+  {{ $highlight := $highlight | minify | fingerprint "sha256" -}}
+  {{ $katex := $katex | minify | fingerprint "sha256" -}}
+  {{ $katexAutoRender := $katexAutoRender | minify | fingerprint "sha256" -}}
+  {{ $mermaid := $mermaid | minify | fingerprint "sha256" -}}
   {{ if .Site.Params.options.bootStrapJs -}}
     <script src="{{ $bs.RelPermalink }}" integrity="{{ $bs.Data.Integrity }}" crossorigin="anonymous" defer></script>
   {{ end -}}
