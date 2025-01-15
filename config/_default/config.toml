@@ -67,6 +67,9 @@ rel  = "sitemap"
   blog = "/blog/:title/"
 # docs = "/docs/1.0/:sections[1:]/:title/"
 
+[minify.tdewolff.html]
+  keepWhitespace = false
+
 [module]
   [module.hugoVersion]
     extended = true
@@ -118,40 +121,3 @@ rel  = "sitemap"
     source = "data"
     target = "data"
 
-
-[minify]
-  disableCSS = false
-  disableHTML = false
-  disableJS = false
-  disableJSON = false
-  disableSVG = false
-  disableXML = false
-  minifyOutput = true
-  [minify.tdewolff]
-    [minify.tdewolff.css]
-      inline = false
-      keepCSS2 = true
-      precision = 0
-    [minify.tdewolff.html]
-      keepComments = false
-      keepConditionalComments = false
-      keepDefaultAttrVals = true
-      keepDocumentTags = true
-      keepEndTags = true
-      keepQuotes = false
-      keepSpecialComments = true
-      keepWhitespace = false
-      templateDelims = ['', '']
-    [minify.tdewolff.js]
-      keepVarNames = false
-      precision = 0
-      version = 2022
-    [minify.tdewolff.json]
-      keepNumbers = false
-      precision = 0
-    [minify.tdewolff.svg]
-      inline = false
-      keepComments = false
-      precision = 0
-    [minify.tdewolff.xml]
-      keepWhitespace = false
