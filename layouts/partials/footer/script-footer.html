@@ -78,7 +78,7 @@
     <script src="{{ $index.RelPermalink }}" defer></script>
   {{ end -}}
 {{ else -}}
-  {{ $js := $js | minify | fingerprint "sha256" -}}
+  {{ $js := $js -}}
   {{ $index := $index | minify | fingerprint "sha256" -}}
   {{ $bs := $bs | minify | fingerprint "sha256" -}}
   {{ $highlight := $highlight | minify | fingerprint "sha256" -}}
