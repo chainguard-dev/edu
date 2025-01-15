@@ -10,7 +10,7 @@
   </iframe>
 </div>
 
-{{- $rumble := resources.Get "js/rumble.js" | minify | fingerprint "sha256" -}}
+{{- $rumble := resources.Get "js/rumble.js" -}}
 <script src="{{ $rumble.Permalink }}" integrity="{{ $rumble.Data.Integrity }}"></script>
 
 {{ end }}
