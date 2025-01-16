@@ -11,7 +11,9 @@
 </div>
 
 {{- $rumble := resources.Get "js/rumble.js" -}}
-<script src="{{ $rumble.Permalink }}" integrity="{{ $rumble.Data.Integrity }}"></script>
+{{ $rumble := $rumble | minify }}
+
+fooby<script src="{{ $rumble.Permalink }}" integrity="{{ $rumble.Data.Integrity }}"></script>
 
 {{ end }}
 {{ end }}
