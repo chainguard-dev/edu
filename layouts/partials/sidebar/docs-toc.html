@@ -8,13 +8,16 @@
 {{ end -}}
 
 {{- $righthand := resources.Get "js/righthand.js" -}}
-{{ $scrollRighthand := resources.Get "js/scrollRighthand.js" }}
+  {{ $scrollRighthand := resources.Get "js/scrollRighthand.js" }}
+  {{ $scrollRighthand := $scrollRighthand | minify }}
+
+  
 {{ $scss := resources.Get "scss/righthand.scss" }}
 {{ $righthand_style := $scss | resources.ToCSS }}
-
+{{ $righthand_style := $righthand_style | minify }}
 
 {{/* Add righthand.css styling */}}
-<link rel="stylesheet" href="{{ $righthand_style.Permalink }}" />
+  <link rel="stylesheet" href="{{ $righthand_style.Permalink }}" />
 
 {{/*  Add righthand.js script   */}}
 <script src="{{ $righthand.Permalink }}" integrity="{{ $righthand.Data.Integrity }}"></script>

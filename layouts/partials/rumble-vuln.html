@@ -27,10 +27,14 @@
 {{ $rumbleBase := resources.Get "js/rumble/base.js" }}
 {{ $rumbleVulnerability := resources.Get "/js/rumble/vulnerability.js" }}
 {{ $rumble := slice $rumbleBase $rumbleVulnerability | resources.Concat "js/rumble-vulnerability.js" }}
+{{ $rumble := $rumble | minify }}
+
 <script type="module" src="{{ $rumble.Permalink }}" integrity="{{ $rumble.Data.Integrity }}"></script>
 
 {{ $scss := resources.Get "/scss/rumble.scss" }}
 {{ $rumble_style := $scss | resources.ToCSS }}
+{{ $rumble_style := $rumble_style | minify }}
+
 <link rel="stylesheet" href="{{ $rumble_style.Permalink }}" />
 
 {{ end }}
