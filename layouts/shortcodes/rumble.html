@@ -5,4 +5,5 @@
 </iframe>
 
 {{ $rumble := resources.Get "js/rumble/base.js" }}
+{{ $rumble := $rumble | minify }}
 <script type="module" src="{{ $rumble.Permalink }}" integrity="{{ $rumble.Data.Integrity }}"></script>

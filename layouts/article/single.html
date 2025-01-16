@@ -114,11 +114,14 @@
 
     </main>
     {{ $snippetsStyle := resources.Get "scss/snippets.scss" | resources.ToCSS }}
+    {{ $snippetsStyle := $snippetsStyle | minify }}
     <link rel="stylesheet" href="{{ $snippetsStyle.Permalink }}" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     {{- $snippets := resources.Get "js/snippets.js" -}}
+    {{ $snippets := $snippets | minify }}
     <script src="{{ $snippets.Permalink }}" integrity="{{ $snippets.Data.Integrity }}"></script>
     {{- $titles := resources.Get "js/titles.js" -}}
+    {{ $titles := $titles | minify }}
     <script src="{{ $titles.Permalink }}" integrity="{{ $titles.Data.Integrity }}"></script>
     {{ if ne .Params.toc false -}}
     <nav class="docs-toc{{ if ne .Site.Params.options.navbarSticky true }} docs-toc-top{{ end }}" aria-label="Secondary navigation">
