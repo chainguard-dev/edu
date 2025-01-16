@@ -13,7 +13,7 @@
 {{- $rumble := resources.Get "js/rumble.js" -}}
 {{ $rumble := $rumble | minify }}
 
-fooby<script src="{{ $rumble.Permalink }}" integrity="{{ $rumble.Data.Integrity }}"></script>
+<script src="{{ $rumble.Permalink }}" integrity="{{ $rumble.Data.Integrity }}"></script>
 
 {{ end }}
 {{ end }}
