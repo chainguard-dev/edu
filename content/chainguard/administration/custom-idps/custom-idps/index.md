@@ -3,7 +3,7 @@ title : "Using Custom Identity Providers to Authenticate to Chainguard"
 linktitle: "Authenticate with Custom IDPs"
 aliases:
 - /chainguard/chainguard-enforce/authentication/custom-idps/
-- /chainguard/administration/custom-idps/custom-idps/;
+- /chainguard/administration/custom-idps/custom-idps/
 lead: "Chainguard Custom IDPs"
 description: "An introduction to and overview of Chainguard's custom IDP support features"
 type: "article"
