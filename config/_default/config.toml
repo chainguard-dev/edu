@@ -18,7 +18,7 @@ disableLanguages = ["de", "nl"]
 
 # add redirects/headers
 [outputs]
-home = ["HTML", "RSS", "REDIRECTS", "HEADERS"]
+home = ["HTML", "RSS", "ALIASES", "REDIRECTS", "HEADERS"]
 section = ["HTML", "RSS", "SITEMAP"]
 
 # remove .{ext} from text/netlify
@@ -30,6 +30,13 @@ delimiter = ""
 [outputFormats.REDIRECTS]
 mediaType = "text/netlify"
 baseName = "_redirects"
+isPlainText = true
+notAlternative = true
+
+# add output format for alias meta refresh to 301 # redirects
+[outputFormats.ALIASES]
+mediaType = "text/netlify"
+baseName = "_aliases"
 isPlainText = true
 notAlternative = true
 
