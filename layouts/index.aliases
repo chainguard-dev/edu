@@ -1,5 +1,7 @@
 {{- range $p := .Site.Pages -}}
 {{- range .Aliases }}
-rewrite {{ . }} {{ $p.RelPermalink -}};
-{{- end }}
+{{- if ne (strings.TrimSuffix "/" .) (strings.TrimSuffix "/" $p.RelPermalink) -}}
+rewrite {{ . }} {{ $p.RelPermalink }} permanent;
+{{ end }}
+{{- end -}}
 {{- end -}}
