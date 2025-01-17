@@ -1,6 +1,9 @@
 ---
 title: "Overview of Migrating to Chainguard Images"
 linktitle: "Migration Overview"
+aliases:
+- /chainguard/migration-guides/migration-overview/
+- /chainguard/migration/migration-overview/
 type: "article"
 description: "This overview serves as a collection of information and resources on migrating to Chainguard Images."
 date: 2024-07-22T12:56:52-00:00

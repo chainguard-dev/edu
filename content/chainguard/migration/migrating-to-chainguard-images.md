@@ -1,6 +1,9 @@
 ---
 title: "Migrating Dockerfiles to Chainguard Images"
-linktitle: "Migrating to Chainguard Images"
+linktitle: "Migrating Dockerfiles"
+aliases:
+- /chainguard/migration-guides/migrating-to-chainguard-images/
+- /chainguard/migration/migrating-to-chainguard-images/
 type: "article"
 description: "Guidance on how to migrate existing Dockerfile workloads to use Chainguard Images"
 date: 2024-03-25T15:56:52-07:00
@@ -8,7 +11,7 @@ lastmod: 2024-03-25T15:56:52-07:00
 draft: false
 tags: ["Images", "Product", "Conceptual"]
 images: []
-weight: 100
+weight: 015
 toc: true
 ---
 
