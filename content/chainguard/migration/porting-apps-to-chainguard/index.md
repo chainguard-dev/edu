@@ -1,6 +1,9 @@
 ---
 title: "How to Port a Sample Application to Chainguard Images"
 linktitle: "Porting a Sample Application"
+aliases:
+- /chainguard/migration-guides/porting-apps-to-chainguard/
+- /chainguard/migration/porting-apps-to-chainguard/
 type: "article"
 description: "This article works through porting a small but complete application to use Chainguard Images. As
 we'll see, this is relatively straightforward, but it is important to be aware of some of the
@@ -13,7 +16,7 @@ images: []
 menu:
   docs:
     parent: "concepts"
-weight: 20
+weight: 010
 toc: true
 ---
 
