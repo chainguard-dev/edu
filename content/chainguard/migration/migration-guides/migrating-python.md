@@ -32,7 +32,7 @@ Because Chainguard Images aim to be minimal, including providing separate develo
 
 ## Chainguard Images for Python Overview
 
-We distribute two versions of our [Python Chainguard Image](https://images.chainguard.dev/directory/image/python/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-python): a development image that includes shells such as ash/bash and package managers such as pip and a production image that removes these tools for increased security. Ourpublic production images are tagged as `latest`, while our public development images are tagged as `latest-dev`.
+We distribute two versions of our [Python Chainguard Image](https://images.chainguard.dev/directory/image/python/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-python): a `-dev` image that includes shells such as ash/bash and package managers such as pip and a distroless image that removes these tools for increased security. Our public distroless images are tagged as `latest`, while our public `-dev` images are tagged as `latest-dev`.
 
 ## Differences from the Docker Official Image
 
@@ -47,7 +47,7 @@ When migrating your Python application , keep in mind these differences between 
 
 ## Migrating a Python Application
 
-When migrating most containerized Python applications, we recommend building a virtual environment with any needed Python packages using our provided development images, then copying over the virtual environment to our stripped-down production image. Chainguard Academy hosts [detailed instructions for a multi-stage build for a CLI-based Python script](/chainguard/chainguard-images/getting-started/python). 
+When migrating most containerized Python applications, we recommend building a virtual environment with any needed Python packages using our provided `-dev` images, then copying over the virtual environment to our stripped-down distroless image. Chainguard Academy hosts [detailed instructions for a multi-stage build for a CLI-based Python script](/chainguard/chainguard-images/getting-started/python). 
 
 The below Dockerfile provides an example of such a multi-stage build for a simple Flask application. You can view a version of this Dockerfile with included sample Flask application and `requirements.txt` in [this repository](https://github.com/chainguard-dev/cg-images-python-migration/tree/python-only), and the original unmigrated application in the [v0 branch](https://github.com/chainguard-dev/cg-images-python-migration/tree/v0). A more complex setup with reverse proxy orchestrated with Docker Compose is provided in the next section.
 
@@ -78,7 +78,7 @@ ENTRYPOINT ["python", "-m", "gunicorn", "-b", "0.0.0.0:8000", "app:app"]
 
 When running an application containerized with the above Dockerfile, the application should be visible on `0.0.0.0:8000`.
 
-As you can see, the primary difference in this Flask application compared to the pre-migration application is the use of a multistage build. In the initial stage, we copy our requirements into the development version of the Python Chainguard Image, initialize a virtual environment, and install needed packages with pip. In the second stage, we copy the virtual environment from the development image, copy the application from the host, set exposed port metadata, and run the application with the [Gunicorn](https://gunicorn.org/) WSGI server.
+As you can see, the primary difference in this Flask application compared to the pre-migration application is the use of a multistage build. In the initial stage, we copy our requirements into the `-dev` version of the Python Chainguard Image, initialize a virtual environment, and install needed packages with pip. In the second stage, we copy the virtual environment from the `-dev` image, copy the application from the host, set exposed port metadata, and run the application with the [Gunicorn](https://gunicorn.org/) WSGI server.
 
 By default, the entrypoint for the Python Chainguard Image is `/usr/bin/python` rather than `bash`. However, if you shadow the included system `python` with the virtual environment `python`on the path as we do above, you should set the entrypoint explicitly. Otherwise, you will not have access to the packages included in your virtual environment.
 

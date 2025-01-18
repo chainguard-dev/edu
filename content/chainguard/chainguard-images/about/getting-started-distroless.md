@@ -27,7 +27,7 @@ This minimal approach offers several benefits, including:
 - **Simplified Dependency Management:** Traditional container images can introduce dependency bloat, making it difficult to track and manage exactly what's included. Distroless images keep things clear by only containing what's directly required for the application to function.
 - **Potentially Smaller Image Sizes:** By eliminating extraneous OS components, distroless images can be significantly smaller than their full-blown counterparts.
 
-Chainguard offers a mix of distroless and development (or builder) images that are minimalist and contain provenance attestations for increased security. Since distroless images have fewer tools and don't come with a package manager, some adaptation might be necessary when migrating from traditional base images. A typical approach is using multi stage builds to compose a final distroless image containing the additional artifacts required by the application in order to run successfully.
+Chainguard offers a mix of distroless and `-dev` (or builder) images that are minimalist and contain provenance attestations for increased security. Since distroless images have fewer tools and don't come with a package manager, some adaptation might be necessary when migrating from traditional base images. A typical approach is using multi stage builds to compose a final distroless image containing the additional artifacts required by the application in order to run successfully.
 
 ## Multi Stage Builds
 A multi stage build is a technique for creating slimmer and more efficient container images. It allows you to define multiple stages within a single Dockerfile. Each stage acts like a separate build environment with its own base image and instructions.
