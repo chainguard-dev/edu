@@ -3,7 +3,7 @@ title: "Getting Started with the PyTorch Chainguard ContainerImage"
 type: "article"
 linktitle: "PyTorch"
 aliases:
-- /chainguard/chainguard-images/getting-started/getting-started-pytorch-cuda12
+- /chainguard/chainguard;-images/getting-started/getting-started-pytorch-cuda12
 - /chainguard/chainguard-images/getting-started/getting-started-pytorch
 description: "Tutorial on the PyTorch Chainguard Image"
 date: 2024-04-25T08:00:00+02:00
