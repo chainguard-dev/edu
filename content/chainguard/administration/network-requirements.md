@@ -33,6 +33,9 @@ This table lists the DNS hostnames, associated ports, and protocols that will ne
 | packages.cgr.dev        | 443  | HTTPS    | Package repository (Extra packages)             |
 | packages.wolfi.dev      | 443  | HTTPS    | Package repository (Developer Images)           |
 
+
+> If you experience networking issues while trying to use Chainguard Images, please ensure that your firewall allows traffic to and from these hosts, and that it doesn't have any rules to block `.dev` domains.
+
 ## Chainguard Images Third-party Hosts
 
 This table lists the third-party DNS hostnames, associated ports, and protocols that will need to be allowed through firewalls and proxies to use Chainguard Images:
