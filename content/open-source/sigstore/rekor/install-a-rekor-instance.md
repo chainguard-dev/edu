@@ -177,7 +177,7 @@ If you are on macOS, you can install it with Homebrew. If you don’t already ha
 brew install redis
 ```
 
-If you’re using another operating system, review the [official Redis documentation](https://redis.io/docs/getting-started/).
+If you’re using another operating system, review the [official Redis documentation](https://redis.io/docs/latest/operate/oss_and_stack/install/).
 
 With Redis installed, start it.
 
