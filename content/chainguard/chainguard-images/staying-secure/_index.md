@@ -3,7 +3,6 @@ title: "Staying Secure"
 linktitle: "Staying Secure"
 aliases:
 - /chainguard/chainguard-images/recommended-practices/
-- /chainguard/chainguard-images/staying-secure/
 description: "Conceptual articles outlining various best practices for keeping Chainguard Images secure."
 type: "article"
 date: 2024-12-19T08:49:15+00:00
