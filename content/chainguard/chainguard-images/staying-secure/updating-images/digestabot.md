@@ -3,7 +3,6 @@ title: "Keep your Chainguard Images Up to Date with digestabot"
 linktitle: "Video: Up-to-date Images with Digestabot"
 aliases:
 - /chainguard/chainguard-images/videos/digestabot/
-- /chainguard/chainguard-images/troubleshooting/digestabot/
 lead: ""
 description: "This video explains how to use digestabot, a free GitHub action we created to make it easier for public users to keep their Chainguard Images fresh."
 type: "article"
@@ -65,7 +64,7 @@ We use Digestabot internally at Chainguard, and this pattern nicely balances the
 So please try it out and let me know if you have any questions.
 
 ## Relevant Resources
-- [Reproducible Dockerfiles with Frizbee and Digestabot](https://edu.chainguard.dev/chainguard/chainguard-images/videos/digestabot_frizbee/) (Video)
-- [Reproducibility and Chainguard Images](https://edu.chainguard.dev/chainguard/chainguard-images/videos/repro/) (Video)
-- [Considerations for Keeping Images Up to Date](https://edu.chainguard.dev/chainguard/chainguard-images/recommended-practices/considerations-for-image-updates/) (Article)
-- [Strategies and Tooling for Updating Container Images](https://edu.chainguard.dev/chainguard/chainguard-images/recommended-practices/strategies-tools-updating-images/) (Article)
+- [Reproducible Dockerfiles with Frizbee and Digestabot](/chainguard/chainguard-images/how-to-use/digestabot_frizbee/) (Video)
+- [Reproducibility and Chainguard Images](/chainguard/chainguard-images/videos/repro/) (Video)
+- [Considerations for Keeping Images Up to Date](/chainguard/chainguard-images/recommended-practices/considerations-for-image-updates/) (Article)
+- [Strategies and Tooling for Updating Container Images](/chainguard/chainguard-images/recommended-practices/strategies-tools-updating-images/) (Article)

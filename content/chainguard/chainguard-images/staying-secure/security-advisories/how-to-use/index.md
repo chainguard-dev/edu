@@ -5,8 +5,7 @@ aliases:
 - /chainguard/chainguard-images/security-advisories
 - /chainguard/chainguard-images/images-features/security-advisories
 - /chainguard/chainguard-images/working-with-images/security-advisories
-- /chainguard/chainguard-images/working-with-images/security-advisories/how-to-use/
-- /chainguard/chainguard-images/staying-secure/security-advisories/how-to-use/
+- /chainguard/chainguard-images/working-with-images/security-advisories/how-to-use
 type: "article"
 description: "Article outlining how one can explore and use the Security Advisories found on the Chainguard Image Directory."
 date: 2023-12-27T11:07:52+02:00

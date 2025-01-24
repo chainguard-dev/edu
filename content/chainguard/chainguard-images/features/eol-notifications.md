@@ -4,7 +4,6 @@ linktitle: "EOL Notifications"
 aliases:
 - /chainguard/chainguard-images/images-features/eol-notifications
 - /chainguard/chainguard-images/working-with-images/eol-notifications/
-- /chainguard/chainguard-images/features/eol-notifications/
 lead: "Email-based alerts for EOL events"
 type: "article"
 description: "User notifications for end-of-life events related to Chainguard Images"
