@@ -69,7 +69,7 @@ image: cgr.dev/chainguard/redis:latest
 
 The tag used will determine the jump in the updated version; `latest` will jump major versions so typically a major or minor tag is chosen to limit the size of changes.
 
-The goal for this strategy is to update the image whenever it is rebuilt or redeployed. However, the reality is that this approach is still dependent on caching and configuration (especially the [image pull policyhttps://kubernetes.io/docs/concepts/containers/images/#image-pull-policy)) and it may involve a considerable time to redeployment.
+The goal for this strategy is to update the image whenever it is rebuilt or redeployed. However, the reality is that this approach is still dependent on caching and configuration (especially the [image pull policy](https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy)) and it may involve a considerable time to redeployment.
 
 One major issue with this approach is that you lack control and reproducibility over the images that will be deployed. In Kubernetes you can end up with different pods in the same deployment running different versions of the application because nodes pulled the image at slightly different times. Debugging can become difficult, as you can't easily recreate the system. You can't even say for sure what is running in the cluster, which will be a big problem when you need to respond to a security situation.
 
