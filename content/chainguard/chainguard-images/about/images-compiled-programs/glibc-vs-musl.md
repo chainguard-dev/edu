@@ -3,7 +3,6 @@ title: "glibc vs. musl"
 linktitle: "glibc vs. musl"
 aliases:
 - /chainguard/chainguard-images/working-with-images/images-compiled-programs/glibc-vs-musl/
-- /chainguard/chainguard-images/working-with-images/images-compiled-programs/about/glibc-vs-musl/
 type: "article"
 description: "An overview of the differences between glibc and musl."
 date: 2024-08-26T18:42:57+00:00

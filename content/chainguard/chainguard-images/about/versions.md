@@ -3,7 +3,6 @@ title: "Chainguard Container Images Product Release Lifecycle"
 linktitle: "Product Release Lifecycle"
 aliases:
 - /chainguard/chainguard-images/versions/
-- /chainguard/chainguard-images/about/versions/
 type: "article"
 description: "Understanding Chainguard's Approach to Image Versions"
 date: 2024-01-08T08:49:31+00:00
@@ -105,6 +104,6 @@ If you are a Chainguard Production Images user, Chainguard vulnerability and pat
 
 When an open source application version is no longer maintained by the upstream project or has otherwise met its end of life (EOL), Chainguard will generally no longer provide patches to that software. While the Chainguard Production Images organization directory will continue to have previously purchased Images available, new builds will no longer be published and vulnerabilities are expected to accumulate in those Images over time. It is recommended to move to an up-to-date, actively maintained version. 
 
-For software applications that maintain multiple concurrent release tracks, Chainguard will endeavor to provide [reasonable notice](/chainguard/chainguard-images/working-with-images/eol-notifications/) when a particular software release version is expected to reach EOL status, thus no longer updated.
+For software applications that maintain multiple concurrent release tracks, Chainguard will endeavor to provide [reasonable notice](/chainguard/chainguard-images/features/eol-notifications/) when a particular software release version is expected to reach EOL status, thus no longer updated.
 
 No EOL notice will be provided for single-release applications where the only supported release is the `:latest` or corresponding version tag.

@@ -3,7 +3,6 @@ title: "How Chainguard Issues Security Advisories"
 linktitle: "Advisory Life Cycle"
 aliases:
 - /chainguard/chainguard-images/working-with-images/security-advisories/how-chainguard-issues/
-- /chainguard/chainguard-images/staying-secure/security-advisories/how-chainguard-issues/
 type: "article"
 description: "The life cycle of Chainguard-Issued Security Advisories"
 date: 2024-07-26T18:09:12+00:00

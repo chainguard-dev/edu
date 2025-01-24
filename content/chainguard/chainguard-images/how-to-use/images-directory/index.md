@@ -3,7 +3,6 @@ title: "Using the Chainguard Directory and Console"
 linktitle: "Images Directory"
 aliases: 
 - /chainguard/chainguard-images/working-with-images/images-directory
-- /chainguard/chainguard-images/how-to-use/images-directory
 type: "article"
 description: "A walkthrough of the Chainguard directory and console."
 date: 2024-02-23T11:07:52+02:00
@@ -150,7 +149,7 @@ Please be aware that, as with SBOM data, Chainguard began generating vulnerabili
 
 The last tab is the **Advisories** tab. When you scan a newly-built Chainguard Image with a vulnerability scanner, typically, no CVEs will be reported. However, as software packages age, more vulnerabilities are reported and CVEs will begin to accumulate in images. When this happens, Chainguard releases security advisories to communicate these vulnerabilities to downstream Images users. You can find all the advisories issued for a given Image in its Advisories tab. 
 
-To learn more about Chainguard security advisories, we encourage you to read our article on [How Chainguard Issues Security Advisories](/chainguard/chainguard-images/working-with-images/security-advisories/how-chainguard-issues/) as well as our guide on [How to Use Chainguard Security Advisories](/chainguard/chainguard-images/working-with-images/security-advisories/how-to-use/). You an also find every security advisory published for Chainguard Images by exploring our self-service [Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory)/ 
+To learn more about Chainguard security advisories, we encourage you to read our article on [How Chainguard Issues Security Advisories](/chainguard/chainguard-images/staying-secure/security-advisories/how-chainguard-issues/) as well as our guide on [How to Use Chainguard Security Advisories](/chainguard/chainguard-images/staying-secure/security-advisories/how-to-use/). You an also find every security advisory published for Chainguard Images by exploring our self-service [Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory). 
 
 
 ## Learn More
