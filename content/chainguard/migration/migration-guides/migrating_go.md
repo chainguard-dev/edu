@@ -4,7 +4,6 @@ linktitle: "Video: Go"
 aliases:
 - /chainguard/chainguard-images/videos/migrating_go/
 - /chainguard/migration/migrating_go/
-- /chainguard/migration/migration-guides/migrating_go/
 lead: ""
 description: "How to migrate an existing Dockerfile for an application that can be statically compiled to Chainguard Images in order to improve security and reduce file size."
 type: "article"
@@ -233,8 +232,7 @@ OK, please try it out and let me know how you get on.
 
 ## Relevant Resources
 
-- [Using the static Chainguard Image](https://edu.chainguard.dev/chainguard/chainguard-images/videos/static-base-image/) (Video)
-- [Choosing an Image for your Compiled Programs](https://edu.chainguard.dev/chainguard/chainguard-images/working-with-images/images-compiled-programs/compiled-programs/) (Article)
-- [Getting Started with the Go Chainguard Image
-  ](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/go/) (Article)
+- [Using the static Chainguard Image](/chainguard/chainguard-images/videos/static-base-image/) (Video)
+- [Choosing an Image for your Compiled Programs](/chainguard/chainguard-images/about/images-compiled-programs/compiled-programs/) (Article)
+- [Getting Started with the Go Chainguard Image](/chainguard/chainguard-images/getting-started/go/) (Article)
 
