@@ -366,7 +366,7 @@ h2[id^="chainctl"] {
     font-size: 14px;
     line-height: 20px;
 
-    top: 130px !important;
+    top: 160px !important;
     height: auto;
     left: 24px !important;
     width: auto;
@@ -788,7 +788,7 @@ header .search-container {
 .suggestions {
     width: 564px;
     border-radius: 8px !important;
-    padding: 12px 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     border-style: solid;
@@ -799,6 +799,7 @@ header .search-container {
     // Account for padding
     max-width: calc(100dvw - 48px);
     position: fixed !important;
+    overflow: hidden;
 }
 
 .suggestions:empty {
@@ -830,8 +831,12 @@ header .search-container {
     color: var(--suggestion-title-color);
 }
 
-.suggestion__description {
+.suggestion__description, .suggestion__no-results {
     color: var(--suggestion-description-color);
+}
+
+.suggestion__no-results {
+    margin: 0;
 }
 
 .docs-navigation {
