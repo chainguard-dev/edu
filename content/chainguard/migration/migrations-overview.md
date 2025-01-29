@@ -309,8 +309,8 @@ We currently offer both Migration and Getting Started Guides for these Images:
 ### Migration Guides
 
 * [Node](/chainguard/migration/migrating-node/)
-* [PHP](/chainguard/migration/migrating-python/)
-* [Python](/chainguard/migration/migrating-php/)
+* [PHP](/chainguard/migration/migrating-php/)
+* [Python](/chainguard/migration/migrating-python/)
 
 In addition, we have a few migration guides in the form of videos:
 
