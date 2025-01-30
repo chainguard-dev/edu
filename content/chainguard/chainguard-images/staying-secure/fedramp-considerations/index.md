@@ -15,13 +15,13 @@ weight: 007
 toc: true
 ---
 
-Many frequently asked questions revolve around how organizations are meant to stay on top of the changing landscape for FedRAMP, PMOS, Revisions, and Certificates. This article outlines various considerations and risk factors organizations should keep in mind when working to become and stay FedRAMP authorized.
+Many frequently asked questions revolve around how organizations are meant to stay on top of the changing landscape for FedRAMP, PMOS, Revisions, and Certificates. This article outlines various considerations and risk factors that organizations should keep in mind when working to become and stay FedRAMP authorized.
 
 ## Important Considerations for PMO Revision Trends
 
 There are a number of things one should keep in mind when analyzing revision trends from the FedRAMP Program Management Office (PMO) — which oversees the development of the FedRAMP program — and the changes in [FIPS 140-3](https://csrc.nist.gov/projects/fips-140-3-transition-effort). The following are of particular importance:
 
-* FedRAMP authorization has tended to only include external customer communication under scope. Now, though, the FedRAMP PMO is expecting both external and internal communications.
+* FedRAMP authorization has tended to only include external customer communication under scope. Now, though, the FedRAMP PMO is expecting both external and internal communications in scope.
 * Customers will be now be required to provide an authorization boundary diagram with an associated network diagram that shows all FIPS encrypted flows:
     * Anything that isn’t encrypted needs to be explicitly highlighted.
     * Auditors will ask that these diagrams and flows not just show this but, in some cases, to prove this during the audit with observed testing scenarios.
@@ -48,7 +48,7 @@ Critical vulnerabilities often present themselves in the critical path for the o
 
 Typically, an organization must oversee several key resources with advanced expertise to manage the ongoing configuration and maintenance of a FIPS or FedRAMP Authorization to Operate (ATO). However, this is not always translated across developers, application owners, and security teams. This problem scales with more images and boundaries under consideration. For a fixed fee per image, Chainguard will solve this problem by being directly responsible for the build and maintenance of all FIPS images in use, leveraging in-house expertise across a broad set of domains
 
-### Quality testing for immediate use of Chainguard provided FIPS images
+### Quality testing for immediate use of Chainguard-provided FIPS images
 
 One of the hardest things to consider when moving an images program to leverage a CMVP-certified FIPS module is to accommodate all of the differences across programming languages and image types.
 
@@ -70,7 +70,7 @@ The following table highlights the features of Chainguard Images as mapped to Fe
 <center><img src="fedramp-considerations-1.png" alt="Table showing Chainguard Images features mapped to FedRAMP Rev 5 baselines. The table has two columns: Features and Rev 5 Control. The Features Column categorizes features i nto three categories, each showing three features and their explanations. The first is 'Continuous Vulnerability Management and Automation,' which includes the features Almost No Vulnerabilities, Automatic Fixes, and Security advisories. These are mapped to RA-5 Vulnerability Scanning, CA-7 Continuous Monitoring, and SI-2 Flaw Remediation. The second category is 'Secure by Default' with the features Minimal Images, Strong Encryption, and Hardened Images. These are mapped to SA-10 Developer Configuration Management and SA-11 Developer Security Testing and Evaluation. The final category is 'Asset Management Best Practices' which includes the features Build time SBOMs for Each Image, OCI Standard Images, and Signed with Sigstore. These are mapped to SC - 8 Protection of Information in Transit and SC-28 Protection of Information at Rest." style="width:1100px;"></center>
 <br /> 
 
-Additionally, Chainguard can help support CM-6 configuration settings requirements. Chainguard announced the release of a STIG for the General Purpose Operating System (GPOS) SRG which specifies security requirements for general purpose operating systems running in a network. The goal for this STIG is that it will help customers confidently and securely integrate Chainguard Images into their workflows. Please refer to our [STIGS Overview](https://edu.chainguard.dev/chainguard/chainguard-images/working-with-images/image-stigs/#how-stigs-can-be-used-to-harden-images) for more information.
+Additionally, Chainguard helps support CM-6 configuration settings requirements. Chainguard announced the release of a STIG for the General Purpose Operating System (GPOS) SRG which specifies security requirements for general purpose operating systems running in a network. The goal for this STIG is that it will help customers confidently and securely integrate Chainguard Images into their workflows. Please refer to our [STIGS Overview](https://edu.chainguard.dev/chainguard/chainguard-images/working-with-images/image-stigs/#how-stigs-can-be-used-to-harden-images) for more information.
 
 
 ## Kernel-Independent FIPS Images
@@ -92,7 +92,7 @@ Chainguard's solution has the FIPS module and the SP 800-90B entropy source co-l
 
 This means that the entropy source is now independent of the hardware or cloud environment. Essentially, you can have FIPS on any host OS, kernel, and hardware. You can even have FIPS on managed cloud kubernetes platforms like GKE, EKS, and AKS. Note that this solution has been tested by two NIST labs and [certified with its own CMVP](https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations/certificate/191).
 
-For more information, please refer to the CVMP entries for Chainguard's Fips Modules and entropy source:
+For more information, please refer to the CVMP entries for Chainguard's FIPS Modules and entropy source:
 
 * OpenSSL FIPS 3.0 Provider Module (CVMP #4856)
 * Bouncy Castle FIPS Java API (CMVP #4743 [historical: CMVP #4616])
