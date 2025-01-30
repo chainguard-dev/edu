@@ -1,8 +1,6 @@
 ---
 title: "How to Use Chainguard Images"
 linktitle: "How to Use"
-aliases:
-- /chainguard/chainguard-images/working-with-images/
 description: "Resources on working with Chainguard Images"
 type: "article"
 date: 2024-12-19T08:49:15+00:00
