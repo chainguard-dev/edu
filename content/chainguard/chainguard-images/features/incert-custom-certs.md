@@ -267,4 +267,4 @@ This shows that `incert` built the certificate into the `curl` container as expe
 
 ## Learn more
 
-If you'd like to learn more about how you can use Chainguard Images effectively, we encourage you to check out all of our resources on [Working with Chainguard Images](/chainguard/chainguard-images/working-with-images/). Additionally, our [Recommended Practices](/chainguard/chainguard-images/recommended-practices/) resources can be useful for ensuring the security of your Images. 
+If you'd like to learn more about how you can use Chainguard Images effectively, we encourage you to check out all of our resources on [Working with Chainguard Images](/chainguard/chainguard-images/how-to-use/). Additionally, our [Recommended Practices](/chainguard/chainguard-images/recommended-practices/) resources can be useful for ensuring the security of your Images. 
