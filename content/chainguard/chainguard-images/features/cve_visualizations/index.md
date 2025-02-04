@@ -25,7 +25,7 @@ This guide outlines how you can access an image's CVE Visualization in both the 
 
 ## Accessing CVE Visualizations in the Console
 
-You can find CVE Visualizations and reports in two places in the [Chainguard Console](https://console.chainguard.dev): in the **Reports** section of the left-hand navigation menu and in the **Comparison** tab of an individual Image's overview.
+You can find CVE Visualizations and reports two separate places in the [Chainguard Console](https://console.chainguard.dev): in the **Reports** section of the left-hand navigation menu and in the **Comparison** tab of an individual Image's overview.
 
 ### Reports section
 
@@ -90,10 +90,10 @@ After navigating to the directory, click on or search for any image you like. Ag
 
 ## Limitations
 
-Some images do not currently have a comparative alternative. In these cases, the Comparison report will only show data for the Chainguard image. 
+Some images do not currently have a comparative alternative. In these cases, the Comparison report will only show data for the Chainguard Image. 
 
 ## Learn More
 
-The CVE data used in these reports is from the [Grype vulnerability scanner](https://github.com/anchore/grype). Vulnerability data is constantly evolving, so we scan images each day and store the results. The results shown are the vulnerabilities found on the day in question; scanning the images again with a newer database will show different results.
+The CVE data used in these reports is from the [Grype vulnerability scanner](/chainguard/chainguard-images/staying-secure/working-with-scanners/grype-tutorial/). Vulnerability data is constantly evolving, so we scan images each day and store the results. The results shown are the vulnerabilities found on the day in question; scanning the images again with a newer database will show different results.
 
 For more information on CVEs see [What Are Software Vulnerabilities and CVEs](/software-security/cves/cve-intro/). You may also find our guide on [Using the Chainguard Directory and Console](/chainguard/chainguard-images/how-to-use/images-directory/) to be of interest.
