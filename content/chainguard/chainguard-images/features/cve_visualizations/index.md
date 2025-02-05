@@ -33,7 +33,7 @@ Visualizations can be found under the [**Reports**](https://console.chainguard.d
 
 The Reports page will look similar to the following:
 
-<center><img src="cve-viz-1.png" alt="Screenshot showing CVE Visualization Report page." style="width:1100px;"></center>
+<center><img src="cve-viz-1.png" alt="Screenshot showing CVE Visualization Report page, with the Python image selected." style="width:1100px;"></center>
 <br /> 
 
 At the top of the Reports page will be two tabs: **Compare Images** and **Historical CVEs**. Let's first review the Compare Images tab.
