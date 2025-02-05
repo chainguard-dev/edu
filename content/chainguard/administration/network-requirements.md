@@ -25,6 +25,7 @@ This table lists the DNS hostnames, associated ports, and protocols that will ne
 | ----------------------- | ---- | -------- | ----------------------------------------------- |
 | cgr.dev                 | 443  | HTTPS    | Main image registry                             |
 | console.chainguard.dev  | 443  | HTTPS    | Chainguard dashboard                            |
+| data.chainguard.dev     | 443  | HTTPS    | Console API endpoint                            |
 | console-api.enforce.dev | 443  | HTTPS    | Registry API endpoint                           |
 | enforce.dev             | 443  | HTTPS    | Registry authentication                         |
 | dl.enforce.dev          | 443  | HTTPS    | `chainctl` downloads                            |
@@ -32,6 +33,7 @@ This table lists the DNS hostnames, associated ports, and protocols that will ne
 | apk.cgr.dev             | 443  | HTTPS    | Package repository                              |
 | packages.cgr.dev        | 443  | HTTPS    | Package repository (Extra packages)             |
 | packages.wolfi.dev      | 443  | HTTPS    | Package repository (Developer Images)           |
+
 
 
 > If you experience networking issues while trying to use Chainguard Images, please ensure that your firewall allows traffic to and from these hosts, and that it doesn't have any rules to block `.dev` domains.

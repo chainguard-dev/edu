@@ -2,11 +2,11 @@
 title: "Getting Started with the Cilium Chainguard Images"
 type: "article"
 linktitle: "Cilium"
-aliases: 
+aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-cilium
 description: "Tutorial on the Cilium Chainguard Images"
 date: 2023-12-14T00:00:00+00:00
-lastmod: 2024-12-2T00:00:00+00:00 
+lastmod: 2024-12-02T00:00:00+00:00
 tags: ["CHAINGUARD IMAGES", "PRODUCTS"]
 draft: false
 images: []
