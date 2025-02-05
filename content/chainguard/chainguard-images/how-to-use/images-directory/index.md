@@ -6,7 +6,7 @@ aliases:
 type: "article"
 description: "A walkthrough of the Chainguard directory and console."
 date: 2024-02-23T11:07:52+02:00
-lastmod: 2024-12-20T11:07:52+02:00
+lastmod: 2025-02-04T11:07:52+02:00
 draft: false
 tags: ["CONCEPTUAL", "CHAINGUARD IMAGES", "PRODUCT"]
 images: []
@@ -39,11 +39,11 @@ After signing in to the Chainguard Console, your browser will take you to a land
 
 ![Screenshot showing the Chainguard Console's Overview page.](imgs-dir-A.png)
 
-Click **Public Images** in the left-hand navigation to browse all available Chainguard Images. There, you'll be presented with a list of all of Chainguard's available Images.
+Click **Browse Images** in the left-hand navigation. There, you'll be presented with a list of all of Chainguard's available Images.
 
-![Screenshot of the public Images directory in the Console, showing the tabular view. The table is sorted by the "Updated" column in ascending order, meaning that the most recently updated Images are shown first.](imgs-dir-B.png)
+![Screenshot of the public Images directory in the Console. The table is sorted by the "Updated" column in ascending order, meaning that the most recently updated Images are shown first.](imgs-dir-B.png)
 
-> **Note**: If you are part of an organization, you may have access to resources in the **Organization images** tab. If so, you explore the images there as you would with the **Public Images** tab.
+> **Note**: If you are part of an organization, you may have access to resources in the **Organization images** tab. If so, you explore the images there as you would with the **Browse Images** tab.
 
 The table view above has five columns:
 
@@ -64,11 +64,11 @@ Above the table is a search box you can use to find specific Images by their nam
 
 ## Image information
 
-Next, let's inspect an individual Image. Click on any Image you'd like. This example shows the page for the `ruby` Image.
+Next, let's inspect an individual Image. Click on any Image you'd like. This example shows the page for the `argocd` Image.
 
-![Screenshot of the Image Details page for the ruby Image, showing the "Versions" tab.](imgs-dir-E.png)
+![Screenshot of the Image Details page for the argocd Image, showing the "Versions" tab.](imgs-dir-E.png)
 
-Each Image page has seven tabs that provide information about various facets of the given Image.
+Each Image page has eight tabs that provide information about various facets of the given Image.
 
 
 ### Versions Tab
@@ -80,7 +80,7 @@ The default page for each Image is the **Versions** tab which contains informati
 * **Size**: the size of the Image, in megabytes. 
 * **Last changed**: when each version of the Image was last updated.
 
-Above the table is a search box which you can use to filter the different versions available for the Image. There is also a **Category** box you can use to filter out Production or Developer Images.
+Above the table is a search box which you can use to filter the different versions available for the Image. There is also a **Variants** drop-down menu you can use to filter for all images or only `-dev` variants.
 
 ### Overview Tab
 
@@ -96,13 +96,13 @@ The **Provenance** tab outlines how you can verify Image Signatures and download
 
 The **Specifications** tab is where you can find a number of important details about a given Image, such as whether the Image ships with the `apk` package manager or a shell. It also includes information like the Image's default user ID, environment variables, and its entrypoint.
 
-![Screenshot showing the "Specification" tab for the ruby image.](imgs-dir-I.png)
+![Screenshot showing the "Specification" tab for the argocd image.](imgs-dir-I.png)
 
 ### SBOM Tab
 
 The **SBOM** tab contains a list of packages in the Image. Chainguard Images are built so that everything contained in the Image is a package, meaning that this package list gives a complete view of what's in the Image. You won't find anything hidden in the Image that isn't listed in its SBOM tab.
 
-![Screenshot of the ruby Image's "SBOM" tab, showing two rows of the latest-dev version's SBOM.](imgs-dir-F.png)
+![Screenshot of the argocd Image's "SBOM" tab, showing seven rows of the latest version's SBOM.](imgs-dir-F.png)
 
 The table listing an Image's packages has four columns.
 
@@ -111,9 +111,9 @@ The table listing an Image's packages has four columns.
 * **Repository**: every package found in Chainguard Images is either built and managed by the Chainguard team or sourced from [Wolfi](/open-source/wolfi/overview/). For packages falling into the latter category, this column will include a link to the Wolfi GitHub repository showing the package source.
 * **License**: the license under which each package is published.
 
-Above the table is a search box you can use to find and filter the packages listed. To the left of this search box is a drop-down menu you can use to select which version of the Image you want to find the SBOM for. By default, this will show the `:latest` tag.
+Above the table is a search box you can use to find and filter the packages listed. To the left of this search box is a drop-down menu you can use to select which version of the Image you want to find the SBOM for as well as what architecture (either x86_64 or arm64). 
 
-Finally, to the right of the search box is a button labeled with the Image's name, the tag selected with the drop-down menu, followed by **spdx.json**. You can click this button to download the SBOM (in the SPDX format) to your machine.
+Finally, to the right of the search box is a button labeled **Download SBOM**. You can click this button to download the SBOM (in the SPDX format) to your machine.
 
 Note that Chainguard began generating SBOMs for its Images on November 15, 2023. For this reason, any versions of a given Image that were released before that date will not have any SBOM data to show. 
 
@@ -125,9 +125,9 @@ As with the SBOMs tab, the Vulnerabilities tab has a search box you can use to f
 
 Below these is a table listing the vulnerabilities. However, most Chainguard Images won't show any vulnerabilities for the `latest` version. This isn't an error, as we aim to remove vulnerabilities from Images as soon as they arise.
 
-To illustrate how this table appears when vulnerabilities are actually present, you can select different versions in the drop-down until you find one with a vulnerability. This example shows the `latest` version of the `ruby` Image.
+To illustrate how this table appears when vulnerabilities are actually present, you can select different versions in the drop-down until you find one with a vulnerability. This example shows the `latest` version of the `argocd` Image.
 
-![Screenshot of the ruby Image's "Vulnerabilities" tab, with "latest" selected in the version drop-down menu. The table shows two vulnerabilities: "CVE-2024-41946" and "CVE-2024-41123", both with a "Medium" severity. These CVEs are associated with version 3.3.2 of the "rexml" package.](imgs-dir-G.png)
+![Screenshot of the argocd Image's "Vulnerabilities" tab, with "latest" selected in the version drop-down menu. The table shows two vulnerabilities: "GHSA-274v-mgcv-cm8j" and "GHSA-274v-mgcv-cm8j", both with a "Medium" severity. These CVEs are associated with version v0.7.1-0.20250129155113-4c6e03c46314 of the github.com/argoproj/gitops-engine package.](imgs-dir-G.png)
 
 The Vulnerabilities table has five columns.
 
@@ -147,9 +147,13 @@ Please be aware that, as with SBOM data, Chainguard began generating vulnerabili
 
 ### Advisories tab
 
-The last tab is the **Advisories** tab. When you scan a newly-built Chainguard Image with a vulnerability scanner, typically, no CVEs will be reported. However, as software packages age, more vulnerabilities are reported and CVEs will begin to accumulate in images. When this happens, Chainguard releases security advisories to communicate these vulnerabilities to downstream Images users. You can find all the advisories issued for a given Image in its Advisories tab. 
+The next tab is the **Advisories** tab. When you scan a newly-built Chainguard Image with a vulnerability scanner, typically, no CVEs will be reported. However, as software packages age, more vulnerabilities are reported and CVEs will begin to accumulate in images. When this happens, Chainguard releases security advisories to communicate these vulnerabilities to downstream Images users. You can find all the advisories issued for a given Image in its Advisories tab. 
 
-To learn more about Chainguard security advisories, we encourage you to read our article on [How Chainguard Issues Security Advisories](/chainguard/chainguard-images/staying-secure/security-advisories/how-chainguard-issues/) as well as our guide on [How to Use Chainguard Security Advisories](/chainguard/chainguard-images/staying-secure/security-advisories/how-to-use/). You an also find every security advisory published for Chainguard Images by exploring our self-service [Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory). 
+To learn more about Chainguard security advisories, we encourage you to read our article on [How Chainguard Issues Security Advisories](/chainguard/chainguard-images/staying-secure/security-advisories/how-chainguard-issues/) as well as our guide on [How to Use Chainguard Security Advisories](/chainguard/chainguard-images/staying-secure/security-advisories/how-to-use/). You an also find every security advisory published for Chainguard Images by exploring our self-service [Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory).
+
+### Comparisons tab
+
+The last tab is the **Comparisons** tab. This tab includes useful data that shows how a given Chainguard Image compares against a non-Chainguard alternative in terms of CVE count. It also includes helpful visualizations of these comparisons. For more information, check out our guide on [CVE Visualizations](/chainguard/chainguard-images/features/cve_visualizations/).
 
 
 ## Learn More
