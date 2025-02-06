@@ -9,7 +9,7 @@ description: "This article works through porting a small but complete applicatio
 we'll see, this is relatively straightforward, but it is important to be aware of some of the
 differences to other common images."
 date: 2024-04-10T12:56:52-00:00
-lastmod: 2024-08-08T14:44:52-00:00
+lastmod: 2025-02-05T14:44:52-00:00
 draft: false
 tags: ["Images", "Product", "Procedural"]
 images: []
@@ -114,28 +114,28 @@ Looking at this image:
 
 ```bash
 docker images dnmonster
-REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
-dnmonster    latest    1eb74ae9d0f0   9 seconds ago 1.22GB
+REPOSITORY   TAG       IMAGE ID       CREATED         SIZE
+dnmonster    latest    3337171ebb44   4 minutes ago   1.79GB
 ```
 
 We can also run the [Grype scanning tool](https://github.com/anchore/grype) to investigate if there are any known vulnerabilities present in the image:
 
 ```
 grype docker:dnmonster
- ✔ Vulnerability DB                [no update available]
- ✔ Loaded image                                                                                                    dnmonster:latest
- ✔ Parsed image                                             sha256:20b235c7f120abdb223516c9c2649aac1e6e3dde8301ae7394c6b4a433537b51
- ✔ Cataloged contents                                              5703441c038c01715db710653b028e4689ec2ad96bf471bad9a06e0c4cf5775e
+ ✔ Loaded image                                                                                                dnmonster:latest
+ ✔ Parsed image                                         sha256:17ad85081f0b4151b30556e2750ceab3222495cfc32caec2bf6e7be3647de78e
+ ✔ Cataloged contents                                          5c969fe3503a9f5e6c83117d0efa79af70380eac2abe66a756eae00351972352
    ├── ✔ Packages                        [788 packages]
-   ├── ✔ File digests                    [18,974 files]
-   ├── ✔ File metadata                   [18,974 locations]
+   ├── ✔ File digests                    [20,143 files]
+   ├── ✔ File metadata                   [20,143 locations]
    └── ✔ Executables                     [1,343 executables]
- ✔ Scanned for vulnerabilities     [970 vulnerability matches]
-   ├── by severity: 5 critical, 70 high, 154 medium, 32 low, 450 negligible (259 unknown)
-   └── by status:   11 fixed, 959 not-fixed, 0 ignored
+ ✔ Scanned for vulnerabilities     [600 vulnerability matches]
+   ├── by severity: 7 critical, 103 high, 290 medium, 49 low, 500 negligible (195 unknown)
+   └── by status:   7 fixed, 1137 not-fixed, 544 ignored
+...
 ```
 
-This tells us that (at the time of writing) the image is 1.22 GB in size and has **970 known vulnerabilities**.
+This tells us that (at the time of writing) the image is 1.79 GB in size and has **hundreds of known vulnerabilities**.
 
 The first step in moving to Chainguard Images is to try switching the image name in to check if anything breaks. In this case, we’ll begin with the developer variant of the Node image. Change the first line of the Dockerfile from:
 
@@ -162,8 +162,9 @@ FROM cgr.dev/chainguard/node:latest-dev
 
 USER root
 RUN apk update && apk add \
-    cairo-dev libjpeg-turbo-dev pango-dev giflib-dev \
-    librsvg-dev glib-dev harfbuzz-dev fribidi-dev expat-dev libxft-dev
+    cairo-dev libjpeg-turbo-dev pango-dev giflib-dev python3 make gcc\
+    librsvg-dev glib-dev harfbuzz-dev fribidi-dev expat-dev libxft-dev\
+    libfontconfig1
 ```
 
 The next change we need to make is to the `RUN groupadd …` line. Chainguard images use BusyBox by default, which means `groupadd` needs to become `addgroup`. Rewrite the line so that it looks like this:
@@ -185,8 +186,9 @@ FROM cgr.dev/chainguard/node:latest-dev
 
 USER root
 RUN apk update && apk add \
-    cairo-dev libjpeg-turbo-dev pango-dev giflib-dev \
-    librsvg-dev glib-dev harfbuzz-dev fribidi-dev expat-dev libxft-dev
+    cairo-dev libjpeg-turbo-dev pango-dev giflib-dev python3 make gcc\
+    librsvg-dev glib-dev harfbuzz-dev fribidi-dev expat-dev libxft-dev\
+    libfontconfig1
 
 #Create non-root user
 RUN addgroup dnmonster && adduser -D -G dnmonster dnmonster
@@ -218,27 +220,30 @@ And investigate it again:
 
 ```bash
 docker images dnmonster-cg
-REPOSITORY     TAG       IMAGE ID       CREATED          SIZE
-dnmonster-cg   latest    d4bb3a473a90   36 seconds ago   880MB
+REPOSITORY     TAG       IMAGE ID       CREATED              SIZE
+dnmonster-cg   latest    5b785d38a022   About a minute ago   1.55GB
 
 grype docker:dnmonster-cg
-✔ Vulnerability DB                [no update available]
-✔ Loaded image                                                                                                 dnmonster-cg:latest
-✔ Parsed image                                             sha256:d4bb3a473a9086d3e3d17e781b3ea0ad84031cb4082cbf433e9561ee349e5e86
-✔ Cataloged contents                                              d32762222ca3091f6f6a5009fe407da33f96cecec2d29368b271b2e0d52f8ff0
-├── ✔ Packages                        [506 packages]
-├── ✔ File digests                    [14,262 files]
-├── ✔ File metadata                   [14,262 locations]
-└── ✔ Executables                     [714 executables]
-✔ Scanned for vulnerabilities     [0 vulnerability matches]
-├── by severity: 0 critical, 0 high, 0 medium, 0 low, 0 negligible
-└── by status:   0 fixed, 0 not-fixed, 0 ignored
-No vulnerabilities found
+ ✔ Vulnerability DB                [updated]
+ ✔ Loaded image                                                                                             dnmonster-cg:latest
+ ✔ Parsed image                                         sha256:4795459b2f4a28bb721b19b798b4f78d6affb6b2a43096f8752576e6ce3fcd2c
+ ✔ Cataloged contents                                          aa53bb57b8e994e65de7f3e19da6b1945a86005fe76961383166248aad56f6fe
+   ├── ✔ Packages                        [599 packages]
+   ├── ✔ File digests                    [14,204 files]
+   ├── ✔ File metadata                   [14,204 locations]
+   └── ✔ Executables                     [733 executables]
+ ✔ Scanned for vulnerabilities     [2 vulnerability matches]
+   ├── by severity: 0 critical, 0 high, 0 medium, 0 low, 0 negligible (2 unknown)
+   └── by status:   0 fixed, 2 not-fixed, 0 ignored
+NAME         INSTALLED  FIXED-IN  TYPE  VULNERABILITY   SEVERITY
+git          2.48.1-r0            apk   CVE-2024-52005  Unknown
+python-3.13  3.13.1-r5            apk   CVE-2025-0938   Unknown
 ```
 
-So the image is now significantly smaller at 880MB, but more importantly, we've eliminated all 970 vulnerabilities.
+So the image is a bit smaller at 1.55GB, but more importantly, we've vastly reduced the number of
+vulnerabilities. There are now only 2 known vulnerabilities.
 
-But we can still do more. In particular, although 880MB is significantly smaller than the previous version, it's still a large image. To get the size down, we can use a multi-stage build where the built assets are copied into a minimal production image, which doesn't include build tooling or dependencies required during development.
+But we can still do more. In particular, although 1.55GB is smaller than the previous version, it's still a large image. To get the size down, we can use a multi-stage build where the built assets are copied into a minimal production image, which doesn't include build tooling or dependencies required during development.
 
 Ideally, we would use the `cgr.dev/chainguard/node:latest` image for this, but we also need to install the dependencies for `node-canvas`, which means we need an image with apk tools. Normally it’s recommended to use a `:latest-dev` image for this, but in node's case, the `:latest-dev` image is relatively large due to the inclusion of build tooling, such as C compilers, that can be required by Node modules. Instead, we're going to use the `wolfi-base` image and install `nodejs` as a package.
 
@@ -249,8 +254,9 @@ FROM cgr.dev/chainguard/node:latest-dev as build
 
 USER root
 RUN apk update && apk add \
-    cairo-dev libjpeg-turbo-dev pango-dev giflib-dev \
-    librsvg-dev glib-dev harfbuzz-dev fribidi-dev expat-dev libxft-dev
+    cairo-dev libjpeg-turbo-dev pango-dev giflib-dev python3 make gcc \
+    librsvg-dev glib-dev harfbuzz-dev fribidi-dev expat-dev libxft-dev \
+    libfontconfig1
 
 #Create non-root user
 RUN addgroup dnmonster && adduser -D -G dnmonster dnmonster
@@ -292,25 +298,24 @@ Build and investigate the image:
 docker build --pull -t dnmonster-multi .
 …
 docker images dnmonster-multi
-REPOSITORY        TAG       IMAGE ID       CREATED          SIZE
-dnmonster-multi   latest    9b2e79c87572   18 minutes ago   336MB
+REPOSITORY        TAG       IMAGE ID       CREATED         SIZE
+dnmonster-multi   latest    a2efea945fb9   2 minutes ago   620MB
 
-grype docker:dnmonster-multi
-✔ Vulnerability DB                [no update available]
-✔ Loaded image                                                                                              dnmonster-multi:latest
-✔ Parsed image                                             sha256:9b2e79c87572902c3dc1577e55b56b27406b521cae6b231cb15d9b347eb0b94c
-✔ Cataloged contents                                              88258c2837dbe88bd4490fc672d170581fbcdbe0dcc34c696d2a14032ad36395
-├── ✔ Packages                        [256 packages]
-├── ✔ File digests                    [9,357 files]
-├── ✔ File metadata                   [9,357 locations]
-└── ✔ Executables                     [599 executables]
-✔ Scanned for vulnerabilities     [0 vulnerability matches]
-├── by severity: 0 critical, 0 high, 0 medium, 0 low, 0 negligible
-└── by status:   0 fixed, 0 not-fixed, 0 ignored
+grype dnmonster-multi
+ ✔ Loaded image                                                                                          dnmonster-multi:latest
+ ✔ Parsed image                                         sha256:08c8f2b6f0bc8b55a5962abfb9daaee9030fc37c19875592ea53f896f29a4c60
+ ✔ Cataloged contents                                          37c6abd0a832ad48e4a604a392d6ebbea1a7483ddedf94b7762186de9e991cff
+   ├── ✔ Packages                        [343 packages]
+   ├── ✔ File digests                    [8,887 files]
+   ├── ✔ File metadata                   [8,887 locations]
+   └── ✔ Executables                     [601 executables]
+ ✔ Scanned for vulnerabilities     [0 vulnerability matches]
+   ├── by severity: 0 critical, 0 high, 0 medium, 0 low, 0 negligible
+   └── by status:   0 fixed, 0 not-fixed, 0 ignored
 No vulnerabilities found
 ```
 
-This results in an image that is now only 336MB in size and still has 0 CVEs.
+This results in an image that is now 620MB in size and has 0 CVEs.
 
 We're most of the way now, but there are still a couple of finishing touches to make. The first one is to remove the dnmonster user. The wolfi-base image already defines a `nonroot` user, so we can make the build a little less complicated by using that user directly. The second one is to add in a process manager. We have node running as the root process (PID 1) in the container, which isn't ideal as it doesn't handle some of the responsibilities that come with running as PID 1, such as forwarding signals to subprocesses. You can see this most clearly when you try to stop the image – it takes several seconds as the process doesn't respond to the SIGTERM signal sent by Docker and has to be hard killed with SIGKILL. To fix this, we can add [`tini`](https://github.com/krallin/tini), a small init for containers.
 
@@ -322,8 +327,9 @@ FROM cgr.dev/chainguard/node:latest-dev as build
 USER root
 
 RUN apk update && apk add \
-    tini cairo-dev libjpeg-turbo-dev pango-dev giflib-dev \
-    librsvg-dev glib-dev harfbuzz-dev fribidi-dev expat-dev libxft-dev
+    cairo-dev libjpeg-turbo-dev pango-dev giflib-dev python3 make gcc \
+    librsvg-dev glib-dev harfbuzz-dev fribidi-dev expat-dev libxft-dev \
+    libfontconfig1
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
@@ -375,7 +381,7 @@ Again, the version of the code on the v1 branch already contains a few updates f
 FROM python
 
 RUN groupadd -r uwsgi && useradd -r -g uwsgi uwsgi
-RUN pip install Flask==3.0.2 uWSGI requests==2.31.0 redis==5.0.3
+RUN pip install Flask==3.1.0 uWSGI requests==2.32.3 redis==5.2.1
 WORKDIR /app
 USER uwsgi
 COPY app /app
@@ -398,28 +404,27 @@ Take a look at the image:
 
 ```bash
 docker images identidock
-REPOSITORY   TAG       IMAGE ID       CREATED         SIZE
-identidock   latest    46d3857f790b   8 minutes ago   1.05GB
+REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
+identidock   latest    a718358590ff   11 seconds ago   1.51GB
 ```
 
 Scan for vulnerabilities:
 
 ```bash
 grype docker:identidock
-✔ Vulnerability DB                [no update available]
-✔ Loaded image                                                                                                      identidock:latest
-✔ Parsed image                                                sha256:46d3857f790b295a14829e709d8483f98bd3c1f304bc1f40f87b16a62300b76b
-✔ Cataloged contents                                                 09873b2d93203eb19c56257a597702b060b803851d152c624407f8aca30ab018
-├── ✔ Packages                        [455 packages]
-├── ✔ File digests                    [19,267 files]
-├── ✔ File metadata                   [19,267 locations]
-└── ✔ Executables                     [1,437 executables]
-✔ Scanned for vulnerabilities     [980 vulnerability matches]
-├── by severity: 5 critical, 66 high, 155 medium, 32 low, 463 negligible (259 unknown)
-└── by status:   11 fixed, 969 not-fixed, 0 ignored
+ ✔ Loaded image                                                                                               identidock:latest
+ ✔ Parsed image                                         sha256:0b4ac715984206f1e9134aa48a8efeba88e7badc3969d6f8c79cca98b47df676
+ ✔ Cataloged contents                                          5ebeaac39f8f941d41629fdb1e13c39bc73558caadfe7699963b4b3a6c55a222
+   ├── ✔ Packages                        [452 packages]
+   ├── ✔ File digests                    [20,129 files]
+   ├── ✔ File metadata                   [20,129 locations]
+   └── ✔ Executables                     [1,428 executables]
+ ✔ Scanned for vulnerabilities     [621 vulnerability matches]
+   ├── by severity: 7 critical, 100 high, 296 medium, 47 low, 515 negligible (200 unknown)
+   └── by status:   2 fixed, 1163 not-fixed, 544 ignored
 ```
 
-At the time of writing, this image is 1.05GB with 980 vulnerabilities (5 critical) according to Grype.
+At the time of writing, this image is 1.51GB with hundreds of vulnerabilities (7 critical) according to Grype.
 
 Again as a first step, we will try to switch out directly to the Chainguard Image. To do this, edit the Dockerfile so the first line reads:
 
@@ -506,10 +511,10 @@ ENTRYPOINT [ "gunicorn", "-b", "0.0.0.0:9090", "identidock:app" ]
 And add the file `requirements.txt` to the current directory (`identidock`) with the following contents:
 
 ```
-Flask==3.0.2
-requests==2.31.0
-redis==5.0.3
-gunicorn==21.2.0
+Flask==3.1.0
+requests==2.32.3
+redis==5.2.1
+gunicorn==23.0.0
 ```
 
 The first thing to notice is that we have a multistage build now. If you want the development image rather than the production one, you can specify it during docker build:
@@ -539,7 +544,7 @@ And take a look at it:
 ```bash
 docker images identidock-cg
 REPOSITORY      TAG       IMAGE ID       CREATED          SIZE
-identidock-cg   latest    30a424aa8a51   15 seconds ago   93.6MB
+identidock-cg   latest    1b5689af14a1   14 seconds ago   122MB
 ```
 
 Run a scan with grype:
@@ -547,27 +552,28 @@ Run a scan with grype:
 
 ```bash
 grype docker:identidock-cg
-✔ Vulnerability DB                [updated]
-✔ Loaded image                                                                                                                                                                    identidock-cg:latest
-✔ Parsed image                                                                                                                 sha256:30a424aa8a51548491ea3c152383ce2c16a801859e9e8e252b147162ac0b637e
-✔ Cataloged contents                                                                                                                  40024c9c378c73d52c9e62f32fcf6d0d328d8d14a66a328df8d6fc0278a4a2e8
-├── ✔ Packages                        [46 packages]
-├── ✔ File digests                    [2,020 files]
-├── ✔ File metadata                   [2,020 locations]
-└── ✔ Executables                     [141 executables]
-✔ Scanned for vulnerabilities     [0 vulnerability matches]
-├── by severity: 0 critical, 0 high, 0 medium, 0 low, 0 negligible
-└── by status:   0 fixed, 0 not-fixed, 0 ignored
+ ✔ Loaded image                                                                                            identidock-cg:latest
+ ✔ Parsed image                                         sha256:c79295258a2b67f2a0eda49c41a2d791888df6cc7b3bdea694d810ec5d2916d8
+ ✔ Cataloged contents                                          6c8262ac152209ef3e36cad9c49c0d3e3f16d7cbfeafad9abb569c7690c68c2e
+   ├── ✔ Packages                        [45 packages]
+   ├── ✔ File digests                    [1,667 files]
+   ├── ✔ File metadata                   [1,667 locations]
+   └── ✔ Executables                     [135 executables]
+ ✔ Scanned for vulnerabilities     [1 vulnerability matches]
+   ├── by severity: 0 critical, 0 high, 0 medium, 0 low, 0 negligible (1 unknown)
+   └── by status:   0 fixed, 1 not-fixed, 0 ignored
+NAME         INSTALLED  FIXED-IN  TYPE  VULNERABILITY  SEVERITY
+python-3.13  3.13.1-r5            apk   CVE-2025-0938  Unknown
 ```
 
-The result of all these changes is that the production image is only 93.6 MB (down from 1.05GB, so an enormous saving of just under a GB) and has 0 CVEs (down from 980). This is a huge improvement!
+The result of all these changes is that the production image is only 122 MB (down from 1.51GB, so an enormous saving of over a GB) and has 1 CVE (down from hundreds). This is a huge improvement!
 
 Further information on using Chainguard Images with Python can be found in our [Getting Started guide](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/python/).
 
 
 ## Replacing the Redis Image and Updating the Docker Compose File
 
-Updating Redis is straightforward. We're not making any changes to the application image, so all we need to do is directly update the reference to `redis:7` in the Docker Compose file to `cgr.dev/chainguard/redis`. The new image requires no extra configuration, but we go from a 139 MB image with 137 vulnerabilities to a 23MB image with 0 CVEs (again according to Grype).
+Updating Redis is straightforward. We're not making any changes to the application image, so all we need to do is directly update the reference to `redis:7` in the Docker Compose file to `cgr.dev/chainguard/redis`. The new image requires no extra configuration, but we go from a 195 MB image with 129 vulnerabilities to a 33 MB image with 0 CVEs (again according to Grype).
 
 To update Compose, in the top level directory of the repo, replace the content of the `docker-compose.yml` file with the following:
 
