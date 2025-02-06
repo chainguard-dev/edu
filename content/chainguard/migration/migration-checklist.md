@@ -12,7 +12,9 @@ weight: 020
 toc: true
 ---
 
-Chainguard Container Images are designed to be minimal and to include special features for increased security and provenance attestation. Depending on your current base image and customizations, you may need to make some adjustments when migrating your current workloads to use Chainguard Container Images. This checklist provides a high-level overview of the steps you should consider when migrating to Chainguard Container Images. A PDF version of this checklist is available for download [here](/downloads/migrating-to-chainguard-images.pdf).
+Chainguard Container Images are designed to be minimal and to include special features for increased security and provenance attestation. Depending on your current base image and customizations, you may need to make some adjustments when migrating your current workloads to use Chainguard Container Images. This checklist provides a high-level overview of the steps you should consider when migrating to Chainguard Container Images. 
+
+> **Download the [PDF version](/downloads/migrating-to-chainguard-images.pdf) of this checklist [here](/downloads/migrating-to-chainguard-images.pdf)!**
 
 ## Important to Know
 
