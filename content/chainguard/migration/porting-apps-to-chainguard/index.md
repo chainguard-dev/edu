@@ -566,7 +566,7 @@ NAME         INSTALLED  FIXED-IN  TYPE  VULNERABILITY  SEVERITY
 python-3.13  3.13.1-r5            apk   CVE-2025-0938  Unknown
 ```
 
-The result of all these changes is that the production image is only 122 MB (down from 1.51GB, so an enormous saving of over a GB) and has 1 CVEs (down from hundreds). This is a huge improvement!
+The result of all these changes is that the production image is only 122 MB (down from 1.51GB, so an enormous saving of over a GB) and has 1 CVE (down from hundreds). This is a huge improvement!
 
 Further information on using Chainguard Images with Python can be found in our [Getting Started guide](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/python/).
 
