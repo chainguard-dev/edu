@@ -381,7 +381,7 @@ Again, the version of the code on the v1 branch already contains a few updates f
 FROM python
 
 RUN groupadd -r uwsgi && useradd -r -g uwsgi uwsgi
-RUN pip install Flask==3.0.2 uWSGI requests==2.31.0 redis==5.0.3
+RUN pip install Flask==3.1.0 uWSGI requests==2.32.3 redis==5.2.1
 WORKDIR /app
 USER uwsgi
 COPY app /app
@@ -404,28 +404,27 @@ Take a look at the image:
 
 ```bash
 docker images identidock
-REPOSITORY   TAG       IMAGE ID       CREATED         SIZE
-identidock   latest    46d3857f790b   8 minutes ago   1.05GB
+REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
+identidock   latest    a718358590ff   11 seconds ago   1.51GB
 ```
 
 Scan for vulnerabilities:
 
 ```bash
 grype docker:identidock
-✔ Vulnerability DB                [no update available]
-✔ Loaded image                                                                                                      identidock:latest
-✔ Parsed image                                                sha256:46d3857f790b295a14829e709d8483f98bd3c1f304bc1f40f87b16a62300b76b
-✔ Cataloged contents                                                 09873b2d93203eb19c56257a597702b060b803851d152c624407f8aca30ab018
-├── ✔ Packages                        [455 packages]
-├── ✔ File digests                    [19,267 files]
-├── ✔ File metadata                   [19,267 locations]
-└── ✔ Executables                     [1,437 executables]
-✔ Scanned for vulnerabilities     [980 vulnerability matches]
-├── by severity: 5 critical, 66 high, 155 medium, 32 low, 463 negligible (259 unknown)
-└── by status:   11 fixed, 969 not-fixed, 0 ignored
+ ✔ Loaded image                                                                                               identidock:latest
+ ✔ Parsed image                                         sha256:0b4ac715984206f1e9134aa48a8efeba88e7badc3969d6f8c79cca98b47df676
+ ✔ Cataloged contents                                          5ebeaac39f8f941d41629fdb1e13c39bc73558caadfe7699963b4b3a6c55a222
+   ├── ✔ Packages                        [452 packages]
+   ├── ✔ File digests                    [20,129 files]
+   ├── ✔ File metadata                   [20,129 locations]
+   └── ✔ Executables                     [1,428 executables]
+ ✔ Scanned for vulnerabilities     [621 vulnerability matches]
+   ├── by severity: 7 critical, 100 high, 296 medium, 47 low, 515 negligible (200 unknown)
+   └── by status:   2 fixed, 1163 not-fixed, 544 ignored
 ```
 
-At the time of writing, this image is 1.05GB with 980 vulnerabilities (5 critical) according to Grype.
+At the time of writing, this image is 1.51GB with hundreds of vulnerabilities (7 critical) according to Grype.
 
 Again as a first step, we will try to switch out directly to the Chainguard Image. To do this, edit the Dockerfile so the first line reads:
 
@@ -512,10 +511,10 @@ ENTRYPOINT [ "gunicorn", "-b", "0.0.0.0:9090", "identidock:app" ]
 And add the file `requirements.txt` to the current directory (`identidock`) with the following contents:
 
 ```
-Flask==3.0.2
-requests==2.31.0
-redis==5.0.3
-gunicorn==21.2.0
+Flask==3.1.0
+requests==2.32.3
+redis==5.2.1
+gunicorn==23.0.0
 ```
 
 The first thing to notice is that we have a multistage build now. If you want the development image rather than the production one, you can specify it during docker build:
@@ -545,7 +544,7 @@ And take a look at it:
 ```bash
 docker images identidock-cg
 REPOSITORY      TAG       IMAGE ID       CREATED          SIZE
-identidock-cg   latest    30a424aa8a51   15 seconds ago   93.6MB
+identidock-cg   latest    1b5689af14a1   14 seconds ago   122MB
 ```
 
 Run a scan with grype:
@@ -553,27 +552,28 @@ Run a scan with grype:
 
 ```bash
 grype docker:identidock-cg
-✔ Vulnerability DB                [updated]
-✔ Loaded image                                                                                                                                                                    identidock-cg:latest
-✔ Parsed image                                                                                                                 sha256:30a424aa8a51548491ea3c152383ce2c16a801859e9e8e252b147162ac0b637e
-✔ Cataloged contents                                                                                                                  40024c9c378c73d52c9e62f32fcf6d0d328d8d14a66a328df8d6fc0278a4a2e8
-├── ✔ Packages                        [46 packages]
-├── ✔ File digests                    [2,020 files]
-├── ✔ File metadata                   [2,020 locations]
-└── ✔ Executables                     [141 executables]
-✔ Scanned for vulnerabilities     [0 vulnerability matches]
-├── by severity: 0 critical, 0 high, 0 medium, 0 low, 0 negligible
-└── by status:   0 fixed, 0 not-fixed, 0 ignored
+ ✔ Loaded image                                                                                            identidock-cg:latest
+ ✔ Parsed image                                         sha256:c79295258a2b67f2a0eda49c41a2d791888df6cc7b3bdea694d810ec5d2916d8
+ ✔ Cataloged contents                                          6c8262ac152209ef3e36cad9c49c0d3e3f16d7cbfeafad9abb569c7690c68c2e
+   ├── ✔ Packages                        [45 packages]
+   ├── ✔ File digests                    [1,667 files]
+   ├── ✔ File metadata                   [1,667 locations]
+   └── ✔ Executables                     [135 executables]
+ ✔ Scanned for vulnerabilities     [1 vulnerability matches]
+   ├── by severity: 0 critical, 0 high, 0 medium, 0 low, 0 negligible (1 unknown)
+   └── by status:   0 fixed, 1 not-fixed, 0 ignored
+NAME         INSTALLED  FIXED-IN  TYPE  VULNERABILITY  SEVERITY
+python-3.13  3.13.1-r5            apk   CVE-2025-0938  Unknown
 ```
 
-The result of all these changes is that the production image is only 93.6 MB (down from 1.05GB, so an enormous saving of just under a GB) and has 0 CVEs (down from 980). This is a huge improvement!
+The result of all these changes is that the production image is only 122 MB (down from 1.51GB, so an enormous saving of over a GB) and has 1 CVEs (down from hundreds). This is a huge improvement!
 
 Further information on using Chainguard Images with Python can be found in our [Getting Started guide](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/python/).
 
 
 ## Replacing the Redis Image and Updating the Docker Compose File
 
-Updating Redis is straightforward. We're not making any changes to the application image, so all we need to do is directly update the reference to `redis:7` in the Docker Compose file to `cgr.dev/chainguard/redis`. The new image requires no extra configuration, but we go from a 139 MB image with 137 vulnerabilities to a 23MB image with 0 CVEs (again according to Grype).
+Updating Redis is straightforward. We're not making any changes to the application image, so all we need to do is directly update the reference to `redis:7` in the Docker Compose file to `cgr.dev/chainguard/redis`. The new image requires no extra configuration, but we go from a 195 MB image with 129 vulnerabilities to a 33 MB image with 0 CVEs (again according to Grype).
 
 To update Compose, in the top level directory of the repo, replace the content of the `docker-compose.yml` file with the following:
 
