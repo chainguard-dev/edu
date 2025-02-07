@@ -25,8 +25,15 @@ jobs:
       - name: 'Checkout default branch to $GITHUB_WORKSPACE dir'
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
+      - uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4.2.0
+        with:
+          node-version: 16
+
+      - name: Build project
+        run: |
+          npm install
+          npm run build
+
       - name: Run Nginx validation
         run: |
-          mkdir -p public
-          touch public/_aliases
-          docker run --rm -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf -v $(pwd)/public/_aliases:/etc/nginx/aliases cgr.dev/chainguard/nginx:latest-dev -t
+          docker run --rm -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf -v $(pwd)/public/_aliases:/etc/nginx/aliases -v $(pwd)/public:/usr/share/nginx/html/ cgr.dev/chainguard/nginx:latest-dev -t
