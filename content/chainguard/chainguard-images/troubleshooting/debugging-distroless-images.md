@@ -45,7 +45,7 @@ For example, the following table shows a comparison between the `-dev` variants 
 
 You can find similar detailed package information for all [Chainguard Images](https://images.chainguard.dev) in their respective image details pages under the SBOM section.
 
-Once you have changed your Dockerfile base image to use a Starter Image, you can overwrite the entry point command to get a shell on the container:
+Once you have changed your Dockerfile base image to use a Starter image, you can overwrite the entry point command to get a shell on the container:
 
 ```shell
 docker run -it --entrypoint /bin/sh cgr.dev/chainguard/php:latest-dev
@@ -54,12 +54,12 @@ docker run -it --entrypoint /bin/sh cgr.dev/chainguard/php:latest-dev
 Having a package manager and the ability to log into the image to debug any issues is very important at development time, but becomes unnecessary (and less safe) when talking about production environments. That's why we recommend using a distroless variant for production workloads.
 
 ### Why Avoid Using Dev Images in Production
-Although the Starter Image variants have similar security features as their distroless versions, such as complete SBOMs and signatures, they feature additional software that is typically not necessary in production environments. The general recommendation is to use Starter Images only to build the application and then copy all application artifacts into a distroless image, which will result in a final container image that has a minimal attack surface and won't allow package installations or logins.
+Although the Starter image variants have similar security features as their distroless versions, such as complete SBOMs and signatures, they feature additional software that is typically not necessary in production environments. The general recommendation is to use Starter images only to build the application and then copy all application artifacts into a distroless image, which will result in a final container image that has a minimal attack surface and won't allow package installations or logins.
 
 That being said, it's worth noting that the `-dev` variants of Chainguard Images are still **more secure** than many popular container images based on fully-featured operating systems such as Debian and Ubuntu, because they carry less software, follow a more frequent patch cadence, and offer attestations for what is included.
 
 ### Language Ecosystem Guides
-The following guides show how to use these Starter Images in combination with their distroless variants in order to build a final image that is also distroless, but contains everything the application needs to run:
+The following guides show how to use these Starter images in combination with their distroless variants in order to build a final image that is also distroless, but contains everything the application needs to run:
 
 - [Getting Started with the Python Chainguard Image](/chainguard/chainguard-images/getting-started/python/)
 - [Getting Started with the Ruby Chainguard Image](/chainguard/chainguard-images/getting-started/ruby/)

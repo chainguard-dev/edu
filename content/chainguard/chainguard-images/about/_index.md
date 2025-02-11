@@ -38,9 +38,9 @@ tutorials: [
     url: "/chainguard/chainguard-images/working-with-images/about/images-compiled-programs/compiled-programs"
   },
   {
-    title: "Dev vs. Production Images",
+    title: "Understanding Starter Images",
     description: "",
-    url: "/chainguard/chainguard-images/about/differences-development-production/"
+    url: "/chainguard/chainguard-images/about/understanding-starter-images/"
   },
     {
     title: "Product Release Lifecycle",

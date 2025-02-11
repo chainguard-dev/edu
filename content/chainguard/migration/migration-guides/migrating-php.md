@@ -203,9 +203,9 @@ Chainguard has a dedicated [Laravel image](https://images.chainguard.dev/directo
 In addition to including extensions required by Laravel by default, the image includes a **laravel** system user that facilitates running `composer` and `artisan` commands from a host environment, which enables users to create and develop Laravel applications with the `-dev` variant of this image. Check the section on [Developing Laravel Applications](#developing-laravel-applications) for more information on how to use the builder variant of the Laravel image for development environments.
 
 ## Using Starter Images for Development
-Our PHP Starter Images are minimal yet versatile images that include `apk` and `composer`. You can use these images to create and develop PHP applications on a containerized development environment.
+Our PHP Starter images are minimal yet versatile images that include `apk` and `composer`. You can use these images to create and develop PHP applications on a containerized development environment.
 
-Starter Images can be identified by the `-dev` suffix (e.g: `php:latest-dev`). You can use them to execute Composer commands from a Dockerfile or directly from the command line with `docker run`. This allows users to run Composer without having to install PHP on their host system.
+Starter images can be identified by the `-dev` suffix (e.g: `php:latest-dev`). You can use them to execute Composer commands from a Dockerfile or directly from the command line with `docker run`. This allows users to run Composer without having to install PHP on their host system.
 
 ### Running Composer
 
