@@ -17,7 +17,7 @@ weight: 045
 toc: true
 ---
 
-The PHP images maintained by Chainguard include both [distroless and `-dev` container images](/chainguard/chainguard-images/about/differences-distroless-dev/), suitable for building and running PHP workloads. The `latest-fpm` variant serves PHP applications over FastCGI, while the `latest` variant runs PHP applications from the command line.
+The PHP images maintained by Chainguard include both [minimal images and our Starter container images](/chainguard/chainguard-images/about/differences-distroless-dev/) (also known as `-dev` images), suitable for building and running PHP workloads. The `latest-fpm` variant serves PHP applications over FastCGI, while the `latest` variant runs PHP applications from the command line.
 
 In this guide, we'll set up a demo and demonstrate how you can use Chainguard Images to develop, build, and run PHP applications.
 

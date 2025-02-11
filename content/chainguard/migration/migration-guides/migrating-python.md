@@ -32,7 +32,7 @@ Because Chainguard Images aim to be minimal, including providing separate develo
 
 ## Chainguard Images for Python Overview
 
-We distribute two versions of our [Python Chainguard Image](https://images.chainguard.dev/directory/image/python/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-python): a `-dev` image that includes shells such as ash/bash and package managers such as pip and a distroless image that removes these tools for increased security. Our public distroless images are tagged as `latest`, while our public `-dev` images are tagged as `latest-dev`.
+We distribute two versions of our [Python Chainguard Image](https://images.chainguard.dev/directory/image/python/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-python): a `-dev` image that includes shells such as ash/bash and package managers such as pip and a distroless image that removes these tools for increased security. Our minimal public images are tagged as `latest`, while our public Starter Images are tagged as `latest-dev`.
 
 ## Differences from the Docker Official Image
 
@@ -47,7 +47,7 @@ When migrating your Python application , keep in mind these differences between 
 
 ## Migrating a Python Application
 
-When migrating most containerized Python applications, we recommend building a virtual environment with any needed Python packages using our provided `-dev` images, then copying over the virtual environment to our stripped-down distroless image. Chainguard Academy hosts [detailed instructions for a multi-stage build for a CLI-based Python script](/chainguard/chainguard-images/getting-started/python). 
+When migrating most containerized Python applications, we recommend building a virtual environment with any needed Python packages using our provided Starter Images, then copying over the virtual environment to our stripped-down distroless image. Chainguard Academy hosts [detailed instructions for a multi-stage build for a CLI-based Python script](/chainguard/chainguard-images/getting-started/python). 
 
 The below Dockerfile provides an example of such a multi-stage build for a simple Flask application. You can view a version of this Dockerfile with included sample Flask application and `requirements.txt` in [this repository](https://github.com/chainguard-dev/cg-images-python-migration/tree/python-only), and the original unmigrated application in the [v0 branch](https://github.com/chainguard-dev/cg-images-python-migration/tree/v0). A more complex setup with reverse proxy orchestrated with Docker Compose is provided in the next section.
 

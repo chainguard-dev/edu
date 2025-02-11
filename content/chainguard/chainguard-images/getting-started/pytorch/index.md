@@ -105,7 +105,7 @@ data       octopus_whale_penguin_model.pt
 
 ## Manual Steps to Fine-Tune the Model
 
-Below are manual steps to perform the above download and training procedure interactively. You may wish to follow these steps if you need to modify the above for your own use case, if you'd like to better understand the steps involved, or if you have difficulty running the above command in your environment. These steps use `git clone` rather than `curl`. Also note that this manual process uses the `:latest-dev` version of the image, since the `:latest` distroless image does not include shells such as bash for increased security.
+Below are manual steps to perform the above download and training procedure interactively. You may wish to follow these steps if you need to modify the above for your own use case, if you'd like to better understand the steps involved, or if you have difficulty running the above command in your environment. These steps use `git clone` rather than `curl`. Also note that this manual process uses the `:latest-dev` version of the image, since the `:latest` image does not include shells such as bash for increased security.
 
 In the below steps, the prompt of your host machine will be denoted as `(host) $`, while the prompt of the container machine will be denoted as `(container) $`
 

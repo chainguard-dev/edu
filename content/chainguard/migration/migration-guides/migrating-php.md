@@ -202,10 +202,10 @@ Chainguard has a dedicated [Laravel image](https://images.chainguard.dev/directo
 
 In addition to including extensions required by Laravel by default, the image includes a **laravel** system user that facilitates running `composer` and `artisan` commands from a host environment, which enables users to create and develop Laravel applications with the `-dev` variant of this image. Check the section on [Developing Laravel Applications](#developing-laravel-applications) for more information on how to use the builder variant of the Laravel image for development environments.
 
-## Using Builder Images for Development
-Our PHP builder images are minimal yet versatile images that include `apk` and `composer`. You can use these images to create and develop PHP applications on a containerized development environment.
+## Using Starter Images for Development
+Our PHP Starter Images are minimal yet versatile images that include `apk` and `composer`. You can use these images to create and develop PHP applications on a containerized development environment.
 
-Builder images can be identified by the `-dev` suffix (e.g: `php:latest-dev`). You can use them to execute Composer commands from a Dockerfile or directly from the command line with `docker run`. This allows users to run Composer without having to install PHP on their host system.
+Starter Images can be identified by the `-dev` suffix (e.g: `php:latest-dev`). You can use them to execute Composer commands from a Dockerfile or directly from the command line with `docker run`. This allows users to run Composer without having to install PHP on their host system.
 
 ### Running Composer
 
@@ -281,6 +281,6 @@ The preview should be live at `locahost:8000`.
 
 ## Additional Resources
 
-Our [PHP image documentation](https://images.chainguard.dev/directory/image/php/versions?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-php) covers details about all PHP image variants, including the list of available tags for both `-dev` and distroless images. For another example of a LEMP setup using MariaDB, check our guide on [Getting Started with the MariaDB Chainguard Image](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/mariadb/).
+Our [PHP image documentation](https://images.chainguard.dev/directory/image/php/versions?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-php) covers details about all PHP image variants, including the list of available tags for all our image variants. For another example of a LEMP setup using MariaDB, check our guide on [Getting Started with the MariaDB Chainguard Image](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/mariadb/).
 
 The [Debugging Distroless](/chainguard/chainguard-images/debugging-distroless-images/) guide contains important information for debugging issues with distroless images. You can also refer to the [Verifying Images](/chainguard/chainguard-images/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/) resource for details around provenance, SBOMs, and image signatures.
