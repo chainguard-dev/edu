@@ -21,6 +21,11 @@ banner: {
 sectiontitle: "Chainguard Images Features & Resources"
 tutorials: [
   {
+    title: "Custom Assembly",
+    description: "",
+    url: "/chainguard/chainguard-images/features/custom-assembly/"
+  },
+  {
     title: "Image STIGs",
     description: "",
     url: "/chainguard/chainguard-images/features/image-stigs/"
@@ -29,11 +34,6 @@ tutorials: [
     title: "Custom Certificates",
     description: "",
     url: "/chainguard/chainguard-images/features/incert-custom-certs/"
-  },
-  {
-    title: "Unique Tags",
-    description: "",
-    url: "/chainguard/chainguard-images/features/unique-tags/"
   },
   {
     title: "CVE Visualizations",
