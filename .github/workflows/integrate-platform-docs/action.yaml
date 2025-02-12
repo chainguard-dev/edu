@@ -1,10 +1,6 @@
 name: Integrate Platform Docs
 
 inputs:
-  platform_changelog:
-    type: string
-    required: true
-    description: "Path to platform changelog file in the repository"
   storage_bucket:
     type: string
     required: true
@@ -16,12 +12,6 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: download changelog.md from cloud storage
-      shell: bash
-      run: |
-        gcloud --quiet storage cp --project="${{ inputs.project_id }}" \
-          "${{ inputs.storage_bucket }}/enforce-changelog/changelog.md" "${{ inputs.platform_changelog }}"
-
     - name: download openapi api.json spec from cloud storage
       shell: bash
       run: |
