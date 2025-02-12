@@ -9,7 +9,7 @@ description: "Getting started with the CVE Visualization feature."
 date: 2024-12-19T11:07:52+02:00
 lastmod: 2025-02-04T11:07:52+02:00
 draft: false
-tags: ["CONCEPTUAL", "CHAINGUARD IMAGES", "PRODUCT"]
+tags: ["CONCEPTUAL", "CHAINGUARD IMAGES", "PRODUCT", "REFERENCE"]
 images: []
 menu:
   docs:
