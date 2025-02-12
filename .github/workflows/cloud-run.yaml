@@ -63,7 +63,7 @@ jobs:
     # Attempt to deploy the terraform configuration
     - uses: hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd # v2.0.0
       with:
-        terraform_version: 1.6
+        terraform_version: '1.10.x'
     - env:
         TF_VAR_image: '${{ secrets.REGISTRY_URL }}/${{ secrets.PROJECT_ID }}/${{ secrets.REPOSITORY }}/${{ secrets.SERVICE }}:${{ github.sha }}'
         TF_VAR_project_id: ${{ secrets.PROJECT_ID }}
