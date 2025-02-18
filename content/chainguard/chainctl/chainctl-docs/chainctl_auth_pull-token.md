@@ -1,41 +1,30 @@
 ---
 date: 2025-02-13T18:20:23Z
-title: "chainctl iam roles capabilities list"
-slug: chainctl_iam_roles_capabilities_list
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_roles_capabilities_list/
+title: "chainctl auth pull-token"
+slug: chainctl_auth_pull-token
+url: /chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam roles capabilities list
+## chainctl auth pull-token
 
-List IAM role capabilities.
-
-```
-chainctl iam roles capabilities list [--actions=ACTION,...] [--resources=RESOURCE,...] [--output=json|table|tree]
-```
-
-### Examples
+Create a pull token.
 
 ```
-  # List all capabilities
-  chainctl iam roles capabilities list
-  
-  # List all capabilities for groups and repos
-  chainctl iam roles capabilities list --resources=groups,repos
-  
-  # List all capabilities that include list
-  chainctl iam roles capabilities list --actions=list
+chainctl auth pull-token [flags]
 ```
 
 ### Options
 
 ```
-      --actions strings     Capability actions to list.
-  -h, --help                help for list
-      --resources strings   Capability resources to list.
+  -h, --help                       help for pull-token
+      --library-ecosystem string   The language ecosystem to create this pull token for (e.g. python, java).
+      --parent string              The IAM organization or folder with which the pull-token identity is associated.
+      --save                       If true with --pull-token, save the pull token to the Docker config
+      --ttl duration               For how long a generated pull-token will be valid. (default 720h0m0s)
 ```
 
 ### Options inherited from parent commands
@@ -54,5 +43,5 @@ chainctl iam roles capabilities list [--actions=ACTION,...] [--resources=RESOURC
 
 ### SEE ALSO
 
-* [chainctl iam roles capabilities](/chainguard/chainctl/chainctl-docs/chainctl_iam_roles_capabilities/)	 - IAM role capabilities
+* [chainctl auth](/chainguard/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
 

@@ -1,5 +1,5 @@
 ---
-date: 2024-11-13T00:36:09Z
+date: 2025-02-13T18:20:23Z
 title: "chainctl auth"
 slug: chainctl_auth
 url: /chainguard/chainctl/chainctl-docs/chainctl_auth/
@@ -29,7 +29,7 @@ Auth related commands for the Chainguard platform.
       --force-color        Force color output even when stdout is not a TTY.
       --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
       --log-level string   Set the log level (debug, info) (default "ERROR")
-  -o, --output string      Output format. One of: ["", "json", "id", "table", "terse", "tree", "wide"]
+  -o, --output string      Output format. One of: [csv, , json, id, none, table, terse, tree, wide]
   -v, --v int              Set the log verbosity level.
 ```
 
@@ -39,6 +39,7 @@ Auth related commands for the Chainguard platform.
 * [chainctl auth configure-docker](/chainguard/chainctl/chainctl-docs/chainctl_auth_configure-docker/)	 - Configure a Docker credential helper
 * [chainctl auth login](/chainguard/chainctl/chainctl-docs/chainctl_auth_login/)	 - Login to the Chainguard platform.
 * [chainctl auth logout](/chainguard/chainctl/chainctl-docs/chainctl_auth_logout/)	 - Logout from the Chainguard platform.
+* [chainctl auth pull-token](/chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token/)	 - Create a pull token.
 * [chainctl auth status](/chainguard/chainctl/chainctl-docs/chainctl_auth_status/)	 - Inspect the local Chainguard Token.
 * [chainctl auth token](/chainguard/chainctl/chainctl-docs/chainctl_auth_token/)	 - Print the local Chainguard Token.
 

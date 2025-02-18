@@ -46,6 +46,46 @@
         ]
       }
     },
+    "/advisory/v1/images/resolved_vulns": {
+      "get": {
+        "operationId": "SecurityAdvisory_ListResolvedVulnsReports",
+        "parameters": [
+          {
+            "description": "from defines the beginning of the date range of advisory events, inclusive.",
+            "format": "date-time",
+            "in": "query",
+            "name": "from",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "end defines the end of the date range of advisory events, inclusive.",
+            "format": "date-time",
+            "in": "query",
+            "name": "to",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/advisoryResolvedVulnsReportList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "SecurityAdvisory"
+        ]
+      }
+    },
     "/advisory/v1/metadata": {
       "get": {
         "operationId": "SecurityAdvisory_ListVulnerabilityMetadata",
@@ -275,6 +315,127 @@
         },
         "tags": [
           "Auth"
+        ]
+      }
+    },
+    "/ecosystems/v1/entitlements": {
+      "get": {
+        "operationId": "Entitlements_List",
+        "parameters": [
+          {
+            "description": "parent_id is the group to list entitlements for. Required.",
+            "in": "query",
+            "name": "parentId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "ecosystems are the language ecosystems to list entitlements for. If empty, all entitlements for the group will be listed.",
+            "in": "query",
+            "items": {
+              "enum": [
+                "UNKNOWN",
+                "JAVA",
+                "PYTHON"
+              ],
+              "type": "string"
+            },
+            "name": "ecosystems",
+            "required": false,
+            "type": "array"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ecosystemsEntitlementList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Entitlements"
+        ]
+      }
+    },
+    "/ecosystems/v1/entitlements/{id}": {
+      "delete": {
+        "operationId": "Entitlements_Delete",
+        "parameters": [
+          {
+            "description": "id is the exact uidp of the entitlement to delete.",
+            "in": "path",
+            "name": "id",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {},
+              "type": "object"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Entitlements"
+        ]
+      }
+    },
+    "/ecosystems/v1/entitlements/{parentId}": {
+      "post": {
+        "operationId": "Entitlements_Create",
+        "parameters": [
+          {
+            "description": "parent_id is the group to create the entitlement for.",
+            "in": "path",
+            "name": "parentId",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "ecosystem is the language ecosystem to entitle this group to.",
+            "in": "body",
+            "name": "ecosystem",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ecosystemsEcosystem"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ecosystemsEntitlement"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Entitlements"
         ]
       }
     },
@@ -2702,6 +2863,60 @@
         ]
       }
     },
+    "/registry/v1/vuln_reports/counts_cumulative": {
+      "get": {
+        "operationId": "Vulnerabilities_ListCumulativeVulnCountReports",
+        "parameters": [
+          {
+            "description": "repo is the name of the repo to retrieve vulnerability summaries for",
+            "in": "query",
+            "name": "repo",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "tag is the version of the image to retrieve vulnerability summaries for.",
+            "in": "query",
+            "name": "tag",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "from defines the beginning of the date range of vulnerability summaries, inclusive.",
+            "format": "date-time",
+            "in": "query",
+            "name": "from",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "end defines the end of the date range of vulnerability summaries, inclusive.",
+            "format": "date-time",
+            "in": "query",
+            "name": "to",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryVulnCountReportList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Vulnerabilities"
+        ]
+      }
+    },
     "/registry/v1/vuln_reports/raw": {
       "get": {
         "operationId": "Vulnerabilities_GetRawVulnReport",
@@ -3323,6 +3538,32 @@
       },
       "type": "object"
     },
+    "DetectionDetectionTypeScanV1": {
+      "properties": {
+        "componentId": {
+          "type": "string"
+        },
+        "componentLocation": {
+          "type": "string"
+        },
+        "componentName": {
+          "type": "string"
+        },
+        "componentType": {
+          "type": "string"
+        },
+        "componentVersion": {
+          "type": "string"
+        },
+        "scanner": {
+          "type": "string"
+        },
+        "subpackageName": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "FixState": {
       "default": "UNKNOWN",
       "enum": [
@@ -3656,6 +3897,10 @@
           "$ref": "#/definitions/registryCatalogTier",
           "description": "catalog_tier is the catalog tier this repository belongs to."
         },
+        "createTime": {
+          "format": "date-time",
+          "type": "string"
+        },
         "customOverlay": {
           "$ref": "#/definitions/registryCustomOverlay",
           "description": "(optional) custom apko image configuration that gets applied to images in this repo."
@@ -3700,6 +3945,22 @@
         "name": {
           "description": "name, the unique name of the Tag.",
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ResolvedVulnsReportFilterImageRef": {
+      "properties": {
+        "repo": {
+          "description": "repo is the name of the image repo.",
+          "type": "string"
+        },
+        "tags": {
+          "description": "tags are optional tags to specify which version of the image to filter.\nIf tags is empty, it is assumed the caller wants latest.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         }
       },
       "type": "object"
@@ -3917,6 +4178,9 @@
         },
         "nvdapi": {
           "$ref": "#/definitions/DetectionDetectionTypeNVDAPI"
+        },
+        "scanv1": {
+          "$ref": "#/definitions/DetectionDetectionTypeScanV1"
         }
       },
       "type": "object"
@@ -4056,6 +4320,60 @@
         "WEB"
       ],
       "type": "string"
+    },
+    "advisoryResolvedVuln": {
+      "properties": {
+        "aliases": {
+          "items": {
+            "type": "string"
+          },
+          "title": "aliases are other identifiers this vulnerability is known by",
+          "type": "array"
+        },
+        "cvssSeverities": {
+          "description": "css_severities are the OSV assigned CVSS severities for this vulnerability.\nIf not known or not assigned on OSV, this holds a single UNSPECIFIED value.",
+          "items": {
+            "$ref": "#/definitions/advisorySeverity",
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "id": {
+          "title": "id is the CGA ID for the associated advisory",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "advisoryResolvedVulnsReport": {
+      "properties": {
+        "date": {
+          "description": "date is when the list vulnerabilities were reported as resolved.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "resolvedVulns": {
+          "description": "resolved_vulns are the vulnerabilities marked fixed or as a false positive for the given date.",
+          "items": {
+            "$ref": "#/definitions/advisoryResolvedVuln",
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "advisoryResolvedVulnsReportList": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/advisoryResolvedVulnsReport",
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
     },
     "advisorySeverity": {
       "properties": {
@@ -4350,6 +4668,42 @@
         "inRoot": {
           "title": "in_root resticts responses to root level resources (organizations, user identities)",
           "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "ecosystemsEcosystem": {
+      "default": "UNKNOWN",
+      "description": "Ecosystem represents the language libraries an org can be entitled to.",
+      "enum": [
+        "UNKNOWN",
+        "JAVA",
+        "PYTHON"
+      ],
+      "type": "string"
+    },
+    "ecosystemsEntitlement": {
+      "description": "Entitlement maps an org to an library ecosystem they are entitled to pull.",
+      "properties": {
+        "ecosystem": {
+          "$ref": "#/definitions/ecosystemsEcosystem",
+          "description": "ecosystem is the language ecosystem this entitlement grants access to."
+        },
+        "id": {
+          "description": "id is the uidp of the entitlement, a child of a group.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ecosystemsEntitlementList": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/ecosystemsEntitlement",
+            "type": "object"
+          },
+          "type": "array"
         }
       },
       "type": "object"
@@ -4724,7 +5078,9 @@
         "COSIGNED",
         "INGESTER",
         "CATALOG_SYNCER",
-        "APKO_BUILDER"
+        "APKO_BUILDER",
+        "ENTITLEMENT_SYNCER",
+        "TENANT_SCANNER"
       ],
       "type": "string"
     },
@@ -5273,6 +5629,10 @@
     },
     "registryPackageVersion": {
       "properties": {
+        "eolBroken": {
+          "title": "whether or not an EOL version cannot longer be supported due to incompatibilities or no longer available dependencies",
+          "type": "boolean"
+        },
         "eolDate": {
           "title": "the date when this version goes eol",
           "type": "string"
@@ -5415,6 +5775,10 @@
         "catalogTier": {
           "$ref": "#/definitions/registryCatalogTier",
           "description": "catalog_tier is the catalog tier this repository belongs to."
+        },
+        "createTime": {
+          "format": "date-time",
+          "type": "string"
         },
         "customOverlay": {
           "$ref": "#/definitions/registryCustomOverlay",
@@ -5606,6 +5970,13 @@
     },
     "registryVulnCountReport": {
       "properties": {
+        "cveIds": {
+          "description": "cve_ids is a list of cumulative CVE IDs found in the image.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
         "date": {
           "description": "date is when the image was scanned.",
           "format": "date-time",
@@ -5613,6 +5984,11 @@
         },
         "repo": {
           "description": "repo is the name of the image scanned.",
+          "type": "string"
+        },
+        "sizeBytes": {
+          "description": "size_bytes is the size in bytes of the image at scan time.",
+          "format": "int64",
           "type": "string"
         },
         "tag": {
@@ -6108,6 +6484,9 @@
     },
     {
       "name": "Auth"
+    },
+    {
+      "name": "Entitlements"
     },
     {
       "name": "Identities"

@@ -1,41 +1,29 @@
 ---
 date: 2025-02-13T18:20:23Z
-title: "chainctl iam roles capabilities list"
-slug: chainctl_iam_roles_capabilities_list
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_roles_capabilities_list/
+title: "chainctl packages versions list"
+slug: chainctl_packages_versions_list
+url: /chainguard/chainctl/chainctl-docs/chainctl_packages_versions_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam roles capabilities list
+## chainctl packages versions list
 
-List IAM role capabilities.
-
-```
-chainctl iam roles capabilities list [--actions=ACTION,...] [--resources=RESOURCE,...] [--output=json|table|tree]
-```
-
-### Examples
+List package version data from Chainguard repositories.
 
 ```
-  # List all capabilities
-  chainctl iam roles capabilities list
-  
-  # List all capabilities for groups and repos
-  chainctl iam roles capabilities list --resources=groups,repos
-  
-  # List all capabilities that include list
-  chainctl iam roles capabilities list --actions=list
+chainctl packages versions list PACKAGE_NAME [--show-eol] [--show-active] [--show-fips] [--output=csv|json|table|wide]
 ```
 
 ### Options
 
 ```
-      --actions strings     Capability actions to list.
-  -h, --help                help for list
-      --resources strings   Capability resources to list.
+  -h, --help          help for list
+      --show-active   Show only active versions.
+      --show-eol      Show only EOL versions.
+      --show-fips     Show only FIPS versions.
 ```
 
 ### Options inherited from parent commands
@@ -54,5 +42,5 @@ chainctl iam roles capabilities list [--actions=ACTION,...] [--resources=RESOURC
 
 ### SEE ALSO
 
-* [chainctl iam roles capabilities](/chainguard/chainctl/chainctl-docs/chainctl_iam_roles_capabilities/)	 - IAM role capabilities
+* [chainctl packages versions](/chainguard/chainctl/chainctl-docs/chainctl_packages_versions/)	 - Package version related commands for the Chainguard platform.
 
