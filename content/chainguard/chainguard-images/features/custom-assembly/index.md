@@ -15,7 +15,7 @@ weight: 001
 toc: true
 ---
 
-Chainguard has created a Custom Assembly tool that allows users to create customized images. This enables users to reduce their risk exposure by creating container images that are tailored to their internal organization and application requirements while still having few-to-zero CVEs.
+Chainguard has created a Custom Assembly tool that allows users to create customized images. This enables customers to reduce their risk exposure by creating container images that are tailored to their internal organization and application requirements while still having few-to-zero CVEs.
 
 This guide outlines how to build customized Chainguard Images using Custom Assembly in the Chainguard Console. It includes a brief overview of how Custom Assembly works, as well as its limitations.
 
@@ -24,19 +24,18 @@ This guide outlines how to build customized Chainguard Images using Custom Assem
 
 ## About Custom Assembly
 
-Custom Assembly is only available to customers that have access to Production Chainguard Images. Additionally, your account team must enable Custom Assembly before you will be able to begin. Contact your account team directly to start the process.
+Custom Assembly is only available to customers that have access to Production Chainguard Images. Additionally, your account team must enable Custom Assembly before you will be able to begin using it. Contact your account team directly to start the process.
 
 When you enable the Custom Assembly tool for your organization, you must select at least one of Chainguard's application images to serve as the source for your customized image. For example, if you want to build a custom base for a Python application, you would likely elect to use the [Python Chainguard Image](https://images.chainguard.dev/directory/image/python/versions) as the source for your customized image.
 
 After selecting the packages for your customized image, Chainguard will kick off a build on Chainguard's infrastructure. Once a customized image is built successfully, Chainguard will take care of its maintenance and rebuild it as necessary, such as when any of the packages in the image are updated.
 
-You are only able to use packages that you are entitled to as a customer based on the Chainguard Images you have purchased.
 
 ### Limitations
 
 Custom Assembly only allows you to add packages into a given image; you cannot remove the packages included in the source application image by default. For example, Chainguard's Node.js image comes with packages like `nodejs-23`, `npm`, and `glibc` by default. These packages can't be removed from a Node.js image using the Custom Assembly tool but you can add other packages into it, and you can remove these added packages in later builds.
 
-The packages you can add to an image are those that your organization already has access to. Additionally, you can only add supported versions of packages to a customized image.
+The packages you can add to an image are those that your organization already has access to based on the Chainguard Images you have already purchased. Additionally, you can only add supported versions of packages to a customized image.
 
 The changes you make to your customized image may affect its functional behavior when deployed. Chainguard doesn’t test your final customized image and therefore doesn't guarantee its functional behavior. Please test your customized images extensively to ensure they meet your requirements.
 
@@ -91,7 +90,7 @@ The table in the Builds tab has six columns:
 * **Duration**: The amount of time it took to build the image.
 * **Created**: How long it's been since the build was created. 
 
-From the Builds tab, you can view the logs for every one of your customized image builds. Note that if you only recently customized the image it may take a few minutes for the latest builds to populate.
+Note that if you only recently customized the image it may take a few minutes for the latest builds to populate.
 
 Additionally, builds will only stay listed in the Console for 24 hours. This is because Chainguard Images, including Custom Assembly images, are rebuilt frequently and would quickly congest the user interface.
 
@@ -111,7 +110,7 @@ docker pull cgr.dev/$ORGANIZATION/$CUSTOMIZED-IMAGE:latest
 
 Be sure to change `$ORGANIZATION` to reflect the name used for your organization's private repository within the Chainguard registry and replace `$CUSTOMIZED-IMAGE` with the actual name of your image. 
 
-Additionally, replace `latest` with your chosen tag, if different. You can find a list of all the available tags for your customized image in the **Versions** tab.
+Additionally, replace `latest` with your chosen tag, if different. You can find a list of all the available tags for your customized image in its **Versions** tab in the Console.
 
 Note that you can also download specific builds of an image by referencing the build's unique digest, as in this example:
 
@@ -123,7 +122,7 @@ Pulling images by digest can [improve reproducibility](/chainguard/chainguard-im
 
 > If you run into any issues with your customized images or with using the Custom Assembly tool, please reach out to your account team for assistance.
 
-### Additional steps
+### Installing packges from Chainguard's package repositories
 
 You can use `apk` to install additional packages from Chainguard's package repositories (`apk.cgr.dev/extra-packages` and `packages.wolfi.dev/os`) into your customized image.
 
@@ -131,7 +130,7 @@ To illustrate, run the following command to create a Dockerfile:
 
 ```shell
 cat > Dockerfile <<EOF
-FROM cgr.dev/ORGANIZATION/custom-assembly:latest-dev
+FROM cgr.dev/$ORGANIZATION/custom-assembly:latest-dev
 USER root
 RUN mv /etc/apk/repositories /etc/apk/repositories.disabled
 RUN echo 'https://apk.cgr.dev/extra-packages' >> /etc/apk/repositories
@@ -139,9 +138,9 @@ RUN echo 'https://packages.wolfi.dev/os' >> /etc/apk/repositories
 EOF
 ```
 
-This Dockerfile uses the `latest-dev` version a Custom Assembly image named `custom-assembly`. You will need to change this (along with the name of your organization's repository within the Chainguard Registry) to reflect your own setup.
+This Dockerfile uses the `latest-dev` version of a Custom Assembly image named `custom-assembly`. You will need to change the name of the image (along with the name of your organization's repository within the Chainguard Registry) to reflect your own setup.
 
-Note that this Dockerfile also renames the image's default `/etc/apk/repositories` file and adds the two repositories to the new `repositories` file. This isn't necessary, but will disable the default repository listed in the `repositories` file, allowing us to use only the `extras` and `wolfi` repositories.
+Note that this Dockerfile renames the image's default `/etc/apk/repositories` file and adds the two repositories to the new `repositories` file. This isn't necessary, but will disable the default repository listed in the `repositories` file, allowing us to use only the `extras` and `wolfi` repositories.
 
 Using this Dockerfile, build a new image:
 
@@ -149,7 +148,7 @@ Using this Dockerfile, build a new image:
 docker build -t custom-apk .
 ```
 
-Then run the newly-built image. This command will run the image in an interactive container and switches the entrypoint so as to open up the Bash shell:
+Then run a container with the newly-built image. This command will run the image in an interactive container and changes the entrypoint to open up the Bash shell:
 
 ```shell
 docker run -it --entrypoint /bin/sh --user root custom-apk
@@ -157,25 +156,25 @@ docker run -it --entrypoint /bin/sh --user root custom-apk
 
 From the customized image's shell, add the `packages.wolfi.dev/os` repository keys. Note that this command includes the `--allow-untrusted` flag; by adding the keys with this command, you won't need to include this flag with this repository moving forward:
 
-```
+```container
 apk add wolfi-keys --allow-untrusted
 ```
 
 Following that, install the `apko` package. You will use this package to install the keys for the `apk.cgr.dev/extra-packages` repository shortly:
 
-```
+```container
 apk add apko
 ```
 
 Finally, run `apko install-keys` to add the keys for the `apk.cgr.dev/extra-packages` repository. This command uses key discovery based on the repositories present in `/etc/apk/repositories`:
 
-```
+```container
 apko install-keys
 ```
 
 With that, you can any packages available from these repositories:
 
-```
+```container
 apk add curl
 ```
 ```Output
