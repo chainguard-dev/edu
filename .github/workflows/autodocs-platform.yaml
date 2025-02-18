@@ -12,6 +12,8 @@ jobs:
   integrate-platform-docs:
     runs-on: ubuntu-latest
 
+    if: github.repository == 'chainguard-dev/edu'
+
     permissions:
       contents: read # reads from the repo
       id-token: write # federates with GCP and Sigstore
