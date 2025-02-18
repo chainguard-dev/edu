@@ -1,5 +1,5 @@
 ---
-date: 2024-11-13T00:36:09Z
+date: 2025-02-13T18:20:23Z
 title: "chainctl"
 slug: chainctl
 url: /chainguard/chainctl/chainctl-docs/chainctl/
@@ -28,7 +28,7 @@ chainctl [flags]
   -h, --help               help for chainctl
       --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
       --log-level string   Set the log level (debug, info) (default "ERROR")
-  -o, --output string      Output format. One of: ["", "json", "id", "table", "terse", "tree", "wide"]
+  -o, --output string      Output format. One of: [csv, , json, id, none, table, terse, tree, wide]
   -v, --v int              Set the log verbosity level.
 ```
 
@@ -39,6 +39,7 @@ chainctl [flags]
 * [chainctl events](/chainguard/chainctl/chainctl-docs/chainctl_events/)	 - Events related commands for the Chainguard platform.
 * [chainctl iam](/chainguard/chainctl/chainctl-docs/chainctl_iam/)	 - IAM related commands for the Chainguard platform.
 * [chainctl images](/chainguard/chainctl/chainctl-docs/chainctl_images/)	 - Images related commands for the Chainguard platform.
+* [chainctl packages](/chainguard/chainctl/chainctl-docs/chainctl_packages/)	 - Interact with Chainguard packages
 * [chainctl update](/chainguard/chainctl/chainctl-docs/chainctl_update/)	 - Update chainctl.
 * [chainctl version](/chainguard/chainctl/chainctl-docs/chainctl_version/)	 - Prints the version
 
