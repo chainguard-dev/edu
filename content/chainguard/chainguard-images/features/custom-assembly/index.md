@@ -1,8 +1,8 @@
 ---
-title: "Chainguard's Custom Assembly Platform"
+title: "Chainguard's Custom Assembly Images"
 linktitle: "Custom Assembly"
 type: "article"
-description: "How to use Chainguard's Custom Image Assembly platform."
+description: "How to use Chainguard's Custom Image Assembly tool."
 date: 2025-02-04T11:07:52+02:00
 lastmod: 2025-02-04T11:07:52+02:00
 draft: false
@@ -15,41 +15,39 @@ weight: 001
 toc: true
 ---
 
-Oftentimes, organizations need to customize container images to suit the needs of their applications or enterprise requirements. This can result in complex build processes that are difficult to maintain and introduce development friction, overhead, and security risk.
-
-Chainguard has created a Custom Assembly platform that allows users to create customized images. This enables users to reduce your risk exposure by distributing container images that are tailored to your internal organization and application requirements while still having few-to-zero CVEs.
+Chainguard has created a Custom Assembly tool that allows users to create customized images. This enables users to reduce their risk exposure by creating container images that are tailored to their internal organization and application requirements while still having few-to-zero CVEs.
 
 This guide outlines how to build customized Chainguard Images using Custom Assembly in the Chainguard Console. It includes a brief overview of how Custom Assembly works, as well as its limitations.
 
-> **NOTE**: The Custom Assembly platform is currently in its beta phase and it is likely to go through changes before it becomes generally available.
+> **NOTE**: The Custom Assembly tool is currently in its beta phase and it is likely to go through changes before it becomes generally available.
 
 
 ## About Custom Assembly
 
-Custom Assembly is only available to customers that have access to Production Chainguard Images. Additionally, your account team must enable the Custom Assembly platform before you will be able to begin. Contact your account teams directly to start the process.
+Custom Assembly is only available to customers that have access to Production Chainguard Images. Additionally, your account team must enable Custom Assembly before you will be able to begin. Contact your account team directly to start the process.
 
-When you enable the Custom Assembly platform for your organization, you must select at least one of Chainguard's application images to serve as the source for your customized image. For example, if you know your organization wants to use a customized Python image you would likely elect to use the [Python Chainguard Image](https://images.chainguard.dev/directory/image/python/versions) as the source for your customized image.
+When you enable the Custom Assembly tool for your organization, you must select at least one of Chainguard's application images to serve as the source for your customized image. For example, if you want to build a custom base for a Python application, you would likely elect to use the [Python Chainguard Image](https://images.chainguard.dev/directory/image/python/versions) as the source for your customized image.
 
-After selecting the packages for your customized image, Chainguard will handle the image's initial build on our infrastructure. Once a customized image is built successfully, Chainguard will take care of its maintenance and rebuild it as necessary, such as when the source application image has been updated.
+After selecting the packages for your customized image, Chainguard will kick off a build on Chainguard's infrastructure. Once a customized image is built successfully, Chainguard will take care of its maintenance and rebuild it as necessary, such as when any of the packages in the image are updated.
 
 You are only able to use packages that you are entitled to as a customer based on the Chainguard Images you have purchased.
 
 ### Limitations
 
-Custom Assembly only allows you to add packages into a given image; you cannot remove the packages included in the source application image by default. For example, Chainguard's Node.js image comes with packages like `nodejs-23`, `npm`, and `glibc` by default. These packages can't be removed from a Node.js image in the Custom Assembly platform but you can add other packages into it, and you can remove these added packages in later builds.
+Custom Assembly only allows you to add packages into a given image; you cannot remove the packages included in the source application image by default. For example, Chainguard's Node.js image comes with packages like `nodejs-23`, `npm`, and `glibc` by default. These packages can't be removed from a Node.js image using the Custom Assembly tool but you can add other packages into it, and you can remove these added packages in later builds.
 
 The packages you can add to an image are those that your organization already has access to. Additionally, you can only add supported versions of packages to a customized image.
 
 The changes you make to your customized image may affect its functional behavior when deployed. Chainguard doesn’t test your final customized image and therefore doesn't guarantee its functional behavior. Please test your customized images extensively to ensure they meet your requirements.
 
-Lastly, while Custom Assembly is in its beta phase it is only available in the Chainguard Console.
+Lastly, while Custom Assembly is in its beta phase it can only be configured from the Chainguard Console.
 
 
 ## Accessing Customized Images in the Console
 
-To provision a customized image, reach out to your account team who will configure one for you. You can then navigate to the [Chainguard Console](https://console.chainguard.dev/auth/login) and log in, and your Custom Assembly image will appear shortly after it's been configured.
+To provision a customized image, reach out to your account team who will configure one for you.
 
-Once you are logged in you will be greeted with your account overview page. If you belong to more than one organization, be sure to select the organization which has Custom Assembly enabled from the drop-down menu in the top-left corner.
+After logging in to the [Chainguard Console](https://console.chainguard.dev/auth/login), you will be greeted with your account overview page. If you belong to more than one organization, be sure to select the organization which has Custom Assembly enabled from the drop-down menu in the top-left corner.
 
 Click on **Organization Images** and scroll or search for the customized image that was set up by your account team. This will typically have a name that specifies the source image while also highlighting that it is a customized image, such as `python-custom` or `node-custom`. Once you've found it, click on the image.
 
@@ -74,7 +72,7 @@ If you'd like to make further changes, click the **Back** button to return to th
 
 If you're satisfied with the selection of packages, click the **Apply Changes** button to build the new customized image. You will receive a confirmation message at the top of the Customize Image display letting you know that the image was successfully customized.
 
-If a build fails, it will be automatically retired and you'll need to make the appropriate changes before attempting another build. For failed builds, you can check their logs for information about what went wrong.
+If a build fails, you'll need to make the appropriate changes before attempting another build. You can check their logs for information about what went wrong and what to fix.
 
 
 ## Listing Builds and Viewing Logs
@@ -102,8 +100,6 @@ You can click on the row of any build listed in the Builds tab to access its log
 <center><img src="custom-assembly-4.png" alt="Screenshot of a customized image build's logs, showing a successful build." style="width:650px;"></center>
 <br /> 
 
-Build failures can occur for a number of reasons. For example, the Custom Assembly platform will attempt to build in both the `arm64` and `amd64`, and if you attempt to build the image it will fail. Additionally, there is a known bug where builds will fail if the source image's signatures are more than 24 hours old. In either case, you won't know whether an image build fails until after it's complete.
-
 
 ## Using Customized Images
 
@@ -125,7 +121,77 @@ docker pull cgr.dev/$ORGANIZATION/$CUSTOMIZED-IMAGE@sha256:e24d3X4MPL338cb75b3X4
 
 Pulling images by digest can [improve reproducibility](/chainguard/chainguard-images/how-to-use/container-image-digests/). 
 
-> If you run into any issues with your customized images or with using the Custom Assembly platform, please reach out to your account team for assistance.
+> If you run into any issues with your customized images or with using the Custom Assembly tool, please reach out to your account team for assistance.
+
+### Additional steps
+
+You can use `apk` to install additional packages from Chainguard's package repositories (`apk.cgr.dev/extra-packages` and `packages.wolfi.dev/os`) into your customized image.
+
+To illustrate, run the following command to create a Dockerfile:
+
+```shell
+cat > Dockerfile <<EOF
+FROM cgr.dev/ORGANIZATION/custom-assembly:latest-dev
+USER root
+RUN mv /etc/apk/repositories /etc/apk/repositories.disabled
+RUN echo 'https://apk.cgr.dev/extra-packages' >> /etc/apk/repositories
+RUN echo 'https://packages.wolfi.dev/os' >> /etc/apk/repositories
+EOF
+```
+
+This Dockerfile uses the `latest-dev` version a Custom Assembly image named `custom-assembly`. You will need to change this (along with the name of your organization's repository within the Chainguard Registry) to reflect your own setup.
+
+Note that this Dockerfile also renames the image's default `/etc/apk/repositories` file and adds the two repositories to the new `repositories` file. This isn't necessary, but will disable the default repository listed in the `repositories` file, allowing us to use only the `extras` and `wolfi` repositories.
+
+Using this Dockerfile, build a new image:
+
+```shell
+docker build -t custom-apk .
+```
+
+Then run the newly-built image. This command will run the image in an interactive container and switches the entrypoint so as to open up the Bash shell:
+
+```shell
+docker run -it --entrypoint /bin/sh --user root custom-apk
+```
+
+From the customized image's shell, add the `packages.wolfi.dev/os` repository keys. Note that this command includes the `--allow-untrusted` flag; by adding the keys with this command, you won't need to include this flag with this repository moving forward:
+
+```
+apk add wolfi-keys --allow-untrusted
+```
+
+Following that, install the `apko` package. You will use this package to install the keys for the `apk.cgr.dev/extra-packages` repository shortly:
+
+```
+apk add apko
+```
+
+Finally, run `apko install-keys` to add the keys for the `apk.cgr.dev/extra-packages` repository. This command uses key discovery based on the repositories present in `/etc/apk/repositories`:
+
+```
+apko install-keys
+```
+
+With that, you can any packages available from these repositories:
+
+```
+apk add curl
+```
+```Output
+OK: 676 MiB in 79 packages
+```
+
+
+## Troubleshooting
+
+Build failures can occur for a number of reason, including the following:
+
+* The Custom Assembly tool will sometimes attempt to build in both the `arm64` and `amd64`, and if you attempt to build an image with packages from both architectures it will fail.
+* If you select a package but not its dependencies (for example, if you select the `openssl` package but none of its required dependencies), the build will fail.
+* There is a known bug where builds will fail if the source image's signatures are more than 24 hours old. 
+
+In any case, you won't know whether an image build fails until after it's complete. If you need assistance troubleshooting, please [reach out to our Customer Support team](https://www.chainguard.dev/contact?utm=docs).
 
 
 ## Conclusion
