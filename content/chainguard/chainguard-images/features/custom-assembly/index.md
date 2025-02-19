@@ -15,7 +15,7 @@ weight: 001
 toc: true
 ---
 
-Chainguard has created a Custom Assembly tool that allows users to create customized images. This enables customers to reduce their risk exposure by creating container images that are tailored to their internal organization and application requirements while still having few-to-zero CVEs.
+Chainguard has created a Custom Assembly tool that allows users to create customized images with extra packages added. This enables customers to reduce their risk exposure by creating container images that are tailored to their internal organization and application requirements while still having few-to-zero CVEs.
 
 This guide outlines how to build customized Chainguard Images using Custom Assembly in the Chainguard Console. It includes a brief overview of how Custom Assembly works, as well as its limitations.
 
@@ -186,9 +186,9 @@ OK: 676 MiB in 79 packages
 
 Build failures can occur for a number of reason, including the following:
 
-* The Custom Assembly tool will sometimes attempt to build in both the `arm64` and `amd64`, and if you attempt to build an image with packages from both architectures it will fail.
-* If you select a package but not its dependencies (for example, if you select the `openssl` package but none of its required dependencies), the build will fail.
-* There is a known bug where builds will fail if the source image's signatures are more than 24 hours old. 
+* It's possible for users to select packages that conflict with each other. For example, if two packages install the same files, Custom Assembly may not be able to resolve the conflict and result in a failed build.
+    * Similarly, if you select a package built only for the ARM architecture and another built only for the x86 architecture, the two will conflict.
+* It's possible to ** There is a known bug where builds will fail if the source image's signatures are more than 24 hours old. 
 
 In any case, you won't know whether an image build fails until after it's complete. If you need assistance troubleshooting, please [reach out to our Customer Support team](https://www.chainguard.dev/contact?utm=docs).
 
