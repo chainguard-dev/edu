@@ -275,7 +275,7 @@ Save the file when you’re finished.
 You can now build the image. If you receive a permission error, try running under `sudo`.
 
 ```shell
-docker build . --pull -t linky .
+docker build . --pull -t linky 
 ```
 
 Once the build is finished, run the image with:
