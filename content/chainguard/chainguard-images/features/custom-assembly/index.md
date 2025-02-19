@@ -3,8 +3,8 @@ title: "Chainguard's Custom Assembly Images"
 linktitle: "Custom Assembly"
 type: "article"
 description: "How to use Chainguard's Custom Image Assembly tool."
-date: 2025-02-04T11:07:52+02:00
-lastmod: 2025-02-04T11:07:52+02:00
+date: 2025-02-19T11:07:52+02:00
+lastmod: 2025-02-19T11:07:52+02:00
 draft: false
 tags: ["CONCEPTUAL", "CHAINGUARD IMAGES", "PRODUCT", "REFERENCE"]
 images: []
