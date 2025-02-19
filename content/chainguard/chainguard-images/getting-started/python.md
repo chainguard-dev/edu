@@ -6,7 +6,7 @@ aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-python
 description: "Tutorial on the distroless Python Chainguard Image"
 date: 2023-02-28T11:07:52+02:00
-lastmod: 2023-11-02T13:46:53+00:00
+lastmod: 2025-02-18T13:46:53+00:00
 tags: ["Chainguard Images", "Products"]
 draft: false
 images: []
@@ -131,7 +131,7 @@ Save the file when you're finished.
 You can now build the image. If you receive an error, try again with `sudo`.
 
 ```shell
-docker build . -t octo-facts
+docker build . --pull -t octo-facts
 ```
 
 Once the build is finished, run the image.
@@ -275,7 +275,7 @@ Save the file when you’re finished.
 You can now build the image. If you receive a permission error, try running under `sudo`.
 
 ```shell
-docker build -t linky .
+docker build . --pull -t linky .
 ```
 
 Once the build is finished, run the image with:
