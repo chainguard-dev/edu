@@ -188,7 +188,7 @@ Build failures can occur for a number of reason, including the following:
 
 * It's possible for users to select packages that conflict with each other. For example, if two packages install the same files, Custom Assembly may not be able to resolve the conflict and result in a failed build.
     * Similarly, if you select a package built only for the ARM architecture and another built only for the x86 architecture, the two will conflict.
-* It's possible to ** There is a known bug where builds will fail if the source image's signatures are more than 24 hours old. 
+* There is a known bug where builds will fail if the source image's signatures are more than 24 hours old. 
 
 In any case, you won't know whether an image build fails until after it's complete. If you need assistance troubleshooting, please [reach out to our Customer Support team](https://www.chainguard.dev/contact?utm=docs).
 
