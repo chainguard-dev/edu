@@ -52,4 +52,4 @@ Package managers can be made to go fast — and can be safe while doing so — b
 The reproducible nature of apk makes it the ideal solution for declarative pipelines, since it allows you to describe your desired system state without having to implement a series of individual steps that are not guaranteed to reach completion. When the apk dependency solver is unable to reach an installable set of packages, the build fails, without causing incomplete system changes.
 This is the ideal behavior for automated pipelines since it eliminates the need for rollbacks, in addition to avoiding the risks of inconsistent environments.
 
-_An earlier version of this article was published on [Ariadne Conill's Blog](https://ariadne.space/2021/04/25/why-apk-tools-is-different-than-other-package-managers/)._
+_An earlier version of this article was published on [Ariadne Conill's Blog](https://ariadne.space/2021/04/24/why-apktools-is-different-than.html)._
