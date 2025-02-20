@@ -184,7 +184,7 @@ The smaller the binary size, the better the system is at debloating. You can fin
 
 The *portability* of an application refers to its ability to run on various hardware or software environments without requiring significant modifications. Developers can encounter portability issues when moving an application from one libc implementation to another. That said, [Hyrum's Law](https://www.hyrumslaw.com/) reminds us that achieving perfect portability is tough. Even when you design an application to be portable, it might still unintentionally depend on certain quirks of the environment or libc implementation.
 
-One common portability issue is the [smaller thread stack size](https://ariadne.space/2021/06/25/understanding-thread-stack-sizes-and-how-alpine-is-different/) used by musl. musl has a default thread stack size of 128k. glibc has varying stack sizes which are determined based on the resource limit, but usually ends up being 2-10 MB.
+One common portability issue is the [smaller thread stack size](https://ariadne.space/2021/06/24/understanding-thread-stack-sizes-and.html) used by musl. musl has a default thread stack size of 128k. glibc has varying stack sizes which are determined based on the resource limit, but usually ends up being 2-10 MB.
 
 This can lead to crashes with multithreaded code in musl, which assumes it has more than 2MiB available for each thread (as in a glibc system). Such issues cause [application crashes](https://www.madetech.com/blog/a-tale-in-adopting-alpine-linux-for-docker-problems-we-faced-with-rspec-testing/) and potentially [introduce new vulnerabilities](https://github.com/devpi/devpi/issues/474), such as stack overflows.
 
@@ -296,7 +296,7 @@ Please refer to the following resources regarding musl's history with DNS:
 
 - [GitHub issue highlighting DNS Resolution in K3s using Alpine Linux](https://github.com/k3s-io/k3s/issues/6132)
 
-- [*The tragedy of gethostbyname*](https://ariadne.space/2022/03/27/the-tragedy-of-gethostbyname/) - Blog
+- [*The tragedy of gethostbyname*](https://ariadne.space/2022/03/26/the-tragedy-of-gethostbyname.html) - Blog
 
 - [*Does Alpine resolve DNS properly?*](https://purplecarrot.co.uk/post/2021-09-04-does_alpine-resolve_dns_properly/) - Blog
 
