@@ -6,7 +6,7 @@ aliases:
 type: "article"
 description: "Tutorial on how to get started with the Ruby Chainguard Image"
 date: 2023-05-10T11:07:52+02:00
-lastmod: 2023-05-10T11:07:52+02:00
+lastmod: 2025-02-21T11:07:52+02:00
 tags: ["Chainguard Images", "Products"]
 draft: false
 images: []
@@ -126,7 +126,7 @@ ENTRYPOINT [ "ruby", "octo.rb" ]
 Save and close the file when you're done. Next, build the image with:
 
 ```shell
-docker build . -t octo-ruby-demo
+docker build . --pull -t octo-ruby-demo
 ```
 
 Once the build is finished, you can execute the image with:
@@ -260,7 +260,7 @@ Save the file when you're finished.
 You can now build the image with:
 
 ```shell
-docker build . -t linky-says
+docker build . --pull -t linky-says
 ```
 
 Once the build is finished, run the image with:
