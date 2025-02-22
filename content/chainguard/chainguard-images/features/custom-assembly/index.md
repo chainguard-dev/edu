@@ -122,6 +122,74 @@ Pulling images by digest can [improve reproducibility](/chainguard/chainguard-im
 
 > If you run into any issues with your customized images or with using the Custom Assembly tool, please reach out to your account team for assistance.
 
+
+### Installing packages from a Chainguard private APK repository
+
+Chainguard offers [Private APK Repositories]() which you can use to access that apk packages that your organization has access to. You can use your organization's private APK repository to further customize your Custom Assembly images.
+
+As an example, run a container with a Custom Assembly image that has a shell and package manager, such as a `-dev` variant of a customized image.
+
+```shell
+docker run -it   \
+-e "HTTP_AUTH=basic:apk.cgr.dev:user:$(chainctl auth token --audience apk.cgr.dev)"  \ 
+--entrypoint /bin/sh --user root  \
+ cgr.dev/chainguard.edu/custom-assembly:latest-dev
+```
+
+Note that this command injects an `HTTP_AUTH` environment variable directly into the container by calling `chainctl` from the host machine to obtain an ephemeral token. This is necessary to authenticate to the private repository.
+
+By default, your organization's private APK repository will be listed in the container's list of APK repositories:
+
+```container
+cat /etc/apk/repositories
+```
+```Output
+https://apk.cgr.dev/45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595
+```
+
+Note that the repository address in this file (which includes a long unpronounceable string) will differ from the one shown in the Console (which reflects the organization name). The string shown in the `repositories` file is the ID number of the organization. You can confirm this by running the `chainguard iam organizations ls -o table` command.
+
+To search for and install packages from the private APK repository, first the package index:
+
+```container
+apk update
+```
+```Output
+fetch https://apk.cgr.dev/45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/x86_64/APKINDEX.tar.gz
+ [https://apk.cgr.dev/45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595]
+OK: 1019 distinct packages available
+```
+
+Then you can search for packages available in your private repo. The following example searches for packages named "mongo":
+
+```container
+apk search mongo
+```
+```Output
+mongo-5.0-5.0.31-r0
+mongo-6.0-6.0.20-r0
+mongo-7.0-7.0.16-r0
+mongo-8.0-8.0.4-r1
+mongod-5.0-5.0.31-r0
+mongod-6.0-6.0.20-r0
+mongod-7.0-7.0.16-r0
+mongod-8.0-8.0.4-r1
+```
+
+Finally, you can install a package with `apk`:
+
+```container
+apk add mongo
+```
+```Output
+(1/1) Installing mongo-8.0 (8.0.4-r1)
+Executing busybox-1.37.0-r0.trigger
+OK: 719 MiB in 78 packages
+```
+
+To learn more, refer to our [Private APK Repositories documentation](/chainguard/chainguard-images/features/private-package-repos/).
+
+
 ### Installing packges from Chainguard's package repositories
 
 You can use `apk` to install additional packages from Chainguard's package repositories (`apk.cgr.dev/extra-packages` and `packages.wolfi.dev/os`) into your customized image.
@@ -140,7 +208,7 @@ EOF
 
 This Dockerfile uses the `latest-dev` version of a Custom Assembly image named `custom-assembly`. You will need to change the name of the image (along with the name of your organization's repository within the Chainguard Registry) to reflect your own setup.
 
-Note that this Dockerfile renames the image's default `/etc/apk/repositories` file and adds the two repositories to the new `repositories` file. This isn't necessary, but will disable the default repository listed in the `repositories` file, allowing us to use only the `extras` and `wolfi` repositories.
+Note that this Dockerfile renames the image's default `/etc/apk/repositories` file and adds the two repositories to the new `repositories` file. This isn't necessary, but will disable the private APK repository listed in the file by default. This will allow us to use only the `extra-packages` and `wolfi` repositories.
 
 Using this Dockerfile, build a new image:
 
