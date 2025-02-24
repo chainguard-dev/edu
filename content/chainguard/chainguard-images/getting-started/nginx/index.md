@@ -6,7 +6,7 @@ aliases:
 - /chainguard/chainguard-images/getting-started/nginx
 description: "Tutorial on how to get started with the nginx Chainguard Image"
 date: 2023-01-09T11:07:52+02:00
-lastmod: 2024-08-13T13:25:40+00:00
+lastmod: 2025-02-21T13:25:40+00:00
 tags: ["Chainguard Images", "Products"]
 draft: false
 images: []
@@ -254,7 +254,7 @@ Save the file when you're finished.
 You can now build the image with:
 
 ```shell
-docker build . -t nginx-demo
+docker build . --pull -t nginx-demo
 ```
 
 Once the build is complete, run the image with:

@@ -6,7 +6,7 @@ aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-node
 description: "Tutorial on how to get started with the Node Chainguard Image"
 date: 2023-02-01T11:07:52+02:00
-lastmod: 2023-09-22T11:07:52+02:00
+lastmod: 2025-02-21T11:07:52+02:00
 tags: ["Chainguard Images", "Products"]
 draft: false
 images: []
@@ -153,7 +153,7 @@ Save the file when you're finished.
 You can now build the image with:
 
 ```shell
-docker build . -t wolfi-node-server
+docker build . --pull -t wolfi-node-server
 ```
 
 Once the build is finished, run the image with:

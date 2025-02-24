@@ -6,7 +6,7 @@ aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-go
 description: "Tutorial on the distroless Go Chainguard Image"
 date: 2023-02-28T11:07:52+02:00
-lastmod: 2024-12-06T11:07:52+02:00
+lastmod: 2025-02-21T11:07:52+02:00
 tags: ["Chainguard Images", "Products"]
 draft: false
 images: []
@@ -85,7 +85,7 @@ This Dockerfile will:
 Run the following command to build the image, tagging it `go-greeter`:
 
 ```shell
-docker build . -t go-greeter
+docker build . --pull -t go-greeter
 ```
 
 You can now run the image with:
@@ -149,7 +149,7 @@ ENTRYPOINT ["/usr/bin/greet-server"]
 Use the following command to build the image, tagging it `greet-server`:
 
 ```shell
-docker build . -t greet-server
+docker build . --pull -t greet-server
 ```
 
 Now you can run the image with the following command:
