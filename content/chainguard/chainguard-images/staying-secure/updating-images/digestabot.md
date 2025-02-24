@@ -3,6 +3,7 @@ title: "Keep your Chainguard Images Up to Date with digestabot"
 linktitle: "Video: Up-to-date Images with Digestabot"
 aliases:
 - /chainguard/chainguard-images/videos/digestabot/
+- /chainguard/chainguard-images/troubleshooting/updating-images/digestabot/
 lead: ""
 description: "This video explains how to use digestabot, a free GitHub action we created to make it easier for public users to keep their Chainguard Images fresh."
 type: "article"
