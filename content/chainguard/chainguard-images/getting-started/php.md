@@ -6,7 +6,7 @@ aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-php
 description: "Tutorial on how to get started with the PHP Chainguard Image"
 date: 2023-01-09T11:07:52+02:00
-lastmod: 2024-11-15T11:07:52+02:00
+lastmod: 2025-02-21T11:07:52+02:00
 tags: ["Chainguard Images", "Products"]
 draft: false
 images: []
@@ -156,7 +156,7 @@ This Dockerfile will:
 You can now build the image with:
 
 ```shell
-docker build . -t php-namegen
+docker build . --pull -t php-namegen
 ```
 You'll get output similar to this:
 

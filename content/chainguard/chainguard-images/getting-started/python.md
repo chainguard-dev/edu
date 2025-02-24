@@ -6,7 +6,7 @@ aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-python
 description: "Tutorial on the distroless Python Chainguard Image"
 date: 2023-02-28T11:07:52+02:00
-lastmod: 2025-02-18T13:46:53+00:00
+lastmod: 2025-02-21T13:46:53+00:00
 tags: ["Chainguard Images", "Products"]
 draft: false
 images: []
@@ -173,7 +173,7 @@ nano requirements.txt
 We'll use version 68.2.2 of Python [setuptools](https://pypi.org/project/setuptools/) and also install [climage](https://pypi.org/project/climage/). We need to use a slightly older version of setuptools for compatability with climage. Add the following text to the file:
 
 ```shell
-setuptools==68.2.2
+setuptools==70.0.0
 climage==0.2.0
 ```
 
