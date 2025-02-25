@@ -58,6 +58,35 @@ The table provides some example scenarios to help illustrate our approach.
 
 > **Note**: The "Maintained Upstream Releases" column is current as of December 2024.
 
+
+## EOL Grace Period
+
+There are cases where an organization may want to continue using an image after it has reached end of life (EOL). This could be because an image reaches EOL before the organization's release schedule, or perhaps later image versions have one or more issues that prevent the organization from upgrading.
+
+To help in situations like this, Chainguard offers an end-of-life grace period for eligible images. By purchasing a grace period, customers can retain access to versions of images whose primary package has entered its end-of-life phase for up to six months after they have reached EOL.
+
+During this time, Chainguard will address vulnerabilities and update any non-EOL packages within the image (other than the image's primary package). We will continue to build the image and its underlying packages as long as there are no unaddressable critical or high CVEs in the unguarded package itself. 
+
+Chainguard will continue doing so  for a maximum of six months after the primary package enters its EOL phase. Additionally, if an image fails to build because underlying dependencies conflict with the primary package, it will no longer be supported. A failed build signals the end of support for that image. 
+
+As of this writing, the EOL grace period covers approximately 575 container images. To be eligible, images must meet two key requirements:
+
+1. Have multiple version streams
+2. Be within six months of their official EOL date (as declared by open source maintainers)
+
+Be aware that the following are not covered by Chainguard's EOL Grace Period:
+
+* Updating an image’s EOL primary package.
+* Backporting or cherry-picking individual commits or patches to the EOL primary package.
+* Any package labeled end-of-life for more than 6 months by its open-source creators or maintainers.
+
+If a dependency conflict prevents an image version from building successfully, the grace period will end immediately for that version. Chainguard will not attempt further updates or CVE remediations after a build failure. Additionally, If an image fails to build due to dependency conflicts, its grace period ends immediately. This means no further updates or CVE remediations will be provided for that image version.
+
+> **Note**: Chainguard is **not** able to offer any exceptions to the 6 month limit for the EOL grace period.
+
+For more information on the EOL grace period, [please contact us](https://www.chainguard.dev/contact?utm_source=docs).
+
+
 ## What Chainguard Image Versions to Expect
 
 When you use freely-available Chainguard Developer Images, you will have access to the `:latest` version of any Image available to the public. In some cases, you will also have access to the `:latest-dev` version, which includes a shell and package manager. For example, the Python Image has both `cgr.dev/chainguard/python:latest` and `cgr.dev/chainguard/python:latest-dev`. Many of the programming languages have these options available, including the Java JDK and JRE Images, PHP, Go, Node, Ruby, and Rust. 
