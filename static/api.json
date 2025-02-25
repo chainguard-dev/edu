@@ -4159,6 +4159,10 @@
         "id": {
           "description": "id is the identifier of this specific advisory.",
           "type": "string"
+        },
+        "packageNamespace": {
+          "description": "package_namespace identifies the repository that\nthe origin package belongs to (e.g. wolfi or chainguard).",
+          "type": "string"
         }
       },
       "type": "object"
