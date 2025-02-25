@@ -71,29 +71,27 @@ You will need to replace `password` with an apk token which you can obtain using
 chainctl auth token --audience apk.cgr.dev
 ```
 
-To illustrate, we'll use a registry named `https://apk.cgr.dev/chainguard.edu` and test out the process using the [chainguard-base](https://images.chainguard.dev/directory/image/chainguard-base/versions) image.
-
 The following `docker run` command injects the `HTTP_AUTH` environment variable directly into the container by calling `chainctl` from the host machine:
 
 ```shell
 docker run -ti --rm \
    -e "HTTP_AUTH=basic:apk.cgr.dev:user:$(chainctl auth token --audience apk.cgr.dev)" \
-   cgr.dev/chainguard.edu/chainguard-base
+   cgr.dev/$ORGANIZATION/$IMAGE
 ```
 
-Be sure to change `chainguard.edu` to reflect the name of your organization's repository within the Chainguard Registry. Additionally, although this example uses the chainguard-base image you can use any container image that is part of your catalog. However, to follow along with this guide, you should use a container image that includes a shell, such as an image's `-dev` variant.
+In this command and throughout the rest of this guide, be sure to change `$ORGANIZATION` to reflect the name of your organization's repository within the Chainguard Registry. Additionally, this guide was validated using the [chainguard-base](https://images.chainguard.dev/directory/image/chainguard-base/overview) image, but you can use any container image that is part of your catalog. However, to follow along with every example this guide, you should use a container image that includes a shell, such as an image's `-dev` variant.
 
 This command will start an interactive container and open up a shell interface. From this shell, you can fetch and add the repository keys with apko so that apk will be able to validate package signatures. 
 
 First, install apko with `apk add`:
 
-```
+```container
 apk add apko
 ```
 
 Then, run `apko install-keys` to set up the repository keys:
 
-```
+```container
 apko install-keys
 ```
 
@@ -107,7 +105,7 @@ You're now ready to add your organization's private APK repository to the list o
 From the interactive container's shell, add the repository address to your list of apk repositories with a command like the following:
 
 ```container
-echo https://apk.cgr.dev/chainguard.edu >> /etc/apk/repositories
+echo https://apk.cgr.dev/$ORGANIZATION >> /etc/apk/repositories
 ```
 
 Recall that you can retrieve your organization's private APK repository's address from the **Settings** tab in the Chainguard Console.
@@ -153,19 +151,19 @@ wget policy:
 
   1.24.5-r4:
 	https://packages.wolfi.dev/os
-	https://apk.cgr.dev/chainguard.edu
+	https://apk.cgr.dev/$ORGANIZATION
   1.24.5-r5:
 	https://packages.wolfi.dev/os
-	https://apk.cgr.dev/chainguard.edu
+	https://apk.cgr.dev/$ORGANIZATION
   1.25.0-r0:
 	https://packages.wolfi.dev/os
-	https://apk.cgr.dev/chainguard.edu
+	https://apk.cgr.dev/$ORGANIZATION
 ```
 
 Install the package with `apk add`:
 
 ```container
-apk add wget -X https://apk.cgr.dev/chainguard.edu
+apk add wget -X https://apk.cgr.dev/$ORGANIZATION
 ```
 
 This example includes the `-X` option to instruct apk to install the package using the private repository.
@@ -180,14 +178,14 @@ wget policy:
 . . .
   1.24.5-r4:
 	https://packages.wolfi.dev/os
-	https://apk.cgr.dev/chainguard.edu
+	https://apk.cgr.dev/$ORGANIZATION
   1.24.5-r5:
 	https://packages.wolfi.dev/os
-	https://apk.cgr.dev/chainguard.edu
+	https://apk.cgr.dev/$ORGANIZATION
   1.25.0-r0:
 	lib/apk/db/installed
 	https://packages.wolfi.dev/os
-	https://apk.cgr.dev/chainguard.edu
+	https://apk.cgr.dev/$ORGANIZATION
 ```
 
 This output shows that the `wget` package is now installed.
@@ -201,12 +199,12 @@ Run the following command to create a Dockerfile. This Dockerfile uses [Docker B
 
 ```shell
 cat > Dockerfile <<EOF
-FROM cgr.dev/chainguard.edu/chainguard-base
+FROM cgr.dev/$ORGANIZATION/$IMAGE
 
 RUN apk add apko && apko install-keys
-RUN echo https://apk.cgr.dev/chainguard.edu >> /etc/apk/repositories
+RUN echo https://apk.cgr.dev/$ORGANIZATION >> /etc/apk/repositories
 RUN --mount=type=secret,id=cgr-token HTTP_AUTH="basic:apk.cgr.dev:user:\$(cat /run/secrets/cgr-token)" apk update
-RUN --mount=type=secret,id=cgr-token HTTP_AUTH="basic:apk.cgr.dev:user:\$(cat /run/secrets/cgr-token)" apk add wget -X https://apk.cgr.dev/chainguard.edu
+RUN --mount=type=secret,id=cgr-token HTTP_AUTH="basic:apk.cgr.dev:user:\$(cat /run/secrets/cgr-token)" apk add wget -X https://apk.cgr.dev/$ORGANIZATION
 ```
 
 Again, this Dockerfile includes the `-X` argument in the `apk add` command to ensure that it uses the private APK repository.
@@ -230,14 +228,14 @@ wget policy:
 
   1.24.5-r4:
 	https://packages.wolfi.dev/os
-	https://apk.cgr.dev/chainguard.edu
+	https://apk.cgr.dev/$ORGANIZATION
   1.24.5-r5:
 	https://packages.wolfi.dev/os
-	https://apk.cgr.dev/chainguard.edu
+	https://apk.cgr.dev/$ORGANIZATION
   1.25.0-r0:
 	lib/apk/db/installed
 	https://packages.wolfi.dev/os
-	https://apk.cgr.dev/chainguard.edu
+	https://apk.cgr.dev/$ORGANIZATION
 ```
 
 As this output shows, the `wget` apk package is installed in the container.
@@ -255,7 +253,7 @@ The following Dockerfile includes the private APK repository used in previous ex
 cat > apko.yaml <<EOF
 contents:
   repositories:
-  - https://apk.cgr.dev/chainguard.edu
+  - https://apk.cgr.dev/$ORGANIZATION
   keyring:
   - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
   packages:
@@ -281,7 +279,7 @@ You'll get output similar to the following, indicating that the `wget` package w
 
 ```shell
 2025/02/20 21:23:48 INFO Building images for 1 architectures: [amd64]
-2025/02/20 21:23:48 INFO setting apk repositories: [https://apk.cgr.dev/chainguard.edu]
+2025/02/20 21:23:48 INFO setting apk repositories: [https://apk.cgr.dev/$ORGANIZATION]
 2025/02/20 21:23:50 INFO installing ca-certificates-bundle (20241121-r1)
 2025/02/20 21:23:50 INFO installing wolfi-baselayout (20230201-r16)
 2025/02/20 21:23:50 INFO installing ld-linux (2.40-r8)
@@ -291,7 +289,7 @@ You'll get output similar to the following, indicating that the `wget` package w
 2025/02/20 21:23:50 INFO installing libcrypto3 (3.4.1-r0)
 2025/02/20 21:23:50 INFO installing libssl3 (3.4.1-r0)
 2025/02/20 21:23:50 INFO installing wget (1.25.0-r0)
-2025/02/20 21:23:50 INFO setting apk repositories: [https://apk.cgr.dev/chainguard.edu]
+2025/02/20 21:23:50 INFO setting apk repositories: [https://apk.cgr.dev/$ORGANIZATION]
 2025/02/20 21:23:50 INFO built image layer tarball as /tmp/apko-temp-2854430999/apko-x86_64.tar.gz
 
 . . .

@@ -127,13 +127,12 @@ Pulling images by digest can [improve reproducibility](/chainguard/chainguard-im
 
 Chainguard offers [Private APK Repositories/chainguard/chainguard-images/features/private-apk-repos/) which you can use to access that apk packages that your organization has access to. You can use your organization's private APK repository to further customize your Custom Assembly images.
 
-As an example, run a container with a Custom Assembly image that has a shell and package manager, such as a `-dev` variant of a customized image.
+As an example, run a container with a Custom Assembly image that has a shell and package manager, such as a `-dev` variant of a customized image:
 
 ```shell
-docker run -it   \
--e "HTTP_AUTH=basic:apk.cgr.dev:user:$(chainctl auth token --audience apk.cgr.dev)"  \ 
---entrypoint /bin/sh --user root  \
- cgr.dev/chainguard.edu/custom-assembly:latest-dev
+docker run -it --entrypoint /bin/sh --user root  \
+-e "HTTP_AUTH=basic:apk.cgr.dev:user:$(chainctl auth token --audience apk.cgr.dev)" \
+cgr.dev/$ORGANIZATION/$CUSTOMIZED-IMAGE:latest-dev
 ```
 
 Note that this command injects an `HTTP_AUTH` environment variable directly into the container by calling `chainctl` from the host machine to obtain an ephemeral token. This is necessary to authenticate to the private repository.
@@ -147,7 +146,7 @@ cat /etc/apk/repositories
 https://apk.cgr.dev/45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595
 ```
 
-Note that the repository address in this file (which includes a long unpronounceable string) will differ from the one shown in the Console (which reflects the organization name). The string shown in the `repositories` file is the ID number of the organization. You can confirm this by running the `chainguard iam organizations ls -o table` command.
+The repository address in this file (which includes a long unpronounceable string) will differ from the one shown in the Console (which reflects the organization name). The string shown in the `repositories` file is the ID number of the organization. You can confirm this by running the `chainguard iam organizations ls -o table` command.
 
 To search for and install packages from the private APK repository, first the package index:
 
