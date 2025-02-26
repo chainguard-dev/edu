@@ -40,7 +40,6 @@ You will need to replace `$ORGANIZATION` with the name of your organization as i
 
 You can always find your private APK repository's address by logging into the [Chainguard Console](https://console.chainguard.dev/) and navigating to the **Settings** tab in the left-hand navigation menu. This will take you the **General** section where you can copy the repository address:
 
-
 <center><img src="ppr-1.png" alt="Screenshot of an organization's 'Settings' tab, with the Private APK Repository address highlighted in a yellow box." style="width:1050px;"></center>
 <br /> 
 
@@ -80,6 +79,13 @@ docker run -ti --rm \
 ```
 
 In this command and throughout the rest of this guide, be sure to change `$ORGANIZATION` to reflect the name of your organization's repository within the Chainguard Registry. Additionally, this guide was validated using the [chainguard-base](https://images.chainguard.dev/directory/image/chainguard-base/overview) image, but you can use any container image that is part of your catalog. However, to follow along with every example this guide, you should use a container image that includes a shell, such as an image's `-dev` variant.
+
+Also, you can initialize these placeholder values by setting them as environment variables as in the following examples. This will make it easier to follow along:
+
+```shell
+ORGANIZATION="chainguard.edu"
+IMAGE="chainguard-base"
+```
 
 This command will start an interactive container and open up a shell interface. From this shell, you can fetch and add the repository keys with apko so that apk will be able to validate package signatures. 
 
@@ -205,6 +211,7 @@ RUN apk add apko && apko install-keys
 RUN echo https://apk.cgr.dev/$ORGANIZATION >> /etc/apk/repositories
 RUN --mount=type=secret,id=cgr-token HTTP_AUTH="basic:apk.cgr.dev:user:\$(cat /run/secrets/cgr-token)" apk update
 RUN --mount=type=secret,id=cgr-token HTTP_AUTH="basic:apk.cgr.dev:user:\$(cat /run/secrets/cgr-token)" apk add wget -X https://apk.cgr.dev/$ORGANIZATION
+EOF
 ```
 
 Again, this Dockerfile includes the `-X` argument in the `apk add` command to ensure that it uses the private APK repository.
@@ -254,8 +261,6 @@ cat > apko.yaml <<EOF
 contents:
   repositories:
   - https://apk.cgr.dev/$ORGANIZATION
-  keyring:
-  - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
   packages:
   - wget
 
@@ -271,8 +276,7 @@ The following `docker run` command will inject the `HTTP_AUTH` environment varia
 docker run --rm \
   -e "HTTP_AUTH=basic:apk.cgr.dev:user:$(chainctl auth token --audience apk.cgr.dev)" \
   --workdir /work -v ${PWD}:/work \
-  cgr.dev/chainguard/apko build apko.yaml test-apk test-apk.tar \
-  --arch host
+  cgr.dev/chainguard/apko build apko.yaml test-apk test-apk.tar
 ```
 
 You'll get output similar to the following, indicating that the `wget` package was installed using the private APK repo:
@@ -309,7 +313,7 @@ You can check this and fix it by following these steps:
 2. Create the `apk.pull` role using the steps outlined in our [Overview of Roles and Role-bindings](/chainguard/administration/iam-organizations/roles-role-bindings/roles-role-bindings/) resource.
 3. Try pulling the package again.
 
-As this feature is still in its beta phase, we anticipate that users may encounter further issues as they practice with it. If you need further assistance troubleshooting, please [reach out to our Customer Support team](https://www.chainguard.dev/contact?utm=docs).
+As this feature is still in its beta phase, we invite feedback. If you would like to provide feedback or need further assistance troubleshooting, please [reach out to our Customer Support team](https://www.chainguard.dev/contact?utm=docs).
 
 
 ## Conclusion
