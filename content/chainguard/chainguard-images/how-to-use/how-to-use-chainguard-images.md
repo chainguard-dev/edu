@@ -8,7 +8,7 @@ type: "article"
 description: "A primer on how to migrate to Chainguard Images"
 lead: "A primer on how to migrate to Chainguard Images"
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2024-08-19T15:56:52-07:00
+lastmod: 2025-02-26T15:56:52-07:00
 draft: false
 tags: ["CHAINGUARD IMAGES", "PROCEDURAL", "PRODUCT"]
 images: []
@@ -175,8 +175,14 @@ FROM cgr.dev/chainguard/wolfi-base
 
 RUN apk update && apk add --no-cache --update-cache curl jq
 
+SHELL ["/bin/sh", "-c"]
+
 CMD curl -s https://api.adviceslip.com/advice --http1.1 | jq .slip.advice
 ```
+
+The `SHELL` command supresses a warning about the `CMD` line using shell syntax, which isn't a
+problem in this example. In other cases, you may want to consider changing to use the [exec
+form](https://docs.docker.com/reference/dockerfile/#shell-and-exec-form).
 
 You can build this Dockerfile as usual:
 
