@@ -78,7 +78,7 @@ docker run -ti --rm \
    cgr.dev/$ORGANIZATION/$IMAGE
 ```
 
-In this command and throughout the rest of this guide, be sure to change `$ORGANIZATION` to reflect the name of your organization's repository within the Chainguard Registry. Additionally, this guide was validated using the [chainguard-base](https://images.chainguard.dev/directory/image/chainguard-base/overview) image, but you can use any container image that is part of your catalog. However, to follow along with every example this guide, you should use a container image that includes a shell, such as an image's `-dev` variant.
+In this command and throughout the rest of this guide, be sure to change `$ORGANIZATION` to reflect the name of your organization's repository within the Chainguard Registry. Additionally, this guide was validated using the [chainguard-base](https://images.chainguard.dev/directory/image/chainguard-base/overview) image, but you can use any container image that is part of your organization's image catalog. However, to follow along with every example this guide, you should use a container image that includes a shell, such as an image's `-dev` variant.
 
 Also, you can initialize these placeholder values by setting them as environment variables as in the following examples. This will make it easier to follow along:
 
@@ -111,8 +111,10 @@ You're now ready to add your organization's private APK repository to the list o
 From the interactive container's shell, add the repository address to your list of apk repositories with a command like the following:
 
 ```container
-echo https://apk.cgr.dev/$ORGANIZATION >> /etc/apk/repositories
+echo https://apk.cgr.dev/$ORGANIZATION > /etc/apk/repositories
 ```
+
+Note that this command uses `>` to overwrite the contents of the `/etc/apk/repositories` file. You could instead append the private APK repository's address with `>>`, but here we overwite the file to ensure that we're only installing packages from the private repo.
 
 Recall that you can retrieve your organization's private APK repository's address from the **Settings** tab in the Chainguard Console.
 
@@ -138,7 +140,6 @@ apk search wget
 You will receive output similar to the following:
 
 ```Output
-. . .
 wget-1.25.0-r0
 ```
 
@@ -152,27 +153,21 @@ This example output shows that it's available from the private APK repository:
 
 ```Output
 wget policy:
-
-. . .
-
+wget policy:
   1.24.5-r4:
-	https://packages.wolfi.dev/os
-	https://apk.cgr.dev/$ORGANIZATION
+    https://apk.cgr.dev/$ORGANIZATION
   1.24.5-r5:
-	https://packages.wolfi.dev/os
-	https://apk.cgr.dev/$ORGANIZATION
+    https://apk.cgr.dev/$ORGANIZATION
   1.25.0-r0:
-	https://packages.wolfi.dev/os
-	https://apk.cgr.dev/$ORGANIZATION
+    https://apk.cgr.dev/$ORGANIZATION
+
 ```
 
 Install the package with `apk add`:
 
 ```container
-apk add wget -X https://apk.cgr.dev/$ORGANIZATION
+apk add wget
 ```
-
-This example includes the `-X` option to instruct apk to install the package using the private repository.
 
 Finally,run the same `apk policy` command you ran previously:
 
@@ -181,17 +176,14 @@ apk policy wget
 ```
 ```Output
 wget policy:
-. . .
   1.24.5-r4:
-	https://packages.wolfi.dev/os
-	https://apk.cgr.dev/$ORGANIZATION
+    https://apk.cgr.dev/$ORGANIZATION
   1.24.5-r5:
-	https://packages.wolfi.dev/os
-	https://apk.cgr.dev/$ORGANIZATION
+    https://apk.cgr.dev/$ORGANIZATION
   1.25.0-r0:
-	lib/apk/db/installed
-	https://packages.wolfi.dev/os
-	https://apk.cgr.dev/$ORGANIZATION
+    lib/apk/db/installed
+    https://apk.cgr.dev/$ORGANIZATION
+
 ```
 
 This output shows that the `wget` package is now installed.
@@ -208,13 +200,13 @@ cat > Dockerfile <<EOF
 FROM cgr.dev/$ORGANIZATION/$IMAGE
 
 RUN apk add apko && apko install-keys
-RUN echo https://apk.cgr.dev/$ORGANIZATION >> /etc/apk/repositories
+RUN echo https://apk.cgr.dev/$ORGANIZATION > /etc/apk/repositories
 RUN --mount=type=secret,id=cgr-token HTTP_AUTH="basic:apk.cgr.dev:user:\$(cat /run/secrets/cgr-token)" apk update
-RUN --mount=type=secret,id=cgr-token HTTP_AUTH="basic:apk.cgr.dev:user:\$(cat /run/secrets/cgr-token)" apk add wget -X https://apk.cgr.dev/$ORGANIZATION
+RUN --mount=type=secret,id=cgr-token HTTP_AUTH="basic:apk.cgr.dev:user:\$(cat /run/secrets/cgr-token)" apk add wget
 EOF
 ```
 
-Again, this Dockerfile includes the `-X` argument in the `apk add` command to ensure that it uses the private APK repository.
+Again, this Dockerfile overwrites the contents of the `/etc/apk/repositories` file. This isn't necessary, but will force Docker to build the image and install the `wget` package without falling back to the default repositories.
 
 Now you can build the image while passing along credentials obtained with `chainctl`. The following example builds an image named `my-custom-image`:
 
@@ -230,19 +222,13 @@ docker run --rm my-custom-image apk policy wget
 ```
 ```Output
 wget policy:
-
-. . .
-
   1.24.5-r4:
-	https://packages.wolfi.dev/os
-	https://apk.cgr.dev/$ORGANIZATION
+    https://apk.cgr.dev/$ORGANIZATION
   1.24.5-r5:
-	https://packages.wolfi.dev/os
-	https://apk.cgr.dev/$ORGANIZATION
+    https://apk.cgr.dev/$ORGANIZATION
   1.25.0-r0:
-	lib/apk/db/installed
-	https://packages.wolfi.dev/os
-	https://apk.cgr.dev/$ORGANIZATION
+    lib/apk/db/installed
+    https://apk.cgr.dev/$ORGANIZATION
 ```
 
 As this output shows, the `wget` apk package is installed in the container.
