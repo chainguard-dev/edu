@@ -30,7 +30,7 @@ Refer to our [Chainguard Images Network Requirements](/chainguard/administration
 
 ## Using a Caching Proxy with the Chainguard Registry
 
-Chainguard does not offer an SLA for uptime for the Chaingaurd Registry. In order to minimize production dependency on the Chainguard Registry, we recommend that customers use a pull-through proxy for maximum reliability.
+Chainguard does not offer an SLA for uptime for the Chainguard Registry. In order to minimize production dependency on the Chainguard Registry, we recommend that customers use a pull-through proxy for maximum reliability.
 
 We currently provide documentation on how you can set up a pull-through cache for the Chainguard Registry on the following platforms:
 
