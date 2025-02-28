@@ -5,7 +5,7 @@ go 1.23.1
 require (
 	cloud.google.com/go/bigquery v1.65.0
 	cloud.google.com/go/storage v1.48.0
-	github.com/klauspost/compress v1.17.11
+	github.com/klauspost/compress v1.18.0
 	github.com/mattn/go-sqlite3 v1.14.24
 	github.com/spf13/cobra v1.9.1
 	golang.org/x/sync v0.11.0
