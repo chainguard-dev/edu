@@ -199,10 +199,11 @@ If you haven't already done so, close the container you were running in the prev
 cat > Dockerfile <<EOF
 FROM cgr.dev/$ORGANIZATION/$IMAGE
 
-RUN apk add apko && apko install-keys
-RUN echo https://apk.cgr.dev/$ORGANIZATION > /etc/apk/repositories
-RUN --mount=type=secret,id=cgr-token HTTP_AUTH="basic:apk.cgr.dev:user:\$(cat /run/secrets/cgr-token)" apk update
-RUN --mount=type=secret,id=cgr-token HTTP_AUTH="basic:apk.cgr.dev:user:\$(cat /run/secrets/cgr-token)" apk add wget
+USER root
+RUN apk add apko && apko install-keys && apk del apko
+RUN echo https://apk.cgr.dev/chainguard.edu > /etc/apk/repositories
+RUN --mount=type=secret,id=cgr-token sh -c "export HTTP_AUTH=basic:apk.cgr.dev:user:\$(cat /run/secrets/cgr-token) apk update && apk add wget"
+USER nonroot
 EOF
 ```
 
