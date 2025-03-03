@@ -125,7 +125,7 @@ Pulling images by digest can [improve reproducibility](/chainguard/chainguard-im
 
 ### Installing packages from a Chainguard private APK repository
 
-Chainguard offers [Private APK Repositories/chainguard/chainguard-images/features/private-apk-repos/) which you can use to access that apk packages that your organization has access to. You can use your organization's private APK repository to further customize your Custom Assembly images.
+Chainguard offers [Private APK Repositories](/chainguard/chainguard-images/features/private-apk-repos/) which you can use to access that apk packages that your organization has access to. You can use your organization's private APK repository to further customize your Custom Assembly images.
 
 As an example, run a container with a Custom Assembly image that has a shell and package manager, such as a `-dev` variant of a customized image:
 
