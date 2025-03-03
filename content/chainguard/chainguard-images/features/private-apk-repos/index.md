@@ -46,10 +46,9 @@ You can always find your private APK repository's address by logging into the [C
 In order to use your private repository, you must add this URL to the list of apk repositories found in an `/etc/apk/repositories` file, and you'll also need to provide credentials to have access to this repo. To set this up, you must follow these general steps:
 
 1. Set up an `HTTP_AUTH` environment variable with appropriate credentials
-2. Install [apko](https://github.com/chainguard-dev/apko) and run `apko install-keys` to set up repository keys
-3. Add `https://apk.cgr.dev/ORGANIZATION` to `/etc/apk/repositories`
-4. Update your apk cache
-5. Install your desired packages
+2. Add `https://apk.cgr.dev/ORGANIZATION` to `/etc/apk/repositories`
+3. Update your apk cache
+4. Install your desired packages
 
 In the following sections, this guide will outline how to implement this process in a live container and also when building images from a Dockerfile or using apko.
 
@@ -87,26 +86,9 @@ ORGANIZATION="chainguard.edu"
 IMAGE="chainguard-base"
 ```
 
-This command will start an interactive container and open up a shell interface. From this shell, you can fetch and add the repository keys with apko so that apk will be able to validate package signatures. 
+This command will start an interactive container and open up a shell interface. From there, you can add your organization's private APK repository to the list of apk repositories in `/etc/apk/repositories`. 
 
-First, install apko with `apk add`:
-
-```container
-apk add apko
-```
-
-Then, run `apko install-keys` to set up the repository keys:
-
-```container
-apko install-keys
-```
-
-With both the `HTTP_AUTH` environment variable set and the repository keys installed, you can include the private APK repository in your repositories list and start fetching packages from there.
-
-
-### Adding your Private APK Repo to your Repositories List
-
-You're now ready to add your organization's private APK repository to the list of apk repositories in `/etc/apk/repositories`. First, you'll need to retrieve your organization's private repository address.
+First, you'll need to retrieve your organization's private repository address. Recall that you can find this in the **Settings** tab in the Chainguard Console.
 
 From the interactive container's shell, add the repository address to your list of apk repositories with a command like the following:
 
@@ -115,8 +97,6 @@ echo https://apk.cgr.dev/$ORGANIZATION > /etc/apk/repositories
 ```
 
 Note that this command uses `>` to overwrite the contents of the `/etc/apk/repositories` file. You could instead append the private APK repository's address with `>>`, but here we overwite the file to ensure that we're only installing packages from the private repo.
-
-Recall that you can retrieve your organization's private APK repository's address from the **Settings** tab in the Chainguard Console.
 
 Then update the apk cache to include the newly-added private repository:
 
@@ -200,7 +180,6 @@ cat > Dockerfile <<EOF
 FROM cgr.dev/$ORGANIZATION/$IMAGE
 
 USER root
-RUN apk add apko && apko install-keys && apk del apko
 RUN echo https://apk.cgr.dev/chainguard.edu > /etc/apk/repositories
 RUN --mount=type=secret,id=cgr-token sh -c "export HTTP_AUTH=basic:apk.cgr.dev:user:\$(cat /run/secrets/cgr-token) apk update && apk add wget"
 USER nonroot
