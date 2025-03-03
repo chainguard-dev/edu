@@ -46,10 +46,9 @@ You can always find your private APK repository's address by logging into the [C
 In order to use your private repository, you must add this URL to the list of apk repositories found in an `/etc/apk/repositories` file, and you'll also need to provide credentials to have access to this repo. To set this up, you must follow these general steps:
 
 1. Set up an `HTTP_AUTH` environment variable with appropriate credentials
-2. Install [apko](https://github.com/chainguard-dev/apko) and run `apko install-keys` to set up repository keys
-3. Add `https://apk.cgr.dev/ORGANIZATION` to `/etc/apk/repositories`
-4. Update your apk cache
-5. Install your desired packages
+2. Add `https://apk.cgr.dev/ORGANIZATION` to `/etc/apk/repositories`
+3. Update your apk cache
+4. Install your desired packages
 
 In the following sections, this guide will outline how to implement this process in a live container and also when building images from a Dockerfile or using apko.
 
