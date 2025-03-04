@@ -3,6 +3,7 @@ title: "Chainguard Container Images Product Release Lifecycle"
 linktitle: "Product Release Lifecycle"
 aliases:
 - /chainguard/chainguard-images/versions/
+- /chainguard/chainguard-images/features/eol-notifications/
 type: "article"
 description: "Understanding Chainguard's Approach to Image Versions"
 date: 2024-01-08T08:49:31+00:00
