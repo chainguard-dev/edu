@@ -16,7 +16,7 @@ This page presents some of the more commonly used basic `chainctl` commands to h
 
 ## Authenticate and Check Auth Status
 
-To use `chainctl`, the first thing you must do is authenticate with the Chainguard platform. Do so with:
+To use `chainctl`, the first thing you must do is [authenticate with the Chainguard platform](/chainguard/chainguard-registry/authenticating/). Do so with:
 
 ```
 chainctl auth login
@@ -76,6 +76,8 @@ If you make a mistake and can't recall the original settings, reset the configur
 chainctl config reset
 ```
 
+Learn more at [How to Manage chainctl Configuration](https://edu.chainguard.dev/chainguard/administration/manage-chainctl-config/).
+
 
 ## List Available Images
 
@@ -101,6 +103,8 @@ chainctl images diff cgr.dev/chainguard.edu/<image_name>:latest cgr.dev/chaingua
 The output returned will be in JSON format.
 
 If a requested image or release being requested is not available in the repo you are using, this will return a `Forbidden` error, just like if you tried to pull an image you did not have access to or from a repository your account is not authorized to use.
+
+Learn more at [How To Compare Chainguard Images with chainctl](https://edu.chainguard.dev/chainguard/chainguard-images/how-to-use/comparing-images/).
 
 
 ## List Available Package Versions
