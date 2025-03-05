@@ -1956,6 +1956,38 @@
         ]
       }
     },
+    "/registry/v1/repocountbysource/{id}": {
+      "get": {
+        "operationId": "Registry_GetRepoCountBySource",
+        "parameters": [
+          {
+            "description": "ID, UID of the source repo.",
+            "in": "path",
+            "name": "id",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryRepoCount"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      }
+    },
     "/registry/v1/repos": {
       "get": {
         "operationId": "Registry_ListRepos",
@@ -5803,6 +5835,15 @@
         "sync_config": {
           "$ref": "#/definitions/registrySyncConfig",
           "title": "(optional) Repository sync configuration. If enabled, images are synced from the source to this repo.\nNOTE: This property can only be set by Chainguard.\nNote: the json_name defaults to \"syncConfig\" which causes our eventing\nsystem to not work properly (since the protobuf name is \"sync_config\")"
+        }
+      },
+      "type": "object"
+    },
+    "registryRepoCount": {
+      "properties": {
+        "count": {
+          "format": "int64",
+          "type": "string"
         }
       },
       "type": "object"

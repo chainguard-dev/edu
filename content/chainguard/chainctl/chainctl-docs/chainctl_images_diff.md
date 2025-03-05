@@ -1,5 +1,5 @@
 ---
-date: 2025-02-27T21:09:40Z
+date: 2025-03-04T19:46:14Z
 title: "chainctl images diff"
 slug: chainctl_images_diff
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_diff/
@@ -13,6 +13,17 @@ toc: true
 
 Diff images.
 
+### Synopsis
+
+Diffs 2 images together, based on their SBOM and Vulnerability scan.
+
+SBOM packages are diffed based on their PURL (https://github.com/package-url/purl-spec) and version.
+PURLs are grouped without their @version component. If identical PURLs are found, the first one found is used.
+If an SBOM package contains multiple PURLs, results will contain multiple entries for the same package name based on the purl type.
+
+Vulnerability scans are done via grype, which must be available on the system PATH.
+
+
 ```
 chainctl images diff FROM_IMAGE TO_IMAGE [flags]
 ```
@@ -20,8 +31,9 @@ chainctl images diff FROM_IMAGE TO_IMAGE [flags]
 ### Options
 
 ```
-  -h, --help              help for diff
-      --platform string   Specifies the platform in the form os/arch (e.g. linux/amd64, linux/arm64) (default "linux/amd64")
+  -t, --artifact-types strings   Specifies the purl artifact types to diff. If "-" is provided, all types are included. (default [apk])
+  -h, --help                     help for diff
+      --platform string          Specifies the platform in the form os/arch (e.g. linux/amd64, linux/arm64) (default "linux/amd64")
 ```
 
 ### Options inherited from parent commands
