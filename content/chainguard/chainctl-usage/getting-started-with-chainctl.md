@@ -8,7 +8,7 @@ lastmod: 2025-03-0320T08:49:15+00:00
 draft: false
 tags: ["chainctl", "Getting Started", "Product", "Basics"]
 images: []
-weight: 100
+weight: 10
 ---
 
 This page presents some of the more commonly used basic `chainctl` commands to help you get started. For a full reference of all commands with details and switches, see [chainctl Reference](/chainguard/chainctl/).
@@ -26,7 +26,7 @@ This will present a list of identity providers for you to select from. Use the o
 
 To check your authentication status at any time, enter:
 
-```
+```shell
 chainctl auth status
 ```
 
@@ -34,13 +34,13 @@ This will list your identity and other attributes tied to your account, includin
 
 To create a pull token, use:
 
-```
+```shell
 chainctl auth pull-token
 ```
 
 To configure a Docker credential helper, which will use a token to pull images when using Docker, use:
 
-```
+```shell
 chainctl auth configure-docker
 ```
 
@@ -49,13 +49,13 @@ chainctl auth configure-docker
 
 To see which `chainctl` version you have installed, use:
 
-```
+```shell
 chainctl version
 ```
 
 To update your `chainctl` installation, use:
 
-```
+```shell
 chainctl update
 ```
 
@@ -66,13 +66,13 @@ Updating requires administrative privileges, so be prepared to enter your machin
 
 `chainctl` comes with a default configuration, but there are aspects of it that can be adjusted. Examples include setting the registry location that will be used when one is not mentioned in an issued command. To edit the current configuration, use:
 
-```
+```shell
 chainctl config edit
 ```
 
 If you make a mistake and can't recall the original settings, reset the configuration to default settings with:
 
-```
+```shell
 chainctl config reset
 ```
 
@@ -83,7 +83,7 @@ Learn more at [How to Manage chainctl Configuration](/chainguard/administration/
 
 To see which Chainguard Images are available to your account, use:
 
-```
+```shell
 chainctl images list
 ```
 
@@ -96,7 +96,7 @@ Let's say you want to compare two versions of an image for the same package. You
 
 Use this, where we show the repo used by our Chainguard Developer Education team and where both instances of `<image_name>` are the same:
 
-```
+```shell
 chainctl images diff cgr.dev/chainguard.edu/$IMAGENAME>:latest cgr.dev/chainguard.edu/$IMAGENAME:latest-dev
 ```
 
@@ -109,7 +109,7 @@ Learn more at [How To Compare Chainguard Images with chainctl](/chainguard/chain
 
 If you want to get details about the various package versions available that can be used in images, use:
 
-```
+```shell
 chainctl packages versions list $PACKAGENAME
 ```
 
@@ -120,7 +120,7 @@ This will list all the versions that Chainguard has built and the end-of-life da
 
 Commands may have a default format for output, but that doesn't mean you have to stick with it. There is an option available to tell `chainctl` the output format to use, like this:
 
-```
+```shell
 chainctl $COMMAND -o $FORMAT
 ```
 
