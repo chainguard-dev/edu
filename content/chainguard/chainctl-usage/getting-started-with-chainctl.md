@@ -97,10 +97,8 @@ Let's say you want to compare two versions of an image for the same package. You
 Use this, where we show the repo used by our Chainguard Developer Education team and where both instances of `<image_name>` are the same:
 
 ```
-chainctl images diff cgr.dev/chainguard.edu/<image_name>:latest cgr.dev/chainguard.edu/<image_name>:latest-dev
+chainctl images diff cgr.dev/chainguard.edu/$IMAGENAME>:latest cgr.dev/chainguard.edu/$IMAGENAME:latest-dev
 ```
-
-The output returned will be in JSON format.
 
 If a requested image or release being requested is not available in the repo you are using, this will return a `Forbidden` error, just like if you tried to pull an image you did not have access to or from a repository your account is not authorized to use.
 
@@ -112,7 +110,20 @@ Learn more at [How To Compare Chainguard Images with chainctl](/chainguard/chain
 If you want to get details about the various package versions available that can be used in images, use:
 
 ```
-chainctl packages versions list <package_name>
+chainctl packages versions list $PACKAGENAME
 ```
 
 This will list all the versions that Chainguard has built and the end-of-life date for each version that has one assigned. It will also list older package versions that are no longer available.
+
+
+## Output Formats
+
+Commands may have a default format for output, but that doesn't mean you have to stick with it. There is an option available to tell `chainctl` the output format to use, like this:
+
+```
+chainctl $COMMAND -o $FORMAT
+```
+
+The `-o` is followed by one of the following strings: `csv`, `id`, `json`, `none`, `table`, `terse`, `tree`, or `wide`.
+
+Not all output formats make sense for all commands, so test thoroughly before you use any specific format in automation.
