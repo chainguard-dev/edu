@@ -202,10 +202,10 @@ Of course, you likely won't be regularly managing your containerized databases o
 
 ### Configuring the PostgreSQL image
 
-You can extend Chainguard's Postgres image with environment variables. Chainguard's Postgres image is compatible with the environment variables available in the official PostgreSQL image, including the following:
+You can extend Chainguard's PostgreSQL image with environment variables. Chainguard's PostgreSQL image is compatible with the environment variables available in the official PostgreSQL image, including the following:
 
 * `PGDATA`: This variable allows you to define another location for database files. The default data directory is `/var/lib/postgresql/data`.
-* `POSTGRES_PASSWORD`: This environment variable sets the superuser password for PostgreSQL. This variable is required to use the Postgres image.
+* `POSTGRES_PASSWORD`: This environment variable sets the superuser password for PostgreSQL. This variable is required to use the PostgreSQL image.
 * `POSTGRES_USER`: This is used with the `POSTGRES_PASSWORD` variable to set a superuser for the database and its password. If not specified, you can use the default `postgres` user.
 *  `POSTGRES_DB`: Using this variable allows you to set a different name for the default database. If not specified, the default database will be `postgres` or the value set by `POSTGRES_USER`.
 * `POSTGRES_INITDB_ARGS`: This variable allows you to send arguments to `postgres initdb`.
@@ -220,7 +220,7 @@ docker run --rm -e POSTGRES_HOST_AUTH_METHOD=trust -e POSTGRES_DB=linky -ti --na
 
 Be aware that the Docker specific variables will only have an effect if you start the container with an empty data directory; pre-existing databases won't be affected on container startup.
 
-You can also run the Chainguard Postgres image with a custom configuration file. The following example will mount a PostgreSQL configuration file named `my-postgres.conf` to the container. 
+You can also run the Chainguard PostgreSQL image with a custom configuration file. The following example will mount a PostgreSQL configuration file named `my-postgres.conf` to the container. 
 
 ```shell
 docker run --rm -v "$PWD/my-postgres.conf":/etc/postgresql/postgresql.conf -e POSTGRES_PASSWORD=password -ti --name postgres-test cgr.dev/ORGANIZATION/postgres:latest -c 'config_file=/etc/postgresql/postgresql.conf'
