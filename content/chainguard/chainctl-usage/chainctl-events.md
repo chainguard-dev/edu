@@ -15,7 +15,7 @@ This page presents some of the more commonly used `chainctl events` commands. Fo
 
 There are three commands available: create, delete, and list. We'll start with list to see what subscriptions exist.
 
-## `chainctl list`
+## chainctl events subscriptions list
 
 Get a list of all your Chainguard account's subscriptions with:
 
