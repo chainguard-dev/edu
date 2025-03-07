@@ -43,13 +43,7 @@ To set up the sample application, you can create a Terraform configuration file 
 mkdir ~/gcp-example && cd $_
 ```
 
-Once in the new directory, create a folder to hold your Terraform file and move into it. 
-
-```sh
-mkdir iac && cd $_
-```
-
-From within the `iac` directory, you can begin creating a Terraform configuration named `main.tf`.
+From within the `gcp-example` directory, you can begin creating a Terraform configuration named `main.tf`.
 
 This configuration will consist of a single module. For the purposes of this example, we will call it `image-copy`. This module's `source` value will be the `iac` folder from the application code in the examples repository.
 
