@@ -4,7 +4,7 @@ linktitle: "Mirror Images to Artifact Registry"
 type: "article"
 description: "Instructional guide outlining how one can set up an application that will listen for push events on a private Chainguard Registry and mirror any new Chainguard Images to a GCP Artifact Registry."
 date: 2024-05-24T15:22:20+01:00
-lastmod: 2024-05-24T15:22:20+01:00
+lastmod: 2025-03-07T15:22:20+01:00
 draft: false
 tags: ["Product", "CloudEvents", "Procedural"]
 images: []
@@ -43,7 +43,13 @@ To set up the sample application, you can create a Terraform configuration file 
 mkdir ~/gcp-example && cd $_
 ```
 
-After navigating into the new directory you can begin creating a Terraform configuration named `main.tf`.
+Once in the new directory, create a folder to hold your Terraform file and move into it. 
+
+```sh
+mkdir iac && cd $_
+```
+
+From within the `iac` directory, you can begin creating a Terraform configuration named `main.tf`.
 
 This configuration will consist of a single module. For the purposes of this example, we will call it `image-copy`. This module's `source` value will be the `iac` folder from the application code in the examples repository.
 
@@ -63,7 +69,7 @@ The next five lines configure a few variables that you will need to update to re
 
 As an example, if the `name` value you specify is `chainguard-dev` and the `dst_repo` value is `mirrored` (as shown in the following example) any pushes to `cgr.dev/<organization>/foo` will be mirrored to `<location>-docker.pkg.dev/<project_id>/chainguard-dev-mirrored`
 
-Be sure to include to include a closing curly bracket after the final line.
+Be sure to include a closing curly bracket after the final line.
 
 ```
   name = "chainguard-dev"
