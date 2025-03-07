@@ -13,7 +13,7 @@ weight: 80
 
 This page presents the most commonly used `chainctl packages` command. For a full reference of all commands with details and switches, see [chainctl Reference](/chainguard/chainctl/).
 
-## chainctl packages versions list
+## List the package versions available
 
 If you want to get details about the various package versions available that can be used in images, use:
 
