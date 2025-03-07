@@ -63,7 +63,7 @@ The next five lines configure a few variables that you will need to update to re
 * First, the configuration defines a `name` value. This will be used to prefix resources created by this sample application where possible.
 * Next, it specifies the GCP project ID where certain resources will reside, including the container image for this application (along with mirrored images), the Cloud Run service hosting the application, and the Service Account that authorizes pushes to the Google Artifact Registry.
 * Following that, the configuration specifies the Chainguard IAM organization from which we expect to receive events. This is used to authenticate that the Chainguard events are intended for you, and not another user. Images pushed to repositories under this organization will be mirrored to Artifact Registry.
-    * If you don't know your organization's UIDP, you can retrieve it by running `chainctl iam organizations list -o table`.
+    * You can find the names of every organization you have access to by running `chainctl iam organizations list -o table`.
 * The next line specifies the location of the Artifact Registry repository and the Cloud Run subscriber.
 * The final line defines `dst_repo` value, which is used to create a name for the repository in the Artifact Registry where images will be mirrored.
 
@@ -76,7 +76,7 @@ Be sure to include a closing curly bracket after the final line.
 
   project_id = "<project-id>"
 
-  group = "<organization-id>"
+  group_name = "<organization-name>"
 
   location = "us-central1" 
 
@@ -95,7 +95,7 @@ module "image-copy" {
 
   project_id = "<project-id>"
 
-  group = "<organization-id>"
+  group_name = "<organization-name>"
 
   location = "us-central1" 
 
