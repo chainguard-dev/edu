@@ -14,7 +14,7 @@ weight: 90
 This page presents the most commonly used `chainctl update` command. For a full reference of all commands with details and switches, see [chainctl Reference](/chainguard/chainctl/).
 
 
-## chainctl update
+## Update your chainctl install
 
 To update your `chainctl` installation, use:
 
