@@ -14,7 +14,7 @@ weight: 100
 This page presents the most commonly used `chainctl version` command. For a full reference of all commands with details and switches, see [chainctl Reference](/chainguard/chainctl/).
 
 
-## chainctl update
+## `chainctl version`
 
 To see which `chainctl` version you have installed, use:
 

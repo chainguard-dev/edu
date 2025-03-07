@@ -45,7 +45,7 @@ chainctl auth configure-docker
 ```
 
 
-## Update chainctl to the Latest Release
+## Update `chainctl` to the Latest Release
 
 To see which `chainctl` version you have installed, use:
 
@@ -62,7 +62,7 @@ chainctl update
 Updating requires administrative privileges, so be prepared to enter your machine's admin password.
 
 
-## Configure chainctl
+## Configure `chainctl`
 
 `chainctl` comes with a default configuration, but there are aspects of it that can be adjusted. Examples include setting the registry location that will be used when one is not mentioned in an issued command. To edit the current configuration, use:
 

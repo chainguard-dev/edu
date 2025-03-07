@@ -14,7 +14,7 @@ weight: 70
 This page presents some of the more commonly used `chainctl images` commands. For a full reference of all commands with details and switches, see [chainctl Reference](/chainguard/chainctl/).
 
 
-## chainctl images list
+## `chainctl images list`
 
 To see which Chainguard Images are available to your account, use:
 
@@ -25,7 +25,7 @@ chainctl images list
 Be warned, that list may take a while to generate and is likely to scroll past quickly in your command line terminal. You may prefer to direct the output into a file.
 
 
-## chainctl images repos list
+## `chainctl images repos list`
 
 For a list of image repositories available to your account, use:
 
@@ -34,7 +34,7 @@ chainctl images repos list
 ```
 
 
-## chainctl images diff
+## `chainctl images diff`
 
 This useful command enables you to compare two Chainguard images. To use it, enter:
 
