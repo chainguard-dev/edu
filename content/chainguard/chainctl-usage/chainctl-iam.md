@@ -18,7 +18,7 @@ For a full reference of all commands with details and switches, see [chainctl Re
 For the following, assume that returned information only includes that which your account has permissions to view. Also, actions such as `create` and `delete` are similarly limited.
 
 
-## chainctl iam folders
+## List folders
 
 Find out what folders are available to your organization with:
 
@@ -36,7 +36,7 @@ $ chainctl iam folders list chainguard.edu
 This command can also delete, describe, and update folders by replacing `list` with `delete`, `describe`, or `update`. See the reference guide for more details.
 
 
-## chainctl iam identities
+## List identities
 
 To list all of the existing identities along with roles, types, and more, use:
 
@@ -47,7 +47,7 @@ chainctl iam identities list
 This command can also create, delete, describe, and update identities by replacing `list` with `create`, `delete`, `describe`, or `update`. See the reference guide for more details.
 
 
-## chainctl iam identity-providers
+## List identity providers
 
 This command enables you to manage your own identity management provider, such as a custom OIDC provider. To list all currently configured identity management providers, use:
 
@@ -58,7 +58,7 @@ chainctl iam identity-providers list
 This command can also create, delete, and update identity providers by replacing `list` with `create`, `delete`, or `update`. See the reference guide for more details.
 
 
-## chainctl iam invites
+## List invites
 
 This command lets you manage invite codes that register identities with Chainguard. To list current invites, use:
 
@@ -72,7 +72,7 @@ This will return a list of invites by ID with information about the invite's exp
 This command can also create and delete invites by replacing `list` with `create` or `delete`. See the reference guide for more details.
 
 
-## chainctl iam organizations
+## List organizations
 
 To list all of the organizations your account is associated with, use:
 
@@ -83,7 +83,7 @@ chainctl iam organizations list
 This command can also delete and describe organizations by replacing `list` with `delete` or `describe`. See the reference guide for more details.
 
 
-## chainctl iam roles
+## List roles
 
 To list all of the roles your account is associated with, use:
 
