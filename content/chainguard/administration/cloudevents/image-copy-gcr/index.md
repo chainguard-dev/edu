@@ -4,7 +4,7 @@ linktitle: "Mirror Images to Artifact Registry"
 type: "article"
 description: "Instructional guide outlining how one can set up an application that will listen for push events on a private Chainguard Registry and mirror any new Chainguard Images to a GCP Artifact Registry."
 date: 2024-05-24T15:22:20+01:00
-lastmod: 2024-05-24T15:22:20+01:00
+lastmod: 2025-03-07T15:22:20+01:00
 draft: false
 tags: ["Product", "CloudEvents", "Procedural"]
 images: []
@@ -43,7 +43,7 @@ To set up the sample application, you can create a Terraform configuration file 
 mkdir ~/gcp-example && cd $_
 ```
 
-After navigating into the new directory you can begin creating a Terraform configuration named `main.tf`.
+From within the `gcp-example` directory, you can begin creating a Terraform configuration named `main.tf`.
 
 This configuration will consist of a single module. For the purposes of this example, we will call it `image-copy`. This module's `source` value will be the `iac` folder from the application code in the examples repository.
 
@@ -57,20 +57,20 @@ The next five lines configure a few variables that you will need to update to re
 * First, the configuration defines a `name` value. This will be used to prefix resources created by this sample application where possible.
 * Next, it specifies the GCP project ID where certain resources will reside, including the container image for this application (along with mirrored images), the Cloud Run service hosting the application, and the Service Account that authorizes pushes to the Google Artifact Registry.
 * Following that, the configuration specifies the Chainguard IAM organization from which we expect to receive events. This is used to authenticate that the Chainguard events are intended for you, and not another user. Images pushed to repositories under this organization will be mirrored to Artifact Registry.
-    * If you don't know your organization's UIDP, you can retrieve it by running `chainctl iam organizations list -o table`.
+    * You can find the names of every organization you have access to by running `chainctl iam organizations list -o table`.
 * The next line specifies the location of the Artifact Registry repository and the Cloud Run subscriber.
 * The final line defines `dst_repo` value, which is used to create a name for the repository in the Artifact Registry where images will be mirrored.
 
 As an example, if the `name` value you specify is `chainguard-dev` and the `dst_repo` value is `mirrored` (as shown in the following example) any pushes to `cgr.dev/<organization>/foo` will be mirrored to `<location>-docker.pkg.dev/<project_id>/chainguard-dev-mirrored`
 
-Be sure to include to include a closing curly bracket after the final line.
+Be sure to include a closing curly bracket after the final line.
 
 ```
   name = "chainguard-dev"
 
   project_id = "<project-id>"
 
-  group = "<organization-id>"
+  group_name = "<organization-name>"
 
   location = "us-central1" 
 
@@ -89,7 +89,7 @@ module "image-copy" {
 
   project_id = "<project-id>"
 
-  group = "<organization-id>"
+  group_name = "<organization-name>"
 
   location = "us-central1" 
 
