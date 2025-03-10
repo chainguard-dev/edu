@@ -4,7 +4,7 @@ linktitle: "FIPS FAQs"
 type: "article"
 description: "Frequently Asked Questions about Chainguard FIPS Container Images"
 date: 2025-01-10T15:56:52-07:00
-lastmod: 2025-01-13T05:56:52-07:00
+lastmod: 2025-03-07T05:56:52-07:00
 draft: false
 tags: ["images", "product", "conceptual", "FIPS"]
 images: []
@@ -28,9 +28,7 @@ Because it is error prone, difficult to support, and fragile, Chainguard does no
 
 ## Does a given Chainguard FIPS Image require me to “bring my own license”?
 
-From the Images Directory or Images Console, search for the Image you would like to know more about, and check if it has the "Bring Your Own License" badge. If it does, one can or must (depending on the Image) bring their own license keys for the product. Review the Overview documentation (for example, the [`elasticsearch-fips` Overview](https://images.chainguard.dev/directory/image/elasticsearch-fips/overview)) for the given image, and review the application’s documentation for further guidance.
-
-![elasticsearch-fips example in the user interface](fips-image-console-directory.png)
+From the Images Directory or Images Console, search for the Image you would like to know more about, and check if it has the "Bring Your Own License" badge. If it does, one can or must (depending on the Image) bring their own license keys for the product. Review the Overview documentation for the given image, and review the application’s documentation for further guidance.
 
 ## Which Chainguard Images tags have kernel-independent FIPS?
 
