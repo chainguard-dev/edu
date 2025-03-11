@@ -181,14 +181,14 @@ Here's what each line of this Dockerfile does:
 * `USER root`: Including this line forces the next commands to run as root instead of the unprivileged user. Whether you need to include this line or not will depend on what image you're using.
     * You can check by running your image locally and using the `id` command. The following example shows that the Python image uses the nonroot user by default while the Go image uses root by default:
 
-``` shell
-docker run -it --entrypoint id chainguard/python:latest-dev
-```
-```Output
-uid=65532(nonroot) gid=65532(nonroot) groups=65532(nonroot)
-docker run -it --entrypoint id chainguard/go:latest-dev
-uid=0(root) gid=0(root) groups=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel),11(floppy),20(dialout),26(tape),27(video)
-```
+        ```shell
+        docker run -it --entrypoint id chainguard/python:latest-dev
+        ```
+        ```Output
+        uid=65532(nonroot) gid=65532(nonroot) groups=65532(nonroot)
+        docker run -it --entrypoint id chainguard/go:latest-dev
+        uid=0(root) gid=0(root) groups=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel),11(floppy),20(dialout),26(tape),27(video)
+        ```
 
 * `RUN apk update …`: This line installs the POSIX utilities (from which dev containers can use the `getent` command) and then updates the library links with `ldconfig`. `ldconfig` and `getent` are needed to allow the container start scripts from VS Code to run, though they may already be included in some base images.
     * If your language needs any other packages that must be installed by the root user, now is the time to add them.
