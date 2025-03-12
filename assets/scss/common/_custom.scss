@@ -1243,3 +1243,10 @@ blockquote p a {
     margin-top: 1em;
     margin-bottom: -3em;
 ;}
+
+
+.figure, .figure-img, .img-fluid {
+    display: block !important;
+    margin: auto !important;
+
+}
