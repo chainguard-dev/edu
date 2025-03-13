@@ -33,13 +33,12 @@ To complete this guide, you will need the following.
 
 To integrate your Okta identity provider with the Chainguard platform, [log in to Okta](https://www.okta.com/login/) and navigate to the **Applications** landing page in the Admin console. There, click the **Create App Integration** button.
 
-<center><img src="okta-1.png" alt="Screenshot of the Okta Admin console, showing the Applications landing page. 'Applications' is circled in the left hand sidebar menu, as is the 'Create App Integration' button." style="width:950px;"></center>
-<br /> 
+![Screenshot of the Okta Admin console, showing the Applications landing page. 'Applications' is circled in the left hand sidebar menu, as is the 'Create App Integration' button.](okta-1.png)
+
 
 Select **OIDC - OpenID Connect** as the sign-in method and **Web Application** as the application type.
 
-<center><img src="okta-2.png" alt="Screenshot of the Okta Admin console, showing the 'Create a new app integration' modal window. This image shows the 'OIDC - Open ID Connect' option selected next to 'Sign-in Method', and the 'web Application' option selected next to 'Application type'." style="width:950px;"></center>
-<br /> 
+![Screenshot of the Okta Admin console, showing the 'Create a new app integration' modal window. This image shows the 'OIDC - Open ID Connect' option selected next to 'Sign-in Method', and the 'web Application' option selected next to 'Application type'.](okta-2.png)
 
 Next, in the **General Settings** window, configure the application as follows.
 
@@ -52,18 +51,15 @@ Next, in the **General Settings** window, configure the application as follows.
 * **Sign-in redirect URIs**: Set the redirect URI to `https://issuer.enforce.dev/oauth/callback`
 * **Sign-out redirect URIs**: This will have a URI field set to `http://localhost:8080` by default. Click the **X** icon to remove the sign-out redirect entirely, leaving this field blank.
 
-<center><img src="okta-3.png" alt="Screenshot of the New Web App Integration process, showing the General Settings window. This window shows the following options: App integration name is set to 'Chainguard'; Grant type is set to 'Authorization Code'; Sign-in redirect URIs is set to 'https://issuer.enforce.dev/oauth/callback'; and there are no URIs listed under Sign-out redirect URIs." style="width:750px;"></center>
-<br /> 
+![Screenshot of the New Web App Integration process, showing the General Settings window. This window shows the following options: App integration name is set to 'Chainguard'; Grant type is set to 'Authorization Code'; Sign-in redirect URIs is set to 'https://issuer.enforce.dev/oauth/callback'; and there are no URIs listed under Sign-out redirect URIs.](okta-3.png)
 
 Click the **Save** button. Then, select the **Sign On** tab. Find the **OpenID Connect ID Token** section and click the **Edit** button.
 
-<center><img src="okta-4-5.png" alt="Screenshots showing the OpenID Connect ID Token section of the Sign On tab. The Sign On tab and the relevant Edit button are circled in red." style="width:950px;"></center>
-<br />
+![Screenshots showing the OpenID Connect ID Token section of the Sign On tab. The Sign On tab and the relevant Edit button are circled in red.](okta-4-5.png)
 
 Set the **Issuer** option to **Okta URL**, then click the **Save** button.
 
-<center><img src="okta-6.png" alt="Screenshot showing the OpenID Connect ID Token section being edited. The Issuer field is set to the 'Okta URL' option, while the rest of the options are set as their default options." style="width:750px;"></center>
-<br />
+![Screenshot showing the OpenID Connect ID Token section being edited. The Issuer field is set to the 'Okta URL' option, while the rest of the options are set as their default options.](okta-6.png)
 
 That completes our configuration of the Okta Application. Next, we need to configure the Chainguard platform to use our Okta application.
 
