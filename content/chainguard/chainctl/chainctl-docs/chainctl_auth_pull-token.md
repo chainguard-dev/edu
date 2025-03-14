@@ -1,5 +1,5 @@
 ---
-date: 2025-03-07T00:03:07Z
+date: 2025-03-13T19:52:31Z
 title: "chainctl auth pull-token"
 slug: chainctl_auth_pull-token
 url: /chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token/
@@ -14,7 +14,7 @@ toc: true
 Create a pull token.
 
 ```
-chainctl auth pull-token [flags]
+chainctl auth pull-token [--output=json] [flags]
 ```
 
 ### Options

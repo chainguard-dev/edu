@@ -1956,6 +1956,67 @@
         ]
       }
     },
+    "/registry/v1/entitlements": {
+      "get": {
+        "operationId": "Entitlements_ListEntitlements",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "parent",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryEntitlementList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Entitlements"
+        ]
+      }
+    },
+    "/registry/v1/entitlements/{parent}/images": {
+      "get": {
+        "operationId": "Entitlements_ListEntitlementImages",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "parent",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryEntitlementImagesList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Entitlements"
+        ]
+      }
+    },
     "/registry/v1/repocountbysource/{id}": {
       "get": {
         "operationId": "Registry_GetRepoCountBySource",
@@ -5538,6 +5599,90 @@
       },
       "type": "object"
     },
+    "registryEntitlement": {
+      "description": "Entitlement contains information about what an organization is entitled to.",
+      "properties": {
+        "createTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "expirationTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "externalId": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "quota": {
+          "additionalProperties": {
+            "$ref": "#/definitions/registryImageQuota"
+          },
+          "description": "Keys can't be enum types, but string should match CatalogTier.",
+          "type": "object"
+        },
+        "type": {
+          "$ref": "#/definitions/registryEntitlementType"
+        },
+        "updateTime": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "registryEntitlementImage": {
+      "properties": {
+        "bundleId": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "tier": {
+          "$ref": "#/definitions/registryCatalogTier"
+        }
+      },
+      "type": "object"
+    },
+    "registryEntitlementImagesList": {
+      "properties": {
+        "images": {
+          "items": {
+            "$ref": "#/definitions/registryEntitlementImage",
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "registryEntitlementList": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/registryEntitlement",
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "registryEntitlementType": {
+      "default": "UNKNOWN",
+      "enum": [
+        "UNKNOWN",
+        "TRIAL",
+        "PRODUCTION"
+      ],
+      "type": "string"
+    },
     "registryImageConfig": {
       "properties": {
         "cmd": {
@@ -5604,6 +5749,19 @@
             "type": "string"
           },
           "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "registryImageQuota": {
+      "properties": {
+        "current": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "max": {
+          "format": "int32",
+          "type": "integer"
         }
       },
       "type": "object"
@@ -6015,6 +6173,13 @@
     },
     "registryVulnCountReport": {
       "properties": {
+        "critCveIds": {
+          "description": "crit_cve_ids is a list of cumulative CVE IDs found in the image with a critical severity.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
         "cveIds": {
           "description": "cve_ids is a list of cumulative CVE IDs found in the image.",
           "items": {
@@ -6026,6 +6191,34 @@
           "description": "date is when the image was scanned.",
           "format": "date-time",
           "type": "string"
+        },
+        "highCveIds": {
+          "description": "high_cve_ids is a list of cumulative CVE IDs found in the image with a high severity.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "lowCveIds": {
+          "description": "low_cve_ids is a list of cumulative CVE IDs found in the image with a low severity.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "medCveIds": {
+          "description": "med_cve_ids is a list of cumulative CVE IDs found in the image with a medium severity.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "negligibleCveIds": {
+          "description": "negligible_cve_ids is a list of cumulative CVE IDs found in the image with a negligible severity.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         },
         "repo": {
           "description": "repo is the name of the image scanned.",
@@ -6039,6 +6232,13 @@
         "tag": {
           "description": "tag is the version of the image scanned.",
           "type": "string"
+        },
+        "unknownCveIds": {
+          "description": "unknown_cve_ids is a list of cumulative CVE IDs found in the image with an unknown severity.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         },
         "vulnCounts": {
           "description": "vuln_counts enumerate the number of each CVE per severity found.",
@@ -6574,6 +6774,9 @@
     },
     {
       "name": "Registry"
+    },
+    {
+      "name": "Entitlements"
     },
     {
       "name": "Vulnerabilities"
