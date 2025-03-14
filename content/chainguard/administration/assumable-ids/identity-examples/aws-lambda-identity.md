@@ -1,6 +1,6 @@
 ---
-title : "Create an Assumable Identity for an AWS role"
-linktitle: "AWS"
+title : "Create an Assumable Identity for an AWS Lambda Role"
+linktitle: "AWS Lambda"
 aliases: 
 - /chainguard/chainguard-enforce/authentication/identity-examples/enforce-aws-identity/
 - /chainguard/chainguard-enforce/iam-groups/enforce-aws-identity/
@@ -14,7 +14,7 @@ lastmod: 2024-05-09T08:48:45+00:00
 draft: false
 tags: ["Chainguard Images", "Product", "Procedural"]
 images: []
-weight: 012
+weight: 011
 ---
 
 Chainguard's [*assumable identities*](/chainguard/administration/iam-organizations/assumable-ids/) are identities that can be assumed by external applications or workflows in order to perform certain tasks that would otherwise have to be done by a human.
