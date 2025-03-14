@@ -1,22 +1,41 @@
 ---
 date: 2025-03-13T19:52:31Z
-title: "chainctl iam role-bindings"
-slug: chainctl_iam_role-bindings
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings/
+title: "chainctl images history"
+slug: chainctl_images_history
+url: /chainguard/chainctl/chainctl-docs/chainctl_images_history/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam role-bindings
+## chainctl images history
 
-IAM role-bindings resource interactions.
+Show history for a specific image tag.
+
+### Synopsis
+
+Show history for a specific image tag.
+
+Examples:
+  # Show history for a specific tag (selected interactively)
+  chainctl images history nginx
+
+  # Show history for a specific tag (specified in the command)
+  chainctl images history nginx:1.21.0
+
+  # Show history for a tag in a specific organization
+  chainctl images history nginx:1.21.0 --parent=my-org
+
+```
+chainctl images history IMAGE[:TAG] [flags]
+```
 
 ### Options
 
 ```
-  -h, --help   help for role-bindings
+  -h, --help            help for history
+      --parent string   Organization to view image history from
 ```
 
 ### Options inherited from parent commands
@@ -35,9 +54,5 @@ IAM role-bindings resource interactions.
 
 ### SEE ALSO
 
-* [chainctl iam](/chainguard/chainctl/chainctl-docs/chainctl_iam/)	 - IAM related commands for the Chainguard platform.
-* [chainctl iam role-bindings create](/chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings_create/)	 - Create a role-binding
-* [chainctl iam role-bindings delete](/chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings_delete/)	 - Delete a role-binding.
-* [chainctl iam role-bindings list](/chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings_list/)	 - List role-bindings.
-* [chainctl iam role-bindings update](/chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings_update/)	 - Update a role-binding.
+* [chainctl images](/chainguard/chainctl/chainctl-docs/chainctl_images/)	 - Images related commands for the Chainguard platform.
 
