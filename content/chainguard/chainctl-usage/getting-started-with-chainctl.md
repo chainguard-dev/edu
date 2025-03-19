@@ -3,8 +3,8 @@ title: "Getting Started with chainctl"
 lead: ""
 description: "chainctl basics for beginners"
 type: "article"
-date: 2025-03-0320T08:49:15+00:00
-lastmod: 2025-03-0320T08:49:15+00:00
+date: 2025-03-03T08:49:15+00:00
+lastmod: 2025-03-03T08:49:15+00:00
 draft: false
 tags: ["chainctl", "Getting Started", "Product", "Basics"]
 images: []
