@@ -142,7 +142,6 @@ This will give you the following result:
 
 ```
 FROM cgr.dev/chainguard.edu/node:latest-dev
-USER root
 ```
 
 You can also convert single `RUN` directives such as the following:
@@ -231,3 +230,6 @@ DOCKERFILE
 
 ```
 
+## Learn More
+
+If you'd like to learn more about the dfc tool, including how to get involved with the project, you can check out the [dfc GitHub repository](https://github.com/chainguard-dev/dfc). We welcome contributions and feedback from the community.
