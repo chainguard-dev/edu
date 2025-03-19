@@ -6,7 +6,7 @@ description: "Early Access User Guide for Chainguard's Dockerfile Conversion Too
 date: 2025-03-18T15:22:20+01:00
 lastmod: 2025-03-18T15:22:20+01:00
 draft: false
-tags: ["CHAINGUARD IMAGES", "PRODUCT", "OPENSOURCE"]
+tags: ["CHAINGUARD IMAGES", "PRODUCT", "OPEN SOURCE"]
 images: []
 menu:
   docs:
@@ -32,13 +32,13 @@ dfc is an open source tool that is still under active development and subject to
 
 You’ll need a Go environment to install and run Chainguard’s dfc tool. To install it on your local system, run:
 
-```
+```shell
 go install github.com/chainguard-dev/dfc@latest
 ```
 
 To verify that the installation was successful, run:
 
-```
+```shell
 dfc --help
 ```
 
@@ -62,13 +62,13 @@ Flags:
 
 Unless specified, dfc will not make any direct changes to your Dockerfile, writing the results to the default output stream. Run the following to convert a Dockerfile and save the output to a new file:
 
-```
+```shell
 dfc ./Dockerfile > ./Dockerfile.converted
 ```
 
 You can also pipe the Dockerfile’s contents from stdin:
 
-```
+```shell
 cat ./Dockerfile | dfc -
 ```
 
@@ -84,11 +84,11 @@ This section has a few practical examples you can use as reference.
 
 ### Setting the ORG
 
-By default, `dfc` uses `ORGANIZATION` as a placeholder for the image registry address. You can provide the `--org` parameter to specify the organization that you’re a member of. To use free tier images, use `chainguard` as the organization.
+By default, `dfc` uses `ORG` as a placeholder for the image registry address. You can provide the `--org` parameter to specify the organization that you’re a member of. To use free tier images, use `chainguard` as the organization.
 
 Consider the following Dockerfile for a CLI PHP application:
 
-```
+```Dockerfile
 FROM php:8.2-cli
 
 RUN apt-get update && apt-get install -y \
@@ -107,15 +107,15 @@ RUN cd /application && composer install
 ENTRYPOINT [ "php", "/application/minicli" ]
 ```
 
-The following command will convert this Dockerfile to use Chainguard Images, using the `chainguard` org for the free tier images. The output will be redirected to a new file called `Dockerfile.new`:
+The following command will convert this Dockerfile to use Chainguard Images, using the `chainguard` organization for the free tier images. The output will be redirected to a new file called `Dockerfile.new`:
 
-```
+```shell
 dfc Dockerfile > Dockerfile.new --org chainguard
 ```
 
 The modified file will now use `cgr.dev/chainguard/php:latest-dev` as base image:
 
-```
+```Dockerfile.new
 FROM cgr.dev/chainguard/php:latest-dev
 USER root
 
@@ -134,7 +134,7 @@ ENTRYPOINT [ "php", "/application/minicli" ]
 
 With inline usage, you can convert single instructions or entire Dockerfiles. For example, to convert a single `FROM` line, you can run:
 
-```
+```shell
 echo "FROM node" | dfc --org chainguard.edu -
 ```
 
@@ -147,7 +147,7 @@ USER root
 
 You can also convert single `RUN` directives such as the following:
 
-```
+```shell
 echo "RUN apt-get update && apt-get install -y nano" | dfc -
 ```
 
@@ -159,7 +159,7 @@ RUN apk add -U nano
 
 It is also possible to convert a whole Dockerfile using inline mode. Here we use a heredoc input stream to create the Dockerfile contents:
 
-```
+```shell
 cat <<DOCKERFILE | dfc --org chainguard.edu -
 FROM node
 RUN apt-get update && apt-get install -y nano
@@ -176,9 +176,9 @@ RUN apk add -U nano
 
 ### Making In Place Changes
 
-By default, dfc will print the converted Dockerfile to stdout, and won’t make any changes to your original Dockerfile. You can use the `--in-place` flag to make dfc overwrite the original file. A `.bak` file is created to back up the original file contents.
+By default, dfc will print the converted Dockerfile to stdout, and won’t make any changes to your original Dockerfile. You can use the `--in-place` flag to make dfc overwrite the original file. This will also create a `.bak` file to back up the original file contents.
 
-```
+```shell
 dfc Dockerfile --in-place
 ```
 
@@ -193,7 +193,7 @@ This method does not work with inline input.
 
 If you plan on using `dfc` programmatically, the JSON output can come in handy. For example, the following will convert an inline Dockerfile and output the results in JSON format, parsed by `jq` for readability:
 
-```
+```shell
 cat <<DOCKERFILE | dfc --org chainguard.edu --json - | jq
 FROM node
 RUN apt-get update && apt-get install -y nano
