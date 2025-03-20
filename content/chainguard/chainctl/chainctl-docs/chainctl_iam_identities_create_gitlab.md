@@ -1,5 +1,5 @@
 ---
-date: 2025-03-17T21:27:26Z
+date: 2025-03-19T21:24:06Z
 title: "chainctl iam identities create gitlab"
 slug: chainctl_iam_identities_create_gitlab
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create_gitlab/

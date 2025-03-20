@@ -1956,14 +1956,15 @@
         ]
       }
     },
-    "/registry/v1/entitlements": {
+    "/registry/v1/entitlements/{parent}": {
       "get": {
         "operationId": "Entitlements_ListEntitlements",
         "parameters": [
           {
-            "in": "query",
+            "in": "path",
             "name": "parent",
-            "required": false,
+            "pattern": ".+",
+            "required": true,
             "type": "string"
           }
         ],
@@ -5635,17 +5636,13 @@
     },
     "registryEntitlementImage": {
       "properties": {
-        "bundleId": {
-          "type": "string"
-        },
         "id": {
-          "type": "string"
-        },
-        "name": {
+          "description": "The image repository UID.",
           "type": "string"
         },
         "tier": {
-          "$ref": "#/definitions/registryCatalogTier"
+          "$ref": "#/definitions/registryCatalogTier",
+          "description": "The image repository catalog tier the image is associated with."
         }
       },
       "type": "object"
