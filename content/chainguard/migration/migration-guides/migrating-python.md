@@ -54,7 +54,7 @@ The below Dockerfile provides an example of such a multi-stage build for a simpl
 ```Dockerfile
 # syntax=docker/dockerfile:1
 
-FROM cgr.dev/chainguard/python:latest-dev as dev
+FROM cgr.dev/chainguard/python:latest-dev AS dev
 
 WORKDIR /flask-app
 

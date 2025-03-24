@@ -178,7 +178,7 @@ We can still do better in terms of size and security. A multi-stage Dockerfile w
 
 
 ```Docker
-FROM cgr.dev/chainguard/node:latest-dev as builder
+FROM cgr.dev/chainguard/node:latest-dev AS builder
 
 ENV NODE_ENV production
 

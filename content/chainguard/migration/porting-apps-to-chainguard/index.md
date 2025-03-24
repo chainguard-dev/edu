@@ -250,7 +250,7 @@ Ideally, we would use the `cgr.dev/chainguard/node:latest` image for this, but w
 To do this, replace the Dockerfile with the following:
 
 ```Dockerfile
-FROM cgr.dev/chainguard/node:latest-dev as build
+FROM cgr.dev/chainguard/node:latest-dev AS build
 
 USER root
 RUN apk update && apk add \
@@ -322,7 +322,7 @@ We're most of the way now, but there are still a couple of finishing touches to 
 The `tini` binary will run as PID 1, launch npm as a subprocess and take care of PID 1 responsibilities. Now, the final Dockerfile looks like this:
 
 ```Dockerfile
-FROM cgr.dev/chainguard/node:latest-dev as build
+FROM cgr.dev/chainguard/node:latest-dev AS build
 
 USER root
 
@@ -477,7 +477,7 @@ Let’s skip to the final Dockerfile for our image and walk through the changes 
 Replace the Dockerfile with this one (this is also available on the ["main" branch](https://github.com/chainguard-dev/identidock-cg/blob/main/identidock/Dockerfile)):
 
 ```Dockerfile
-FROM cgr.dev/chainguard/python:latest-dev as dev
+FROM cgr.dev/chainguard/python:latest-dev AS dev
 
 ENV LANG=C.UTF-8
 ENV PYTHONDONTWRITEBYTECODE=1
