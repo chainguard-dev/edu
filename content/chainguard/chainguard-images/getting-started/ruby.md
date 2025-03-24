@@ -1,13 +1,13 @@
 ---
-title: "Getting Started with the Ruby Chainguard Image"
+title: "Getting Started with the Ruby Chainguard Container"
 linktitle: "Ruby"
 aliases: 
 - /chainguard/chainguard-images/getting-started/getting-started-ruby
 type: "article"
-description: "Tutorial on how to get started with the Ruby Chainguard Image"
+description: "Tutorial on how to get started with the Chainguard Ruby container image"
 date: 2023-05-10T11:07:52+02:00
 lastmod: 2025-02-21T11:07:52+02:00
-tags: ["Chainguard Images", "Products"]
+tags: ["Chainguard Containers", "Products"]
 draft: false
 images: []
 menu:
@@ -17,7 +17,7 @@ weight: 065
 toc: true
 ---
 
-The [Ruby images](https://images.chainguard.dev/directory/image/ruby/versions?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-ruby) maintained by Chainguard are a mix of development and production distroless images that are suitable for building and running Ruby workloads.
+The [Ruby container images](https://images.chainguard.dev/directory/image/ruby/versions?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-ruby) maintained by Chainguard are a mix of development and production distroless images that are suitable for building and running Ruby workloads.
 
 Because Ruby applications typically require the installation of third-party dependencies via [Rubygems](https://rubygems.org/), using a pure distroless image for building your application would not work. In cases like this, you'll need to implement a [multi-stage Docker build](https://docs.docker.com/build/building/multi-stage/) that uses one of the `-dev` images to set up the application.
 
@@ -35,7 +35,7 @@ In this guide, we’ll build two example applications that demonstrate how to us
 {{< blurb/images >}}
 {{< /details >}}
 
-## Example 1: Minimal Ruby Image in Single Stage Build
+## Example 1: Minimal Ruby Container in Single Stage Build
 We'll start by creating a small command-line Ruby application to serve as a demo. This application has no external dependencies; it will read from a text file containing facts about octopuses, and output a random line from that file. This demo is also available in our [demos repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/ruby), if you want to review the source files before building it.
 
 ### Step 1: Setting up the Application
@@ -106,10 +106,10 @@ nano Dockerfile
 
 The following Dockerfile will:
 
-1. Start a new image based on the `cgr.dev/chainguard/ruby:latest` image;
+1. Start a new image based on the `cgr.dev/chainguard/ruby:latest` container image;
 2. Set up a workdir at `/app`;
 3. Copy the application files to the workdir;
-4. Set up the entry point for the image as `ruby octo.rb`.
+4. Set up the entry point for the container as `ruby octo.rb`.
 
 Copy the following content to your `Dockerfile`:
 
@@ -123,13 +123,13 @@ COPY octo.rb facts.txt ./
 ENTRYPOINT [ "ruby", "octo.rb" ]
 ```
 
-Save and close the file when you're done. Next, build the image with:
+Save and close the file when you're done. Next, build the container image with:
 
 ```shell
 docker build . --pull -t octo-ruby-demo
 ```
 
-Once the build is finished, you can execute the image with:
+Once the build is finished, you can execute the container with:
 
 ```shell
 docker run --rm octo-ruby-demo
@@ -215,7 +215,7 @@ With everything in place, you can now work on the Dockerfile that will install t
 
 ### Step 2: Setting Up the Dockerfile
 
-To make sure our final image is _distroless_ while still being able to install Rubygems, our build will consist of **two** stages: first, we'll build the application using the `dev` image variant, a Wolfi-based image that includes the Gem executable, Bundler, and other useful tools for development. Then, we'll create a separate stage for the final image. The resulting image will be based on the distroless Ruby Wolfi image, which means it doesn't come with the Gem executable or even a shell.
+To make sure our final container is _distroless_ while still being able to install Rubygems, our build will consist of **two** stages: first, we'll build the application using the `dev` image variant, a Wolfi-based image that includes the Gem executable, Bundler, and other useful tools for development. Then, we'll create a separate stage for the final container. The resulting container will be based on the distroless Ruby Wolfi image, which means it doesn't come with the Gem executable or even a shell.
 
 Create a new Dockerfile using your code editor of choice, for example `nano`:
 
@@ -224,14 +224,14 @@ nano Dockerfile
 ```
 The following Dockerfile will:
 
-1. Start a new build stage based on the `cgr.dev/chainguard/ruby:latest-dev` image and call it `builder`;
+1. Start a new build stage based on the `cgr.dev/chainguard/ruby:latest-dev`container image and call it `builder`;
 2. Set up environment variables that define the default location of installed Gems;
 3. Copy the Gemfile from the current directory to the `/work` location in the container;
 4. Install Bundler and run `bundle install`;
 5. Start a new build stage based on the `cgr.dev/chainguard/ruby:latest` image;
 6. Set up environment variables that define the default location of installed Gems;
-7. Copy build artifacts from `builder` and into the final image
-8. Copy the `linky.rb` and `linky.txt` files into the final image
+7. Copy build artifacts from `builder` and into the final container
+8. Copy the `linky.rb` and `linky.txt` files into the final container
 9. Set up the application entry point as `ruby linky.rb`.
 
 Copy this content to your own `Dockerfile`:
@@ -263,7 +263,7 @@ You can now build the image with:
 docker build . --pull -t linky-says
 ```
 
-Once the build is finished, run the image with:
+Once the build is finished, run the container with:
 
 ```shell
 docker run --rm linky-says Wolfi says hi
@@ -315,7 +315,7 @@ docker image inspect linky-says
 ```
 In such cases, the last `FROM` section from the Dockerfile is the one that composes the final image. That's why in our case it only adds two layers on top of the base `cgr.dev/chainguard/ruby:latest` image, containing the two `COPY` commands we use to copy the application files and its dependencies to the final image.
 
-It's worth highlighting that no code or data is carried from one stage to the other unless you use a `COPY` command to explicitly copy it. This approach facilitates creating a slim final image with only what's absolutely necessary to execute the application. Using a multi-stage build like this, without shell tools and interactive language interpreters built in also makes your final image more secure.
+It's worth highlighting that no code or data is carried from one stage to the other unless you use a `COPY` command to explicitly copy it. This approach facilitates creating a slim final image with only what's absolutely necessary to execute the application. Using a multi-stage build like this, without shell tools and interactive language interpreters built in also makes your final container image more secure.
 
 ## Advanced Usage
 

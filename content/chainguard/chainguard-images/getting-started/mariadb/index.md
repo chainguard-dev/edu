@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with the MariaDB Chainguard Image"
+title: "Getting Started with the MariaDB Chainguard Container"
 type: "article"
 linktitle: "MariaDB"
 aliases: 
@@ -7,7 +7,7 @@ aliases:
 description: "Tutorial on how to get started with the MariaDB Chainguard Image"
 date: 2023-07-28T11:07:52+02:00
 lastmod: 2023-09-22T11:07:52+02:00
-tags: ["Chainguard Images", "Products"]
+tags: ["Chainguard Containers", "Products"]
 draft: false
 images: []
 menu:
@@ -17,11 +17,11 @@ weight: 025
 toc: true
 ---
 
-The MariaDB Image based on Wolfi and maintained by Chainguard provide a distroless container Image that is suitable for building and running MariaDB workloads.
+The MariaDB Container based on Wolfi and maintained by Chainguard provide a distroless container image that is suitable for building and running MariaDB workloads.
 
-Because Chainguard Images (including the MariaDB image) are rebuilt daily with the latest sources and include the absolute minimum of dependencies, they have significantly less vulnerabilities than equivalent images, typically zero. This means you can use the Chainguard MariaDB Image to run MariaDB databases in containerized environments with a smaller footprint and greater security.
+Because Chainguard Containers (including the MariaDB container image) are rebuilt daily with the latest sources and include the absolute minimum of dependencies, they have significantly less vulnerabilities than equivalent container images, typically zero. This means you can use the Chainguard MariaDB Container to run MariaDB databases in containerized environments with a smaller footprint and greater security.
 
-In order to illustrate how the MariaDB Chainguard Image might be used in practice, this tutorial involves setting up an example PHP application that uses a MariaDB database. This guide assumes you have Docker installed to run the demo; specifically, the procedure outlined in this guide uses [Docker Compose](https://docs.docker.com/compose/install/) to manage the environment on your local machine.
+In order to illustrate how the MariaDB Chainguard Container might be used in practice, this tutorial involves setting up an example PHP application that uses a MariaDB database. This guide assumes you have Docker installed to run the demo; specifically, the procedure outlined in this guide uses [Docker Compose](https://docs.docker.com/compose/install/) to manage the environment on your local machine.
 
 {{< details "What is distroless" >}}
 {{< blurb/distroless >}}
@@ -87,7 +87,7 @@ From here, you can run the application and use a web browser to observe it worki
 
 We encourage you to check out [the application code on GitHub](https://github.com/chainguard-dev/edu-images-demos/tree/main/mariadb) to better understand how this application works, but we'll provide a brief overview here.
 
-This demo creates a LEMP (Linux, (E)NGINX, MariaDB and PHP-FPM) environment based on Wolfi Chainguard Images. We will use Docker Compose to bring up the environment, which will spin up three containers: an `app` container, a `mariadb` container, and an `nginx` container. These will run as services.
+This demo creates a LEMP (Linux, (E)NGINX, MariaDB and PHP-FPM) environment based on Wolfi Chainguard Containers. We will use Docker Compose to bring up the environment, which will spin up three containers: an `app` container, a `mariadb` container, and an `nginx` container. These will run as services.
 
 Once the environment is up, you can visit the demo in your web browser. The `index.php` file contains code that does the following:
 

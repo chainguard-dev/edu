@@ -1,13 +1,13 @@
 ---
-title: "Getting Started with the PostgreSQL Chainguard Image"
+title: "Getting Started with the PostgreSQL Chainguard Container"
 type: "article"
 linktitle: "PostgreSQL"
 aliases: 
 - /chainguard/chainguard-images/getting-started/getting-started-postgres
-description: "Tutorial on how to get started with the PostgreSQL Chainguard Image"
+description: "Tutorial on how to get started with the PostgreSQL container image"
 date: 2023-08-10T11:07:52+02:00
-lastmod: 2023-09-22T11:07:52+02:00
-tags: ["Chainguard Images", "Products"]
+lastmod: 2025-03-24T11:07:52+02:00
+tags: ["Chainguard Containers", "Products"]
 draft: false
 images: []
 menu:
@@ -17,11 +17,11 @@ weight: 050
 toc: true
 ---
 
-PostgreSQL — commonly known as "Postgres" — is a popular open-source relational database. The PostgreSQL Images based on Wolfi and maintained by Chainguard provide distroless Images that are suitable for building and running PostgreSQL workloads.
+PostgreSQL — commonly known as "Postgres" — is a popular open-source relational database. The PostgreSQL Containers based on Wolfi and maintained by Chainguard provide distroless container images that are suitable for building and running PostgreSQL workloads.
 
-Because Chainguard Images (including the PostgreSQL image) are rebuilt daily with the latest sources and include the absolute minimum of dependencies, they have significantly fewer vulnerabilities than equivalent images, typically zero. This means you can use the Chainguard PostgreSQL Image to run Postgres databases in containerized environments with a smaller footprint and greater security.
+Because Chainguard Containers (including the PostgreSQL container image) are rebuilt daily with the latest sources and include the absolute minimum of dependencies, they have significantly fewer vulnerabilities than equivalent container images, typically zero. This means you can use the Chainguard PostgreSQL container image to run Postgres databases in containerized environments with a smaller footprint and greater security.
 
-In order to illustrate how the PostgreSQL Chainguard Image might be used in practice, this tutorial involves setting up an example PHP application that uses a Postgres database. This guide assumes you have Docker installed to run the demo; specifically, the procedure outlined in this guide uses [Docker Compose](https://docs.docker.com/compose/install/) to manage the environment on your local machine.
+In order to illustrate how the PostgreSQL Chainguard Container might be used in practice, this tutorial involves setting up an example PHP application that uses a Postgres database. This guide assumes you have Docker installed to run the demo; specifically, the procedure outlined in this guide uses [Docker Compose](https://docs.docker.com/compose/install/) to manage the environment on your local machine.
 
 {{< details "What is distroless" >}}
 {{< blurb/distroless >}}
@@ -81,7 +81,7 @@ From here, you can run the application and use a web browser to observe it worki
 
 We encourage you to check out [the application code on GitHub](https://github.com/chainguard-dev/edu-images-demos/tree/main/postgres) to better understand how this application works, but we'll provide a brief overview here.
 
-This demo creates a LEPP (Linux, (E)NGINX, PostgreSQL and PHP-FPM) environment based on Wolfi Chainguard Images. We will use Docker Compose to bring up the environment, which will spin up three containers: an `app` container, a `postgres` container, and an `nginx` container. These will run as services.
+This demo creates a LEPP (Linux, (E)NGINX, PostgreSQL and PHP-FPM) environment based on Wolfi Chainguard Containers. We will use Docker Compose to bring up the environment, which will spin up three containers: an `app` container, a `postgres` container, and an `nginx` container. These will run as services.
 
 Once the environment is up, you can visit the demo in your web browser. The `index.php` file contains code that does the following:
 
@@ -106,9 +106,9 @@ RUN apk update && apk add php-pgsql
 USER php
 ```
 
-This Dockerfile takes the public `php:latest-fpm-dev` Chainguard Image and installs the `php-pgsql` package onto it. This image comes with drivers that allow PHP applications to connect to MySQL or MariaDB databases by default but it doesn't have an equivalent for PostgreSQL. For this reason, we use this Dockerfile to install this package in order for the PHP application to be able to connect to the Postgres database.
+This Dockerfile takes the public `php:latest-fpm-dev` Chainguard Container and installs the `php-pgsql` package onto it. This container image comes with drivers that allow PHP applications to connect to MySQL or MariaDB databases by default but it doesn't have an equivalent for PostgreSQL. For this reason, we use this Dockerfile to install this package in order for the PHP application to be able to connect to the Postgres database.
 
-Execute the following command to build an image with this Dockerfile, and then create and start each of the three containers and bring up the application.
+Execute the following command to build a container with this Dockerfile, and then create and start each of the three containers and bring up the application.
 
 ```sh
 docker compose up -d
@@ -200,9 +200,9 @@ Of course, you likely won't be regularly managing your containerized databases o
 {{< blurb/images-advanced image="PostgreSQL" >}}
 
 
-### Configuring the PostgreSQL image
+### Configuring the PostgreSQL container image
 
-You can extend Chainguard's PostgreSQL image with environment variables. Chainguard's PostgreSQL image is compatible with the environment variables available in the official PostgreSQL image, including the following:
+You can extend Chainguard's PostgreSQL container image with environment variables. Chainguard's PostgreSQL container image is compatible with the environment variables available in the official PostgreSQL image, including the following:
 
 * `PGDATA`: This variable allows you to define another location for database files. The default data directory is `/var/lib/postgresql/data`.
 * `POSTGRES_PASSWORD`: This environment variable sets the superuser password for PostgreSQL. This variable is required to use the PostgreSQL image.
@@ -220,7 +220,7 @@ docker run --rm -e POSTGRES_HOST_AUTH_METHOD=trust -e POSTGRES_DB=linky -ti --na
 
 Be aware that the Docker specific variables will only have an effect if you start the container with an empty data directory; pre-existing databases won't be affected on container startup.
 
-You can also run the Chainguard PostgreSQL image with a custom configuration file. The following example will mount a PostgreSQL configuration file named `my-postgres.conf` to the container. 
+You can also run the Chainguard PostgreSQL container image with a custom configuration file. The following example will mount a PostgreSQL configuration file named `my-postgres.conf` to the container. 
 
 ```shell
 docker run --rm -v "$PWD/my-postgres.conf":/etc/postgresql/postgresql.conf -e POSTGRES_PASSWORD=password -ti --name postgres-test cgr.dev/ORGANIZATION/postgres:latest -c 'config_file=/etc/postgresql/postgresql.conf'

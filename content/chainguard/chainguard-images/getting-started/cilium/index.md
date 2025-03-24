@@ -1,13 +1,13 @@
 ---
-title: "Getting Started with the Cilium Chainguard Images"
+title: "Getting Started with the Cilium Chainguard Containers"
 type: "article"
 linktitle: "Cilium"
 aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-cilium
-description: "Tutorial on the Cilium Chainguard Images"
+description: "Tutorial on the Cilium Chainguard Containers"
 date: 2023-12-14T00:00:00+00:00
-lastmod: 2024-12-02T00:00:00+00:00
-tags: ["CHAINGUARD IMAGES", "PRODUCTS"]
+lastmod: 2025-03-22T00:00:00+00:00
+tags: ["Chainguard Containers", "Products"]
 draft: false
 images: []
 menu:
@@ -19,9 +19,9 @@ toc: true
 
 Cilium is open source software for transparently securing the network connectivity between application services deployed using Linux container management platforms like Docker and Kubernetes. At the foundation of Cilium is a new Linux kernel technology called [eBPF](https://ebpf.io/), which enables the dynamic insertion of powerful security visibility and control logic within Linux itself. Because eBPF runs inside the Linux kernel, Cilium security policies can be applied and updated without any changes to the application code or container configuration.
 
-Chainguard offers a set of minimal, security-hardened Cilium images, built on top the Wolfi OS.
+Chainguard offers a set of minimal, security-hardened Cilium container images, built on top the Wolfi OS.
 
-We will demonstrate how to get started with the Chainguard Cilium images on an example K3s cluster. To get started, you'll need Docker, `k3d` (a CLI tool to install `k3s`), `kubectl`, and the `cilium` CLI installed.
+We will demonstrate how to get started with the Chainguard Cilium container images on an example K3s cluster. To get started, you'll need Docker, `k3d` (a CLI tool to install `k3s`), `kubectl`, and the `cilium` CLI installed.
 
 * [Docker](https://docs.docker.com/get-docker/)
 * [k3d](https://k3d.io/#installation)
@@ -34,7 +34,7 @@ We will demonstrate how to get started with the Chainguard Cilium images on an e
 {{< blurb/wolfi >}}
 {{< /details >}}
 
-{{< details "Chainguard Images" >}}
+{{< details "Chainguard Containers" >}}
 {{< blurb/images >}}
 {{< /details >}}
 
@@ -88,9 +88,9 @@ For more information, refer to the settings suggested in the [Cilium documentati
 
 With that, you're ready to install Cilium.
 
-## Install Cilium using Chainguard Images
+## Install Cilium using Chainguard Containers
 
-We will use the Cilium CLI to install Cilium. In order to use Chainguard Images, we must first set the following values:
+We will use the Cilium CLI to install Cilium. In order to use Chainguard Containers, we must first set the following values:
 
 ```sh
 export ORGANIZATION=<your-Chainguard-organization>
