@@ -28,7 +28,7 @@ toc: true
 ## Dockerfile
 
 ```Dockerfile
-FROM cgr.dev/chainguard/go as build
+FROM cgr.dev/chainguard/go AS build
 
 
 COPY main.go /main.go

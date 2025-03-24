@@ -237,7 +237,7 @@ The following Dockerfile will:
 Copy this content to your own `Dockerfile`:
 
 ```Dockerfile
-FROM cgr.dev/chainguard/ruby:latest-dev as builder
+FROM cgr.dev/chainguard/ruby:latest-dev AS builder
 
 ENV GEM_HOME=/work/vendor
 ENV GEM_PATH=${GEM_PATH}:/work/vendor
