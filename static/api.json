@@ -2346,6 +2346,13 @@
             "name": "arch",
             "required": false,
             "type": "string"
+          },
+          {
+            "description": "Fetch config from registry.",
+            "in": "query",
+            "name": "registry",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
