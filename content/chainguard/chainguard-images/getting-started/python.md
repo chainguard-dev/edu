@@ -1,13 +1,13 @@
 ---
-title: "Getting Started with the Python Chainguard Image"
+title: "Getting Started with the Python Chainguard Container"
 type: "article"
 linktitle: "Python"
 aliases: 
 - /chainguard/chainguard-images/getting-started/getting-started-python
-description: "Tutorial on the distroless Python Chainguard Image"
+description: "Tutorial on the distroless Chainguard Python container image"
 date: 2023-02-28T11:07:52+02:00
-lastmod: 2025-02-21T13:46:53+00:00
-tags: ["Chainguard Images", "Products"]
+lastmod: 2025-03-24T13:46:53+00:00
+tags: ["Chainguard Containers", "Products"]
 draft: false
 images: []
 menu:
@@ -17,7 +17,7 @@ weight: 055
 toc: true
 ---
 
-The Python images based on Wolfi and maintained by Chainguard provide distroless images that are suitable for building and running Python workloads.
+The Python container images based on Wolfi and maintained by Chainguard provide distroless images that are suitable for building and running Python workloads.
 
 Chainguard offers both a minimal runtime image containing just Python, and a development image that contains a package manager and a shell. Because Python applications typically require the installation of third-party dependencies via the Python package installer pip, you may need to implement a [multi-stage Docker build](https://docs.docker.com/build/building/multi-stage/) that uses the Python `-dev` image to set up the application.
 
@@ -35,9 +35,9 @@ In this guide, we'll cover two examples to showcase Python container images base
 {{< blurb/images >}}
 {{< /details >}}
 
-## Example 1 — Minimal Python Chainguard Image
+## Example 1 — Minimal Python Chainguard Container
 
-In this example, we'll build and run a distroless Python Chainguard Image in a single-stage build process. We'll first make a demonstration app and then build and run it.
+In this example, we'll build and run a distroless Python Chainguard Container in a single-stage build process. We'll first make a demonstration app and then build and run it.
 
 ### Step 1: Setting up a Demo Application
 
@@ -101,7 +101,7 @@ The demo application is now ready. In the next step, you’ll create a Dockerfil
 
 ### Step 2: Creating the Dockerfile
 
-For this single-stage build, we'll only use one `FROM` line in our Dockerfile. Our resulting image will be based on the distroless Python Wolfi image, which means it doesn’t come with a package manager or even a shell.
+For this single-stage build, we'll only use one `FROM` line in our Dockerfile. Our resulting container will be based on the distroless Python Wolfi container image, which means it doesn’t come with a package manager or even a shell.
 
 We'll begin by creating a Dockerfile. Again, you can use any code editor of your choice, we'll use Nano for demonstration purposes.
 
@@ -114,7 +114,7 @@ The following Dockerfile will:
 1. Start a build stage based on the `python:latest` image;
 2. Declare the working directory;
 3. Copy the script and the text file that's being read;
-4. Set up the application as entry point for this image.
+4. Set up the application as entry point for this container.
 
 ```Dockerfile
 FROM cgr.dev/chainguard/python:latest
@@ -128,13 +128,13 @@ ENTRYPOINT [ "python", "/octo-facts/main.py" ]
 
 Save the file when you're finished.
 
-You can now build the image. If you receive an error, try again with `sudo`.
+You can now build the container image. If you receive an error, try again with `sudo`.
 
 ```shell
 docker build . --pull -t octo-facts
 ```
 
-Once the build is finished, run the image.
+Once the build is finished, run the container.
 
 ```shell
 docker run --rm octo-facts
@@ -146,11 +146,11 @@ And you should get output similar to what you got before, with a random octopus 
 Octopuses can breathe and see through their skin.
 ```
 
-You have successfully completed the single-stage Python Chainguard Image. At this point, you can continue to the [multi-stage example](#example-2-multi-stage-build-for-python-chainguard-image) or [advanced usage](#advanced-usage).
+You have successfully completed the single-stage Python Chainguard Container. At this point, you can continue to the [multi-stage example](#example-2-multi-stage-build-for-python-chainguard-image) or [advanced usage](#advanced-usage).
 
-## Example 2 — Multi-Stage Build for Python Chainguard Image
+## Example 2 — Multi-Stage Build for Python Chainguard Container
 
-In this example, we'll build and run a multi-stage Python Chainguard Image. We'll have a build image
+In this example, we'll build and run a multi-stage Python Chainguard Container. We'll have a build image
 that includes pip and a shell before creating a final distroless image without these development
 tools for production.
 
@@ -217,11 +217,11 @@ You'll receive a representation of the Chainguard Linky logo on the command line
 
 ### Step 2: Creating the Dockerfile
 
-To make sure our final image is distroless while still being able to install dependencies with pip,
+To make sure our final container is distroless while still being able to install dependencies with pip,
 our build will consist of two stages: first, we’ll build the application using the
 `python:latest-dev` image variant, a Wolfi-based image that includes pip and other useful tools for
-development. Then, we’ll create a separate stage for the final image. The resulting image will be
-based on the distroless Python Wolfi image, which means it doesn’t come with pip or even a shell.
+development. Then, we’ll create a separate stage for the final image. The resulting container will be
+based on the distroless Python Wolfi container image, which means it doesn’t come with pip or even a shell.
 
 Begin by editing a Dockerfile, with Nano for instance.
 
@@ -231,14 +231,14 @@ nano Dockerfile
 
 The following Dockerfile will:
 
-1. Start a new build stage based on the `python:latest-dev` image and call it `builder`;
+1. Start a new build stage based on the `python:latest-dev` container image and call it `builder`;
 2. Create a new virtual environment to cleanly hold the application's dependencies;
 2. Copy `requirements.txt` from the current directory to the `/linky` location in the container;
 3. Run `pip install --no-cache-dir -r requirements.txt` to install dependencies;
 4. Start a new build stage based on the `python:latest` image;
 5. Copy the dependencies in the virtual environment from the builder stage, and the source code from
    the current directory;
-6. Set up the application as the entry point for this image.
+6. Set up the application as the entry point for this container.
 
 Copy this configuration to your own Dockerfile:
 
@@ -272,7 +272,7 @@ ENTRYPOINT [ "python", "/linky/linky.py" ]
 
 Save the file when you’re finished.
 
-You can now build the image. If you receive a permission error, try running under `sudo`.
+You can now build the container image. If you receive a permission error, try running under `sudo`.
 
 ```shell
 docker build . --pull -t linky 

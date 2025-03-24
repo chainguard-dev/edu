@@ -1,11 +1,11 @@
 ---
-title: "Getting Started with the Laravel Chainguard Image"
+title: "Getting Started with the Laravel Chainguard Container"
 type: "article"
 linktitle: "Laravel"
-description: "Tutorial on how to get started with the Laravel Chainguard Image"
+description: "Tutorial on how to get started with the Chainguard Laravel container image"
 date: 2024-05-17T11:07:52+02:00
-lastmod: 2024-05-17T11:07:52+02:00
-tags: ["Chainguard Images", "Products"]
+lastmod: 2025-03-24T11:07:52+02:00
+tags: ["Chainguard Containers", "Products"]
 draft: false
 images: []
 menu:
@@ -15,9 +15,9 @@ weight: 020
 toc: true
 ---
 
-The [Laravel Chainguard Image](https://images.chainguard.dev/directory/image/laravel/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-laravel) is a container image that has the tooling necessary to develop, build, and execute [Laravel](https://laravel.com) applications, including required extensions. Laravel is a full-stack PHP framework that enables developers to build complex applications using modern tools and techniques that help streamline the development process.
+The [Laravel Chainguard Container](https://images.chainguard.dev/directory/image/laravel/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-laravel) is a container image that has the tooling necessary to develop, build, and execute [Laravel](https://laravel.com) applications, including required extensions. Laravel is a full-stack PHP framework that enables developers to build complex applications using modern tools and techniques that help streamline the development process.
 
-In this guide, we'll set up a demo and demonstrate how you can use Chainguard Images to develop, build, and run Laravel applications.
+In this guide, we'll set up a demo and demonstrate how you can use Chainguard Containers to develop, build, and run Laravel applications.
 
 This tutorial requires Docker to be installed on your local machine. If you don't have Docker installed, you can download and install it from the [official Docker website](https://docs.docker.com/get-docker/).
 
@@ -25,7 +25,7 @@ This tutorial requires Docker to be installed on your local machine. If you don'
 
 We'll start by getting the demo application ready. The demo is called **OctoFacts**, and it shows a random fact about Octopuses alongside a random Octopus image each time the page is reloaded. Quotes are loaded from a `.txt` file into the database through a database migration.
 
-By default, the application uses an [SQLite](https://www.sqlite.org/) database. This allows us to test the application with the built-in web server provided by the `artisan serve` command, without having to set up a full PHP development environment first. In the next step, we'll configure a multi-node environment using Docker Compose to demonstrate a typical LEMP (Linux, (E)Nginx, MariaDB, and PHP) environment using Chainguard Images.
+By default, the application uses an [SQLite](https://www.sqlite.org/) database. This allows us to test the application with the built-in web server provided by the `artisan serve` command, without having to set up a full PHP development environment first. In the next step, we'll configure a multi-node environment using Docker Compose to demonstrate a typical LEMP (Linux, (E)Nginx, MariaDB, and PHP) environment using Chainguard Containers.
 
 Start by cloning the demos repository to your local machine:
 
@@ -45,7 +45,7 @@ The demo includes a `.env.dev` file with the app's configuration for development
 cp .env.dev .env
 ```
 
-You can now use the builder Laravel image to install dependencies via Composer. Notice that we're using the **laravel** system user in order to be able to write to the shared folder without issues:
+You can now use the builder Laravel container image to install dependencies via Composer. Notice that we're using the **laravel** system user in order to be able to write to the shared folder without issues:
 
 ```shell
 docker run --rm -v ${PWD}:/app --entrypoint composer --user laravel \
@@ -61,7 +61,7 @@ docker run --rm -v ${PWD}:/app --entrypoint php --user laravel \
     /app/artisan migrate --seed
 ```
 
-Next, run `npm install` to install Node dependencies. You can use the `node:latest-dev` image for that, but you'll need to use the **root** container user in order to be able to write to the shared folder using this image:
+Next, run `npm install` to install Node dependencies. You can use the `node:latest-dev` container image for that, but you'll need to use the **root** container user in order to be able to write to the shared folder using this image:
 
 ```shell
 docker run --rm -v ${PWD}:/app --entrypoint npm --user root \
@@ -102,7 +102,7 @@ You should now be able to access the application from your browser at `localhost
 ![Preview of the OctoFacts demo Laravel application](https://github.com/chainguard-dev/edu-images-demos/raw/main/php/octo-facts/public/octofacts.png)
 
 ## 2. Creating a LEMP Environment with Docker Compose
-To demonstrate a full LEMP setup using Chainguard Images, we'll now set up a Docker Compose environment to serve the application via Nginx. This setup can be used as a more robust development environment that replicates a production setting based on secure container images.
+To demonstrate a full LEMP setup using Chainguard Containers, we'll now set up a Docker Compose environment to serve the application via Nginx. This setup can be used as a more robust development environment that replicates a production setting based on secure container images.
 
 The following `docker-compose.yaml` file is already included in the root of the application folder:
 
@@ -146,7 +146,7 @@ networks:
     driver: bridge
 ```
 
-This `docker-compose.yaml` file defines 3 services to run the application (**app**, **nginx**, **mariadb**), using volumes to share the application files within the container and a configuration file for the Nginx server, which we'll showcase in a moment. Notice the database credentials within the `mariadb` service: these environment variables are used to set up the database. This is done automatically by the MariaDB image entrypoint upon container initialization. We'll use these credentials to configure the new database within Laravel's `.env` file.
+This `docker-compose.yaml` file defines 3 services to run the application (**app**, **nginx**, **mariadb**), using volumes to share the application files within the container and a configuration file for the Nginx server, which we'll showcase in a moment. Notice the database credentials within the `mariadb` service: these environment variables are used to set up the database. This is done automatically by the MariaDB container image entrypoint upon container initialization. We'll use these credentials to configure the new database within Laravel's `.env` file.
 
 >Please note this Docker Compose setup is intended for local development only. For production environments, you should never keep sensitive data like database credentials in plain text. Check the [Docker Compose Documentation](https://docs.docker.com/compose/use-secrets/) for more information on how to handle sensitive data in Compose files.
 
@@ -243,7 +243,7 @@ You can use the same method to execute other Artisan commands while the environm
 ## 3. Creating a Distroless Laravel Runtime for the Application
 So far, we have been using the `laravel:latest-dev` builder image to run the application in a development setting. For production workloads, the recommended approach for additional security is to create a [distroless](/chainguard/chainguard-images/getting-started-distroless/) runtime for the application that will contain only what's absolutely necessary for running the app on production. This is done by combining a **build** phase in a **multi-stage** Dockerfile.
 
-To demonstrate this approach, we'll now build a distroless image and test it using the Docker Compose setup exemplified in the previous section.
+To demonstrate this approach, we'll now build a distroless container image and test it using the Docker Compose setup exemplified in the previous section.
 
 The following Dockerfile is included within the root of the application:
 

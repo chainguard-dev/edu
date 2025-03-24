@@ -10,9 +10,9 @@ lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by an AWS role."
 type: "article"
 date: 2023-11-28T08:48:45+00:00
-lastmod: 2024-05-09T08:48:45+00:00
+lastmod: 2025-03-21T08:48:45+00:00
 draft: false
-tags: ["Chainguard Images", "Product", "Procedural"]
+tags: ["Chainguard Containers", "Product", "Procedural"]
 images: []
 weight: 011
 ---
