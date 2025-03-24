@@ -1,13 +1,13 @@
 ---
-title: "Getting Started with the nginx Chainguard Image"
+title: "Getting Started with the nginx Chainguard Container"
 type: "article"
 linktitle: "nginx "
 aliases: 
 - /chainguard/chainguard-images/getting-started/nginx
-description: "Tutorial on how to get started with the nginx Chainguard Image"
+description: "Tutorial on how to get started with the nginx container image"
 date: 2023-01-09T11:07:52+02:00
-lastmod: 2025-02-21T13:25:40+00:00
-tags: ["Chainguard Images", "Products"]
+lastmod: 2025-03-21T13:25:40+00:00
+tags: ["Chainguard Containers", "Products"]
 draft: false
 images: []
 menu:
@@ -17,11 +17,11 @@ weight: 035
 toc: true
 ---
 
-The nginx images maintained by Chainguard include development and production distroless images that are suitable for building and running nginx workloads. Images tagged with `:latest-dev` include additional packages to facilitate project development and testing. Images tagged with `:latest` strip back these extra packages to provide a secure, production-ready container image.
+The nginx container images maintained by Chainguard include development and production distroless images that are suitable for building and running nginx workloads. Container images tagged with `:latest-dev` include additional packages to facilitate project development and testing. Container images tagged with `:latest` strip back these extra packages to provide a secure, production-ready container image.
 
-In this tutorial, we will create a local demo website using nginx to serve static HTML content to a local port on your machine. Then we will use the nginx Chainguard Image to build and execute the demo in a lightweight containerized environment.
+In this tutorial, we will create a local demo website using nginx to serve static HTML content to a local port on your machine. Then we will use the nginx Chainguard Container to build and execute the demo in a lightweight containerized environment.
 
-If you'd like, you can watch our [Getting Started with the nginx Chainguard Image video](https://youtu.be/KirTeDMzzxk) as you work through this tutorial, which will walk through the same steps that are detailed here.
+If you'd like, you can watch our [Getting Started with the nginx Chainguard Container video](https://youtu.be/KirTeDMzzxk) as you work through this tutorial, which will walk through the same steps that are detailed here.
 
 {{< youtube KirTeDMzzxk >}}
 
@@ -65,7 +65,7 @@ Using a text editor of your choice, create a new file `index.html` for the HTML 
 nano index.html
 ```
 
-The following HTML file displays an image of Linky alongside a fun octopus fact.
+The following HTML file displays a graphic of Linky alongside a fun octopus fact.
 
 ```HTML
 <!DOCTYPE html>
@@ -236,7 +236,7 @@ nano Dockerfile
 ```
 The following Dockerfile will:
 
-1. Start a new build based on the `cgr.dev/chainguard/nginx:latest` image;
+1. Start a new build based on the `cgr.dev/chainguard/nginx:latest` container image;
 2. Note which container port we need to expose for nginx to listen on;
 3. Copy the HTML content from the data directory into the image.
 
@@ -251,13 +251,13 @@ COPY data /usr/share/nginx/html/
 ```
 Save the file when you're finished.
 
-You can now build the image with:
+You can now build the container image with:
 
 ```shell
 docker build . --pull -t nginx-demo
 ```
 
-Once the build is complete, run the image with:
+Once the build is complete, run the container image with:
 
 ```shell
 docker run -d --name nginxcontainer -p 8080:8080 nginx-demo
@@ -279,7 +279,7 @@ docker container stop nginxcontainer
 
 ## Advanced Usage
 
-In this demo, we did not copy the configuration file into the image built from the Dockerfile. This is because the default configuration file in the image was sufficient for the scope of this demo. If you wish to use a custom configuration file, you must ensure that file paths, ports, and other system-specific settings are configured to match the container environment. You can find more information about making these changes at the [Chainguard nginx Image Overview](https://images.chainguard.dev/directory/image/nginx/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-nginx).
+In this demo, we did not copy the configuration file into the container image built from the Dockerfile. This is because the default configuration file in the image was sufficient for the scope of this demo. If you wish to use a custom configuration file, you must ensure that file paths, ports, and other system-specific settings are configured to match the container environment. You can find more information about making these changes at the [Chainguard nginx Container Overview](https://images.chainguard.dev/directory/image/nginx/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-nginx).
 
 {{< blurb/images-advanced image="nginx" >}}
 

@@ -1,13 +1,13 @@
 ---
-title: "Getting Started with the Chainguard Istio Images"
+title: "Getting Started with the Chainguard Istio Containers"
 type: "article"
 linktitle: "Istio"
 aliases: 
 - /chainguard/chainguard-images/getting-started/getting-started-istio
-description: "Tutorial on how to get started with the Istio Chainguard Images"
+description: "Tutorial on how to get started with the Chainguard Istio container images"
 date: 2023-12-14T00:00:00+00:00
-lastmod: 2023-12-14T11:07:52+02:00
-tags: ["CHAINGUARD IMAGES", "PRODUCTS"]
+lastmod: 2025-03-24T11:07:52+02:00
+tags: ["Chainguard Containers", "Products"]
 draft: false
 images: []
 menu:
@@ -21,10 +21,10 @@ toc: true
 application-aware network using the powerful Envoy service proxy. Working with
 both Kubernetes and traditional workloads, Istio brings standard, universal
 traffic management, telemetry, and security to complex deployments. Chainguard
-offers a set of minimal, security-hardened Istio images, built on top the Wolfi
+offers a set of minimal, security-hardened Istio container images, built on top the Wolfi
 OS.
 
-We will demonstrate how to get started with the Chainguard Istio images on an
+We will demonstrate how to get started with the Chainguard Istio container images on an
 example kind cluster. To get started, you'll need Docker, kind, `kubectl`, and `istioctl`
 installed. If you are missing any, you can follow the relevant link to get started.
 
@@ -69,12 +69,12 @@ kubectl cluster-info --context kind-kind
 Thanks for using kind! 😊
 ```
 
-Following that, you can install the Istio Chainguard Image with `istioctl`.
+Following that, you can install the Istio Chainguard Containers with `istioctl`.
 
-## Install Istio using Chainguard Images
+## Install Istio using Chainguard Containers
 
 We will be using the `istioctl` command to install Istio. In order to use the
-Chainguard Images, we will need to set these following values:
+Chainguard Containers, we will need to set these following values:
 - `hub = cgr.dev/$ORGANIZATION`
 
 > **Note**: Be aware that you will need to change `cgr.dev/$ORGANIZATION` to reflect the name of your organization's repository within the Chainguard Registry.
@@ -93,9 +93,9 @@ istioctl install --set tag=latest --set hub=cgr.dev/$ORGANIZATION \
   --set values.global.proxy_init.image=istio-proxy
 ```
 
-The Istio Chainguard Image is now running on the kind cluster you created previously. 
+The Istio Chainguard Container is now running on the kind cluster you created previously. 
 In the next section, you'll set up an Istio gateway and a VirtualService to test out 
-this image.
+this container.
 
 ## Stand up a Gateway and a VirtualService 
 

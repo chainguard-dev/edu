@@ -1,17 +1,17 @@
 ---
-title: "Getting Started with Chainguard Images"
+title: "Getting Started with Chainguard Containers"
 linktitle: "Getting Started Guides"
-description: "Tutorials on how to get started with Chainguard Images"
+description: "Tutorials on how to get started with Chainguard Containers"
 type: "article"
 date: 2023-09-10T08:49:15+00:00
-lastmod: 2024-03-07T08:49:15+00:00
+lastmod: 2025-03-24T08:49:15+00:00
 draft: false
 images: []
 weight: 030
 topic: true
 banner: {
     image: "/icon-box-fill.svg",
-    title: "Get started with the Go Chainguard Image",
+    title: "Get started with the Go Chainguard Container",
     cta: "Read more",
     link: "/chainguard/chainguard-images/getting-started/getting-started-go/"
 }

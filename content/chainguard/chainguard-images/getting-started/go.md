@@ -1,13 +1,13 @@
 ---
-title: "Getting Started with the Go Chainguard Image"
+title: "Getting Started with the Go Chainguard Container"
 type: "article"
 linktitle: "Go"
 aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-go
 description: "Tutorial on the distroless Go Chainguard Image"
 date: 2023-02-28T11:07:52+02:00
-lastmod: 2025-02-21T11:07:52+02:00
-tags: ["Chainguard Images", "Products"]
+lastmod: 2025-03-24T11:07:52+02:00
+tags: ["Chainguard Containers", "Products"]
 draft: false
 images: []
 menu:
@@ -17,11 +17,11 @@ weight: 010
 toc: true
 ---
 
-The [Go Chainguard image](https://images.chainguard.dev/directory/image/go/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-go) is a container image suitable for building Go applications. The `latest` variant is a distroless image without a package manager, while the `latest-dev` variant offers additional building tools and the apk package manager.
+The [Go Chainguard Container](https://images.chainguard.dev/directory/image/go/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-go) is a container image suitable for building Go applications. The `latest` variant is a distroless image without a package manager, while the `latest-dev` variant offers additional building tools and the apk package manager.
 
-In this guide, we'll demonstrate how to build and execute Go applications using Chainguard Images, using three examples from our [demos repository](https://github.com/chainguard-dev/edu-images-demos). In the first example, we'll build a CLI application using a Docker multi-stage build. In the second example, we'll build an application that's accessible by HTTP server, also using a Docker multi-stage build to obtain an optimized runtime. The third example shows how to build an image using [ko](https://ko.build/), a tool that enables you to build images from Go programs and push them to container registries without requiring a Dockerfile.
+In this guide, we'll demonstrate how to build and execute Go applications using Chainguard Images, using three examples from our [demos repository](https://github.com/chainguard-dev/edu-images-demos). In the first example, we'll build a CLI application using a Docker multi-stage build. In the second example, we'll build an application that's accessible by HTTP server, also using a Docker multi-stage build to obtain an optimized runtime. The third example shows how to build an image using [ko](https://ko.build/), a tool that enables you to build container images from Go programs and push them to container registries without requiring a Dockerfile.
 
-The examples in this guide recommend executing Go binaries from one of our runtime Chainguard Images, such as the [`glibc-dynamic`](https://images.chainguard.dev/directory/image/glibc-dynamic/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-go) or [`static`](https://images.chainguard.dev/directory/image/static/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-go) Chainguard Images. That is possible because Go applications are compiled and the toolchain is not typically required in a runtime image.
+The examples in this guide recommend executing Go binaries from one of our runtime Chainguard Images, such as the [`glibc-dynamic`](https://images.chainguard.dev/directory/image/glibc-dynamic/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-go) or [`static`](https://images.chainguard.dev/directory/image/static/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-go) Chainguard Images. That is possible because Go applications are compiled and the toolchain is not typically required in a runtime container image.
 
 {{< details "What is distroless" >}}
 {{< blurb/distroless >}}
@@ -75,20 +75,20 @@ ENTRYPOINT ["/usr/bin/go-greeter"]
 
 This Dockerfile will:
 
-1. Start a build stage based on the `go:latest` image and name it `builder`;
+1. Start a build stage based on the `go:latest` container image and name it `builder`;
 2. Copy the application files to the `/app` directory in the image;
 3. Build the application in the `/app` directory;
 4. Start a new build stage based on the `static:latest` image;
 5. Copy the built application from the `builder` stage to the `/usr/bin` directory in the new image;
 6. Set the entrypoint to the built application.
 
-Run the following command to build the image, tagging it `go-greeter`:
+Run the following command to build the container image, tagging it `go-greeter`:
 
 ```shell
 docker build . --pull -t go-greeter
 ```
 
-You can now run the image with:
+You can now run the container image with:
 
 ```shell
 docker run go-greeter
@@ -111,7 +111,7 @@ Greetings, Chainguard user!
 ```
 The application will also share usage instructions when prompted with the `--help` flag or when invalid flags are passed.
 
-Because we used the `static` Chainguard Image as our runtime, the final image only requires a few megabytes on disk:
+Because we used the `static` Chainguard Image as our runtime, the final container image only requires a few megabytes on disk:
 
 ```shell
 docker inspect go-greeter | jq -c 'first' | jq .Size | numfmt --to iec --format "%8.4f"
@@ -146,13 +146,13 @@ EXPOSE 8080
 ENTRYPOINT ["/usr/bin/greet-server"]
 ```
 
-Use the following command to build the image, tagging it `greet-server`:
+Use the following command to build the container image, tagging it `greet-server`:
 
 ```shell
 docker build . --pull -t greet-server
 ```
 
-Now you can run the image with the following command:
+Now you can run the container image with the following command:
 
 ```shell
 docker run -p 8080:8080 greet-server
@@ -182,7 +182,7 @@ Start by accessing the `go-digester` folder in the Go demos repository:
 cd go-digester
 ```
 
-The `go-digester` demo uses the `go-containerregistry` library to print out the digest of the latest build of a Chainguard image, using `go` as the default image to pull the digest from, and with an optional parameter to specify a different image name. If you have Go installed locally, you can run the application with:
+The `go-digester` demo uses the `go-containerregistry` library to print out the digest of the latest build of a Chainguard Container, using `go` as the default image to pull the digest from, and with an optional parameter to specify a different container image name. If you have Go installed locally, you can run the application with:
 
 ```shell
 go run main.go
@@ -194,7 +194,7 @@ The latest digest of the go Chainguard Image is sha256:86178b42db2e32763304e37f4
 ```
 We'll now use ko to build an image that is suitable to run the application defined in `main.go`. By default, ko uses the `cgr.dev/chainguard/static` image as the base image for the build. You can override this by setting the `KO_DEFAULTBASEIMAGE` environment variable to a different base image.
 
-Before building the image, you'll need to set up the environment variable `KO_DOCKER_REPO`. This environment variable identifies where ko should push images that it builds. This is usually a remote registry like the GitHub Container registry or Docker Hub, but you can publish to your local machine for testing and demonstration purposes.
+Before building the container image, you'll need to set up the environment variable `KO_DOCKER_REPO`. This environment variable identifies where ko should push images that it builds. This is usually a remote registry like the GitHub Container registry or Docker Hub, but you can publish to your local machine for testing and demonstration purposes.
 
 Run the following command to set the `KO_DOCKER_REPO` environment variable to your local machine:
 
@@ -202,7 +202,7 @@ Run the following command to set the `KO_DOCKER_REPO` environment variable to yo
 export KO_DOCKER_REPO=ko.local
 ```
 
-Next, ensuring that you are in the same directory as your `main.go` file, run the following command to build the image with ko:
+Next, ensuring that you are in the same directory as your `main.go` file, run the following command to build the container with ko:
 
 ```shell
 ko build .
@@ -221,29 +221,29 @@ Once you run this command, you'll receive output similar to the following.
 ko.local/go-digester-edc0ed689c7fb820a565f76425bed013:0914a85d803988ab10964323c0cd7b4bf89aed2603f6e8e276f798491c731336
 ```
 
-At this point, your image is built. Because the output of `ko build` is an image reference, you can pass it to other tools like Docker. You can learn more about [deployment with ko](https://ko.build/deployment/) and [Kubernetes integration](https://ko.build/features/k8s/) by reading the respective documentation on the official site.
+At this point, your container is built. Because the output of `ko build` is an image reference, you can pass it to other tools like Docker. You can learn more about [deployment with ko](https://ko.build/deployment/) and [Kubernetes integration](https://ko.build/features/k8s/) by reading the respective documentation on the official site.
 
-We'll demonstrate running the above built image with Docker.
+We'll demonstrate running the above built container with Docker.
 
 > **Note**: To follow along, be sure that you copy and paste the last line of output from your last command that begins `ko.local/go-digester-...`
 
 ```shell
 docker run --rm ko.local/go-digester-edc0ed689c7fb820a565f76425bed013:0914a85d803988ab10964323c0cd7b4bf89aed2603f6e8e276f798491c731336
 ```
-Here, you'll expect to receive the same output as before that shows the digest of the Go image.
+Here, you'll expect to receive the same output as before that shows the digest of the Go container.
 
 ```
-The latest digest of the go Chainguard Image is sha256:86178b42db2e32763304e37f4cf3c6ec25b7bb83660dcb985ab603e3726a65a6
+The latest digest of the go Chainguard Container is sha256:86178b42db2e32763304e37f4cf3c6ec25b7bb83660dcb985ab603e3726a65a6
 ```
 
-You can also pass in an optional argument to specify which Chainguard Image to pull the latest digest from:
+You can also pass in an optional argument to specify which Chainguard Container to pull the latest digest from:
 
 ```shell
 docker run --rm ko.local/go-digester-edc0ed689c7fb820a565f76425bed013:0914a85d803988ab10964323c0cd7b4bf89aed2603f6e8e276f798491c731336 mariadb
 ```
 
 ```
-The latest digest of the mariadb Chainguard Image is sha256:6ba5d792d463b69f93e8d99541384d11b0f9b274e93efdeb91497f8f0aae03d1
+The latest digest of the mariadb Chainguard Container is sha256:6ba5d792d463b69f93e8d99541384d11b0f9b274e93efdeb91497f8f0aae03d1
 ```
 
 ## Advanced Usage

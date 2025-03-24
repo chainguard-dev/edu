@@ -15,7 +15,7 @@ Alternately, your can install Syft with Homebrew:
 brew install syft
 ```
 
-You can also use Syft directly by pulling and running  the official image from Docker Hub. The following command will pull the Syft image and use it to scan the offical Python image from Dockerhub:
+You can also use Syft directly by pulling and running the official container image from Docker Hub. The following command will pull the Syft container image and use it to scan the offical Python container  image from Docker Hub:
 
 ```sh
 docker run -it anchore/syft:latest python
