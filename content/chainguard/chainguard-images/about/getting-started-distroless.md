@@ -58,7 +58,7 @@ The following Dockerfile will build a final distroless image using two distinct 
 
 ```dockerfile
 # syntax=docker/dockerfile:1.4
-FROM cgr.dev/chainguard/gcc-glibc:latest as build
+FROM cgr.dev/chainguard/gcc-glibc:latest AS build
 
 COPY <<EOF /hello.c
 #include <stdio.h>

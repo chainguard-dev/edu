@@ -231,7 +231,7 @@ This demo includes a theme ([Cue](https://wordpress.org/themes/cue/), a simple b
 Navigate to the `03-distroless` directory to follow along. This is what the Dockerfile included in this directory looks like:
 
 ```Dockerfile
-FROM cgr.dev/chainguard/wordpress:latest-dev as builder
+FROM cgr.dev/chainguard/wordpress:latest-dev AS builder
 #trigger wp-config.php creation
 ENV WORDPRESS_DB_HOST=foo
 

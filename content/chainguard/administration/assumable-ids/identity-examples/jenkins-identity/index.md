@@ -122,7 +122,7 @@ First, this section creates a Chainguard Identity tied to the Chainguard organiz
 
 The most important part of this section is the `claim_match`. When the Jenkins workflow tries to assume this identity later on, it must present a token matching the `audience`, `issuer` and `subject` specified here in order to do so. The `audience` is the intended recipient of the issued token, while the `issuer` is the entity that creates the token. Finally, the `subject` is the entity (here, the Jenkins pipeline build) that the token represents.
 
-The `audience` and `issuer` fields use settings from your configured Jenkins OIDC credential. You can find these by clicking **Manage Jenkins** in the left-hand sidebar menu of your dashbaord, then click **Credentials**. Click on your **System** credentials, then click **Global credentials (unrestricted)**. This will take you to a table listing all your configured OIDC tokens. Click the wrench icon for the token you want to use to test this identity. This will take you to a screen similar to the following screenshot showing the `audience` and `issue` values you should use in your `jenkins.tf` file.
+The `audience` and `issuer` fields use settings from your configured Jenkins OIDC credential. You can find these by clicking **Manage Jenkins** in the left-hand sidebar menu of your dashboard, then click **Credentials**. Click on your **System** credentials, then click **Global credentials (unrestricted)**. This will take you to a table listing all your configured OIDC tokens. Click the wrench icon for the token you want to use to test this identity. This will take you to a screen similar to the following screenshot showing the `audience` and `issue` values you should use in your `jenkins.tf` file.
 
 ![Jenkins OICD token configuration page](jenkins-oidc-credential.png)
 
@@ -225,7 +225,7 @@ Once you are on the pipeline configuration page, click the **This project is par
 
 ![Job parameter settings for OIDC token](jenkins-job-parameter.png)
 
-Next copy the following pipeline defintion into the `Script` body for your job:
+Next copy the following pipeline definition into the `Script` body for your job:
 
 ```
 pipeline {

@@ -112,7 +112,7 @@ Renovate also supports updating image references that are pinned to digests. Thi
 As an example, for the following Dockerfile Renovate opened two similar pull requests:
 
 ```
-FROM cgr.dev/chainguard/go:latest-dev@sha256:ff187ecd4bb5b45b65d680550eed302545e69ec4ed45f276f385e1b4ff0c6231 as builder
+FROM cgr.dev/chainguard/go:latest-dev@sha256:ff187ecd4bb5b45b65d680550eed302545e69ec4ed45f276f385e1b4ff0c6231 AS builder
 
 WORKDIR /work
 

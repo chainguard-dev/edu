@@ -103,7 +103,7 @@ The demo application is now ready. In the next step, you’ll create a Dockerfil
 
 For this single-stage build, we'll only use one `FROM` line in our Dockerfile. Our resulting container will be based on the distroless Python Wolfi container image, which means it doesn’t come with a package manager or even a shell.
 
-We'll begin by creating a Dockerfile. Again, you can use any code editor of your choice, we'll use Nano for demonstation purposes.
+We'll begin by creating a Dockerfile. Again, you can use any code editor of your choice, we'll use Nano for demonstration purposes.
 
 ```shell
 nano Dockerfile
@@ -170,7 +170,7 @@ We'll first write out the requirements for our app in a new file, for example we
 nano requirements.txt
 ```
 
-We'll use version 68.2.2 of Python [setuptools](https://pypi.org/project/setuptools/) and also install [climage](https://pypi.org/project/climage/). We need to use a slightly older version of setuptools for compatability with climage. Add the following text to the file:
+We'll use version 68.2.2 of Python [setuptools](https://pypi.org/project/setuptools/) and also install [climage](https://pypi.org/project/climage/). We need to use a slightly older version of setuptools for compatibility with climage. Add the following text to the file:
 
 ```shell
 setuptools==70.0.0
@@ -243,7 +243,7 @@ The following Dockerfile will:
 Copy this configuration to your own Dockerfile:
 
 ```Dockerfile
-FROM cgr.dev/chainguard/python:latest-dev as builder
+FROM cgr.dev/chainguard/python:latest-dev AS builder
 
 ENV LANG=C.UTF-8
 ENV PYTHONDONTWRITEBYTECODE=1

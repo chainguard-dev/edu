@@ -189,7 +189,7 @@ OK: 719 MiB in 78 packages
 To learn more, refer to our [Private APK Repositories documentation](/chainguard/chainguard-images/features/private-apk-repos/).
 
 
-### Installing packges from Chainguard's package repositories
+### Installing packages from Chainguard's package repositories
 
 You can use `apk` to install additional packages from Chainguard's package repositories (`apk.cgr.dev/extra-packages` and `packages.wolfi.dev/os`) into your customized container image.
 

@@ -268,4 +268,4 @@ The following blog posts have some background about VEX and OpenVEX:
 * [Reflections on Trusting VEX (or when humans can improve SBOMs)](https://www.chainguard.dev/unchained/reflections-on-trusting-vex-or-when-humans-can-improve-sboms)
 * [Understanding The Promise of VEX](https://www.chainguard.dev/unchained/understanding-the-promise-of-vex)
 
-The [OpenVEX Specification](https://github.com/openvex/spec/blob/main/OPENVEX-SPEC.md) is owned and steered by the community. You can find the organization page with additional repostiories at [openvex.dev](https://openvex.dev).
+The [OpenVEX Specification](https://github.com/openvex/spec/blob/main/OPENVEX-SPEC.md) is owned and steered by the community. You can find the organization page with additional repositories at [openvex.dev](https://openvex.dev).
