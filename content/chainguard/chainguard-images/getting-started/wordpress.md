@@ -1,11 +1,11 @@
 ---
-title: "Getting Started with the WordPress Chainguard Image"
+title: "Getting Started with the WordPress Chainguard Container"
 type: "article"
 linktitle: "WordPress"
-description: "Tutorial on how to get started with the WordPress Chainguard Image"
+description: "Tutorial on how to get started with the Chainguard WordPress container image"
 date: 2024-07-19T11:07:52+02:00
-lastmod: 2024-07-19T11:07:52+02:00
-tags: ["Chainguard Images", "Products"]
+lastmod: 2025-03-24T11:07:52+02:00
+tags: ["Chainguard Containers", "Products"]
 draft: false
 images: []
 menu:
@@ -15,9 +15,9 @@ weight: 70
 toc: true
 ---
 
-The [WordPress](https://images.chainguard.dev/directory/image/wordpress/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-wordpress) Chainguard Image is a container image suitable for creating and running WordPress projects. Designed to work as a drop-in replacement for the official [WordPress FPM-Alpine image](https://hub.docker.com/_/wordpress), the Chainguard WordPress Image features a [distroless](/chainguard/chainguard-images/getting-started-distroless/) variant for increased security on production environments. The image is built with the latest PHP and WordPress versions, and includes the necessary PHP extensions to run WordPress.
+The [WordPress](https://images.chainguard.dev/directory/image/wordpress/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-wordpress) Chainguard Container is a container image suitable for creating and running WordPress projects. Designed to work as a drop-in replacement for the official [WordPress FPM-Alpine image](https://hub.docker.com/_/wordpress), the Chainguard WordPress Container features a [distroless](/chainguard/chainguard-images/getting-started-distroless/) variant for increased security on production environments. The image is built with the latest PHP and WordPress versions, and includes the necessary PHP extensions to run WordPress.
 
-In this guide, we'll demonstrate 3 different ways in which you can use the WordPress Chainguard Image to build and run WordPress projects.
+In this guide, we'll demonstrate 3 different ways in which you can use the WordPress Chainguard Container to build and run WordPress projects.
 
 ## Preparation
 This tutorial requires Docker to be installed on your local machine. If you don't have Docker installed, you can download and install it from the [official Docker website](https://docs.docker.com/get-docker/).
@@ -37,8 +37,8 @@ cd edu-images-demos/php/wordpress
 
 Here you will find three folders, each with a different demo that we'll cover in this guide.
 
-## Example 1: Testing the Image with a Fresh WordPress Install
-You can use the `latest-dev` variant of the Chainguard WordPress Image to create a project from scratch and go through the installation wizard. This method is useful for testing the image and getting familiar with its features, however, changes made to the WordPress installation will not persist unless you set up a volume with proper permissions to share container contents with the host machine. We'll see how to do that in the next example.
+## Example 1: Testing the Container Image with a Fresh WordPress Install
+You can use the `latest-dev` variant of the Chainguard WordPress Container to create a project from scratch and go through the installation wizard. This method is useful for testing th container image and getting familiar with its features, however, changes made to the WordPress installation will not persist unless you set up a volume with proper permissions to share container contents with the host machine. We'll see how to do that in the next example.
 
 The files for this demo are located in the `01-preview` directory. You can access this directory and open the `docker-compose.yaml` file in your editor of choice to follow along.
 
@@ -83,9 +83,9 @@ volumes:
 
 In this Docker Compose example, we define 3 services: `app`, `nginx`, and `mariadb`. Here's a breakdown of each service:
 
-- The `app` service uses the `latest-dev` variant of the Chainguard WordPress Image, and is configured to connect to the `mariadb` service. The entrypoint script in the WordPress image looks for environment variables to set up a custom `wp-config.php` file. The volume `document-root` defines a volume that will be shared between the `app` and the `nginx` services.
-- The `nginx` service uses the [Chainguard nginx Image](https://images.chainguard.dev/directory/image/nginx/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-wordpress), and is configured to serve the WordPress application on port 8000.
-- The `mariadb` service uses the [Chainguard MariaDB Image](https://images.chainguard.dev/directory/image/mariadb/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-wordpress), and is configured with the necessary environment variables to create a database for the WordPress application.
+- The `app` service uses the `latest-dev` variant of the Chainguard WordPress Container, and is configured to connect to the `mariadb` service. The entrypoint script in the WordPress container image looks for environment variables to set up a custom `wp-config.php` file. The volume `document-root` defines a volume that will be shared between the `app` and the `nginx` services.
+- The `nginx` service uses the [Chainguard nginx Container](https://images.chainguard.dev/directory/image/nginx/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-wordpress), and is configured to serve the WordPress application on port 8000.
+- The `mariadb` service uses the [Chainguard MariaDB Container](https://images.chainguard.dev/directory/image/mariadb/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-wordpress), and is configured with the necessary environment variables to create a database for the WordPress application.
 
 The environment variables used in this example are defined in a `.env` file located in the same directory as the `docker-compose.yaml` file. To check for its contents, run:
 
@@ -119,7 +119,7 @@ docker compose down
 This will remove the containers and networks created by the `docker compose up` command. In the next example, we'll demonstrate how you can set up a volume with proper permissions to be able to persist customizations such as themes and plugins.
 
 ## Example 2: Customizing a New WordPress Installation
-To persist customizations made to your WordPress site, such as the installation of new themes and plugins, you'll need to set up a volume with proper permissions in order to keep data between container rebuilds. This requires having a system user in the container with the same UID as your local system user on the host machine. To set this up, we'll create a custom Dockerfile that adds a `wordpress` user with the specified UID (set to `1000` by default, which is typically the UID of a regular user on Linux-based systems) to the `latest-dev` variant of the Chainguard WordPress Image. The Dockerfile also changes default permissions on the `/var/www/html` directory to allow the `wordpress` user to write to it.
+To persist customizations made to your WordPress site, such as the installation of new themes and plugins, you'll need to set up a volume with proper permissions in order to keep data between container rebuilds. This requires having a system user in the container with the same UID as your local system user on the host machine. To set this up, we'll create a custom Dockerfile that adds a `wordpress` user with the specified UID (set to `1000` by default, which is typically the UID of a regular user on Linux-based systems) to the `latest-dev` variant of the Chainguard WordPress Container. The Dockerfile also changes default permissions on the `/var/www/html` directory to allow the `wordpress` user to write to it.
 
 Navigate to the `02-customizing` directory to follow along. This is how the described Dockerfile included in this directory looks:
 
@@ -182,13 +182,13 @@ volumes:
 
 Only the `app` service has changed in this example. We've added a `build` section that references the custom Dockerfile, and we've set the `UID` build argument to `1000` by default. This can be overwritten at runtime when you call `docker compose up`. We've also added a volume share to persist the contents of the `wp-content` folder to the host machine.
 
-To build your custom image and pass along your own UID as build argument, run:
+To build your custom container image and pass along your own UID as build argument, run:
 
 ```shell
 docker compose build --build-arg UID=$(id -u) app
 ```
 
-You should get output indicating that the image was successfully built. Now you can get your environment up with:
+You should get output indicating that the container image was successfully built. Now you can get your environment up with:
 
 ```shell
 docker compose up
@@ -221,12 +221,12 @@ docker compose down
 
 In the next example, we'll see how you can create a distroless WordPress runtime for your production environment.
 
-## Example 3: Using the Distroless Variant of the WordPress Image
-This demo uses a multi-stage Docker build to create a final distroless image to improve overall security. The distroless image contains the necessary dependencies to run WordPress and won't allow for new package installations or shell access, reducing the image attack surface.
+## Example 3: Using the Distroless Variant of the WordPress Container Image
+This demo uses a multi-stage Docker build to create a final distroless container image to improve overall security. The distroless image contains the necessary dependencies to run WordPress and won't allow for new package installations or shell access, reducing the image attack surface.
 
-The main difference here is that we're calling the entrypoint script at **build time** instead of run time. This is done to ensure the image is self-contained and doesn't rely on volumes set up within the host machine in order to work. Any customizations should be included in the `wp-content` folder that will be copied to the image at build time. Although this increases final image size due to the inclusion of custom content at build time, it limits what can be changed or added to the image once it's built.
+The main difference here is that we're calling the entrypoint script at **build time** instead of run time. This is done to ensure the image is self-contained and doesn't rely on volumes set up within the host machine in order to work. Any customizations should be included in the `wp-content` folder that will be copied to the image at build time. Although this increases final image size due to the inclusion of custom content at build time, it limits what can be changed or added to the container image once it's built.
 
-This demo includes a theme ([Cue](https://wordpress.org/themes/cue/), a simple blogging theme) and a plugin ([Imsanity](https://wordpress.org/plugins/imsanity/), a popular plugin used to resize images) to demonstrate how to include custom content in the image.
+This demo includes a theme ([Cue](https://wordpress.org/themes/cue/), a simple blogging theme) and a plugin ([Imsanity](https://wordpress.org/plugins/imsanity/), a popular plugin used to resize images) to demonstrate how to include custom content in the container image.
 
 Navigate to the `03-distroless` directory to follow along. This is what the Dockerfile included in this directory looks like:
 
@@ -302,7 +302,7 @@ You can now build and run your environment with:
 docker compose up --build
 ```
 
-The behavior of this WordPress setup should be similar to the previous examples, but this time, the image is self-contained and doesn't rely on volumes set up within the host machine to work, in addition to not allowing new package installations or login through a shell. We also set up the `WORDPRESS_CONFIG_EXTRA` environment variable to disable the installation of new themes and plugins, and to block automatic updates. This increases security by blocking file changes in the container.
+The behavior of this WordPress setup should be similar to the previous examples, but this time, the container image is self-contained and doesn't rely on volumes set up within the host machine to work, in addition to not allowing new package installations or login through a shell. We also set up the `WORDPRESS_CONFIG_EXTRA` environment variable to disable the installation of new themes and plugins, and to block automatic updates. This increases security by blocking file changes in the container.
 
 To stop the services, type `CTRL+C` in the terminal where the services are running, and then run:
 

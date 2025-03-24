@@ -1,13 +1,13 @@
 ---
-title: "Getting Started with the Node Chainguard Image"
+title: "Getting Started with the Node Chainguard Container"
 type: "article"
 linktitle: "Node"
 aliases: 
 - /chainguard/chainguard-images/getting-started/getting-started-node
-description: "Tutorial on how to get started with the Node Chainguard Image"
+description: "Tutorial on how to get started with the Chainguard Node container image"
 date: 2023-02-01T11:07:52+02:00
-lastmod: 2025-02-21T11:07:52+02:00
-tags: ["Chainguard Images", "Products"]
+lastmod: 2025-03-24T11:07:52+02:00
+tags: ["Chainguard Containers", "Products"]
 draft: false
 images: []
 menu:
@@ -17,9 +17,9 @@ weight: 040
 toc: true
 ---
 
-The [Node Chainguard Image](https://images.chainguard.dev/directory/image/node/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-node) is a distroless container image that has the tooling necessary to build and execute Node applications, including  `npm`.
+The [Node Chainguard Container](https://images.chainguard.dev/directory/image/node/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-node) is a distroless container image that has the tooling necessary to build and execute Node applications, including  `npm`.
 
-In this guide, we'll set up a demo application and create a Dockerfile to build and execute the demo using the Node Chainguard Image as base.
+In this guide, we'll set up a demo application and create a Dockerfile to build and execute the demo using the Node Chainguard Containers as base.
 
 This tutorial requires Docker, Node, and Npm to be installed on your local machine.
 
@@ -128,7 +128,7 @@ nano Dockerfile
 ```
 The following Dockerfile will:
 
-1. Start a new image based on the `cgr.dev/chainguard/node:latest` image;
+1. Start a new image based on the `cgr.dev/chainguard/node:latest` container image;
 2. Set the work dir to `/app` inside the container;
 3. Copy application files from the current directory to the `/app` location in the container;
 4. Run `npm install` to install production-only dependencies;
@@ -150,13 +150,13 @@ CMD [ "server.js" ]
 ```
 Save the file when you're finished.
 
-You can now build the image with:
+You can now build the container with:
 
 ```shell
 docker build . --pull -t wolfi-node-server
 ```
 
-Once the build is finished, run the image with:
+Once the build is finished, run the container with:
 
 ```shell
 docker run --rm -it -p 8000:8000 wolfi-node-server

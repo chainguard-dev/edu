@@ -1,14 +1,14 @@
 ---
-title: "Getting Started with the PyTorch Chainguard ContainerImage"
+title: "Getting Started with the PyTorch Chainguard Container"
 type: "article"
 linktitle: "PyTorch"
 aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-pytorch-cuda12
 - /chainguard/chainguard-images/getting-started/getting-started-pytorch
-description: "Tutorial on the PyTorch Chainguard Image"
+description: "Tutorial on the Chainguard PyTorch container image"
 date: 2024-04-25T08:00:00+02:00
-lastmod: 2024-04-25T08:00:00+00:00
-tags: ["Chainguard Images", "Products", "AI"]
+lastmod: 2025-03-24T08:00:00+00:00
+tags: ["Chainguard Containers", "Products", "AI"]
 draft: false
 images: []
 menu:
@@ -18,7 +18,7 @@ weight: 060
 toc: true
 ---
 
-Chainguard offers a minimal, low-CVE image for deep learning with [PyTorch](https://pytorch.org/) that includes support for the [CUDA](https://developer.nvidia.com/about-cuda) parallel computing platform for performing computation on supported GPUs. This introductory guide to Chainguard's [pytorch](https://images.chainguard.dev/directory/image/pytorch/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-pytorch) image will walk you through fine-tuning an image classification model, saving the model, and running it securely for inference. We'll also compare the security and footprint of the PyTorch Chainguard Image to the official runtime image distributed by PyTorch and present ways to adapt the resources in this tutorial to your own deep learning projects powered by PyTorch.
+Chainguard offers a minimal, low-CVE container image for deep learning with [PyTorch](https://pytorch.org/) that includes support for the [CUDA](https://developer.nvidia.com/about-cuda) parallel computing platform for performing computation on supported GPUs. This introductory guide to Chainguard's [pytorch container image](https://images.chainguard.dev/directory/image/pytorch/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-pytorch) will walk you through fine-tuning an image classification model, saving the model, and running it securely for inference. We'll also compare the security and footprint of the PyTorch Chainguard Container to the official runtime container image distributed by PyTorch and present ways to adapt the resources in this tutorial to your own deep learning projects powered by PyTorch.
 
 {{< details "What is Deep Learning?" >}}
 {{< blurb/deep-learning >}}
@@ -36,7 +36,7 @@ Our first step is to check whether our PyTorch-CUDA environment has access to co
 
 If you don't already have Docker Engine installed, follow the [instructions for installing Docker Engine on your host machine](https://docs.docker.com/engine/install/).
 
-Run the below command to pull the image, run it with GPU access, and start a Python interpreter inside the running container.
+Run the below command to pull the container image, run it with GPU access, and start a Python interpreter inside the running container.
 
 ```bash
 docker run --rm -it \
@@ -44,7 +44,7 @@ docker run --rm -it \
  cgr.dev/chainguard/pytorch:latest
 ```
 
-Running the above for the first time may take a few minutes to pull the `pytorch` Chainguard Image, currently 3.3GB. Once the image runs, you will be interacting with a Python interpreter in the running container. Enter the following commands at the prompt to check the availability of your GPU.
+Running the above for the first time may take a few minutes to pull the `pytorch` Chainguard Container, currently 3.3GB. Once the image runs, you will be interacting with a Python interpreter in the running container. Enter the following commands at the prompt to check the availability of your GPU.
 
 ```
 Python 3.11.9 (main, Apr  2 2024, 15:40:32) [GCC 13.2.0] on linux
@@ -68,9 +68,9 @@ A common workflow in deep learning is to collect labeled data, train a model usi
 
 It is common for model training to be performed in a development environment, and for inference to be performed in a production environment. We will follow this assumption in this tutorial, but be mindful not to use privileged access or root users in production.
 
-In this tutorial, we'll fine-tune a pretrained model for an image classification task: classifying whether a provided image is an octopus 🐙, a whale 🐳, or a penguin 🐧. We've chosen these animals in appreciation of Wolfi / Chainguard Images, Docker, and Linux, respectively. Rather than train a model from scratch, a process that requires a large set of input data, we'll start with a ResNet model with 18 layers ([resnet18](https://pytorch.org/vision/main/models/generated/torchvision.models.resnet18.html)). Using a fine-tuning approach with a pretrained model with relatively few layers is appropriate when using a limited amount of input data. In our case, we'll be using 60 images for each class, further divided into 40 training and 20 validation images.
+In this tutorial, we'll fine-tune a pretrained model for an image classification task: classifying whether a provided image is an octopus 🐙, a whale 🐳, or a penguin 🐧. We've chosen these animals in appreciation of Wolfi and Chainguard, Docker, and Linux, respectively. Rather than train a model from scratch, a process that requires a large set of input data, we'll start with a ResNet model with 18 layers ([resnet18](https://pytorch.org/vision/main/models/generated/torchvision.models.resnet18.html)). Using a fine-tuning approach with a pretrained model with relatively few layers is appropriate when using a limited amount of input data. In our case, we'll be using 60 images for each class, further divided into 40 training and 20 validation images.
 
-For the training step, we'll be accessing the image as root. This allows us to save the model to a volume and preserve it on the host system. In our inference step, we'll access the container as the nonroot user, an approach that will be more secure for a production use case.
+For the training step, we'll be accessing the container image as root. This allows us to save the model to a volume and preserve it on the host system. In our inference step, we'll access the container as the nonroot user, an approach that will be more secure for a production use case.
 
 ## Fine-Tuning the Model
 
@@ -93,7 +93,7 @@ curl https://codeload.github.com/chainguard-dev/pytorch-getting-started/tar.gz/m
  "/home/nonroot/octopus-detector/image_classification.py"
 ```
 
-The above command creates a new folder, `image_classification`, and changes the working directory to that folder. It then uses `curl` to download the training script and training and validation images from GitHub as a tar file and extracts the files. A container based on the `pytorch` image is then created and the script and data are shared between host and container in a volume. The model is trained using the provided script and data, and the resulting model is saved to the volume.
+The above command creates a new folder, `image_classification`, and changes the working directory to that folder. It then uses `curl` to download the training script and training and validation images from GitHub as a tar file and extracts the files. A container based on the `pytorch` container image is then created and the script and data are shared between host and container in a volume. The model is trained using the provided script and data, and the resulting model is saved to the volume.
 
 Training should take 1-3 minutes in a GPU-equipped environment, and 20-30 minutes in a CPU-only environment. Once the command completes, you can check your current working directory for a trained model as a `.pt` file:
 
@@ -105,7 +105,7 @@ data       octopus_whale_penguin_model.pt
 
 ## Manual Steps to Fine-Tune the Model
 
-Below are manual steps to perform the above download and training procedure interactively. You may wish to follow these steps if you need to modify the above for your own use case, if you'd like to better understand the steps involved, or if you have difficulty running the above command in your environment. These steps use `git clone` rather than `curl`. Also note that this manual process uses the `:latest-dev` version of the image, since the `:latest` production image does not include shells such as bash for increased security.
+Below are manual steps to perform the above download and training procedure interactively. You may wish to follow these steps if you need to modify the above for your own use case, if you'd like to better understand the steps involved, or if you have difficulty running the above command in your environment. These steps use `git clone` rather than `curl`. Also note that this manual process uses the `:latest-dev` version of the container image, since the `:latest` container image does not include shells such as bash for increased security.
 
 In the below steps, the prompt of your host machine will be denoted as `(host) $`, while the prompt of the container machine will be denoted as `(container) $`
 
@@ -125,7 +125,7 @@ In the below steps, the prompt of your host machine will be denoted as `(host) $
     (host) $ cd pytorch-getting-started
     ```
 
-3. Run the below command to start an interactive session in a running `pytorch` Chainguard Image with root access. If your environment doesn't have access to GPU, remove the ` --gpus all \` line before running. Note the volume option, which creates a volume on the container based on the current working directory, allowing access to our training script and data inside the container. Remember that this guide assumes you are training the model in a controlled development environment—do not use root access in any production senario.
+3. Run the below command to start an interactive session in a running `pytorch` Chainguard Container with root access. If your environment doesn't have access to GPU, remove the ` --gpus all \` line before running. Note the volume option, which creates a volume on the container based on the current working directory, allowing access to our training script and data inside the container. Remember that this guide assumes you are training the model in a controlled development environment—do not use root access in any production senario.
 
     ```bash
     (host) $ docker run --user root --rm -it \

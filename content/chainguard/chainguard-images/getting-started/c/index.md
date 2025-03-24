@@ -1,14 +1,14 @@
 ---
-title: "Getting Started with the C/C++ Chainguard Images"
+title: "Getting Started with the C/C++ Chainguard Containers"
 type: "article"
 linktitle: "C/C++"
 aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-c
 - /chainguard/chainguard-images/getting-started/getting-started-c++
-description: "Tutorial on how to get started with the C/C++ Chainguard Images"
+description: "Tutorial on how to get started with the C/C++ Chainguard Containers"
 date: 2024-07-30T15:54:33+00:00
-lastmod: 2024-08-15T19:37:29+00:00
-tags: ["Chainguard Images", "Products"]
+lastmod: 2025-03-21T19:37:29+00:00
+tags: ["Chainguard Containers", "Products"]
 draft: false
 images: []
 menu:
@@ -18,9 +18,9 @@ weight: 002
 toc: true
 ---
 
-C and its derivative, C++, are two widely adopted compiled languages. Chainguard offers a variety of minimal, low-CVE container images built on the [Wolfi un-distro](/open-source/wolfi/overview/) which are suitable for deploying C-based compiled programs. In this guide, you will explore three ways you can use Chainguard Images to compile and run a C-based binary.
+C and its derivative, C++, are two widely adopted compiled languages. Chainguard offers a variety of minimal, low-CVE container images built on the [Wolfi un-distro](/open-source/wolfi/overview/) which are suitable for deploying C-based compiled programs. In this guide, you will explore three ways you can use Chainguard Containers to compile and run a C-based binary.
 
-The image with which you choose to run your compiled program depends on the nature of your binaries. Static binaries can be executed in the minimal `static` Chainguard Image, while dynamically linked binaries can be run in the `glibc-dynamic` Image. For this demonstration, you will first compile a C binary using the `gcc-glibc` Chainguard Image, and then learn how to use a multi-stage build to run the resulting binary in the `glibc-dynamic` image. You'll also cover an example showing the multi-stage build process for the C++ programming language. To learn more about the differences between these images, read our article on [Choosing an Image for your Compiled Programs](/chainguard/chainguard-images/about/images-compiled-programs/compiled-programs/).
+The container image with which you choose to run your compiled program depends on the nature of your binaries. Static binaries can be executed in the minimal `static` Chainguard Container, while dynamically linked binaries can be run in the `glibc-dynamic` Container. For this demonstration, you will first compile a C binary using the `gcc-glibc` Chainguard Container, and then learn how to use a multi-stage build to run the resulting binary in the `glibc-dynamic` image. You'll also cover an example showing the multi-stage build process for the C++ programming language. To learn more about the differences between these container images, read our article on [Choosing an Container for your Compiled Programs](/chainguard/chainguard-images/about/images-compiled-programs/compiled-programs/).
 
 {{< details "What is distroless?" >}}
 {{< blurb/distroless >}}
@@ -30,7 +30,7 @@ The image with which you choose to run your compiled program depends on the natu
 {{< blurb/wolfi >}}
 {{< /details >}}
 
-{{< details "Chainguard Images" >}}
+{{< details "Chainguard Containers" >}}
 {{< blurb/images >}}
 {{< /details >}}
 
@@ -42,9 +42,9 @@ The content in this article is also available as a video.
 
 ## Prerequisites
 
-To follow along with this guide, you will need to have [Docker Engine](https://docs.docker.com/engine/install/) and `gcc`, the [GNU Compiler Collection](https://gcc.gnu.org/), installed on your machine. You can find the code and Dockerfiles used in our [Images demos GitHub repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/c).
+To follow along with this guide, you will need to have [Docker Engine](https://docs.docker.com/engine/install/) and `gcc`, the [GNU Compiler Collection](https://gcc.gnu.org/), installed on your machine. You can find the code and Dockerfiles used in our [Containers demos GitHub repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/c).
 
-## Example 1 --- Minimal C Chainguard Image
+## Example 1 --- Minimal C Chainguard Container
 
 ### Step 1: Setting up a Demo Application
 
@@ -64,7 +64,7 @@ Inside of your `hello.c` file, add in the following C code which will execute a 
 
 ```C
 /* Chainguard Academy (edu.chainguard.dev)
-*  Getting Started with the C/C++ Chainguard Images
+*  Getting Started with the C/C++ Chainguard Containers
 *  Examples 1 & 2 - C
 */
 
@@ -102,20 +102,20 @@ I am a demo from the Chainguard Academy.
 My code was written in C.
 ```
 
-Now that you have successfully tested your example program locally, next, you will compile and run it from inside of an image.
+Now that you have successfully tested your example program locally, next, you will compile and run it from inside of a container image.
 
 ### Step 2: Creating the Dockerfile
 
 An advantage of choosing to run your code inside of containerized environments is portability. In the previous step, `gcc` compiled the binary to run on your machine. However, if you were to run this binary on a different operating system, it likely will fail to execute properly. Using a container ensures that your program will run on any machine as the containerized environment will be consistent across platforms.
 
-Let us begin by creating a Dockerfile called `Dockerfile1` for your image.
+Let us begin by creating a Dockerfile called `Dockerfile1` for your container image.
 
 ```sh
 nano Dockerfile1
 ```
 
 This Dockerfile will do the following:
-1. Use the `gcc-glibc:latest` Chainguard Image as the base image;
+1. Use the `gcc-glibc:latest` Chainguard Container as the base image;
 2. Create and set the current working directory to `/home/build`;
 3. Copy the `hello.c` program code to the current directory;
 4. Compile the program and name it `hello`;
@@ -143,13 +143,13 @@ ENTRYPOINT ["/usr/bin/hello"]
 
 Add this text to your Dockerfile, save, and close it.
 
-Next, use the Dockerfile you just created to build an image named `example1` by running the following command. The `-f` flag specifies the Dockerfile which you are using to build from, and the `-t` flag will tag your image with a meaningful name.
+Next, use the Dockerfile you just created to build a container image named `example1` by running the following command. The `-f` flag specifies the Dockerfile which you are using to build from, and the `-t` flag will tag your image with a meaningful name.
 
 ```sh
 docker build -f Dockerfile1 -t example1:latest .
 ```
 
-With your image built, you can now run it with the following command.
+With your container image built, you can now run it with the following command.
 
 ```sh
 docker run --name example1 example1:latest
@@ -180,11 +180,11 @@ nano Dockerfile2
 ```
 
 This time, the Dockerfile will do the following:
-1. Use the `gcc-glibc` Chainguard Image as the builder stage;
+1. Use the `gcc-glibc` Chainguard Container as the builder stage;
 2. Create and set the current working directory to `/home/build`;
 3. Copy your example `hello.c` program code to the current directory;
 4. Compile the program using `gcc` and name it `hello`;
-5. Begin a new stage using the `glibc-dynamic` Chainguard Image;
+5. Begin a new stage using the `glibc-dynamic` Chainguard Container;
 6. Copy the compiled binary to `/usr/bin` from the builder stage;
 7. Set the image to run as a non-root user; and,
 8. Execute your binary from the `glibc-dynamic` image when the container is started.
@@ -232,7 +232,7 @@ I am a demo from the Chainguard Academy.
 My code was written in C.
 ```
 
-Having your program execute from a smaller image with less packages reduces your potential attack surface, making it a more secure approach for production-facing builds.
+Having your program execute from a smaller container image with less packages reduces your potential attack surface, making it a more secure approach for production-facing builds.
 
 ## Example 3 --- Multi-Stage Build for C++ Applications
 
@@ -250,7 +250,7 @@ Add the following C++ code to the file you just created. This code will display 
 
 ```C++
 /* Chainguard Academy (edu.chainguard.dev)
-*  Getting Started with the C/C++ Chainguard Images
+*  Getting Started with the C/C++ Chainguard Containers
 *  Example 3 - C++
 */
 
@@ -289,7 +289,7 @@ I am a demo from the Chainguard Academy.
 My code was written in C++.
 ```
 
-Now that you have confirmed that your C++ program executes, you are ready to build it inside of an image.
+Now that you have confirmed that your C++ program executes, you are ready to build it inside of a container image.
 
 ### Step 2: Creating the Dockerfile
 
@@ -300,11 +300,11 @@ nano Dockerfile3
 ```
 
 This Dockerfile will do the following:
-1. Use the `gcc-glibc` Chainguard Image as the builder stage;
+1. Use the `gcc-glibc` Chainguard Container as the builder stage;
 2. Create and set the current working directory to `/home/build`;
 3. Copy your example `hello.cpp` program code to the current directory;
 4. Compile the program using `g++` and name it `hello`;
-5. Begin a new stage using the `glibc-dynamic` Chainguard Image;
+5. Begin a new stage using the `glibc-dynamic` Chainguard Container;
 6. Copy the compiled binary to `/usr/bin` from the builder stage;
 7. Set the image to run as a non-root user; and,
 8. Execute your binary from the `glibc-dynamic` image when the container is started.
@@ -332,7 +332,7 @@ ENTRYPOINT ["/usr/bin/hello"]
 
 When you are finished editing your Dockerfile, save and close it.
 
-With your new Dockerfile created, you can build the image. Execute the following command in your terminal to build your multi-stage C++ image.
+With your new Dockerfile created, you can build the container image. Execute the following command in your terminal to build your multi-stage C++ image.
 
 ```sh
 docker build -f Dockerfile3 -t example3:latest .
@@ -364,7 +364,7 @@ You can remove the containers you built by executing the following command.
 docker container rm example1 example2 example3
 ```
 
-Then, you can remove their associated image builds as well:
+Then, you can remove their associated container image builds as well:
 
 ```sh
 docker image rm example1:latest example2:latest example3:latest
