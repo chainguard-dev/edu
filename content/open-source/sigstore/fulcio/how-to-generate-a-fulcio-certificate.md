@@ -18,7 +18,7 @@ _An earlier version of this material was published in the [Fulcio chapter](https
 
 In this tutorial, we are going to create and examine a Fulcio certificate to demonstrate how Fulcio can work in practice. To follow along, you will need Cosign installed on your local system. If you haven't installed Cosign yet, you can follow the instructions described in [How to Install Cosign](/open-source/sigstore/cosign/how-to-install-cosign/), or you can follow one of the installation methods described in the [official documentation](https://docs.sigstore.dev/cosign/system_config/installation/).
 
-Pease note that using Cosign requires Go v1.16 or higher. The Go Project provides [official download instructions](https://go.dev/doc/install).
+Please note that using Cosign requires Go v1.16 or higher. The Go Project provides [official download instructions](https://go.dev/doc/install).
 
 To get started, place some text in a text file. For instance:
 
