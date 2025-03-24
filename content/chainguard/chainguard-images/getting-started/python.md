@@ -243,7 +243,7 @@ The following Dockerfile will:
 Copy this configuration to your own Dockerfile:
 
 ```Dockerfile
-FROM cgr.dev/chainguard/python:latest-dev as builder
+FROM cgr.dev/chainguard/python:latest-dev AS builder
 
 ENV LANG=C.UTF-8
 ENV PYTHONDONTWRITEBYTECODE=1
