@@ -125,7 +125,7 @@ In the below steps, the prompt of your host machine will be denoted as `(host) $
     (host) $ cd pytorch-getting-started
     ```
 
-3. Run the below command to start an interactive session in a running `pytorch` Chainguard Image with root access. If your environment doesn't have access to GPU, remove the ` --gpus all \` line before running. Note the volume option, which creates a volume on the container based on the current working directory, allowing access to our training script and data inside the container. Remember that this guide assumes you are training the model in a controlled development environment—do not use root access in any production senario.
+3. Run the below command to start an interactive session in a running `pytorch` Chainguard Image with root access. If your environment doesn't have access to GPU, remove the ` --gpus all \` line before running. Note the volume option, which creates a volume on the container based on the current working directory, allowing access to our training script and data inside the container. Remember that this guide assumes you are training the model in a controlled development environment—do not use root access in any production scenario.
 
     ```bash
     (host) $ docker run --user root --rm -it \

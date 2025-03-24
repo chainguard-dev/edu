@@ -45,7 +45,7 @@ The primary way of knowing when a new image is available is through the registry
 
 If you're trying to find out how outdated the images in your Kubernetes cluster are, you might find the [version-checker](https://github.com/jetstack/version-checker) project to be useful. This is a Kubernetes utility that will create an inventory of your current images and produce a chart showing how out of date they are. The dashboard can form part of a full solution with notifications for outdated software being sent to cluster administrators for mitigation.
 
-<center><img src="stay_secure_1.png" alt="Image of table titled Cluster Image Version Checks. This table is a grafana dashboard with four colums: Image, Current Vresion, Latest Version, and Is Latest." style="width:950px;"></center>
+<center><img src="stay_secure_1.png" alt="Image of table titled Cluster Image Version Checks. This table is a grafana dashboard with four columns: Image, Current Version, Latest Version, and Is Latest." style="width:950px;"></center>
 <br />
 
 

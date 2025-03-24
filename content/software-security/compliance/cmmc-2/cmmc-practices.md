@@ -1,7 +1,7 @@
 ---
 title: "Overview of CMMC 2.0 Practices/Control Groups"
-description: "Learn about the 14 differenct domains of practices required for CMMC 2.0"
-lead: "Learn about the 14 differenct domains of practices required for CMMC 2.0"
+description: "Learn about the 14 different domains of practices required for CMMC 2.0"
+lead: "Learn about the 14 different domains of practices required for CMMC 2.0"
 type: "article"
 date: 2024-08-09T19:10:09+00:00
 lastmod: 2024-08-15T19:10:09+00:00

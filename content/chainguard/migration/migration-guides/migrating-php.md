@@ -242,7 +242,7 @@ docker run -p 8000:8000 --rm -it -v ${PWD}:/work \
     cgr.dev/chainguard/php:latest-dev \
     -S 0.0.0.0:8000 -t /work
 ```
-The preview should be live at `locahost:8000`.
+The preview should be live at `localhost:8000`.
 
 ### Developing Laravel Applications
 
@@ -277,7 +277,7 @@ docker run -p 8000:8000 --rm -it -v ${PWD}:/app --entrypoint /app/artisan --user
     cgr.dev/chainguard/laravel:latest-dev \
     serve --host=0.0.0.0
 ```
-The preview should be live at `locahost:8000`.
+The preview should be live at `localhost:8000`.
 
 ## Additional Resources
 

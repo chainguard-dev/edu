@@ -119,7 +119,7 @@ To help in situations like this, Chainguard offers an end-of-life grace period f
 
 During this time, Chainguard will address vulnerabilities and update any non-EOL packages within the image (other than the image's primary package). Chainguard will continue to rebuild the image a maximum of six months after the primary package enters its EOL phase or until the build fails.
 
-<center><img src="eol-gp-1.png" alt="Diagram representing the lifecycle of an example successful build under the EOL Grace Period. A Ruby image whose primary package has reached EOL goes through an automated remediation and rebuild process, resulting in a successful build. Following that, the package dependnecies have been successfully updated, although the image still contains the EOL verison of Ruby. Because the build was successful, the EOL grace period continues." style="width:1050px;"></center>
+<center><img src="eol-gp-1.png" alt="Diagram representing the lifecycle of an example successful build under the EOL Grace Period. A Ruby image whose primary package has reached EOL goes through an automated remediation and rebuild process, resulting in a successful build. Following that, the package dependnecies have been successfully updated, although the image still contains the EOL version of Ruby. Because the build was successful, the EOL grace period continues." style="width:1050px;"></center>
 <br />
 
 > **Note**: Chainguard is **not** able to offer any exceptions to the 6 month limit for the EOL grace period.
