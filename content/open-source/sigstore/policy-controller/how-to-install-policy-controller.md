@@ -57,7 +57,7 @@ You should receive output like this:
 "sigstore" has been added to your repositories
 ```
 
-Next, update your local Helm repository information using the `helm repo update` comand:
+Next, update your local Helm repository information using the `helm repo update` command:
 
 ```bash
 helm repo update

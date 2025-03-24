@@ -269,7 +269,7 @@ To retrieve a list of all the available roles — including any custom roles —
 chainctl iam roles list
 ```
 
-You can also edit the pipeline itself to change its behavior. For example, instead of inspecting the image repos the identity has access to, you could have the workflow inspect the organization like in the following exmaple.
+You can also edit the pipeline itself to change its behavior. For example, instead of inspecting the image repos the identity has access to, you could have the workflow inspect the organization like in the following example.
 
 ```
 chainctl iam orgs ls

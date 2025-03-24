@@ -23,7 +23,7 @@ Chainguard Images and Debian base images have different binaries and scripts inc
 
 The following table lists common tools and their corresponding package(s) in both Wolfi and Debian distributions.
 
-Note that `$PATH` locations like `/usr/bin` or `/sbin` are not included here. If you have compatibiltiy issues with tools that are included in both `busybox` and `coreutils`, be sure to check `$PATH` order and confirm which version of a tool is being run.
+Note that `$PATH` locations like `/usr/bin` or `/sbin` are not included here. If you have compatibility issues with tools that are included in both `busybox` and `coreutils`, be sure to check `$PATH` order and confirm which version of a tool is being run.
 
 Generally, if a tool exists in `busybox` but does not have a `coreutils` counterpart, there will be a specific package that includes it. For example the `zcat` utility is included in the `gzip` package in both Wolfi and Debian.
 

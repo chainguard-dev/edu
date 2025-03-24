@@ -18,7 +18,7 @@ toc: true
 
 PCI DSS 4.0, or Payment Card Industry Data Security Standard, is a global standard in the payments industry that includes a set of foundational technical and operational requirements surrounding the protection of payment data. Its goal is to ensure the security of information involved when payment cards are used and while those payments are processed. PCI DSS 4.0 replaces the earlier PCI DSS 3.2.1, which was retired in March 2024.
 
-Cashless transactions have become the norm around the world. This is a convenient way for buyers and sellers to transact business. It has also attracted the attention of criminals looking for easy money. Payment account information, and especially payment card and card-owner data, are especially targeted. All payment system stakeholders have a responsibility to secure this information. PCI DSS helps to alleviate vulnerabilites and protect payment account data.
+Cashless transactions have become the norm around the world. This is a convenient way for buyers and sellers to transact business. It has also attracted the attention of criminals looking for easy money. Payment account information, and especially payment card and card-owner data, are especially targeted. All payment system stakeholders have a responsibility to secure this information. PCI DSS helps to alleviate vulnerabilities and protect payment account data.
 
 This guide will provide a comprehensive overview of PCI DSS 4.0, detailing its practices, the importance of compliance, and practical guidance on meeting its requirements. At the end of this guide, you will learn how Chainguard Images can be used to significantly reduce the toil and time needed to achieve PCI DSS 4.0 compliance.
 

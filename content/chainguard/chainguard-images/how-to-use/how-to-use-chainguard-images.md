@@ -180,7 +180,7 @@ SHELL ["/bin/sh", "-c"]
 CMD curl -s https://api.adviceslip.com/advice --http1.1 | jq .slip.advice
 ```
 
-The `SHELL` command supresses a warning about the `CMD` line using shell syntax, which isn't a
+The `SHELL` command suppresses a warning about the `CMD` line using shell syntax, which isn't a
 problem in this example. In other cases, you may want to use the [exec
 form](https://docs.docker.com/reference/dockerfile/#shell-and-exec-form).
 

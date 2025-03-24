@@ -206,7 +206,7 @@ You're now ready to edit a Bitbucket pipeline in order to test out this identity
 
 To test the identity you created with Terraform in the previous section, ensure you have Pipelines enabled for your repository and then create a `bitbucket-pipelines.yml` file in the root of your repository. Note that if you already have a pipeline with steps defined then you only need to add the `oidc: true` field to your pipeline to enable OIDC for the step in question.
 
-Copy the following pipeline defintion into your `bitbucket-pipelines.yml` file and commit it to the repository.
+Copy the following pipeline definition into your `bitbucket-pipelines.yml` file and commit it to the repository.
 
 ```
 image: atlassian/default-image:3

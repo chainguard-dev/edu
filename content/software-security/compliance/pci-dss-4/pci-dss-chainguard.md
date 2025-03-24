@@ -33,7 +33,7 @@ STIG-hardened FIPS images are pre-configured container images that have been sec
 
 ## How do Chainguard Images Help?
 
-One of the main requirements of PCI DSS is to maintain a vulnerability management program. PCI DSS requires you to scan for vulnerabilites once every three months (Requirement 11.3.1) and triage and address all vulnerabilities (Requirement 11.3.11). Chainguard protects you from malicious attacks by supplying you with images where CVEs have already been dealt with, removing vulnerabilities for you.
+One of the main requirements of PCI DSS is to maintain a vulnerability management program. PCI DSS requires you to scan for vulnerabilities once every three months (Requirement 11.3.1) and triage and address all vulnerabilities (Requirement 11.3.11). Chainguard protects you from malicious attacks by supplying you with images where CVEs have already been dealt with, removing vulnerabilities for you.
 
 PCI DCC requires that you catalog and classify vulnerabilities bespoke and third-party software (Requirements 6.3.1 and 6.3.2). You must fix all critical and high vulnerabilities and have a plan of action for the rest (Requirement 11.4.4). Chainguard does that for you.
 

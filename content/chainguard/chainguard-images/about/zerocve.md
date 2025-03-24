@@ -25,7 +25,7 @@ toc: true
 ## Tools and resources used in this video
 
 * [Grype](https://github.com/anchore/grype)
-* [Wolfi Secuirty Advisories](https://github.com/wolfi-dev/advisories)
+* [Wolfi Security Advisories](https://github.com/wolfi-dev/advisories)
 
 {{< blurb/free-tier-message >}}
 

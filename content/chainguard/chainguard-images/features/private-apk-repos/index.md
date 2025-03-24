@@ -96,7 +96,7 @@ From the interactive container's shell, add the repository address to your list 
 echo https://apk.cgr.dev/$ORGANIZATION > /etc/apk/repositories
 ```
 
-Note that this command uses `>` to overwrite the contents of the `/etc/apk/repositories` file. You could instead append the private APK repository's address with `>>`, but here we overwite the file to ensure that we're only installing packages from the private repo.
+Note that this command uses `>` to overwrite the contents of the `/etc/apk/repositories` file. You could instead append the private APK repository's address with `>>`, but here we overwrite the file to ensure that we're only installing packages from the private repo.
 
 Then update the apk cache to include the newly-added private repository:
 

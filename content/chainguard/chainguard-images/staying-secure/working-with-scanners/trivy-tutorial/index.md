@@ -189,7 +189,7 @@ trivy image python:3.10.14-alpine3.20
 
 You will receive output similar to the following:
 
-![Screenshot of Trivy output showing first informational messages on which scanners are inabled, then the name of the image, then a listing of issues by severity, and finally a table formatted with ASCII seperators (pipes and underscores) showing itemized issues](trivy_output.png)
+![Screenshot of Trivy output showing first informational messages on which scanners are enabled, then the name of the image, then a listing of issues by severity, and finally a table formatted with ASCII separator (pipes and underscores) showing itemized issues](trivy_output.png)
 
 ### Interpreting Trivy Output
 

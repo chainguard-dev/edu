@@ -56,7 +56,7 @@ Chainguard performs the following checks on new Images to ensure that the applic
 
 In addition to the Image build requirements outlined previously, Chainguard also performs a number of automatic checks for new Images as part of our CI/CD process. 
 
-Depending on the Image, Chainguard peforms various representative tests, such as functional and integration tests. For example, for applications primarily deployed with a Helm chart, the Image is deployed to an ephemeral Kubernetes cluster using the accepted Helm chart, which is validated in various ways.
+Depending on the Image, Chainguard performs various representative tests, such as functional and integration tests. For example, for applications primarily deployed with a Helm chart, the Image is deployed to an ephemeral Kubernetes cluster using the accepted Helm chart, which is validated in various ways.
 
 When applicable, Chainguard will develop functional tests for Images. These tests vary by application, but can generally be thought of as integration tests that run after an Image is built but before it gets tagged.
 

@@ -27,7 +27,7 @@ This article explores the structure of *container images*, the foundational unit
 
 In order to build a container for your application, you will need to start with a *container image*. A container image is a static, immutable filesystem bundle that serves as a blueprint you can use to build containers. Inside every container image is a curated collection of the files, dependencies and code needed to run an application. At runtime, when a container is built from an image, the resultant container inherits all characteristics of the container image it is instantiated from.
 
-![A container built from an image inherits all characterisitcs of the image it is built from.](image_to_container.png)
+![A container built from an image inherits all characteristics of the image it is built from.](image_to_container.png)
 
 To start creating a container image, you must first select a *base image*. A base image is a foundational image that can be built upon through the addition of image *layers*. Typically, base images come pre-bundled with a specific Linux distribution. Every distribution differs in its size, dependencies, and functionality, making certain distributions better suited for certain images over others.
 
