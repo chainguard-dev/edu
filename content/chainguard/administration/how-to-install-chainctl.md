@@ -124,10 +124,11 @@ If you received output that you did not expect, check your bash profile to make 
 You can verify the integrity of your `chainctl` binary using Cosign. Ensure that you have the latest version of Cosign installed by following our [How to Install Cosign guide](/open-source/sigstore/cosign/how-to-install-cosign/). Verify your `chainctl` binary with the following command:
 
 ```sh
+VERSION=$(chainctl version 2>&1 | awk '/GitVersion/ {print $2}' | sed 's/^v//')
 cosign verify-blob \
-   --signature "https://dl.enforce.dev/chainctl/$(chainctl version 2>&1 |awk '/GitVersion/ {print $2}')/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m).sig" \
-   --certificate "https://dl.enforce.dev/chainctl/$(chainctl version 2>&1 |awk '/GitVersion/ {print $2}')/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m).cert.pem" \
-   --certificate-identity "https://github.com/chainguard-dev/mono/.github/workflows/.release-drop.yaml@refs/tags/v$(chainctl version 2>&1 |awk '/GitVersion/ {print $2}')" \
+   --signature "https://dl.enforce.dev/chainctl/${VERSION}/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m).sig" \
+   --certificate "https://dl.enforce.dev/chainctl/${VERSION}/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m).cert.pem" \
+   --certificate-identity "https://github.com/chainguard-dev/mono/.github/workflows/.release-drop.yaml@refs/tags/v${VERSION}" \
    --certificate-oidc-issuer https://token.actions.githubusercontent.com \
    $(which chainctl)
 ```
