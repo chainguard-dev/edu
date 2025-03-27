@@ -19,15 +19,15 @@ toc: true
 
 Minecraft is an open-world game where players can build, explore, and adventure in a procedurally generated world. First released in 2011, it is the [best-selling video game of all times](https://en.wikipedia.org/wiki/List_of_best-selling_video_games), with a massive active userbase of 170 million monthly players as of 2024\.
 
-Although single player mode is common, many players prefer to play together in multiplayer mode, where they can join forces to tackle more complex projects. This typically requires setting up a remote server with the Minecraft server software, which runs on top of a Java runtime environment (JRE).
+Although single player mode is common, many players prefer to play together in multiplayer mode where they can join forces to tackle more complex projects. This typically requires setting up a remote server with the Minecraft server software, which runs on top of a Java runtime environment (JRE).
 
 In this guide, we’ll set up a Minecraft Java server using [Chainguard’s JRE image](https://www.google.com/url?q=https://images.chainguard.dev/directory/image/jre/overview&sa=D&source=docs&ust=1743006600467730&usg=AOvVaw3AB57sQAuyDQsE7PS-Q9LF) for a low-to-zero CVE runtime environment. We’ll start with a basic setup that we’ll improve as we go through the guide. This guide will also explore a few different strategies to secure your containerized Minecraft server setup.
 
 ## Prerequisites
 
-To follow along, you will need [Docker](https://docs.docker.com/get-started/get-docker/) installed on the system where you want to run your Minecraft server. This can be a machine from your local network, or a remote server.
+To follow along, you will need [Docker](https://docs.docker.com/get-started/get-docker/) installed on the system where you want to run your Minecraft server. This can be a machine from your local network or a remote server.
 
-The Minecraft server software does not require a paid license or subscription, so you can download it for free. To test the server, however, you’ll need a copy of [Minecraft Java edition](https://www.minecraft.net/en-us/store/minecraft-java-bedrock-edition-pc?tabs=%7B%22details%22%3A0%7D), which is compatible with macOS, Linux, and Windows systems. Please notice there are two versions of Minecraft: Java and Bedrock. In this tutorial we’ll be focusing on the Java version, which runs on all operating systems but doesn’t run on consoles.
+The Minecraft server software does not require a paid license or subscription, so you can download it for free. To test the server, however, you’ll need a copy of [Minecraft Java edition](https://www.minecraft.net/en-us/store/minecraft-java-bedrock-edition-pc?tabs=%7B%22details%22%3A0%7D), which is compatible with macOS, Linux, and Windows systems. Please note there are two versions of Minecraft: Java and Bedrock. In this tutorial we’ll be focusing on the Java version, which runs on all operating systems but doesn’t run on consoles.
 
 Create a new folder in your home directory where you’ll be working on your Minecraft server project:
 
@@ -42,7 +42,7 @@ Unless otherwise specified, all commands from this guide should be executed from
 
 We’ll start with a basic setup that we’ll improve in the next steps. Our first task is to set up a basic Dockerfile that is able to run the Minecraft Java server with default options, using `cgr.dev/chainguard/jre:latest-dev` as base image. This Dockerfile will:
 
-1. install system dependencies as needed (`curl`, `libudev`)
+1. Install system dependencies as needed (`curl`, `libudev`)
 2. add a regular system user named `minecraft`
 3. set up the `WORKDIR` to `/usr/share/minecrat`
 4. download the Minecraft Java server file
@@ -50,7 +50,7 @@ We’ll start with a basic setup that we’ll improve in the next steps. Our fir
 6. set up the `eula.txt` file using `sed`
 7. configure the workdir permissions
 8. change to the `minecraft` user
-9. run the server.
+9. run the server
 
 Run the following command to create a `Dockerfile` containing all the steps previously described.
 
@@ -125,7 +125,7 @@ You can now run the server with:
 docker compose up
 ```
 
-You’ll get output with details of the server setup, such as the server version (1.21.5), game mode (survival), and port (25565). By default, this will spin up a new Minecraft world in survival mode with difficulty set to “normal”, and a random world seed, which means the world’s spawn area (where players first start when joining a new game) will be set by random.
+You’ll get output with details of the server setup, such as the server version (1.21.5), game mode (`survival`), and port (`25565`). By default, this will spin up a new Minecraft world in survival mode with difficulty set to “normal”, and a random world seed, which means the world’s spawn area (where players first start when joining a new game) will be set by random.
 
 ```
 [+] Running 2/2
@@ -155,13 +155,13 @@ minecraft-java-1  | [13:58:10] [Server thread/INFO]: Done (4.333s)! For help, ty
 
 ```
 
-Now, from a Java Minecraft client running on the same local network as your server, access the “Multiplayer” menu and add a new server using your server’s local IP address and port `25565`. If you are running the client on the same machine as the server, you can use `localhost` or `127.0.0.1` as server address:
+Now, from a Java Minecraft client running on the same local network as your server, access the **Multiplayer** menu and add a new server using your server’s local IP address and port `25565`. If you are running the client on the same machine as the server, you can use `localhost` or `127.0.0.1` as server address:
 
 ![Minecraft Java client - setting up a new server](server-setup.png)
 
 **Tip:** On Linux systems, you can use the following command to obtain your local IP address: `ip -o route get to 8.8.8.8 | sed -n 's/.*src \([0-9.]\+\).*/\1/p'`
 
-Click “done” and select the new server from the list to connect. Your Docker Compose logs should indicate that a user has joined the game:
+Click **Done** and select the new server from the list to connect. Your Docker Compose logs should indicate that a user has joined the game:
 
 ```
 minecraft-java-1  | [18:20:29] [User Authenticator #1/INFO]: UUID of player boredcatmom is xxxx-xxxx-xxxx-xxxx-xxxx
@@ -177,7 +177,7 @@ When you’re ready to continue, hit `CTRL+C` to stop the server. In the next st
 
 You now have a server that runs with default options, but we need to be able to customize some settings. Minecraft servers use a [configuration file](https://minecraft.wiki/w/Server.properties) called `server.properties`, located in the root of the server directory (where you unpacked the original `.jar` file). In our setup, this file lives in the `/usr/share/minecraft` folder.
 
-The simplest way to customize the server is by replacing the default `server.properties` file with one of your own, at build time. The downside of this method is that whenever you change a setting, you’ll need to rebuild the image.
+One way to customize the server is by replacing the default `server.properties` file with one of your own at build time. The downside of this method is that whenever you change a setting, you’ll need to rebuild the image.
 
 Another method is to use environment variables at runtime to replace values in the configuration file using `sed`. This is more complex as it requires an entrypoint bash script in order to work, but it allows you to make changes to your configuration without rebuilding the image.
 
@@ -186,7 +186,7 @@ We have implemented this method in the [GuardCraft demo](https://github.com/chai
 1. look for any environment variables that start with the `MC_` prefix
 2. clear up the variable name in order to infer the configuration key in the `server.properties` file
 3. obtain the value of the environment variable and use `sed` to replace original values with new values
-4. finally, run the entrypoint command that should be passed as argument to the script (`$0`).
+4. finally, run the entrypoint command that should be passed as argument to the script (`$0`)
 
 For your reference, this is the script we’ll download from the GuardCraft demo repository:
 
@@ -217,11 +217,11 @@ exec "$@"
 
 Now run the following command to download the script to your project folder:
 
-```
+```shell
 curl -O https://raw.githubusercontent.com/chainguard-dev/guardcraft-server/refs/heads/main/build-config.sh
 ```
 
-You’ll now edit your `Dockerfile` to copy the script to the image and replace the image’s entrypoint command. The script will run before the actual Java command that starts the server. Using a text editor of your choice, edit your `Dockerfile` so that it looks like this:
+You’ll now edit your `Dockerfile` to copy the script to the image and replace the image’s entrypoint command. The script will run before the actual Java command that starts the server. Using a text editor of your choice, edit your `Dockerfile` so that it contains the following content:
 
 ```Dockerfile
 FROM cgr.dev/chainguard/jre:latest-dev
@@ -241,7 +241,7 @@ USER minecraft
 ENTRYPOINT ["/usr/share/minecraft/build-config.sh", "java", "-jar" , "/usr/share/minecraft/server.jar", "nogui"]
 ```
 
-We added a `COPY` statement to copy the new bash script we just created to the container’s `WORKDIR`, and we changed the image’s entrypoint to use the script as a proxy to the Java command. This is a common Docker strategy for leveraging environment variables to configure containers at runtime.
+This adds a `COPY` statement to copy the new bash script we just created to the container’s `WORKDIR`, and changes the image’s entrypoint to use the script as a proxy to the Java command. This is a common Docker strategy for leveraging environment variables to configure containers at runtime.
 
 You’ll now edit your `docker-compose.yaml` file to include the environment variables that will customize your Minecraft server. You can refer to the [official docs](https://minecraft.wiki/w/Server.properties) for all available options.
 
@@ -274,7 +274,7 @@ Before rebuilding your image, run the following command to remove the containers
 docker compose down
 ```
 
-Now, run the following command to rebuild the image and start a new environment with Docker Compose:
+Next, run the following command to rebuild the image and start a new environment with Docker Compose:
 
 ```shell
 docker compose up --build
@@ -351,16 +351,16 @@ sed -i 's/false/true/' eula.txt
 
 Run the following command to download the script:
 
-```
+```shell
 curl -O https://raw.githubusercontent.com/chainguard-dev/guardcraft-server/refs/heads/main/server-install.sh
 ```
 
-We’ll now update the Dockerfile to use this script. You’ll need to make three changes:
+Next, update the Dockerfile to use this script. You’ll need to make three changes:
 
 * add an `ARG` to define the version of the server, using “latest” as default value
 * include `jq` in the list of apks to install
 * copy the `server-install.sh` file to the container and make it executable
-* replace the installation section with a call to the `server-install.sh` script, passing `$VERSION` as argument.
+* replace the installation section with a call to the `server-install.sh` script, passing `$VERSION` as argument
 
 Open the `Dockerfile` with an editor of your choice and replace its content with this updated version:
 
@@ -384,13 +384,13 @@ ENTRYPOINT ["/usr/share/minecraft/build-config.sh", "java", "-jar" , "/usr/share
 
 With the argument in place, you can now choose at build time which version of the server you want to install. This is useful if you want to stick to a specific version due to compatibility with your Minecraft client.
 
-Now it’s time to test your upgraded setup. Stop any running containers and bring the environment down with:
+Now it’s time to test your upgraded setup. Stop any running containers and bring the environment down with the following command:
 
 ```shell
 docker compose down
 ```
 
-Then, rebuild and run the environment with:
+Then, execute the following to rebuild and run the environment:
 
 ```shell
 docker compose up --build
@@ -490,13 +490,13 @@ volumes:
 
 The `external: true` option tells Docker Compose that this volume is managed outside of the Compose lifecycle.
 
-You can now bring your environment up for the changes to take effect. You don’t need to rebuild the image, since there are no changes to the Dockerfile. Run:
+You can now run the following command to bring your environment up and put the changes into effect. You don’t need to rebuild the image, since there are no changes to the Dockerfile:
 
 ```shell
 docker compose up
 ```
 
-This will start a new environment that uses the `guardcraft-world` volume to persist world data. If you check the volume mount now, it should be populated with the new world data:
+This will start a new environment that uses the `guardcraft-world` volume to persist world data. If you check the volume mount now, it will be populated with the new world data:
 
 ```shell
 sudo ls /var/lib/docker/volumes/guardcraft-world/_data/GuardCraft
@@ -516,7 +516,9 @@ You now have a flexible containerized setup for your Minecraft server, using a l
 
 It is important to always keep your image always up to date with the most recent version of system dependencies and the Minecraft server software. Outdated images accumulate vulnerabilities over time, becoming a target for exploitation by malicious actors. The [Image Update Considerations](https://edu.chainguard.dev/chainguard/chainguard-images/staying-secure/updating-images/considerations-for-image-updates/) article on Chainguard Academy has more guidance on what you should take into account when deciding on an update strategy.
 
-If you followed all steps in this guide so far, you should have set up an installation script that automatically downloads the latest version available for the server software. However, this happens at build time, which means you’ll need to rebuild the container in order to update. A good strategy is to set up a repository with your server setup and use a GitHub Action (or CI equivalent) to build and publish your image to a container registry. The [GitHub documentation](https://docs.github.com/en/actions/use-cases-and-examples/publishing-packages/publishing-docker-images) has more details on how to implement this action, and you can also check the [GuardCraft repository](https://github.com/chainguard-dev/guardcraft-server/blob/main/.github/workflows/docker-publish.yml) for an example.
+If you followed all steps in this guide so far, you should have set up an installation script that automatically downloads the latest version available for the server software. However, this happens at build time, which means you’ll need to rebuild the container in order to update.
+
+A good strategy is to set up a repository with your server setup and use a GitHub Action (or CI equivalent) to build and publish your image to a container registry. The [GitHub documentation](https://docs.github.com/en/actions/use-cases-and-examples/publishing-packages/publishing-docker-images) has more details on how to implement this action, and you can also check the [GuardCraft repository](https://github.com/chainguard-dev/guardcraft-server/blob/main/.github/workflows/docker-publish.yml) for an example.
 
 ### Pin to a digest and set up Digestabot
 
@@ -545,7 +547,7 @@ Minecraft servers have an access list feature that allows you to specify who can
 
 ### Use online mode
 
-It is not mandatory to have your server connecting to Mojang online services, however, keeping your server online guarantees that only users with genuine Minecraft accounts can connect. You’ll also have the ability to identify users by their real usernames when they join the game.
+It is not mandatory to have your server connecting to Mojang online services. However, keeping your server online guarantees that only users with genuine Minecraft accounts can connect. You’ll also have the ability to identify users by their real usernames when they join the game.
 
 The [online-mode](https://minecraft.wiki/w/Server.properties#online-mode) property is set to `true` by default, so you don’t need to do anything — just keep it that way. Only change this to `false` for local network games, otherwise you’ll risk your server being raided by users with fake accounts. Servers in offline mode are referred to as “cracked servers” since it allows players with unlicensed copies of Minecraft to join.
 
