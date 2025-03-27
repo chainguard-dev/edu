@@ -43,14 +43,14 @@ Unless otherwise specified, all commands from this guide should be executed from
 We’ll start with a basic setup that we’ll improve in the next steps. Our first task is to set up a basic Dockerfile that is able to run the Minecraft Java server with default options, using `cgr.dev/chainguard/jre:latest-dev` as base image. This Dockerfile will:
 
 1. Install system dependencies as needed (`curl`, `libudev`)
-2. add a regular system user named `minecraft`
-3. set up the `WORKDIR` to `/usr/share/minecrat`
-4. download the Minecraft Java server file
-5. unpack the `server.jar` file
-6. set up the `eula.txt` file using `sed`
-7. configure the workdir permissions
-8. change to the `minecraft` user
-9. run the server
+2. Add a regular system user named `minecraft`
+3. Set up the `WORKDIR` to `/usr/share/minecrat`
+4. Download the Minecraft Java server file
+5. Unpack the `server.jar` file
+6. Set up the `eula.txt` file using `sed`
+7. Configure the workdir permissions
+8. Change to the `minecraft` user
+9. Run the server
 
 Run the following command to create a `Dockerfile` containing all the steps previously described.
 
@@ -183,10 +183,10 @@ Another method is to use environment variables at runtime to replace values in t
 
 We have implemented this method in the [GuardCraft demo](https://github.com/chainguard-dev/guardcraft-server/blob/main/build-config.sh), so we’ll reuse the same script here. This bash script will:
 
-1. look for any environment variables that start with the `MC_` prefix
-2. clear up the variable name in order to infer the configuration key in the `server.properties` file
-3. obtain the value of the environment variable and use `sed` to replace original values with new values
-4. finally, run the entrypoint command that should be passed as argument to the script (`$0`)
+1. Look for any environment variables that start with the `MC_` prefix
+2. Clear up the variable name in order to infer the configuration key in the `server.properties` file
+3. Obtain the value of the environment variable and use `sed` to replace original values with new values
+4. Finally, run the entrypoint command that should be passed as argument to the script (`$0`)
 
 For your reference, this is the script we’ll download from the GuardCraft demo repository:
 
@@ -299,8 +299,7 @@ If you join the server now, you should spawn close to a nice village.
 ![Minecraft Java client - spawning near a village](spawn-point.png)
 
 ## 3 – Setting Up Automatic Updates
-
-Your server is now fully customizable through environment variables, but there’s still one thing missing: updates. The Minecraft server download is statically defined in the Dockerfile, so it will go stale pretty quickly. We need a programmatic way to fetch the latest version of the server so that we don’t need to update the Dockerfile each time a new version of the server is out.
+Your server is now fully customizable through environment variables, but we're still something important: updates. The Minecraft server download is statically defined in the Dockerfile, so it will go stale pretty quickly. We need a programmatic way to fetch the latest version of the server so that we don’t need to update the Dockerfile each time a new version of the server is out.
 
 Mojang (the company that makes Minecraft) has [a few API endpoints](https://gaming.stackexchange.com/a/123443/386461) that can be used to fetch available versions and their respective download artifacts. In the GuardCraft demo, we have implemented [a bash script](https://github.com/chainguard-dev/guardcraft-server/blob/main/server-install.sh) that fetches the latest version of the server .jar file, verifies its SHA-1 signature, and only then unpacks the file. We’ll implement the same script here.
 
@@ -417,7 +416,7 @@ If you want to specify the version of the Minecraft server, you can pass the `VE
 docker build --build-arg VERSION=1.21.4 . -t guardcraft-java
 ```
 
-You now have a containerized setup that automatically downloads the latest version of the Minecraft Java server (or a version of your choice), fully customizable through environment variables. There’s one more important thing to take care of now: persisting world data. We’ll see how to go about that in the next step.
+You now have a containerized setup that automatically downloads the latest version of the Minecraft Java server (or a version of your choice), fully customizable through environment variables. There’s one last thing to take care of now: persisting world data. We’ll see how to go about that in the next step.
 
 ## 4 – Persisting World Data
 
