@@ -59,9 +59,10 @@ contents into our production environment.
 ## Introduction 
 
 Chainguard Libraries builds all available libraries from source code in the
-Chainguard Factory and makes them available for you. Chainguard Factory is a
-more secure, dedicated, private, and SLSA-certified build infrastructure for
-building software from source and publishing the binaries to customers.
+Chainguard Factory and makes them available for you. Chainguard Factory
+represents Chainguard's internal tooling that enables a more secure, dedicated,
+private, and SLSA-certified build infrastructure for building software from
+source and publishing the binaries to customers.
 
 Chainguard Libraries and the use of Chainguard Factory remove all software
 supply chain problems for libraries:
