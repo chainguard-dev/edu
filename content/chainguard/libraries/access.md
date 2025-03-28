@@ -52,7 +52,7 @@ chainctl auth pull-token --library-ecosystem=java --parent=example --ttl=8670h
 * `--parent=example`: specify the parent organization for your account as
   provided when requesting access to Chainguard Libraries for Java and the
   replace `example`.
-* `--ttl=8670d`: set the duration for the validaty of the token, defaults to
+* `--ttl=8670d`: set the duration for the validity of the token, defaults to
   `720h` (equivalent to 30 days), maximum valid value is `8760d` (equivalent to
   365 days), valid unit strings range from nanoseconds to hours and are `ns`,
   `us`, `ms`, `s`, `m`, and `h`.
