@@ -15,12 +15,12 @@ toc: true
 ## Background
 
 Most application development rests on the shoulders of libraries and
-applications from the open source community. Most of the time organizations and
-application developers consume those libraries as binaries from a collection of
-sources. Binary versions are produced by individual project maintainers or
-through continuous integration server setups, and are publicly distributed
-through various channels. Open source libraries use different distribution
-services for their binary artifacts. Common examples are the [Maven Central
+applications from the open source community. Organizations and application
+developers consume those libraries as binaries from a collection of sources.
+Binary versions are produced by individual project maintainers or through
+continuous integration server setups, and are publicly distributed through
+various channels. Open source libraries use different distribution services for
+their binary artifacts. Common examples are the [Maven Central
 Repository](https://central.sonatype.com/) for the Java and JVM ecosystem, the
 [npm registry](https://www.npmjs.com/) for the JavaScript community, or [Python
 Package Index (PyPI)](https://pypi.org/) for the Python community. All
@@ -59,8 +59,12 @@ contents into our production environment.
 ## Introduction 
 
 Chainguard Libraries builds all available libraries from source code in the
-secure Chainguard infrastructure and makes them available for you. It removes
-all the software supply chain problems for libraries:
+Chainguard Factory and makes them available for you. Chainguard Factory is a
+more secure, dedicated, private, and SLSA-certified build infrastructure for
+building software from source and publishing the binaries to customers.
+
+Chainguard Libraries and the use of Chainguard Factory remove all software
+supply chain problems for libraries:
 
 * Build stage protection - All binary libraries and library versions are built
   within the trusted Chainguard infrastructure directly from the source code of
