@@ -126,50 +126,60 @@
 
 [[social]]
   name = "GitHub"
-  url = "https://github.com/chainguard-dev"
+  url = "https://github.com/chainguard-dev?utm_source=docs"
   weight = 10
   [social.params]
       icon = "github.svg"
 
 [[social]]
   name = "X"
-  url = "https://twitter.com/chainguard_dev"
+  url = "https://twitter.com/chainguard_dev?utm_source=docs"
   weight = 20
   [social.params]
     icon = "x.svg"        
 
 [[social]]
   name = "YouTube"
-  url = "https://www.youtube.com/channel/UCJYCfj6ZMdyeinWMm_yxwaA"
+  url = "https://www.youtube.com/channel/UCJYCfj6ZMdyeinWMm_yxwaA?utm_source=docs"
   weight = 30
   [social.params]
     icon = "youtube.svg"  
 
 
-
 [[social]]
   name = "LinkedIn"
-  url = "https://www.linkedin.com/company/chainguard-dev"
+  url = "https://www.linkedin.com/company/chainguard-dev?utm_source=docs"
   weight = 40
   [social.params]
     icon = "linkedin.svg"
 
 [[footer]]
-  name = "Product"
+  name = "Products"
   weight = 1
   identifier = "products"
 
 [[footer]]
-  name = "Chainguard Images"
-  url = "https://www.chainguard.dev/chainguard-images"
+  name = "Chainguard Containers"
+  url = "https://www.chainguard.dev/containers?utm_source=docs"
   weight = 1
   parent = "products"
 
+[[footer]]
+  name = "Chainguard Libraries"
+  url = "https://www.chainguard.dev/libraries?utm_source=docs"
+  weight = 2
+  parent = "products"
+
+[[footer]]
+  name = "Chainguard VMs"
+  url = "https://www.chainguard.dev/vms?utm_source=docs"
+  weight = 3
+  parent = "products"
 
 [[footer]]
   name = "Images Directory"
-  url = "https://images.chainguard.dev/"
-  weight = 2
+  url = "https://images.chainguard.dev/?utm_source=docs"
+  weight = 4
   parent = "products"
 
 [[footer]]
@@ -179,32 +189,44 @@
 
 [[footer]]
   name = "Container Image Security"
-  url = "https://chainguard.dev/solutions/container-image-security"
+  url = "https://chainguard.dev/solutions/container-image-security?utm_source=docs"
   weight = 1
   parent = "why"
 
 [[footer]]
   name = "Vulnerability Remediation"
-  url = "https://chainguard.dev/solutions/vulnerability-remediation"
+  url = "https://chainguard.dev/solutions/vulnerability-remediation?utm_source=docs"
   weight = 2
   parent = "why"
 
 [[footer]]
-  name = "Compliance & Risk Mitigation"
-  url = "https://chainguard.dev/solutions/compliance-and-risk-mitigation"
+  name = "Compliance and Risk Mitigation"
+  url = "https://chainguard.dev/solutions/compliance-and-risk-mitigation?utm_source=docs"
   weight = 3
   parent = "why"
 
 [[footer]]
   name = "Software Supply Chain Security"
-  url = "https://chainguard.dev/solutions/software-supply-chain-security"
+  url = "https://chainguard.dev/solutions/software-supply-chain-security?utm_source=docs"
   weight = 4
   parent = "why"
 
 [[footer]]
   name = "AI/ML Security"
-  url = "https://get.chainguard.dev/ai-images"
+  url = "https://get.chainguard.dev/ai-images?utm_source=docs"
   weight = 5
+  parent = "why"
+
+[[footer]]
+  name = "FedRAMP"
+  url = "https://www.chainguard.dev/solutions/fedramp?utm_source=docs"
+  weight = 6
+  parent = "why"
+
+[[footer]]
+  name = "PCI"
+  url = "https://www.chainguard.dev/solutions/pci?utm_source=docs"
+  weight = 7
   parent = "why"
 
 [[footer]]
@@ -215,14 +237,14 @@
 
 [[footer]]
   name = "Customer Stories"
-  url = "https://chainguard.dev/customers"
+  url = "https://chainguard.dev/customers?utm_source=docs"
   weight = 1
   parent = "customers"
 
 
 [[footer]]
   name = "Chainguard Love"
-  url = "https://chainguard.dev/chainguard-love"
+  url = "https://chainguard.dev/chainguard-love?utm_source=docs"
   weight = 2
   parent = "customers"
 
@@ -234,38 +256,44 @@
 
 [[footer]]
   name = "About Us"
-  url = "https://chainguard.dev/about-us"
+  url = "https://chainguard.dev/about-us?utm_source=docs"
   weight = 1
   parent = "company"
 
 [[footer]]
-  name = "Open Source"
-  url = "https://chainguard.dev/open-source"
+  name = "Pricing"
+  url = "https://www.chainguard.dev/pricing?utm_source=docs"
   weight = 2
   parent = "company"
 
 [[footer]]
-  name = "Careers"
-  url = "https://chainguard.dev/careers"
+  name = "Contact Us"
+  url = "https://www.chainguard.dev/contact?utm_source=docs"
   weight = 3
   parent = "company"
 
 [[footer]]
-  name = "Newsroom"
-  url = "https://chainguard.dev/newsroom"
+  name = "Open Source"
+  url = "https://chainguard.dev/open-source?utm_source=docs"
   weight = 4
   parent = "company"
 
 [[footer]]
-  name = "Legal"
-  url = "https://chainguard.dev/legal"
+  name = "Careers"
+  url = "https://chainguard.dev/careers?utm_source=docs"
   weight = 5
   parent = "company"
 
 [[footer]]
-  name = "Contact"
-  url = "https://www.chainguard.dev/contact"
+  name = "Newsroom"
+  url = "https://chainguard.dev/newsroom?utm_source=docs"
   weight = 6
+  parent = "company"
+
+[[footer]]
+  name = "Legal"
+  url = "https://www.chainguard.dev/legal/acceptable-use-policy?utm_source=docs"
+  weight = 7
   parent = "company"
 
 
@@ -276,24 +304,25 @@
 
 [[footer]]
   name = "Unchained Blog"
-  url = "https://chainguard.dev/unchained"
+  url = "https://chainguard.dev/unchained?utm_source=docs"
   weight = 1
   parent = "resources"
 
 [[footer]]
-  name = "Research"
-  url = "https://chainguard.dev/labs"
+  name = "Events"
+  url = "https://chainguard.dev/events?utm_source=docs"
   weight = 2
   parent = "resources"
 
 [[footer]]
-  name = "Events"
-  url = "https://chainguard.dev/events"
+  name = "Trust Center"
+  url = "https://security.chainguard.dev/?utm_source=docs"
   weight = 3
   parent = "resources"
+
 
 [[footer]]
   name = "Documentation"
   url = "/"
-  weight = 5
+  weight = 4
   parent = "resources"
