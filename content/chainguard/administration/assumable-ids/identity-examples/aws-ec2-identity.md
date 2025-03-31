@@ -58,6 +58,7 @@ cat > id.json <<EOF
   	"userIdPattern" : "$USER-ID"
    }
 }
+EOF
 ```
 
 Note that this identity definition specifies the name of the Chainguard identity as `aws-ec2-identity`. Be sure to change these placeholder values to reflect the output from the `aws sts get-caller-identity` command you ran on your EC2 instance.
@@ -122,7 +123,7 @@ export CHAINGUARD_IDENTITY=45a0cEXAMPLE977f050c5fb9ac06a69EXAMPLE95/2c5f7EXAMPLE
 
 If you forgot to note down the identity's `ID` value, you can retrieve a list of all your available Chainguard identities (along with their `ID` values) by running the `chainctl iam identities list -o table` command on your local machine.
 
-Next you'll need to get the EC2 instance's credentials from Instance Metadata Service.
+Next you'll need to get the EC2 instance's credentials from the Instance Metadata Service.
 
 To do this, first create a session token with the following command:
 
@@ -203,4 +204,4 @@ With that, your EC2 instance will have access to your Chainguard resources. Reme
 
 ## Learn more
 
-By following this guide, you will have created a Chainguard identity that you can use to authenticate to Chaingaurd from an Amazon EC2 instance. For more information about how assumable identities work in Chainguard, check out our [conceptual overview of assumable identities](/chainguard/administration/iam-organizations/assumable-ids/). Additionally, we encourage you to read through the rest of our documentation on [Administering Chainguard resources](/chainguard/administration/).
+By following this guide, you will have created a Chainguard identity that you can use to authenticate to Chainguard from an Amazon EC2 instance. For more information about how assumable identities work in Chainguard, check out our [conceptual overview of assumable identities](/chainguard/administration/iam-organizations/assumable-ids/). Additionally, we encourage you to read through the rest of our documentation on [Administering Chainguard resources](/chainguard/administration/).
