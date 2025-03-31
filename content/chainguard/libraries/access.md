@@ -41,7 +41,7 @@ Successfully exchanged token.
 Valid! Id: 8a4141a........7d9904d98c
 ```
 
-Retrieve an authentication token for the Chainguard Libraries for Java:
+Retrieve a new authentication token for the Chainguard Libraries for Java:
 
 ```shell
 chainctl auth pull-token --library-ecosystem=java --parent=example --ttl=8670h
@@ -72,11 +72,23 @@ Username: 45a.....424eb0
 Password: eyJhbGciO..........WF0IjoxN
 ```
 
+The returned username and password combination is a new credential set in the
+organization that is independent of the account used to create and retrieve the
+credential set. It is therefore suitable for use in any service application,
+such as [a repository manager](/chainguard/libraries/java/global-configuration)
+or [a build tool](/chainguard/libraries/java/build-configuration) that is not
+tied to a specific user.
+
 To use this pull token in another environment supply the following for username
 and password valid for basic authentication. Note that the actual returned
 values are much longer.
 
-You can verify entitlements with the following command:
+Use the credentials for manual testing in a browser or with a script if you know
+the URL for a specific library artifact, [for example a Java
+library](chainguard/libraries/java/overview/#technical-details).
+
+You can verify entitlements for your organization `example` with the following
+command:
 
 ```shell
 chainctl libraries entitlements list --parent=example

@@ -86,6 +86,18 @@ Use the [Maven Central Repository search](https://central.sonatype.com/) or
 [browse functionality](https://repo1.maven.org/maven2/) to locate artifacts of
 interest.
 
+If you use the URL directly in a browser, you have to provide the username and
+password to log in to the Chainguard repository to download the file.
+
+Use curl and specify the [username and password retrieved with
+chainctl](/chainguard/libraries/access/) for basic user authentication and the
+URL of the file to download and save the file with the original name:
+
+```
+curl --user "exampleusername:examplepassword" \
+  -O https://libraries.cgr.dev/maven/commons-io/commons-io/2.17.0/commons-io-2.17.0.pom
+```
+
 The Chainguard Libraries for Java repository does not include all artifacts from
 the Maven Central Repository and other repositories.
 
