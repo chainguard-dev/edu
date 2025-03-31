@@ -104,3 +104,9 @@ available](https://www.sonatype.com/blog/are-unnecessary-vulnerabilities-polluti
 and by adopting those newer versions in your application you can remediate most
 CVEs. Chainguard Libraries for Java includes those newest versions and adds the
 build and distribution channel security.
+
+## What are Chibbies?
+
+Chibbies is the internal codename for the Chainguard Libraries. It evolved from
+Chainguard Libraries being shortened to Chainguard Libbies, and then [finally to
+Chibbies](https://www.youtube.com/watch?v=adfU9LJg3I0&t=2843s). 
