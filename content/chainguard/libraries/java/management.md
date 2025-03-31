@@ -30,10 +30,11 @@ steps on the repository manager and the build tool.
 You can verify what artifacts are retrieved from the Chainguard Libraries
 repository on a global level:
 
-* Browse the proxy repository on your Artifactory or Nexus server.
-* Browse the Maven repository on your Cloudsmith instance and locate the
-  artifacts with the tag from the Chainguard upstream proxy. The tag uses the
-  name of the upstream proxy.
+* Browse the `chainguard` proxy repository on your Artifactory or Nexus server.
+* Access the **Packages** tab of the the repository on your Cloudsmith instance.
+  Filter the package list with the tag value with the name for your upstream
+  proxy for Chainguard, for example `tag:chainguard`. The tag uses the name of
+  the upstream proxy, with spaces replaced with dashes.
 
 Use the browsing access to locate specific artifacts and identify their name,
 filesize, checksum values, timestamp and other identifiers. With these details
