@@ -115,31 +115,31 @@ virtual repository:
 
 Configure a remote repository for the Maven Central Repository:
 
-1. Press **Create repository**.
+1. Press **Create a Repository** and choose the **Remote** option.
 1. Select *Maven* as the Package type.
 1. Set the **Repository Key** to *maven-central*.
-1. Set the **URL** to *https://repo1.maven.org/maven2/*.
+1. Set the **URL** to *https://repo1.maven.org/maven2/* .
 1. Press Create Remote Repository.
 
 Configure a remote repository for the Chainguard Libraries for Java repository:
 
-1. Press **Create repository**.
+1. Press **Create a Repository** and choose the **Remote** option.
 1. Select *Maven* as the **Package type**.
 1. Set the **Repository Key** to *chainguard*.
 1. Set the **URL** to *https://libraries.cgr.dev/maven/*.
 1. Set **User Name** and Password / Access Token to the [values as retrieved
    with chainctl](/chainguard/libraries/access/).
+1. Check the **Enable Token Authentication** checkbox.
 1. Press Test to validate the connection.
 1. Press Create Remote Repository.
 
 Combine the two repositories in a new virtual repository:
 
-1. Press **Create repository**.
-1. Select **Virtual**
-1. Set the **Repository Key** to *java*.
-1. In the **Repositories** input, add the *chainguard* and *maven-central*
-   repositories so that the chainguard repository is the first in the displayed
-   list.
+1. Press **Create a Repository** and choose the **Virtual** option.
+1. Set the **Repository Key** to *chainguard-group*.
+1. Scroll down to the **Repositories** section
+1. Add the *chainguard* and *maven-central* repositories. Ensure the *chainguard* repository is the
+   first in the displayed list.
 1. Press **Create Virtual Repository**.
 
 Use this setup for initial testing with Chainguard Libraries for Java. For
