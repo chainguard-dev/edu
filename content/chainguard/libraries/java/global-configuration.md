@@ -138,7 +138,7 @@ Combine the two repositories in a new virtual repository:
 1. Press **Create a Repository** and choose the **Virtual** option.
 1. Set the **Repository Key** to *chainguard-group*.
 1. Scroll down to the **Repositories** section
-1. Add the *chainguard* and *maven-central* repositories. Ensure the chainguard repository is the
+1. Add the *chainguard* and *maven-central* repositories. Ensure the *chainguard* repository is the
    first in the displayed list.
 1. Press **Create Virtual Repository**.
 
