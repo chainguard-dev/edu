@@ -159,7 +159,6 @@ documentation](/chainguard/libraries/java/global-configuration).
 ```xml
 <settings>
 ...
-
   <servers>
     <server>
       <id>chainguard-maven</id>
@@ -167,10 +166,26 @@ documentation](/chainguard/libraries/java/global-configuration).
       <password>YOUR_PASSWORD</password>
     </server>
   </servers>
-
-....
 </settings>
+```
 
+Note that you can use a secret manager application to populate the credentials
+for each users on their workstation and as well as for service applications in
+your CI and CD pipelines into environment variables, for example
+`CG_JAVA_USERNAME` and `CG_JAVA_PASSWORD`. You can then use an identical server
+configuration, and therefore settings file, for all users:
+
+```xml
+<settings>
+...
+  <servers>
+    <server>
+      <id>chainguard-maven</id>
+      <username>${env.CG_JAVA_USERNAME}</username>
+      <password>${env.CG_JAVA_PASSWORD}</password>
+    </server>
+  </servers>
+</settings>
 ```
 
 Refer to the [official documentation for the Maven settings
@@ -192,8 +207,8 @@ repository is located above the necessary override for the built-in `central`
 repository and any other repositories.
 
 The following listing shows a complete `~/.m2/settings.xml` file with the
-desired configuration and placeholder values `CHAINCTL_PASSWORD` and
-`CHAINCTL_PASSWORD` for the pull token detailed in [Chainguard Libraries
+desired configuration and placeholder values `CG_PULLTOKEN_USERNAME` and
+`CG_PULLTOKEN_PASSWORD` for the pull token detailed in [Chainguard Libraries
 access](/chainguard/libraries/access/):
 
 ```xml
@@ -253,14 +268,18 @@ access](/chainguard/libraries/access/):
   <servers>
     <server>
       <id>chainguard</id>
-      <username>CHAINCTL_USERNAME</username>
-      <password>CHAINCTL_PASSWORD</password>
+      <!-- pick up values from environment variables -->
+      <username>${env.CG_JAVA_USERNAME}</username>
+      <password>${env.CG_JAVA_PASSWORD}</password>
+      <!-- or use literal values -->
+      <!-- <username>CG_PULLTOKEN_USERNAME</username> -->
+      <!-- <password>CG_PULLTOKEN_PASSWORD</password> -->
     </server>
   </servers>
 </settings>
 ```
 
-The precedent settings affects all projects built on the machine where the file
+The preceding settings affects all projects built on the machine where the file
 is configured. Alternatively you can add the `repositories` and
 `pluginRepositories` to individual project `pom.xml` files. Authentication
 details must remain within the settings file.
@@ -315,7 +334,7 @@ repository group or virtual repository from your repository manager
 ```
 repositories {
     maven {
-        url = uri("https://libraries.cgr.dev/maven/")
+        url = uri("https://repo.example.com/group/")
         credentials {
             username = "YOUR_USERNAME_FOR_REPOSITORY_MANAGER"
             password = "YOUR_PASSWORD"
@@ -332,17 +351,18 @@ Example URLs for repository managers:
 
 If your organization does not use a repository manager you can configure the
 Chainguard Libraries for Java repository with the credentials from [Chainguard
-Libraries access](/chainguard/libraries/access/). Ensure that the Chainguard
+Libraries access](/chainguard/libraries/access/) replacing the placeholders
+`CG_PULLTOKEN_USERNAME` and `CG_PULLTOKEN_PASSWORD`. Ensure that the Chainguard
 repository is located above the `mavenCentral` repository and any other
-repositories.
+repositories:
 
 ```
 repositories {
     maven {
         url = uri("https://libraries.cgr.dev/maven/")
         credentials {
-            username = "longhash"
-            password = "longerhash"
+            username = "CG_PULLTOKEN_USERNAME"
+            password = "CG_PULLTOKEN_PASSWORD"
         }
     }
     mavenCentral()
