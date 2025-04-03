@@ -38,26 +38,28 @@ Build configuration to retrieve artifacts from Cloudsmith requires you to
 authenticate. Use your username and password for Cloudsmith in your build tool
 configuration.
 
+Follow the steps from the [global
+configuration](/chainguard/libraries/java/global-configuration#cloudsmith) to
+determine URL and authentication details.
+
 ## JFrog Artifactory
 
 Build configuration to retrieve artifacts from Artifactory typically requires
 you to authenticate and use the identity token in the configuration of your
-build tool:
+build tool.
 
-1. Log in as user with access to the configured virtual repository.
-1. Select **Edit Profile** from the drop down in the top right corner from your
-   user name.
-1. Press **Generate Identity Token**.
-1. Provide a description such as *Chainguard Libraries* for the token as a
-   reminder for the use of the token.
-1. Copy the token value and use it as your password in your build tool
-   configuration.
+Follow the steps from the [global
+configuration](/chainguard/libraries/java/global-configuration#artifactory) to
+determine URL and authentication details.
 
 ## Sonatype Nexus Repository
 
-Build configuration to retrieve artifacts from Nexus requires you to
-authenticate. Use your username and password for Nexus in your build tool
-configuration.
+Build configuration to retrieve artifacts from Nexus may require authentication.
+Use your username and password for Nexus in your build tool configuration.
+
+Follow the steps from the [global
+configuration](/chainguard/libraries/java/global-configuration#nexus) to
+determine URL and authentication details.
 
 ## Apache Maven
 
@@ -96,20 +98,27 @@ activated profile.
 
   <mirrors>
     <mirror>
+      <!-- Set the identifier for the server credentials for repository manager access -->
+      <id>chainguard-maven</id>
       <!--Send all requests to the repository manager -->
-      <id>ecosystems</id>
       <mirrorOf>*</mirrorOf>
-      <url>https://repo.example.com/group/</url>
+      <url>https://repo.example.com/repository/group</url>
+      <!-- Cloudsmith example -->
+      <!-- <url>https://dl.cloudsmith.io/basic/exampleorg/chainguard-maven/maven/</url> -->
+      <!-- JFrog Artifactory example -->
+      <!-- <url>https://example.jfrog.io/artifactory/chainguard-maven/</url> -->
+      <!-- Sonatype Nexus example -->
+      <!-- <url>https://repo.example.com:8443/repository/chainguard-maven/</url> -->
     </mirror>
   </mirrors>
 
+  <!-- Activate repo manager and override central repo from Maven itself with invalid URLs -->
   <activeProfiles>
-    <activeProfile>ecosystems</activeProfile>
+    <activeProfile>repo-manager</activeProfile>
   </activeProfiles>
-
   <profiles>
     <profile>
-      <id>ecosystems</id>
+      <id>repo-manager</id>
       <repositories>
         <repository>
           <id>central</id>
@@ -141,9 +150,11 @@ activated profile.
 ```
 
 If your repository manager requires authentication, you must specify credentials
-for the server. The id value in the server element must match the id value in
-the mirror configuration. The username and password values vary depending on the
-repository manager and the configured authentication.
+for the server. The `id` value in the server element must match the `id` value
+in the mirror configuration - `chainguard-maven` in the example. The username
+and password values vary depending on the repository manager and the configured
+authentication, contact the administrator and refer to the [global configuration
+documentation](/chainguard/libraries/java/global-configuration).
 
 ```xml
 <settings>
@@ -151,7 +162,7 @@ repository manager and the configured authentication.
 
   <servers>
     <server>
-      <id>ecosystems</id>
+      <id>chainguard-maven</id>
       <username>YOUR_USERNAME_FOR_REPOSITORY_MANAGER</username>
       <password>YOUR_PASSWORD</password>
     </server>
