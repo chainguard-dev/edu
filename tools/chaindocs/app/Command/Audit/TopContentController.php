@@ -1,31 +1,29 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Command\Audit;
 
 use App\AutodocsController;
 use App\CatalogService;
-use App\Command\CatalogItem;
 use Minicli\FileNotFoundException;
 use Minicli\Output\Filter\ColorOutputFilter;
 use Minicli\Output\Helper\TableHelper;
-use Parsed\Content;
-use Parsed\ContentParser;
 
 class TopContentController extends AutodocsController
 {
-
     public function handle(): void
     {
         $this->buildCatalog();
 
-        if (!$this->hasParam('data')) {
+        if ( ! $this->hasParam('data')) {
             $this->error('Please provide a "data=your-file.csv" param with a CSV file containing analytics data.');
             return;
         }
 
         $path = $this->getParam('data');
-        if  (!is_file($path)) {
-            $this->error('File not found: ' . $path);
+        if ( ! is_file($path)) {
+            $this->error('File not found: '.$path);
             return;
         }
 
@@ -35,7 +33,7 @@ class TopContentController extends AutodocsController
             $topContent = $this->catalog->getTopContent($deprecated);
 
         } catch (FileNotFoundException $e) {
-            $this->error('Error reading CSV file: ' . $e->getMessage());
+            $this->error('Error reading CSV file: '.$e->getMessage());
             return;
         }
 
