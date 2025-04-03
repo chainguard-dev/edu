@@ -11,7 +11,7 @@ images: []
 menu:
   docs:
     parent: "about"
-weight: 023
+weight: 027
 toc: true
 ---
 
@@ -61,7 +61,7 @@ When migrating to a Chainguard Base image you should first check the images’s 
 
 It is a best practice to use the same versions of any languages or applications that will be running on the Chainguard Base image as what is currently running in your environment. Do not upgrade language or application versions at the same time that you migrate. Following the migration, you should thoroughly test and monitor your application.
 
-If you need a package to use with your Chainguard Base image, Wolfi packages are available using apk. Ensure you only use Wolfi packages, as Alpine APK’s are not compatible with Wolfi. Additionally, it is important to note that vendor-provided packages need to be glibc based and their functionality should be fully tested along with the application. For additional tips, please refer to our guide on [Troubleshooting apko Builds](https://edu.chainguard.dev/open-source/build-tools/apko/troubleshooting/).
+If you need a package to use with your Chainguard Base image, Wolfi packages are available using apk. Ensure you only use Wolfi packages, as Alpine APK’s are not compatible with Wolfi. Additionally, it is important to note that vendor-provided packages need to be glibc based and their functionality should be fully tested along with the application. For additional tips, please refer to our guide on [Troubleshooting apko Builds](/open-source/build-tools/apko/troubleshooting/).
 
 > **Note**: Base images often require more customization by the user. Be aware that Chainguard offers a customization platform called [Custom Assembly](/chainguard/chainguard-images/features/custom-assembly/) to streamline this requirement without customers having to stand up their own custom pipelines.
 
