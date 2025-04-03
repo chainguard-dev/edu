@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App;
 
 use App\Command\CatalogItem;
@@ -7,6 +9,9 @@ use Minicli\App;
 use Minicli\ServiceInterface;
 use Minicli\FileNotFoundException;
 use Parsed\ContentParser;
+use DateTime;
+use DateTimeImmutable;
+use DateTimeInterface;
 
 class CatalogService implements ServiceInterface
 {
@@ -38,16 +43,16 @@ class CatalogService implements ServiceInterface
 
     public function buildCatalog(string $path): void
     {
-        foreach (glob($path . '/*') as $path) {
+        foreach (glob($path.'/*') as $path) {
             if (is_dir($path)) {
                 $this->buildCatalog($path);
             }
 
-            if (pathinfo($path, PATHINFO_EXTENSION) !== 'md') {
+            if ('md' !== pathinfo($path, PATHINFO_EXTENSION)) {
                 continue;
             }
 
-            if (basename($path) === '_index.md') {
+            if ('_index.md' === basename($path)) {
                 continue;
             }
 
@@ -65,12 +70,12 @@ class CatalogService implements ServiceInterface
 
     public function audit(CatalogItem $item): void
     {
-        if ($item->lastmod === null) {
+        if (null === $item->lastmod) {
             $this->invalid[] = $item;
             return;
         }
 
-        $now = new \DateTime();
+        $now = new DateTime();
         if ($now->diff($item->lastmod)->m > self::$DEPRECATION_CAP) {
             $this->deprecated[] = $item;
             return;
@@ -102,9 +107,7 @@ class CatalogService implements ServiceInterface
     }
     protected function orderByLastMod(array &$array): void
     {
-        usort($array, function ($a, $b) {
-            return $a->lastmod <=> $b->lastmod;
-        });
+        usort($array, fn ($a, $b) => $a->lastmod <=> $b->lastmod);
     }
 
     public function findByRoute(string $route): ?CatalogItem
@@ -123,8 +126,8 @@ class CatalogService implements ServiceInterface
      */
     public function ingestAnalytics(string $inputCsv, int $skipRows = 8): void
     {
-        if (!is_file($inputCsv)) {
-            throw new FileNotFoundException('File not found: ' . $inputCsv);
+        if ( ! is_file($inputCsv)) {
+            throw new FileNotFoundException('File not found: '.$inputCsv);
         }
 
         $count = 0;
@@ -138,19 +141,19 @@ class CatalogService implements ServiceInterface
          * data[5]: Bounce Rate
          */
 
-        if (($handle = fopen($inputCsv, "r")) !== FALSE) {
-            while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+        if (($handle = fopen($inputCsv, "r")) !== false) {
+            while (($data = fgetcsv($handle, 1000, ",")) !== false) {
                 $count++;
-                if  ($count <= $skipRows) {
+                if ($count <= $skipRows) {
                     continue;
                 }
 
-                if ($data[0] === null) {
+                if (null === $data[0]) {
                     continue;
                 }
 
                 $item = $this->findByRoute($data[0]);
-                if ($item and $item->lastmod instanceof \DateTimeInterface) {
+                if ($item && $item->lastmod instanceof DateTimeInterface) {
                     $this->topContent[] = ['item' => $item, 'views' => $data[1], 'active_users' => $data[2], 'views_per_user' => $data[3], 'event_count' => $data[4], 'bounce_rate' => $data[5]];
                 }
             }
@@ -161,13 +164,13 @@ class CatalogService implements ServiceInterface
 
     public function getTopContent(?int $olderThanMonths = null): array
     {
-        if (!$olderThanMonths) {
+        if ( ! $olderThanMonths) {
             return $this->topContent;
         }
 
         $topContent = [];
         foreach ($this->topContent as $content) {
-            $now = new \DateTimeImmutable();
+            $now = new DateTimeImmutable();
             if ($now->diff($content['item']->lastmod)->m > $olderThanMonths) {
                 $topContent[] = $content;
             }
