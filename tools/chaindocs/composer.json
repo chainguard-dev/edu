@@ -20,9 +20,15 @@
     "laravel/pint": "^1.17"
   },
   "scripts": {
-    "lint" : ["pint"],
-    "test:lint" : ["pint --test"],
-    "test:unit" : ["pest"],
+    "lint" : [
+      "vendor/bin/pint"
+    ],
+    "test:lint" : [
+      "vendor/bin/pint --test"
+    ],
+    "test:unit" : [
+      "vendor/bin/pest"
+    ],
     "test" : [
       "@test:lint",
       "@test:unit"

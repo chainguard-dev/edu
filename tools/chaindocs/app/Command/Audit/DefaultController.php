@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Command\Audit;
 
 use App\AutodocsController;
-use App\CatalogService;
 use Minicli\Output\Filter\ColorOutputFilter;
 
 class DefaultController extends AutodocsController
@@ -13,8 +12,8 @@ class DefaultController extends AutodocsController
     public function handle(): void
     {
         $this->buildCatalog(true);
-        $this->error('Found ' . count($this->catalog->getInvalid()) . ' articles with invalid timestamps.');
-        $this->error('Found ' . count($this->catalog->getDeprecated()) . ' articles not updated in the last 7 months.');
+        $this->error('Found '.count($this->catalog->getInvalid()).' articles with invalid timestamps.');
+        $this->error('Found '.count($this->catalog->getDeprecated()).' articles not updated in the last 7 months.');
         $this->newline();
 
         if ($this->hasFlag('invalid')) {

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App;
 
 use App\Command\CatalogItem;
@@ -39,7 +41,7 @@ abstract class AutodocsController extends CommandController
         foreach ($items as $item) {
             $lastmod = $item->lastmod ? $item->lastmod->format('Y-m-d') : 'N/A';
             if ($item->content->frontMatterHas('title')) {
-                $csv .= $this->unquote($item->routes[0]) . ',' . $lastmod . "\n";
+                $csv .= $this->unquote($item->routes[0]).','.$lastmod."\n";
             }
         }
 
@@ -54,7 +56,7 @@ abstract class AutodocsController extends CommandController
             $item = $content['item'];
             $lastmod = $item->lastmod ? $item->lastmod->format('Y-m-d') : 'N/A';
             if ($item->content->frontMatterHas('title')) {
-                $csv .= $this->unquote($item->routes[0]) . ',' . $content['views'] . ',' . $lastmod . "\n";
+                $csv .= $this->unquote($item->routes[0]).','.$content['views'].','.$lastmod."\n";
             }
         }
 
@@ -63,9 +65,13 @@ abstract class AutodocsController extends CommandController
 
     public function buildCatalog(bool $verbose = false): void
     {
-        if ($verbose) $this->out('Building content catalog...');
+        if ($verbose) {
+            $this->out('Building content catalog...');
+        }
         /** @var CatalogService $catalog */
         $this->catalog = $this->getApp()->catalog;
-        if ($verbose) $this->info('Catalog built with ' . count($this->catalog->getAll()) . ' items.');
+        if ($verbose) {
+            $this->info('Catalog built with '.count($this->catalog->getAll()).' items.');
+        }
     }
 }
