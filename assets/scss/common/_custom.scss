@@ -1170,6 +1170,10 @@ code {
     max-width: calc(100dvw - 616px);
 }
 
+.sl-bg-canvas .sl-w-full {
+    min-width: 325px;
+}
+
 // Reduce center padding under specified screen width
 @media (max-width: $ReduceContentPaddingWidth) {
     .docs-content {
@@ -1213,6 +1217,12 @@ code {
 .docs-content.docs-content a:not(.tag),
 .card-link.card-link.card-link.card-link {
     color: var(--article-link-color);
+}
+
+[data-dark-mode] .docs-content.docs-content {
+    a.sl-block, a.sl-link {
+        color: var(--article-link-secondary-color);
+    }
 }
 
 h4, .h4 {
