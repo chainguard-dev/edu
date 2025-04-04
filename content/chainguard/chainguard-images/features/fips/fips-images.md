@@ -22,7 +22,7 @@ toc: true
 
 ## What is FIPS? 
 
-One of the primary requirements of federal compliance frameworks — including [FedRAMP](https://www.fedramp.gov/program-basics/) — is to use FIPS-validated cryptography. To help customers meet these requirements, Chainguard offers FIPS-enabled versions of many images. This article provides a high-level overview of what FIPS is, what to expect from Chainguard FIPS Images, featuring a kernel-independent design, and how Chainguard FIPS images stand out from alternatives.
+One of the primary requirements of federal compliance frameworks — including [FedRAMP](https://www.fedramp.gov/) — is to use FIPS-validated cryptography. To help customers meet these requirements, Chainguard offers FIPS-enabled versions of many images. This article provides a high-level overview of what FIPS is, what to expect from Chainguard FIPS Images, featuring a kernel-independent design, and how Chainguard FIPS images stand out from alternatives.
 
 [Federal Information Processing Standards](https://www.nist.gov/itl/publications-0/federal-information-processing-standards-fips) (FIPS) are publicly announced standards developed by the National Institute of Standards and Technology (NIST) in accordance with the Federal Information Security Management Act (FISMA) and approved by the Secretary of Commerce. FIPS compliance ensures that cryptographic security services within applications meet strict security and integrity standards, and are implemented and configured correctly.
 
