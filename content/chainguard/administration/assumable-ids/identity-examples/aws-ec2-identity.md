@@ -12,7 +12,7 @@ images: []
 weight: 012
 ---
 
-Chainguard's [*assumable identities*](//chainguard/administration/assumable-ids/assumable-ids/) are identities that can be assumed by external applications or workflows in order to access Chainguard resources or perform certain actions.
+Chainguard's [*assumable identities*](/chainguard/administration/assumable-ids/assumable-ids/) are identities that can be assumed by external applications or workflows in order to access Chainguard resources or perform certain actions.
 
 This procedural tutorial outlines how to create a Chainguard identity that can then be assumed by an AWS role and used to authorize requests from an Amazon EC2 instance, allowing you to interact with Chainguard resources remotely.
 
