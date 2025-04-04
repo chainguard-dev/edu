@@ -61,6 +61,8 @@ documentation](https://help.cloudsmith.io/docs/upstream-proxying-caching#create-
 for Cloudsmith for more information. Cloudsmith supports combining repositories
 by defining multiple upstream repositories.
 
+### Initial configuration
+
 Use the following steps to add a repository with the Maven Central Repository
 and the Chainguard Libraries for Java repository as Maven upstream repositories. 
 
@@ -107,6 +109,8 @@ Use this setup for initial testing with Chainguard Libraries for Java. For
 production usage, add the `chainguard` upstream proxy to your production
 repository.
 
+### Build tool access
+
 The following steps allow you to determine the URL and authentication details
 for accessing the repository:
 
@@ -142,6 +146,8 @@ for proxying and hosting, and virtual repositories to combine them. Refer to the
 Artifactory](https://jfrog.com/help/r/jfrog-artifactory-documentation/maven-repository)
 for more information.
 
+### Initial configuration
+
 Use the following steps to add the Maven Central Repository and the Chainguard
 Libraries for Java repository as remote repositories and combine them as a
 virtual repository:
@@ -156,6 +162,7 @@ Configure a remote repository for the Maven Central Repository:
 1. Select *Maven* as the Package type.
 1. Set the **Repository Key** to *central*.
 1. Set the **URL** to *https://repo1.maven.org/maven2/* .
+1. Deactivate **Maven Settings - Handle Snapshots**.
 1. Press **Create Remote Repository**.
 
 Configure a remote repository for the Chainguard Libraries for Java repository:
@@ -168,6 +175,7 @@ Configure a remote repository for the Chainguard Libraries for Java repository:
    with chainctl](/chainguard/libraries/access/).
 1. Check the **Enable Token Authentication** checkbox.
 1. Press **Test** to validate the connection.
+1. Deactivate **Maven Settings - Handle Snapshots**.
 1. Press **Create Remote Repository**.
 
 Combine the two repositories in a new virtual repository:
@@ -176,12 +184,16 @@ Combine the two repositories in a new virtual repository:
 1. Set the **Repository Key** to *chainguard-maven*.
 1. Scroll down to the **Repositories** section
 1. Add the *chainguard* and *maven-central* repositories. Ensure the
-   *chainguard* repository is the first in the displayed list.
+   *chainguard* repository is the first in the displayed list. Use the icon on
+   the right of the repository name to drag and drop repositories into the
+   desired position.
 1. Press **Create Virtual Repository**.
 
 Use this setup for initial testing with Chainguard Libraries for Java. For
 production usage add the `chainguard` repository to your production virtual
 repository.
+
+### Build tool access
 
 The following steps allow you to determine the URL and authentication details
 for accessing the repository:
@@ -220,6 +232,8 @@ information.
 If you are using this group, you can add a proxy repository for Chainguard
 Libraries for Java repository for production use.
 
+### Initial configuration
+
 For initial testing and adoption it is advised to create a separate proxy
 repository for the Maven Central Repository, a separate proxy repository
 Chainguard Libraries for Java repository, and a separate repository group:
@@ -234,6 +248,7 @@ Configure a remote repository for the Maven Central Repository:
 1. Press **Create repository**.
 1. Select the **maven2 (proxy)** recipe.
 1. Provide a new name *central*.
+1. Ensure **Maven 2 - Version policy** is set to *Release*.
 1. In the **Proxy - Remote storage** input add the URL *https://repo1.maven.org/maven2/*.
 1. Press **Create repository**.
 
@@ -243,6 +258,7 @@ Configure a remote repository for the Chainguard Libraries for Java repository:
 1. Press **Create repository**.
 1. Select the **maven2 (proxy)** recipe.
 1. Provide a new name *chainguard*.
+1. Ensure **Maven 2 - Version policy** is set to *Release*.
 1. In the **Proxy - Remote storage** input add the URL *https://libraries.cgr.dev/maven/*.
 1. In **HTTP - Authentication** with the **Authentication type** *username*,
    provide the [username and password values as retrieved with
@@ -258,6 +274,8 @@ Combine a new repository group and add the two repositories:
 1. In the section **Group - Member repositories**, move the new repositories
    `central` and `chainguard` to the right and move the `chainguard` repository
    to the top of the list with the arrow control.
+
+### Build tool access
 
 The following steps allow you to determine the URL and authentication details
 for accessing the repository:
