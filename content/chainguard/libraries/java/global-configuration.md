@@ -61,6 +61,8 @@ documentation](https://help.cloudsmith.io/docs/upstream-proxying-caching#create-
 for Cloudsmith for more information. Cloudsmith supports combining repositories
 by defining multiple upstream repositories.
 
+### Initial configuration
+
 Use the following steps to add a repository with the Maven Central Repository
 and the Chainguard Libraries for Java repository as Maven upstream repositories. 
 
@@ -107,6 +109,8 @@ Use this setup for initial testing with Chainguard Libraries for Java. For
 production usage, add the `chainguard` upstream proxy to your production
 repository.
 
+### Build tool access
+
 The following steps allow you to determine the URL and authentication details
 for accessing the repository:
 
@@ -141,6 +145,8 @@ for proxying and hosting, and virtual repositories to combine them. Refer to the
 [Maven Repository documentation for
 Artifactory](https://jfrog.com/help/r/jfrog-artifactory-documentation/maven-repository)
 for more information.
+
+### Initial configuration
 
 Use the following steps to add the Maven Central Repository and the Chainguard
 Libraries for Java repository as remote repositories and combine them as a
@@ -187,6 +193,8 @@ Use this setup for initial testing with Chainguard Libraries for Java. For
 production usage add the `chainguard` repository to your production virtual
 repository.
 
+### Build tool access
+
 The following steps allow you to determine the URL and authentication details
 for accessing the repository:
 
@@ -223,6 +231,8 @@ information.
 
 If you are using this group, you can add a proxy repository for Chainguard
 Libraries for Java repository for production use.
+
+### Initial configuration
 
 For initial testing and adoption it is advised to create a separate proxy
 repository for the Maven Central Repository, a separate proxy repository
@@ -264,6 +274,8 @@ Combine a new repository group and add the two repositories:
 1. In the section **Group - Member repositories**, move the new repositories
    `central` and `chainguard` to the right and move the `chainguard` repository
    to the top of the list with the arrow control.
+
+### Build tool access
 
 The following steps allow you to determine the URL and authentication details
 for accessing the repository:
