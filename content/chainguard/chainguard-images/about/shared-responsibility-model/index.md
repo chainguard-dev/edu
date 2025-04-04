@@ -9,7 +9,7 @@ description: "Reference guide outlining Chainguard's Shared Responsibility model
 date: 2024-10-17T11:07:52+02:00
 lastmod: 2025-01-13T11:07:52+02:00
 draft: false
-tags: ["conceptual", "Chainguard Images", "product"]
+tags: ["CONCEPTUAL", "CHAINGUARD IMAGES", "PRODUCT"]
 images: []
 menu:
   docs:
