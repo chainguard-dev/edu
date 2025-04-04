@@ -30,9 +30,9 @@ This conceptual article will outline each of these categories in turn, including
 
 ## Starter Images
 
-Chainguard offers a set of images that are publicly available and don’t require authentication, being free to use by anyone. We refer to these images as our *Starter Images*, and they cover several use cases for different language ecosystems. Starter images are limited to the latest build of a given image, and are always tagged as `latest` and `latest-dev`.
+Chainguard offers a set of images that are publicly available and don’t require authentication for download and use; they are free to use for everyone. We refer to these images as our *Starter Images*, and they cover several use cases for different language ecosystems. Starter images are limited to the latest build of a given image, and are always tagged as `latest` and `latest-dev`.
 
-Chainguard's Images that **are not** Starter images (meaning, those not included in the free tier of images) are referred to as *Production Images*. Production images are enterprise-ready images that come with patch SLAs and features such as Federal Information Processing Standard (FIPS) readiness and unique time stamped tags. Unlike Starter images, which are typically paired with only the latest version of an upstream package, Production images offer specific major and minor versions of open source software.
+The rest of Chainguard's Images, those that **are not** Starter images and not included in the free tier of images, are referred to as *Production Images*. Production images are enterprise-ready images that come with patch SLAs and features such as Federal Information Processing Standard (FIPS) readiness and unique time-stamped tags. Unlike Starter images, which are typically paired with only the latest version of an upstream package, Production images offer specific major and minor versions of open source software.
 
 You can access Starter images directly from the Chainguard Registry from the `chainguard` repository. For example, to download the cURL Starter image, you could run a command like the following:
 
@@ -46,7 +46,7 @@ To access any other image, you will need to do so through your organization's pr
 docker pull cgr.dev/chainguard.edu/chainguard-base
 ```
 
-The Chainguard Registry provides public access to all Starter images, and provides customer access for Production images after logging in and authenticating.
+Note that you won't have access to the organization's repository used in this example, but if your organization has access to the `chainguard-base` image you will be able to pull this image using your organization's repository name in place of `chainguard.edu`. The Chainguard Registry provides public access to all Starter images, and provides customer access for Production images after logging in and authenticating.
 
 For a complete list of Starter images that are currently available, check out the [**Starter** category on Chainguard's Images Directory](https://images.chainguard.dev/?category=starter). Registered users can also access all Starter and available Production images in the [Chainguard Console](https://console.chainguard.dev/overview). After logging in you will be able to find all the currently available Starter Images in the **Public images** tab. If you’ve selected an appropriate organization in the drop-down menu above the left-hand navigation, you can find your organization’s Production Images in the **Organization images** tab.
 
@@ -55,13 +55,13 @@ For a complete list of Starter images that are currently available, check out th
 
 Base images are meant to be extended by users with their own packages and applications. Examples include [chainguard-base](https://images.chainguard.dev/directory/image/chainguard-base/overview), [Go](https://images.chainguard.dev/directory/image/go/overview), and [Python](https://images.chainguard.dev/directory/image/python/overview).
 
-Chainguard is responsible for releasing fully patched toolchains and Base images, while customers are responsible for patching any applications and dependencies they add to a Chainguard image. It is recommended to use a fully patched Chainguard toolchain image to build the application, and a fully patched Chainguard Base image to layer the final application on.
+Chainguard is responsible for releasing fully-patched toolchains and Base images, while customers are responsible for patching any applications and dependencies they add to a Chainguard image. It is recommended to use a fully-patched Chainguard toolchain image to build the application, and a fully-patched Chainguard Base image to layer the final application on.
 
 When migrating to a Chainguard Base image you should first check the images’s overview page on the Images Directory for usage details and any compatibility remarks. You should understand the libraries, runtime requirements, and operating system dependencies of the applications you plan to have running on the Base image.
 
 It is a best practice to use the same versions of any languages or applications that will be running on the Chainguard Base image as what is currently running in your environment. Do not upgrade language or application versions at the same time that you migrate. Following the migration, you should thoroughly test and monitor your application.
 
-If you need a package to use with your Chainguard Base image, Wolfi packages are available using apk. Ensure you only use Wolfi packages, as Alpine APK’s are not compatible with Wolfi. Additionally, it is important to note that vendor-provided packages need to be glibc based and their functionality should be fully tested along with the application. For additional tips, please refer to our guide on [Troubleshooting apko Builds](/open-source/build-tools/apko/troubleshooting/).
+If you need a package to use with your Chainguard Base image, Wolfi packages are available using apk. Ensure you only use Wolfi packages, as Alpine APK’s are not compatible with Wolfi. Additionally, it is important to note that vendor-provided packages need to be glibc-based and their functionality should be fully tested along with the application. For additional tips, please refer to our guide on [Troubleshooting apko Builds](/open-source/build-tools/apko/troubleshooting/).
 
 > **Note**: Base images often require more customization by the user. Be aware that Chainguard offers a customization platform called [Custom Assembly](/chainguard/chainguard-images/features/custom-assembly/) to streamline this requirement without customers having to stand up their own custom pipelines.
 
@@ -79,7 +79,7 @@ When migrating to a Chainguard Application image you should first check the imag
 
 Artificial intelligence and machine learning (AI/ML) systems are used in a wide variety of high-stakes applications, including information retrieval, medical research, fraud identification, military operations, autonomous vehicle navigation, and more. If compromised by malicious actors, the consequences could be disastrous and far reaching.
 
-Due to their unique features and uses, these systems often pose a greater risk than traditional software systems. Chainguard offers a suite of CPU and GPU-enabled AI container images which can help to mitigate these risks. Some of these AI images include [NeMo](https://images.chainguard.dev/directory/image/nemo/overview), [PyTorch](https://images.chainguard.dev/directory/image/pytorch/overview), and [TensorFlow](https://images.chainguard.dev/directory/image/tensorflow/overview).
+Due to their unique features and uses, these systems often pose a greater risk than traditional software systems. Chainguard offers a suite of CPU- and GPU-enabled AI container images which can help to mitigate these risks. Some of these AI images include [NeMo](https://images.chainguard.dev/directory/image/nemo/overview), [PyTorch](https://images.chainguard.dev/directory/image/pytorch/overview), and [TensorFlow](https://images.chainguard.dev/directory/image/tensorflow/overview).
 
 These images are hardened, minimal, and optimized for efficient AI development and deployment. By leveraging Chainguard AI Images, organizations can confidently secure their AI infrastructure, streamline vulnerability management, and maintain high performance with low-to-zero vulnerabilities. Rather than starting with tens, dozens, or hundreds of CVEs in your application or pipeline, you start with a clean slate. 
 
