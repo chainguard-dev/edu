@@ -218,16 +218,44 @@ well](#remove-maven-caches).
 
 ### Change Gradle Configuration
 
-Global configuration for artifact download is Gradle can be performed in an
-[init
+Before running a new build you must configure access to the Chainguard Libraries
+for Java. If the administrator for your organization’s repository manager
+created a new repository or virtual repository or group repository, you must
+update your Gradle configuration. Artifact download is Gradle can be configured
+in an [init
 script](https://docs.gradle.org/current/userguide/init_scripts.html#sec:using_an_init_script)
 using the repositories definition. Each project can also [declare
 repositories](https://docs.gradle.org/current/userguide/declaring_repositories_basics.html)
 separately.
 
-Configure the Chainguard Libraries for Java repository with the credentials from
-[Chainguard Libraries access](/chainguard/libraries/access/). Ensure that the
-chainguard repository is located above the mavenCentral repository.
+A typical setup removes the direct reference to Maven Central `mavenCentral()`
+and any other repositories, and adds a replacement definition with the URL of the
+repository group or virtual repository from your repository manager
+`https://repo.example.com/group/` and any applicable authentication details.
+
+```
+repositories {
+    maven {
+        url = uri("https://libraries.cgr.dev/maven/")
+        credentials {
+            username = "YOUR_USERNAME_FOR_REPOSITORY_MANAGER"
+            password = "YOUR_PASSWORD"
+        }
+    }
+}
+```
+
+Example URLs for repository managers:
+
+* Cloudsmith: `https://dl.cloudsmith.io/basic/exampleorg/chainguard-maven/maven/`
+* JFrog Artifactory: `https://example.jfrog.io/artifactory/chainguard-maven/`
+* Sonatype Nexus: `https://repo.example.com:8443/repository/chainguard-maven/`
+
+If your organization does not use a repository manager you can configure the
+Chainguard Libraries for Java repository with the credentials from [Chainguard
+Libraries access](/chainguard/libraries/access/). Ensure that the Chainguard
+repository is located above the `mavenCentral` repository and any other
+repositories.
 
 ```
 repositories {
@@ -255,3 +283,9 @@ These tools also include their own mechanisms to configure repositories for
 binary artifact retrieval. Consult the specific documentation and adjust your
 configuration to use your repository manager and newly created repository group
 or virtual repository.
+
+Example URLs for repository managers:
+
+* Cloudsmith: `https://dl.cloudsmith.io/basic/exampleorg/chainguard-maven/maven/`
+* JFrog Artifactory: `https://example.jfrog.io/artifactory/chainguard-maven/`
+* Sonatype Nexus: `https://repo.example.com:8443/repository/chainguard-maven/`
