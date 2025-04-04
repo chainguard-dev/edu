@@ -156,6 +156,7 @@ Configure a remote repository for the Maven Central Repository:
 1. Select *Maven* as the Package type.
 1. Set the **Repository Key** to *central*.
 1. Set the **URL** to *https://repo1.maven.org/maven2/* .
+1. Deactivate **Maven Settings - Handle Snapshots**.
 1. Press **Create Remote Repository**.
 
 Configure a remote repository for the Chainguard Libraries for Java repository:
@@ -168,6 +169,7 @@ Configure a remote repository for the Chainguard Libraries for Java repository:
    with chainctl](/chainguard/libraries/access/).
 1. Check the **Enable Token Authentication** checkbox.
 1. Press **Test** to validate the connection.
+1. Deactivate **Maven Settings - Handle Snapshots**.
 1. Press **Create Remote Repository**.
 
 Combine the two repositories in a new virtual repository:
@@ -234,6 +236,7 @@ Configure a remote repository for the Maven Central Repository:
 1. Press **Create repository**.
 1. Select the **maven2 (proxy)** recipe.
 1. Provide a new name *central*.
+1. Ensure **Maven 2 - Version policy** is set to *Release*.
 1. In the **Proxy - Remote storage** input add the URL *https://repo1.maven.org/maven2/*.
 1. Press **Create repository**.
 
@@ -243,6 +246,7 @@ Configure a remote repository for the Chainguard Libraries for Java repository:
 1. Press **Create repository**.
 1. Select the **maven2 (proxy)** recipe.
 1. Provide a new name *chainguard*.
+1. Ensure **Maven 2 - Version policy** is set to *Release*.
 1. In the **Proxy - Remote storage** input add the URL *https://libraries.cgr.dev/maven/*.
 1. In **HTTP - Authentication** with the **Authentication type** *username*,
    provide the [username and password values as retrieved with
