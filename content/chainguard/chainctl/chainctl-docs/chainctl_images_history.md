@@ -1,5 +1,5 @@
 ---
-date: 2025-03-27T19:16:42Z
+date: 2025-04-03T19:10:23Z
 title: "chainctl images history"
 slug: chainctl_images_history
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_history/
@@ -16,6 +16,9 @@ Show history for a specific image tag.
 ### Synopsis
 
 Show history for a specific image tag.
+
+If a digest does not represent a multi-arch image, only a single digest without architecture information will be displayed.
+Architecture information may not be available for all digests.
 
 Examples:
   # Show history for a specific tag (selected interactively)
