@@ -32,8 +32,8 @@ supply chain attack surface points:
 More information about the supply chain stages is available on the [Supply chain
 Levels for Software Artifacts (SLSA) website](https://slsa.dev/).
 
-The following are examples of issues that exploited issues in the relevant
-stages of the supply chain:
+The following examples are issues, attacks, and compromises that affect stages
+of the software supply chain for libraries across different language ecosystems:
 
 ### Ultralytics Python project
 
@@ -66,6 +66,16 @@ stages of the supply chain:
   and [Sonatype's take as Maven Central
   operator](https://www.sonatype.com/sonatypes-ongoing-commitment-to-maven-central).
 
+## XZ Utils backdoor
+
+* Example for a supply chain issue with social engineering for maintainer rights
+* Very complex backdoor that consists of multiple stages with potential to be
+  very widespread and effective.
+* Vulnerability was patched within hours of disclosure by reverting to a
+  previous version known to be safe.
+* See also [Wikipedia article](https://en.wikipedia.org/wiki/XZ_Utils_backdoor)
+  and [official page from the XZ data compression](https://tukaani.org/xz-backdoor/).
+
 ### Other examples and resources
 
 * [Successful supply chain attack on Solana JS library](https://socket.dev/blog/supply-chain-attack-solana-web3-js-library)
@@ -78,6 +88,7 @@ stages of the supply chain:
 * [PyTorch namespace (dependency) confusion attack](https://www.sonatype.com/blog/pytorch-namespace-dependency-confusion-attack)
 * [Typo squatting attempt to gain credentials](https://socket.dev/blog/malicious-maven-package-exfiltrates-oauth-credentials)
 * [Typo squatting attempts on Maven Central](https://www.sonatype.com/blog/malware-removed-from-maven-central)
+* [tj-actions GitHub action issue as example of build infrastructure supply chain compromise](https://www.cisa.gov/news-events/alerts/2025/03/18/supply-chain-compromise-third-party-tj-actionschanged-files-cve-2025-30066-and-reviewdogaction)
 
 Find pointers to further resources in the [Software supply chain reading
 list](https://github.com/chainguard-dev/ssc-reading-list).
