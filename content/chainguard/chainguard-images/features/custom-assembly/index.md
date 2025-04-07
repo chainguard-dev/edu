@@ -254,7 +254,8 @@ OK: 676 MiB in 79 packages
 Build failures can occur for a number of reason, including the following:
 
 * It's possible for users to select packages that conflict with each other. For example, if two packages install the same files, Custom Assembly may not be able to resolve the conflict and result in a failed build.
-* There is a known bug where container images will not be rebuilt if their source image is more than 48 hours old. 
+* Large images taking longer than 1 hour to build will fail with a timeout error.
+* There is a known bug where container images will not be rebuilt if their source image is more than 48 hours 
 
 In any case, you won't know whether a container image build fails until after it's complete. If you need assistance troubleshooting, please [reach out to our Customer Support team](https://www.chainguard.dev/contact?utm=docs).
 
