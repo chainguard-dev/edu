@@ -85,7 +85,7 @@ values are much longer.
 
 Use the credentials for manual testing in a browser or with a script if you know
 the URL for a specific library artifact, [for example a Java
-library](chainguard/libraries/java/overview/#technical-details).
+library](/chainguard/libraries/java/overview/#technical-details).
 
 You can verify entitlements for your organization `example` with the following
 command:
