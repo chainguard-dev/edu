@@ -1,13 +1,13 @@
 ---
 title: "How Chainguard Containers are Tested"
-linktitle: "How Container Images are Tested"
+linktitle: "How We Test"
 aliases:
 - /chainguard/chainguard-images/images-testing/
 - /chainguard/chainguard-images/about/images-testing/
 type: "article"
 description: "A conceptual article outlining testing requirements for Chainguard Containers."
 date: 2024-03-21T11:07:52+02:00
-lastmod: 2025-03-21T11:07:52+02:00
+lastmod: 2025-04-07T11:07:52+02:00
 draft: false
 tags: ["Overview", "Chainguard Containers", "Product"]
 images: []
