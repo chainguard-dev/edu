@@ -57,11 +57,14 @@ stages of the supply chain:
 
 ### MavenGate
 
-* MavenGate exploits abandoned Java library domains.
-* Vulnerabilities in Maven dependency management allowed unauthorized package replacements.
-* All Maven-based software, including Gradle and Ant, was compromised.
-* See also [thehackernews article](https://thehackernews.com/2024/01/hackers-hijack-popular-java-and-android.html) and 
-  [oversecured blog post](https://blog.oversecured.com/Introducing-MavenGate-a-supply-chain-attack-method-for-Java-and-Android-applications/).
+* MavenGate is a proof of concept for exploiting abandoned Java library domains.
+* Vulnerabilities in Maven dependency management allow unauthorized package replacements.
+* All Java build tools using Maven repositories, including Maven, Gradle, and
+  Ant, could be affected.
+* See also [_The Hacker News_ article](https://thehackernews.com/2024/01/hackers-hijack-popular-java-and-android.html),
+  [_Oversecured_ blog post](https://blog.oversecured.com/Introducing-MavenGate-a-supply-chain-attack-method-for-Java-and-Android-applications/),
+  and [Sonatype's take as Maven Central
+  operator](https://www.sonatype.com/sonatypes-ongoing-commitment-to-maven-central).
 
 ### Other examples and resources
 
