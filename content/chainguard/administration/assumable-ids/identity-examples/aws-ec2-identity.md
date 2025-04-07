@@ -1,5 +1,5 @@
 ---
-title : "Create an Assumable Identity to Authenticate from an EC2 instance"
+title : "Create an Assumable Identity to Authenticate from an EC2 Instance"
 linktitle: "AWS EC2"
 lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by an AWS role in EC2 instance."
