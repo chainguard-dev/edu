@@ -6,9 +6,9 @@ aliases:
 type: "article"
 description: "An overview of the differences between glibc and musl."
 date: 2024-08-26T18:42:57+00:00
-lastmod: 2024-08-27T10:42:34+00:00
+lastmod: 2025-04-07T10:42:34+00:00
 draft: false
-tags: ["Chainguard Images", "product", "cheatsheet"]
+tags: ["Chainguard Containers", "product", "cheatsheet"]
 images: []
 menu:
   docs:
@@ -19,9 +19,9 @@ toc: true
 
 Over the years, various implementations of the [C standard library](https://en.wikipedia.org/wiki/C_standard_library) — such as the [GNU C library](https://www.gnu.org/software/libc/), [musl](https://musl.libc.org/about.html), [dietlibc](https://www.fefe.de/dietlibc/), [μClibc](https://uclibc.org/), and many others — have emerged with different goals and characteristics. These various implementations exist because the C standard library defines the required functionality for operating system services (such as file input/output and memory management) but does not specify implementation details. Among these implementations, the GNU C Library ([glibc](https://www.gnu.org/software/libc/)) and [musl](https://musl.libc.org/about.html) are among the most popular.
 
-When developing [Wolfi](/open-source/wolfi/overview/), the "undistro" on which all Chainguard Images are built, Chainguard elected to have it use glibc instead of another implementation like musl. This conceptual article aims to highlight the differences between these two implementations within the context of Chainguard's choice of using glibc over musl as the default implementation for the Wolfi undistro.
+When developing [Wolfi](/open-source/wolfi/overview/), the "undistro" on which all Chainguard Containers are built, Chainguard elected to have it use glibc instead of another implementation like musl. This conceptual article aims to highlight the differences between these two implementations within the context of Chainguard's choice of using glibc over musl as the default implementation for the Wolfi undistro.
 
-> **Note**: Several sections of this guide present data about the differences between glibc and musl across various categories. You can recreate some of these examples used to find this data with the Dockerfiles and C program files hosted in the `glibc-vs-musl` directory of the [Chainguard Academy Images Demos repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/glibc-vs-musl).
+> **Note**: Several sections of this guide present data about the differences between glibc and musl across various categories. You can recreate some of these examples used to find this data with the Dockerfiles and C program files hosted in the `glibc-vs-musl` directory of the [Chainguard Academy Containers Demos repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/glibc-vs-musl).
 
 
 ## High-level Differences between glibc and musl
@@ -83,7 +83,7 @@ int main() {
 }
 ```
 
-Next create a Dockerfile named `Dockerfile.musl` to create an Image which will use musl as the C library implementation:
+Next create a Dockerfile named `Dockerfile.musl` to create an Container which will use musl as the C library implementation:
 
 ```dockerfile
 FROM alpine:latest
@@ -119,7 +119,7 @@ CMD ["/vulnerable_glibc"]
 
 Next, you can build and test both of the new images. 
 
-### Building and testing the images
+### Building and testing the container images
 
 First build the image that will use musl:
 
@@ -159,7 +159,7 @@ glibc has built-in protection, so the output here will only let you know that th
 *** stack smashing detected ***: terminated
 ```
 
-> **Note**: As mentioned previously, several of the remaining sections in this guide present data about the differences between glibc and musl across various categories. You can recreate some of these examples by following the same procedure of setting creating and testing images based on the Dockerfiles and program files relevant to the example you're exploring. You can find the appropriate files in the `glibc-vs-musl` directory of the [Chainguard Academy Images Demos repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/glibc-vs-musl).
+> **Note**: As mentioned previously, several of the remaining sections in this guide present data about the differences between glibc and musl across various categories. You can recreate some of these examples by following the same procedure of setting creating and testing container images based on the Dockerfiles and program files relevant to the example you're exploring. You can find the appropriate files in the `glibc-vs-musl` directory of the [Chainguard Academy Containers Demos repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/glibc-vs-musl).
 
 
 ## Library and Binary Size
@@ -264,7 +264,7 @@ This table highlights how excessive memory allocations can cause musl (used by A
 
 Apart from memory allocations, multi-threading has also been problematic for musl, as shown in various [GitHub issues](https://github.com/rust-lang/rust/issues/70108) and [discussion threads](https://news.ycombinator.com/item?id=38616023)). glibc provides a thread-safe system, while musl is not thread-safe. The POSIX standard only requires stream operations to be atomic; there are no requirements on thread safety, so musl does not provide additional thread-safe features. This means unexpected behavior or race conditions can occur during multiple threads.
 
-We used a Rust script (referenced from the [github issue](https://github.com/rust-lang/rust/issues/70108)) to test single-thread and multi-thread performance on Alpine (musl) and Wolfi (glibc). The next table shows performance benchmarks across single-threaded and multi-threaded Rust applications. 
+We used a Rust script (referenced from the [GitHub issue](https://github.com/rust-lang/rust/issues/70108)) to test single-thread and multi-thread performance on Alpine (musl) and Wolfi (glibc). The next table shows performance benchmarks across single-threaded and multi-threaded Rust applications. 
 
 | Runtime                   	| Alpine (musl) | Wolfi (glibc) |
 | ----------------------------- | ------------- | ------------- |
@@ -315,15 +315,15 @@ Finally, we encourage you to check out this additional set of articles and discu
 
 - [*Why does musl make my Rust code so slow?*](https://andygrove.io/2020/05/why-musl-extremely-slow/) - Blog
 
-- Github issue: [Investigate musl performance issues](https://github.com/EmbarkStudios/texture-synthesis/issues/8)
+- GitHub issue: [Investigate musl performance issues](https://github.com/EmbarkStudios/texture-synthesis/issues/8)
 
 - [*Using Alpine can make Python Docker builds 50× slower*](https://pythonspeed.com/articles/alpine-docker-python/) - Blog
 
 - [*Comparison of C/POSIX standard library implementations for Linux*](http://www.etalabs.net/compare_libcs.html) - Blog
 
-- Github issue: [Officially support musl the same way glibc is supported](https://github.com/php/php-src/issues/13877)
+- GitHub issue: [Officially support musl the same way glibc is supported](https://github.com/php/php-src/issues/13877)
 
-- Github issue: [Musl as default instead of glibc](https://github.com/NixOS/nixpkgs/issues/90147)
+- GitHub issue: [Musl as default instead of glibc](https://github.com/NixOS/nixpkgs/issues/90147)
 
-- Github issue: [Convert docker builds to use debian/glibc images, away from docker alpine/musl](https://github.com/LemmyNet/lemmy/issues/3972)
+- GitHub issue: [Convert docker builds to use debian/glibc images, away from docker alpine/musl](https://github.com/LemmyNet/lemmy/issues/3972)
 
