@@ -27,8 +27,9 @@ This guide outlines how to create a Microsoft Entra ID (formerly Azure Active Di
 To complete this guide, you will need the following.
 
 * `chainctl` installed on your system. Follow our guide on [How To Install `chainctl`](/chainguard/administration/how-to-install-chainctl/) if you don't already have this installed.
-* An Azure account you can use to set up an Microsoft Entra ID application.
+* An Azure account with Admin permissions you can use to set up an Microsoft Entra ID application.
 
+  **_NOTE:_** Without Admin permissions on your Azure account, you will not be able to assign users to the created Entra ID Application.
 
 ## Create a Microsoft Entra ID Application
 
