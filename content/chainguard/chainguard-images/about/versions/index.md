@@ -62,7 +62,7 @@ The table provides some example scenarios to help illustrate our approach.
 
 ## What Chainguard Image Versions to Expect
 
-When you use freely-available Chainguard Developer Images, you will have access to the `:latest` version of any Image available to the public. In some cases, you will also have access to the `:latest-dev` version, which includes a shell and package manager. For example, the Python Image has both `cgr.dev/chainguard/python:latest` and `cgr.dev/chainguard/python:latest-dev`. Many of the programming languages have these options available, including the Java JDK and JRE Images, PHP, Go, Node, Ruby, and Rust. 
+When you use freely-available [Chainguard Starter Containers](/chainguard/chainguard-images/about/images-categories/#starter-containers), you will have access to the `:latest` version of any Image available to the public. In some cases, you will also have access to the `:latest-dev` version, which includes a shell and package manager. For example, the Python Image has both `cgr.dev/chainguard/python:latest` and `cgr.dev/chainguard/python:latest-dev`. Many of the programming languages have these options available, including the Java JDK and JRE Images, PHP, Go, Node, Ruby, and Rust. 
 
 If you are using our enterprise Chainguard Production Images, you will have access to more versions. The Chainguard approach is as follows: 
 

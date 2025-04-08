@@ -39,7 +39,7 @@ Because of their minimalist design, Chainguard Images sometimes require users to
 * Chainguard's distroless Images have no shell or package manager by default. This is great for security, but sometimes you need these things, especially in builder images. For those cases we have `-dev` images (such as `cgr.dev/chainguard/python:latest-dev`) which do include a shell and package manager.
 * Chainguard Images typically don't run as root, so a `USER root` statement may be required before installing software.
 * The `-dev` images and `wolfi-base` / `chainguard-base` use BusyBox by default, so any `groupadd` or `useradd` commands will need to be ported to `addgroup` and `adduser`.
-* The free Developer tier of Images provides `:latest` and `:latest-dev` versions. Our paid Production Images offer tags for major and minor versions.
+* The free Starter tier of Images provides `:latest` and `:latest-dev` versions. Our paid Production Images offer tags for major and minor versions.
 * We use apk tooling, so `apt install` commands will become `apk add`.
 * Chainguard Images are based on `glibc` and our packages cannot be mixed with Alpine packages.
 * In some cases, the entrypoint in Chainguard Images can be different from equivalent images based on other distros, which can lead to unexpected behavior. You should always check the image's specific documentation to understand how the entrypoint works.

@@ -21,7 +21,7 @@ weight: 005
 
 Organizations can use Chainguard Images along with third-party software repositories in order to integrate with current workflows as the single source of truth for software artifacts. In this situation, you can set up a remote repository to function as a mirror of a [Chainguard Registry](https://edu.chainguard.dev/chainguard/chainguard-registry/overview/) — either the public registry or a private one belonging to your organization. This mirror can then serve as a pull through cache for your Chainguard Images.
 
-This tutorial outlines how to set up remote repositories with [JFrog Artifactory](https://jfrog.com/artifactory/). Specifically, it will walk you through how to set up one repository you can use as a pull through cache for Chainguard's public Developer Images and another you can use with Production Images originating from a private Chainguard repository. It will also outline how you can use one of Artifactory's virtual repositories as a pull through cache.
+This tutorial outlines how to set up remote repositories with [JFrog Artifactory](https://jfrog.com/artifactory/). Specifically, it will walk you through how to set up one repository you can use as a pull through cache for Chainguard's public [Starter Images](/chainguard/chainguard-images/about/images-categories/#starter-containers) and another you can use with Production Images originating from a private Chainguard repository. It will also outline how you can use one of Artifactory's virtual repositories as a pull through cache.
 
 
 ## Prerequisites
@@ -35,11 +35,11 @@ In order to complete this tutorial, you will need the following:
 Lastly, part of this guide assumes you have access to a private Chainguard Registry containing one or more Production Images. If you don't already have access to these, you can [contact our sales team](https://www.chainguard.dev/contact?utm_source=docs). 
 
 
-## Setting Up Artifactory as a pull through for Developer Images
+## Setting Up Artifactory as a pull through for Starter Images
 
-Chainguard's Developer Images are free to use, publicly available, and always represent versions tagged as `:latest`.
+Chainguard's Starter Images are free to use, publicly available, and always represent versions tagged as `:latest`.
 
-To set up a remote repository in Artifactory from which you can pull Chainguard Developer Images, log in to the JFrog platform. Once there, click on the **Administration** tab near the top of the screen and select **Repositories** from the left-hand navigation menu. On the Repositories page, click the **Create a Repository** button and select the **Remote** option.
+To set up a remote repository in Artifactory from which you can pull Chainguard Starter Images, log in to the JFrog platform. Once there, click on the **Administration** tab near the top of the screen and select **Repositories** from the left-hand navigation menu. On the Repositories page, click the **Create a Repository** button and select the **Remote** option.
 
 ![Screenshot of the JFrog Artifactory Repositories tab, showing the drop-down menu that appears when you click the "Create a Repository" button. This screenshot highlights the "Remote" option with a red box.](artifactory-1.png)
 
@@ -59,7 +59,7 @@ Lastly, in the **Advanced** configuration tab, ensure that the **Block Mismatchi
 
 Following that, click the **Create Remote Repository** button. If everything worked as expected, a modal window will appear letting you know that the repository was created successfully. You can click the **Set Up Docker Client** button at the bottom of this window to retrieve the commands you'll use to test that you can pull Images through this repository.
 
-### Testing pull through of a Chainguard Developer Image
+### Testing pull through of a Chainguard Starter Image
 
 After clicking the **Set Up Docker Client** button, a modal window will appear from the right side of the page. Click the **Generate Token & Create Instructions** button, which will generate two code blocks whose contents you can copy.
 
@@ -71,7 +71,7 @@ docker login -u<linky@chainguard.dev> <myproject>.jfrog.io
 
 After running this command, you'll be prompted to enter a password. Copy the token from the second code block and paste it into your terminal.
 
-After running the `docker login` command, you will be able to pull a Chainguard Developer Image through Artifactory. The following example pulls the `go` Image:
+After running the `docker login` command, you will be able to pull a Chainguard Starter Image through Artifactory. The following example pulls the `go` Image:
 
 ```sh
 docker pull <myproject>.jfrog.io/cgr-public/chainguard/go
@@ -82,7 +82,7 @@ Be sure the `docker pull` command you run includes the name of your project as w
 
 ## Setting Up Artifactory as a pull through for Production Images
 
-Production Chainguard Images are enterprise-ready images that come with patch SLAs and features such as [Federal Information Processing Standard](/chainguard/chainguard-images/working-with-images/fips-images/) (FIPS) readiness. The process for setting up an Artifactory repository that you can use as a pull through cache for Chainguard Production Images is similar to the one outlined previously for Developer Images, but with a few extra steps.
+Production Chainguard Images are enterprise-ready images that come with patch SLAs and features such as [Federal Information Processing Standard](/chainguard/chainguard-images/working-with-images/fips-images/) (FIPS) readiness. The process for setting up an Artifactory repository that you can use as a pull through cache for Chainguard Production Images is similar to the one outlined previously for Starter Images, but with a few extra steps.
 
 To get started, you will need to create [a pull token](/chainguard/chainguard-registry/authenticating/#authenticating-with-a-pull-token) for your organization's Chainguard Registry. Pull tokens are longer-lived tokens that can be used to pull Images from other environments that don't support OIDC, such as some CI environments, Kubernetes clusters, or with registry mirroring tools like Artifactory.
 

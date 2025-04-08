@@ -27,7 +27,7 @@ The following commands requires [Cosign](/open-source/sigstore/cosign/how-to-ins
 
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-- `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `:latest` versions of an image.
+- `cgr.dev/chainguard` - the Public Registry contains our **Starter Images**, which typically comprise the `:latest` versions of an image.
 - `cgr.dev/your-registry-name` - A Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 The commands listed on this page will default to the `:latest` tag, but you can specify a different tag to fetch attestations for.

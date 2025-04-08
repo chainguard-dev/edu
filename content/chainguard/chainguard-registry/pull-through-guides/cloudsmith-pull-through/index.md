@@ -19,7 +19,7 @@ weight: 020
 
 Organizations often have their own internal software repositories and registries integrated into their systems. This guide explains how to set-up the Cloudsmith artifact repository to ingest [Chainguard Images](/chainguard/chainguard-images/overview/) by acting as a pull-through cache.
 
-This tutorial outlines how to set up a remote repository with [Cloudsmith](https://cloudsmith.com/). It will walk you through how to set up a Cloudsmith repository you can use as a pull through cache for Chainguard's public Developer Images or for Production Images originating from a private Chainguard repository.
+This tutorial outlines how to set up a remote repository with [Cloudsmith](https://cloudsmith.com/). It will walk you through how to set up a Cloudsmith repository you can use as a pull through cache for Chainguard's public Starter Images or for Production Images originating from a private Chainguard repository.
 
 ## Prerequisites
 
@@ -31,11 +31,11 @@ In order to complete this tutorial, you will need the following:
     * Additionally, you'll need `chainctl` installed to create the pull token. If you haven't already installed this, follow the [installation guide](/chainguard/administration/how-to-install-chainctl/).
 
 
-## Setting up Cloudsmith as a Pull Through for Developer Images
+## Setting up Cloudsmith as a Pull Through for Starter Images
 
-Chainguard's Developer Images are free to use, publicly available, and always represent versions tagged as `:latest`.
+Chainguard's [Starter Container Images](/chainguard/chainguard-images/about/images-categories/#starter-containers) are free to use, publicly available, and always represent versions tagged as `:latest`.
 
-To set up a remote repository in Cloudsmith through which you can pull Chainguard Developer Images, log in to the [Cloudsmith App](https://cloudsmith.io/user/login/). Once there, navigate to the **Repositories** tab and and click the **+ Create Repository** button. 
+To set up a remote repository in Cloudsmith through which you can pull Chainguard Starter Images, log in to the [Cloudsmith App](https://cloudsmith.io/user/login/). Once there, navigate to the **Repositories** tab and and click the **+ Create Repository** button. 
 
 A modal window will appear where you can enter the following details for your new remote repository:
 
@@ -53,16 +53,16 @@ In the lower left-hand navigation menu, select **Upstream Proxying**. From there
 
 This window has a few fields for which you need to enter values. The **Name** field can include any name you'd like for the upstream source, but it can be helpful to choose something descriptive. In our example the name is "Chainguard Public Upstream." Likewise, you can choose whatever **Priority** value you prefer. This dictates the order in which requests are resolved, with `1` being resolved first, `2` second, and so on.
 
-The most important field in this window is the **Upstream URL** value. In order to use Cloudsmith as a pull through cache for Chainguard Developer Images, this **must** be set to `https://cgr.dev/chainguard`. 
+The most important field in this window is the **Upstream URL** value. In order to use Cloudsmith as a pull through cache for Chainguard Starter Images, this **must** be set to `https://cgr.dev/chainguard`. 
 
 Lastly, be sure that the **Mode** is set to **Cache and Proxy** and the **Verify SSL Certificates** option is selected. Then, click the **Create Docker Upstream** button.
 
-If you entered all the details correctly, then the upstream proxy will be created successfully and you can test pulling a Chainguard Developer Image through Cloudsmith.
+If you entered all the details correctly, then the upstream proxy will be created successfully and you can test pulling a Chainguard Starter Image through Cloudsmith.
 
 
-### Testing pull through of a Chainguard Developer Image
+### Testing pull through of a Chainguard Starter Image
 
-Before testing whether you can pull a Developer Image through Cloudsmith, you'll need to log in to the Cloudsmith registry with `docker`:
+Before testing whether you can pull a Starter Image through Cloudsmith, you'll need to log in to the Cloudsmith registry with `docker`:
 
 ```sh
 docker login docker.cloudsmith.io
@@ -70,7 +70,7 @@ docker login docker.cloudsmith.io
 
 This command will prompt you to enter your Cloudsmith username and password. Your username appears in the top-right corner of the Cloudsmith web app. If you click on this, a drop-down menu will appear. Select **API Settings**; on the resulting page you'll find a field named **API Key** containing a 40-character string. You can use this API key to access Cloudsmith programmatically or, as in the case of this example, use it as a password in a `docker login` command.
 
-After running the command, you will be able to pull a Chainguard Developer Image through your new Cloudsmith repository. The following example pulls the `nginx` Image:
+After running the command, you will be able to pull a Chainguard Starter Image through your new Cloudsmith repository. The following example pulls the `nginx` Image:
 
 ```sh
 docker pull docker.cloudsmith.io/<cloudsmith-organization>/<cloudsmith-repository>/nginx:latest
@@ -87,9 +87,9 @@ If you run into issues pulling images like this, ensure that your `docker pull` 
 
 ## Setting up Cloudsmith as a Pull Through for Production Images
 
-Production Chainguard Images are enterprise-ready images that come with patch SLAs and features such as [Federal Information Processing Standard](/chainguard/chainguard-images/working-with-images/fips-images/) (FIPS) readiness. The process for setting up a Cloudsmith repository that you can use as a pull through cache for Chainguard Production Images is similar to the one outlined previously for Developer Images, but with a few extra steps.
+Production Chainguard Images are enterprise-ready images that come with patch SLAs and features such as [Federal Information Processing Standard](/chainguard/chainguard-images/working-with-images/fips-images/) (FIPS) readiness. The process for setting up a Cloudsmith repository that you can use as a pull through cache for Chainguard Production Images is similar to the one outlined previously for Starter Images, but with a few extra steps.
 
-You can create a new Cloudsmith repository or use the same repository you used as a pull through cache for Developer Images.
+You can create a new Cloudsmith repository or use the same repository you used as a pull through cache for Starter Images.
 
 Next, you'll need to create [a pull token](/chainguard/chainguard-registry/authenticating/#authenticating-with-a-pull-token) for your organization's Chainguard Registry. Pull tokens are longer-lived tokens that can be used to pull Images from other environments that don't support OIDC, such as some CI environments, Kubernetes clusters, or with registry mirroring tools like Cloudsmith.
 
@@ -124,7 +124,7 @@ Finally, click the **Create Docker Upstream** button. With that, you're ready to
 
 ### Testing pull through of a Chainguard Production image:
 
-As with testing pull through of a Developer image, you'll first need to authenticate to Cloudsmith:
+As with testing pull through of a Starter image, you'll first need to authenticate to Cloudsmith:
 
 ```sh
 docker login docker.cloudsmith.io
@@ -156,7 +156,7 @@ If you run into issues pulling images like this, be sure that your `docker pull`
 If you run into issues when trying to pull Images from Chainguard's Registry to Cloudsmith, please make sure the following requirements are met:
 
 * Ensure that all Images [network requirements](https://edu.chainguard.dev/chainguard/administration/network-requirements/) are met.
-* When configuring a remote Cloudsmith repository, ensure that the **URL** field is set correctly. For Developer Images, this should be `https://cgr.dev/chainguard`; for Production Images this should be `https://cgr.dev/`. This field **must not** contain any additional components.
+* When configuring a remote Cloudsmith repository, ensure that the **URL** field is set correctly. For Starter Images, this should be `https://cgr.dev/chainguard`; for Production Images this should be `https://cgr.dev/`. This field **must not** contain any additional components.
 * You can troubleshoot by running `docker login` from another node (using the Cloudsmith pull token credentials) and try pulling an Image from `cgr.dev/chainguard/<image name>` or `cgr.dev/<example.com>/<image name>`, using your own organization's registry name in place of `<example.com>`.
 * It could be that your Cloudsmith repository was misconfigured. In this case, create and configure a new Cloudsmith repository to test with.
 

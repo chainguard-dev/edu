@@ -23,7 +23,7 @@ The Trademark Policy details:
 * Scenarios where trademark use is not permitted,
 * When Chainguard’s permission may be required to use a given trademark. 
 
-Under Chainguard’s Trademark Policy, when using the free-tier Chainguard Developer Images and Wolfi components, artifacts that are created by you must clearly delineate which software is installed by you (instead of Chainguard) in such a way that is clear to vulnerability scanners and end users that you are the author of said changes to the software and not Chainguard. Further, if you attempt to rebuild Chainguard packages or Images from source, you must remove all references to Chainguard or Wolfi in adherence to the Trademark Policy. 
+Under Chainguard’s Trademark Policy, when using the free-tier Chainguard Starter Images and Wolfi components, artifacts that are created by you must clearly delineate which software is installed by you (instead of Chainguard) in such a way that is clear to vulnerability scanners and end users that you are the author of said changes to the software and not Chainguard. Further, if you attempt to rebuild Chainguard packages or Images from source, you must remove all references to Chainguard or Wolfi in adherence to the Trademark Policy. 
 
 ## How not to use Chainguard Trademarks 
 

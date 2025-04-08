@@ -28,7 +28,7 @@ The main features of Chainguard Images include:
 - [Verifiable signatures](/chainguard/chainguard-images/working-with-images/retrieve-image-sboms/) provided by [Sigstore](/open-source/sigstore/cosign/an-introduction-to-cosign/)
 - Reproducible builds with Cosign and apko ([read more about reproducibility](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds))
 
-Chainguard Images are primarily available from the [Chainguard Registry](/chainguard/chainguard-registry/overview/), but a selection of developer images is also available on [Docker Hub](https://hub.docker.com/u/chainguard). You can find the complete list of available Chainguard Images in our public [Images Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-overview) or within the [Chainguard Console](https://console.chainguard.dev/).
+Chainguard Images are primarily available from the [Chainguard Registry](/chainguard/chainguard-registry/overview/), but a selection of Starter images is also available on [Docker Hub](https://hub.docker.com/u/chainguard). You can find the complete list of available Chainguard Images in our public [Images Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-overview) or within the [Chainguard Console](https://console.chainguard.dev/).
 
 
 ## Why Minimal Container Images
@@ -50,15 +50,15 @@ Chainguard Images only contain packages that come from the Wolfi Project or thos
 This change ensures that Chainguard can provide the most up-to-date patches to all packages for our Images users. Note that specific package versions can be made available in Production Images. If you have a request for a specific package version, please [contact support](https://www.chainguard.dev/contact?utm=docs).
 
 
-## Production and Developer Images
+## Production and Starter Images
 
-Chainguard offers a collection of images that are publicly available and don't require authentication, being free to use by anyone. We refer to these images as **Developer Images**, and they cover several use cases for different language ecosystems. Developer images are limited to the latest build of a given image, tagged as `latest` and `latest-dev`.
+Chainguard offers a collection of images that are publicly available and don't require authentication, being free to use by anyone. We refer to these images as **Starter Images**, and they cover several use cases for different language ecosystems. Starter images are limited to the latest build of a given image, tagged as `latest` and `latest-dev`.
 
-Production Images are enterprise-ready images that come with patch SLAs and features such as [Federal Information Processing Standard (FIPS) readiness](/chainguard/chainguard-images/images-features/fips-images/) and [unique time stamped tags](/chainguard/chainguard-images/images-features/unique-tags/). Unlike Developer Images, which are typically paired with only the latest version of an upstream package, Production Images offer specific major and minor versions of open source software.
+Production Images are enterprise-ready images that come with patch SLAs and features such as [Federal Information Processing Standard (FIPS) readiness](/chainguard/chainguard-images/images-features/fips-images/) and [unique time stamped tags](/chainguard/chainguard-images/images-features/unique-tags/). Unlike Starter Images, which are typically paired with only the latest version of an upstream package, Production Images offer specific major and minor versions of open source software.
 
 You can access Images directly from the [Chainguard Registry](/chainguard/chainguard-registry/overview/). The Chainguard Registry provides public access to all public Chainguard Images, and provides customer access for Production Images after logging in and authenticating.
 
-For a complete list of Developer Images that are currently available, check our [Images Directory](https://images.chainguard.dev/?category=developer). Registered users can also access all Developer and Production images in the [Chainguard Console](https://console.chainguard.dev/?utm=docs). After logging in you will be able to find all the current Developer Images in the **Public images** tab. If you've selected an appropriate Organization in the drop-down menu above the left hand navigation, you can find your organization's Production Images in the **Organization images** tab.
+For a complete list of Starter Images that are currently available, check our [Images Directory](https://images.chainguard.dev/?category=starter). Registered users can also access all Starter and Production images in the [Chainguard Console](https://console.chainguard.dev/?utm=docs). After logging in you will be able to find all the current Starter Images in the **Public images** tab. If you've selected an appropriate Organization in the drop-down menu above the left hand navigation, you can find your organization's Production Images in the **Organization images** tab.
 
 
 ## Comparing Images

@@ -19,7 +19,7 @@ weight: 005
 
 Organizations can use Chainguard Images along with third-party software repositories in order to integrate with current workflows as the single source of truth for software artifacts. In this situation, you can set up a proxy repository to function as a mirror of the [Chainguard Registry](/chainguard/chainguard-registry/overview/). This mirror can then serve as a pull through cache for your Chainguard Images.
 
-This tutorial outlines how to set up a remote repository with [Google Artifact Registry](https://cloud.google.com/artifact-registry/docs/repositories/remote-overview). It will walk you through how to set up an Artifact Registry Repository you can use as a pull through cache for Chainguard's public Developer Images or for Production Images originating from a private Chainguard repository.
+This tutorial outlines how to set up a remote repository with [Google Artifact Registry](https://cloud.google.com/artifact-registry/docs/repositories/remote-overview). It will walk you through how to set up an Artifact Registry Repository you can use as a pull through cache for Chainguard's public Starter Images or for Production Images originating from a private Chainguard repository.
 
 ## Prerequisites
 
@@ -31,11 +31,11 @@ In order to complete this tutorial, you will need the following:
     * Additionally, you'll need `chainctl` installed to create the pull token. If you haven't already installed this, follow the [installation guide](/chainguard/administration/how-to-install-chainctl/).
 
 
-## Setting up Google Artifact Registry as a Pull Through for Developer Images
+## Setting up Google Artifact Registry as a Pull Through for Starter Images
 
-Chainguard's Developer Images are free to use, publicly available, and always represent versions tagged as `:latest`.
+Chainguard's Starter Images are free to use, publicly available, and always represent versions tagged as `:latest`.
 
-To set up a remote repository in Google Artifact Registry from which you can pull Chainguard Developer Images, log in to the [Google Cloud Console](https://console.cloud.google.com) and choose your project. Once there, navigate to the [Artifact Registry section](https://console.cloud.google.com/artifacts), click on **Repositories** in the left-hand navigation menu, and click on the **Create Repository** button near the top of the page.
+To set up a remote repository in Google Artifact Registry from which you can pull Chainguard Starter Images, log in to the [Google Cloud Console](https://console.cloud.google.com) and choose your project. Once there, navigate to the [Artifact Registry section](https://console.cloud.google.com/artifacts), click on **Repositories** in the left-hand navigation menu, and click on the **Create Repository** button near the top of the page.
 
 On the **Create Repository** page, enter the following details for your new remote repository:
 
@@ -48,7 +48,7 @@ On the **Create Repository** page, enter the following details for your new remo
 
 Following that, choose the Location, Encryption and Cleanup policy options for your repository. This guide's examples will use the location `us-central1`, but you can choose the location that best suits your needs. Finally, click the **Create** button to create the repository. 
 
-### Testing pull through of a Chainguard Developer Image
+### Testing pull through of a Chainguard Starter Image
 
 By default, the Artifact Registry repository requires authentication. Log in with a valid Google Artifact Registry:
 
@@ -59,20 +59,20 @@ gcloud auth configure-docker us-central1-docker.pkg.dev
 Be sure to change `us-central1` to reflect the location of your Artifact Registry repository. 
 Also, after running this command you may be prompted to log in to your Google Cloud account.
 
-After running the command, you will be able to pull a Chainguard Developer Image through Google Artifact Registry. The following example pulls the `go` Image:
+After running the command, you will be able to pull a Chainguard Starter Image through Google Artifact Registry. The following example pulls the `go` Image:
 
 ```sh
 docker pull us-central1-docker.pkg.dev/<your-project-id>/chainguard-pull-through/chainguard/go:latest
 ```
 
-This command first specifies the location of the Artifact Registry repository we just created (`us-central1-docker.pkg.dev/<your-project-id>/chainguard-pull-through/`). It then follows that with the name of the Chainguard Developer Image and the remote repository we want to pull it from (`chainguard/go:latest`). 
+This command first specifies the location of the Artifact Registry repository we just created (`us-central1-docker.pkg.dev/<your-project-id>/chainguard-pull-through/`). It then follows that with the name of the Chainguard Starter Image and the remote repository we want to pull it from (`chainguard/go:latest`). 
 
 If you run into issues with this command, be sure that it contains the correct Google Artifact Registry URL for your repository, including the location and project ID.
 
 
 ## Setting up Google Artifact Registry as a Pull Through for Production Images
 
-Production Chainguard Images are enterprise-ready images that come with patch SLAs and features such as [Federal Information Processing Standard](/chainguard/chainguard-images/working-with-images/fips-images/) (FIPS) readiness. The process for setting up a Google Artifact Registry repository that you can use as a pull through cache for Chainguard Production Images is similar to the one outlined previously for Developer Images, but with a few extra steps.
+Production Chainguard Images are enterprise-ready images that come with patch SLAs and features such as [Federal Information Processing Standard](/chainguard/chainguard-images/working-with-images/fips-images/) (FIPS) readiness. The process for setting up a Google Artifact Registry repository that you can use as a pull through cache for Chainguard Production Images is similar to the one outlined previously for Starter Images, but with a few extra steps.
 
 To get started, you will need to create [a pull token](/chainguard/chainguard-registry/authenticating/#authenticating-with-a-pull-token) for your organization's Chainguard Registry. Pull tokens are longer-lived tokens that can be used to pull Images from other environments that don't support OIDC, such as some CI environments, Kubernetes clusters, or with registry mirroring tools like Google Artifact Registry.
 
@@ -130,7 +130,7 @@ Click the **Save** button to apply the changes.
 
 ### Testing pull through of a Chainguard Production image:
 
-As with testing pull through of a Developer image, you'll first need to authenticate to the Artifact Registry:
+As with testing pull through of a Starter Image, you'll first need to authenticate to the Artifact Registry:
 
 ```sh
 gcloud auth configure-docker us-central1-docker.pkg.dev

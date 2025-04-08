@@ -25,7 +25,7 @@ toc: true
 * Chainguard's distroless Images have no shell or package manager by default. This is great for security, but sometimes you need these things, especially in builder images. For those cases we have `-dev` images (such as `cgr.dev/chainguard/python:latest-dev`) which do include a shell and package manager.
 * Chainguard Images typically don't run as root, so a `USER root` statement may be required before installing software.
 * The `-dev` images and `wolfi-base` / `chainguard-base` use BusyBox by default, so any `groupadd` or `useradd` commands will need to be ported to `addgroup` and `adduser`.
-* The free Developer tier of Images provides `:latest` and `:latest-dev` versions. Our paid Production Images offer tags for major and minor versions.
+* The free [Starter](/chainguard/chainguard-images/about/images-categories/#starter-containers) tier of Images provides `:latest` and `:latest-dev` versions. Our paid Production Images offer tags for major and minor versions.
 * We use apk tooling, so `apt install` commands will become `apk add`.
 * Chainguard Images are based on `glibc` and our packages cannot be mixed with Alpine packages.
 * In some cases, the entrypoint in Chainguard Images can be different from equivalent images based on other distros, which can lead to unexpected behavior. You should always check the image's specific documentation to understand how the entrypoint works.
@@ -137,7 +137,7 @@ grype docker:dnmonster
 
 This tells us that (at the time of writing) the image is 1.79 GB in size and has **hundreds of known vulnerabilities**.
 
-The first step in moving to Chainguard Images is to try switching the image name in to check if anything breaks. In this case, we’ll begin with the developer variant of the Node image. Change the first line of the Dockerfile from:
+The first step in moving to Chainguard Images is to try switching the image name in to check if anything breaks. In this case, we’ll begin with the development variant of the Node image. Change the first line of the Dockerfile from:
 
 
 ```Dockerfile
