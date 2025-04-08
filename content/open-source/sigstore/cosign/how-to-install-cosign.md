@@ -61,16 +61,16 @@ And for NixOS Linux, you can install Cosign using `nixos.cosign` with the `nix-e
 nix-env -iA nixos.cosign
 ```
 
-For Ubuntu and Debian distributions, check the releases page and download the latest `.deb` package. At the time of this writing, this would be version 1.8.0. To install the `.deb` file, run:
+For Ubuntu and Debian distributions, check the releases page and download the latest `.deb` package. At the time of this writing, this would be version 2.5.0. To install the `.deb` file, run:
 
 ```sh
-sudo dpkg -i ~/Downloads/cosign_1.8.0_amd64.deb
+sudo dpkg -i ~/Downloads/cosign_2.5.0_amd64.deb
 ```
 
 For CentOS and Fedora, download the latest `.rpm` package from the releases page and install Cosign with:
 
 ```sh
-rpm -ivh cosign-1.8.0.x86_64.rpm
+rpm -ivh cosign-2.5.0-1.x86_64.rpm
 ```
 
 You can check to ensure that Cosign is successfully installed using the `cosign version` command following installation. When you run the command, you should receive output that indicates the version you have installed.
@@ -101,10 +101,10 @@ The resulting binary from this installation will be placed at `$GOPATH/bin/cosig
 
 You can install Cosign with Go directly from the [Cosign GitHub releases page](https://github.com/sigstore/cosign/releases).
 
-At the time of writing, the newest release is [v2.0.0](https://github.com/sigstore/cosign/releases/tag/v2.0.0). You can download this version with the following command.
+At the time of writing, the newest release is [v2.5.0](https://github.com/sigstore/cosign/releases/tag/v2.5.0). You can download this version with the following command.
 
 ```sh
-go install github.com/sigstore/cosign/v2/cmd/cosign@v2.0.0
+go install github.com/sigstore/cosign/v2/cmd/cosign@v2.5.0
 ```
 
 The resulting binary from this installation will be placed at `$GOPATH/bin/cosign`. Check the [release page]([Cosign GitHub releases page](https://github.com/sigstore/cosign/releases) for additional releases.
@@ -113,10 +113,10 @@ The resulting binary from this installation will be placed at `$GOPATH/bin/cosig
 
 Installing Cosign via its binary offers you greater control over your installation, but this method also requires you to manage your installation yourself. In order to install via binary, check for the most updated version in the open source GitHub repository for Cosign under the [releases page](https://github.com/sigstore/cosign/releases).
 
-You can use the `wget` command to install the most recent binary. In our example, the release we are installing is 2.0.0.
+You can use the `wget` command to install the most recent binary. In our example, the release we are installing is 2.5.0.
 
 ```sh
-wget "https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linux-amd64"
+wget "https://github.com/sigstore/cosign/releases/download/v2.5.0/cosign-linux-amd64"
 ```
 
 Next, move the Cosign binary to your bin folder.
