@@ -1,8 +1,10 @@
 ---
 title: "Management and Maintenance"
 linktitle: "Management"
-type: "article"
 description: "Working with your Chainguard Libraries for Java use"
+type: "article"
+date: 2025-03-25T08:04:00+00:00
+lastmod: 2025-04-03T09:09:00+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java"]
 images: []

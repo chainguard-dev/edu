@@ -1,8 +1,10 @@
 ---
 title: "Build Configuration"
 linktitle: "Build Configuration"
-type: "article"
 description: "Configuring Chainguard Libraries for Java on your workstation"
+type: "article"
+date: 2025-03-25T08:04:00+00:00
+lastmod: 2025-04-07T14:11:00+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java"]
 menu:

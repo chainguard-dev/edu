@@ -1,8 +1,10 @@
 ---
 title: "Chainguard Libraries FAQ"
 linktitle: "FAQ"
-type: "article"
 description: "Frequently asked questions and answers for Chainguard Libraries users"
+type: "article"
+date: 2025-03-25T08:04:00+00:00
+lastmod: 2025-04-07T14:47 :00+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 menu:
