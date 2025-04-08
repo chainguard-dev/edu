@@ -7,7 +7,7 @@ lead: "A primer on Chainguard Containers and the distroless approach"
 date: 2022-09-01T08:49:31+00:00
 lastmod: 2025-04-07T08:49:31+00:00
 draft: false
-tags: ["Chainguard Containers", "Product", "Overview"]
+tags: ["CHAINGUARD CONTAINERS", "PRODUCT", "OVERVIEW"]
 images: []
 menu:
   docs:
@@ -49,7 +49,6 @@ Chainguard Containers only contain packages that come from the Wolfi Project or 
 
 This change ensures that Chainguard can provide the most up-to-date patches to all packages for our container images users. Note that specific package versions can be made available in . If you have a request for a specific package version, please [contact support](https://www.chainguard.dev/contact?utm=docs).
 
-
 ## Production and Starter Containers
 
 Chainguard offers a collection of container images that are publicly available and don't require authentication, being free to use by anyone. We refer to these images as **Starter containers**, and they cover several use cases for different language ecosystems. Starter images are limited to the latest build of a given image, tagged as `latest` and `latest-dev`.
@@ -71,7 +70,7 @@ The major advantage of distroless images is the reduced size and complexity, whi
 
 You can review more comparisons of Chainguard Containers and external images by checking out our [Vulnerability Comparisons](/chainguard/chainguard-images/vuln-comparison/) dashboard.
 
-`chainctl`, Chainguard's command line interface tool, comes with a useful `diff` feature that also allows you to [compare two Chainguard Images](/chainguard/chainguard-images/how-to-use/comparing-images/).
+`chainctl`, Chainguard's command line interface tool, comes with a useful `diff` feature that also allows you to [compare two Chainguard Containers](/chainguard/chainguard-images/how-to-use/comparing-images/).
 
 
 ## Architecture

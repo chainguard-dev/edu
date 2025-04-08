@@ -36,13 +36,13 @@ Starter | Production
 Free for everyone, anywhere | [Contact us](https://www.chainguard.dev/contact?utm_source=docs) for pricing
 Latest versions | Major and minor versions
 Community support | Enterprise SLAs
-[Developer Docs](https://edu.chainguard.dev/chainguard/chainguard-images/) | Customer support
+[Developer Docs](/chainguard/chainguard-images/) | Customer support
 
-You can read more about the differences between Starter and Production containers in our [Containers Overview](/chainguard/chainguard-images/overview/#production-and-developer-images).
+You can read more about the differences between Starter and Production Containers in our [Containers Overview](/chainguard/chainguard-images/overview/#production-and-starter-images).
 
 ## Are Chainguard Containers available on Docker Hub?
 
-Yes, Chainguard Starter Containers are available on [Docker Hub](https://hub.docker.com/u/chainguard?utm_source=academy&utm_medium=referral&utm_campaign=FY25-DockerHub-Orgprofile). As a Docker Verified Publisher, Chainguard has met Docker's stringent standards for security, quality, and transparency. This status signifies that our container images are trusted, reliable, and have undergone rigorous verification processes. If you wish to use Production containers, you need to use the [Chainguard Registry](/chainguard/chainguard-registry/overview/).
+Yes, Chainguard Starter Container images are available on [Docker Hub](https://hub.docker.com/u/chainguard?utm_source=academy&utm_medium=referral&utm_campaign=FY25-DockerHub-Orgprofile). As a Docker Verified Publisher, Chainguard has met Docker's stringent standards for security, quality, and transparency. This status signifies that our container images are trusted, reliable, and have undergone rigorous verification processes. If you wish to use Production Containers, you need to use the [Chainguard Registry](/chainguard/chainguard-registry/overview/).
 
 ## What is an SBOM and why is it important?
 An SBOM is a Software Bill of Materials, which is a list containing detailed information about all software that is included within a software artifact, whether it's an application, a container image, or a physical appliance.
@@ -57,6 +57,7 @@ Chainguard Containers are rebuilt every night to ensure that new package version
 
 ## Can I simply replace my current base image with a Chainguard Container and it will work out of the box?
 Chainguard Containers are designed to be minimal, and many of them don't come with a package manager. Depending on your stack and specific dependencies, you may need to include additional software by combining `-dev` container images and our [distroless](/chainguard/chainguard-images/getting-started-distroless/) images in a multi-stage Docker build.
+
 
 ## What packages are available in Chainguard Containers?
 

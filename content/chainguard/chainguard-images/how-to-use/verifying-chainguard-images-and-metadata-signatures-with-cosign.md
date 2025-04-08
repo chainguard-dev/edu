@@ -34,7 +34,7 @@ The commands listed on this page will default to the `:latest` tag, but you can 
 
 ## Verifying Container Image Signatures
 
-Chainguard Images are signed using Sigstore and you can check the included signatures using `cosign`. The `cosign verify` command will pull detailed information about all signatures found for the provided image.
+Chainguard Containers are signed using Sigstore and you can check the included signatures using `cosign`. The `cosign verify` command will pull detailed information about all signatures found for the provided image.
 
 ### Public Registry
 
@@ -59,7 +59,7 @@ cosign verify \
 
 By default, this command will fetch signatures for the `:latest` tag. You can also specify the tag you want to fetch signatures for.
 
-## Downloading Image Attestations
+## Downloading Container Attestations
 
 Attestations are signed metadata about the artifact, which can include SBOMs, vulnerability scans, or other custom predicates.
 
@@ -102,7 +102,7 @@ cosign download attestation \
 
 ## Verifying Image Attestations
 
-You can use the `cosign verify-attestation` command to check the signatures of the desired image [attestations](https://slsa.dev/attestation-model):
+You can use the `cosign verify-attestation` command to check the signatures of the desired container image [attestations](https://slsa.dev/attestation-model):
 
 ### Public Registry
 

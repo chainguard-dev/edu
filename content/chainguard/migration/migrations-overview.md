@@ -1,11 +1,11 @@
 ---
-title: "Overview of Migrating to Chainguard Images"
+title: "Overview of Migrating to Chainguard Containers"
 linktitle: "Migration Overview"
 aliases:
 - /chainguard/migration-guides/migration-overview/
 - /chainguard/migration/migration-overview/
 type: "article"
-description: "This overview serves as a collection of information and resources on migrating to Chainguard Images."
+description: "This overview serves as a collection of information and resources on migrating to Chainguard Containers."
 date: 2024-07-22T12:56:52-00:00
 lastmod: 2024-08-08T14:44:52-00:00
 draft: false
@@ -18,43 +18,43 @@ weight: 005
 toc: true
 ---
 
-[Chainguard Images](https://www.chainguard.dev/chainguard-images?utm_source=docs) are a collection of container images designed for security and minimalism. Many Chainguard Images are [distroless](/chainguard/chainguard-images/getting-started-distroless/); they contain only an open-source application and its runtime dependencies. These images do not even contain a shell or package manager, because fewer dependencies reduce the potential attack surface of images.
+[Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=docs) are a collection of container images designed for security and minimalism. Many Chainguard Containers are [distroless](/chainguard/chainguard-images/getting-started-distroless/); they contain only an open-source application and its runtime dependencies. These container images do not even contain a shell or package manager, because fewer dependencies reduce the potential attack surface of images.
 
-By minimizing the number of dependencies and thus reducing their potential attack surface, Chainguard Images inherently contain few to zero CVEs. Chainguard Images are rebuilt nightly to ensure they are completely up-to-date and contain all available security patches. With this nightly build approach, our engineering team sometimes [fixes vulnerabilities before they’re detected](https://www.chainguard.dev/unchained/how-chainguard-fixes-vulnerabilities?utm_source=docs).
+By minimizing the number of dependencies and thus reducing their potential attack surface, Chainguard Containers inherently contain few to zero CVEs. Chainguard Containers are rebuilt nightly to ensure they are completely up-to-date and contain all available security patches. With this nightly build approach, our engineering team sometimes [fixes vulnerabilities before they’re detected](https://www.chainguard.dev/unchained/how-chainguard-fixes-vulnerabilities?utm_source=docs).
 
-The main features of Chainguard Images include:
+The main features of Chainguard Containers include:
 
 * Minimalist design, with no unnecessary software bloat
-* Automated nightly builds to ensure Images are completely up-to-date and contain all available security patches
-* [High quality build-time SBOMs](/chainguard/chainguard-images/working-with-images/retrieve-image-sboms/) (software bill of materials) attesting the provenance of all artifacts within the Image
+* Automated nightly builds to ensure Containers are completely up-to-date and contain all available security patches
+* [High quality build-time SBOMs](/chainguard/chainguard-images/working-with-images/retrieve-image-sboms/) (software bill of materials) attesting the provenance of all artifacts within the Container
 * [Verifiable signatures](/chainguard/chainguard-images/working-with-images/retrieve-image-sboms/) provided by [Sigstore](/open-source/sigstore/cosign/an-introduction-to-cosign/)
 * Reproducible builds with Cosign and apko ([read more about reproducibility](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds))
 
-Because of their minimalist design, Chainguard Images sometimes require users to adjust their image workflows. This document is intended to serve as a migration guide for customers transitioning their organizations to use Chainguard Images. It includes general tips and strategies for migrating to Chainguard Images as well as a curated set of migration-related resources.
+Because of their minimalist design, Chainguard Containers sometimes require users to adjust their image workflows. This document is intended to serve as a migration guide for customers transitioning their organizations to use Chainguard Containers. It includes general tips and strategies for migrating to Chainguard Containers as well as a curated set of migration-related resources.
 
-## Migrating to Chainguard Images
+## Migrating to Chainguard Containers
 
 ### Porting Key Points
 
-* Chainguard's distroless Images have no shell or package manager by default. This is great for security, but sometimes you need these things, especially in builder images. For those cases we have `-dev` images (such as `cgr.dev/chainguard/python:latest-dev`) which do include a shell and package manager.
-* Chainguard Images typically don't run as root, so a `USER root` statement may be required before installing software.
-* The `-dev` images and `wolfi-base` / `chainguard-base` use BusyBox by default, so any `groupadd` or `useradd` commands will need to be ported to `addgroup` and `adduser`.
-* The free Developer tier of Images provides `:latest` and `:latest-dev` versions. Our paid Production Images offer tags for major and minor versions.
+* Chainguard's distroless Containers have no shell or package manager by default. This is great for security, but sometimes you need these things, especially in builder images. For those cases we have `-dev` images (such as `cgr.dev/chainguard/python:latest-dev`) which do include a shell and package manager.
+* Chainguard Containers typically don't run as root, so a `USER root` statement may be required before installing software.
+* The `-dev` variants and `wolfi-base` / `chainguard-base` use BusyBox by default, so any `groupadd` or `useradd` commands will need to be ported to `addgroup` and `adduser`.
+* The free Starter tier of Containers provides `:latest` and `:latest-dev` versions. Our paid Production Containers offer tags for major and minor versions.
 * We use apk tooling, so `apt install` commands will become `apk add`.
-* Chainguard Images are based on `glibc` and our packages cannot be mixed with Alpine packages.
+* Chainguard Containers are based on `glibc` and our packages cannot be mixed with Alpine packages.
 * In some cases, the entrypoint in Chainguard Images can be different from equivalent images based on other distros, which can lead to unexpected behavior. You should always check the image's specific documentation to understand how the entrypoint works.
 * When needed, Chainguard recommends using a base image like `chainguard-base` or a `-dev` image to install an application's OS-level dependencies.
-* Although `-dev` images are still more secure than most popular container images based on other distros, for increased security on production environments we recommend combining them with a distroless variant in a multi-stage build.
+* Although `-dev` variants are still more secure than most popular container images based on other distros, for increased security on production environments we recommend combining them with a distroless variant in a multi-stage build.
 
-Perhaps the best place for most users to get started with migrating to Chainguard Images is by following our guide on [How to Port a Sample Application to Chainguard Images](/chainguard/migration/porting-apps-to-chainguard/). This guide involves updating a sample application made up of three services to use Chainguard Images. Although the application involved is fairly simple, the concepts outlined in the guide can also be useful for migrating more complex applications.
+Perhaps the best place for most users to get started with migrating to Chainguard Containers is by following our guide on [How to Port a Sample Application to Chainguard Images](/chainguard/migration/porting-apps-to-chainguard/). This guide involves updating a sample application made up of three services to use Chainguard Images. Although the application involved is fairly simple, the concepts outlined in the guide can also be useful for migrating more complex applications.
 
-### Tips for migrating to Chainguard Images
+### Tips for migrating to Chainguard Containers
 
-#### Use `-dev` Images when you need a shell
+#### Use `-dev` variants when you need a shell
 
-Chainguard Images have no shell or package manager by default. Although this is great for security on production environments, you'll eventually need to install additional packages and log into a container or run shell commands, especially for build stages in multi-stage Dockerfiles and for debugging. For these cases there are `-dev` image variants which do include a shell and package manager.
+Chainguard Containers have no shell or package manager by default. Although this is great for security on production environments, you'll eventually need to install additional packages and log into a container or run shell commands, especially for build stages in multi-stage Dockerfiles and for debugging. For these cases there are `-dev` image variants which do include a shell and package manager.
 
-For example, the `-dev` variant of the `nginx:latest` Image is `nginx:latest-dev`. These images typically contain a shell and tools like a package manager to allow users to more easily debug and modify the image.
+For example, the `-dev` variant of the `nginx:latest` container image is `nginx:latest-dev`. These images typically contain a shell and tools like a package manager to allow users to more easily debug and modify the image.
 
 To illustrate, if you try to get a shell in the `cgr.dev/chainguard/nginx:latest` image:
 
@@ -82,13 +82,13 @@ OK: 66 MiB in 38 packages
 / #
 ```
 
-Although the `-dev` image variants have similar security features as their distroless versions, such as complete SBOMs and signatures, they feature additional software that is typically not necessary in production environments. The general recommendation is to use the `-dev` variants only to build the application and then copy all application artifacts into a distroless image, which will result in a final container image that has a minimal attack surface and won't allow package installations or logins.
+Although the `-dev` variants have similar security features as their distroless versions, such as complete SBOMs and signatures, they feature additional software that is typically not necessary in production environments. The general recommendation is to use the `-dev` variants only to build the application and then copy all application artifacts into a distroless image, which will result in a final container image that has a minimal attack surface and won't allow package installations or logins.
 
-That being said, it's worth noting that `-dev` variants of Chainguard Images are completely fine to run in production environments. After all, the `-dev` variants are still **more secure** than many popular container images based on fully-featured operating systems such as Debian and Ubuntu since they carry less software, follow a more frequent patch cadence, and offer attestations for what they include.
+That being said, it's worth noting that `-dev` variants of Chainguard Containers are completely fine to run in production environments. After all, the `-dev` variants are still **more secure** than many popular container images based on fully-featured operating systems such as Debian and Ubuntu since they carry less software, follow a more frequent patch cadence, and offer attestations for what they include.
 
 #### If necessary, install a different shell
 
-The `-dev` images and `chainguard-base` images use the [ash](https://en.wikipedia.org/wiki/Almquist_shell) shell from BusyBox by default. This is nice from a minimalism perspective, but it's not so great if you need to port a bash and Debian centric entrypoint script to Chainguard Images.
+The `-dev` variants and `chainguard-base` image use the [ash](https://en.wikipedia.org/wiki/Almquist_shell) shell from BusyBox by default. This is nice from a minimalism perspective, but it's not so great if you need to port a bash and Debian centric entrypoint script to Chainguard Containers.
 
 In these cases you have a choice — you can update your scripts to work in ash, or you can install the shell that works with your scripts. There's no reason to be stuck on the ash shell if you really need bash or zsh.
 
@@ -115,7 +115,7 @@ OK: 20 MiB in 17 packages
 423450e3fd52:/#
 ```
 
-Note that this example uses the `chainguard-base` image, which is only available as a paid Production Image. To follow along with this example, you would need to be part of an organization that has access to this image. 
+Note that this example uses the `chainguard-base` image, which is only available as a paid Production Container. To follow along with this example, you would need to be part of an organization that has access to this image. 
 
 If you do have access to the `chainguard-base` image, replace `$ORGANIZATION` in the `docker run` command with your organization's name. If you don't, but would like access, you can [reach out to our sales team](https://www.chainguard.dev/contact?utm_source=docs).
 
@@ -193,7 +193,7 @@ OK: 27 MiB in 22 packages
 
 #### Watch out for entrypoint differences
 
-In some cases, the entrypoint of Chainguard Images can have a different behavior from their equivalent images based on other distros. This happens because many popular images use an entrypoint script that allows running commands on the image through a shell. Since our images typically don't have a shell by default, this can lead to unexpected behavior.
+In some cases, the entrypoint of Chainguard Containers can have a different behavior from their equivalent images based on other distros. This happens because many popular container images use an entrypoint script that allows running commands on the image through a shell. Since our images typically don't have a shell by default, this can lead to unexpected behavior.
 
 For example, if you run Docker Hub's official Python image, it opens the Python interpreter by default:
 
@@ -204,7 +204,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
 
-And the Chainguard Image works in the same way:
+And the Chainguard Container works in the same way:
 
 ```bash
 docker run -it cgr.dev/chainguard/python
@@ -234,13 +234,13 @@ docker run -it cgr.dev/chainguard/python:latest-dev echo "in a shell"
 /usr/bin/python: can't open file '//echo': [Errno 2] No such file or directory
 ```
 
-Other images, such as our [WordPress Images](https://images.chainguard.dev/directory/image/wordpress/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrations-overview), will have a different entrypoint behavior in their `-dev` variant to allow for customization and to facilitate migration from other base images. It's important to always read the image's documentation to understand how the entrypoint works, and if there are any major differences from other images you may be used to work with.
+Other images, such as our [WordPress container images](https://images.chainguard.dev/directory/image/wordpress/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrations-overview), will have a different entrypoint behavior in their `-dev` variant to allow for customization and to facilitate migration from other base images. It's important to always read the image's documentation to understand how the entrypoint works, and if there are any major differences from other images you may be used to work with.
 
-#### Images don't run as root by default
+#### Containers don't run as root by default
 
-Although there are exceptions, Chainguard Images typically don’t run as the root user. The reason for this is that distroless containers should have no privileged capabilities, and containers that run as a non-root user and use a minimal seccomp profile are ideal from a security perspective.
+Although there are exceptions, Chainguard Containers typically don’t run as the root user. The reason for this is that distroless containers should have no privileged capabilities, and containers that run as a non-root user and use a minimal seccomp profile are ideal from a security perspective.
 
-Because they don't run as the root user, you may need to include a `USER root` statement in your Dockerfile before installing software on a Chainguard Image.
+Because they don't run as the root user, you may need to include a `USER root` statement in your Dockerfile before installing software on a Chainguard Container.
 
 Additionally, be aware that `-dev` images also do not run as root in most cases, which can result in permission errors like the following:
 
@@ -267,11 +267,11 @@ Here, the `--user` option tells Docker to assume the root user role.
 
 Container images are usually meant to support every possible use case. Because of this, they often contain packages that aren't necessary for many use cases, which increases the container image's attack surface and makes it more likely to contain CVEs.
 
-Chainguard Images are built with minimalism in mind, and thus contain the bare minimum packages needed for an image to function. However, this also means that Chainguard Images may not contain the packages that you'd expect to find in third-party alternatives.
+Chainguard Containers are built with minimalism in mind, and thus contain the bare minimum packages needed for an image to function. However, this also means that Chainguard Containers may not contain the packages that you'd expect to find in third-party alternatives.
 
-If a Chainguard Image is missing certain packages that are required for your application, we recommend using a base image and installing the required dependencies on top of it, preferably in a multi-stage Docker build. Our guides on [How to Use Chainguard Images](/chainguard/chainguard-images/how-to-use-chainguard-images/#extending-chainguard-base-images) and [Getting Started with Distroless](/chainguard/migration/migrations-overview/) include guidance on how you can extend Chainguard base images.
+If a Chainguard Container is missing certain packages that are required for your application, we recommend using a base image and installing the required dependencies on top of it, preferably in a multi-stage Docker build. Our guides on [How to Use Chainguard Containers](/chainguard/chainguard-images/how-to-use-chainguard-images/#extending-chainguard-base-images) and [Getting Started with Distroless](/chainguard/migration/migrations-overview/) include guidance on how you can extend Chainguard base images.
 
-In some cases you may have Docker builds that copy in binaries to run agents or similar tooling. You may find these binaries don’t work as expected as they are designed to run on a different Linux distribution. Be aware that Chainguard Images may not have the dependencies required by third-party binaries, or they may be stored at a different path.
+In some cases you may have Docker builds that copy in binaries to run agents or similar tooling. You may find these binaries don’t work as expected as they are designed to run on a different Linux distribution. Be aware that Chainguard Containers may not have the dependencies required by third-party binaries, or they may be stored at a different path.
 
 
 ### Troubleshooting resources
@@ -280,24 +280,24 @@ Even with these tips and potential pitfalls in mind, the move to a distroless wo
 
 We also have a video on [Debugging Distroless Containers with Docker Debug](/chainguard/chainguard-images/videos/debugging_distroless/).
 
-Lastly, you might also find help in the [Chainguard Images FAQs](/chainguard/chainguard-images/faq/).
+Lastly, you might also find help in the [Chainguard Containers FAQs](/chainguard/chainguard-images/faq/).
 
 
 
 ## Migration Resources
 
-Chainguard Academy hosts a number of resources that can be useful when migrating to Chainguard Images.
+Chainguard Academy hosts a number of resources that can be useful when migrating to Chainguard Containers.
 
-As mentioned previously, most new users of Chainguard Images would benefit from following our guide on [How to Port a Sample Application to Chainguard Images](/chainguard/migration/porting-apps-to-chainguard/#tldr-porting-key-points). In addition to this guide, Chainguard Academy includes several types of resources that can be useful when migrating to Chainguard Images:
+As mentioned previously, most new users of Chainguard Containers would benefit from following our guide on [How to Port a Sample Application to Chainguard Images](/chainguard/migration/porting-apps-to-chainguard/#tldr-porting-key-points). In addition to this guide, Chainguard Academy includes several types of resources that can be useful when migrating to Chainguard Containers:
 
-* **Compatibility Guides** — These guides highlight the differences between Chainguard Images and Alpine third-party images.
-* **Migration Guides** — These provide guidance migrating workloads based on a specific language or platform to use Chainguard Images.
-* **Getting Started Guides** — These resources outline how to work with specific Images, with some including a sample application used in examples.
+* **Compatibility Guides** — These guides highlight the differences between Chainguard Containers and Alpine third-party images.
+* **Migration Guides** — These provide guidance migrating workloads based on a specific language or platform to use Chainguard Containers.
+* **Getting Started Guides** — These resources outline how to work with specific Containers, with some including a sample application used in examples.
 
 
 ### Language- or Platform-specific resources
 
-We currently offer both Migration and Getting Started Guides for these Images:
+We currently offer both Migration and Getting Started Guides for these Containers:
 
 | **Image** | **Migration Guide** | **Getting Started Guide** |
 |-----------|:-------------------:|:-------------------------:|
@@ -347,8 +347,8 @@ In addition, we have a few migration guides in the form of videos:
 
 ## Further Reading
 
-* [Overview of Chainguard Images](/chainguard/chainguard-images/overview/)
-* [How to Use Chainguard Images](/chainguard/chainguard-images/how-to-use-chainguard-images/)
+* [Overview of Chainguard Containers](/chainguard/chainguard-images/overview/)
+* [How to Use Chainguard Containers](/chainguard/chainguard-images/how-to-use-chainguard-images/)
 * [How to transition to secure container images with new migration guides (Blog)](https://www.chainguard.dev/unchained/how-to-transition-to-secure-container-images-with-new-migration-guides)
 * [Getting Started with Distroless Images](/chainguard/chainguard-images/getting-started-distroless/)
 
