@@ -1,6 +1,6 @@
 ---
-title: "How To Compare Chainguard Images with chainctl"
-linktitle: "Compare Images with chainctl"
+title: "How To Compare Chainguard Containers with chainctl"
+linktitle: "Compare with chainctl"
 aliases: 
 - /chainguard/chainguard-images/comparing-images/
 - /chainguard/chainguard-images/comparing-images/comparing-images/
@@ -9,11 +9,11 @@ aliases:
 - /chainguard/chainguard-images/working-with-images/comparing-images/
 - /chainguard/chainguard-images/how-to-use/comparing-images/
 type: "article"
-description: "An overview of how to use the chainctl images diff command to compare two Chainguard Images."
+description: "An overview of how to use the chainctl images diff command to compare two Chainguard Containers."
 date: 2023-08-30T11:07:52+02:00
-lastmod: 2024-05-10T11:07:52+02:00
+lastmod: 2025-04-08T11:07:52+02:00
 draft: false
-tags: ["Chainguard Images", "Product", ]
+tags: ["Chainguard Containers", "Product", ]
 images: []
 menu:
   docs:
@@ -22,9 +22,9 @@ weight: 025
 toc: true
 ---
 
-There may be times when you'd like to understand the difference between two Chainguard Images. For example, you might want to know if there are any significant differences between yesterday's build and today's; or perhaps you want to know if any CVEs are present in a newer version of a custom Image.
+There may be times when you'd like to understand the difference between two Chainguard Containers. For example, you might want to know if there are any significant differences between yesterday's build and today's; or perhaps you want to know if any CVEs are present in a newer version of a custom container image.
 
-[`chainctl`](/chainguard/chainctl/) — Chainguard's command line interface tool — allows you to directly compare two Chainguard Images with its `images diff` feature. This guide outlines how to use the Image diffing feature and highlights a few potential use cases for it.
+[`chainctl`](/chainguard/chainctl/) — Chainguard's command line interface tool — allows you to directly compare two Chainguard Containers with its `images diff` feature. This guide outlines how to use the image diffing feature and highlights a few potential use cases for it.
 
 
 ## Prerequisites
@@ -39,7 +39,7 @@ In order to use the `chainctl images diff` subcommand, you'll need to have a few
 
 ## Using `chainctl images diff`
 
-The `chainctl images diff` subcommand accepts the names of two Chainguard Images as arguments and uses Grype to perform a vulnerability scan on each of them. It then retrieves both Images' SBOM information and outputs the difference between the two along with the previously obtained Grype data.
+The `chainctl images diff` subcommand accepts the names of two Chainguard Containers as arguments and uses Grype to perform a vulnerability scan on each of them. It then retrieves both container images' SBOM information and outputs the difference between the two along with the previously obtained Grype data.
 
 The `diff` subcommand follows this general syntax.
 
@@ -47,7 +47,7 @@ The `diff` subcommand follows this general syntax.
 chainctl images diff $FROM_IMAGE $TO_IMAGE
 ```
 
-As an example, try comparing the `latest` public `go` Chainguard Image with its `latest-dev` version.
+As an example, try comparing the `latest` public `go` Chainguard Container with its `latest-dev` version.
 
 ```sh
 chainctl images diff cgr.dev/chainguard/go:latest cgr.dev/chainguard/go:latest-dev | jq
@@ -93,9 +93,9 @@ Fetching vulnerabilities for cgr.dev/chainguard/go@sha256:e62ce9fe5e62296186066e
 }
 ```
 
-This command first uses Grype to scan each Image's vulnerability data and then retrieves both Images' [SBOMs](/open-source/sbom/what-is-an-sbom/). It then outputs the differences that it finds between the two. This sample output indicates that compared to the `go:latest` Image, the `go:latest-dev` Image has three packages added, three removed, and no unique vulnerabilities.
+This command first uses Grype to scan each container image's vulnerability data and then retrieves both images' [SBOMs](/open-source/sbom/what-is-an-sbom/). It then outputs the differences that it finds between the two. This sample output indicates that compared to the `go:latest` container image, the `go:latest-dev` image has three packages added, three removed, and no unique vulnerabilities.
 
-`chainctl`compares the Images like this because of the order they appear in the command. If you reversed the order of the Images in the example command, the packages shown as `added` and `removed` would also be flipped:
+`chainctl`compares the images like this because of the order they appear in the command. If you reversed the order of the images in the example command, the packages shown as `added` and `removed` would also be flipped:
 
 ```
 Fetching vulnerabilities for cgr.dev/chainguard/go@sha256:e62ce9fe5e62296186066e647d22cd8d16565d8eee9c2d18541094cec9ddd7a3
@@ -140,14 +140,14 @@ Be aware that because this is a relatively new feature, the format of the `diff`
 
 ## Potential use cases
 
-Being able to find the exact difference between two Chainguard Images with a single command allows users to make more informed decisions about what Images they use in their applications. This section goes over a couple scenarios where you may want to use the `chainctl images diff` command.
+Being able to find the exact difference between two Chainguard Containers with a single command allows users to make more informed decisions about what container images they use in their applications. This section goes over a couple scenarios where you may want to use the `chainctl images diff` command.
 
-One potential use case for why you would want to find the differences between two Chainguard Images is that you're curious about the differences between available release versions. Say you're using Custom Chainguard Images and your application is pinned to a specific version of `go`. By diffing the two Images, you could check what vulnerabilities you could remove by updating to the next patch or minor version.
+One potential use case for why you would want to find the differences between two Chainguard Containers is that you're curious about the differences between available release versions. Say you're using Custom Chainguard Containers and your application is pinned to a specific version of `go`. By diffing the two container images, you could check what vulnerabilities you could remove by updating to the next patch or minor version.
 
-Another potential use could be in cases where you're interested in knowing the difference between a Chainguard Image's daily builds. For example, say you'd like to keep your Images updated but only when there are significant changes between daily builds. You could diff between the running versions and the latest builds, only updating if there’s a meaningful difference.
+Another potential use could be in cases where you're interested in knowing the difference between a Chainguard Container's daily builds. For example, say you'd like to keep your images updated but only when there are significant changes between daily builds. You could diff between the running versions and the latest builds, only updating if there’s a meaningful difference.
 
 
 ## Learn more
 
 To learn more about the `chainctl image` subcommands, we encourage you to check out our
-[`chainctl` command resources](/chainguard/chainctl/chainctl-docs/chainctl_images/). You can also explore the rest of our [Chainguard Images resources](/chainguard/chainguard-images/) to learn more about how Images can help you keep your software secure by default.
+[`chainctl` command resources](/chainguard/chainctl/chainctl-docs/chainctl_images/). You can also explore the rest of our [Chainguard Containers resources](/chainguard/chainguard-images/) to learn more about how images can help you keep your software secure by default.

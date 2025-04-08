@@ -1,13 +1,13 @@
 ---
-title: "Using Chainguard Images in Dev Containers"
+title: "Using Chainguard Containers in Dev Containers"
 type: "article"
 linktitle: "Dev Containers"
 aliases:
 - /chainguard/chainguard-images/getting-started/devcontainers
-description: "Guide outlining how you can use Chainguard Images as Dev Containers for secure development."
+description: "Guide outlining how you can use Chainguard Containers as Dev Containers for secure development."
 date: 2025-03-10T11:07:52+02:00
-lastmod: 2025-03-10T11:07:52+02:00
-tags: ["Chainguard Images", "Products"]
+lastmod: 2025-03-08T11:07:52+02:00
+tags: ["Chainguard Containers", "Products"]
 draft: false
 images: []
 menu:
@@ -52,12 +52,12 @@ In order to run a dev container, the given project must contain a file named `de
 
 Although there are many reasons why production images should be secure, the reasons for concern about the security of development environments are less clear. Put briefly: the code you've written and tested in your development environment will eventually make it into your production environment. If you've been hacked during development, then perhaps the hackers' code goes into production as well.
 
-Chainguard offers minimal runtime images designed for running production workloads, and development images that contain a shell and some development tooling. With that said, both development and production images are slimmed down and updated regularly to be free of CVEs. Because of their minimal and secure-by-default nature, Chainguard Images are ideal for use in a secure development process. 
+Chainguard offers minimal runtime images designed for running production workloads, and development images that contain a shell and some development tooling. With that said, both development and production images are slimmed down and updated regularly to be free of CVEs. Because of their minimal and secure-by-default nature, Chainguard Containers are ideal for use in a secure development process. 
 
 
 ## Building a Go Dev Container using an Example Repository
 
-The following is an example of how to set up a dev container using a Go project. Here, we will take the content of the `chainguard-go-devcontainer` directory in [Chainguard's Images Examples GitHub repository](https://github.com/chainguard-dev/edu-images-demos) and push it to the root of an empty repository.
+The following is an example of how to set up a dev container using a Go project. Here, we will take the content of the `chainguard-go-devcontainer` directory in [Chainguard's demo GitHub repository](https://github.com/chainguard-dev/edu-images-demos) and push it to the root of an empty repository.
 
 Start by cloning the repository:
 
