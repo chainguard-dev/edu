@@ -1,8 +1,10 @@
 ---
 title: "Chainguard Libraries Access"
 linktitle: "Access"
-type: "article"
 description: "Getting access to Chainguard Libraries"
+type: "article"
+date: 2025-03-25T00:08:04+00:00
+lastmod: 2025-04-07T15:17:00+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 menu:
