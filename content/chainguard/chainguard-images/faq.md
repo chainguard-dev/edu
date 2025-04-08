@@ -50,7 +50,7 @@ An SBOM is a Software Bill of Materials, which is a list containing detailed inf
 SBOMs provide visibility into the software you depend on. They can allow automated systems to quickly identify issues such as unpatched vulnerabilities, since SBOMs typically include the version of each dependency listed.
 
 ## Who maintains Chainguard Containers?
-[Chainguard Dontainers](https://www.chainguard.dev/chainguard-images?utm_source=docs) are officially maintained by [Chainguard](https://chainguard.dev) engineers.
+[Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=docs) are officially maintained by [Chainguard](https://chainguard.dev) engineers.
 
 ## How often are Chainguard Containers updated?
 Chainguard Containers are rebuilt every night to ensure that new package versions and security updates in upstream Wolfi are quickly applied.
