@@ -1,12 +1,12 @@
 ---
-title: "How to Use Chainguard Images"
-linktitle: "Using Chainguard Images"
+title: "How to Use Chainguard Containers"
+linktitle: "Using Chainguard Containers"
 aliases:
 - /chainguard/chainguard-images/how-to-use-chainguard-images/
 - /chainguard/chainguard-images/how-to-use/how-to-use-chainguard-images/
 type: "article"
-description: "A primer on how to migrate to Chainguard Images"
-lead: "A primer on how to migrate to Chainguard Images"
+description: "A primer on how to migrate to Chainguard Containers"
+lead: "A primer on how to migrate to Chainguard Containers"
 date: 2022-09-01T08:49:31+00:00
 lastmod: 2025-02-26T15:56:52-07:00
 draft: false
@@ -19,17 +19,17 @@ weight: 005
 toc: true
 ---
 
-[Chainguard Images](https://images.chainguard.dev) are based on [Wolfi](/open-source/wolfi/overview/), our Linux _undistro_ designed specifically for containers. Wolfi uses the [Alpine apk](https://wiki.alpinelinux.org/wiki/Package_management) package format, which contributes in making packages smaller and more accountable, resulting in smaller images with traceable provenance information based on cryptographic signatures.
+[Chainguard Containers](https://images.chainguard.dev) are based on [Wolfi](/open-source/wolfi/overview/), our Linux _undistro_ designed specifically for containers. Wolfi uses the [Alpine apk](https://wiki.alpinelinux.org/wiki/Package_management) package format, which contributes in making packages smaller and more accountable, resulting in smaller images with traceable provenance information based on cryptographic signatures.
 
-In this guide, you'll find general instructions on how to get started using Chainguard Images and how to migrate existing container-based workflows to use our images. For specific image usage instructions, please refer to our [Chainguard Images Directory](https://images.chainguard.dev), which contains the full list of all images available to the public and their respective documentation.
+In this guide, you'll find general instructions on how to get started using Chainguard Containers and how to migrate existing container-based workflows to use our images. For specific image usage instructions, please refer to our [Chainguard Images Directory](https://images.chainguard.dev), which contains the full list of all images available to the public and their respective documentation.
 
-## Quickstart: Using Chainguard Images
+## Quickstart: Using Chainguard Containers
 
-To get up and running with Chainguard Images, you can use `docker` commands to pull and run images. For each specific image, you'll find this guidance on its overview page (for example, see [Node](https://images.chainguard.dev/directory/image/node/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images), [Python](https://images.chainguard.dev/directory/image/python/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images), or [NGINX](https://images.chainguard.dev/directory/image/nginx/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images)).
+To get up and running with Chainguard Containers, you can use `docker` commands to pull and run images. For each specific image, you'll find this guidance on its overview page (for example, see [Node](https://images.chainguard.dev/directory/image/node/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images), [Python](https://images.chainguard.dev/directory/image/python/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images), or [NGINX](https://images.chainguard.dev/directory/image/nginx/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images)).
 
-### Pulling a Chainguard Image
+### Pulling a Chainguard Containers
 
-You can pull a Chainguard Image with the `docker pull` command. For example, to pull down the Git Chainguard Image, you can run the following.
+You can pull a Chainguard Containers with the `docker pull` command. For example, to pull down the Git Chainguard Image, you can run the following.
 
 ```sh
 docker pull cgr.dev/chainguard/git
@@ -39,11 +39,11 @@ Without passing a tag or a digest, the reference to the Git image will pull down
 
 If you have your own registry, you'll need to change the `cgr.dev/chainguard` path to your own registry path.
 
-Chainguard [Starter Images](/chainguard/chainguard-images/about/images-categories/#starter-containers) are also available on Docker Hub. Check out [Chainguard's organization page on Docker Hub](https://hub.docker.com/u/chainguard?utm_source=academy&utm_medium=referral&utm_campaign=FY25-DockerHub-Orgprofile) for a list of all images and instructions. Note that Production Images can only be accessed from cgr.dev.
+Chainguard [Starter Containers](/chainguard/chainguard-images/about/images-categories/#starter-containers) are also available on Docker Hub. Check out [Chainguard's organization page on Docker Hub](https://hub.docker.com/u/chainguard?utm_source=academy&utm_medium=referral&utm_campaign=FY25-DockerHub-Orgprofile) for a list of all container images and instructions. Note that Production Containers can only be accessed from cgr.dev.
 
 ### Pulling by Tag
 
-You can also add a relevant tag that you have access to. In the case of the public Git image, you can always pull the `:latest` tag. [Note that not all tags are available for public images](/chainguard/chainguard-images/faq/#do-i-need-to-authenticate-into-chainguard-to-use-chainguard-images).
+You can also add a relevant tag that you have access to. In the case of the public Git image, you can always pull the `:latest` tag. [Note that not all tags are available for public container images](/chainguard/chainguard-images/faq/#do-i-need-to-authenticate-into-chainguard-to-use-chainguard-containers).
 
 ```sh
 docker pull cgr.dev/chainguard/git:latest
@@ -51,11 +51,11 @@ docker pull cgr.dev/chainguard/git:latest
 
 You may use tags to pull a specific version of a software like Git, or programming language version in a catalog you have access to. The Chainguard Images Directory has tag history pages for each image, for example, the [Git Image Tags History](https://images.chainguard.dev/directory/image/git/versions?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images), [PHP Image Tags History](https://images.chainguard.dev/directory/image/php/versions?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images), and [JDK Image Tags History](https://images.chainguard.dev/directory/image/jdk/versions?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images).
 
-You can learn about the Chainguard Images tags history in our guide about [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/).
+You can learn about the Chainguard Containers tags history in our guide about [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/).
 
 ### Pulling by Digest
 
-Pulling a Chainguard Image by its digest guarantees reproducibility, as it will ensure that you are using the same image each time (versus the tag that may receive updates).
+Pulling a Chainguard Containers by its digest guarantees reproducibility, as it will ensure that you are using the same image each time (versus the tag that may receive updates).
 
 To pull an image by its digest, you can do so by appending the digest which begins with `sha256`.<!-- You can find these on our reference tags history pages. -->
 
@@ -73,7 +73,7 @@ To learn more about image digests, you can review our video [How to Use Containe
 
 ### Specifying Architecture
 
-As Chainguard Images are [built for both AMD64 and ARM64 architecture](/chainguard/chainguard-images/overview/#architecture), you can specify the architecture you would like to use by employing the `--platform` flag with the `docker pull` command. In this example, we'll specify using the `linux/arm64` architecture with the Go image.
+As Chainguard Containers are [built for both AMD64 and ARM64 architecture](/chainguard/chainguard-images/overview/#architecture), you can specify the architecture you would like to use by employing the `--platform` flag with the `docker pull` command. In this example, we'll specify using the `linux/arm64` architecture with the Go image.
 
 ```sh
 docker pull --platform=linux/arm64 cgr.dev/chainguard/go
@@ -91,13 +91,13 @@ You'll receive output similar to the following:
 go version go1.21.0 linux/arm64
 ```
 
-Specifying the platform will ensure that you're using the desired image and relevant architecture.
+Specifying the platform will ensure that you're using the desired container image and relevant architecture.
 
 ### Running a Chainguard Image
 
-You can run a Chainguard Image with the `docker run` command. Note that because Chainguard Images are minimalist containers, most of them ship without a shell or package manager. If you would like a shell, you can often use the development image, which is tagged as `:latest-dev` (for example, [Python](https://images.chainguard.dev/directory/image/python/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images) has its dev image at `cgr.dev/chainguard/python:latest-dev`). Otherwise, you can work with Chainguard Images in way similar to other images.
+You can run a Chainguard Image with the `docker run` command. Note that because Chainguard Containers are minimalist containers, most of them ship without a shell or package manager. If you would like a shell, you can often use the development image, which is tagged as `:latest-dev` (for example, [Python](https://images.chainguard.dev/directory/image/python/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images) has its dev image at `cgr.dev/chainguard/python:latest-dev`). Otherwise, you can work with Chainguard Containers in way similar to other container images.
 
-Let's run the [Cosign Chainguard Image](https://images.chainguard.dev/directory/image/cosign/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images) to check its version.
+Let's run the [Cosign Chainguard Containers](https://images.chainguard.dev/directory/image/cosign/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images) to check its version.
 
 ```sh
 docker run --rm -t cgr.dev/chainguard/cosign:latest version
@@ -133,7 +133,7 @@ This will start a Wolfi container where you can explore the file system and inve
 
 Continue reading the next section to learn more about building off of the Wolfi base image.
 
-## Extending Chainguard Base Images
+## Extending Chainguard Base Containers
 
 It often happens that you want a [distroless](/chainguard/chainguard-images/getting-started-distroless/) image with one or two extra packages, for example you may have a binary with a dependency on `curl` or `git`. Ideally you’d like a base image with this dependency already installed. There are a few options here:
 
@@ -142,7 +142,7 @@ It often happens that you want a [distroless](/chainguard/chainguard-images/gett
 3. Use Chainguard’s [melange and apko tooling to create a custom base image](/open-source/build-tools/melange/getting-started-with-melange/). This keeps the image as minimal as possible without sacrificing maintainability.
 
 ### Using the wolfi-base Image
-The `wolfi-base` image is a good starting point to try out Chainguard Images. Unlike most of the other images, which are strictly distroless, `wolfi-base` includes the `apk` package manager, which facilitates composing additional software into it. Just keep in mind that the resulting image will be a little larger due to the extra software and won't have a comprehensive SBOM that covers all your dependencies, since the new software will be added as a layer on top of `wolfi-base`.
+The `wolfi-base` image is a good starting point to try out Chainguard Containers. Unlike most of the other container images, which are strictly distroless, `wolfi-base` includes the `apk` package manager, which facilitates composing additional software into it. Just keep in mind that the resulting image will be a little larger due to the extra software and won't have a comprehensive SBOM that covers all your dependencies, since the new software will be added as a layer on top of `wolfi-base`.
 
 The following command will pull the `wolfi-base` image to your local system and run an interactive shell that you can use to explore the image features:
 
@@ -205,10 +205,10 @@ You should get output like this, with a random piece of advice:
 Check also the [Wolfi Images with Dockerfiles](/open-source/wolfi/wolfi-with-dockerfiles/) guide for more examples using Wolfi-based images with Dockerfiles, and the [Getting Started with Distroless](/chainguard/chainguard-images/getting-started-distroless/) guide for more details about distroless images and how to use them in Docker multi-stage builds.
 
 
-## A Note regarding package availability in Chainguard Images
+## A Note regarding package availability in Chainguard Containers
 
-Chainguard Images only contain packages that come from the [Wolfi Project](https://github.com/wolfi-dev) or those that are built and maintained internally by Chainguard.
+Chainguard Containers only contain packages that come from the [Wolfi Project](https://github.com/wolfi-dev) or those that are built and maintained internally by Chainguard.
 
 Starting in March of 2024, Chainguard will maintain one version of each Wolfi package at a time. These will track the latest version of the upstream software in the package. Chainguard will end patch support for previous versions of packages in Wolfi. Existing packages will not be removed from Wolfi and you may continue to use them, but be aware that older packages will no longer be updated and will accrue vulnerabilities over time. The tools we use to build packages and images remain freely available and open source in [Wolfi](https://github.com/wolfi-dev).
 
-This change ensures that Chainguard can provide the most up-to-date patches to all packages for our Images customers. Note that specific package versions can be made available in Production Images. If you have a request for a specific package version, please [contact us](https://www.chainguard.dev/contact?utm=docs).
+This change ensures that Chainguard can provide the most up-to-date patches to all packages for our Containers customers. Note that specific package versions can be made available in Production Containers. If you have a request for a specific package version, please [contact us](https://www.chainguard.dev/contact?utm=docs).

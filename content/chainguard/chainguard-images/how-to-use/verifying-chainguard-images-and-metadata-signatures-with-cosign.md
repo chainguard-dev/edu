@@ -1,6 +1,6 @@
 ---
-title: "Verifying Chainguard Images and Metadata Signatures with Cosign"
-linktitle: "Verifying Images"
+title: "Verifying Chainguard Containers and Metadata Signatures with Cosign"
+linktitle: "Verifying Containers"
 aliases:
   - /chainguard/chainguard-images/verifying-images-with-cosign
   - /chainguard/chainguard-images/verifying-chainguard-images-and-metadata-signatures-with-cosign/
@@ -10,7 +10,7 @@ description: "A walkthrough of verifying Chainguard Images and metadata signatur
 date: 2024-03-18T08:59:52-07:00
 lastmod: 2024-03-18T08:59:52-07:00
 draft: false
-tags: ["Conceptual", "Chainguard Images", "Product"]
+tags: ["CONCEPTUAL", "CHAINGUARD IMAGES", "PRODUCT"]
 images: []
 menu:
   docs:
@@ -19,22 +19,22 @@ weight: 015
 toc: true
 ---
 
-All Chainguard Images contain verifiable signatures and build-time SBOMs (software bills of materials), features that enable users to confirm the origin of each image built and have a detailed list of everything that is packed within.
+All Chainguard Containers contain verifiable signatures and build-time SBOMs (software bills of materials), features that enable users to confirm the origin of each image built and have a detailed list of everything that is packed within.
 
 The following commands requires [Cosign](/open-source/sigstore/cosign/how-to-install-cosign/) and [jq](https://stedolan.github.io/jq/) to be installed on your machine in order to download and verify image attestations. It will pull detailed information about all signatures found for the provided image.
 
-## Registry and Tags for Chainguard Images
+## Registry and Tags for Chainguard Containers
 
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-- `cgr.dev/chainguard` - the Public Registry contains our **Starter Images**, which typically comprise the `:latest` versions of an image.
-- `cgr.dev/your-registry-name` - A Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
+- `cgr.dev/chainguard` - the Public Registry contains our **Starter Containers**, which typically comprise the `:latest` versions of an image.
+- `cgr.dev/your-registry-name` - A Private/Dedicated Registry contains our **Production Containers**, which include all versioned tags of an image and special container images that are not available in the public registry (including FIPS images and other custom builds).
 
 The commands listed on this page will default to the `:latest` tag, but you can specify a different tag to fetch attestations for.
 
-## Verifying Image Signatures
+## Verifying Container Image Signatures
 
-Chainguard Images are signed using Sigstore and you can check the included signatures using `cosign`. The `cosign verify` command will pull detailed information about all signatures found for the provided image.
+Chainguard Containers are signed using Sigstore and you can check the included signatures using `cosign`. The `cosign verify` command will pull detailed information about all signatures found for the provided image.
 
 ### Public Registry
 
@@ -59,7 +59,7 @@ cosign verify \
 
 By default, this command will fetch signatures for the `:latest` tag. You can also specify the tag you want to fetch signatures for.
 
-## Downloading Image Attestations
+## Downloading Container Attestations
 
 Attestations are signed metadata about the artifact, which can include SBOMs, vulnerability scans, or other custom predicates.
 
@@ -102,7 +102,7 @@ cosign download attestation \
 
 ## Verifying Image Attestations
 
-You can use the `cosign verify-attestation` command to check the signatures of the desired image [attestations](https://slsa.dev/attestation-model):
+You can use the `cosign verify-attestation` command to check the signatures of the desired container image [attestations](https://slsa.dev/attestation-model):
 
 ### Public Registry
 
@@ -149,4 +149,4 @@ GitHub Workflow Ref: refs/heads/main
 
 To get up to speed with Sigstore, you can review the [Sigstore](/open-source/sigstore/) section of Chainguard Academy, visit the upstream [Sigstore Docs](https://docs.sigstore.dev/) site, and check out the [Sigstore organization on GitHub](https://github.com/sigstore). You can learn more about verifying software artifacts with Cosign by reading [How to Verify File Signatures with Cosign](/open-source/sigstore/cosign/how-to-verify-file-signatures-with-cosign/).
 
-Navigate to our [Images](/chainguard/chainguard-images/) landing page or [Getting Started Guides](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/) to understand more about Chainguard Images and how they offer low-to-zero CVEs.
+Navigate to our [Containers](/chainguard/chainguard-images/) landing page or [Getting Started Guides](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/) to understand more about Chainguard Containers and how they offer low-to-zero CVEs.

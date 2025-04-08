@@ -1,17 +1,15 @@
 ---
-title: "How to Port a Sample Application to Chainguard Images"
+title: "How to Port a Sample Application to Chainguard Containers"
 linktitle: "Porting a Sample Application"
 aliases:
 - /chainguard/migration-guides/porting-apps-to-chainguard/
 - /chainguard/migration/porting-apps-to-chainguard/
 type: "article"
-description: "This article works through porting a small but complete application to use Chainguard Images. As
-we'll see, this is relatively straightforward, but it is important to be aware of some of the
-differences to other common images."
+description: "This article works through porting a small but complete application to use Chainguard Containers. As we'll see, this is relatively straightforward, but it is important to be aware of some of the differences to other common images."
 date: 2024-04-10T12:56:52-00:00
 lastmod: 2025-02-05T14:44:52-00:00
 draft: false
-tags: ["Images", "Product", "Procedural"]
+tags: ["IMAGES", "PRODUCT", "PROCEDURAL"]
 images: []
 menu:
   docs:
@@ -22,15 +20,15 @@ toc: true
 
 ### Porting Key Points
 
-* Chainguard's distroless Images have no shell or package manager by default. This is great for security, but sometimes you need these things, especially in builder images. For those cases we have `-dev` images (such as `cgr.dev/chainguard/python:latest-dev`) which do include a shell and package manager.
-* Chainguard Images typically don't run as root, so a `USER root` statement may be required before installing software.
-* The `-dev` images and `wolfi-base` / `chainguard-base` use BusyBox by default, so any `groupadd` or `useradd` commands will need to be ported to `addgroup` and `adduser`.
-* The free [Starter](/chainguard/chainguard-images/about/images-categories/#starter-containers) tier of Images provides `:latest` and `:latest-dev` versions. Our paid Production Images offer tags for major and minor versions.
+* Chainguard's distroless Containers have no shell or package manager by default. This is great for security, but sometimes you need these things, especially in builder images. For those cases we have `-dev` variants (such as `cgr.dev/chainguard/python:latest-dev`) which do include a shell and package manager.
+* Chainguard Containers typically don't run as root, so a `USER root` statement may be required before installing software.
+* The `-dev` variants and `wolfi-base` / `chainguard-base` use BusyBox by default, so any `groupadd` or `useradd` commands will need to be ported to `addgroup` and `adduser`.
+* The free [Starter](/chainguard/chainguard-images/about/images-categories/#starter-containers) tier of Containers provides `:latest` and `:latest-dev` versions. Our paid Production Containers offer tags for major and minor versions.
 * We use apk tooling, so `apt install` commands will become `apk add`.
-* Chainguard Images are based on `glibc` and our packages cannot be mixed with Alpine packages.
-* In some cases, the entrypoint in Chainguard Images can be different from equivalent images based on other distros, which can lead to unexpected behavior. You should always check the image's specific documentation to understand how the entrypoint works.
-* When needed, Chainguard recommends using a base image like `chainguard-base` or a `-dev` image to install an application's OS-level dependencies.
-* Although `-dev` images are still more secure than most popular container images based on other distros, for increased security on production environments we recommend combining them with a distroless variant in a multi-stage build.
+* Chainguard Containers are based on `glibc` and our packages cannot be mixed with Alpine packages.
+* In some cases, the entrypoint in Chainguard Containers can be different from equivalent container images based on other distros, which can lead to unexpected behavior. You should always check the image's specific documentation to understand how the entrypoint works.
+* When needed, Chainguard recommends using a Base Container like `chainguard-base` or a `-dev` variant to install an application's OS-level dependencies.
+* Although `-dev` variants are still more secure than most popular container images based on other distros, for increased security on production environments we recommend combining them with a distroless variant in a multi-stage build.
 ---
 
 ## The Sample Application
@@ -48,7 +46,7 @@ The services are put together as shown in the below diagram. The user only talks
 
 The book walked through using various orchestrators to deploy the application, some of which have since fallen out of usage (anyone remember [fleet](https://github.com/coreos/fleet)?). For the sake of this tutorial, we'll use Docker Compose, which is arguably the simplest surviving orchestrator covered in the book.
 
-The first task was to get the 10-year-old application building and running again. As it was a simple example application, this was thankfully straightforward and mainly required bumping versions of dependencies and a couple of cases of replacing unmaintained libraries. For a larger project, this may well have been a major effort. The original code can be found on the [using-docker GitHub repository](https://github.com/using-docker/identidock) and the updated working version (prior to moving to Chainguard Images) can be found on the [v1 branch](https://github.com/chainguard-dev/identidock-cg/tree/v1) of the [repository for this tutorial](https://github.com/chainguard-dev/identidock-cg/).
+The first task was to get the 10-year-old application building and running again. As it was a simple example application, this was thankfully straightforward and mainly required bumping versions of dependencies and a couple of cases of replacing unmaintained libraries. For a larger project, this may well have been a major effort. The original code can be found on the [using-docker GitHub repository](https://github.com/using-docker/identidock) and the updated working version (prior to moving to Chainguard Containers) can be found on the [v1 branch](https://github.com/chainguard-dev/identidock-cg/tree/v1) of the [repository for this tutorial](https://github.com/chainguard-dev/identidock-cg/).
 
 In order to follow along with the tutorial, please clone the code and switch to the `v1` branch:
 
@@ -103,7 +101,7 @@ EXPOSE 8080
 CMD [ "npm", "start" ]
 ```
 
-The image can be built with:
+The container image can be built with:
 
 ```bash
 cd dnmonster
@@ -137,7 +135,7 @@ grype docker:dnmonster
 
 This tells us that (at the time of writing) the image is 1.79 GB in size and has **hundreds of known vulnerabilities**.
 
-The first step in moving to Chainguard Images is to try switching the image name in to check if anything breaks. In this case, we’ll begin with the development variant of the Node image. Change the first line of the Dockerfile from:
+The first step in moving to Chainguard Containers is to try switching the container image name in to check if anything breaks. In this case, we’ll begin with the development variant of the Node image. Change the first line of the Dockerfile from:
 
 
 ```Dockerfile
@@ -150,9 +148,9 @@ To:
 FROM cgr.dev/chainguard/node:latest-dev
 ```
 
-Unlike the `cgr.dev/chainguard/node:latest` image, the `:latest-dev` version includes a shell and package manager, which we will need for some of the build steps. In general, it's better to use the more minimal `:latest` version where possible in order to keep the size down and reduce the tooling available to attackers. Often the `:latest-dev` image can be used as a build step in a multi-stage, with a more minimal image such as `:latest` used in the final production image.
+Unlike the `cgr.dev/chainguard/node:latest` image, the `:latest-dev` version includes a shell and package manager, which we will need for some of the build steps. In general, it's better to use the more minimal `:latest` version where possible in order to keep the size down and reduce the tooling available to attackers. Often the `:latest-dev` container image can be used as a build step in a multi-stage, with a more minimal image such as `:latest` used in the final production image.
 
-If you try building this image, you'll find that it breaks in several places. The image needs to install various libraries so that it can compile the [`node-canvas`](https://github.com/Automattic/node-canvas) dependency, and this looks a bit different in Debian than it does in [Wolfi](https://github.com/wolfi-dev/) (the OS powering Chainguard Images). In Wolfi, we first need to switch to the root user to install software and we use `apk add` instead of `apt-get`. We then need to figure out the Wolfi equivalents of the various Debian packages, which may not always have a one-to-one correspondence. There are tools to help here – you can consult our [migration guides](/chainguard/migration/debian-compatibility/) and use apk tools (like `apk search libjpeg`), but searching the [Wolfi GitHub](https://github.com/wolfi-dev/os) repository for package names will often provide you with what you’re looking for.
+If you try building this image, you'll find that it breaks in several places. The container image needs to install various libraries so that it can compile the [`node-canvas`](https://github.com/Automattic/node-canvas) dependency, and this looks a bit different in Debian than it does in [Wolfi](https://github.com/wolfi-dev/) (the OS powering Chainguard Images). In Wolfi, we first need to switch to the root user to install software and we use `apk add` instead of `apt-get`. We then need to figure out the Wolfi equivalents of the various Debian packages, which may not always have a one-to-one correspondence. There are tools to help here – you can consult our [migration guides](/chainguard/migration/debian-compatibility/) and use apk tools (like `apk search libjpeg`), but searching the [Wolfi GitHub](https://github.com/wolfi-dev/os) repository for package names will often provide you with what you’re looking for.
 
 Make these changes by replacing the `RUN apt-get …` line with the following `RUN apk update` and adding a `USER root` line. The start of the Dockerfile should look like this:
 
@@ -167,13 +165,13 @@ RUN apk update && apk add \
     libfontconfig1
 ```
 
-The next change we need to make is to the `RUN groupadd …` line. Chainguard images use BusyBox by default, which means `groupadd` needs to become `addgroup`. Rewrite the line so that it looks like this:
+The next change we need to make is to the `RUN groupadd …` line. Chainguard Containers use BusyBox by default, which means `groupadd` needs to become `addgroup`. Rewrite the line so that it looks like this:
 
 ```Dockerfile
 RUN addgroup dnmonster && adduser -D -G dnmonster dnmonster
 ```
 
-Finally, the default entrypoint for the Chainguard image is `/usr/bin/node`. If we leave the `CMD` as it is, it will be interpreted as an argument to node, which isn't what we want. The Docker official image uses an entrypoint script to interpret commands, but this isn't available in the `cgr.dev/chainguard/node:latest-dev` image. The easiest fix is to change the `CMD` command to `ENTRYPOINT` which will override the `/usr/bin/node` command:
+Finally, the default entrypoint for the Chainguard container image is `/usr/bin/node`. If we leave the `CMD` as it is, it will be interpreted as an argument to node, which isn't what we want. The Docker official image uses an entrypoint script to interpret commands, but this isn't available in the `cgr.dev/chainguard/node:latest-dev` image. The easiest fix is to change the `CMD` command to `ENTRYPOINT` which will override the `/usr/bin/node` command:
 
 ```Dockerfile
 ENTRYPOINT [ "npm", "start" ]
@@ -240,10 +238,9 @@ git          2.48.1-r0            apk   CVE-2024-52005  Unknown
 python-3.13  3.13.1-r5            apk   CVE-2025-0938   Unknown
 ```
 
-So the image is a bit smaller at 1.55GB, but more importantly, we've vastly reduced the number of
-vulnerabilities. There are now only 2 known vulnerabilities.
+So the image is a bit smaller at 1.55GB, but more importantly, we've vastly reduced the number of vulnerabilities. There are now only 2 known vulnerabilities.
 
-But we can still do more. In particular, although 1.55GB is smaller than the previous version, it's still a large image. To get the size down, we can use a multi-stage build where the built assets are copied into a minimal production image, which doesn't include build tooling or dependencies required during development.
+But we can still do more. In particular, although 1.55GB is smaller than the previous version, it's still a large image. To get the size down, we can use a multi-stage build where the built assets are copied into a minimal Production Container, which doesn't include build tooling or dependencies required during development.
 
 Ideally, we would use the `cgr.dev/chainguard/node:latest` image for this, but we also need to install the dependencies for `node-canvas`, which means we need an image with apk tools. Normally it’s recommended to use a `:latest-dev` image for this, but in node's case, the `:latest-dev` image is relatively large due to the inclusion of build tooling, such as C compilers, that can be required by Node modules. Instead, we're going to use the `wolfi-base` image and install `nodejs` as a package.
 
@@ -289,7 +286,7 @@ EXPOSE 8080
 ENTRYPOINT [ "node", "server.js" ]
 ```
 
-We've added an `as build` statement to the first `FROM` line and added a second build that starts on the line `FROM cgr.dev/chainguard/wolfi-base`. The second build installs the required dependencies (including Node.js) before copying the build artifacts from the first image. We also changed the entrypoint to execute Node directly, as the image no longer contains npm.
+We've added an `as build` statement to the first `FROM` line and added a second build that starts on the line `FROM cgr.dev/chainguard/wolfi-base`. The second build installs the required dependencies (including Node.js) before copying the build artifacts from the first image. We also changed the entrypoint to execute Node directly, as the container image no longer contains npm.
 
 Build and investigate the image:
 
@@ -315,7 +312,7 @@ grype dnmonster-multi
 No vulnerabilities found
 ```
 
-This results in an image that is now 620MB in size and has 0 CVEs.
+This results in a container image that is now 620MB in size and has 0 CVEs.
 
 We're most of the way now, but there are still a couple of finishing touches to make. The first one is to remove the dnmonster user. The wolfi-base image already defines a `nonroot` user, so we can make the build a little less complicated by using that user directly. The second one is to add in a process manager. We have node running as the root process (PID 1) in the container, which isn't ideal as it doesn't handle some of the responsibilities that come with running as PID 1, such as forwarding signals to subprocesses. You can see this most clearly when you try to stop the image – it takes several seconds as the process doesn't respond to the SIGTERM signal sent by Docker and has to be hard killed with SIGKILL. To fix this, we can add [`tini`](https://github.com/krallin/tini), a small init for containers.
 
@@ -400,7 +397,7 @@ docker build --pull -t identidock .
 …
 ```
 
-Take a look at the image:
+Inspect the container image:
 
 ```bash
 docker images identidock
@@ -424,15 +421,15 @@ grype docker:identidock
    └── by status:   2 fixed, 1163 not-fixed, 544 ignored
 ```
 
-At the time of writing, this image is 1.51GB with hundreds of vulnerabilities (7 critical) according to Grype.
+At the time of writing, this container image is 1.51GB with hundreds of vulnerabilities (7 critical) according to Grype.
 
-Again as a first step, we will try to switch out directly to the Chainguard Image. To do this, edit the Dockerfile so the first line reads:
+Again as a first step, we will try to switch out directly to the Chainguard Container. To do this, edit the Dockerfile so the first line reads:
 
 ```Dockerfile
 FROM cgr.dev/chainguard/python:latest-dev
 ```
 
-Before building the image we need to also update `groupadd` syntax to use the `addgroup` format. As Chainguard Images don't run as root by default for security reasons, we also need to change to the root user for this command to work. Replace the `RUN groupadd` line with the lines:
+Before building the image we need to also update `groupadd` syntax to use the `addgroup` format. As Chainguard Containers don't run as root by default for security reasons, we also need to change to the root user for this command to work. Replace the `RUN groupadd` line with the lines:
 
 
 ```Dockerfile
@@ -440,7 +437,7 @@ USER root
 RUN addgroup uwsgi && adduser -D -G uwsgi uwsgi
 ```
 
-The image now builds, but there are issues due to differences in the image entrypoint. If you run the image, you will get a confusing error message such as:
+The image now builds, but there are issues due to differences in the image entrypoint. If you run the container image, you will get a confusing error message such as:
 
 ```bash
 `File "/cmd.sh", line 4`
@@ -449,7 +446,7 @@ The image now builds, but there are issues due to differences in the image entry
 SyntaxError: cannot assign to literal here. Maybe you meant '==' instead of '='?
 ```
 
-This is caused by the Chainguard Image using `/usr/bin/python` as the entrypoint, which means the `cmd.sh` entrypoint script is interpreted by Python instead of the shell. Fixing this can be as easy as changing the entrypoint, but let's take a look at the script first.
+This is caused by the Chainguard Containers using `/usr/bin/python` as the entrypoint, which means the `cmd.sh` entrypoint script is interpreted by Python instead of the shell. Fixing this can be as easy as changing the entrypoint, but let's take a look at the script first.
 
 This is the file `cmd.sh` in the identidock directory:
 
@@ -517,13 +514,13 @@ redis==5.2.1
 gunicorn==23.0.0
 ```
 
-The first thing to notice is that we have a multistage build now. If you want the development image rather than the production one, you can specify it during docker build:
+The first thing to notice is that we have a multistage build now. If you want the Development container image rather than the production one, you can specify it during docker build:
 
 ```bash
 docker build --pull --target dev -t identidock:dev .
 ```
 
-Otherwise, you will get the production image only.
+Otherwise, you will get the standard variant only.
 
 There are several more environment variables defined. These prevent the creation of Python bytecode and buffering of output. For more detail on why this is useful, see the blog [PYTHONDONTWRITEBYTECODE and PYTHONUNBUFFERED Explained](https://blog.mimixtech.com/pythondontwritebytecode-and-pythonunbuffered-explained).
 
@@ -571,9 +568,9 @@ The result of all these changes is that the production image is only 122 MB (dow
 Further information on using Chainguard Images with Python can be found in our [Getting Started guide](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/python/).
 
 
-## Replacing the Redis Image and Updating the Docker Compose File
+## Replacing the Redis Container and Updating the Docker Compose File
 
-Updating Redis is straightforward. We're not making any changes to the application image, so all we need to do is directly update the reference to `redis:7` in the Docker Compose file to `cgr.dev/chainguard/redis`. The new image requires no extra configuration, but we go from a 195 MB image with 129 vulnerabilities to a 33 MB image with 0 CVEs (again according to Grype).
+Updating Redis is straightforward. We're not making any changes to the application image, so all we need to do is directly update the reference to `redis:7` in the Docker Compose file to `cgr.dev/chainguard/redis`. The new container image requires no extra configuration, but we go from a 195 MB image with 129 vulnerabilities to a 33 MB image with 0 CVEs (again according to Grype).
 
 To update Compose, in the top level directory of the repo, replace the content of the `docker-compose.yml` file with the following:
 
@@ -604,7 +601,7 @@ This Compose file doesn't contain support for a development workflow currently �
 
 ## Conclusion
 
-Porting our application to Chainguard Images was relatively straightforward. There were some gotchas around differences to other images, such as different entrypoint settings and names for packages. The largest part of the puzzle was moving from single image builds to multistage builds that take advantage of the minimal Chainguard runtime images for Python and NodeJS. Once all this was done, we ended up with a much smaller set of images and with a drastically reduced number of CVEs.
+Porting our application to Chainguard Containers was relatively straightforward. There were some gotchas around differences to other images, such as different entrypoint settings and names for packages. The largest part of the puzzle was moving from single image builds to multistage builds that take advantage of the minimal Chainguard runtime images for Python and NodeJS. Once all this was done, we ended up with a much smaller set of images and with a drastically reduced number of CVEs.
 
 ### Cleaning Up
 
@@ -617,7 +614,7 @@ docker-compose down
 Then check `docker ps` to see if any containers are still running and stop them with `docker stop
 <id>`.
 
-You can then remove any images you've built:
+You can then remove any container images you've built:
 
 ```bash
 docker rmi -f dnmonster dnmonster-cg dnmonster-multi identidock identidock:dev identidock-cg
