@@ -1,6 +1,6 @@
 ---
 title: "Reproducible Dockerfiles with Frizbee and Digestabot"
-linktitle: "Video: Reproducible Dockerfiles with Frizbee and Digestabot"
+linktitle: "Reproducible Dockerfiles"
 aliases:
 - /chainguard/chainguard-images/videos/digestabot_frizbee/
 - /chainguard/chainguard-images/how-to-use/digestabot_frizbee/
@@ -10,6 +10,7 @@ type: "article"
 date: 2024-06-07T12:21:01+00:00
 lastmod: 2024-06-07T12:21:01+00:00
 draft: false
+tags: ["Chainguard Containers", "Product", "Video"]
 images: []
 menu:
   docs:

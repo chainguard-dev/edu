@@ -1,12 +1,12 @@
 ---
 title: "Chainguard Custom Assembly"
-linktitle: "Custom Assembly for Chainguard Container Images"
+linktitle: "Custom Assembly for Chainguard Containers"
 type: "article"
-description: "How to use Chainguard's Custom Image Assembly tool."
+description: "How to use Chainguard's Custom Assembly tool"
 date: 2025-02-19T11:07:52+02:00
 lastmod: 2025-03-21T11:07:52+02:00
 draft: false
-tags: ["Conceptual", "Chainguard Containers", "Product", "Reference"]
+tags: ["Chainguard Containers", "Product"]
 images: []
 menu:
   docs:
