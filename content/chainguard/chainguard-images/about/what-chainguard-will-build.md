@@ -6,7 +6,7 @@ description: "An overview of what Chainguard will build"
 date: 2025-01-13T11:07:52+02:00
 lastmod: 2025-03-21T11:07:52+02:00
 draft: false
-tags: ["conceptual", "Chainguard Containers", "product"]
+tags: ["Chainguard Containers", "Product"]
 images: []
 menu:
   docs:

@@ -1,12 +1,12 @@
 ---
-title: "Chainguard FIPS Container Images FAQs"
+title: "Chainguard FIPS Container FAQs"
 linktitle: "FIPS FAQs"
 type: "article"
 description: "Frequently Asked Questions about Chainguard FIPS Container Images"
 date: 2025-01-10T15:56:52-07:00
-lastmod: 2025-03-07T05:56:52-07:00
+lastmod: 2025-04-08T05:56:52-07:00
 draft: false
-tags: ["images", "product", "conceptual", "FIPS"]
+tags: ["Chainguard Containers", "Product", "FIPS"]
 images: []
 menu:
   docs:
@@ -15,24 +15,24 @@ weight: 005
 toc: true
 ---
 
-Answers to your questions about Chainguard FIPS Container Images.
+Answers to your questions about Chainguard FIPS container images.
 
 
 ## Is there a way to enable or disable the FIPS mode in a FIPS image?
 
-All Chainguard FIPS Images are configured in approved-only mode as noted in our [FIPS commitment](https://www.chainguard.dev/legal/fips-commitment).
+All Chainguard FIPS Containers are configured in approved-only mode as noted in our [FIPS commitment](https://www.chainguard.dev/legal/fips-commitment).
 
-For non-approved mode, our recommendation is to purchase and use a non-FIPS Chainguard Image.
+For non-approved mode, our recommendation is to purchase and use a non-FIPS Chainguard Container.
 
-Because it is error prone, difficult to support, and fragile, Chainguard does not provide the ability to switch to non-FIPS from a FIPS Image. If you require that, please contact a [NIST-approved security lab](https://csrc.nist.gov/projects/testing-laboratories) to help you achieve your certification needs when using our FIPS modules. 
+Because it is error prone, difficult to support, and fragile, Chainguard does not provide the ability to switch to non-FIPS from a FIPS container image. If you require that, please contact a [NIST-approved security lab](https://csrc.nist.gov/projects/testing-laboratories) to help you achieve your certification needs when using our FIPS modules. 
 
-## Does a given Chainguard FIPS Image require me to “bring my own license”?
+## Does a given Chainguard FIPS Container require me to “bring my own license”?
 
-From the Images Directory or Images Console, search for the Image you would like to know more about, and check if it has the "Bring Your Own License" badge. If it does, one can or must (depending on the Image) bring their own license keys for the product. Review the Overview documentation for the given image, and review the application’s documentation for further guidance.
+From the Containers Directory or Containers Console, search for the container image you would like to know more about, and check if it has the "Bring Your Own License" badge. If it does, one can or must (depending on the container image) bring their own license keys for the product. Review the Overview documentation for the given image, and review the application’s documentation for further guidance.
 
-## Which Chainguard Images tags have kernel-independent FIPS?
+## Which Chainguard Containers tags have kernel-independent FIPS?
 
-For Chainguard Images built from November 7, 2024 onward, the minimum requirements for kernel-independent FIPS are based on the package listings in their relevant SBOMs. The SBOMs must contain:
+For Chainguard Containers built from November 7, 2024 onward, the minimum requirements for kernel-independent FIPS are based on the package listings in their relevant SBOMs. The SBOMs must contain:
 
 * `libcrypto3>=3.4.0-r2`
 * `openssl-config-fipshardened>=3.4.0-r3`
@@ -47,7 +47,7 @@ The following packages are excluded:
 * `bouncycastle-fips-1.0`
 * Any with `-cni-` in the name
 
-You can read more about [kernel-independent FIPS Image in our blog announcement](https://www.chainguard.dev/unchained/kernel-independent-fips-images). 
+You can read more about [kernel-independent FIPS Container in our blog announcement](https://www.chainguard.dev/unchained/kernel-independent-fips-images). 
 
 ## How can I block SHA-1 in OpenSSL or FIPS?
 
@@ -65,9 +65,9 @@ Once the testing and patching are done, a project moves onto getting entropy cer
 
 The current average wait time from submission to certificate received is 590 days.
 
-## Many popular applications use Mozilla NSS, and have no alternative (that is, they cannot switch to use OpenSSL or Bouncy Castle). Can these applications get Chainguard FIPS Images?
+## Many popular applications use Mozilla NSS, and have no alternative (that is, they cannot switch to use OpenSSL or Bouncy Castle). Can these applications get Chainguard FIPS Containers?
 
-Given [Mozilla NSS](https://firefox-source-docs.mozilla.org/security/nss/index.html)’s [rapid release cycles](https://wiki.mozilla.org/NSS:Release_Versions) that quickly reach EOL (end-of-life), coupled with the length of time necessary for FIPS certification, the likely scenarios where NSS could become FIPS certified would not be compatible with Chainguard’s product commitments. Because Chainguard provides up-to-date software with zero-to-limited CVEs, it is not currently feasible for us to offer FIPS Images of software that use NSS.
+Given [Mozilla NSS](https://firefox-source-docs.mozilla.org/security/nss/index.html)’s [rapid release cycles](https://wiki.mozilla.org/NSS:Release_Versions) that quickly reach EOL (end-of-life), coupled with the length of time necessary for FIPS certification, the likely scenarios where NSS could become FIPS certified would not be compatible with Chainguard’s product commitments. Because Chainguard provides up-to-date software with zero-to-limited CVEs, it is not currently feasible for us to offer FIPS container images of software that use NSS.
 
 NSS does not have a stable API/ABI as it is a collection of low-level libraries, which typically are tightly coupled with the application that uses them. 
 
@@ -98,15 +98,15 @@ The short answer is no.
 
 Google and Golang upstream do not provide any support for `GOEXPERIMENT=boringcrypto` compiled binaries. The security policy for those modules contains many unapproved algorithms. The Golang upstream toolchain does not indicate missbuilt binaries that do not use boringcrypto (at all or partially) at runtime, and correctly compiled binaries allow using unapproved algorithms without restriction. Using the Golang upstream GOEXPERIMENT=boringcrypto requires strict adherence to the security policy, manual code audits of all source code, and all go.sum vendored copies of code.
 
-Due to these caveats, we strongly recommend using the [go-fips](https://images.chainguard.dev/directory/image/go-fips/versions), [go-msft-fips](https://images.chainguard.dev/directory/image/go-msft-fips/versions), and [go-openssl](https://images.chainguard.dev/directory/image/go-openssl/versions) Chainguard Container Images.
+Due to these caveats, we strongly recommend using the [go-fips](https://images.chainguard.dev/directory/image/go-fips/versions), [go-msft-fips](https://images.chainguard.dev/directory/image/go-msft-fips/versions), and [go-openssl](https://images.chainguard.dev/directory/image/go-openssl/versions) Chainguard Containers.
 
-These Chainguard Container Images: 
+These Chainguard Containers: 
 
 * Use system OpenSSL as the cryptographic module in approved mode
 * Are covered by the [Chainguard FIPS Commitment](https://www.chainguard.dev/legal/fips-commitment)
-* Are in scope for [Kernel-Independent FIPS Images](https://www.chainguard.dev/unchained/kernel-independent-fips-images)
+* Are in scope for [Kernel-Independent FIPS Containers](https://www.chainguard.dev/unchained/kernel-independent-fips-images)
 
-## Can WireGuard with Tailscale or Shadowsocks be used for Chainguard FIPS Images?
+## Can WireGuard with Tailscale or Shadowsocks be used for Chainguard FIPS Containers?
 
 No, the WireGuard protocol, and popular ways to use it with Tailscale and Shadowsocks cannot use approved cryptography, because the [protocol](https://www.wireguard.com/protocol/) requires unapproved algorithms.
 

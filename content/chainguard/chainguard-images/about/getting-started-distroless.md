@@ -7,9 +7,9 @@ aliases:
 type: "article"
 description: "How to leverage distroless images for improved container security"
 date: 2024-03-21T08:49:31+00:00
-lastmod: 2024-03-21T08:49:31+00:00
+lastmod: 2025-04-08T08:49:31+00:00
 draft: false
-tags: ["Chainguard Images", "Product", "Overview"]
+tags: ["Chainguard Containers", "Product", "Overview"]
 images: []
 menu:
   docs:
@@ -18,7 +18,7 @@ weight: 010
 toc: true
 ---
 
-## About Distroless Images
+## About Distroless Container Images
 [Distroless](https://blog.chainguard.dev/minimal-container-images-towards-a-more-secure-future/) container images are a type of container image  that is designed to be minimal. Unlike traditional images based on Debian or Ubuntu — which include package managers, utilities, and shells — distroless images typically contain only essential software required to run an application or service.
 
 This minimal approach offers several benefits, including:
@@ -27,7 +27,7 @@ This minimal approach offers several benefits, including:
 - **Simplified Dependency Management:** Traditional container images can introduce dependency bloat, making it difficult to track and manage exactly what's included. Distroless images keep things clear by only containing what's directly required for the application to function.
 - **Potentially Smaller Image Sizes:** By eliminating extraneous OS components, distroless images can be significantly smaller than their full-blown counterparts.
 
-Chainguard offers a mix of distroless and development (or builder) images that are minimalist and contain provenance attestations for increased security. Since distroless images have fewer tools and don't come with a package manager, some adaptation might be necessary when migrating from traditional base images. A typical approach is using multi stage builds to compose a final distroless image containing the additional artifacts required by the application in order to run successfully.
+Chainguard offers a mix of distroless and development (or builder) container images that are minimalist and contain provenance attestations for increased security. Since distroless images have fewer tools and don't come with a package manager, some adaptation might be necessary when migrating from traditional base images. A typical approach is using multi stage builds to compose a final distroless image containing the additional artifacts required by the application in order to run successfully.
 
 ## Multi Stage Builds
 A multi stage build is a technique for creating slimmer and more efficient container images. It allows you to define multiple stages within a single Dockerfile. Each stage acts like a separate build environment with its own base image and instructions.

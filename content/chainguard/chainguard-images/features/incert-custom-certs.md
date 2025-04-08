@@ -1,5 +1,5 @@
 ---
-title: "How To Use incert to Create Images with Built-in Custom Certificates"
+title: "How To Use incert to Create Container Images with Built-in Custom Certificates"
 linktitle: "Custom Certificates"
 aliases: 
 - /chainguard/chainguard-images/working-with-images/incert-custom-certs/
@@ -9,7 +9,7 @@ description: "An overview of how to use incert — a Go program from Chainguard 
 date: 2023-07-03T11:07:52+02:00
 lastmod: 2023-07-08T11:07:52+02:00
 draft: false
-tags: ["Chainguard Images", "Product", "Procedural"]
+tags: ["Chainguard Containers", "Product"]
 images: []
 menu:
   docs:
@@ -267,4 +267,4 @@ This shows that `incert` built the certificate into the `curl` container as expe
 
 ## Learn more
 
-If you'd like to learn more about how you can use Chainguard Images effectively, we encourage you to check out all of our resources on [Working with Chainguard Images](/chainguard/chainguard-images/how-to-use/). Additionally, our [Recommended Practices](/chainguard/chainguard-images/recommended-practices/) resources can be useful for ensuring the security of your Images. 
+If you'd like to learn more about how you can use Chainguard Containers effectively, we encourage you to check out all of our resources on [Working with Chainguard Containers](/chainguard/chainguard-images/how-to-use/). Additionally, our [Recommended Practices](/chainguard/chainguard-images/recommended-practices/) resources can be useful for ensuring the security of your container images. 

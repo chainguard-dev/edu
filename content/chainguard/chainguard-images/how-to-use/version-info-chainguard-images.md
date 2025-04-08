@@ -1,15 +1,16 @@
 ---
-title: "Getting Software Versions from Chainguard Images"
-linktitle: "Video: Software Versions"
+title: "Getting Software Versions from Chainguard Containers"
+linktitle: "Software Versions"
 aliases:
 - /chainguard/chainguard-images/videos/version-info-chainguard-images/
 - /chainguard/chainguard-images/how-to-use/version-info-chainguard-images/
 lead: ""
-description: "Video demonstration of how to get the software version information from Chainguard Images"
+description: "Video demonstration of how to get the software version information from Chainguard Containers"
 type: "article"
 date: 2023-07-07T15:21:01+02:00
 lastmod: 2023-07-10T15:21:01+02:00
 draft: false
+tags: ["Chainguard Containers", "Product", "Video"]
 images: []
 menu:
   docs:
@@ -41,14 +42,14 @@ docker run cgr.dev/chainguard/wolfi-base ls /var/lib/db/sbom
 ## Transcript
 
 Hi, I want to record a very short video on how to get software version information out of Chainguard
-Images.
+Containers.
 
 <a href="https://youtu.be/K60-jhVf2I4?t=14" target="_blank">0:14</a>
-This is particularly useful if you're using the public tier of Chainguard Images and only have
+This is particularly useful if you're using the public tier of Chainguard Containers and only have
 access to the `latest` tag and it can be difficult to ascertain the version that this refers to.
 
 <a href="https://youtu.be/K60-jhVf2I4?t=25" target="_blank">0:25</a>
-So all Chainguard Images have an SBOM or Software Bill Of Materials associated with them.
+So all Chainguard Containers have an SBOM or Software Bill Of Materials associated with them.
 
 <a href="https://youtu.be/K60-jhVf2I4?t=31" target="_blank">0:31</a>
 This is a complex and long document, but we can parse it to extract just the info we are interested in.
@@ -119,7 +120,7 @@ So you'll need to either copy this /var/lib/db/sbom directory out with something
 use a `-dev` variant of the image that does include a shell and ls.
 
 <a href="https://youtu.be/K60-jhVf2I4?t=198" target="_blank">3:18</a>
-But there you have it two easy ways to get full version info on all packages in a Chainguard Image.
+But there you have it two easy ways to get full version info on all packages in a Chainguard Container.
 
 <a href="https://youtu.be/K60-jhVf2I4?t=205" target="_blank">3:25</a>
 I hope that was helpful to you.

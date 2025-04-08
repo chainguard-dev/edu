@@ -1,6 +1,6 @@
 ---
-title: "Using the Chainguard Static Base Image"
-linktitle: "Video: Using the Static Base Image"
+title: "Using the Chainguard Static Base Container Image"
+linktitle: "Using the Static Base Container"
 aliases:
 - /chainguard/chainguard-images/videos/static-base-image/
 - /chainguard/chainguard-images/how-to-use/static-base-image/
@@ -10,6 +10,7 @@ type: "article"
 date: 2023-08-30T15:21:01+00:00
 lastmod: 2023-08-30T15:21:01+00:00
 draft: false
+tags: ["Chainguard Containers", "Product", "Video"]
 images: []
 menu:
   docs:
@@ -54,7 +55,7 @@ So what's the best container base image to use?
 
 <a href="https://youtu.be/ZT6177U0fUM?t=52" target="_blank">0:52</a> And this is borne out by just comparing common base images and the sizes and CVE count.
 
-<a href="https://youtu.be/ZT6177U0fUM?t=58" target="_blank">0:58</a> For example, let's take a look at the Debian Image
+<a href="https://youtu.be/ZT6177U0fUM?t=58" target="_blank">0:58</a> For example, let's take a look at the Debian image
 
 <a href="https://youtu.be/ZT6177U0fUM?t=61" target="_blank">1:01</a> And we can see that's around 140 megabytes in size.
 

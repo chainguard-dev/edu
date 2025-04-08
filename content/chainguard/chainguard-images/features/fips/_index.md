@@ -1,6 +1,6 @@
 ---
-title: "Chainguard FIPS Container Images"
-linkTitle: "FIPS Containers"
+title: "Chainguard FIPS Containers"
+linkTitle: "FIPS"
 lead: ""
 description: "Chainguard FIPS Container Images Documentation"
 type: "article"

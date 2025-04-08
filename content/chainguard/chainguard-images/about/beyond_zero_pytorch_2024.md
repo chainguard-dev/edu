@@ -5,11 +5,11 @@ aliases:
 - /chainguard/chainguard-images/videos/beyond_zero_pytorch_2024/
 - /chainguard/chainguard-images/about/beyond_zero_pytorch_2024/
 lead: ""
-description: "Video and transcript of presentation at PyTorch 2024 on eliminating CVEs in the PyTorch image, drawing on best practices from Chainguard Images"
-tags: ["video", "Chainguard Images", "product", "ai"]
+description: "Video and transcript of presentation at PyTorch 2024 on eliminating CVEs in the PyTorch image, drawing on best practices from Chainguard Containers"
+tags: ["video", "Chainguard Containers", "Product", "AI"]
 type: "article"
 date: 2024-09-07T01:21:01+00:00
-lastmod: 2024-09-07T01:21:01+00:00
+lastmod: 2025-04-08T01:21:01+00:00
 draft: false
 images: []
 menu:
@@ -23,7 +23,7 @@ toc: true
 
 ---
 
-Recording of [Beyond Zero: Eliminating Vulnerabilities in PyTorch Container Images](https://pytorch2024.sched.com/event/1fHmE/lightning-talk-beyond-zero-eliminating-vulnerabilities-in-pytorch-container-images-patrick-smyth-dan-fernandez-srishti-hegde-chainguard) presented by Dan Fernandez, Srishti Hegde, and Patrick Smyth at [PyTorch 2024](https://pytorch.org/blog/pytorch-conference-2024-recap/)
+Recording of [Beyond Zero: Eliminating Vulnerabilities in PyTorch Container Containers](https://pytorch2024.sched.com/event/1fHmE/lightning-talk-beyond-zero-eliminating-vulnerabilities-in-pytorch-container-images-patrick-smyth-dan-fernandez-srishti-hegde-chainguard) presented by Dan Fernandez, Srishti Hegde, and Patrick Smyth at [PyTorch 2024](https://pytorch.org/blog/pytorch-conference-2024-recap/)
 
 ## Session Description
 
@@ -31,11 +31,11 @@ Container images are increasingly the future of production applications at scale
 
 ## Resources from this Video
 
-- [PyTorch Chainguard Image](https://images.chainguard.dev/directory/image/pytorch/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-videos-beyond_zero_pytorch_2024)
+- [PyTorch Chainguard Container](https://images.chainguard.dev/directory/image/pytorch/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-videos-beyond_zero_pytorch_2024)
 - [Course: Securing the AI/ML Supply Chain](https://courses.chainguard.dev/securing-ai) <!--  -->
-- [Learning Lab: Chainguard's AI Images](https://www.chainguard.dev/events/chainguards-ai-images)
-- [Chainguard Academy: Getting Started with the PyTorch Chainguard Image](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/pytorch/)
-- [Overview: Chainguard's AI Images](https://www.chainguard.dev/solutions/ai-images)
+- [Learning Lab: Chainguard's AI Containers](https://www.chainguard.dev/events/chainguards-ai-images)
+- [Chainguard Academy: Getting Started with the PyTorch Chainguard Container](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/pytorch/)
+- [Overview: Chainguard's AI Containers](https://www.chainguard.dev/solutions/ai-images)
 
 ## Transcript
 

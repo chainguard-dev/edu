@@ -7,7 +7,7 @@ aliases:
 lead: ""
 description: "This video explains how Chainguard is able to create container images with low-to-no CVEs."
 type: "article"
-tags: ["video", "Chainguard Containers", "product"]
+tags: ["Video", "Chainguard Containers", "Product"]
 date: 2024-05-31T12:21:01+00:00
 lastmod: 2025-03-21T12:21:01+00:00
 draft: false
@@ -54,7 +54,7 @@ But yeah so that's an old container image with CVEs.
 
 If I compare it to the current container image, "latest", I am hoping, yes, there's zero CVEs.
 
-So hopefully this proves that scanners or Grype at least will report CVEs in Chainguard Images.
+So hopefully this proves that scanners or Grype at least will report CVEs in Chainguard Containers.
 
 There are basically three things we do to address CVEs.
 
