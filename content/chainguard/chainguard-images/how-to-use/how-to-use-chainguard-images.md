@@ -39,11 +39,12 @@ Without passing a tag or a digest, the reference to the Git image will pull down
 
 If you have your own registry, you'll need to change the `cgr.dev/chainguard` path to your own registry path.
 
+
 Chainguard free Starter container images are also available on Docker Hub. Check out [Chainguard's organization page on Docker Hub](https://hub.docker.com/u/chainguard?utm_source=academy&utm_medium=referral&utm_campaign=FY25-DockerHub-Orgprofile) for a list of all images and instructions. Note that paid Production images can only be accessed from cgr.dev.
 
 ### Pulling by Tag
 
-You can also add a relevant tag that you have access to. In the case of the public Git image, you can always pull the `:latest` tag. [Note that not all tags are available for public images](/chainguard/chainguard-images/faq/#do-i-need-to-authenticate-into-chainguard-to-use-chainguard-images).
+You can also add a relevant tag that you have access to. In the case of the public Git image, you can always pull the `:latest` tag. [Note that not all tags are available for public container images](/chainguard/chainguard-images/faq/#do-i-need-to-authenticate-into-chainguard-to-use-chainguard-containers).
 
 ```sh
 docker pull cgr.dev/chainguard/git:latest
@@ -91,7 +92,7 @@ You'll receive output similar to the following:
 go version go1.21.0 linux/arm64
 ```
 
-Specifying the platform will ensure that you're using the desired image and relevant architecture.
+Specifying the platform will ensure that you're using the desired container image and relevant architecture.
 
 ### Running a Chainguard Container
 

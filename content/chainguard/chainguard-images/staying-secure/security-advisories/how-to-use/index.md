@@ -20,9 +20,9 @@ weight: 010
 toc: true
 ---
 
-When using scanners such as [Grype](https://github.com/anchore/grype) or [Docker Scout](https://docs.docker.com/scout/) to scan for vulnerabilities in Chainguard Images, you'll often find that there are few or no CVEs present. However, CVEs can sometimes be found in Chainguard Images, and you may also encounter CVEs if you're using older tags. In these cases, you will likely wish to check Chainguard's security advisories for information on which CVEs will cause security issues in your deployment.
+When using scanners such as [Grype](https://github.com/anchore/grype) or [Docker Scout](https://docs.docker.com/scout/) to scan for vulnerabilities in Chainguard Containers, you'll often find that there are few or no CVEs present. However, CVEs can sometimes be found in Chainguard Containers, and you may also encounter CVEs if you're using older tags. In these cases, you will likely wish to check Chainguard's security advisories for information on which CVEs will cause security issues in your deployment.
 
-To help demystify the nature of CVEs within Chainguard Images, we've created a self-service [Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-security-advisories-how-to-use) that lists every security advisory published for Chainguard Images. Having this information available allows you to view whether Chainguard is aware of a specific vulnerability reported to exist within a Chainguard Image and whether we've mitigated or are planning to mitigate the CVE.
+To help demystify the nature of CVEs within Chainguard Containers, we've created a self-service [Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-security-advisories-how-to-use) that lists every security advisory published for Chainguard Images. Having this information available allows you to view whether Chainguard is aware of a specific vulnerability reported to exist within a Chainguard Image and whether we've mitigated or are planning to mitigate the CVE.
 
 This guide outlines how you can use Chainguard's Security Advisories to learn more about the status of a CVE within a given package. It will walk through a practical example of discovering a vulnerability in a Chainguard Image, searching for Security Advisories associated with this vulnerability, and then comparing the original Image with a later version.
 
@@ -36,7 +36,7 @@ To follow along with these examples, you'll need the following tools installed.
 * [`chainctl`](/chainguard/chainctl/) — Chainguard's command-line interface tool. To install `chainctl`, follow our [installation guide](/chainguard/administration/how-to-install-chainctl/). 
 * [`jq`](https://jqlang.github.io/jq/) — `jq` is a command-line JSON processor that allows you to filter and manipulate streaming JSON data. Although it isn’t strictly necessary for the purposes of this guide, this tutorial includes commands that use `jq` to filter command output that would otherwise be difficult to read. You can install `jq` by following the instructions on [the project’s Download jq page](https://jqlang.github.io/jq/download/).
 
-Lastly, note that this guide includes examples involving a sample organization with a private Chainguard Registry named `example.com`. If you would like to follow along with your own private Chainguard Images, be sure to change this where relevant to reflect your own setup. If you don't have access to a private Chainguard Registry, you can also follow along using Chainguard's public Developer Images, but be aware that these are limited to only the `latest` or `latest-dev` tags. You can download public Developer Images from the `cgr.dev/chainguard` registry, as in `cgr.dev/chainguard/go:latest`.
+Lastly, note that this guide includes examples involving a sample organization with a private Chainguard Registry named `example.com`. If you would like to follow along with your own private Chainguard Containers, be sure to change this where relevant to reflect your own setup. If you don't have access to a private Chainguard Registry, you can also follow along using Chainguard's public [Starter Containers](/chainguard/chainguard-images/about/images-categories/#starter-containers), but be aware that these are limited to only the `latest` or `latest-dev` tags. You can download public Starter Containers from the `cgr.dev/chainguard` registry, as in `cgr.dev/chainguard/go:latest`.
 
 
 ## So you've encountered a CVE in a Chainguard Image
@@ -113,7 +113,7 @@ grype cgr.dev/example.com/go:1.21.5 | grep nghttp2
 
 You should find that the high CVE fixed in this specific version no longer appears in the output. (You may still see other CVEs fixed in later versions.)
 
-You can go a step further by comparing these two images directly with the `chainctl images diff` command, as in this example.
+You can go a step further by comparing these two container images directly with the `chainctl images diff` command, as in this example.
 
 ```sh
 chainctl images diff \
@@ -141,6 +141,6 @@ As this output indicates, `CVE0223-44487` is no longer present in later versions
 
 ## Learn More
 
-The Security Advisories page serves as a helpful resource for anyone who wants to learn more about CVEs reported within Chainguard Images. You can search the database of advisories to learn more about any CVEs you encounter as you work with Chainguard Images.
+The Security Advisories page serves as a helpful resource for anyone who wants to learn more about CVEs reported within Chainguard Containers. You can search the database of advisories to learn more about any CVEs you encounter as you work with Chainguard Containers.
 
-Additionally, we encourage you to explore the [Chainguard Images Directory](https://images.chainguard.dev/), the parent site of the Security Advisories page. The Directory allows users to explore the complete inventory of Chainguard Images. Finally, we encourage you to learn more about [noisy scan results](/chainguard/chainguard-images/scanners/false-results/) when scanning Chainguard Images. 
+Additionally, we encourage you to explore the [Chainguard Images Directory](https://images.chainguard.dev/), the parent site of the Security Advisories page. The Directory allows users to explore the complete inventory of Chainguard Containers. Finally, we encourage you to learn more about [noisy scan results](/chainguard/chainguard-images/scanners/false-results/) when scanning Chainguard Containers. 
