@@ -34,6 +34,11 @@ chainctl images repos list
 ```
 
 
+## Examine chainctl images history
+
+To examine the history of an image tag in chainctl, use [chainctl images history](chainctl-images-history.md).
+
+
 ## Compare chainctl images
 
 This useful command enables you to compare two Chainguard images. To use it, enter:
