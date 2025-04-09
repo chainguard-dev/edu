@@ -32,8 +32,8 @@ You will be presented with a list of organizations available to your account. Fo
     Which organization would you like to list images from?                                                       
                                                                                                                         
   > [MyCorp-prod]     This group holds the production Chainguard Images hosted under    cgr.dev/MyCorp-prod                   
-    [MyCorp-starter]     This group holds the starter Chainguard Images hosted under    cgr.dev/chainguard-starter  
-    [MyCorp-eval]     This group holds the evaluation Chainguard Images hosted under    cgr.dev/chainguard-eval  
+    [MyCorp-starter]     This group holds the starter Chainguard Images hosted under    cgr.dev/MyCorp-starter  
+    [MyCorp-eval]     This group holds the evaluation Chainguard Images hosted under    cgr.dev/MyCorp-eval  
 ```
 
 Move the `>` up and down with the arrow keys and hit `Enter` to select the org you want to you.
