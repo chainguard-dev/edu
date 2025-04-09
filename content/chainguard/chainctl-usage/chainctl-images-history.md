@@ -118,7 +118,7 @@ The returned list is longer than we'll show here, but here's an excerpt:
 
 ```
 
-The command returns a reverse-chronological list of image builds with timestamps, digests for the build processes, and digests for specific architecture builds with build sizes.
+The command returns a reverse-chronological history of when a specific tag was updated to point to a new manifest digest. If images are not multi-arch, only a single digest without architecture will be displayed.
 
 You aren't required to include the release version tag. If you omit it, you will be presented with a menu, like this:
 
