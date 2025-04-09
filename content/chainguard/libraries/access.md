@@ -23,7 +23,7 @@ and configured for access to Chainguard Libraries.
 If you are already a Chainguard user, the Chainguard account owner in your
 organization can grant access to Chainguard Libraries.
 
-In both cases confirm the name of the organization so you can use it with the
+In both cases, confirm the name of the organization so you can use it with the
 `--parent` parameter to specify the organization.
 
 Once your user account is created and access is confirmed, [install the
@@ -81,7 +81,7 @@ such as [a repository manager](/chainguard/libraries/java/global-configuration)
 or [a build tool](/chainguard/libraries/java/build-configuration) that is not
 tied to a specific user.
 
-To use this pull token in another environment supply the following for username
+To use this pull token in another environment, supply the following for username
 and password valid for basic authentication. Note that the actual returned
 values are much longer.
 

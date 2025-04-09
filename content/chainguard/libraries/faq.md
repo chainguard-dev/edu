@@ -17,7 +17,7 @@ toc: true
 ## What security issues can Chainguard Libraries prevent?
 
 As detailed in the [background](/chainguard/libraries/overview/#background) and
-[introduction](/chainguard/libraries/overview/#introduction) Chainguard
+[introduction](/chainguard/libraries/overview/#introduction), Chainguard
 Libraries are built directly from source in the Chainguard Factory and the
 resulting binaries are directly provided to you by Chainguard. Chainguard
 operates the whole supply chain for the package lifecycle as one reliable,
@@ -70,7 +70,7 @@ of the software supply chain for libraries across different language ecosystems:
 
 ## XZ Utils backdoor
 
-* Example for a supply chain issue with social engineering for maintainer rights
+* Example of a supply chain issue with social engineering for maintainer rights
 * Very complex backdoor that consists of multiple stages with potential to be
   very widespread and effective.
 * Vulnerability was patched within hours of disclosure by reverting to a
@@ -115,9 +115,9 @@ Chainguard collaborates with many upstream projects and can collaborate with
 customers to increase and accelerate the creation and adoption of fixes and the
 work towards new releases.
 
-Importantly [over 95% of all known vulnerable components have a fixed version
+Importantly, [over 95% of all known vulnerable components have a fixed version
 available](https://www.sonatype.com/blog/are-unnecessary-vulnerabilities-polluting-your-software-supply-chain)
-and by adopting those newer versions in your application you can remediate most
+and, by adopting those newer versions in your application, you can remediate most
 CVEs. Chainguard Libraries for Java includes those newest versions and adds the
 build and distribution channel security.
 
