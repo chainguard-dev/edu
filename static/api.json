@@ -2018,6 +2018,38 @@
         ]
       }
     },
+    "/registry/v1/entitlements/{parent}:summary": {
+      "get": {
+        "operationId": "Entitlements_Summary",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "parent",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryEntitlementSummaryResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "summary": "Summary provides a group-level summary of entitlements.",
+        "tags": [
+          "Entitlements"
+        ]
+      }
+    },
     "/registry/v1/repocountbysource/{id}": {
       "get": {
         "operationId": "Registry_GetRepoCountBySource",
@@ -5647,6 +5679,11 @@
           "description": "The image repository UID.",
           "type": "string"
         },
+        "name": {
+          "description": "Human-readable image name corresponding to id.",
+          "readOnly": true,
+          "type": "string"
+        },
         "tier": {
           "$ref": "#/definitions/registryCatalogTier",
           "description": "The image repository catalog tier the image is associated with."
@@ -5674,6 +5711,23 @@
             "type": "object"
           },
           "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "registryEntitlementSummaryResponse": {
+      "properties": {
+        "lastUpdatedTime": {
+          "format": "date-time",
+          "title": "last updated time",
+          "type": "string"
+        },
+        "quota": {
+          "additionalProperties": {
+            "$ref": "#/definitions/registryImageQuota"
+          },
+          "description": "Keys can't be enum types, but string should match CatalogTier.",
+          "type": "object"
         }
       },
       "type": "object"
