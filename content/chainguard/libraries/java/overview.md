@@ -39,8 +39,8 @@ Central.
 Chainguard Libraries for Java also builds binaries for many other open source
 projects available in other repositories or on code hosting platforms like
 GitHub. Examples include Google, Oracle, JetBrains, CERN, Apache, and many
-others. Any request for library or library version missing in the Chainguard
-Libraries, automatically triggers a process to provision the artifacts from
+others. Any request for a library or library version missing in Chainguard
+Libraries automatically triggers a process to provision the artifacts from
 relevant sources if available. 
 
 You can use Chainguard Libraries for Java alongside third-party software
@@ -57,7 +57,7 @@ Libraries for Java repository. The URL for the repository is:
 https://libraries.cgr.dev/maven/
 ```
 
-The URL does not expose a browsable directory structure, however if you know the
+The URL does not expose a browsable directory structure. However, if you know the
 location of any particular artifact you can use the login credentials and a set
 path URL to access a file.
 
@@ -103,7 +103,7 @@ curl --user "exampleusername:examplepassword" \
 The Chainguard Libraries for Java repository does not include all artifacts from
 the Maven Central Repository and other repositories.
 
-Specifically the following components can be required by your application
+Specifically, the following components can be required by your application
 builds, yet are not included:
 
 * Binary versions of closed-source libraries. The Maven Central Repository and
@@ -125,12 +125,12 @@ often not available:
 * Other package formats sometimes found such as RPMs, SO files, Android AARs,
   and similar rarely used artifacts
 
-As a result you must configure the repository as the first point of contact and
+As a result, you must configure the repository as the first point of contact and
 request for any retrieval of a library. This ensures that any library that is
 available from Chainguard is also used. In addition, any failed requests are
 flagged at Chainguard and backfill processes are run where possible.
 
-At the same time you must continue to use the Maven Central Repository, and any
+At the same time, you must continue to use the Maven Central Repository, and any
 other repository that fills the needs for libraries that are not available from
 the Chainguard Libraries repository.
 
