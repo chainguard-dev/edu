@@ -15,7 +15,7 @@ This page demonstrates how to use the `chainctl images history` command. For a f
 
 At times it may be useful to examine the history of an image tag in chainctl, such as to find when it was updated and the associated digests for each update. This is done using `chainctl images history`, which is part of the [chainctl images](./chainctl-images.md) set of commands.
 
-Let's walk through a typical scenario. In our example we use an internal organization created for the Developer Enablement team to use when creating educational resources. Change our examples to use your org. You can do this by selecting from the options presented in a menu as you issue commands, as in [List chainctl images](#list-chainctl-images)
+Let's walk through a typical scenario. In our example we use an imagined organization called MyCorp. Change our examples to use your org. You can do this by selecting from the options presented in a menu as you issue commands, as in [List chainctl images](#list-chainctl-images)
 
 
 ## List images
