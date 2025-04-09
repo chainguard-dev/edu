@@ -73,11 +73,11 @@ What if I am interested in knowing how many times a variant has been built and f
 To examine the history use this command, shown with an optional `--parent=$ORGANIZATION` switch demonstrating how to designate your org without using the menu shown earlier:
 
 ```shell
-chainctl images history $IMAGE:$VARIANT --parent=$ORGANIZATION
+chainctl images history $IMAGE:$TAG --parent=$ORGANIZATION
 ```
 
 
-For example, let's find the history of one of the `python` images from our previous list, `3.12.7`. So we enter:
+For example, let's find the history of one of the `python` image variants from our previous list, `3.12.7`. So we enter:
 
 ```shell
 chainctl images history python:3.12.7 --parent=chainguard.edu
@@ -119,3 +119,32 @@ The returned list is longer than we'll show here, but here's an excerpt:
 ```
 
 The command returns a reverse-chronological list of image builds with timestamps, digests for the build processes, and digests for specific architecture builds with build sizes.
+
+You aren't required to include the release version tag. If you omit it, you will be presented with a menu, like this:
+
+```
+chainctl images history python --parent=chainguard.edu
+```
+
+Presents you with this:
+
+```
+    Which tag of python would you like to view history for?  
+                                                             
+  > 3                                                        
+    3-dev                                                    
+    3.10                                                     
+    3.10-dev                                                 
+    3.10.14                                                  
+    3.10.14-dev                                              
+    3.10.14-r2                                               
+    3.10.14-r2-dev                                           
+    3.10.14-r3                                               
+    3.10.14-r3-dev                                           
+    3.10.14-r4                                               
+    3.10.14-r4-dev                                           
+    3.10.14-r5                                               
+ 
+```
+
+Once you make a selection, the details will be returned for that variant.
