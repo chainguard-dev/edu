@@ -122,11 +122,16 @@ The command returns a reverse-chronological history of when a specific tag was u
 
 You aren't required to include the release version tag. If you omit it, you will be presented with a menu, like this:
 
+
+When the release version tag is not provided, the command will present you with a menu that lets you select which tag you'd like to obtain the history for. For example:
+
+
 ```
 chainctl images history python --parent=chainguard.edu
 ```
 
-Presents you with this:
+This will present you with a menu similar to this:
+
 
 ```
     Which tag of python would you like to view history for?  
