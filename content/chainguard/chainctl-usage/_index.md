@@ -28,6 +28,7 @@ Once installed, these will help you on your path to success:
 * <ins>[chainctl events](/chainguard/chainctl-usage/chainctl-events/)</ins>
 * <ins>[chainctl iam](/chainguard/chainctl-usage/chainctl-iam/)</ins>
 * <ins>[chainctl images](/chainguard/chainctl-usage/chainctl-images/)</ins>
+* <ins>[chainctl images](/chainguard/chainctl-usage/chainctl-images-history/)</ins>
 * <ins>[chainctl packages](/chainguard/chainctl-usage/chainctl-packages/)</ins>
 * <ins>[chainctl update](/chainguard/chainctl-usage/chainctl-update/)</ins>
 * <ins>[chainctl version](/chainguard/chainctl-usage/chainctl-version/)</ins>
