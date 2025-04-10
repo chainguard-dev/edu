@@ -86,7 +86,7 @@ sudo sh -c "echo 'https://linky:<TOKEN>@example-hostname.jfrog.io/artifactory/cg
 
 In this example, the Artifactory user profile is `linky` and the hostname is `example-hostname`.
 
-Note that if your Artifactory user profile is an email address, this command will result in an error unless you percent-encode the `@` sign, like this:
+If your Artifactory user profile is an email address, you will encounter an error unless you percent-encode the `@` sign, like this:
 
 ```shell
 export ARTIFACTORY_USER_PROFILE=linky%40example.com
