@@ -224,7 +224,7 @@ access](/chainguard/libraries/access/):
       <repositories>
         <repository>
           <id>chainguard</id>
-          <url>https://libraries.cgr.dev/maven/</url>
+          <url>https://libraries.cgr.dev/java/</url>
           <releases>
             <enabled>true</enabled>
           </releases>
@@ -246,7 +246,7 @@ access](/chainguard/libraries/access/):
       <pluginRepositories>
         <pluginRepository>
           <id>chainguard</id>
-          <url>https://libraries.cgr.dev/maven/</url>
+          <url>https://libraries.cgr.dev/java/</url>
           <releases>
             <enabled>true</enabled>
           </releases>
@@ -361,7 +361,7 @@ repositories:
 ```
 repositories {
     maven {
-        url = uri("https://libraries.cgr.dev/maven/")
+        url = uri("https://libraries.cgr.dev/java/")
         credentials {
             username = "CG_PULLTOKEN_USERNAME"
             password = "CG_PULLTOKEN_PASSWORD"
