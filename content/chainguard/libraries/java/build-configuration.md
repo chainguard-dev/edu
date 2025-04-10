@@ -306,7 +306,7 @@ Gradle can also be configured to use a local Maven repository with a repository
 configuration in the global `init.gradle` or a project specific `build.gradle`
 file:
 
-```
+```groovy
 repositories {
    ...
     mavenLocal()    
@@ -333,7 +333,7 @@ and any other repositories, and adds a replacement definition with the URL of th
 repository group or virtual repository from your repository manager
 `https://repo.example.com/group/` and any applicable authentication details.
 
-```
+```groovy
 repositories {
     maven {
         url = uri("https://repo.example.com/group/")
@@ -358,7 +358,7 @@ Libraries access](/chainguard/libraries/access/) replacing the placeholders
 repository is located above the `mavenCentral` repository and any other
 repositories:
 
-```
+```groovy
 repositories {
     maven {
         url = uri("https://libraries.cgr.dev/maven/")
@@ -368,6 +368,34 @@ repositories {
         }
     }
     mavenCentral()
+}
+```
+
+The following listing shows a valid `init.gradle` file. It wraps the
+`repositories` element with `allprojects` so that the scope of the file affects
+all projects built locally with Gradle. It also allows for downloads for plugins
+and build scripts from the remote URL using `buildscript`. Lastly the example
+shows use of an internal repository manager that only serves artifacts without
+authentication using HTTP only. Since this is not advisable unless other
+networking setups allow a secure use with HTTP, the override with the property
+`allowInsecureProtocol` is required:
+
+```groovy
+allprojects {
+  buildscript {
+    repositories {
+      maven {
+        url = "http://repo.example.com:8081/repository/chainguard-maven/"
+        allowInsecureProtocol = true
+      }
+    }
+  }
+  repositories {
+    maven {
+        url = "http://repo.example.com:8081/repository/chainguard-maven/"
+        allowInsecureProtocol = true
+    }
+  }
 }
 ```
 
