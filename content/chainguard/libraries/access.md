@@ -85,6 +85,13 @@ To use this pull token in another environment, supply the following for username
 and password valid for basic authentication. Note that the actual returned
 values are much longer.
 
+
+TBD 
+```shell
+eval $(chainctl auth pull-token -o env --library-ecosystem=java --parent=chainguard.edu)
+
+```
+
 Use the credentials for manual testing in a browser or with a script if you know
 the URL for a specific library artifact, [for example a Java
 library](/chainguard/libraries/java/overview/#technical-details).
