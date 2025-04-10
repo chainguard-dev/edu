@@ -81,15 +81,15 @@ export ARTIFACTORY_HOSTNAME=my-artifactory-hostname
 If you aren't sure of these values, you can find them in the command from the **Set Up An Alpine Client** window where you found the token:
 
 ```shell
-sudo sh -c "echo 'https://linky:<TOKEN>@linkysorg.jfrog.io/artifactory/cg-wolfi/<BRANCH>/<REPOSITORY>'" >> /etc/apk/repositories
+sudo sh -c "echo 'https://linky:<TOKEN>@example-hostname.jfrog.io/artifactory/cg-wolfi/<BRANCH>/<REPOSITORY>'" >> /etc/apk/repositories
 ```
 
-In this example, the Artifactory user profile is `linky` and the hostname is `linkysorg`.
+In this example, the Artifactory user profile is `linky` and the hostname is `example-hostname`.
 
-Note that if your Artifactory user profile is an email address, this command will result in an error unless you percent-encode the `@` sign, like this:
+If your Artifactory user profile is an email address, you will encounter an error unless you percent-encode the `@` sign, like this:
 
 ```shell
-sudo sh -c "echo 'https://linky%40example.com:<TOKEN>@linkysorg.jfrog.io/artifactory/cg-wolfi/<BRANCH>/<REPOSITORY>'" >> /etc/apk/repositories
+export ARTIFACTORY_USER_PROFILE=linky%40example.com
 ```
 
 Here, the Artifactory user profile is `linky@example.com`.
