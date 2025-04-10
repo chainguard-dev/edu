@@ -3,8 +3,8 @@ title: "Global Configuration"
 linktitle: "Global Configuration "
 description: "Configuring Chainguard Libraries for Python in your organization"
 type: "article"
-date: 2025-04-09:04:00+00:00
-lastmod: 2025-04-09T14:42:00+00:00
+date: 2025-03-25T08:04:00+00:00
+lastmod: 2025-04-07T14:42:00+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 images: []
@@ -27,102 +27,64 @@ At a high level, adopting the use of Chainguard Libraries consists of the
 following steps:
 
 * Add Chainguard Libraries as a remote repository for library retrieval.
-* Configure the Chainguard Libraries repository as the first choice for any
-  library access. This ensures that any future requests of new libraries access
-  the version supplied by Chainguard. Typically this is accomplished by creating a
-  group repository or virtual repository that combines the repository with other
-  external and internal repositories.
+* Add any internal repositories set up by your organization.
+* Add a public repository, likely PyPPI,, as a remove repository.
+* Set up a virtual server or other proxy configuration such that the Chainguard Libraries repository is the first choice for any request to the virtual server (after any internal repositories). 
 
-Additional steps depend on the desired insights and can include the following
-optional measures:
+As part of this process, you may also wish to:
 
-* Remove all cached artifacts in the proxy repository of Maven Central and other
-  repositories. This step allows you to validate which libraries are not
-  available from Chainguard Libraries and proceed with potential next steps with
-  Chainguard and your own development efforts. 
-* Remove any repositories that are no longer desired or necessary. Depending on
-  your library requirements this step can result in removal of some proxy
-  repositories or even removal of all proxy repositories. 
+* Remove all prior cached artifacts in the virtual server or proxy public repository. This step will reduce confusion about the origin of libraries and will assist technical evaluation and adoption of Chainguard Libraries.
+* Remove any repositories that are no longer desired or necessary. Depending on your library requirements, this step can result in removal of some proxy repositories or even removal of all proxy repositories. 
 
-Adopting the use of a repository manager is the recommended approach, however if
-your organization does not use a repository manager, you can still use
-Chainguard Libraries. All access to the Chainguard libraries repository is then
-distributed across all your build platforms and therefore more complex to
-configure and control. 
+If your organization does not use a repository manager, you can still use Chainguard Libraries. However, this approach may require configuration of multiple build and development platforms and utilities to use Chainguard Libraries. For this reason, adopting the use of a repository manager is the recommended approach. 
 
 <a name="cloudsmith"></a>
 
 ## Cloudsmith
 
-[Cloudsmith](https://cloudsmith.com/) supports Maven repositories for proxying
-and hosting. Refer to the [Maven Repository
-documentation](https://help.cloudsmith.io/docs/maven-repository) and the [Maven
-Upstream
-documentation](https://help.cloudsmith.io/docs/upstream-proxying-caching#create-a-maven-upstream)
-for Cloudsmith for more information. Cloudsmith supports combining repositories
-by defining multiple upstream repositories.
+[Cloudsmith](https://cloudsmith.com/) supports Python repositories for proxying and hosting and polyglot repositories that combine multiple repositories sources with compatible formats. Refer to the [Clouthsmith Python Repository documentation](https://help.cloudsmith.io/docs/python-repository) and the [Cloudsmith documentation for creating a repository](https://help.cloudsmith.io/docs/create-a-repository) for more information. 
 
 ### Initial configuration
 
-Use the following steps to add a repository with the Maven Central Repository
-and the Chainguard Libraries for Python repository as Maven upstream repositories. 
+Use the following steps to add a polyglot repository with both Chainguard Libraries and PyPI as upstream sources.
 
-Configure a *chainguard-maven* repository:
+First, let's create a repository:
 
 1. Log in as a user with administrator privileges.
 1. Select the **Repositories** tab near the top of the screen.
-1. On the **Repositories** page, click the **+ New repository** button.
-1. Enter the name *chainguard-maven* for your new repository. The name should
-   include *maven* to identify the repository format. This convention helps
-   avoid confusion since repositories in Cloudsmith are multi-format. 
-1. Select a storage region that is appropriate for your organization and
-   infrastructure.
-1. Press **+ Create Repository**. 
+1. Navigate to the **Repositories Overview**, then select **+ New repository**.
+1. At the new repository form, enter the name *chainguard-python* for your new repository. The name should include *python* to identify the repository format. This convention helps avoid confusion, since repositories in Cloudsmith are multi-format. 
+1. Select a storage region that is appropriate for your organization and infrastructure.
+1. Select **+ Create Repository**. 
 
-Configure an upstream proxy for the Maven Central Repository:
+Next, configure an upstream proxy for the PyPI Repository:
 
-1. Click the name of the new *chainguard-maven* repository on the repositories
-   page to configure it.
+1. Select the name of the new *chainguard-python* repository on the repositories page to configure it.
 1. Access the **Upstreams** tab and click **+ Add Upstream Proxy**.
-1. Configure an upstream proxy with the format **Maven** and the following details:
+1. Configure an upstream proxy with the format **python** and the following details: 
+    * **Name**: chainguard-libraries
+    * **Priority**: 1
+    * **Upstream URL**: https://libraries.cgr.dev/python/
+    * **Mode**: Cache and Proxy
 1. Configure another upstream proxy with the following details
-    * **Name** *central* 
-    * **Priority** *2*
-    * **Upstream URL** *https://repo1.maven.org/maven2/*
-    * **Mode** *Cache and Proxy*
-1. Press **Create Upstream Proxy**.
-
-Configure an upstream proxy for the Chainguard Libraries for Python repository:
-
-1. Click the name of the new *chainguard-maven* repository on the repositories
-   page to configure it.
-1. Access the **Upstreams** tab and click **+ Add Upstream Proxy**.
-1. Configure an upstream proxy with the format **Maven** and the following details:
-    * **Name** *chainguard* 
-    * **Priority** *1*
-    * **Proxy URL** *https://libraries.cgr.dev/maven/*
-    * **Mode** *Cache and Proxy*
-    * Add the **Username** and **Password** value from [Chainguard Libraries
-      access](/chainguard/libraries/access/) in **Authentication Settings**
-1. Press **Create Upstream Proxy**.
-
-Use this setup for initial testing with Chainguard Libraries for Python. For
-production usage, add the `chainguard` upstream proxy to your production
-repository.
+    * **Name**: pypi
+    * **Priority**: 2
+    * **Upstream URL**:*https://pypi.org/
+    * **Mode**: Cache and Proxy
+1. Select **Create Upstream Proxy**.
 
 ### Build tool access
 
-The following steps allow you to determine the URL and authentication details
-for accessing the repository:
+The following steps allow you to determine the URL and authentication details for accessing the repository:
 
 1. Select the **Packages** tab.
 1. Press **Push/Pull Packages**.
-1. Choose the format **Maven**.
+1. Choose the format **PyPI**.
 1. Copy the value in the `<url>` tag from the XML snippet with the
    `<repositories>` entry. For example,
-   `https://dl.cloudsmith.io/basic/exampleorg/chainguard-maven/maven/` with
+   `https://dl.cloudsmith.io/basic/exampleorg/chainguard-python/maven/` with
    `exampleorg` replaced with the name of your organization. Note that the name
-   of the repository `chainguard-maven` as well as `maven` as identifier for the
+   of the repository `chainguard-python` as well as `maven` as identifier for the
    format are part of the URL.
 1. Copy the username and password values block from the second code snippet for
    authentication after choosing the desired authentication of *Default* or
@@ -141,15 +103,15 @@ tagged with the name of the upstream proxy.
 
 ## JFrog Artifactory
 
-[JFrog Artifactory](https://jfrog.com/artifactory/) supports Maven repositories
+[JFrog Artifactory](https://jfrog.com/artifactory/) supports PyPI repositories
 for proxying and hosting, and virtual repositories to combine them. Refer to the
-[Maven Repository documentation for
+[PyPI Repository documentation for
 Artifactory](https://jfrog.com/help/r/jfrog-artifactory-documentation/maven-repository)
 for more information.
 
 ### Initial configuration
 
-Use the following steps to add the Maven Central Repository and the Chainguard
+Use the following steps to add the PyPI Repository and the Chainguard
 Libraries for Python repository as remote repositories and combine them as a
 virtual repository:
 
@@ -157,32 +119,32 @@ virtual repository:
 1. Press **Administration** in the top navigation bar.
 1. Select **Repositories** in the left hand navigation.
 
-Configure a remote repository for the Maven Central Repository:
+Configure a remote repository for the PyPI Repository:
 
 1. Press **Create a Repository** and choose the **Remote** option.
-1. Select *Maven* as the Package type.
+1. Select *PyPI* as the Package type.
 1. Set the **Repository Key** to *central*.
 1. Set the **URL** to *https://repo1.maven.org/maven2/* .
-1. Deactivate **Maven Settings - Handle Snapshots**.
+1. Deactivate **PyPI Settings - Handle Snapshots**.
 1. Press **Create Remote Repository**.
 
 Configure a remote repository for the Chainguard Libraries for Python repository:
 
 1. Press **Create a Repository** and choose the **Remote** option.
-1. Select *Maven* as the **Package type**.
+1. Select *PyPI* as the **Package type**.
 1. Set the **Repository Key** to *chainguard*.
 1. Set the **URL** to *https://libraries.cgr.dev/maven/*.
 1. Set **User Name** and **Password / Access Token** to the [values as retrieved
    with chainctl](/chainguard/libraries/access/).
 1. Check the **Enable Token Authentication** checkbox.
 1. Press **Test** to validate the connection.
-1. Deactivate **Maven Settings - Handle Snapshots**.
+1. Deactivate **PyPI Settings - Handle Snapshots**.
 1. Press **Create Remote Repository**.
 
 Combine the two repositories in a new virtual repository:
 
 1. Press **Create a Repository** and choose the **Virtual** option.
-1. Set the **Repository Key** to *chainguard-maven*.
+1. Set the **Repository Key** to *chainguard-python*.
 1. Scroll down to the **Repositories** section
 1. Add the *chainguard* and *maven-central* repositories. Ensure the
    *chainguard* repository is the first in the displayed list. Use the icon on
@@ -202,14 +164,14 @@ for accessing the repository:
 1. Press **Administration** in the top navigation bar.
 1. Select **Repositories** in the left hand navigation.
 1. Select the **Virtual** tab in the repositories view.
-1. Locate the *chainguard-maven** repository.
+1. Locate the *chainguard-python** repository.
 1. Hover over the row and click the **...** in the last column on the right.
 1. Select **Set Me Up** in the dialog.
 1. Press **Generate Token & Create Instructions**
 1. Copy the generated token value to use as the password for authentication.
 1. Press **Generate Settings**.
 1. Copy the value from a *url* field. The are all identical. For example,
-   `https://exampleorg.jfrog.io/artifactory/chainguard-maven` with `exampleorg`
+   `https://exampleorg.jfrog.io/artifactory/chainguard-python` with `exampleorg`
    replaced with the name of your organization.
 
 Use the URL of the virtual repository in the [build
@@ -224,8 +186,8 @@ libraries retrieved from Chainguard.
 [Sonatype Nexus
 Repository](https://www.sonatype.com/products/sonatype-nexus-repository)
 includes a *maven-public* repository group out of the box. It groups access to
-the Maven Central Repository from the *maven-central* repository with the
-internal *maven-releases* and *maven-snapshot* repositories. Refer to the [Maven
+the PyPI Repository from the *maven-central* repository with the
+internal *maven-releases* and *maven-snapshot* repositories. Refer to the [PyPI
 Repositories documentation for
 Nexus](https://help.sonatype.com/en/maven-repositories.html) for more
 information.
@@ -236,20 +198,20 @@ Libraries for Python repository for production use.
 ### Initial configuration
 
 For initial testing and adoption it is advised to create a separate proxy
-repository for the Maven Central Repository, a separate proxy repository
+repository for the PyPI Repository, a separate proxy repository
 Chainguard Libraries for Python repository, and a separate repository group:
 
 1. Log in as a user with administrator privileges.
 1. Access the **Server administration** and configuration section with the gear
    icon in the top navigation bar.
 
-Configure a remote repository for the Maven Central Repository:
+Configure a remote repository for the PyPI Repository:
 
 1. Select **Repository - Repositories** in the left hand navigation.
 1. Press **Create repository**.
 1. Select the **maven2 (proxy)** recipe.
 1. Provide a new name *central*.
-1. Ensure **Maven 2 - Version policy** is set to *Release*.
+1. Ensure **PyPI 2 - Version policy** is set to *Release*.
 1. In the **Proxy - Remote storage** input add the URL *https://repo1.maven.org/maven2/*.
 1. Press **Create repository**.
 
@@ -259,7 +221,7 @@ Configure a remote repository for the Chainguard Libraries for Python repository
 1. Press **Create repository**.
 1. Select the **maven2 (proxy)** recipe.
 1. Provide a new name *chainguard*.
-1. Ensure **Maven 2 - Version policy** is set to *Release*.
+1. Ensure **PyPI 2 - Version policy** is set to *Release*.
 1. In the **Proxy - Remote storage** input add the URL *https://libraries.cgr.dev/maven/*.
 1. In **HTTP - Authentication** with the **Authentication type** *username*,
    provide the [username and password values as retrieved with
@@ -271,7 +233,7 @@ Combine a new repository group and add the two repositories:
 1. Select **Repository - Repositories** in the left hand navigation.
 1. Press **Create repository**.
 1. Select the **maven2 (group)** recipe.
-1. Provide a new name *chainguard-maven*.
+1. Provide a new name *chainguard-python*.
 1. In the section **Group - Member repositories**, move the new repositories
    `central` and `chainguard` to the right and move the `chainguard` repository
    to the top of the list with the arrow control.
@@ -283,9 +245,9 @@ for accessing the repository:
 
 1. Click **Browse** in the **Welcome** view or the browse icon (cube) in the top
    navigation bar.
-1. Locate the **URL** column for the *chainguard-maven* repository group and
+1. Locate the **URL** column for the *chainguard-python* repository group and
    press **copy**. For example,
-   `https://repo.example.com/repository/chainguard-maven/`  with
+   `https://repo.example.com/repository/chainguard-python/`  with
    `repo.example.com` replaced with the hostname of you repository manager.
 1. Copy the URL in the dialog.
 1. Use your configured username and password unless **Security** - **Anonymous
@@ -293,7 +255,7 @@ for accessing the repository:
    activated. Details vary based on your configured authentication system.
 
 Use the URL of the repository group, such as
-*https://repo.example.com/repository/chainguard-maven/* or
+*https://repo.example.com/repository/chainguard-python/* or
 *https://repo.example.com/repository/maven-public/* in the [build
 configuration](/chainguard/libraries/python/build-configuration) and build a first
 test project. In a working setup the `chainguard` proxy repository contains all
