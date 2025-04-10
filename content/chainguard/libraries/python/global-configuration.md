@@ -1,21 +1,21 @@
 ---
 title: "Global Configuration"
-linktitle: "Global Configuration"
-description: "Configuring Chainguard Libraries for Java in your organization"
+linktitle: "Global Configuration "
+description: "Configuring Chainguard Libraries for Python in your organization"
 type: "article"
-date: 2025-03-25T08:04:00+00:00
-lastmod: 2025-04-07T14:42:00+00:00
+date: 2025-04-09:04:00+00:00
+lastmod: 2025-04-09T14:42:00+00:00
 draft: false
-tags: ["Chainguard Libraries", "Java"]
+tags: ["Chainguard Libraries", "Python"]
 images: []
 menu:
   docs:
-    parent: "java"
+    parent: "python"
 weight: 052
 toc: true
 ---
 
-Java and JVM library consumption in a large organization is typically managed by
+Python library consumption in a large organization is typically managed by
 a repository manager. Commonly used repository manager applications are
 [Cloudsmith](https://cloudsmith.com/), [JFrog
 Artifactory](https://jfrog.com/artifactory/), and [Sonatype Nexus
@@ -65,7 +65,7 @@ by defining multiple upstream repositories.
 ### Initial configuration
 
 Use the following steps to add a repository with the Maven Central Repository
-and the Chainguard Libraries for Java repository as Maven upstream repositories. 
+and the Chainguard Libraries for Python repository as Maven upstream repositories. 
 
 Configure a *chainguard-maven* repository:
 
@@ -92,7 +92,7 @@ Configure an upstream proxy for the Maven Central Repository:
     * **Mode** *Cache and Proxy*
 1. Press **Create Upstream Proxy**.
 
-Configure an upstream proxy for the Chainguard Libraries for Java repository:
+Configure an upstream proxy for the Chainguard Libraries for Python repository:
 
 1. Click the name of the new *chainguard-maven* repository on the repositories
    page to configure it.
@@ -106,7 +106,7 @@ Configure an upstream proxy for the Chainguard Libraries for Java repository:
       access](/chainguard/libraries/access/) in **Authentication Settings**
 1. Press **Create Upstream Proxy**.
 
-Use this setup for initial testing with Chainguard Libraries for Java. For
+Use this setup for initial testing with Chainguard Libraries for Python. For
 production usage, add the `chainguard` upstream proxy to your production
 repository.
 
@@ -133,7 +133,7 @@ build tools such as Gradle.
 
 Use the URL of the repository, the username, and the password for the server
 authentication block in the [build
-configuration](/chainguard/libraries/java/build-configuration). and build a firs
+configuration](/chainguard/libraries/python/build-configuration). and build a firs
 test project. In a working setup all libraries retrieved from Chainguard are
 tagged with the name of the upstream proxy.
 
@@ -150,7 +150,7 @@ for more information.
 ### Initial configuration
 
 Use the following steps to add the Maven Central Repository and the Chainguard
-Libraries for Java repository as remote repositories and combine them as a
+Libraries for Python repository as remote repositories and combine them as a
 virtual repository:
 
 1. Log in as a user with administrator privileges.
@@ -166,7 +166,7 @@ Configure a remote repository for the Maven Central Repository:
 1. Deactivate **Maven Settings - Handle Snapshots**.
 1. Press **Create Remote Repository**.
 
-Configure a remote repository for the Chainguard Libraries for Java repository:
+Configure a remote repository for the Chainguard Libraries for Python repository:
 
 1. Press **Create a Repository** and choose the **Remote** option.
 1. Select *Maven* as the **Package type**.
@@ -190,7 +190,7 @@ Combine the two repositories in a new virtual repository:
    desired position.
 1. Press **Create Virtual Repository**.
 
-Use this setup for initial testing with Chainguard Libraries for Java. For
+Use this setup for initial testing with Chainguard Libraries for Python. For
 production usage add the `chainguard` repository to your production virtual
 repository.
 
@@ -213,7 +213,7 @@ for accessing the repository:
    replaced with the name of your organization.
 
 Use the URL of the virtual repository in the [build
-configuration](/chainguard/libraries/java/build-configuration) and build a first
+configuration](/chainguard/libraries/python/build-configuration) and build a first
 test project. In a working setup the chainguard remote repository contains all
 libraries retrieved from Chainguard.
 
@@ -231,13 +231,13 @@ Nexus](https://help.sonatype.com/en/maven-repositories.html) for more
 information.
 
 If you are using this group, you can add a proxy repository for Chainguard
-Libraries for Java repository for production use.
+Libraries for Python repository for production use.
 
 ### Initial configuration
 
 For initial testing and adoption it is advised to create a separate proxy
 repository for the Maven Central Repository, a separate proxy repository
-Chainguard Libraries for Java repository, and a separate repository group:
+Chainguard Libraries for Python repository, and a separate repository group:
 
 1. Log in as a user with administrator privileges.
 1. Access the **Server administration** and configuration section with the gear
@@ -253,7 +253,7 @@ Configure a remote repository for the Maven Central Repository:
 1. In the **Proxy - Remote storage** input add the URL *https://repo1.maven.org/maven2/*.
 1. Press **Create repository**.
 
-Configure a remote repository for the Chainguard Libraries for Java repository:
+Configure a remote repository for the Chainguard Libraries for Python repository:
 
 1. Select **Repository - Repositories** in the left hand navigation.
 1. Press **Create repository**.
@@ -295,6 +295,6 @@ for accessing the repository:
 Use the URL of the repository group, such as
 *https://repo.example.com/repository/chainguard-maven/* or
 *https://repo.example.com/repository/maven-public/* in the [build
-configuration](/chainguard/libraries/java/build-configuration) and build a first
+configuration](/chainguard/libraries/python/build-configuration) and build a first
 test project. In a working setup the `chainguard` proxy repository contains all
 libraries retrieved frohttps://github.com/chainguard-dev/edu/pull/2148avoidm Chainguard.
