@@ -17,7 +17,7 @@ toc: true
 
 Java and JVM library consumption in a large organization is typically managed by
 a repository manager. Commonly used repository manager applications are
-[Cloudsmith](https://cloudsmith.com/), [Google Artifact Registry](), [JFrog
+[Cloudsmith](https://cloudsmith.com/), [Google Artifact Registry](https://cloud.google.com/artifact-registry/docs), [JFrog
 Artifactory](https://jfrog.com/artifactory/), and [Sonatype Nexus
 Repository](https://www.sonatype.com/products/sonatype-nexus-repository). The
 repository manager acts as a single point of access for developers and
