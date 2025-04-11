@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App;
 
-use App\Command\CatalogItem;
 use Minicli\Command\CommandController;
 use Minicli\Output\Helper\TableHelper;
 
