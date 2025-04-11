@@ -6,9 +6,9 @@ aliases:
 type: "article"
 description: "The life cycle of Chainguard-Issued Security Advisories"
 date: 2024-07-26T18:09:12+00:00
-lastmod: 2024-08-29T12:26:23+00:00
+lastmod: 2025-04-11T12:26:23+00:00
 draft: false
-tags: ["Overview", "Product", "Chainguard Images", "CVE"]
+tags: ["Product", "Chainguard Containers", "CVE"]
 images: []
 menu:
   docs:
@@ -17,9 +17,13 @@ weight: 020
 toc: true
 ---
 
-When you scan a newly-built Chainguard Image with a vulnerability scanner, typically, no CVEs will be reported. However, as software packages age, more vulnerabilities are reported and CVEs will begin to accumulate in images. When this happens, Chainguard releases security advisories to communicate these vulnerabilities to downstream Images users.
+When you scan a newly-built Chainguard Container with a vulnerability scanner, typically, no CVEs will be reported. However, as software packages age, more vulnerabilities are reported and CVEs will begin to accumulate in container images. When this happens, Chainguard releases security advisories to communicate these vulnerabilities to downstream images users.
 
-Chainguard publishes its security advisories to a dedicated [Security Advisories page](https://images.chainguard.dev/security/?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-security-advisories-how-chainguard-issues) on its Images Directory. There, you can find a complete listing of CVEs found in various Chainguard Images, including their CVE ID, affected packages, and vulnerability status. Each advisory is built from the metadata associated with a security vulnerability.
+In alignment with the [Chainguard Container Product Release Lifecycle](/chainguard/chainguard-images/about/versions/#what-chainguard-supports-and-maintains-for-chainguard-containers), our vulnerability management strategy focuses on the latest versions of any given release track, as these are the versions we actively maintain and secure. Accordingly, we only publish new CVE advisories for packages that fall within our defined support scope.
+
+We do not actively monitor non-supported versions of a package or image. Our efforts are centered on keeping the latest versions up-to-date and as close to zero CVEs as we can, while encouraging customers to upgrade and stay on supported versions.
+
+Chainguard publishes its security advisories to a dedicated [Security Advisories page](https://images.chainguard.dev/security/?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-security-advisories-how-chainguard-issues) on its container images Directory. There, you can find a complete listing of CVEs found in various Chainguard Containers, including their CVE ID, affected packages, and vulnerability status. Each advisory is built from the metadata associated with a security vulnerability.
 
 ![Snapshot of the Chainguard Security Advisories Page](advisories-page.png)
 
@@ -112,9 +116,9 @@ Rarely, a vulnerability is found in a package but there is no current status upd
 
 ## Further Reading
 
-Chainguard’s Security Advisory feed is a helpful tool to have at hand when scanning your containers for the presence of vulnerabilities. Though you won’t need it often thanks to the low CVE counts of our Images, it is a useful reference when working with your scans, giving you insight into how you can approach and fix any vulnerabilities which pop up.
+Chainguard’s Security Advisory feed is a helpful tool to have at hand when scanning your containers for the presence of vulnerabilities. Though you won’t need it often thanks to the low CVE counts of our container images, it is a useful reference when working with your scans, giving you insight into how you can approach and fix any vulnerabilities which pop up.
 
 For more information on how to use Chainguard’s Security Advisories page to inform your vulnerability remediation, consider reading our article on [How to Use Chainguard Security Advisories](
 /chainguard/chainguard-images/staying-secure/security-advisories/how-to-use/).
 
-If you are using Chainguard Images at your organization or want to learn more about advisories for enterprise Images, please [contact us!](https://www.chainguard.dev/contact)
+If you are using Chainguard Containers at your organization or want to learn more about advisories for enterprise container images, please [contact us](https://www.chainguard.dev/contact).
