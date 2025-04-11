@@ -1,5 +1,9 @@
 {
   "swagger": "2.0",
+  "host": "console-api.enforce.dev",
+  "schemes": [
+    "https"
+  ],
   "info": {
     "title": "Enforce OpenAPI Specification (Alpha)",
     "version": "alpha"
@@ -1956,6 +1960,66 @@
         ]
       }
     },
+    "/registry/v1/buildstatus": {
+      "get": {
+        "operationId": "Registry_GetBuildStatus",
+        "parameters": [
+          {
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "in": "query",
+            "name": "uidp.inRoot",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "use to choose reports started after this time.\ndefaults to 1 day ago.",
+            "format": "date-time",
+            "in": "query",
+            "name": "startedSince",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryBuildStatus"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      }
+    },
     "/registry/v1/entitlements/{parent}": {
       "get": {
         "operationId": "Entitlements_ListEntitlements",
@@ -3619,6 +3683,20 @@
         "Failure"
       ],
       "type": "string"
+    },
+    "BuildStatusFailures": {
+      "properties": {
+        "repoId": {
+          "description": "The ID of a repo.",
+          "type": "string"
+        },
+        "total": {
+          "description": "The total number of failures for this repo.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
     },
     "ComponentGraphEdge": {
       "properties": {
@@ -5616,6 +5694,20 @@
       },
       "type": "object"
     },
+    "registryBuildStatus": {
+      "description": "BuildStatus is an overview of build results for a given org.",
+      "properties": {
+        "failures": {
+          "description": "The list of all repos with failures.",
+          "items": {
+            "$ref": "#/definitions/BuildStatusFailures",
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "registryCatalogTier": {
       "default": "UNKNOWN",
       "enum": [
@@ -5626,7 +5718,8 @@
         "APPLICATION",
         "BASE",
         "FIPS",
-        "AI"
+        "AI",
+        "DEVTOOLS"
       ],
       "type": "string"
     },
