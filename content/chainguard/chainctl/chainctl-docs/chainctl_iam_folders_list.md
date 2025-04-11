@@ -1,5 +1,5 @@
 ---
-date: 2025-04-09T07:41:46Z
+date: 2025-04-10T09:56:58Z
 title: "chainctl iam folders list"
 slug: chainctl_iam_folders_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_folders_list/
@@ -33,7 +33,7 @@ chainctl iam folders list ORGANIZATION_NAME | ORGANIZATION_ID [--output=id|json|
       --force-color        Force color output even when stdout is not a TTY.
       --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
       --log-level string   Set the log level (debug, info) (default "ERROR")
-  -o, --output string      Output format. One of: [csv, id, json, none, table, terse, tree, wide]
+  -o, --output string      Output format. One of: [csv, env, id, json, none, table, terse, tree, wide]
   -v, --v int              Set the log verbosity level.
 ```
 
