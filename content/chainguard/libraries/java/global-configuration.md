@@ -100,7 +100,7 @@ Configure an upstream proxy for the Chainguard Libraries for Java repository:
 1. Configure an upstream proxy with the format **Maven** and the following details:
     * **Name** *chainguard* 
     * **Priority** *1*
-    * **Proxy URL** *https://libraries.cgr.dev/maven/*
+    * **Proxy URL** *https://libraries.cgr.dev/java/*
     * **Mode** *Cache and Proxy*
     * Add the **Username** and **Password** value from [Chainguard Libraries
       access](/chainguard/libraries/access/) in **Authentication Settings**
@@ -189,7 +189,7 @@ Configure a remote repository for the Chainguard Libraries for Java repository:
 1. Set the **Format** to *Maven*.
 1. Select *Remote* for the **Mode**.
 1. Select *Custom* for the **Remote repository source**.
-1. Set the URL for the Custom repository to *https://libraries.cgr.dev/maven*.
+1. Set the URL for the Custom repository to *https://libraries.cgr.dev/java*.
 1. Select *Authenticated* in **Remote repository authentication mode**.
 1. Set **Username for the upstream repository** to the [value as retrieved
    with chainctl](/chainguard/libraries/access/).
@@ -266,7 +266,7 @@ Configure a remote repository for the Chainguard Libraries for Java repository:
 1. Press **Create a Repository** and choose the **Remote** option.
 1. Select *Maven* as the **Package type**.
 1. Set the **Repository Key** to *chainguard*.
-1. Set the **URL** to *https://libraries.cgr.dev/maven/*.
+1. Set the **URL** to *https://libraries.cgr.dev/java/*.
 1. Set **User Name** and **Password / Access Token** to the [values as retrieved
    with chainctl](/chainguard/libraries/access/).
 1. Check the **Enable Token Authentication** checkbox.
@@ -355,7 +355,7 @@ Configure a remote repository for the Chainguard Libraries for Java repository:
 1. Select the **maven2 (proxy)** recipe.
 1. Provide a new name *chainguard*.
 1. Ensure **Maven 2 - Version policy** is set to *Release*.
-1. In the **Proxy - Remote storage** input add the URL *https://libraries.cgr.dev/maven/*.
+1. In the **Proxy - Remote storage** input add the URL *https://libraries.cgr.dev/java/*.
 1. In **HTTP - Authentication** with the **Authentication type** *username*,
    provide the [username and password values as retrieved with
    chainctl](/chainguard/libraries/access/).
