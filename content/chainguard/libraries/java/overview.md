@@ -54,7 +54,7 @@ chainctl](/chainguard/libraries/access/) are required to access the Chainguard
 Libraries for Java repository. The URL for the repository is:
 
 ```
-https://libraries.cgr.dev/maven/
+https://libraries.cgr.dev/java/
 ```
 
 The URL does not expose a browsable directory structure. However, if you know the
@@ -81,7 +81,7 @@ And combine it with the URL for the Chainguard Libraries for Java repository to
 check for the presence of the same file:
 
 ```
-https://libraries.cgr.dev/maven/commons-io/commons-io/2.17.0/commons-io-2.17.0.pom
+https://libraries.cgr.dev/java/commons-io/commons-io/2.17.0/commons-io-2.17.0.pom
 ```
 
 Use the [Maven Central Repository search](https://central.sonatype.com/) or
@@ -97,7 +97,7 @@ URL of the file to download and save the file with the original name:
 
 ```
 curl --user "exampleusername:examplepassword" \
-  -O https://libraries.cgr.dev/maven/commons-io/commons-io/2.17.0/commons-io-2.17.0.pom
+  -O https://libraries.cgr.dev/java/commons-io/commons-io/2.17.0/commons-io-2.17.0.pom
 ```
 
 The Chainguard Libraries for Java repository does not include all artifacts from
