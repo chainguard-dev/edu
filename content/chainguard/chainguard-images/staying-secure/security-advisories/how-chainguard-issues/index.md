@@ -23,7 +23,7 @@ In alignment with the [Chainguard Container Product Release Lifecycle](/chaingua
 
 We do not actively monitor non-supported versions of a package or image. Our efforts are centered on keeping the latest versions up-to-date and as close to zero CVEs as we can, while encouraging customers to upgrade and stay on supported versions.
 
-Chainguard publishes its security advisories to a dedicated [Security Advisories page](https://images.chainguard.dev/security/?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-security-advisories-how-chainguard-issues) on its container images Directory. There, you can find a complete listing of CVEs found in various Chainguard Containers, including their CVE ID, affected packages, and vulnerability status. Each advisory is built from the metadata associated with a security vulnerability.
+Chainguard publishes its security advisories to a dedicated [Security Advisories page](https://images.chainguard.dev/security/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-security-advisories-how-chainguard-issues) on its container images Directory. There, you can find a complete listing of CVEs found in various Chainguard Containers, including their CVE ID, affected packages, and vulnerability status. Each advisory is built from the metadata associated with a security vulnerability.
 
 ![Snapshot of the Chainguard Security Advisories Page](advisories-page.png)
 
