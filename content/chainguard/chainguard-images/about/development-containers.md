@@ -9,7 +9,7 @@ description: "Learn about Chainguard's development container images and how they
 date: 2024-11-01T07:52:00+02:00
 lastmod: 2025-04-11T07:52:00+02:00
 draft: false
-tags: ["CHAINGUARD CONTAINERS", "PRODUCT", ]
+tags: ["CHAINGUARD CONTAINERS", "PRODUCT"]
 images: []
 menu:
   docs:
