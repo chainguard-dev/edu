@@ -32,7 +32,7 @@ To integrate Keycloak with the Chainguard platform, log in to your Keycloak admi
 <center><img src="keycloak-0.png" alt="Screenshot of Keycloak's Admin menu, with the 'Create Client' option highlighted in a red box."></center>
 <br /> 
 
-Set the **Client Type** to OIDC Connect, and set your **Client ID**. Save the **Client ID** for use later, and add a friendly **Name** and **Description** if desired. Take note of your **Client ID** value that you have set. You'll need this to configure the Chainguard platform to use this Keycloak Client. Click **Next**.
+Set the **Client Type** to OIDC Connect, and set your **Client ID**. Add a friendly **Name** and **Description** if desired. Take note of your **Client ID** value that you have set. You'll need this to configure the Chainguard platform to use this Keycloak Client. Click **Next**.
 
 <center><img src="keycloak-1.png" alt="Screenshot of Keycloak's Create Client menu 1, with example entries added."></center>
 <br /> 
