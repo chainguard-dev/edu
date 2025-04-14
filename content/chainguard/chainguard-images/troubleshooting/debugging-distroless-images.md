@@ -22,13 +22,17 @@ Because distroless images are minimal and don't include a package manager or a s
 
 In this article, we'll discuss a few different strategies to debug distroless images.
 
-## 1. Using Dev / Debug Image Variants
+## 1. Using Development Container Image Variants
 
 Before moving a workload to a distroless runtime image, it is important to make sure that it runs without issues in a similar but less restrictive environment, which allows for easier debugging. It is also possible to make a temporary base image change from a distroless image to a fully featured image that offers more debugging capabilities.
 
+<<<<<<< HEAD
 The `-dev` variants of [Chainguard Containers](/chainguard/chainguard-images/) are designed to replicate the same packages of their distroless version, but with additional software that helps in developing, building, and debugging applications in different language ecosystems.
+=======
+The development variants of [Chainguard Images](/chainguard/chainguard-images/) are designed to replicate the same packages of their distroless version, but with additional software that helps in developing, building, and debugging applications in different language ecosystems. These are sometimes referred to as `-dev` variants since they are tagged with `:latest-dev`.
+>>>>>>> 27161054d (Updating Dev vs Prod doc to use new language)
 
-For example, the following table shows a comparison between the `dev` variants of the PHP image, and which packages are included with each variant:
+For example, the following table shows a comparison between the development variants of the PHP image, and which packages are included with each variant:
 
 
 |                      	| latest | latest-dev | latest-fpm |
@@ -45,7 +49,7 @@ For example, the following table shows a comparison between the `dev` variants o
 
 You can find similar detailed package information for all [Chainguard Containers](https://images.chainguard.dev) in their respective image details pages under the SBOM section.
 
-Once you have changed your Dockerfile base image to use a `-dev` variant, you can overwrite the entry point command to get a shell on the container:
+Once you have changed your Dockerfile base image to use a development variant, you can overwrite the entry point command to get a shell on the container:
 
 ```shell
 docker run -it --entrypoint /bin/sh cgr.dev/chainguard/php:latest-dev
@@ -53,13 +57,18 @@ docker run -it --entrypoint /bin/sh cgr.dev/chainguard/php:latest-dev
 
 Having a package manager and the ability to log into the image to debug any issues is very important at development time, but becomes unnecessary (and less safe) when talking about production environments. That's why we recommend using a distroless variant for production workloads.
 
+<<<<<<< HEAD
 ### Chainguard Containers in Production
 Although the `-dev` image variants have similar security features as their distroless versions, such as complete SBOMs and signatures, they feature additional software that is typically not necessary in production environments. The general recommendation is to use the `-dev` variants to build the application and then copy all application artifacts into a distroless image, which will result in a final container image that has a minimal attack surface and won't allow package installations or logins.
+=======
+### Why You Should Avoid Using Dev Images in Production
+Although the development image variants have similar security features as their distroless versions, such as complete SBOMs and signatures, they feature additional software that is typically not necessary in production environments. The general recommendation is to use the Development variants only to build the application and then copy all application artifacts into a distroless image, which will result in a final container image that has a minimal attack surface and won't allow package installations or logins.
+>>>>>>> 27161054d (Updating Dev vs Prod doc to use new language)
 
 That being said, it's worth noting that the `-dev` variants of Chainguard Containers are still **more secure** than many popular container images based on fully-featured operating systems such as Debian and Ubuntu, because they carry less software, follow a more frequent patch cadence, and offer attestations for what is included.
 
 ### Language Ecosystem Guides
-The following guides show how to use these `-dev` images in combination with their distroless variants in order to build a final image that is also distroless, but contains everything the application needs to run:
+The following guides show how to use these development images in combination with their distroless variants in order to build a final image that is also distroless, but contains everything the application needs to run:
 
 - [Getting Started with the Python Chainguard Container](/chainguard/chainguard-images/getting-started/python/)
 - [Getting Started with the Ruby Chainguard Container](/chainguard/chainguard-images/getting-started/ruby/)

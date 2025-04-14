@@ -38,9 +38,9 @@ tutorials: [
     url: "/chainguard/chainguard-images/working-with-images/about/images-compiled-programs/compiled-programs"
   },
   {
-    title: "Container Variants",
+    title: "Development Containers",
     description: "",
-    url: "/chainguard/chainguard-images/about/differences-development-production/"
+    url: "/chainguard/chainguard-images/about/development-containers/"
   },
     {
     title: "Product Release Lifecycle",
