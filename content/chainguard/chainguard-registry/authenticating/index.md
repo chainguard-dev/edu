@@ -16,7 +16,7 @@ toc: true
 
 ## Public Container Images
 
-Chainguard offers a collection of images that are publicly available, don't require authentication, and are free to use by anyone. However, logging in with a Chainguard account and authenticating when pulling from the Registry gives you access to the Chainguard Consle, and provides a mechanism for Chainguard to contact you if there are any issues with images you are pulling. This may enable Chainguard to notify you of upcoming deprecations, changes in behavior, critical vulnerabilities and remediations for images you have recently pulled.
+Chainguard offers a collection of images that are publicly available, don't require authentication, and are free to use by anyone. However, logging in with a Chainguard account and authenticating when pulling from the Registry gives you access to the Chainguard Console, and provides a mechanism for Chainguard to contact you if there are any issues with images you are pulling. This may enable Chainguard to notify you of upcoming deprecations, changes in behavior, critical vulnerabilities and remediations for images you have recently pulled.
 
 ## Signing Up
 
