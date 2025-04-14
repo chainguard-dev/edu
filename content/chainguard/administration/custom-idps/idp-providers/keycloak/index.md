@@ -1,6 +1,6 @@
 ---
-title : "How To Integrate Keycloak SSO with Chainguard"
-linktitle: "Keycloak SSO"
+title : "How To Integrate Keycloak with Chainguard"
+linktitle: "Keycloak"
 lead: ""
 description: "Procedural tutorial on how to register a Keycloak Client and integrate it with the Chainguard platform."
 type: "article"
@@ -98,7 +98,6 @@ export NAME=keycloak-idp
 export CLIENT_ID=<your application/client id here>
 export CLIENT_SECRET=<your client secret here>
 export ORG=<your organization UIDP here>
-export TENANT_ID=<your directory/tenant id here>
 export ISSUER="https://<KEYCLOAK_SERVER_ADDRESS>/realms/<REALM_NAME>"
 chainctl iam identity-provider create \
   --configuration-type=OIDC \
