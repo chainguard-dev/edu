@@ -12,7 +12,7 @@ images: []
 weight: 020
 ---
 
-The Chainguard platform supports Single sign-on (SSO) authentication for users. By default, users can log in with GitHub, GitLab and Google, but SSO support allows users to bring their own identity provider for authentication.
+By default, the Chainguard platform supports Single sign-on (SSO) authentication for users with GitHub, GitLab, and Google.
 
 This guide outlines how to create a Keycloak Client on your existing Keycloak instance and integrate it with Chainguard. After completing this guide, you'll be able to log in to Chainguard using Keycloak and will no longer be limited to the default SSO options.
 
