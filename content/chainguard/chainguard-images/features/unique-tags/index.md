@@ -44,7 +44,7 @@ Additionally, the Unique Tags feature is integrated with Chainguard's [Tag Histo
 
 ## How do I find Unique Tags?
 
-After signing into the Chainguard Console, click on **Organization images** in the left-hand navigation. This will take you to your organization's container images directory where you'll be presented with a list of all the Chainguard Production container images you can access.
+After signing into the Chainguard Console, click on **Organization images** in the left-hand navigation. This will take you to your organization's container images directory where you'll be presented with a list of all the Chainguard production container images you can access.
 
 To the right of the search box and **Category** drop-down menu there's a filter button labeled **Visible tags**. Click on that button, and you'll see a drop-down menu with two options: **Epoch tags** and **Unique tags**. Toggle **Unique tags** to see the Unique Tags available for your organization's container images.
 
