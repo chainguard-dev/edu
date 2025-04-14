@@ -8,7 +8,7 @@ description: "Guide on how to use the wolfictl tool to create, update, and manag
 date: 2024-08-05T20:23:51+00:00
 lastmod: 2024-08-09T14:55:03+00:00
 draft: false
-tags: ["Overview", "Product", "Chainguard Images", "CVE"]
+tags: ["Product", "Chainguard Containers", "CVE"]
 images: []
 menu:
   docs:
@@ -17,7 +17,7 @@ weight: 030
 toc: true
 ---
 
-Chainguard operates its own [Security Advisories](https://images.chainguard.dev/security/?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-security-advisories-managing-advisories) page to alert users about the status of vulnerabilities found in Chainguard Images. To maintain this database, we use [`wolfictl`](https://github.com/wolfi-dev/wolfictl/), a tool developed for working with the [Wolfi un-distro](https://github.com/wolfi-dev/).
+Chainguard operates its own [Security Advisories](https://images.chainguard.dev/security/?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-security-advisories-managing-advisories) page to alert users about the status of vulnerabilities found in Chainguard Containers. To maintain this database, we use [`wolfictl`](https://github.com/wolfi-dev/wolfictl/), a tool developed for working with the [Wolfi un-distro](https://github.com/wolfi-dev/).
 
 In this guide, you will walk through using `wolfictl` to create an advisory for a vulnerable package. You’ll also learn how to update this advisory as more information about the vulnerability is disclosed over time. To follow along, you will need to have [`git`](https://git-scm.com/) and the [Go programming language](https://go.dev/dl/) installed on your machine. 
 
