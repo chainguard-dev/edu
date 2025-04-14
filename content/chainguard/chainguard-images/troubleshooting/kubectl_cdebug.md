@@ -1,5 +1,5 @@
 ---
-title: "Debugging Distroless Images with Kubectl Debug and CDebug"
+title: "Debugging Distroless Container Images with Kubectl Debug and CDebug"
 linktitle: "Video: Debugging with Kubectl and CDebug"
 aliases:
 - /chainguard/chainguard-images/videos/kubectl_cdebug/
@@ -12,6 +12,7 @@ type: "article"
 date: 2024-05-21T15:21:01+00:00
 lastmod: 2024-05-22T15:21:01+00:00
 draft: false
+tags: ["Chainguard Containers", "Product"]
 images: []
 menu:
   docs:

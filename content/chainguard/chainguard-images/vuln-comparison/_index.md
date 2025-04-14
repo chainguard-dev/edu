@@ -1,6 +1,6 @@
 ---
 title: "Vulnerability Comparisons"
-description: "CVEs in popular external images compared to Chainguard Images"
+description: "CVEs in popular external images compared to Chainguard Containers"
 type: "article"
 date: 2023-08-22T08:49:15+00:00
 lastmod: 2024-03-08T08:49:15+00:00
@@ -11,7 +11,7 @@ topic: true
 banner: {
     image: "/go-logo-white.svg",
     title: "Vulnerability Comparison in Go Images",
-    subtitle: "Comparing the external Golang image to the latest Go Chainguard Image",
+    subtitle: "Comparing the external Golang image to the latest Go Chainguard Container",
     cta: "Compare images",
     link: "/chainguard/chainguard-images/vuln-comparison/go/"
 }
