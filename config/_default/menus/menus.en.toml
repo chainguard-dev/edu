@@ -27,14 +27,7 @@
   weight = 20
 
 [[main]]
-  name = "Chainguard Enforce"
-  identifier = "chainguard-enforce"
-  url = "/chainguard/chainguard-enforce/"
-  parent = "menu-chainguard"
-  weight = 10
-
-[[main]]
-  name = "Chainguard Images"
+  name = "Chainguard Containers"
   identifier = "chainguard-images"
   url = "/chainguard/chainguard-images/"
   parent = "menu-chainguard"

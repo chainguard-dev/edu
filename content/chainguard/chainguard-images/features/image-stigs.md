@@ -1,15 +1,15 @@
 ---
-title: "STIGs for Chainguard Images"
+title: "STIGs for Chainguard Containers"
 linktitle: "STIGs"
 aliases:
 - /chainguard/chainguard-images/working-with-images/image-stigs/
 - /chainguard/chainguard-images/features/image-stigs/
 type: "article"
-description: "A conceptual overview of Security Technical Implementation Guides, which are available for Chainguard Images."
+description: "A conceptual overview of Security Technical Implementation Guides, which are available for Chainguard Containers."
 date: 2024-06-13T15:56:52-07:00
-lastmod: 2024-08-23T15:56:52-07:00
+lastmod: 2025-04-08T15:56:52-07:00
 draft: false
-tags: ["IMAGES", "PRODUCT", "CONCEPTUAL"]
+tags: ["Chainguard Containers", "Product"]
 images: []
 menu:
   docs:
@@ -20,16 +20,16 @@ toc: true
 
 The practice of using Security Technical Implementation Guides, or "STIGs," to secure various technologies originated with the United States Department of Defense (DoD). If an organization uses a certain kind of software, say MySQL 8.0, they must ensure that their implementation of it meets the requirements of the [associated Security Requirements Guides (SRG)](https://public.cyber.mil/stigs/) in order to qualify as a vendor for the DoD. More recently, other compliance frameworks have begun acknowledging the value of STIGS, with some going so far as to require the use of STIGs in their guidelines.
 
-[Chainguard announced](https://www.chainguard.dev/unchained/stig-hardening-container-images) the release of a STIG for the [General Purpose Operating System (GPOS) SRG](https://stigviewer.com/stig/general_purpose_operating_system_security_requirements_guide) — an SRG that specifies security requirements for general purpose operating systems running in a network. The goal for this new STIG is that it will help customers confidently and securely integrate Chainguard Images into their workflows. This conceptual article aims to give a brief overview of what STIGs are and how they can be valuable in the context of container images. It also includes instructions on how to get started with Chainguard's STIG for the GPOS SRG. 
+[Chainguard announced](https://www.chainguard.dev/unchained/stig-hardening-container-images) the release of a STIG for the [General Purpose Operating System (GPOS) SRG](https://stigviewer.com/stigs/general_purpose_operating_system_security_requirements_guide) — an SRG that specifies security requirements for general purpose operating systems running in a network. The goal for this new STIG is that it will help customers confidently and securely integrate Chainguard Containers into their workflows. This conceptual article aims to give a brief overview of what STIGs are and how they can be valuable in the context of container images. It also includes instructions on how to get started with Chainguard's STIG for the GPOS SRG. 
 
 
 ## Getting Started
 
-The recommended way to get started with Chainguard's STIG for the GPOS SRG is to use the Chainguard [`openscap`](https://images.chainguard.dev/directory/image/openscap/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-image-stigs) Image. This includes the `openscap` tool itself, the `oscap-docker` libraries, and the Chainguard GPOS STIG profile. This image is built with the same capabilities and low-to-zero CVEs as every other Chainguard Image, and makes the `openscap` tool — which can be difficult to set up — more portable.
+The recommended way to get started with Chainguard's STIG for the GPOS SRG is to use the Chainguard [`openscap`](https://images.chainguard.dev/directory/image/openscap/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-image-stigs) Container. This includes the `openscap` tool itself, the `oscap-docker` libraries, and the Chainguard GPOS STIG profile. This image is built with the same capabilities and low-to-zero CVEs as every other Chainguard Container, and makes the `openscap` tool — which can be difficult to set up — more portable.
 
 The following instructions assume that you have `docker` installed and running on your system, and are intended to be performed on a non-production system, similar to the process outlined in [DISA's Container Hardening Whitepaper](https://dl.dod.cyber.mil/wp-content/uploads/devsecops/pdf/Final_DevSecOps_Enterprise_Container_Hardening_Guide_1.2.pdf).
 
-For ease of use, we'll use [the datastream file](https://raw.githubusercontent.com/chainguard-dev/stigs/main/gpos/xml/scap/ssg/content/ssg-chainguard-gpos-ds.xml) sourced from [the Chainguard STIGs repository](https://github.com/chainguard-dev/stigs/tree/main/gpos/xml/scap/ssg/content), and available within Chainguard's `openscap` image. This file serves as a sort of checklist, outlining each of the requirements that must be met in order to conform with the STIG. 
+For ease of use, we'll use [the datastream file](https://raw.githubusercontent.com/chainguard-dev/stigs/main/gpos/xml/scap/ssg/content/ssg-chainguard-gpos-ds.xml) sourced from [the Chainguard STIGs repository](https://github.com/chainguard-dev/stigs/tree/main/gpos/xml/scap/ssg/content), and available within Chainguard's `openscap` container image. This file serves as a sort of checklist, outlining each of the requirements that must be met in order to conform with the STIG. 
 
 If you'd like, you can download this datastream file — named `ssg-chainguard-gpos-ds.xml` — with a command like the following:
 
@@ -77,7 +77,7 @@ A STIG is typically written by the developer or vendor of the given piece of sof
 After drafting the STIG, the vendor will submit it to the [Defense Information Systems Agency (DISA)](https://www.disa.mil/), an agency within the DoD. One of DISA's responsibilities is publishing and maintaining STIGs on the [DoD Cyber Exchange website](https://public.cyber.mil/stigs/downloads/), and the process from a STIG being submitting to it being published by DISA can take years. As of this writing, DISA has published over 450 STIGs for a wide variety of software applications.
 
 
-## How STIGs can be used to harden images
+## How STIGs can be used to harden container images
 
 STIGs are typically published for hardware, firmware, and specific applications. However, in recent years containerization has grown in popularity and is now the modern way to deploy applications. This has resulted in there being a gap in terms of clear instructions on how to securely deploy containerized applications.
 
@@ -121,9 +121,9 @@ Containers provide process isolation by executing their applications in a constr
 Together, namespaces and cgroups isolate security functions of the host operating system from non-security functions of applications running inside the container. This separation makes it possible for container failures to not directly impact the operation of the host and its security functions when caused through processing of invalid inputs or other runtime errors. In the event of a container failure during initialization or shutdown, for example, the host operating system's security capabilities will continue to function as configured.
 
 
-### Minimal images
+### Minimal container images
 
-Chainguard Images contain only the minimal software needed for the container to perform its intended function. For Nonessential capabilities such as package managers, shell environments, executables, and process launching functions have been removed from many Chainguard Images and may not be installed once the container is running.
+Chainguard Containers contain only the minimal software needed for the container to perform its intended function. For Nonessential capabilities such as package managers, shell environments, executables, and process launching functions have been removed from many Chainguard Containers and may not be installed once the container is running.
 
 This limited implementation means that only the necessary software to operate can run on the container and restricts the installation of additional software on the image during operation. Be sure to have fixed permissions on libraries and executable files in place so that any software installed can't be modified.
 
@@ -162,4 +162,4 @@ These containers can be validated against the General Purpose Operating System S
 
 ## Learn more
 
-Chainguard's STIG hardened FIPS Images are now generally available. You can check out our [STIG repo](https://github.com/chainguard-dev/stigs?utm_source=docs) or [contact us](https://get.chainguard.dev/simplify-fedramp-compliance-5?utm_source=docs) for more information. If you'd like to learn more about how Chainguard Images can help you meet FedRAMP compliance, we encourage you to refer to our overview of [Chainguard's FIPS-ready Images](/chainguard/chainguard-images/working-with-images/fips-images/).
+Chainguard's STIG hardened FIPS Containers are now generally available. You can check out our [STIG repo](https://github.com/chainguard-dev/stigs?utm_source=docs) or [contact us](https://get.chainguard.dev/simplify-fedramp-compliance-5?utm_source=docs) for more information. If you'd like to learn more about how Chainguard Containers can help you meet FedRAMP compliance, we encourage you to refer to our overview of [Chainguard's FIPS-ready container images](/chainguard/chainguard-images/working-with-images/fips-images/).

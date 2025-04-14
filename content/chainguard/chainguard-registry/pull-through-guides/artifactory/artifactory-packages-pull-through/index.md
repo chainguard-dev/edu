@@ -24,7 +24,7 @@ This tutorial outlines how to set up remote Alpine package repositories with [JF
 
 In order to complete this tutorial, you will need administrative privileges over an Artifactory instance. If you're interested in testing out this configuration, you can set up a trial instance on the [JFrog Artifactory landing page](https://jfrog.com/artifactory/). 
 
-> **Note**: As you follow this guide, you may run into issues if your Artifactory username is an email address; specifically, the `@` sign can lead to errors. Be sure that you're using a user profile with a name that only contains letters and numbers. 
+> **Note**: As you follow this guide, you may run into issues if your Artifactory username is an email address; specifically, the `@` sign can lead to errors. For simplicity's sake, we recommend that you use a user profile with a name that only contains letters and numbers. If you must use an email address as yourr Artifactory username, though, this guide will include instructions for working around the issue.
 
 ## Setting Up Remote Artifactory Repositories to Mirror Public Chainguard Package Repositories
 
@@ -80,11 +80,19 @@ export ARTIFACTORY_HOSTNAME=my-artifactory-hostname
 
 If you aren't sure of these values, you can find them in the command from the **Set Up An Alpine Client** window where you found the token:
 
-```
-sudo sh -c "echo 'https://linky:<TOKEN>@linkysorg.jfrog.io/artifactory/cg-wolfi/<BRANCH>/<REPOSITORY>'" >> /etc/apk/repositories
+```shell
+sudo sh -c "echo 'https://linky:<TOKEN>@example-hostname.jfrog.io/artifactory/cg-wolfi/<BRANCH>/<REPOSITORY>'" >> /etc/apk/repositories
 ```
 
-In this example, the Artifactory user profile is `linky` and the hostname is `linkysorg`.
+In this example, the Artifactory user profile is `linky` and the hostname is `example-hostname`.
+
+If your Artifactory user profile is an email address, you will encounter an error unless you percent-encode the `@` sign, like this:
+
+```shell
+export ARTIFACTORY_USER_PROFILE=linky%40example.com
+```
+
+Here, the Artifactory user profile is `linky@example.com`.
 
 ### Testing pull through from remote package repositories interactively
 

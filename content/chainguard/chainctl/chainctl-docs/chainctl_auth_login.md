@@ -1,5 +1,5 @@
 ---
-date: 2025-03-27T19:16:41Z
+date: 2025-04-10T09:56:58Z
 title: "chainctl auth login"
 slug: chainctl_auth_login
 url: /chainguard/chainctl/chainctl-docs/chainctl_auth_login/
@@ -59,7 +59,7 @@ chainctl auth login [--invite-code=INVITE_CODE] [--identity-token=PATH_TO_TOKEN]
       --force-color        Force color output even when stdout is not a TTY.
       --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
       --log-level string   Set the log level (debug, info) (default "ERROR")
-  -o, --output string      Output format. One of: [csv, id, json, none, table, terse, tree, wide]
+  -o, --output string      Output format. One of: [csv, env, id, json, none, table, terse, tree, wide]
   -v, --v int              Set the log verbosity level.
 ```
 

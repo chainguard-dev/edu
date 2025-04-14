@@ -1,22 +1,22 @@
 ---
-title: "Chainguard Images"
-linkTitle: "Images"
-description: "Suite of minimalist images powered by Wolfi"
+title: "Chainguard Containers"
+linkTitle: "Containers"
+description: "Minimalist container images with low to zero CVEs"
 type: "article"
 date: 2022-09-05T08:49:15+00:00
-lastmod: 2025-01-07T08:49:15+00:00
+lastmod: 2025-04-07T08:49:15+00:00
 draft: false
 images: []
-weight: 001
+weight: 010
 topic: true
 banner: {
     image: "/icon-box-fill.svg",
-    title: "Migrate to Chainguard Images",
-    subtitle: "Learn how to reduce your CVE attack surface by using Chainguard Images",
+    title: "Migrate to Chainguard Containers",
+    subtitle: "Learn how to reduce your CVE attack surface by using Chainguard Containers",
     cta: "Read more",
     link: "/chainguard/chainguard-images/how-to-use/how-to-use-chainguard-images/"
 }
-sectiontitle: "Popular Chainguard Images"
+sectiontitle: "Popular Chainguard Containers"
 tutorials: [
   {
     title: "Go",

@@ -1,5 +1,5 @@
 ---
-title : "Create an Assumable Identity to Authenticate from an EC2 instance"
+title : "Create an Assumable Identity to Authenticate from an EC2 Instance"
 linktitle: "AWS EC2"
 lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by an AWS role in EC2 instance."
@@ -109,7 +109,7 @@ Again, be sure to change `chainguard.edu` to reflect the name of your own organi
 Following that, you can move on to the next section where you will authenticate to Chainguard from your EC2 instance using the identity you created.
 
 
-## Authenticate from EC2 using the newly created identity
+## Authenticate from EC2 Using the Newly Created Identity
 
 Now that you've created a Chainguard identity, you can use it to connect to Chainguard from your EC2 instance. This section outlines how to set this up. 
 

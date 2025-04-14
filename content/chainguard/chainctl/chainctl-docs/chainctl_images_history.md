@@ -1,5 +1,5 @@
 ---
-date: 2025-03-27T19:16:42Z
+date: 2025-04-10T09:56:58Z
 title: "chainctl images history"
 slug: chainctl_images_history
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_history/
@@ -16,6 +16,9 @@ Show history for a specific image tag.
 ### Synopsis
 
 Show history for a specific image tag.
+
+If a digest does not represent a multi-arch image, only a single digest without architecture information will be displayed.
+Architecture information may not be available for all digests.
 
 Examples:
   # Show history for a specific tag (selected interactively)
@@ -48,7 +51,7 @@ chainctl images history IMAGE[:TAG] [flags]
       --force-color        Force color output even when stdout is not a TTY.
       --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
       --log-level string   Set the log level (debug, info) (default "ERROR")
-  -o, --output string      Output format. One of: [csv, id, json, none, table, terse, tree, wide]
+  -o, --output string      Output format. One of: [csv, env, id, json, none, table, terse, tree, wide]
   -v, --v int              Set the log verbosity level.
 ```
 

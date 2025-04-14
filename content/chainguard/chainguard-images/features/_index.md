@@ -1,10 +1,10 @@
 ---
-title: "Chainguard Images Features"
+title: "Chainguard Containers Features"
 linktitle: "Features"
 aliases:
 - /chainguard/chainguard-images/images-features
 - /chainguard/chainguard-images/images-features
-description: "Resources on Chainguard Images' features and how to use them"
+description: "Resources on Chainguard Container features and how to use them"
 type: "article"
 date: 2024-12-19T08:49:15+00:00
 lastmod: 2024-12-19T08:49:15+00:00
@@ -14,11 +14,11 @@ weight: 020
 topic: true
 banner: {
     image: "/icon-box-fill.svg",
-    title: "FIPS-enabled Images",
+    title: "FIPS-enabled Containers",
     cta: "Read more",
     link: "/chainguard/chainguard-images/features/fips-images/"
 }
-sectiontitle: "Chainguard Images Features & Resources"
+sectiontitle: "Chainguard Containers Features & Resources"
 tutorials: [
   {
     title: "Custom Assembly",
@@ -26,7 +26,7 @@ tutorials: [
     url: "/chainguard/chainguard-images/features/custom-assembly/"
   },
   {
-    title: "Image STIGs",
+    title: "Container STIGs",
     description: "",
     url: "/chainguard/chainguard-images/features/image-stigs/"
   },

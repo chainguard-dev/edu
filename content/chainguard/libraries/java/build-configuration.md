@@ -1,8 +1,10 @@
 ---
 title: "Build Configuration"
 linktitle: "Build Configuration"
-type: "article"
 description: "Configuring Chainguard Libraries for Java on your workstation"
+type: "article"
+date: 2025-03-25T08:04:00+00:00
+lastmod: 2025-04-07T14:11:00+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java"]
 menu:
@@ -159,7 +161,6 @@ documentation](/chainguard/libraries/java/global-configuration).
 ```xml
 <settings>
 ...
-
   <servers>
     <server>
       <id>chainguard-maven</id>
@@ -167,10 +168,26 @@ documentation](/chainguard/libraries/java/global-configuration).
       <password>YOUR_PASSWORD</password>
     </server>
   </servers>
-
-....
 </settings>
+```
 
+Note that you can use a secret manager application to populate the credentials
+for each user on their workstation as well as for service applications in your
+CI/CD pipelines into environment variables, for example `CG_JAVA_USERNAME` and
+`CG_JAVA_PASSWORD`. You can then use an identical server configuration, and
+therefore settings file, for all users:
+
+```xml
+<settings>
+...
+  <servers>
+    <server>
+      <id>chainguard-maven</id>
+      <username>${env.CG_JAVA_USERNAME}</username>
+      <password>${env.CG_JAVA_PASSWORD}</password>
+    </server>
+  </servers>
+</settings>
 ```
 
 Refer to the [official documentation for the Maven settings
@@ -185,6 +202,89 @@ configure access to the Chainguard Libraries for Java repository directly in
 your settings or pom files. Note that the order of the repositories in these
 files is significant and you must configure the chainguard repository to be
 located on the top of the list.
+
+If you organization does not use a repository manager you can configure the
+Chainguard Libraries for Java repository. Ensure that the Chainguard
+repository is located above the necessary override for the built-in `central`
+repository and any other repositories.
+
+The following listing shows a complete `~/.m2/settings.xml` file with the
+desired configuration and placeholder values `CG_PULLTOKEN_USERNAME` and
+`CG_PULLTOKEN_PASSWORD` for the pull token detailed in [Chainguard Libraries
+access](/chainguard/libraries/access/):
+
+```xml
+<settings>
+ <activeProfiles>
+    <activeProfile>chainguard-maven</activeProfile>
+  </activeProfiles>
+  <profiles>
+    <profile>
+      <id>chainguard-maven</id>
+      <repositories>
+        <repository>
+          <id>chainguard</id>
+          <url>https://libraries.cgr.dev/java/</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </repository>
+        <repository>
+          <id>central</id>
+          <url>https://repo1.maven.org/maven2/</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>chainguard</id>
+          <url>https://libraries.cgr.dev/java/</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+          <id>central</id>
+          <url>https://repo1.maven.org/maven2/</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+  <servers>
+    <server>
+      <id>chainguard</id>
+      <!-- pick up values from environment variables -->
+      <username>${env.CG_JAVA_USERNAME}</username>
+      <password>${env.CG_JAVA_PASSWORD}</password>
+      <!-- or use literal values -->
+      <!-- <username>CG_PULLTOKEN_USERNAME</username> -->
+      <!-- <password>CG_PULLTOKEN_PASSWORD</password> -->
+    </server>
+  </servers>
+</settings>
+```
+
+The preceding settings affects all projects built on the machine where the file
+is configured. Alternatively you can add the `repositories` and
+`pluginRepositories` to individual project `pom.xml` files. Authentication
+details must remain within the settings file.
 
 ## Gradle
 
@@ -206,7 +306,7 @@ Gradle can also be configured to use a local Maven repository with a repository
 configuration in the global `init.gradle` or a project specific `build.gradle`
 file:
 
-```
+```groovy
 repositories {
    ...
     mavenLocal()    
@@ -233,10 +333,10 @@ and any other repositories, and adds a replacement definition with the URL of th
 repository group or virtual repository from your repository manager
 `https://repo.example.com/group/` and any applicable authentication details.
 
-```
+```groovy
 repositories {
     maven {
-        url = uri("https://libraries.cgr.dev/maven/")
+        url = uri("https://repo.example.com/group/")
         credentials {
             username = "YOUR_USERNAME_FOR_REPOSITORY_MANAGER"
             password = "YOUR_PASSWORD"
@@ -253,20 +353,49 @@ Example URLs for repository managers:
 
 If your organization does not use a repository manager you can configure the
 Chainguard Libraries for Java repository with the credentials from [Chainguard
-Libraries access](/chainguard/libraries/access/). Ensure that the Chainguard
+Libraries access](/chainguard/libraries/access/) replacing the placeholders
+`CG_PULLTOKEN_USERNAME` and `CG_PULLTOKEN_PASSWORD`. Ensure that the Chainguard
 repository is located above the `mavenCentral` repository and any other
-repositories.
+repositories:
 
-```
+```groovy
 repositories {
     maven {
-        url = uri("https://libraries.cgr.dev/maven/")
+        url = uri("https://libraries.cgr.dev/java/")
         credentials {
-            username = "longhash"
-            password = "longerhash"
+            username = "CG_PULLTOKEN_USERNAME"
+            password = "CG_PULLTOKEN_PASSWORD"
         }
     }
     mavenCentral()
+}
+```
+
+The following listing shows a valid `init.gradle` file. It wraps the
+`repositories` element with `allprojects` so that the scope of the file affects
+all projects built locally with Gradle. It also allows for downloads for plugins
+and build scripts from the remote URL using `buildscript`. Lastly the example
+shows use of an internal repository manager that only serves artifacts without
+authentication using HTTP only. Since this is not advisable unless other
+networking setups allow a secure use with HTTP, the override with the property
+`allowInsecureProtocol` is required:
+
+```groovy
+allprojects {
+  buildscript {
+    repositories {
+      maven {
+        url = "http://repo.example.com:8081/repository/chainguard-maven/"
+        allowInsecureProtocol = true
+      }
+    }
+  }
+  repositories {
+    maven {
+        url = "http://repo.example.com:8081/repository/chainguard-maven/"
+        allowInsecureProtocol = true
+    }
+  }
 }
 ```
 

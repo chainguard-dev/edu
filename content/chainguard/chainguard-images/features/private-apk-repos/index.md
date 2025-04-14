@@ -6,7 +6,7 @@ description: "An overview of how to work with Chainguard's Private APK Repositor
 date: 2025-02-21T11:07:52+02:00
 lastmod: 2025-02-21T11:07:52+02:00
 draft: false
-tags: ["CONCEPTUAL", "CHAINGUARD IMAGES", "PRODUCT", "REFERENCE"]
+tags: ["Chainguard Containers", "Product"]
 images: []
 menu:
   docs:
@@ -15,7 +15,7 @@ weight: 028
 toc: true
 ---
 
-With Chainguard's Private APK Repositories, you can access packages that are included within your organization's image entitlements. This allows you to build custom images based on components that are already part of your organization catalog.
+With Chainguard's Private APK Repositories, you can access packages that are included within your organization's container image entitlements. This allows you to build custom images based on components that are already part of your organization catalog.
 
 This guide provides a brief overview of Chainguard's private APK repositories and outlines different ways you can incorporate them into your organization's workflows.
 
@@ -50,7 +50,7 @@ In order to use your private repository, you must add this URL to the list of ap
 3. Update your apk cache
 4. Install your desired packages
 
-In the following sections, this guide will outline how to implement this process in a live container and also when building images from a Dockerfile or using apko.
+In the following sections, this guide will outline how to implement this process in a live container and also when building container images from a Dockerfile or using apko.
 
 
 ## Authenticating to your Private APK Repository
@@ -171,7 +171,7 @@ This output shows that the `wget` package is now installed.
 
 ## Using Private APK Repositories with Dockerfiles
 
-So far, this guide has outlined how to manually fetch apk packages from a private repository. We'll now go over how to use a private APK repo within a Dockerfile workflow. We'll be using the same organization, image, and private package used in the previous examples.
+So far, this guide has outlined how to manually fetch apk packages from a private repository. We'll now go over how to use a private APK repo within a Dockerfile workflow. We'll be using the same organization, container image, and private package used in the previous examples.
 
 If you haven't already done so, close the container you were running in the previous section. Then run the following command to create a Dockerfile. This Dockerfile uses [Docker Build Secrets](https://docs.docker.com/build/building/secrets/#using-build-secrets) to inject the credentials into a `RUN` command that will update the apk cache and another that will install the `wget` apk package:
 

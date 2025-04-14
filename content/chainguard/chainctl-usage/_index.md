@@ -8,7 +8,7 @@ lastmod: 2025-03-0320T08:49:15+00:00
 draft: false
 tags: ["chainctl", "Usage", "Product", "Overview"]
 images: []
-weight: 50
+weight: 060
 ---
 
 `chainctl` (Chainguard Control) is a CLI tool that helps you control aspects of your Chainguard account and resources. You can use it to manage users, roles, images, tokens, and more. In many ways, `chainctl` parallels the abilities of the <ins>[Chainguard Console](https://console.chainguard.dev)</ins>, but with a different user interface that is both more complex and more powerful.
@@ -28,6 +28,7 @@ Once installed, these will help you on your path to success:
 * <ins>[chainctl events](/chainguard/chainctl-usage/chainctl-events/)</ins>
 * <ins>[chainctl iam](/chainguard/chainctl-usage/chainctl-iam/)</ins>
 * <ins>[chainctl images](/chainguard/chainctl-usage/chainctl-images/)</ins>
+* <ins>[chainctl images](/chainguard/chainctl-usage/chainctl-images-history/)</ins>
 * <ins>[chainctl packages](/chainguard/chainctl-usage/chainctl-packages/)</ins>
 * <ins>[chainctl update](/chainguard/chainctl-usage/chainctl-update/)</ins>
 * <ins>[chainctl version](/chainguard/chainctl-usage/chainctl-version/)</ins>

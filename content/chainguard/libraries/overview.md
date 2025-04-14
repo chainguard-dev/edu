@@ -1,8 +1,10 @@
 ---
 title: "Chainguard Libraries Overview"
 linktitle: "Libraries Overview"
-type: "article"
 description: "Software libraries for your application development"
+type: "article"
+date: 2025-03-25T08:04:00+00:00
+lastmod: 2025-04-01T11:02:00+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 menu:
@@ -29,7 +31,7 @@ also often reduced quality, oversight, or security.
 
 While convenient, these services remove the direct link from your application to
 the source code of a specific project, and create a potential risk for quality
-issues with the artifacts, man-in-middle attacks, removal or override of
+issues with the artifacts, man-in-the-middle attacks, removal or override of
 libraries with vulnerable or malicious versions, and other issues. The
 [Supply-chain Levels for Software Artifacts SLSA](https://slsa.dev/)
 specification describes these risks and how to protect your software against
@@ -59,12 +61,12 @@ contents into our production environment.
 ## Introduction 
 
 Chainguard Libraries builds all available libraries from source code in the
-Chainguard Factory and makes them available for you. Chainguard Factory
+Chainguard Factory and makes them available for you. The Chainguard Factory
 represents Chainguard's internal tooling that enables a more secure, dedicated,
 private, and SLSA-certified build infrastructure for building software from
 source and publishing the binaries to customers.
 
-Chainguard Libraries and the use of Chainguard Factory remove all software
+Chainguard Libraries and the use of the Chainguard Factory remove all software
 supply chain problems for libraries:
 
 * Build stage protection - All binary libraries and library versions are built

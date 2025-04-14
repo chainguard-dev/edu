@@ -1,12 +1,12 @@
 ---
 title: "Chainguard Custom Assembly"
-linktitle: "Custom Assembly for Chainguard Container Images"
+linktitle: "Custom Assembly for Chainguard Containers"
 type: "article"
-description: "How to use Chainguard's Custom Image Assembly tool."
+description: "How to use Chainguard's Custom Assembly tool"
 date: 2025-02-19T11:07:52+02:00
 lastmod: 2025-03-21T11:07:52+02:00
 draft: false
-tags: ["Conceptual", "Chainguard Containers", "Product", "Reference"]
+tags: ["Chainguard Containers", "Product"]
 images: []
 menu:
   docs:
@@ -17,14 +17,14 @@ toc: true
 
 Chainguard has created Custom Assembly, a tool that allows users to create customized container images with extra packages added. This enables customers to reduce their risk exposure by creating container images that are tailored to their internal organization and application requirements while still having few-to-zero CVEs.
 
-This guide outlines how to build customized Chainguard Images using Custom Assembly in the Chainguard Console. It includes a brief overview of how Custom Assembly works, as well as its limitations.
+This guide outlines how to build customized Chainguard Containers using Custom Assembly in the Chainguard Console. It includes a brief overview of how Custom Assembly works, as well as its limitations.
 
 > **NOTE**: The Custom Assembly tool is currently in its beta phase and it is likely to go through changes before it becomes generally available.
 
 
 ## About Custom Assembly
 
-Custom Assembly is only available to customers that have access to Production Chainguard Images. Additionally, your account team must enable Custom Assembly before you will be able to begin using it. Contact your account team directly to start the process.
+Custom Assembly is only available to customers that have access to Production Chainguard Containers. Additionally, your account team must enable Custom Assembly before you will be able to begin using it. Contact your account team directly to start the process.
 
 When you enable the Custom Assembly tool for your organization, you must select at least one of Chainguard's application images to serve as the source for your customized container image. For example, if you want to build a custom base for a Python application, you would likely elect to use the [Python Chainguard Container](https://images.chainguard.dev/directory/image/python/versions) as the source for your customized image.
 
@@ -35,7 +35,7 @@ After selecting the packages for your customized container image, Chainguard wil
 
 Custom Assembly only allows you to add packages into a given container image; you cannot remove the packages included in the source application image by default. For example, Chainguard's Node.js container image comes with packages like `nodejs-23`, `npm`, and `glibc` by default. These packages can't be removed from a Node.js image using the Custom Assembly tool but you can add other packages into it, and you can remove these added packages in later builds.
 
-The packages you can add to a container image are those that your organization already has access to based on the Chainguard Images you have already purchased. Additionally, you can only add supported versions of packages to a customized image.
+The packages you can add to a container image are those that your organization already has access to based on the Chainguard Containers you have already purchased. Additionally, you can only add supported versions of packages to a customized image.
 
 The changes you make to your customized container image may affect its functional behavior when deployed. Chainguard doesn’t test your final customized image and therefore doesn't guarantee its functional behavior. Please test your customized images extensively to ensure they meet your requirements.
 
@@ -254,7 +254,8 @@ OK: 676 MiB in 79 packages
 Build failures can occur for a number of reason, including the following:
 
 * It's possible for users to select packages that conflict with each other. For example, if two packages install the same files, Custom Assembly may not be able to resolve the conflict and result in a failed build.
-* There is a known bug where container images will not be rebuilt if their source image is more than 48 hours old. 
+* Large images taking longer than 1 hour to build will fail with a timeout error.
+* There is a known bug where container images will not be rebuilt if their source image is more than 48 hours 
 
 In any case, you won't know whether a container image build fails until after it's complete. If you need assistance troubleshooting, please [reach out to our Customer Support team](https://www.chainguard.dev/contact?utm=docs).
 

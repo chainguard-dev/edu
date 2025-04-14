@@ -1,8 +1,10 @@
 ---
 title: "Chainguard Libraries FAQ"
 linktitle: "FAQ"
-type: "article"
 description: "Frequently asked questions and answers for Chainguard Libraries users"
+type: "article"
+date: 2025-03-25T08:04:00+00:00
+lastmod: 2025-04-07T14:47 :00+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 menu:
@@ -15,7 +17,7 @@ toc: true
 ## What security issues can Chainguard Libraries prevent?
 
 As detailed in the [background](/chainguard/libraries/overview/#background) and
-[introduction](/chainguard/libraries/overview/#introduction) Chainguard
+[introduction](/chainguard/libraries/overview/#introduction), Chainguard
 Libraries are built directly from source in the Chainguard Factory and the
 resulting binaries are directly provided to you by Chainguard. Chainguard
 operates the whole supply chain for the package lifecycle as one reliable,
@@ -32,8 +34,8 @@ supply chain attack surface points:
 More information about the supply chain stages is available on the [Supply chain
 Levels for Software Artifacts (SLSA) website](https://slsa.dev/).
 
-The following are examples of issues that exploited issues in the relevant
-stages of the supply chain:
+The following examples are issues, attacks, and compromises that affect stages
+of the software supply chain for libraries across different language ecosystems:
 
 ### Ultralytics Python project
 
@@ -57,11 +59,24 @@ stages of the supply chain:
 
 ### MavenGate
 
-* MavenGate exploits abandoned Java library domains.
-* Vulnerabilities in Maven dependency management allowed unauthorized package replacements.
-* All Maven-based software, including Gradle and Ant, was compromised.
-* See also [thehackernews article](https://thehackernews.com/2024/01/hackers-hijack-popular-java-and-android.html) and 
-  [oversecured blog post](https://blog.oversecured.com/Introducing-MavenGate-a-supply-chain-attack-method-for-Java-and-Android-applications/).
+* MavenGate is a proof of concept for exploiting abandoned Java library domains.
+* Vulnerabilities in Maven dependency management allow unauthorized package replacements.
+* All Java build tools using Maven repositories, including Maven, Gradle, and
+  Ant, could be affected.
+* See also [_The Hacker News_ article](https://thehackernews.com/2024/01/hackers-hijack-popular-java-and-android.html),
+  [_Oversecured_ blog post](https://blog.oversecured.com/Introducing-MavenGate-a-supply-chain-attack-method-for-Java-and-Android-applications/),
+  and [Sonatype's take as Maven Central
+  operator](https://www.sonatype.com/sonatypes-ongoing-commitment-to-maven-central).
+
+## XZ Utils backdoor
+
+* Example of a supply chain issue with social engineering for maintainer rights
+* Very complex backdoor that consists of multiple stages with potential to be
+  very widespread and effective.
+* Vulnerability was patched within hours of disclosure by reverting to a
+  previous version known to be safe.
+* See also [Wikipedia article](https://en.wikipedia.org/wiki/XZ_Utils_backdoor)
+  and [official page from the XZ data compression](https://tukaani.org/xz-backdoor/).
 
 ### Other examples and resources
 
@@ -75,6 +90,7 @@ stages of the supply chain:
 * [PyTorch namespace (dependency) confusion attack](https://www.sonatype.com/blog/pytorch-namespace-dependency-confusion-attack)
 * [Typo squatting attempt to gain credentials](https://socket.dev/blog/malicious-maven-package-exfiltrates-oauth-credentials)
 * [Typo squatting attempts on Maven Central](https://www.sonatype.com/blog/malware-removed-from-maven-central)
+* [tj-actions GitHub action issue as example of build infrastructure supply chain compromise](https://www.cisa.gov/news-events/alerts/2025/03/18/supply-chain-compromise-third-party-tj-actionschanged-files-cve-2025-30066-and-reviewdogaction)
 
 Find pointers to further resources in the [Software supply chain reading
 list](https://github.com/chainguard-dev/ssc-reading-list).
@@ -99,9 +115,9 @@ Chainguard collaborates with many upstream projects and can collaborate with
 customers to increase and accelerate the creation and adoption of fixes and the
 work towards new releases.
 
-Importantly [over 95% of all known vulnerable components have a fixed version
+Importantly, [over 95% of all known vulnerable components have a fixed version
 available](https://www.sonatype.com/blog/are-unnecessary-vulnerabilities-polluting-your-software-supply-chain)
-and by adopting those newer versions in your application you can remediate most
+and, by adopting those newer versions in your application, you can remediate most
 CVEs. Chainguard Libraries for Java includes those newest versions and adds the
 build and distribution channel security.
 
