@@ -2,11 +2,11 @@
 title: "FedRAMP Technical Considerations & Risk Factors"
 linktitle: "FedRAMP Considerations"
 type: "article"
-description: "A conceptual overview of Chainguard FIPS Images."
+description: "A conceptual overview of Chainguard FIPS Containers."
 date: 2025-01-29T15:56:52-07:00
 lastmod: 2025-01-29T15:56:52-07:00
 draft: false
-tags: ["IMAGES", "PRODUCT", "CONCEPTUAL", "FIPS"]
+tags: ["Chainguard Containers", "Product", "FIPS"]
 images: []
 menu:
   docs:
@@ -63,17 +63,17 @@ Furthermore, many open source projects, such as Cassandra, cannot even support F
 
 ## Revision 5 Key Requirements Solved with Chainguard Container Images
 
-Using Chainguard Images eliminates the manual toil of container security hassles. Hardened and low CVE Images save you time and money by making sure you always meet the security standards needed for government work.
+Using Chainguard Containers eliminates the manual toil of container security hassles. Hardened and low CVE images save you time and money by making sure you always meet the security standards needed for government work.
 
-The following table highlights the features of Chainguard Images as mapped to FedRAMP Revision 5's baselines:
+The following table highlights the features of Chainguard Containers as mapped to FedRAMP Revision 5's baselines:
 
-<center><img src="fedramp-considerations-1.png" alt="Table showing Chainguard Images features mapped to FedRAMP Rev 5 baselines. The table has two columns: Features and Rev 5 Control. The Features Column categorizes features into three categories, each showing three features and their explanations. The first is 'Continuous Vulnerability Management and Automation,' which includes the features Almost No Vulnerabilities, Automatic Fixes, and Security advisories. These are mapped to RA-5 Vulnerability Scanning, CA-7 Continuous Monitoring, and SI-2 Flaw Remediation. The second category is 'Secure by Default' with the features Minimal Images, Strong Encryption, and Hardened Images. These are mapped to SA-10 Developer Configuration Management and SA-11 Developer Security Testing and Evaluation. The final category is 'Asset Management Best Practices' which includes the features Build time SBOMs for Each Image, OCI Standard Images, and Signed with Sigstore. These are mapped to SC - 8 Protection of Information in Transit and SC-28 Protection of Information at Rest." style="width:1100px;"></center>
+<center><img src="fedramp-considerations-1.png" alt="Table showing Chainguard Containers features mapped to FedRAMP Rev 5 baselines. The table has two columns: Features and Rev 5 Control. The Features Column categorizes features into three categories, each showing three features and their explanations. The first is 'Continuous Vulnerability Management and Automation,' which includes the features Almost No Vulnerabilities, Automatic Fixes, and Security advisories. These are mapped to RA-5 Vulnerability Scanning, CA-7 Continuous Monitoring, and SI-2 Flaw Remediation. The second category is 'Secure by Default' with the features Minimal Images, Strong Encryption, and Hardened Images. These are mapped to SA-10 Developer Configuration Management and SA-11 Developer Security Testing and Evaluation. The final category is 'Asset Management Best Practices' which includes the features Build time SBOMs for Each Image, OCI Standard Images, and Signed with Sigstore. These are mapped to SC - 8 Protection of Information in Transit and SC-28 Protection of Information at Rest." style="width:1100px;"></center>
 <br /> 
 
 Additionally, Chainguard helps support CM-6 configuration settings requirements. Chainguard announced the release of a STIG for the General Purpose Operating System (GPOS) SRG which specifies security requirements for general purpose operating systems running in a network. The goal for this STIG is that it will help customers confidently and securely integrate Chainguard Images into their workflows. Please refer to our [STIGS Overview](https://edu.chainguard.dev/chainguard/chainguard-images/working-with-images/image-stigs/#how-stigs-can-be-used-to-harden-images) for more information.
 
 
-## Kernel-Independent FIPS Images
+## Kernel-Independent FIPS Container Images
 
 Cryptographic protection relies on the secure implementation of a trusted algorithm and a random bit generator that cannot be reasonably predicted at any greater accuracy than random chance. To certify these implementations, NIST operates a cryptographic certification program called the Cryptographic Module Validation Program ([CMVP](https://csrc.nist.gov/projects/cryptographic-module-validation-program)). CMVP validates that implementation is compliant with the relevant standards:
 * For algorithm implementation, CMVP requires strict compliance with [FIPS standards](https://csrc.nist.gov/publications/fips). Thus FIPS modules must sit inside a self-verified cryptographic boundary. 
@@ -87,7 +87,7 @@ This architecture drives significant friction for vendors delivering FIPS compli
 Ultimately, this results in a very limited choice of certified runtimes and compatible underlying hardware for developers to build on. In practice, it means that a certified kernel from a given vendor might be over 5 years old. Outdated kernels typically lack support and optimizations for the latest generation of hardware, and are often incompatible with the latest cloud instance types. It also means when sticking to the same vendor, the application runtimes are equally as out of date and vulnerable.
 Chainguard's solution has the FIPS module and the SP 800-90B entropy source co-located in the container image userspace. This eliminates the need for a certified Linux kernel for the majority of workloads and streamlines engineering effort for workload deployments. This is why Chainguard FIPS images now ship with a certified userspace SP 800-90B entropy source, as in this design:
 
-<center><img src="fedramp-considerations-3.png" alt="Diagram labeled Kernel Independent FIPS Images. The diagram contains a box labeled 'New Chainguard FIPS Image' which contains three objects: a box labeled 'Application', a box labeled 'FIPS Module' (which is surrounded by a rectangle labeled 'FIPS Cryptographic Boundary') and a cylinder labeled 'SP 800-90B Entropy Source.' An arrow points from 'Application' to 'FIPS Module,' and another arrow points from 'FIPS Module' to the 'Entropy Source' cylinder." style="width:1050px;"></center>
+<center><img src="fedramp-considerations-3.png" alt="Diagram labeled Kernel Independent FIPS Container Images. The diagram contains a box labeled 'New Chainguard FIPS Container Image' which contains three objects: a box labeled 'Application', a box labeled 'FIPS Module' (which is surrounded by a rectangle labeled 'FIPS Cryptographic Boundary') and a cylinder labeled 'SP 800-90B Entropy Source.' An arrow points from 'Application' to 'FIPS Module,' and another arrow points from 'FIPS Module' to the 'Entropy Source' cylinder." style="width:1050px;"></center>
 <br /> 
 
 This means that the entropy source is now independent of the hardware or cloud environment. Essentially, you can have FIPS on any host OS, kernel, and hardware. You can even have FIPS on managed cloud kubernetes platforms like GKE, EKS, and AKS. Note that this solution has been tested by two NIST labs and [certified with its own CMVP](https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations/certificate/191).
@@ -98,7 +98,7 @@ For more information, please refer to the CVMP entries for Chainguard's FIPS Mod
 * Bouncy Castle FIPS Java API (CMVP #4743 [historical: CMVP #4616])
 * Chainguard CPU Time Jitter RNG Entropy Source ([ESV Entropy Certificate #E191](https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations/certificate/191))
 
-Additionally, check out our blog post on [Kernel-Independent FIPS Images](https://www.chainguard.dev/unchained/kernel-independent-fips-images).
+Additionally, check out our blog post on [Kernel-Independent FIPS Container Images](https://www.chainguard.dev/unchained/kernel-independent-fips-images).
 
 
 ## Conclusion

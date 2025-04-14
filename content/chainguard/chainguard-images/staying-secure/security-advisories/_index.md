@@ -1,5 +1,5 @@
 ---
-title: "Chainguard Images Security Advisories"
+title: "Chainguard Containers Security Advisories"
 linktitle: "Security Advisories"
 description: "How the Chainguard Security Advisories Feed is created, consumed, and maintained"
 type: "article"

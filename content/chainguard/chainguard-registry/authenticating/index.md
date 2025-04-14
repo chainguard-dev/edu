@@ -1,10 +1,10 @@
 ---
 title: "Authenticate to Chainguard Registry"
 type: "article"
-description: "A guide on authenticating to the Chainguard Registry to get images"
+description: "A guide on authenticating to the Chainguard Registry to get container images"
 date: 2023-03-21T15:10:16+00:00
-lastmod: 2024-08-08T15:22:20+01:00
-tags: ["Chainguard Images", "Product", "Registry"]
+lastmod: 2025-04-11T15:22:20+01:00
+tags: ["Chainguard Containers", "Product", "Registry"]
 draft: false
 images: []
 menu:
@@ -14,9 +14,9 @@ weight: 050
 toc: true
 ---
 
-## Public Images
+## Public Container Images
 
-Chainguard offers a collection of images that are publicly available and don't require authentication, being free to use by anyone. However, logging in with a Chainguard account and authenticating when pulling from the Registry provides a mechanism for Chainguard to contact you if there are any issues with images you are pulling. This may enable Chainguard to notify you of upcoming deprecations, changes in behavior, critical vulnerabilities and remediations for images you have recently pulled.
+Chainguard offers a collection of images that are publicly available, don't require authentication, and are free to use by anyone. However, logging in with a Chainguard account and authenticating when pulling from the Registry gives you access to the Chainguard Console, and provides a mechanism for Chainguard to contact you if there are any issues with images you are pulling. This may enable Chainguard to notify you of upcoming deprecations, changes in behavior, critical vulnerabilities and remediations for images you have recently pulled.
 
 ## Signing Up
 
@@ -152,7 +152,7 @@ kubectl create secret generic regcred \
 	--type=kubernetes.io/dockerconfigjson
 ```
 
-**Important Note:** this will also make any other credentials you have configured in your Docker config available in the secret! Ensure only the necessary credentials are included.
+> **Important Note:** this will also make any other credentials you have configured in your Docker config available in the secret. Ensure only the necessary credentials are included.
 
 Then you can create a Pod that uses that secret, following [these instructions](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-pod-that-uses-your-secret):
 
@@ -175,3 +175,5 @@ For this example, save the file as `cgr-example.yaml`. Then you can create and g
 kubectl apply -f cgr-example.yaml
 kubectl get pod cgr-example
 ```
+
+Learn more in our [sign in guidance](/chainguard/administration/iam-organizations/how-to-manage-iam-organizations-in-chainguard/#logging-in).
