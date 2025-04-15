@@ -18,17 +18,17 @@ weight: 025
 toc: true
 ---
 
-[Chainguard Containers](https://images.chainguard.dev/?utm_source=docs) are able to offer few-to-zero known vulnerabilities because they are updated frequently. Because of this continuous release cycle, the best way to mitigate vulnerabilities is to use the newest build of each Chainguard Container available. Chainguard keeps Containers up to date by doing one or more of the following:
+[Chainguard Containers](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) are able to offer few-to-zero known vulnerabilities because they are updated frequently. Because of this continuous release cycle, the best way to mitigate vulnerabilities is to use the newest build of each Chainguard Container available. Chainguard keeps Containers up to date by doing one or more of the following:
 
 * Applying new releases from upstream projects
-* Rapidly applying upstream patches to current releases — you can read more about this in our blog post, “[How Chainguard fixes vulnerabilities before they're detected](https://www.chainguard.dev/unchained/how-chainguard-fixes-vulnerabilities?utm_source=docs)”
+* Rapidly applying upstream patches to current releases — you can read more about this in our blog post, “[How Chainguard fixes vulnerabilities before they're detected](https://www.chainguard.dev/unchained/how-chainguard-fixes-vulnerabilities?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)”
 * Applying Chainguard patches to OSS software
 
 Upstream projects are updated frequently for many reasons, including to combat CVEs, and Chainguard ensures that the most up-to-date software is available in all Chainguard Containers. Additionally, Chainguard often identifies CVEs and other issues before scanners can detect them, so Chainguard may offer a patch to a vulnerable dependency to support Chainguard Containers with few-to-zero vulnerabilities. 
 
 The best way to mitigate vulnerabilities is to continually update to the latest patched releases of software, but testing and updating can take time and effort. To support flexibility and user choice, Chainguard aims to offer multiple versions of a Chainguard Container that provide the lowest number of vulnerabilities realistically possible. 
 
-This document provides an overview of Chainguard’s approach to updates, releases, and versions within Chainguard Containers. For more specific guidance, please [contact us](https://www.chainguard.dev/contact?utm_source=docs). 
+This document provides an overview of Chainguard’s approach to updates, releases, and versions within Chainguard Containers. For more specific guidance, please [contact us](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement). 
 
 ## Open Source Release Tracks
 
@@ -50,12 +50,12 @@ The table provides some example scenarios to help illustrate our approach.
 
 | **Category**	| **Example** | **Maintained Upstream Releases** | **Chainguard Patches** | **Chainguard No Longer Patches** | 
 |---------------|-------------|----------------------------------|------------------------|----------------------------------|
-| **Multiple Release Tracks** | [Go](https://images.chainguard.dev/directory/image/go/versions?utm_source=docs)       | 1.23, 1.22                 | `:latest`, 1, 1.23, 1.22 | 1.23.old, 1.22.old, 1.21 and below |
-|                             | [Python](https://images.chainguard.dev/directory/image/python/versions?utm_source=docs)   | 3.13, 3.12, 3.11, 3.10, 3.9 | `:latest`, 3, 3.9 and above | 3.8 and below, 3.8.old, 3.9.old, 3.10.old, 3.11.old, 3.12.old | 
-|                             | [Postgres](https://images.chainguard.dev/directory/image/postgres/version?utm_source=docs) | 17, 16, 15, 14, 13         | `:latest`, 17, 16, 15, 14, 13 | 12 (EOL November 21, 2024) and below | 
-| **Single Release Track**    | [Cosign](https://images.chainguard.dev/directory/image/cosign/versions?utm_source=docs)   | 2                          | `:latest`, 2, 2.4 | 2.3, 2.2, 2.1, 2.0, 1.x, 0.x | 
-|                             | [Bank-Vaults](https://images.chainguard.dev/directory/image/bank-vaults/versions?utm_source=docs) | 1 | `:latest`, 1 | Any previous version tag
-| **No Release Track**        | [envoyproxy/ratelimit](https://images.chainguard.dev/directory/image/envoy-ratelimit/versions?utm_source=docs) | No versioned releases | `:latest` | Any previous version tag |
+| **Multiple Release Tracks** | [Go](https://images.chainguard.dev/directory/image/go/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)       | 1.23, 1.22                 | `:latest`, 1, 1.23, 1.22 | 1.23.old, 1.22.old, 1.21 and below |
+|                             | [Python](https://images.chainguard.dev/directory/image/python/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)   | 3.13, 3.12, 3.11, 3.10, 3.9 | `:latest`, 3, 3.9 and above | 3.8 and below, 3.8.old, 3.9.old, 3.10.old, 3.11.old, 3.12.old | 
+|                             | [Postgres](https://images.chainguard.dev/directory/image/postgres/version?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) | 17, 16, 15, 14, 13         | `:latest`, 17, 16, 15, 14, 13 | 12 (EOL November 21, 2024) and below | 
+| **Single Release Track**    | [Cosign](https://images.chainguard.dev/directory/image/cosign/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)   | 2                          | `:latest`, 2, 2.4 | 2.3, 2.2, 2.1, 2.0, 1.x, 0.x | 
+|                             | [Bank-Vaults](https://images.chainguard.dev/directory/image/bank-vaults/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) | 1 | `:latest`, 1 | Any previous version tag
+| **No Release Track**        | [envoyproxy/ratelimit](https://images.chainguard.dev/directory/image/envoy-ratelimit/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) | No versioned releases | `:latest` | Any previous version tag |
 
 > **Note**: The "Maintained Upstream Releases" column is current as of December 2024.
 
@@ -147,4 +147,4 @@ Additionally, if a container image fails to build because underlying dependencie
 
 If a dependency conflict prevents an image version from building successfully, the grace period will end immediately for that version. Chainguard will not attempt further updates or CVE remediations after a build failure. Additionally, If a container image fails to build due to dependency conflicts, its grace period ends immediately. This means no further updates or CVE remediations will be provided for that image version.
 
-For more information on the EOL grace period, [please contact us](https://www.chainguard.dev/contact?utm_source=docs).
+For more information on the EOL grace period, [please contact us](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).

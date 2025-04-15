@@ -30,7 +30,7 @@ If you would like to open the console with your Organization already selected, y
 https://console.chainguard.dev/auth/login?org=ORGANIZATION
 ```
 
-If you're not ready to create a Chainguard account, you can follow along with the public [Chainguard Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory). As of this writing, there are some differences between the two websites, but both should provide a similar Chainguard Containers browsing experience.
+If you're not ready to create a Chainguard account, you can follow along with the public [Chainguard Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory). As of this writing, there are some differences between the two websites, but both should provide a similar Chainguard Containers browsing experience.
 
 
 ## Browse Chainguard Containers
@@ -49,7 +49,7 @@ The table view above has five columns:
 
 * **Name**: the name of each given container image.
 * **Latest version**: the latest available version of the image. Note that this column's value could be a version number or it may read `latest`. In the former case, this means that the latest version Chainguard offers is a different, later version than the one the publicly available image tagged with `:latest`.
-* **URI**: the registry URI you can use in a `docker pull` command to download the container image. Production containers, which are not publicly available, will instead have a message reading "Contact us for access to this image" with a link to Chainguard's [contact form](https://www.chainguard.dev/contact?utm_source=docs).
+* **URI**: the registry URI you can use in a `docker pull` command to download the container image. Production containers, which are not publicly available, will instead have a message reading "Contact us for access to this image" with a link to Chainguard's [contact form](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
 * **Available versions**: a list of what versions are available for this container image. Each container image will have a `latest` version, and most will also have a `latest-dev` version. 
 * **Updated**: how long it's been since the container image was last updated. 
 
@@ -76,7 +76,7 @@ Each container image page has eight tabs that provide information about various 
 The default page for each image is the **Versions** tab which contains information about the versions available for each image. This contains a table with columns:
 
 * **Version**: this column lists each version tag available for the container image.
-* **Pull URL**: the URL you can use to download each version of the image. As with the main Containers Directory page, Production containers will have a message reading "Contact us for access to this image" with a link to Chainguard's [contact form](https://www.chainguard.dev/contact?utm_source=docs).
+* **Pull URL**: the URL you can use to download each version of the image. As with the main Containers Directory page, Production containers will have a message reading "Contact us for access to this image" with a link to Chainguard's [contact form](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
 * **Size**: the size of the image, in megabytes. 
 * **Last changed**: when each version of the image was last updated.
 
@@ -149,7 +149,7 @@ Please be aware that, as with SBOM data, Chainguard began generating vulnerabili
 
 The next tab is the **Advisories** tab. When you scan a newly-built Chainguard Container with a vulnerability scanner, typically, no CVEs will be reported. However, as software packages age, more vulnerabilities are reported and CVEs will begin to accumulate in images. When this happens, Chainguard releases security advisories to communicate these vulnerabilities to downstream container image users. You can find all the advisories issued for a given image in its Advisories tab. 
 
-To learn more about Chainguard security advisories, we encourage you to read our article on [How Chainguard Issues Security Advisories](/chainguard/chainguard-images/staying-secure/security-advisories/how-chainguard-issues/) as well as our guide on [How to Use Chainguard Security Advisories](/chainguard/chainguard-images/staying-secure/security-advisories/how-to-use/). You an also find every security advisory published for Chainguard Containers by exploring our self-service [Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory).
+To learn more about Chainguard security advisories, we encourage you to read our article on [How Chainguard Issues Security Advisories](/chainguard/chainguard-images/staying-secure/security-advisories/how-chainguard-issues/) as well as our guide on [How to Use Chainguard Security Advisories](/chainguard/chainguard-images/staying-secure/security-advisories/how-to-use/). You an also find every security advisory published for Chainguard Containers by exploring our self-service [Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory).
 
 ### Comparisons tab
 
@@ -158,4 +158,4 @@ The last tab is the **Comparisons** tab. This tab includes useful data that show
 
 ## Learn more
 
-The Chainguard Containers Directory is a useful tool for understanding what Chainguard Containers are available. To better understand how to work with individual container images, you can see if we have a [getting started guide](/chainguard/chainguard-images/getting-started/) available. We also provide a guide on [how to view security advisories](/chainguard/chainguard-images/security-advisories/) through our [self-service public Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory).
+The Chainguard Containers Directory is a useful tool for understanding what Chainguard Containers are available. To better understand how to work with individual container images, you can see if we have a [getting started guide](/chainguard/chainguard-images/getting-started/) available. We also provide a guide on [how to view security advisories](/chainguard/chainguard-images/security-advisories/) through our [self-service public Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory).

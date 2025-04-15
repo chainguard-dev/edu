@@ -84,4 +84,4 @@ Achieving compliance with PCI DSS 4.0 is not just an industry self-regulatory re
 - [Overview of PCI DSS 4.0 Practices/Requirements](/software-security/compliance/pci-dss-4/pci-dss-practices/)
 - [How Chainguard Can Help With PCI DSS 4.0](/software-security/compliance/pci-dss-4/pci-dss-chainguard/)
 
-**[Get started with Chainguard FIPS Images today!](https://images.chainguard.dev/?category=fips?utm_source=docs)**
+**[Get started with Chainguard FIPS Images today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**

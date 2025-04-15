@@ -25,7 +25,7 @@ In this guide, you'll find general instructions on how to get started using Chai
 
 ## Quickstart: Using Chainguard Containers
 
-To get up and running with Chainguard Containers, you can use `docker` commands to pull and run images. For each specific image, you'll find this guidance on its overview page (for example, see [Node](https://images.chainguard.dev/directory/image/node/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images), [Python](https://images.chainguard.dev/directory/image/python/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images), or [NGINX](https://images.chainguard.dev/directory/image/nginx/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images)).
+To get up and running with Chainguard Containers, you can use `docker` commands to pull and run images. For each specific image, you'll find this guidance on its overview page (for example, see [Node](https://images.chainguard.dev/directory/image/node/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images), [Python](https://images.chainguard.dev/directory/image/python/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images), or [NGINX](https://images.chainguard.dev/directory/image/nginx/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images)).
 
 ### Pulling a Chainguard Container
 
@@ -50,7 +50,7 @@ You can also add a relevant tag that you have access to. In the case of the publ
 docker pull cgr.dev/chainguard/git:latest
 ```
 
-You may use tags to pull a specific version of a software like Git, or programming language version in a catalog you have access to. The Chainguard Containers Directory has tag history pages for each image, for example, the [Git Image Tags History](https://images.chainguard.dev/directory/image/git/versions?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images), [PHP Image Tags History](https://images.chainguard.dev/directory/image/php/versions?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images), and [JDK Image Tags History](https://images.chainguard.dev/directory/image/jdk/versions?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images).
+You may use tags to pull a specific version of a software like Git, or programming language version in a catalog you have access to. The Chainguard Containers Directory has tag history pages for each image, for example, the [Git Image Tags History](https://images.chainguard.dev/directory/image/git/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images), [PHP Image Tags History](https://images.chainguard.dev/directory/image/php/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images), and [JDK Image Tags History](https://images.chainguard.dev/directory/image/jdk/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images).
 
 You can learn about the Chainguard Containers tags history in our guide about [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/).
 
@@ -60,7 +60,7 @@ Pulling a Chainguard Container by its digest guarantees reproducibility, as it w
 
 To pull an image by its digest, you can do so by appending the digest which begins with `sha256`.<!-- You can find these on our reference tags history pages. -->
 
-<!-- In our Git example, we can review the [Git Image Tags History](https://images.chainguard.dev/directory/image/git/versions?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images) page and choose a relevant digest. We will choose the `:latest-dev` image that was last updated on September 2, 2023 at the time this document was being prepared. -->
+<!-- In our Git example, we can review the [Git Image Tags History](https://images.chainguard.dev/directory/image/git/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images) page and choose a relevant digest. We will choose the `:latest-dev` image that was last updated on September 2, 2023 at the time this document was being prepared. -->
 
 <!-- TODO(juverm) - do we want to broadcast the above? We don't show digests in public directory because we want free tier pinned on latest. -->
 
@@ -98,7 +98,7 @@ Specifying the platform will ensure that you're using the desired container imag
 
 You can run a Chainguard Container with the `docker run` command. Note that because Chainguard Containers are minimalist containers, most of them ship without a shell or package manager. If you would like a shell, you can often use the development image, which is tagged as `:latest-dev`. For example, [Python](https://images.chainguard.dev/directory/image/python/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images) has its development variant at `cgr.dev/chainguard/python:latest-dev`. Otherwise, you can work with Chainguard Containers in way similar to other images.
 
-Let's run the [Cosign Chainguard Container](https://images.chainguard.dev/directory/image/cosign/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images) to check its version.
+Let's run the [Cosign Chainguard Container](https://images.chainguard.dev/directory/image/cosign/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images) to check its version.
 
 ```sh
 docker run --rm -t cgr.dev/chainguard/cosign:latest version
@@ -124,7 +124,7 @@ Compiler:      gc
 Platform:      linux/arm64
 ```
 
-If you would like to review a filesystem, you can use the [wolfi-base image](https://images.chainguard.dev/directory/image/wolfi-base/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images):
+If you would like to review a filesystem, you can use the [wolfi-base image](https://images.chainguard.dev/directory/image/wolfi-base/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images):
 
 ```sh
 docker run -it cgr.dev/chainguard/wolfi-base

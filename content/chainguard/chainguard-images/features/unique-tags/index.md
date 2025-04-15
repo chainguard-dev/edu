@@ -65,6 +65,6 @@ It should be noted that by their design, container image tags are mutable, meani
 
 Additionally, you may find our three-part blog series on Chainguard's image tagging philosophy to be of interest.
 
-* [Part 1](https://www.chainguard.dev/unchained/chainguards-image-tagging-philosophy-enabling-high-velocity-updates-pt-1-of-3?utm_source=docs)
+* [Part 1](https://www.chainguard.dev/unchained/chainguards-image-tagging-philosophy-enabling-high-velocity-updates-pt-1-of-3?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)
 * [Part 2](https://www.chainguard.dev/unchained/chainguards-image-tagging-philosophy-enabling-high-velocity-updates-pt-2-of-3)
 * [Part 3](https://www.chainguard.dev/unchained/chainguards-image-tagging-philosophy-enabling-high-velocity-updates-pt-3-of-3)
