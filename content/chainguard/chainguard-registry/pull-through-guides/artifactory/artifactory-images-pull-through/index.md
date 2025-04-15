@@ -32,7 +32,7 @@ In order to complete this tutorial, you will need the following:
 * Administrative privileges over a Chainguard Registry. 
 * `chainctl`, Chainguard's command line interface tool, installed on your local machine. To set this up, follow our [installation guide for `chainctl`](/chainguard/administration/how-to-install-chainctl/).
 
-Lastly, part of this guide assumes you have access to a private Chainguard Registry containing one or more Production Containers. If you don't already have access to these, you can [contact our sales team](https://www.chainguard.dev/contact?utm_source=docs). 
+Lastly, part of this guide assumes you have access to a private Chainguard Registry containing one or more Production Containers. If you don't already have access to these, you can [contact our sales team](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement). 
 
 
 ## Setting Up Artifactory as a pull through for Starter Containers

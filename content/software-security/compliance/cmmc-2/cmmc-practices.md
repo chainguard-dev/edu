@@ -60,4 +60,4 @@ To learn more about requirements for tracking compliance, continue to the next a
 - (Current article) Overview of CMMC 2.0 Practice/Control Groups
 - [How Chainguard Can Help With CMMC 2.0](/software-security/compliance/cmmc-2/cmmc-chainguard/)
 
-**[Get started with Chainguard FIPS Images today!](https://images.chainguard.dev/?category=fips?utm_source=docs)**
+**[Get started with Chainguard FIPS Images today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**
