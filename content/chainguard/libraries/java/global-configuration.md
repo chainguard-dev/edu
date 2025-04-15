@@ -23,7 +23,7 @@ Repository](https://www.sonatype.com/products/sonatype-nexus-repository). The
 repository manager acts as a single point of access for developers and
 development tools to retrieve the required libraries.
 
-At a high level, adopting the use of Chainguard Libraries consists of the
+At a high level, adopting the use of Chainguard Libraries consists of the the
 following steps:
 
 * Add Chainguard Libraries as a remote repository for library retrieval.
