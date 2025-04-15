@@ -8,7 +8,7 @@ description: "Tutorial outlining how to set up a Google Artifact Registry reposi
 date: 2024-07-08T15:56:52-07:00
 lastmod: 2024-08-19T15:56:52-07:00
 draft: false
-tags: ["PRODUCT", "PROCEDURAL", "CHAINGUARD IMAGES"]
+tags: ["Product", "Chainguard Containers", "Registry"]
 images: []
 menu:
   docs:
@@ -19,7 +19,7 @@ weight: 005
 
 Organizations can use Chainguard Containers along with third-party software repositories in order to integrate with current workflows as the single source of truth for software artifacts. In this situation, you can set up a proxy repository to function as a mirror of the [Chainguard Registry](/chainguard/chainguard-registry/overview/). This mirror can then serve as a pull through cache for your Chainguard Containers.
 
-This tutorial outlines how to set up a remote repository with [Google Artifact Registry](https://cloud.google.com/artifact-registry/docs/repositories/remote-overview). It will walk you through how to set up an Artifact Registry Repository you can use as a pull through cache for Chainguard's public Starter Containers or for Production Containers originating from a private Chainguard repository.
+This tutorial outlines how to set up a remote repository with [Google Artifact Registry](https://cloud.google.com/artifact-registry/docs/repositories/remote-overview). It will walk you through how to set up an Artifact Registry Repository you can use as a pull through cache for Chainguard's public Starter containers or Production containers originating from a private Chainguard repository.
 
 ## Prerequisites
 
@@ -27,15 +27,15 @@ In order to complete this tutorial, you will need the following:
 
 * Docker installed on your local machine. Follow the [official installation instructions](https://docs.docker.com/engine/install/) to set this up.
 * Administrative privileges over a Google Cloud Platform project. This project will also need to have the [Artifact Registry API](https://cloud.google.com/artifact-registry/docs/reference/rest) enabled. 
-* If you plan to set up an Artifact Registry repository to serve as a pull through cache for Production Containers, then you will also need to have privileges to create a pull token on a Chainguard Registry.
+* If you plan to set up an Artifact Registry repository to serve as a pull through cache for Production containers, then you will also need to have privileges to create a pull token on a Chainguard Registry.
     * Additionally, you'll need `chainctl` installed to create the pull token. If you haven't already installed this, follow the [installation guide](/chainguard/administration/how-to-install-chainctl/).
 
 
 ## Setting up Google Artifact Registry as a Pull Through for Starter Containers
 
-Chainguard's Starter Containers are free to use, publicly available, and always represent versions tagged as `:latest`.
+Chainguard's Starter container images are free to use, publicly available, and always represent versions tagged as `:latest`.
 
-To set up a remote repository in Google Artifact Registry from which you can pull Chainguard Starter Container images, log in to the [Google Cloud Console](https://console.cloud.google.com) and choose your project. Once there, navigate to the [Artifact Registry section](https://console.cloud.google.com/artifacts), click on **Repositories** in the left-hand navigation menu, and click on the **Create Repository** button near the top of the page.
+To set up a remote repository in Google Artifact Registry from which you can pull Chainguard Starter container images, log in to the [Google Cloud Console](https://console.cloud.google.com) and choose your project. Once there, navigate to the [Artifact Registry section](https://console.cloud.google.com/artifacts), click on **Repositories** in the left-hand navigation menu, and click on the **Create Repository** button near the top of the page.
 
 On the **Create Repository** page, enter the following details for your new remote repository:
 
@@ -48,7 +48,7 @@ On the **Create Repository** page, enter the following details for your new remo
 
 Following that, choose the Location, Encryption and Cleanup policy options for your repository. This guide's examples will use the location `us-central1`, but you can choose the location that best suits your needs. Finally, click the **Create** button to create the repository. 
 
-### Testing pull through of a Chainguard Starter Container
+### Testing pull through of a Starter container image
 
 By default, the Artifact Registry repository requires authentication. Log in with a valid Google Artifact Registry:
 
@@ -59,22 +59,22 @@ gcloud auth configure-docker us-central1-docker.pkg.dev
 Be sure to change `us-central1` to reflect the location of your Artifact Registry repository. 
 Also, after running this command you may be prompted to log in to your Google Cloud account.
 
-After running the command, you will be able to pull a Chainguard Starter Container through Google Artifact Registry. The following example pulls the `go` Container:
+After running the command, you will be able to pull a Starter container through Google Artifact Registry. The following example pulls the `go` container:
 
 ```sh
 docker pull us-central1-docker.pkg.dev/<your-project-id>/chainguard-pull-through/chainguard/go:latest
 ```
 
-This command first specifies the location of the Artifact Registry repository we just created (`us-central1-docker.pkg.dev/<your-project-id>/chainguard-pull-through/`). It then follows that with the name of the Chainguard Starter Containers and the remote repository we want to pull it from (`chainguard/go:latest`). 
+This command first specifies the location of the Artifact Registry repository we just created (`us-central1-docker.pkg.dev/<your-project-id>/chainguard-pull-through/`). It then follows that with the name of the Starter containers and the remote repository we want to pull it from (`chainguard/go:latest`). 
 
 If you run into issues with this command, be sure that it contains the correct Google Artifact Registry URL for your repository, including the location and project ID.
 
 
 ## Setting up Google Artifact Registry as a Pull Through for Production Containers
 
-Production Chainguard Containers are enterprise-ready container images that come with patch SLAs and features such as [Federal Information Processing Standard](/chainguard/chainguard-images/working-with-images/fips-images/) (FIPS) readiness. The process for setting up a Google Artifact Registry repository that you can use as a pull through cache for Chainguard Production Containers is similar to the one outlined previously for Starter Containers, but with a few extra steps.
+Chainguard's Production container images are enterprise-ready container images that come with patch SLAs and features such as [Federal Information Processing Standard](/chainguard/chainguard-images/working-with-images/fips-images/) (FIPS) readiness. The process for setting up a Google Artifact Registry repository that you can use as a pull through cache for Chainguard Production container images is similar to the one outlined previously for Starter containers, but with a few extra steps.
 
-To get started, you will need to create [a pull token](/chainguard/chainguard-registry/authenticating/#authenticating-with-a-pull-token) for your organization's Chainguard Registry. Pull tokens are longer-lived tokens that can be used to pull Images from other environments that don't support OIDC, such as some CI environments, Kubernetes clusters, or with registry mirroring tools like Google Artifact Registry.
+To get started, you will need to create [a pull token](/chainguard/chainguard-registry/authenticating/#authenticating-with-a-pull-token) for your organization's Chainguard Registry. Pull tokens are longer-lived tokens that can be used to pull container images from other environments that don't support OIDC, such as some CI environments, Kubernetes clusters, or with registry mirroring tools like Google Artifact Registry.
 
 First log in with `chainctl`:
 
@@ -88,7 +88,7 @@ Then configure a pull token:
 chainctl auth configure-docker --pull-token
 ```
 
-This command will prompt you to select an organization. Be sure to select the organization whose Production Containers you want to pull through the Artifact Registry repository.
+This command will prompt you to select an organization. Be sure to select the organization whose Production container images you want to pull through the Artifact Registry repository.
 
 This will create a pull token and print a `docker login` command that can be run in a CI environment to log in with the token. This command includes both `--username` and `--password` arguments.
 
@@ -120,7 +120,7 @@ Alternatively, you can also provide the secret using the Google Cloud Console in
 
 ![Screenshot of the Google Secret Manager screen, showing the pull token secret configuration.](Google-Secret-Manager-1.png)
 
-Back in the Google Artifact Registry, click on the repository you want to configure for pulling through Production Containers and then click on the **Edit** button to edit the repository configuration. In the **Remote repository source** section of the configuration screen, choose **Authenticated**.
+Back in the Google Artifact Registry, click on the repository you want to configure for pulling through Production containers and then click on the **Edit** button to edit the repository configuration. In the **Remote repository source** section of the configuration screen, choose **Authenticated**.
 
 Enter the pull token `username` value in the **Username** field. In the **Password** field, select the secret you created in Google Secret Manager.
 
@@ -128,9 +128,9 @@ Enter the pull token `username` value in the **Username** field. In the **Passwo
 
 Click the **Save** button to apply the changes.
 
-### Testing pull through of a Chainguard Production Container:
+### Testing pull through of a Production container:
 
-As with testing pull through of a Starter Container, you'll first need to authenticate to the Artifact Registry:
+As with testing pull through of a Starter container, you'll first need to authenticate to the Artifact Registry:
 
 ```sh
 gcloud auth configure-docker us-central1-docker.pkg.dev
@@ -139,7 +139,7 @@ gcloud auth configure-docker us-central1-docker.pkg.dev
 Be sure to change `us-central1` to reflect the location of your Artifact Registry repository.
 
 
-After running the command, you will be able to pull any Production Containers that your organization has access to through Google Artifact Registry. For example, the following command will pull the `chainguard-base` Container if your organization has access to it:
+After running the command, you will be able to pull any Production container images that your organization has access to through Google Artifact Registry. For example, the following command will pull the `chainguard-base` Container if your organization has access to it:
 
 ```sh
 docker pull us-central1-docker.pkg.dev/<your-project-id>/chainguard-pull-through/<example.com>/chainguard-base:latest

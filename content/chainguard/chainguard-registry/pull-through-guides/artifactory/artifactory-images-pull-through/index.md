@@ -10,7 +10,7 @@ description: "Tutorial outlining how to set up a remote Artifactory repository t
 date: 2024-02-13T15:56:52-07:00
 lastmod: 2024-09-04T15:56:52-07:00
 draft: false
-tags: ["PRODUCT", "PROCEDURAL", "CHAINGUARD IMAGES"]
+tags: ["Product", "Chainguard Containers"]
 images: []
 menu:
   docs:
@@ -57,7 +57,7 @@ Lastly, in the **Advanced** configuration tab, ensure that the **Block Mismatchi
 
 ![Screenshot of Artifactory's New Remote Repository "Advanced" Configuration tab. This example shows all the default settings, including that the "Block Mismatching Mime Types" box is checked.](artifactory-3.png)
 
-Following that, click the **Create Remote Repository** button. If everything worked as expected, a modal window will appear letting you know that the repository was created successfully. You can click the **Set Up Docker Client** button at the bottom of this window to retrieve the commands you'll use to test that you can pull Images through this repository.
+Following that, click the **Create Remote Repository** button. If everything worked as expected, a modal window will appear letting you know that the repository was created successfully. You can click the **Set Up Docker Client** button at the bottom of this window to retrieve the commands you'll use to test that you can pull images through this repository.
 
 ### Testing pull through of a Chainguard Starter Container
 
@@ -122,7 +122,7 @@ Lastly, in the **Advanced** configuration tab, ensure that the **Block Mismatchi
 
 ![Screenshot of Artifactory's New Remote Repository "Advanced" Configuration tab. This example shows all the default settings, including that the "Block Mismatching Mime Types" box is checked.](artifactory-3.png)
 
-Following that, click the **Create Remote Repository** button. If everything worked as expected, a modal window will appear letting you know that the repository was created successfully. You can click the **Set Up Docker Client** button at the bottom of this window to retrieve the commands you'll use to test that you can pull Images through this repository.
+Following that, click the **Create Remote Repository** button. If everything worked as expected, a modal window will appear letting you know that the repository was created successfully. You can click the **Set Up Docker Client** button at the bottom of this window to retrieve the commands you'll use to test that you can pull images through this repository.
 
 ### Testing pull through of a Chainguard Production container image 
 
@@ -138,7 +138,7 @@ Be sure to include your own username and Artifactory instance.
 
 After running this command, you'll be prompted to enter a password. Copy the token from the second code block, paste it into your terminal, and press `ENTER`.
 
-After running the `docker login` command, you will be able to pull a Chainguard Production Containers through Artifactory. The following example will pull the `chainguard-base` Image if your organization has access to it:
+After running the `docker login` command, you will be able to pull a Chainguard Production Containers through Artifactory. The following example will pull the `chainguard-base` image if your organization has access to it:
 
 ```sh
 docker pull <myproject>.jfrog.io/cgr-private/<example.com>/chainguard-base:latest
@@ -181,7 +181,7 @@ After running the `docker login` command, you will be able to pull Chainguard Co
 docker pull <myproject>.jfrog.io/cgr-virt/chainguard/mariadb:latest
 ```
 
-To pull a Production Containers, you would replace `chainguard` with the name of your organization's registry. The following example will pull the `chainguard-base` Image if your organization has access to it:
+To pull a Production Containers, you would replace `chainguard` with the name of your organization's registry. The following example will pull the `chainguard-base` image if your organization has access to it:
 
 ```sh
 docker pull <myproject>.jfrog.io/cgr-virt/<example.com>/chainguard-base:latest

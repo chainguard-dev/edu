@@ -8,7 +8,7 @@ description: "Guide on how to use the wolfictl tool to create, update, and manag
 date: 2024-08-05T20:23:51+00:00
 lastmod: 2024-08-09T14:55:03+00:00
 draft: false
-tags: ["Overview", "Product", "Chainguard Images", "CVE"]
+tags: ["Product", "Chainguard Containers", "CVE"]
 images: []
 menu:
   docs:
