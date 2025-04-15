@@ -20,7 +20,7 @@ Chainguard offers a collection of images that are publicly available, don't requ
 
 ## Signing Up
 
-You can register a Chainguard account through our [sign up form](https://console.chainguard.dev/auth/login?utm_source=docs). This will create your account and a [Chainguard IAM organization](/chainguard/administration/iam-organizations/overview-of-chainguard-iam-model/). If you already have an account, you can log in through the [login page](https://console.chainguard.dev/auth/login?utm_source=docs).
+You can register a Chainguard account through our [sign up form](https://console.chainguard.dev/auth/login?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement). This will create your account and a [Chainguard IAM organization](/chainguard/administration/iam-organizations/overview-of-chainguard-iam-model/). If you already have an account, you can log in through the [login page](https://console.chainguard.dev/auth/login?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
 
 For more details on signing in, you can review our [sign in guidance](/chainguard/administration/iam-organizations/how-to-manage-iam-organizations-in-chainguard/#logging-in). If your organization is interested in (or already using) custom identity providers like Okta, you can read [how to authenticate to Chainguard with custom identity providers](/chainguard/administration/custom-idps/custom-idps/).
 

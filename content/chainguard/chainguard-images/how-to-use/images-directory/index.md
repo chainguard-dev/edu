@@ -49,7 +49,7 @@ The table view above has five columns:
 
 * **Name**: the name of each given container image.
 * **Latest version**: the latest available version of the image. Note that this column's value could be a version number or it may read `latest`. In the former case, this means that the latest version Chainguard offers is a different, later version than the one the publicly available image tagged with `:latest`.
-* **URI**: the registry URI you can use in a `docker pull` command to download the container image. Production containers, which are not publicly available, will instead have a message reading "Contact us for access to this image" with a link to Chainguard's [contact form](https://www.chainguard.dev/contact?utm_source=docs).
+* **URI**: the registry URI you can use in a `docker pull` command to download the container image. Production containers, which are not publicly available, will instead have a message reading "Contact us for access to this image" with a link to Chainguard's [contact form](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
 * **Available versions**: a list of what versions are available for this container image. Each container image will have a `latest` version, and most will also have a `latest-dev` version. 
 * **Updated**: how long it's been since the container image was last updated. 
 
@@ -76,7 +76,7 @@ Each container image page has eight tabs that provide information about various 
 The default page for each image is the **Versions** tab which contains information about the versions available for each image. This contains a table with columns:
 
 * **Version**: this column lists each version tag available for the container image.
-* **Pull URL**: the URL you can use to download each version of the image. As with the main Containers Directory page, Production containers will have a message reading "Contact us for access to this image" with a link to Chainguard's [contact form](https://www.chainguard.dev/contact?utm_source=docs).
+* **Pull URL**: the URL you can use to download each version of the image. As with the main Containers Directory page, Production containers will have a message reading "Contact us for access to this image" with a link to Chainguard's [contact form](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
 * **Size**: the size of the image, in megabytes. 
 * **Last changed**: when each version of the image was last updated.
 
