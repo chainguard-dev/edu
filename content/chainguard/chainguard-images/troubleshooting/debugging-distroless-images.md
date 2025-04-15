@@ -26,7 +26,7 @@ In this article, we'll discuss a few different strategies to debug distroless im
 
 Before moving a workload to a distroless runtime image, it is important to make sure that it runs without issues in a similar but less restrictive environment, which allows for easier debugging. It is also possible to make a temporary base image change from a distroless image to a fully featured image that offers more debugging capabilities.
 
-The development variants of [Chainguard Images](/chainguard/chainguard-images/) are designed to replicate the same packages of their distroless version, but with additional software that helps in developing, building, and debugging applications in different language ecosystems. These are sometimes referred to as `-dev` variants since they are tagged with `:latest-dev`.
+The development variants of [Chainguard Containers](/chainguard/chainguard-images/) are designed to replicate the same packages of their distroless version, but with additional software that helps in developing, building, and debugging applications in different language ecosystems. These are sometimes referred to as `-dev` variants since they are tagged with `:latest-dev`.
 
 For example, the following table shows a comparison between the development variants of the PHP image, and which packages are included with each variant:
 
@@ -53,8 +53,8 @@ docker run -it --entrypoint /bin/sh cgr.dev/chainguard/php:latest-dev
 
 Having a package manager and the ability to log into the image to debug any issues is very important at development time, but becomes unnecessary (and less safe) when talking about production environments. That's why we recommend using a distroless variant for production workloads.
 
-### Why You Should Avoid Using Dev Images in Production
-Although the development image variants have similar security features as their distroless versions, such as complete SBOMs and signatures, they feature additional software that is typically not necessary in production environments. The general recommendation is to use the Development variants only to build the application and then copy all application artifacts into a distroless image, which will result in a final container image that has a minimal attack surface and won't allow package installations or logins.
+### Chainguard Containers in Production
+Although the development image variants have similar security features as their distroless versions, such as complete SBOMs and signatures, they feature additional software that is typically not necessary in production environments. The general recommendation is to use the development variants to build the application and then copy all application artifacts into a distroless image, which will result in a final container image that has a minimal attack surface and won't allow package installations or logins.
 
 That being said, it's worth noting that the `-dev` variants of Chainguard Containers are still **more secure** than many popular container images based on fully-featured operating systems such as Debian and Ubuntu, because they carry less software, follow a more frequent patch cadence, and offer attestations for what is included.
 

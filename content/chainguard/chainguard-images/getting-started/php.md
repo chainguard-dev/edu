@@ -17,7 +17,7 @@ weight: 045
 toc: true
 ---
 
-The PHP container images maintained by Chainguard include both our standard, minimal images and development variants, both of which are suitable for building and running PHP workloads. The `latest-fpm` variant serves PHP applications over FastCGI, while the `latest` variant runs PHP applications from the command line.
+The PHP container images maintained by Chainguard include our standard, minimal images and development variants, both of which are suitable for building and running PHP workloads. The `latest-fpm` variant serves PHP applications over FastCGI, while the `latest` variant runs PHP applications from the command line.
 
 In this guide, we'll set up a demo and demonstrate how you can use Chainguard Containers to develop, build, and run PHP applications.
 

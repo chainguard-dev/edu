@@ -20,7 +20,7 @@ Chainguard Containers are built on top of [Wolfi](/open-source/wolfi/), a Linux 
 
 This article will assist you in the process of migrating your existing PHP Dockerfiles to leverage the benefits of Chainguard Images, including a smaller attack surface and a more secure application footprint.
 
-## Chainguard PHP Images
+## Chainguard PHP Container Images
 Chainguard offers multiple PHP images and variants catering to distinct use cases. In addition to the regular PHP image that includes CLI and FPM variants, we offer a dedicated [Laravel](https://images.chainguard.dev/directory/image/laravel/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-php) image designed for Laravel applications.
 
 Each variant comes in two flavors: a minimal runtime image (distroless) and a development variant distinguished by the `-dev` suffix (e.g., `latest-dev`).
@@ -281,6 +281,6 @@ The preview should be live at `localhost:8000`.
 
 ## Additional Resources
 
-Our [PHP image documentation](https://images.chainguard.dev/directory/image/php/versions?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-php) covers details about all PHP image variants, including the list of available tags for all our container image variants. For another example of a LEMP setup using MariaDB, check our guide on [Getting Started with the MariaDB Chainguard Image](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/mariadb/).
+Our [PHP image documentation](https://images.chainguard.dev/directory/image/php/versions?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-php) covers details about all PHP image variants, including the list of available tags for all our container image variants. For another example of a LEMP setup using MariaDB, check our guide on [Getting Started with the MariaDB Chainguard Container](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/mariadb/).
 
 The [Debugging Distroless](/chainguard/chainguard-images/debugging-distroless-images/) guide contains important information for debugging issues with distroless images. You can also refer to the [Verifying Images](/chainguard/chainguard-images/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/) resource for details around provenance, SBOMs, and image signatures.
