@@ -106,7 +106,7 @@ And let's take a look at an example of that.
 So what I've done here is run ls on the /var/lib/db/sbom directory inside the container and that's listed a bunch of Jason files, one for each package in the image.
 
 <a href="https://youtu.be/K60-jhVf2I4?t=159" target="_blank">2:39</a>
-Now these JSON files are actually SPDX documents, but the file names themselves contain the the version info that we're interested in.
+Now these JSON files are actually SPDX documents, but the file names themselves contain the version info that we're interested in.
 
 <a href="https://youtu.be/K60-jhVf2I4?t=167" target="_blank">2:47</a>
 So we can see this image doesn't include a lot except busybox and a few system libraries.

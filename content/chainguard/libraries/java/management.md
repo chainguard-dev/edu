@@ -33,7 +33,7 @@ You can verify what artifacts are retrieved from the Chainguard Libraries
 repository on a global level:
 
 * Browse the `chainguard` proxy repository on your Artifactory or Nexus server.
-* Access the **Packages** tab of the the repository on your Cloudsmith instance.
+* Access the **Packages** tab of the repository on your Cloudsmith instance.
   Filter the package list with the tag value with the name for your upstream
   proxy for Chainguard, for example `tag:chainguard`. The tag uses the name of
   the upstream proxy, with spaces replaced with dashes.
