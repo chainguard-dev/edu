@@ -173,8 +173,8 @@ documentation](/chainguard/libraries/java/global-configuration).
 
 Note that you can use a secret manager application to populate the credentials
 for each user on their workstation as well as for service applications in your
-CI/CD pipelines into environment variables, for example `CG_JAVA_USERNAME` and
-`CG_JAVA_PASSWORD`. You can then use an identical server configuration, and
+CI/CD pipelines into environment variables, for example `CHAINGUARD_JAVA_IDENTITY_ID`
+and `CHAINGUARD_JAVA_TOKEN`. You can then use an identical server configuration, and
 therefore settings file, for all users:
 
 ```xml
@@ -183,8 +183,8 @@ therefore settings file, for all users:
   <servers>
     <server>
       <id>chainguard-maven</id>
-      <username>${env.CG_JAVA_USERNAME}</username>
-      <password>${env.CG_JAVA_PASSWORD}</password>
+      <username>${env.CHAINGUARD_JAVA_IDENTITY_ID}</username>
+      <password>${env.CHAINGUARD_JAVA_TOKEN}</password>
     </server>
   </servers>
 </settings>
@@ -210,8 +210,9 @@ repository and any other repositories.
 
 The following listing shows a complete `~/.m2/settings.xml` file with the
 desired configuration and placeholder values `CG_PULLTOKEN_USERNAME` and
-`CG_PULLTOKEN_PASSWORD` for the pull token detailed in [Chainguard Libraries
-access](/chainguard/libraries/access/):
+`CG_PULLTOKEN_PASSWORD` or [environment
+variables](/chainguard/libraries/access/#env) for the pull token detailed in
+[Chainguard Libraries access](/chainguard/libraries/access/)
 
 ```xml
 <settings>
@@ -271,8 +272,8 @@ access](/chainguard/libraries/access/):
     <server>
       <id>chainguard</id>
       <!-- pick up values from environment variables -->
-      <username>${env.CG_JAVA_USERNAME}</username>
-      <password>${env.CG_JAVA_PASSWORD}</password>
+      <username>${env.CHAINGUARD_JAVA_IDENTITY_ID}</username>
+      <password>${env.CHAINGUARD_JAVA_TOKEN}</password>
       <!-- or use literal values -->
       <!-- <username>CG_PULLTOKEN_USERNAME</username> -->
       <!-- <password>CG_PULLTOKEN_PASSWORD</password> -->
@@ -354,17 +355,33 @@ Example URLs for repository managers:
 If your organization does not use a repository manager you can configure the
 Chainguard Libraries for Java repository with the credentials from [Chainguard
 Libraries access](/chainguard/libraries/access/) replacing the placeholders
-`CG_PULLTOKEN_USERNAME` and `CG_PULLTOKEN_PASSWORD`. Ensure that the Chainguard
-repository is located above the `mavenCentral` repository and any other
-repositories:
+`CHAINGUARD_JAVA_IDENTITY_ID` and `CHAINGUARD_JAVA_TOKEN`. Ensure that the
+Chainguard repository is located above the `mavenCentral` repository and any
+other repositories:
 
 ```groovy
 repositories {
     maven {
         url = uri("https://libraries.cgr.dev/java/")
         credentials {
-            username = "CG_PULLTOKEN_USERNAME"
-            password = "CG_PULLTOKEN_PASSWORD"
+            username = "CHAINGUARD_JAVA_IDENTITY_ID"
+            password = "CHAINGUARD_JAVA_TOKEN"
+        }
+    }
+    mavenCentral()
+}
+```
+
+Alternatively configure [environment
+variables](/chainguard/libraries/access/#env) and access the values:
+
+```groovy
+repositories {
+    maven {
+        url = uri("https://libraries.cgr.dev/maven/")
+        credentials {
+            username = "$System.env.CHAINGUARD_JAVA_IDENTITY_ID"
+            password = "$System.env.CHAINGUARD_JAVA_TOKEN"
         }
     }
     mavenCentral()

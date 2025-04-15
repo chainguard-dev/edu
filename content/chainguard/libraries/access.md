@@ -15,7 +15,7 @@ toc: true
 ---
 
 Access to Chainguard Libraries is consistent across all permissions and accounts
-across the Chainguard platform.
+of the Chainguard platform.
 
 If you are not a Chainguard user yet, a new Chainguard account must be created
 and configured for access to Chainguard Libraries.
@@ -25,6 +25,8 @@ organization can grant access to Chainguard Libraries.
 
 In both cases, confirm the name of the organization so you can use it with the
 `--parent` parameter to specify the organization.
+
+## Initial authentication
 
 Once your user account is created and access is confirmed, [install the
 Chainguard Control `chainctl` command line
@@ -43,7 +45,11 @@ Successfully exchanged token.
 Valid! Id: 8a4141a........7d9904d98c
 ```
 
-Retrieve a new authentication token for the Chainguard Libraries for Java:
+## Pull token for libraries
+
+Retrieve a new authentication token for the Chainguard Libraries for Java with
+the [chainctl auth pull-token](/chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token/)
+command:
 
 ```shell
 chainctl auth pull-token --library-ecosystem=java --parent=example --ttl=8670h
@@ -88,6 +94,38 @@ values are much longer.
 Use the credentials for manual testing in a browser or with a script if you know
 the URL for a specific library artifact, [for example a Java
 library](/chainguard/libraries/java/overview/#technical-details).
+
+<a name="env"></a>
+
+## Use environment variables
+
+Using environment variables for username and password is more secure than
+hardcoding the values in configuration files. In addition, you can use the same
+configuration and files for all users to simplify setup and reduce errors.
+
+Use the `env` environment output option to create a snippet for a new token
+suitable for integration in a script.
+
+```shell
+$ chainctl auth pull-token --output env --library-ecosystem=java --parent=example
+export CHAINGUARD_JAVA_IDENTITY_ID=45a.....424eb0
+export CHAINGUARD_JAVA_TOKEN=eeyJhbGciO..........WF0IjoxN
+```
+
+Combine the call with `eval` to populate the environment variables directly by
+calling `chainctl`:
+
+```shell
+eval $(chainctl auth pull-token --output env --library-ecosystem=java --parent=example)
+```
+
+Running this command as part of a login script or some other automation allows
+your organization to replace actual username and password values in your build
+tool configuration with environment variable placeholders:
+
+*  [Java build tool configuration](/chainguard/libraries/java/build-configuration)
+
+## Verify entitlement
 
 You can verify entitlements for your organization `example` with the following
 command:
