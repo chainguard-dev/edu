@@ -91,7 +91,7 @@ As mentioned previously, more than 98% of vulnerability accumulation occurs with
 | 6-12 months | 501 |
 | 12+ months | 1,552 |
 
-Ninety-seven percent of these vulnerabilities are within Debian packages. Per [this blog post](https://www.chainguard.dev/unchained/the-zero-cve-challenge-can-official-docker-hub-images-pass-the-test?utm_source=docs) many of these vulnerabilities are found in the latest stable versions of these Debian packages, meaning that you can't make them go away with just an `apt upgrade`.
+Ninety-seven percent of these vulnerabilities are within Debian packages. Per [this blog post](https://www.chainguard.dev/unchained/the-zero-cve-challenge-can-official-docker-hub-images-pass-the-test?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) many of these vulnerabilities are found in the latest stable versions of these Debian packages, meaning that you can't make them go away with just an `apt upgrade`.
 
 
 ## A deeper look at Traefik

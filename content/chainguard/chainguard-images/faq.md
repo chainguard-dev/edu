@@ -15,7 +15,7 @@ weight: 060
 toc: true
 ---
 
-Learn answers to your questions about [Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=docs).
+Learn answers to your questions about [Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
 
 ## Which Linux distribution is used as base for Chainguard Containers?
 Chainguard Containers are based on [Wolfi](/open-source/wolfi/), a Linux _undistro_ we built specifically to address software supply chain security issues. We call it an undistro because it doesn't contain certain software you'd normally find in a traditional Linux distribution such as Debian or Alpine. Wolfi is a minimal Linux distribution designed specifically to be used as a base for stripped-down container images.
@@ -33,7 +33,7 @@ You can get free Chainguard Containers for your organization. You can also upgra
 
 Starter | Production
 -------|-----------------------
-Free for everyone, anywhere | [Contact us](https://www.chainguard.dev/contact?utm_source=docs) for pricing
+Free for everyone, anywhere | [Contact us](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) for pricing
 Latest versions | Major and minor versions
 Community support | Enterprise SLAs
 [Developer Docs](/chainguard/chainguard-images/) | Customer support
@@ -50,7 +50,7 @@ An SBOM is a Software Bill of Materials, which is a list containing detailed inf
 SBOMs provide visibility into the software you depend on. They can allow automated systems to quickly identify issues such as unpatched vulnerabilities, since SBOMs typically include the version of each dependency listed.
 
 ## Who maintains Chainguard Containers?
-[Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=docs) are officially maintained by [Chainguard](https://chainguard.dev) engineers.
+[Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) are officially maintained by [Chainguard](https://chainguard.dev) engineers.
 
 ## How often are Chainguard Containers updated?
 Chainguard Containers are rebuilt every night to ensure that new package versions and security updates in upstream Wolfi are quickly applied.

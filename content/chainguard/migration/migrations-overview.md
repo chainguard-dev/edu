@@ -18,9 +18,9 @@ weight: 005
 toc: true
 ---
 
-[Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=docs) are a collection of container images designed for security and minimalism. Many Chainguard Containers are [distroless](/chainguard/chainguard-images/getting-started-distroless/); they contain only an open-source application and its runtime dependencies. These container images do not even contain a shell or package manager, because fewer dependencies reduce the potential attack surface of images.
+[Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) are a collection of container images designed for security and minimalism. Many Chainguard Containers are [distroless](/chainguard/chainguard-images/getting-started-distroless/); they contain only an open-source application and its runtime dependencies. These container images do not even contain a shell or package manager, because fewer dependencies reduce the potential attack surface of images.
 
-By minimizing the number of dependencies and thus reducing their potential attack surface, Chainguard Containers inherently contain few to zero CVEs. Chainguard Containers are rebuilt nightly to ensure they are completely up-to-date and contain all available security patches. With this nightly build approach, our engineering team sometimes [fixes vulnerabilities before they’re detected](https://www.chainguard.dev/unchained/how-chainguard-fixes-vulnerabilities?utm_source=docs).
+By minimizing the number of dependencies and thus reducing their potential attack surface, Chainguard Containers inherently contain few to zero CVEs. Chainguard Containers are rebuilt nightly to ensure they are completely up-to-date and contain all available security patches. With this nightly build approach, our engineering team sometimes [fixes vulnerabilities before they’re detected](https://www.chainguard.dev/unchained/how-chainguard-fixes-vulnerabilities?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
 
 The main features of Chainguard Containers include:
 
@@ -117,7 +117,7 @@ OK: 20 MiB in 17 packages
 
 Note that this example uses the `chainguard-base` image, which is only available as a paid Production Container. To follow along with this example, you would need to be part of an organization that has access to this image. 
 
-If you do have access to the `chainguard-base` image, replace `$ORGANIZATION` in the `docker run` command with your organization's name. If you don't, but would like access, you can [reach out to our sales team](https://www.chainguard.dev/contact?utm_source=docs).
+If you do have access to the `chainguard-base` image, replace `$ORGANIZATION` in the `docker run` command with your organization's name. If you don't, but would like access, you can [reach out to our sales team](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
 
 #### Use `apk search`
 

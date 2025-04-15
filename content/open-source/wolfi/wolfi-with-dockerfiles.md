@@ -215,7 +215,7 @@ In this tutorial, we've demonstrated how to build a Python image from scratch us
 
 If your application runtime requires system dependencies that are not already included within a distroless variant available in our [images directory](https://images.chainguard.dev), you can still use a builder image (identified by the `-dev` suffix) or the `wolfi-base` image in a standard Dockerfile to build a suitable runtime. These images come with `apk` and a shell, allowing for further customization based on your application's requirements.
 
-If you can't find an image that is a good match for your use case, or if your build has dependencies that cannot be met with the regular catalog, [get in touch with us](https://www.chainguard.dev/contact?utm_source=docs) for alternative options.
+If you can't find an image that is a good match for your use case, or if your build has dependencies that cannot be met with the regular catalog, [get in touch with us](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) for alternative options.
 
 
 

@@ -119,21 +119,21 @@
 
 [[social]]
   name = "GitHub"
-  url = "https://github.com/chainguard-dev?utm_source=docs"
+  url = "https://github.com/chainguard-dev?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
   weight = 10
   [social.params]
       icon = "github.svg"
 
 [[social]]
   name = "X"
-  url = "https://twitter.com/chainguard_dev?utm_source=docs"
+  url = "https://twitter.com/chainguard_dev?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
   weight = 20
   [social.params]
     icon = "x.svg"        
 
 [[social]]
   name = "YouTube"
-  url = "https://www.youtube.com/channel/UCJYCfj6ZMdyeinWMm_yxwaA?utm_source=docs"
+  url = "https://www.youtube.com/channel/UCJYCfj6ZMdyeinWMm_yxwaA?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
   weight = 30
   [social.params]
     icon = "youtube.svg"  
@@ -141,7 +141,7 @@
 
 [[social]]
   name = "LinkedIn"
-  url = "https://www.linkedin.com/company/chainguard-dev?utm_source=docs"
+  url = "https://www.linkedin.com/company/chainguard-dev?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
   weight = 40
   [social.params]
     icon = "linkedin.svg"
@@ -153,25 +153,25 @@
 
 [[footer]]
   name = "Chainguard Containers"
-  url = "https://www.chainguard.dev/containers?utm_source=docs"
+  url = "https://www.chainguard.dev/containers?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
   weight = 1
   parent = "products"
 
 [[footer]]
   name = "Chainguard Libraries"
-  url = "https://www.chainguard.dev/libraries?utm_source=docs"
+  url = "https://www.chainguard.dev/libraries?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
   weight = 2
   parent = "products"
 
 [[footer]]
   name = "Chainguard VMs"
-  url = "https://www.chainguard.dev/vms?utm_source=docs"
+  url = "https://www.chainguard.dev/vms?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
   weight = 3
   parent = "products"
 
 [[footer]]
   name = "Images Directory"
-  url = "https://images.chainguard.dev/?utm_source=docs"
+  url = "https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
   weight = 4
   parent = "products"
 
@@ -182,43 +182,43 @@
 
 [[footer]]
   name = "Container Image Security"
-  url = "https://chainguard.dev/solutions/container-image-security?utm_source=docs"
+  url = "https://chainguard.dev/solutions/container-image-security?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
   weight = 1
   parent = "why"
 
 [[footer]]
   name = "Vulnerability Remediation"
-  url = "https://chainguard.dev/solutions/vulnerability-remediation?utm_source=docs"
+  url = "https://chainguard.dev/solutions/vulnerability-remediation?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
   weight = 2
   parent = "why"
 
 [[footer]]
   name = "Compliance and Risk Mitigation"
-  url = "https://chainguard.dev/solutions/compliance-and-risk-mitigation?utm_source=docs"
+  url = "https://chainguard.dev/solutions/compliance-and-risk-mitigation?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
   weight = 3
   parent = "why"
 
 [[footer]]
   name = "Software Supply Chain Security"
-  url = "https://chainguard.dev/solutions/software-supply-chain-security?utm_source=docs"
+  url = "https://chainguard.dev/solutions/software-supply-chain-security?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
   weight = 4
   parent = "why"
 
 [[footer]]
   name = "AI/ML Security"
-  url = "https://get.chainguard.dev/ai-images?utm_source=docs"
+  url = "https://get.chainguard.dev/ai-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
   weight = 5
   parent = "why"
 
 [[footer]]
   name = "FedRAMP"
-  url = "https://www.chainguard.dev/solutions/fedramp?utm_source=docs"
+  url = "https://www.chainguard.dev/solutions/fedramp?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
   weight = 6
   parent = "why"
 
 [[footer]]
   name = "PCI"
-  url = "https://www.chainguard.dev/solutions/pci?utm_source=docs"
+  url = "https://www.chainguard.dev/solutions/pci?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
   weight = 7
   parent = "why"
 
@@ -230,14 +230,14 @@
 
 [[footer]]
   name = "Customer Stories"
-  url = "https://chainguard.dev/customers?utm_source=docs"
+  url = "https://chainguard.dev/customers?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
   weight = 1
   parent = "customers"
 
 
 [[footer]]
   name = "Chainguard Love"
-  url = "https://chainguard.dev/chainguard-love?utm_source=docs"
+  url = "https://chainguard.dev/chainguard-love?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
   weight = 2
   parent = "customers"
 
@@ -249,43 +249,43 @@
 
 [[footer]]
   name = "About Us"
-  url = "https://chainguard.dev/about-us?utm_source=docs"
+  url = "https://chainguard.dev/about-us?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
   weight = 1
   parent = "company"
 
 [[footer]]
   name = "Pricing"
-  url = "https://www.chainguard.dev/pricing?utm_source=docs"
+  url = "https://www.chainguard.dev/pricing?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
   weight = 2
   parent = "company"
 
 [[footer]]
   name = "Contact Us"
-  url = "https://www.chainguard.dev/contact?utm_source=docs"
+  url = "https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
   weight = 3
   parent = "company"
 
 [[footer]]
   name = "Open Source"
-  url = "https://chainguard.dev/open-source?utm_source=docs"
+  url = "https://chainguard.dev/open-source?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
   weight = 4
   parent = "company"
 
 [[footer]]
   name = "Careers"
-  url = "https://chainguard.dev/careers?utm_source=docs"
+  url = "https://chainguard.dev/careers?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
   weight = 5
   parent = "company"
 
 [[footer]]
   name = "Newsroom"
-  url = "https://chainguard.dev/newsroom?utm_source=docs"
+  url = "https://chainguard.dev/newsroom?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
   weight = 6
   parent = "company"
 
 [[footer]]
   name = "Legal"
-  url = "https://www.chainguard.dev/legal/acceptable-use-policy?utm_source=docs"
+  url = "https://www.chainguard.dev/legal/acceptable-use-policy?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
   weight = 7
   parent = "company"
 
@@ -297,19 +297,19 @@
 
 [[footer]]
   name = "Unchained Blog"
-  url = "https://chainguard.dev/unchained?utm_source=docs"
+  url = "https://chainguard.dev/unchained?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
   weight = 1
   parent = "resources"
 
 [[footer]]
   name = "Events"
-  url = "https://chainguard.dev/events?utm_source=docs"
+  url = "https://chainguard.dev/events?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
   weight = 2
   parent = "resources"
 
 [[footer]]
   name = "Trust Center"
-  url = "https://security.chainguard.dev/?utm_source=docs"
+  url = "https://security.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
   weight = 3
   parent = "resources"
 

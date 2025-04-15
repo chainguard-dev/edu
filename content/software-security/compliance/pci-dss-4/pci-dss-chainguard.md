@@ -55,4 +55,4 @@ Chainguard Images are carefully engineered to contain low-to-no CVEs. Organizati
 - (Current article) How Chainguard Can Help With CMMC 2.0
 
 
-**[Get started with Chainguard FIPS Images today!](https://images.chainguard.dev/?category=fips?utm_source=docs)**
+**[Get started with Chainguard FIPS Images today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**

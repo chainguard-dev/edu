@@ -18,7 +18,7 @@ The Chainguard Registry provides public access to all public Chainguard Containe
 
 While all public Chainguard Containers are freely available, logging in with a Chainguard account and authenticating when pulling from the registry provides a mechanism for Chainguard to contact you if there are any current or known upcoming issues with images you are pulling.
 
-If you would like to learn more about **Chainguard Containers**, you can review our [documentation](/chainguard/chainguard-images/overview/), and you can request further information through our [inquiry form](https://www.chainguard.dev/contact?utm_source=docs).
+If you would like to learn more about **Chainguard Containers**, you can review our [documentation](/chainguard/chainguard-images/overview/), and you can request further information through our [inquiry form](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
 
 ## Status
 
