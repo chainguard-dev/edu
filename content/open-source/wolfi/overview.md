@@ -41,7 +41,7 @@ Wolfi enables Chainguard to solve the software supply chain security problem fro
 
 This site's [Wolfi section](/open-source/wolfi/) contains full information on Wolfi and how to build Wolfi packages, but if you
 would like to quickly review how to work with Wolfi, try the [wolfi-base
-image](https://images.chainguard.dev/directory/image/wolfi-base/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-open-source-wolfi-overview). You can run it with:
+image](https://images.chainguard.dev/directory/image/wolfi-base/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-open-source-wolfi-overview). You can run it with:
 
 ```sh
 docker run -it cgr.dev/chainguard/wolfi-base

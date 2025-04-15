@@ -29,7 +29,7 @@ tutorials: [
   {
     title: "Wolfi Image",
     description: "Wolfi-base Chainguard Image reference",
-    url: "https://images.chainguard.dev/directory/image/wolfi-base/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-open-source-wolfi"
+    url: "https://images.chainguard.dev/directory/image/wolfi-base/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-open-source-wolfi"
   },
   {
     title: "Creating Wolfi Images",

@@ -234,7 +234,7 @@ docker run -it cgr.dev/chainguard/python:latest-dev echo "in a shell"
 /usr/bin/python: can't open file '//echo': [Errno 2] No such file or directory
 ```
 
-Other images, such as our [WordPress container images](https://images.chainguard.dev/directory/image/wordpress/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrations-overview), will have a different entrypoint behavior in their `-dev` variant to allow for customization and to facilitate migration from other base images. It's important to always read the image's documentation to understand how the entrypoint works, and if there are any major differences from other images you may be used to work with.
+Other images, such as our [WordPress container images](https://images.chainguard.dev/directory/image/wordpress/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrations-overview), will have a different entrypoint behavior in their `-dev` variant to allow for customization and to facilitate migration from other base images. It's important to always read the image's documentation to understand how the entrypoint works, and if there are any major differences from other images you may be used to work with.
 
 #### Containers don't run as root by default
 

@@ -121,7 +121,7 @@ redis:7@sha256:01afb31d6d633451d84475ff3eb95f8c48bf0ee59ec9c948b161adb4da882053
 
 [Frizbee](https://github.com/stacklok/frizbee), a tool from Stacklok, will update image references to the most up-to-date digest. For the above example, it will ask the registry for the digest of the `cgr.dev/chainguard/wolfi-base:latest` image and update it if it doesn't match.
 
-At Chainguard, we take a similar approach with the [digestabot](https://www.chainguard.dev/unchained/keep-your-chainguard-images-up-to-date-with-digestabot?utm_source=blog&utm_medium=website&utm_campaign=FY25-EC-Blog_sourced) tool. [Digestabot is a GitHub action](https://github.com/chainguard-dev/digestabot) that will look up digests in the above format and open a PR to update them.
+At Chainguard, we take a similar approach with the [digestabot](https://www.chainguard.dev/unchained/keep-your-chainguard-images-up-to-date-with-digestabot?utm_source=blog&utm_medium=referral&utm_campaign=FY25-EC-Blog_sourced) tool. [Digestabot is a GitHub action](https://github.com/chainguard-dev/digestabot) that will look up digests in the above format and open a PR to update them.
 
 ### Dependabot
 
