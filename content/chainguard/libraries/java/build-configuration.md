@@ -4,7 +4,7 @@ linktitle: "Build Configuration"
 description: "Configuring Chainguard Libraries for Java on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2025-04-07T14:11:00+00:00
+lastmod: 2025-04-21T13:22:00+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java"]
 menu:
@@ -82,7 +82,7 @@ rm -rf ~/.m2/repository
 
 ### Change Maven Configuration
 
-Before running a new build you must configure access to the Chainguard Libraries
+Before running a new build you must configure access to Chainguard Libraries
 for Java. If the administrator for your organization’s repository manager
 created a new repository or virtual repository or group repository, you must
 update your settings defined in `~/.m2/settings.xml`.
@@ -416,14 +416,132 @@ allprojects {
 }
 ```
 
+## Bazel
+
+[Bazel](https://bazel.build/) is a fast, scalable, and extensible build tool
+commonly used in large-scale projects.
+
+### Remove Bazel Caches
+
+Bazel uses a cache to store downloaded artifacts. When adopting Chainguard
+Libraries for Java, you must delete this cache to ensure that libraries are
+downloaded again. By default, the cache is located in the `.cache/bazel` on
+Linux or `/private/var/tmp/_bazel_$USER` on MacOS directory in your user's home
+directory. Use the following command to delete it:
+
+```shell
+bazel clean --expunge
+```
+
+The [Bazel documentation on output
+directories](https://bazel.build/remote/output-directories) contains further
+details.
+
+### Change Bazel Configuration
+
+Before running a new build, you must configure access to Chainguard Libraries
+for Java. If the administrator for your organization’s repository manager
+created a new repository or virtual repository, you must update your Bazel
+configuration to use the repository manager.
+
+Bazel uses `MODULE.bazel` files to define external dependencies as `artifacts`.
+You can configure a Maven repository for artifact retrieval using `repositories`
+from the
+[rules_jvm_external](https://github.com/bazel-contrib/rules_jvm_external) rule: 
+
+Following is an example configuration for a repository manager:
+
+```MODULE.bazel
+bazel_dep(name = "rules_jvm_external", version = "6.3")
+maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
+
+maven.install(
+    name = "maven",
+    # Example dependencies to retrieve
+    artifacts = [
+        "com.google.guava:guava:32.0.1-jre",
+        "org.slf4j:slf4j-api:2.0.5", 
+        "ch.qos.logback:logback-classic:1.4.7",
+    ],
+    repositories = [
+        # To use Chainguard Libraries for Java via a repository manager:
+        "https://repo.example.com/repository/chainguard-maven/",
+    ],
+    # Uncomment and configure authentication if needed:
+    # auth = {
+    #     "https://repo.example.com/repository/chainguard-maven/": {
+    #         "type": "basic",
+    #         "username": "YOUR_USERNAME_FOR_REPOSITORY_MANAGER", 
+    #         "password": "YOUR_PASSWORD",
+    #     },
+    # },
+)
+
+use_repo(maven, "maven")
+```
+
+Example URLs for repository managers:
+
+* Cloudsmith: https://dl.cloudsmith.io/basic/exampleorg/chainguard-maven/maven/
+* JFrog Artifactory: https://example.jfrog.io/artifactory/chainguard-maven/
+* Sonatype Nexus: https://repo.example.com:8443/repository/chainguard-maven/
+
+If your organization does not use a repository manager, you can configure the
+Chainguard Libraries for Java repository directly, and include the Maven Central
+repository as fallback. Replace the placeholders `CHAINGUARD_JAVA_IDENTITY_ID`
+and `CHAINGUARD_JAVA_TOKEN` with the credentials provided by Chainguard:
+
+```MODULE.bazel
+maven.install(
+    name = "maven",
+    # Example dependencies to retrieve
+    artifacts = [
+        "com.google.guava:guava:32.0.1-jre",
+        "org.slf4j:slf4j-api:2.0.5", 
+        "ch.qos.logback:logback-classic:1.4.7",
+    ],
+    
+    repositories = [
+        # To use Chainguard Libraries directly (requires credentials):
+        "https://libraries.cgr.dev/java/",
+        
+        # Use Maven Central as fallback
+        "https://repo1.maven.org/maven2/",
+    ],
+    auth = {
+         "https://libraries.cgr.dev/java/": {
+             "type": "basic",
+             "username": "CHAINGUARD_JAVA_IDENTITY_ID", 
+             "password": "CHAINGUARD_JAVA_TOKEN",
+         },
+    },
+)
+```
+
+Ensure that the Chainguard repository is listed before any other repositories to
+prioritize it for artifact retrieval. 
+
+For more complex Bazel setups, you can use a `.netrc` file containing the
+credentials:
+
+```
+machine libraries.cgr.dev
+login CHAINGUARD_JAVA_IDENTITY_ID
+password CHAINGUARD_JAVA_TOKEN
+```
+
+Refer to the [official Bazel documentation for
+rules_jvm_external](https://github.com/bazel-contrib/rules_jvm_external) for
+more detailed configuration options.
+
 ## Other Build Tools
 
 Other build tools such as [Apache Ant](https://ant.apache.org/) with the [Maven
 Artifact Resolver Ant Tasks](https://maven.apache.org/resolver-ant-tasks/),
-[sbt](https://www.scala-sbt.org/), [Bazel](https://bazel.build/),
-[Leiningen](https://leiningen.org/) and others use Maven or Gradle caches or
-similar approaches. Refer to the documentation of your specific tool and the
-preceding sections to determine how to remove any used caches.
+[sbt](https://www.scala-sbt.org/), [Leiningen](https://leiningen.org/) and
+others use Maven or Gradle caches or similar approaches. Refer to the
+documentation of your specific tool and the preceding sections to determine how
+to remove any used caches.
 
 These tools also include their own mechanisms to configure repositories for
 binary artifact retrieval. Consult the specific documentation and adjust your
