@@ -166,6 +166,13 @@
             "name": "architecture",
             "required": false,
             "type": "string"
+          },
+          {
+            "description": "Only return the most recently updated version of each package/architecture.",
+            "in": "query",
+            "name": "mostRecentlyUpdated",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
