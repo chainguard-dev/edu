@@ -57,48 +57,13 @@ Libraries for Java repository. The URL for the repository is:
 https://libraries.cgr.dev/java/
 ```
 
-The URL does not expose a browsable directory structure. However, if you know the
-location of any particular artifact you can use the login credentials and a set
-path URL to access a file.
-
 This Chainguard Libraries for Java repository uses the Maven repository format
 and only includes release artifacts of the libraries built by Chainguard from
 source. Snapshot versions are not available.
 
-For example, you can locate a Maven POM file on the Maven Central Repository:
-
-```
-https://repo1.maven.org/maven2/commons-io/commons-io/2.17.0/commons-io-2.17.0.pom
-```
-
-And then use the path composed from the Maven coordinates
-
-```
-commons-io/commons-io/2.17.0/commons-io-2.17.0.pom
-```
-
-And combine it with the URL for the Chainguard Libraries for Java repository to
-check for the presence of the same file:
-
-```
-https://libraries.cgr.dev/java/commons-io/commons-io/2.17.0/commons-io-2.17.0.pom
-```
-
-Use the [Maven Central Repository search](https://central.sonatype.com/) or
-[browse functionality](https://repo1.maven.org/maven2/) to locate artifacts of
-interest.
-
-If you use the URL directly in a browser, you have to provide the username and
-password to log in to the Chainguard repository to download the file.
-
-Use curl and specify the [username and password retrieved with
-chainctl](/chainguard/libraries/access/) for basic user authentication and the
-URL of the file to download and save the file with the original name:
-
-```
-curl --user "exampleusername:examplepassword" \
-  -O https://libraries.cgr.dev/java/commons-io/commons-io/2.17.0/commons-io-2.17.0.pom
-```
+The URL does not expose a browsable directory structure. However, if you know the
+location of any particular artifact you can use the login credentials and a set
+path URL to access a file.
 
 The Chainguard Libraries for Java repository does not include all artifacts from
 the Maven Central Repository and other repositories.
@@ -141,3 +106,49 @@ is strongly recommended.
 Alternatively, you can use the token for direct access from a build tool as
 discussed in [Build
 configuration](/chainguard/libraries/java/build-configuration/).
+
+<a id="java-repo-test">
+
+### Manual Testing
+
+You can manually download specific artifacts from the repository if you know the
+URL as determined by the identifying GAV coordinates for an artifact.
+
+For example, you can locate a Maven POM file on the Maven Central Repository:
+
+```
+https://repo1.maven.org/maven2/commons-io/commons-io/2.17.0/commons-io-2.17.0.pom
+```
+
+And then use the path composed from the Maven coordinates
+
+```
+commons-io/commons-io/2.17.0/commons-io-2.17.0.pom
+```
+
+And combine it with the URL for the Chainguard Libraries for Java repository to
+check for the presence of the same file:
+
+```
+https://libraries.cgr.dev/java/commons-io/commons-io/2.17.0/commons-io-2.17.0.pom
+```
+
+Use the [Maven Central Repository search](https://central.sonatype.com/) or
+[browse functionality](https://repo1.maven.org/maven2/) to locate artifacts of
+interest.
+
+If you use the URL directly in a browser, you have to provide the username and
+password to log in to the Chainguard repository to download the file.
+
+Use curl and specify the [username and password retrieved with
+chainctl](/chainguard/libraries/access/) for basic user authentication and the
+URL of the file to download and save the file with the original name:
+
+```
+curl --user "exampleusername:examplepassword" \
+  -O https://libraries.cgr.dev/java/commons-io/commons-io/2.17.0/commons-io-2.17.0.pom
+```
+
+[Use checksums of any file to
+verify](/chainguard/libraries/java/management/#java-verification) if it
+originates from the Chainguard repository.
