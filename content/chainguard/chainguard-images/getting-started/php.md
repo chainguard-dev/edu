@@ -17,7 +17,7 @@ weight: 045
 toc: true
 ---
 
-The PHP container images maintained by Chainguard include both development and production container images, suitable for building and running PHP workloads. The `latest-fpm` variant serves PHP applications over FastCGI, while the `latest` variant runs PHP applications from the command line.
+The PHP container images maintained by Chainguard include our standard, minimal images and development variants, both of which are suitable for building and running PHP workloads. The `latest-fpm` variant serves PHP applications over FastCGI, while the `latest` variant runs PHP applications from the command line.
 
 In this guide, we'll set up a demo and demonstrate how you can use Chainguard Containers to develop, build, and run PHP applications.
 
@@ -126,7 +126,7 @@ In the next step, you'll build the application in a multi-stage Dockerfile.
 
 ## 2. Building a Distroless Container for the Application
 
-We'll now build a distroless container for the application. To be able to install dependencies with Composer, our build will consist of **two** stages. First, we'll build the application using the `dev` image variant, a Wolfi-based image that includes Composer and other useful tools for development. Then, we'll create a separate stage for the final container. The resulting container will be based on the distroless PHP Wolfi image, which means it doesn't come with Composer or even a shell.
+We'll now build a distroless container for the application. To be able to install dependencies with Composer, our build will consist of **two** stages. First, we'll build the application using the development variant, a Wolfi-based image that includes Composer and other useful tools for development. Then, we'll create a separate stage for the final container. The resulting container will be based on the distroless PHP Wolfi image, which means it doesn't come with Composer or even a shell.
 
 For reference, here is the content of the included `Dockerfile`:
 
