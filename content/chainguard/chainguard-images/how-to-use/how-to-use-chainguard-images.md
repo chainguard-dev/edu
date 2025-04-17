@@ -96,7 +96,7 @@ Specifying the platform will ensure that you're using the desired container imag
 
 ### Running a Chainguard Container
 
-You can run a Chainguard Container with the `docker run` command. Note that because Chainguard Containers are minimalist containers, most of them ship without a shell or package manager. If you would like a shell, you can often use the development image, which is tagged as `:latest-dev`. For example, [Python](https://images.chainguard.dev/directory/image/python/overview?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images) has its development variant at `cgr.dev/chainguard/python:latest-dev`. Otherwise, you can work with Chainguard Containers in way similar to other images.
+You can run a Chainguard Container with the `docker run` command. Note that because Chainguard Containers are minimalist containers, most of them ship without a shell or package manager. If you would like a shell, you can often use the development image, which is tagged as `:latest-dev`. For example, [Python](https://images.chainguard.dev/directory/image/python/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images) has its development variant at `cgr.dev/chainguard/python:latest-dev`. Otherwise, you can work with Chainguard Containers in way similar to other images.
 
 Let's run the [Cosign Chainguard Container](https://images.chainguard.dev/directory/image/cosign/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images) to check its version.
 

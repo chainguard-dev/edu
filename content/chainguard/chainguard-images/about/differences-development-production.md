@@ -24,7 +24,7 @@ These variants are designed for development tasks such as building, testing, or 
 
 To benefit from the most minimal potential attack surface, we recommend using a multi-stage build that leverages the development container image as a builder for a distroless standard container image. However, development images are useful as they are throughout the development lifecycle. This article explains some of the key features of development container variants and how they differ from our standard container images and outlines ways these variants come together in creating a secure deployment.
 
-> **Note**: Any time this article mentions to Chainguard's "standard" container images, it's referring to our minimal, distroless container images. In the context of this article, any non-development variant is considered a "standard" container image.
+> **Note**: Any time this article mentions Chainguard's "standard" container images, it's referring to our minimal, distroless container images. In the context of this article, any non-development variant is considered a "standard" container image.
 
 ## Chainguard Container Security
 
