@@ -1,5 +1,5 @@
 ---
-title: "Migrating to PHP Chainguard Images"
+title: "Migrating to PHP Chainguard Containers"
 linktitle: "PHP"
 aliases:
 - /chainguard/migration-guides/migrating-php/
@@ -16,16 +16,17 @@ weight: 005
 toc: true
 ---
 
-Chainguard Images are built on top of [Wolfi](/open-source/wolfi/), a Linux _undistro_ designed specifically for containers. Our PHP images have a minimal design that ensures a smaller attack surface, which results in smaller images [with few to zero](/chainguard/chainguard-images/vuln-comparison/php/) CVEs. Nightly builds deliver fresh images whenever updated packages are available, which also helps to reduce the toil of manually patching CVEs in PHP images.
+Chainguard Containers are built on top of [Wolfi](/open-source/wolfi/), a Linux _undistro_ designed specifically for containers. Our PHP images have a minimal design that ensures a smaller attack surface, which results in smaller images [with few to zero](/chainguard/chainguard-images/vuln-comparison/php/) CVEs. Nightly builds deliver fresh images whenever updated packages are available, which also helps to reduce the toil of manually patching CVEs in PHP images.
 
 This article will assist you in the process of migrating your existing PHP Dockerfiles to leverage the benefits of Chainguard Images, including a smaller attack surface and a more secure application footprint.
+
 
 ## Chainguard PHP Images
 Chainguard offers multiple PHP images and variants catering to distinct use cases. In addition to the regular PHP image that includes CLI and FPM variants, we offer a dedicated [Laravel](https://images.chainguard.dev/directory/image/laravel/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-php) image designed for Laravel applications.
 
-Each variant comes in two flavors: a minimal runtime image (distroless) and a builder image distinguished by the `-dev` suffix (e.g., `latest-dev`).
+Each variant comes in two flavors: a minimal runtime image (distroless) and a development variant distinguished by the `-dev` suffix (e.g., `latest-dev`).
 
-In a nutshell, distroless images don't include a package manager or a shell, being used exclusively as runtimes to keep the environment to a minimum. Builder images, on the other hand, include packages such as `apk` and `composer` for building PHP applications. Builder images can be used _as-is_ to provide a more straightforward migration path. Whenever possible, though, we encourage users to combine both images in a multi-stage environment to build a final distroless image that will function strictly as an application runtime.
+In a nutshell, distroless images don't include a package manager or a shell, being used exclusively as runtimes to keep the environment to a minimum. Development variants, on the other hand, include packages such as `apk` and `composer` for building PHP applications. Development variants can be used _as-is_ to provide a more straightforward migration path. Whenever possible, though, we encourage users to combine both images in a multi-stage environment to build a final distroless image that will function strictly as an application runtime.
 
 For a deeper exploration of distroless images and their differences from standard base images, refer to the guide on [Getting Started with Distroless images](/chainguard/chainguard-images/getting-started-distroless/).
 
@@ -33,7 +34,7 @@ For a deeper exploration of distroless images and their differences from standar
 When migrating from distributions that are not based on the `apk` ecosystem, you'll need to update your Dockerfile accordingly. Our high-level guide on [Migrating to Chainguard Images](/chainguard/migration/migrating-to-chainguard-images/) contains details about distro-based migration and package compatibility when migrating from Debian, Ubuntu, and Red Hat UBI base images.
 
 ## Installing PHP Extensions
-Wolfi offers several PHP extensions as optional packages you can install with `apk`. Because PHP extensions are system-level packages, they require `apk` which is only available in our **builder** images. The following extensions are already included within all Chainguard PHP Image variants:
+Wolfi offers several PHP extensions as optional packages you can install with `apk`. Because PHP extensions are system-level packages, they require `apk` which is only available in our development image variants. The following extensions are already included within all Chainguard PHP Image variants:
 
 - `php-mbstring`
 - `php-curl`
@@ -200,12 +201,12 @@ http {
 ## Migrating Laravel Applications to use Chainguard Images
 Chainguard has a dedicated [Laravel image](https://images.chainguard.dev/directory/image/laravel/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-php) designed for applications built on top of the [Laravel](https://laravel.com) PHP Framework. This image is based on the `php:latest-fpm` variant, with additional extensions required by Laravel. Migration should follow the same steps described in previous sections, with the `laravel:latest-dev` variant as builder and `laravel:latest` as the distroless variant of this image.
 
-In addition to including extensions required by Laravel by default, the image includes a **laravel** system user that facilitates running `composer` and `artisan` commands from a host environment, which enables users to create and develop Laravel applications with the `-dev` variant of this image. Check the section on [Developing Laravel Applications](#developing-laravel-applications) for more information on how to use the builder variant of the Laravel image for development environments.
+In addition to including extensions required by Laravel by default, the image includes a **laravel** system user that facilitates running `composer` and `artisan` commands from a host environment, which enables users to create and develop Laravel applications with the `-dev` variant of this image. Check the section on [Developing Laravel Applications](#developing-laravel-applications) for more information on how to use the development variant of the Laravel image for development environments.
 
-## Using Builder Images for Development
-Our PHP builder images are minimal yet versatile images that include `apk` and `composer`. You can use these images to create and develop PHP applications on a containerized development environment.
+## Using Development Images
+Our PHP development images are minimal yet versatile images that include `apk` and `composer`. You can use these images to create and develop PHP applications on a containerized development environment.
 
-Builder images can be identified by the `-dev` suffix (e.g: `php:latest-dev`). You can use them to execute Composer commands from a Dockerfile or directly from the command line with `docker run`. This allows users to run Composer without having to install PHP on their host system.
+Development images can be identified by the `-dev` suffix (e.g: `php:latest-dev`). You can use them to execute Composer commands from a Dockerfile or directly from the command line with `docker run`. This allows users to run Composer without having to install PHP on their host system.
 
 ### Running Composer
 
