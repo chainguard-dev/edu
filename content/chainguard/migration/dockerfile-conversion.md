@@ -1,8 +1,8 @@
 ---
-title: "Dockerfile Conversion Tool"
-linktitle: "Dockerfile Conversion Tool"
+title: "Dockerfile Converter Tool"
+linktitle: "Dockerfile Converter Tool"
 type: "article"
-description: "Early Access User Guide for Chainguard's Dockerfile Conversion Tool (dfc)"
+description: "Early Access User Guide for Chainguard's Dockerfile Converter Tool (dfc)"
 date: 2025-03-18T15:22:20+01:00
 lastmod: 2025-03-18T15:22:20+01:00
 draft: false
@@ -15,7 +15,7 @@ weight: 030
 toc: true
 ---
 
-Our [Dockerfile Conversion (dfc) tool](https://github.com/chainguard-dev/dfc) was designed to facilitate the process of porting existing Dockerfiles to use Chainguard Images. The following platforms are currently supported:
+Our [Dockerfile Converter (dfc) tool](https://github.com/chainguard-dev/dfc) was designed to facilitate the process of porting existing Dockerfiles to use Chainguard Images. The following platforms are currently supported:
 
 * Alpine (`apk`)
 * Debian / Ubuntu (`apt`, `apt-get`)
