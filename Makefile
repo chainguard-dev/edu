@@ -1,7 +1,7 @@
 cfg?=apko.yaml
 arch := $(shell uname -m)
 
-.PHONY: apko-build dev-container
+.PHONY: apko-build dev-container chaindocs
 apko-build:
 	docker run --rm -v $$PWD:/work -it cgr.dev/chainguard/apko:latest build \
 	--arch              $(arch) \
@@ -29,3 +29,13 @@ else
 	-it --user root \
 	academy.local:latest-$(arch)
 endif
+
+chaindocs:
+	@echo "Building Chaindocs..."
+	docker  build tools/chaindocs -t chaindocs.local
+	@echo "Running Chaindocs..."
+	docker run --rm \
+	-v $$PWD/content:/app/content \
+	-e CONTENT_DIR=/app/content \
+	-it --entrypoint /bin/sh \
+	chaindocs.local
