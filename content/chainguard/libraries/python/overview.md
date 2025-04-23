@@ -60,9 +60,8 @@ curl --user "exampleusername:examplepassword" \
   -O https://libraries.cgr.dev/python/flask/flask-3.1.0.tar.gz
 ```
 
-The Chainguard Libraries for Python repository does not include all packages from PyPI. Chainguard Libraries for Python are rebuilt from source and require that source be available. Therefore, packages that do not provide a valid source URL cannot be rebuilt within the Chainguard Factory. In addition, initial package rebuild coverage for Chainguard Libraries for Python is not comprehensive. The number of libraries rebuilt within the Chainguard Factory are growing fast, and you can request that a specific package be prioritized as we grow the index.
+The Chainguard Libraries for Python repository does not include all packages from PyPI. Chainguard Libraries for Python are rebuilt from source and require that source be available. Therefore, packages that do not provide a valid source URL cannot be rebuilt within the Chainguard Factory. In addition, initial package rebuild coverage for Chainguard Libraries for Python is not comprehensive. 
 
-Since coverage within Chainguard Libraries for Python is not comprehensive, you may consider setting the PyPI public package index as a fallback within your artifact repository manager. In this case, failed requests are logged by Chainguard and, where possible, the package will be prioritized for rebuild from source. Typically, access is [configured globally on a repository manager for your
-organization](/chainguard/libraries/python/global-configuration/).
+Since coverage within Chainguard Libraries for Python is not comprehensive, you should strongly consider setting the PyPI public package index as a fallback within your artifact repository manager. In this case, failed requests are logged by Chainguard and, where possible, the package will be prioritized for rebuild from source. Typically, access is [configured globally on a repository manager for your organization](/chainguard/libraries/python/global-configuration/).
 
-Alternatively, you can use the token for direct access from a build tool as discussed in [Build configuration](/chainguard/libraries/python/build-configuration/).
+Alternatively, you can use the token for direct access to the Chainguard Libraries for Python index as discussed in [Build configuration](/chainguard/libraries/python/build-configuration/).
