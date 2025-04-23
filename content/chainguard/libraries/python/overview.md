@@ -34,13 +34,11 @@ The URL does not expose a browsable directory structure. However, if you know th
 
 This Chainguard Libraries for Python repository uses the PyPI repository format and only includes release artifacts of the libraries built by Chainguard from source. 
 
-For example, you can locate a Maven POM file on the Maven Central Repository:
+For example, you can locate a `tar.gz` file on PyPI:
 
 ```
 https://files.pythonhosted.org/packages/source/f/flask/flask-3.1.0.tar.gz
 ```
-
-And then use the path composed from the Maven coordinates
 
 Combine it with the URL for the Chainguard Libraries for Python repository to check for the presence of the same file:
 
