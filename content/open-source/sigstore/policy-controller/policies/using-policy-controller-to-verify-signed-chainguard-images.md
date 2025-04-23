@@ -98,6 +98,7 @@ spec:
             subject: https://github.com/chainguard-images/images/.github/workflows/release.yaml@refs/heads/main
       ctlog:
         url: https://rekor.sigstore.dev
+      name: authority-0
 ```
 
 The `glob: cgr.dev/chainguard/**` line, working in combination with the `authorities` section, will allow any image in the `cgr.dev/chainguard` image registry that has a [keyless signature](https://docs.sigstore.dev/cosign/signing/overview/) to be admitted into your cluster.
