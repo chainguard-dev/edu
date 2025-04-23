@@ -67,15 +67,7 @@ Next, configure an upstream proxy for the PyPI Repository:
 
 ### Build tool access
 
-The following steps allow you to determine the URL and authentication details for accessing the repository:
-
-1. Select the **Packages** tab.
-1. Select **Push/Pull Packages**.
-1. Choose the **PyPI** format.
-1. Copy the value in the `<url>` tag from the XML snippet with the `<repositories>` entry. For example, `https://dl.cloudsmith.io/basic/exampleorg/chainguard-python/python/` with `exampleorg` replaced with the name of your organization. Note the URL contains both the name of the repository `chainguard-python` as well as `python` as an identifier for the format.
-1. Select your desired authentication method (either *Default* or *API Key*). Copy the provided username and password values for configuration of tools such as `pip` or `uv`. You can perform this step multiple times if you're using different authentication methods for different tools.
-
-You are now ready to [configure your build tools.]((/chainguard/libraries/python/build-configuration)) using this information. After building a fiirst test project, confirm all libraries retrieved from Chainguard are tagged with the name of the upstream proxy.
+See the page on [build tool configuration for Chainguard Libraries for Python](/chainguard/libraries/python/build-configuration.md#cloudsmith) for information on accessing credentials and setting up build tools.
 
 <a name="artifactory"></a>
 
@@ -118,22 +110,9 @@ Combine the two repositories in a new virtual repository:
 
 ### Build tool access
 
-The following steps allow you to determine the URL and authentication details for accessing the repository using your build tools:
-
-1. Select **Administration** in the top navigation bar.
-1. Select **Repositories** in the left hand navigation.
-1. Select the **Virtual** tab in the repositories view.
-1. Locate the *chainguard-python** repository row and select the elipsis (**...**) in the last column on the right.
-1. Select **Set Me Up** in the dialog.
-1. Select **Generate Token & Create Instructions**
-1. Copy the generated token value to use as the password for authentication.
-1. Select **Generate Settings**.
-1. Copy the value from one of the *URL* fields. The are all identical. For example, `https://exampleorg.jfrog.io/artifactory/chainguard-python` with `exampleorg`. 
-
-Use the URL of the virtual repository in the [build configuration](/chainguard/libraries/python/build-configuration) and build a test project. In a working setup, the chainguard remote repository contains all libraries retrieved from Chainguard.
+See the page on [build tool configuration for Chainguard Libraries for Python](/chainguard/libraries/python/build-configuration.md#artifactory) for information on accessing credentials and setting up build tools.
 
 <a name="nexus"></a>
-
 ## Sonatype Nexus Repository
 
 [Sonatype Nexus Repository](https://www.sonatype.com/products/sonatype-nexus-repository) allows for merging multiple remote repositories as a repository group. The below instructions for  are based on the [Nexus documentation for PyPI](https://help.sonatype.com/en/pypi-repositories.html) 
@@ -173,10 +152,4 @@ Finally, create a new repository group and add the two repositories:
 
 ### Build tool access
 
-The following steps allow you to find the URL and authentication details for accessing the repository group:
-
-1. Click **Browse** in the **Welcome** view or the browse icon (cube) in the top navigation bar.
-1. Locate the **URL** column for the *chainguard-python* repository group and press **copy**. The URL should take the following format: `https://repo.example.com/repository/chainguard-python/` .
-1. Use your configured username and password unless **Security** - **Anonymous Access** - **Access** - **Allow anonymous users to access the server** is activated. Details vary based on your configured authentication system.
-
-Use the copied URL of the repository group [to configure your build tools of choice](/chainguard/libraries/python/build-configuration) and build a test project. In a working setup the `chainguard` proxy repository contains all libraries retrieved from the Chainguard Libraries for Python package index.
+See the page on [build tool configuration for Chainguard Libraries for Python](/chainguard/libraries/python/build-configuration.md#nexus) for information on accessing credentials and setting up build tools.

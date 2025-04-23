@@ -1,392 +1,123 @@
 ---
 title: "Build Configuration"
 linktitle: "Build Configuration "
-description: "Configuring Chainguard Libraries for Java on your workstation"
+description: "Configuring Chainguard Libraries for Python on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
 lastmod: 2025-04-07T14:11:00+00:00
 draft: false
-tags: ["Chainguard Libraries", "Java"]
+tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
-    parent: "java"
+    parent: "python"
 weight: 053
 toc: true
 ---
 
-The configuration for the use of Chainguard Libraries depends on your build
-tools, continuous integration, and continuous deployment setups
+The configuration for the use of Chainguard Libraries depends on how you've set up your build tools and CI/CD workflows. At a high level, adopting the use of Chainguard Libraries in your development, build, and deployment workflows involves the following steps:
 
-At a high level adopting the use of Chainguard Libraries consists of the
-following steps:
+- If you or an administrator have not done so already, [set up your organization's repository manager to use Chainguard Libraries for Python](/chainguard/libraries/python/global-configuration).
+- Log into your organization's repository manager and retrieve credentials for the build tool you are configuration.
+- Configure your development or build tool with this information.
+- Remove local caches on workstations and CI/CD pipelines. This step ensures that dependencies are preferentially sourced from Chainguard Libraries.
+- Finally, confirm that your development tools and CI/CD workflows are correctly ingesting dependencies from Chainguard Libraries.
 
-* Remove local caches on workstations and CI/CD pipelines. This step ensures that
-  any libraries that were already sourced from other repositories are requested
-  again and the version from Chainguard Libraries is used instead of other
-  binaries.
-* Change configuration to access Chainguard Libraries via your repository
-  manager after the changes from the [global
-  configuration](/chainguard/libraries/java/global-configuration) are
-  implemented.
+These changes must be performed on all workstations of individual developers and other engineers running relevant application builds. They must also be performed on any build tool such as Jenkins, TeamCity, GitHub Actions, or other infrastructure that draws in dependencies.
 
-These changes must be performed on all workstations of individual developers and
-other engineers running relevant application builds. They must also be performed
-on any build server such as Jenkins, TeamCity, GitHub or other infrastructure
-that builds the applications or otherwise downloads and uses relevant libraries.
+## Retrieving Authentication Credentials
 
-## Cloudsmith
+TO configure any build tool, you must first access credentials from your organization's repository manager.
 
-Build configuration to retrieve artifacts from Cloudsmith requires you to
-authenticate. Use your username and password for Cloudsmith in your build tool
-configuration.
+<a name="cloudsmith"></a>
+### Cloudsmith
 
-Follow the steps from the [global
-configuration](/chainguard/libraries/java/global-configuration#cloudsmith) to
-determine URL and authentication details.
+The following steps allow you to determine the URL and authentication details for accessing your organization's Cloudsmith repository manager.
 
-## JFrog Artifactory
+1. Log into Cloudsmith.
+1. Select the **Packages** tab.
+1. Select **Push/Pull Packages**.
+1. Choose the **PyPI** format.
+1. Copy the value in the `<url>` tag from the XML snippet with the `<repositories>` entry. For example, `https://dl.cloudsmith.io/basic/exampleorg/chainguard-python/python/` with `exampleorg` replaced with the name of your organization. Note the URL contains both the name of the repository `chainguard-python` as well as `python` as an identifier for the format.
+1. Select your desired authentication method (either *Default* or *API Key*). Copy the provided username and password values for configuration of tools. You can perform this step multiple times if you're using different authentication methods for different tools.
 
-Build configuration to retrieve artifacts from Artifactory typically requires
-you to authenticate and use the identity token in the configuration of your
-build tool.
+<a name="artifactory"></a>
+### JFrog Artifactory
 
-Follow the steps from the [global
-configuration](/chainguard/libraries/java/global-configuration#artifactory) to
-determine URL and authentication details.
+The following steps allow you to determine the identity token and URL for accessing your organization's JFrog Artifactory repository manager.
 
+1. Select **Administration** in the top navigation bar.
+1. Select **Repositories** in the left hand navigation.
+1. Select the **Virtual** tab in the repositories view.
+1. Locate the *chainguard-python** repository row and select the elipsis (**...**) in the last column on the right.
+1. Select **Set Me Up** in the dialog.
+1. Select **Generate Token & Create Instructions**
+1. Copy the generated token value to use as the password for authentication.
+1. Select **Generate Settings**.
+1. Copy the value from one of the *URL* fields. The are all identical. For example, `https://exampleorg.jfrog.io/artifactory/chainguard-python` with `exampleorg`. 
+
+<a name="nexus"></a>
 ## Sonatype Nexus Repository
 
-Build configuration to retrieve artifacts from Nexus may require authentication.
-Use your username and password for Nexus in your build tool configuration.
+The following steps allow you to determine the URL and authentication details for accessing your organization's Sonatype Nexus repository group.
 
-Follow the steps from the [global
-configuration](/chainguard/libraries/java/global-configuration#nexus) to
-determine URL and authentication details.
+1. Click **Browse** in the **Welcome** view or the browse icon (cube) in the top navigation bar.
+1. Locate the **URL** column for the *chainguard-python* repository group and press **copy**. The URL should take the following format: `https://repo.example.com/repository/chainguard-python/` .
+1. Use your configured username and password unless **Security** - **Anonymous Access** - **Access** - **Allow anonymous users to access the server** is activated. Details vary based on your configured authentication system.
 
-## Apache Maven
+## Configuring Build Tools
 
-[Apache Maven](https://maven.apache.org/) is the most widely used build tool in
-the Java ecosystem. 
+Once you have credentials and the index URL from your organization's repository manager, you're ready to set up specific build tools for local development or CI/CD.
 
-### Remove Maven Caches
+### `pip`
 
-Apache Maven uses a local cache of libraries. When adopting Chainguard Libraries
-for Java you must delete that local cache so that libraries are downloaded
-again. By default the cache, also known as the local repository, is located in a
-hidden `.m2/repository` directory in your user's home directory. Use the
-following command to delete it:
+The `pip` tool is the most widely used utility for installing Python packages. In this section, we'll use the credentials from your organization's repository manager to configure `pip` to ingest dependencies from Chainguard Libraries.
 
-```shell
-rm -rf ~/.m2/repository
+First, let's clear your local `pip` cache to ensure that packages are sourced from Chainguard Libraries for Python:
+
+```sh
+pip cache purge
 ```
 
-### Change Maven Configuration
+To install a package with `pip` one time (useful for testing your credentials), you can use the following command:
 
-Before running a new build you must configure access to the Chainguard Libraries
-for Java. If the administrator for your organization’s repository manager
-created a new repository or virtual repository or group repository, you must
-update your settings defined in `~/.m2/settings.xml`.
+To update `pip` to use our repository manager's URL globally, create or edit your `~/.pip/pip.conf` file . (You may need to create the `~/.pip` folder as well.) For example:
 
-A typical setup defines a global mirror (id `ecosystems`) for all artifacts and
-configures the URL of the repository group or virtual repository from your
-repository manager `https://repo.example.com/group/`. Since the group or virtual
-repository combines release and snapshot artifacts you must override the
-built-in `central` repository and its configuration in an automatically
-activated profile.
-
-
-```xml
-<settings>
-
-  <mirrors>
-    <mirror>
-      <!-- Set the identifier for the server credentials for repository manager access -->
-      <id>chainguard-maven</id>
-      <!--Send all requests to the repository manager -->
-      <mirrorOf>*</mirrorOf>
-      <url>https://repo.example.com/repository/group</url>
-      <!-- Cloudsmith example -->
-      <!-- <url>https://dl.cloudsmith.io/basic/exampleorg/chainguard-maven/maven/</url> -->
-      <!-- JFrog Artifactory example -->
-      <!-- <url>https://example.jfrog.io/artifactory/chainguard-maven/</url> -->
-      <!-- Sonatype Nexus example -->
-      <!-- <url>https://repo.example.com:8443/repository/chainguard-maven/</url> -->
-    </mirror>
-  </mirrors>
-
-  <!-- Activate repo manager and override central repo from Maven itself with invalid URLs -->
-  <activeProfiles>
-    <activeProfile>repo-manager</activeProfile>
-  </activeProfiles>
-  <profiles>
-    <profile>
-      <id>repo-manager</id>
-      <repositories>
-        <repository>
-          <id>central</id>
-          <url>http://central</url>
-          <releases>
-            <enabled>true</enabled>
-          </releases>
-          <snapshots>
-            <enabled>true</enabled>
-          </snapshots>
-        </repository>
-      </repositories>
-      <pluginRepositories>
-        <pluginRepository>
-          <id>central</id>
-          <url>http://central</url>
-          <releases>
-            <enabled>true</enabled>
-          </releases>
-          <snapshots>
-            <enabled>true</enabled>
-          </snapshots>
-        </pluginRepository>
-      </pluginRepositories>
-    </profile>
-  </profiles>
-
-</settings>
+```sh
+mkdir -p ~/.pip
+nano ~/.pip/pip.conf
 ```
 
-If your repository manager requires authentication, you must specify credentials
-for the server. The `id` value in the server element must match the `id` value
-in the mirror configuration - `chainguard-maven` in the example. The username
-and password values vary depending on the repository manager and the configured
-authentication, contact the administrator and refer to the [global configuration
-documentation](/chainguard/libraries/java/global-configuration).
-
-```xml
-<settings>
-...
-  <servers>
-    <server>
-      <id>chainguard-maven</id>
-      <username>YOUR_USERNAME_FOR_REPOSITORY_MANAGER</username>
-      <password>YOUR_PASSWORD</password>
-    </server>
-  </servers>
-</settings>
-```
-
-Note that you can use a secret manager application to populate the credentials
-for each user on their workstation as well as for service applications in your
-CI/CD pipelines into environment variables, for example `CG_JAVA_USERNAME` and
-`CG_JAVA_PASSWORD`. You can then use an identical server configuration, and
-therefore settings file, for all users:
-
-```xml
-<settings>
-...
-  <servers>
-    <server>
-      <id>chainguard-maven</id>
-      <username>${env.CG_JAVA_USERNAME}</username>
-      <password>${env.CG_JAVA_PASSWORD}</password>
-    </server>
-  </servers>
-</settings>
-```
-
-Refer to the [official documentation for the Maven settings
-file](https://maven.apache.org/settings.html) for more details.
-
-If the administrator only re-configured the existing repository group or virtual
-repository, you can trigger a build to initiate use of Chainguard Libraries for
-Java.
-
-If you are not using a repository manager at your organization, you can
-configure access to the Chainguard Libraries for Java repository directly in
-your settings or pom files. Note that the order of the repositories in these
-files is significant and you must configure the chainguard repository to be
-located on the top of the list.
-
-If you organization does not use a repository manager you can configure the
-Chainguard Libraries for Java repository. Ensure that the Chainguard
-repository is located above the necessary override for the built-in `central`
-repository and any other repositories.
-
-The following listing shows a complete `~/.m2/settings.xml` file with the
-desired configuration and placeholder values `CG_PULLTOKEN_USERNAME` and
-`CG_PULLTOKEN_PASSWORD` for the pull token detailed in [Chainguard Libraries
-access](/chainguard/libraries/access/):
-
-```xml
-<settings>
- <activeProfiles>
-    <activeProfile>chainguard-maven</activeProfile>
-  </activeProfiles>
-  <profiles>
-    <profile>
-      <id>chainguard-maven</id>
-      <repositories>
-        <repository>
-          <id>chainguard</id>
-          <url>https://libraries.cgr.dev/maven/</url>
-          <releases>
-            <enabled>true</enabled>
-          </releases>
-          <snapshots>
-            <enabled>false</enabled>
-          </snapshots>
-        </repository>
-        <repository>
-          <id>central</id>
-          <url>https://repo1.maven.org/maven2/</url>
-          <releases>
-            <enabled>true</enabled>
-          </releases>
-          <snapshots>
-            <enabled>false</enabled>
-          </snapshots>
-        </repository>
-      </repositories>
-      <pluginRepositories>
-        <pluginRepository>
-          <id>chainguard</id>
-          <url>https://libraries.cgr.dev/maven/</url>
-          <releases>
-            <enabled>true</enabled>
-          </releases>
-          <snapshots>
-            <enabled>false</enabled>
-          </snapshots>
-        </pluginRepository>
-        <pluginRepository>
-          <id>central</id>
-          <url>https://repo1.maven.org/maven2/</url>
-          <releases>
-            <enabled>true</enabled>
-          </releases>
-          <snapshots>
-            <enabled>false</enabled>
-          </snapshots>
-        </pluginRepository>
-      </pluginRepositories>
-    </profile>
-  </profiles>
-  <servers>
-    <server>
-      <id>chainguard</id>
-      <!-- pick up values from environment variables -->
-      <username>${env.CG_JAVA_USERNAME}</username>
-      <password>${env.CG_JAVA_PASSWORD}</password>
-      <!-- or use literal values -->
-      <!-- <username>CG_PULLTOKEN_USERNAME</username> -->
-      <!-- <password>CG_PULLTOKEN_PASSWORD</password> -->
-    </server>
-  </servers>
-</settings>
-```
-
-The preceding settings affects all projects built on the machine where the file
-is configured. Alternatively you can add the `repositories` and
-`pluginRepositories` to individual project `pom.xml` files. Authentication
-details must remain within the settings file.
-
-## Gradle
-
-[Gradle](https://gradle.org/) is a commonly used build tool in the Java
-ecosystem.
-
-### Remove Gradle Caches
-
-Gradle uses a local cache of libraries. When adopting Chainguard Libraries for
-Java you must delete that local cache so that libraries are downloaded again. By
-default the cache is located in a hidden `.gradle/.cache` directory in your
-users home directory. Use the following command to delete it:
-
-```shell
-rm -rf ~/.gradle/caches/
-```
-
-Gradle can also be configured to use a local Maven repository with a repository
-configuration in the global `init.gradle` or a project specific `build.gradle`
-file:
+Update this configuration file with the following, replacing `<repoistory-url>` with the URL provided by your repository manager:
 
 ```
-repositories {
-   ...
-    mavenLocal()    
-}
+[global]
+index-url = <repository-url>
 ```
 
-If this configuration is used, ensure to [delete the local Maven repository as
-well](#remove-maven-caches). 
-
-### Change Gradle Configuration
-
-Before running a new build you must configure access to the Chainguard Libraries
-for Java. If the administrator for your organization’s repository manager
-created a new repository or virtual repository or group repository, you must
-update your Gradle configuration. Artifact download is Gradle can be configured
-in an [init
-script](https://docs.gradle.org/current/userguide/init_scripts.html#sec:using_an_init_script)
-using the repositories definition. Each project can also [declare
-repositories](https://docs.gradle.org/current/userguide/declaring_repositories_basics.html)
-separately.
-
-A typical setup removes the direct reference to Maven Central `mavenCentral()`
-and any other repositories, and adds a replacement definition with the URL of the
-repository group or virtual repository from your repository manager
-`https://repo.example.com/group/` and any applicable authentication details.
+Note that updating this global configuration eaffects all projects built on the workstation. Alternately, if your project uses a `requirements.txt` file in projects, you can add the following to it to configure on a project-by-project basis:
 
 ```
-repositories {
-    maven {
-        url = uri("https://repo.example.com/group/")
-        credentials {
-            username = "YOUR_USERNAME_FOR_REPOSITORY_MANAGER"
-            password = "YOUR_PASSWORD"
-        }
-    }
-}
+--index-url <repository-url>
+package-name==version
 ```
 
-Example URLs for repository managers:
+### `uv`
 
-* Cloudsmith: `https://dl.cloudsmith.io/basic/exampleorg/chainguard-maven/maven/`
-* JFrog Artifactory: `https://example.jfrog.io/artifactory/chainguard-maven/`
-* Sonatype Nexus: `https://repo.example.com:8443/repository/chainguard-maven/`
+`uv` is an up-and-coming package and project manager for Python written in Rust.
 
-If your organization does not use a repository manager you can configure the
-Chainguard Libraries for Java repository with the credentials from [Chainguard
-Libraries access](/chainguard/libraries/access/) replacing the placeholders
-`CG_PULLTOKEN_USERNAME` and `CG_PULLTOKEN_PASSWORD`. Ensure that the Chainguard
-repository is located above the `mavenCentral` repository and any other
-repositories:
+To update yoru global configuration to use your organization's repository manager with `uv`, create or edit the `~/.config/uv/uv.toml` configuration file. (You may also need to create the `~/.config/uv/` folder first.) For example:
 
-```
-repositories {
-    maven {
-        url = uri("https://libraries.cgr.dev/maven/")
-        credentials {
-            username = "CG_PULLTOKEN_USERNAME"
-            password = "CG_PULLTOKEN_PASSWORD"
-        }
-    }
-    mavenCentral()
-}
+```sh
+mkdir -p ~/.config/uv
+nano ~/.config/uv/uv.toml
 ```
 
-## Other Build Tools
+Add the following to your `uv` global configuration file:
 
-Other build tools such as [Apache Ant](https://ant.apache.org/) with the [Maven
-Artifact Resolver Ant Tasks](https://maven.apache.org/resolver-ant-tasks/),
-[sbt](https://www.scala-sbt.org/), [Bazel](https://bazel.build/),
-[Leiningen](https://leiningen.org/) and others use Maven or Gradle caches or
-similar approaches. Refer to the documentation of your specific tool and the
-preceding sections to determine how to remove any used caches.
+```toml
+[[tool.uv.index]]
+name = "<repository-manager-name>"
+url = "<repository-url>"
+```
 
-These tools also include their own mechanisms to configure repositories for
-binary artifact retrieval. Consult the specific documentation and adjust your
-configuration to use your repository manager and newly created repository group
-or virtual repository.
-
-Example URLs for repository managers:
-
-* Cloudsmith: `https://dl.cloudsmith.io/basic/exampleorg/chainguard-maven/maven/`
-* JFrog Artifactory: `https://example.jfrog.io/artifactory/chainguard-maven/`
-* Sonatype Nexus: `https://repo.example.com:8443/repository/chainguard-maven/`
+Select any identifying name for your repository name, such as `Cloudsmith`. Make sure to retain the quotes.
