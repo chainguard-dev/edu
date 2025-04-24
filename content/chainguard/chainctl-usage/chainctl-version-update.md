@@ -24,7 +24,7 @@ To see which `chainctl` version you have installed, use:
 chainctl version
 ```
 
-This command tells you more than just a release number. The release is shown here as `GitVersion`.
+This command tells you more than just a release number.
 
 
 ```shell
@@ -74,7 +74,7 @@ To update your `chainctl` installation to the latest release, use:
 chainctl update
 ```
 
-Updating requires administrative privileges, so be prepared to enter your machine's admin password.
+Updating requires administrative privileges, so enter as `root` or use `sudo` and be prepared to enter your machine's admin password.
 
 ```shell
 sudo chainctl update
