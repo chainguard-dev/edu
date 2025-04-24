@@ -18,7 +18,7 @@ toc: true
 
 Python is one of the most popular programming languages in the world and the open [Python Package Index (PyPI)](https://pypi.org/) contains over 600,000 libraries for application development, machine learning, data science, and many other use cases. Chainguard Libraries for Python rebuilds these powerful open source projects within the Chainguard Factory, enabling access to the Python ecosystem while dramatically reducing risk from an untrusted software supply chain.
 
-Chainguard Libraries for Python enables access to a growing collection of Python packages rebuilt from source. New releases of common libraries or artifacts requested by customers are added to the index by an automated system. Any request for a library or library version missing in Chainguard Libraries automatically triggers a process to provision the artifacts from relevant sources (such as GitHub) if available. In combination with third-party software repository managers, you can use Chainguard Libraries for Python as a secure source of truth for your development process.
+Chainguard Libraries for Python enables access to a growing collection of Python packages rebuilt from source. New releases of common libraries or artifacts requested by customers are added to the index by an automated system. Any request for a library or library version missing in Chainguard Libraries automatically triggers a process to provision the artifacts from relevant sources if available. In combination with third-party software repository managers, you can use Chainguard Libraries for Python as a secure source of truth for your development process.
 
 ## Technical Details
 
