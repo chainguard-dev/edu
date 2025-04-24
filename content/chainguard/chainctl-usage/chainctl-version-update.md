@@ -74,11 +74,9 @@ To update your `chainctl` installation to the latest release, use:
 chainctl update
 ```
 
-Updating requires administrative privileges, so enter as `root` or use `sudo` and be prepared to enter your machine's admin password.
+This will present the following:
 
 ```shell
-sudo chainctl update
-[sudo] password for user: 
 Current version         v0.2.66
 Latest version          0.2.73
 
