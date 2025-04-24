@@ -23,12 +23,12 @@ At a high level, adopting the use of Chainguard Libraries consists of the follow
 * Add a public repository, likely [PyPI](https://pypi.org/), as a remote repository.
 * Create a group, virtual, or polyglot repository combining these repository sources with any desired internal repositories. Configure the Chainguard Libraries repository as the first choice for any library access after any desired internal repositories.
 
-You may also wish to:
+You should also:
 
 * Remove all prior cached artifacts in the virtual server or proxy public repository. This step will reduce confusion about the origin of libraries and will assist technical evaluation and adoption of Chainguard Libraries.
 * Remove any repositories that are no longer desired or necessary. Depending on your library requirements, this step can result in removal of some proxy repositories or even removal of all proxy repositories. 
 
-If your organization does not use a repository manager, you can still use Chainguard Libraries. However, this approach may require configuration of multiple build and development platforms and utilities to use Chainguard Libraries. For this reason, adopting the use of a repository manager is the recommended approach. 
+If your organization does not use a repository manager, you can still use Chainguard Libraries. However, this approach requires configuration of multiple build and development platforms and utilities to use Chainguard Libraries. For this reason, adopting the use of a repository manager is the recommended approach. 
 
 <a name="cloudsmith"></a>
 
