@@ -30,7 +30,7 @@ chainctl events subscriptions create https://<Your webhook URL>
 
 The webhook URL should connect to a service that you use to process the requests. This can use whatever infrastructure works for your team, but a common choice is to use a serverless service such as [AWS Lambda](https://aws.amazon.com/lambda/) or [Google Cloud Run](https://cloud.google.com/run/docs/overview/what-is-cloud-run).
 
-As an example, this guide will use [Webhook.site](https://github.com/webhooksite/webhook.site). This is an open-source application that will generate a URL you can use to receive, send, and transform webhooks, among other actions. Webhook.site can be self-hosted, but for the purposes of this guide you can just use the [cloud version of the application](https://webhook.site).
+As an example, this guide uses [Webhook.site](https://github.com/webhooksite/webhook.site). This is an open-source application that will generate a URL you can use to receive, send, and transform webhooks, among other actions. Webhook.site can be self-hosted, but for the purposes of this guide you can just use the [cloud version of the application](https://webhook.site).
 
 > **Note**: You can also try this out with alternative webhook testing sites, like [smee.io](https://smee.io/).
 
@@ -40,7 +40,7 @@ Once you have the webhook URL, use a `chainctl` command similar to the following
 chainctl events subscriptions create https://webhook.site/aEXAMPLE-b689-49a5-94df-f1dEXAMPLE29
 ```
 
-This command will prompt you to select the organization whose events you want to subscribe to. If successful, this will return an ID for the subscription:
+Select the organization whose events you want to subscribe to when prompted. If successful, this returns an ID for the subscription:
 
 ```
    ✔ Selected folder chainguard.edu.

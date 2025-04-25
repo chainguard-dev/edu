@@ -46,3 +46,7 @@ chainctl events subscriptions delete $SUBSCRIPTION_ID
 ```
 
 Depending on the SINK, you may be prompted to respond to some questions before this action is complete. You can add a `-y` to the command to automatically assume `yes` and run without interaction.
+
+## Learn More
+
+Chainguard Academy has several guides on [CloudEvents](/chainguard/administration/cloudevents/). You may find our guide on [Subscribing to Chainguard CloudEvents](/chainguard/administration/cloudevents/events-example/) to be particularly useful for understanding how to work with events from Chainguard.
