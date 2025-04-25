@@ -8,7 +8,7 @@ lastmod: 2025-04-16T23:56:56
 draft: false
 tags: ["Platform", "Reference", "Product"]
 images: []
-weight: 780
+weight: 005
 ---
 
 Chainguard generates and emits [CloudEvents](https://cloudevents.io/) based on actions that occur within a Chainguard account, such as registering a Kubernetes cluster or creating an IAM invitation. Chainguard also emits events when workloads or policies are changed in a cluster.
