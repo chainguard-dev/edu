@@ -23,7 +23,7 @@ Chainguard's [Dockerfile Converter (dfc)](https://github.com/chainguard-dev/dfc)
 
 For each `FROM` line in the Dockerfile, `dfc` attempts to replace the base image with an equivalent Chainguard Image. For each `RUN` line in the Dockerfile, `dfc` attempts to detect the use of a known package manager (e.g. `apt` / `yum` / `apk`) and extracts the names of any packages being installed. It then attempts to map these packages to Chainguard equivalent APKs. Additionally, dfc will add a `USER root` instruction to allow package installations since most Chainguard Images run as a regular, non-root user.
 
-You can find more details about dfc's mapping process in the [How it Works](https://github.com/chainguard-dev/dfc?tab=readme-ov-file#how-it-works) section of their official GitHub repository.
+You can find more details about dfc's mapping process on their GitHub repository, in the [How it Works](https://github.com/chainguard-dev/dfc?tab=readme-ov-file#how-it-works) section of their README.
 
 {{< note >}}
 dfc is an open source tool that is still under active development and subject to changes. While we try to cover a variety of use case scenarios, some inconsistencies may occur due to the diverse nature of Dockerfiles and package manager instructions. There may be errors or gaps in functionality as you use the feature in the early access phase. Please let us know if you come across any issues or have any questions.You can [file an issue](https://github.com/chainguard-dev/dfc/issues/new/choose) on GitHub to get in touch.
