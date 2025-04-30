@@ -8,7 +8,7 @@ lastmod: 2025-03-06T08:49:15+00:00
 draft: false
 tags: ["chainctl", "version", "update", "Product"]
 images: []
-weight: 100
+weight: 040
 ---
 
 This page shows you how to check which release version of `chainctl` you have installed and how to update to the latest release.
