@@ -1,10 +1,10 @@
 ---
-title: "Dockerfile Converter Tool"
-linktitle: "Dockerfile Converter Tool"
+title: "Dockerfile Converter"
+linktitle: "Dockerfile Converter"
 type: "article"
-description: "Early Access User Guide for Chainguard's Dockerfile Converter Tool (dfc)"
+description: "User Guide for Chainguard's Dockerfile Converter (dfc)"
 date: 2025-03-18T15:22:20+01:00
-lastmod: 2025-03-18T15:22:20+01:00
+lastmod: 2025-04-30T15:22:20+01:00
 draft: false
 tags: ["CHAINGUARD IMAGES", "PRODUCT", "OPEN SOURCE"]
 images: []
@@ -15,14 +15,15 @@ weight: 030
 toc: true
 ---
 
-Our [Dockerfile Converter (dfc) tool](https://github.com/chainguard-dev/dfc) was designed to facilitate the process of porting existing Dockerfiles to use Chainguard Images. The following platforms are currently supported:
+Chainguard's [Dockerfile Converter (dfc)](https://github.com/chainguard-dev/dfc) was designed to facilitate the process of porting existing Dockerfiles to use Chainguard Images. The following platforms are currently supported:
 
 * Alpine (`apk`)
 * Debian / Ubuntu (`apt`, `apt-get`)
 * Fedora / RedHat / UBI (`yum`, `dnf`, `microdnf`)
 
+For each `FROM` line in the Dockerfile, `dfc` attempts to replace the base image with an equivalent Chainguard Image. For each `RUN` line in the Dockerfile, `dfc` attempts to detect the use of a known package manager (e.g. `apt` / `yum` / `apk`) and extracts the names of any packages being installed. It then attempts to map these packages to Chainguard equivalent APKs. Additionally, dfc will add a `USER root` instruction to allow package installations since most Chainguard Images run as a regular, non-root user.
 
-For each `FROM` line in the Dockerfile, `dfc` attempts to replace the base image with an equivalent Chainguard Image. For each `RUN` line in the Dockerfile, `dfc` attempts to detect the use of a known package manager (e.g. `apt` / `yum` / `apk`) and extracts the names of any packages being installed. It then attempts to map these packages to Chainguard equivalent APKs, defaulting to the existing names. All existing package manager commands are then removed and replaced with a single `apk add -U <packages>`. Additionally, dfc will add a `USER root` instruction to allow package installations since most Chainguard Images run as a regular, non-root user.
+You can find more details about dfc's mapping process in the [How it Works](https://github.com/chainguard-dev/dfc?tab=readme-ov-file#how-it-works) section of their official GitHub repository.
 
 {{< note >}}
 dfc is an open source tool that is still under active development and subject to changes. While we try to cover a variety of use case scenarios, some inconsistencies may occur due to the diverse nature of Dockerfiles and package manager instructions. There may be errors or gaps in functionality as you use the feature in the early access phase. Please let us know if you come across any issues or have any questions.You can [file an issue](https://github.com/chainguard-dev/dfc/issues/new/choose) on GitHub to get in touch.
@@ -30,7 +31,7 @@ dfc is an open source tool that is still under active development and subject to
 
 ## Installation
 
-You’ll need a Go environment to install and run Chainguard’s dfc tool. To install it on your local system, run:
+You’ll need a Go environment to install and run dfc. To install it on your local system, run:
 
 ```shell
 go install github.com/chainguard-dev/dfc@latest
@@ -230,6 +231,13 @@ DOCKERFILE
 
 ```
 
+Check also the [Useful jq formulas](https://github.com/chainguard-dev/dfc?tab=readme-ov-file#useful-jq-formulas) section from the dfc repository as reference on how to use jq to filter the JSON output.
+
+## Using dfc as a Go Library
+You can import the package `github.com/chainguard-dev/dfc/pkg/dfc` and use it directly from Go code to parse and convert Dockerfiles on your own, without the dfc CLI. This way, you can integrate dfc into your own Go applications or scripts, which can be especially useful if you have a large number of Dockerfiles to convert or if you want to further customize the output produced by dfc.
+
+Check the [Using from Go](https://github.com/chainguard-dev/dfc?tab=readme-ov-file#using-from-go) section on the dfc repository for examples on how to use it as a Go library.
+
 ## Learn More
 
-If you'd like to learn more about the dfc tool, including how to get involved with the project, you can check out the [dfc GitHub repository](https://github.com/chainguard-dev/dfc). We welcome contributions and feedback from the community.
+If you'd like to learn more about our Dockerfile Converter, including how to get involved with the project, you can check out the [dfc repository on GitHub](https://github.com/chainguard-dev/dfc). We welcome contributions and feedback from the community.
