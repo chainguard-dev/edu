@@ -3645,6 +3645,18 @@
       },
       "type": "object"
     },
+    "ApkoConfigLayering": {
+      "properties": {
+        "budget": {
+          "format": "int64",
+          "type": "string"
+        },
+        "strategy": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "ApkoConfigPathMutation": {
       "properties": {
         "gid": {
@@ -5572,6 +5584,9 @@
         },
         "include": {
           "type": "string"
+        },
+        "layering": {
+          "$ref": "#/definitions/ApkoConfigLayering"
         },
         "paths": {
           "items": {
