@@ -189,66 +189,6 @@ OK: 719 MiB in 78 packages
 To learn more, refer to our [Private APK Repositories documentation](/chainguard/chainguard-images/features/private-apk-repos/).
 
 
-### Installing packages from Chainguard's package repositories
-
-You can use `apk` to install additional packages from Chainguard's package repositories (`apk.cgr.dev/extra-packages` and `packages.wolfi.dev/os`) into your customized container image.
-
-To illustrate, run the following command to create a Dockerfile:
-
-```shell
-cat > Dockerfile <<EOF
-FROM cgr.dev/$ORGANIZATION/custom-assembly:latest-dev
-USER root
-RUN mv /etc/apk/repositories /etc/apk/repositories.disabled
-RUN echo 'https://apk.cgr.dev/extra-packages' >> /etc/apk/repositories
-RUN echo 'https://packages.wolfi.dev/os' >> /etc/apk/repositories
-EOF
-```
-
-This Dockerfile uses the `latest-dev` version of a Custom Assembly container image named `custom-assembly`. You will need to change the name of the image (along with the name of your organization's repository within the Chainguard Registry) to reflect your own setup.
-
-Note that this Dockerfile renames the image's default `/etc/apk/repositories` file and adds the two repositories to the new `repositories` file. This isn't necessary, but will disable the private APK repository listed in the file by default. This will allow us to use only the `extra-packages` and `wolfi` repositories.
-
-Using this Dockerfile, build a new container image:
-
-```shell
-docker build -t custom-apk .
-```
-
-Then run a container with the newly-built image. This command will run the image in an interactive container and changes the entrypoint to open up the Bash shell:
-
-```shell
-docker run -it --entrypoint /bin/sh --user root custom-apk
-```
-
-From the customized image's shell, add the `packages.wolfi.dev/os` repository keys. Note that this command includes the `--allow-untrusted` flag; by adding the keys with this command, you won't need to include this flag with this repository moving forward:
-
-```container
-apk add wolfi-keys --allow-untrusted
-```
-
-Following that, install the `apko` package. You will use this package to install the keys for the `apk.cgr.dev/extra-packages` repository shortly:
-
-```container
-apk add apko
-```
-
-Finally, run `apko install-keys` to add the keys for the `apk.cgr.dev/extra-packages` repository. This command uses key discovery based on the repositories present in `/etc/apk/repositories`:
-
-```container
-apko install-keys
-```
-
-With that, you can any packages available from these repositories:
-
-```container
-apk add curl
-```
-```Output
-OK: 676 MiB in 79 packages
-```
-
-
 ## Troubleshooting
 
 Build failures can occur for a number of reason, including the following:
