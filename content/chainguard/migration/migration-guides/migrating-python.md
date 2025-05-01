@@ -6,11 +6,11 @@ aliases:
 - /chainguard/migration/migrating-python/
 - /chainguard/migration/migration-guides/migrating-python/
 type: "article"
-description: "Guide on migrating containerized Python applications to Chainguard Images"
+description: "Guide on migrating containerized Python applications to Chainguard Containers"
 date: 2024-05-02T15:06:00-07:00
 lastmod: 2024-05-02T15:06:00-07:00
 draft: false
-tags: ["Images", "Product", "Conceptual"]
+tags: ["Chainguard Containers", "Product", "Migration"]
 images: []
 weight: 020
 toc: true
@@ -18,7 +18,7 @@ toc: true
 
 This guide is a high-level overview for migrating an existing containerized Python application to Chainguard Containers. 
 
-Chainguard Containers are built on [Wolfi](/open-source/wolfi/), a [distroless](/software-security/videos/distroless/) Linux distribution designed for security and a reduced attack surface. Chainguard Images are smaller and have [low to no CVE](/chainguard/chainguard-images/vuln-comparison/python/). Our Chainguard Images for Python are built nightly for extra freshness, so they're always up-to-date with the latest remediations.
+Chainguard Containers are built on [Wolfi](/open-source/wolfi/), a [distroless](/software-security/videos/distroless/) Linux distribution designed for security and a reduced attack surface. Chainguard Containers are smaller and have [low to no CVE](/chainguard/chainguard-images/vuln-comparison/python/). Our Chainguard Containers for Python are built nightly for extra freshness, so they're always up-to-date with the latest remediations.
 
 {{< details "What is Distroless?" >}}
 {{< blurb/distroless >}}
@@ -36,14 +36,14 @@ We distribute two versions of our [Python container image](https://images.chaing
 
 ## Differences from the Docker Official Image
 
-When migrating your Python application , keep in mind these differences between the [Chainguard Image for Python](https://images.chainguard.dev/directory/image/python/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-python) and the [official Docker image](https://hub.docker.com/_/python).
+When migrating your Python application , keep in mind these differences between the [Chainguard Container for Python](https://images.chainguard.dev/directory/image/python/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-python) and the [official Docker image](https://hub.docker.com/_/python).
 
 - The entrypoint for the Chainguard Container for Python is `/usr/bin/python`. When running either the `latest` or `latest-dev` versions of the image interactively, you'll be working in the Python interpreter. When using `CMD` in your Dockerfiles, provided commands will be passed to `python` by default. If you change the path to include binaries from a virtual environment , you should manually set the entrypoint or your Dockerfile will continue to use the included system Python as the entrypoint and you will not have access to installed packages in the virtual environment.
-- Chainguard Images for Python run as the `nonroot` user by default. If you need elevated permissions, such as to add packages with `apk`, run the image as `--user root`. You should not use the root user in a production scenario.
+- Chainguard Containers for Python run as the `nonroot` user by default. If you need elevated permissions, such as to add packages with `apk`, run the image as `--user root`. You should not use the root user in a production scenario.
 - The `/home` and `/home/nonroot` directories are owned by the nonroot user.
-- The `python:latest` Chainguard Image intended for production does not include a `sh`, `ash`, or `bash`. See the [Debugging Distroless](/chainguard/chainguard-images/debugging-distroless-images/) guide for advice on resolving issues without the use of these shells.
-- The `python:latest` Chainguard Image does not contain package managers such as `pip` or `apk`. See the sections below for guidance on multi-stage builds (recommended)or building your own images on Wolfi (advanced usage).
-- Chainguard Images for Python aim to be lightweight, and you may find that specific packages or dependencies are not included by default. The [image details reference](https://images.chainguard.dev/directory/image/python/specifications?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-python) provides specific information on packages, features, and default environment variables for the image.
+- The `python:latest` Chainguard Container intended for production does not include a `sh`, `ash`, or `bash`. See the [Debugging Distroless](/chainguard/chainguard-images/debugging-distroless-images/) guide for advice on resolving issues without the use of these shells.
+- The `python:latest` Chainguard Container does not contain package managers such as `pip` or `apk`. See the sections below for guidance on multi-stage builds (recommended)or building your own images on Wolfi (advanced usage).
+- Chainguard Containers for Python aim to be lightweight, and you may find that specific packages or dependencies are not included by default. The [image details reference](https://images.chainguard.dev/directory/image/python/specifications?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-python) provides specific information on packages, features, and default environment variables for the image.
 
 ## Migrating a Python Application
 
@@ -80,7 +80,7 @@ When running an application containerized with the above Dockerfile, the applica
 
 As you can see, the primary difference in this Flask application compared to the pre-migration application is the use of a multistage build. In the initial stage, we copy our requirements into the development version of the Python Chainguard Image, initialize a virtual environment, and install needed packages with pip. In the second stage, we copy the virtual environment from the development image, copy the application from the host, set exposed port metadata, and run the application with the [Gunicorn](https://gunicorn.org/) WSGI server.
 
-By default, the entrypoint for the Python Chainguard Image is `/usr/bin/python` rather than `bash`. However, if you shadow the included system `python` with the virtual environment `python`on the path as we do above, you should set the entrypoint explicitly. Otherwise, you will not have access to the packages included in your virtual environment.
+By default, the entrypoint for the Python Chainguard Container is `/usr/bin/python` rather than `bash`. However, if you shadow the included system `python` with the virtual environment `python`on the path as we do above, you should set the entrypoint explicitly. Otherwise, you will not have access to the packages included in your virtual environment.
 
 We recommend that you pin dependencies to specific versions in your own application. The example Flask application script linked above also enables debug mode, which should be turned off in a production scenario.
 
@@ -93,7 +93,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 
 ## Serving an Application with nginx and Docker Compose
 
-We provide an [nginx Chainguard Image](https://images.chainguard.dev/directory/image/nginx/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-python), also with low to no CVEs, that can be used as a secure and performant reverse proxy to serve your application. You can view an [example orchestration of a Flask application and nginx using Chainguard Images](https://github.com/chainguard-dev/cg-images-python-migration/tree/compose-flask-nginx) at the linked repository. The `compose.yml` file is provided as a reference below.
+We provide an [nginx Chainguard Container](https://images.chainguard.dev/directory/image/nginx/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-python), also with low to no CVEs, that can be used as a secure and performant reverse proxy to serve your application. You can view an [example orchestration of a Flask application and nginx using Chainguard Containers](https://github.com/chainguard-dev/cg-images-python-migration/tree/compose-flask-nginx) at the linked repository. The `compose.yml` file is provided as a reference below.
 
 ```Dockerfile
 services:
@@ -135,5 +135,5 @@ Debugging distroless containers can be a challenge given their lack of interacti
 
 The following blog posts and videos may also assist with migrating your Python application:
 
-- [Blog Post: Securely Containerize a Python Application with Chainguard Images](https://dev.to/chainguard/securely-containerize-a-python-application-with-chainguard-images-bn8)
-- [Video: How to containerize a Python application with a multi-stage build using Chainguard Images](https://www.youtube.com/watch?v=2D0JULd4E5A)
+- [Blog Post: Securely Containerize a Python Application with Chainguard Containers](https://dev.to/chainguard/securely-containerize-a-python-application-with-chainguard-images-bn8)
+- [Video: How to containerize a Python application with a multi-stage build using Chainguard Containers](https://www.youtube.com/watch?v=2D0JULd4E5A)

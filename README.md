@@ -89,7 +89,7 @@ For example:
 ```
 ...
 draft: false
-tags: ["Chainguard Images", "Overview", "Product"]
+tags: ["Chainguard Containers", "Overview", "Product"]
 images: []
 menu:
 ...

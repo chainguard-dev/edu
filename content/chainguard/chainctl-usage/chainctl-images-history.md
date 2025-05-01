@@ -20,7 +20,7 @@ Let's walk through a typical scenario. In our example we use an imagined organiz
 
 ## List images
 
-First, you will want to know which Chainguard Images are available to your account. To do this, use:
+First, you will want to know which Chainguard Containers are available to your account. To do this, use:
 
 ```shell
 chainctl images list
@@ -31,9 +31,9 @@ You will be presented with a list of organizations available to your account. Fo
 ```shell
     Which organization would you like to list images from?                                                       
                                                                                                                         
-  > [MyCorp-prod]     This group holds the production Chainguard Images hosted under    cgr.dev/MyCorp-prod                   
-    [MyCorp-starter]     This group holds the starter Chainguard Images hosted under    cgr.dev/MyCorp-starter  
-    [MyCorp-eval]     This group holds the evaluation Chainguard Images hosted under    cgr.dev/MyCorp-eval  
+  > [MyCorp-prod]     This group holds the production Chainguard Containers hosted under    cgr.dev/MyCorp-prod                   
+    [MyCorp-starter]     This group holds the starter Chainguard Containers hosted under    cgr.dev/MyCorp-starter  
+    [MyCorp-eval]     This group holds the evaluation Chainguard Containers hosted under    cgr.dev/MyCorp-eval  
 ```
 
 Move the `>` up and down with the arrow keys and hit `Enter` to select the org you want to you.

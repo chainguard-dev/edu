@@ -1,8 +1,8 @@
 ---
-title: "Mirror new Container Images to Google Artifact Registry with Chainguard CloudEvents"
-linktitle: "Mirror Container Images to Artifact Registry"
+title: "Mirror new Containers to Google Artifact Registry with Chainguard CloudEvents"
+linktitle: "Mirror Containers to Artifact Registry"
 type: "article"
-description: "Instructional guide outlining how one can set up an application that will listen for push events on a private Chainguard Registry and mirror any new Chainguard Images to a GCP Artifact Registry."
+description: "Instructional guide outlining how one can set up an application that will listen for push events on a private  registry and mirror any new Chainguard Containers to a GCP Artifact Registry."
 date: 2024-05-24T15:22:20+01:00
 lastmod: 2025-03-07T15:22:20+01:00
 draft: false

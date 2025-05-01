@@ -6,7 +6,7 @@ description: "User Guide for Chainguard's Dockerfile Converter (dfc)"
 date: 2025-03-18T15:22:20+01:00
 lastmod: 2025-04-30T15:22:20+01:00
 draft: false
-tags: ["CHAINGUARD IMAGES", "PRODUCT", "OPEN SOURCE"]
+tags: ["Chainguard Containers", "Product", "Open Source"]
 images: []
 menu:
   docs:
@@ -15,13 +15,13 @@ weight: 030
 toc: true
 ---
 
-Chainguard's [Dockerfile Converter (dfc)](https://github.com/chainguard-dev/dfc) was designed to facilitate the process of porting existing Dockerfiles to use Chainguard Images. The following platforms are currently supported:
+Chainguard's [Dockerfile Converter (dfc)](https://github.com/chainguard-dev/dfc) was designed to facilitate the process of porting existing Dockerfiles to use Chainguard Containers. The following platforms are currently supported:
 
 * Alpine (`apk`)
 * Debian / Ubuntu (`apt`, `apt-get`)
 * Fedora / RedHat / UBI (`yum`, `dnf`, `microdnf`)
 
-For each `FROM` line in the Dockerfile, `dfc` attempts to replace the base image with an equivalent Chainguard Image. For each `RUN` line in the Dockerfile, `dfc` attempts to detect the use of a known package manager (e.g. `apt` / `yum` / `apk`) and extracts the names of any packages being installed. It then attempts to map these packages to Chainguard equivalent APKs. Additionally, dfc will add a `USER root` instruction to allow package installations since most Chainguard Images run as a regular, non-root user.
+For each `FROM` line in the Dockerfile, `dfc` attempts to replace the base image with an equivalent Chainguard Container. For each `RUN` line in the Dockerfile, `dfc` attempts to detect the use of a known package manager (e.g. `apt` / `yum` / `apk`) and extracts the names of any packages being installed. It then attempts to map these packages to Chainguard equivalent APKs. Additionally, dfc will add a `USER root` instruction to allow package installations since most Chainguard Containers run as a regular, non-root user.
 
 You can find more details about dfc's mapping process on their GitHub repository, in the [How it Works](https://github.com/chainguard-dev/dfc?tab=readme-ov-file#how-it-works) section of their README.
 
@@ -108,7 +108,7 @@ RUN cd /application && composer install
 ENTRYPOINT [ "php", "/application/minicli" ]
 ```
 
-The following command will convert this Dockerfile to use Chainguard Images, using the `chainguard` organization for the free tier images. The output will be redirected to a new file called `Dockerfile.new`:
+The following command will convert this Dockerfile to use Chainguard Containers, using the `chainguard` organization for the free tier images. The output will be redirected to a new file called `Dockerfile.new`:
 
 ```shell
 dfc Dockerfile > Dockerfile.new --org chainguard

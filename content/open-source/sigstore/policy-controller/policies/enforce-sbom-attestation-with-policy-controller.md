@@ -63,7 +63,7 @@ Error from server (BadRequest): admission webhook "policy.sigstore.dev" denied t
 k8s.gcr.io/pause@sha256:7031c1b283388d2c2e09b57badb803c05ebed362dc88d84b480cc47f72a21097
 ```
 
-In the next step, you will define a policy that verifies Chainguard Images have a SBOM attestation and apply it to your cluster.
+In the next step, you will define a policy that verifies Chainguard Containers have a SBOM attestation and apply it to your cluster.
 
 ## Step 2 — Creating a `ClusterImagePolicy`
 

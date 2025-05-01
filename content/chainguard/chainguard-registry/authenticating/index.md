@@ -1,7 +1,8 @@
 ---
-title: "Authenticate to Chainguard Registry"
+title: "Authenticate to Chainguard's Registry"
+linktitle: "Authenticate"
 type: "article"
-description: "A guide on authenticating to the Chainguard Registry to get container images"
+description: "A guide on authenticating to Chainguard's registry to get container images"
 date: 2023-03-21T15:10:16+00:00
 lastmod: 2025-04-11T15:22:20+01:00
 tags: ["Chainguard Containers", "Product", "Registry"]
@@ -16,7 +17,7 @@ toc: true
 
 ## Public Container Images
 
-Chainguard offers a collection of images that are publicly available, don't require authentication, and are free to use by anyone. However, logging in with a Chainguard account and authenticating when pulling from the Registry gives you access to the Chainguard Console, and provides a mechanism for Chainguard to contact you if there are any issues with images you are pulling. This may enable Chainguard to notify you of upcoming deprecations, changes in behavior, critical vulnerabilities and remediations for images you have recently pulled.
+Chainguard offers a collection of images that are publicly available, don't require authentication, and are free to use by anyone. However, logging in with a Chainguard account and authenticating when pulling from the registry gives you access to the Chainguard Console, and provides a mechanism for Chainguard to contact you if there are any issues with images you are pulling. This may enable Chainguard to notify you of upcoming deprecations, changes in behavior, critical vulnerabilities and remediations for images you have recently pulled.
 
 ## Signing Up
 

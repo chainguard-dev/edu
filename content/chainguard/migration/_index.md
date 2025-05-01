@@ -12,7 +12,7 @@ topic: true
 banner: {
     image: "/icon-arrows.svg",
     title: "Porting Applications to Chainguard",
-    subtitle: "Step through migrating a full application to Chainguard Images",
+    subtitle: "Step through migrating a full application to Chainguard Containers",
     cta: "Learn how",
     link: "/chainguard/migration/porting-apps-to-chainguard/"
 }

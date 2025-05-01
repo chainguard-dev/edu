@@ -20,7 +20,7 @@ PCI DSS 4.0, or Payment Card Industry Data Security Standard, is a global standa
 
 Cashless transactions have become the norm around the world. This is a convenient way for buyers and sellers to transact business. It has also attracted the attention of criminals looking for easy money. Payment account information, and especially payment card and card-owner data, are especially targeted. All payment system stakeholders have a responsibility to secure this information. PCI DSS helps to alleviate vulnerabilities and protect payment account data.
 
-This guide will provide a comprehensive overview of PCI DSS 4.0, detailing its practices, the importance of compliance, and practical guidance on meeting its requirements. At the end of this guide, you will learn how Chainguard Images can be used to significantly reduce the toil and time needed to achieve PCI DSS 4.0 compliance.
+This guide will provide a comprehensive overview of PCI DSS 4.0, detailing its practices, the importance of compliance, and practical guidance on meeting its requirements. At the end of this guide, you will learn how Chainguard Containers can be used to significantly reduce the toil and time needed to achieve PCI DSS 4.0 compliance.
 
 
 ## Who is Required to be Compliant?
@@ -76,7 +76,7 @@ Further, any entity that handles covered data and does not comply with PCI DSS r
 
 These consequences may further result in cancelled contracts, additional revenue losses, and even closures.
 
-Achieving compliance with PCI DSS 4.0 is not just an industry self-regulatory requirement but a critical step in safeguarding payment information. To prepare your organization for PCI DSS 4.0, continue on to the next section of our guide, [PCI DSS 4.0 Maturity Levels](/software-security/compliance/cmmc-2/cmmc-2-levels/), or read about [how Chainguard Images can help simplify fulfilling PCI DSS 4.0 requirements](/software-security/compliance/cmmc-2/cmmc-chainguard/).
+Achieving compliance with PCI DSS 4.0 is not just an industry self-regulatory requirement but a critical step in safeguarding payment information. To prepare your organization for PCI DSS 4.0, continue on to the next section of our guide, [PCI DSS 4.0 Maturity Levels](/software-security/compliance/cmmc-2/cmmc-2-levels/), or read about [how Chainguard Containers can help simplify fulfilling PCI DSS 4.0 requirements](/software-security/compliance/cmmc-2/cmmc-chainguard/).
 
 ## Browse all PCI DSS 4.0 Articles
 
@@ -84,4 +84,4 @@ Achieving compliance with PCI DSS 4.0 is not just an industry self-regulatory re
 - [Overview of PCI DSS 4.0 Practices/Requirements](/software-security/compliance/pci-dss-4/pci-dss-practices/)
 - [How Chainguard Can Help With PCI DSS 4.0](/software-security/compliance/pci-dss-4/pci-dss-chainguard/)
 
-**[Get started with Chainguard FIPS Images today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**
+**[Get started with FIPS Chainguard Containers today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**

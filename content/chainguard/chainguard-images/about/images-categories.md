@@ -1,12 +1,12 @@
 ---
 title: "Understanding Chainguard's Container Image Categories"
-linktitle: "Image Categories"
+linktitle: "Container Categories"
 type: "article"
 description: "Reference guide outlining how Chainguard Containers are categorized."
 date: 2025-04-03T11:07:52+02:00
 lastmod: 2025-04-03T11:07:52+02:00
 draft: false
-tags: ["CONCEPTUAL", "CHAINGUARD IMAGES", "PRODUCT"]
+tags: ["Chainguard Containers", "Product"]
 images: []
 menu:
   docs:
@@ -17,7 +17,7 @@ toc: true
 
 Chainguard Containers are a collection of curated, distroless container images designed with a focus on software supply chain security. Chainguard's container images are designed to be slim runtimes for production environments, emphasizing security and efficiency by removing unnecessary elements. Additionally, the images are designed to be easily integrated into existing workflows, helping organizations to build better, more secure software.
 
-Within the [Chainguard Images Directory](https://images.chainguard.dev/), Chainguard Containers are organized into five general categories (with some falling into multiple categories):
+Within the [Chainguard Containers Directory](https://images.chainguard.dev/), Chainguard Containers are organized into five general categories (with some falling into multiple categories):
 
 * **Starter**
 * **Base**
@@ -46,11 +46,11 @@ docker pull cgr.dev/chainguard.edu/chainguard-base
 
 Note that you won't have access to the organization's repository used in this example, but if your organization has access to the `chainguard-base` image you will be able to pull this image using your organization's repository name in place of `chainguard.edu`. The Chainguard Registry provides public access to all Starter images, and provides customer access for Production images after logging in and authenticating.
 
-For a complete list of Starter images that are currently available, check out the [**Starter** category on Chainguard's Images Directory](https://images.chainguard.dev/?category=starter). Registered users can also access all Starter and available Production images in the [Chainguard Console](https://console.chainguard.dev/overview). After logging in you will be able to find all the currently available Starter Images in the **Public images** tab. 
+For a complete list of Starter images that are currently available, check out the [**Starter** category on Chainguard Containers Directory](https://images.chainguard.dev/?category=starter). Registered users can also access all Starter and available Production images in the [Chainguard Console](https://console.chainguard.dev/overview). After logging in you will be able to find all the currently available Starter Containers in the **Public images** tab. 
 
 ### Production Containers
 
-The rest of Chainguard's Containers, those that **are not** Starter images and not included in the free tier of images, are referred to as *Production Images*. Production images are enterprise-ready images that come with patch SLAs and features such as Federal Information Processing Standard (FIPS) readiness and unique time-stamped tags. Unlike Starter images, which are typically paired with only the latest version of an upstream package, Production images offer specific major and minor versions of open source software.
+The rest of Chainguard Containers, those that **are not** Starter images and not included in the free tier of images, are referred to as *Production Containers*. Production images are enterprise-ready images that come with patch SLAs and features such as Federal Information Processing Standard (FIPS) readiness and unique time-stamped tags. Unlike Starter images, which are typically paired with only the latest version of an upstream package, Production images offer specific major and minor versions of open source software.
 
 As with the Starter Container category, any container image considered a Production image will also fall into at least one of the other categories listed in this guide. To view the Production container images that your organization has access to, select the appropriate organization in the drop-down menu above the left-hand navigation and then click the **Organization images** tab.
 
@@ -61,7 +61,7 @@ Base Containers are meant to be extended by users with their own packages and ap
 
 Chainguard is responsible for releasing fully-patched toolchains and Base Containers, while customers are responsible for patching any applications and dependencies they add to a Chainguard Container. It is recommended to use a fully-patched Chainguard toolchain image to build the application, and a fully-patched Chainguard Base container image to layer the final application on.
 
-When migrating to a Chainguard Base container image you should first check the images’s overview page on the Images Directory for usage details and any compatibility notes. You should understand the libraries, runtime requirements, and operating system dependencies of the applications you plan to have running on the Base container image.
+When migrating to a Chainguard Base container image you should first check the images’s overview page on the Containers Directory for usage details and any compatibility notes. You should understand the libraries, runtime requirements, and operating system dependencies of the applications you plan to have running on the Base container image.
 
 It is a best practice to use the same versions of any languages or applications that will be running on the Chainguard Base container image as what is currently running in your environment. Do not upgrade language or application versions at the same time that you migrate. Following the migration, you should thoroughly test and monitor your application.
 
@@ -76,7 +76,7 @@ In contrast with Base container images, which are intended to be built upon, App
 
 When it comes to maintaining Application container images, Chainguard is responsible for rebuilding the upstream project with the latest toolchain and patching static and dynamic dependencies where such a change is non-breaking. Customers are responsible for tracking a supported version of the Chainguard Container.
 
-When migrating to a Chainguard Application container image you should first check the image’s overview page on the Images Directory for usage details and any compatibility notes. There may be user ID, permissions, or volume path differences with the Chainguard image that you should be aware of. It is a best practice to use the same version of the Chainguard Application container image as what is currently running in your environment.
+When migrating to a Chainguard Application container image you should first check the image’s overview page on the Containers Directory for usage details and any compatibility notes. There may be user ID, permissions, or volume path differences with the Chainguard image that you should be aware of. It is a best practice to use the same version of the Chainguard Application container image as what is currently running in your environment.
 
 
 ## AI Container
@@ -95,7 +95,7 @@ FIPS — or, Federal Information Processing Standards — are publicly announced
 
 Chainguard offers FIPS versions of many of its container images, so FIPS Containers will fall into more than one category. Some Chainguard container images with FIPS variants are [nginx](https://images.chainguard.dev/directory/image/tensorflow/overview), [PHP](https://images.chainguard.dev/directory/image/php-fips/overview), and [PyTorch](https://images.chainguard.dev/directory/image/pytorch-fips/overview). 
 
-For more information, please refer to our conceptual article on [Chainguard FIPS Images](/chainguard/chainguard-images/features/fips/fips-images/).
+For more information, please refer to our conceptual article on [FIPS Chainguard Containers](/chainguard/chainguard-images/features/fips/fips-images/).
 
 
 ## Container Image Type Considerations

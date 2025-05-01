@@ -15,7 +15,7 @@ weight: 100
 toc: true
 ---
 
-[Wolfi](https://github.com/wolfi-dev) is a community Linux [undistro](#why-undistro) designed for the container and cloud-native era. Chainguard started the Wolfi project to build [Chainguard Images](/chainguard/chainguard-images/overview), our collection of curated [distroless](/chainguard/chainguard-images/getting-started-distroless/) images that meet the requirements of a secure software supply chain. This required a Linux distribution with components at the appropriate granularity and with support for [glibc](https://www.gnu.org/software/libc/).
+[Wolfi](https://github.com/wolfi-dev) is a community Linux [undistro](#why-undistro) designed for the container and cloud-native era. Chainguard started the Wolfi project to build [Chainguard Containers](/chainguard/chainguard-images/overview), our collection of curated [distroless](/chainguard/chainguard-images/getting-started-distroless/) images that meet the requirements of a secure software supply chain. This required a Linux distribution with components at the appropriate granularity and with support for [glibc](https://www.gnu.org/software/libc/).
 
 Building our own undistro also allows us to ensure packages have full provenance and metadata for supporting modern supply-chain security needs.
 
@@ -23,7 +23,7 @@ Building our own undistro also allows us to ensure packages have full provenance
 
 We call Wolfi an undistro because unlike a [typical Linux distribution](https://en.wikipedia.org/wiki/Linux_distribution) designed to run on bare-metal, Wolfi is a stripped-down distro designed for the cloud-native era. It doesn't have a kernel of its own, instead relying on the environment (such as the container runtime) to provide one. This separation of concerns in Wolfi means it is adaptable to a range of environments.
 
-Wolfi is the base we use to build [Chainguard Images](/chainguard/chainguard-images/overview), our open source distroless images that are available free of charge.
+Wolfi is the base we use to build [Chainguard Containers](/chainguard/chainguard-images/overview), our open source distroless images that are available free of charge.
 
 ## Wolfi Features
 

@@ -9,7 +9,7 @@ description: "This overview serves as a collection of information and resources 
 date: 2024-07-22T12:56:52-00:00
 lastmod: 2024-08-08T14:44:52-00:00
 draft: false
-tags: ["IMAGES", "PRODUCT", "OVERVIEW"]
+tags: ["Chainguard Containers", "Product"]
 images: []
 menu:
   docs:
@@ -42,11 +42,11 @@ Because of their minimalist design, Chainguard Containers sometimes require user
 * The free Starter tier of Containers provides `:latest` and `:latest-dev` versions. Our paid Production Containers offer tags for major and minor versions.
 * We use apk tooling, so `apt install` commands will become `apk add`.
 * Chainguard Containers are based on `glibc` and our packages cannot be mixed with Alpine packages.
-* In some cases, the entrypoint in Chainguard Images can be different from equivalent images based on other distros, which can lead to unexpected behavior. You should always check the image's specific documentation to understand how the entrypoint works.
+* In some cases, the entrypoint in Chainguard Containers can be different from equivalent images based on other distros, which can lead to unexpected behavior. You should always check the image's specific documentation to understand how the entrypoint works.
 * When needed, Chainguard recommends using a base image like `chainguard-base` or a `-dev` image to install an application's OS-level dependencies.
 * Although `-dev` variants are still more secure than most popular container images based on other distros, for increased security on production environments we recommend combining them with a distroless variant in a multi-stage build.
 
-Perhaps the best place for most users to get started with migrating to Chainguard Containers is by following our guide on [How to Port a Sample Application to Chainguard Images](/chainguard/migration/porting-apps-to-chainguard/). This guide involves updating a sample application made up of three services to use Chainguard Images. Although the application involved is fairly simple, the concepts outlined in the guide can also be useful for migrating more complex applications.
+Perhaps the best place for most users to get started with migrating to Chainguard Containers is by following our guide on [How to Port a Sample Application to Chainguard Containers](/chainguard/migration/porting-apps-to-chainguard/). This guide involves updating a sample application made up of three services to use Chainguard Containers. Although the application involved is fairly simple, the concepts outlined in the guide can also be useful for migrating more complex applications.
 
 ### Tips for migrating to Chainguard Containers
 
@@ -276,7 +276,7 @@ In some cases you may have Docker builds that copy in binaries to run agents or 
 
 ### Troubleshooting resources
 
-Even with these tips and potential pitfalls in mind, the move to a distroless workflow can lead to confusion. To help with troubleshooting issues that can occur, Chainguard Academy has a guide on [Debugging Distroless Images](/chainguard/chainguard-images/debugging-distroless-images/).
+Even with these tips and potential pitfalls in mind, the move to a distroless workflow can lead to confusion. To help with troubleshooting issues that can occur, Chainguard Academy has a guide on [Debugging Distroless Containers](/chainguard/chainguard-images/debugging-distroless-images/).
 
 We also have a video on [Debugging Distroless Containers with Docker Debug](/chainguard/chainguard-images/videos/debugging_distroless/).
 
@@ -288,7 +288,7 @@ Lastly, you might also find help in the [Chainguard Containers FAQs](/chainguard
 
 Chainguard Academy hosts a number of resources that can be useful when migrating to Chainguard Containers.
 
-As mentioned previously, most new users of Chainguard Containers would benefit from following our guide on [How to Port a Sample Application to Chainguard Images](/chainguard/migration/porting-apps-to-chainguard/#tldr-porting-key-points). In addition to this guide, Chainguard Academy includes several types of resources that can be useful when migrating to Chainguard Containers:
+As mentioned previously, most new users of Chainguard Containers would benefit from following our guide on [How to Port a Sample Application to Chainguard Containers](/chainguard/migration/porting-apps-to-chainguard/#tldr-porting-key-points). In addition to this guide, Chainguard Academy includes several types of resources that can be useful when migrating to Chainguard Containers:
 
 * **Compatibility Guides** — These guides highlight the differences between Chainguard Containers and Alpine third-party images.
 * **Migration Guides** — These provide guidance migrating workloads based on a specific language or platform to use Chainguard Containers.
@@ -350,5 +350,5 @@ In addition, we have a few migration guides in the form of videos:
 * [Overview of Chainguard Containers](/chainguard/chainguard-images/overview/)
 * [How to Use Chainguard Containers](/chainguard/chainguard-images/how-to-use-chainguard-images/)
 * [How to transition to secure container images with new migration guides (Blog)](https://www.chainguard.dev/unchained/how-to-transition-to-secure-container-images-with-new-migration-guides)
-* [Getting Started with Distroless Images](/chainguard/chainguard-images/getting-started-distroless/)
+* [Getting Started with Distroless Containers](/chainguard/chainguard-images/getting-started-distroless/)
 

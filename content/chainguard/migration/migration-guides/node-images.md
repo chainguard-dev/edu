@@ -1,12 +1,12 @@
 ---
-title: "How to Migrate a Node.js Application to Chainguard Images"
+title: "How to Migrate a Node.js Application to Chainguard Containers"
 linktitle: "Video: Node.js"
 aliases:
 - /chainguard/chainguard-images/videos/node-images/
 - /chainguard/migration/node-images/
 - /chainguard/migration/migration-guides/node-images/
 lead: ""
-description: "How to migrate an existing Dockerfile for a Node.js application to use Chainguard Images in order to improve security and reduce image size."
+description: "How to migrate an existing Dockerfile for a Node.js application to use Chainguard Containers in order to improve security and reduce image size."
 type: "article"
 date: 2024-04-25T15:21:01+00:00
 lastmod: 2024-04-25T15:21:01+00:00
@@ -33,9 +33,9 @@ toc: true
 ## Transcript
 
 Today, we're going to look at how easy it is to port a Dockerfile for a Node.js application to use
-a Chainguard Image base and how it can help improve the image, especially in terms of security.
+a Chainguard Container base and how it can help improve the image, especially in terms of security.
 
-I'll be using the free tier of Chainguard Images here, so you can do everything in this video
+I'll be using the free tier of Chainguard Containers here, so you can do everything in this video
 yourself today.
 
 OK, over to the terminal.
@@ -100,7 +100,7 @@ low vulnerabilities.
 
 But we're not going to do either of that.
 
-We're going to change to use a Chainguard Image and see how that affects things.
+We're going to change to use a Chainguard Container and see how that affects things.
 
 So I'm going to use the [Chainguard Registry](/chainguard/chainguard-registry/overview/) here at cgr.dev.
 
@@ -112,7 +112,7 @@ I'm using a Chainguard Registry.
 
 I could also use the Docker Hub.
 
-So Chainguard Images are available on the Docker Hub, just in the Chainguard user or namespace.
+So Chainguard Containers are available on the Docker Hub, just in the Chainguard user or namespace.
 
 But in this case, we're using the Chainguard Registry.
 
@@ -123,7 +123,7 @@ a shell, which I'm going to need in this case to install some dependencies.
 
 Now, these dependencies are all `apt-get` based.
 
-And Chainguard Images, we have APK tools.
+And Chainguard Containers, we have APK tools.
 
 We're not an Alpine distribution, we use our own Linux distribution called Wolfi.
 
@@ -133,7 +133,7 @@ So first thing I'm going to do is switch this line to be the equivalent in Wolfi
 
 So first thing you do is change to the root user so I can install software.
 
-So the Chainguard Images typically do not run as root by default.
+So the Chainguard Containers typically do not run as root by default.
 
 And then I'm going to use APK add to install our software.
 
@@ -165,7 +165,7 @@ We do have another difference down the bottom, though.
 
 This `npm start`.
 
-So because Chainguard Images by default don't have a shell, this doesn't work.
+So because Chainguard Containers by default don't have a shell, this doesn't work.
 
 Basically, this will get passed to the node binary to be interpreted, which isn't what we want.
 
@@ -288,7 +288,7 @@ the signals.
 
 OK, so that's pretty much all I have.
 
-We've seen how moving a Node application to Chainguard Images can significantly reduce the size of
+We've seen how moving a Node application to Chainguard Containers can significantly reduce the size of
 the image and completely cut the CVE count in the image.
 
 Please do give this a try and let me know how you get on.

@@ -1,15 +1,15 @@
 ---
-title: "Using Renovate with Chainguard Images"
+title: "Using Renovate with Chainguard Containers"
 linktitle: "Using Renovate"
 aliases: 
 - /chainguard/chainguard-images/working-with-images/renovate/
 - /chainguard/chainguard-images/staying-secure/updating-images/renovate/
 type: "article"
-description: "How to use Renovate to automatically keep Chainguard Images updated"
+description: "How to use Renovate to automatically keep Chainguard Containers updated"
 date: 2023-09-05T11:07:52+02:00
 lastmod: 2024-09-05T11:07:52+02:00
 draft: false
-tags: ["CHAINGUARD IMAGES", "PRODUCT"]
+tags: ["Chainguard Containers", "Product"]
 images: []
 menu:
   docs:
@@ -18,9 +18,9 @@ weight: 020
 toc: true
 ---
 
-[Renovate](https://github.com/renovatebot/renovate) can be used to alert on updates to Chainguard Images. This can be an effective way to keep your images up-to-date and CVE free. This article will explain how to configure Renovate to support Chainguard Images.
+[Renovate](https://github.com/renovatebot/renovate) can be used to alert on updates to Chainguard Containers. This can be an effective way to keep your images up-to-date and CVE free. This article will explain how to configure Renovate to support Chainguard Containers.
 
-> **NOTE*: This article describes using Renovate to alert on new versions of Chainguard Images. It is not about alerts for Wolfi packages (which is unsupported at the time of writing).
+> **NOTE*: This article describes using Renovate to alert on new versions of Chainguard Containers. It is not about alerts for Wolfi packages (which is unsupported at the time of writing).
 
 
 ## Prerequisites
@@ -85,7 +85,7 @@ chainctl auth configure-docker --pull-token –ttl 10m
 This will set the lifetime to 10 minutes, which limits the risk posed if the token should leak. You can also set the lifetime to a longer period for more manual configurations.
 
 
-## Updating Versioned Images
+## Updating Versioned Container Images
 
 By default, Renovate will now open PRs for any out-of-date versions of images it finds. For example, you can run Renovate by pushing the following Dockerfile to a repository overseen by Renovate:
 
@@ -105,7 +105,7 @@ Not all images use semantic versioning. Refer to the [Renovate documentation](ht
 
 Ideally, image references should also be pinned to a digest, as shown in the following section.
 
-## Updating `:latest` Images
+## Updating `:latest` Container Images
 
 Renovate also supports updating image references that are pinned to digests. This allows you to keep floating tags such as `:latest` in sync with the most up-to-date version. 
 

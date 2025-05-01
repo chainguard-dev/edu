@@ -5,11 +5,11 @@ aliases:
 - /chainguard/migration/alpine-compatibility/
 - /chainguard/migration/compatibility/alpine-compatibility/
 type: "article"
-description: "Differences between Chainguard Images and Alpine third-party images"
+description: "Differences between Chainguard Containers and Alpine third-party images"
 date: 2024-02-23T15:56:52-07:00
 lastmod: 2024-03-08T15:56:52-07:00
 draft: false
-tags: ["IMAGES", "PRODUCT", "CONCEPTUAL"]
+tags: ["Chainguard Containers", "Product", "Reference"]
 images: []
 menu:
   docs:
@@ -18,7 +18,7 @@ weight: 005
 toc: true
 ---
 
-Chainguard Images and Alpine base images have different binaries and scripts included in their respective `busybox` and `coreutils` packages.
+Chainguard Containers and Alpine base images have different binaries and scripts included in their respective `busybox` and `coreutils` packages.
 
 The following table lists common tools and their corresponding package(s) in both Wolfi and Alpine distributions.
 

@@ -11,7 +11,7 @@ type: "article"
 date: 2023-04-17T08:48:45+00:00
 lastmod: 2024-10-28T15:22:20+01:00
 draft: false
-tags: ["Chainguard Images", "Procedural"]
+tags: ["Chainguard Containers", "Procedural"]
 images: []
 weight: 015
 ---

@@ -18,7 +18,7 @@ toc: true
 
 CMMC 2.0, or Cybersecurity Maturity Model Certification, is a cybersecurity framework established by the U.S. Department of Defense (DoD). It aims to ensure that contractors and subcontractors within the Defense Industrial Base (DIB) comply with rigorous cybersecurity standards. CMMC 2.0 replaces the previous CMMC model with a streamlined and updated version that incorporates lessons learned and feedback from industry stakeholders.
 
-If you are a contractor, subcontractor, or supplier contracting with the DoD, you will need to meet the requirements of CMMC 2.0 regardless of the size of your organization or the type of product or service you are providing. This guide will provide a comprehensive overview of CMMC 2.0, detailing its practices, the importance of compliance, and practical guidance on meeting its requirements. At the end of this guide, you will learn how Chainguard Images can be used to significantly reduce the toil and time needed to achieve CMMC 2.0 compliance.
+If you are a contractor, subcontractor, or supplier contracting with the DoD, you will need to meet the requirements of CMMC 2.0 regardless of the size of your organization or the type of product or service you are providing. This guide will provide a comprehensive overview of CMMC 2.0, detailing its practices, the importance of compliance, and practical guidance on meeting its requirements. At the end of this guide, you will learn how Chainguard Containers can be used to significantly reduce the toil and time needed to achieve CMMC 2.0 compliance.
 
 ## Who is Required to be Compliant?
 
@@ -45,7 +45,7 @@ Failure to comply with CMMC 2.0 can have several significant impacts:
 - **Legal and Financial Penalties**: Organizations may face legal actions and financial penalties, especially if a security breach occurs involving sensitive information.
 - **Increased Risk**: Non-compliance increases the risk of data breaches and cyberattacks, which can compromise organizational and client data.
 
-Achieving compliance with CMMC 2.0 is not just a regulatory requirement but a critical step in safeguarding national security and contracting with the DoD. To prepare your organization for CMMC 2.0, continue on to the next section of our guide, [CMMC 2.0 Maturity Levels](/software-security/compliance/cmmc-2/cmmc-2-levels/), or read about [how Chainguard Images can help simplify fulfilling CMMC 2.0 requirements](/software-security/compliance/cmmc-2/cmmc-chainguard/).
+Achieving compliance with CMMC 2.0 is not just a regulatory requirement but a critical step in safeguarding national security and contracting with the DoD. To prepare your organization for CMMC 2.0, continue on to the next section of our guide, [CMMC 2.0 Maturity Levels](/software-security/compliance/cmmc-2/cmmc-2-levels/), or read about [how Chainguard Containers can help simplify fulfilling CMMC 2.0 requirements](/software-security/compliance/cmmc-2/cmmc-chainguard/).
 
 ## Browse all CMMC 2.0 Articles
 
@@ -54,4 +54,4 @@ Achieving compliance with CMMC 2.0 is not just a regulatory requirement but a cr
 - [Overview of CMMC 2.0 Practice/Control Groups](/software-security/compliance/cmmc-2/cmmc-practices/)
 - [How Chainguard Can Help With CMMC 2.0](/software-security/compliance/cmmc-2/cmmc-chainguard/)
 
-**[Get started with Chainguard FIPS Images today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**
+**[Get started with FIPS Chainguard Containers today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**

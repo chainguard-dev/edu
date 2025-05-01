@@ -70,7 +70,7 @@ The following table highlights the features of Chainguard Containers as mapped t
 <center><img src="fedramp-considerations-1.png" alt="Table showing Chainguard Containers features mapped to FedRAMP Rev 5 baselines. The table has two columns: Features and Rev 5 Control. The Features Column categorizes features into three categories, each showing three features and their explanations. The first is 'Continuous Vulnerability Management and Automation,' which includes the features Almost No Vulnerabilities, Automatic Fixes, and Security advisories. These are mapped to RA-5 Vulnerability Scanning, CA-7 Continuous Monitoring, and SI-2 Flaw Remediation. The second category is 'Secure by Default' with the features Minimal Images, Strong Encryption, and Hardened Images. These are mapped to SA-10 Developer Configuration Management and SA-11 Developer Security Testing and Evaluation. The final category is 'Asset Management Best Practices' which includes the features Build time SBOMs for Each Image, OCI Standard Images, and Signed with Sigstore. These are mapped to SC - 8 Protection of Information in Transit and SC-28 Protection of Information at Rest." style="width:1100px;"></center>
 <br /> 
 
-Additionally, Chainguard helps support CM-6 configuration settings requirements. Chainguard announced the release of a STIG for the General Purpose Operating System (GPOS) SRG which specifies security requirements for general purpose operating systems running in a network. The goal for this STIG is that it will help customers confidently and securely integrate Chainguard Images into their workflows. Please refer to our [STIGS Overview](https://edu.chainguard.dev/chainguard/chainguard-images/working-with-images/image-stigs/#how-stigs-can-be-used-to-harden-images) for more information.
+Additionally, Chainguard helps support CM-6 configuration settings requirements. Chainguard announced the release of a STIG for the General Purpose Operating System (GPOS) SRG which specifies security requirements for general purpose operating systems running in a network. The goal for this STIG is that it will help customers confidently and securely integrate Chainguard Containers into their workflows. Please refer to our [STIGS Overview](https://edu.chainguard.dev/chainguard/chainguard-images/working-with-images/image-stigs/#how-stigs-can-be-used-to-harden-images) for more information.
 
 
 ## Kernel-Independent FIPS Container Images
@@ -98,7 +98,7 @@ For more information, please refer to the CVMP entries for Chainguard's FIPS Mod
 * Bouncy Castle FIPS Java API (CMVP #4743 [historical: CMVP #4616])
 * Chainguard CPU Time Jitter RNG Entropy Source ([ESV Entropy Certificate #E191](https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations/certificate/191))
 
-Additionally, check out our blog post on [Kernel-Independent FIPS Container Images](https://www.chainguard.dev/unchained/kernel-independent-fips-images).
+Additionally, check out our blog post on [Kernel-Independent FIPS Containers](https://www.chainguard.dev/unchained/kernel-independent-fips-images).
 
 
 ## Conclusion

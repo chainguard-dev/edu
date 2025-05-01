@@ -77,10 +77,10 @@ Once set, the configured identity provider will be used automatically any time y
 
 When authenticating via the Chainguard Console, your organization name is detected from your email address in most cases. If your organization name does not match your email domain, it can be input manually to select your custom identity provider.
 
-## Verified Organizations and Chainguard Images
+## Verified Organizations and Chainguard Containers
 
-If you've purchased Chainguard Images, your images are available via a private catalog. Your images are available to pull via `cgr.dev/<org id>/<image name>`, where `<org id>` is the unique identifier for your organization. Once your organization is verified, you can use the name of your organization instead of your organization identifier. For example, if your organization is named `example.com` and is verified, you can pull private images from your catalog with `cgr.dev/example.com/<image name>`.
+If you've purchased Chainguard Containers, your images are available via a private catalog. Your images are available to pull via `cgr.dev/<org id>/<image name>`, where `<org id>` is the unique identifier for your organization. Once your organization is verified, you can use the name of your organization instead of your organization identifier. For example, if your organization is named `example.com` and is verified, you can pull private images from your catalog with `cgr.dev/example.com/<image name>`.
 
 ## Restrictions for Verified Organizations
 
-Once an organization is verified, its name can be used interchangeably with the organization's unique ID. Changes to the name can break Image pulls from your private catalog and break authentication for users that have configured custom identity providers. For that reason, modifying the name of a verified organization is not currently possible. If you need to modify the name of your verified organization, please contact support.
+Once an organization is verified, its name can be used interchangeably with the organization's unique ID. Changes to the name can break image pulls from your private catalog and break authentication for users that have configured custom identity providers. For that reason, modifying the name of a verified organization is not currently possible. If you need to modify the name of your verified organization, please contact support.

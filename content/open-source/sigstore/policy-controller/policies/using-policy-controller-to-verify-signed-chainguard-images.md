@@ -1,14 +1,14 @@
 ---
-title: "Verify Signed Chainguard Images"
+title: "Verify Signed Chainguard Containers"
 aliases:
 - /open-source/sigstore/policy-controller/using-policy-controller-to-verify-signed-chainguard-images/
 type: "article"
-description: "Using Policy Controller to Verify Signed Chainguard Images"
-lead: "Verify Chainguard Images with Policy Controller"
+description: "Using Policy Controller to Verify Signed Chainguard Containers"
+lead: "Verify Chainguard Containers with Policy Controller"
 date: 2023-02-22T13:11:29+08:29
 lastmod: 2024-05-10T13:11:29+08:29
 draft: false
-tags: ["policy-controller", "Procedural", "Policy", "Chainguard Images"]
+tags: ["policy-controller", "Procedural", "Policy", "Chainguard Containers"]
 images: []
 menu:
   docs:
@@ -64,7 +64,7 @@ Error from server (BadRequest): admission webhook "policy.sigstore.dev" denied t
 cgr.dev/chainguard/nginx@sha256:628a01724b84d7db2dc3866f645708c25fab8cce30b98d3e5b76696291d65c4a
 ```
 
-In the next step, you will define a policy that verifies Chainguard Images are signed and apply it to your cluster.
+In the next step, you will define a policy that verifies Chainguard Containers are signed and apply it to your cluster.
 
 ## Step 2 — Creating a `ClusterImagePolicy`
 
@@ -84,8 +84,8 @@ kind: ClusterImagePolicy
 metadata:
   name: chainguard-images-are-signed
   annotations:
-    catalog.chainguard.dev/title: Chainguard Images
-    catalog.chainguard.dev/description: Enforce Chainguard images are signed
+    catalog.chainguard.dev/title: Chainguard Containers
+    catalog.chainguard.dev/description: Enforce Chainguard Containers are signed
     catalog.chainguard.dev/labels: chainguard
 spec:
   images:

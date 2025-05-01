@@ -1,15 +1,15 @@
 ---
-title: "Chainguard Container Images Product Release Lifecycle"
+title: "Chainguard Containers Product Release Lifecycle"
 linktitle: "Product Release Lifecycle"
 aliases:
 - /chainguard/chainguard-images/versions/
 - /chainguard/chainguard-images/features/eol-notifications/
 type: "article"
-description: "Understanding Chainguard's approach to Container Image versions."
+description: "Understanding Chainguard's approach to container image versions."
 date: 2024-01-08T08:49:31+00:00
 lastmod: 2024-12-17T08:49:31+00:00
 draft: false
-tags: ["CHAINGUARD IMAGES", "PRODUCT"]
+tags: ["Chainguard Containers", "Product"]
 images: []
 menu:
   docs:
@@ -44,7 +44,7 @@ Many open source projects support only a single stream of releases that are cont
 
 ## What Chainguard Supports and Maintains for Chainguard Containers
 
-There are several scenarios that define what Chainguard agrees to maintain regarding software versions in the [Chainguard Images Directory](/chainguard/chainguard-images/how-to-use/images-directory/). All container images that Chainguard currently supports are those with upstream software that is still supported and maintained, and Chainguard patches and rebuilds these Containers daily. If you have purchased a container image during its lifecycle that is no longer being supported upstream, you will still be able to access this Container, _but_ Chainguard will not be patching or rebuilding this Container and it will start to accrue CVEs. It is recommended to upgrade to an actively maintained version. 
+There are several scenarios that define what Chainguard agrees to maintain regarding software versions in the [Chainguard Containers Directory](/chainguard/chainguard-images/how-to-use/images-directory/). All container images that Chainguard currently supports are those with upstream software that is still supported and maintained, and Chainguard patches and rebuilds these Containers daily. If you have purchased a container image during its lifecycle that is no longer being supported upstream, you will still be able to access this Container, _but_ Chainguard will not be patching or rebuilding this Container and it will start to accrue CVEs. It is recommended to upgrade to an actively maintained version. 
 
 The table provides some example scenarios to help illustrate our approach. 
 
@@ -62,7 +62,7 @@ The table provides some example scenarios to help illustrate our approach.
 
 ## What Chainguard Container Versions to Expect
 
-When you use freely-available [Chainguard Starter Containers](/chainguard/chainguard-images/about/images-categories/#starter-containers), you will have access to the `:latest` version of any Container available to the public. In some cases, you will also have access to the `:latest-dev` version, which includes a shell and package manager. For example, the Python container image has both `cgr.dev/chainguard/python:latest` and `cgr.dev/chainguard/python:latest-dev`. Many of the programming languages have these options available, including the Java JDK and JRE Images, PHP, Go, Node, Ruby, and Rust. 
+When you use freely-available [Chainguard Starter Containers](/chainguard/chainguard-images/about/images-categories/#starter-containers), you will have access to the `:latest` version of any Container available to the public. In some cases, you will also have access to the `:latest-dev` version, which includes a shell and package manager. For example, the Python container image has both `cgr.dev/chainguard/python:latest` and `cgr.dev/chainguard/python:latest-dev`. Many of the programming languages have these options available, including the Java JDK and JRE containers, PHP, Go, Node, Ruby, and Rust. 
 
 If you are using our enterprise Chainguard Production Containers, you will have access to more versions. The Chainguard approach is as follows: 
 
@@ -98,7 +98,7 @@ This change ensures that Chainguard can provide the most up-to-date patches to a
 
 ## SLAs
 
-A vulnerability and patch service-level agreement (SLA) is available for Chainguard Production Containers. There are no SLAs available for Chainguard's free tier of Images, but you will have access to frequently updated and patched container images with low-to-zero CVEs.
+A vulnerability and patch service-level agreement (SLA) is available for Chainguard Production Containers. There are no SLAs available for Chainguard's free tier of container images, but you will have access to frequently updated and patched container images with low-to-zero CVEs.
 
 If you are a Chainguard Production Containers user, Chainguard vulnerability and patch SLAs apply only to supported and maintained versions of upstream projects as clearly published by the upstream projects or published container images that can be rebuilt using updated compilers and/or libraries. In the case of single-release track projects, this means that the Chainguard vulnerability and patch SLAs apply only to the latest version and corresponding version tags of the upstream projects. Containers that use open source applications that have reached their end of life are no longer patched.
 

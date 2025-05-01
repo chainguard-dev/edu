@@ -1,5 +1,5 @@
 ---
-title: "Selecting a Base Image"
+title: "Selecting a Base Container Image"
 linktitle: "Selecting a Base Image"
 description: "Criteria for selecting a base image"
 lead: "What to look for when choosing a hardened, minimal base image"
@@ -91,4 +91,4 @@ False: Infrequently rebuilt images accumulate vulnerabilities as new vulnerabili
 True: Fewer known vulnerabilities, all things equal, makes the attacker's job harder and reduces the vulnerability triage burden on security teams and developers.
 </details>
 
-For readers interested in an example of images that prioritize the criteria described above, [Chainguard Images](https://github.com/chainguard-images) offers one option.
+For readers interested in an example of images that prioritize the criteria described above, [Chainguard Containers](https://github.com/chainguard-images) offers one option.
