@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Go"
 aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-go
-description: "Tutorial on the distroless Go Chainguard Image"
+description: "Tutorial on the distroless Go Chainguard Container"
 date: 2023-02-28T11:07:52+02:00
 lastmod: 2025-03-24T11:07:52+02:00
 tags: ["Chainguard Containers", "Products"]
@@ -19,9 +19,9 @@ toc: true
 
 The [Go Chainguard Container](https://images.chainguard.dev/directory/image/go/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-go) is a container image suitable for building Go applications. The `latest` variant is a distroless image without a package manager, while the `latest-dev` variant offers additional building tools and the apk package manager.
 
-In this guide, we'll demonstrate how to build and execute Go applications using Chainguard Images, using three examples from our [demos repository](https://github.com/chainguard-dev/edu-images-demos). In the first example, we'll build a CLI application using a Docker multi-stage build. In the second example, we'll build an application that's accessible by HTTP server, also using a Docker multi-stage build to obtain an optimized runtime. The third example shows how to build an image using [ko](https://ko.build/), a tool that enables you to build container images from Go programs and push them to container registries without requiring a Dockerfile.
+In this guide, we'll demonstrate how to build and execute Go applications using Chainguard Containers, using three examples from our [demos repository](https://github.com/chainguard-dev/edu-images-demos). In the first example, we'll build a CLI application using a Docker multi-stage build. In the second example, we'll build an application that's accessible by HTTP server, also using a Docker multi-stage build to obtain an optimized runtime. The third example shows how to build an image using [ko](https://ko.build/), a tool that enables you to build container images from Go programs and push them to container registries without requiring a Dockerfile.
 
-The examples in this guide recommend executing Go binaries from one of our runtime Chainguard Images, such as the [`glibc-dynamic`](https://images.chainguard.dev/directory/image/glibc-dynamic/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-go) or [`static`](https://images.chainguard.dev/directory/image/static/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-go) Chainguard Images. That is possible because Go applications are compiled and the toolchain is not typically required in a runtime container image.
+The examples in this guide recommend executing Go binaries from one of our runtime Chainguard Containers, such as the [`glibc-dynamic`](https://images.chainguard.dev/directory/image/glibc-dynamic/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-go) or [`static`](https://images.chainguard.dev/directory/image/static/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-go) Chainguard Containers. That is possible because Go applications are compiled and the toolchain is not typically required in a runtime container image.
 
 {{< details "What is distroless" >}}
 {{< blurb/distroless >}}
@@ -111,7 +111,7 @@ Greetings, Chainguard user!
 ```
 The application will also share usage instructions when prompted with the `--help` flag or when invalid flags are passed.
 
-Because we used the `static` Chainguard Image as our runtime, the final container image only requires a few megabytes on disk:
+Because we used the `static` Chainguard Container as our runtime, the final container image only requires a few megabytes on disk:
 
 ```shell
 docker inspect go-greeter | jq -c 'first' | jq .Size | numfmt --to iec --format "%8.4f"
@@ -119,7 +119,7 @@ docker inspect go-greeter | jq -c 'first' | jq .Size | numfmt --to iec --format 
 ```
  3.3009M
 ```
-The final size, `3.309M`, is orders of magnitude smaller than it would be running the application using a Go image. However, if your application is dynamically linked to shared objects, consider using the `glibc-dynamic` Chainguard Image for your runtime or take extra steps to build your Go binary statically. In the next example, we'll build a web application and use the `glibc-dynamic` Chainguard Image as runtime.
+The final size, `3.309M`, is orders of magnitude smaller than it would be running the application using a Go image. However, if your application is dynamically linked to shared objects, consider using the `glibc-dynamic` Chainguard Container for your runtime or take extra steps to build your Go binary statically. In the next example, we'll build a web application and use the `glibc-dynamic` Chainguard Container as runtime.
 
 ## Example 2: Web Application
 
@@ -172,9 +172,9 @@ Hello, Chainguard Customer!
 
 The application will also share version information at [http://0.0.0.0:8080/version](http://0.0.0.0:8080/version).
 
-## Example 3: Minimal Go Chainguard Image Built with ko
+## Example 3: Minimal Go Chainguard Container Built with ko
 
-In this example, we'll build a distroless Go Chainguard Image with [ko](https://ko.build/). ko offers fast container image builds for Go applications without requiring a Dockerfile. Additionally, ko produces [SBOMs](/open-source/sbom/what-is-an-sbom/) by default, supporting a holistic approach to software security.
+In this example, we'll build a distroless Go Chainguard Container with [ko](https://ko.build/). ko offers fast container image builds for Go applications without requiring a Dockerfile. Additionally, ko produces [SBOMs](/open-source/sbom/what-is-an-sbom/) by default, supporting a holistic approach to software security.
 
 Start by accessing the `go-digester` folder in the Go demos repository:
 
@@ -190,7 +190,7 @@ go run main.go
 You should obtain output similar to this:
 
 ```
-The latest digest of the go Chainguard Image is sha256:86178b42db2e32763304e37f4cf3c6ec25b7bb83660dcb985ab603e3726a65a6
+The latest digest of the go Chainguard Container is sha256:86178b42db2e32763304e37f4cf3c6ec25b7bb83660dcb985ab603e3726a65a6
 ```
 We'll now use ko to build an image that is suitable to run the application defined in `main.go`. By default, ko uses the `cgr.dev/chainguard/static` image as the base image for the build. You can override this by setting the `KO_DEFAULTBASEIMAGE` environment variable to a different base image.
 

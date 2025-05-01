@@ -1,11 +1,11 @@
 ---
-title: "Keep your Chainguard Images Up to Date with digestabot"
-linktitle: "Video: Up-to-date Images with Digestabot"
+title: "Keep your Chainguard Containers Up to Date with digestabot"
+linktitle: "Up-to-date Containers with Digestabot"
 aliases:
 - /chainguard/chainguard-images/videos/digestabot/
 - /chainguard/chainguard-images/troubleshooting/updating-images/digestabot/
 lead: ""
-description: "This video explains how to use digestabot, a free GitHub action we created to make it easier for public users to keep their Chainguard Images fresh."
+description: "This video explains how to use digestabot, a free GitHub action we created to make it easier for public users to keep their Chainguard Containers fresh."
 type: "article"
 date: 2024-02-07T15:21:01+00:00
 lastmod: 2024-12-12T15:21:01+00:00
@@ -36,7 +36,7 @@ But we really don't want our applications and infrastructure to break unexpected
 
 So there's a tension between updating all the time, which gives you the latest code and limits unexpected breakages.
 
-In this example, we have a multi-stage Python build using Chainguard Images which are pinned to Digest.
+In this example, we have a multi-stage Python build using Chainguard Container which are pinned to Digest.
 
 Now, Digests are content-based hashes of images.
 
@@ -66,6 +66,6 @@ So please try it out and let me know if you have any questions.
 
 ## Relevant Resources
 - [Reproducible Dockerfiles with Frizbee and Digestabot](/chainguard/chainguard-images/how-to-use/digestabot_frizbee/) (Video)
-- [Reproducibility and Chainguard Images](/chainguard/chainguard-images/videos/repro/) (Video)
-- [Considerations for Keeping Images Up to Date](/chainguard/chainguard-images/recommended-practices/considerations-for-image-updates/) (Article)
-- [Strategies and Tooling for Updating Container Images](/chainguard/chainguard-images/recommended-practices/strategies-tools-updating-images/) (Article)
+- [Reproducibility and Chainguard Containers](/chainguard/chainguard-images/videos/repro/) (Video)
+- [Considerations for Keeping Containers Up to Date](/chainguard/chainguard-images/recommended-practices/considerations-for-image-updates/) (Article)
+- [Strategies and Tooling for Updating Container Containers](/chainguard/chainguard-images/recommended-practices/strategies-tools-updating-images/) (Article)

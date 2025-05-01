@@ -1,7 +1,7 @@
 ---
 title: "Simplify Your Path to CMMC 2.0 Compliance with Chainguard"
-description: "Chainguard Images reduce the time and effort for establishing CMMC 2.0 compliance"
-lead: "Chainguard Images reduce the time and effort for establishing CMMC 2.0 compliance"
+description: "Chainguard Containers reduce the time and effort for establishing CMMC 2.0 compliance"
+lead: "Chainguard Containers reduce the time and effort for establishing CMMC 2.0 compliance"
 type: "article"
 date: 2024-08-09T19:10:09+00:00
 lastmod: 2024-08-15T19:10:09+00:00
@@ -45,4 +45,4 @@ By leveraging Chainguard’s resources, organizations can accelerate their path 
 - (Current article) How Chainguard Can Help With CMMC 2.0
 
 
-**[Get started with Chainguard FIPS Images today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**
+**[Get started with FIPS Chainguard Containers today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**

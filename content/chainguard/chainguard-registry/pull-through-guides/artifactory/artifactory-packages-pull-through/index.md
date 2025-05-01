@@ -8,7 +8,7 @@ description: "Tutorial outlining how to set up remote and virtual Artifactory re
 date: 2024-11-14T15:56:52-07:00
 lastmod: 2024-11-14T15:56:52-07:00
 draft: false
-tags: ["PRODUCT", "PROCEDURAL", "CHAINGUARD IMAGES"]
+tags: ["Chainguard Containers", "Product"]
 images: []
 menu:
   docs:
@@ -208,7 +208,7 @@ Next, you must select existing repositories to include within this virtual repos
 <center><img src="ar-apk-5.png" alt="Screenshot showing a portion of the 'New Virtual Repository' page. The 'cg-wolfi' and 'cg-extras' repositories have been checked and moved to the 'Selected Repositories' column." style="width:750px;"></center>
 <br />
 
-Finally, click the **Create Virtual Repository** button. As before, a modal window will appear letting you know that the repository was created successfully. Click the **Set Up Generic Client** button at the bottom of this window to retrieve the token you'll need to test whether you can pull Images through this repository. 
+Finally, click the **Create Virtual Repository** button. As before, a modal window will appear letting you know that the repository was created successfully. Click the **Set Up Generic Client** button at the bottom of this window to retrieve the token you'll need to test whether you can pull images through this repository. 
 
 With this token in hand, create another environment variable:
 
@@ -249,7 +249,7 @@ This command will install the `nodejs-18` package from the virtual repository as
 If you run into issues when trying to pull from Chainguard's package repositories through Artifactory, you can try checking for these common pitfalls:
 
 * You may run into issues if your Artifactory username is an email address; specifically, the `@` sign can lead to errors. Be sure that you're using a user profile with a name that only contains letters and numbers. 
-* Ensure that all Images [network requirements](https://edu.chainguard.dev/chainguard/administration/network-requirements/) are met.
+* Ensure that all [network requirements](https://edu.chainguard.dev/chainguard/administration/network-requirements/) are met.
 * When configuring a remote Artifactory repository, ensure that the **URL** field is set correctly. 
 * It may help to [clear the Artifactory cache](https://jfrog.com/help/r/artifactory-cleanup-best-practices/clearing-an-oversized-cache).
 * It could be that your Artifactory repository was misconfigured. In this case, create and configure a new Remote Artifactory repository to test with.
@@ -257,4 +257,4 @@ If you run into issues when trying to pull from Chainguard's package repositorie
 
 ## Learn more
 
-If you haven't already done so, you may find it useful to review our [Registry Overview](/chainguard/chainguard-registry/overview/) to learn more about the Chainguard Registry. You can also learn more about Chainguard Images by referring to our [Images documentation](/chainguard/chainguard-images/overview/), and learn more about working with the Chainguard platform by reviewing our [Administration documentation](/chainguard/administration/). If you'd like to learn more about JFrog Artifactory, we encourage you to refer to the [official Artifactory documentation](https://jfrog.com/help/r/jfrog-artifactory-documentation).
+If you haven't already done so, you may find it useful to review our [Registry Overview](/chainguard/chainguard-registry/overview/) to learn more about the Chainguard Registry. You can also learn more about Chainguard Containers by referring to our [documentation](/chainguard/chainguard-images/overview/), and learn more about working with the Chainguard platform by reviewing our [Administration documentation](/chainguard/administration/). If you'd like to learn more about JFrog Artifactory, we encourage you to refer to the [official Artifactory documentation](https://jfrog.com/help/r/jfrog-artifactory-documentation).

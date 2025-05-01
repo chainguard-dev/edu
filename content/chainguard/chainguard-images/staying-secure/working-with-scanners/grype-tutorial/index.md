@@ -8,7 +8,7 @@ aliases:
 description: "Learn to use Grype to detect CVEs in images"
 date: 2024-06-06T20:00:00+02:00
 lastmod: 2024-06-06T20:00:00+00:00
-tags: ["Conceptual", "CVE"]
+tags: ["CVE", "Chainguard Containers"]
 draft: false
 images: []
 menu:
@@ -26,7 +26,7 @@ Grype is appropriate for one-off detection for manual CVE mitigation and in auto
 
 ### Container Images
 
-Grype is readily available as a container image. To pull the low-to-no-CVE Chainguard Image for Grype and perform a scan on the official Docker nginx image, run the following:
+Grype is readily available as a container image. To pull the low-to-no-CVE Chainguard Container for Grype and perform a scan on the official Docker nginx image, run the following:
 
 ```bash
 docker run -it cgr.dev/chainguard/grype nginx
@@ -284,7 +284,7 @@ The following resources may also be useful while working with Grype:
 - [Syft](https://github.com/anchore/syft) - A Grype-compatible tool for generating SBOMs from images and filesystems.
 - [Grype-DB](https://github.com/anchore/grype-db) - A tool to build Grype databases from specific upstream vulnerability database providers
 - [Vunnel](https://github.com/anchore/vunnel) - A tool for collating vulnerability provider data
-- [Grype Chainguard Image](https://images.chainguard.dev/directory/image/grype/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-scanners-grype-tutorial) — A low-to-no CVE container image maintained by Chainguard
+- [Grype Chainguard Container](https://images.chainguard.dev/directory/image/grype/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-scanners-grype-tutorial) — A low-to-no CVE container image maintained by Chainguard
 
 ### More on Grype
 

@@ -1,11 +1,11 @@
 ---
-title: "Migrating a Dockerfile for a Go application to use Chainguard Images"
+title: "Migrating a Dockerfile for a Go application to use Chainguard Containers"
 linktitle: "Video: Go"
 aliases:
 - /chainguard/chainguard-images/videos/migrating_go/
 - /chainguard/migration/migrating_go/
 lead: ""
-description: "How to migrate an existing Dockerfile for an application that can be statically compiled to Chainguard Images in order to improve security and reduce file size."
+description: "How to migrate an existing Dockerfile for an application that can be statically compiled to Chainguard Containers in order to improve security and reduce file size."
 type: "article"
 date: 2024-02-07T01:21:01+00:00
 lastmod: 2024-12-12T15:21:01+00:00
@@ -26,9 +26,9 @@ toc: true
 
 ## Transcript
 
-In this video, I'm going to show how easy it is to port an existing Dockerfile to use a Chainguard Image base, and how that can help to improve the image, especially in terms of security.
+In this video, I'm going to show how easy it is to port an existing Dockerfile to use a Chainguard Containers base, and how that can help to improve the image, especially in terms of security.
 
-I'll be using the free tier of Chainguard Images here, so you can do everything in this video on your own projects today.
+I'll be using the free tier of Chainguard Containers here, so you can do everything in this video on your own projects today.
 
 The example I'm going to use is porting an existing Golang project to use the Chainguard Go and Static images, but a very similar technique can be used for other compiled languages, such as Rust and C, especially where you can produce a statically linked executable.
 
@@ -60,7 +60,7 @@ Okay, so that all works.
 
 It's a really nice, simple Go web server.
 
-Let's take a look at how we can change it to use a Chainguard Image.
+Let's take a look at how we can change it to use a Chainguard Container.
 
 The easiest thing we can do, literally a one-line change, is just to modify this to point out the Chainguard Go image.
 
@@ -102,7 +102,7 @@ We can also see there's 303 packages.
 
 So there's a lot of stuff in this image.
 
-Let's compare it to the Chainguard Image.
+Let's compare it to the Chainguard Container.
 
 There's no CVEs and there's only 85 packages.
 
@@ -198,7 +198,7 @@ So this application still works exactly the same as it did at the start of this 
 
 But if I take a look at the web app distroless, the big difference is that now it's only 8.5 megabytes in size.
 
-So we went from the original Golang image, which is 892 megabytes, to a Chainguard Image, which was 775 megabytes, down to 8.51 megabytes.
+So we went from the original Golang image, which is 892 megabytes, to a Chainguard Container, which was 775 megabytes, down to 8.51 megabytes.
 
 And it still all works the same.
 
@@ -232,7 +232,7 @@ OK, please try it out and let me know how you get on.
 
 ## Relevant Resources
 
-- [Using the static Chainguard Image](/chainguard/chainguard-images/videos/static-base-image/) (Video)
-- [Choosing an Image for your Compiled Programs](/chainguard/chainguard-images/about/images-compiled-programs/compiled-programs/) (Article)
-- [Getting Started with the Go Chainguard Image](/chainguard/chainguard-images/getting-started/go/) (Article)
+- [Using the static Chainguard Container](/chainguard/chainguard-images/videos/static-base-image/) (Video)
+- [Choosing an Container for your Compiled Programs](/chainguard/chainguard-images/about/images-compiled-programs/compiled-programs/) (Article)
+- [Getting Started with the Go Chainguard Container](/chainguard/chainguard-images/getting-started/go/) (Article)
 

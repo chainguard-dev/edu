@@ -59,7 +59,7 @@ kubectl run --image ghcr.io/distroless/static myoldimage
 
 Since there is no `ClusterImagePolicy` defined yet, the Policy Controller will allow the admission request.
 
-In the next step, you will define a policy that verifies Chainguard Images has an age below 30days and apply it to your cluster.
+In the next step, you will define a policy that verifies Chainguard Containers has an age below 30days and apply it to your cluster.
 
 ## Step 2 — Creating a `ClusterImagePolicy`
 
