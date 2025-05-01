@@ -129,7 +129,7 @@ Before proceeding, let's push our image to Docker Hub, since the following comma
 docker push $DH_USERNAME/example-image
 ```
 
-Our `example-image` still has attestations derived from our base image, since all Chainguard Images come with SBOM and SLSA provenance attestations. Let's remove these attestations with the `cosign clean` command:
+Our `example-image` still has attestations derived from our base image, since all Chainguard Containers come with SBOM and SLSA provenance attestations. Let's remove these attestations with the `cosign clean` command:
 
 ```sh
 cosign clean $DH_USERNAME/example-image

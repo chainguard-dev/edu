@@ -1,22 +1,22 @@
 ---
-title: "Migrating to Node.js Chainguard Images"
+title: "Migrating to Node.js Chainguard Containers"
 linktitle: "Node"
 aliases:
 - /chainguard/migration-guides/migrating-node/
 - /chainguard/migration/migrating-node/
 - /chainguard/migration/migration-guides/migrating-node/
 type: "article"
-description: "Guidance on how to migrate Node.js Dockerfile workloads to use Chainguard Images"
+description: "Guidance on how to migrate Node.js Dockerfile workloads to use Chainguard Containers"
 date: 2024-05-09T15:56:52-07:00
 lastmod: 2024-05-09T15:56:52-07:00
 draft: false
-tags: ["Images", "Product", "Conceptual"]
+tags: ["Chainguard Containers", "Product", "Migration"]
 images: []
 weight: 010
 toc: true
 ---
 
-Chainguard Images are built on top of [Wolfi](/open-source/wolfi/), a Linux _undistro_ designed
+Chainguard Containers are built on top of [Wolfi](/open-source/wolfi/), a Linux _undistro_ designed
 specifically for containers. Our Node.js images have a minimal design (sometimes known as
 _distroless_) that ensures a smaller attack surface, which results in smaller images [with few to
 zero](/chainguard/chainguard-images/vuln-comparison/node/) CVEs. Nightly builds deliver fresh images
@@ -32,9 +32,9 @@ CVEs.
 {{< /details >}}
 
 This article is intended as a guide to porting existing Dockerfiles for Node.js applications to a
-Chainguard Images base.
+Chainguard Containers base.
 
-## Chainguard Node.js Images
+## Node.js Chainguard Containers
 
 The [Node.js](https://images.chainguard.dev/directory/image/node/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-node) images come in two main
 flavours; runtime images intended for production usage and builder images intended for use in the
@@ -60,7 +60,7 @@ images](/chainguard/chainguard-images/getting-started-distroless/).
 Dockerfiles will often contain commands specific to the Linux Distribution they are based on. Most
 commonly this will be package installation instructions (e.g. `apt` vs `yum` vs `apk`) but also
 differences in default shell (e.g. `bash` vs `ash`) and default utilities (e.g. `groupadd` vs `addgroup`).
-Our high-level guide on [Migrating to Chainguard Images](/chainguard/migration/migrating-to-chainguard-images/)
+Our high-level guide on [Migrating to Chainguard Containers](/chainguard/migration/migrating-to-chainguard-images/)
 contains details about distro-based migration and package compatibility when migrating from Debian,
 Alpine, Ubuntu and Red Hat UBI base images.
 
@@ -110,21 +110,21 @@ few differences that are important to be aware of.
  - `WORKDIR` is set to `/app` which is owned by the `node` user.
  - The Docker Official images have a "smart" entrypoint that interprets the CMD setting. So `docker
    run -it node` will launch the Node.js interpreter but `docker run -it node /bin/sh` will launch a
-   shell. The latter does not work with Chainguard Images. In the non `-dev` images, there is no
+   shell. The latter does not work with Chainguard Containers. In the non `-dev` images, there is no
    shell to launch, and in the `-dev` images you will need to change the entrypoint e.g. `docker run
    --entrypoint /bin/sh -it cgr.dev/chainguard/node`.
  - The image has a defined `NODE_PORT=3000` environment variable which can be used by applications
  - Our Node.js images include [dumb-init](https://github.com/Yelp/dumb-init) which can be used to
    wrap the Node process in order to handle signals properly and allow for graceful shutdown. You
    can use dumb-init by setting an entrypoint such as: `ENTRYPOINT ["/usr/bin/dumb-init", "--"]`
- - In general there are many fewer libraries and utilities in the Chainguard Image. You may find that
-   your application has an unexpected dependency which needs to be added into the Chainguard Image.
+ - In general there are many fewer libraries and utilities in the Chainguard Container. You may find that
+   your application has an unexpected dependency which needs to be added into the Chainguard Container.
 
 
 ## Migration Example
 
 This section has a short example of migrating a Node.js application with a Dockerfile building on
-`node:latest` to use the Chainguard Node.js Images. The code for [this example can be found on
+`node:latest` to use the Chainguard Node.js Containers. The code for [this example can be found on
 GitHub](https://github.com/chainguard-dev/cg-images-node-migration).
 
 Our starting Dockerfile uses the `node:latest` image from Docker Hub in a single-stage build:
@@ -152,7 +152,7 @@ If you've cloned the GitHub repository, you can build this image with:
 docker build -t node-classic-image -f Dockerfile-classic .
 ```
 
-Directly porting to Chainguard Images with the least number of changes results in this Dockerfile:
+Directly porting to Chainguard Containers with the least number of changes results in this Dockerfile:
 
 ```Docker
 FROM cgr.dev/chainguard/node:latest-dev
@@ -222,14 +222,14 @@ contains full details on our images, including usage documentation, provenance a
 advisories.
 
  - The [How to Port a Sample Application to Chainguard
-Images](/chainguard/migration/porting-apps-to-chainguard/) article contains an example of porting a
+Containers](/chainguard/migration/porting-apps-to-chainguard/) article contains an example of porting a
 Node.js Dockerfile for a legacy application.
 
- - The [How to Migrate a Node.js Application to Chainguard Images](https://edu.chainguard.dev/chainguard/chainguard-images/videos/node-images/) video works through an example of porting a Node.js Dockerfile.
+ - The [How to Migrate a Node.js Application to Chainguard Containers](https://edu.chainguard.dev/chainguard/chainguard-images/videos/node-images/) video works through an example of porting a Node.js Dockerfile.
 
  - Bret Fisher has an excellent [guide to creating Node.js container
 images](https://github.com/BretFisher/nodejs-rocks-in-docker/), including advice for using
 distroless.
 
- - The [Debugging Distroless](/chainguard/chainguard-images/debugging-distroless-images/) guide contains important information for debugging issues with distroless images. You can also refer to the [Verifying Images](/chainguard/chainguard-images/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/) resource for details around provenance, SBOMs, and image signatures.
+ - The [Debugging Distroless](/chainguard/chainguard-images/debugging-distroless-images/) guide contains important information for debugging issues with distroless images. You can also refer to the [Verifying Containers](/chainguard/chainguard-images/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/) resource for details around provenance, SBOMs, and image signatures.
 

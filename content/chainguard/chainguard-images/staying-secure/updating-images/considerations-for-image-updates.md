@@ -1,6 +1,6 @@
 ---
-title: "Considerations for Keeping Images Up to Date"
-linktitle: "Image Update Considerations"
+title: "Considerations for Keeping Containers Up to Date"
+linktitle: "Container Update Considerations"
 aliases:
 - /chainguard/chainguard-images/considerations-for-images-updates
 - /chainguard/chainguard-images/recommended-practices/considerations-for-image-updates/
@@ -10,7 +10,7 @@ description: "A conceptual article on best practices for keeping images up to da
 date: 2023-10-05T11:07:52+02:00
 lastmod: 2023-10-11T11:07:52+02:00
 draft: false
-tags: ["CONCEPTUAL", "CHAINGUARD IMAGES", "PRODUCT"]
+tags: ["Chainguard Containers", "Product"]
 images: []
 menu:
   docs:
@@ -37,7 +37,7 @@ When referencing an image, it's important to know exactly what image you are wor
 [host]/[repository][image_name][:tag]
 ```
 
-For example, the full name for the [Chainguard Go Image](https://images.chainguard.dev/directory/image/go/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-recommended-practices-considerations-for-image-updates), is `cgr.dev/chainguard/go:latest`.
+For example, the full name for the [Go Chainguard Container](https://images.chainguard.dev/directory/image/go/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-recommended-practices-considerations-for-image-updates), is `cgr.dev/chainguard/go:latest`.
 
 Certain elements of this name format are optional in many cases. For instance, if you omit the hostname portion of an image name in either Docker or Kubernetes, both will default to using the public Docker registry.
 
@@ -89,7 +89,7 @@ As mentioned in the previous section, image digests guarantee full reproducibili
 
 Of course, digests do come with their own drawbacks. Image digests are not human readable; unlike tags, you can't always tell the difference between two image digests with a quick visual scan. Digests also don't make it clear whether a digest represents an older version, or whether one digest is older than another. Combined, these factors mean that digests can make it more difficult to know whether an image is up to date.
 
-[Chainguard Images](/chainguard/chainguard-images/) are rebuilt daily in order to ensure that they're kept up to date and include all the latest available security patches. We recommend adopting a development pattern where digests are used to identify Chainguard Images and are regularly updated by a bot, ensuring that the project and its downstream users benefit from reduced vulnerability counts, bug fixes, and new features. We do this ourselves with our [digestabot tool](https://github.com/chainguard-dev/digestabot).
+[Chainguard Containers](/chainguard/chainguard-images/) are rebuilt daily in order to ensure that they're kept up to date and include all the latest available security patches. We recommend adopting a development pattern where digests are used to identify Chainguard Containers and are regularly updated by a bot, ensuring that the project and its downstream users benefit from reduced vulnerability counts, bug fixes, and new features. We do this ourselves with our [digestabot tool](https://github.com/chainguard-dev/digestabot).
 
 As with the recommendation stated previously, Chainguard requires a human to approve the digestabot's update before it's deployed. Technically, we could set up an automatic approval for the bot's updates, but requiring a human approval combines the stability and reproducibility of using a digest with the good security hygiene of keeping images regularly updated.
 
@@ -99,6 +99,6 @@ There are many factors to consider when developing a process for keeping your im
 
 To reiterate, there's no one-size-fits-all approach to keeping one's images up to date. Our goal for this article is to introduce some of the important factors one should consider when developing a container image update plan for their application. If you'd like to learn more about the subjects touched on in this guide, we encourage you to check out the following resources.
 
-* [How to Use Chainguard Images](/chainguard/chainguard-images/how-to-use-chainguard-images/)
-* [How to Use Container Image Digests to Improve Reproducibility](/chainguard/chainguard-images/videos/container-image-digests/)
-* [How To Compare Chainguard Images with chainctl](/chainguard/chainguard-images/how-to-use/comparing-images/)
+* [How to Use Chainguard Containers](/chainguard/chainguard-images/how-to-use-chainguard-images/)
+* [How to Use Container Container Digests to Improve Reproducibility](/chainguard/chainguard-images/videos/container-image-digests/)
+* [How To Compare Chainguard Containers with chainctl](/chainguard/chainguard-images/how-to-use/comparing-images/)

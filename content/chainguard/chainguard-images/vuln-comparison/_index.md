@@ -10,12 +10,12 @@ weight: 050
 topic: true
 banner: {
     image: "/go-logo-white.svg",
-    title: "Vulnerability Comparison in Go Images",
+    title: "Vulnerability Comparison in Go Container Images",
     subtitle: "Comparing the external Golang image to the latest Go Chainguard Container",
     cta: "Compare images",
     link: "/chainguard/chainguard-images/vuln-comparison/go/"
 }
-sectiontitle: "Compare Popular Images"
+sectiontitle: "Compare Popular Container Images"
 tutorials: [
   {
     title: "Node",

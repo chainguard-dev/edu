@@ -6,11 +6,11 @@ aliases:
 - /chainguard/migration/migrating-php/
 - /chainguard/migration/migration-guides/migrating-php/
 type: "article"
-description: "Guidance on how to migrate PHP Dockerfile workloads to use Chainguard Images"
+description: "Guidance on how to migrate PHP Dockerfile workloads to use Chainguard Containers"
 date: 2024-04-04T15:56:52-07:00
 lastmod: 2024-04-04T15:56:52-07:00
 draft: false
-tags: ["Images", "Product", "Conceptual"]
+tags: ["Chainguard Containers", "Product", "Migration"]
 images: []
 weight: 005
 toc: true
@@ -18,10 +18,10 @@ toc: true
 
 Chainguard Containers are built on top of [Wolfi](/open-source/wolfi/), a Linux _undistro_ designed specifically for containers. Our PHP images have a minimal design that ensures a smaller attack surface, which results in smaller images [with few to zero](/chainguard/chainguard-images/vuln-comparison/php/) CVEs. Nightly builds deliver fresh images whenever updated packages are available, which also helps to reduce the toil of manually patching CVEs in PHP images.
 
-This article will assist you in the process of migrating your existing PHP Dockerfiles to leverage the benefits of Chainguard Images, including a smaller attack surface and a more secure application footprint.
+This article will assist you in the process of migrating your existing PHP Dockerfiles to leverage the benefits of Chainguard Containers, including a smaller attack surface and a more secure application footprint.
 
 
-## Chainguard PHP Images
+## PHP Chainguard Containers
 Chainguard offers multiple PHP images and variants catering to distinct use cases. In addition to the regular PHP image that includes CLI and FPM variants, we offer a dedicated [Laravel](https://images.chainguard.dev/directory/image/laravel/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-php) image designed for Laravel applications.
 
 Each variant comes in two flavors: a minimal runtime image (distroless) and a development variant distinguished by the `-dev` suffix (e.g., `latest-dev`).
@@ -31,10 +31,10 @@ In a nutshell, distroless images don't include a package manager or a shell, bei
 For a deeper exploration of distroless images and their differences from standard base images, refer to the guide on [Getting Started with Distroless images](/chainguard/chainguard-images/getting-started-distroless/).
 
 ## Migrating from non-apk systems
-When migrating from distributions that are not based on the `apk` ecosystem, you'll need to update your Dockerfile accordingly. Our high-level guide on [Migrating to Chainguard Images](/chainguard/migration/migrating-to-chainguard-images/) contains details about distro-based migration and package compatibility when migrating from Debian, Ubuntu, and Red Hat UBI base images.
+When migrating from distributions that are not based on the `apk` ecosystem, you'll need to update your Dockerfile accordingly. Our high-level guide on [Migrating to Chainguard Containers](/chainguard/migration/migrating-to-chainguard-images/) contains details about distro-based migration and package compatibility when migrating from Debian, Ubuntu, and Red Hat UBI base images.
 
 ## Installing PHP Extensions
-Wolfi offers several PHP extensions as optional packages you can install with `apk`. Because PHP extensions are system-level packages, they require `apk` which is only available in our development image variants. The following extensions are already included within all Chainguard PHP Image variants:
+Wolfi offers several PHP extensions as optional packages you can install with `apk`. Because PHP extensions are system-level packages, they require `apk` which is only available in our development image variants. The following extensions are already included within all Chainguard PHP image variants:
 
 - `php-mbstring`
 - `php-curl`
@@ -94,7 +94,7 @@ php-xmlwriter-8.2.11-r1
 ```
 For more searching tips, check the [Searching for Packages](/chainguard/migration/migrating-to-chainguard-images/#searching-for-packages) section of our base migration guide.
 
-## Migrating PHP CLI workloads to use Chainguard Images
+## Migrating PHP CLI workloads to use Chainguard Containers
 Our `latest` and `latest-dev` PHP image variants are designed to run CLI applications and scripts that don't need a web server. As a first step towards migration, you might want to change your base image to the `latest-dev` variant, since that would be the closest option for a drop-in base image replacement. Once you have your dependencies and steps dialed in, you can optionally migrate to a multi-stage build to create a strict runtime containing only what the application needs to run.
 
 The following `Dockerfile` uses the `php:latest-dev` image to build the application, which in this case means copying the application files and installing dependencies via `composer`. A second build stage copies the application to a final distroless image based on `php:latest`.
@@ -114,9 +114,9 @@ COPY --from=builder /app /app
 ENTRYPOINT [ "php", "/app/myscript.php" ]
 ```
 
-Our [PHP Getting Started](/chainguard/chainguard-images/getting-started/php/) guide has step-by-step instructions on how to build and run a PHP CLI application with Chainguard Images.
+Our [PHP Getting Started](/chainguard/chainguard-images/getting-started/php/) guide has step-by-step instructions on how to build and run a PHP CLI application with Chainguard Containers.
 
-## Migrating PHP Web applications to use Chainguard Images
+## Migrating PHP Web applications to use Chainguard Containers
 For PHP web applications that serve content through a web server, you should use the `latest-fpm` and `latest-fpm-dev` variants of our PHP image. Combine it with our [Nginx image](https://images.chainguard.dev/directory/image/nginx/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-php) and an optional database for a traditional LEMP setup.
 
 The overall migration process is essentially the same as described in the previous section, with the difference that you won't set up application entry points, since these images run as services. Your Dockerfile may require additional steps to set up front-end dependencies, initialize databases, and perform any additional tasks needed for the application to run through a web server.
@@ -198,12 +198,12 @@ http {
 }
 ```
 
-## Migrating Laravel Applications to use Chainguard Images
+## Migrating Laravel Applications to use Chainguard Containers
 Chainguard has a dedicated [Laravel image](https://images.chainguard.dev/directory/image/laravel/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-php) designed for applications built on top of the [Laravel](https://laravel.com) PHP Framework. This image is based on the `php:latest-fpm` variant, with additional extensions required by Laravel. Migration should follow the same steps described in previous sections, with the `laravel:latest-dev` variant as builder and `laravel:latest` as the distroless variant of this image.
 
 In addition to including extensions required by Laravel by default, the image includes a **laravel** system user that facilitates running `composer` and `artisan` commands from a host environment, which enables users to create and develop Laravel applications with the `-dev` variant of this image. Check the section on [Developing Laravel Applications](#developing-laravel-applications) for more information on how to use the development variant of the Laravel image for development environments.
 
-## Using Development Images
+## Using Development Containers
 Our PHP development images are minimal yet versatile images that include `apk` and `composer`. You can use these images to create and develop PHP applications on a containerized development environment.
 
 Development images can be identified by the `-dev` suffix (e.g: `php:latest-dev`). You can use them to execute Composer commands from a Dockerfile or directly from the command line with `docker run`. This allows users to run Composer without having to install PHP on their host system.
@@ -282,6 +282,6 @@ The preview should be live at `localhost:8000`.
 
 ## Additional Resources
 
-Our [PHP image documentation](https://images.chainguard.dev/directory/image/php/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-php) covers details about all PHP image variants, including the list of available tags for both development and production images. For another example of a LEMP setup using MariaDB, check our guide on [Getting Started with the MariaDB Chainguard Image](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/mariadb/).
+Our [PHP image documentation](https://images.chainguard.dev/directory/image/php/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-php) covers details about all PHP image variants, including the list of available tags for both development and production images. For another example of a LEMP setup using MariaDB, check our guide on [Getting Started with the MariaDB Chainguard Container](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/mariadb/).
 
-The [Debugging Distroless](/chainguard/chainguard-images/debugging-distroless-images/) guide contains important information for debugging issues with distroless images. You can also refer to the [Verifying Images](/chainguard/chainguard-images/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/) resource for details around provenance, SBOMs, and image signatures.
+The [Debugging Distroless](/chainguard/chainguard-images/debugging-distroless-images/) guide contains important information for debugging issues with distroless images. You can also refer to the [Verifying Containers](/chainguard/chainguard-images/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/) resource for details around provenance, SBOMs, and image signatures.

@@ -1,5 +1,5 @@
 ---
-title: "Setting Up a Minecraft Server with the Chainguard JRE Container"
+title: "Setting Up a Minecraft Server with the JRE Chainguard Container"
 type: "article"
 linktitle: "JRE + Minecraft"
 description: "Tutorial on how to build a Minecraft Server with Chainguard's JRE Container Image"
@@ -554,4 +554,4 @@ The [online-mode](https://minecraft.wiki/w/Server.properties#online-mode) proper
 
 In this tutorial, you learned how to set up a low-to-zero CVE Minecraft server using Chainguard’s Java runtime (JRE) container image. We started with a basic setup that we improved with bash scripts for installing and configuring the Java server. We also discussed some strategies for making your server more secure.
 
-Our [Staying Secure](https://edu.chainguard.dev/chainguard/chainguard-images/staying-secure/) section on Chainguard Academy has more resources on container security and CVEs. For more details about Java and other Chainguard Images, please refer to our [Images Directory](https://images.chainguard.dev).
+Our [Staying Secure](https://edu.chainguard.dev/chainguard/chainguard-images/staying-secure/) section on Chainguard Academy has more resources on container security and CVEs. For more details about Java and other Chainguard Containers, please refer to the [Containers Directory](https://images.chainguard.dev).

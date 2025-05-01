@@ -1,5 +1,5 @@
 ---
-title: "False Positives and False Negatives with Images Scanners"
+title: "False Positives and False Negatives with Container Images Scanners"
 linktitle: "False Positives and Negatives"
 aliases: 
 - /chainguard/chainguard-images/scanners/false-results
@@ -90,7 +90,7 @@ One way to leverage VEX documents is through [OpenVEX](https://github.com/openve
 
 A primary cause of large vulnerability counts reported in scanners is the dead weight caused by unnecessary dependencies. Many popular container images contain hundreds of packages, each with their own potential to introduce vulnerabilities, both true and false positives. Having so much noise to sift through draws out the vulnerability management process.
 
-[Chainguard Images](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement), built on the [Wolfi un-distro](/open-source/wolfi/), can help you reduce your CVE count dramatically by keeping things minimal. By bundling only what is necessary to run the image, Chainguard Images are hardened and lightweight in comparison to their counterparts. To learn more about how Chainguard Images can help you achieve low (or zero!) CVEs in your containers, check out our [Images documentation](/chainguard/chainguard-images/overview/).
+[Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement), built on the [Wolfi un-distro](/open-source/wolfi/), can help you reduce your CVE count dramatically by keeping things minimal. By bundling only what is necessary to run the image, Chainguard Containers are hardened and lightweight in comparison to their counterparts. To learn more about how Chainguard Containers can help you achieve low (or zero!) CVEs in your containers, check out our [documentation](/chainguard/chainguard-images/overview/).
 
 ### Updating and Rebuilding Images
 
@@ -102,4 +102,4 @@ With false results mixed into your scans, triaging and addressing true positive 
 
 In this article, you learned how false results from your vulnerability scanners can occur, and how they can impact your development workflow. Additionally, you explored various ways you can improve the accuracy of your scanner through the application of tools like VEX, rebuilding your images, and choosing a base image suitable for your applications.
 
-To learn more about reducing false positives and negatives in your images, you can check out our [collection of articles on SBOMs and VEX](/open-source/sbom/), read about [selecting a base image](/software-security/selecting-a-base-image/) for your applications, or discover how Chainguard Images can help you [reach zero CVEs in your containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
+To learn more about reducing false positives and negatives in your images, you can check out our [collection of articles on SBOMs and VEX](/open-source/sbom/), read about [selecting a base image](/software-security/selecting-a-base-image/) for your applications, or discover how Chainguard Containers can help you [reach zero CVEs in your containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
