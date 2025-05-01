@@ -8,7 +8,7 @@ lastmod: 2025-03-06T08:49:15+00:00
 draft: false
 tags: ["chainctl", "events", "Product"]
 images: []
-weight: 50
+weight: 050
 ---
 
 This page presents some of the more commonly used `chainctl events` commands. For a full reference of all commands with details and switches, see [chainctl Reference](/chainguard/chainctl/).

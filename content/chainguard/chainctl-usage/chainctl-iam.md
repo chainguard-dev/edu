@@ -8,7 +8,7 @@ lastmod: 2025-03-06T08:49:15+00:00
 draft: false
 tags: ["chainctl", "iam", "Product", "authentication", "access", "identity", "management"]
 images: []
-weight: 60
+weight: 060
 ---
 
 This page presents some of the more commonly used `chainctl iam` commands. These commands all relate to identity and access management (IAM), enabling your organization to control access to various resources and actions.

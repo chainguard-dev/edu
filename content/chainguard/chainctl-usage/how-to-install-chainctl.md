@@ -14,7 +14,7 @@ menu:
   docs:
     parent: "administration"
 toc: true
-weight: 005
+weight: 010
 ---
 
 The Chainguard command line interface (CLI) tool, `chainctl`, will help you interact with the account model that Chainguard provides, and enable you to make queries into the state of your Chainguard resources.

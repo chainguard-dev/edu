@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with chainctl"
+title: "Get Started with chainctl"
 lead: ""
 description: "chainctl basics for beginners"
 type: "article"
@@ -8,7 +8,7 @@ lastmod: 2025-03-03T08:49:15+00:00
 draft: false
 tags: ["chainctl", "Getting Started", "Product", "Basics"]
 images: []
-weight: 10
+weight: 020
 ---
 
 This page presents some of the more commonly used basic `chainctl` commands to help you get started. For a full reference of all commands with details and switches, see [chainctl Reference](/chainguard/chainctl/).

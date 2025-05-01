@@ -1,6 +1,6 @@
 ---
 title: "How To Compare Chainguard Containers with chainctl"
-linktitle: "Compare with chainctl"
+linktitle: "Compare Images with chainctl"
 aliases: 
 - /chainguard/chainguard-images/comparing-images/
 - /chainguard/chainguard-images/comparing-images/comparing-images/
@@ -18,7 +18,7 @@ images: []
 menu:
   docs:
     parent: "chainguard-images"
-weight: 025
+weight: 045
 toc: true
 ---
 

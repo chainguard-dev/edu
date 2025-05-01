@@ -17,15 +17,15 @@ Like most control commands that end with `ctl`, such as `systemctl` or `loginctl
 
 This page lists a curated set of `chainctl` resources to help you get started.
 
-To install `chainctl`, follow our <ins>[installation guide](/chainguard/administration/how-to-install-chainctl/)</ins>.
+To install `chainctl`, follow our <ins>[installation guide](/chainguard/chainctl-usage/how-to-install-chainctl/)</ins>.
 
 Once installed, these will help you on your path to success:
 
-* <ins>[Getting Started with chainctl](/chainguard/chainctl-usage/getting-started-with-chainctl/)</ins>
+* <ins>[Get Started with chainctl](/chainguard/chainctl-usage/getting-started-with-chainctl/)</ins>
 * <ins>[Authenticate to Chainguard Registry](/chainguard/chainguard-registry/authenticating/)</ins> - This page includes links to register for a Chainguard account, which is needed to do anything with `chainctl`. You must authenticate to Chainguard to use `chainctl`.
-* <ins>[How to Manage chainctl Configuration](/chainguard/administration/manage-chainctl-config/)</ins>
-* <ins>[How To Compare Chainguard Containers with chainctl diff](/chainguard/chainguard-images/how-to-use/comparing-images/)</ins>
+* <ins>[Manage Your chainctl Configuration](/chainguard/chainctl-usage/manage-chainctl-config/)</ins>
 * <ins>[Find and Update Your chainctl Release Version](/chainguard/chainctl-usage/chainctl-version-update/)</ins>
+* <ins>[Compare Chainguard Images with chainctl diff](/chainguard-usage/comparing-images/)</ins>
 * <ins>[chainctl events](/chainguard/chainctl-usage/chainctl-events/)</ins>
 * <ins>[chainctl iam](/chainguard/chainctl-usage/chainctl-iam/)</ins>
 * <ins>[chainctl images](/chainguard/chainctl-usage/chainctl-images/)</ins>
