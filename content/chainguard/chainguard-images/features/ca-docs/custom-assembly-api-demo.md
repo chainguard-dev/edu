@@ -31,7 +31,7 @@ In order to follow along with this guide, you will need the following:
 
 ## Downloading the Demo Application
 
-This step involves downloading the demo application code to your local machine. To ensure that the application files don't remain on your system navigate to a temporary directory like `/tmp/`:
+This step involves downloading the demo application code to your local machine. To ensure that the application files don't remain on your system, navigate to a temporary directory like `/tmp/`:
 
 ```shell
 cd /tmp/
@@ -73,11 +73,10 @@ Navigate into this new directory:
 cd custom-assembly-go/
 ```
 
-From here, you can run the application and use it to update the packages built into a Custom Assembly container. First though, let's go through the `main.go` file where the executable application code is written to better understand how it works.
+From here, you can run the application and use it to update the packages built into a Custom Assembly container. First though, let's go through the `main.go` file where the executable application code is written In order to understand how it works.
 
 
 ## Understanding the Demo Application
-
 
 Before outlining how to run the demo application to update Custom Assembly container image, it's important that you have a general understanding of how the application works. 
 
@@ -101,7 +100,7 @@ import (
 )
 ```
 
-The example uses the Chainguard SDK to interact with the Chainguard API and demonstrates proper patterns for authentication, error handling, and resource management. For this reason, the `import` section also brings in a number of protos from `github.com/chainguard-dev/sdk`, the GitHub repository that stores Chainguard's public SDK for integrating with the Chainguard platform:
+The application also uses the Chainguard SDK to interact with the Chainguard API and demonstrates proper patterns for authentication, error handling, and resource management. For this reason, the `import` section also brings in a number of protos from [`github.com/chainguard-dev/sdk`](https://github.com/chainguard-dev/sdk), the GitHub repository that stores Chainguard's public SDK for integrating with the Chainguard platform:
 
 ```main.go
 import (
@@ -160,8 +159,6 @@ These functions come together in the `main()` function, which performs five main
 
 To accomplish all this, the application's functions perform the following API calls:
 
-These functions use the following API calls:
-
 * [ListBuildReports](/chainguard/administration/api/#/operations/Registry_ListBuildReports)
 * [ListRepos](/chainguard/administration/api/#/operations/Registry_ListRepos)
 * [UpdateRepo](/chainguard/administration/api/#/operations/Registry_UpdateRepo)
@@ -182,9 +179,9 @@ First, run the following `go` commands:
 go mod init github.com/chainguard-dev/sdk && go mod tidy
 ```
 
-The `go mod init` command will initialize a new `go.mod` file in the current directory. Including the `girhub.com/chainguard-dev/sdk` URL tells Go to use that as the module path. The `go mod tidy` command ensures that the new `go.mod` file matches the source code in the module.
+The `go mod init` command will initialize a new `go.mod` file in the current directory. Including the `github.com/chainguard-dev/sdk` URL tells Go to use that as the module path. The `go mod tidy` command ensures that the new `go.mod` file matches the source code in the module.
 
-You must authenticate before you can interact with the Chainguard API. For this reason, this demo application expects an environment variable named `TOK` to be present when it's run. Create this environment variable with the following command:
+As mentioned previously, you must authenticate before you can interact with the Chainguard API. For this reason, this demo application expects an environment variable named `TOK` to be present when it's run. Create this environment variable with the following command:
 
 ```shell
 export TOK=$(chainctl auth token)
