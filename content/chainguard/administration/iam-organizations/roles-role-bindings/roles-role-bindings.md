@@ -32,7 +32,7 @@ There are a number of built-in roles in Chainguard's IAM model that customers ca
 
 `viewer` is a role that generally only has read-only access. That is, a viewer can list images, policies, organizations (and organization invites), clusters, records, roles and role-bindings, subscriptions, and account associations.
 
-The remaining roles are for more specialized functions. For example, `registry.pull`, `registry.push`, and `registry.pull_token_creator` relate to administering a Chainguard Registry.
+The remaining roles are for more specialized functions. For example, `registry.pull`, `registry.push`, and `registry.pull_token_creator` relate to administering a registry of Chainguard products.
 
 You can run `chainctl iam roles list` to retrieve a list of all the roles available to your organization and review each of their specific capabilities. This command will list all the built-in roles as well as any custom roles created for your organization. The next section outlines how to create and manage such custom roles. 
 

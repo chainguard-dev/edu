@@ -1,12 +1,12 @@
 ---
-title: "How to Set Up Pull Through from Chainguard Registry to Artifactory"
+title: "How to Set Up Pull Through from Chainguard's Registry to Artifactory"
 linktitle: "Registry Pull-Through"
 aliases: 
 - /chainguard/chainguard-registry/artifactory-pull-through/
 - /chainguard/chainguard-registry/pull-through-guides/artifactory-pull-through/
 - /chainguard/chainguard-registry/pull-through-guides/artifactory/artifactory-images-pull-through/
 type: "article"
-description: "Tutorial outlining how to set up a remote Artifactory repository to pull Containers through the Chainguard Registry."
+description: "Tutorial outlining how to set up a remote Artifactory repository to pull Containers through Chainguard's registry."
 date: 2024-02-13T15:56:52-07:00
 lastmod: 2024-09-04T15:56:52-07:00
 draft: false
@@ -19,7 +19,7 @@ toc: true
 weight: 005
 ---
 
-Organizations can use Chainguard Containers along with third-party software repositories in order to integrate with current workflows as the single source of truth for software artifacts. In this situation, you can set up a remote repository to function as a mirror of a [Chainguard Registry](https://edu.chainguard.dev/chainguard/chainguard-registry/overview/) — either the public registry or a private one belonging to your organization. This mirror can then serve as a pull through cache for your Chainguard Containers.
+Organizations can use Chainguard Containers along with third-party software repositories in order to integrate with current workflows as the single source of truth for software artifacts. In this situation, you can set up a remote repository to function as a mirror of [Chainguard's registry](https://edu.chainguard.dev/chainguard/chainguard-registry/overview/) — either the public registry or a private one belonging to your organization. This mirror can then serve as a pull through cache for your Chainguard Containers.
 
 This tutorial outlines how to set up remote repositories with [JFrog Artifactory](https://jfrog.com/artifactory/). Specifically, it will walk you through how to set up one repository you can use as a pull through cache for Chainguard's public [Starter Containers](/chainguard/chainguard-images/about/images-categories/#starter-containers) and another you can use with Production Containers originating from a private Chainguard repository. It will also outline how you can use one of Artifactory's virtual repositories as a pull through cache.
 
@@ -29,10 +29,10 @@ This tutorial outlines how to set up remote repositories with [JFrog Artifactory
 In order to complete this tutorial, you will need the following:
 
 * Administrative privileges over an Artifactory instance. If you're interested in testing out this configuration, you can set up a trial instance on the [JFrog Artifactory landing page](https://jfrog.com/artifactory/). 
-* Administrative privileges over a Chainguard Registry. 
+* Administrative privileges in Chainguard. 
 * `chainctl`, Chainguard's command line interface tool, installed on your local machine. To set this up, follow our [installation guide for `chainctl`](/chainguard/administration/how-to-install-chainctl/).
 
-Lastly, part of this guide assumes you have access to a private Chainguard Registry containing one or more Production Containers. If you don't already have access to these, you can [contact our sales team](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement). 
+Lastly, part of this guide assumes you have access to a private registry containing one or more Production container images. If you don't already have access to these, you can [contact our sales team](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement). 
 
 
 ## Setting Up Artifactory as a pull through for Starter Containers
@@ -84,7 +84,7 @@ Be sure the `docker pull` command you run includes the name of your project as w
 
 Production Chainguard Containers are enterprise-ready container images that come with patch SLAs and features such as [Federal Information Processing Standard](/chainguard/chainguard-images/working-with-images/fips-images/) (FIPS) readiness. The process for setting up an Artifactory repository that you can use as a pull through cache for Chainguard Production Containers is similar to the one outlined previously for Starter Containers, but with a few extra steps.
 
-To get started, you will need to create [a pull token](/chainguard/chainguard-registry/authenticating/#authenticating-with-a-pull-token) for your organization's Chainguard Registry. Pull tokens are longer-lived tokens that can be used to pull Containers from other environments that don't support OIDC, such as some CI environments, Kubernetes clusters, or with registry mirroring tools like Artifactory.
+To get started, you will need to create [a pull token](/chainguard/chainguard-registry/authenticating/#authenticating-with-a-pull-token) for your organization's registry. Pull tokens are longer-lived tokens that can be used to pull Containers from other environments that don't support OIDC, such as some CI environments, Kubernetes clusters, or with registry mirroring tools like Artifactory.
 
 To create a pull token with `chainctl`, run the following command: 
 
@@ -204,4 +204,4 @@ If you run into issues when trying to pull Containers from Chainguard's Registry
 
 ## Learn more
 
-If you haven't already done so, you may find it useful to review our [Registry Overview](/chainguard/chainguard-registry/overview/) to learn more about the Chainguard Registry. You can also learn more about Chainguard Containers by referring to our [Containers documentation](/chainguard/chainguard-images/overview/). If you'd like to learn more about JFrog Artifactory, we encourage you to refer to the [official Artifactory documentation](https://jfrog.com/help/r/jfrog-artifactory-documentation).
+If you haven't already done so, you may find it useful to review our [Registry Overview](/chainguard/chainguard-registry/overview/) to learn more about Chainguard's registry. You can also learn more about Chainguard Containers by referring to our [Containers documentation](/chainguard/chainguard-images/overview/). If you'd like to learn more about JFrog Artifactory, we encourage you to refer to the [official Artifactory documentation](https://jfrog.com/help/r/jfrog-artifactory-documentation).

@@ -77,7 +77,7 @@ docker run -ti --rm \
    cgr.dev/$ORGANIZATION/$IMAGE
 ```
 
-In this command and throughout the rest of this guide, be sure to change `$ORGANIZATION` to reflect the name of your organization's repository within the Chainguard Registry. Additionally, this guide was validated using the [chainguard-base](https://images.chainguard.dev/directory/image/chainguard-base/overview) image, but you can use any container image that is part of your organization's image catalog. However, to follow along with every example this guide, you should use a container image that includes a shell, such as an image's `-dev` variant.
+In this command and throughout the rest of this guide, be sure to change `$ORGANIZATION` to reflect the name of your organization's repository within Chainguard's registry. Additionally, this guide was validated using the [chainguard-base](https://images.chainguard.dev/directory/image/chainguard-base/overview) image, but you can use any container image that is part of your organization's image catalog. However, to follow along with every example this guide, you should use a container image that includes a shell, such as an image's `-dev` variant.
 
 Also, you can initialize these placeholder values by setting them as environment variables as in the following examples. This will make it easier to follow along:
 

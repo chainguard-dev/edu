@@ -110,12 +110,12 @@ chainctl iam identity create github [GITHUB-IDENTITY] \
 
 **Note**: The value passed to `--github-repo` should be equal to the repository name you expect to be returned in the `subject` field of the token from GitHub. If you need to further scope or change the subject you can find a number of useful examples in the ["Example subject claims"](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims) section of GitHub's OIDC documentation and then you may update the identity with [`chainctl iam identities update`](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities_update/).
 
-This creates a Chainguard identity that can be assumed by a GitHub Actions workflow only for the specified GitHub repository, triggered on pushes to the specified branch (such as `refs/heads/main`), with permissions only to pull from the Chainguard Registry.
+This creates a Chainguard identity that can be assumed by a GitHub Actions workflow only for the specified GitHub repository, triggered on pushes to the specified branch (such as `refs/heads/main`), with permissions only to pull from Chainguard's registry.
 
 When this identity is created, its ID will be displayed. Using this ID, you can configure your GitHub Actions workflow to install `chainctl` and assume this identity when the workflow runs:
 
 ```yaml
-name: Chainguard Registry Example
+name: Registry Example
 
 on:
   push:

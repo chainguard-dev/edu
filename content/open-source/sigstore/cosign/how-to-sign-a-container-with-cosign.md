@@ -1,5 +1,6 @@
 ---
 title: "How to Sign a Container with Cosign"
+linktitle: "Sign a Container"
 type: "article"
 lead: "Container signing using Cosign"
 description: "Signing containers with Cosign"

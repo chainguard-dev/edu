@@ -30,7 +30,7 @@ If you have a container environment that was working fine but suddenly breaks wi
 
 ## Obtaining a Registry Token
 
-Before making API calls, you'll need to generate a token within the [Chainguard Registry](/chainguard/chainguard-registry/overview/).
+Before making API calls, you'll need to generate a token within [Chainguard's registry](/chainguard/chainguard-registry/overview/).
 
 ### Public Containers
 
