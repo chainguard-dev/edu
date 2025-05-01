@@ -8,7 +8,7 @@ lastmod: 2025-04-09T08:49:15+00:00
 draft: false
 tags: ["chainctl", "images", "history", "Product"]
 images: []
-weight: 75
+weight: 090
 ---
 
 This page demonstrates how to use the `chainctl images history` command. For a full reference of all commands with details and switches, see [chainctl Reference](/chainguard/chainctl/).

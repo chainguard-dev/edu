@@ -1,6 +1,6 @@
 ---
-title: "How to Manage chainctl Configuration"
-linktitle: "chainctl Config"
+title: "Manage Your chainctl Configuration"
+linktitle: "Manage Your chainctl Configuration"
 aliases:
 - /chainguard/chainguard-enforce/manage-chainctl-config/
 type: "article"
@@ -13,7 +13,7 @@ menu:
   docs:
     parent: "administration"
 toc: true
-weight: 006
+weight: 030
 ---
 
 The Chainguard command line interface (CLI) tool, `chainctl`, will help you interact with the account model that Chainguard provides, and enable you to make queries into what's available to you on the Chainguard platform.

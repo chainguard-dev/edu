@@ -8,7 +8,7 @@ lastmod: 2025-03-06T08:49:15+00:00
 draft: false
 tags: ["chainctl", "packages", "Product"]
 images: []
-weight: 80
+weight: 100
 ---
 
 This page presents the most commonly used `chainctl packages` command. For a full reference of all commands with details and switches, see [chainctl Reference](/chainguard/chainctl/).
