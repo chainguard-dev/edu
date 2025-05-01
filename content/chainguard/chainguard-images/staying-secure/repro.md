@@ -1,6 +1,6 @@
 ---
-title: "Reproducibility and Chainguard Images"
-linktitle: "Video: Reproducibility and Chainguard Images"
+title: "Reproducibility and Chainguard Containers"
+linktitle: "Video: Reproducibility"
 aliases:
 - /chainguard/chainguard-images/videos/repro/
 - /chainguard/chainguard-images/staying-secure/repro/

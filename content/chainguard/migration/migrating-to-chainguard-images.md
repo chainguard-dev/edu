@@ -1,26 +1,26 @@
 ---
-title: "Migrating Dockerfiles to Chainguard Images"
+title: "Migrating Dockerfiles to Chainguard Containers"
 linktitle: "Migrating Dockerfiles"
 aliases:
 - /chainguard/migration-guides/migrating-to-chainguard-images/
 - /chainguard/migration/migrating-to-chainguard-images/
 type: "article"
-description: "Guidance on how to migrate existing Dockerfile workloads to use Chainguard Images"
+description: "Guidance on how to migrate existing Dockerfile workloads to use Chainguard Containers"
 date: 2024-03-25T15:56:52-07:00
 lastmod: 2024-03-25T15:56:52-07:00
 draft: false
-tags: ["Images", "Product", "Conceptual"]
+tags: ["Chainguard Containers", "Product",]
 images: []
 weight: 015
 toc: true
 ---
 
-Based on the [Wolfi](/open-source/wolfi/overview/) Linux _undistro_, Chainguard Images have special features designed for increased security and provenance attestation. Depending on your current base image and custom commands, you may need to make some adjustments when migrating your current Dockerfile workloads to use Chainguard Images.
+Based on the [Wolfi](/open-source/wolfi/overview/) Linux _undistro_, Chainguard Containers have special features designed for increased security and provenance attestation. Depending on your current base image and custom commands, you may need to make some adjustments when migrating your current Dockerfile workloads to use Chainguard Containers.
 
 A general migration process would involve the following steps:
 
-1. **Identify the base image you need**. Check out the [Chainguard Images Directory](https://images.chainguard.dev/directory?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-to-chainguard-images) to identify the image that is the closest match to what you currently use. You may also use [wolfi-base](https://images.chainguard.dev/directory/image/wolfi-base/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-to-chainguard-images) as a flexible starting point for your experimentation.
-2. **Try the `-dev` variant of the image first.** Chainguard Images typically have a **distroless** variant, which is very minimal and doesn't include `apk`, and a **dev** variant that contains tooling necessary to build applications and install new packages. Start with the **dev** variant or the **wolfi-base** image to have more room for customization.
+1. **Identify the base image you need**. Check out the [Chainguard Containers Directory](https://images.chainguard.dev/directory?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-to-chainguard-images) to identify the image that is the closest match to what you currently use. You may also use [wolfi-base](https://images.chainguard.dev/directory/image/wolfi-base/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-to-chainguard-images) as a flexible starting point for your experimentation.
+2. **Try the `-dev` variant of the image first.** Chainguard Containers typically have a **distroless** variant, which is very minimal and doesn't include `apk`, and a **dev** variant that contains tooling necessary to build applications and install new packages. Start with the **dev** variant or the **wolfi-base** image to have more room for customization.
 3. **Identify packages you need to install**. Depending on your current base image, you may need to include additional packages to meet dependencies. Refer to the [Searching for Packages](#searching-for-packages) section for more details on how to find packages.
 4. **Migrate to a distroless image**. Evaluate the option of using a Docker multi-stage build to create a final distroless image containing only what you need. Check the [Getting Started with Distroless images](/chainguard/chainguard-images/getting-started-distroless/) for more details of how to work with distroless images. Although not required, this process should give you a smaller image with additional safeguards.
 
@@ -30,7 +30,7 @@ The next sections of this page contain distro-specific information that should h
 
 
 ## Migrating from Debian and Ubuntu Dockerfiles
-Chainguard Images are based on the [Alpine apk](https://wiki.alpinelinux.org/wiki/Package_management) ecosystem, which differs from Debian-based `apt` in several aspects. Some of these features contribute in making packages smaller and more accountable, resulting in smaller images with traceable provenance information based on cryptographic signatures. The page [Why apk](/open-source/wolfi/apk-package-manager/) from the official Wolfi documentation explains in more detail why we use apk.
+Chainguard Containers are based on the [Alpine apk](https://wiki.alpinelinux.org/wiki/Package_management) ecosystem, which differs from Debian-based `apt` in several aspects. Some of these features contribute in making packages smaller and more accountable, resulting in smaller images with traceable provenance information based on cryptographic signatures. The page [Why apk](/open-source/wolfi/apk-package-manager/) from the official Wolfi documentation explains in more detail why we use apk.
 
 If you are coming from a Debian-based Dockerfile, you'll need to adapt some of your commands to be compatible with the apk ecosystem:
 
@@ -54,7 +54,7 @@ If you are coming from a Red Hat UBI based Dockerfile, you'll need to adapt some
 | Update package manager cache | `yum makecache`        | `apk update`           |
 
 ## Migrating from Alpine Dockerfiles
-If your Dockerfile is based on Alpine, the process for migrating to Chainguard Images should be more straightforward, since you're already using `apk` commands. Wolfi packages typically match what is available in Alpine, with some exceptions. For instance, the Wolfi busybox package is slimmer and doesn't include all tools available in Alpine's busybox. Check the [Alpine Compatibility](/chainguard/migration/alpine-compatibility/) page for a list of common tools and their corresponding packages in Wolfi and Alpine.
+If your Dockerfile is based on Alpine, the process for migrating to Chainguard Containers should be more straightforward, since you're already using `apk` commands. Wolfi packages typically match what is available in Alpine, with some exceptions. For instance, the Wolfi busybox package is slimmer and doesn't include all tools available in Alpine's busybox. Check the [Alpine Compatibility](/chainguard/migration/alpine-compatibility/) page for a list of common tools and their corresponding packages in Wolfi and Alpine.
 
 ## Searching for Packages
 Packages from Debian and other base distributions might have a different name in Wolfi. To search for packages, log into an ephemeral container based on `cgr.dev/chainguard/wolfi-base`:
@@ -142,6 +142,6 @@ For detailed information about apk options and flags when searching for packages
 
 ## Resources to Learn More
 
-Our [Getting Started Guides](/chainguard/chainguard-images/getting-started/) have detailed examples for different language ecosystems and stacks. Make sure to also check image-specific information in our [Chainguard Images Directory](https://images.chainguard.dev/directory?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-to-chainguard-images).
+Our [Getting Started Guides](/chainguard/chainguard-images/getting-started/) have detailed examples for different language ecosystems and stacks. Make sure to also check image-specific information in our [Chainguard Containers Directory](https://images.chainguard.dev/directory?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-to-chainguard-images).
 
 If you can't find an image that is a good match for your use case, or if your build has dependencies that cannot be met with the regular catalog, [get in touch with us](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) for alternative options.

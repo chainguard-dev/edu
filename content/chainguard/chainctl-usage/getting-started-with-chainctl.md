@@ -81,7 +81,7 @@ Learn more at [How to Manage chainctl Configuration](/chainguard/administration/
 
 ## List Available Images
 
-To see which Chainguard Images are available to your account, use:
+To see which Chainguard Containers are available to your account, use:
 
 ```shell
 chainctl images list
@@ -102,7 +102,7 @@ chainctl images diff cgr.dev/chainguard.edu/$IMAGENAME>:latest cgr.dev/chainguar
 
 If a requested image or release being requested is not available in the repo you are using, this will return a `Forbidden` error, just like if you tried to pull an image you did not have access to or from a repository your account is not authorized to use.
 
-Learn more at [How To Compare Chainguard Images with chainctl](/chainguard/chainguard-images/how-to-use/comparing-images/).
+Learn more at [How To Compare Chainguard Containers with chainctl](/chainguard/chainguard-images/how-to-use/comparing-images/).
 
 
 ## List Available Package Versions

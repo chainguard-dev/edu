@@ -6,11 +6,11 @@ aliases:
 - /chainguard/chainguard-images/migration-guides/debian-compatibility/
 - /chainguard/migration/debian-compatibility/
 - /chainguard/migration/compatibility/debian-compatibility/
-description: "Differences between Chainguard Images and Debian third-party images"
+description: "Differences between Chainguard Containers and Debian third-party images"
 date: 2024-02-08T15:56:52-07:00
 lastmod: 2024-03-08T15:56:52-07:00
 draft: false
-tags: ["IMAGES", "PRODUCT", "CONCEPTUAL"]
+tags: ["Chainguard Containers", "Product", "Reference"]
 images: []
 menu:
   docs:
@@ -19,7 +19,7 @@ weight: 010
 toc: true
 ---
 
-Chainguard Images and Debian base images have different binaries and scripts included in their respective `busybox` and `coreutils` packages.
+Chainguard Containers and Debian base images have different binaries and scripts included in their respective `busybox` and `coreutils` packages.
 
 The following table lists common tools and their corresponding package(s) in both Wolfi and Debian distributions.
 

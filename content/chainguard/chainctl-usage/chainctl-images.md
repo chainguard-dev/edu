@@ -16,7 +16,7 @@ This page presents some of the more commonly used `chainctl images` commands. Fo
 
 ## List chainctl images
 
-To see which Chainguard Images are available to your account, use:
+To see which Chainguard Containers are available to your account, use:
 
 ```shell
 chainctl images list
@@ -47,4 +47,4 @@ This useful command enables you to compare two Chainguard images. To use it, ent
 chainctl images diff $FROM_IMAGE $TO_IMAGE
 ```
 
-There is a full docs page on this command. See <ins>[How To Compare Chainguard Images with chainctl](/chainguard/chainguard-images/how-to-use/comparing-images/)</ins> to learn more.
+There is a full docs page on this command. See <ins>[How To Compare Chainguard Containers with chainctl](/chainguard/chainguard-images/how-to-use/comparing-images/)</ins> to learn more.

@@ -1,5 +1,5 @@
 ---
-title: "Strategies and Tooling for Updating Container Images"
+title: "Strategies and Tooling for Updating Container Containers"
 linktitle: "Update Strategies and Tools"
 aliases: 
 - /chainguard/chainguard-images/recommended-practices/strategies-tools-updating-images
@@ -9,7 +9,7 @@ description: "A conceptual article outlining different strategies and tools for 
 date: 2024-12-02T11:07:52+02:00
 lastmod: 2024-12-02T11:07:52+02:00
 draft: false
-tags: ["CONCEPTUAL", "CHAINGUARD IMAGES", "PRODUCT"]
+tags: ["Chainguard Containers", "Product"]
 images: []
 menu:
   docs:
@@ -20,7 +20,7 @@ toc: true
 
 When it comes to keeping a system secure, one of the most important measures you can take is to regularly apply updates. In modern, containerized infrastructures, this normally means updating containers to use only the latest container images that are still maintained. A casual observer might expect such a standard and important task to have agreed-on best practices and standardized tooling, but they might be surprised by the wide variety of different solutions and opinions on this problem.
 
-This conceptual article will delve into some of the options and offer guidance on which might work best for readers. This article assumes that you are familiar with [semantic versioning](https://semver.org/) (SemVer) and image tagging. If you aren't acquainted with these concepts, please check out this guide on [Considerations for Keeping Images Up to Date](/chainguard/chainguard-images/recommended-practices/considerations-for-image-updates/).
+This conceptual article will delve into some of the options and offer guidance on which might work best for readers. This article assumes that you are familiar with [semantic versioning](https://semver.org/) (SemVer) and image tagging. If you aren't acquainted with these concepts, please check out this guide on [Considerations for Keeping Containers Up to Date](/chainguard/chainguard-images/recommended-practices/considerations-for-image-updates/).
  
 
 ## Updating Means Risk
@@ -138,4 +138,4 @@ Dependabot is designed to work with a variety of different package ecosystems, a
 
 Something as important as keeping packages up to date has more approaches and tooling than one might expect. This article has shied away from offering any clear recommendations, but this is a matter where every organization will need to choose a solution that suits its own needs. 
 
-We encourage you to check out each of the solutions listed in this article and judge them on their own merits. We also suggest you read our other articles on handling EOL software, including [Considerations for Keeping Images Up to Date](/chainguard/chainguard-images/recommended-practices/considerations-for-image-updates/).
+We encourage you to check out each of the solutions listed in this article and judge them on their own merits. We also suggest you read our other articles on handling EOL software, including [Considerations for Keeping Containers Up to Date](/chainguard/chainguard-images/recommended-practices/considerations-for-image-updates/).

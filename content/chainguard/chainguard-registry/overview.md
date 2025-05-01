@@ -6,7 +6,7 @@ date: 2023-03-21T16:36:47+00:00
 lastmod: 2025-04-11T16:36:47+00:00
 draft: false
 images: []
-tags: ["Chainguard Images", "Registry", "Product"]
+tags: ["Chainguard Containers", "Registry", "Product"]
 menu:
   docs:
     parent: "registry"
@@ -14,7 +14,7 @@ weight: 005
 toc: true
 ---
 
-The Chainguard Registry provides public access to all public Chainguard Containers, and provides customer access for image variants through login and authentication.
+Chainguard's registry provides public access to all public Chainguard Containers, and provides customer access for image variants through login and authentication.
 
 While all public Chainguard Containers are freely available, logging in with a Chainguard account and authenticating when pulling from the registry provides a mechanism for Chainguard to contact you if there are any current or known upcoming issues with images you are pulling.
 
@@ -22,17 +22,17 @@ If you would like to learn more about **Chainguard Containers**, you can review 
 
 ## Status
 
-You can check the status of the Chainguard Registry at [https://status.cgr.dev](https://status.cgr.dev/).
+You can check the status of Chainguard's registry at [https://status.cgr.dev](https://status.cgr.dev/).
 
 ## Network Requirements
 
-Refer to our [Network Requirements](/chainguard/administration/network-requirements) reference page for details about how to ensure access to Chainguard Registry in environments using firewalls, access control lists, and proxies.
+Refer to our [Network Requirements](/chainguard/administration/network-requirements) reference page for details about how to ensure access to Chainguard's registry in environments using firewalls, access control lists, and proxies.
 
-## Using a Caching Proxy with the Chainguard Registry
+## Using a Caching Proxy with Chainguard's registry
 
-Chainguard does not offer an SLA for uptime for the Chainguard Registry. In order to minimize production dependency on the Chainguard Registry, we recommend that customers use a pull-through proxy for maximum reliability.
+Chainguard does not offer an SLA for uptime for the Chainguard's registry. In order to minimize production dependency on the Chainguard's registry, we recommend that customers use a pull-through proxy for maximum reliability.
 
-We currently provide documentation on how you can set up a pull-through cache for the Chainguard Registry on the following platforms:
+We currently provide documentation on how you can set up a pull-through cache for the Chainguard's registry on the following platforms:
 
 * [Google Artifact Registry](/chainguard/chainguard-registry/pull-through-guides/artifact-registry-pull-through/)
 * [JFrog Artifactory](/chainguard/chainguard-registry/pull-through-guides/artifactory/)

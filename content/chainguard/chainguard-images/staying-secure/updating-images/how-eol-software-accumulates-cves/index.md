@@ -9,7 +9,7 @@ description: "A conceptual article outlining the risk involved with using EOL so
 date: 2024-12-04T11:07:52+02:00
 lastmod: 2024-12-04T11:07:52+02:00
 draft: false
-tags: ["CONCEPTUAL", "CHAINGUARD IMAGES", "CVE"]
+tags: ["Chainguard Containers", "CVE"]
 images: []
 menu:
   docs:
@@ -111,11 +111,11 @@ Following the release of version 2.9.10, 55 vulnerabilities were reported: four 
 
 ### Example CVE within a dependency (Docker) of Traefik
 
-- ‍[CVE-2023-28840](https://github.com/advisories/GHSA-232p-vwff-86mp): Docker Swarm encrypted overlay network may be unauthenticated. The affected project is `github.com/docker/docker`, a [dependency](https://github.com/traefik/traefik/blob/v2.10/go.mod#L18) of Traefik. We [fixed this vulnerability](https://github.com/wolfi-dev/os/pull/1779/commits/024b165f14ddad03290ef504c3c46730e596668c) in the Chainguard Image of the Traefik 2.10 cycle.
+- ‍[CVE-2023-28840](https://github.com/advisories/GHSA-232p-vwff-86mp): Docker Swarm encrypted overlay network may be unauthenticated. The affected project is `github.com/docker/docker`, a [dependency](https://github.com/traefik/traefik/blob/v2.10/go.mod#L18) of Traefik. We [fixed this vulnerability](https://github.com/wolfi-dev/os/pull/1779/commits/024b165f14ddad03290ef504c3c46730e596668c) in the Chainguard Container of the Traefik 2.10 cycle.
 
 ### Example CVE within an image component of Traefik
 
-- ‍[CVE-2023-5363](https://nvd.nist.gov/vuln/detail/CVE-2023-5363): An out-of-bounds write within OpenSSL, a dependency of the base image [Alpine 3.17](https://github.com/traefik/traefik-library-image/blob/v2.9.10/alpine/Dockerfile#L1) used by Traefik (impacts `libcrypto3` and `libssl3`). The Chainguard Image of Trafeik uses the [wolfi-base image](https://github.com/chainguard-images/images/tree/main/images/wolfi-base), which runs the updated versions of libcrypto3 and libssl3.
+- ‍[CVE-2023-5363](https://nvd.nist.gov/vuln/detail/CVE-2023-5363): An out-of-bounds write within OpenSSL, a dependency of the base image [Alpine 3.17](https://github.com/traefik/traefik-library-image/blob/v2.9.10/alpine/Dockerfile#L1) used by Traefik (impacts `libcrypto3` and `libssl3`). The Chainguard Container of Trafeik uses the [wolfi-base image](https://github.com/chainguard-images/images/tree/main/images/wolfi-base), which runs the updated versions of libcrypto3 and libssl3.
 
 
 ## Learn More
@@ -124,5 +124,5 @@ End-of-life software represents a significant security risk. This issue becomes 
 
 The only option when that occurs is to update. However, the vast majority of vulnerabilities that appear in an EOL image will come from its additional components, meaning that updating just the application software may not significantly reduce the overall number of vulnerabilities. Thus the best option is to have a plan to keep your software updated to the latest versions promptly. 
 
-To learn more about keeping container images up to date, we encourage you to check out our article on [Considerations for Keeping Images Up to Date](/chainguard/chainguard-images/recommended-practices/considerations-for-image-updates/) as well as our overview of [Strategies and Tooling for Updating Container Images](/chainguard/chainguard-images/recommended-practices/strategies-tools-updating-images/).
+To learn more about keeping container images up to date, we encourage you to check out our article on [Considerations for Keeping Containers Up to Date](/chainguard/chainguard-images/recommended-practices/considerations-for-image-updates/) as well as our overview of [Strategies and Tooling for Updating Container Containers](/chainguard/chainguard-images/recommended-practices/strategies-tools-updating-images/).
 
