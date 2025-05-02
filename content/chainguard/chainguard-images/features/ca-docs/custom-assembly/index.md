@@ -1,6 +1,8 @@
 ---
 title: "Chainguard Custom Assembly"
-linktitle: "Custom Assembly for Chainguard Containers"
+linktitle: "Overview"
+aliases:
+- /chainguard/chainguard-images/features/custom-assembly/
 type: "article"
 description: "How to use Chainguard's Custom Assembly tool"
 date: 2025-02-19T11:07:52+02:00
@@ -45,6 +47,8 @@ Lastly, while Custom Assembly is in its beta phase it can only be configured fro
 ## Accessing Customized Containers in the Console
 
 To provision a customized container image, reach out to your account team who will configure one for you.
+
+> **Note**: This overview highlights using the Chainguard Console's UI to interact with Custom Assembly Resources. However, you can also interact with Custom Assembly using [`chainctl`, Chainguard's command-line interface tool](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/), as well as [the Chainguard API](/chainguard-images/features/ca-docs/custom-assembly-api-demo/).
 
 After logging in to the [Chainguard Console](https://console.chainguard.dev/auth/login), you will be greeted with your account overview page. If you belong to more than one organization, be sure to select the organization which has Custom Assembly enabled from the drop-down menu in the top-left corner.
 
@@ -204,10 +208,12 @@ In any case, you won't know whether a container image build fails until after it
 
 Custom Assembly allows customers to leverage Chainguard’s build infrastructure to produce container images tailored to their requirements. That means customers no longer have to stand up and maintain their own builds, saving costs in the form of infrastructure, engineering overhead, and complexity.
 
+This overview focused on managing Custom Assembly resources through the Chaiguard Console. You can also interact with Custom Assembly using [`chainctl`](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/) as well as [the Chainguard API](/chainguard-images/features/ca-docs/custom-assembly-api-demo/).
+
 We encourage you to check out our resources on our other [Chainguard Containers features](/chainguard/chainguard-images/features/), including the following:
 
 * [Unique Tags](/chainguard/chainguard-images/features/unique-tags/)
 * [CVE Visualizations](/chainguard/chainguard-images/features/cve_visualizations/)
 * [Custom Certificates](/chainguard/chainguard-images/features/incert-custom-certs/)
 
-Additionally, for more information on working with Chainguard Container, refer to our docs on [How to Use Chainguard Containers](/chainguard/chainguard-images/how-to-use/).
+Additionally, for more information on working with Chainguard Containers, refer to our docs on [How to Use Chainguard Containers](/chainguard/chainguard-images/how-to-use/).
