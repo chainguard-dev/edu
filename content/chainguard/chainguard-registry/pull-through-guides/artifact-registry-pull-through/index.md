@@ -4,7 +4,7 @@ linktitle: "Google Artifact Registry"
 aliases: 
 - /chainguard/chainguard-registry/pull-through-guides/artifact-registry-pull-through/
 type: "article"
-description: "Tutorial outlining how to set up a Google Artifact Registry repository to pull Containers through from the Chainguard's registry."
+description: "Tutorial outlining how to set up a Google Artifact Registry repository to pull Containers through from Chainguard's registry."
 date: 2024-07-08T15:56:52-07:00
 lastmod: 2024-08-19T15:56:52-07:00
 draft: false

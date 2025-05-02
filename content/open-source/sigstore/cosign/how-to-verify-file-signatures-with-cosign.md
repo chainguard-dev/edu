@@ -18,8 +18,6 @@ weight: 006
 toc: true
 ---
 
-/open-source/sigstore/rekor/how-to-verify-file-signatures-with-rekor-or-curl/
-
 Cosign can be used to verify binary artifacts ("blobs") using provided signatures as long as they are published to an OCI registry. In this tutorial, we’ll verify a binary artifact — in this case, a release of [`apko`](/open-source/apko/overview/), a command-line tool for building container images using a declarative language based on YAML. The methods in this tutorial apply to any blob file Cosign has signed with a keyless signature.
 
 This tutorial assumes you [have Cosign installed](/open-source/sigstore/cosign/how-to-install-cosign/).
