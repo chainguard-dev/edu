@@ -28,7 +28,7 @@ To edit one of your organization's Custom Assembly container images, you can run
 chainctl image repo build edit --parent $ORGANIZATION --repo $CUSTOMIZED_CONTAINER
 ```
 
-This example includes the `--parent` flag, which points to the name of your organization, and the `--repo` argument, which points to the name of your customized image.If you omit these arguments, `chainctl` will prompt you to select your organization and customized image interactively.
+This example includes the `--parent` flag, which points to the name of your organization, and the `--repo` argument, which points to the name of your customized image. If you omit these arguments, `chainctl` will prompt you to select your organization and customized image interactively.
 
 This command will open up a file with your machine's default text editor. This file will contain a structure like the following:
 
@@ -60,6 +60,48 @@ Do you want to continue? [y,N]:
 Enter `y` to apply the changes. 
 
 Following that, you'll be able to see the updated builds in the Chainguard Console, though it may take a few minutes for these changes to populate.
+
+To edit a customized container image without any interactivity, you can use the `apply` subcommand. This method requires you to have a YAML file listing the desired packages, like the example created with this command:
+
+```shell
+cat > build.yaml <<EOF
+contents:
+  packages:
+    - bash
+    - curl
+    - mysql
+EOF
+```
+
+Then include this file in the `apply` command by adding the `-f` argument:
+
+```shell
+chainctl image repo build apply -f build.yaml --parent chainguard.edu --repo custom-assembly <<<y
+```
+
+This command will again ask you to confirm that you want to apply the new configuration. To make this example completely declarative, this example includes `<<<y` to automatically confirm the changes:
+
+```
+Applying build config to custom-assembly
+  (*v1.CustomOverlay)(Inverse(protocmp.Transform, protocmp.Message{
+  	"@type": s"chainguard.platform.registry.CustomOverlay",
+  	"contents": protocmp.Message{
+  		"@type": s"chainguard.platform.registry.ImageContents",
+  		"packages": []string{
+- 			"wolfi-base",
++ 			"bash",
+- 			"go",
++ 			"curl",
++ 			"mysql",
+  		},
+  	},
+  }))
+
+Are you sure?
+Do you want to continue? [y,N]: 
+```
+
+This approach is useful in cases where you would prefer to avoid any kind of interactivity, as in a CI/CD or other automation system.
 
 ## Retrieving Information about Custom Assembly Containers
 
