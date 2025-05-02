@@ -3,6 +3,7 @@ title: "How to Install chainctl"
 linktitle: "Install chainctl"
 aliases:
 - /chainguard/chainguard-enforce/how-to-install-chainctl
+- /chainguard/administration/how-to-install-chainctl
 type: "article"
 description: "Install the chainctl command line tool to work with Chainguard"
 date: 2022-09-22T15:56:52-07:00
