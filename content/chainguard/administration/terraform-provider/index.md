@@ -24,7 +24,7 @@ weight: 008
 
 In order to use the Chainguard Terraform provider, you will need to [install Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) on your local machine.
 
-Also, while it isn't necessary for using the Chainguard Terraform provider, this guide assumes you have [`chainctl` installed](https://edu.chainguard.dev/chainguard/administration/how-to-install-chainctl/) in order to retrieve some information about your Chainguard resources.
+Also, while it isn't necessary for using the Chainguard Terraform provider, this guide assumes you have [`chainctl` installed](/chainguard/chainctl-usage/how-to-install-chainctl/) in order to retrieve some information about your Chainguard resources.
 
 
 ## Configuring the Chainguard Terraform provider

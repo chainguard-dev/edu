@@ -28,7 +28,7 @@ In order to complete this tutorial, you will need the following:
 * Docker installed on your local machine. Follow the [official installation instructions](https://docs.docker.com/engine/install/) to set this up.
 * Administrative privileges over a Google Cloud Platform project. This project will also need to have the [Artifact Registry API](https://cloud.google.com/artifact-registry/docs/reference/rest) enabled. 
 * If you plan to set up an Artifact Registry repository to serve as a pull through cache for Production containers, then you will also need to have privileges to create a pull token from Chainguard.
-    * Additionally, you'll need `chainctl` installed to create the pull token. If you haven't already installed this, follow the [installation guide](/chainguard/administration/how-to-install-chainctl/).
+    * Additionally, you'll need `chainctl` installed to create the pull token. If you haven't already installed this, follow the [installation guide](/chainguard/chainctl-usage/how-to-install-chainctl/).
 
 
 ## Setting up Google Artifact Registry as a Pull Through for Starter Containers

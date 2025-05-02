@@ -28,7 +28,7 @@ In order to complete this tutorial, you will need the following:
 * Docker installed on your local machine. Follow the [official installation instructions](https://docs.docker.com/engine/install/) to set this up.
 * Administrative privileges over a Cloudsmith project. You can set up an account by visiting the [Cloudsmith website](https://cloudsmith.com/). 
 * If you plan to set up a Cloudsmith repository to serve as a pull through cache for Production container images, then you will also need to have privileges to create a pull token from Chainguard.
-    * Additionally, you'll need `chainctl` installed to create the pull token. If you haven't already installed this, follow the [installation guide](/chainguard/administration/how-to-install-chainctl/).
+    * Additionally, you'll need `chainctl` installed to create the pull token. If you haven't already installed this, follow the [installation guide](/chainguard/chainctl-usage/how-to-install-chainctl/).
 
 
 ## Setting up Cloudsmith as a Pull Through for Starter Containers

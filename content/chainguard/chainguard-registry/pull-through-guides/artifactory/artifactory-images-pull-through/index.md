@@ -30,7 +30,7 @@ In order to complete this tutorial, you will need the following:
 
 * Administrative privileges over an Artifactory instance. If you're interested in testing out this configuration, you can set up a trial instance on the [JFrog Artifactory landing page](https://jfrog.com/artifactory/). 
 * Administrative privileges in Chainguard. 
-* `chainctl`, Chainguard's command line interface tool, installed on your local machine. To set this up, follow our [installation guide for `chainctl`](/chainguard/administration/how-to-install-chainctl/).
+* `chainctl`, Chainguard's command line interface tool, installed on your local machine. To set this up, follow our [installation guide for `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/).
 
 Lastly, part of this guide assumes you have access to a private registry provided by Chainguard containing one or more Production container images. If you don't already have access to these, you can [contact our sales team](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement). 
 

@@ -76,7 +76,7 @@ If you make a mistake and can't recall the original settings, reset the configur
 chainctl config reset
 ```
 
-Learn more at [How to Manage chainctl Configuration](/chainguard/administration/manage-chainctl-config/).
+Learn more at [How to Manage chainctl Configuration](/chainguard/chainctl-usage/manage-chainctl-config/).
 
 
 ## List Available Images

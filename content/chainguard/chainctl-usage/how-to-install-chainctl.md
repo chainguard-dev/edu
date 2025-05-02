@@ -58,7 +58,7 @@ You are now ready to use the `chainctl` command. You can verify that it works co
 
 ## Install with `curl`
 
-A platform-agnostic approach to installing `chainctl` is through using `curl`. We have [specific instructions for Windows users](/chainguard/administration/how-to-install-chainctl/#installing-with-curl-in-windows-powershell) on installing `chainctl` with `curl`, but all others can run the following command:
+A platform-agnostic approach to installing `chainctl` is through using `curl`. We have [specific instructions for Windows users](/chainguard/chainctl-usage/how-to-install-chainctl/#installing-with-curl-in-windows-powershell) on installing `chainctl` with `curl`, but all others can run the following command:
 
 ```bash
 curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/aarch64/arm64/')"

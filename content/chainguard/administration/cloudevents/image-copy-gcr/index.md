@@ -25,7 +25,7 @@ This tutorial is meant to serve as a companion to the [Image Copy GCP](https://g
 To follow along with this guide, it is assumed that you have the following set up and ready to use.
 
 * A [verified Chainguard organization](/chainguard/administration/iam-organizations/verified-orgs/) with a private [Registry](/chainguard/chainguard-registry/overview/) and access to [Production Containers](/chainguard/chainguard-images/overview/#production-and-starter-images).
-* `chainctl`, the Chainguard command-line interface. You can install this by following our guide on [How to Install `chainctl`](/chainguard/administration/how-to-install-chainctl/).
+* `chainctl`, the Chainguard command-line interface. You can install this by following our guide on [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/).
 * [`terraform`](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) to configure a Google Cloud service account, IAM permissions, and deploy the Cloud Run service.
 * A Google Cloud account with a project running. The example application assumes that your project has the following APIs enabled:
     * [Artifact Registry API](https://cloud.google.com/artifact-registry/docs/reference/rest)

@@ -30,7 +30,7 @@ In both cases, confirm the name of the organization so you can use it with the
 
 Once your user account is created and access is confirmed, [install the
 Chainguard Control `chainctl` command line
-tool](/chainguard/administration/how-to-install-chainctl/) and login to your
+tool](/chainguard/chainctl-usage/how-to-install-chainctl/) and login to your
 account:
 
 ```shell

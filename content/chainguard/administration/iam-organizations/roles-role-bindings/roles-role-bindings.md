@@ -19,7 +19,7 @@ This guide serves as an overview of what roles and role-bindings are within the 
 
 ## Prerequisites
 
-This guide includes several examples of how you can manage roles and role-bindings with `chainctl`, the Chainguard command-line tool. To set up `chainctl`, follow our guide on [how to install `chainctl`](/chainguard/administration/how-to-install-chainctl/) if you haven't done so already.
+This guide includes several examples of how you can manage roles and role-bindings with `chainctl`, the Chainguard command-line tool. To set up `chainctl`, follow our guide on [how to install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) if you haven't done so already.
 
 
 ## Roles

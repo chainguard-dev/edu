@@ -13,7 +13,7 @@ weight: 070
 
 The CLI tool `chainctl` helps you interact with the account model that Chainguard provides. The tool uses the familiar `<context> <noun> <verb>` style of CLI interactions. Below find the current reference for `chainctl`.
 
-To install `chainctl`, follow our <ins>[installation guide](/chainguard/administration/how-to-install-chainctl/)</ins>. Additionally, you may find these resources on working with `chainctl` to be of interest:
+To install `chainctl`, follow our <ins>[installation guide](/chainguard/chainctl-usage/how-to-install-chainctl/)</ins>. Additionally, you may find these resources on working with `chainctl` to be of interest:
 
-* <ins>[How to Manage chainctl Configuration](https://edu.chainguard.dev/chainguard/administration/manage-chainctl-config/)</ins>
+* <ins>[How to Manage chainctl Configuration](https://edu.chainguard.dev/chainguard/chainctl-usage/manage-chainctl-config/)</ins>
 * <ins>[How To Compare Chainguard Containers with chainctl](https://edu.chainguard.dev/chainguard/chainguard-images/how-to-use/comparing-images/)</ins>

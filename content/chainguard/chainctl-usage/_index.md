@@ -25,7 +25,7 @@ Once installed, these will help you on your path to success:
 * <ins>[Authenticate to Chainguard's Registry](/chainguard/chainguard-registry/authenticating/)</ins> - This page includes links to register for a Chainguard account, which is needed to do anything with `chainctl`. You must authenticate to Chainguard to use `chainctl`.
 * <ins>[Manage Your chainctl Configuration](/chainguard/chainctl-usage/manage-chainctl-config/)</ins>
 * <ins>[Find and Update Your chainctl Release Version](/chainguard/chainctl-usage/chainctl-version-update/)</ins>
-* <ins>[Compare Chainguard Images with chainctl diff](/chainguard-usage/comparing-images/)</ins>
+* <ins>[Compare Chainguard Images with chainctl diff](/chainguard/chainctl-usage/comparing-images/)</ins>
 * <ins>[Using chainctl to Manage Custom Assembly Resources](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/) 
 * <ins>[chainctl events](/chainguard/chainctl-usage/chainctl-events/)</ins>
 * <ins>[chainctl iam](/chainguard/chainctl-usage/chainctl-iam/)</ins>

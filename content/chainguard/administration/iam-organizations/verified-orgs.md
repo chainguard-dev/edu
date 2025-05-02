@@ -22,7 +22,7 @@ Organizations can optionally be verified. Verification modifies some aspects of 
 
 ## Verifying your Organization
 
-Verification is currently a manual process. To verify your organization, please contact your customer support contact. You can check if your organization is verified using [`chainctl`](/chainguard/administration/how-to-install-chainctl/).
+Verification is currently a manual process. To verify your organization, please contact your customer support contact. You can check if your organization is verified using [`chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/).
 
 ```sh
 chainctl iam organization ls -o json | jq

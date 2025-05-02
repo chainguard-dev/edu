@@ -29,7 +29,7 @@ For more details on signing in, you can review our [sign in guidance](/chainguar
 
 You can configure authentication by using the credential helper included with `chainctl`. This is the workflow recommended by Chainguard.
 
-First [install `chainctl`](/chainguard/administration/how-to-install-chainctl) and configure the credential helper:
+First [install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) and configure the credential helper:
 
 ```sh
 chainctl auth configure-docker
