@@ -3,6 +3,7 @@ title: "Manage Your chainctl Configuration"
 linktitle: "Manage Your chainctl Configuration"
 aliases:
 - /chainguard/chainguard-enforce/manage-chainctl-config/
+- /chainguard/administration/manage-chainctl-config
 type: "article"
 date: 2023-07-07T05:56:52-07:00
 lastmod: 2024-12-12T05:56:52-07:00
