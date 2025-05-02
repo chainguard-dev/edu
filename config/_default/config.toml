@@ -10,7 +10,9 @@ paginate = 7
 rssLimit = 10
 ignoreErrors = ["image-not-found"]
 googleAnalytics = 'G-05CPR1LJPR'
-googleTagManager = "GTM-NZGRBSPT"
+
+# [params]
+#  googleTagManager = "GTM-NZGRBSPT"
 
 # Multilingual
 defaultContentLanguage = "en"
