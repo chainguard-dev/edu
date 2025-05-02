@@ -9,4 +9,4 @@ images: []
 weight: 10
 ---
 
-Guides explaining how to set up the JFrog Artifactory registry as a pull-through cache or mirror of the Chainguard Registry.
+Guides explaining how to set up the JFrog Artifactory registry as a pull-through cache or mirror of Chainguard's registry.

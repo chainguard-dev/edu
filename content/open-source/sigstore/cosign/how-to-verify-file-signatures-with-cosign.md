@@ -1,5 +1,8 @@
 ---
 title: "How to Verify File Signatures with Cosign"
+linktitle: "Verify File Signatures"
+aliases:
+- /open-source/sigstore/rekor/how-to-verify-file-signatures-with-rekor-or-curl/
 type: "article"
 description: "Use Cosign to verify non-container software artifacts"
 lead: "Cosign can verify software artifacts beyond containers"

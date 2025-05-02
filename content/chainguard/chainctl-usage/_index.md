@@ -22,7 +22,7 @@ To install `chainctl`, follow our <ins>[installation guide](/chainguard/chainctl
 Once installed, these will help you on your path to success:
 
 * <ins>[Get Started with chainctl](/chainguard/chainctl-usage/getting-started-with-chainctl/)</ins>
-* <ins>[Authenticate to Chainguard Registry](/chainguard/chainguard-registry/authenticating/)</ins> - This page includes links to register for a Chainguard account, which is needed to do anything with `chainctl`. You must authenticate to Chainguard to use `chainctl`.
+* <ins>[Authenticate to Chainguard's Registry](/chainguard/chainguard-registry/authenticating/)</ins> - This page includes links to register for a Chainguard account, which is needed to do anything with `chainctl`. You must authenticate to Chainguard to use `chainctl`.
 * <ins>[Manage Your chainctl Configuration](/chainguard/chainctl-usage/manage-chainctl-config/)</ins>
 * <ins>[Find and Update Your chainctl Release Version](/chainguard/chainctl-usage/chainctl-version-update/)</ins>
 * <ins>[Compare Chainguard Images with chainctl diff](/chainguard-usage/comparing-images/)</ins>

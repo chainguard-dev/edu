@@ -1,5 +1,6 @@
 ---
 title: "An Introduction to Rekor"
+linktitle: "Introduction"
 type: "article"
 lead: "The Rekor transparency log"
 description: "Understanding Rekor, the transparency log of Rekor"

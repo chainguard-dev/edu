@@ -30,7 +30,7 @@ This guide provides an overview of what these Unique Tags are, the kinds of prob
 
 ## Chainguard's Unique Tags
 
-Unique Tags are only available for private registries, as the public Chainguard Registry only has the `:latest` or, in some cases, the `:latest-dev` tags available. Unique Tags feature an opt-in feature, which allows customers the flexibility to enable it based on their specific operational and security requirements.
+Unique Tags are only available for private registries, as Chainguard's public registry only has the `:latest` or, in some cases, the `:latest-dev` tags available. Unique Tags feature an opt-in feature, which allows customers the flexibility to enable it based on their specific operational and security requirements.
 
 Chainguard's Unique Tags end in a timestamp, such as `20240229`, which indicates the date when the Container was built. Because Chainguard Containers are rebuilt whenever there is a change to an included package, the timestamp ensures that the specific tag will always represent that specific container image build and not another.
 

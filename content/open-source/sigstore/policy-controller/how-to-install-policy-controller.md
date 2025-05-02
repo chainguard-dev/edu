@@ -1,5 +1,6 @@
 ---
 title: "How to Install Sigstore Policy Controller"
+linktitle: "Install"
 aliases:
 - /open-source/sigstore/policy-controller/enforce-sbom-attestation-with-policy-controller/
 type: "article"
