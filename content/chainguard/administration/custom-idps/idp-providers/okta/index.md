@@ -25,7 +25,7 @@ This guide outlines how to create an Okta application and integrate it with Chai
 
 To complete this guide, you will need the following.
 
-* `chainctl` installed on your system. Follow our guide on [How To Install `chainctl`](/chainguard/administration/how-to-install-chainctl/) if you don't already have this installed.
+* `chainctl` installed on your system. Follow our guide on [How To Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) if you don't already have this installed.
 * An Okta account over which you have administrative access.
 
 

@@ -90,7 +90,7 @@ defaults:
   org-name: example.com
 ```
 
-To learn more about working with your `chainctl` config, you can read our doc on [How to Manage `chainctl` Configuration](/chainguard/administration/manage-chainctl-config/).
+To learn more about working with your `chainctl` config, you can read our doc on [How to Manage `chainctl` Configuration](/chainguard/chainctl-usage/manage-chainctl-config/).
 
 ### Authenticate with the Chainguard Console
 

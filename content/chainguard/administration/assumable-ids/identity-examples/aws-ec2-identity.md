@@ -23,7 +23,7 @@ To complete this guide, you will need the following.
 
 * An [Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) instance with an IAM Instance role (with or without any AWS permissions). The default `sts:AssumeRole` is sufficient for this guide.
 *  This guide assumes you have the AWS CLI installed on your EC2 instance. Review the official documentation for information on [how to install or update to the latest version of the tool](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
-* Finally, you'll need `chainctl` — the Chainguard command line interface tool — installed on **both your EC2 instance and your local machine**. Follow our guide on [How to Install `chainctl`](/chainguard/administration/how-to-install-chainctl/) to set this up.
+* Finally, you'll need `chainctl` — the Chainguard command line interface tool — installed on **both your EC2 instance and your local machine**. Follow our guide on [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up.
 
 
 ## Create a Chainguard Assumable Identity
