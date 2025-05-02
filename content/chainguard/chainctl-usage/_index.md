@@ -26,6 +26,7 @@ Once installed, these will help you on your path to success:
 * <ins>[Manage Your chainctl Configuration](/chainguard/chainctl-usage/manage-chainctl-config/)</ins>
 * <ins>[Find and Update Your chainctl Release Version](/chainguard/chainctl-usage/chainctl-version-update/)</ins>
 * <ins>[Compare Chainguard Images with chainctl diff](/chainguard-usage/comparing-images/)</ins>
+* <ins>[Using chainctl to Manage Custom Assembly Resources](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/) 
 * <ins>[chainctl events](/chainguard/chainctl-usage/chainctl-events/)</ins>
 * <ins>[chainctl iam](/chainguard/chainctl-usage/chainctl-iam/)</ins>
 * <ins>[chainctl images](/chainguard/chainctl-usage/chainctl-images/)</ins>
