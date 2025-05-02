@@ -2,12 +2,12 @@
       content="
        default-src 'self';
        frame-src 'self' edu.chainguard.dev https://player.vimeo.com https://www.youtube.com https://www.youtube-nocookie.com https://platform.twitter.com https://syndication.twitter.com https://visualization-ui.chainguard.app https://terminal.inky.wtf;
-       style-src 'self' edu.chainguard.dev 'unsafe-inline' cdn.jsdelivr.net https://fonts.googleapis.com https://unpkg.com https://use.fontawesome.com;
+       style-src 'self' 'unsafe-inline' edu.chainguard.dev https://tagmanager.google.com/ cdn.jsdelivr.net https://fonts.googleapis.com https://unpkg.com https://use.fontawesome.com;
        form-action 'self';
        font-src 'self' edu.chainguard.dev https://fonts.googleapis.com https://fonts.gstatic.com https://cdn.jsdelivr.net https://use.fontawesome.com;
-       script-src 'self' edu.chainguard.dev 'unsafe-inline' https://www.googletagmanager.com *.googleapis.com cdn.jsdelivr.net *.googletagmanager.com *.6sc.co and *.6sense.com 'sha256-vOgyKS2vkH4n5TxBJpeh9SgzrE6LVGsAeOAvEST6oCc=' 'sha256-R2OmoLN/NlJovrWBYuTwjPfAD+YHvBVdudGDjY2VLmI=' https://unpkg.com http://localhost:1313 http://localhost:8080 'unsafe-eval';
+       script-src 'self' 'unsafe-eval' 'unsafe-inline' edu.chainguard.dev  https://www.googletagmanager.com  *.googleapis.com cdn.jsdelivr.net *.googletagmanager.com *.6sc.co and *.6sense.com 'sha256-vOgyKS2vkH4n5TxBJpeh9SgzrE6LVGsAeOAvEST6oCc=' 'sha256-R2OmoLN/NlJovrWBYuTwjPfAD+YHvBVdudGDjY2VLmI=' https://unpkg.com http://localhost:1313 http://localhost:8080;
        connect-src 'self' www.googletagmanager.com *.google-analytics.com *.6sc.co and *.6sense.com https://storage.googleapis.com https://packages.wolfi.dev;
-       img-src 'self' *.6sc.co and *.6sense.com *.scarf.sh edu.chainguard.dev https://storage.googleapis.com www.googletagmanager.com data:;
+       img-src 'self' 'unsafe-inline' https://ssl.gstatic.com/ *.6sc.co and *.6sense.com *.scarf.sh edu.chainguard.dev https://storage.googleapis.com www.googletagmanager.com data:;
        base-uri 'self';
      ">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
