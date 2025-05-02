@@ -12,7 +12,6 @@
      ">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <script id="6senseWebTag" src="https://j.6sc.co/j/edd32455-d420-405e-a9ba-ca4b02be04d3.js"></script>
-{{ partial "googleTagManagerHead.html" . }}
 
 {{ if .Site.Params.options.darkMode -}}
   {{ $darkModeInit := resources.Get "js/darkmode-init.js" | js.Build | minify | fingerprint "sha512" -}}
@@ -25,4 +24,5 @@
 
 {{ if hugo.IsProduction }}
   {{ template "_internal/google_analytics.html" . }}
+  {{ partial "googleTagManagerHead.html" . }}
 {{ end }}
