@@ -1,7 +1,7 @@
 ---
 title: "Registry Overview"
 type: "article"
-description: "An Overview of the Chainguard Registry"
+description: "An Overview of Chainguard's Registry"
 date: 2023-03-21T16:36:47+00:00
 lastmod: 2025-04-11T16:36:47+00:00
 draft: false

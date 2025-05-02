@@ -1,5 +1,6 @@
 ---
 title: "How to Install Cosign"
+linktitle: "Install"
 type: "article"
 lead: "Details for installing Cosign across operating systems to sign software artifacts"
 description: "Details for installing Cosign across operating systems"

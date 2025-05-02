@@ -1,5 +1,6 @@
 ---
 title: "How to Install the Rekor CLI"
+linktitle: "Install"
 type: "article"
 description: "An overview of how to instal rekor-cli to query the Sigstore transparency log"
 date: 2022-08-20T08:49:31+00:00

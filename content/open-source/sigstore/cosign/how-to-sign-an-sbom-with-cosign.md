@@ -1,5 +1,6 @@
 ---
 title: "How to Sign an SBOM with Cosign"
+linktitle: "Sign an SBOM"
 type: "article"
 description: "Signing software bills of materials with Cosign"
 lead: "Use Cosign to sign software bills of materials (SBOMs)"

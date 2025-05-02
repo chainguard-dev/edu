@@ -32,7 +32,7 @@ This conceptual article will outline each of these categories in turn, including
 
 Chainguard offers a set of container images that are publicly available and don’t require authentication for download and use; they are free to use for everyone. We refer to these as our *Starter Containers*, and they cover several use cases for different language ecosystems. Starter Containers are limited to the latest build of a given image, and are always tagged as `latest` and `latest-dev`.
 
-You can access these images directly from the Chainguard Registry from the `chainguard` repository. For example, to download the cURL Starter image, you could run a command like the following:
+You can access these images directly from Chainguard's registry from the `chainguard` repository. For example, to download the cURL Starter image, you could run a command like the following:
 
 ```shell
 docker pull cgr.dev/chainguard/curl
@@ -44,7 +44,7 @@ To access any other image, you will need to do so through your organization's pr
 docker pull cgr.dev/chainguard.edu/chainguard-base
 ```
 
-Note that you won't have access to the organization's repository used in this example, but if your organization has access to the `chainguard-base` image you will be able to pull this image using your organization's repository name in place of `chainguard.edu`. The Chainguard Registry provides public access to all Starter images, and provides customer access for Production images after logging in and authenticating.
+Note that you won't have access to the organization's repository used in this example, but if your organization has access to the `chainguard-base` image you will be able to pull this image using your organization's repository name in place of `chainguard.edu`. Chainguard's registry provides public access to all Starter images, and provides customer access for Production images after logging in and authenticating.
 
 For a complete list of Starter images that are currently available, check out the [**Starter** category on Chainguard Containers Directory](https://images.chainguard.dev/?category=starter). Registered users can also access all Starter and available Production images in the [Chainguard Console](https://console.chainguard.dev/overview). After logging in you will be able to find all the currently available Starter Containers in the **Public images** tab. 
 

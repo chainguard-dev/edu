@@ -1,10 +1,10 @@
 ---
-title: "How to Set Up Pull Through from Chainguard Registry to Google Artifact Registry"
+title: "How to Set Up Pull Through from Chainguard's Registry to Google Artifact Registry"
 linktitle: "Google Artifact Registry"
 aliases: 
 - /chainguard/chainguard-registry/pull-through-guides/artifact-registry-pull-through/
 type: "article"
-description: "Tutorial outlining how to set up a Google Artifact Registry repository to pull Containers through from the Chainguard Registry."
+description: "Tutorial outlining how to set up a Google Artifact Registry repository to pull Containers through from Chainguard's registry."
 date: 2024-07-08T15:56:52-07:00
 lastmod: 2024-08-19T15:56:52-07:00
 draft: false
@@ -17,7 +17,7 @@ toc: true
 weight: 005
 ---
 
-Organizations can use Chainguard Containers along with third-party software repositories in order to integrate with current workflows as the single source of truth for software artifacts. In this situation, you can set up a proxy repository to function as a mirror of the [Chainguard Registry](/chainguard/chainguard-registry/overview/). This mirror can then serve as a pull through cache for your Chainguard Containers.
+Organizations can use Chainguard Containers along with third-party software repositories in order to integrate with current workflows as the single source of truth for software artifacts. In this situation, you can set up a proxy repository to function as a mirror of [Chainguard's registry](/chainguard/chainguard-registry/overview/). This mirror can then serve as a pull through cache for your Chainguard Containers.
 
 This tutorial outlines how to set up a remote repository with [Google Artifact Registry](https://cloud.google.com/artifact-registry/docs/repositories/remote-overview). It will walk you through how to set up an Artifact Registry Repository you can use as a pull through cache for Chainguard's public Starter containers or Production containers originating from a private Chainguard repository.
 
@@ -27,7 +27,7 @@ In order to complete this tutorial, you will need the following:
 
 * Docker installed on your local machine. Follow the [official installation instructions](https://docs.docker.com/engine/install/) to set this up.
 * Administrative privileges over a Google Cloud Platform project. This project will also need to have the [Artifact Registry API](https://cloud.google.com/artifact-registry/docs/reference/rest) enabled. 
-* If you plan to set up an Artifact Registry repository to serve as a pull through cache for Production containers, then you will also need to have privileges to create a pull token on a Chainguard Registry.
+* If you plan to set up an Artifact Registry repository to serve as a pull through cache for Production containers, then you will also need to have privileges to create a pull token from Chainguard.
     * Additionally, you'll need `chainctl` installed to create the pull token. If you haven't already installed this, follow the [installation guide](/chainguard/administration/how-to-install-chainctl/).
 
 
@@ -74,7 +74,7 @@ If you run into issues with this command, be sure that it contains the correct G
 
 Chainguard's Production container images are enterprise-ready container images that come with patch SLAs and features such as [Federal Information Processing Standard](/chainguard/chainguard-images/working-with-images/fips-images/) (FIPS) readiness. The process for setting up a Google Artifact Registry repository that you can use as a pull through cache for Chainguard Production container images is similar to the one outlined previously for Starter containers, but with a few extra steps.
 
-To get started, you will need to create [a pull token](/chainguard/chainguard-registry/authenticating/#authenticating-with-a-pull-token) for your organization's Chainguard Registry. Pull tokens are longer-lived tokens that can be used to pull container images from other environments that don't support OIDC, such as some CI environments, Kubernetes clusters, or with registry mirroring tools like Google Artifact Registry.
+To get started, you will need to create [a pull token](/chainguard/chainguard-registry/authenticating/#authenticating-with-a-pull-token) for your organization's registry. Pull tokens are longer-lived tokens that can be used to pull container images from other environments that don't support OIDC, such as some CI environments, Kubernetes clusters, or with registry mirroring tools like Google Artifact Registry.
 
 First log in with `chainctl`:
 
@@ -148,9 +148,9 @@ docker pull us-central1-docker.pkg.dev/<your-project-id>/chainguard-pull-through
 Be sure the `docker pull` command you run includes the name of your Chainguard organization's registry.
 
 
-## Debugging Pull Through from the Chainguard Registry to Google Artifact Registry
+## Debugging Pull Through from Chainguard's Registry to Google Artifact Registry
 
-If you run into issues when trying to pull Containers from Chainguard's Registry to Google Artifact Registry, please ensure the following requirements are met:
+If you run into issues when trying to pull Containers from Chainguard's registry to Google Artifact Registry, please ensure the following requirements are met:
 
 * Ensure that all Containers [network requirements](https://edu.chainguard.dev/chainguard/administration/network-requirements/) are met.
 * When configuring a remote Google Artifact Registry repository, ensure that the **URL** field is set to `https://cgr.dev/`. This field **must not** contain additional components.
@@ -159,4 +159,4 @@ If you run into issues when trying to pull Containers from Chainguard's Registry
 
 ## Learn More
 
-If you haven't already done so, you may find it useful to review our [Registry Overview](/chainguard/chainguard-registry/overview/) to learn more about the Chainguard Registry. You can also learn more about Chainguard Containers by checking out our [Containers documentation](/chainguard/chainguard-images/overview/). If you'd like to learn more about Google Artifact Registry, we encourage you to refer to the [official Google Artifact Registry documentation](https://cloud.google.com/artifact-registry/docs/overview).
+If you haven't already done so, you may find it useful to review our [Registry Overview](/chainguard/chainguard-registry/overview/) to learn more about Chainguard's registry. You can also learn more about Chainguard Containers by checking out our [Containers documentation](/chainguard/chainguard-images/overview/). If you'd like to learn more about Google Artifact Registry, we encourage you to refer to the [official Google Artifact Registry documentation](https://cloud.google.com/artifact-registry/docs/overview).

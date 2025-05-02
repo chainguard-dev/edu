@@ -28,7 +28,7 @@ The main features of Chainguard Containers include:
 - [Verifiable signatures](/chainguard/chainguard-images/working-with-images/retrieve-image-sboms/) provided by [Sigstore](/open-source/sigstore/cosign/an-introduction-to-cosign/)
 - Reproducible builds with Cosign and apko ([read more about reproducibility](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds))
 
-Chainguard Containers are primarily available from the [Chainguard Registry](/chainguard/chainguard-registry/overview/), but a selection of developer images is also available on [Docker Hub](https://hub.docker.com/u/chainguard). You can find the complete list of available Chainguard Containers in our public [Containers Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-overview) or within the [Chainguard Console](https://console.chainguard.dev/).
+Chainguard Containers are primarily available from [Chainguard's registry](/chainguard/chainguard-registry/overview/), but a selection of developer images is also available on [Docker Hub](https://hub.docker.com/u/chainguard). You can find the complete list of available Chainguard Containers in our public [Containers Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-overview) or within the [Chainguard Console](https://console.chainguard.dev/).
 
 
 ## Why Minimal Container Images
@@ -55,7 +55,7 @@ Chainguard offers a collection of container images that are publicly available a
 
 Production containers are enterprise-ready images that come with patch SLAs and features such as [Federal Information Processing Standard (FIPS) readiness](/chainguard/chainguard-images/images-features/fips-images/) and [unique time stamped tags](/chainguard/chainguard-images/images-features/unique-tags/). Unlike Starter containers, which are typically paired with only the latest version of an upstream package, Production containers offer specific major and minor versions of open source software.
 
-You can access our container images directly from the [Chainguard Registry](/chainguard/chainguard-registry/overview/). The Chainguard Registry provides public access to all public Chainguard Containers, and provides customer access for Production Containers after logging in and authenticating.
+You can access our container images directly from [Chainguard's registry](/chainguard/chainguard-registry/overview/). Chainguard's registry provides public access to all public Chainguard Containers, and provides customer access for Production Containers after logging in and authenticating.
 
 For a complete list of Starter containers that are currently available, check our [Containers Directory](https://images.chainguard.dev/?category=developer). Registered users can also access all Starter and Production containers in the [Chainguard Console](https://console.chainguard.dev/?utm=docs). After logging in you will be able to find all the current Starter containers in the **Public containers** tab. If you've selected an appropriate Organization in the drop-down menu above the left hand navigation, you can find your organization's Production containers in the **Organization images** tab.
 

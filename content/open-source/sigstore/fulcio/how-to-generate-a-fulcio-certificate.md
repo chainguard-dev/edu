@@ -1,5 +1,6 @@
 ---
 title: "How to Generate a Fulcio Certificate"
+linktitle: "Generate Fulcio Certificate"
 type: "article"
 description: "Tutorial on how to generate a certificate with Fulcio for software security"
 date: 2022-08-19T08:49:31+00:00

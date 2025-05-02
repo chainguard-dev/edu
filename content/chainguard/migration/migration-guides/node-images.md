@@ -102,19 +102,19 @@ But we're not going to do either of that.
 
 We're going to change to use a Chainguard Container and see how that affects things.
 
-So I'm going to use the [Chainguard Registry](/chainguard/chainguard-registry/overview/) here at cgr.dev.
+So I'm going to use the [Chainguard registry](/chainguard/chainguard-registry/overview/) here at cgr.dev.
 
 And we're going to use the `latest-dev` image.
 
 So there's a couple of things here.
 
-I'm using a Chainguard Registry.
+I'm using a Chainguard registry.
 
 I could also use the Docker Hub.
 
 So Chainguard Containers are available on the Docker Hub, just in the Chainguard user or namespace.
 
-But in this case, we're using the Chainguard Registry.
+But in this case, we're using the Chainguard registry.
 
 For free, we provide the `latest` and `latest-dev` images.
 

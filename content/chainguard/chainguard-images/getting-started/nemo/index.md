@@ -56,7 +56,7 @@ docker run -it --rm \
   cgr.dev/$ORGANIZATION/nemo:latest
 ```
 
-> **Note**: Be aware that you will need to change `$ORGANIZATION` to reflect the name of your organization's repository within the Chainguard Registry.
+> **Note**: Be aware that you will need to change `$ORGANIZATION` to reflect the name of your organization's repository within Chainguard's registry.
 
 These options allow access to all available GPUs, allocate a custom amount of shared memory (8 GB) to the container, and set an upper bound on container memory use.
 

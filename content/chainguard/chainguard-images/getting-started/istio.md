@@ -77,7 +77,7 @@ We will be using the `istioctl` command to install Istio. In order to use the
 Chainguard Containers, we will need to set these following values:
 - `hub = cgr.dev/$ORGANIZATION`
 
-> **Note**: Be aware that you will need to change `cgr.dev/$ORGANIZATION` to reflect the name of your organization's repository within the Chainguard Registry.
+> **Note**: Be aware that you will need to change `cgr.dev/$ORGANIZATION` to reflect the name of your organization's repository within Chainguard's registry.
 
 - `tag = latest`
 - `values.pilot.image = istio-pilot`

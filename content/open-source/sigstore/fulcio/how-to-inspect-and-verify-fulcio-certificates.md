@@ -1,5 +1,6 @@
 ---
 title: "How to Inspect and Verify Fulcio Certificates"
+linktitle: "Inspect and Verify Certificates"
 type: "article"
 description: "Confirming the authenticity of a Fulcio certificate for a more secure software supply chain"
 date: 2022-08-19T08:49:31+00:00

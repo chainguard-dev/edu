@@ -1,5 +1,6 @@
 ---
 title: "How to Sign and Upload Metadata to Rekor"
+linktitle: "Sign and Upload Metadata"
 type: "article"
 lead: "Use Rekor CLI to make an entry to the Sigstore transparency log"
 description: "Use the Rekor CLI to sign and upload metadata to the Sigstore transparency log"

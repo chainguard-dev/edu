@@ -1,5 +1,6 @@
 ---
 title: "How to Query Rekor"
+linktitle: "Query Rekor"
 type: "article"
 description: "Access the data stored in Sigstore's transparency log, Rekor"
 date: 2022-08-20T08:49:31+00:00

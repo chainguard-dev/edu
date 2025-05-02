@@ -58,7 +58,7 @@ The following packages are included in the `chainguard-base:latest` Chainguard C
 - `glibc-locale-posix`
 - `ld-linux`
 
-You can find the complete inventory of packages for the `chainguard-base` Chainguard Container at [its listing on the Chainguard Registry](https://images.chainguard.dev/directory/image/chainguard-base/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-compiled-programs-compiled-programs).
+You can find the complete inventory of packages for the `chainguard-base` Chainguard Container at [its listing on Chainguard's registry](https://images.chainguard.dev/directory/image/chainguard-base/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-compiled-programs-compiled-programs).
 
 ### static
 
@@ -71,7 +71,7 @@ The following packages are included in the `static:latest` Chainguard Container:
 - `tzdata`
 - `wolfi-baselayout`
 
-You can find more information about the `static` Chainguard Container at [its listing on the Chainguard Registry](https://images.chainguard.dev/directory/image/static/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-compiled-programs-compiled-programs).
+You can find more information about the `static` Chainguard Container at [its listing on the Chainguard's registry](https://images.chainguard.dev/directory/image/static/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-compiled-programs-compiled-programs).
 
 ### glibc-dynamic
 
@@ -89,11 +89,11 @@ The following packages are included in the `glibc-dynamic:latest` Chainguard Con
 - `libstdc++`
 - `wolfi-baselayout`
 
-You can find more information about the `glibc-dynamic` Chainguard Container at [its listing on the Chainguard Registry](https://images.chainguard.dev/directory/image/glibc-dynamic/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-compiled-programs-compiled-programs).
+You can find more information about the `glibc-dynamic` Chainguard Container at [its listing on  Chainguard's registry](https://images.chainguard.dev/directory/image/glibc-dynamic/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-compiled-programs-compiled-programs).
 
 ### cc-dynamic
 
-The [`cc-dynamic`](https://images.chainguard.dev/directory/image/cc-dynamic/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-compiled-programs-compiled-programs) Chainguard Container is deprecated. It is suggested that you use the `glibc-dynamic` image instead, as it is designed to replace `cc-dynamic`. You can find more information about the `cc-dynamic` image, such as its packages and licensing information, on the [Chainguard Registry](https://images.chainguard.dev/directory/image/cc-dynamic/advisories?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-compiled-programs-compiled-programs).
+The [`cc-dynamic`](https://images.chainguard.dev/directory/image/cc-dynamic/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-compiled-programs-compiled-programs) Chainguard Container is deprecated. It is suggested that you use the `glibc-dynamic` image instead, as it is designed to replace `cc-dynamic`. You can find more information about the `cc-dynamic` image, such as its packages and licensing information, on [Chainguard's registry](https://images.chainguard.dev/directory/image/cc-dynamic/advisories?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-compiled-programs-compiled-programs).
 
 ### gcc-glibc
 
@@ -109,7 +109,7 @@ The following packages are included in the `gcc-glibc:latest` Chainguard Contain
 - `gcc`
 - `glibc`
 
-You can find the complete inventory of packages for the `gcc-glibc` Chainguard Container at [its listing on the Chainguard Registry](https://images.chainguard.dev/directory/image/gcc-glibc/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-compiled-programs-compiled-programs).
+You can find the complete inventory of packages for the `gcc-glibc` Chainguard Container at [its listing on Chainguard's registry](https://images.chainguard.dev/directory/image/gcc-glibc/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-compiled-programs-compiled-programs).
 
 ### glibc-openssl
 
@@ -125,7 +125,7 @@ The following packages are included in the `glibc-openssl:latest` Chainguard Con
 - `openssl`
 - `openssl-provider-legacy`
 
-You can find the complete inventory of packages for the `glibc-openssl` Chainguard Container at [its listing on the Chainguard Registry](https://images.chainguard.dev/directory/image/glibc-openssl/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-compiled-programs-compiled-programs).
+You can find the complete inventory of packages for the `glibc-openssl` Chainguard Container at [its listing on Chainguard's registry](https://images.chainguard.dev/directory/image/glibc-openssl/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-compiled-programs-compiled-programs).
 
 
 ## What About `musl`?
@@ -136,6 +136,6 @@ Though `musl` is sometimes chosen because of its minimal footprint, Chainguardâ€
 
 ## Next Steps
 
-Understanding the differences between various Chainguard Containers allows you to make informed decisions about what images to choose for your compiled applications. You can check out our complete suite of Chainguard Containers at the [Chainguard Registry](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-compiled-programs-compiled-programs). To learn more about using Chainguard Containers, head to the [Chainguard Academy](/chainguard/chainguard-images/), where you can find documentation to help you start incorporating them into your workflow.
+Understanding the differences between various Chainguard Containers allows you to make informed decisions about what images to choose for your compiled applications. You can check out our complete suite of Chainguard Containers on [Chainguard's registry](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-compiled-programs-compiled-programs). To learn more about using Chainguard Containers, head to the [Chainguard Academy](/chainguard/chainguard-images/), where you can find documentation to help you start incorporating them into your workflow.
 
 Interested in learning more about adopting Chainguard Containers for your organization? [Letâ€™s get in touch!](https://www.chainguard.dev/contact)

@@ -1,5 +1,6 @@
 ---
 title: "An Introduction to Cosign"
+linktitle: "Introduction"
 type: "article"
 lead: "A primer to signing software artifacts with Cosign"
 description: "Understanding Cosign, a project under Sigstore"

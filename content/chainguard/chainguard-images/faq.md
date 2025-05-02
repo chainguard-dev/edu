@@ -26,7 +26,7 @@ The [Google distroless](https://github.com/GoogleContainerTools/distroless) imag
 ## Which images are available?
 There are currently over a thousand Chainguard Containers available, which are segmented as **Starter** or **Production**. You can read more about this in the [next question](#what-options-do-i-have-to-use-chainguard-images).
 
-Chainguard Containers are primarily available from the [Chainguard Registry](/chainguard/chainguard-registry/overview/), but a selection of Starter images is also available on [Docker Hub](https://hub.docker.com/u/chainguard). You can find the complete list of available Chainguard Containers in our public [Containers Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-faq) or within the [Chainguard Console](https://console.chainguard.dev/).
+Chainguard Containers are primarily available from [Chainguard's registry](/chainguard/chainguard-registry/overview/), but a selection of Starter images is also available on [Docker Hub](https://hub.docker.com/u/chainguard). You can find the complete list of available Chainguard Containers in our public [Containers Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-faq) or within the [Chainguard Console](https://console.chainguard.dev/).
 
 ## What options do I have to use Chainguard Containers?
 You can get free Chainguard Containers for your organization. You can also upgrade for more versions, SLAs, and dedicated support.
@@ -42,7 +42,7 @@ You can read more about the differences between Starter and Production Container
 
 ## Are Chainguard Containers available on Docker Hub?
 
-Yes, Chainguard Starter Container images are available on [Docker Hub](https://hub.docker.com/u/chainguard?utm_source=academy&utm_medium=referral&utm_campaign=FY25-DockerHub-Orgprofile). As a Docker Verified Publisher, Chainguard has met Docker's stringent standards for security, quality, and transparency. This status signifies that our container images are trusted, reliable, and have undergone rigorous verification processes. If you wish to use Production Containers, you need to use the [Chainguard Registry](/chainguard/chainguard-registry/overview/).
+Yes, Chainguard Starter Container images are available on [Docker Hub](https://hub.docker.com/u/chainguard?utm_source=academy&utm_medium=referral&utm_campaign=FY25-DockerHub-Orgprofile). As a Docker Verified Publisher, Chainguard has met Docker's stringent standards for security, quality, and transparency. This status signifies that our container images are trusted, reliable, and have undergone rigorous verification processes. If you wish to use Production Containers, you will use [Chainguard's registry](/chainguard/chainguard-registry/overview/).
 
 ## What is an SBOM and why is it important?
 An SBOM is a Software Bill of Materials, which is a list containing detailed information about all software that is included within a software artifact, whether it's an application, a container image, or a physical appliance.
@@ -74,9 +74,9 @@ Chainguard investigates the CVE and marks relevant images as affected or not. If
 Chainguard is not responsible for CVEs in software you add on top of base images.
 
 ## Do I need to authenticate into Chainguard to use Chainguard Containers?
-Logging in is optional if you are only using Starter containers. That being said, there are benefits for all users who authenticate to the Chainguard Registry, as Chainguard provides notifications of version updates, breaking changes, or critical security updates.
+Logging in is optional if you are only using Starter containers. That being said, there are benefits for all users who authenticate to Chainguard's registry, as Chainguard provides notifications of version updates, breaking changes, or critical security updates.
 
-To learn how to authenticate into the Chainguard Registry, you can review our [authentication documentation](/chainguard/chainguard-registry/authenticating/) . You can read more about the thought process behind authentication in our blog post, [Scaling Chainguard Containers with a growing catalog and proactive security updates](https://www.chainguard.dev/unchained/scaling-chainguard-images-with-a-growing-catalog-and-proactive-security-updates).
+To learn how to authenticate into Chainguard's registry, you can review our [authentication documentation](/chainguard/chainguard-registry/authenticating/) . You can read more about the thought process behind authentication in our blog post, [Scaling Chainguard Containers with a growing catalog and proactive security updates](https://www.chainguard.dev/unchained/scaling-chainguard-images-with-a-growing-catalog-and-proactive-security-updates).
 
 ## Is Chainguard FedRAMP certified?
 

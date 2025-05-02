@@ -1,10 +1,10 @@
 ---
-title: "How to Set Up Pull Through from Chainguard Registry to Cloudsmith"
+title: "How to Set Up Pull Through from Chainguard's Registry to Cloudsmith"
 linktitle: "Cloudsmith"
 aliases: 
 - /chainguard/chainguard-registry/pull-through-guides/cloudsmith-pull-through/
 type: "article"
-description: "Tutorial outlining how to set up a Cloudsmith repository to pull Containers through from the Chainguard Registry."
+description: "Tutorial outlining how to set up a Cloudsmith repository to pull Containers through from Chainguard's Registry."
 date: 2024-07-16T15:56:52-07:00
 lastmod: 2024-08-19T15:56:52-07:00
 draft: false
@@ -27,7 +27,7 @@ In order to complete this tutorial, you will need the following:
 
 * Docker installed on your local machine. Follow the [official installation instructions](https://docs.docker.com/engine/install/) to set this up.
 * Administrative privileges over a Cloudsmith project. You can set up an account by visiting the [Cloudsmith website](https://cloudsmith.com/). 
-* If you plan to set up a Cloudsmith repository to serve as a pull through cache for Production container images, then you will also need to have privileges to create a pull token on a Chainguard Registry.
+* If you plan to set up a Cloudsmith repository to serve as a pull through cache for Production container images, then you will also need to have privileges to create a pull token from Chainguard.
     * Additionally, you'll need `chainctl` installed to create the pull token. If you haven't already installed this, follow the [installation guide](/chainguard/administration/how-to-install-chainctl/).
 
 
@@ -91,7 +91,7 @@ Production Chainguard Containers are enterprise-ready images that come with patc
 
 You can create a new Cloudsmith repository or use the same repository you used as a pull through cache for Starter containers.
 
-Next, you'll need to create [a pull token](/chainguard/chainguard-registry/authenticating/#authenticating-with-a-pull-token) for your organization's Chainguard Registry. Pull tokens are longer-lived tokens that can be used to pull Containers from other environments that don't support OIDC, such as some CI environments, Kubernetes clusters, or with registry mirroring tools like Cloudsmith.
+Next, you'll need to create [a pull token](/chainguard/chainguard-registry/authenticating/#authenticating-with-a-pull-token) for your organization's registry through Chainguard. Pull tokens are longer-lived tokens that can be used to pull Containers from other environments that don't support OIDC, such as some CI environments, Kubernetes clusters, or with registry mirroring tools like Cloudsmith.
 
 Log in with `chainctl`:
 
@@ -113,7 +113,7 @@ This will create a pull token and print a `docker login` command that can be run
 
 Following that, you'll need to create another upstream source. Return to the Cloudsmith web app and navigate to the **Upstream Proxying** page. Click the **➕ Create Upstream** button and select **Docker** as the upstream source. Again, set a **Name** and **Priority** level for this source and ensure that the **Mode** is set to **Cache and Proxy**. 
 
-When pulling from a private Chainguard Registry, the **Upstream URL** must be set to `https://cgr.dev/`; any other URL here will cause an error.
+When pulling from a private registry through Chainguard, the **Upstream URL** must be set to `https://cgr.dev/`; any other URL here will cause an error.
 
 Lastly, you need to add the username and password you received when you generated the pull token to the upstream source. To do this, expand the **Authentication** section and under **Method** select **Username and Password**. Then enter the username and password you noted down earlier in their respective fields. 
 
@@ -151,9 +151,9 @@ Once this command is completed you will find the Production container you pulled
 If you run into issues pulling images like this, be sure that your `docker pull` command specifies the correct Cloudsmith organization and repository as well as the correct Chainguard registry. 
 
 
-## Debugging Pull Through from the Chainguard Registry to Cloudsmith
+## Debugging Pull Through from Chainguard's registry to Cloudsmith
 
-If you run into issues when trying to pull Containers from the Chainguard Registry to Cloudsmith, please make sure the following requirements are met:
+If you run into issues when trying to pull Containers from Chainguard's registry to Cloudsmith, please make sure the following requirements are met:
 
 * Ensure that all Containers [network requirements](https://edu.chainguard.dev/chainguard/administration/network-requirements/) are met.
 * When configuring a remote Cloudsmith repository, ensure that the **URL** field is set correctly. For Starter container images, this should be `https://cgr.dev/chainguard`; for Production containers this should be `https://cgr.dev/`. This field **must not** contain any additional components.
@@ -162,4 +162,4 @@ If you run into issues when trying to pull Containers from the Chainguard Regist
 
 ## Learn More
 
-If you haven't already done so, you may find it useful to review our [Chainguard Registry Overview](/chainguard/chainguard-registry/overview/) to learn more about the Chainguard Registry. You can also learn more about Chainguard Containers by checking out our [Containers documentation](/chainguard/chainguard-images/overview/). If you'd like to learn more about Cloudsmith, we encourage you to refer to the [official documentation](https://help.cloudsmith.io/docs/welcome-to-cloudsmith-docs).
+If you haven't already done so, you may find it useful to review our [Registry Overview](/chainguard/chainguard-registry/overview/) to learn more about Chainguard's registry. You can also learn more about Chainguard Containers by checking out our [Containers documentation](/chainguard/chainguard-images/overview/). If you'd like to learn more about Cloudsmith, we encourage you to refer to the [official documentation](https://help.cloudsmith.io/docs/welcome-to-cloudsmith-docs).

@@ -1,5 +1,6 @@
 ---
 title: "An Introduction to Fulcio"
+linktitle: "Introduction"
 type: "article"
 lead: "A primer to the Fulcio certificate authority"
 description: "Understanding Fulcio, a new kind of root certificate authority for code signing under Sigstore"
@@ -11,7 +12,7 @@ images: []
 menu:
   docs:
     parent: "fulcio"
-weight: 630
+weight: 230
 toc: true
 ---
 
