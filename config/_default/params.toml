@@ -7,6 +7,9 @@ titleAddition = "Software Supply Chain Security Knowledge Base"
 subTitle = "Chainguard"
 description = "Learn how to make your software supply chain secure by default"
 
+## Header
+googleTagManager = "GTM-NZGRBSPT"
+
 ## Documentation
 # docsVersion = "0.3"
 
@@ -21,7 +24,6 @@ twitterSite = "@chainguard_dev"
 twitterCreator = "@chainguard_dev"
 
 ## JSON-LD
-# schemaType = "Organization"
 schemaType = "Organization"
 schemaName = "Chainguard"
 schemaUrl = "https://chainguard.dev"
