@@ -15,7 +15,7 @@ weight: 010
 toc: true
 ---
 
-Chainguard's [Custom Assembly](/chainguard-images/features/ca-docs/custom-assembly/) is a tool that allows customers to create customized containers with extra packages added. This enables customers to reduce their risk exposure by creating container images that are tailored to their internal organization and application requirements while still having few-to-zero CVEs.
+Chainguard's [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) is a tool that allows customers to create customized containers with extra packages added. This enables customers to reduce their risk exposure by creating container images that are tailored to their internal organization and application requirements while still having few-to-zero CVEs.
 
 You can use [`chainctl`, Chainguard's command-line interface tool](/chainguard/chainctl/), to further customize your Custom Assembly builds and retrieve information about them. This guide provides an overview of the relevant `chainctl` commands and outlines how you can edit the configuration of Custom Assembly containers, as well as retrieve a list of a customized image's builds and its build logs.
 
@@ -164,4 +164,4 @@ Highlight your chosen build report and select it by pressing `ENTER`. This will 
 
 The `chainctl` commands outlined in this guide show how you can interact with Chainguard's Custom Assembly tool from the command line. 
 
-You can also interact with Custom Assembly with the [Chainguard API](/chainguard/administration/api/). Our tutorial on [Using the Chainguard API to Manage Custom Assembly Resources](/chainguard-images/features/ca-docs/custom-assembly-api-demo/) outlines how to run a demo application that updates the configuration of a Custom Assembly container through the Chainguard API. 
+You can also interact with Custom Assembly with the [Chainguard API](/chainguard/administration/api/). Our tutorial on [Using the Chainguard API to Manage Custom Assembly Resources](/chainguard/chainguard-images/features/ca-docs/custom-assembly-api-demo/) outlines how to run a demo application that updates the configuration of a Custom Assembly container through the Chainguard API. 
