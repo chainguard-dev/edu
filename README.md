@@ -11,9 +11,9 @@ You can find the educational resource files in Markdown under the `content` dire
 
 ## Development
 
-This site is based on the [Doks Hugo theme](https://github.com/h-enk/doks). 
+This site is based on the [Doks Hugo theme](https://github.com/h-enk/doks).
 
-If you would like to develop this project, clone this repo and install dependencies with `npm`. 
+If you would like to develop this project, clone this repo and install dependencies with `npm`.
 
 ```sh
 npm install
@@ -25,7 +25,7 @@ To run a local version of this site, use npm to start it.
 npm run start
 ```
 
-You'll then navigate to `localhost:1313` within the web browser of your choice. 
+You'll then navigate to `localhost:1313` within the web browser of your choice.
 
 ## 📑 Contributing
 
@@ -37,7 +37,7 @@ In each post's header, the date format should follow year-month-day as `YYYY-MM-
 
 ### Adding Graphic Images
 
-Please reduce the image's file size before adding the image to this project to make page loadtimes faster and more accessible. You can use a tool such as [TinyPNG](https://tinypng.com/). 
+Please reduce the image's file size before adding the image to this project to make page loadtimes faster and more accessible. You can use a tool such as [TinyPNG](https://tinypng.com/).
 
 If you are using images, it's best to bundle it together with the appropriate Markdown file. Create a directory with the name of the new page. Within the directory, create an `index.md` file and add the images within the directory as well.
 
@@ -94,10 +94,12 @@ images: []
 menu:
 ...
 ```
-When applying tags, please make sure they conform to the working tag list below so that the tagging logic is consistent. If you'd like to add a new tag or suggest a tag revision, please submit a PR with a justification for the change. 
+
+When applying tags, please make sure they conform to the working tag list below so that the tagging logic is consistent. If you'd like to add a new tag or suggest a tag revision, please submit a PR with a justification for the change.
 
 Tags are based on:
-* _Content topics_ covered in the content, such as tools (Enforce, apko, etc), orgs/standards (OCI, SLSA, etc), and other relevant topics (SBOMs, etc).
-* _Content types_ represented by the content, such as procedural, conceptual, interactive, troubleshooting, etc. 
+
+- _Content topics_ covered in the content, such as tools (Enforce, apko, etc), orgs/standards (OCI, SLSA, etc), and other relevant topics (SBOMs, etc).
+- _Content types_ represented by the content, such as procedural, conceptual, interactive, troubleshooting, etc.
 
 You can review our current list of [Tags](https://edu.chainguard.dev/tags).
