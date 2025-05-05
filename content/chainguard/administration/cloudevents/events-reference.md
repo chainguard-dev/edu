@@ -17,8 +17,8 @@ Check out [this GitHub repository](https://github.com/chainguard-dev/enforce-eve
 
 To subscribe to Chainguard events for your account, use the `chainctl` command like this:
 
-```
-chainctl events subscriptions create –parent $YOUR_ORGANIZATION_OR_FOLDER https://<Your webhook URL>
+```shell
+chainctl events subscriptions create --parent $YOUR_ORGANIZATION_OR_FOLDER https://<Your webhook URL>
 ```
 
 Once you are subscribed to Chainguard events, you will start receiving HTTP POST requests. Each request has a common set of CloudEvent header fields, denoted by the `Ce-` prefix. The event body is encoded using JSON and will have two top-level keys, `actor` and `body`.
