@@ -43,7 +43,7 @@ If you are using images, it's best to bundle it together with the appropriate Ma
 
 In practice, this will look like the following, with images in place for both the `getting-started-enforce-github` directory and the `install-enforce-github` directory and the relevant tutorials:
 
-```
+```sh
 ├── chainguard
 │   ├── _index.md
 │   ├── enforce-github
