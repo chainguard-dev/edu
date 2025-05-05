@@ -8,7 +8,7 @@ lastmod: 2025-04-25T17:55:14
 draft: false
 tags: ["Platform", "Reference", "Product"]
 images: []
-weight: 780
+weight: 005
 ---
 
 Chainguard generates and emits [CloudEvents](https://cloudevents.io/) based on actions that occur within a Chainguard account, such as registering a Kubernetes cluster or creating an IAM invitation. Chainguard also emits events when workloads or policies are changed in a cluster.
@@ -17,8 +17,8 @@ Check out [this GitHub repository](https://github.com/chainguard-dev/enforce-eve
 
 To subscribe to Chainguard events for your account, use the `chainctl` command like this:
 
-```
-chainctl events subscriptions create –parent $YOUR_ORGANIZATION_OR_FOLDER https://<Your webhook URL>
+```shell
+chainctl events subscriptions create --parent $YOUR_ORGANIZATION_OR_FOLDER https://<Your webhook URL>
 ```
 
 Once you are subscribed to Chainguard events, you will start receiving HTTP POST requests. Each request has a common set of CloudEvent header fields, denoted by the `Ce-` prefix. The event body is encoded using JSON and will have two top-level keys, `actor` and `body`.
