@@ -28,9 +28,9 @@ To create a new event and subscribe to events in that organization or folder, us
 chainctl events subscriptions create $SINK_URL
 ```
 
-A SINK is an addressable or callable resource that can receive incoming events delivered over HTTPS and will translate the delivered event into a returned response that includes promised information. The style and type of response is set by the SINK.
+A sink is an addressable or callable resource that can receive incoming events delivered over HTTPS and will translate the delivered event into a returned response that includes promised information. The style and type of response is set by the sink.
 
-Depending on the SINK, you may be prompted to respond to some questions before this action is complete. You can add a `-y` to the command to automatically assume `yes` and run without interaction.
+Depending on the sink, you may be prompted to respond to some questions before this action is complete. You can add a `-y` to the command to automatically assume `yes` and run without interaction.
 
 
 ## View your event subscriptions
@@ -41,7 +41,7 @@ To retrieve a list of all your Chainguard account's subscriptions, use:
 chainctl events subscriptions list
 ```
 
-This will return a list of IDs and SINKs for all of your subscriptions.
+This will return a list of IDs and sinks for all of your subscriptions.
 
 
 ## Delete event subscriptions
@@ -52,4 +52,4 @@ To delete an existing event, use:
 chainctl events subscriptions delete $SUBSCRIPTION_ID
 ```
 
-Depending on the SINK, you may be prompted to respond to some questions before this action is complete. You can add a `-y` to the command to automatically assume `yes` and run without interaction.
+Depending on the sink, you may be prompted to respond to some questions before this action is complete. You can add a `-y` to the command to automatically assume `yes` and run without interaction.
