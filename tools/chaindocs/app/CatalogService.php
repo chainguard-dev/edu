@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace App;
 
-use App\Command\CatalogItem;
-use Minicli\App;
-use Minicli\ServiceInterface;
-use Minicli\FileNotFoundException;
-use Parsed\ContentParser;
 use DateTime;
 use DateTimeImmutable;
 use DateTimeInterface;
+use Minicli\App;
+use Minicli\FileNotFoundException;
+use Minicli\ServiceInterface;
+use Parsed\ContentParser;
+use App\Exception\InvalidTimestampException;
 
 class CatalogService implements ServiceInterface
 {
@@ -57,7 +57,11 @@ class CatalogService implements ServiceInterface
             }
 
             $item = new CatalogItem();
-            $item->load($path);
+            try {
+                $item->load($path);
+            } catch (InvalidTimestampException $e) {
+
+            }
             $this->audit($item);
             $this->catalog[] = $item;
         }
