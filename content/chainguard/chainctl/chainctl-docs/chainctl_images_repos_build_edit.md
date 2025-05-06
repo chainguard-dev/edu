@@ -1,28 +1,28 @@
 ---
 date: 2025-05-05T21:02:19Z
-title: "chainctl update"
-slug: chainctl_update
-url: /chainguard/chainctl/chainctl-docs/chainctl_update/
+title: "chainctl images repos build edit"
+slug: chainctl_images_repos_build_edit
+url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_edit/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl update
+## chainctl images repos build edit
 
-Update chainctl.
+Edit a build config
 
 ```
-chainctl update [--yes] [--force]
+chainctl images repos build edit [flags]
 ```
 
 ### Options
 
 ```
-      --force   Skip the version check and update chainctl regardless of the current version.
-  -h, --help    help for update
-  -y, --yes     Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
+  -h, --help            help for edit
+      --parent string   The name or id of the parent location to apply build config.
+      --repo string     The name or id of the repo to apply build config.
 ```
 
 ### Options inherited from parent commands
@@ -41,5 +41,5 @@ chainctl update [--yes] [--force]
 
 ### SEE ALSO
 
-* [chainctl](/chainguard/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
+* [chainctl images repos build](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_build/)	 - Manage custom image builds
 

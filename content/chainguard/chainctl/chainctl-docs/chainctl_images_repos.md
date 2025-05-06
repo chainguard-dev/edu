@@ -1,5 +1,5 @@
 ---
-date: 2025-04-25T17:55:09Z
+date: 2025-05-05T21:02:19Z
 title: "chainctl images repos"
 slug: chainctl_images_repos
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos/
@@ -36,5 +36,6 @@ Image repo related commands for the Chainguard platform.
 ### SEE ALSO
 
 * [chainctl images](/chainguard/chainctl/chainctl-docs/chainctl_images/)	 - Images related commands for the Chainguard platform.
+* [chainctl images repos build](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_build/)	 - Manage custom image builds
 * [chainctl images repos list](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_list/)	 - List image repositories.
 
