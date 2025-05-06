@@ -1,7 +1,7 @@
 ---
-title: "create, view, and delete chainctl events"
+title: "Create, View, and Delete chainctl Events"
 lead: ""
-description: "chainctl events basics"
+description: "A simple introduction to chainctl events usage"
 type: "article"
 date: 2025-05-06T08:49:15+00:00
 lastmod: 2025-05-06T08:49:15+00:00
@@ -11,7 +11,11 @@ images: []
 weight: 050
 ---
 
-This page shows you the basic usage of `chainctl events` commands. For a full reference of all commands with details and switches, see [chainctl Reference](/chainguard/chainctl/). In addition, Chainguard Academy has several deeper guides on [CloudEvents](/chainguard/administration/cloudevents/). You may find our guide on [Subscribing to Chainguard CloudEvents](/chainguard/administration/cloudevents/events-example/) to be particularly useful for understanding how to work with events from Chainguard.
+This page shows you the basic usage of `chainctl events` commands. For a full reference of all commands with details and switches, see [chainctl Reference](/chainguard/chainctl/).
+
+Chainguard events use the [CloudEvents](https://cloudevents.io/) specification for describing event data.
+
+Chainguard Academy has several deeper guides on [Chainguard CloudEvents](/chainguard/administration/cloudevents/). You may find our guide on [Subscribing to Chainguard CloudEvents](/chainguard/administration/cloudevents/events-example/) to be particularly useful for understanding how to work with events from Chainguard while [Chainguard Events](https://edu.chainguard.dev/chainguard/administration/cloudevents/events-reference/) provides a deeper dive into the content and make up of events.
 
 There are three `chainctl events` commands available: `create`, `list`, and `delete`.
 
