@@ -2,13 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Command;
+namespace App;
 
+use App\Exception\InvalidTimestampException;
+use DateTimeImmutable;
 use DateTimeInterface;
+use Exception;
 use Parsed\Content;
 use Parsed\ContentParser;
-use DateTimeImmutable;
-use Exception;
 
 class CatalogItem
 {
@@ -29,8 +30,17 @@ class CatalogItem
         $this->content = $contentParser->parse(new Content(file_get_contents($this->path)));
         $this->routes = $this->getRoutes();
 
-        $createdTs = $this->content->frontMatterHas('date') ? $this->content->frontMatterGet('date') : date('Y-m-d H:i:s');
-        $updatedTs = $this->content->frontMatterHas('lastmod') ? $this->content->frontMatterGet('lastmod') : $createdTs;
+        $createdTs = $this->content->frontMatterGet('date');
+        #$updatedTs = $this->content->frontMatterHas('lastmod') ? $this->content->frontMatterGet('lastmod') : $createdTs;
+        $updatedTs = $this->content->frontMatterGet('lastmod') ?: null;
+
+        if ($createdTs === null) {
+            throw new InvalidTimestampException("Invalid timestamp for 'date' field: {$createdTs}");
+        }
+
+        if ($updatedTs === null) {
+            throw new InvalidTimestampException("Invalid timestamp for 'lastmod' field: {$updatedTs}");
+        }
 
         try {
             $this->created = new DateTimeImmutable($createdTs);
@@ -56,5 +66,10 @@ class CatalogItem
         }
 
         return $routes;
+    }
+
+    public function getRaw(string $key): string | null
+    {
+        return $this->content->frontMatterHas($key) ? $this->content->frontMatterGet($key) : null;
     }
 }

@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\CatalogService;
+use App\InspectorService;
 
 return [
     /****************************************************************************
@@ -14,5 +15,6 @@ return [
 
     'services' => [
         'catalog' => CatalogService::class,
+        'inspector' => InspectorService::class,
     ],
 ];
