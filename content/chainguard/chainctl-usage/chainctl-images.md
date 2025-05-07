@@ -11,7 +11,7 @@ images: []
 weight: 070
 ---
 
-This page presents some of the more common ways to learn about the Chainguard Containers that are available to you. We use `chainctl images` commands to list available repositories and container images, examine images more closely, and compare them to one another.
+This page presents some of the more common ways to learn about the Chainguard container images that are available to you. We use `chainctl images` commands to list available repositories and container images, examine images more closely, and compare them to one another.
 
 For a full reference of all commands with details and switches, see [chainctl Reference](/chainguard/chainctl/).
 
