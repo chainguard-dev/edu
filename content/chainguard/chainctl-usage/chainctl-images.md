@@ -1,5 +1,7 @@
 ---
 title: "Manage Chainguard Container Images with chainctl"
+aliases:
+- /chainguard/chainctl-usage/chainctl-images-history
 lead: ""
 description: "Use chainctl to discover, examine, and compare the Chainguard container images available to your account"
 type: "article"
