@@ -24,7 +24,7 @@ Chainguard offers a set of minimal, security-hardened Cilium container images, b
 We will demonstrate how to get started with the Chainguard Cilium container images on an example K3s cluster. To get started, you'll need Docker, `k3d` (a CLI tool to install `k3s`), `kubectl`, and the `cilium` CLI installed.
 
 * [Docker](https://docs.docker.com/get-docker/)
-* [k3d](https://k3d.io/#installation)
+* [k3d](https://k3d.io/stable/#installation)
 * [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 * [cilium CLI](https://docs.cilium.io/en/stable/gettingstarted/k8s-install-default/#install-the-cilium-cli)
 
