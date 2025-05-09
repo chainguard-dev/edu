@@ -2089,6 +2089,38 @@
         ]
       }
     },
+    "/registry/v1/entitlements/{parent}:features": {
+      "get": {
+        "operationId": "Entitlements_GetFeatures",
+        "parameters": [
+          {
+            "description": "Organization/Group ID",
+            "in": "path",
+            "name": "parent",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryGetFeaturesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Entitlements"
+        ]
+      }
+    },
     "/registry/v1/entitlements/{parent}:summary": {
       "get": {
         "operationId": "Entitlements_Summary",
@@ -2118,6 +2150,78 @@
         "summary": "Summary provides a group-level summary of entitlements.",
         "tags": [
           "Entitlements"
+        ]
+      }
+    },
+    "/registry/v1/eoltags": {
+      "get": {
+        "operationId": "Registry_ListEolTags",
+        "parameters": [
+          {
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "in": "query",
+            "name": "uidp.inRoot",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination.",
+            "in": "query",
+            "name": "pageToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "format": "int64",
+            "in": "query",
+            "name": "pageSize",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryEolTagList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
         ]
       }
     },
@@ -2629,6 +2733,38 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/registryManifestMetadataList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      }
+    },
+    "/registry/v1/repos/{repoId}:updatestatus": {
+      "get": {
+        "operationId": "Registry_GetUpdateStatus",
+        "parameters": [
+          {
+            "description": "The UIDP of the image repo to get a UpdateStatus for.",
+            "in": "path",
+            "name": "repoId",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryUpdateStatus"
             }
           },
           "default": {
@@ -5856,6 +5992,70 @@
       ],
       "type": "string"
     },
+    "registryEolGracePeriodStatus": {
+      "default": "UNDEFINED",
+      "enum": [
+        "UNDEFINED",
+        "INACTIVE",
+        "ACTIVE",
+        "EXPIRED",
+        "BROKEN"
+      ],
+      "type": "string"
+    },
+    "registryEolTag": {
+      "properties": {
+        "gracePeriodExpiryDate": {
+          "format": "date-time",
+          "title": "the date the grace period expires",
+          "type": "string"
+        },
+        "graceStatus": {
+          "$ref": "#/definitions/registryEolGracePeriodStatus",
+          "title": "eol grace period status"
+        },
+        "id": {
+          "description": "id, identifier of this Tag, a UIDP under a Repo.",
+          "type": "string"
+        },
+        "mainPackageName": {
+          "title": "name of the main package",
+          "type": "string"
+        },
+        "mainPackageVersion": {
+          "title": "version of the main package",
+          "type": "string"
+        },
+        "name": {
+          "description": "name, the unique name of the Tag.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "registryEolTagList": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/registryEolTag",
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "registryGetFeaturesResponse": {
+      "properties": {
+        "customAssembly": {
+          "type": "boolean"
+        },
+        "uniqueTags": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
     "registryImageConfig": {
       "properties": {
         "cmd": {
@@ -6326,6 +6526,16 @@
             "type": "object"
           },
           "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "registryUpdateStatus": {
+      "description": "UpdateStatus is the update status of a repo.",
+      "properties": {
+        "recentlyUpdated": {
+          "description": "Whether or not the repo has had a recent update.",
+          "type": "boolean"
         }
       },
       "type": "object"
