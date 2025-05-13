@@ -1,5 +1,5 @@
 ---
-title: "Identity Access Management with chainctl"
+title: "Manage Identity and Access with chainctl"
 lead: ""
 description: "Learn about and manage access controls with the chainctl iam command"
 type: "article"
