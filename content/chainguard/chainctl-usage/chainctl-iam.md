@@ -65,7 +65,7 @@ chainctl iam identity-providers list
 
 This command can also create, delete, and update your organization's identity providers by replacing `list` with `create`, `delete`, or `update`. See the reference guide for more details.
 
-To tell chainctl about your OIDC provider and enable users to identify using it, use create:
+To tell chainctl about your OIDC provider and enable users to start using it, use create:
 
 ```shell
 chainctl iam identity-provider create --name=google --parent=example \
