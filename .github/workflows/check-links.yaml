@@ -12,6 +12,8 @@ defaults:
     shell: bash
     working-directory: ./tools/chainlink
 
+permissions: {}
+
 jobs:
   check-links:
     runs-on: ubuntu-latest
@@ -19,6 +21,7 @@ jobs:
     if: github.repository == 'chainguard-dev/edu'
 
     permissions:
+      contents: read # reads from the repo
       issues: write # opens issues when bad links are found
 
     steps:
@@ -43,7 +46,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@d35c59abb061a4a6fb18e82ac0862c26744d6ab5 # v5.5.0
         with:
-          go-version: '^1.20.0'
+          go-version: '1.24'
 
       - name: Run chainlink
         run: go run . -contentDir ../../content -hostname edu.chainguard.dev -method GET -checkAll
