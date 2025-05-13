@@ -4,6 +4,8 @@ on:
     - cron: "0 0 * * *"
   workflow_dispatch:
 
+permissions: {}
+
 jobs:
   build-image:
     runs-on: ubuntu-latest
@@ -11,6 +13,7 @@ jobs:
     if: github.repository == 'chainguard-dev/edu'
 
     permissions:
+      contents: read
       id-token: write # Federate with GCP and sign images
 
     strategy:

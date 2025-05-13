@@ -5,6 +5,8 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
 
+permissions: {}
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -12,6 +14,7 @@ jobs:
     if: github.repository == 'chainguard-dev/edu'
 
     permissions:
+      contents: read
       id-token: write # federates with GCP
 
     steps:
