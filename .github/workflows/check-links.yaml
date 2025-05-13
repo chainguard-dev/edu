@@ -12,6 +12,9 @@ defaults:
     shell: bash
     working-directory: ./tools/chainlink
 
+permissions:
+  contents: read
+
 jobs:
   check-links:
     runs-on: ubuntu-latest
