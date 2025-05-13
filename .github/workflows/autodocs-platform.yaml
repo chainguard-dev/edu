@@ -8,8 +8,7 @@ on:
     branches:
       - platform-docs
 
-permissions:
-  contents: read
+permissions: {}
 
 jobs:
   integrate-platform-docs:
@@ -31,7 +30,7 @@ jobs:
       uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
     - name: 'Setup gitsign'
-      uses: chainguard-dev/actions/setup-gitsign@f3c4f016161c129594cb6a27d9339fc04b8aba54 # main
+      uses: chainguard-dev/actions/setup-gitsign@ec48ea414c0cb207549029d8fe35f8f01e563219 # v1.0.8
 
     - name: Authenticate to Google Cloud
       id: auth
