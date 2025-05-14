@@ -4,7 +4,7 @@ linktitle: "Python Overview "
 description: "Python libraries for your application development"
 type: "article"
 date: 2025-04-09:04:00+00:00
-lastmod: 2025-04-09:04:00+00:00
+lastmod: 2025-05-14:04:00+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python", "Overview"]
 menu:
@@ -21,6 +21,13 @@ Python is one of the most popular programming languages in the world and the ope
 Chainguard Libraries for Python enables access to a growing collection of Python packages rebuilt from source. New releases of common libraries or artifacts requested by customers are added to the index by an automated system. Any request for a library or library version missing in Chainguard Libraries automatically triggers a process to provision the artifacts from relevant sources if available. In combination with third-party software repository managers, you can use Chainguard Libraries for Python as a secure source of truth for your development process.
 
 ## Technical Details
+
+Most organisations will consume Chainguard Libraries for Python through a repository manager such as
+Cloudsmith, JFrog Artifactory or Sonatype Nexus Repository. For full details on how to do this,
+refer to our [Global Configuration
+documentation](/chainguard/libraries/python/global-configuration). The rest of this article provides
+details of the underlying implementation of Chainguard Libraries for Python and how to access
+individual libraries manually.
 
 A [username and password retrieved with
 chainctl](/chainguard/libraries/access/) are required to access the Chainguard
