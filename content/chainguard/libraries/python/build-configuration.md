@@ -1,0 +1,123 @@
+---
+title: "Build Configuration"
+linktitle: "Build Configuration "
+description: "Configuring Chainguard Libraries for Python on your workstation"
+type: "article"
+date: 2025-03-25T08:04:00+00:00
+lastmod: 2025-04-07T14:11:00+00:00
+draft: false
+tags: ["Chainguard Libraries", "Python"]
+menu:
+  docs:
+    parent: "python"
+weight: 053
+toc: true
+---
+
+The configuration for the use of Chainguard Libraries depends on how you've set up your build tools and CI/CD workflows. At a high level, adopting the use of Chainguard Libraries in your development, build, and deployment workflows involves the following steps:
+
+- If you or an administrator have not done so already, [set up your organization's repository manager to use Chainguard Libraries for Python](/chainguard/libraries/python/global-configuration).
+- Log into your organization's repository manager and retrieve credentials for the build tool you are configuration.
+- Configure your development or build tool with this information.
+- Remove local caches on workstations and CI/CD pipelines. This step ensures that dependencies are preferentially sourced from Chainguard Libraries.
+- Finally, confirm that your development tools and CI/CD workflows are correctly ingesting dependencies from Chainguard Libraries.
+
+These changes must be performed on all workstations of individual developers and other engineers running relevant application builds. They must also be performed on any build tool such as Jenkins, TeamCity, GitHub Actions, or other infrastructure that draws in dependencies.
+
+## Retrieving Authentication Credentials
+
+TO configure any build tool, you must first access credentials from your organization's repository manager.
+
+<a name="cloudsmith"></a>
+### Cloudsmith
+
+The following steps allow you to determine the URL and authentication details for accessing your organization's Cloudsmith repository manager.
+
+1. Log into Cloudsmith.
+1. Select the **Packages** tab.
+1. Select **Push/Pull Packages**.
+1. Choose the **PyPI** format.
+1. Copy the value in the `<url>` tag from the XML snippet with the `<repositories>` entry. For example, `https://dl.cloudsmith.io/basic/exampleorg/chainguard-python/python/` with `exampleorg` replaced with the name of your organization. Note the URL contains both the name of the repository `chainguard-python` as well as `python` as an identifier for the format.
+1. Select your desired authentication method (either *Default* or *API Key*). Copy the provided username and password values for configuration of tools. You can perform this step multiple times if you're using different authentication methods for different tools.
+
+<a name="artifactory"></a>
+### JFrog Artifactory
+
+The following steps allow you to determine the identity token and URL for accessing your organization's JFrog Artifactory repository manager.
+
+1. Select **Administration** in the top navigation bar.
+1. Select **Repositories** in the left hand navigation.
+1. Select the **Virtual** tab in the repositories view.
+1. Locate the *chainguard-python** repository row and select the elipsis (**...**) in the last column on the right.
+1. Select **Set Me Up** in the dialog.
+1. Select **Generate Token & Create Instructions**
+1. Copy the generated token value to use as the password for authentication.
+1. Select **Generate Settings**.
+1. Copy the value from one of the *URL* fields. The are all identical. For example, `https://exampleorg.jfrog.io/artifactory/chainguard-python` with `exampleorg`. 
+
+<a name="nexus"></a>
+## Sonatype Nexus Repository
+
+The following steps allow you to determine the URL and authentication details for accessing your organization's Sonatype Nexus repository group.
+
+1. Click **Browse** in the **Welcome** view or the browse icon (cube) in the top navigation bar.
+1. Locate the **URL** column for the *chainguard-python* repository group and press **copy**. The URL should take the following format: `https://repo.example.com/repository/chainguard-python/` .
+1. Use your configured username and password unless **Security** - **Anonymous Access** - **Access** - **Allow anonymous users to access the server** is activated. Details vary based on your configured authentication system.
+
+## Configuring Build Tools
+
+Once you have credentials and the index URL from your organization's repository manager, you're ready to set up specific build tools for local development or CI/CD.
+
+### `pip`
+
+The `pip` tool is the most widely used utility for installing Python packages. In this section, we'll use the credentials from your organization's repository manager to configure `pip` to ingest dependencies from Chainguard Libraries.
+
+First, let's clear your local `pip` cache to ensure that packages are sourced from Chainguard Libraries for Python:
+
+```sh
+pip cache purge
+```
+
+To install a package with `pip` one time (useful for testing your credentials), you can use the following command:
+
+To update `pip` to use our repository manager's URL globally, create or edit your `~/.pip/pip.conf` file . (You may need to create the `~/.pip` folder as well.) For example:
+
+```sh
+mkdir -p ~/.pip
+nano ~/.pip/pip.conf
+```
+
+Update this configuration file with the following, replacing `<repoistory-url>` with the URL provided by your repository manager:
+
+```
+[global]
+index-url = <repository-url>
+```
+
+Note that updating this global configuration eaffects all projects built on the workstation. Alternately, if your project uses a `requirements.txt` file in projects, you can add the following to it to configure on a project-by-project basis:
+
+```
+--index-url <repository-url>
+package-name==version
+```
+
+### `uv`
+
+`uv` is an up-and-coming package and project manager for Python written in Rust.
+
+To update yoru global configuration to use your organization's repository manager with `uv`, create or edit the `~/.config/uv/uv.toml` configuration file. (You may also need to create the `~/.config/uv/` folder first.) For example:
+
+```sh
+mkdir -p ~/.config/uv
+nano ~/.config/uv/uv.toml
+```
+
+Add the following to your `uv` global configuration file:
+
+```toml
+[[tool.uv.index]]
+name = "<repository-manager-name>"
+url = "<repository-url>"
+```
+
+Select any identifying name for your repository name, such as `Cloudsmith`. Make sure to retain the quotes.
