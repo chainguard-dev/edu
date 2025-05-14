@@ -22,6 +22,8 @@ Chainguard Libraries for Python enables access to a growing collection of Python
 
 ## Technical Details
 
+The Chainguard Libraries for Python index uses the PyPI repository format and only includes release artifacts of the libraries built by Chainguard from source. 
+
 A [username and password retrieved with
 chainctl](/chainguard/libraries/access/) are required to access the Chainguard
 Libraries for Python repository. The URL for the repository is:
@@ -30,38 +32,31 @@ Libraries for Python repository. The URL for the repository is:
 https://libraries.cgr.dev/python/
 ```
 
-The URL does not expose a browsable directory structure. However, if you know the location of any particular artifact, you can use the login credentials and a set path URL to access a file.
-
-This Chainguard Libraries for Python repository uses the PyPI repository format and only includes release artifacts of the libraries built by Chainguard from source. 
-
-For example, you can locate a `tar.gz` file on PyPI:
+Following PyPI URL conventions, a browsable directory structure can be viewed at:
 
 ```
-https://files.pythonhosted.org/packages/source/f/flask/flask-3.1.0.tar.gz
+https://libraries.cgr.dev/python/simple/
 ```
 
-Combine it with the URL for the Chainguard Libraries for Python repository to check for the presence of the same file:
+Specific packages can be accessed by package name and version:
 
 ```
-https://libraries.cgr.dev/python/flask/flask-3.1.0.tar.gz
+https://libraries.cgr.dev/files/flask/flask-1.1.3.tar.gz
 ```
 
 Use the search functionality on [pypi.org](https://pypi.org/) to locate packages of interest.
 
-If you use the URL directly in a browser, you have to provide the username and
-password to log in to the Chainguard repository to download the file.
+If you use the URL directly in a browser, you will be prompted to provide the username and password created using `chainctl` via basic auth.
 
-Use curl and specify the [username and password retrieved with
-chainctl](/chainguard/libraries/access/) for basic user authentication and the
-URL of the file to download and save the file with the original name:
+You can also use curl and specify the [username and password retrieved using chainctl](/chainguard/libraries/access/) for basic user authentication:
 
 ```
 curl --user "exampleusername:examplepassword" \
-  -O https://libraries.cgr.dev/python/flask/flask-3.1.0.tar.gz
+  -O https://libraries.cgr.dev/files/flask/flask-1.1.3.tar.gz
 ```
 
 The Chainguard Libraries for Python repository does not include all packages from PyPI. Chainguard Libraries for Python are rebuilt from source and require that source be available. Therefore, packages that do not provide a valid source URL cannot be rebuilt within the Chainguard Factory. In addition, initial package rebuild coverage for Chainguard Libraries for Python is not comprehensive. 
 
-Since coverage within Chainguard Libraries for Python is not comprehensive, you should strongly consider setting the PyPI public package index as a fallback within your artifact repository manager. In this case, failed requests are logged by Chainguard and, where possible, the package will be prioritized for rebuild from source. Typically, access is [configured globally on a repository manager for your organization](/chainguard/libraries/python/global-configuration/).
+Since the Chainguard Libraries for Python index is not comprehensive, you should strongly consider setting the PyPI public package index as a fallback within your artifact repository manager. In this case, failed requests are logged by Chainguard and, where possible, the package will be prioritized for rebuild from source. Typically, access is [configured globally on a repository manager for your organization](/chainguard/libraries/python/global-configuration/).
 
 Alternatively, you can use the token for direct access to the Chainguard Libraries for Python index as discussed in [Build configuration](/chainguard/libraries/python/build-configuration/).
