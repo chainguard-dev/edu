@@ -4,7 +4,7 @@ linktitle: "Python Overview "
 description: "Python libraries for your application development"
 type: "article"
 date: 2025-04-09:04:00+00:00
-lastmod: 2025-05-14:04:00+00:00
+lastmod: 2025-05-14:16:00+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python", "Overview"]
 menu:
@@ -22,7 +22,7 @@ Chainguard Libraries for Python enables access to a growing collection of Python
 
 ## Technical Details
 
-Most organisations will consume Chainguard Libraries for Python through a repository manager such as
+Most organizations will consume Chainguard Libraries for Python through a repository manager such as
 Cloudsmith, JFrog Artifactory or Sonatype Nexus Repository. For full details on how to do this,
 refer to our [Global Configuration
 documentation](/chainguard/libraries/python/global-configuration). The rest of this article provides
