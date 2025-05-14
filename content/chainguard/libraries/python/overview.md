@@ -53,9 +53,9 @@ https://libraries.cgr.dev/files/flask/flask-1.1.3.tar.gz
 
 Use the search functionality on [pypi.org](https://pypi.org/) to locate packages of interest.
 
-If you use the URL directly in a browser, you will be prompted to provide the username and password created using `chainctl` via basic auth.
+If you use the URL directly in a browser, you are prompted to provide the username and password created using `chainctl` via basic auth.
 
-You can also use curl and specify the [username and password retrieved using chainctl](/chainguard/libraries/access/) for basic user authentication:
+You can also use `curl` and specify the [username and password retrieved using chainctl](/chainguard/libraries/access/) for basic user authentication:
 
 ```
 curl --user "exampleusername:examplepassword" \
@@ -64,6 +64,6 @@ curl --user "exampleusername:examplepassword" \
 
 The Chainguard Libraries for Python repository does not include all packages from PyPI. Chainguard Libraries for Python are rebuilt from source and require that source be available. Therefore, packages that do not provide a valid source URL cannot be rebuilt within the Chainguard Factory. In addition, initial package rebuild coverage for Chainguard Libraries for Python is not comprehensive. 
 
-Since the Chainguard Libraries for Python index is not comprehensive, you should strongly consider setting the PyPI public package index as a fallback within your artifact repository manager. In this case, failed requests are logged by Chainguard and, where possible, the package will be prioritized for rebuild from source. Typically, access is [configured globally on a repository manager for your organization](/chainguard/libraries/python/global-configuration/).
+Since the Chainguard Libraries for Python index is not comprehensive, you should strongly consider setting the PyPI public package index as a fallback within your repository manager. In this case, failed requests are logged by Chainguard and, where possible, the package is prioritized for new build from source. Typically, access is [configured globally on a repository manager for your organization](/chainguard/libraries/python/global-configuration/).
 
 Alternatively, you can use the token for direct access to the Chainguard Libraries for Python index as discussed in [Build configuration](/chainguard/libraries/python/build-configuration/).
