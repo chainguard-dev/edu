@@ -11,6 +11,7 @@ images: []
 menu:
   docs:
     parent: "rekor"
+    identifier: "Rekor CLI Install"
 weight: 002
 toc: true
 ---

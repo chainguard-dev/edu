@@ -13,6 +13,7 @@ tags: ["policy-controller", "Procedural"]
 images: []
 menu:
   docs:
+    identifier: "Install Policy Controller"
     parent: "policy-controller"
 weight: 001
 toc: true

@@ -1,6 +1,7 @@
 ---
 title: "Chainguard Custom Assembly"
 linktitle: "Overview"
+identifier: "Custom Assembly Overview"
 aliases:
 - /chainguard/chainguard-images/features/custom-assembly/
 type: "article"
@@ -13,6 +14,7 @@ images: []
 menu:
   docs:
     parent: "features"
+    identifier: "Custom Assembly Introduction"
 weight: 001
 toc: true
 ---
