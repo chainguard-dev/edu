@@ -24,11 +24,12 @@ The configuration for the use of Chainguard Libraries depends on how you've set 
 
 These changes must be performed on all workstations of individual developers and other engineers running relevant application builds. They must also be performed on any build tool such as Jenkins, TeamCity, GitHub Actions, or other infrastructure that draws in dependencies.
 
-## Retrieving Authentication Credentials
+## Retrieving authentication credentials
 
-TO configure any build tool, you must first access credentials from your organization's repository manager.
+To configure any build tool, you must first access credentials from your organization's repository manager.
 
-<a name="cloudsmith"></a>
+<a id="cloudsmith"></a>
+
 ### Cloudsmith
 
 The following steps allow you to determine the URL and authentication details for accessing your organization's Cloudsmith repository manager.
@@ -37,10 +38,21 @@ The following steps allow you to determine the URL and authentication details fo
 1. Select the **Packages** tab.
 1. Select **Push/Pull Packages**.
 1. Choose the **PyPI** format.
-1. Copy the value in the `<url>` tag from the XML snippet with the `<repositories>` entry. For example, `https://dl.cloudsmith.io/basic/exampleorg/chainguard-python/python/` with `exampleorg` replaced with the name of your organization. Note the URL contains both the name of the repository `chainguard-python` as well as `python` as an identifier for the format.
-1. Select your desired authentication method (either *Default* or *API Key*). Copy the provided username and password values for configuration of tools. You can perform this step multiple times if you're using different authentication methods for different tools.
+1. Copy the value in the `<url>` tag from the XML snippet with the
+   `<repositories>` entry. For example,
+   `https://dl.cloudsmith.io/basic/exampleorg/chainguard-python/python/` with
+   `exampleorg` replaced with the name of your organization. The URL contains
+   both the name of the repository `chainguard-python` as well as `python` as an
+   identifier for the format.  Note that for use with build tools you must
+   append `simple` to the URL so that the package index is used successfully -
+   `https://dl.cloudsmith.io/basic/exampleorg/chainguard-python/python//simple/`.
+1. Select your desired authentication method (either *Default* or *API Key*).
+   Copy the provided username and password values for configuration of tools.
+   You can perform this step multiple times if you're using different
+   authentication methods for different tools.
 
-<a name="artifactory"></a>
+<a id="artifactory"></a>
+
 ### JFrog Artifactory
 
 The following steps allow you to determine the identity token and URL for accessing your organization's JFrog Artifactory repository manager.
@@ -48,64 +60,94 @@ The following steps allow you to determine the identity token and URL for access
 1. Select **Administration** in the top navigation bar.
 1. Select **Repositories** in the left hand navigation.
 1. Select the **Virtual** tab in the repositories view.
-1. Locate the *chainguard-python** repository row and select the elipsis (**...**) in the last column on the right.
+1. Locate the *chainguard-python** repository row and press the three dots
+   (**...**) in the last column on the right.
 1. Select **Set Me Up** in the dialog.
 1. Select **Generate Token & Create Instructions**
 1. Copy the generated token value to use as the password for authentication.
 1. Select **Generate Settings**.
-1. Copy the value from one of the *URL* fields. The are all identical. For example, `https://exampleorg.jfrog.io/artifactory/chainguard-python` with `exampleorg`. 
+1. Copy the value from one of the *URL* fields. They are all identical. For
+   example, `https://exampleorg.jfrog.io/artifactory/chainguard-python` with
+   `exampleorg`. Note that for use with build tools you must append `simple` to
+   the URL so that the package index is used successfully -
+   `https://exampleorg.jfrog.io/artifactory/chainguard-python/simple/`.
 
-<a name="nexus"></a>
-## Sonatype Nexus Repository
+<a id="nexus"></a>
 
-The following steps allow you to determine the URL and authentication details for accessing your organization's Sonatype Nexus repository group.
+### Sonatype Nexus Repository
+
+The following steps allow you to determine the URL and authentication details
+for accessing your organization's Sonatype Nexus repository group.
 
 1. Click **Browse** in the **Welcome** view or the browse icon (cube) in the top navigation bar.
-1. Locate the **URL** column for the *chainguard-python* repository group and press **copy**. The URL should take the following format: `https://repo.example.com/repository/chainguard-python/` .
-1. Use your configured username and password unless **Security** - **Anonymous Access** - **Access** - **Allow anonymous users to access the server** is activated. Details vary based on your configured authentication system.
+1. Locate the **URL** column for the *chainguard-python* repository group and
+   press **copy**. The URL should take the following format:
+   `https://repo.example.com/repository/chainguard-python/`. Note that for use
+   with build tools you must append `simple` to the URL so that the package
+   index is used successfully -
+   `https://repo.example.com/repository/chainguard-python/simple/`.
+1. No further configuration is necessary if your repository manager is
+   configured for anonymous access with **Security** - **Anonymous Access** -
+   **Access** - **Allow anonymous users to access the server** is activated. If
+   authentication is required, you must use the relevant details such as
+   username and password in your build tool configuration.
 
-## Configuring Build Tools
+## Configuring build tools
 
-Once you have credentials and the index URL from your organization's repository manager, you're ready to set up specific build tools for local development or CI/CD.
+Once you have credentials and the index URL from your organization's repository
+manager, you're ready to set up specific build tools for local development or
+CI/CD.
 
-### `pip`
+### pip
 
-The `pip` tool is the most widely used utility for installing Python packages. In this section, we'll use the credentials from your organization's repository manager to configure `pip` to ingest dependencies from Chainguard Libraries.
+The [pip tool](https://pip.pypa.io/en/stable/) is the most widely used utility
+for installing Python packages. In this section, we use the credentials from
+your organization's repository manager to configure `pip` to ingest dependencies
+from Chainguard Libraries.
 
-First, let's clear your local `pip` cache to ensure that packages are sourced from Chainguard Libraries for Python:
+First, let's clear your local `pip` cache to ensure that packages are sourced
+from Chainguard Libraries for Python:
 
 ```sh
 pip cache purge
 ```
 
-To install a package with `pip` one time (useful for testing your credentials), you can use the following command:
-
-To update `pip` to use our repository manager's URL globally, create or edit your `~/.pip/pip.conf` file . (You may need to create the `~/.pip` folder as well.) For example:
+To update `pip` to use our repository manager's URL globally, create or edit
+your `~/.pip/pip.conf` file. You may need to create the `~/.pip` folder as
+well. For example:
 
 ```sh
 mkdir -p ~/.pip
 nano ~/.pip/pip.conf
 ```
 
-Update this configuration file with the following, replacing `<repoistory-url>` with the URL provided by your repository manager:
+Update this configuration file with the following, replacing `<repository-url>`
+with the URL provided by your repository manager including the `simple/`context:
 
 ```
 [global]
 index-url = <repository-url>
 ```
 
-Note that updating this global configuration eaffects all projects built on the workstation. Alternately, if your project uses a `requirements.txt` file in projects, you can add the following to it to configure on a project-by-project basis:
+Note that updating this global configuration affects all projects built on the
+workstation. Alternately, if your project uses a `requirements.txt` file in
+projects, you can add the following to it to configure on a project-by-project
+basis:
 
 ```
 --index-url <repository-url>
 package-name==version
 ```
 
-### `uv`
+### uv
 
-`uv` is an up-and-coming package and project manager for Python written in Rust.
+[uv](https://docs.astral.sh/uv) is a fast Python package and project manager
+written in Rust. It uses PyPI by default, but also [supports the use of
+alternative package indexes](https://docs.astral.sh/uv/configuration/indexes/).
 
-To update yoru global configuration to use your organization's repository manager with `uv`, create or edit the `~/.config/uv/uv.toml` configuration file. (You may also need to create the `~/.config/uv/` folder first.) For example:
+To update your global configuration to use your organization's repository
+manager with `uv`, create or edit the `~/.config/uv/uv.toml` configuration file.
+You may also need to create the `~/.config/uv/` folder first. For example:
 
 ```sh
 mkdir -p ~/.config/uv
@@ -120,4 +162,11 @@ name = "<repository-manager-name>"
 url = "<repository-url>"
 ```
 
-Select any identifying name for your repository name, such as `Cloudsmith`. Make sure to retain the quotes.
+Add the name for your repository, such as `corppypi`, within the quotes.
+
+Replace the `<repository-url>` with the URL provided by your repository manager
+including the `simple/`context.
+
+Note that updating the global configuration affects all projects built on the
+workstation. Alternately, you can update each project by adding the same
+configuration in `pyproject.toml`.

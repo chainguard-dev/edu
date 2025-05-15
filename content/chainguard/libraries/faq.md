@@ -68,7 +68,7 @@ of the software supply chain for libraries across different language ecosystems:
   and [Sonatype's take as Maven Central
   operator](https://www.sonatype.com/sonatypes-ongoing-commitment-to-maven-central).
 
-## XZ Utils backdoor
+### XZ Utils backdoor
 
 * Example of a supply chain issue with social engineering for maintainer rights
 * Very complex backdoor that consists of multiple stages with potential to be

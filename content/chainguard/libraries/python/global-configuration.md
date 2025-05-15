@@ -30,7 +30,7 @@ You should also:
 
 If your organization does not use a repository manager, you can still use Chainguard Libraries. However, this approach requires configuration of multiple build and development platforms and utilities to use Chainguard Libraries. For this reason, adopting the use of a repository manager is the recommended approach. 
 
-<a name="cloudsmith"></a>
+<a id="cloudsmith"></a>
 
 ## Cloudsmith
 
@@ -67,9 +67,11 @@ Next, configure an upstream proxy for the PyPI Repository:
 
 ### Build tool access
 
-See the page on [build tool configuration for Chainguard Libraries for Python](/chainguard/libraries/python/build-configuration.md#cloudsmith) for information on accessing credentials and setting up build tools.
+See the page on [build tool configuration for Chainguard Libraries for
+Python](/chainguard/libraries/python/build-configuration/#cloudsmith) for information on
+accessing credentials and setting up build tools.
 
-<a name="artifactory"></a>
+<a id="artifactory"></a>
 
 ## JFrog Artifactory
 
@@ -110,16 +112,19 @@ Combine the two repositories in a new virtual repository:
 
 ### Build tool access
 
-See the page on [build tool configuration for Chainguard Libraries for Python](/chainguard/libraries/python/build-configuration.md#artifactory) for information on accessing credentials and setting up build tools.
+See the page on [build tool configuration for Chainguard Libraries for Python](/chainguard/libraries/python/build-configuration/#artifactory) for information on accessing credentials and setting up build tools.
 
-<a name="nexus"></a>
+<a id="nexus"></a>
+
 ## Sonatype Nexus Repository
 
 [Sonatype Nexus Repository](https://www.sonatype.com/products/sonatype-nexus-repository) allows for merging multiple remote repositories as a repository group. The below instructions for  are based on the [Nexus documentation for PyPI](https://help.sonatype.com/en/pypi-repositories.html) 
 
 ### Initial configuration
 
-The following will create remote repositories for Chainguard Libraries for Python, a remote repository for the public PyPI index, and a repository group combining these sources.
+The following steps create remote repositories for Chainguard Libraries for
+Python, a remote repository for the public PyPI index, and a repository group
+combining these sources.
 
 First, log in to Sonatype Nexus as a user with administrator privileges and access the **Server administration** and configuration section within the gear icon in the top navigation bar.
 
@@ -127,7 +132,7 @@ Next, configure a remote repository for the public PyPI index:
 
 1. Select **Repository - Repositories** in the left hand navigation.
 1. Select **Create repository**.
-1. Select the PyPI (proxy) recipe.
+1. Select the **PyPI (proxy)** recipe.
 1. Provide a new name, such as `pypi-proxy`.
 1. In the **Proxy - Remote storage** field, add the following URL: `https://pypi.org/`.
 1. Select **Create repository**.
@@ -136,7 +141,7 @@ Configure a remote repository for the Chainguard Libraries for Python repository
 
 1. Select **Repository - Repositories** in the left hand navigation.
 1. Select **Create repository**.
-1. Select the PyPI (proxy) recipe.
+1. Select the **PyPI (proxy)** recipe.
 1. Provide a new name, such as `chainguard-proxy`.
 1. In the **Proxy - Remote storage**field, add the following URL: `https://libraries.cgr.dev/python/`.
 1. In **HTTP - Authentication**, set the **Authentication type** to *username* and enter the the [username and password values as retrieved with chainctl](/chainguard/libraries/access/).
@@ -152,4 +157,6 @@ Finally, create a new repository group and add the two repositories:
 
 ### Build tool access
 
-See the page on [build tool configuration for Chainguard Libraries for Python](/chainguard/libraries/python/build-configuration.md#nexus) for information on accessing credentials and setting up build tools.
+See the page on [build tool configuration for Chainguard Libraries for
+Python](/chainguard/libraries/python/build-configuration/#nexus) for information on
+accessing credentials and setting up build tools.
