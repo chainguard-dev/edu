@@ -4764,7 +4764,8 @@
         "UNSPECIFIED",
         "CVSS_V2",
         "CVSS_V3",
-        "CVSS_V4"
+        "CVSS_V4",
+        "UBUNTU"
       ],
       "title": "- UNSPECIFIED: The \"unset\" value.\n - CVSS_V2: CVSS v2\n - CVSS_V3: CVSS \u003e= 3.0 and \u003c 4.0\n - CVSS_V4: CVSS \u003e= 4.0 and \u003c 5.0",
       "type": "string"
@@ -6017,6 +6018,9 @@
         "id": {
           "description": "id, identifier of this Tag, a UIDP under a Repo.",
           "type": "string"
+        },
+        "mainPackage": {
+          "$ref": "#/definitions/registryPackageVersion"
         },
         "mainPackageName": {
           "title": "name of the main package",
