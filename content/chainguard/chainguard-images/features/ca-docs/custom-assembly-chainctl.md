@@ -76,10 +76,10 @@ EOF
 Then include this file in the `apply` command by adding the `-f` argument:
 
 ```shell
-chainctl image repo build apply -f build.yaml --parent chainguard.edu --repo custom-assembly <<<y
+chainctl image repo build apply -f build.yaml --parent chainguard.edu --repo custom-assembly --yes
 ```
 
-This command will again ask you to confirm that you want to apply the new configuration. To make this example completely declarative, this example includes `<<<y` to automatically confirm the changes:
+This command will again ask you to confirm that you want to apply the new configuration. To make this example completely declarative, this example includes `--yes` to automatically confirm the changes:
 
 ```
 Applying build config to custom-assembly
