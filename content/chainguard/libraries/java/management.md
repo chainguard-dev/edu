@@ -29,7 +29,7 @@ steps on the repository manager and the build tool.
 
 <a id="java-verification">
 
-## Source Verification
+## Source verification
 
 You can verify what artifacts are retrieved from the Chainguard Libraries
 repository on a global level:
@@ -79,7 +79,7 @@ built in the Chainguard Factory from source, and is available at
 [manually download the file to
 compare](/chainguard/libraries/java/overview/#java-repo-test), if desired.
 
-## Increase Chainguard Library Use
+## Increase Chainguard Library use
 
 The number of available artifacts in Chainguard Libraries for Java increases
 over time. If an artifact was already retrieved from the Maven Central

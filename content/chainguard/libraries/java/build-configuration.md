@@ -68,7 +68,7 @@ determine URL and authentication details.
 [Apache Maven](https://maven.apache.org/) is the most widely used build tool in
 the Java ecosystem. 
 
-### Remove Maven Caches
+### Remove Maven caches
 
 Apache Maven uses a local cache of libraries. When adopting Chainguard Libraries
 for Java you must delete that local cache so that libraries are downloaded
@@ -80,7 +80,7 @@ following command to delete it:
 rm -rf ~/.m2/repository
 ```
 
-### Change Maven Configuration
+### Change Maven configuration
 
 Before running a new build you must configure access to Chainguard Libraries
 for Java. If the administrator for your organization’s repository manager
@@ -292,7 +292,7 @@ details must remain within the settings file.
 [Gradle](https://gradle.org/) is a commonly used build tool in the Java
 ecosystem.
 
-### Remove Gradle Caches
+### Remove Gradle caches
 
 Gradle uses a local cache of libraries. When adopting Chainguard Libraries for
 Java you must delete that local cache so that libraries are downloaded again. By
@@ -317,7 +317,7 @@ repositories {
 If this configuration is used, ensure to [delete the local Maven repository as
 well](#remove-maven-caches). 
 
-### Change Gradle Configuration
+### Change Gradle configuration
 
 Before running a new build you must configure access to the Chainguard Libraries
 for Java. If the administrator for your organization’s repository manager
@@ -421,7 +421,7 @@ allprojects {
 [Bazel](https://bazel.build/) is a fast, scalable, and extensible build tool
 commonly used in large-scale projects.
 
-### Remove Bazel Caches
+### Remove Bazel caches
 
 Bazel uses a cache to store downloaded artifacts. When adopting Chainguard
 Libraries for Java, you must delete this cache to ensure that libraries are
@@ -437,7 +437,7 @@ The [Bazel documentation on output
 directories](https://bazel.build/remote/output-directories) contains further
 details.
 
-### Change Bazel Configuration
+### Change Bazel configuration
 
 Before running a new build, you must configure access to Chainguard Libraries
 for Java. If the administrator for your organization’s repository manager
@@ -534,7 +534,7 @@ Refer to the [official Bazel documentation for
 rules_jvm_external](https://github.com/bazel-contrib/rules_jvm_external) for
 more detailed configuration options.
 
-## Other Build Tools
+## Other build tools
 
 Other build tools such as [Apache Ant](https://ant.apache.org/) with the [Maven
 Artifact Resolver Ant Tasks](https://maven.apache.org/resolver-ant-tasks/),
