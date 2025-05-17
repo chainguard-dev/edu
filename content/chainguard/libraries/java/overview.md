@@ -47,7 +47,7 @@ You can use Chainguard Libraries for Java alongside third-party software
 repositories to create a single source of truth with your repository manager
 application. 
 
-## Technical Details
+## Technical details
 
 The [username and password retrieved with
 chainctl](/chainguard/libraries/access/) are required to access the Chainguard
@@ -109,7 +109,7 @@ configuration](/chainguard/libraries/java/build-configuration/).
 
 <a id="java-repo-test">
 
-### Manual Testing
+### Manual testing
 
 You can manually download specific artifacts from the repository if you know the
 URL as determined by the identifying GAV coordinates for an artifact.

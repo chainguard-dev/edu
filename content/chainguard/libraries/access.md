@@ -56,12 +56,12 @@ chainctl auth pull-token --library-ecosystem=java --parent=example --ttl=8670h
 ```
 
 * `--library-ecosystem=java`: retrieve the token for use with Chainguard
-  Libraries for Java
+  Libraries for Java. Use `python` for a token to use Chainguard Libraries for
+  Python.
 * `--parent=example`: specify the parent organization for your account as
-  provided when requesting access to Chainguard Libraries for Java and the
-  replace `example`.
+  provided when requesting access to Chainguard Libraries and replace `example`.
 * `--ttl=8670d`: set the duration for the validity of the token, defaults to
-  `720h` (equivalent to 30 days), maximum valid value is `8760d` (equivalent to
+  `720h` (equivalent to 30 days), maximum valid value is `8760h` (equivalent to
   365 days), valid unit strings range from nanoseconds to hours and are `ns`,
   `us`, `ms`, `s`, `m`, and `h`.
 
@@ -119,11 +119,15 @@ calling `chainctl`:
 eval $(chainctl auth pull-token --output env --library-ecosystem=java --parent=example)
 ```
 
+Equivalent commands for Python are supported and result in values for the
+`CHAINGUARD_PYTHON_IDENTITY_ID` and `CHAINGUARD_PYTHON_TOKEN` variables.
+
 Running this command as part of a login script or some other automation allows
 your organization to replace actual username and password values in your build
 tool configuration with environment variable placeholders:
 
 *  [Java build tool configuration](/chainguard/libraries/java/build-configuration)
+*  [Python build tool configuration](/chainguard/libraries/python/build-configuration)
 
 ## Verify entitlement
 
@@ -134,14 +138,15 @@ command:
 chainctl libraries entitlements list --parent=example
 ```
 
-The output must include the Java ecosystem in the table:
+The output must include the desired ecosystem in the table:
 
 ```shell
-Ecosystem Library Entitlements for chainguard.edu (45a0...764595)
+Ecosystem Library Entitlements for example (45a0...764595)
 
                              ID                             | ECOSYSTEM
 ------------------------------------------------------------+------------
   45a....................................................e1 | JAVA
+  45a....................................................x6 | PYTHON
 ```
 
 Contact your Chainguard account owner for confirmation or adjustments if
