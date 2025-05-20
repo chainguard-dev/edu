@@ -1,5 +1,5 @@
 ---
-date: 2025-05-15T20:58:46Z
+date: 2025-05-16T19:28:17Z
 title: "chainctl iam folders update"
 slug: chainctl_iam_folders_update
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_folders_update/
