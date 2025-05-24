@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "A conceptual overview of Chainguard FIPS Containers."
 date: 2024-02-08T15:56:52-07:00
-lastmod: 2025-04-08T15:56:52-07:00
+lastmod: 2025-05-24T09:58:00+00:00
 draft: false
 tags: ["Chainguard Containers", "Product", "FIPS"]
 images: []
@@ -28,17 +28,7 @@ One of the primary requirements of federal compliance frameworks — including [
 
 ## What To Expect from Chainguard FIPS Containers
 
-‍Chainguard warranties the following with respect to Chainguard container images:
-
-Chainguard FIPS Containers available to be delivered in compliance with FIPS specifications are listed [here](https://images.chainguard.dev/?category=fips)  (each a "Chainguard FIPS Container"). Containers will be made available in compliance with FIPS specifications provided a customer’s applicable order form designates the purchase of Chainguard FIPS images.
-
-The Chainguard FIPS Containers contain FIPS-validated software cryptographic modules. Entropy must be provided as specified in its cryptographic policy. The cryptographic module may provide non-approved algorithms, which will result in operating in FIPS non-approved mode. The cryptographic FIPS modules currently provided are:
-
-- OpenSSL FIPS 3.0 Provider Module (CVMP [#4856](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4856))
-- Bouncy Castle FIPS Java API (CMVP [#4743](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4743), CMVP [#4616](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4616))
-- Chainguard CPU Time Jitter RNG Entropy Source (ESV Entropy Certificate [#E191](https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations/certificate/191))
-
-These modules may be updated occasionally; for further information, contact <fips-contact@chainguard.dev>.
+‍Chainguard warranties are listed on the [FIPS Commitment](https://www.chainguard.dev/legal/fips-commitment) page. It also includes tables of relevant certifications as well as SBOM indicators of package names and versions.
 
 ## Chainguard Kernel-Independent FIPS Containers
 
