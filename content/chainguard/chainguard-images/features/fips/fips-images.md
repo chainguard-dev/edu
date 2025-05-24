@@ -56,14 +56,6 @@ All of Chainguard's FIPS Containers have [STIGs](/chainguard/chainguard-images/w
 
 ‍If Customer requests an image not currently available as a Chainguard FIPS Container, Chainguard will use commercially reasonable efforts to determine if such request is feasible. For further information, contact <fips-contact@chainguard.dev>.
 
-### Regarding Java-based FIPS Containers
-
-FIPS 140-3 is now supported for Java-based container images (`jdk-fips` and `jre-fips`) using the newly certified Bouncy Castle 2.0 cryptographic modules.
-
-The Bouncy Castle 1.x certificate providing FIPS 140-2 verification has moved to Historical. Most likely, those using it in an existing FedRAMP environment can continue using it, but you should check with your auditor. 
-
-You can learn more by reviewing the [blog announcement](https://www.chainguard.dev/unchained/chainguard-java-images-now-support-fips-140-3). 
-
 ## Learn more
 
 We encourage you to check our list of FIPS Containers in the [Chainguard Containers Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-fips-images). After navigating to the directory, you can either click the **FIPS** tag in the left-hand sidebar menu to filter out any non-FIPS Containers, or use the search function to find every container image with "fips" in its name. Additionally, we encourage you to check out the documentation for [the OpenSSL FIPS module](https://www.openssl.org/docs/manmaster/man7/fips_module.html) and the [Bouncy Castle FIPS Crypto package](https://www.bouncycastle.org/about/bouncy-castle-fips-faq/) to better understand how they work.
