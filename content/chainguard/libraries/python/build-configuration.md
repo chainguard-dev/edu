@@ -98,6 +98,16 @@ Once you have credentials and the index URL from your organization's repository
 manager, you're ready to set up specific build tools for local development or
 CI/CD.
 
+### Authentication
+
+[pip](#pip), [uv](#uv), poetry, and other Python build and packaging tools have
+dedicated support for configuring authentication to the repository manager or
+the Chainguard Libraries for Python directly. As an alternative that works
+across tools and is often preferred, use [.netrc for
+authentication](/chainguard/libraries/access#netrc).
+
+<a id="pip"></a>
+
 ### pip
 
 The [pip tool](https://pip.pypa.io/en/stable/) is the most widely used utility
@@ -139,6 +149,10 @@ basis:
 package-name==version
 ```
 
+Refer to the official documentation for [configuring authentication with
+pip](https://pip.pypa.io/en/stable/topics/authentication/) if you are not using
+[.netrc for authentication](/chainguard/libraries/access#netrc).
+
 ### uv
 
 [uv](https://docs.astral.sh/uv) is a fast Python package and project manager
@@ -170,3 +184,10 @@ including the `simple/`context.
 Note that updating the global configuration affects all projects built on the
 workstation. Alternately, you can update each project by adding the same
 configuration in `pyproject.toml`.
+
+Refer to the official documentation for [configuring authentication with
+uv](https://docs.astral.sh/uv/configuration/authentication/) and [using
+alternative package
+indexes](https://docs.astral.sh/uv/guides/integration/alternative-indexes/) if
+you are not using [.netrc for
+authentication](/chainguard/libraries/access#netrc).

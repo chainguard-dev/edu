@@ -129,6 +129,46 @@ tool configuration with environment variable placeholders:
 *  [Java build tool configuration](/chainguard/libraries/java/build-configuration)
 *  [Python build tool configuration](/chainguard/libraries/python/build-configuration)
 
+<a id="netrc"></a>
+
+## .netrc for authentication
+
+[curl](https://curl.se/) and a number of other tools support configuration of
+username and password authentication details for a specific domain in the
+[`.netrc`
+file](https://www.gnu.org/software/inetutils/manual/html_node/The-_002enetrc-file.html),
+typically located in the user's home directory.
+
+Use this approach for authentication to a repository manager in your
+organization or to Chainguard Libraries directly, for example with [pip and
+others for Chainguard Libraries for
+Python](/chainguard/libraries/python/build-configuration#pip), with [bazel for
+Chainguard Libraries for
+Java](/chainguard/libraries/java/build-configuration#bazel) or for manual
+testing with curl.
+
+The following example shows a suitable setup for a repo manager available at
+`repo.example.com`:
+
+```
+machine repo.example.com
+login YOUR_USERNAME_FOR_REPOSITORY_MANAGER
+password YOUR_PASSWORD
+```
+
+For a direct connection to Chainguard Libraries, for example for testing with
+curl, use the following example with the username
+`CHAINGUARD_PYTHON_IDENTITY_ID` and password `CHAINGUARD_PYTHON_TOKEN` value for
+the pull token for the desired language ecosystem:
+
+```
+machine libraries.cgr.dev
+login CHAINGUARD_PYTHON_IDENTITY_ID
+password CHAINGUARD_PYTHON_TOKEN
+```
+
+Note that the long string for the password value must use only one line.
+
 ## Verify entitlement
 
 You can verify entitlements for your organization `example` with the following
