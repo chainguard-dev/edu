@@ -416,6 +416,8 @@ allprojects {
 }
 ```
 
+<a id="bazel"></a>
+
 ## Bazel
 
 [Bazel](https://bazel.build/) is a fast, scalable, and extensible build tool
@@ -521,14 +523,8 @@ maven.install(
 Ensure that the Chainguard repository is listed before any other repositories to
 prioritize it for artifact retrieval. 
 
-For more complex Bazel setups, you can use a `.netrc` file containing the
-credentials:
-
-```
-machine libraries.cgr.dev
-login CHAINGUARD_JAVA_IDENTITY_ID
-password CHAINGUARD_JAVA_TOKEN
-```
+For more complex Bazel setups, you can use [.netrc for
+authentication](/chainguard/libraries/access#netrc).
 
 Refer to the [official Bazel documentation for
 rules_jvm_external](https://github.com/bazel-contrib/rules_jvm_external) for

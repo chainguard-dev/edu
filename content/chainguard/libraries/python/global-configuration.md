@@ -53,7 +53,7 @@ First, create a repository:
 1. Select a storage region that is appropriate for your organization and infrastructure.
 1. Select **+ Create Repository**. 
 
-Next, configure an upstream proxies:
+Next, configure a upstream proxies:
 
 1. Select the name of the new *python-all* repository on the repositories page
    to configure it.
@@ -61,7 +61,7 @@ Next, configure an upstream proxies:
 1. Configure an upstream proxy with the format **python** and the following details: 
     * **Name**: `python-chainguard`
     * **Priority**: `1`
-    * **Upstream URL**: `https://libraries.cgr.dev/python/`
+    * **Upstream URL**: `https://libraries.cgr.dev/python`
     * **Mode**: `Cache and Proxy`
 1. Configure another upstream proxy with the following details
     * **Name**: `python-public`
@@ -98,7 +98,8 @@ Configure a remote repository for the Chainguard Libraries for Python index:
 1. Select *PyPI* as the **Package type**.
 1. Set the **Repository Key** to `python-chainguard`.
 1. Set the **URL** to `https://libraries.cgr.dev/python/`.
-1. Set **User Name** and **Password / Access Token** to the [values as retrieved with chainctl](/chainguard/libraries/access/).
+1. Set **User Name** and **Password / Access Token** to the [values as retrieved
+   with chainctl](/chainguard/libraries/access/).
 1. Check the **Enable Token Authentication** checkbox.
 1. Set the **Pypi Settings - Registry URL** to `https://libraries.cgr.dev/python/`.
 1. Press **Create Remote Repository**.
@@ -108,7 +109,7 @@ Configure a remote repository for the PyPI public index:
 1. Select **Create a Repository** and choose the **Remote** option.
 1. Select *PyPI* as the Package type.
 1. Set the **Repository Key** to `python-public`.
-1. Set the **URL** to `https://pypi.org/`.
+1. Set the **URL** to `https://files.pythonhosted.org`.
 1. Set the **Pypi Settings - Registry URL** to `https://pypi.org/`.
 1. Select **Create Remote Repository**.
 
@@ -116,7 +117,7 @@ Combine the two repositories in a new virtual repository:
 
 1. Press **Create a Repository** and choose the **Virtual** option.
 1. Set the **Repository Key** to `python-all`.
-1. In the **Repositories** section,, find the `python-chainguard` and
+1. In the **Repositories** section, find the `python-chainguard` and
    `python-public` repositories. Ensure the `python-chainguard` repository is
    the first in the displayed list. Use the icon on the right of the repository
    name to drag and drop repositories into the desired position.
@@ -147,7 +148,7 @@ Next, configure a remote repository for the public PyPI index:
 1. Select **Repository - Repositories** in the left hand navigation.
 1. Select **Create repository**.
 1. Select the **PyPI (proxy)** recipe.
-1. Provide a new name, such as `pypi-proxy`.
+1. Provide a new name, such as `python-public`.
 1. In the **Proxy - Remote storage** field, add the following URL: `https://pypi.org/`.
 1. Select **Create repository**.
 
@@ -156,7 +157,7 @@ Configure a remote repository for the Chainguard Libraries for Python repository
 1. Select **Repository - Repositories** in the left hand navigation.
 1. Select **Create repository**.
 1. Select the **PyPI (proxy)** recipe.
-1. Provide a new name, such as `chainguard-proxy`.
+1. Provide a new name, such as `python-chainguard`.
 1. In the **Proxy - Remote storage**field, add the following URL: `https://libraries.cgr.dev/python/`.
 1. In **HTTP - Authentication**, set the **Authentication type** to *username* and enter the the [username and password values as retrieved with chainctl](/chainguard/libraries/access/).
 1. Select **Create repository**. 
@@ -166,8 +167,10 @@ Finally, create a new repository group and add the two repositories:
 1. Select **Repository - Repositories** in the left hand navigation.
 1. Select **Create repository**.
 1. Select the **PyPI (group)** recipe.
-1. Provide a new name, such as `chainguard-python`.
-1. In the section **Group - Member repositories**, move the new repositories `pypi-proxy` and `chainguard-proxy` to the right and move the `chainguard` repository to the top of the list with the arrow control.
+1. Provide a new name, such as `python-all`.
+1. In the section **Group - Member repositories**, move the new repositories
+   `python-public` and `python-chainguard` to the right and move the
+   `python-chainguard` repository to the top of the list with the arrow control.
 
 ### Build tool access
 

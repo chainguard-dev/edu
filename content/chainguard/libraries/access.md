@@ -129,6 +129,46 @@ tool configuration with environment variable placeholders:
 *  [Java build tool configuration](/chainguard/libraries/java/build-configuration)
 *  [Python build tool configuration](/chainguard/libraries/python/build-configuration)
 
+<a id="netrc"></a>
+
+## .netrc for authentication
+
+[curl](https://curl.se/) and a number of other tools support configuration of
+username and password authentication details for a specific domain in the
+[`.netrc`
+file](https://www.gnu.org/software/inetutils/manual/html_node/The-_002enetrc-file.html),
+typically located in the user's home directory.
+
+Use this approach for authentication to a repository manager in your
+organization or to Chainguard Libraries directly, for example with [pip and
+others for Chainguard Libraries for
+Python](/chainguard/libraries/python/build-configuration#pip), with [bazel for
+Chainguard Libraries for
+Java](/chainguard/libraries/java/build-configuration#bazel) or for manual
+testing with curl.
+
+The following example shows a suitable setup for a repo manager available at
+`repo.example.com`:
+
+```
+machine repo.example.com
+login YOUR_USERNAME_FOR_REPOSITORY_MANAGER
+password YOUR_PASSWORD
+```
+
+For a direct connection to Chainguard Libraries, for example for testing with
+curl, use the following example with the username
+`CHAINGUARD_PYTHON_IDENTITY_ID` and password `CHAINGUARD_PYTHON_TOKEN` value for
+the pull token for the desired language ecosystem:
+
+```
+machine libraries.cgr.dev
+login CHAINGUARD_PYTHON_IDENTITY_ID
+password CHAINGUARD_PYTHON_TOKEN
+```
+
+Note that the long string for the password value must use only one line.
+
 ## Verify entitlement
 
 You can verify entitlements for your organization `example` with the following
@@ -172,3 +212,36 @@ can also remove a Chainguard Libraries entitlement:
 chainctl libraries entitlements rm ENTITLEMENT_ID
 ```
 -->
+
+## Network Requirements
+
+The following section details the required network access to use Chainguard
+Libraries and the related tools such as chainctl.
+
+### Access for chainctl and Other Tools
+
+For initial configuration with chainctl as well as for verification of
+downloaded libraries with cosign and other tools, you must have HTTPS access to
+the following domains:
+
+* `dl.enforce.dev` for download and update of chainctl
+* `issuer.enforce.dev` for authentication in web console and with chainctl
+* `console-api.enforce.dev` for web console and chainctl to administrate and use
+  your Chainguard accounts.
+* `console.chainguard.dev` for the web console to administrate and use your
+  Chainguard accounts.
+
+### Access for Libraries
+
+Chainguard Libraries use is transparent for development efforts and typically
+requires no additional network access for workstations and other infrastructure
+running builds because the libraries are provided by the repository manager as
+configured for [Java](/chainguard/libraries/java/global-configuration) or
+[Python](/chainguard/libraries/python/global-configuration).
+
+The repository manager application must have HTTPS access to the domain
+`libraries.cgr.dev` for library access and `issuer.enforce.dev` for
+authentication.
+
+If you are accessing Chainguard Libraries directly for testing with curl or with
+a build tool, the used workstation must have identical access.

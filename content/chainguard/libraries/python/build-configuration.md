@@ -42,13 +42,13 @@ for accessing your organization's Cloudsmith repository manager.
 1. Choose the **Python** format.
 1. Copy the value in the `<url>` tag from the XML snippet with the
    `<repositories>` entry. For example,
-   `https://dl.cloudsmith.io/.../exampleorg/python-all/python/` with a random
+   `https://dl.cloudsmith.io/.../exampleorg/python-all/python` with a random
    string replacing `...` and `exampleorg` replaced with the name of your
    organization. The URL contains both the name of the repository
    `python-all` as well as `python` as an identifier for the format.
    Note that for use with build tools you must append `simple` to the URL so
    that the package index is used successfully -
-   `https://dl.cloudsmith.io/.../exampleorg/chainguard-python/python/simple`.
+   `https://dl.cloudsmith.io/.../exampleorg/python-all/python/simple`.
 1. Select your desired authentication method (either *Default* or *API Key*).
    Copy the provided username and password values for configuration of tools.
    You can perform this step multiple times if you're using different
@@ -58,7 +58,8 @@ for accessing your organization's Cloudsmith repository manager.
 
 ### JFrog Artifactory
 
-The following steps allow you to determine the identity token and URL for accessing your organization's JFrog Artifactory repository manager.
+The following steps allow you to determine the identity token and URL for
+accessing your organization's JFrog Artifactory repository manager.
 
 1. Select **Administration** in the top navigation bar.
 1. Select **Repositories** in the left hand navigation.
@@ -101,6 +102,16 @@ Once you have credentials and the index URL from your organization's repository
 manager, you're ready to set up specific build tools for local development or
 CI/CD.
 
+### Authentication
+
+[pip](#pip), [uv](#uv), poetry, and other Python build and packaging tools have
+dedicated support for configuring authentication to the repository manager or
+the Chainguard Libraries for Python directly. As an alternative that works
+across tools and is often preferred, use [.netrc for
+authentication](/chainguard/libraries/access#netrc).
+
+<a id="pip"></a>
+
 ### pip
 
 The [pip tool](https://pip.pypa.io/en/stable/) is the most widely used utility
@@ -142,7 +153,12 @@ basis:
 package-name==version
 ```
 
+
 Note the different syntax for `index-url` in the two files.
+
+Refer to the official documentation for [configuring authentication with
+pip](https://pip.pypa.io/en/stable/topics/authentication/) if you are not using
+[.netrc for authentication](/chainguard/libraries/access#netrc).
 
 ### uv
 
@@ -175,3 +191,10 @@ including the `simple` context.
 Note that updating the global configuration affects all projects built on the
 workstation. Alternately, you can update each project by adding the same
 configuration in `pyproject.toml`.
+
+Refer to the official documentation for [configuring authentication with
+uv](https://docs.astral.sh/uv/configuration/authentication/) and [using
+alternative package
+indexes](https://docs.astral.sh/uv/guides/integration/alternative-indexes/) if
+you are not using [.netrc for
+authentication](/chainguard/libraries/access#netrc).
