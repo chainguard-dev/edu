@@ -42,38 +42,75 @@ documentation](/chainguard/libraries/python/global-configuration). The rest of
 this article provides details of the underlying implementation of Chainguard
 Libraries for Python and how to access individual libraries manually.
 
-The Chainguard Libraries for Python index uses the PyPI repository format and only includes release artifacts of the libraries built by Chainguard from source. 
+The Chainguard Libraries for Python index uses the PyPI repository format and
+only includes release artifacts of the libraries built by Chainguard from
+source.
 
-A [username and password retrieved with
-chainctl](/chainguard/libraries/access/) are required to access the Chainguard
-Libraries for Python repository. The URL for the repository is:
+The URL for the repository is:
 
 ```
 https://libraries.cgr.dev/python/
 ```
 
-Following PyPI URL conventions, a browsable directory structure can be viewed at:
+Use the URL with your [username and password retrieved with
+chainctl](/chainguard/libraries/access/) to access the Chainguard Libraries for
+Python repository manually with a browser.
+
+After successful login, you see a message `Forbidden`. Following PyPI URL
+conventions, a browsable directory structure can be viewed at the `simple`
+sub-context at `https://libraries.cgr.dev/python/simple/`. The top level
+contains a list of packages:
 
 ```
-https://libraries.cgr.dev/python/simple/
+2captcha-python
+3d-converter
+absql
+ahrs
+amqpstorm
+annogesic
+apiflask
+apscheduler
+...
 ```
 
-Specific packages can be accessed by package name and version:
+A list of all wheels and tarballs for the versions of a specific package is
+available in the context of the package. For example, the `apiflask` context at
+`https://libraries.cgr.dev/python/simple/apiflask/` shows the following list:
 
 ```
-https://libraries.cgr.dev/files/flask/flask-1.1.3.tar.gz
+Links for apiflask
+apiflask-0.1.0-py3-none-any.whl
+apiflask-0.1.0.tar.gz
+apiflask-0.10.0-py3-none-any.whl
+apiflask-0.10.0.tar.gz
+apiflask-0.10.1-py3-none-any.whl
+apiflask-0.10.1.tar.gz
+apiflask-0.11.0-py3-none-any.whl
+apiflask-0.11.0.tar.gz
+apiflask-0.12.0-py3-none-any.whl
+apiflask-0.12.0.tar.gz
+...
 ```
 
-Use the search functionality on [pypi.org](https://pypi.org/) to locate packages of interest.
+Each package name is a link with to the specific binary. The link includes long
+unique identifiers and cannot be determined without browsing. The list uses
+ascending order for the full name including the version.
 
-If you use the URL directly in a browser, you are prompted to provide the username and password created using `chainctl` via basic auth.
+Use the search functionality on [pypi.org](https://pypi.org/) to locate packages
+of interest and then browse in the simple index to determine available versions
+in Chainguard Libraries for Python.
 
-You can also use `curl` and specify the [username and password retrieved using chainctl](/chainguard/libraries/access/) for basic user authentication:
+You can also use `curl` and specify the [username and password retrieved using
+chainctl](/chainguard/libraries/access/) for basic user authentication after
+browsing for the correct URL.
 
 ```
 curl --user "exampleusername:examplepassword" \
-  -O https://libraries.cgr.dev/files/flask/flask-1.1.3.tar.gz
+  -O https://libraries.cgr.dev/files/...
 ```
+
+Curl also supports using [.netrc for
+authentication](/chainguard/libraries/access#netrc).
 
 The Chainguard Libraries for Python repository does not include all packages from PyPI. Chainguard Libraries for Python are rebuilt from source and require that source be available. Therefore, packages that do not provide a valid source URL cannot be rebuilt within the Chainguard Factory. In addition, initial package rebuild coverage for Chainguard Libraries for Python is not comprehensive. 
 
