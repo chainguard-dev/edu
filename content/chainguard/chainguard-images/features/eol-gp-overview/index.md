@@ -36,12 +36,12 @@ You will be able to find the end date of a given container image version's grace
 <center><img src="eol-gp-2.png" alt="Screenshot of a portion of an image's 'Versions' tab, showing the Grace Period end dates for several versions of the image." style="width:300px;"></center>
 <br /> 
 
-As of this writing, a container image must meet two key requirements to be eligible for coverage under the EOL grace period:
+As of this writing, a container image must meet four key requirements to be eligible for coverage under the EOL grace period:
 
-1. It is listed as part of the current available or eol versions for a version stream package present in our catalog
+1. It is listed as part of the current available or EOL versions for a version stream package present in our catalog
 2. Has [multiple release tracks](/chainguard/chainguard-images/about/versions/#multiple-releases-maintained-by-a-given-open-source-project)
 3. Is within six months of their official EOL date (as declared by upstream project maintainers)
-4. Its release and EOL dates are available on the [`endoflife.date`](https://endoflife.date/) website. Otherwise, the package will require manual updates to track new releases and EOL dates for supported versions
+4. Its release and EOL dates are available on the [`endoflife.date`](https://endoflife.date/) website.
 
 Be aware that the following are not covered by Chainguard's EOL grace period:
 
