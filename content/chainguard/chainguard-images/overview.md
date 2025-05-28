@@ -48,11 +48,11 @@ We observed that this approach achieved the following:
 * A 70-85% reduction in the cumulative bytes transferred when simulating sequential pulls of updated images like PyTorch and NeMo
 
 To maximize the stability and re-useability of our layers, Chainugard identified, analyzed, and implemented three additional technical changes:
-* Added in additional final layer that captures frequently updated OS-level metadata
+* Added in an additional final layer that captures frequently updated OS-level metadata
 * Developed intelligent layer ordering to optimize compatibility 
 * Ensured sufficient layer counts to optimize parallel downloads by container clients 
 
-The primary benefit of this layered approach is that when one package changes only its particular layer is affected, and all the other layers don't need to be re-downloaded, supporting greater efficiency and developer velocity.
+The primary benefit of this layered approach is that when one package changes it impacts only its particular layer, requiring only that layer to be downloaded again. Because the other layers don't need to be downloaded again, Chainguard's multi-layer container images support greater efficiency and developer velocity.
 
 ## Production and Starter Containers
 
