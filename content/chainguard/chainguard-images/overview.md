@@ -5,7 +5,7 @@ type: "article"
 description: "Chainguard Containers Overview"
 lead: "A primer on Chainguard Containers and the distroless approach"
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2025-04-07T08:49:31+00:00
+lastmod: 2025-05-27T08:49:31+00:00
 draft: false
 tags: ["Chainguard Containers", "Product"]
 images: []
@@ -18,7 +18,7 @@ toc: true
 
 [Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) are a collection of container images designed for security and minimalism.
 
-Many Chainguard Containers are [distroless](/chainguard/chainguard-images/getting-started-distroless/); they contain only an open-source application and its runtime dependencies. These images do not even contain a shell or package manager, and are often paired with an equivalent development variant (sometimes referred to as a `dev` variant) that allows further customization, for build and debug purposes. Chainguard Containers are built with [Wolfi](/open-source/wolfi/overview), our Linux _undistro_ designed from the ground up to produce container images that meet the requirements of a secure software supply chain.
+Many Chainguard Containers are [distroless](/chainguard/chainguard-images/getting-started-distroless/); they contain only an open-source application and its runtime dependencies. These images do not even contain a shell or package manager, and are often paired with an equivalent development variant (sometimes referred to as a `dev` variant) that allows further customization, for build and debug purposes. Chainguard Containers are built with Chainguard OS, designed from the ground up to produce container images that meet the requirements of a secure software supply chain.
 
 The main features of Chainguard Containers include:
 
@@ -37,17 +37,22 @@ The fewer dependencies a given piece of software uses, the lower likelihood that
 
 Note that there is often a development variant of each Chainguard Container available. These are sometimes called the `-dev` variant, as their tags include the `-dev` suffix (as in `:latest-dev`). For example, the development variant of the `mariadb:latest` container image is `mariadb:latest-dev`. These container images typically contain a shell and tools like a package manager to allow users to more easily debug and modify the image.
 
-## Distroless and Wolfi
+## Why Multi-Layer Container Images
 
-[Distroless images](/chainguard/chainguard-images/getting-started-distroless/) are the result of pushing minimalism in containers to the next level. When compared to traditional base images such as [Alpine](https://hub.docker.com/_/alpine) or [Debian](https://hub.docker.com/_/debian), they are more stripped back, lacking even a shell or package managers. However, when compared to the empty "scratch" image, they do contain structure essential for the majority of Linux applications such as root certificates for TLS and core files like `/etc/passwd`. To create such images, Chainguard developed its own Linux distribution, [Wolfi](/open-source/wolfi/overview/), a reference to the world's [smallest Octopus](https://en.wikipedia.org/wiki/Octopus_wolfi).
+Chainguard originally took a single-layer approach to container images built [with apko](/open-source/build-tools/apko/getting-started-with-apko/) in order to offer simplicity and clarity. However, in an effort to deliver better stability, security, and efficiency for larger and more complex applications, Chainguard introduced multi-layer container images in May 2025. This approach leverages container runtime caching so that a layer used by multiple images does not need to be downloaded more than once, and you don't need to download the whole image each time there is an update on one layer.
 
-Wolfi is a community Linux distribution developed by Chainguard for the container and cloud-native era. Chainguard started the Wolfi project to enable building Chainguard Containers, which required a Linux distribution with components at the appropriate granularity and with support for [glibc](https://www.gnu.org/software/libc/).
+Chainguard's approach to layering is a "per-origin" strategy, where packages that derive from the same upstream source are grouped in the same layer because they tend to receive updates together. 
 
-### A Note about Wolfi packages
+We observed that this approach achieved the following:
+* A ~70% reduction in the total size of unique layer data across our image catalog compared to the single-layer approach
+* A 70-85% reduction in the cumulative bytes transferred when simulating sequential pulls of updated images like PyTorch and NeMo
 
-Chainguard Containers only contain packages that come from the Wolfi Project or those that are built and maintained internally by Chainguard. As of March 2024, Chainguard will maintain one version of each Wolfi package at a time. These will track the latest version of the upstream software in the package. Chainguard offers patch support only for the latest version of the upstream software in the package. Existing packages will not be removed from Wolfi and you may continue to use them, but be aware that older packages will no longer be updated and will accrue vulnerabilities over time. The tools we use to build packages and images remain freely available and open source in [Wolfi](https://github.com/wolfi-dev).
+To maximize the stability and re-useability of our layers, Chainugard identified, analyzed, and implemented three additional technical changes:
+* Added in additional final layer that captures frequently updated OS-level metadata
+* Developed intelligent layer ordering to optimize compatibility 
+* Ensured sufficient layer counts to optimize parallel downloads by container clients 
 
-This change ensures that Chainguard can provide the most up-to-date patches to all packages for our container images users. Note that specific package versions can be made available in . If you have a request for a specific package version, please [contact support](https://www.chainguard.dev/contact?utm=docs).
+The primary benefit of this layered approach is that when one package changes only its particular layer is affected, and all the other layers don't need to be re-downloaded, supporting greater efficiency and developer velocity.
 
 ## Production and Starter Containers
 
