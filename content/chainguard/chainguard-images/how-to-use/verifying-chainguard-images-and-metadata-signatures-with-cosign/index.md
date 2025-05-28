@@ -101,7 +101,7 @@ By default, this command will fetch signatures for the `:latest` tag. If you'd l
 IMAGE=go
 TAG=1.23.8
 cosign verify \
-    --certificate-oidc-issuer=https://issuer.enforce.dev \
+  --certificate-oidc-issuer=https://issuer.enforce.dev \
   --certificate-identity-regexp="https://issuer.enforce.dev/(${CATALOG_SYNCER}|${APKO_BUILDER})" \
   cgr.dev/${PARENT}/${IMAGE}:$(TAG) | jq
 ```
