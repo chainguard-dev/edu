@@ -63,6 +63,10 @@ of the software supply chain for libraries across different language ecosystems:
 * Vulnerabilities in Maven dependency management allow unauthorized package replacements.
 * All Java build tools using Maven repositories, including Maven, Gradle, and
   Ant, could be affected.
+* MavenGate relied on the use of multiple repositories and any attack with the
+  proposed mechanism would not publish source code. Chainguard Libraries use
+  replaces other repositories and the use of Chainguard Libraries, based on
+  source code, would have prevented any attack.
 * See also [_The Hacker News_ article](https://thehackernews.com/2024/01/hackers-hijack-popular-java-and-android.html),
   [_Oversecured_ blog post](https://blog.oversecured.com/Introducing-MavenGate-a-supply-chain-attack-method-for-Java-and-Android-applications/),
   and [Sonatype's take as Maven Central
@@ -75,10 +79,21 @@ of the software supply chain for libraries across different language ecosystems:
   very widespread and effective.
 * Vulnerability was patched within hours of disclosure by reverting to a
   previous version known to be safe.
+* Malicious source tarball and binaries were distributed successfully, but
+  source code repository was not compromised.
+* Since no source code repository was compromised as similar attack on a library
+  is prevented by Chainguard Libraries
+* XZ util is written in C and therefore not part of Chainguard Libraries,
+  however Chainguard Containers include XZ Utils packages. These are also built
+  from source and are not affected.
 * See also [Wikipedia article](https://en.wikipedia.org/wiki/XZ_Utils_backdoor)
   and [official page from the XZ data compression](https://tukaani.org/xz-backdoor/).
 
 ### Other examples and resources
+
+The following links provide details for other software supply chain attacks.
+Depending on the exact details some of these attacks and approaches are
+prevented by use of Chainguard Libraries.
 
 * [Successful supply chain attack on Solana JS library](https://socket.dev/blog/supply-chain-attack-solana-web3-js-library)
 * [PyPI packages without source](https://thehackernews.com/2024/12/researchers-uncover-pypi-packages.html)
