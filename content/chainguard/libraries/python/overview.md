@@ -56,10 +56,9 @@ Use the URL with your [username and password retrieved with
 chainctl](/chainguard/libraries/access/) to access the Chainguard Libraries for
 Python repository manually with a browser.
 
-After successful login, you see a message `Forbidden`. Following PyPI URL
-conventions, a browsable directory structure can be viewed at the `simple`
-sub-context at `https://libraries.cgr.dev/python/simple/`. The top level
-contains a list of packages:
+After successful login, you are redirected to the `simple` sub-context at
+`https://libraries.cgr.dev/python/simple/` that allows you to inspect the
+available packages. The top level contains an alphabetical list of packages:
 
 ```
 2captcha-python
@@ -112,8 +111,18 @@ curl --user "exampleusername:examplepassword" \
 Curl also supports using [.netrc for
 authentication](/chainguard/libraries/access#netrc).
 
-The Chainguard Libraries for Python repository does not include all packages from PyPI. Chainguard Libraries for Python are rebuilt from source and require that source be available. Therefore, packages that do not provide a valid source URL cannot be rebuilt within the Chainguard Factory. In addition, initial package rebuild coverage for Chainguard Libraries for Python is not comprehensive. 
+The Chainguard Libraries for Python repository does not include all packages
+from PyPI. Chainguard Libraries for Python are rebuilt from source and require
+that source be available. Therefore, packages that do not provide a valid source
+URL cannot be rebuilt within the Chainguard Factory.
 
-Since the Chainguard Libraries for Python index is not comprehensive, you should strongly consider setting the PyPI public package index as a fallback within your repository manager. In this case, failed requests are logged by Chainguard and, where possible, the package is prioritized for new build from source. Typically, access is [configured globally on a repository manager for your organization](/chainguard/libraries/python/global-configuration/).
+Since the Chainguard Libraries for Python index is not complete, you should
+strongly consider setting the PyPI public package index as a fallback within
+your repository manager. In this case, failed requests are logged by Chainguard
+and, where possible, the package is prioritized for new build from source.
+Typically, access is [configured globally on a repository manager for your
+organization](/chainguard/libraries/python/global-configuration/).
 
-Alternatively, you can use the token for direct access to the Chainguard Libraries for Python index as discussed in [Build configuration](/chainguard/libraries/python/build-configuration/).
+Alternatively, you can use the token for direct access to the Chainguard
+Libraries for Python index as discussed in [Build
+configuration](/chainguard/libraries/python/build-configuration/).
