@@ -38,28 +38,34 @@ If your organization does not use a repository manager, you can still use Chaing
 
 ### Initial configuration
 
-Use the following steps to add a polyglot repository with both Chainguard Libraries and PyPI as upstream sources.
+Use the following steps to add a repository with both Chainguard Libraries for
+Python and PyPI as upstream sources.
 
 First, create a repository:
 
-1. Log in to your Cloudsmith instance as a user with administrator privileges.
+1. Log in to your Cloudsmith instance as user with administrator privileges.
 1. Select the **Repositories** tab near the top of the screen.
 1. Navigate to the **Repositories Overview**, then select **+ New repository**.
-1. At the new repository form, enter the name *chainguard-python* for your new repository. The name should include *python* to identify the repository format. This convention helps avoid confusion, since repositories in Cloudsmith are multi-format. 
+1. At the new repository form, enter the name *python-all* for your new
+   repository. The name should include *python* to identify the repository
+   format. This convention helps avoid confusion, since repositories in
+   Cloudsmith are multi-format. 
 1. Select a storage region that is appropriate for your organization and infrastructure.
 1. Select **+ Create Repository**. 
 
-Next, configure an upstream proxy for the PyPI Repository:
+Next, configure the upstream proxies:
 
-1. Select the name of the new *chainguard-python* repository on the repositories page to configure it.
+1. Select the name of the new *python-all* repository on the repositories page
+   to configure it.
 1. Access the **Upstreams** tab and click **+ Add Upstream Proxy**.
 1. Configure an upstream proxy with the format **python** and the following details: 
-    * **Name**: `chainguard-libraries`
+    * **Name**: `python-chainguard`
     * **Priority**: `1`
     * **Upstream URL**: `https://libraries.cgr.dev/python/`
     * **Mode**: `Cache and Proxy`
+1. Select **Create Upstream Proxy**.
 1. Configure another upstream proxy with the following details
-    * **Name**: `pypi`
+    * **Name**: `python-public`
     * **Priority**: `2`
     * **Upstream URL**: `https://pypi.org/`
     * **Mode**: `Cache and Proxy`
@@ -79,40 +85,50 @@ accessing credentials and setting up build tools.
 
 ### Initial configuration
 
-Use the following steps to add the Chainguard Libraries for Python index and the PyPI public index as remote repositories and combine them as a virtual repository:
+Use the following steps to add the Chainguard Libraries for Python index and the
+PyPI public index as remote repositories and combine them as a virtual
+repository:
 
-First, configure a remote repository for the Chainguard Libraries for Python index:
+1. Log in as a user with administrator privileges.
+1. Press **Administration** in the top navigation bar.
+1. Select **Repositories** in the left hand navigation.
 
-1. Log in to your Artifactory instance as a user with administrator privileges.
+Configure a remote repository for the Chainguard Libraries for Python index:
+
 1. Select **Create a Repository** and choose the **Remote** option.
 1. Select *PyPI* as the **Package type**.
-1. Set the **Repository Key** to `chainguard`.
+1. Set the **Repository Key** to `python-chainguard`.
 1. Set the **URL** to `https://libraries.cgr.dev/python/`.
-1. Set **User Name** and **Password / Access Token** to the [values as retrieved with chainctl](/chainguard/libraries/access/).
+1. Set **User Name** and **Password / Access Token** to the [values as retrieved
+   with chainctl](/chainguard/libraries/access/).
 1. Check the **Enable Token Authentication** checkbox.
-1. Select **Test** to validate the connection.
+1. Set the **Pypi Settings - Registry URL** to `https://libraries.cgr.dev/python/`.
 1. Press **Create Remote Repository**.
 
-Configure a remote repositry for the PyPI public index:
+Configure a remote repository for the PyPI public index:
 
-1. Select **Administration** in the top navigation bar. 
-1. Select **Repositories** in the left hand navigation. 
 1. Select **Create a Repository** and choose the **Remote** option.
 1. Select *PyPI* as the Package type.
-1. Set the **Repository Key** to `pypi`.
-1. Set the **URL** to `https://pypi.org/`.
+1. Set the **Repository Key** to `python-public`.
+1. Set the **URL** to `https://files.pythonhosted.org`.
+1. Set the **Pypi Settings - Registry URL** to `https://pypi.org/`.
 1. Select **Create Remote Repository**.
 
 Combine the two repositories in a new virtual repository:
 
 1. Press **Create a Repository** and choose the **Virtual** option.
-1. Set the **Repository Key** to `chainguard-python`.
-1. In the **Repositories** section,, find the `chainguard` and `pypi` repositories. Ensure the `chainguard` repository is the first in the displayed list. Use the icon on the right of the repository name to drag and drop repositories into the desired position.
+1. Set the **Repository Key** to `python-all`.
+1. In the **Repositories** section, find the `python-chainguard` and
+   `python-public` repositories. Ensure the `python-chainguard` repository is
+   the first in the displayed list. Use the icon on the right of the repository
+   name to drag and drop repositories into the desired position.
 1. Select **Create Virtual Repository**.
 
 ### Build tool access
 
-See the page on [build tool configuration for Chainguard Libraries for Python](/chainguard/libraries/python/build-configuration/#artifactory) for information on accessing credentials and setting up build tools.
+See the page on [build tool configuration for Chainguard Libraries for
+Python](/chainguard/libraries/python/build-configuration/#artifactory) for
+information on accessing credentials and setting up build tools.
 
 <a id="nexus"></a>
 
@@ -133,7 +149,7 @@ Next, configure a remote repository for the public PyPI index:
 1. Select **Repository - Repositories** in the left hand navigation.
 1. Select **Create repository**.
 1. Select the **PyPI (proxy)** recipe.
-1. Provide a new name, such as `pypi-proxy`.
+1. Provide a new name, such as `python-public`.
 1. In the **Proxy - Remote storage** field, add the following URL: `https://pypi.org/`.
 1. Select **Create repository**.
 
@@ -142,7 +158,7 @@ Configure a remote repository for the Chainguard Libraries for Python repository
 1. Select **Repository - Repositories** in the left hand navigation.
 1. Select **Create repository**.
 1. Select the **PyPI (proxy)** recipe.
-1. Provide a new name, such as `chainguard-proxy`.
+1. Provide a new name, such as `python-chainguard`.
 1. In the **Proxy - Remote storage**field, add the following URL: `https://libraries.cgr.dev/python/`.
 1. In **HTTP - Authentication**, set the **Authentication type** to *username* and enter the the [username and password values as retrieved with chainctl](/chainguard/libraries/access/).
 1. Select **Create repository**. 
@@ -152,8 +168,10 @@ Finally, create a new repository group and add the two repositories:
 1. Select **Repository - Repositories** in the left hand navigation.
 1. Select **Create repository**.
 1. Select the **PyPI (group)** recipe.
-1. Provide a new name, such as `chainguard-python`.
-1. In the section **Group - Member repositories**, move the new repositories `pypi-proxy` and `chainguard-proxy` to the right and move the `chainguard` repository to the top of the list with the arrow control.
+1. Provide a new name, such as `python-all`.
+1. In the section **Group - Member repositories**, move the new repositories
+   `python-public` and `python-chainguard` to the right and move the
+   `python-chainguard` repository to the top of the list with the arrow control.
 
 ### Build tool access
 

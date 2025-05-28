@@ -32,45 +32,52 @@ To configure any build tool, you must first access credentials from your organiz
 
 ### Cloudsmith
 
-The following steps allow you to determine the URL and authentication details for accessing your organization's Cloudsmith repository manager.
+The following steps allow you to determine the URL and authentication details
+for accessing your organization's Cloudsmith repository manager.
 
 1. Log into Cloudsmith.
+1. Select the **Repositories** tab and click on the *python-all* repository.
 1. Select the **Packages** tab.
-1. Select **Push/Pull Packages**.
-1. Choose the **PyPI** format.
-1. Copy the value in the `<url>` tag from the XML snippet with the
-   `<repositories>` entry. For example,
-   `https://dl.cloudsmith.io/basic/exampleorg/chainguard-python/python/` with
-   `exampleorg` replaced with the name of your organization. The URL contains
-   both the name of the repository `chainguard-python` as well as `python` as an
-   identifier for the format.  Note that for use with build tools you must
-   append `simple` to the URL so that the package index is used successfully -
-   `https://dl.cloudsmith.io/basic/exampleorg/chainguard-python/python//simple/`.
-1. Select your desired authentication method (either *Default* or *API Key*).
-   Copy the provided username and password values for configuration of tools.
-   You can perform this step multiple times if you're using different
-   authentication methods for different tools.
+1. Select **Push/Pull Packages** on the right.
+1. Choose the **Python** format.
+1. Select your desired authentication method for **Entitlement tokens** and copy
+   the URL to use in your build tool - for example
+   `https://dl.cloudsmith.io/.../exampleorg/python-all/python/simple/`. In the
+   URL `...` is replaced with a default token or your personal token depending
+   on your selection and `exampleorg` is replaced with the name of your
+   organization. The URL contains both the name of the repository `python-all`
+   as well as `python` as an identifier for the format. 
+1. Alternatively, use the **API Key** and copy the URL to use in your build tool
+   - for example
+   `https://username:{{apiKey}}@dl.cloudsmith.io/basic/exampleorg/python-all/python/simple/`.
+   Replace `username` and `exampleorg` with your Cloudsmith details and replace
+   `{{apiKey}}` with the API key from the **Personal API Keys** section from the
+   drop down on your username.
+
+Note that for use with build tools you must include the `simple/` context so that
+the package index is used successfully.
 
 <a id="artifactory"></a>
 
 ### JFrog Artifactory
 
-The following steps allow you to determine the identity token and URL for accessing your organization's JFrog Artifactory repository manager.
+The following steps allow you to determine the identity token and URL for
+accessing your organization's JFrog Artifactory repository manager.
 
 1. Select **Administration** in the top navigation bar.
 1. Select **Repositories** in the left hand navigation.
 1. Select the **Virtual** tab in the repositories view.
-1. Locate the *chainguard-python** repository row and press the three dots
+1. Locate the *python-all** repository row and press the three dots
    (**...**) in the last column on the right.
 1. Select **Set Me Up** in the dialog.
 1. Select **Generate Token & Create Instructions**
 1. Copy the generated token value to use as the password for authentication.
 1. Select **Generate Settings**.
 1. Copy the value from one of the *URL* fields. They are all identical. For
-   example, `https://exampleorg.jfrog.io/artifactory/chainguard-python` with
-   `exampleorg`. Note that for use with build tools you must append `simple` to
+   example, `https://exampleorg.jfrog.io/artifactory/python-all` with
+   `exampleorg`. Note that for use with build tools you must append `simple/` to
    the URL so that the package index is used successfully -
-   `https://exampleorg.jfrog.io/artifactory/chainguard-python/simple/`.
+   `https://exampleorg.jfrog.io/artifactory/python-all/simple/`.
 
 <a id="nexus"></a>
 
@@ -79,13 +86,13 @@ The following steps allow you to determine the identity token and URL for access
 The following steps allow you to determine the URL and authentication details
 for accessing your organization's Sonatype Nexus repository group.
 
-1. Click **Browse** in the **Welcome** view or the browse icon (cube) in the top navigation bar.
-1. Locate the **URL** column for the *chainguard-python* repository group and
-   press **copy**. The URL should take the following format:
-   `https://repo.example.com/repository/chainguard-python/`. Note that for use
-   with build tools you must append `simple` to the URL so that the package
-   index is used successfully -
-   `https://repo.example.com/repository/chainguard-python/simple/`.
+1. Click **Browse** in the **Welcome** view or the browse icon (cube) in the top
+   navigation bar.
+1. Locate the **URL** column for the *python-all* repository group and press
+   **copy**. The URL should take the following format:
+   `https://repo.example.com/repository/python-all/`. Note that for use with
+   build tools you must append `simple/` to the URL so that the package index is
+   used successfully - `https://repo.example.com/repository/python-all/simple/`.
 1. No further configuration is necessary if your repository manager is
    configured for anonymous access with **Security** - **Anonymous Access** -
    **Access** - **Allow anonymous users to access the server** is activated. If
@@ -132,14 +139,15 @@ nano ~/.pip/pip.conf
 ```
 
 Update this configuration file with the following, replacing `<repository-url>`
-with the URL provided by your repository manager including the `simple/`context:
+with the URL provided by your repository manager including the `simple/`
+context:
 
 ```
 [global]
 index-url = <repository-url>
 ```
 
-Note that updating this global configuration affects all projects built on the
+Updating this global configuration affects all projects built on the
 workstation. Alternately, if your project uses a `requirements.txt` file in
 projects, you can add the following to it to configure on a project-by-project
 basis:
@@ -148,6 +156,8 @@ basis:
 --index-url <repository-url>
 package-name==version
 ```
+
+Note the different syntax for `index-url` in the two files.
 
 Refer to the official documentation for [configuring authentication with
 pip](https://pip.pypa.io/en/stable/topics/authentication/) if you are not using
@@ -179,7 +189,7 @@ url = "<repository-url>"
 Add the name for your repository, such as `corppypi`, within the quotes.
 
 Replace the `<repository-url>` with the URL provided by your repository manager
-including the `simple/`context.
+including the `simple/` context.
 
 Note that updating the global configuration affects all projects built on the
 workstation. Alternately, you can update each project by adding the same
