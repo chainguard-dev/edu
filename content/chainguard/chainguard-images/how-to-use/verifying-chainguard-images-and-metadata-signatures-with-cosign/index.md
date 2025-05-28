@@ -19,20 +19,20 @@ weight: 015
 toc: true
 ---
 
-All Chainguard Containers contain verifiable signatures and build-time SBOMs (software bills of materials), features that enable users to confirm the origin of each image built and have a detailed list of everything that is packed within.
+All Chainguard Containers contain verifiable signatures and attestations such as SBOMs (software bills of materials) which enable users to confirm the origin of each image built and have a detailed list of everything that is packed within.
 
-This guide outlines how you can use Cosign to verify container image signatures and attestations, as well as download container attestations. 
+This guide outlines how you can use Cosign to download and verify container image signatures and attestations.
 
 ## Prerequisites
 
-The following examples require [Cosign](/open-source/sigstore/cosign/how-to-install-cosign/) and [jq](https://stedolan.github.io/jq/) to be installed on your machine in order to download and verify image attestations. The examples in this guide will pull detailed information about all signatures found for the provided image.
+The following examples require [Cosign](/open-source/sigstore/cosign/how-to-install-cosign/) and [jq](https://stedolan.github.io/jq/) to be installed on your machine in order to download and verify image attestations. 
 
 ## Registry and Tags for Chainguard Containers
 
-Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
+Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`. This guide works with Chainguard's public and private registries: 
 
-- `cgr.dev/chainguard`: The Public Registry contains Chainguard's **Starter container images**, which typically comprise the `:latest` versions of an image.
-- `cgr.dev/YOUR-ORGANIZATION`: A Private/Dedicated Registry contains your organization's **Production container images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
+- `cgr.dev/chainguard`: The public registry contains Chainguard's **Starter container images**, which typically comprise the `:latest` versions of an image.
+- `cgr.dev/YOUR-ORGANIZATION`: A private/dedicated registry contains your organization's **Production container images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 The commands listed on this page will default to the `:latest` tag, but you can specify a different tag to fetch attestations for.
 
@@ -48,20 +48,20 @@ For private images, Chainguard signs all images in your private registry with on
 
 These identities are created and added to every [verified Chainguard organization](/chainguard/administration/iam-organizations/verified-orgs/) automatically. 
 
-To follow along with the **Private Registry** examples in this guide, you will need the UIDPs of these Chainguard identities. To this end, create a few environment variables, the first of which should point to the name of your Chainguard organization:
+To follow along with the **Private Registry** examples in this guide, you will need the *unique identifier paths* (UIDPs) of these Chainguard identities. To this end, create a few environment variables, the first of which should point to the name of your Chainguard organization:
 
 ```shell
 PARENT=your-organization
 ```
 
-Next, use this variable to create two more to hold the UIDPs of your organization's `catalog_syncer` and `apko_builder` identities, respectively:
+Next, create two more variables to hold the UIDPs of your organization's `catalog_syncer` and `apko_builder` identities, respectively:
 
 ```shell
 CATALOG_SYNCER=$(chainctl iam account-associations describe $PARENT -o json | jq -r '.[].chainguard.service_bindings.CATALOG_SYNCER')
 APKO_BUILDER=$(chainctl iam account-associations describe $PARENT -o json | jq -r '.[].chainguard.service_bindings.APKO_BUILDER')
 ```
 
-Some of the **Private Registry** examples in this guide will include these environment variables, allowing you to verify that these identities did indeed sign the given image. 
+The **Private Registry** examples in this guide will include these environment variables, allowing you to verify that they were used to sign the given image. 
 
 Be aware that you can also find these values in the Chainguard Console. After logging in, click on **Settings**, and then **Users**. From there, scroll or search for either `catalog_syncer` or `apko_builder` and click on its row to find the identity's UIDP:
 
@@ -92,6 +92,8 @@ cosign verify \
   --certificate-identity-regexp="https://issuer.enforce.dev/(${CATALOG_SYNCER}|${APKO_BUILDER})" \
   cgr.dev/${PARENT}/${IMAGE} | jq
 ```
+
+Be aware that you will need to change the `IMAGE` environment variable to reflect a container image your organization is entitled to.
 
 > **Note**: The environment variables used in this command (other than `$(IMAGE)`) were created in the previous section.
 
@@ -179,7 +181,6 @@ GitHub Workflow Ref: refs/heads/main
 ### Private/Dedicated Registry
 
 ```shell
-PARENT=your-registry-name
 IMAGE=go
 cosign verify-attestation \
   --type https://spdx.dev/Document \
