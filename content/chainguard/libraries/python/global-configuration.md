@@ -43,7 +43,7 @@ Python and PyPI as upstream sources.
 
 First, create a repository:
 
-1. Log in to your Cloudsmith instance as a user with administrator privileges.
+1. Log in to your Cloudsmith instance as user with administrator privileges.
 1. Select the **Repositories** tab near the top of the screen.
 1. Navigate to the **Repositories Overview**, then select **+ New repository**.
 1. At the new repository form, enter the name *python-all* for your new
@@ -53,7 +53,7 @@ First, create a repository:
 1. Select a storage region that is appropriate for your organization and infrastructure.
 1. Select **+ Create Repository**. 
 
-Next, configure a upstream proxies:
+Next, configure the upstream proxies:
 
 1. Select the name of the new *python-all* repository on the repositories page
    to configure it.
@@ -61,8 +61,9 @@ Next, configure a upstream proxies:
 1. Configure an upstream proxy with the format **python** and the following details: 
     * **Name**: `python-chainguard`
     * **Priority**: `1`
-    * **Upstream URL**: `https://libraries.cgr.dev/python`
+    * **Upstream URL**: `https://libraries.cgr.dev/python/`
     * **Mode**: `Cache and Proxy`
+1. Select **Create Upstream Proxy**.
 1. Configure another upstream proxy with the following details
     * **Name**: `python-public`
     * **Priority**: `2`
