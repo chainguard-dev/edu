@@ -28,7 +28,8 @@ Chainguard's private APK repos allow customers to pull secure apk packages from 
 
 For example, say your organization has access to the [Chainguard MySQL container image](https://images.chainguard.dev/directory/image/mysql/versions). Along with `mysql`, this image comes with other apk packages, including `bash`, `openssl`, and `pwgen`. This means that you'll have access to these apk packages through your organization's private APK repository, along with any others that appear in Chainguard container images that your organization has access to. 
 
-As of this writing, private APK repositories are an opt-in feature. [Contact us](https://www.chainguard.dev/contact?utm=docs) to get started.
+Chainguard's private APK repositories are available to all Chainguard Containers customers.
+
 
 ## Your Repository Address
 
