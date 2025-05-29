@@ -51,6 +51,8 @@ The following table highlights some of the main differences between glibc and mu
 | Debug Support   	| Several debug features available such as sanitizers, profilers | Does not support sanitizers and limited profilers                  	|
 | DNS Implementation  | Stable and well-supported                                  	| Historical reports of occasional DNS resolution issues             	|
 
+Be aware that binaries are not compatible between Alpine and Wolfi. You **should not** attempt to copy Alipne binaries into a Wolfi-based container image.
+
 
 ## Buffer Overflows
 
