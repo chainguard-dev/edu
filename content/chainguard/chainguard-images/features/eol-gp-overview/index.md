@@ -19,7 +19,7 @@ Typically, specific versions of software receive updates on a schedule for a set
 
 It's recommended that when a software version reaches the EOL phase, users should migrate their projects to a later version, as [EOL software is known to accumulate vulnerabilities](/chainguard/chainguard-images/staying-secure/updating-images/how-eol-software-accumulates-cves/). However, there are cases where an organization may want to continue using a container image after it has reached end-of-life. This could be because an image reaches EOL before the organization's release schedule, or perhaps later image versions have one or more issues that prevent the organization from upgrading.
 
-To help in situations like this, Chainguard offers an end-of-life grace period for eligible Containers. This article provides an overview of Chainguard's EOL grace period, and also includes a brief introduction to using Chainguard's API to retrieve information about an image's EOL grace period status. 
+To help in situations like this, Chainguard offers an end-of-life grace period for eligible Containers to all Chainguard Containers customers. This article provides an overview of Chainguard's EOL grace period, and also includes a brief introduction to using Chainguard's API to retrieve information about an image's EOL grace period status. 
 
 
 ## Understanding Chainguard's EOL Grace Period
