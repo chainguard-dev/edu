@@ -26,6 +26,8 @@ Note that `$PATH` locations like `/usr/bin` or `/sbin` are not included here. If
 
 Generally, if a tool exists in `busybox` but does not have a `coreutils` counterpart, there will be a specific package that includes it. For example the `zcat` utility is included in the `gzip` package in both Wolfi and Alpine.
 
+Additionally, be aware that binaries are not compatible between Alpine and Wolfi. You **should not** attempt to copy Alipne binaries into a Wolfi-based container image.
+
 You can use the `apk search` command in Wolfi and Alpine to find out which package includes a tool.
 
 | Utility         | Wolfi busybox | Alpine busybox | Wolfi coreutils | Alpine coreutils |
