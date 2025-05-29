@@ -1,5 +1,5 @@
 ---
-date: 2025-05-22T21:15:18Z
+date: 2025-05-28T21:10:51Z
 title: "chainctl auth login"
 slug: chainctl_auth_login
 url: /chainguard/chainctl/chainctl-docs/chainctl_auth_login/
@@ -26,6 +26,8 @@ chainctl auth login [--invite-code=INVITE_CODE] [--identity-token=PATH_TO_TOKEN]
   # Refreshing a token within a Kubernetes context:
   chainctl auth login --identity-token=PATH_TO_TOKEN --refresh
   
+  # Headless login using --org-name
+  chainctl auth login --headless --org-name my-org
   
   # Register by accepting an invite to an existing location
   chainctl auth login --invite-code eyJncnAiOiI5MzA...
