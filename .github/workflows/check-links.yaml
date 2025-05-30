@@ -89,7 +89,7 @@ jobs:
           fi
 
       - name: Post failure notice to Slack
-        uses: rtCamp/action-slack-notify@e31e87e03dd19038e411e38ae27cbad084a90661 # v2.3.3
+        uses: step-security/action-slack-notify@cafbebd7b2b3e2f62d6a3cebac172962e7f55c05 # v2.3.4
         if: ${{ failure() }}
         env:
           SLACK_ICON: http://github.com/chainguard-dev.png?size=48
