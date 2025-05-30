@@ -35,10 +35,8 @@ Because of their minimalist design, Chainguard Containers sometimes require user
 ## Migration Key Points
 
 * Most Chainguard Containers have no shell or package manager by default. This is great for security, but sometimes you need these things, especially in builder images. For those cases we have development container images (also known as `-dev` images, as in `cgr.dev/chainguard/python:latest-dev`) which do include a shell and package manager.
-* Chainguard Containers typically don't run as root, so a `USER root` statement may be required before installing software.
 * The development variants and `wolfi-base` / `chainguard-base` use BusyBox by default, so any `groupadd` or `useradd` commands will need to be ported to `addgroup` and `adduser`.
 * The free Starter tier of Containers provides only the `:latest` and `:latest-dev` versions. Our paid Production Containers offer tags for major and minor versions.
-* We use APK tooling, so `apt install` commands will become `apk add`.
 * Chainguard Containers are [based on `glibc`](/chainguard/chainguard-images/about/images-compiled-programs/glibc-vs-musl/) and our packages cannot be mixed with Alpine packages (which are instead based on musl).
 * In some cases, the entrypoint in Chainguard Containers can be different from equivalent images based on other distros, which can lead to unexpected behavior. You should always check the image's specific documentation to understand how the entrypoint works.
 * When needed, Chainguard recommends using a base image like `chainguard-base` or a development variant to install an application's OS-level dependencies.
@@ -60,7 +58,7 @@ Refer to our guide on [Chainguard's Container variants](/chainguard/chainguard-i
 - [ ] &nbsp; Replace your current base image with a `-dev` variant as a starting point.
 - [ ] &nbsp; Add a `USER root` statement before package installations or other commands that must run as an administrative user.
 - [ ] &nbsp; Switch back to a nonroot user so that the image does not run as root by default. Many Chainguard Containers that operate as a non-root user use the user ID (UID) 65532. But you must check the image you are using. It is recommended to reference the UID rather than the username, as every image may have a different username, but the UID remains consistent as 65532.
-- [ ] &nbsp; Replace any instances of `apt install` (or equivalent) with `apk add`.
+- [ ] &nbsp; Chaingaurd Containers use APK tooling, so replace any instances of `apt install` (or equivalent) with `apk add`.
 - [ ] &nbsp; Use `apk search` on a running container or the [APK Explorer](https://apk.dag.dev/) tool to identify packages you need – some commands might be available with different names or bundled with different packages.
 - [ ] &nbsp; When copying application files to the image, make sure proper permissions are set.
 - [ ] &nbsp; Build and test your image to validate your setup.
@@ -69,13 +67,14 @@ Refer to our guide on [Chainguard's Container variants](/chainguard/chainguard-i
 
 ## Before Migrating
 
-Before you begin actively migrating to Chainguard Containers, review the images that your organization has access to and determine which teams and applications will be using each image. Notify the teams that will be required to be involved in the migration process so they can begin preparing. For teams that are new to Chainguard Containers, we recommend taking the online self-paced course, [Linky’s Guide to Chainguard Containers](https://courses.chainguard.dev/path/linkys-guide-to-chainguard-images).
+Before you begin actively migrating to Chainguard Containers, review the images that your organization has access to and determine which teams and applications will be using each image. Notify the teams involved in the migration process so they can begin preparing. For teams that are new to Chainguard Containers, we recommend taking the online self-paced course, [Linky’s Guide to Chainguard Containers](https://courses.chainguard.dev/path/linkys-guide-to-chainguard-images).
 
-Next, determine which users and/or systems are going to need access to your Chainguard registry in order to begin preparing access. An important decision to consider is whether you are going to mirror container images in the Chainguard registry to an internal registry to integrate with current workflows. You can set up a remote repository function as a mirror of a Chainguard Registry — either the public registry or a private one belonging to your organization. This mirror can then serve as a pull through cache for your Chainguard Containers. A common example of this solution is mirroring to [Artifactory](/chainguard/chainguard-registry/pull-through-guides/artifactory/artifactory-images-pull-through/). 
+Next, determine which users and/or systems are going to need access to your Chainguard registry in order to begin preparing access. Most customers will need to copy images from their Chainguard registry into their organization's registry. An easy way to do this is by configuring the organization's registry as a pull-through mirror of the Chainguard registry. TWe have a guide on [how to configure Artifactory](/chainguard/chainguard-registry/pull-through-guides/artifactory/artifactory-images-pull-through/) for this use case.
+
 
 ## Recommended Rollout Approach
 
-When starting out with multiple Chainguard Containers, a major consideration is the strategy in which these container images are rolled out and deployed throughout your environment. The recommended rollout strategy for most customers is as follows:
+When the goal is to migrate multiple deployments to Chainguard Containers, a major consideration is the strategy in which these container images are rolled out and deployed throughout your environment. The recommended rollout strategy for most customers is as follows:
 
 * Start with less complex and non-critical applications to build confidence before migrating mission-critical workloads.
 * Employ a gradual approach where you choose a small subset of container images and deploy those first to a non-production environment for testing and validation, and then to a small percentage of production instances and then gradually scale up.
@@ -114,7 +113,7 @@ Many Chainguard customers use both application and base container images, but it
 
 When migrating to a [Chainguard Application Container](/chainguard/chainguard-images/about/images-categories/#application-containers) you should first check the image’s overview page on the [Containers  Directory](https://images.chainguard.dev) for usage details and any compatibility notes. There may be user, permissions, or volume path differences with the Chainguard Image that you should be aware of. 
 
-It is a best practice to use the same version of the Chainguard Application Image as what is currently running in your environment. Do not upgrade versions at the same time that you migrate. Post-migration you should thoroughly test and monitor your application.
+It is a best practice to use the same version of the Chainguard Application Image as what is currently running in your environment, if that version is availble from Chainguard. Post-migration you should thoroughly test and monitor your application.
 
 #### Base Images
 
@@ -122,7 +121,16 @@ When migrating to a [Chainguard Base Container](/chainguard/chainguard-images/ab
 
 It is a best practice to use the same versions of any languages or applications that will be running on the Chainguard Base Container as what is currently running in your environment. Do not upgrade language or application versions at the same time that you migrate. Post-migration you should test and monitor your application as outlined below in Section 6.
 
-If you need a package to use with your Chainguard Base Container, Wolfi packages are available using `apk`. Ensure you only use Wolfi packages, as Alpine APKs are not compatible with Wolfi. Additionally, it is important to note that vendor provided packages need to be [glibc](/chainguard/chainguard-images/about/images-compiled-programs/glibc-vs-musl/) based and their functionality should be fully tested along with the application. 
+If you need a package to use with your Chainguard Base Container, ChainguardOS packages are available using `apk`. Ensure you only use ChainguardOS packages, as Alpine APKs are not compatible with ChainguardOS. Additionally, it is important to note that vendor provided packages need to be [glibc](/chainguard/chainguard-images/about/images-compiled-programs/glibc-vs-musl/) based and their functionality should be fully tested along with the application. 
+
+
+### Extending Chainguard Containers
+
+You can take advantage of Chainguard's [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) and [Private APK Repositories](/chainguard/chainguard-images/features/private-apk-repos/) features to extend your container images
+
+Custom Assembly allows users to create customers container images with extra packages added. This reduces their risk exposure by creating container images that are tailored to their internal organization and application requirements while still having few-to-zero CVEs.
+
+Private APK Repositories, meanwhile, allow customers to pull secure apk packages from Chainguard. The list of packages available in an organization’s private repository is based on the apk repositories that the organization already has access to. For example, say your organization has access to the [Chainguard MySQL container image](https://images.chainguard.dev/directory/image/mysql/versions). Along with `mysql`, this image comes with other apk packages, including `bash`, `openssl`, and `pwgen`. This means that you'll have access to these apk packages through your organization's private APK repository, along with any others that appear in Chainguard container images that your organization has access to. 
 
 
 ## Tips for Migrating to Chainguard Containers
@@ -147,8 +155,7 @@ The move to a distroless workflow can be confusing for both individual developer
         * Remember to remove the `-dev` tag before merging. 
     * **Ephemeral Debug Containers**: In Kubernetes, use `kubectl debug` to launch an ephemeral container attached to the existing Pod for troubleshooting.
     * **Docker Debug**: While `docker debug` is available, it requires a Docker Desktop Pro license.
-    * **`cdebug` and `kubectl debug`**: These tools allow you to enter a running container for debugging and can access the target container's file system with the `--privilege` flag.
-        * For `kubectl debug`, use the `--target` flag to access the target container's namespace, and the `-user` flag to run the debug container as the same user as the target container.
+    * **`cdebug` and `kubectl debug`**: These tools allow you to enter a running container for debugging and can access the target container's file system.
     * **`chainctl images diff`**: This command allows you to compare two container images and identify differences between them.
 * **General Troubleshooting Tips**:
     * Check the image's overview page in the [Containers Directory](https://images.chainguard.dev/) for specific usage details.

@@ -48,7 +48,7 @@ OK: 66 MiB in 38 packages
 / #
 ```
 
-Although the `-dev` variants have similar security features as their distroless counterparts — such as complete SBOMs and signatures –0- they feature additional software that is typically not necessary in production environments. The general recommendation is to use the `-dev` variants only to build the application and then copy all application artifacts into a distroless image, which will result in a final container image that has a minimal attack surface and won't allow package installations or logins.
+Although the `-dev` variants have similar security features as their distroless counterparts — such as complete SBOMs and signatures — they feature additional software that is typically not necessary in production environments. The general recommendation is to use the `-dev` variants only to build the application and then copy all application artifacts into a distroless image, which will result in a final container image that has a minimal attack surface and won't allow package installations or logins.
 
 That being said, it's worth noting that `-dev` variants of Chainguard Containers are completely fine to run in production environments. After all, the `-dev` variants are still **more secure** than many popular container images based on fully-featured operating systems such as Debian and Ubuntu since they carry less software, follow a more frequent patch cadence, and offer attestations for what they include.
 
@@ -230,11 +230,15 @@ Here, the `--user` option tells Docker to assume the root user role.
 
 ## Packages Not Found
 
-Container images are usually meant to support every possible use case. Because of this, they often contain packages that aren't necessary for many use cases, which increases the container image's attack surface and makes it more likely to contain CVEs.
+Container images are usually meant to support every possible use case. Because of this, they often contain packages that aren't always necessary, which increases the container image's attack surface and makes it more likely to contain CVEs.
 
 Chainguard Containers are built with minimalism in mind, and thus contain the bare minimum packages needed for an image to function. However, this also means that Chainguard Containers may not contain the packages that you'd expect to find in third-party alternatives.
 
 If a Chainguard Container is missing certain packages that are required for your application, we recommend using a base image and installing the required dependencies on top of it, preferably in a multi-stage Docker build. Our guides on [How to Use Chainguard Containers](/chainguard/chainguard-images/how-to-use-chainguard-images/#extending-chainguard-base-images) and [Getting Started with Distroless](/chainguard/migration/migrations-overview/) include guidance on how you can extend Chainguard base images.
+
+Alternatively, you can take advantage of Chainguard's [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) and [Private APK Repositories](/chainguard/chainguard-images/features/private-apk-repos/) features to extend your container images. Custom Assembly allows users to create customers container images with extra packages added. This reduces their risk exposure by creating container images that are tailored to their internal organization and application requirements while still having few-to-zero CVEs.
+
+Private APK Repositories, meanwhile, allow customers to pull secure apk packages from Chainguard. The list of packages available in an organization’s private repository is based on the apk repositories that the organization already has access to. For example, say your organization has access to the [Chainguard MySQL container image](https://images.chainguard.dev/directory/image/mysql/versions). Along with `mysql`, this image comes with other apk packages, including `bash`, `openssl`, and `pwgen`. This means that you'll have access to these apk packages through your organization's private APK repository, along with any others that appear in Chainguard container images that your organization has access to. 
 
 In some cases you may have Docker builds that copy in binaries to run agents or similar tooling. You may find these binaries don’t work as expected as they are designed to run on a different Linux distribution. Be aware that Chainguard Containers may not have the dependencies required by third-party binaries, or they may be stored at a different path.
 
