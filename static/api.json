@@ -348,7 +348,8 @@
               "enum": [
                 "UNKNOWN",
                 "JAVA",
-                "PYTHON"
+                "PYTHON",
+                "JAVASCRIPT"
               ],
               "type": "string"
             },
@@ -1946,6 +1947,13 @@
             "name": "startedSince",
             "required": false,
             "type": "string"
+          },
+          {
+            "description": "Opt-in to exclude raw log output via Log field\nNote: including logs has lead to high db input/output and timeouts\ndepending on the size of the returned log contents",
+            "in": "query",
+            "name": "excludeLogs",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -2006,6 +2014,13 @@
             "name": "startedSince",
             "required": false,
             "type": "string"
+          },
+          {
+            "description": "Opt-in to exclude raw log output via Log field\nNote: including logs has lead to high db input/output and timeouts\ndepending on the size of the returned log contents",
+            "in": "query",
+            "name": "excludeLogs",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -5049,7 +5064,8 @@
       "enum": [
         "UNKNOWN",
         "JAVA",
-        "PYTHON"
+        "PYTHON",
+        "JAVASCRIPT"
       ],
       "type": "string"
     },
