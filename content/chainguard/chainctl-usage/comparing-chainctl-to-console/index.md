@@ -53,6 +53,8 @@ chainctl images list
 
 ## Example - Invite Users
 
+To invite a user using the Console, follow these steps:
+
 1. Open the Console.
 
 1. On the Overview page that opens, click the **Manage pull tokens** tab, just below the search box.
@@ -76,6 +78,52 @@ chainctl iam invite create ORGANIZATION
 --single-use
 
 ```
+
+
+## Example - Learn Container Image History
+
+To examine the history of an image using the Console:
+
+1. Open the Console and find the image you want to examine more closely. Do this by clicking on an image in the **Recent Changes** list on this page or clicking **View all organization images** to see the full list and find the image you want.
+
+1. On the image page you start on the **Tags** tab and see a list of tags which correspond to the release version of the image, like this one for `kubectl`.
+![Screenshot showing the list of image versions for kubectl in the Console.](console-image-version-list.png)
+
+This list contains columns with data about each image release, like the Pull URL, Digest, and when it was last changed. Click the other tabs to learn more about the *latest* release version of this image.
+
+To examine the history of an image using `chainctl`, enter this, replacing ORGANIZATION with your organization:
+
+```
+chainctl image history kubectl:latest --parent=ORGANIZATION
+```
+
+This will return a reverse-chronological history of when a specific tag was update to point to a new manifest digest. This list can be long. Here's an excerpt:
+
+```
+- time: 2025-05-29 03:08:31 UTC
+  digest: sha256:34798f562dffc3746cb69bab49b93ff83aa57bea393a07997e87c37bc83a62db
+  architectures:
+    amd64: sha256:a71ccfdc86cd73d395d3528ce3f8df1f4dd132b73ff03016b0ec42da23d4ec99 (18.13 MB)
+    arm64: sha256:2876b0c3de431f0d7df8f888a0d40bb0c8259c47109f978237d305e7818b704b (16.43 MB)
+- time: 2025-05-28 17:19:58 UTC
+  digest: sha256:1f798940981573c34e1d11c8b6d266f18d06e95b81251d6880f511d55b833cfd
+- time: 2025-05-27 19:53:02 UTC
+  digest: sha256:81095db3adc00495fceb064e86dfd81c7ffdf081c55daf6b12be6ef1605bd18c
+  architectures:
+    amd64: sha256:56db73a4b66ad326a7858ca4157ded2d3b6d11ff1030cfbdf3a3bd879a5a5725 (18.13 MB)
+    arm64: sha256:280160c9c422d7526169812cf89401043096f5d4ff385d1b59f3610109486aed (16.43 MB)
+- time: 2025-05-23 01:09:22 UTC
+  digest: sha256:c0934fc335d8b24923487cb7d0b673490bd393fd4b6cd20f6f0e156a7481ffc7
+  architectures:
+    amd64: sha256:46e11b8beed94d93272e5a87753f9f43f02f5f1b9d83d8ba279eeb18c114c863 (18.13 MB)
+    arm64: sha256:b288bc13da78aa7b2a82d50dbca45ed2fe286f0f1f248fa2e12604ef9a109f33 (16.40 MB)
+
+...
+
+```
+
+The details that are returned here and the details found in the Console vary in completeness and focus, but where the same details are provided they should match. See [Examine the History of Container Images](/chainguard/chainctl-usage/chainctl-images/#examine-the-history-of-container-images) for more information about this command.
+
 
 ## Learn more
 
