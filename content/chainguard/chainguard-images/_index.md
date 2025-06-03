@@ -1,6 +1,5 @@
 ---
 title: "Chainguard Containers"
-linkTitle: "Containers"
 description: "Minimalist container images with low to zero CVEs"
 type: "article"
 date: 2022-09-05T08:49:15+00:00
