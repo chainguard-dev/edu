@@ -83,7 +83,7 @@ of the software supply chain for libraries across different language ecosystems:
   source code repository was not compromised.
 * Since no source code repository was compromised as similar attack on a library
   is prevented by Chainguard Libraries
-* XZ util is written in C and therefore not part of Chainguard Libraries,
+* XZ Utils is written in C and therefore not part of Chainguard Libraries,
   however Chainguard Containers include XZ Utils packages. These are also built
   from source and are not affected.
 * See also [Wikipedia article](https://en.wikipedia.org/wiki/XZ_Utils_backdoor)
