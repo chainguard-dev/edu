@@ -1,0 +1,2 @@
+{{ $nonce := substr (sha256 (printf "%d%d" now.Unix now.Nanosecond)) 0 32 }}
+{{ .Page.Store.Set "csp-nonce" $nonce }}

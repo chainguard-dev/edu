@@ -1,3 +1,4 @@
+{{ $nonce := partial "head/nonce.html" . }}
 <meta http-equiv="Content-Security-Policy"
       content="
        default-src 'self';
@@ -5,21 +6,23 @@
        style-src 'self' 'unsafe-inline' edu.chainguard.dev https://tagmanager.google.com/ cdn.jsdelivr.net https://fonts.googleapis.com https://unpkg.com https://use.fontawesome.com;
        form-action 'self';
        font-src 'self' edu.chainguard.dev https://fonts.googleapis.com https://fonts.gstatic.com https://cdn.jsdelivr.net https://use.fontawesome.com;
-       script-src 'self' 'unsafe-eval' 'unsafe-inline' edu.chainguard.dev  https://www.googletagmanager.com  *.googleapis.com cdn.jsdelivr.net *.googletagmanager.com *.6sc.co and *.6sense.com 'sha256-vOgyKS2vkH4n5TxBJpeh9SgzrE6LVGsAeOAvEST6oCc=' 'sha256-R2OmoLN/NlJovrWBYuTwjPfAD+YHvBVdudGDjY2VLmI=' https://unpkg.com http://localhost:1313 http://localhost:8080;
-       connect-src 'self' www.googletagmanager.com *.google-analytics.com *.6sc.co and *.6sense.com https://storage.googleapis.com https://packages.wolfi.dev;
-       img-src 'self' 'unsafe-inline' https://ssl.gstatic.com/ *.6sc.co and *.6sense.com *.scarf.sh edu.chainguard.dev https://storage.googleapis.com www.googletagmanager.com data:;
+       script-src 'self' 'nonce-{{ $nonce }}' edu.chainguard.dev https://www.googletagmanager.com *.googleapis.com cdn.jsdelivr.net *.googletagmanager.com *.6sc.co *.6sense.com 'sha256-vOgyKS2vkH4n5TxBJpeh9SgzrE6LVGsAeOAvEST6oCc=' 'sha256-R2OmoLN/NlJovrWBYuTwjPfAD+YHvBVdudGDjY2VLmI=' https://unpkg.com http://localhost:1313 http://localhost:8080;
+       connect-src 'self' www.googletagmanager.com *.google-analytics.com *.6sc.co *.6sense.com https://storage.googleapis.com https://packages.wolfi.dev;
+       img-src 'self' 'unsafe-inline' https://ssl.gstatic.com/ *.6sc.co *.6sense.com *.scarf.sh edu.chainguard.dev https://storage.googleapis.com www.googletagmanager.com data:;
        base-uri 'self';
      ">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<script id="6senseWebTag" src="https://j.6sc.co/j/edd32455-d420-405e-a9ba-ca4b02be04d3.js"></script>
+{{ $nonceHelper := resources.Get "js/nonce-helper.js" | js.Build | minify }}
+<script nonce="{{ $nonce }}">{{ $nonceHelper.Content | safeJS }}</script>
+<script id="6senseWebTag" src="https://j.6sc.co/j/edd32455-d420-405e-a9ba-ca4b02be04d3.js" nonce="{{ $nonce }}"></script>
 
 {{ if .Site.Params.options.darkMode -}}
   {{ $darkModeInit := resources.Get "js/darkmode-init.js" | js.Build | minify | fingerprint "sha512" -}}
-  <script src="{{ $darkModeInit.RelPermalink }}" integrity="{{ $darkModeInit.Data.Integrity }}" crossorigin="anonymous" defer></script>
+  <script src="{{ $darkModeInit.RelPermalink }}" integrity="{{ $darkModeInit.Data.Integrity }}" crossorigin="anonymous" defer nonce="{{ $nonce }}"></script>
 {{ end -}}
 {{- if and (.Site.Params.alert) (.Site.Params.alertDismissable) -}}
   {{ $alertInit := resources.Get "js/alert-init.js" | js.Build | minify | fingerprint "sha512" -}}
-  <script src="{{ $alertInit.RelPermalink }}" integrity="{{ $alertInit.Data.Integrity }}" crossorigin="anonymous" defer></script>
+  <script src="{{ $alertInit.RelPermalink }}" integrity="{{ $alertInit.Data.Integrity }}" crossorigin="anonymous" defer nonce="{{ $nonce }}"></script>
 {{- end -}}
 
 {{ if hugo.IsProduction }}

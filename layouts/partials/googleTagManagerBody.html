@@ -1,5 +1,5 @@
 {{ if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production")  }}
-  {{ if $.Site.googleTagManager }}
+  {{ if $.Site.Params.googleTagManager }}
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ $.Site.Params.googleTagManager }}"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
