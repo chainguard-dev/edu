@@ -91,9 +91,16 @@ To use this pull token in another environment, supply the following for username
 and password valid for basic authentication. Note that the actual returned
 values are much longer.
 
-Use the credentials for manual testing in a browser or with a script if you know
-the URL for a specific library artifact, [for example a Java
-library](/chainguard/libraries/java/overview/#technical-details).
+### Verification
+
+Use the credentials for manual testing in a browser or with a script and curl if
+you know the URL for a specific library artifact. Refer to the following
+sections for more details:
+
+* [Technical details and manual testing for Java libraries](/chainguard/libraries/java/overview/#technical-details)
+* [Technical details and manual testing for Python libraries](/chainguard/libraries/python/overview/#technical-details)
+* [Use environment variables](#env)
+* [.netrc for authentication](#netrc)
 
 <a name="env"></a>
 
