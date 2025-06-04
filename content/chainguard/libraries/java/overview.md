@@ -47,6 +47,14 @@ You can use Chainguard Libraries for Java alongside third-party software
 repositories to create a single source of truth with your repository manager
 application. 
 
+## Runtime requirements
+
+The runtime requirements for Java artifacts available from Chainguard Libraries
+for Java are identical to the requirements of the original upstream project. For
+example, if a JAR retrieved from Maven Central requires Java 17 or higher, the
+same Java 17 runtime requirement applies to the binary artifact from Chainguard
+Libraries for Java.
+
 ## Technical details
 
 The [username and password retrieved with
