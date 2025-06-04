@@ -116,17 +116,24 @@ Use the search functionality on [pypi.org](https://pypi.org/) to locate packages
 of interest and then browse in the simple index to determine available versions
 in Chainguard Libraries for Python.
 
-You can also use `curl` and specify the [username and password retrieved using
-chainctl](/chainguard/libraries/access/) for basic user authentication after
-browsing for the correct URL.
+Use `curl`, specify the username and password retrieved with [chainctl for basic
+user authentication](/chainguard/libraries/access/) and use the URL of the file
+to download and save the file with the original name:
+
+With [.netrc authentication](/chainguard/libraries/access/#netrc):
 
 ```
-curl --user "exampleusername:examplepassword" \
+curl -n -L -O https://libraries.cgr.dev/files/...
+```
+
+With [environment variables](/chainguard/libraries/access/#env):
+
+```
+curl -L --user '$CHAINGUARD_PYTHON_IDENTITY_ID:$CHAINGUARD_PYTHON_TOKEN' \
   -O https://libraries.cgr.dev/files/...
 ```
 
-Curl also supports using [.netrc for
-authentication](/chainguard/libraries/access#netrc).
+The option `-L` is required to follow redirects for the actual file locations.
 
 The Chainguard Libraries for Python repository does not include all packages
 from PyPI. Chainguard Libraries for Python are rebuilt from source and require

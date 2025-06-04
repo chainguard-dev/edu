@@ -148,14 +148,25 @@ interest.
 If you use the URL directly in a browser, you have to provide the username and
 password to log in to the Chainguard repository to download the file.
 
-Use curl and specify the [username and password retrieved with
-chainctl](/chainguard/libraries/access/) for basic user authentication and the
-URL of the file to download and save the file with the original name:
+Use `curl`, specify the username and password retrieved with [chainctl for basic
+user authentication](chainguard/libraries/access) and use the URL of the file to
+download and save the file with the original name.
+
+With [.netrc authentication](/chainguard/libraries/access/#netrc):
 
 ```
-curl --user "exampleusername:examplepassword" \
+curl -n -L --user "$CHAINGUARD_JAVA_IDENTITY_ID:$CHAINGUARD_JAVA_TOKEN" \
   -O https://libraries.cgr.dev/java/commons-io/commons-io/2.17.0/commons-io-2.17.0.pom
 ```
+
+With [environment variables](/chainguard/libraries/access/#env):
+
+```
+curl -L --user "$CHAINGUARD_JAVA_IDENTITY_ID:$CHAINGUARD_JAVA_TOKEN" \
+  -O https://libraries.cgr.dev/java/commons-io/commons-io/2.17.0/commons-io-2.17.0.pom
+```
+
+The option `-L` is required to follow redirects for the actual file locations.
 
 [Use checksums of any file to
 verify](/chainguard/libraries/java/management/#java-verification) if it
