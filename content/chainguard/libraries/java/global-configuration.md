@@ -224,7 +224,7 @@ repository:
 
 1. Navigate to Artifact Registry and select **Repositories** in the left hand
    navigation under the **Artifact Registry** label.
-1. Click on the *chainguard-maven* repository name in the list of repositories.
+1. Click on the *java-all* repository name in the list of repositories.
 1. Press the **Setup instructions** button and follow the documentation. Note
    that you must add the extension
    `com.google.cloud.artifactregistry:artifactregistry-maven-wagon` to each
@@ -379,9 +379,8 @@ for accessing the repository:
 
 1. Click **Browse** in the **Welcome** view or the browse icon (cube) in the top
    navigation bar.
-1. Locate the **URL** column for the *chainguard-maven* repository group and
-   press **copy**. For example,
-   `https://repo.example.com/repository/chainguard-maven/`  with
+1. Locate the **URL** column for the *java-all* repository group and press
+   **copy**. For example, `https://repo.example.com/repository/java-all/` with
    `repo.example.com` replaced with the hostname of you repository manager.
 1. Copy the URL in the dialog.
 1. Use your configured username and password unless **Security** - **Anonymous
@@ -389,8 +388,8 @@ for accessing the repository:
    activated. Details vary based on your configured authentication system.
 
 Use the URL of the repository group, such as
-*https://repo.example.com/repository/chainguard-maven/* or
+*https://repo.example.com/repository/java-all/* or
 *https://repo.example.com/repository/maven-public/* in the [build
 configuration](/chainguard/libraries/java/build-configuration) and build a first
-test project. In a working setup the `chainguard` proxy repository contains all
-libraries retrieved frohttps://github.com/chainguard-dev/edu/pull/2148avoidm Chainguard.
+test project. In a working setup the `java-chainguard` proxy repository contains
+all libraries retrieved from Chainguard.
