@@ -5,6 +5,8 @@ type: "article"
 date: 2024-07-09T08:49:15+00:00
 lastmod: 2025-04-11T08:49:15+00:00
 draft: false
+aliases:
+- /chainguard/chainguard-registry/pull-through-guides/
 images: []
 weight: 100
 ---
