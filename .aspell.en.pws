@@ -203,3 +203,7 @@ upstreams
 untrusted
 pypi
 PyPI
+javascript
+pnpm
+npmrc
+hostname
