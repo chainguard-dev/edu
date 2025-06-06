@@ -8,7 +8,7 @@ aliases:
 type: "article"
 description: "A walkthrough of verifying Chainguard Containers and metadata signatures with Cosign."
 date: 2024-03-18T08:59:52-07:00
-lastmod: 2025-05-27T08:59:52-07:00
+lastmod: 2025-06-05T08:59:52-07:00
 draft: false
 tags: ["Chainguard Containers", "Product"]
 images: []
