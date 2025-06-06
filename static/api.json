@@ -1841,6 +1841,128 @@
         ]
       }
     },
+    "/libraries/v1/entitlements": {
+      "get": {
+        "operationId": "Entitlements_List",
+        "parameters": [
+          {
+            "description": "parent_id is the group to list entitlements for. Required.",
+            "in": "query",
+            "name": "parentId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "ecosystems are the language ecosystems to list entitlements for. If empty, all entitlements for the group will be listed.",
+            "in": "query",
+            "items": {
+              "enum": [
+                "UNKNOWN",
+                "JAVA",
+                "PYTHON",
+                "JAVASCRIPT"
+              ],
+              "type": "string"
+            },
+            "name": "ecosystems",
+            "required": false,
+            "type": "array"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/librariesEntitlementList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Entitlements"
+        ]
+      }
+    },
+    "/libraries/v1/entitlements/{id}": {
+      "delete": {
+        "operationId": "Entitlements_Delete",
+        "parameters": [
+          {
+            "description": "id is the exact uidp of the entitlement to delete.",
+            "in": "path",
+            "name": "id",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {},
+              "type": "object"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Entitlements"
+        ]
+      }
+    },
+    "/libraries/v1/entitlements/{parentId}": {
+      "post": {
+        "operationId": "Entitlements_Create",
+        "parameters": [
+          {
+            "description": "parent_id is the group to create the entitlement for.",
+            "in": "path",
+            "name": "parentId",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "ecosystem is the language ecosystem to entitle this group to.",
+            "in": "body",
+            "name": "ecosystem",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/librariesEcosystem"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/librariesEntitlement"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Entitlements"
+        ]
+      }
+    },
     "/notifications/v1/notifications": {
       "get": {
         "operationId": "Notifications_List",
@@ -3604,6 +3726,250 @@
           "VulnReports"
         ]
       }
+    },
+    "/vulnerabilities/v1/advisories": {
+      "get": {
+        "operationId": "Advisories_List",
+        "parameters": [
+          {
+            "description": "id filters by advisory ID",
+            "in": "query",
+            "name": "id",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "artifact_type filters by artifact type",
+            "in": "query",
+            "name": "artifactType",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "artifact filters by artifact name",
+            "in": "query",
+            "name": "artifactName",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "artifact_namespace filters by artifact namespace",
+            "in": "query",
+            "name": "artifactNamespace",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "component_name filters by component name",
+            "in": "query",
+            "name": "componentName",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "component_type filters by component type",
+            "in": "query",
+            "name": "componentType",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "aliases filters by alias name (CVE, GHSA, etc.)",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "aliases",
+            "required": false,
+            "type": "array"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1AdvisoriesList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Advisories"
+        ]
+      },
+      "post": {
+        "operationId": "Advisories_Create",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1Advisory"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1Advisory"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Advisories"
+        ]
+      }
+    },
+    "/vulnerabilities/v1/advisories/{advisoryId}/events": {
+      "get": {
+        "operationId": "Advisories_ListAdvisoryEvents",
+        "parameters": [
+          {
+            "description": "advisory_id filters by advisory ID",
+            "in": "path",
+            "name": "advisoryId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1AdvisoryEventList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Advisories"
+        ]
+      },
+      "post": {
+        "operationId": "Advisories_CreateAdvisoryEvent",
+        "parameters": [
+          {
+            "description": "advisory_id filters by advisory ID",
+            "in": "path",
+            "name": "advisoryId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AdvisoriesCreateAdvisoryEventBody"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1AdvisoryEvent"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Advisories"
+        ]
+      }
+    },
+    "/vulnerabilities/v1/advisories/{id}": {
+      "delete": {
+        "operationId": "Advisories_Delete",
+        "parameters": [
+          {
+            "description": "id filters by advisory ID",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {},
+              "type": "object"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Advisories"
+        ]
+      },
+      "put": {
+        "operationId": "Advisories_Update",
+        "parameters": [
+          {
+            "description": "id is the CGA identifier for the advisory",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AdvisoriesUpdateBody"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1Advisory"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Advisories"
+        ]
+      }
     }
   },
   "definitions": {
@@ -3707,6 +4073,165 @@
           "type": "integer"
         },
         "userName": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "AdvisoriesCreateAdvisoryEventBody": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/v1AdvisoryEvent",
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "AdvisoriesUpdateBody": {
+      "properties": {
+        "aliases": {
+          "items": {
+            "type": "string"
+          },
+          "title": "aliases are other vulnerability identifiers this advisory applies to",
+          "type": "array"
+        },
+        "artifactArchitecture": {
+          "title": "artifact_architecture is the architecture of the artifact",
+          "type": "string"
+        },
+        "artifactName": {
+          "title": "artifact_name is the artifact name (e.g., wheel, jar name)",
+          "type": "string"
+        },
+        "artifactNamespace": {
+          "title": "artifact_namespace identifies which set of repositories the artifact is in",
+          "type": "string"
+        },
+        "artifactType": {
+          "title": "artifact_type is the artifact type (e.g., apk, image, library)",
+          "type": "string"
+        },
+        "componentLocation": {
+          "title": "component_location is the filesystem location of the component",
+          "type": "string"
+        },
+        "componentName": {
+          "title": "component_name is the component within the subpackage",
+          "type": "string"
+        },
+        "componentScannerId": {
+          "title": "component_scanner_id is the unique ID generated by the scanner",
+          "type": "string"
+        },
+        "componentType": {
+          "title": "component_type is the language ecosystem (go-module, python, etc)",
+          "type": "string"
+        },
+        "createdAt": {
+          "format": "date-time",
+          "title": "created_at is when the advisory was created",
+          "type": "string"
+        },
+        "deletedAt": {
+          "format": "date-time",
+          "title": "deleted_at is when the advisory was deleted (if applicable)",
+          "type": "string"
+        },
+        "events": {
+          "items": {
+            "$ref": "#/definitions/v1AdvisoryEvent",
+            "type": "object"
+          },
+          "title": "events are advisory events associated with this advisory",
+          "type": "array"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "title": "updated_at is when the advisory was last updated",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "AdvisoryEventAnalysisNotPlanned": {
+      "properties": {
+        "note": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "AdvisoryEventDetection": {
+      "properties": {
+        "manual": {
+          "$ref": "#/definitions/DetectionManual"
+        },
+        "nvdapi": {
+          "$ref": "#/definitions/DetectionNVDAPI"
+        },
+        "scanv1": {
+          "$ref": "#/definitions/DetectionScanV1"
+        }
+      },
+      "type": "object"
+    },
+    "AdvisoryEventFalsePositiveDetermination": {
+      "properties": {
+        "note": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/AdvisoryEventFalsePositiveDeterminationType",
+          "title": "type is the type of false positive.\nFor details, see https://github.com/wolfi-dev/wolfictl/blob/main/pkg/configs/advisory/v2/false_positive_determination.go"
+        }
+      },
+      "type": "object"
+    },
+    "AdvisoryEventFalsePositiveDeterminationType": {
+      "default": "UNSPECIFIED",
+      "enum": [
+        "UNSPECIFIED",
+        "VULNERABILITY_RECORD_ANALYSIS_CONTESTED",
+        "COMPONENT_VULNERABILITY_MISMATCH",
+        "VULNERABLE_CODE_VERSION_NOT_USED",
+        "VULNERABLE_CODE_NOT_INCLUDED_IN_PACKAGE",
+        "VULNERABLE_CODE_NOT_IN_EXECUTION_PATH",
+        "VULNERABLE_CODE_CANNOT_BE_CONTROLLED_BY_ADVERSARY",
+        "INLINE_MITIGATIONS_EXIST"
+      ],
+      "type": "string"
+    },
+    "AdvisoryEventFixNotPlanned": {
+      "properties": {
+        "note": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "AdvisoryEventFixed": {
+      "properties": {
+        "fixedVersion": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "AdvisoryEventPendingUpstreamFix": {
+      "properties": {
+        "note": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "AdvisoryEventTruePositiveDetermination": {
+      "properties": {
+        "note": {
           "type": "string"
         }
       },
@@ -3920,6 +4445,46 @@
       "type": "object"
     },
     "DetectionDetectionTypeScanV1": {
+      "properties": {
+        "componentId": {
+          "type": "string"
+        },
+        "componentLocation": {
+          "type": "string"
+        },
+        "componentName": {
+          "type": "string"
+        },
+        "componentType": {
+          "type": "string"
+        },
+        "componentVersion": {
+          "type": "string"
+        },
+        "scanner": {
+          "type": "string"
+        },
+        "subpackageName": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DetectionManual": {
+      "type": "object"
+    },
+    "DetectionNVDAPI": {
+      "properties": {
+        "cpeFound": {
+          "type": "string"
+        },
+        "cpeSearched": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DetectionScanV1": {
       "properties": {
         "componentId": {
           "type": "string"
@@ -5070,7 +5635,6 @@
       "type": "string"
     },
     "ecosystemsEntitlement": {
-      "description": "Entitlement maps an org to an library ecosystem they are entitled to pull.",
       "properties": {
         "ecosystem": {
           "$ref": "#/definitions/ecosystemsEcosystem",
@@ -5081,6 +5645,7 @@
           "type": "string"
         }
       },
+      "title": "Entitlement maps an org to an library ecosystem they are entitled to pull.\nThis service is deprecated. Use chainguard.platform.libraries.Entitlement",
       "type": "object"
     },
     "ecosystemsEntitlementList": {
@@ -5093,6 +5658,7 @@
           "type": "array"
         }
       },
+      "title": "This service is deprecated. Use chainguard.platform.libraries.EntitlementList",
       "type": "object"
     },
     "eventsIdentity": {
@@ -5159,6 +5725,25 @@
             "type": "object"
           },
           "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "googlerpcStatus": {
+      "properties": {
+        "code": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "details": {
+          "items": {
+            "$ref": "#/definitions/protobufAny",
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "message": {
+          "type": "string"
         }
       },
       "type": "object"
@@ -5502,6 +6087,43 @@
         "singleUse": {
           "description": "single_use indicates whether or not the invite will be deleted after a user joins the group.",
           "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "librariesEcosystem": {
+      "default": "UNKNOWN",
+      "description": "Ecosystem represents the language libraries an org can be entitled to.",
+      "enum": [
+        "UNKNOWN",
+        "JAVA",
+        "PYTHON",
+        "JAVASCRIPT"
+      ],
+      "type": "string"
+    },
+    "librariesEntitlement": {
+      "description": "Entitlement maps an org to an library ecosystem they are entitled to pull.",
+      "properties": {
+        "ecosystem": {
+          "$ref": "#/definitions/librariesEcosystem",
+          "description": "ecosystem is the language ecosystem this entitlement grants access to."
+        },
+        "id": {
+          "description": "id is the uidp of the entitlement, a child of a group.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "librariesEntitlementList": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/librariesEntitlement",
+            "type": "object"
+          },
+          "type": "array"
         }
       },
       "type": "object"
@@ -6010,13 +6632,13 @@
       "type": "string"
     },
     "registryEolGracePeriodStatus": {
-      "default": "UNDEFINED",
+      "default": "GRACE_NOT_ELIGIBLE",
       "enum": [
-        "UNDEFINED",
-        "INACTIVE",
-        "ACTIVE",
-        "EXPIRED",
-        "BROKEN"
+        "GRACE_NOT_ELIGIBLE",
+        "GRACE_ELIGIBLE",
+        "GRACE_ACTIVE",
+        "GRACE_BROKEN",
+        "GRACE_EXPIRED"
       ],
       "type": "string"
     },
@@ -6035,20 +6657,21 @@
           "description": "id, identifier of this Tag, a UIDP under a Repo.",
           "type": "string"
         },
-        "mainPackage": {
-          "$ref": "#/definitions/registryPackageVersion"
-        },
         "mainPackageName": {
           "title": "name of the main package",
           "type": "string"
         },
         "mainPackageVersion": {
-          "title": "version of the main package",
-          "type": "string"
+          "$ref": "#/definitions/registryPackageVersion",
+          "title": "version of the main package"
         },
         "name": {
           "description": "name, the unique name of the Tag.",
           "type": "string"
+        },
+        "tagStatus": {
+          "$ref": "#/definitions/registryEolTagStatus",
+          "title": "status of the tag"
         }
       },
       "type": "object"
@@ -6064,6 +6687,15 @@
         }
       },
       "type": "object"
+    },
+    "registryEolTagStatus": {
+      "default": "TAG_ACTIVE",
+      "enum": [
+        "TAG_ACTIVE",
+        "TAG_IN_GRACE",
+        "TAG_INACTIVE"
+      ],
+      "type": "string"
     },
     "registryGetFeaturesResponse": {
       "properties": {
@@ -7119,6 +7751,167 @@
         }
       },
       "type": "object"
+    },
+    "v1AdvisoriesList": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/v1Advisory",
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "v1Advisory": {
+      "properties": {
+        "aliases": {
+          "items": {
+            "type": "string"
+          },
+          "title": "aliases are other vulnerability identifiers this advisory applies to",
+          "type": "array"
+        },
+        "artifactArchitecture": {
+          "title": "artifact_architecture is the architecture of the artifact",
+          "type": "string"
+        },
+        "artifactName": {
+          "title": "artifact_name is the artifact name (e.g., wheel, jar name)",
+          "type": "string"
+        },
+        "artifactNamespace": {
+          "title": "artifact_namespace identifies which set of repositories the artifact is in",
+          "type": "string"
+        },
+        "artifactType": {
+          "title": "artifact_type is the artifact type (e.g., apk, image, library)",
+          "type": "string"
+        },
+        "componentLocation": {
+          "title": "component_location is the filesystem location of the component",
+          "type": "string"
+        },
+        "componentName": {
+          "title": "component_name is the component within the subpackage",
+          "type": "string"
+        },
+        "componentScannerId": {
+          "title": "component_scanner_id is the unique ID generated by the scanner",
+          "type": "string"
+        },
+        "componentType": {
+          "title": "component_type is the language ecosystem (go-module, python, etc)",
+          "type": "string"
+        },
+        "createdAt": {
+          "format": "date-time",
+          "title": "created_at is when the advisory was created",
+          "type": "string"
+        },
+        "deletedAt": {
+          "format": "date-time",
+          "title": "deleted_at is when the advisory was deleted (if applicable)",
+          "type": "string"
+        },
+        "events": {
+          "items": {
+            "$ref": "#/definitions/v1AdvisoryEvent",
+            "type": "object"
+          },
+          "title": "events are advisory events associated with this advisory",
+          "type": "array"
+        },
+        "id": {
+          "title": "id is the CGA identifier for the advisory",
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "title": "updated_at is when the advisory was last updated",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "v1AdvisoryEvent": {
+      "properties": {
+        "analysisNotPlanned": {
+          "$ref": "#/definitions/AdvisoryEventAnalysisNotPlanned"
+        },
+        "author": {
+          "title": "author is the person who created this event",
+          "type": "string"
+        },
+        "detection": {
+          "$ref": "#/definitions/AdvisoryEventDetection"
+        },
+        "falsePositiveDetermination": {
+          "$ref": "#/definitions/AdvisoryEventFalsePositiveDetermination"
+        },
+        "findings": {
+          "format": "byte",
+          "title": "findings is the JSON-encoded struct containing vulnerability findings",
+          "type": "string"
+        },
+        "fixNotPlanned": {
+          "$ref": "#/definitions/AdvisoryEventFixNotPlanned"
+        },
+        "fixed": {
+          "$ref": "#/definitions/AdvisoryEventFixed"
+        },
+        "id": {
+          "title": "id is the CGA identifier this event belongs to",
+          "type": "string"
+        },
+        "issue": {
+          "title": "issue is the original CVE Dashboard issue",
+          "type": "string"
+        },
+        "pendingUpstreamFix": {
+          "$ref": "#/definitions/AdvisoryEventPendingUpstreamFix"
+        },
+        "reviewer": {
+          "title": "reviewer is the person who reviewed this event",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/v1AdvisoryEventStatus",
+          "title": "status is the status of the review"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "truePositiveDetermination": {
+          "$ref": "#/definitions/AdvisoryEventTruePositiveDetermination"
+        }
+      },
+      "type": "object"
+    },
+    "v1AdvisoryEventList": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/v1AdvisoryEvent",
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "v1AdvisoryEventStatus": {
+      "default": "PENDING",
+      "enum": [
+        "PENDING",
+        "APPROVED",
+        "REQUEST_CHANGES",
+        "REJECTED"
+      ],
+      "title": "Status represents the possible states of review for an advisory event",
+      "type": "string"
     }
   },
   "produces": null,
@@ -7164,6 +7957,9 @@
       "name": "RoleBindings"
     },
     {
+      "name": "Entitlements"
+    },
+    {
       "name": "Notifications"
     },
     {
@@ -7192,6 +7988,9 @@
     },
     {
       "name": "VulnReports"
+    },
+    {
+      "name": "Advisories"
     }
   ]
 }
