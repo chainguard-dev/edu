@@ -8,7 +8,7 @@ aliases:
 type: "article"
 description: "A walkthrough of verifying Chainguard Containers and metadata signatures with Cosign."
 date: 2024-03-18T08:59:52-07:00
-lastmod: 2025-05-27T08:59:52-07:00
+lastmod: 2025-06-05T08:59:52-07:00
 draft: false
 tags: ["Chainguard Containers", "Product"]
 images: []
@@ -188,6 +188,17 @@ cosign verify-attestation \
   --certificate-identity-regexp="https://issuer.enforce.dev/(${CATALOG_SYNCER}|${APKO_BUILDER})" \
   cgr.dev/${PARENT}/${IMAGE} | jq
 ```
+
+## Note About the Examples in this Guide
+
+The examples in this guide invariably pass command output through `jq`, a JSON processor. This is helpful, as it makes the output more easily readable.
+
+However, if you're running these commands in a script, this can cause problems if validation fails. For example, if Cosign returns an error but it is passed into `jq`, then `jq` will overwrite the exit codes from Cosign, causing them to be silently ignored. 
+
+To avoid this problem, you could include either or both of the following `set` options in your script:
+
+* `set -e` ensures that your script exits with an error if any of the commands in your script exit with an error.
+* `set -o pipefail` ensures that status codes from Cosign aren't masked when piped to jq.
 
 
 ## Learn more
