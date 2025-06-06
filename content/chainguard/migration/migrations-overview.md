@@ -51,20 +51,6 @@ Although development variants are still more secure than most popular container 
 
 Refer to our guide on [Chainguard's Container variants](/chainguard/chainguard-images/about/differences-development-production/) for more information on development containers.
 
-## General Migration Checklist
-
-- [ ] &nbsp; Check for vulnerabilities in your existing image before beginning migration. [Grype](https://github.com/anchore/grype) is a free vulnerability scanner if needed.
-- [ ] &nbsp; Check the image’s overview page on the [Containers Directory](https://images.chainguard.dev) for usage details and any compatibility remarks.
-- [ ] &nbsp; Replace your current base image with a `-dev` variant as a starting point.
-- [ ] &nbsp; Add a `USER root` statement before package installations or other commands that must run as an administrative user.
-- [ ] &nbsp; Switch back to a nonroot user so that the image does not run as root by default. Many Chainguard Containers that operate as a non-root user use the user ID (UID) 65532. But you must check the image you are using. It is recommended to reference the UID rather than the username, as every image may have a different username, but the UID remains consistent as 65532.
-- [ ] &nbsp; Chaingaurd Containers use APK tooling, so replace any instances of `apt install` (or equivalent) with `apk add`.
-- [ ] &nbsp; Use `apk search` on a running container or the [APK Explorer](https://apk.dag.dev/) tool to identify packages you need – some commands might be available with different names or bundled with different packages.
-- [ ] &nbsp; When copying application files to the image, make sure proper permissions are set.
-- [ ] &nbsp; Build and test your image to validate your setup.
-- [ ] &nbsp; Optional: migrate your setup to a multi-stage build that uses a distroless image variant as runtime. Our [Getting Started with Distroless](/chainguard/chainguard-images/about/getting-started-distroless/) guide has detailed information on how to work with distroless container images and multi-stage builds.
-
-
 ## Before Migrating
 
 Before you begin actively migrating to Chainguard Containers, review the images that your organization has access to and determine which teams and applications will be using each image. Notify the teams involved in the migration process so they can begin preparing. For teams that are new to Chainguard Containers, we recommend taking the online self-paced course, [Linky’s Guide to Chainguard Containers](https://courses.chainguard.dev/path/linkys-guide-to-chainguard-images).
@@ -177,7 +163,9 @@ Lastly, you might also find help in the [Chainguard Containers FAQs](/chainguard
 
 Chainguard Academy hosts a number of resources that can be useful when migrating to Chainguard Containers.
 
-As mentioned previously, most new users of Chainguard Containers would benefit from following our guide on [How to Port a Sample Application to Chainguard Containers](/chainguard/migration/porting-apps-to-chainguard/#tldr-porting-key-points). In addition to this guide, Chainguard Academy includes several types of resources that can be useful when migrating to Chainguard Containers:
+As mentioned previously, most new users of Chainguard Containers would benefit from following our guide on [How to Port a Sample Application to Chainguard Containers](/chainguard/migration/porting-apps-to-chainguard/#tldr-porting-key-points). You may also find our [Migration Best Practices and Checklist](/chainguard/migration/migration-checklist/) guide to be helpful.
+
+In addition to these, Chainguard Academy includes several types of resources that can be useful when migrating to Chainguard Containers:
 
 * **Compatibility Guides** — These guides highlight the differences between Chainguard Containers and Alpine third-party images.
 * **Migration Guides** — These provide guidance migrating workloads based on a specific language or platform to use Chainguard Containers.

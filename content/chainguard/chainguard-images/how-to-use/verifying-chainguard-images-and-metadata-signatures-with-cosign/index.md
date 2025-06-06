@@ -189,6 +189,14 @@ cosign verify-attestation \
   cgr.dev/${PARENT}/${IMAGE} | jq
 ```
 
+## Note About the Examples in this Guide
+
+The examples in this guide invariably pass command output through `jq`, a JSON processor. This is helpful, as it makes the output more easily readable.
+
+However, if you're running these commands in a script, this can cause problems if validation fails. For example, if `cosign` returns an error but it is passed into `jq`, then `jq` will overwrite the exit codes from `cosign`, causing them to be silently ignored. 
+
+If you choose to run these commands in a script, you can include `set -o pipefail` within the script to ensure that the entire script will fail if validation fails. Additionally, if you run the script with `set -e` you can ensure that the `cosign` output isn't piped to `jq`.
+
 
 ## Learn more
 
