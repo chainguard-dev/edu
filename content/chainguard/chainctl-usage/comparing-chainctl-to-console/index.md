@@ -158,4 +158,4 @@ This is a feature unique to the Console and is described in detail in [Using CVE
 
 ### Compare Two Chainguard Containers With chainctl
 
-This is a feature unique to `chainctl` and is described in detail in [How To Compare Chainguard Containers with chainctl](/chainguard/chainctl-usage/comparing-images.md).
+This is a feature unique to `chainctl` and is described in detail in [How To Compare Chainguard Containers with chainctl](/chainguard/chainctl-usage/comparing-images/).
