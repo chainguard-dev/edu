@@ -193,9 +193,12 @@ cosign verify-attestation \
 
 The examples in this guide invariably pass command output through `jq`, a JSON processor. This is helpful, as it makes the output more easily readable.
 
-However, if you're running these commands in a script, this can cause problems if validation fails. For example, if `cosign` returns an error but it is passed into `jq`, then `jq` will overwrite the exit codes from `cosign`, causing them to be silently ignored. 
+However, if you're running these commands in a script, this can cause problems if validation fails. For example, if Cosign returns an error but it is passed into `jq`, then `jq` will overwrite the exit codes from Cosign, causing them to be silently ignored. 
 
-If you choose to run these commands in a script, you can include `set -o pipefail` within the script to ensure that the entire script will fail if validation fails. Additionally, if you run the script with `set -e` you can ensure that the `cosign` output isn't piped to `jq`.
+To avoid this problem, you could include either or both of the following `set` options in your script:
+
+* `set -e` ensures that your script exits with an error if any of the commands in your script exit with an error.
+* `set -o pipefail` ensures that status codes from Cosign aren't masked when piped to jq.
 
 
 ## Learn more
