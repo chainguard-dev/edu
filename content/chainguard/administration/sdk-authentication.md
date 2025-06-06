@@ -12,9 +12,9 @@ toc: true
 weight: 065
 ---
 
-There are several ways for users to interact with the Chainguard platform, with [`chainctl`](/chainguard/chainctl/) — Chainguard's command-line tool — and the [Chainguard Console](https://console.chainguard.dev/overview) being the two most commonly-used methods. However, both of these require a human user to authenticate, and aren't useful for working with Chainguard resources programmatically.
+There are several ways for users to interact with the Chainguard platform, with [`chainctl`](/chainguard/chainctl/) (Chainguard's command-line tool) and the [Chainguard Console](https://console.chainguard.dev/overview) (Chainguard's web interface) being the two most commonly-used methods. However, both of these require a human user to authenticate, and aren't useful for working with Chainguard resources programmatically.
 
-The [Chainguard SDK](https://github.com/chainguard-dev/sdk) serves to ease integration with the Chainguard platform. This guide highlights two examples from the SDK repository that show how to authenticate to the [Chainguard registry](/chainguard/chainguard-registry/overview/) using the `chainguard.dev/sdk/auth` and `chainguard.dev/sdk/auth/ggcr` packages. The first has you authenticate as a local user, while the second has you authenticate as an [assumed identity](/chainguard/administration/assumable-ids/assumable-ids/). 
+The [Chainguard SDK](https://github.com/chainguard-dev/sdk) serves to ease programmatic integration with the Chainguard platform. This guide highlights two examples from the SDK repository that show how to authenticate to the [Chainguard registry](/chainguard/chainguard-registry/overview/) using the `chainguard.dev/sdk/auth` and `chainguard.dev/sdk/auth/ggcr` packages. The first has you authenticate as a local user, while the second has you authenticate as an [assumed identity](/chainguard/administration/assumable-ids/assumable-ids/). 
 
 For more information about the examples highlighted in this guide, refer to the [`examples` folder](https://github.com/chainguard-dev/sdk/tree/main/examples/registry) in the SDK repository.
 
@@ -147,7 +147,7 @@ This example is similar to the previus one, but has the following differences:
 * It creates a constant named `sub`. In this example, the `sub` constant's value is set to the UIDP of a Chainguard identity named `all-users` which can be assumed by any Chainguard user.
 * It takes the token retrieved with the `chainctl` binary and exchanges it for the assumable identity to make a call to the Chainguard registry in order retrieve some information about the supplied image. The example uses the `cgr.dev/chainguard/static` Starter image.
 
-To run this example, save the `main.go` file to your local machine. Then run the following `go mod init` and `go mod tidy` commands:
+To run this example, First, delete the previous example's `main.go` file if you haven't alraedy. Then save the `exchange` example's `main.go` file to your local machine. Then run the following `go mod init` and `go mod tidy` commands:
 
 ```shell
 go mod init github.com/chainguard-dev/sdk && go mod tidy
@@ -176,20 +176,7 @@ Again, this example doesn't really reflect a real-world use case. Users will gen
 
 You can experiment with updating this example to authenticate by assuming an identity you created and retrieve the digest of a container image from your organization's private repository within the Chainguard registry.
 
-To do so, you will need an appropriately-configured assumable identity. You can create an assumable identity with the `chainctl iam identities create` command, as with the following example. Be aware that this example creates an identity that will be broadly accessible by anyone in your organization:
-
-```shell
-chainctl iam identities create my-identity \
---parent=$ORGANIZATION \
---identity-issuer=https://issuer.enforce.dev \
---subject-pattern="*" \
---role=registry.pull,apk.pull \
---audience=https://console-api.enforce.dev
-```
-
-Be sure to replace `$ORGANIZATION` with the name of your organization.
-
-You can later delete this example identity by running `chainctl iam identities remove my-identity`.
+To do so, you will need an appropriately-configured assumable identity. You can create an assumable identity with the [`chainctl iam identities create` command](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create/).
 
 
 ## Learn More
