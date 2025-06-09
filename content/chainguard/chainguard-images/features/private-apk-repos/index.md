@@ -181,7 +181,7 @@ cat > Dockerfile <<EOF
 FROM cgr.dev/$ORGANIZATION/$IMAGE
 
 USER root
-RUN echo https://apk.cgr.dev/chainguard.edu > /etc/apk/repositories
+RUN echo https://apk.cgr.dev/$ORGANIZATION > /etc/apk/repositories
 RUN --mount=type=secret,id=cgr-token sh -c "export HTTP_AUTH=basic:apk.cgr.dev:user:\$(cat /run/secrets/cgr-token) apk update && apk add wget"
 USER nonroot
 EOF
