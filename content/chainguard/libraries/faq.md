@@ -16,8 +16,8 @@ toc: true
 
 ## What security issues can Chainguard Libraries prevent?
 
-As detailed in the [background](/chainguard/libraries/overview/#background) and
-[introduction](/chainguard/libraries/overview/#introduction), Chainguard
+As detailed on the [background](/chainguard/libraries/overview/#background) and
+[introduction](/chainguard/libraries/overview/#introduction) pages, Chainguard
 Libraries are built directly from source in the Chainguard Factory and the
 resulting binaries are directly provided to you by Chainguard. Chainguard
 operates the whole supply chain for the package lifecycle as one reliable,
@@ -31,20 +31,25 @@ supply chain attack surface points:
 * Library distribution
 * Library consumption
 
-More information about the supply chain stages is available on the [Supply chain
+More information about these stages in the software supply chain is available on the [Supply chain
 Levels for Software Artifacts (SLSA) website](https://slsa.dev/).
 
 The following examples are issues, attacks, and compromises that affect stages
 of the software supply chain for libraries across different language ecosystems:
 
+### Malicious GlueStack Packages
+
+* This May 2025 attack uploaded compromised packages to PyPI and npm that enable remote shell access and uploading files to compromised machines
+* Chainguard Libraries would have protected against this attack. First, the packages have invalid upstream source URLs so there was no source repository. In the case of the lone exception (a package with a valid source repository link), no code was present for Chainguard to build a valid package.
+- [The Hacker News](https://thehackernews.com/2025/06/new-supply-chain-malware-operation-hits.html) blog post on the attack
+
 ### Ultralytics Python project
 
-* Attackers compromised Ultralytics' GitHub Actions workflow, injecting malware
+* Attackers compromised the GitHub Actions workflows for the Ultralytics repository, injecting malware
   into PyPI package releases.
-* Malicious versions proliferated (8.3.41, 8.3.42, 8.3.45, 8.3.46).
-* Affected a widely-used AI library with ~60 million downloads that included a cryptominer.
-* No source code was included: the use of Chainguard Libraries, based on source
-  code, would therefore have prevented the attack.
+* Attackers pushed out four malicious versions of the Ultralytics YOLO project over the course of a week (8.3.41, 8.3.42, 8.3.45, 8.3.46).
+* Ultralytics YOLO is a widely-used fast object detection neural network library downloaded about five million times per month. Users affected during this period were infected with cryptomining malware.
+* Chainguard Libraries would have prevented this attack by building the project from clean source. No source code was modified by attackers during this incident.
 * See also [PyPI attack analysis](https://blog.pypi.org/posts/2024-12-11-ultralytics-attack-analysis/) and
   [bleepingcomputer blog post](https://www.bleepingcomputer.com/news/security/ultralytics-ai-model-hijacked-to-infect-thousands-with-cryptominer/).
 
@@ -52,9 +57,8 @@ of the software supply chain for libraries across different language ecosystems:
 
 * Hackers gained access to the NPM registry by compromising a developer authentication token.
 * Token used to upload a compromised version of Lottie Player.
-* The malicious package would drain crypto wallet funds.
-* No source code was included: the use of Chainguard Libraries, based on source
-  code, would have prevented the attack.
+* The malicious package drained crypto wallet funds.
+* Chainguard Libraries would have prevented this attack by building the project from clean source. No source code was modified by attackers during this incident.
 * See also [npm package Lottie-Player compromised in supply chain attack, Nov 2024](https://www.infosecurity-magazine.com/news/npm-package-lottieplayer-supply/).
 
 ### MavenGate
@@ -66,7 +70,7 @@ of the software supply chain for libraries across different language ecosystems:
 * MavenGate relied on the use of multiple repositories and any attack with the
   proposed mechanism would not publish source code. Chainguard Libraries use
   replaces other repositories and the use of Chainguard Libraries, based on
-  source code, would have prevented any attack.
+  building from the original source, would have prevented an attack using this approach
 * See also [_The Hacker News_ article](https://thehackernews.com/2024/01/hackers-hijack-popular-java-and-android.html),
   [_Oversecured_ blog post](https://blog.oversecured.com/Introducing-MavenGate-a-supply-chain-attack-method-for-Java-and-Android-applications/),
   and [Sonatype's take as Maven Central
@@ -74,17 +78,15 @@ of the software supply chain for libraries across different language ecosystems:
 
 ### XZ Utils backdoor
 
-* Example of a supply chain issue with social engineering for maintainer rights
-* Very complex backdoor that consists of multiple stages with potential to be
-  very widespread and effective.
+* Example of a supply chain attack leveraging social engineering by a patient actor
+* Sophisticated backdoor that had remote code execution capability and the potential to affect many systems
 * Vulnerability was patched within hours of disclosure by reverting to a
   previous version known to be safe.
 * Malicious source tarball and binaries were distributed successfully, but
   source code repository was not compromised.
-* Since no source code repository was compromised as similar attack on a library
-  is prevented by Chainguard Libraries
-* XZ Utils is written in C and therefore not part of Chainguard Libraries,
-  however Chainguard Containers include XZ Utils packages. These are also built
+* Since no source code was compromised, a similar attack on a protected library ecosystem
+  would be prevented by Chainguard Libraries
+* XZ Utils is written in C and therefore not available as an ecosystem protected by Chainguard Libraries. However, Chainguard Containers include XZ Utils packages. These are also built
   from source and are not affected.
 * See also [Wikipedia article](https://en.wikipedia.org/wiki/XZ_Utils_backdoor)
   and [official page from the XZ data compression](https://tukaani.org/xz-backdoor/).
