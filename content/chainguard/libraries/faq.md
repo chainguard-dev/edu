@@ -73,7 +73,7 @@ of the software supply chain for libraries across different language ecosystems:
 ### XZ Utils backdoor
 
 * Example of a supply chain attack leveraging social engineering by a patient actor
-* Sophisticated backdoor that had remote code exectuion capability and the potential to affect many systems (assigned a CVEE score of 10)
+* Sophisticated backdoor that had remote code execution capability and the potential to affect many systems (assigned a CSSS score of 10)
 * Vulnerability was patched within hours of disclosure by reverting to a
   previous version known to be safe.
 * Malicious source tarball and binaries were distributed successfully, but
