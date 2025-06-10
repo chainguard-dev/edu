@@ -37,6 +37,12 @@ Levels for Software Artifacts (SLSA) website](https://slsa.dev/).
 The following examples are issues, attacks, and compromises that affect stages
 of the software supply chain for libraries across different language ecosystems:
 
+### Malicious GlueStack Packages
+
+* This May 2025 attack uploaded compromised packages to PyPI and npm that enable remote shell access and uploading files to compromised machines
+* Chainguard Libraries would have protected against this attack. First, the packages have invalid upstream source URLs so there was no source repository. In the case of the lone exception (a package with a valid source repository link), no code was present for Chainguard to build a valid package.
+- [The Hacker News](https://thehackernews.com/2025/06/new-supply-chain-malware-operation-hits.html) blog post on the attack
+
 ### Ultralytics Python project
 
 * Attackers compromised the GitHub Actions workflows for the Ultralytics repository, injecting malware
