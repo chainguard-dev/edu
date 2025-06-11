@@ -4,7 +4,7 @@ linktitle: "EOL Grace Period"
 type: "article"
 description: "Understanding Chainguard's end-of-life (EOL) grace period."
 date: 2025-05-14T08:49:31+00:00
-lastmod: 2024-05-14T08:49:31+00:00
+lastmod: 2024-06-11T08:49:31+00:00
 draft: false
 tags: ["Chainguard Containers", "Product"]
 images: []
@@ -41,7 +41,7 @@ As of this writing, a container image must meet four key requirements to be elig
 1. It is listed as part of the current available or EOL versions for a version stream package present in our catalog
 2. Has [multiple release tracks](/chainguard/chainguard-images/about/versions/#multiple-releases-maintained-by-a-given-open-source-project)
 3. Is within six months of their official EOL date (as declared by upstream project maintainers)
-4. Its release and EOL dates are available on the [`endoflife.date`](https://endoflife.date/) website.
+4. Its release and EOL dates are available on the [`endoflife.date`](https://endoflife.date/) website
 
 Be aware that the following are not covered by Chainguard's EOL grace period:
 
@@ -85,7 +85,7 @@ Although the Chainguard Console is a useful interface, many customers would pref
 
 The API endpoint you can reach for EOL data is [`Registry_ListEolTags`](/chainguard/administration/api/#/operations/Registry_ListEolTags). This section outlines how you can use `curl` to make a call to this API endpoint.
 
-To follow along, you'll need to know the UIDP of the container image repository you'd like to retrieve end-of-life data for. You can find this with the following `chainctl` command:
+To follow along, you'll need to know the unique ID path (UIDP) of the container image repository you'd like to retrieve end-of-life data for. You can find this with the following `chainctl` command:
 
 ```shell
 chainctl images repos list --parent $ORGANIZATION -o wide
@@ -97,7 +97,7 @@ This command will return a table showing the UIDPs of every Chainguard Container
 
 ```
                 ID                 |      REGISTRY       |   REPO   |        BUNDLES        |    TIER 	 
------------------------------------+------------------------+----------+-----------------------+--------------
+-----------------------------------+---------------------+----------+-----------------------+--------------
   ORGANIZATION_ID/165aEXAMPLE5b7ae | cgr.dev/example.com | nginx    | application, featured | APPLICATION  
   ORGANIZATION_ID/4408EXAMPLE4131a | cgr.dev/example.com | node     | base                  | UNKNOWN 	 
   ORGANIZATION_ID/37a2EXAMPLE0d419 | cgr.dev/example.com | python   | base, featured        | UNKNOWN 	 
@@ -126,10 +126,8 @@ This command will return EOL data for each image within the repository, which wi
     "id": "ORGANIZATION_ID/4408EXAMPLE4131a/9ef6EXAMPLE6265c",
     "name": "18.20.8-slim",
     "mainPackageName": "nodejs",
-    "mainPackageVersion": "18",
-    "graceStatus": "ACTIVE",
-    "gracePeriodExpiryDate": "2025-10-30T00:00:00Z",
-    "mainPackage": {
+    "tagStatus": "TAG_IN_GRACE",
+    "mainPackageVersion": {
       "eolDate": "2025-04-30",
       "exists": true,
       "fips": false,
@@ -137,7 +135,9 @@ This command will return EOL data for each image within the repository, which wi
       "releaseDate": "2022-04-19",
       "version": "18",
       "eolBroken": false
-    }
+    },
+    "graceStatus": "GRACE_ACTIVE",
+    "gracePeriodExpiryDate": "2025-10-30T00:00:00Z"
   },
 
 . . .
@@ -150,13 +150,19 @@ This example output is derived from an API call made on a `node` image repositor
 
 * `id`: this is the UID of the specific image this block of data represents
 * `name`: the given container image's tag
+* `tagStatus`: whether the tag can support a grace period, with the following possible statuses:
+    * `TAG_ACTIVE`: the tag is continuing to be built, but is not in a grace period
+    * `TAG_IN_GRACE`: tag is in a grace period
+    * `TAG_INACTIVE`: the tag is not in a grace period and no longer being built
+* `mainPackageVersion`: this section shows some information about the main package itself:
+    * `eolDate`: the date on which the image's main package reached EOL
+    * `lts`: the date on which this version of the main package entered its long-term support period
+    * `releaseDate`: the date on which the main package's version was released
 * `graceStatus`: the status of whether or not the given container image is in an active grace period
-    * `ACTIVE`, as shown in this example, indicates the image is in an active grace period
-    * any images not currently in a grace period would show `INACTIVE`
+    * `GRACE_ACTIVE`, as shown in this example, indicates the image is in an active grace period
+    * any images that are not currently in a grace period but may be in the future will show `GRACE_ELIGIBLE`
+    * any container images that will never enter a grace period will show `GRACE_NOT_ELIGIBLE`
 * `gracePeriodExpiryDate`: the date on which the image's grace period will end
-* `eolDate`: the date on which the image's main package reached EOL
-* `lts`: the date on which this version of the main package entered its long-term support period
-* `releaseDate`: the date on which the main package's version was released
 
 Of course, you won't use `curl` to interact with the Chainguard API in most scenarios. Instead, you'll likely have some kind of application that can ingest and process this EOL data. For example, your organization could create a Slackbot that fetches data from the Chainguard EOL grace period API and posts messages about EOL tags approaching their grace period expiration to a specified Slack channel. Chainguard's [API documentation](/chainguard/administration/api/) includes request samples for many languages and platforms, including Go, Python, and Java.
 
