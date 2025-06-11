@@ -4,7 +4,7 @@ linktitle: "EOL Grace Period"
 type: "article"
 description: "Understanding Chainguard's end-of-life (EOL) grace period."
 date: 2025-05-14T08:49:31+00:00
-lastmod: 2024-05-14T08:49:31+00:00
+lastmod: 2024-06-11T08:49:31+00:00
 draft: false
 tags: ["Chainguard Containers", "Product"]
 images: []
@@ -41,7 +41,7 @@ As of this writing, a container image must meet four key requirements to be elig
 1. It is listed as part of the current available or EOL versions for a version stream package present in our catalog
 2. Has [multiple release tracks](/chainguard/chainguard-images/about/versions/#multiple-releases-maintained-by-a-given-open-source-project)
 3. Is within six months of their official EOL date (as declared by upstream project maintainers)
-4. Its release and EOL dates are available on the [`endoflife.date`](https://endoflife.date/) website.
+4. Its release and EOL dates are available on the [`endoflife.date`](https://endoflife.date/) website
 
 Be aware that the following are not covered by Chainguard's EOL grace period:
 
@@ -85,7 +85,7 @@ Although the Chainguard Console is a useful interface, many customers would pref
 
 The API endpoint you can reach for EOL data is [`Registry_ListEolTags`](/chainguard/administration/api/#/operations/Registry_ListEolTags). This section outlines how you can use `curl` to make a call to this API endpoint.
 
-To follow along, you'll need to know the UIDP of the container image repository you'd like to retrieve end-of-life data for. You can find this with the following `chainctl` command:
+To follow along, you'll need to know the unique ID path (UIDP) of the container image repository you'd like to retrieve end-of-life data for. You can find this with the following `chainctl` command:
 
 ```shell
 chainctl images repos list --parent $ORGANIZATION -o wide
@@ -97,7 +97,7 @@ This command will return a table showing the UIDPs of every Chainguard Container
 
 ```
                 ID                 |      REGISTRY       |   REPO   |        BUNDLES        |    TIER 	 
------------------------------------+------------------------+----------+-----------------------+--------------
+-----------------------------------+---------------------+----------+-----------------------+--------------
   ORGANIZATION_ID/165aEXAMPLE5b7ae | cgr.dev/example.com | nginx    | application, featured | APPLICATION  
   ORGANIZATION_ID/4408EXAMPLE4131a | cgr.dev/example.com | node     | base                  | UNKNOWN 	 
   ORGANIZATION_ID/37a2EXAMPLE0d419 | cgr.dev/example.com | python   | base, featured        | UNKNOWN 	 
