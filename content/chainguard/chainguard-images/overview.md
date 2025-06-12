@@ -12,7 +12,7 @@ images: []
 menu:
   docs:
     parent: "chainguard-images"
-weight: 010
+weight: 005
 toc: true
 ---
 
