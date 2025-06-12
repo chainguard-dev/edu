@@ -1,16 +1,18 @@
 ---
-title: "Network Requirements"
+title: "Chainguard Containers Network Requirements"
 linktitle: "Network Requirements"
-lead: "Using Chainguard Containers with firewalls, access control lists, and proxies"
+aliases:
+- /chainguard/administration/network-requirements/
+lead: "Using Chainguard Containers with firewalls, access control lists, and proxies."
 type: "article"
-description: "Using Chainguard Containers with firewalls, access control lists, and proxies"
+description: "Using Chainguard Containers with firewalls, access control lists, and proxies."
 date: 2023-09-08T08:49:31+00:00
 lastmod: 2024-11-20T15:22:20+01:00
 draft: false
 tags: ["Product", "Reference"]
 images: []
 toc: true
-weight: 001
+weight: 010
 ---
 
 This document provides an overview of network requirements for using [Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement). To use Chainguard tools and Containers in environments with firewalls, VPNs, and IDS/IPS systems, you will need to add some rules to allow traffic into and out of your networks.
