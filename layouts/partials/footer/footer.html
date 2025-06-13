@@ -1,20 +1,42 @@
 <footer>
   <div class="container footer">
     <div class="footer-column-container">
-      {{ range .Site.Menus.footer }}
-      <div class="footer-column">
-        {{ if .HasChildren}}
-        <div class="footer-title">{{ .Name }}</div>
-        <div class="d-flex flex-column gap-1">
-          {{ range .Children -}}
-          <a href="{{ .URL }}" class="footer-item">{{ .Name }}<span>{{ .Pre | safeHTML }}</span></a>
+      <div class="footer-column-left">
+        {{ range .Site.Menus.footer }}
+        {{ if ne .Identifier "resources" }}
+        <div class="footer-column" data-identifier="{{ .Identifier }}">
+          {{ if .HasChildren}}
+          <div class="footer-title">{{ .Name }}</div>
+          <div class="d-flex flex-column gap-1">
+            {{ range .Children -}}
+            <a href="{{ .URL }}" class="footer-item">{{ .Name }}<span>{{ .Pre | safeHTML }}</span></a>
+            {{ end }}
+          </div>
+          {{ else }}
+          <div><a class="footer-item" href="{{ .URL }}"> {{ .Name }}</a></div>
           {{ end }}
         </div>
-        {{ else }}
-        <div><a class="footer-item" href="{{ .URL }}"> {{ .Name }}</a></div>
+        {{ end }}
         {{ end }}
       </div>
-      {{ end }}
+      <div class="footer-column-right">
+        {{ range .Site.Menus.footer }}
+        {{ if eq .Identifier "resources" }}
+        <div class="footer-column" data-identifier="{{ .Identifier }}">
+          {{ if .HasChildren}}
+          <div class="footer-title">{{ .Name }}</div>
+          <div class="d-flex flex-column gap-1">
+            {{ range .Children -}}
+            <a href="{{ .URL }}" class="footer-item">{{ .Name }}<span>{{ .Pre | safeHTML }}</span></a>
+            {{ end }}
+          </div>
+          {{ else }}
+          <div><a class="footer-item" href="{{ .URL }}"> {{ .Name }}</a></div>
+          {{ end }}
+        </div>
+        {{ end }}
+        {{ end }}
+      </div>
     </div>
 
     {{- /* Copyright notice. */ -}}

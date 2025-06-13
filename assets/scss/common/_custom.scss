@@ -692,10 +692,10 @@ header .search-container {
     margin-right: 2em;
 }
 
-.footer-social-icons img {;
-                          padding: .5em;
-                          // transform: scale(1);
-                         }
+.footer-social-icons img {
+    padding: .5em;
+    // transform: scale(1);
+}
 
 .footer-column {
     padding: 0 1em;
@@ -708,6 +708,13 @@ header .search-container {
     // gap: .5em;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+@media (min-width: 673px) {
+  .footer-column-left,
+  .footer-column-right {
+    display: contents;
+  }
 }
 
 .form-check-input {
@@ -1257,8 +1264,6 @@ blockquote p a {
     margin-top: 1em;
     margin-bottom: -3em;
 ;}
-
-
 
 .figure, .figure-img, .img-fluid {
     display: block !important;
