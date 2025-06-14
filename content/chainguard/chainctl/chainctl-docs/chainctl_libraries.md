@@ -1,22 +1,22 @@
 ---
 date: 2025-06-13T20:56:13Z
-title: "chainctl images repos build"
-slug: chainctl_images_repos_build
-url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_build/
+title: "chainctl libraries"
+slug: chainctl_libraries
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl images repos build
+## chainctl libraries
 
-Manage custom image builds
+Ecosystem library related commands.
 
 ### Options
 
 ```
-  -h, --help   help for build
+  -h, --help   help for libraries
 ```
 
 ### Options inherited from parent commands
@@ -35,9 +35,6 @@ Manage custom image builds
 
 ### SEE ALSO
 
-* [chainctl images repos](/chainguard/chainctl/chainctl-docs/chainctl_images_repos/)	 - Image repo related commands for the Chainguard platform.
-* [chainctl images repos build apply](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_apply/)	 - Apply a build config
-* [chainctl images repos build edit](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_edit/)	 - Edit a build config
-* [chainctl images repos build list](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_list/)	 - List build reports
-* [chainctl images repos build logs](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_logs/)	 - Get build logs
+* [chainctl](/chainguard/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
+* [chainctl libraries entitlements](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements/)	 - Manage entitlements to language ecosystem libraries.
 

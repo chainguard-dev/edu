@@ -1841,6 +1841,150 @@
         ]
       }
     },
+    "/libraries/v1/artifacts": {
+      "get": {
+        "operationId": "Artifacts_List",
+        "parameters": [
+          {
+            "collectionFormat": "multi",
+            "description": "The language ecosystems to return artifacts for.",
+            "in": "query",
+            "items": {
+              "enum": [
+                "UNKNOWN",
+                "JAVA",
+                "PYTHON",
+                "JAVASCRIPT"
+              ],
+              "type": "string"
+            },
+            "name": "ecosystems",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "description": "A string to search artifacts by. If empty, all artifacts\nfrom the given ecosystem will be returned.",
+            "in": "query",
+            "name": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of artifacts to return per request.\nThe service may return fewer than this value.",
+            "format": "int32",
+            "in": "query",
+            "name": "pageSize",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The token received from the previous call to List.\nProvide this to retrieve the subsequent page. If populated,\nall non-pagination parameters must match the call that provided this token.",
+            "in": "query",
+            "name": "pageToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The number of artifacts to skip ahead in the list of returned artifacts,\nbased on the state of the provided page_token. If page_token is not provided,\nthe first result returned will be number skip+1. If page_token is provided,\nthe first result returned will be (next result based on page_token)+skip.",
+            "format": "int32",
+            "in": "query",
+            "name": "skip",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/librariesArtifactList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Artifacts"
+        ]
+      }
+    },
+    "/libraries/v1/artifacts/count": {
+      "get": {
+        "operationId": "Artifacts_GetArtifactCount",
+        "parameters": [
+          {
+            "collectionFormat": "multi",
+            "description": "The language ecosystems to request the artifact counts for.",
+            "in": "query",
+            "items": {
+              "enum": [
+                "UNKNOWN",
+                "JAVA",
+                "PYTHON",
+                "JAVASCRIPT"
+              ],
+              "type": "string"
+            },
+            "name": "ecosystems",
+            "required": false,
+            "type": "array"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/librariesGetArtifactCountResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Artifacts"
+        ]
+      }
+    },
+    "/libraries/v1/artifacts/{id}/versions": {
+      "get": {
+        "operationId": "Artifacts_ListVersions",
+        "parameters": [
+          {
+            "description": "The artifact's unique identifier, as returned by ListArtifacts",
+            "in": "path",
+            "name": "id",
+            "pattern": "[^/]+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/librariesArtifactVersionList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Artifacts"
+        ]
+      }
+    },
     "/libraries/v1/entitlements": {
       "get": {
         "operationId": "Entitlements_List",
@@ -2650,6 +2794,53 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/registryArchs"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      }
+    },
+    "/registry/v1/repos/{repoId}/digests/{digest}/helm": {
+      "get": {
+        "operationId": "Registry_GetHelm",
+        "parameters": [
+          {
+            "description": "The UIDP of the image repo to get the Helm values for.",
+            "in": "path",
+            "name": "repoId",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The digest of the image to get the Helm values for.",
+            "in": "path",
+            "name": "digest",
+            "pattern": "[^/]+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The architecture to Helm values for.",
+            "in": "query",
+            "name": "arch",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryHelm"
             }
           },
           "default": {
@@ -3783,6 +3974,27 @@
             "name": "aliases",
             "required": false,
             "type": "array"
+          },
+          {
+            "description": "artifact_architecture filters by architecture (e.g., x86_64, aarch64)",
+            "in": "query",
+            "name": "artifactArchitecture",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination",
+            "in": "query",
+            "name": "pageToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "format": "int64",
+            "in": "query",
+            "name": "pageSize",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -4121,10 +4333,6 @@
         },
         "componentName": {
           "title": "component_name is the component within the subpackage",
-          "type": "string"
-        },
-        "componentScannerId": {
-          "title": "component_scanner_id is the unique ID generated by the scanner",
           "type": "string"
         },
         "componentType": {
@@ -4519,6 +4727,19 @@
         "WONT_FIX"
       ],
       "type": "string"
+    },
+    "GetArtifactCountResponseCount": {
+      "description": "Count represents the total number of artifacts for a given ecosystem.",
+      "properties": {
+        "ecosystem": {
+          "$ref": "#/definitions/librariesEcosystem"
+        },
+        "totalArtifacts": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
     },
     "GroupAccountAssociationsCheckBody": {
       "properties": {
@@ -6091,6 +6312,118 @@
       },
       "type": "object"
     },
+    "librariesArtifact": {
+      "description": "Artifact contains metadata related to a a software artifact for a language\necosystem. The id returned by this Artifact can be used to retrieve further\ndata, including more detailed version information.",
+      "properties": {
+        "createdAt": {
+          "description": "When the first version was published to Chainguard Libraries.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "description": {
+          "description": "The description of the most recent version of this artifact.",
+          "type": "string"
+        },
+        "ecosystem": {
+          "$ref": "#/definitions/librariesEcosystem",
+          "description": "The language ecosystem this artifact belongs to."
+        },
+        "id": {
+          "description": "A unique identifier for the artifact, based on the ecosystem it belongs to.",
+          "type": "string"
+        },
+        "latestVersion": {
+          "description": "The most recent version of this artifact available.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The artifact name.",
+          "type": "string"
+        },
+        "updatedAt": {
+          "description": "When the most recent version was published to Chainguard Libraries.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "versionCount": {
+          "description": "The number of versions available for this artifact.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "librariesArtifactList": {
+      "description": "A collection of Artifacts as returned by calls to ListArtifacts.\nContains pagination fields to allow callers to request additional\npages of results if the set exceeds the requested page size or maximum\ndefault page size.",
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/librariesArtifact",
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "nextPageToken": {
+          "description": "A token that can be reused on subsequent requests to retrieve\nthe next page of results. Other filter fields must match\nthe call that provided this token.",
+          "type": "string"
+        },
+        "totalArtifacts": {
+          "description": "The total number of artifacts that this query found.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "librariesArtifactVersion": {
+      "description": "Metadata about a version of an artifact.",
+      "properties": {
+        "createdAt": {
+          "description": "When this version was first published to Chainguard Libraries.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "description": {
+          "description": "A long form description of this version of the artifact.",
+          "type": "string"
+        },
+        "id": {
+          "description": "A unique identifier for this version of the artifact.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the artifact.",
+          "type": "string"
+        },
+        "sizeBytes": {
+          "description": "The estimated size of this artifact in bytes.",
+          "format": "int64",
+          "type": "string"
+        },
+        "updatedAt": {
+          "description": "When this version was last published to Chainguard Libraries.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "version": {
+          "description": "The version string of this artifact.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "librariesArtifactVersionList": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/librariesArtifactVersion",
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "librariesEcosystem": {
       "default": "UNKNOWN",
       "description": "Ecosystem represents the language libraries an org can be entitled to.",
@@ -6121,6 +6454,19 @@
         "items": {
           "items": {
             "$ref": "#/definitions/librariesEntitlement",
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "librariesGetArtifactCountResponse": {
+      "description": "A collection of the total number of artifacts for the requested\nlanguage ecosystems.",
+      "properties": {
+        "counts": {
+          "items": {
+            "$ref": "#/definitions/GetArtifactCountResponseCount",
             "type": "object"
           },
           "type": "array"
@@ -6704,6 +7050,32 @@
         },
         "uniqueTags": {
           "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "registryHelm": {
+      "description": "Helm contains the chart and values fields from the helm-values predicate.",
+      "properties": {
+        "chartDigest": {
+          "description": "Chart digest.",
+          "type": "string"
+        },
+        "chartName": {
+          "description": "Chart name.",
+          "type": "string"
+        },
+        "chartRepository": {
+          "description": "Chart repository.",
+          "type": "string"
+        },
+        "chartVersion": {
+          "description": "Chart version.",
+          "type": "string"
+        },
+        "values": {
+          "description": "Additional values.",
+          "type": "string"
         }
       },
       "type": "object"
@@ -7760,6 +8132,15 @@
             "type": "object"
           },
           "type": "array"
+        },
+        "nextPageToken": {
+          "title": "next_page_token is the token to use for the next page of results",
+          "type": "string"
+        },
+        "totalCount": {
+          "format": "int64",
+          "title": "total_count is the total number of advisories matching the filter (optional)",
+          "type": "string"
         }
       },
       "type": "object"
@@ -7795,10 +8176,6 @@
         },
         "componentName": {
           "title": "component_name is the component within the subpackage",
-          "type": "string"
-        },
-        "componentScannerId": {
-          "title": "component_scanner_id is the unique ID generated by the scanner",
           "type": "string"
         },
         "componentType": {
@@ -7955,6 +8332,9 @@
     },
     {
       "name": "RoleBindings"
+    },
+    {
+      "name": "Artifacts"
     },
     {
       "name": "Entitlements"
