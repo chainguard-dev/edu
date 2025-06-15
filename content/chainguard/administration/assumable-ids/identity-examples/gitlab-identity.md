@@ -60,7 +60,9 @@ This command creates an identity named `cg-gitlab-id` with the following claim m
 - Subject: Restricts access to a specific GitLab project running on the main branch
 - Audience: `https://gitlab.com` (the intended recipient of the token)
 
-This command also binds the `viewer` role to the new identity. The `viewer` role provides read-only access to Chainguard resources, which is appropriate for most CI/CD use cases that need to pull images or inspect resources. 
+These options' values are string literals; you can use `--identity-issuer-pattern`, `--subject-pattern`, and `--audience-pattern` to use regular expressions instead.
+
+This command also binds the `viewer` role to the new identity. The `viewer` role provides read-only access to Chainguard resources, which is appropriate for most CI/CD use cases that need to pull images or inspect resources. You can also chain together multiple roles, as in `--role=registry.push,registry.pull`.
 
 To see all available roles and their permissions, run `chainctl iam roles list`. You can also learn more by reviewing our [Overview of Roles and Role-bindings in Chainguard](/chainguard/administration/iam-organizations/roles-role-bindings/roles-role-bindings/). 
 
@@ -73,7 +75,6 @@ chainctl iam identities ls
 This will return `cg-gitlab-id` listed among all your Chainguard identities.
 
 With that, you can jump ahead to [testing the new identity](/chainguard/administration/assumable-ids/identity-examples/gitlab-identity/#testing-the-identity-with-a-gitlab-cicd-pipeline). You can also continue onto the next section and learn how to create another such identity with Terraform.
-
 
 
 ## Create an Assumable Identity with Terraform
@@ -145,7 +146,7 @@ First this section creates a Chainguard Identity tied to the `chainguard_group` 
 
 The most important part of this section is the `claim_match`. When the GitLab pipeline tries to assume this identity later on, it must present a token matching the `issuer`, `subject`, and `audience` specified here in order to do so. The `issuer` is the entity that creates the token, the `subject` is the entity that the token represents (here, the GitLab pipeline), and the `audience` is the intended recipient of the token.
 
-In this case, the `issuer` field points to `https://gitlab.com`, the issuer of JWT tokens for GitLab pipelines. Likewise, the `audience` field also points to `https://gitlab.com`. This will work for demonstration purposes, but if you're taking advantage of GitLab's support for custom audiences then be sure to change this to the appropriate audience.
+In this case, the `issuer` field points to `https://gitlab.com`, the issuer of JWT tokens for GitLab pipelines. Likewise, the `audience` field also points to `https://gitlab.com`. This will work for demonstration purposes, but if you're taking advantage of GitLab's support for custom audiences then be sure to change this to the appropriate audience. These values are string literals; you can use `identity-issuer-pattern`, `subject-pattern`, and `audience-pattern` to use regular expressions instead.
 
 The GitLab documentation provides [several examples of `subject` claims](https://docs.gitlab.com/ee/ci/cloud_services/#configure-a-conditional-role-with-oidc-claims) which you can refer to if you want to construct a `subject` claim specific to your needs. For the purposes of this guide, though, you will need to replace `<group_name>` and `<project_name>` with the name of your GitLab group and project names, respectively.
 
