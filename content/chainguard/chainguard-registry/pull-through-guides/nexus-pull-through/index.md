@@ -113,7 +113,7 @@ Be sure the `docker pull` command you run includes the name of your organization
 
 If you run into issues when trying to pull Containers from Chainguard's Registry to Nexus, please ensure the following requirements are met:
 
-* Ensure that all Containers [network requirements](https://edu.chainguard.dev/chainguard/administration/network-requirements/) are met.
+* Ensure that all Containers [network requirements](/chainguard/chainguard-images/network-requirements/) are met.
 * When configuring a remote Nexus repository, ensure that the **URL** field is set to `https://cgr.dev/`. This field **must not** contain additional components. 
 * You can troubleshoot by running `docker login` from another node (using the Nexus pull token credentials) and try pulling a container image from `cgr.dev/chainguard/<image name>` or `cgr.dev/<example.com>/<image name>`, using your own organization's registry name in place of `<example.com>`.
 * It could be that your Nexus repository was misconfigured. In this case, create and configure a new Nexus repository to test with.

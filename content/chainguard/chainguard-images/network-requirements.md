@@ -2,6 +2,7 @@
 title: "Chainguard Containers Network Requirements"
 linktitle: "Network Requirements"
 aliases:
+- /chainguard/network-requirements
 - /chainguard/administration/network-requirements/
 lead: "Using Chainguard Containers with firewalls, access control lists, and proxies."
 type: "article"

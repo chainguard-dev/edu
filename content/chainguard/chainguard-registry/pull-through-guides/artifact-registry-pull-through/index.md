@@ -152,7 +152,7 @@ Be sure the `docker pull` command you run includes the name of your Chainguard o
 
 If you run into issues when trying to pull Containers from Chainguard's registry to Google Artifact Registry, please ensure the following requirements are met:
 
-* Ensure that all Containers [network requirements](https://edu.chainguard.dev/chainguard/administration/network-requirements/) are met.
+* Ensure that all Containers [network requirements](/chainguard/chainguard-images/network-requirements/) are met.
 * When configuring a remote Google Artifact Registry repository, ensure that the **URL** field is set to `https://cgr.dev/`. This field **must not** contain additional components.
 * You can troubleshoot by running `docker login` from another node (using the Google Artifact Registry pull token credentials) and try pulling an image from `cgr.dev/chainguard/<image name>` or `cgr.dev/<company domain>/<image name>`.
 * It could be that your Google Artifact Registry repository was misconfigured. In this case, create and configure a new Google Artifact Registry repository to test with.

@@ -155,7 +155,7 @@ If you run into issues pulling images like this, be sure that your `docker pull`
 
 If you run into issues when trying to pull Containers from Chainguard's registry to Cloudsmith, please make sure the following requirements are met:
 
-* Ensure that all Containers [network requirements](https://edu.chainguard.dev/chainguard/administration/network-requirements/) are met.
+* Ensure that all Containers [network requirements](/chainguard/chainguard-images/network-requirements/) are met.
 * When configuring a remote Cloudsmith repository, ensure that the **URL** field is set correctly. For Starter container images, this should be `https://cgr.dev/chainguard`; for Production containers this should be `https://cgr.dev/`. This field **must not** contain any additional components.
 * You can troubleshoot by running `docker login` from another node (using the Cloudsmith pull token credentials) and try pulling an image from `cgr.dev/chainguard/<image name>` or `cgr.dev/<example.com>/<image name>`, using your own organization's registry name in place of `<example.com>`.
 * It could be that your Cloudsmith repository was misconfigured. In this case, create and configure a new Cloudsmith repository to test with.
