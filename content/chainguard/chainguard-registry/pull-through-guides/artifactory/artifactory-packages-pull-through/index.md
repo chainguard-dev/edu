@@ -249,7 +249,7 @@ This command will install the `nodejs-18` package from the virtual repository as
 If you run into issues when trying to pull from Chainguard's package repositories through Artifactory, you can try checking for these common pitfalls:
 
 * You may run into issues if your Artifactory username is an email address; specifically, the `@` sign can lead to errors. Be sure that you're using a user profile with a name that only contains letters and numbers. 
-* Ensure that all [network requirements](https://edu.chainguard.dev/chainguard/administration/network-requirements/) are met.
+* Ensure that all [network requirements](/chainguard/chainguard-images/network-requirements/) are met.
 * When configuring a remote Artifactory repository, ensure that the **URL** field is set correctly. 
 * It may help to [clear the Artifactory cache](https://jfrog.com/help/r/artifactory-cleanup-best-practices/clearing-an-oversized-cache).
 * It could be that your Artifactory repository was misconfigured. In this case, create and configure a new Remote Artifactory repository to test with.
