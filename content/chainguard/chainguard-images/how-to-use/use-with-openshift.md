@@ -1,6 +1,6 @@
 ---
 title: "How to Use Chainguard Containers with OpenShift"
-linktitle: "Use With OpenShift"
+linktitle: "Using With OpenShift"
 type: "article"
 description: "Special considerations for using Chainguard Containers with OpenShift"
 date: 2025-06-17T08:49:31+00:00
@@ -37,14 +37,13 @@ RUN chgrp -R 0 /some/directory && \
 
 When running on OpenShift clusters, you will find that the OpenShift user cannot create config files inside their home directory. This is because [OpenShift is designed to start container instances using a random User ID](https://www.redhat.com/en/blog/a-guide-to-openshift-and-uids).
 
-To avoid this being an issue when using Chainguard Containers, set a `HOME` variable for the user (it would otherwise be set as `/` for root) and create an `/app` directory in every Dockerfile.
+To avoid this being an issue when using Chainguard Containers:
+
+1. Set a `HOME` variable for the user (it would otherwise be set as `/` for root)
+1. Create an `/app` directory in every Dockerfile
+1. Set `/app` directory permissions to `755` and ownership to `65532:0`
 
 This can help you avoid or limit switching to the `root` user during the build phase when no package installation is required.
-
-This involves:
- - Creating the `/app` directory
- - Setting its permissions to `chmod 755` and `chown 65532:0`
- - Setting a `HOME` variable
 
  Here's a sample Dockerfile excerpt covering this process.
 
@@ -65,14 +64,14 @@ ENTRYPOINT ["dotnet", "Sample.Service.dll"]**
  ```
 
 
-# Hard-coded User IDs
+# Use Special Container Images for Hard-coded User IDs
 
 There are cases where Red Hat hard codes UIDs for specific applications, for example, the user for postgres is set to UID 26. See the [Red Hat documentation](https://access.redhat.com/solutions/6996195) for more details.
 
 In this instance, Chainguard has built a special image for postgres on OpenShift with a different release tag. Where the postgres release version is `17.5` and the regular Chainguard Container image would be released with the tag `17.5`, there is another image released with the tag `17.5-openshift`.
 
 
-# Security Context Constraints (SCCs)
+# Understand Security Context Constraints (SCCs)
 
 OpenShift Container Platform includes [security context constraints](https://docs.redhat.com/en/documentation/openshift_container_platform/4.18/html-single/authentication_and_authorization/index#managing-pod-security-policies) (SCCs) that you can use to control permissions for the pods in your cluster. SCCs determine the actions that a pod can perform and what resources it can access.
 
