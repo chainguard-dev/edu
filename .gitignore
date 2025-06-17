@@ -6,6 +6,9 @@ resources
 .DS_Store
 .bash_history
 
+# AI Tools
+.claude/
+
 # Editor / IDE config
 .idea
 .vscode
@@ -23,3 +26,4 @@ terraform.tfstate.*.backup
 gha-creds-*.json
 
 /tools/rumble/vulnerability.db
+
