@@ -8,7 +8,7 @@ lead: "Using Chainguard Containers with firewalls, access control lists, and pro
 type: "article"
 description: "Using Chainguard Containers with firewalls, access control lists, and proxies."
 date: 2023-09-08T08:49:31+00:00
-lastmod: 2024-11-20T15:22:20+01:00
+lastmod: 2025-06-17T15:22:20+01:00
 draft: false
 tags: ["Product", "Reference"]
 images: []
@@ -49,7 +49,7 @@ This table lists the third-party DNS hostnames, associated ports, and protocols 
 | Hostname                                                  | Port | Protocol | Notes                        |
 | --------------------------------------------------------- | ---- | -------- | ---------------------------- |
 | 9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com | 443  | HTTPS    | Blob storage for cgr.dev     |
-| chainguardhelp.zendesk.com                                | 443  | HTTPS    | Support access for customers |
+| support.chainguard.dev                                    | 443  | HTTPS    | Support access for customers |
 
 ## Ingress and Egress
 
