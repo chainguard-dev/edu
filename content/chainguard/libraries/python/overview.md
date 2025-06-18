@@ -116,7 +116,8 @@ Use the search functionality on [pypi.org](https://pypi.org/) to locate packages
 of interest and then browse in the simple index to determine available versions
 in Chainguard Libraries for Python.
 
-Use `curl`, specifying the username and password retrieved with [chainctl](/chainguard/libraries/access/), and use the URL of the file
+Use `curl`, specifying the username and password retrieved with
+[chainctl](/chainguard/libraries/access/), and use the URL of the file
 to download and save the file with the original name:
 
 With [.netrc authentication](/chainguard/libraries/access/#netrc):

@@ -67,6 +67,8 @@ accessing your organization's JFrog Artifactory repository manager.
 1. Select **Administration** in the top navigation bar.
 1. Select **Repositories** in the left hand navigation.
 1. Select the **Virtual** tab in the repositories view.
+1. Locate the *python-all** repository row and press the three dots
+   (**...**) in the last column on the right.
 1. Locate the virtual repository set up by your organization to use Chainguard Libraries and select the three dots (`...`) in the last column on the right. (*python-all** is the recommended name for this virtual repository.)
 1. Select **Set Me Up** in the dialog.
 1. Select **Generate Token & Create Instructions**
