@@ -81,7 +81,7 @@ accessing credentials and setting up build tools.
 
 ## JFrog Artifactory
 
-[JFrog Artifactory](https://jfrog.com/artifactory/) supports PyPI repositories for proxying and virtual repositories to combine multiple sources into a single repository. The following instructions are based on on the [PyPI Repository documentation for Artifactory](https://jfrog.com/help/r/jfrog-artifactory-documentation/set-up-pypi-repositories-on-artifactory).
+[JFrog Artifactory](https://jfrog.com/artifactory/) supports PyPI repositories for proxying and virtual repositories to combine multiple sources into a single repository. The following instructions are based on the [PyPI Repository documentation for Artifactory](https://jfrog.com/help/r/jfrog-artifactory-documentation/set-up-pypi-repositories-on-artifactory).
 
 ### Initial configuration
 
@@ -117,12 +117,15 @@ Configure a remote repository for the PyPI public index:
 Combine the two repositories in a new virtual repository:
 
 1. Press **Create a Repository** and choose the **Virtual** option.
+1. Select *PyPI* as the Package type.
 1. Set the **Repository Key** to `python-all`.
 1. In the **Repositories** section, find the `python-chainguard` and
    `python-public` repositories. Ensure the `python-chainguard` repository is
    the first in the displayed list. Use the icon on the right of the repository
    name to drag and drop repositories into the desired position.
 1. Select **Create Virtual Repository**.
+
+At this point, you have a virtual repository set up in Artifactory that will allow you or others at your organization to access Chainguard Libraries for Python with your chosen tools. This setup will fall back to the public PyPI index in cases where a package is not available in Chainguard's index
 
 ### Build tool access
 
