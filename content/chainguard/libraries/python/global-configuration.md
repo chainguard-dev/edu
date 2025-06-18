@@ -125,7 +125,7 @@ Combine the two repositories in a new virtual repository:
    name to drag and drop repositories into the desired position.
 1. Select **Create Virtual Repository**.
 
-At this point, you have a virtual repository set up in Artifactory that will allow you or others at your organization to access Chainguard Libraries for Python with your chosen tools. This setup will fall back to the public PyPI index in cases where a package is not available in Chainguard's index
+At this point, you have a virtual repository set up in Artifactory that allows you or others in your organization to access Chainguard Libraries for Python with your chosen tools. This setup falls back to the public PyPI index in cases where a package is not available in Chainguard's index.
 
 ### Build tool access
 
