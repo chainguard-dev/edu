@@ -103,6 +103,8 @@ Configure a remote repository for the Chainguard Libraries for Python index:
    with chainctl](/chainguard/libraries/access/).
 1. Check the **Enable Token Authentication** checkbox.
 1. Set the **Pypi Settings - Registry URL** to `https://libraries.cgr.dev/python/`.
+1. Access the **Advanced** configuration tab and deactivate the **Block
+   Mismatching Mime Types** setting in the **Others** section.
 1. Press **Create Remote Repository**.
 
 Configure a remote repository for the PyPI public index:
