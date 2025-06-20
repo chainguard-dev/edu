@@ -108,7 +108,7 @@ apiflask-0.12.0.tar.gz
 ...
 ```
 
-Each package name is a link with to the specific binary. The link includes long
+Each package name is a link to the specific binary. The link includes long
 unique identifiers and cannot be determined without browsing. The list uses
 ascending order for the full name including the version.
 
@@ -116,8 +116,8 @@ Use the search functionality on [pypi.org](https://pypi.org/) to locate packages
 of interest and then browse in the simple index to determine available versions
 in Chainguard Libraries for Python.
 
-Use `curl`, specify the username and password retrieved with [chainctl for basic
-user authentication](/chainguard/libraries/access/) and use the URL of the file
+Use `curl`, specifying the username and password retrieved with
+[chainctl](/chainguard/libraries/access/), and use the URL of the file
 to download and save the file with the original name:
 
 With [.netrc authentication](/chainguard/libraries/access/#netrc):
