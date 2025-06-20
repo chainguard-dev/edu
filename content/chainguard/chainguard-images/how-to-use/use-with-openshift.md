@@ -15,6 +15,10 @@ weight: 008
 toc: true
 ---
 
+Like Kubernetes, [Red Hat OpenShift](https://www.redhat.com/en/technologies/cloud-computing/openshift) is an application platform designed to help you orchestrate and manage your systems and resources. While it is based on open source software like Kubernetes, OpenShift is a product from a company. As a result, OpenShift is less of a build/assemble/configure a total system and suite of applications yourself affair and more of a portfolio of services already designed to work together with full customer support.
+
+Adding Chainguard Containers to your OpenShift deployment combines the enterprise and time-saving labor of two companies who share the goal of making your job easier. OpenShift saves you the effort of figuring out how to make stuff work together and Chainguard Containers save you the effort of CVE remediation and speed up your compliance efforts.
+
 When [Using Chainguard Containers](./how-to-use-chainguard-images.md) with OpenShift, there are some adjustments that need to be made to the usual process.
 
 # Adjust Ownership and Permissions
@@ -26,7 +30,7 @@ There are required access settings for an image to support running as an arbitra
 - Directories and files that are written to by processes in the image must be owned by the `root` group and that group must have both `read` and `write` permissions
 - Files that will be executed must also have group execute permissions
 
-Following the Red Hat requirements, to use Chainguard Containers you must make the following change in your Dockerfile to set the required ownership and permissions:
+Following the Red Hat requirements, to use Chainguard Containers you must make a change in your Dockerfile to set the required ownership and permissions. For example, if you have one or more files that you need to execute stored in `/some/directory`, then you would do this:
 
 ```
 RUN chgrp -R 0 /some/directory && \
@@ -45,7 +49,7 @@ To avoid this being an issue when using Chainguard Containers:
 
 This can help you avoid or limit switching to the `root` user during the build phase when no package installation is required.
 
- Here's a sample Dockerfile excerpt covering this process.
+Here's a sample Dockerfile excerpt covering this process.
 
  ```
 USER 0
@@ -60,15 +64,15 @@ WORKDIR /app
 
 ENV HOME=/app
 
-ENTRYPOINT ["dotnet", "Sample.Service.dll"]**
+ENTRYPOINT ["dotnet", "Sample.Service.dll"]
  ```
 
 
 # Use Special Container Images for Hard-coded User IDs
 
-There are cases where Red Hat hard codes UIDs for specific applications, for example, the user for postgres is set to UID 26. See the [Red Hat documentation](https://access.redhat.com/solutions/6996195) for more details.
+There are cases where Red Hat hard codes UIDs for specific applications, for example, the user for Postgres is set to UID 26. See the [Red Hat documentation](https://access.redhat.com/solutions/6996195) for more details.
 
-In this instance, Chainguard has built a special image for postgres on OpenShift with a different release tag. Where the postgres release version is `17.5` and the regular Chainguard Container image would be released with the tag `17.5`, there is another image released with the tag `17.5-openshift`.
+In this instance, Chainguard has built a special image for Postgres on OpenShift with a different release tag. Where the Postgres release version is `17.5` and the regular Chainguard Container would be released with the tag `17.5`, there is another image released with the tag `17.5-openshift`.
 
 
 # Understand Security Context Constraints (SCCs)
