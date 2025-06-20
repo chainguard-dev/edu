@@ -23,6 +23,8 @@ toc: true
 
 In this guide, you'll find general instructions on how to get started using Chainguard Containers and how to migrate existing container-based workflows to use our images. For specific image usage instructions, please refer to our [Chainguard Containers Directory](https://images.chainguard.dev), which contains the full list of all images available to the public and their respective documentation.
 
+> NOTE: See our special docs page for details on being successful [Using Chainguard Containers with OpenShift](./use-with-openshift.md).
+
 ## Quickstart: Using Chainguard Containers
 
 To get up and running with Chainguard Containers, you can use `docker` commands to pull and run images. For each specific image, you'll find this guidance on its overview page (for example, see [Node](https://images.chainguard.dev/directory/image/node/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images), [Python](https://images.chainguard.dev/directory/image/python/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images), or [NGINX](https://images.chainguard.dev/directory/image/nginx/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images)).
