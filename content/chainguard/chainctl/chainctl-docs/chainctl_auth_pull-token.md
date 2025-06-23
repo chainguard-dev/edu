@@ -1,5 +1,5 @@
 ---
-date: 2025-06-05T14:35:11Z
+date: 2025-06-20T21:08:01Z
 title: "chainctl auth pull-token"
 slug: chainctl_auth_pull-token
 url: /chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token/
@@ -22,6 +22,7 @@ chainctl auth pull-token [--output=env|json] [flags]
 ```
   -h, --help                       help for pull-token
       --library-ecosystem string   The language ecosystem to create this pull token for (e.g. python, java).
+      --name string                Optionally set the name for the token (default "pull-token")
       --parent string              The IAM organization or folder with which the pull-token identity is associated.
       --save                       If true with --pull-token, save the pull token to the Docker config
       --ttl duration               For how long a generated pull-token will be valid. (default 720h0m0s)

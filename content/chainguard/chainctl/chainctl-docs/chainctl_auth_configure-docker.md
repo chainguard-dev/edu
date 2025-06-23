@@ -1,5 +1,5 @@
 ---
-date: 2025-06-05T14:35:11Z
+date: 2025-06-20T21:08:01Z
 title: "chainctl auth configure-docker"
 slug: chainctl_auth_configure-docker
 url: /chainguard/chainctl/chainctl-docs/chainctl_auth_configure-docker/
@@ -25,6 +25,7 @@ chainctl auth configure-docker [flags]
       --identity string            The unique ID of the identity to assume when logging in.
       --identity-provider string   The unique ID of the customer managed identity provider to authenticate with
       --identity-token string      Use an explicit passed identity token or token path.
+      --name string                Optional name for the pull token (default "pull-token")
       --org-name string            Organization to use for authentication. If configured the organization's custom identity provider will be used
       --parent string              The IAM organization or folder with which the pull-token identity is associated.
       --pull-token                 Whether to register a pull token that can pull images
