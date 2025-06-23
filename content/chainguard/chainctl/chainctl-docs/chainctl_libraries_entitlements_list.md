@@ -1,22 +1,27 @@
 ---
 date: 2025-06-20T21:08:01Z
-title: "chainctl iam account-associations set"
-slug: chainctl_iam_account-associations_set
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_set/
+title: "chainctl libraries entitlements list"
+slug: chainctl_libraries_entitlements_list
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam account-associations set
+## chainctl libraries entitlements list
 
-Set cloud provider account associations for a location.
+List entitlements of an organization.
+
+```
+chainctl libraries entitlements list --parent=PARENT [--output=json|table] [flags]
+```
 
 ### Options
 
 ```
-  -h, --help   help for set
+  -h, --help            help for list
+      --parent string   The name or id of the org to list an entitlements for.
 ```
 
 ### Options inherited from parent commands
@@ -35,7 +40,5 @@ Set cloud provider account associations for a location.
 
 ### SEE ALSO
 
-* [chainctl iam account-associations](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations/)	 - Configure and manage cloud provider account associations.
-* [chainctl iam account-associations set aws](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_set_aws/)	 - Set AWS account association for a location.
-* [chainctl iam account-associations set gcp](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_set_gcp/)	 - Set GCP account association for a location.
+* [chainctl libraries entitlements](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements/)	 - Manage entitlements to language ecosystem libraries.
 
