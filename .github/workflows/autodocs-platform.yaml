@@ -34,7 +34,7 @@ jobs:
 
     - name: Authenticate to Google Cloud
       id: auth
-      uses: google-github-actions/auth@ba79af03959ebeac9769e648f473a284504d9193 # v2.1.10
+      uses: step-security/google-github-auth@40f6deebd366f16c782d7a0ad0844e3b96a032a6 # v2.1.10
       with:
         service_account: "github-chainguard-academy@chainguard-academy.iam.gserviceaccount.com"
         workload_identity_provider: "projects/456977358484/locations/global/workloadIdentityPools/chainguard-academy/providers/chainguard-edu"
@@ -80,7 +80,7 @@ jobs:
         assignees: erikaheidi
 
     - name: Post failure notice to Slack
-      uses: rtCamp/action-slack-notify@e31e87e03dd19038e411e38ae27cbad084a90661 # v2.3.3
+      uses: step-security/action-slack-notify@cafbebd7b2b3e2f62d6a3cebac172962e7f55c05 # v2.3.4
       if: ${{ failure() }}
       env:
         SLACK_ICON: http://github.com/chainguard-dev.png?size=48
