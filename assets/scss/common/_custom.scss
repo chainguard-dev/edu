@@ -466,6 +466,11 @@ header .search-container {
     margin-right: 0;
 }
 
+// Beat <a> reset
+.topic-container.topic-container a:not(.tag) {
+   color: var(--article-link-color);
+}
+
 .topic-title {
     font-size: 36px;
     font-weight: 600;
