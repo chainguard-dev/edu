@@ -49,9 +49,14 @@ To avoid this being an issue when using Chainguard Containers:
 
 This can help you avoid or limit switching to the `root` user during the build phase when no package installation is required.
 
-Here's a sample Dockerfile excerpt covering this process.
+Here's a sample Dockerfile covering this process.
 
  ```
+# Change this to reference the image you want to pull and
+# if needed, to use the location of your custom image repo
+
+FROM cgr.dev/chainguard/aspnet-runtime-db:9
+
 USER 0
 
 RUN mkdir -m 775 /app && chown -R 65532:0 /app
