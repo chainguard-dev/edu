@@ -30,7 +30,7 @@ jobs:
       uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
     - name: 'Setup gitsign'
-      uses: chainguard-dev/actions/setup-gitsign@939ece6bc39459fd24dde56e63ca93adf840031e # v1.2.1
+      uses: chainguard-dev/actions/setup-gitsign@4f7ad4fd63a4e1c8c11fdb16d543a3eb651036ca # v1.4.2
 
     - name: Authenticate to Google Cloud
       id: auth
