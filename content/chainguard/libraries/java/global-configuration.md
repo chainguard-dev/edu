@@ -273,6 +273,8 @@ Configure a remote repository for the Chainguard Libraries for Java repository:
 1. Check the **Enable Token Authentication** checkbox.
 1. Press **Test** to validate the connection.
 1. Deactivate **Maven Settings - Handle Snapshots**.
+1. Access the **Advanced** configuration tab and deactivate the **Block
+   Mismatching Mime Types** setting in the **Others** section.
 1. Press **Create Remote Repository**.
 
 Combine the two repositories in a new virtual repository:
