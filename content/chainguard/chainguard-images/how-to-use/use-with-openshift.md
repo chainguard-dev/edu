@@ -15,11 +15,7 @@ weight: 008
 toc: true
 ---
 
-Like Kubernetes, [Red Hat OpenShift](https://www.redhat.com/en/technologies/cloud-computing/openshift) is an application platform designed to help you orchestrate and manage your systems and resources. While it is based on open source software like Kubernetes, OpenShift is a product from a company. As a result, OpenShift is less of a build/assemble/configure a total system and suite of applications yourself affair and more of a portfolio of services already designed to work together with full customer support.
-
-Adding Chainguard Containers to your OpenShift deployment combines the enterprise and time-saving labor of two companies who share the goal of making your job easier. OpenShift saves you the effort of figuring out how to make stuff work together and Chainguard Containers save you the effort of CVE remediation and speed up your compliance efforts.
-
-When [Using Chainguard Containers](./how-to-use-chainguard-images.md) with OpenShift, there are some adjustments that need to be made to the usual process.
+When [Using Chainguard Containers](./how-to-use-chainguard-images.md) with OpenShift, there are some adjustments that need to be made to the usual process. This guide will provide you with guidance, and we encourage you to look at the [OpenShift docs](https://docs.redhat.com/en/documentation/openshift_container_platform/).
 
 # Adjust Ownership and Permissions
 
@@ -55,7 +51,7 @@ Here's a sample Dockerfile covering this process.
 # Change this to reference the image you want to pull and
 # if needed, to use the location of your custom image repo
 
-FROM cgr.dev/chainguard/aspnet-runtime-db:9
+FROM cgr.dev/$ORGANIZATION/aspnet-runtime-db:9
 
 USER 0
 
