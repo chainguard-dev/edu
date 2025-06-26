@@ -21,6 +21,7 @@ The lab notes often include demo projects, a slide presentation, sample
 commands, links to specific sections in the video, and pointers to more
 resources:
 
+- [Chainguard Libraries for Python - June 2025](/software-security/learning-labs/ll202506/)
 - [Chainguard Libraries for Java - May 2025](/software-security/learning-labs/ll202505/)
 
 Older labs are available in the [YouTube
