@@ -17,7 +17,7 @@ toc: true
 weight: 020
 ---
 
-Organizations often have their own internal software repositories and registries integrated into their systems. This guide explains how to set-up the Cloudsmith artifact repository to ingest [Chainguard Containers](/chainguard/chainguard-images/overview/) by acting as a pull-through cache.
+Organizations often have their own internal software repositories and registries integrated into their systems. This guide explains how to set up the Cloudsmith artifact repository to ingest [Chainguard Containers](/chainguard/chainguard-images/overview/) by acting as a pull-through cache.
 
 This tutorial outlines how to set up a remote repository with [Cloudsmith](https://cloudsmith.com/). It will walk you through how to set up a Cloudsmith repository you can use as a pull through cache for Chainguard's public Starter containers or for Production containers originating from a private Chainguard repository.
 
