@@ -15,7 +15,9 @@ weight: 008
 toc: true
 ---
 
-When [Using Chainguard Containers](./how-to-use-chainguard-images.md) with OpenShift, there are some adjustments that need to be made to the usual process. This guide will provide you with guidance, and we encourage you to look at the [OpenShift docs](https://docs.redhat.com/en/documentation/openshift_container_platform/).
+In this guide, you'll find general instructions on how to get started using Chainguard Containers on Red Hat OpensShift Container Platform.
+
+When [Using Chainguard Containers](/chainguard/chainguard-images/how-to-use/how-to-use-chainguard-images/) with OpenShift, there are some adjustments that need to be made to the usual process. This guide will provide you with guidance, and we encourage you to look at the [OpenShift docs](https://docs.redhat.com/en/documentation/openshift_container_platform/).
 
 # Adjust Ownership and Permissions
 
