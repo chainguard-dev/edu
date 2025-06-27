@@ -27,7 +27,7 @@ A container image digest is a unique identifier that is generated for each and e
 
 If you have a container environment that was working fine but suddenly breaks with a new build, using a previous container image build version by declaring an image digest instead of a tag is a way to keep things up and running until you're able to assert that a new version of a container environment works as expected with your application.
 
-> NOTE: If you are looking for a quick way to learn the tag history of a container image, you may want to consider using the `chainctl images history` command instead of the API. See **Examine the History of Container Images** in [this page](../../chainctl-usage/chainctl-images.md) for more information.
+> NOTE: If you are looking for a quick way to learn the tag history of a container image, you may want to consider using the `chainctl images history` command instead of the API. See **[Examine the History of Container Images](/chainguard/chainctl-usage/chainctl-images/#examine-the-history-of-container-images)** for more information.
 
 
 ## Obtaining a Registry Token
