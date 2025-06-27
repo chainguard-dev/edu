@@ -95,7 +95,7 @@ cosign verify \
 
 Be aware that you will need to change the `IMAGE` environment variable to reflect a container image your organization is entitled to.
 
-> **Note**: The environment variables used in this command (other than `$(IMAGE)`) were created in the previous section.
+> **Note**: The environment variables used in this command (other than `${IMAGE}`) were created in the previous section.
 
 By default, this command will fetch signatures for the `:latest` tag. If you'd like, you can specify the tag you want to fetch signatures for:
 
@@ -105,7 +105,7 @@ TAG=1.23.8
 cosign verify \
   --certificate-oidc-issuer=https://issuer.enforce.dev \
   --certificate-identity-regexp="https://issuer.enforce.dev/(${CATALOG_SYNCER}|${APKO_BUILDER})" \
-  cgr.dev/${PARENT}/${IMAGE}:$(TAG) | jq
+  cgr.dev/${PARENT}/${IMAGE}:${TAG} | jq
 ```
 
 ## Downloading Container Attestations
