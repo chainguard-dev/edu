@@ -94,19 +94,16 @@ To learn more about working with your `chainctl` config, you can read our doc on
 
 ### Authenticate with the Chainguard Console
 
-To authenticate with the Chainguard Console using SSO, click the **Use your identity provider** link on the login page.
+To authenticate with the Chainguard Console, [open the login screen](https://console.chainguard.dev?feature.emailAuth=true). Then, select one of the following options:
 
-<center><img src="cg-signin-24-box.png" alt="Screenshot showing an example Chainguard login page, with a yellow box around the `Use your identity provider` link." style="width:600px;"></center>
+- To use your organization's SSO, enter your Organization or email address and click **Continue**.
+- To use a third-party identity provider, click the corresponding option from the list.
+- To use your email and a password, enter your email and click **Continue**.
 
-The panel will change, allowing you to sign in with your organization email. When authenticating to a [Verified Organization](/chainguard/administration/iam-organizations/verified-orgs/) via the Chainguard Console, your organization name will be detected from your email address and you do not need to supply the identity provider ID.
+<center><img src="cg-all-signin-24.png" alt="Screenshot showing an example Chainguard login box, with all described options shown." style="width:600px;"></center>
 
-<center><img src="cg-email-signin-24.png" alt"Screenshot showing an example Chainguard login page with a field reading `Enter your organization's email address`" style="width:600px;"></center>
 
-If your organization name does not match your email domain, you can input it specifically to authenticate with your organization's custom identity provider. Click on the link below the field to navigate between the options, or alternatively return to the screen with the social providers login option.
-
-<center><img src="cg-org-signin-24.png" alt"Screenshot showing an example Chainguard login page with a field reading `Enter your organization's name`" style="width:600px;"></center>
-
-After adding your ID, click the **Login with provider** button. You'll then be redirected to your identity provider to authenticate, after which you'll be redirected back to the Console.
+In each of these cases, you will be redirected to an external identity provider to authenticate and then returned to the Chainguard Console. If you are using your email and a password, authentication is handled by and credentials are stored with [Auth0](https://auth0.com/).
 
 ## Setup and Administration
 
