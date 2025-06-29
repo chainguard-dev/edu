@@ -21,7 +21,7 @@ disableLanguages = ["de", "nl"]
 
 # add redirects/headers
 [outputs]
-home = ["HTML", "RSS", "ALIASES", "REDIRECTS", "HEADERS"]
+home = ["HTML", "RSS", "ALIASES", "REDIRECTS", "HEADERS", "TXT"]
 section = ["HTML", "RSS", "SITEMAP"]
 
 # remove .{ext} from text/netlify
@@ -58,6 +58,12 @@ isHTML = false
 isPlainText = true
 noUgly = true
 rel  = "sitemap"
+
+# add output format for llms.txt
+[outputFormats.TXT]
+mediaType = "text/plain"
+baseName = "llms"
+isPlainText = true
 
 [caches]
   [caches.getjson]
