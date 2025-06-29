@@ -1,0 +1,55 @@
+# {{ .Site.Params.title }}
+
+> {{ .Site.Params.description }}
+
+## Overview
+
+Chainguard Academy (edu.chainguard.dev) provides documentation, tutorials, and demos on Chainguard products and educational content on software supply chain security.
+This website provides comprehensive documentation and educational resources for:
+- Chainguard Containers: Secure-by-default container images
+- Chainguard Libraries: Language libraries built from source
+- Chainguard VMs: More secure, purpose-built virtual machine images
+- Open source security tools including Sigstore, Wolfi Linux, and build tools
+- Software supply chain security recommended practices
+- Compliance frameworks and vulnerability management
+
+## Content Sections
+
+### Chainguard Products (/chainguard/)
+Documentation for Chainguard's enterprise products and services.
+
+{{ range where .Site.RegularPages "Section" "chainguard" | first 10 -}}
+- [{{ .Title }}]({{ .Permalink }}): {{ .Summary | plainify | truncate 100 }}
+{{ end }}
+
+### Open Source Projects (/open-source/)
+Documentation for open source security tools and projects.
+
+{{ range where .Site.RegularPages "Section" "open-source" | first 10 -}}
+- [{{ .Title }}]({{ .Permalink }}): {{ .Summary | plainify | truncate 100 }}
+{{ end }}
+
+### Software Security (/software-security/)
+Educational content on software supply chain security best practices.
+
+{{ range where .Site.RegularPages "Section" "software-security" | first 10 -}}
+- [{{ .Title }}]({{ .Permalink }}): {{ .Summary | plainify | truncate 100 }}
+{{ end }}
+
+## Key Topics
+- Container security and minimal base images
+- Software supply chain security
+- Cryptographic signing and verification
+- Vulnerability management and CVE remediation
+- Compliance frameworks for regulated industries
+- DevSecOps practices and tools
+
+## Target Audience
+- Security engineers and DevSecOps teams
+- Platform engineers working with containers and Kubernetes
+- Developers building secure applications
+- Compliance teams in regulated industries
+- Open source contributors to security tools
+
+## Resources
+The site includes tutorials, reference documentation, conceptual guides, and practical examples for implementing secure software practices using Chainguard's tools and following industry recommendations.
