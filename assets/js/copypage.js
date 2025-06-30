@@ -55,6 +55,10 @@ async function getPageAsMarkdown() {
     '.notice',
     '.rumble-comparison',
     '.rumble-vuln',
+    '.tooltip-container',
+    '.tooltip',
+    '.top-container',
+    '.expand-btn-container',
     'nav',
     'script',
     'style'
@@ -82,7 +86,12 @@ function convertHtmlToMarkdown(element) {
   
   const processNode = (node, listLevel = 0) => {
     if (node.nodeType === Node.TEXT_NODE) {
-      return node.textContent;
+      // Skip whitespace-only text nodes
+      const text = node.textContent;
+      if (text.trim() === '') {
+        return '';
+      }
+      return text;
     }
     
     if (node.nodeType === Node.ELEMENT_NODE) {
@@ -93,6 +102,12 @@ function convertHtmlToMarkdown(element) {
       node.childNodes.forEach(child => {
         content += processNode(child, tagName === 'ul' || tagName === 'ol' ? listLevel + 1 : listLevel);
       });
+      
+      // Skip empty elements (except self-closing tags like img, hr, br)
+      const selfClosingTags = ['img', 'hr', 'br'];
+      if (!selfClosingTags.includes(tagName) && content.trim() === '') {
+        return '';
+      }
       
       // Convert based on tag
       switch (tagName) {
@@ -113,8 +128,13 @@ function convertHtmlToMarkdown(element) {
           }
           return `\`${content.trim()}\``;
         case 'pre':
-          const lang = node.querySelector('code')?.className.match(/language-(\w+)/)?.[1] || '';
-          return `\`\`\`${lang}\n${content.trim()}\n\`\`\`\n\n`;
+          const codeElement = node.querySelector('code');
+          if (codeElement) {
+            const lang = codeElement.className.match(/language-(\w+)/)?.[1] || '';
+            const codeContent = codeElement.textContent || '';
+            return `\`\`\`${lang}\n${codeContent.trim()}\n\`\`\`\n\n`;
+          }
+          return `\`\`\`\n${content.trim()}\n\`\`\`\n\n`;
         case 'a':
           const href = node.getAttribute('href');
           if (href && !href.startsWith('#')) {
@@ -149,8 +169,13 @@ function convertHtmlToMarkdown(element) {
     markdown += processNode(child);
   });
   
-  // Clean up excessive newlines
-  return markdown.replace(/\n{3,}/g, '\n\n').trim();
+  // Clean up excessive newlines and trim each line
+  return markdown
+    .split('\n')
+    .map(line => line.trimEnd())
+    .join('\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
 }
 
 function processTable(table) {
