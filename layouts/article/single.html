@@ -62,13 +62,16 @@
         {{ end -}}
       </div>
 
-      {{ if .Params.tags -}}
-      <div class="tag-container">
-        {{ range $index, $tag := .Params.tags -}}
-          <a class="tag" href="{{ "/tags/" | absURL }}{{ . | urlize }}/" role="button">{{ . }}</a>
-        {{end}}
+      <div class="tags-and-copy-wrapper">
+        {{ if .Params.tags -}}
+        <div class="tag-container">
+          {{ range $index, $tag := .Params.tags -}}
+            <a class="tag" href="{{ "/tags/" | absURL }}{{ . | urlize }}/" role="button">{{ . }}</a>
+          {{end}}
         </div>
-      {{end}}
+        {{end}}
+        {{ partial "copy-page-button.html" . }}
+      </div>
 
       {{ if .Params.images }}
         <div class="mt-4">
@@ -124,6 +127,9 @@
     {{- $titles := resources.Get "js/titles.js" -}}
     {{ $titles := $titles | minify }}
     <script src="{{ $titles.Permalink }}" integrity="{{ $titles.Data.Integrity }}"></script>
+    {{- $copypage := resources.Get "js/copypage.js" -}}
+    {{ $copypage := $copypage | minify }}
+    <script src="{{ $copypage.Permalink }}" integrity="{{ $copypage.Data.Integrity }}"></script>
     {{ if ne .Params.toc false -}}
     <nav class="docs-toc{{ if ne .Site.Params.options.navbarSticky true }} docs-toc-top{{ end }}" aria-label="Secondary navigation">
       {{ partial "sidebar/docs-toc.html" . }}
