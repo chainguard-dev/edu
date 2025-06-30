@@ -21,7 +21,7 @@ In this guide, you'll find general instructions for how to get started using Cha
 
 Adding Chainguard Containers to your OpenShift deployment saves you the effort of CVE remediation and speeds up your security and compliance efforts.
 
-When [Using Chainguard Containers](./how-to-use-chainguard-images.md) with OpenShift, there are some adjustments that need to be made to the usual process. This guide provides guidance. See the [OpenShift docs](https://docs.redhat.com/en/documentation/openshift_container_platform/) for more details.
+When [Using Chainguard Containers](/chainguard/chainguard-images/how-to-use/how-to-use-chainguard-images/) with OpenShift, there are some adjustments that need to be made to the usual process. This guide provides guidance. See the [OpenShift docs](https://docs.redhat.com/en/documentation/openshift_container_platform/) for more details.
 
 
 # Adjust Ownership and Permissions
