@@ -15,9 +15,14 @@ weight: 008
 toc: true
 ---
 
-In this guide, you'll find general instructions on how to get started using Chainguard Containers on Red Hat OpensShift Container Platform.
+In this guide, you'll find general instructions for how to get started using Chainguard Containers on Red Hat OpenShift Container Platform.
 
-When [Using Chainguard Containers](/chainguard/chainguard-images/how-to-use/how-to-use-chainguard-images/) with OpenShift, there are some adjustments that need to be made to the usual process. This guide will provide you with guidance, and we encourage you to look at the [OpenShift docs](https://docs.redhat.com/en/documentation/openshift_container_platform/).
+[Red Hat OpenShift](https://www.redhat.com/en/technologies/cloud-computing/openshift) is an application platform that orchestrates and manages your systems and resources. While it is based on open source software like Kubernetes, OpenShift includes a suite of applications with additional functionality that are configured to work together.
+
+Adding Chainguard Containers to your OpenShift deployment saves you the effort of CVE remediation and speeds up your security and compliance efforts.
+
+When [Using Chainguard Containers](./how-to-use-chainguard-images.md) with OpenShift, there are some adjustments that need to be made to the usual process. This guide provides guidance. See the [OpenShift docs](https://docs.redhat.com/en/documentation/openshift_container_platform/) for more details.
+
 
 # Adjust Ownership and Permissions
 
