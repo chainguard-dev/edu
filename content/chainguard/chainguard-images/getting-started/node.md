@@ -7,7 +7,7 @@ aliases:
 description: "Tutorial on how to get started with the Chainguard Node container image"
 date: 2023-02-01T11:07:52+02:00
 lastmod: 2025-03-24T11:07:52+02:00
-tags: ["Chainguard Containers", "Products"]
+tags: ["Chainguard Containers", "Product"]
 draft: false
 images: []
 menu:

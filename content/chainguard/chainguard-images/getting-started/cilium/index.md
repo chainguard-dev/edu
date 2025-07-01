@@ -7,7 +7,7 @@ aliases:
 description: "Tutorial on the Cilium Chainguard Containers"
 date: 2023-12-14T00:00:00+00:00
 lastmod: 2025-03-22T00:00:00+00:00
-tags: ["Chainguard Containers", "Products"]
+tags: ["Chainguard Containers", "Product"]
 draft: false
 images: []
 menu:

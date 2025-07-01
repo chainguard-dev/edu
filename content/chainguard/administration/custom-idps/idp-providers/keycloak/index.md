@@ -7,7 +7,7 @@ type: "article"
 date: 2025-04-04
 lastmod: 2025-04-04
 draft: false
-tags: ["CHAINGUARD IMAGES", "PROCEDURAL"]
+tags: ["Chainguard Containers", "Procedural"]
 images: []
 weight: 020
 ---
