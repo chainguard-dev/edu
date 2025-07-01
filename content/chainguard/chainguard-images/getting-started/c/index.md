@@ -8,7 +8,7 @@ aliases:
 description: "Tutorial on how to get started with the C/C++ Chainguard Containers"
 date: 2024-07-30T15:54:33+00:00
 lastmod: 2025-03-21T19:37:29+00:00
-tags: ["Chainguard Containers", "Products"]
+tags: ["Chainguard Containers", "Product"]
 draft: false
 images: []
 menu:

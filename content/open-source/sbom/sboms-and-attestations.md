@@ -10,7 +10,7 @@ description: "An overview of the differences between attestations and SBOMs"
 date: 2023-03-19T15:56:52-07:00
 lastmod: 2023-03-19T15:56:52-07:00
 draft: false
-tags: ["COSIGN", "SBOM", "CONCEPTUAL"]
+tags: ["Cosign", "SBOM", "Conceptual"]
 images: []
 menu:
   docs:

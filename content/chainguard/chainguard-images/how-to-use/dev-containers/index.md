@@ -7,7 +7,7 @@ aliases:
 description: "Guide outlining how you can use Chainguard Containers as Dev Containers for secure development."
 date: 2025-03-10T11:07:52+02:00
 lastmod: 2025-03-08T11:07:52+02:00
-tags: ["Chainguard Containers", "Products"]
+tags: ["Chainguard Containers", "Product"]
 draft: false
 images: []
 menu:

@@ -7,7 +7,7 @@ aliases:
 description: "Get started with the NeMo image for generative deep learning"
 date: 2024-05-16T08:00:00+02:00
 lastmod: 2025-03-24T08:00:00+02:00
-tags: ["Chainguard Containers", "Products"]
+tags: ["Chainguard Containers", "Product"]
 draft: false
 images: []
 menu:

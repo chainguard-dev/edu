@@ -7,7 +7,7 @@ aliases:
 description: "Tutorial on how to get started with the nginx container image"
 date: 2023-01-09T11:07:52+02:00
 lastmod: 2025-03-21T13:25:40+00:00
-tags: ["Chainguard Containers", "Products"]
+tags: ["Chainguard Containers", "Product"]
 draft: false
 images: []
 menu:

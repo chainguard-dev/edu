@@ -8,7 +8,7 @@ aliases:
 description: "Tutorial on the Chainguard PyTorch container image"
 date: 2024-04-25T08:00:00+02:00
 lastmod: 2025-03-24T08:00:00+00:00
-tags: ["Chainguard Containers", "Products", "AI"]
+tags: ["Chainguard Containers", "Product", "AI"]
 draft: false
 images: []
 menu:
