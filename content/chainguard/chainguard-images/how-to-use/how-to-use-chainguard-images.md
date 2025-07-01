@@ -19,7 +19,7 @@ weight: 005
 toc: true
 ---
 
-[Chainguard Containers](https://images.chainguard.dev) are based on [Wolfi](/open-source/wolfi/overview/), our Linux _undistro_ designed specifically for containers. Wolfi uses the [Alpine apk](https://wiki.alpinelinux.org/wiki/Package_management) package format, which contributes in making packages smaller and more accountable, resulting in smaller images with traceable provenance information based on cryptographic signatures.
+[Chainguard Containers](https://images.chainguard.dev) are based on [Wolfi](/open-source/wolfi/overview/), our Linux _undistro_ designed specifically for containers. Wolfi uses the [apk](https://wiki.alpinelinux.org/wiki/Package_management) package format, which contributes in making packages smaller and more accountable, resulting in smaller images with traceable provenance information based on cryptographic signatures.
 
 In this guide, you'll find general instructions on how to get started using Chainguard Containers and how to migrate existing container-based workflows to use our images. For specific image usage instructions, please refer to our [Chainguard Containers Directory](https://images.chainguard.dev), which contains the full list of all images available to the public and their respective documentation.
 
