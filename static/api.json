@@ -2763,6 +2763,7 @@
             }
           }
         },
+        "summary": "Deprecated",
         "tags": [
           "Registry"
         ]
@@ -2951,6 +2952,7 @@
             }
           }
         },
+        "summary": "Deprecated",
         "tags": [
           "Registry"
         ]
@@ -6866,9 +6868,21 @@
     },
     "registryCustomOverlay": {
       "properties": {
+        "annotations": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
         "contents": {
           "$ref": "#/definitions/registryImageContents",
           "description": "Mirrors apko configuration for image contents."
+        },
+        "environment": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
         }
       },
       "type": "object"
@@ -7320,6 +7334,7 @@
       "type": "object"
     },
     "registryRawSbom": {
+      "description": "The service for this request is deprecated.",
       "properties": {
         "rawSbom": {
           "type": "string"
