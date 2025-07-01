@@ -1,0 +1,128 @@
+{{- $chainguardPages := where .Site.RegularPages "Section" "chainguard" -}}
+{{- $openSourcePages := where .Site.RegularPages "Section" "open-source" -}}
+{{- $securityPages := where .Site.RegularPages "Section" "software-security" -}}
+{
+  "site_info": {
+    "name": "{{ .Site.Title }}",
+    "domain": "edu.chainguard.dev",
+    "description": "{{ .Site.Params.description }}",
+    "last_updated": "{{ now.Format "2025-01-02T15:04:05Z07:00" }}",
+    "language": "{{ .Site.Language.Lang }}",
+    "base_url": "{{ .Site.BaseURL }}"
+  },
+  "content_types": [
+    {
+      "type": "chainguard-products",
+      "count": {{ len $chainguardPages }},
+      "description": "Documentation for Chainguard's enterprise products and services",
+      "path": "/chainguard/",
+      "subcategories": [
+        {
+          "name": "Container Images",
+          "count": {{ len (where $chainguardPages "Params.section" "chainguard-images") }},
+          "path": "/chainguard/chainguard-images/"
+        },
+        {
+          "name": "Libraries",
+          "count": {{ len (where $chainguardPages "Params.section" "libraries") }},
+          "path": "/chainguard/libraries/"
+        },
+        {
+          "name": "Virtual Machines",
+          "count": {{ len (where $chainguardPages "Params.section" "vms") }},
+          "path": "/chainguard/vms/"
+        }
+      ]
+    },
+    {
+      "type": "open-source",
+      "count": {{ len $openSourcePages }},
+      "description": "Documentation for open source security tools and projects",
+      "path": "/open-source/",
+      "topics": ["sigstore", "cosign", "rekor", "wolfi", "melange", "apko"]
+    },
+    {
+      "type": "software-security",
+      "count": {{ len $securityPages }},
+      "description": "Educational content on software supply chain security best practices",
+      "path": "/software-security/",
+      "topics": ["supply-chain", "vulnerabilities", "compliance", "sboms", "slsa"]
+    }
+  ],
+  "statistics": {
+    "total_articles": {{ len .Site.RegularPages }},
+    "total_pages": {{ len .Site.Pages }},
+    "sections": {{ len .Site.Sections }},
+    "tags": {{ len .Site.Taxonomies.tags }},
+    "build_time": "{{ now.Format "2025-01-02T15:04:05Z07:00" }}"
+  },
+  "update_frequency": {
+    "products": "daily",
+    "tutorials": "weekly",
+    "security": "as-needed",
+    "deployment": "continuous"
+  },
+  "specializations": [
+    "container-security",
+    "software-supply-chain",
+    "sigstore-ecosystem",
+    "wolfi-linux",
+    "distroless-images",
+    "vulnerability-management",
+    "compliance-frameworks",
+    "sbom-generation",
+    "slsa-provenance",
+    "fips-certification"
+  ],
+  "query_examples": [
+    "How to sign container images with Cosign",
+    "What is a distroless image",
+    "FIPS compliance for containers",
+    "Vulnerability scanning with Grype",
+    "Setting up SLSA provenance",
+    "Creating SBOMs with Syft",
+    "Wolfi package management",
+    "Chainguard container hardening",
+    "Supply chain security best practices",
+    "Zero CVE images"
+  ],
+  "technology_stack": {
+    "generator": "Hugo {{ hugo.Version }}",
+    "theme": "Doks",
+    "search": "FlexSearch",
+    "analytics": "Google Analytics GA4",
+    "hosting": "Static CDN",
+    "formats": ["HTML", "Markdown", "JSON", "XML", "RSS"]
+  },
+  "content_licensing": {
+    "documentation": {
+      "license": "CC-BY-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "commercial_use": true,
+      "attribution_required": true
+    },
+    "code_examples": {
+      "license": "Apache-2.0",
+      "license_url": "https://www.apache.org/licenses/LICENSE-2.0",
+      "commercial_use": true
+    },
+    "trademarks": {
+      "policy_url": "{{ .Site.BaseURL }}software-security/trademark/",
+      "permission_required": true
+    }
+  },
+  "api_endpoints": {
+    "note": "This is a static site without dynamic API endpoints",
+    "available_formats": {
+      "sitemap": "/sitemap.xml",
+      "rss": "/index.xml",
+      "llms_txt": "/llms.txt",
+      "ai_metadata": "/ai-metadata.json"
+    }
+  },
+  "contact": {
+    "github": "https://github.com/chainguard-dev/edu",
+    "issues": "https://github.com/chainguard-dev/edu/issues",
+    "contributing": "https://github.com/chainguard-dev/edu/blob/main/CONTRIBUTING.md"
+  }
+}
