@@ -12,7 +12,7 @@ type: "article"
 date: 2023-11-28T08:48:45+00:00
 lastmod: 2025-03-21T08:48:45+00:00
 draft: false
-tags: ["CHAINGUARD CONTAINERS", "PRODUCT", "PROCEDURAL"]
+tags: ["Chainguard Containers", "Product", "Procedural"]
 images: []
 weight: 011
 ---

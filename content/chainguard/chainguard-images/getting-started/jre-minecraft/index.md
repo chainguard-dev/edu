@@ -5,7 +5,7 @@ linktitle: "JRE + Minecraft"
 description: "Tutorial on how to build a Minecraft Server with Chainguard's JRE Container Image"
 date: 2025-03-26T11:07:52+02:00
 lastmod: 2025-03-26T13:25:40+00:00
-tags: ["Chainguard Containers", "Products"]
+tags: ["Chainguard Containers", "Product"]
 draft: false
 images: []
 menu:
