@@ -41,14 +41,14 @@ project. For example, if a Python wheel retrieved from PyPI requires Python 3.10
 or higher, the same Python 3.10 runtime requirement applies to the binary
 artifact from Chainguard Libraries for Python.
 
-Some Python libraries depend on native binaries supplied by the operating system
-or included in the distribution archive. For these libraries the following
-requirements apply:
+Some Python libraries include python extensions that depend on native
+binaries supplied by the operating system or included in the
+distribution archive. For these libraries the following requirements
+apply:
 
-* Only Linux operating system supported, no Windows or MacOS versions.
-* Linux distributions based on glibc 2.39 or higher, including Chainguard
-  Containers based on Chainguard OS/Wolfi.
-* Processor architectures `x86_64` and `aarch64` only.
+* All Linux distributions with glibc 2.28 or higher (e.g. RHEL 8, Ubuntu 20.04, Amazon Linux 2023)
+* On Windows and MacOS, a container solution such as WSL2, apple/container or Docker Desktop
+* Processor architectures `x86_64` or `aarch64`.
 
 ## Technical details
 
