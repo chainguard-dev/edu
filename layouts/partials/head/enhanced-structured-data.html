@@ -1,0 +1,204 @@
+{{/* Enhanced Structured Data - Automatically generates additional schema types */}}
+
+{{/* Auto-detect content type based on path and content */}}
+{{ $section := .Section }}
+{{ $title := .Title | lower }}
+{{ $path := .File.Path | lower }}
+
+{{/* Detect if this is a How-To/Tutorial */}}
+{{ $isHowTo := false }}
+{{ if or (findRE "getting-started|how-to|tutorial|guide" $title) (findRE "getting-started|how-to|tutorial" $path) }}
+  {{ if in (slice "chainguard" "open-source" "software-security") $section }}
+    {{ $isHowTo = true }}
+  {{ end }}
+{{ end }}
+
+{{/* Detect if this is an FAQ page */}}
+{{ $isFAQ := or (findRE "faq|frequently.*asked" $title) (findRE "faq" $path) }}
+
+{{/* Calculate reading time (words per minute) */}}
+{{ $wordCount := .WordCount }}
+{{ $readingTime := div $wordCount 200 }}
+{{ if lt $readingTime 1 }}{{ $readingTime = 1 }}{{ end }}
+
+{{/* Generate HowTo Schema for tutorials */}}
+{{ if and $isHowTo .Content (not .IsHome) (not .IsSection) }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": {{ .Title | jsonify }},
+  "description": {{ .Description | default .Summary | plainify | truncate 160 | jsonify }},
+  "totalTime": "PT{{ $readingTime }}M",
+  "image": {{ with .Params.images }}{{ index . 0 | absURL | jsonify }}{{ else }}{{ .Site.Params.schemaImage | absURL | jsonify }}{{ end }},
+  "author": {
+    "@type": "Organization",
+    "name": "Chainguard",
+    "url": "https://www.chainguard.dev"
+  },
+  {{/* Extract steps from H2 headings */}}
+  {{ $steps := slice }}
+  {{ $content := .Content }}
+  {{ $headings := findRE `<h2[^>]*>([^<]+)</h2>` $content }}
+  {{ if gt (len $headings) 0 }}
+  "step": [
+    {{ range $index, $heading := $headings }}
+    {{ $text := replaceRE `<[^>]+>` "" $heading | replaceRE `^\s+|\s+$` "" }}
+    {{ if and (not (in $text "See also")) (not (in $text "Next steps")) (not (in $text "References")) (not (in $text "Related")) }}
+    {
+      "@type": "HowToStep",
+      "name": {{ $text | jsonify }},
+      "url": {{ printf "%s#%s" $.Permalink (anchorize $text) | jsonify }}
+    }{{ if lt $index (sub (len $headings) 1) }},{{ end }}
+    {{ end }}
+    {{ end }}
+  ],
+  {{ end }}
+  "datePublished": {{ .Date.Format "2025-01-02T15:04:05Z07:00" | jsonify }},
+  "dateModified": {{ .Lastmod.Format "2025-01-02T15:04:05Z07:00" | jsonify }}
+}
+</script>
+{{ end }}
+
+{{/* Generate TechArticle Schema for technical documentation */}}
+{{ if and (eq $section "chainguard") (in .File.Path "reference") (not .IsHome) (not .IsSection) }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": {{ .Title | jsonify }},
+  "description": {{ .Description | default .Summary | plainify | truncate 160 | jsonify }},
+  "keywords": {{ with .Params.tags }}{{ delimit . ", " | jsonify }}{{ else }}""{{ end }},
+  "wordCount": {{ .WordCount }},
+  "timeRequired": "PT{{ $readingTime }}M",
+  "proficiencyLevel": "Intermediate",
+  "image": {{ with .Params.images }}{{ index . 0 | absURL | jsonify }}{{ else }}{{ .Site.Params.schemaImage | absURL | jsonify }}{{ end }},
+  "author": {
+    "@type": "Organization",
+    "name": "Chainguard",
+    "url": "https://www.chainguard.dev"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Chainguard",
+    "logo": {
+      "@type": "ImageObject",
+      "url": {{ .Site.Params.schemaLogo | absURL | jsonify }}
+    }
+  },
+  "datePublished": {{ .Date.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
+  "dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
+  {{/* Detect code languages from code blocks */}}
+  {{ $languages := slice }}
+  {{ $codeBlocks := findRE `<code[^>]*class="language-([^"]+)"` .Content }}
+  {{ range $codeBlocks }}
+    {{ $lang := replaceRE `.*language-([^"]+).*` "$1" . }}
+    {{ $languages = $languages | append $lang | uniq }}
+  {{ end }}
+  {{ if gt (len $languages) 0 }}
+  "programmingLanguage": {{ delimit $languages ", " | jsonify }},
+  {{ end }}
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": {{ .Permalink | jsonify }}
+  }
+}
+</script>
+{{ end }}
+
+{{/* Generate FAQ Schema for FAQ pages */}}
+{{ if and $isFAQ .Content (not .IsHome) (not .IsSection) }}
+{{ $questions := findRE `(?s)<h[23][^>]*>([^<]+)</h[23]>\s*<p>([^<]+)</p>` .Content }}
+{{ if gt (len $questions) 0 }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": {{ .Title | jsonify }},
+  "description": {{ .Description | default .Summary | plainify | truncate 160 | jsonify }},
+  "mainEntity": [
+    {{ range $index, $qa := $questions }}
+    {{ $parts := split $qa "</h" }}
+    {{ if gt (len $parts) 1 }}
+    {{ $q := replaceRE `.*>([^<]+)$` "$1" (index $parts 0) | replaceRE `^\s+|\s+$` "" }}
+    {{ $a := replaceRE `.*<p>([^<]+)</p>.*` "$1" (index $parts 1) | replaceRE `^\s+|\s+$` "" }}
+    {
+      "@type": "Question",
+      "name": {{ $q | jsonify }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ $a | jsonify }}
+      }
+    }{{ if lt $index (sub (len $questions) 1) }},{{ end }}
+    {{ end }}
+    {{ end }}
+  ],
+  "datePublished": {{ .Date.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
+  "dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" | jsonify }}
+}
+</script>
+{{ end }}
+{{ end }}
+
+{{/* Software Application Schema for tool documentation */}}
+{{ if and (or (eq $section "open-source") (and (eq $section "chainguard") (in .File.Path "chainctl"))) (in $title "overview") }}
+{{ $toolName := "" }}
+{{ if in .File.Path "cosign" }}{{ $toolName = "Cosign" }}
+{{ else if in .File.Path "rekor" }}{{ $toolName = "Rekor" }}
+{{ else if in .File.Path "chainctl" }}{{ $toolName = "chainctl" }}
+{{ else if in .File.Path "wolfi" }}{{ $toolName = "Wolfi" }}
+{{ else if in .File.Path "melange" }}{{ $toolName = "Melange" }}
+{{ else if in .File.Path "apko" }}{{ $toolName = "apko" }}
+{{ end }}
+{{ if $toolName }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": {{ $toolName | jsonify }},
+  "description": {{ .Description | default .Summary | plainify | truncate 160 | jsonify }},
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Linux, macOS, Windows",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Chainguard",
+    "url": "https://www.chainguard.dev"
+  }
+}
+</script>
+{{ end }}
+{{ end }}
+
+{{/* Learning Resource Schema for educational content */}}
+{{ if and (in .File.Path "learning-labs") .Content (not .IsHome) (not .IsSection) }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": {{ .Title | jsonify }},
+  "description": {{ .Description | default .Summary | plainify | truncate 160 | jsonify }},
+  "learningResourceType": "Tutorial",
+  "educationalLevel": "Professional",
+  "timeRequired": "PT{{ $readingTime }}M",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "author": {
+    "@type": "Organization",
+    "name": "Chainguard",
+    "url": "https://www.chainguard.dev"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "Chainguard Academy",
+    "url": "https://edu.chainguard.dev"
+  },
+  "datePublished": {{ .Date.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
+  "dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" | jsonify }}
+}
+</script>
+{{ end }}
