@@ -72,24 +72,6 @@ notAlternative = true
 [taxonomies]
   contributor = "contributors"
   tags = "tags"
-[related]
-  # Only include matches with rank >= threshold
-  threshold = 60
-  # Show up to 5 related articles
-  includeNewer = true
-  toLower = false
-  [[related.indices]]
-    name = "section"
-    weight = 100  # Higher weight on section since tags need work
-  [[related.indices]]
-    name = "tags"
-    weight = 50   # Lower weight until tags are improved
-  [[related.indices]]
-    name = "title"
-    weight = 30   # Title similarity can help
-  [[related.indices]]
-    name = "date"
-    weight = 10
 [permalinks]
   blog = "/blog/:title/"
 # docs = "/docs/1.0/:sections[1:]/:title/"
