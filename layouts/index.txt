@@ -5,6 +5,13 @@
 ## Overview
 
 Chainguard Academy (edu.chainguard.dev) provides documentation, tutorials, and demos on Chainguard products and educational content on software supply chain security.
+
+### Content Statistics
+- **Total Articles**: {{ len .Site.RegularPages }}
+- **Chainguard Products**: {{ len (where .Site.RegularPages "Section" "chainguard") }} articles
+- **Open Source Projects**: {{ len (where .Site.RegularPages "Section" "open-source") }} articles  
+- **Software Security**: {{ len (where .Site.RegularPages "Section" "software-security") }} articles
+- **Last Updated**: {{ now.Format "January 2, 2006" }}
 This website provides comprehensive documentation and educational resources for:
 - Chainguard Containers: Secure-by-default container images
 - Chainguard Libraries: Language libraries built from source
@@ -12,6 +19,68 @@ This website provides comprehensive documentation and educational resources for:
 - Open source security tools including Sigstore, Wolfi Linux, and build tools
 - Software supply chain security recommended practices
 - Compliance frameworks and vulnerability management
+
+## Technology Stack
+
+This documentation site is built with the following technologies:
+- **Static Site Generator**: Hugo v0.110.0+ (Extended Edition)
+- **Theme Framework**: Doks (based on Bootstrap)
+- **Search**: FlexSearch for client-side search functionality
+- **Analytics**: Google Analytics (GA4)
+- **Hosting**: Static site hosting with CDN
+- **Build Tools**: Node.js for asset pipeline
+- **Markdown Processing**: Goldmark with extensions
+- **Syntax Highlighting**: Prism.js for code blocks
+- **Math Rendering**: KaTeX for mathematical expressions
+- **Diagrams**: Mermaid for flowcharts and diagrams
+
+### Content Management
+- **Format**: Markdown with YAML frontmatter
+- **Version Control**: Git-based workflow
+- **API**: No dynamic API (static site)
+- **Update Frequency**: Daily deployments
+- **Build Time**: ~5 seconds for full site rebuild
+- **Total Pages**: {{ len .Site.Pages }} (including taxonomies and lists)
+- **Content Sections**: {{ len .Site.Sections }} main sections
+- **Tags**: {{ len .Site.Taxonomies.tags }} unique tags
+
+### Supported Features
+- Multi-language code examples
+- Interactive diagrams
+- Responsive images with lazy loading
+- Table of contents generation
+- Cross-references and internal linking
+- RSS feeds for content sections
+- Sitemap generation
+
+## Content Licensing
+
+### Documentation License
+All documentation content on this site is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0), unless otherwise noted.
+
+**You are free to:**
+- **Share**: Copy and redistribute the material in any medium or format
+- **Adapt**: Remix, transform, and build upon the material for any purpose, even commercially
+
+**Under the following terms:**
+- **Attribution**: You must give appropriate credit, provide a link to the license, and indicate if changes were made
+- **ShareAlike**: If you remix, transform, or build upon the material, you must distribute your contributions under the same license
+
+### Code Examples License
+Code snippets and examples in the documentation are licensed under the Apache License 2.0, unless otherwise specified.
+
+### Trademark Notice
+Chainguard and the Chainguard logo are trademarks of Chainguard, Inc. Use of these trademarks requires prior written permission. See our [Trademark Policy]({{ .Site.BaseURL }}software-security/trademark/) for details.
+
+### Attribution Format
+When using content from Chainguard Academy, please use the following attribution:
+```
+Source: Chainguard Academy - https://edu.chainguard.dev
+License: CC BY-SA 4.0 (documentation) / Apache 2.0 (code examples)
+```
+
+### Third-Party Content
+Some content may include third-party materials under their own licenses. These are clearly marked where applicable.
 
 ## Content Sections
 
@@ -53,3 +122,9 @@ Educational content on software supply chain security best practices.
 
 ## Resources
 The site includes tutorials, reference documentation, conceptual guides, and practical examples for implementing secure software practices using Chainguard's tools and following industry recommendations.
+
+## Contact and Contributions
+- **GitHub**: https://github.com/chainguard-dev/edu
+- **Issues**: Report documentation issues via GitHub
+- **Contributing**: See CONTRIBUTING.md in the repository
+- **Support**: Available through Chainguard support channels for customers
