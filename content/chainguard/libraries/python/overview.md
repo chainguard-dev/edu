@@ -41,7 +41,7 @@ project. For example, if a Python wheel retrieved from PyPI requires Python 3.10
 or higher, the same Python 3.10 runtime requirement applies to the binary
 artifact from Chainguard Libraries for Python.
 
-Some Python libraries include python extensions that depend on native
+Some Python libraries include Python extensions that depend on native
 binaries supplied by the operating system or included in the
 distribution archive. For these libraries the following requirements
 apply:
