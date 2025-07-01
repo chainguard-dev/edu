@@ -30,7 +30,7 @@ The next sections of this page contain distro-specific information that should h
 
 
 ## Migrating from Debian and Ubuntu Dockerfiles
-Chainguard Containers are based on the [Alpine apk](https://wiki.alpinelinux.org/wiki/Package_management) ecosystem, which differs from Debian-based `apt` in several aspects. Some of these features contribute in making packages smaller and more accountable, resulting in smaller images with traceable provenance information based on cryptographic signatures. The page [Why apk](/open-source/wolfi/apk-package-manager/) from the official Wolfi documentation explains in more detail why we use apk.
+Chainguard Containers use the [apk](https://wiki.alpinelinux.org/wiki/Package_management) package format, which differs from the Debian-based `apt` in several ways. Some of these features contribute in making packages smaller and more accountable, resulting in smaller images with traceable provenance information based on cryptographic signatures. The page [Why apk](/open-source/wolfi/apk-package-manager/) from the official Wolfi documentation explains in more detail why we use apk.
 
 If you are coming from a Debian-based Dockerfile, you'll need to adapt some of your commands to be compatible with the apk ecosystem:
 
