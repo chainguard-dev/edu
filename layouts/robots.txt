@@ -1,6 +1,55 @@
+# Allow all crawlers by default
 User-agent: *
 Allow: /
 {{ range where .Pages "Params.preview" "eq" true }}Disallow: {{ .RelPermalink }}
 {{ end }}
 
+# Explicitly allow major AI crawlers
+User-agent: GPTBot
+Allow: /
 
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# Google's AI crawler
+User-agent: Google-Extended
+Allow: /
+
+# Common AI/ML research crawlers
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Microsoft's Bing AI
+User-agent: Bingbot
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+
+# Reference to llms.txt for AI systems
+# AI crawlers should check /llms.txt for structured site information
+Sitemap: {{ .Site.BaseURL }}sitemap.xml
