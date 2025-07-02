@@ -18,7 +18,7 @@ disableLanguages = ["de", "nl"]
 # defaultContentLanguageInSubdir = true
 # add redirects/headers
 [outputs]
-home = ["HTML", "RSS", "ALIASES", "REDIRECTS", "HEADERS", "TXT", "AIMETADATA"]
+home = ["HTML", "RSS", "ALIASES", "REDIRECTS", "HEADERS", "TXT", "FULLTXT", "AIMETADATA"]
 section = ["HTML", "RSS", "SITEMAP"]
 # remove .{ext} from text/netlify
 [mediaTypes."text/netlify"]
@@ -54,6 +54,11 @@ rel  = "sitemap"
 [outputFormats.TXT]
 mediaType = "text/plain"
 baseName = "llms"
+isPlainText = true
+# add output format for llms-full.txt
+[outputFormats.FULLTXT]
+mediaType = "text/plain"
+baseName = "llms-full"
 isPlainText = true
 # add output format for ai-metadata.json
 [outputFormats.AIMETADATA]
