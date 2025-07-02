@@ -4,7 +4,7 @@ linktitle: "Python Overview "
 description: "Python libraries for your application development"
 type: "article"
 date: 2025-04-09:04:00+00:00
-lastmod: 2025-05-14:16:00+00:00
+lastmod: 2025-07-02:10:00+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python", "Overview"]
 menu:
@@ -46,9 +46,12 @@ binaries supplied by the operating system or included in the
 distribution archive. For these libraries the following requirements
 apply:
 
-* All Linux distributions with glibc 2.28 or higher (e.g. RHEL 8, Ubuntu 20.04, Amazon Linux 2023)
-* On Windows and MacOS, a container solution such as WSL2, apple/container or Docker Desktop
-* Processor architectures `x86_64` or `aarch64`.
+* All Linux distributions must use glibc 2.28 or higher, such as RHEL 8, Ubuntu
+  20.04, or Amazon Linux 2023.
+* On Windows and MacOS you must use a suitable Linux distribution with a
+  container solution, such as WSL2, apple/container or Docker Desktop. 
+* Processor architecture of the runtime environment must be `x86_64` or
+  `aarch64`.
 
 ## Technical details
 
