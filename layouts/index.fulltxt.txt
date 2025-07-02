@@ -1,0 +1,40 @@
+# Chainguard Academy - Full Content
+
+Generated: {{ now.Format "January 2, 2006 at 3:04 PM MST" }}
+
+## License
+Documentation: CC BY-SA 4.0 | Code Examples: Apache 2.0
+
+---
+
+## Content Index
+
+{{ range $section, $pages := .Site.RegularPages.GroupBy "Section" }}
+### {{ $section | title }}
+{{ range $pages.Pages }}
+- [{{ .Title }}]({{ .Permalink }})
+{{- end }}
+{{ end }}
+
+---
+
+## Full Documentation
+
+{{ range $section, $pages := .Site.RegularPages.GroupBy "Section" }}
+## Section: {{ $section | title }}
+
+{{ range $pages.Pages }}
+### {{ .Title }}
+
+URL: {{ .Permalink }}
+Last Modified: {{ .Lastmod.Format "January 2, 2006" }}
+{{- if .Params.tags }}
+Tags: {{ delimit .Params.tags ", " }}
+{{- end }}
+
+{{ .Content | plainify }}
+
+---
+
+{{ end }}
+{{ end }}
