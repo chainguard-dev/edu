@@ -84,7 +84,9 @@ jobs:
       env:
         SLACK_ICON: http://github.com/chainguard-dev.png?size=48
         SLACK_USERNAME: guardian
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        # This is the webhook for #alerts-edu channel
+        # in the chainguard-dev Slack workspace
+        SLACK_WEBHOOK: ${{ secrets.SLACK_ALERTS_EDU_WEBHOOK }}
         SLACK_CHANNEL: 'alerts-edu'
         SLACK_COLOR: '#8E1600'
         MSG_MINIMAL: 'true'
