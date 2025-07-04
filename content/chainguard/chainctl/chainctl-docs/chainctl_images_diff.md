@@ -1,5 +1,5 @@
 ---
-date: 2025-06-30T21:37:58Z
+date: 2025-07-03T23:25:34Z
 title: "chainctl images diff"
 slug: chainctl_images_diff
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_diff/
@@ -33,7 +33,10 @@ chainctl images diff FROM_IMAGE TO_IMAGE [flags]
 ```
   -t, --artifact-types strings   Specifies the purl artifact types to diff. If "-" is provided, all types are included. (default [apk])
   -h, --help                     help for diff
+  -o, --output string            Output format. One of: [go-template, json, markdown] (default "json")
       --platform string          Specifies the platform in the form os/arch (e.g. linux/amd64, linux/arm64) (default "linux/amd64")
+      --template string          Go template to use when --output=go-template
+      --template-file string     Path to a file containing the Go template
 ```
 
 ### Options inherited from parent commands
@@ -46,7 +49,6 @@ chainctl images diff FROM_IMAGE TO_IMAGE [flags]
       --force-color        Force color output even when stdout is not a TTY.
       --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
       --log-level string   Set the log level (debug, info) (default "ERROR")
-  -o, --output string      Output format. One of: [csv, env, id, json, none, table, terse, tree, wide]
   -v, --v int              Set the log verbosity level.
 ```
 
