@@ -10,7 +10,7 @@ tags: ["Chainguard Libraries", "Overview"]
 menu:
   docs:
     parent: "libraries"
-weight: 004
+weight: 010
 toc: true
 ---
 
