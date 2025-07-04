@@ -1,5 +1,5 @@
 ---
-date: 2025-06-30T21:37:58Z
+date: 2025-07-03T23:25:34Z
 title: "chainctl images repos build logs"
 slug: chainctl_images_repos_build_logs
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_logs/
@@ -36,7 +36,7 @@ chainctl images repos build logs [flags]
       --force-color        Force color output even when stdout is not a TTY.
       --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
       --log-level string   Set the log level (debug, info) (default "ERROR")
-  -o, --output string      Output format. One of: [csv, env, id, json, none, table, terse, tree, wide]
+  -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]
   -v, --v int              Set the log verbosity level.
 ```
 
