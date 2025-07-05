@@ -107,6 +107,36 @@ apk update
 
 Following that, you can proceed to search and install packages from your private APK repository.
 
+## Generating a pull token for Authentication 
+
+To generate a longer lived token for authentication purposes, it is necessary to create a pull token to access your private APK repository. 
+
+In this example we will setup a pull token that expires in 35 days, to be used with CI. 
+
+**Generate a Pull Token:**
+
+```shell
+chainctl auth pull-token --parent=<YOUR_CHAINGUARD_ORG> --ttl=850h -o json > /tmp/token.json
+export IDENTITY=$(jq -r .identity_id /tmp/token.json)
+export IDENTITY_TOKEN=$(jq -r .token /tmp/token.json)
+rm /tmp/token.json
+```
+**Set Up Role Bindings:**
+
+After generating the pull token, ensure you bind the required roles appropriately:
+
+```shell
+chainctl iam role-bindings create --parent=<YOUR_CHAINGUARD_ORG> --identity=${IDENTITY} --role=apk.pull
+```
+**Using the Pull Token in CI:**
+
+The generated pull token can be provided in the HTTP_AUTH environment variable for accessing the private APK repository:
+
+```shell
+export HTTP_AUTH=basic:apk.cgr.dev:user:${IDENTITY}:${IDENTITY_TOKEN}
+```
+
+Now you can structure your CI workflow to utilize this variable for authentication against the APK repository.
 
 ## Searching for and Installing Packages
 
