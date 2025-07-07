@@ -48,7 +48,7 @@ To avoid this being an issue when using Chainguard Containers:
 
 1. Set a `HOME` variable for the user (it would otherwise be set as `/` for root)
 1. Create an `/app` directory in every Dockerfile
-1. Set `/app` directory permissions to `755` and ownership to `65532:0`
+1. Set `/app` directory permissions to `775` and ownership to `65532:0`
 
 This can help you avoid or limit switching to the `root` user during the build phase when no package installation is required.
 
@@ -58,7 +58,7 @@ Here's a sample Dockerfile covering this process.
 # Change this to reference the image you want to pull and
 # if needed, to use the location of your custom image repo
 
-FROM cgr.dev/$ORGANIZATION/aspnet-runtime-db:9
+FROM cgr.dev/$ORGANIZATION/aspnet-runtime:9-dev
 
 USER 0
 
