@@ -111,7 +111,7 @@ Following that, you can proceed to search and install packages from your private
 
 To generate a longer lived token for authentication purposes, it is necessary to create a pull token to access your private APK repository. 
 
-In this example we will setup a pull token that expires in 35 days, to be used with CI. 
+In this example we set up a pull token that expires in 35 days, to use with CI. 
 
 **Generate a Pull Token:**
 
