@@ -29,7 +29,7 @@
   .feedback-text {
     font-size: 18px;
     font-weight: 600;
-    color: var(--bs-body-color);
+    color: var(--primary-1);
     margin-right: 8px;
   }
 }
@@ -47,7 +47,7 @@
   height: 36px;
   padding: 0 16px;
   background: transparent;
-  border: 1px solid var(--bs-border-color);
+  border: 2px solid var(--primary-1);
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
@@ -95,7 +95,7 @@
 .feedback-thanks {
   font-size: 16px;
   font-weight: 500;
-  color: var(--secondary-2);
+  color: var(--primary-1);
   margin-bottom: 8px;
 }
 
@@ -111,28 +111,6 @@
   }
 }
 
-// Dark mode adjustments
-[data-dark-mode] {
-  .feedback-container {
-    background: var(--primary-2);
-    border-color: var(--bs-border-color);
-    
-    &:hover {
-      border-color: var(--primary-2);
-    }
-  }
-  
-  .feedback-btn {
-    &:hover:not(:disabled) {
-      border-color: var(--primary-2);
-      color: var(--primary-2);
-    }
-  }
-  
-  .feedback-link a {
-    color: var(--primary-2);
-  }
-}
 
 // Mobile responsive
 @media (max-width: 768px) {
