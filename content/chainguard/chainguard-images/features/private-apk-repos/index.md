@@ -113,7 +113,7 @@ To generate a longer lived token for authentication purposes, it is necessary to
 
 In this example we set up a pull token that expires in 35 days, to use with CI. 
 
-**Generate a Pull Token:**
+**Generate a pull token:**
 
 ```shell
 chainctl auth pull-token --parent=<YOUR_CHAINGUARD_ORG> --ttl=850h -o json > /tmp/token.json
