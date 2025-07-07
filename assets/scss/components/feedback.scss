@@ -9,7 +9,8 @@
   padding: 24px;
   border: 1px solid var(--bs-border-color);
   border-radius: 8px;
-  background: var(--bs-body-bg);
+  background: var(--primary-2);
+//  background: var(--bs-body-bg);
   transition: all 0.2s ease;
   display: inline-block;
   max-width: fit-content;
@@ -113,7 +114,7 @@
 // Dark mode adjustments
 [data-dark-mode] {
   .feedback-container {
-    background: var(--bs-body-bg);
+    background: var(--primary-2);
     border-color: var(--bs-border-color);
     
     &:hover {
