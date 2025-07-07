@@ -107,7 +107,7 @@ apk update
 
 Following that, you can proceed to search and install packages from your private APK repository.
 
-## Generating a pull token for Authentication 
+## Generating a Pull Token for Authentication 
 
 To generate a longer lived token for authentication purposes, it is necessary to create a pull token to access your private APK repository. 
 
