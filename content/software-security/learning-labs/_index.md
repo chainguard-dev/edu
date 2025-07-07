@@ -8,6 +8,7 @@ draft: false
 images: []
 tags: ["Learning Labs", "Overview"]
 toc: true
+hidepageslist: true
 ---
 
 Learning Labs are [regularly run, virtual events from

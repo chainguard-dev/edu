@@ -124,6 +124,7 @@
         <article>
           <h1 class="text-center">{{ if eq .CurrentSection .FirstSection }}{{ .Section | humanize }}{{ else }}{{ .Title }}{{ end }}</h1>
           <div>{{ .Content }}</div>
+          {{ if not .Params.hidepageslist }}
           <div class="docs-navigation docs-navigation-summary">
             {{ if eq .Params.type "article" }}
                 {{ $currentSection := .CurrentSection }}
@@ -158,6 +159,7 @@
                 {{ template "_internal/pagination.html" . }}
             {{ end }}
           </div>
+          {{ end }}
         </article>
       </div>
     </div>
