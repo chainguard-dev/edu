@@ -12,6 +12,8 @@ menu:
     parent: "registry"
 weight: 005
 toc: true
+aliases:
+- /chainguard/chainguard-registry/overview/
 ---
 
 Chainguard's registry provides public access to all public Chainguard Containers, and provides customer access for image variants through login and authentication.
