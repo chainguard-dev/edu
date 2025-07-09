@@ -36,6 +36,11 @@
       {{ if not .Params.hide_title -}}
         <h1>{{ .Title }}</h1>
         <div>{{ .Description }}</div>
+        {{ if .ReadingTime }}
+        <div class="text-muted small mt-2">
+          <i class="bi bi-clock"></i>&nbsp; {{ .ReadingTime }} min read
+        </div>
+        {{ end }}
       {{ end -}}
 
       <div class="contributors">
@@ -91,6 +96,15 @@
       {{ partial "rumble-vuln.html" . }}
       <div class="mb-5"></div>
       {{ .Content }}
+
+      {{/* Related Content Section */}}
+      {{ $related := .Site.RegularPages.Related . | first 5 }}
+      {{ with $related }}
+      <section class="related-content mt-5 pt-3 border-top">
+        <h3 class="h3 mb-3">Related Articles</h3>
+        {{ partial "related-content.html" . }}
+      </section>
+      {{ end }}
 
       {{ if not .Params.hide_lastmod -}}
         {{ if .Params.lastmod }}
