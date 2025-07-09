@@ -13,6 +13,8 @@ menu:
     parent: "registry"
 weight: 050
 toc: true
+aliases:
+- /chainguard/chainguard-registry/authenticating/
 ---
 
 ## Public Container Images
