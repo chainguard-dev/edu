@@ -1,0 +1,23 @@
+[{
+  "user_agent": "prefetch-proxy",
+  "disallow": false,
+  "max_rate": 10
+},
+{
+  "user_agent": "ai-bot",
+  "disallow": false,
+  "max_rate": 5,
+  "preferred_endpoints": [
+    "/ai-sitemap.json",
+    "/concepts.json",
+    "/llms.txt",
+    "/llms-full.txt",
+    "/ai-metadata.json"
+  ]
+},
+{
+  "user_agent": "*",
+  "disallow": false,
+  "max_rate": 30,
+  "crawl_delay": 1
+}]
