@@ -1,0 +1,68 @@
+{{- $pages := where .Site.RegularPages "Type" "in" (slice "article" "blog" "education") -}}
+{{- $sections := where .Site.Sections "Section" "in" (slice "article" "blog" "education") -}}
+{
+  "version": "1.0",
+  "generated": {{ now.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
+  "site": {
+    "name": {{ .Site.Title | jsonify }},
+    "baseURL": {{ .Site.BaseURL | jsonify }},
+    "language": {{ .Site.Language.Lang | jsonify }},
+    "description": "Educational resources and documentation for cloud-native security"
+  },
+  "navigation": {
+    "sections": [
+      {{- range $i, $section := $sections }}
+      {{- if $i }},{{ end }}
+      {
+        "title": {{ $section.Title | jsonify }},
+        "path": {{ $section.RelPermalink | jsonify }},
+        "description": {{ $section.Description | default $section.Summary | jsonify }},
+        "weight": {{ $section.Weight | default 0 }},
+        "pageCount": {{ len (where $pages "Section" $section.Section) }}
+      }
+      {{- end }}
+    ],
+    "topPages": [
+      {{- range $i, $page := first 20 (where $pages "Params.featured" true) }}
+      {{- if $i }},{{ end }}
+      {
+        "title": {{ $page.Title | jsonify }},
+        "path": {{ $page.RelPermalink | jsonify }},
+        "section": {{ $page.Section | jsonify }},
+        "description": {{ $page.Description | default $page.Summary | truncate 200 | jsonify }},
+        "lastModified": {{ $page.Lastmod.Format "2006-01-02T15:04:05Z07:00" | jsonify }}
+      }
+      {{- end }}
+    ]
+  },
+  "content": {
+    "totalPages": {{ len $pages }},
+    "sections": [
+      {{- range $section := $sections }}
+      {{- $sectionPages := where $pages "Section" $section.Section }}
+      {
+        "name": {{ $section.Section | jsonify }},
+        "title": {{ $section.Title | jsonify }},
+        "pages": [
+          {{- range $i, $page := first 10 $sectionPages }}
+          {{- if $i }},{{ end }}
+          {
+            "title": {{ $page.Title | jsonify }},
+            "path": {{ $page.RelPermalink | jsonify }},
+            "description": {{ $page.Description | default $page.Summary | truncate 150 | jsonify }},
+            "tags": {{ $page.Params.tags | jsonify }},
+            "readingTime": {{ $page.ReadingTime }},
+            "wordCount": {{ $page.WordCount }},
+            "lastModified": {{ $page.Lastmod.Format "2006-01-02T15:04:05Z07:00" | jsonify }}
+          }
+          {{- end }}
+        ]
+      }{{ if not (eq $section (index $sections (sub (len $sections) 1))) }},{{ end }}
+      {{- end }}
+    ]
+  },
+  "metadata": {
+    "buildTime": {{ now.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
+    "hugoVersion": {{ hugo.Version | jsonify }}
+  }
+}

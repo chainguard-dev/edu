@@ -1,0 +1,59 @@
+{{- $pages := where .Site.RegularPages "Type" "in" (slice "article" "blog" "education") -}}
+{{- $taxonomy := .Site.Taxonomies.tags -}}
+{
+  "version": "1.0",
+  "generated": {{ now.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
+  "site": {
+    "name": {{ .Site.Title | jsonify }},
+    "baseURL": {{ .Site.BaseURL | jsonify }},
+    "description": "Cloud-native security concepts and educational resources"
+  },
+  "concepts": [
+    {{- $i := 0 -}}
+    {{- range $tag, $pages := $taxonomy }}
+    {{- if $i }},{{ end }}
+    {{- $i = add $i 1 }}
+    {
+      "name": {{ $tag | jsonify }},
+      "slug": {{ $tag | urlize | jsonify }},
+      "url": {{ printf "/tags/%s/" ($tag | urlize) | absURL | jsonify }},
+      "pageCount": {{ len $pages }},
+      "relatedConcepts": [
+        {{- $related := slice -}}
+        {{- range $pages -}}
+          {{- range .Params.tags -}}
+            {{- if ne . $tag -}}
+              {{- $related = $related | append . -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+        {{- $uniqueRelated := $related | uniq | first 5 -}}
+        {{- range $j, $rel := $uniqueRelated -}}
+          {{- if $j }},{{ end }}{{ $rel | jsonify -}}
+        {{- end -}}
+      ],
+      "topPages": [
+        {{- range $j, $page := first 3 $pages }}
+        {{- if $j }},{{ end }}
+        {
+          "title": {{ $page.Title | jsonify }},
+          "path": {{ $page.RelPermalink | jsonify }},
+          "description": {{ $page.Description | default $page.Summary | truncate 100 | jsonify }}
+        }
+        {{- end }}
+      ]
+    }
+    {{- end }}
+  ],
+  "categories": {
+    "security": ["security", "vulnerabilities", "cve", "sbom", "attestation", "signing", "provenance"],
+    "containers": ["docker", "kubernetes", "containers", "oci", "registry", "images"],
+    "tools": ["chainctl", "cosign", "melange", "apko", "wolfi", "enforce"],
+    "development": ["go", "python", "java", "nodejs", "rust", "development", "ci-cd"]
+  },
+  "metadata": {
+    "totalConcepts": {{ len $taxonomy }},
+    "totalPages": {{ len $pages }},
+    "buildTime": {{ now.Format "2006-01-02T15:04:05Z07:00" | jsonify }}
+  }
+}
