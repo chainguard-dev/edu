@@ -1,0 +1,151 @@
+{{ define "main" }}
+{{ partial "top-body-additions.html" . }}
+<div class="row flex-md-nowrap">
+  <aside class="leftnav-container" role="complementary" aria-label="Site navigation">
+    <div class="board-background leftnav">
+      <nav id="sidebar-default" aria-label="Main navigation">
+        {{ partial "sidebar/docs-menu.html" . }}
+      </nav>
+      {{ partial "sidebar/nav-bottom.html" }}
+    </div>
+  </aside>
+
+  <div class="content-and-terminal">
+  <div class="center-content single-html">
+    <main class="docs-content {{ if ne .Params.toc false -}} has-toc {{ end }}" role="main">
+      <nav class="back-button" aria-label="Breadcrumb">
+        {{ $parentTitle := .Parent.Title }}
+        {{ $parentLink := .Parent.Permalink }}
+        {{ if or (eq $parentTitle "Product Docs") (eq $parentTitle "Open Source") (eq $parentTitle "Education") }}
+          {{ $parentTitle = "Home" }}
+          {{ $parentLink = "/" }}
+        {{ end }}
+
+        <a class="pills-link" href="{{ $parentLink }}">
+          <div class="d-flex align-items-center justify-content-center pills-icon">
+            <div class="chevron-rotator">
+              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="15" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+                <path d="M1.06199 5.729L0.291992 4.938L4.99999 0.229004L9.70799 4.938L8.93799 5.729L4.99999 1.792L1.06199 5.729Z" fill="currentColor"/>
+              </svg>
+            </div>
+          </div>
+          <span class="pills-text">{{ $parentTitle }}</span>
+        </a>
+      </nav>
+
+      <article itemscope itemtype="https://schema.org/Article" data-article-type="{{ .Type }}" data-section="{{ .Section }}">
+        <header class="article-header">
+          {{ if not .Params.hide_title -}}
+            <h1 itemprop="headline">{{ .Title }}</h1>
+            <p class="article-description" itemprop="description">{{ .Description }}</p>
+            {{ if .ReadingTime }}
+            <div class="article-meta text-muted small mt-2">
+              <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" itemprop="datePublished">
+                <i class="bi bi-clock" aria-hidden="true"></i>
+                <span class="reading-time">{{ .ReadingTime }} min read</span>
+              </time>
+            </div>
+            {{ end }}
+          {{ end -}}
+
+          <div class="contributors" itemprop="author" itemscope itemtype="https://schema.org/Person">
+            {{ if .Params.contributors -}}
+            <div class="mt-4 d-flex align-items-center">
+              <div class="contributor-list"><small>
+                <span class="visually-hidden">Contributors: </span>
+                {{ range $index, $contributor := .Params.contributors }}
+                  {{ if gt $index 0 }}
+                    {{ if eq $index (sub (len $.Params.contributors) 1) }} and {{ else }}, {{ end }}
+                  {{ end }}
+                  <span itemprop="name">{{ . }}</span>
+                {{ end -}}
+              </small></div>
+            </div>
+            {{ end -}}
+          </div>
+
+          <div class="tags-and-copy-wrapper">
+            {{ if .Params.tags -}}
+            <nav class="tag-container" aria-label="Article tags">
+              {{ range $index, $tag := .Params.tags -}}
+                <a class="tag" href="{{ "/tags/" | absURL }}{{ . | urlize }}/" role="button" rel="tag" itemprop="keywords">{{ . }}</a>
+              {{end}}
+            </nav>
+            {{end}}
+            {{ partial "copy-page-button.html" . }}
+          </div>
+
+          {{ if .Params.images }}
+            <figure class="article-images mt-4">
+              {{range .Params.images}}
+                <img class="attached-image--border mt-3" src="{{.}}" alt="Attached Image" itemprop="image" loading="lazy">
+              {{end}}
+            </figure>
+          {{ end }}
+        </header>
+
+        {{ partial "notice.html" . }}
+        {{ partial "rumble-comparison.html" . }}
+        {{ partial "rumble-vuln.html" . }}
+        
+        <div class="article-content mb-5" itemprop="articleBody">
+          {{ .Content }}
+        </div>
+
+        {{/* Related Content Section */}}
+        {{ $related := .Site.RegularPages.Related . | first 5 }}
+        {{ with $related }}
+        <aside class="related-content mt-5 pt-3 border-top" role="complementary" aria-label="Related articles">
+          <h2 class="h3 mb-3">Related Articles</h2>
+          {{ partial "related-content.html" . }}
+        </aside>
+        {{ end }}
+
+        <footer class="article-footer">
+          {{ if not .Params.hide_lastmod -}}
+            {{ if .Params.lastmod }}
+            <div class="article-lastmod d-block border-top mt-5 pt-2">
+                <p class="text-muted fst-italic fs-6">
+                  <time datetime="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}" itemprop="dateModified">
+                    Last updated: {{ time.Format "2006-01-02 15:04" .Params.lastmod }}
+                  </time>
+                </p>
+            </div>
+            {{ end }}
+          {{ end -}}
+
+          <div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
+          </div>
+        </footer>
+
+        {{ partial "footer/main/docs-navigation.html" . }}
+      </article>
+    </main>
+
+    {{ $snippetsStyle := resources.Get "scss/snippets.scss" | resources.ToCSS }}
+    {{ $snippetsStyle := $snippetsStyle | minify }}
+    <link rel="stylesheet" href="{{ $snippetsStyle.Permalink }}" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    {{- $snippets := resources.Get "js/snippets.js" -}}
+    {{ $snippets := $snippets | minify }}
+    <script src="{{ $snippets.Permalink }}" integrity="{{ $snippets.Data.Integrity }}"></script>
+    {{- $titles := resources.Get "js/titles.js" -}}
+    {{ $titles := $titles | minify }}
+    <script src="{{ $titles.Permalink }}" integrity="{{ $titles.Data.Integrity }}"></script>
+    {{- $copypage := resources.Get "js/copypage.js" -}}
+    {{ $copypage := $copypage | minify }}
+    <script src="{{ $copypage.Permalink }}" integrity="{{ $copypage.Data.Integrity }}"></script>
+    
+    {{ if ne .Params.toc false -}}
+    <aside class="docs-toc{{ if ne .Site.Params.options.navbarSticky true }} docs-toc-top{{ end }}" role="navigation" aria-label="Table of contents">
+      {{ partial "sidebar/docs-toc.html" . }}
+    </aside>
+    {{ end -}}
+  </div>
+
+  <div class="row terminal resizable">
+    {{ partial "replacer.html" . }}
+  </div>
+  </div>
+</div>
+{{ end }}
