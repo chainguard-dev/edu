@@ -7,7 +7,7 @@ date: 2024-09-18T14:05:09+00:00
 lastmod: 2024-09-18T14:05:09+00:00
 contributors: []
 draft: false
-tags: ["COMPLIANCE", "STANDARDS"]
+tags: ["Compliance", "Standards"]
 images: []
 menu:
   docs:
