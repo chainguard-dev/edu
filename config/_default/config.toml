@@ -18,7 +18,7 @@ disableLanguages = ["de", "nl"]
 # defaultContentLanguageInSubdir = true
 # add redirects/headers
 [outputs]
-home = ["HTML", "RSS", "ALIASES", "REDIRECTS", "HEADERS", "TXT", "FULLTXT", "AIMETADATA"]
+home = ["HTML", "RSS", "ALIASES", "REDIRECTS", "HEADERS", "TXT", "FULLTXT", "AIMETADATA", "AISITEMAP", "CONCEPTS"]
 section = ["HTML", "RSS", "SITEMAP"]
 # remove .{ext} from text/netlify
 [mediaTypes."text/netlify"]
@@ -64,6 +64,18 @@ isPlainText = true
 [outputFormats.AIMETADATA]
 mediaType = "application/json"
 baseName = "ai-metadata"
+isPlainText = true
+notAlternative = true
+# add output format for ai-sitemap.json
+[outputFormats.AISITEMAP]
+mediaType = "application/json"
+baseName = "ai-sitemap"
+isPlainText = true
+notAlternative = true
+# add output format for concepts.json
+[outputFormats.CONCEPTS]
+mediaType = "application/json"
+baseName = "concepts"
 isPlainText = true
 notAlternative = true
 [caches]
