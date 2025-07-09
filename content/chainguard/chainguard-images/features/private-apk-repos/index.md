@@ -111,30 +111,98 @@ Following that, you can proceed to search and install packages from your private
 
 To generate a longer lived token for authentication purposes, it is necessary to create a pull token to access your private APK repository. 
 
-In this example we set up a pull token that expires in 35 days, to use with CI. 
+In this example we set up a pull token that expires in 30 days, to use with CI. 
 
-**Generate a pull token:**
+## Pull token for libraries
 
-```shell
-chainctl auth pull-token --parent=<YOUR_CHAINGUARD_ORG> --ttl=850h -o json > /tmp/token.json
-export IDENTITY=$(jq -r .identity_id /tmp/token.json)
-export IDENTITY_TOKEN=$(jq -r .token /tmp/token.json)
-rm /tmp/token.json
-```
-**Set Up Role Bindings:**
-
-After generating the pull token, ensure you bind the required roles appropriately:
+Retrieve a new authentication token for the Chainguard Libraries for Java with
+the [chainctl auth pull-token](/chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token/)
+command:
 
 ```shell
-chainctl iam role-bindings create --parent=<YOUR_CHAINGUARD_ORG> --identity=${IDENTITY} --role=apk.pull
+chainctl auth pull-token --library-ecosystem=java --parent=ORGINIZATION 
 ```
+
+* `--library-ecosystem=java`: retrieve the token for use with Chainguard
+  Libraries for Java. Use `python` for a token to use Chainguard Libraries for
+  Python.
+* `--parent=example`: specify the parent organization for your account as
+  provided when requesting access to Chainguard Libraries and replace `example`.
+* `--ttl=value`: set the duration for the validity of the token, defaults to
+  `720h` (equivalent to 30 days), maximum valid value is `8760h` (equivalent to
+  365 days), valid unit strings range from nanoseconds to hours and are `ns`,
+  `us`, `ms`, `s`, `m`, and `h`.
+
+When omitting the parent parameter, potentially a list of organizations is
+displayed. Use the arrow keys to navigate the selection displayed after the
+question “With which location is the pull token associated?” and select the
+organization that has the entitlement to access Chainguard Libraries for Java.
+Press `/` to filter the list.
+
+`chainctl` returns a username and password suitable for basic authentication in
+the response:
+
+```shell
+Username: 45a.....424eb0
+
+Password: eyJhbGciO..........WF0IjoxN
+```
+
+The returned username and password combination is a new credential set in the
+organization that is independent of the account used to create and retrieve the
+credential set. It is therefore suitable for use in any service application,
+such as [a repository manager](/chainguard/libraries/java/global-configuration)
+or [a build tool](/chainguard/libraries/java/build-configuration) that is not
+tied to a specific user.
+
+To use this pull token in another environment, supply the following for username
+and password valid for basic authentication. Note that the actual returned
+values are much longer.
+
+## Use environment variables
+
+Using environment variables for username and password is more secure than
+hardcoding the values in configuration files. In addition, you can use the same
+configuration and files for all users to simplify setup and reduce errors.
+
+Use the `env` environment output option to create a snippet for a new token
+suitable for integration in a script.
+
+```shell
+$ chainctl auth pull-token --output env --library-ecosystem=java --parent=ORGANIZATION
+export CHAINGUARD_JAVA_IDENTITY_ID=45a.....424eb0
+export CHAINGUARD_JAVA_TOKEN=eeyJhbGciO..........WF0IjoxN
+```
+
+Combine the call with `eval` to populate the environment variables directly by
+calling `chainctl`:
+
+```shell
+eval $(chainctl auth pull-token --output env --library-ecosystem=java --parent=ORGANIZATION)
+```
+
+Equivalent commands for Python are supported and result in values for the
+`CHAINGUARD_PYTHON_IDENTITY_ID` and `CHAINGUARD_PYTHON_TOKEN` variables.
+
+Running this command as part of a login script or some other automation allows
+your organization to replace actual username and password values in your build
+tool configuration with environment variable placeholders:
+
+*  [Java build tool configuration](/chainguard/libraries/java/build-configuration)
+*  [Python build tool configuration](/chainguard/libraries/python/build-configuration)
+
+<a id="netrc"></a>
+
 **Using the Pull Token in CI:**
 
 The generated pull token can be provided in the HTTP_AUTH environment variable for accessing the private APK repository:
 
 ```shell
-export HTTP_AUTH=basic:apk.cgr.dev:user:${IDENTITY}:${IDENTITY_TOKEN}
+export HTTP_AUTH=basic:apk.cgr.dev:user:${CHAINGUARD_JAVA_IDENTITY_ID}:${CHAINGUARD_JAVA_TOKEN}
 ```
+
+Equivalent commands for Python are supported and result in values for the
+`CHAINGUARD_PYTHON_IDENTITY_ID` and `CHAINGUARD_PYTHON_TOKEN` variables.
 
 Now you can structure your CI workflow to utilize this variable for authentication against the APK repository.
 
