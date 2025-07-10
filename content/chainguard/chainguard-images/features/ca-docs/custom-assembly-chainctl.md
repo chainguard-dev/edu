@@ -39,7 +39,7 @@ contents:
   - wget
 ```
 
-Edit this file by adding or removing any packages you like. Then, save and close the file.
+Edit this file by adding or removing any packages you like. Then, save and close the file. Note that you can undo all the customization and return the image to its original state by removing every entry listed under `packages:`.
 
 Before applying the change, `chainctl` will outline the changes you made and prompt you to confirm that you want to move forward with the change:
 
