@@ -9,7 +9,7 @@ description: "Tutorial outlining how to set up a Nexus repository to pull contai
 date: 2024-03-28T15:56:52-07:00
 lastmod: 2024-08-19T15:56:52-07:00
 draft: false
-tags: ["Product", "Chainguard Containers"]
+tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:

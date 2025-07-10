@@ -9,7 +9,7 @@ description: "Guidance on how to migrate existing Dockerfile workloads to use Ch
 date: 2024-03-25T15:56:52-07:00
 lastmod: 2024-03-25T15:56:52-07:00
 draft: false
-tags: ["Chainguard Containers", "Product",]
+tags: ["Chainguard Containers"]
 images: []
 weight: 015
 toc: true

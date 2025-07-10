@@ -7,7 +7,7 @@ aliases:
 lead: ""
 description: "This video explains how Chainguard is able to create container images with low-to-no CVEs."
 type: "article"
-tags: ["Video", "Chainguard Containers", "Product"]
+tags: ["Video", "Chainguard Containers"]
 date: 2024-05-31T12:21:01+00:00
 lastmod: 2025-03-21T12:21:01+00:00
 draft: false

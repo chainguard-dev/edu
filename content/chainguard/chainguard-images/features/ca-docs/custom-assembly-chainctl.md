@@ -6,7 +6,7 @@ description: "How to use chainctl to manage Custom Assembly resources."
 date: 2025-05-01T11:07:52+02:00
 lastmod: 2025-05-01T11:07:52+02:00
 draft: false
-tags: ["Chainguard Containers", "Product", "Procedural"]
+tags: ["Chainguard Containers", "Procedural"]
 images: []
 menu:
   docs:

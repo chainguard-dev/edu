@@ -6,7 +6,7 @@ type: "article"
 date: 2022-11-15T12:05:04
 lastmod: 2025-07-08T21:44:47
 draft: false
-tags: ["Platform", "Reference", "Product"]
+tags: ["Platform", "Reference", "Chainguard Console"]
 images: []
 weight: 005
 ---

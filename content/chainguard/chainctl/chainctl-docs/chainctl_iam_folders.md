@@ -4,7 +4,7 @@ title: "chainctl iam folders"
 slug: chainctl_iam_folders
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_folders/
 draft: false
-tags: ["chainctl", "Reference", "Product"]
+tags: ["chainctl", "Reference"]
 images: []
 type: "article"
 toc: true

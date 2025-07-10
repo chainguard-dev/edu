@@ -6,7 +6,7 @@ type: "article"
 date: 2025-03-0320T08:49:15+00:00
 lastmod: 2025-03-0320T08:49:15+00:00
 draft: false
-tags: ["chainctl", "Usage", "Product", "Overview"]
+tags: ["chainctl", "Usage", "Overview"]
 images: []
 weight: 060
 ---

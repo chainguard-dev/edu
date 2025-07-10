@@ -6,7 +6,7 @@ description: "."
 date: 2025-04-24T15:22:20+01:00
 lastmod: 2025-04-25T15:22:20+01:00
 draft: false
-tags: ["Product", "CloudEvents", "Procedural"]
+tags: ["Chainguard Console", "CloudEvents", "Procedural"]
 images: []
 menu:
   docs:

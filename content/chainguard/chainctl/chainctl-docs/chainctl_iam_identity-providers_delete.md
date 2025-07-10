@@ -4,7 +4,7 @@ title: "chainctl iam identity-providers delete"
 slug: chainctl_iam_identity-providers_delete
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers_delete/
 draft: false
-tags: ["chainctl", "Reference", "Product"]
+tags: ["chainctl", "Reference"]
 images: []
 type: "article"
 toc: true

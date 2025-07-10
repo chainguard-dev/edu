@@ -9,7 +9,7 @@ description: "This overview serves as a collection of information and resources 
 date: 2024-07-22T12:56:52-00:00
 lastmod: 2024-08-08T14:44:52-00:00
 draft: false
-tags: ["Chainguard Containers", "Product"]
+tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:

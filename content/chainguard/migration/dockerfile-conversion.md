@@ -6,7 +6,7 @@ description: "User Guide for Chainguard's Dockerfile Converter (dfc)"
 date: 2025-03-18T15:22:20+01:00
 lastmod: 2025-04-30T15:22:20+01:00
 draft: false
-tags: ["Chainguard Containers", "Product", "Open Source"]
+tags: ["Chainguard Containers", "Open Source"]
 images: []
 menu:
   docs:

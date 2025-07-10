@@ -7,7 +7,7 @@ lead: "A primer on Chainguard Containers and the distroless approach"
 date: 2022-09-01T08:49:31+00:00
 lastmod: 2025-05-27T08:49:31+00:00
 draft: false
-tags: ["Chainguard Containers", "Product"]
+tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:
