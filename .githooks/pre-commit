@@ -30,14 +30,14 @@ APPROVED_TAGS = {
     "Installation", "Upgrade", "Deprecation", "Getting Started",
     
     # Platform/Tool Tags
-    "AWS", "GCP", "Azure", "Multi-Cloud", "JFrog", "Cloudsmith", "GitHub", 
+    "AWS", "GCP", "Azure", "Multi-Cloud", "JFrog Artifactory", "Sonatype Nexus Repository", "Cloudsmith", "GitHub", 
     "GitLab", "Jenkins", "Harbor", "Docker Hub", "Terraform", "Kubernetes", "OIDC",
     
     # Topic Tags
     "Security", "SBOM", "CVE", "VEX", "Compliance", "Standards", "SLSA", "OCI", "AI",
     
     # Language/Framework Tags
-    "Python", "Java", "Go", "Node.js", "Ruby", "PHP", "Rust", ".NET",
+    "Python", "Java", "Go", "Node.js", "JavaScript", "Ruby", "PHP", "Rust", ".NET",
     
     # Tool-Specific Tags
     "apko", "melange", "Wolfi", "Cosign", "Rekor", "Fulcio",

@@ -42,6 +42,8 @@ cgr
 dev
 Artifactory
 JFrog
+Sonatype
+Nexus
 Cloudsmith
 EKS
 GKE

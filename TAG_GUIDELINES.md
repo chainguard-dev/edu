@@ -60,7 +60,8 @@ This document defines the approved tag taxonomy and usage guidelines for the Hug
 - **GCP** - Google Cloud Platform specific content
 - **Azure** - Microsoft Azure specific content
 - **Multi-Cloud** - Cross-cloud strategies
-- **JFrog** - JFrog Artifactory integration
+- **JFrog Artifactory** - JFrog Artifactory integration
+- **Sonatype Nexus Repository** - Sonatype Nexus Repository integration
 - **Cloudsmith** - Cloudsmith registry integration
 - **GitHub** - GitHub and GitHub Actions content
 - **GitLab** - GitLab and GitLab CI content
@@ -87,6 +88,7 @@ This document defines the approved tag taxonomy and usage guidelines for the Hug
 - **Java** - Java-specific content
 - **Go** - Go language content
 - **Node.js** - Node.js content
+- **JavaScript** - JavaScript content
 - **Ruby** - Ruby content
 - **PHP** - PHP content
 - **Rust** - Rust content
