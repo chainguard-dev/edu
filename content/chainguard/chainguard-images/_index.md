@@ -1,10 +1,10 @@
 ---
 title: "Chainguard Containers"
-linkTitle: "Containers"
+linkTitle: "Chainguard Containers"
 description: "Minimalist container images with low to zero CVEs"
 type: "article"
 date: 2022-09-05T08:49:15+00:00
-lastmod: 2025-04-07T08:49:15+00:00
+lastmod: 2025-07-10T08:49:15+00:00
 draft: false
 images: []
 weight: 010
