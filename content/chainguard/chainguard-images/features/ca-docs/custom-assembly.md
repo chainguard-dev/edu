@@ -21,13 +21,11 @@ toc: true
 
 Chainguard has created Custom Assembly, a tool that allows users to create customized container images with extra packages added. This enables customers to reduce their risk exposure by creating container images that are tailored to their internal organization and application requirements while still having few-to-zero CVEs.
 
-There are several methods available to customers for building Custom Assembly resources. Chainguard Academy currently has documentation for the following:
+This overview of Custom Assembly outlines how it works, its limitations, and how you can use container images customized with Custom Assembly. For a more hands-on tutorial on using Custom Assembly, Chainguard Academy currently has documentation for the following methods of managing the tool:
 
 * [Using the Chainguard console](/chainguard/chainguard-images/features/ca-docs/custom-assembly-console)
 * [Using `chainctl`, Chainguard's command-line interface tool](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/)
 * [Using Chainguard's API](/chainguard/chainguard-images/features/ca-docs/custom-assembly-api-demo/)
-
-This overview of Custom Assembly outlines how it works, its limitations, and how you can use container images customized with Custom Assembly.
 
 
 ## About Custom Assembly
@@ -35,8 +33,6 @@ This overview of Custom Assembly outlines how it works, its limitations, and how
 Custom Assembly is only available to customers that have access to Production Chainguard Containers. Customers with access can use Custom Assembly to customize any container image they have access to.
 
 Say, for example, you want to build a custom base for a Python application. In this case, you would likely choose to use the [Python Chainguard Container](https://images.chainguard.dev/directory/image/python/versions) as the source for your customized image.
-
-But what if you want to have both a customized version of Chainguard's Python container image as well as an off-the-shelf version of that same image that hasn't been customized? Or what if you want two different customized versions of the same source image? In cases like this, you can reach out to your account team about setting up multiple repositories of the same source image.
 
 After selecting the packages for your customized container image, Chainguard will kick off a build on Chainguard's infrastructure. Once a customized image is built successfully, Chainguard will take care of its maintenance and rebuild it as necessary, such as when any of the packages in the image are updated.
 
@@ -67,8 +63,7 @@ This means that in order to use Custom Assembly, your account must be bound to t
 To create such a custom role, you can use the `chainctl iam roles create` command. The following example creates a custom role named `ca-role` with all the same capabilities as the `viewer` role, but with the added `repo.update` capability:
 
 ```shell
-chainctl iam roles create ca-role --parent=$ORGANIZATION \
---capabilities=repo.update,account_associations.list,apk.list,group_invites.list,groups.list,identity.list,identity_providers.list,libraries.artifacts.list,libraries.entitlements.list,manifest.list,manifest.metadata.list,record_signatures.list,registry.entitlements.list,repo.list,roles.list,sboms.list,subscriptions.list,tag.list,version.list,vuln_report.list,vuln_reports.list
+chainctl iam roles create ca-role --parent=$ORGANIZATION --capabilities=repo.update,account_associations.list,apk.list,group_invites.list,groups.list,identity.list,identity_providers.list,libraries.artifacts.list,libraries.entitlements.list,manifest.list,manifest.metadata.list,record_signatures.list,registry.entitlements.list,repo.list,roles.list,sboms.list,subscriptions.list,tag.list,version.list,vuln_report.list,vuln_reports.list
 ```
 
 After creating this custom role, you would need to bind it to any identities in your organization that you want to be able to manage Custom Assembly resources. Check out our [Overview of Roles and Role-bindings in Chainguard](/chainguard/administration/iam-organizations/roles-role-bindings/roles-role-bindings/) to learn more.
@@ -82,7 +77,7 @@ You can use Docker to download the customized container image for testing or use
 docker pull cgr.dev/$ORGANIZATION/$CUSTOMIZED-CONTAINER:latest
 ```
 
-Be sure to change `$ORGANIZATION` to reflect the name used for your organization's private repository within the Chainguard registry and replace `$CUSTOMIZED-CONTAINER` with the actual name of your container image. 
+Be sure to change `$ORGANIZATION` to reflect the name used for your organization's private repository within the Chainguard registry and replace `$CUSTOMIZED-CONTAINER` with the actual name of your customized container image. 
 
 Additionally, replace `latest` with your chosen tag, if different. You can find a list of all the available tags for your customized container in its **Tags** tab in the Console.
 
