@@ -7,7 +7,7 @@ aliases:
 description: "Tutorial on how to get started with the MariaDB Chainguard Image"
 date: 2023-07-28T11:07:52+02:00
 lastmod: 2023-09-22T11:07:52+02:00
-tags: ["Chainguard Containers", "Product"]
+tags: ["Chainguard Containers"]
 draft: false
 images: []
 menu:

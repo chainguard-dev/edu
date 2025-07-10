@@ -8,7 +8,7 @@ type: "article"
 date: 2023-07-07T05:56:52-07:00
 lastmod: 2024-12-12T05:56:52-07:00
 draft: false
-tags: ["chainctl", "Product"]
+tags: ["chainctl"]
 images: []
 menu:
   docs:

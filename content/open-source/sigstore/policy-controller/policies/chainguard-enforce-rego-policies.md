@@ -7,7 +7,7 @@ description: "Writing Rego-based policies for Sigstore Policy Controller"
 date: 2023-01-12T15:56:52-07:00
 lastmod: 2024-05-10T15:56:52-07:00
 draft: false
-tags: ["Open Source", "Procedural", "Policy", "Reference", "SBOM"]
+tags: ["Policy Controller", "Procedural", "Policy", "Reference", "SBOM"]
 menu:
   docs:
     parent: "policies"

@@ -10,7 +10,7 @@ description: "A conceptual article on best practices for keeping images up to da
 date: 2023-10-05T11:07:52+02:00
 lastmod: 2023-10-11T11:07:52+02:00
 draft: false
-tags: ["Chainguard Containers", "Product"]
+tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:

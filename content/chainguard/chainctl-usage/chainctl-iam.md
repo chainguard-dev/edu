@@ -6,7 +6,7 @@ type: "article"
 date: 2025-03-06T08:49:15+00:00
 lastmod: 2025-05-13T08:49:15+00:00
 draft: false
-tags: ["chainctl", "iam", "Product", "authentication", "access", "identity", "management"]
+tags: ["chainctl", "iam"]
 images: []
 weight: 060
 ---

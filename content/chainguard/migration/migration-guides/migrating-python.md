@@ -10,7 +10,7 @@ description: "Guide on migrating containerized Python applications to Chainguard
 date: 2024-05-02T15:06:00-07:00
 lastmod: 2024-05-02T15:06:00-07:00
 draft: false
-tags: ["Chainguard Containers", "Product", "Migration"]
+tags: ["Chainguard Containers", "Migration"]
 images: []
 weight: 020
 toc: true

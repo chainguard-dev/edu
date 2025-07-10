@@ -10,7 +10,7 @@ description: "Using Chainguard Containers with firewalls, access control lists, 
 date: 2023-09-08T08:49:31+00:00
 lastmod: 2025-06-17T15:22:20+01:00
 draft: false
-tags: ["Product", "Reference"]
+tags: ["Chainguard Containers", "Reference"]
 images: []
 toc: true
 weight: 010

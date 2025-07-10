@@ -6,7 +6,7 @@ date: 2023-03-21T16:36:47+00:00
 lastmod: 2025-04-11T16:36:47+00:00
 draft: false
 images: []
-tags: ["Chainguard Containers", "Registry", "Product"]
+tags: ["Chainguard Containers", "Registry"]
 menu:
   docs:
     parent: "registry"

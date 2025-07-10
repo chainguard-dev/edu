@@ -6,7 +6,7 @@ aliases:
 - /chainguard/chainguard-images/about/beyond_zero_pytorch_2024/
 lead: ""
 description: "Video and transcript of presentation at PyTorch 2024 on eliminating CVEs in the PyTorch image, drawing on best practices from Chainguard Containers"
-tags: ["video", "Chainguard Containers", "Product", "AI"]
+tags: ["video", "Chainguard Containers", "AI"]
 type: "article"
 date: 2024-09-07T01:21:01+00:00
 lastmod: 2025-04-08T01:21:01+00:00

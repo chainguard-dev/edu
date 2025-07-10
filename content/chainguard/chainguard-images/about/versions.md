@@ -9,7 +9,7 @@ description: "Understanding Chainguard's approach to container image versions."
 date: 2024-01-08T08:49:31+00:00
 lastmod: 2024-12-17T08:49:31+00:00
 draft: false
-tags: ["Chainguard Containers", "Product"]
+tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:

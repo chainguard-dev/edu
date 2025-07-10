@@ -4,7 +4,7 @@ title: "chainctl iam account-associations unset aws"
 slug: chainctl_iam_account-associations_unset_aws
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_unset_aws/
 draft: false
-tags: ["chainctl", "Reference", "Product"]
+tags: ["chainctl", "Reference"]
 images: []
 type: "article"
 toc: true

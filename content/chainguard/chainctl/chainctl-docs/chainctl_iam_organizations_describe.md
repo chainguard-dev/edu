@@ -4,7 +4,7 @@ title: "chainctl iam organizations describe"
 slug: chainctl_iam_organizations_describe
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_organizations_describe/
 draft: false
-tags: ["chainctl", "Reference", "Product"]
+tags: ["chainctl", "Reference"]
 images: []
 type: "article"
 toc: true

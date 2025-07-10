@@ -9,7 +9,7 @@ description: "In this article, we'll discuss a few different strategies to debug
 date: 2023-05-18T08:49:31+00:00
 lastmod: 2023-08-22T08:49:31+00:00
 draft: false
-tags: ["Chainguard Containers", "Product"]
+tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:

@@ -7,7 +7,7 @@ aliases:
 description: "Tutorial on how to get started with the Chainguard Istio container images"
 date: 2023-12-14T00:00:00+00:00
 lastmod: 2025-03-24T11:07:52+02:00
-tags: ["Chainguard Containers", "Product"]
+tags: ["Chainguard Containers"]
 draft: false
 images: []
 menu:

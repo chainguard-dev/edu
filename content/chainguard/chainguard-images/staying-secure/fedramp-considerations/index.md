@@ -6,7 +6,7 @@ description: "A conceptual overview of Chainguard FIPS Containers."
 date: 2025-01-29T15:56:52-07:00
 lastmod: 2025-01-29T15:56:52-07:00
 draft: false
-tags: ["Chainguard Containers", "Product", "FIPS"]
+tags: ["Chainguard Containers", "FIPS"]
 images: []
 menu:
   docs:

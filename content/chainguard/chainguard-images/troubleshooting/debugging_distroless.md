@@ -6,7 +6,7 @@ aliases:
 - /chainguard/chainguard-images/troubleshooting/debugging_distroless/
 lead: ""
 description: "How to use the Docker Debug feature to debug Distroless and minimal containers"
-tags: ["Product", "Chainguard Containers", "Video"]
+tags: ["Chainguard Containers", "Video"]
 type: "article"
 date: 2024-01-26T01:21:01+00:00
 lastmod: 2024-12-12T15:21:01+00:00

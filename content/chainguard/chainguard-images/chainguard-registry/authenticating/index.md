@@ -5,7 +5,7 @@ type: "article"
 description: "A guide on authenticating to Chainguard's registry to get container images"
 date: 2023-03-21T15:10:16+00:00
 lastmod: 2025-04-11T15:22:20+01:00
-tags: ["Chainguard Containers", "Product", "Registry"]
+tags: ["Chainguard Containers", "Registry"]
 draft: false
 images: []
 menu:

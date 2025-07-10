@@ -8,7 +8,7 @@ description: "The life cycle of Chainguard-Issued Security Advisories"
 date: 2024-07-26T18:09:12+00:00
 lastmod: 2025-04-11T12:26:23+00:00
 draft: false
-tags: ["Product", "Chainguard Containers", "CVE"]
+tags: ["Chainguard Containers", "CVE"]
 images: []
 menu:
   docs:

@@ -10,7 +10,7 @@ lead: "Chainguard Identity and Access Management"
 date: 2022-07-15T15:22:20+01:00
 lastmod: 2024-04-03T15:22:20+01:00
 draft: false
-tags: ["Product", "Reference"]
+tags: ["Chainguard Console", "Reference"]
 images: []
 menu:
   docs:

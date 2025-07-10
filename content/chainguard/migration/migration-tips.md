@@ -6,7 +6,7 @@ description: "This guide outlines a number of tips and strategies to keep in min
 date: 2025-05-29T12:56:52-00:00
 lastmod: 2025-05-29T12:56:52-00:00
 draft: false
-tags: ["Chainguard Containers", "Product"]
+tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:

@@ -6,7 +6,7 @@ description: "Instructional guide outlining how one can set up an application th
 date: 2024-05-24T15:22:20+01:00
 lastmod: 2025-03-07T15:22:20+01:00
 draft: false
-tags: ["Product", "CloudEvents", "Procedural"]
+tags: ["Chainguard Console", "CloudEvents", "Procedural"]
 images: []
 menu:
    docs:
