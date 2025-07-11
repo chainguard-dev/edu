@@ -44,12 +44,6 @@ The packages you can add to a container image are those that your organization a
 
 The changes you make to your customized container image may affect its functional behavior when deployed. Chainguard doesn’t test your final customized image and therefore doesn't guarantee its functional behavior. Please test your customized images extensively to ensure they meet your requirements.
 
-### Chainguard's CVE SLA and Custom Assembly
-
-Today, Chainguard delivers an [SLA for CVE remediation](https://www.chainguard.dev/legal/cve-sla) for all of its container images. However, when you re-configure Chainguard’s standard, off-the-shelf images outside of Custom Assembly (say, with a Dockerfile in a multi-stage build), this SLA doesn't extend to packages you add on because in this scenario Chainguard doesn't have any control over the build. This means that you would be responsible for maintaining these added packages or run the risk of accruing CVEs.
-
-Customized images **built using Custom Assembly** will maintain the same engineering and security best practices as Chainguard’s standard containers, with all packages guarded under our CVE remediation SLA. One bit of nuance in all this is that the SLA doesn’t directly apply to the images customized with Custom Assembly; it only directly applies to the source image. However, as long as you include only guarded package-versions from images that your organization is entitled to, which are scanned daily for CVEs, you will benefit from the SLA.
-
 
 ## Custom Assembly Permissions Requirements
 

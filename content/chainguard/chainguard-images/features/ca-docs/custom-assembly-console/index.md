@@ -87,7 +87,7 @@ Going back to the container image you just customized, click once again on the *
 <center><img src="custom-assembly-5.png" alt="Screenshot of the custom-node image's customization menu, before the preview screen. It shows three packages that have been added but can also be removed: bash, curl, and wget." style="width:650px;"></center>
 <br /> 
 
-You can remove these packages from the container image by clicking their respective **⮿** symbols. Removing all the added packages will return the image to its original state.
+To remove a package from the container image, click its **X** symbol. Removing all the added packages will return the image to its original state.
 
 Note that you can also edit the packages in a customized image [using the `chainctl image repo build edit` command](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/#editing-a-customized-container-image). 
 
