@@ -19,6 +19,8 @@ Chainguard's [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/cu
 
 You can use [`chainctl`, Chainguard's command-line interface tool](/chainguard/chainctl/), to further customize your Custom Assembly builds and retrieve information about them. This guide provides an overview of the relevant `chainctl` commands and outlines how you can edit the configuration of Custom Assembly containers, as well as retrieve a list of a customized image's builds and its build logs.
 
+> **Note**: This tutorial highlights using `chainctl` to interact with Custom Assembly resources. However, you can also interact with Custom Assembly using [the Chainguard console](/chainguard/chainguard-images/features/ca-docs/custom-assembly-console/), as well as [the Chainguard API](/chainguard/chainguard-images/features/ca-docs/custom-assembly-api-demo/).
+
 
 ## Editing a Customized Container Image
 
