@@ -87,7 +87,7 @@ If you've made modifications to a customized image and need to revert them, you 
 
 Going back to the container image you just customized, click once again on the **Customize Image**. In the panel where you added packages, there will be a list of the packages added to the customized image below the **Filter packages** search box:
 
-<center><img src="custom-assembly-undo.png" alt="Screenshot of the custom-node image's customization menu, before the preview screen. It shows three packages that have been added but can also be removed: bash, curl, and wget." style="width:650px;"></center>
+<center><img src="custom-assembly-5.png" alt="Screenshot of the custom-node image's customization menu, before the preview screen. It shows three packages that have been added but can also be removed: bash, curl, and wget." style="width:650px;"></center>
 <br /> 
 
 You can remove these packages from the container image by clicking their respective **⮿** symbols. Removing all the added packages will return the image to its original state.
