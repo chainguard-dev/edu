@@ -31,7 +31,7 @@ After logging in to the [Chainguard console](https://console.chainguard.dev/auth
 
 Click on **Images** and scroll or search for the container image that you want to customize. Note that you can customize any Chainguard Container that your organization has access to with Custom Assembly.
 
-Clicking on the Custom Assembly container image will take you to its entry in the console. In the upper right corner of this page, you'll find a button that says **Customize Containers**: 
+Clicking on the Custom Assembly container image will take you to its entry in the console. In the upper right corner of this page, you'll find a button that says **Customize images**: 
 
 <center><img src="custom-assembly-1.png" alt="Screenshot of a Custom Assembly container (named 'custom-node') page with the 'Customize Container' button highlighted in a yellow box." style="width:1100px;"></center>
 <br /> 
