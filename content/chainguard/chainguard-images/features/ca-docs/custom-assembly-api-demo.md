@@ -203,7 +203,7 @@ From there, edit the following lines:
     	demoRepoName 	= "CUSTOM-IMAGE-NAME"
 ```
 
-Replace `ORGANIZATION` with the name of your organization's repository within the Chainguard registry. This usually takes the form of a domain name, such as `example.com`. Additionally, replace `CUSTOM-IMAGE-NAME` with the name of a Custom Assembly image. This is typically a name like `custom-nginx` or `custom-python`. 
+Replace `ORGANIZATION` with the name of your organization's repository within the Chainguard registry. This usually takes the form of a domain name, such as `example.com`. Additionally, replace `CUSTOM-IMAGE-NAME` with the name of the Chainguard Container you want to customize. For example, you may want to customize an `nginx` or `python` container image.
 
 Save and close the `main.go` file. If you used `nano`, you can do so by pressing `CTRL+X`, `Y`, and then `ENTER`. 
 
