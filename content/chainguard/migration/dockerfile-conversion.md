@@ -21,17 +21,15 @@ Chainguard's [Dockerfile Converter (dfc)](https://github.com/chainguard-dev/dfc)
 * Debian / Ubuntu (`apt`, `apt-get`)
 * Fedora / RedHat / UBI (`yum`, `dnf`, `microdnf`)
 
-For each `FROM` line in the Dockerfile, `dfc` attempts to replace the base image with an equivalent Chainguard Container. For each `RUN` line in the Dockerfile, `dfc` attempts to detect the use of a known package manager (e.g. `apt` / `yum` / `apk`) and extracts the names of any packages being installed. It then attempts to map these packages to Chainguard equivalent APKs. Additionally, dfc will add a `USER root` instruction to allow package installations since most Chainguard Containers run as a regular, non-root user.
-
-You can find more details about dfc's mapping process on their GitHub repository, in the [How it Works](https://github.com/chainguard-dev/dfc?tab=readme-ov-file#how-it-works) section of their README.
-
-{{< note >}}
-dfc is an open source tool that is still under active development and subject to changes. While we try to cover a variety of use case scenarios, some inconsistencies may occur due to the diverse nature of Dockerfiles and package manager instructions. There may be errors or gaps in functionality as you use the feature in the early access phase. Please let us know if you come across any issues or have any questions.You can [file an issue](https://github.com/chainguard-dev/dfc/issues/new/choose) on GitHub to get in touch.
-{{< /note >}}
-
 ## Installation
 
-You’ll need a Go environment to install and run dfc. To install it on your local system, run:
+If you use Homebrew, you can install dfc with:
+
+```shell
+brew install chainguard-dev/tap/dfc
+```
+
+If you prefer to use the Go toolchain, you can install dfc directly from source. The following command will download the latest version of dfc and install it in your `$GOPATH/bin` directory:
 
 ```shell
 go install github.com/chainguard-dev/dfc@latest
@@ -40,28 +38,64 @@ go install github.com/chainguard-dev/dfc@latest
 To verify that the installation was successful, run:
 
 ```shell
-dfc --help
+dfc -v
 ```
 
-You will receive output with basic usage instructions.
+You will receive output indicating which version of dfc you have installed, such as:
 
 ```
-Usage:
-  dfc [flags]
-
-Examples:
-dfc <path_to_dockerfile>
-
-Flags:
-  -h, --help         help for dfc
-  -i, --in-place     modified the Dockerfile in place (vs. stdout), saving original in a .bak file
-      --json         print dockerfile as json (pre-conversion)
-      --org string   the root repo namespace at cgr.dev/<org> (default "ORGANIZATION")
+dfc version v0.9.3
 ```
 
-## Basic Usage
+## Getting Started
 
-Unless specified, dfc will not make any direct changes to your Dockerfile, writing the results to the default output stream. Run the following to convert a Dockerfile and save the output to a new file:
+DFC supports inline conversion of entire Dockerfiles and single `FROM` and `RUN` instructions. It can also read Dockerfiles from files or standard input (stdin). The converted Dockerfile will use Chainguard Containers as the base image, which are available at `cgr.dev/<org>`.
+
+### Inline Usage
+
+With inline usage, you can convert single instructions or entire Dockerfiles. For example, to convert a single `FROM` line, you can run:
+
+```shell
+echo "FROM node" | dfc -
+```
+
+This will give you the following result:
+
+```
+FROM cgr.dev/ORG/node:latest
+```
+
+You can also convert single `RUN` directives such as the following:
+
+```shell
+echo "RUN apt-get update && apt-get install -y nano" | dfc -
+```
+
+Which will give you the following output:
+
+```
+RUN apk add --no-cache nano
+```
+
+It is also possible to convert a whole Dockerfile using inline mode. Here we use a heredoc input stream to create the Dockerfile content and pipe it to `dfc`:
+
+```shell
+cat <<DOCKERFILE | dfc -
+FROM node
+RUN apt-get update && apt-get install -y nano
+DOCKERFILE
+```
+
+This will convert to:
+
+```
+FROM cgr.dev/ORG/node:latest-dev
+USER root
+RUN apk add --no-cache nano
+```
+
+### Usage with Regular Dockerfiles
+Unless specified, dfc will not make any direct changes to your Dockerfile, writing the results to the default output stream. To convert a Dockerfile and save the output to a new file called `Dockerfile.converted`, run the following command:
 
 ```shell
 dfc ./Dockerfile > ./Dockerfile.converted
@@ -73,24 +107,190 @@ You can also pipe the Dockerfile’s contents from stdin:
 cat ./Dockerfile | dfc -
 ```
 
-The following CLI flags are available:
 
-* `--org=<org>` \- the registry namespace, i.e. `cgr.dev/<org>` (default placeholder: `ORGANIZATION`)
-* `--json` \- serialize Dockerfile as JSON
-* `--in-place / -i` \- modify the Dockerfile in place vs. printing to stdout, saving original in a .bak file
+## How it Works
+DFC was designed to work offline by default, which means it doesn't validate image names or check for the existence of images in a live registry. Instead, it relies on a set of rules and mappings to convert Dockerfiles to use Chainguard Containers. This includes not only the change of base image used in a Dockerfile, but also the conversion of package managers and commands used in `RUN` instructions.
 
-## Examples
+### FROM Conversion
 
-This section has a few practical examples you can use as reference.
+DFC will convert the `FROM` instruction in a Dockerfile using two main mechanisms:
+
+- **Registry Path Rewriting:** `dfc` programmatically rewrites the registry path in all `FROM` instructions to align with the Chainguard registry format. By default, it inserts a placeholder for the organization name, which can be explicitly set using the `--org` flag. This mechanism ensures that resulting images are sourced from the appropriate organization namespace within the Chainguard container registry.
+- **Image Name Translation:** `dfc` also performs automated translation of image names based on an internal mapping file. This mapping correlates common base images and their versions to their Chainguard Container equivalents. Custom mappings can be defined to accommodate project-specific requirements, as detailed in a subsequent section. When a mapping does not exist for a specific image, `dfc` will default to use the same image name as the original Dockerfile.
+
+For example, the following command will convert an inline `FROM` instruction using `bitnamni/node` as the base image:
+
+```shell
+echo "FROM bitnami/node" | dfc -
+```
+You will receive the following output:
+
+```shell
+FROM cgr.dev/ORG/node:latest
+```
+
+### Tag Mappings
+
+The tag conversion process follows a set of rules:
+
+1) For `chainguard-base`, always use the `latest` tag.
+   - This means that if the base image is `debian`, it will be converted to `cgr.dev/ORG/chainguard-base:latest`.
+2) When no tag is specified, or when a tag is not semantic, use `latest`.
+   - For example, `FROM node` will be converted to `FROM cgr.dev/ORG/node:latest`.
+3) When a tag is specified, truncate semantic to major.minor (e.g.: 1.2.3 to 1.2).
+   - For example, `FROM node:14.17.3` will be converted to `FROM cgr.dev/ORG/node:14.17`.
+   - If the tag is not semantic (e.g., `latest`, `stable`, etc.), it will be converted to `latest`.
+4) For any version except `chainguard-base`, add `-dev` suffix when there are `RUN` commands.
+   - For example, `FROM node:14` will be converted to `FROM cgr.dev/ORG/node:14-dev` if the Dockerfile has `RUN` instructions.
+   - If there are no `RUN` commands, it will not have the `-dev` suffix, e.g., `FROM node:14` will be converted to `FROM cgr.dev/ORG/node:14`.
+
+More Examples:
+
+- `FROM node:14` → `FROM cgr.dev/ORG/node:14-dev` (if stage has RUN commands)
+- `FROM node:14.17.3` → `FROM cgr.dev/ORG/node:14.17-dev` (if stage has RUN commands)
+- `FROM debian:bullseye` → `FROM cgr.dev/ORG/chainguard-base:latest` (always)
+- `FROM golang:1.19-alpine` → `FROM cgr.dev/ORG/go:1.19-dev` (if stage has RUN commands)
+- `FROM node:${VERSION}` → `FROM cgr.dev/ORG/node:${VERSION}-dev` (if stage has RUN commands)
+
+### Package Installations
+
+When a Dockerfile uses package managers such as `apt`, `dnf`, or `yum` to install software, `dfc` automatically translates these commands to their `apk` equivalents. This conversion leverages an internal mapping file to resolve package name differences between distributions, ensuring accurate and compatible package installation within the Chainguard Containers environment.
+
+In addition to that, DFC automatically includes a `USER root` directive when it detects package installation commands in the Dockerfile. This is necessary because Chainguard Containers are built with a non-root user by default, and package installation commands typically require root privileges.
+
+For example, consider the following Dockerfile based on Fedora:
+
+```Dockerfile
+FROM fedora
+
+RUN dnf -y update && dnf clean all && dnf -y install python-pip && dnf clean all
+
+ADD . /src
+
+RUN cd /src; pip install -r requirements.txt
+
+EXPOSE 8080
+
+CMD ["python", "/src/index.py"]
+```
+
+The following command will convert this Dockerfile and print the results to stdout:
+
+```shell
+dfc Dockerfile
+```
+
+You will receive the following output:
+
+```Dockerfile
+FROM cgr.dev/ORG/chainguard-base:latest
+USER root
+
+RUN apk add --no-cache python-pip
+
+ADD . /src
+
+RUN cd /src; pip install -r requirements.txt
+
+EXPOSE 8080
+
+CMD ["python", "/src/index.py"]
+```
+
+### Busybox Changes for User and Group Management
+DFC will automatically change any `useradd` and `groupadd` instructions in your Dockerfile to `adduser` and `addgroup` to match Busybox’s syntax. This ensures that user and group creation commands execute correctly within the Chainguard Containers environment, maintaining consistent behavior and preventing build failures.
+
+For example, consider the following Dockerfile that adds a `nonroot` user to the image:
+
+```Dockerfile
+FROM php:8.3-cli
+
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    libxml2-dev \
+    zip \
+    unzip
+
+# Install Composer and set up application
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+WORKDIR /app
+COPY . /app
+
+# set up nonroot system user
+RUN useradd -r -s /bin/bash nonroot && \
+    chown -R nonroot /app && \
+    cd /app && composer install
+
+USER nonroot
+ENTRYPOINT [ "php", "minicli", "mycommand" ]
+```
+
+When converting this Dockerfile with `dfc`, the `useradd` command will be replaced with `adduser`, and the resulting Dockerfile will look like this:
+
+```Dockerfile
+FROM cgr.dev/ORG/php:8.3-dev
+USER root
+
+RUN apk add --no-cache curl git libxml2-dev unzip zip
+
+# Install Composer and set up application
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+WORKDIR /app
+COPY . /app
+
+# set up nonroot system user
+RUN adduser --system --shell /bin/bash nonroot && \
+    chown -R nonroot /app && \
+    cd /app && \
+    composer install
+
+USER nonroot
+ENTRYPOINT [ "php", "minicli", "mycommand" ]
+```
+
+## Customizing the Conversion
+There are several ways to customize the conversion process of Dockerfiles using `dfc`.
 
 ### Setting the ORG
 
 By default, `dfc` uses `ORG` as a placeholder for the image registry address. You can provide the `--org` parameter to specify the organization that you’re a member of. To use free tier images, use `chainguard` as the organization.
 
-Consider the following Dockerfile for a CLI PHP application:
+For example, the following command will convert a Dockerfile and set the organization to `chainguard`:
+
+```shell
+echo "FROM node" | dfc --org chainguard -
+```
+You will receive output similar to this:
+
+```
+FROM cgr.dev/chainguard/node:latest
+```
+### Using a Custom Registry
+
+You can also specify a custom registry to use for the conversion. This is useful if you have your own registry. To do this, use the `--registry` flag followed by the desired registry URL. For example, if you want to use `myregistry.example.com` as the registry, you can run:
+
+```shell
+echo "FROM node" | dfc --registry myregistry.example.com -
+```
+
+You'll get output like this:
+
+```
+FROM myregistry.example.com/node:latest
+```
+
+One thing to note is that the `--registry` flag will override the `--org` flag, so if you specify both, the `--registry` will take precedence.
+
+### Using Custom Mappings
+You can also provide a custom mapping file to `dfc` using the `--mapping` flag. This allows you to define your own rules for converting Dockerfiles, such as specific image names or package names that should be translated differently.
+
+For example, consider the following Dockerfile based on the `php:fpm` image:
 
 ```Dockerfile
-FROM php:8.2-cli
+FROM php:fpm
 
 RUN apt-get update && apt-get install -y \
     git \
@@ -104,76 +304,36 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 RUN mkdir /application
 COPY . /application/
 RUN cd /application && composer install
-
-ENTRYPOINT [ "php", "/application/minicli" ]
 ```
 
-The following command will convert this Dockerfile to use Chainguard Containers, using the `chainguard` organization for the free tier images. The output will be redirected to a new file called `Dockerfile.new`:
+By default, DFC will convert the `php:fpm` base image to Chainguard's main PHP image, `php:latest-dev`. However, we'd like this to be converted to `php:latest-fpm-dev`, since that is the FPM variant of the PHP image in the Chainguard registry. To handle that case, we can create a custom mapping file called `mappings.yaml` with the following content:
+
+```yaml
+images:
+  php:fpm: php:latest-fpm-dev
+```
+
+Then, when running `dfc`, we can specify this mapping file using the `--mapping` flag:
 
 ```shell
-dfc Dockerfile > Dockerfile.new --org chainguard
+dfc Dockerfile --mappings mappings.yaml
 ```
+And this will produce the following output:
 
-The modified file will now use `cgr.dev/chainguard/php:latest-dev` as base image:
-
-```Dockerfile.new
-FROM cgr.dev/chainguard/php:latest-dev
+```Dockerfile
+FROM cgr.dev/ORG/php:latest-fpm-dev
 USER root
 
-RUN apk add -U curl git libxml2-dev unzip zip
+RUN apk add --no-cache curl git libxml2-dev unzip zip
 
 # Install Composer and set up application
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 RUN mkdir /application
 COPY . /application/
 RUN cd /application && composer install
-
-ENTRYPOINT [ "php", "/application/minicli" ]
 ```
 
-### Inline Usage
-
-With inline usage, you can convert single instructions or entire Dockerfiles. For example, to convert a single `FROM` line, you can run:
-
-```shell
-echo "FROM node" | dfc --org chainguard.edu -
-```
-
-This will give you the following result:
-
-```
-FROM cgr.dev/chainguard.edu/node:latest-dev
-```
-
-You can also convert single `RUN` directives such as the following:
-
-```shell
-echo "RUN apt-get update && apt-get install -y nano" | dfc -
-```
-
-Which will give you the following output:
-
-```
-RUN apk add -U nano
-```
-
-It is also possible to convert a whole Dockerfile using inline mode. Here we use a heredoc input stream to create the Dockerfile contents:
-
-```shell
-cat <<DOCKERFILE | dfc --org chainguard.edu -
-FROM node
-RUN apt-get update && apt-get install -y nano
-DOCKERFILE
-```
-
-This will convert to:
-
-```
-FROM cgr.dev/chainguard.edu/node:latest-dev
-USER root
-RUN apk add -U nano
-```
-
+## Advanced Topics
 ### Making In Place Changes
 
 By default, dfc will print the converted Dockerfile to stdout, and won’t make any changes to your original Dockerfile. You can use the `--in-place` flag to make dfc overwrite the original file. This will also create a `.bak` file to back up the original file contents.
@@ -233,10 +393,18 @@ DOCKERFILE
 
 Check also the [Useful jq formulas](https://github.com/chainguard-dev/dfc?tab=readme-ov-file#useful-jq-formulas) section from the dfc repository as reference on how to use jq to filter the JSON output.
 
-## Using dfc as a Go Library
+### Using dfc as a Go Library
 You can import the package `github.com/chainguard-dev/dfc/pkg/dfc` and use it directly from Go code to parse and convert Dockerfiles on your own, without the dfc CLI. This way, you can integrate dfc into your own Go applications or scripts, which can be especially useful if you have a large number of Dockerfiles to convert or if you want to further customize the output produced by dfc.
 
 Check the [Using from Go](https://github.com/chainguard-dev/dfc?tab=readme-ov-file#using-from-go) section on the dfc repository for examples on how to use it as a Go library.
+
+### Usage via AI Agent (MCP Server)
+While dfc operates completely offline and does not in itself use AI to perform conversion of Dockerfiles, it can be leveraged as an MCP (Model Context Protocol) Server to integrate with an AI-based prompt engineering workflow.
+
+This experimental capability allows AI agents to utilize DFC’s powerful conversion logic within a broader AI-driven engineering ecosystem. It's particularly useful for scenarios where automation handles 90% of the conversion and AI manages edge cases and custom logic.
+
+For more information on how to use DFC with AI agents, check the [Project's README on GitHub](https://github.com/chainguard-dev/dfc#usage-via-ai-agent-mcp-server).
+
 
 ## Learn More
 
