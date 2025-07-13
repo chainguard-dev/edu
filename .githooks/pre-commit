@@ -1,0 +1,282 @@
+#!/usr/bin/env python3
+"""
+Pre-commit hook to validate tags and check spelling in Hugo content files.
+Ensures tags conform to approved taxonomy and guidelines, and checks for spelling errors.
+"""
+
+import re
+import sys
+import subprocess
+import json
+from pathlib import Path
+
+# Approved tags from TAG_GUIDELINES.md
+APPROVED_TAGS = {
+    # Product Tags
+    "Chainguard Containers", "Chainguard Libraries", "chainctl", "Enforce", "Chainguard OS",
+    
+    # Action-Oriented Tags
+    "Migration", "Integration", "Configuration", "Monitoring", "Debugging", 
+    "Performance", "Automation", "Troubleshooting",
+    
+    # Problem-Solving Tags
+    "FAQ", "Recommended Practices",
+    
+    # Content Type Tags
+    "Overview", "Procedural", "Conceptual", "Reference", "Video", 
+    "Learning Labs", "Workshop",
+    
+    # Lifecycle Tags
+    "Installation", "Upgrade", "Deprecation", "Getting Started",
+    
+    # Platform/Tool Tags
+    "AWS", "GCP", "Azure", "Multi-Cloud", "JFrog Artifactory", "Sonatype Nexus Repository", "Cloudsmith", "GitHub", 
+    "GitLab", "Jenkins", "Harbor", "Docker Hub", "Terraform", "Kubernetes", "OIDC",
+    
+    # Topic Tags
+    "Security", "SBOM", "CVE", "VEX", "Compliance", "Standards", "SLSA", "OCI", "AI",
+    
+    # Language/Framework Tags
+    "Python", "Java", "Go", "Node.js", "JavaScript", "Ruby", "PHP", "Rust", ".NET",
+    
+    # Tool-Specific Tags
+    "apko", "melange", "Wolfi", "Cosign", "Rekor", "Fulcio",
+    
+    # Compliance Standards
+    "CMMC 2.0", "PCI DSS 4.0",
+    
+    # Other existing tags
+    "Product", "chainctl"
+}
+
+def get_staged_files():
+    """Get list of staged markdown files."""
+    result = subprocess.run(['git', 'diff', '--cached', '--name-only'], 
+                          capture_output=True, text=True)
+    files = result.stdout.strip().split('\n')
+    return [f for f in files if f.endswith('.md') and f.startswith('content/')]
+
+def extract_tags(filepath):
+    """Extract tags from a markdown file's frontmatter."""
+    try:
+        with open(filepath, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        # Look for tags in frontmatter
+        match = re.search(r'^tags:\s*\[(.*?)\]', content, re.MULTILINE)
+        if not match:
+            return []
+        
+        # Parse tags
+        tags_str = match.group(1)
+        tags = re.findall(r'"([^"]+)"', tags_str)
+        return tags
+    except Exception as e:
+        print(f"Error reading {filepath}: {e}")
+        return []
+
+def validate_tags(filepath, tags):
+    """Validate tags against approved list and guidelines."""
+    warnings = []
+    errors = []
+    
+    # Check tag count
+    if len(tags) > 5:
+        warnings.append(f"  ⚠️  Too many tags ({len(tags)}). Maximum recommended: 5")
+    
+    # Check each tag
+    for tag in tags:
+        if tag not in APPROVED_TAGS:
+            warnings.append(f"  ⚠️  Tag not in approved list: '{tag}'")
+        
+        # Check case formatting for non-acronyms
+        if tag not in ["CVE", "SBOM", "FAQ", "OCI", "SLSA", "VEX", "AI", "OIDC", 
+                       "AWS", "GCP", "CMMC 2.0", "PCI DSS 4.0", ".NET"]:
+            if tag.isupper():
+                errors.append(f"  ❌  Tag should use Title Case: '{tag}'")
+    
+    return warnings, errors
+
+def check_spelling(filepath):
+    """Check spelling in a markdown file using aspell."""
+    # Check if aspell is installed
+    try:
+        subprocess.run(['which', 'aspell'], check=True, capture_output=True)
+    except subprocess.CalledProcessError:
+        return {}, ["aspell not installed. Install with: brew install aspell (macOS), apt install aspell (Ubuntu/Debian), yum install aspell (RHEL/CentOS), or apk add aspell (Alpine)"]
+    
+    # Read file and track line numbers
+    try:
+        with open(filepath, 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+        
+        # Find frontmatter end
+        frontmatter_end = 0
+        if lines and lines[0].strip() == '---':
+            for i, line in enumerate(lines[1:], 1):
+                if line.strip() == '---':
+                    frontmatter_end = i + 1
+                    break
+        
+        # Process content line by line
+        spelling_errors = {}
+        
+        for line_num, line in enumerate(lines, 1):
+            # Skip frontmatter
+            if line_num <= frontmatter_end:
+                continue
+            
+            # Skip code blocks (simple check)
+            if line.strip().startswith('```'):
+                continue
+            
+            # Remove inline code
+            cleaned_line = re.sub(r'`[^`]+`', '', line)
+            
+            # Remove URLs
+            cleaned_line = re.sub(r'https?://[^\s\)]+', '', cleaned_line)
+            
+            # Check spelling for this line
+            if cleaned_line.strip():
+                temp_file = f"/tmp/spell_check_line_{line_num}.txt"
+                with open(temp_file, 'w', encoding='utf-8') as f:
+                    f.write(cleaned_line)
+                
+                # Run aspell
+                personal_dict = Path(__file__).parent.parent / '.aspell.en.pws'
+                cmd = ['aspell', 'list', '--mode=markdown', '--lang=en_US']
+                
+                if personal_dict.exists():
+                    cmd.extend(['--personal', str(personal_dict)])
+                else:
+                    cmd.extend(['--personal=/dev/null'])
+                
+                cmd.append('--repl=/dev/null')
+                
+                result = subprocess.run(cmd, stdin=open(temp_file), 
+                                      capture_output=True, text=True)
+                
+                # Parse misspelled words
+                misspelled = result.stdout.strip().split('\n')
+                misspelled = [w for w in misspelled if w and len(w) > 2]
+                
+                # Clean up temp file
+                Path(temp_file).unlink(missing_ok=True)
+                # Filter technical terms and add to errors dict
+                tech_terms = {
+                    'chainguard', 'chainctl', 'kubernetes', 'docker', 'terraform',
+                    'yaml', 'json', 'api', 'cli', 'sdk', 'oauth', 'oidc', 'jwt',
+                    'sbom', 'cve', 'vex', 'slsa', 'oci', 'cosign', 'rekor', 'fulcio',
+                    'apko', 'melange', 'wolfi', 'distroless', 'cgr', 'dev',
+                    'dockerfile', 'github', 'gitlab', 'jenkins', 'artifactory',
+                    'npm', 'pip', 'maven', 'gradle', 'cargo', 'rustup',
+                    'aws', 'gcp', 'azure', 'eks', 'gke', 'aks',
+                    'https', 'http', 'url', 'uri', 'uuid', 'sha', 'md',
+                    'config', 'repo', 'env', 'vars', 'auth', 'creds',
+                    'namespace', 'pod', 'configmap', 'deployment', 'ingress',
+                    'frontend', 'backend', 'middleware', 'webhook', 'async',
+                    'boolean', 'string', 'int', 'float', 'struct', 'enum',
+                    'stdin', 'stdout', 'stderr', 'regex', 'grep', 'sed',
+                    'ci', 'cd', 'devops', 'gitops', 'mlops', 'devsecops',
+                    'lts', 'eol', 'semver', 'changelog', 'readme'
+                }
+                
+                # Filter and track errors with line numbers
+                for word in misspelled:
+                    if word.lower() not in tech_terms and not word.isupper():
+                        # Check if it's a camelCase or PascalCase word
+                        if not re.match(r'^[a-z]+[A-Z]', word) and not re.match(r'^[A-Z][a-z]+[A-Z]', word):
+                            if word not in spelling_errors:
+                                spelling_errors[word] = []
+                            spelling_errors[word].append(line_num)
+        
+        return spelling_errors, []
+        
+    except Exception as e:
+        return {}, [f"Error checking spelling: {str(e)}"]
+
+def main():
+    """Main validation function."""
+    staged_files = get_staged_files()
+    if not staged_files or staged_files == ['']:
+        return 0
+    
+    total_warnings = []
+    total_errors = []
+    spelling_errors_by_file = {}
+    
+    print("\n🔍 Running pre-commit checks...")
+    
+    for filepath in staged_files:
+        if not Path(filepath).exists():
+            continue
+        
+        file_warnings = []
+        file_errors = []
+        
+        # Check tags
+        tags = extract_tags(filepath)
+        if tags:
+            warnings, errors = validate_tags(filepath, tags)
+            file_warnings.extend(warnings)
+            file_errors.extend(errors)
+        
+        # Check spelling
+        spelling_errors, spell_check_errors = check_spelling(filepath)
+        if spelling_errors:
+            spelling_errors_by_file[filepath] = spelling_errors
+        if spell_check_errors:
+            file_errors.extend(spell_check_errors)
+        
+        # Display results for this file
+        if file_warnings or file_errors or spelling_errors:
+            print(f"\n📄 {filepath}")
+            
+            if tags:
+                print(f"   Tags: {', '.join(tags)}")
+            
+            for warning in file_warnings:
+                print(warning)
+                total_warnings.append(warning)
+            
+            for error in file_errors:
+                print(error)
+                total_errors.append(error)
+            
+            if spelling_errors:
+                print(f"  📝 Spelling errors found:")
+                for word, line_nums in list(spelling_errors.items())[:10]:
+                    lines_str = ', '.join(map(str, line_nums[:5]))
+                    if len(line_nums) > 5:
+                        lines_str += f", ... ({len(line_nums) - 5} more)"
+                    print(f"     - '{word}' on line(s): {lines_str}")
+                if len(spelling_errors) > 10:
+                    print(f"     ... and {len(spelling_errors) - 10} more words with errors")
+    
+    # Summary
+    if total_warnings or total_errors or spelling_errors_by_file:
+        print("\n" + "="*60)
+        print("Pre-commit Check Summary:")
+        print(f"  Tag Warnings: {len(total_warnings)}")
+        print(f"  Tag Errors: {len(total_errors)}")
+        print(f"  Files with spelling issues: {len(spelling_errors_by_file)}")
+        
+        if total_warnings:
+            print("\n💡 Consider reviewing TAG_GUIDELINES.md for approved tags")
+        
+        if spelling_errors_by_file:
+            print("\n📝 Spelling issues found. Consider:")
+            print("   - Fixing typos")
+            print("   - Adding technical terms to your personal dictionary")
+            print("   - Using 'git commit --no-verify' to skip this check")
+        
+        if total_errors:
+            print("\n❌ Commit blocked due to tag errors. Please fix and try again.")
+            return 1
+    else:
+        print("\n✅ All checks passed!")
+    
+    return 0
+
+if __name__ == "__main__":
+    sys.exit(main())
