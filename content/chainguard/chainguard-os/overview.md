@@ -7,7 +7,7 @@ lead: "Get to know the OS behind Chainguard"
 date: 2025-07-03T08:49:31+00:00
 lastmod: 2025-07-03T08:49:31+00:00
 draft: false
-tags: ["Chainguard OS", "Product"]
+tags: ["Chainguard OS"]
 images: []
 menu:
   docs:

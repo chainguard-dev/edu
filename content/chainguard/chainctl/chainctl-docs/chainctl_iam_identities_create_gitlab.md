@@ -4,7 +4,7 @@ title: "chainctl iam identities create gitlab"
 slug: chainctl_iam_identities_create_gitlab
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create_gitlab/
 draft: false
-tags: ["chainctl", "Reference", "Product"]
+tags: ["chainctl", "Reference"]
 images: []
 type: "article"
 toc: true

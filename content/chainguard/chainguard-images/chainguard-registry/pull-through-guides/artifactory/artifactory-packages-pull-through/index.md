@@ -8,7 +8,7 @@ description: "Tutorial outlining how to set up remote and virtual Artifactory re
 date: 2024-11-14T15:56:52-07:00
 lastmod: 2024-11-14T15:56:52-07:00
 draft: false
-tags: ["Chainguard Containers", "Product"]
+tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:

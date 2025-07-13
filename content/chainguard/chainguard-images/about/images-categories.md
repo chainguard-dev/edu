@@ -6,7 +6,7 @@ description: "Reference guide outlining how Chainguard Containers are categorize
 date: 2025-04-03T11:07:52+02:00
 lastmod: 2025-04-03T11:07:52+02:00
 draft: false
-tags: ["Chainguard Containers", "Product"]
+tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:

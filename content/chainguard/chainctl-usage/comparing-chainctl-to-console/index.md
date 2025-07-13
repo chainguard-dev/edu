@@ -6,7 +6,7 @@ description: "A comparison of completing tasks using chainctl vs the Chainguard 
 date: 2025-06--2T11:07:52+02:00
 lastmod: 2025-06--2T11:07:52+02:00
 draft: false
-tags: ["Chainguard Control", "chainctl", "Chainguard Console", "Product", ]
+tags: ["chainctl", "Chainguard Console"]
 images: []
 menu:
   docs:

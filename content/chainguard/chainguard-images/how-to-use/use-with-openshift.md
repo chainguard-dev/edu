@@ -6,7 +6,7 @@ description: "Special considerations for using Chainguard Containers with OpenSh
 date: 2025-06-17T08:49:31+00:00
 lastmod: 2025-06-17T08:49:31+00:00
 draft: false
-tags: ["Chainguard Containers", "OpenShift", "Product"]
+tags: ["Chainguard Containers", "OpenShift"]
 images: []
 menu:
   docs:

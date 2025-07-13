@@ -13,7 +13,7 @@ description: "An overview of how to use the chainctl images diff command to comp
 date: 2023-08-30T11:07:52+02:00
 lastmod: 2025-04-08T11:07:52+02:00
 draft: false
-tags: ["Chainguard Containers", "Product", ]
+tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:

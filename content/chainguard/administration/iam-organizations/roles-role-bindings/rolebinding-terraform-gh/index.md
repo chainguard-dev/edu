@@ -9,7 +9,7 @@ type: "article"
 date: 2023-06-10T08:48:45+00:00
 lastmod: 2024-05-09T08:48:45+00:00
 draft: false
-tags: ["Product", "Procedural"]
+tags: ["Chainguard Console", "Procedural"]
 images: []
 weight: 010
 ---

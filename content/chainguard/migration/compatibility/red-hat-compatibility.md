@@ -9,7 +9,7 @@ description: "Differences between Chainguard Containers and Red Hat UBI third-pa
 date: 2024-02-23T15:56:52-07:00
 lastmod: 2024-03-08T15:56:52-07:00
 draft: false
-tags: ["Chainguard Containers", "Product", "Reference"]
+tags: ["Chainguard Containers", "Reference"]
 images: []
 menu:
   docs:

@@ -10,7 +10,7 @@ description: "Tutorial outlining how to set up a remote Artifactory repository t
 date: 2024-02-13T15:56:52-07:00
 lastmod: 2024-09-04T15:56:52-07:00
 draft: false
-tags: ["Product", "Chainguard Containers"]
+tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:

@@ -10,7 +10,7 @@ description: "Learn how to use the Chainguard Containers Tag History API to fetc
 date: 2023-05-26T08:49:31+00:00
 lastmod: 2025-06-16T15:22:20+01:00
 draft: false
-tags: ["Chainguard Containers", "Product"]
+tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:

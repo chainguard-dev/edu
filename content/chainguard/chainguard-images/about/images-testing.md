@@ -9,7 +9,7 @@ description: "A conceptual article outlining testing requirements for Chainguard
 date: 2024-03-21T11:07:52+02:00
 lastmod: 2025-04-07T11:07:52+02:00
 draft: false
-tags: ["Overview", "Chainguard Containers", "Product"]
+tags: ["Overview", "Chainguard Containers"]
 images: []
 menu:
   docs:

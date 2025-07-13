@@ -4,7 +4,7 @@ title: "chainctl images repos build edit"
 slug: chainctl_images_repos_build_edit
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_edit/
 draft: false
-tags: ["chainctl", "Reference", "Product"]
+tags: ["chainctl", "Reference"]
 images: []
 type: "article"
 toc: true
