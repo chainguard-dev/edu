@@ -9,7 +9,7 @@ description: "This article works through porting a small but complete applicatio
 date: 2024-04-10T12:56:52-00:00
 lastmod: 2025-02-05T14:44:52-00:00
 draft: false
-tags: ["Chainguard Containers", "Product"]
+tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:

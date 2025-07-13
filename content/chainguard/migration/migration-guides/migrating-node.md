@@ -10,7 +10,7 @@ description: "Guidance on how to migrate Node.js Dockerfile workloads to use Cha
 date: 2024-05-09T15:56:52-07:00
 lastmod: 2024-05-09T15:56:52-07:00
 draft: false
-tags: ["Chainguard Containers", "Product", "Migration"]
+tags: ["Chainguard Containers", "Migration"]
 images: []
 weight: 010
 toc: true

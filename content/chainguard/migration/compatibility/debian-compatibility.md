@@ -10,7 +10,7 @@ description: "Differences between Chainguard Containers and Debian third-party i
 date: 2024-02-08T15:56:52-07:00
 lastmod: 2024-03-08T15:56:52-07:00
 draft: false
-tags: ["Chainguard Containers", "Product", "Reference"]
+tags: ["Chainguard Containers", "Reference"]
 images: []
 menu:
   docs:

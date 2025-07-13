@@ -10,7 +10,7 @@ lead: "A primer on how to migrate to Chainguard Containers"
 date: 2022-09-01T08:49:31+00:00
 lastmod: 2025-04-08T15:56:52-07:00
 draft: false
-tags: ["Chainguard Containers", "Product"]
+tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:

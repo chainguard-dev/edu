@@ -6,7 +6,7 @@ description: "Tutorial with examples showing how you can authenticate with the C
 date: 2025-06-04T08:49:31+00:00
 lastmod: 2025-06-04T15:22:20+01:00
 draft: false
-tags: ["Product", "Procedural"]
+tags: ["Chainguard Console", "Procedural"]
 images: []
 toc: true
 weight: 065

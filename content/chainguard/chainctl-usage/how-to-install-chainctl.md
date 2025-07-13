@@ -9,7 +9,7 @@ description: "Install the chainctl command line tool to work with Chainguard"
 date: 2022-09-22T15:56:52-07:00
 lastmod: 2024-06-24T15:22:20+01:00
 draft: false
-tags: ["chainctl", "Product"]
+tags: ["chainctl"]
 images: []
 menu:
   docs:

@@ -10,7 +10,7 @@ description: "Guidance on how to migrate PHP Dockerfile workloads to use Chaingu
 date: 2024-04-04T15:56:52-07:00
 lastmod: 2024-04-04T15:56:52-07:00
 draft: false
-tags: ["Chainguard Containers", "Product", "Migration"]
+tags: ["Chainguard Containers", "Migration"]
 images: []
 weight: 005
 toc: true

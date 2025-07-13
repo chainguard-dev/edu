@@ -10,7 +10,7 @@ description: "Using Identity and Access Management in Chainguard"
 date: 2022-07-15T15:22:20+01:00
 lastmod: 2024-04-03T15:22:20+01:00
 draft: false
-tags: ["Product", "Procedural"]
+tags: ["Chainguard Console", "Procedural"]
 images: []
 menu:
   docs:

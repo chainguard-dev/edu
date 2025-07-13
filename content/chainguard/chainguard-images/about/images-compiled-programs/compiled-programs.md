@@ -10,7 +10,7 @@ description: "An overview comparing various Chainguard Containers for compiled p
 date: 2024-07-12T17:55:01+00:00
 lastmod: 2025-04-07T18:42:57+00:00
 draft: false
-tags: ["Chainguard Containers", "Product", "Cheatsheet"]
+tags: ["Chainguard Containers", "Cheatsheet"]
 images: []
 menu:
   docs:

@@ -6,7 +6,7 @@ type: "article"
 date: 2023-08-15T14:22:23-07:00
 lastmod: 2024-03-21T15:22:20+01:00
 draft: false
-tags: ["Product", "Conceptual"]
+tags: ["Chainguard Console", "Conceptual"]
 images: []
 menu:
   docs:

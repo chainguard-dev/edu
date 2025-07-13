@@ -9,7 +9,7 @@ description: "A conceptual article outlining different strategies and tools for 
 date: 2024-12-02T11:07:52+02:00
 lastmod: 2024-12-02T11:07:52+02:00
 draft: false
-tags: ["Chainguard Containers", "Product"]
+tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:

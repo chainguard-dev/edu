@@ -11,7 +11,7 @@ description: "Overview of what Chainguard's Unique Tags are and how to access th
 date: 2024-02-29T08:49:31+00:00
 lastmod: 2025-04-08T08:49:31+00:00
 draft: false
-tags: ["Chainguard Containers", "Product"]
+tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:

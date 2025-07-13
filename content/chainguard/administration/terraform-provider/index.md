@@ -6,7 +6,7 @@ description: "An introduction to working with the Chainguard Terraform provider"
 date: 2024-01-28T15:56:52-07:00
 lastmod: 2024-05-09T08:48:45+00:00
 draft: false
-tags: ["Product", "Overview"]
+tags: ["Chainguard Console", "Overview"]
 images: []
 menu:
   docs:

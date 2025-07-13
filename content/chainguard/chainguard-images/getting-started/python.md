@@ -7,7 +7,7 @@ aliases:
 description: "Tutorial on the distroless Chainguard Python container image"
 date: 2023-02-28T11:07:52+02:00
 lastmod: 2025-03-24T13:46:53+00:00
-tags: ["Chainguard Containers", "Product"]
+tags: ["Chainguard Containers"]
 draft: false
 images: []
 menu:

@@ -9,7 +9,7 @@ description: "How to leverage distroless images for improved container security"
 date: 2024-03-21T08:49:31+00:00
 lastmod: 2025-04-08T08:49:31+00:00
 draft: false
-tags: ["Chainguard Containers", "Product", "Overview"]
+tags: ["Chainguard Containers", "Overview"]
 images: []
 menu:
   docs:

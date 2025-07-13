@@ -6,7 +6,7 @@ description: "Frequently asked questions about Chainguard Containers"
 date: 2022-09-01T08:49:31+00:00
 lastmod: 2024-12-18T08:49:31+00:00
 draft: false
-tags: ["Chainguard Containers", "FAQ", "Product"]
+tags: ["Chainguard Containers", "FAQ"]
 images: []
 menu:
   docs:

@@ -10,7 +10,7 @@ type: "article"
 date: 2024-06-07T12:21:01+00:00
 lastmod: 2024-06-07T12:21:01+00:00
 draft: false
-tags: ["Chainguard Containers", "Product", "Video"]
+tags: ["Chainguard Containers", "Video"]
 images: []
 menu:
   docs:

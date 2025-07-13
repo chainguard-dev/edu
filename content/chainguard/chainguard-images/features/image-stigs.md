@@ -9,7 +9,7 @@ description: "A conceptual overview of Security Technical Implementation Guides,
 date: 2024-06-13T15:56:52-07:00
 lastmod: 2025-04-08T15:56:52-07:00
 draft: false
-tags: ["Chainguard Containers", "Product"]
+tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:

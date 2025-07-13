@@ -5,7 +5,7 @@ type: "article"
 description: "Recommended Practices when Migrating to Chainguard Containers"
 date: 2025-02-03T10:42:57+00:00
 lastmod: 2025-02-03T10:42:57+00:00
-tags: ["Chainguard Containers", "Product"]
+tags: ["Chainguard Containers"]
 draft: false
 images: []
 weight: 020

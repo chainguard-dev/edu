@@ -9,7 +9,7 @@ description: "How to use Renovate to automatically keep Chainguard Containers up
 date: 2023-09-05T11:07:52+02:00
 lastmod: 2024-09-05T11:07:52+02:00
 draft: false
-tags: ["Chainguard Containers", "Product"]
+tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:

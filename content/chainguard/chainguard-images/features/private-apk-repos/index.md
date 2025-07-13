@@ -6,7 +6,7 @@ description: "An overview of how to work with Chainguard's Private APK Repositor
 date: 2025-02-21T11:07:52+02:00
 lastmod: 2025-02-21T11:07:52+02:00
 draft: false
-tags: ["Chainguard Containers", "Product"]
+tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:
