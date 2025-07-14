@@ -4,7 +4,7 @@ title: "chainctl iam account-associations check"
 slug: chainctl_iam_account-associations_check
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_check/
 draft: false
-tags: ["chainctl", "Reference"]
+tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true

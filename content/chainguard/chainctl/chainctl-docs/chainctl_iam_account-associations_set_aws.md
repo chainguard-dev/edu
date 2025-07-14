@@ -4,7 +4,7 @@ title: "chainctl iam account-associations set aws"
 slug: chainctl_iam_account-associations_set_aws
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_set_aws/
 draft: false
-tags: ["chainctl", "Reference"]
+tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true

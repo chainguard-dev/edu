@@ -4,7 +4,7 @@ title: "chainctl"
 slug: chainctl
 url: /chainguard/chainctl/chainctl-docs/chainctl/
 draft: false
-tags: ["chainctl", "Reference"]
+tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
