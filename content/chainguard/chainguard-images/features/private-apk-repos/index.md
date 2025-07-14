@@ -19,8 +19,6 @@ With Chainguard's Private APK Repositories, you can access packages that are inc
 
 This guide provides a brief overview of Chainguard's private APK repositories and outlines different ways you can incorporate them into your organization's workflows.
 
-> **NOTE**: Chainguard's private APK repositories feature is currently in the beta phase and it will likely go through changes before becoming generally available.
-
 
 ## About Private APK Repositories
 
