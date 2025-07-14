@@ -9,7 +9,7 @@ description: "How to use Chainguard's Custom Assembly tool"
 date: 2025-02-19T11:07:52+02:00
 lastmod: 2025-03-21T11:07:52+02:00
 draft: false
-tags: ["Chainguard Containers", "Product"]
+tags: ["Chainguard Containers", "Custom Assembly"]
 images: []
 menu:
   docs:
