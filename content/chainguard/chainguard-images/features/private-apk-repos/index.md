@@ -183,11 +183,13 @@ FROM cgr.dev/$ORGANIZATION/$IMAGE
 USER root
 RUN echo https://apk.cgr.dev/$ORGANIZATION > /etc/apk/repositories
 RUN --mount=type=secret,id=cgr-token sh -c "export HTTP_AUTH=basic:apk.cgr.dev:user:\$(cat /run/secrets/cgr-token) apk update && apk add wget"
-USER nonroot
+USER 65532
 EOF
 ```
 
 Again, this Dockerfile overwrites the contents of the `/etc/apk/repositories` file. This isn't necessary, but will force Docker to build the image and install the `wget` package without falling back to the default repositories.
+
+You may need to change the final `USER` statement to match the default user of the image you are extending. This can be found by running `docker inspect` or in the Specifications tab of the Chainguard Console entry for the image.
 
 Now you can build the image while passing along credentials obtained with `chainctl`. The following example builds an image named `my-custom-image`:
 
