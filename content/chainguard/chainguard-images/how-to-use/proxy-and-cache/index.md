@@ -17,8 +17,6 @@ weight: 009
 toc: true
 ---
 
-# Proxy and cache Helm Charts with Artifactory
-
 This page will walk you through the process of setting up and using Chainguard Helm Charts with Artifactory via remote Helm OCI repositories.
 
 ## Create and configure Helm OCI repository in Artifactory
