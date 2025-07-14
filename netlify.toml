@@ -13,6 +13,12 @@ command = "hugo --buildFuture -b $DEPLOY_PRIME_URL"
 HUGO_ENV = "staging"
 HUGO_VERSION = "0.104.3"
 
+[[redirects]]
+  from = "/*"
+  to = "/:splat/"
+  status = 301
+  force = false
+
 [[headers]]
   for = "/*"
   [headers.values]
