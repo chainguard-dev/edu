@@ -1,7 +1,7 @@
 <p>If your project requires a more specific set of packages that aren't included within the general-purpose {{ .Get "image" }} Chainguard Container, you'll first need to check if the package you want is already available on the <a href="https://github.com/wolfi-dev/os" title="Wolfi on GitHub">wolfi-os repository</a>. </p>
 
 <blockquote>
-    <p><b>Note</b>: If you're building on top of a container image other than the wolfi-base container image, the image will run as a non-root user. Because of this, if you need to install packages with <code>apk install</code> you need to use the <code>USER root</code> directive.</p>
+    <p><b>Note</b>: If you're building on top of a container image other than the wolfi-base container image, the image will run as a non-root user. Because of this, if you need to install packages with <code>apk add</code> you need to use the <code>USER root</code> directive.</p>
 </blockquote>
 
 <p>If the package is available, you can use the <a href="https://images.chainguard.dev/directory/image/wolfi-base/overview" title="Overview of wolfi-base image">wolfi-base</a> image in a Dockerfile and install what you need with <code>apk</code>, then use the resulting image as base for your app.
