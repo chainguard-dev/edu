@@ -4,7 +4,7 @@ title: "chainctl iam roles capabilities"
 slug: chainctl_iam_roles_capabilities
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_roles_capabilities/
 draft: false
-tags: ["chainctl", "Reference"]
+tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true

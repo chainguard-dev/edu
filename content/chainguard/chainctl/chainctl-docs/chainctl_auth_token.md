@@ -4,7 +4,7 @@ title: "chainctl auth token"
 slug: chainctl_auth_token
 url: /chainguard/chainctl/chainctl-docs/chainctl_auth_token/
 draft: false
-tags: ["chainctl", "Reference"]
+tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
