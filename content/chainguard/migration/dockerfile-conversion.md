@@ -65,6 +65,8 @@ This will give you the following result:
 FROM cgr.dev/ORG/node:latest
 ```
 
+The `ORG` here is a placeholder that you should replace with your unique organization's namespace at Chainguard, or use `chainguard` for the free tier of images. In the [customizing section](#customizing-the-conversion) you'll learn how to use the `--org` flag to set this up automatically.
+
 You can also convert single `RUN` directives such as the following:
 
 ```shell
@@ -94,6 +96,8 @@ USER root
 RUN apk add --no-cache nano
 ```
 
+Notice the `USER root` directive that has been included here to allow for package installations. You'll find details of why that happens in the [How it Works](#package-installations) section of this guide.
+
 ### Usage with Regular Dockerfiles
 Unless specified, dfc will not make any direct changes to your Dockerfile, writing the results to the default output stream. To convert a Dockerfile and save the output to a new file called `Dockerfile.converted`, run the following command:
 
@@ -118,10 +122,10 @@ DFC will convert the `FROM` instruction in a Dockerfile using two main mechanism
 - **Registry Path Rewriting:** `dfc` programmatically rewrites the registry path in all `FROM` instructions to align with the Chainguard registry format. By default, it inserts a placeholder for the organization name, which can be explicitly set using the `--org` flag. This mechanism ensures that resulting images are sourced from the appropriate organization namespace within the Chainguard container registry.
 - **Image Name Translation:** `dfc` also performs automated translation of image names based on an internal mapping file. This mapping correlates common base images and their versions to their Chainguard Container equivalents. Custom mappings can be defined to accommodate project-specific requirements, as detailed in a subsequent section. When a mapping does not exist for a specific image, `dfc` will default to use the same image name as the original Dockerfile.
 
-For example, the following command will convert an inline `FROM` instruction using `bitnamni/node` as the base image:
+For example, the following command will convert an inline `FROM` instruction using `node` as the base image:
 
 ```shell
-echo "FROM bitnami/node" | dfc -
+echo "FROM node" | dfc -
 ```
 You will receive the following output:
 
@@ -250,6 +254,68 @@ RUN adduser --system --shell /bin/bash nonroot && \
 USER nonroot
 ENTRYPOINT [ "php", "minicli", "mycommand" ]
 ```
+
+### Multi-stage Dockerfiles
+Multi-stage builds are crucial for creating smaller, more secure, and efficient container images. By separating the build environment from the final runtime environment, they significantly reduce the final image size by discarding unnecessary build-time dependencies. This also enhances security by minimizing the attack surface.
+
+DFC is designed to recognize and process multi-stage Dockerfiles the same way it handles regular single-stage Dockerfiles, converting them to leverage the advantages of Chainguard Containers.
+
+Consider this multi-stage Python Dockerfile, which includes a few build-time dependencies and a leaner runtime:
+
+```Dockerfile
+FROM python:3.9 as builder
+WORKDIR /app
+
+RUN apt update && apt install -y curl git
+
+ENV PATH="/venv/bin:$PATH"
+RUN python -m venv /app/venv
+
+COPY requirements.txt /app
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+FROM python:3.9-slim
+WORKDIR /app
+
+ENV PATH="/venv/bin:$PATH"
+
+COPY main.py /app
+COPY --from=builder /app/venv /venv
+
+CMD ["python", "/app/main.py"]
+```
+
+Running DFC on this Dockerfile with default options will give you the following result:
+
+```shell
+FROM cgr.dev/ORG/python:3.9-dev AS builder
+USER root
+WORKDIR /app
+
+RUN apk add --no-cache curl git
+
+ENV PATH="/venv/bin:$PATH"
+RUN python -m venv /app/venv
+
+COPY requirements.txt /app
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+FROM cgr.dev/ORG/python:3.9
+WORKDIR /app
+
+ENV PATH="/venv/bin:$PATH"
+
+COPY main.py /app
+COPY --from=builder /app/venv /venv
+
+CMD ["python", "/app/main.py"]
+```
+
+As you will notice, DFC used a _distroless_ Python Chainguard Container for the final runtime stage: `cgr.dev/ORG/python:3.9`. That is possible because DFC didn't detect any `RUN` instruction in the final stage. If we had system-level dependencies installed via `apk` or other `RUN` instructions in the runtime stage, DFC would instead default to the regular, fully-featured Python image from Chainguard Containers, which in this case would be `cgr.dev/ORG/python:3.9-dev`.
+
+For more details on distroless and how to work with multi-stage builds, check our guide on [Getting Started with Distroless](https://deploy-preview-2401--ornate-narwhal-088216.netlify.app/chainguard/chainguard-images/about/getting-started-distroless/).
 
 ## Customizing the Conversion
 There are several ways to customize the conversion process of Dockerfiles using `dfc`.
