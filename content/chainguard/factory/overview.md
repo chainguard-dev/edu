@@ -1,0 +1,154 @@
+---
+title: "Overview of The Chainguard Factory"
+linktitle: "Chainguard Factory"
+type: "article"
+description: "Chainguard Factory Overview"
+lead: "An introduction to the Chainguard Factory"
+date: 2025-07-15T08:49:31+00:00
+lastmod: 2025-07-15T08:49:31+00:00
+draft: false
+tags: ["Chainguard Containers", "Chainguard VMs"]
+images: []
+menu:
+  docs:
+    parent: "chainguard-factory"
+weight: 005
+toc: true
+---
+
+The major challenge faced by Chainguard is keeping all of our containers,
+libraries and VMs up-to-date with the newest versions. This article introduces
+the Chainguard Factory, which represents all the engineering and automation
+work required to build, publish and maintain the software that goes into our
+products. 
+
+![Diagram of a factory representing software production. Inputs include Open
+Source Projects and Advisory Data from NVD. Outputs are Chainguard Containers,
+Chainguard Libraries, and Chainguard VMs.](./factory.png)
+
+It would be hard to overstate the sheer scale of Chainguard’s task of being the
+secure source for open source. There are **thousands** of projects that we
+constantly have to monitor, build, test and update. Some of these are
+foundational projects like [LLVM](https://llvm.org/) and
+[glibc](https://www.gnu.org/software/libc/). Others are applications central to
+modern infrastructure like Redis and nginx. Still more are the small utilities
+and libraries that we use all the time and almost forget about like sed and jq.
+These projects are then built into our 1500 (at the time of writing)
+containers, plus our VMs and libraries, each of which are updated daily.
+
+If you look inside the factory, you will find a complex build system running
+parallel builds at high speed, constantly being updated and refined by
+engineers supported by AI.
+
+## The Pace of Updates
+
+Open source moves at the speed of light and the factory keeps up through
+vigilant and automated monitoring that leverages the GitHub API and the
+[Release Monitoring project](https://release-monitoring.org/). To give you an
+idea of how many updates happen in a short window of time, here is a screenshot
+of 5 hours of our automation finding updates to projects.  
+
+![Screenshot showing package updates committed by Factory automation](./factory.png)
+
+Automation will open a PR when a new release is detected and create an
+appropriate patch. A suite of tests will then run to ensure the update works.
+If a test fails, AI will analyze the logs and suggest updates. Human engineers
+then step in to approve the update or fix any issues. Once approved, the
+package will be built and become part of one of our package repositories. The
+process combines fast, automated updates from AI, with reviews and guidance
+from engineers to ensure all changes meet our high standards of quality and
+security.
+
+As every software engineer knows, not all updates are equal. Some are simple
+updates to applications which build cleanly and are not used in other packages.
+Some updates are a lot more complicated however, with other packages being
+dependent on them, either at buildtime or runtime. Consider a bump to the Go
+compiler. Not only do we need to update the Go package and release a new Go
+compiler image, we also need to rebuild all the packages that are dependent on
+Go and their dependencies, some of which will likely fail due to changes caused
+by the update. Updates to core packages like the Go compiler, OpenSSL, or glibc
+are major events that require considerable engineering effort to successfully
+conclude. They are also happening all the time. 
+
+Once an update passes through the package stage, we still need to update all
+images that are dependent on it. For applications like Redis this will only be
+a handful of images, but an update to OpenSSL or glibc will require practically
+all our images to be rebuilt. After new versions of images are built, they are
+tested, often as part of a Helm chart deployed to a Kubernetes cluster
+(sometimes even a specially provisioned EKS cluster for images such as
+[eks-distro-kube-proxy!](https://images.chainguard.dev/directory/image/eks-distro-kube-proxy/overview)).
+
+On top of this, software is constantly going End-of-Life (EOL). When software
+is no longer supported upstream, we remove it from the Wolfi repository
+(customers benefit from an extended [EOL Grace
+Period](https://edu.chainguard.dev/chainguard/chainguard-images/features/eol-gp-overview/)
+with Chainguard OS where we continue to build old versions).
+
+The result is a relentless, orchestrated flow of updates — ensuring our
+software remains secure, current, and reliable.  
+
+## Handling CVEs
+
+Projects like NVD and GHSA are constantly issuing security advisories (in 2024
+an [average of 108 CVEs were issued every
+day](https://jerrygamblin.com/2025/01/05/2024-cve-data-review/)). These
+advisories are ingested by [scanners](https://www.chainguard.dev/scanners) such
+as grype and snyk. We use these scanners internally to alert whenever a CVE is
+identified as affecting one of our packages. Automation will add the CVE to an
+internal queue for further investigation and an advisory will be issued with
+the status of `Under Investigation`. 
+
+After an engineer investigates the issue, the most likely outcomes are: 
+  - We determine the advisory to be a false positive and change the status to
+    `Not Affected`. 
+  - We determine it to be a real issue and take further action to resolve it.
+    This could mean pulling in a patch or bumping a dependency in the project,
+before rebuilding and updating the status to `Fixed`. 
+
+See [How Chainguard Issues Security
+Advisories](https://edu.chainguard.dev/chainguard/chainguard-images/staying-secure/security-advisories/how-chainguard-issues/)
+for full information on the lifecycle of advisories.
+
+## Identifying Malware and Malicious Updates
+
+It is essential that the factory is secure and we do not inadvertently publish
+malware. There have been multiple cases of supply chain attacks where reputable
+open source projects have been subverted or taken over and used for the
+distribution of malware, the recent XZ utils attack being a case-in-point.
+Avoiding the propagation of such malware is a key goal of the factory and there
+are several steps that we take to ensure security. One of the most important is
+analyzing code for known malware, but we also automatically identify any
+unexpected changes in the functionality of software from an update. For
+example; an update would be flagged as suspicious if it makes new network
+connections but there are no references to this in the project's changelog.
+
+## Infrastructure and Build Security
+
+While we use GitHub extensively, our builds themselves run on Kubernetes
+clusters to provide the scaling and observability we require. As you can
+imagine, there is a considerable cost associated with building at the pace
+described above.
+
+We take security in our build environment seriously and adhere to the
+[SLSA](https://slsa.dev/) guidelines for ensuring build integrity and
+provenance. The builds themselves follow [OpenSSF guidance for security
+hardening via compiler flag
+settings](https://www.chainguard.dev/unchained/enhanced-compiler-flags-for-building-chainguards-guarded-images).  
+
+## On Automation, AI and Human Engineers
+
+To keep the factory running at the pace it does, we leverage automation and AI
+to streamline operations. But the scale is such that there are constant
+exceptions and unexpected events that require domain specific knowledge to
+resolve. For this reason, we rely on a large and experienced engineering team
+with backgrounds in a wide range of technologies, from low-level kernel and VM
+engineers to those who know their way around higher level ecosystems like Node,
+Java and PHP.
+
+## Conclusion
+
+The factory operates at an enormous scale. The sheer number of builds and
+workflows that are happening every second is staggering. The factory is a
+critical component in Chainguard and effectively what our customers are paying
+for — the ability to turn open source projects into easily consumable
+Containers, VMs and Libraries quickly and securely.  
