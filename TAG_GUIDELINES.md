@@ -25,6 +25,8 @@ This document defines the approved tag taxonomy and usage guidelines for the Hug
 - **chainctl** - CLI tool documentation
 - **Enforce** - Enforcement product docs
 - **Chainguard OS** - Operating system documentation
+- **Custom Assembly** — Custom Assembly
+- **dfc** — Dockerfile Converter
 
 ### Action-Oriented Tags
 - **Migration** - Moving from other solutions
