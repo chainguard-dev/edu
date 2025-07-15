@@ -1,5 +1,5 @@
 ---
-date: 2025-07-11T16:47:06Z
+date: 2025-07-14T22:34:12Z
 title: "chainctl auth configure-docker"
 slug: chainctl_auth_configure-docker
 url: /chainguard/chainctl/chainctl-docs/chainctl_auth_configure-docker/
@@ -30,7 +30,7 @@ chainctl auth configure-docker [flags]
       --parent string              The IAM organization or folder with which the pull-token identity is associated.
       --pull-token                 Whether to register a pull token that can pull images
       --save                       If true with --pull-token, save the pull token to the Docker config
-      --ttl duration               For how long a generated pull-token will be valid. (default 720h0m0s)
+      --ttl ns                     Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maxiumum value is 8760h or one year. (default 720h0m0s)
 ```
 
 ### Options inherited from parent commands
