@@ -22,7 +22,7 @@ toc: true
 ## Why apko
 Container images are typically assembled in multiple steps. A tool like Docker, for example, combines building steps (as in, running commands to copy files, build and deploy applications) and composition (as in, composing a base image with pre-built packages) in a single piece of software. apko, on the other hand, is solely a **composition** tool that focuses on producing lightweight, "flat" base images that are fully reproducible and contain auto generated [SBOM](https://www.cisa.gov/sbom) files for every successful build.
 
-Instead of building your application together with your components and system dependencies, you can build your application once and compose it into different architectures and distributions, using a tool such as [melange](https://github.com/chainguard-dev/melange) in combination with apko. For more information on how melange and apko work together, you can check this blog post: [Secure your Software Factory with melange and apko](https://blog.chainguard.dev/secure-your-software-factory-with-melange-and-apko/).
+Instead of building your application together with your components and system dependencies, you can build your application once and compose it into different architectures and distributions, using a tool such as [melange](https://github.com/chainguard-dev/melange) in combination with apko. For more information on how melange and apko work together, you can check this blog post: [Secure your Software Factory with melange and apko](https://www.chainguard.dev/unchained/secure-your-software-factory-with-melange-and-apko).
 
 In this guide, we'll learn how to use apko to build a base [Wolfi](/open-source/wolfi/overview/) image.
 
