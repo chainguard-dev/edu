@@ -4,7 +4,7 @@ linktitle: "Verification"
 description: "Verifying binaries or projects for Chainguard Libraries"
 type: "article"
 date: 2025-07-03T12:00:00+00:00
-lastmod: 2025-07-03T12:00:00+00:00
+lastmod: 2025-07-14T12:00:00+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -30,7 +30,7 @@ verification with the following features:
 * Support different binary formats, including JAR, WAR, EAR, ZIP, TAR, WHL, and
   APK files as well as container images.
 * Allow analysis of directories and nested archive files.
-* Create output in text, json, yaml, and csv format.
+* Create output in text, json, yaml, and CSV format.
 
 ## Requirements
 
@@ -44,10 +44,52 @@ The following requirements must be met:
 
 ## Access 
 
-chainver is available to customers upon request. The archive includes binaries
-for different operating systems and processor architectures.
+[Download the latest release - version 0.3.5](https://dl.enforce.dev/chainver/0.3.5/chainver-v0.3.5.zip)
+
+Use the following script to automatically determine the latest available version
+and download the ZIP archive.
+
+```shell
+# Get the latest version
+export LATEST=$(curl -s "https://storage.googleapis.com/us.artifacts.prod-enforce-fabc.appspot.com/?prefix=chainver/" | \
+  grep -oE 'chainver/[0-9]+\.[0-9]+\.[0-9]+/' | \
+  sed 's|chainver/||g' | sed 's|/$||g' | \
+  sort -V | tail -1)
+# Download the release zip file
+curl -LO "https://dl.enforce.dev/chainver/${LATEST}/chainver-v${LATEST}.zip"
+```
+
+Extract the ZIP archive and find archives for different operating systems and
+processor architectures in the created `chainver-package/archives` directory:
+
+```
+chainver_0.3.5_Linux_x86_64.tar.gz
+chainver_0.3.5_Darwin_arm64.tar.gz
+chainver_0.3.5_Darwin_x86_64.tar.gz
+chainver_0.3.5_Linux_arm64.tar.gz
+chainver_0.3.5_Windows_x86_64.zip
+```
+
+Extract the package, in the example for MacOS and ARM processor, and copy it to
+a directory that is on the `PATH`:
+
+```shell
+$ tar xfvz chainver_0.3.5_Darwin_arm64.tar.gz
+x LICENSE
+x README.md
+x chainver
+```
+
+Verify running `chainver` and inspect the version:
+
+```shell
+$ chainver version
+ChainVer version 0.3.5 (3277bb5)
+  built with go1.24.0 on darwin/arm64
+```
 
 ## Documentation
 
 Detailed installation and user instructions are included with the provided
-distribution and with the `chainver help` command.
+distribution in the `chainver-package/README.md` file  and with the `chainver
+help` command.
