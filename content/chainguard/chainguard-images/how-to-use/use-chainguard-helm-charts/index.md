@@ -19,25 +19,25 @@ toc: true
 
 [Helm](https://helm.sh) is the package manager for Kubernetes that simplifies the installation and management of applications by automating the creation of Kubernetes resources. Helm charts are reusable, versioned packages that define a collection of Kubernetes resources required to run an application or service. You use Helm to define, install, and perform upgrades to your applications on Kubernetes.
 
-Previously, Chainguard created containers specially designed for compatibility with community Helm charts to deliver added benefits to customers already using those charts. We are now publishing our own collection of Helm charts, labeled as “iamguarded,” that come configured out-of-the box for use with Chainguard Container Images.
+Previously, Chainguard created containers specially designed for compatibility with community Helm charts to deliver added benefits to customers already using those charts. We are now publishing our own collection of Helm charts, labeled as “iamguarded,” that come configured out-of-the box for use with Chainguard container images.
 
 Chainguard’s `iamguarded`-labeled Helm charts take the place of the earlier methods and the charts are pulled directly from Chainguard. This new experience makes the provenance of these charts clear, and comes with the added benefit that they are designed to work with your Chainguard images.
 
-The following is an instruction guide for Chainguard users that were previously using community charts with Chainguard images to migrate over to the new `iamguarded` charts as well as for those who wish to begin using Chainguard's `iamguarded` Helm charts.
+The following is an instructional guide for Chainguard users that were previously using community charts with Chainguard images to migrate over to the new `iamguarded` charts as well as for those who wish to begin using Chainguard's `iamguarded` Helm charts.
 
 
 ## Configuration Requirements
 
-If you are pulling container images directly from Chainguard, then you must set a `global.org` value. You don't need this if you are pulling from your own registry, such as you may have set up using something like Artifactory.
+If you are pulling container images directly from Chainguard, then you must set a `global.org` value. You don't need this if you are pulling from your own internal registry.
 
 You can set a `global.org` value using a `--set` flag during installation, as shown in this example:
 
-    ```sh
-    helm install rabbitmq oci://cgr.dev/$ORGANIZATION/iamguarded-charts/rabbitmq \
-      --set "global.org=$ORGANIZATION"
-    ```
+```sh
+helm install rabbitmq oci://cgr.dev/$ORGANIZATION/iamguarded-charts/rabbitmq \
+  --set "global.org=$ORGANIZATION"
+```
 
-Alternately, you can set this value in a YAML file, like in this second example.
+Alternately, you can set this value in a YAML file:
 
 ```yaml
 global:
@@ -66,7 +66,7 @@ volumePermissions:
 
 You will need to authenticate to pull charts. These instructions explain how to use charts and images with the `cgr.dev` repository. If you have mirrored or copied the charts and images to an organization-specific registry, you will need to adapt these instructions to authenticate to your registry, as appropriate.
 
-This section presents multiple methods for authenticating. You can:
+This section presents multiple authentication methods:
 - Use Helm values with `gloal.imagePullSecrets`
 - Deploy a Chainguard Helm chart using a Kubernetes pull secret
 - Use cluster node-scoped registry permissions
@@ -87,64 +87,68 @@ global:
 
 To begin, authenticate with chainctl and generate a pull token.
 
-    ```sh
-    chainctl auth login
-    chainctl auth configure-docker --pull-token --save --ttl=24h
-    ```
+```sh
+chainctl auth login
+chainctl auth configure-docker --pull-token --save --ttl=24h
+```
 
-    This creates a short-lived pull token (24 hours). Change the `ttl=` switch to adjust how long your token will exist.
+This token expires in 24 hours by default, which can be modified using the
+`--ttl` flag. It sets the duration for the validity of the token. The maximum
+valid value is `8760h` (equivalent to 365 days), Valid unit strings range from
+nanoseconds to hours and are `ns`, `us`, `ms`, `s`, `m`, and `h`, for example
+`--ttl=24h`.
 
 Find the username and password that are contained in the pull token, as in this sample output:
 
-    ```sh
-    chainctl auth configure-docker --pull-token --save --ttl=24h
-                                        
-      ✔ Selected folder chainguard.edu.
+```sh
+chainctl auth configure-docker --pull-token --save --ttl=24h
+                                    
+  ✔ Selected folder chainguard.edu.
 
-    To use this pull token in another environment, run this command:
+To use this pull token in another environment, run this command:
 
-        docker login "cgr.dev" --username "45a0c61ea6fd977f050c5fb9ac06a69eed764595/095b0c7ea9d68679" --password "eyJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJodHRwczovL2lzc3Vlci5lbmZvcmNlLmRldiIsImV4cCI6MTc0OTczODQ2NSwiaWF0IjoxNzQ5NjUyMDY2LCJpc3MiOiJodHRwczovL3B1bGx0b2tlbi5pc3N1ZXIuY2hhaW5ndWFyZC5kZXYiLCJzdWIiOiJwdWxsLXRva2VuLTAxY2MwODkwYzA5N2ZmMzk1MDUyMWY4NWFmYmEyZDUwMGM0ODQxOWEifQ.ET7ywPUkMk5wN6p0INqhNtdnOVELySqdjp-qWedVmJkLrWlZhdFodU43P4uuR-LJ3Z9mVmd9fjDWpBtZnsCFHbczkENPzOiAFP9fsJhO_2dXT3rXCPK84ddJgRLe6oDlMA3VSa0XEclfTyBcaG4RlrgkVaGhtS7gone4Egff7bKX5Y6-TUxxLiVvCA_l_YmOixUss_Mj1Qxxb81sCeh7x4FSpOGWtmU2Z7Hy6B_rGk17zXMO_GYcuyzAMxfFdQl1Ov18t7KxymQwIoS7UF1fx_5ECR8fgArLM8NikGOjzkiQZuSzeI_hl_GnUFdPTAAhmjpJEWO0isiSPWgpkUPx5scoSUm6jzfduvRgGcmjRxT_pq6MWzFJNw9gv9gVehJuW5lKzNIgMTfJXO5Roba8WCwwxiUknhZXP8DeD_kdAN2-JbkfOYg3aPVU5jFTtA6TJKlh0uQA5OGN5hG_PnyzIr0vu4VVninJTWm66RppdlffhG-1xY9lpXgD2k2TIhygFL8iEBNszq0siLVA3uTH6NZY8iGRFqziUAGnyD80aHn52tIeCBBAOyS6qfcRLzqO6dQX95uscdCOuy-5rxU9n4208m5duLXdZtVWa9gp2vg-OmxnCPVdXmPCTA6RF43gDVkxKGMfvkUkTW1nKNvIUx_ikC9tLHDuZdi8FKLeYEg"
+    docker login "cgr.dev" --username "45a0c61ea6fd977f050c5fb9ac06a69eed764595/095b0c7ea9d68679" --password "eyJhbGciOiJSUzI1NiJ9.eyJhdWQ... # Token truncated"
 
-    Configuring identity "45a0c61ea6fd977f050c5fb9ac06a69eed764595/095b0c7ea9d68679" for pulls from cgr.dev (expires 2025-06-12T09:27:45-05:00).
-    Overwriting existing credentials.
-    ```
+Configuring identity "45a0c61ea6fd977f050c5fb9ac06a69eed764595/095b0c7ea9d68679" for pulls from cgr.dev (expires 2025-06-12T09:27:45-05:00).
+Overwriting existing credentials.
+```
 
-    Save the credentials as variables, like this.
+Save the credentials as variables, like this.
 
-    ```sh
-    HELMUSER=45a0c61ea6fd977f050c5fb9ac06a69eed764595/095b0c7ea9d68679
+```sh
+HELMUSER=45a0c61ea6fd977f050c5fb9ac06a69eed764595/095b0c7ea9d68679
 
-    HELMPASS=eyJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJodHRwczovL2lzc3Vlci5lbmZvcmNlLmRldiIsImV4cCI6MTc0OTczODQ2NSwiaWF0IjoxNzQ5NjUyMDY2LCJpc3MiOiJodHRwczovL3B1bGx0b2tlbi5pc3N1ZXIuY2hhaW5ndWFyZC5kZXYiLCJzdWIiOiJwdWxsLXRva2VuLTAxY2MwODkwYzA5N2ZmMzk1MDUyMWY4NWFmYmEyZDUwMGM0ODQxOWEifQ.ET7ywPUkMk5wN6p0INqhNtdnOVELySqdjp-qWedVmJkLrWlZhdFodU43P4uuR-LJ3Z9mVmd9fjDWpBtZnsCFHbczkENPzOiAFP9fsJhO_2dXT3rXCPK84ddJgRLe6oDlMA3VSa0XEclfTyBcaG4RlrgkVaGhtS7gone4Egff7bKX5Y6-TUxxLiVvCA_l_YmOixUss_Mj1Qxxb81sCeh7x4FSpOGWtmU2Z7Hy6B_rGk17zXMO_GYcuyzAMxfFdQl1Ov18t7KxymQwIoS7UF1fx_5ECR8fgArLM8NikGOjzkiQZuSzeI_hl_GnUFdPTAAhmjpJEWO0isiSPWgpkUPx5scoSUm6jzfduvRgGcmjRxT_pq6MWzFJNw9gv9gVehJuW5lKzNIgMTfJXO5Roba8WCwwxiUknhZXP8DeD_kdAN2-JbkfOYg3aPVU5jFTtA6TJKlh0uQA5OGN5hG_PnyzIr0vu4VVninJTWm66RppdlffhG-1xY9lpXgD2k2TIhygFL8iEBNszq0siLVA3uTH6NZY8iGRFqziUAGnyD80aHn52tIeCBBAOyS6qfcRLzqO6dQX95uscdCOuy-5rxU9n4208m5duLXdZtVWa9gp2vg-OmxnCPVdXmPCTA6RF43gDVkxKGMfvkUkTW1nKNvIUx_ikC9tLHDuZdi8FKLeYEg
-    ```
+HELMPASS=eyJhbGciOiJSUzI1NiJ9.eyJhdWQ... # Token truncated
+```
 
 Create your Kubernetes secret using the variables you just created.	
 
-    ```sh
-    kubectl create secret docker-registry chainguard-pull-secret \
-      --docker-server=cgr.dev \
-      --docker-username=$(echo $HELMUSER) \
-      --docker-password=$(echo $HELMPASS) \
-      -n <your-namespace>
-    ```
+```sh
+kubectl create secret docker-registry chainguard-pull-secret \
+  --docker-server=cgr.dev \
+  --docker-username=$(echo $HELMUSER) \
+  --docker-password=$(echo $HELMPASS) \
+  -n <your-namespace>
+```
 
 Log in to the `cgr.dev` Helm registry.
 
-    ```sh
-    helm registry login cgr.dev \
-      --username=$HELMUSER \
-      --password=$HELMPASS
-    ```
+```sh
+helm registry login cgr.dev \
+  --username=$HELMUSER \
+  --password=$HELMPASS
+```
 
 Reference the secret in your Helm installation.
 
-    ```sh
-    helm install rabbitmq oci://cgr.dev/$ORGANIZATION/iamguarded-charts/rabbitmq \
-      --set "global.org=$ORGANIZATION" \
-      --set "global.imagePullSecrets[0].name=chainguard-pull-secret"
-    ```
+```sh
+helm install rabbitmq oci://cgr.dev/$ORGANIZATION/iamguarded-charts/rabbitmq \
+  --set "global.org=$ORGANIZATION" \
+  --set "global.imagePullSecrets[0].name=chainguard-pull-secret"
+```
 
 
-When the install is successful, it will return a confirmation message, like this:
+When the install is successful, it returns a confirmation message, like this:
 
 ```sh
 Pulled: cgr.dev/chainguard-private/iamguarded-charts/rabbitmq:16.0.2
@@ -191,7 +195,7 @@ WARNING: There are "resources" sections in the chart not set. Using "resourcesPr
 
 ### Use cluster node-scoped registry permissions
 
-If you manage access and permissions at cluster-wide and node-specific levels, these are some best practices you should consider.
+If you manage access and permissions at cluster-wide and node-specific levels, these are some best practices to consider.
 
 **Pin to Digest:** While charts follow the same tagging scheme as Chainguard images, always pin to a specific chart digest to prevent unexpected updates:
 
