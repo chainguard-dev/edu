@@ -120,18 +120,31 @@ def check_spelling(filepath):
         
         # Process content line by line
         spelling_errors = {}
+        in_code_block = False
         
         for line_num, line in enumerate(lines, 1):
             # Skip frontmatter
             if line_num <= frontmatter_end:
                 continue
             
-            # Skip code blocks (simple check)
+            # Track code blocks
             if line.strip().startswith('```'):
+                in_code_block = not in_code_block
                 continue
             
+            # Skip lines inside code blocks
+            if in_code_block:
+                continue
+            
+            # Skip Hugo shortcodes
+            if re.match(r'\s*\{\{[</%].*?[>/%]\}\}\s*$', line):
+                continue
+            
+            # Remove Hugo shortcodes from the line
+            cleaned_line = re.sub(r'\{\{[</%].*?[>/%]\}\}', '', line)
+            
             # Remove inline code
-            cleaned_line = re.sub(r'`[^`]+`', '', line)
+            cleaned_line = re.sub(r'`[^`]+`', '', cleaned_line)
             
             # Remove URLs
             cleaned_line = re.sub(r'https?://[^\s\)]+', '', cleaned_line)
@@ -178,7 +191,9 @@ def check_spelling(filepath):
                     'boolean', 'string', 'int', 'float', 'struct', 'enum',
                     'stdin', 'stdout', 'stderr', 'regex', 'grep', 'sed',
                     'ci', 'cd', 'devops', 'gitops', 'mlops', 'devsecops',
-                    'lts', 'eol', 'semver', 'changelog', 'readme'
+                    'lts', 'eol', 'semver', 'changelog', 'readme',
+                    'grype', 'apks', 'glibc', 'musl', 'unpatched', 'sla', 'slas',
+                    'chainguard\'s', 'bazel', 'apk', 'nano'
                 }
                 
                 # Filter and track errors with line numbers
