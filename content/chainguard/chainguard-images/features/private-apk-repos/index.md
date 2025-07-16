@@ -105,6 +105,51 @@ apk update
 
 Following that, you can proceed to search and install packages from your private APK repository.
 
+<a id="pull-token-automation"></a>
+
+## Pull Token for Authentication in Automated Workflows
+
+Use a pull token with a custom time to live (TTL) to authenticate to your
+private APK repository. The following example creates a pull token with a TTL of
+2190 hours, equivalent to 3 months, and produces an output with `export`
+commands to set environment variables `CHAINGUARD_IDENTITY_ID` for username and
+`CHAINGUARD_TOKEN` for password values and basic authentication use.
+
+```shell
+$ chainctl auth pull-token --ttl=2190h --output=env --parent=ORGANIZATION
+export CHAINGUARD_IDENTITY_ID=45a.....424eb0
+export CHAINGUARD_TOKEN=eeyJhbGciO..........WF0IjoxN
+```
+
+* `--ttl=2190d`: set the duration for the validity of the token, defaults to
+  `720h` (equivalent to 30 days), maximum valid value is `8760h` (equivalent to
+  365 days), valid unit strings range from nanoseconds to hours and are `ns`,
+  `us`, `ms`, `s`, `m`, and `h`.
+* `--output=env`: set the command output to use export commands for environment
+  variables.
+* `--parent=ORGANIZATION`: specify the parent organization for your account as
+  provided when requesting access and replace `ORGANIZATION`.
+
+Each invocation of the command creates a new identity with access rights as a
+pull token.
+
+Combine the call with `eval` to populate the environment variables directly by
+calling `chainctl`. The following example uses the default TTL value of 30 days,
+which is suitable for regular CI runs:
+
+```shell
+eval $(chainctl auth pull-token --output env --parent=ORGANIZATION)
+```
+
+The generated pull token can be provided in the `HTTP_AUTH` environment variable
+for accessing the private APK repository:
+
+```shell
+export HTTP_AUTH=basic:apk.cgr.dev:user:${CHAINGUARD_IDENTITY_ID}:${CHAINGUARD_TOKEN}
+```
+
+Now you can structure your CI workflow to utilize this variable for
+authentication against the APK repository.
 
 ## Searching for and Installing Packages
 
