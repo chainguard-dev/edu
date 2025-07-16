@@ -55,9 +55,17 @@ With the latest release of `chainctl`, this will print a `docker login` command 
 
 You can also pass the `--save` flag, which will update your Docker config file with the pull token directly.
 
-This token expires in 30 days by default, which can be shortened using the `--ttl` flag (for example, `--ttl=24h`).
+This token expires in 30 days by default, which can be modified using the
+`--ttl` flag. It sets the duration for the validity of the token. The maximum
+valid value is `8760h` (equivalent to 365 days), Valid unit strings range from
+nanoseconds to hours and are `ns`, `us`, `ms`, `s`, `m`, and `h`, for example
+`--ttl=24h`.
 
 Pulls authenticated in this way are associated with a Chainguard identity, which is associated with the organization selected when the pull token was created.
+
+You can also export the pull token details into environment variables for
+[authentication in automated
+systems](/chainguard/chainguard-images/features/private-apk-repos/#pull-token-automation).
 
 ### Note on Multiple Pull Tokens
 
