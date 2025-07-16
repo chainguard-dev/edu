@@ -23,7 +23,7 @@ all the engineering and automation work required to build, publish, and maintain
 the software that goes into our products. 
 
 ![Diagram of a factory representing software production. Inputs include open
-source projects and advisory data from NVD. Outputs are Chainguard Containers,
+source projects and security advisory data from NVD. Outputs are Chainguard Containers,
 Chainguard Libraries, and Chainguard VMs.](./factory.png)
 
 It is hard to overstate the sheer scale of Chainguard’s task of being the
@@ -53,7 +53,7 @@ of 5 hours of our automation finding updates to projects.
 
 ![Screenshot showing package updates committed by Factory automation](./factory.png)
 
-Automation opens a PR when a new release is detected which updates the builds
+Automation opens a Pull Request (PR) when a new release is detected which updates the builds
 to the latest version. After building the new version, a suite of tests will
 then run to ensure it works as expected.  If a test fails, AI analyzes the logs
 and suggests updates. Human engineers then step in to approve the update or fix
@@ -74,8 +74,8 @@ are major events that require considerable engineering effort to successfully
 conclude. They are also happening all the time. 
 
 Once an update passes through the package stage, we still need to update all
-container images that are dependent on it. For applications like Redis, this is
-only a a handful of images, but an update to OpenSSL or glibc requires
+container images that are dependent on it. For applications like PostgreSQL,
+this affects a handful of images, but an update to OpenSSL or glibc requires
 practically all our images to be rebuilt. After new versions of images are
 built, they are tested, often as part of a Helm chart deployed to a Kubernetes
 cluster (sometimes even a specially provisioned EKS cluster for images such as
