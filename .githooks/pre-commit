@@ -9,6 +9,7 @@ import sys
 import subprocess
 import json
 from pathlib import Path
+from datetime import datetime, timezone
 
 # Approved tags from TAG_GUIDELINES.md
 APPROVED_TAGS = {
@@ -193,7 +194,7 @@ def check_spelling(filepath):
                     'ci', 'cd', 'devops', 'gitops', 'mlops', 'devsecops',
                     'lts', 'eol', 'semver', 'changelog', 'readme',
                     'grype', 'apks', 'glibc', 'musl', 'unpatched', 'sla', 'slas',
-                    'chainguard\'s', 'bazel', 'apk', 'nano'
+                    'chainguard\'s', 'bazel', 'apk', 'nano', 'lastmod'
                 }
                 
                 # Filter and track errors with line numbers
@@ -210,6 +211,123 @@ def check_spelling(filepath):
     except Exception as e:
         return {}, [f"Error checking spelling: {str(e)}"]
 
+def update_dates():
+    """Update date fields in staged markdown files (date for new files, lastmod for modified)"""
+    # Get new files
+    result_new = subprocess.run(
+        ['git', 'diff', '--cached', '--name-only', '--diff-filter=A'], 
+        capture_output=True, text=True
+    )
+    new_files = result_new.stdout.strip().split('\n') if result_new.stdout.strip() else []
+    
+    # Get modified files
+    result_mod = subprocess.run(
+        ['git', 'diff', '--cached', '--name-only', '--diff-filter=M'], 
+        capture_output=True, text=True
+    )
+    modified_files = result_mod.stdout.strip().split('\n') if result_mod.stdout.strip() else []
+    
+    updated_files = []
+    added_dates = []
+    
+    # Current timestamp
+    current_time = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%S+00:00')
+    
+    # Process new files - add date and lastmod
+    for file in new_files:
+        if file.startswith('content/') and file.endswith('.md') and Path(file).exists():
+            try:
+                with open(file, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                
+                # Check if file has frontmatter
+                if not content.startswith('---'):
+                    continue
+                
+                # Find end of frontmatter
+                frontmatter_end = content.find('\n---\n', 4)
+                if frontmatter_end == -1:
+                    continue
+                
+                frontmatter = content[:frontmatter_end + 5]
+                body = content[frontmatter_end + 5:]
+                
+                # Check if date field already exists
+                if not re.search(r'^date:', frontmatter, re.MULTILINE):
+                    # Add date after title or at the end of frontmatter
+                    if re.search(r'^title:', frontmatter, re.MULTILINE):
+                        new_frontmatter = re.sub(
+                            r'^(title:\s*.*)$', 
+                            f'\\1\ndate: {current_time}\nlastmod: {current_time}', 
+                            frontmatter, 
+                            flags=re.MULTILINE
+                        )
+                    else:
+                        # Add before the closing ---
+                        new_frontmatter = frontmatter[:-4] + f'date: {current_time}\nlastmod: {current_time}\n---\n'
+                    
+                    # Write updated content
+                    with open(file, 'w', encoding='utf-8') as f:
+                        f.write(new_frontmatter + body)
+                    
+                    added_dates.append(file)
+                    
+                    # Re-stage the file
+                    subprocess.run(['git', 'add', file])
+                
+            except Exception as e:
+                print(f"  ⚠️  Could not add date to {file}: {str(e)}")
+    
+    # Process modified files - update lastmod
+    for file in modified_files:
+        if file.startswith('content/') and file.endswith('.md') and Path(file).exists():
+            try:
+                with open(file, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                
+                # Check if file has frontmatter
+                if not content.startswith('---'):
+                    continue
+                
+                # Find end of frontmatter
+                frontmatter_end = content.find('\n---\n', 4)
+                if frontmatter_end == -1:
+                    continue
+                
+                frontmatter = content[:frontmatter_end + 5]
+                body = content[frontmatter_end + 5:]
+                
+                # Replace existing lastmod or add if missing
+                if re.search(r'^lastmod:', frontmatter, re.MULTILINE):
+                    new_frontmatter = re.sub(
+                        r'^lastmod:\s*.*$', 
+                        f'lastmod: {current_time}', 
+                        frontmatter, 
+                        flags=re.MULTILINE
+                    )
+                else:
+                    # Add lastmod after date field
+                    new_frontmatter = re.sub(
+                        r'^(date:\s*.*)$', 
+                        f'\\1\nlastmod: {current_time}', 
+                        frontmatter, 
+                        flags=re.MULTILINE
+                    )
+                
+                # Write updated content
+                with open(file, 'w', encoding='utf-8') as f:
+                    f.write(new_frontmatter + body)
+                
+                updated_files.append(file)
+                
+                # Re-stage the file
+                subprocess.run(['git', 'add', file])
+                
+            except Exception as e:
+                print(f"  ⚠️  Could not update lastmod for {file}: {str(e)}")
+    
+    return updated_files, added_dates
+
 def main():
     """Main validation function."""
     staged_files = get_staged_files()
@@ -221,6 +339,17 @@ def main():
     spelling_errors_by_file = {}
     
     print("\n🔍 Running pre-commit checks...")
+    
+    # Update dates for new and modified files
+    updated_files, added_dates = update_dates()
+    if added_dates:
+        print(f"\n📅 Added date fields to {len(added_dates)} new file(s)")
+        for file in added_dates:
+            print(f"   - {file}")
+    if updated_files:
+        print(f"\n📅 Updated lastmod dates for {len(updated_files)} file(s)")
+        for file in updated_files:
+            print(f"   - {file}")
     
     for filepath in staged_files:
         if not Path(filepath).exists():
