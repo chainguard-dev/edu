@@ -4,7 +4,7 @@ linktitle: "Features"
 aliases:
 - /chainguard/chainguard-images/images-features
 - /chainguard/chainguard-images/images-features
-description: "Resources on Chainguard Container features and how to use them"
+description: "Chainguard container features that enhance security: FIPS compliance, custom STIGs, built-in SBOMs, automated CVE tracking, and enterprise-grade hardening capabilities"
 type: "article"
 date: 2024-12-19T08:49:15+00:00
 lastmod: 2024-12-19T08:49:15+00:00

@@ -1,7 +1,7 @@
 ---
 title: "Getting Started with Chainguard Containers"
 linktitle: "Getting Started Guides"
-description: "Tutorials on how to get started with Chainguard Containers"
+description: "Start using Chainguard containers designed for minimal CVEs and reduced attack surface - comprehensive guides for migrating to hardened, enterprise-grade container images"
 type: "article"
 date: 2023-09-10T08:49:15+00:00
 lastmod: 2025-03-24T08:49:15+00:00
