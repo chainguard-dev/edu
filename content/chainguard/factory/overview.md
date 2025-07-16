@@ -22,9 +22,7 @@ dependencies. This article introduces the Chainguard Factory, which represents
 all the engineering and automation work required to build, publish, and maintain
 the software that goes into our products. 
 
-![Diagram of a factory representing software production. Inputs include open
-source projects and security advisory data from NVD. Outputs are Chainguard Containers,
-Chainguard Libraries, and Chainguard VMs.](factory.png)
+![Diagram of a factory representing software production. Inputs include open source projects and security advisory data from NVD. Outputs are Chainguard Containers, Chainguard Libraries, and Chainguard VMs.](factory.png)
 
 It is hard to overstate the sheer scale of Chainguard’s task of being the
 secure source for open source. There are **thousands** of projects that we
