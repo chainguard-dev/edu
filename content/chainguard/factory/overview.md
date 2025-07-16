@@ -24,7 +24,7 @@ the software that goes into our products.
 
 ![Diagram of a factory representing software production. Inputs include open
 source projects and security advisory data from NVD. Outputs are Chainguard Containers,
-Chainguard Libraries, and Chainguard VMs.](./factory.png)
+Chainguard Libraries, and Chainguard VMs.](factory.png)
 
 It is hard to overstate the sheer scale of Chainguard’s task of being the
 secure source for open source. There are **thousands** of projects that we
@@ -51,7 +51,7 @@ registry](https://docs.npmjs.com/about-the-public-npm-registry). To give you an
 idea of how many updates happen in a short window of time, here is a screenshot
 of 5 hours of our automation finding updates to projects.  
 
-![Screenshot showing package updates committed by Factory automation](./factory.png)
+![Screenshot showing package updates committed by Factory automation](octo-prs.png)
 
 Automation opens a Pull Request (PR) when a new release is detected which updates the builds
 to the latest version. After building the new version, a suite of tests will
