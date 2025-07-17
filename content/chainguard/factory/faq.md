@@ -26,19 +26,19 @@ Chainguard uses automated systems to vigilantly monitor for new releases using t
 
 ## How often are Chainguard packages, containers, and VMs updated?
 
-Updates happen constantly and at high speed. At the time of writing, there are about 1,500 containers, numerous VMs, and libraries – each of which is updated daily as needed, depending on upstream changes and security events.
+Updates happen constantly and at high speed. There are over 1,500 containers, plus VMs, and libraries – each of which is updated daily as needed, depending on upstream changes and security events.
 
 ## What happens when a core dependency (like Go, OpenSSL, or glibc) is updated?
 
-Updates to foundational packages require cascading rebuilds of all dependent packages and images. For core updates, this may mean rebuilding all containers and VMs that depend on the updated package. Major updates like these receive additional engineering focus to ensure a smooth transition. 1
+Updates to foundational packages require cascading rebuilds of all dependent packages and images. For updates to core dependencies, this will mean rebuilds to hundreds, or even thousands, of packages and containers. Major updates like these receive additional engineering focus to ensure a smooth transition.
 
 ## How does Chainguard handle software that goes End-of-Life (EOL) upstream?
 
-When a package is EOL and no longer supported upstream, it is removed from the main Wolfi repository. However, customers benefit from an extended EOL Grace Period with Chainguard OS, during which Chainguard continues to build old versions for an additional timeframe.
+When a package is EOL and no longer supported upstream, it will no longer be updated in the Wolfi repository. However, customers benefit from an extended EOL Grace Period with Chainguard OS, during which Chainguard continues to build old versions for an additional timeframe.
 
 ## How are CVEs (security advisories) managed?
 
-Chainguard integrates security scanners (like grype and snyk) to detect when a CVE affects one of its packages. Automation flags these CVEs for investigation, after which engineers analyze them. If determined to be a false positive, the status is set to "Not Affected"; if real, the issue is resolved by patching or updating dependencies and the status changes to "Fixed".
+Chainguard integrates security scanners (like [grype](https://github.com/anchore/grype) and [snyk](https://snyk.io)) to detect when a CVE affects one of its packages. Automation flags these CVEs for investigation by engineers. If determined to be a false positive, the status is set to "Not Affected"; if real, the issue is resolved by patching or updating dependencies and the status changes to "Fixed".
 
 ## How does Chainguard prevent malware or malicious updates?
 
@@ -46,7 +46,7 @@ The factory analyzes code for known malware and checks for unexpected changes in
 
 ## What infrastructure is used for building?
 
-While leveraging GitHub, actual builds execute on Kubernetes clusters for scalability and observability. The build environment is hardened following SLSA (Supply-chain Levels for Software Artifacts) and OpenSSF security guidelines, reinforcing both integrity and provenance.
+GitHub is used for source code management, but our builds execute on Kubernetes clusters for scalability and observability. The build environment is hardened following SLSA (Supply-chain Levels for Software Artifacts) and OpenSSF security guidelines, reinforcing both integrity and provenance.
 
 ## What is the role of automation, AI, and human engineers?
 
