@@ -4195,6 +4195,23 @@
       },
       "type": "object"
     },
+    "AccountAssociationsAzure": {
+      "properties": {
+        "clientIds": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "It serves as the application's identity for authentication with Azure services.",
+          "title": "client_ids is a map from chainguard component to the Azure client IDs (also known as application ID)",
+          "type": "object"
+        },
+        "tenantId": {
+          "description": "tenant_id is the Azure tenant ID where this group and descendants\nare authorized to impersonate service principals to access resources.\n\nA tenant ID is a unique GUID that identifies an organization in\nMicrosoft Entra ID (formerly Azure AD) instance",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "AccountAssociationsChainguard": {
       "properties": {
         "serviceBindings": {
@@ -4212,7 +4229,8 @@
       "enum": [
         "UNKNOWN",
         "GOOGLE",
-        "AMAZON"
+        "AMAZON",
+        "AZURE"
       ],
       "type": "string"
     },
@@ -4769,6 +4787,9 @@
           "$ref": "#/definitions/AccountAssociationsAmazon",
           "description": "amazon holds information associating an Amazon account with the group."
         },
+        "azure": {
+          "$ref": "#/definitions/AccountAssociationsAzure"
+        },
         "chainguard": {
           "$ref": "#/definitions/AccountAssociationsChainguard"
         },
@@ -4796,6 +4817,9 @@
         "amazon": {
           "$ref": "#/definitions/AccountAssociationsAmazon",
           "description": "amazon holds information associating an Amazon account with the group."
+        },
+        "azure": {
+          "$ref": "#/definitions/AccountAssociationsAzure"
         },
         "chainguard": {
           "$ref": "#/definitions/AccountAssociationsChainguard"
@@ -5969,6 +5993,9 @@
         "amazon": {
           "$ref": "#/definitions/AccountAssociationsAmazon",
           "description": "amazon holds information associating an Amazon account with the group."
+        },
+        "azure": {
+          "$ref": "#/definitions/AccountAssociationsAzure"
         },
         "chainguard": {
           "$ref": "#/definitions/AccountAssociationsChainguard"
