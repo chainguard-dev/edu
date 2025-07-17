@@ -1,4 +1,4 @@
-# Pre-commit Hook Guide for Technical Writers
+# Pre-commit Hook Guide for Contributors
 
 This guide explains how to use the pre-commit hook that automatically checks your content before committing changes to the repository.
 
@@ -8,14 +8,23 @@ A pre-commit hook is an automated script that runs every time you try to commit 
 
 ## What Does Our Hook Check?
 
-### 1. Tag Validation
+### 1. Automatic Date Management
+- **New files**: Automatically adds `date` and `lastmod` fields with the current timestamp
+- **Modified files**: Automatically updates the `lastmod` field to reflect when changes were made
+- **Format**: Uses ISO 8601 format with UTC timezone (e.g., `2025-01-16T10:30:45+00:00`)
+- **No manual work needed**: You no longer need to add or update these fields yourself!
+
+### 2. Tag Validation
 - Ensures all tags match our approved taxonomy
 - Checks that you haven't exceeded 5 tags per article
 - Verifies proper capitalization (Title Case vs. acronyms)
 
-### 2. Spelling
+### 3. Spelling
 - Catches typos and misspellings
-- Ignores code blocks and URLs
+- Ignores code blocks (between ```)
+- Ignores Hugo shortcodes (e.g., `{{< youtube >}}`)
+- Ignores inline code (between `)
+- Ignores URLs
 - Uses a custom dictionary for technical terms
 
 ## Setting Up the Hook
@@ -57,6 +66,9 @@ When you run `git commit`, you'll see output like this:
 ```
 🔍 Running pre-commit checks...
 
+📅 Updated lastmod dates for 1 file(s)
+   - content/chainguard/chainguard-images/getting-started.md
+
 ✅ All checks passed!
 ```
 
@@ -64,10 +76,15 @@ When you run `git commit`, you'll see output like this:
 ```
 🔍 Running pre-commit checks...
 
+📅 Added date fields to 1 new file(s)
+   - content/chainguard/new-tutorial.md
+
 📄 content/chainguard/getting-started.md
    Tags: ["Chainguard Containers", "Overview", "NewTag"]
    ⚠️  Tag not in approved list: 'NewTag'
-   📝 Potential spelling errors: recieve, configuation
+   📝 Spelling errors found:
+      - 'recieve' on line(s): 23
+      - 'configuation' on line(s): 45
 
 ============================================================
 Pre-commit Check Summary:
@@ -105,12 +122,47 @@ Pre-commit Check Summary:
 
 ### Adding a New Article
 
-When creating a new article, make sure your tags follow the guidelines:
+When creating a new article, you no longer need to add date fields manually. Just focus on your content:
 
+**What you write:**
 ```yaml
 ---
 title: "Getting Started with Chainguard Images"
+description: "Learn how to use Chainguard's secure container images"
 tags: ["Chainguard Containers", "Getting Started", "Overview"]
+---
+```
+
+**What gets committed (automatically):**
+```yaml
+---
+title: "Getting Started with Chainguard Images"
+date: 2025-01-16T10:30:45+00:00
+lastmod: 2025-01-16T10:30:45+00:00
+description: "Learn how to use Chainguard's secure container images"
+tags: ["Chainguard Containers", "Getting Started", "Overview"]
+---
+```
+
+### Updating an Existing Article
+
+When you modify an article, the `lastmod` field is automatically updated:
+
+**Before your edit:**
+```yaml
+---
+title: "Security Best Practices"
+date: 2024-12-01T09:00:00+00:00
+lastmod: 2024-12-15T14:30:00+00:00
+---
+```
+
+**After commit (automatic update):**
+```yaml
+---
+title: "Security Best Practices"
+date: 2024-12-01T09:00:00+00:00
+lastmod: 2025-01-16T10:45:30+00:00
 ---
 ```
 
@@ -228,10 +280,12 @@ git config --unset core.hooksPath
 
 ## Best Practices
 
-1. **Run checks early**: Stage your files and run `git commit` even before writing a message to see if there are issues
-2. **Fix issues promptly**: Don't use `--no-verify` as a habit
-3. **Keep tags minimal**: Use 3-4 tags that truly describe the content
-4. **Review spelling suggestions**: The spell checker helps maintain professional documentation
+1. **Let automation handle dates**: Never manually add or update `date`/`lastmod` fields - the hook does this for you
+2. **Run checks early**: Stage your files and run `git commit` even before writing a message to see if there are issues
+3. **Fix issues promptly**: Don't use `--no-verify` as a habit
+4. **Keep tags minimal**: Use 3-4 tags that truly describe the content
+5. **Review spelling suggestions**: The spell checker helps maintain professional documentation
+6. **Use code blocks properly**: Put commands and code in markdown code blocks (```) to avoid spelling false positives
 
 ## Questions?
 

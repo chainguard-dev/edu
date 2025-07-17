@@ -104,14 +104,15 @@ Tags are based on:
 
 You can review our current list of [Tags](https://edu.chainguard.dev/tags).
 
-## 🚀 Quick Reference for Contributors
+## Quick Reference for Contributors
 
 ### Pre-commit Hooks
 
 This repository uses automated pre-commit hooks to maintain content quality:
 
+- **Automatic date management** - Adds `date` field to new files and updates `lastmod` when you edit
 - **Tag validation** - Ensures tags match our approved taxonomy
-- **Spell checking** - Catches typos before they're committed
+- **Spell checking** - Catches typos before they're committed (ignores code blocks and technical terms)
 
 **Setup (one-time):**
 ```sh
@@ -123,15 +124,7 @@ brew install aspell
 ```
 
 **Resources:**
-- 📖 [Pre-commit Hook Guide for Technical Writers](docs/pre-commit-hook-guide.md) - Detailed guide with examples
+- 📖 [Complete Pre-commit Hook Guide for Contributors](docs/pre-commit-hook-guide.md) - Detailed guide with examples
 - 📋 [Tag Guidelines](TAG_GUIDELINES.md) - Complete approved tag taxonomy
 - 📝 [Custom Dictionary](.aspell.en.pws) - Technical terms for spell checker
 
-**Quick Commands:**
-```sh
-# Bypass hooks for urgent commits (use sparingly)
-git commit --no-verify -m "Emergency fix"
-
-# Disable hooks permanently (not recommended)
-git config --unset core.hooksPath
-```
