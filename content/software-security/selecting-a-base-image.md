@@ -1,7 +1,7 @@
 ---
 title: "Selecting a Base Container Image"
 linktitle: "Selecting a Base Image"
-description: "Criteria for selecting a base image"
+description: "How to choose more secure container base images: essential criteria including CVE count, SBOM availability, update frequency, and why Chainguard excels in each category"
 lead: "What to look for when choosing a hardened, minimal base image"
 type: "article"
 date: 2022-08-04T15:21:01+02:00
@@ -17,7 +17,7 @@ weight: 10
 toc: true
 ---
 
-Software teams building and deploying container-based software applications often use a “base image,” an initial set of software packages often associated with a Linux distribution. Software developers, security professionals, and infrastructure teams seeking to make an informed decision about what base image to use must consider a number of criteria when selecting a base image appropriate for their needs. To help these parties make a more informed decision when selecting a base image, this article describes a range of criteria:
+Software teams building and deploying container-based software applications often use a "base image," an initial set of software packages often associated with a Linux distribution. Software developers, security professionals, and infrastructure teams seeking to make an informed decision about what base image to use must consider a number of criteria when selecting a base image appropriate for their needs. Base images like those provided by Chainguard are designed to meet these security criteria while maintaining compatibility. To help these parties make a more informed decision when selecting a base image, this article describes a range of criteria:
 
 - Ensuring the image contains needed core functionality
 - The number of known vulnerabilities

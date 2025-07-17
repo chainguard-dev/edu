@@ -5,7 +5,7 @@ aliases:
 - /chainguard/chainguard-images/videos/zerocve/
 - /chainguard/chainguard-images/about/zerocve/
 lead: ""
-description: "This video explains how Chainguard is able to create container images with low-to-no CVEs."
+description: "Chainguard creates the most secure container images with zero CVEs through minimal packages, rapid updates, and proactive security advisories - learn how we eliminate vulnerabilities"
 type: "article"
 tags: ["Video", "Chainguard Containers"]
 date: 2024-05-31T12:21:01+00:00

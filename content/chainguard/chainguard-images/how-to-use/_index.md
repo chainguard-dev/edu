@@ -1,7 +1,7 @@
 ---
 title: "How to Use Chainguard Containers"
 linktitle: "How to Use"
-description: "Resources on working with Chainguard Containers"
+description: "How to use Chainguard containers effectively: retrieve SBOMs, verify signatures, compare CVEs, and migrate from DockerHub for enhanced container security"
 type: "article"
 date: 2024-12-19T08:49:15+00:00
 lastmod: 2025-04-08T08:49:15+00:00
