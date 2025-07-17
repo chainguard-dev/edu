@@ -1,6 +1,6 @@
 ---
 title: "Vulnerability Comparisons"
-description: "See why Chainguard containers have 90%+ fewer CVEs than DockerHub: detailed vulnerability comparisons showing how Chainguard achieves zero known CVEs"
+description: "See why Chainguard containers have 90%+ fewer CVEs than Docker Official Images: detailed vulnerability comparisons showing how Chainguard achieves zero known CVEs"
 type: "article"
 date: 2023-08-22T08:49:15+00:00
 lastmod: 2024-03-08T08:49:15+00:00

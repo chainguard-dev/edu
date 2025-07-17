@@ -7,7 +7,7 @@ aliases:
 - /chainguard/chainguard-images/working-with-images/retrieve-image-sboms/
 - /chainguard/chainguard-images/how-to-use/retrieve-image-sboms/
 type: "article"
-description: "How to get SBOM for container images: Chainguard provides built-in Software Bill of Materials for every image - retrieve with Cosign for complete supply chain transparency"
+description: "How to get SBOM for container images: Chainguard provides Software Bill of Materials for every image - retrieve with Cosign for complete supply chain transparency"
 date: 2023-11-17T11:07:52+02:00
 lastmod: 2025-04-08T11:07:52+02:00
 draft: false
