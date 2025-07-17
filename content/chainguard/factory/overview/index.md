@@ -67,9 +67,10 @@ dependent on them, either at buildtime or runtime. Consider a bump to the Go
 compiler. Not only do we need to update the Go package and release a new Go
 compiler image, we also need to rebuild all the packages that are dependent on
 Go and their dependencies. Some of these builds will fail due to changes caused
-by the update. Updates to core packages like the Go compiler, OpenSSL, or glibc
-are major events that require considerable engineering effort to successfully
-conclude. They are also happening all the time. 
+by the update, and will require extra attention from engineers. Updates to core
+packages like the Go compiler, OpenSSL, or glibc are major events that require
+considerable engineering effort to successfully conclude. They are also
+happening all the time. 
 
 Once an update passes through the package stage, we still need to update all
 container images that are dependent on it. For applications like PostgreSQL,
@@ -77,14 +78,14 @@ this affects a handful of images, but an update to OpenSSL or glibc requires
 practically all our images to be rebuilt. After new versions of images are
 built, they are tested, often as part of a Helm chart deployed to a Kubernetes
 cluster (sometimes even a specially provisioned EKS cluster for images such as
-[eks-distro-kube-proxy!](https://images.chainguard.dev/directory/image/eks-distro-kube-proxy/overview)).
+[eks-distro-kube-proxy!](https://images.chainguard.dev/directory/image/eks-distro-kube-proxy/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)).
 
 On top of this, software is constantly going End-of-Life (EOL). When software
 is no longer supported upstream, we will cease updating it in Wolfi (see [Wolfi
 Packages in Chainguard
-Containers](https://edu.chainguard.dev/chainguard/chainguard-images/about/versions/#wolfi-packages-in-chainguard-containers).
+Containers](chainguard-images/about/versions/#wolfi-packages-in-chainguard-containers).
 Customers benefit from an extended [EOL Grace
-Period](https://edu.chainguard.dev/chainguard/chainguard-images/features/eol-gp-overview/)
+Period](chainguard-images/features/eol-gp-overview/)
 with Chainguard OS where we continue to build old versions).
 
 The result is a relentless, orchestrated flow of updates — ensuring our
@@ -96,7 +97,7 @@ Projects like [NVD](https://nvd.nist.gov/) and
 [GHSA](https://github.com/advisories) are constantly issuing security
 advisories, for example in 2024 an [average of 108 CVEs were issued every
 day](https://jerrygamblin.com/2025/01/05/2024-cve-data-review/). These
-advisories are ingested by [scanners](https://www.chainguard.dev/scanners) such
+advisories are ingested by [scanners](https://www.chainguard.dev/scanners?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) such
 as grype and snyk. We use these scanners internally to alert whenever a CVE is
 identified as affecting one of our packages. Automation adds the CVE to an
 internal queue for further investigation and an advisory is issued with
@@ -110,7 +111,7 @@ After an engineer investigates the issue, the most likely outcomes are:
 before rebuilding and updating the status to `Fixed`. 
 
 See [How Chainguard Issues Security
-Advisories](https://edu.chainguard.dev/chainguard/chainguard-images/staying-secure/security-advisories/how-chainguard-issues/)
+Advisories](chainguard-images/staying-secure/security-advisories/how-chainguard-issues/)
 for full information on the lifecycle of advisories.
 
 ## Identifying Malware and Malicious Updates
@@ -137,7 +138,7 @@ We take security in our build environment seriously and adhere to the
 [SLSA](https://slsa.dev/) guidelines for ensuring build integrity and
 provenance. The builds themselves follow [OpenSSF guidance for security
 hardening via compiler flag
-settings](https://www.chainguard.dev/unchained/enhanced-compiler-flags-for-building-chainguards-guarded-images).  
+settings](https://www.chainguard.dev/unchained/enhanced-compiler-flags-for-building-chainguards-guarded-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).  
 
 ## On Automation, AI and Human Engineers
 
