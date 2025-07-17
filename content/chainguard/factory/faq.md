@@ -1,6 +1,6 @@
 ---
 title: "Chainguard Factory FAQs"
-linktitle: "Chainguard Factory FAQs"
+linktitle: "FAQs"
 type: "article"
 description: "Chainguard Factory FAQs"
 lead: "An introduction to Chainguard’s Factory; the powerhouse of engineering and automation that continuously transforms the chaos of open source into secure, up-to-date containers, libraries, and VMs at massive scale."
@@ -12,7 +12,7 @@ images: []
 menu:
   docs:
     parent: "chainguard-factory"
-weight: 005
+weight: 010
 toc: true
 ---
 

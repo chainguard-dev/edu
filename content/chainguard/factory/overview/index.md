@@ -1,6 +1,6 @@
 ---
 title: "Overview of The Chainguard Factory"
-linktitle: "Overview of The Chainguard Factory"
+linktitle: "Overview"
 type: "article"
 description: "Chainguard Factory Overview"
 lead: "An introduction to Chainguard’s Factory; the powerhouse of engineering and automation that continuously transforms the chaos of open source into secure, up-to-date containers, libraries, and VMs at massive scale."
