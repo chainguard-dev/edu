@@ -30,8 +30,8 @@ constantly monitor, build, test, and update. Some of these are
 foundational projects like [LLVM](https://llvm.org/) and
 [glibc](https://www.gnu.org/software/libc/). Others are applications central to
 modern infrastructure like PostgreSQL and nginx. Still more are the small utilities
-and libraries that we use all the time and almost forget about like sed and jq.
-These projects are then built into our 1500
+and libraries that we use all the time and almost forget about, such as sed and jq.
+These projects are then built into our 1,500
 containers, plus our VMs and libraries, each of which are updated daily.
 
 If you look inside the factory, you will find a complex build system running
@@ -66,7 +66,7 @@ Some updates are a lot more complicated however, with other packages being
 dependent on them, either at buildtime or runtime. Consider a bump to the Go
 compiler. Not only do we need to update the Go package and release a new Go
 compiler image, we also need to rebuild all the packages that are dependent on
-Go and their dependencies, some of which are likely to fail due to changes caused
+Go and their dependencies. Some of these builds will fail due to changes caused
 by the update. Updates to core packages like the Go compiler, OpenSSL, or glibc
 are major events that require considerable engineering effort to successfully
 conclude. They are also happening all the time. 
@@ -123,7 +123,7 @@ Avoiding the propagation of such malware is a key goal of the factory and there
 are several steps that we take to ensure security. One of the most important is
 analyzing code for known malware, but we also automatically identify any
 unexpected changes in the functionality of software from an update. For
-example; an update would be flagged as suspicious if it makes new network
+example: an update would be flagged as suspicious if it makes new network
 connections but there are no references to this in the project's changelog.
 
 ## Infrastructure and Build Security
@@ -142,7 +142,7 @@ settings](https://www.chainguard.dev/unchained/enhanced-compiler-flags-for-build
 ## On Automation, AI and Human Engineers
 
 To keep the factory running at the pace it does, we leverage automation and AI
-to streamline operations. But the sheer scale results in constant
+to streamline operations. But the vast number of changes results in constant
 exceptions and unexpected events that require domain specific knowledge to
 resolve. For this reason, we rely on a large and experienced engineering team
 with backgrounds in a wide range of technologies, from low-level kernel and VM
@@ -151,7 +151,7 @@ Java and PHP.
 
 ## Conclusion
 
-The Chainguard Factory operates at an enormous scale. The sheer number of builds and
+The Chainguard Factory operates at an enormous scale. The number of builds and
 workflows that are happening every second is staggering. The factory is a
 critical component in Chainguard and effectively what our customers are paying
 for — the ability to turn open source projects into easily consumable

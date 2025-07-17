@@ -22,7 +22,15 @@ The Chainguard Factory refers to all the engineering and automation work that go
 
 ## How does Chainguard keep its software up to date?
 
-Chainguard uses automated systems to vigilantly monitor for new releases using the GitHub API and release-monitoring.org. When a new release is detected, automation opens a pull request, patches the relevant software, and kicks off a suite of tests. If issues arise, AI analyzes logs and suggests fixes before human engineers review and approve changes. This process ensures prompt, high-quality updates.
+Chainguard uses automated systems to vigilantly monitor for new releases using
+the GitHub API, [the Release Monitoring project](release-monitoring.org),
+[PyPI](https://pypi.org/), [Maven
+Central](https://mvnrepository.com/repos/central) and the [npm
+registry](https://docs.npmjs.com/about-the-public-npm-registry). When a new
+release is detected, automation opens a pull request, patches the relevant
+software, and kicks off a suite of tests. If issues arise, AI analyzes logs and
+suggests fixes before human engineers review and approve changes. This process
+ensures prompt, high-quality updates.
 
 ## How often are Chainguard packages, containers, and VMs updated?
 
@@ -38,7 +46,7 @@ When a package is EOL and no longer supported upstream, it will no longer be upd
 
 ## How are CVEs (security advisories) managed?
 
-Chainguard integrates security scanners (like [grype](https://github.com/anchore/grype) and [snyk](https://snyk.io)) to detect when a CVE affects one of its packages. Automation flags these CVEs for investigation by engineers. If determined to be a false positive, the status is set to "Not Affected"; if real, the issue is resolved by patching or updating dependencies and the status changes to "Fixed".
+Chainguard integrates security scanners (like [grype](https://github.com/anchore/grype) and [snyk](https://snyk.io)) to detect when a CVE affects one of its packages. Automation flags these CVEs for investigation by engineers. If determined to be a false positive, the status is set to `Not Affected`; if real, the issue is resolved by patching or updating dependencies and the status changes to `Fixed`.
 
 ## How does Chainguard prevent malware or malicious updates?
 
@@ -50,7 +58,7 @@ GitHub is used for source code management, but our builds execute on Kubernetes 
 
 ## What is the role of automation, AI, and human engineers?
 
-Automation and AI enable high-velocity operations, handling the bulk of routine updates and testing. However, due to the complexity and variability of open source, human engineers – with diverse technological expertise – play a critical role in resolving exceptions, complex updates, and security events.
+Automation and AI enable high-velocity operations, handling the bulk of routine updates and testing. However, due to the complexity and variability of open source, human engineers with diverse technological expertise play a critical role in resolving exceptions, complex updates, and security events.
 
 ## Why is the Chainguard Factory important for customers?
 
