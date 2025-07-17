@@ -66,7 +66,7 @@ Some updates are a lot more complicated however, with other packages being
 dependent on them, either at buildtime or runtime. Consider a bump to the Go
 compiler. Not only do we need to update the Go package and release a new Go
 compiler image, we also need to rebuild all the packages that are dependent on
-Go and their dependencies, some of which will likely fail due to changes caused
+Go and their dependencies, some of which are likely to fail due to changes caused
 by the update. Updates to core packages like the Go compiler, OpenSSL, or glibc
 are major events that require considerable engineering effort to successfully
 conclude. They are also happening all the time. 
