@@ -1,0 +1,11 @@
+FROM --platform=linux/amd64 cgr.dev/chainguard/node:latest-dev
+
+COPY . .
+USER root
+RUN npm install
+USER node
+ENTRYPOINT ["/bin/npm"]
+CMD ["run", "start"]
+
+# Run this Dockerfile with
+# docker run --platform linux/amd64 -p 1313:1313 <image-name>
