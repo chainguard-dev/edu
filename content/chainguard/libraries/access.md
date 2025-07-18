@@ -4,7 +4,7 @@ linktitle: "Access"
 description: "Getting access to Chainguard Libraries"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2025-04-07T15:17:00+00:00
+lastmod: 2025-07-18T22:09:56+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -91,6 +91,12 @@ To use this pull token in another environment, supply the following for username
 and password valid for basic authentication. Note that the actual returned
 values are much longer.
 
+You can not create pull tokens for Chainguard Libraries in the Chainguard
+console.
+
+Find out more about deleting expired pull tokens and other tasks in [Pull token
+management](#pull-token-management).
+
 ### Verification
 
 Use the credentials for manual testing in a browser or with a script and curl if
@@ -107,7 +113,7 @@ sections for more details:
 ## Use environment variables
 
 Using environment variables for username and password is more secure than
-hardcoding the values in configuration files. In addition, you can use the same
+hard coding the values in configuration files. In addition, you can use the same
 configuration and files for all users to simplify setup and reduce errors.
 
 Use the `env` environment output option to create a snippet for a new token
@@ -219,3 +225,47 @@ can also remove a Chainguard Libraries entitlement:
 chainctl libraries entitlements rm ENTITLEMENT_ID
 ```
 -->
+
+<a id="pull-token-management"></a>
+
+## Pull token management
+
+Pull tokens are separate identities with username and password that are used for
+access to Chainguard Libraries. The tokens have a limited Time to Live (TTL)
+with a default of 30 days and a maximum TTL of 365 days.
+
+As a result pull tokens become invalid after the TTL and are flagged as expired.
+For your use of Chainguard Libraries you must replace the token with a new one.
+
+Expired token do not cause any issues and continue to exist until you delete
+them. Perform this operation in the Chainguard console:
+
+* Use your authentication details to access the console at
+  [https://console.chainguard.dev/](https://console.chainguard.dev/).
+* Select **Overview** in the left-hand navigation.
+* Select the **Manage pull tokens** tab.
+* Locate the expired pull token identified by a red **Expired** warning in the
+  **Name** column.
+* Use the menu button in the Actions column of the same row and select
+  **Delete**.
+* Confirm the deletion in the dialog by pressing **Delete pull token**.
+
+Alternatively use chainctl for various inspection and management tasks.
+
+List all pull tokens:
+
+```shell
+chainctl auth pull-tokens list
+```
+
+List all pull tokens for Chainguard Libraries for Java:
+
+```shell
+chainctl auth pull-tokens list --library-ecosystem=java
+```
+
+List all expired pull tokens for Chainguard Libraries for Python:
+
+```shell
+chainctl auth pull-tokens list --library-ecosystem=java --expired=true
+```
