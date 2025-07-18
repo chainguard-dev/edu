@@ -51,7 +51,7 @@ This table lists the third-party DNS hostnames, associated ports, and protocols 
 | 9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com | 443  | HTTPS    | Blob storage for *.cgr.dev   |
 | support.chainguard.dev                                    | 443  | HTTPS    | Support access for customers |
 
-> Note that the `.r2.cloudflarestorage.com` host is used to serve both image data and packages via `*.cgr.dev`.
+> Note that the `9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com` host is used to serve both image data and packages via `*.cgr.dev`.
 
 ## Ingress and Egress
 
