@@ -34,7 +34,7 @@ Custom Assembly is only available to customers that have access to Production Ch
 
 In order to use the Custom Assembly tool, you will need to choose an appropriate source image from your organization's collection of Production Chainguard Containers to serve as the base for your customized container image. Say, for example, you want to build a custom base for a Python application. In this case, you would likely choose to use the [Python Chainguard Container](https://images.chainguard.dev/directory/image/python/versions) as the source for your customized image.
 
-After selecting the packages for your customized container image, Chainguard will kick off a build on Chainguard's infrastructure. Once a customized image is built successfully, Chainguard will take care of its maintenance and rebuild it as necessary, such as when any of the packages in the image are updated.
+After selecting the packages for your customized container image, Chainguard will kick off a build on Chainguard's infrastructure. Once a customized image is built successfully (this normally takes less than 20 minutes), Chainguard will take care of its maintenance and rebuild it as necessary, such as when any of the packages in the image are updated.
 
 ### Limitations
 
@@ -157,7 +157,7 @@ Build failures can occur for a number of reason, including the following:
 
 * It's possible for users to select packages that conflict with each other. For example, if two packages install the same files, Custom Assembly may not be able to resolve the conflict and result in a failed build.
 * Large images taking longer than 1 hour to build will fail with a timeout error.
-* There is a known bug where container images will not be rebuilt if their source image is more than 48 hours 
+* There is a known bug where container images will not be rebuilt if their source image was last built more than 48 hours ago.
 
 In any case, you won't know whether a container image build fails until after it's complete. If you need assistance troubleshooting, please [reach out to our Customer Support team](https://www.chainguard.dev/contact?utm=docs).
 
