@@ -29,6 +29,7 @@ func init() {
 
 	flag.BoolVar(&checkAll, "checkAll", false, "Check all detected URLs, or those belonging to -hostname")
 	flag.BoolVar(&extractMode, "extractOnly", false, "Only extract URLs, don't check them")
+	flag.BoolVar(&followRedirects, "followRedirects", true, "Follow HTTP redirects to check final destination")
 
 	// won't match anything like `../` or `./` or non-leading `/` URLs
 	// unmatched urls will go into the unchecked result accumulator

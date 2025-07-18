@@ -31,7 +31,24 @@ Results will be in `results.json` unless otherwise specified with `-resultsFile`
     	Path to json file with results of HTTP requests (default "results.json")
   -scheme http
     	Scheme to use with hostname. http or `https` (default "https")
+  -followRedirects
+    	Follow HTTP redirects to check final destination (default true)
 ```
+
+### Redirect Support
+
+By default, chainlink follows HTTP redirects (301/302) and validates the final destination URL. This helps identify:
+- URLs that redirect to 404 pages
+- Broken redirect chains
+- URLs that should be updated to their final destinations
+
+The `-followRedirects` flag controls this behavior:
+- `true` (default): Follows redirects and checks the final destination
+- `false`: Only checks the initial URL without following redirects
+
+When redirects are followed, the results include:
+- `finalurl`: The final URL after all redirects (if different from the original)
+- `redirect_path`: An array showing the complete redirect chain
 
 ### Parsing Results
 
@@ -45,6 +62,12 @@ And get a list of relative/bad URLs that were not checked:
 
 ```
 jq '[.unchecked [] | {(.url.Path): {"pages":(.files |keys)}}]' results.json
+```
+
+Find URLs that redirect and show their final destinations:
+
+```
+jq '[.checked [] | select(.finalurl) | {original: .url, final: .finalurl, status: .status}]' results.json
 ```
 
 ### Errata

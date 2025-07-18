@@ -15,16 +15,17 @@ import (
 
 var (
 	// flags
-	hostname    = ""
-	scheme      = ""
-	httpMethod  = ""
-	ignoreFile  = ""
-	resultsFile = ""
-	checkAll    = false
-	extractMode = false
-	contentDir  = ""
-	fileType    = ""
-	jobs        = 10
+	hostname        = ""
+	scheme          = ""
+	httpMethod      = ""
+	ignoreFile      = ""
+	resultsFile     = ""
+	checkAll        = false
+	extractMode     = false
+	contentDir      = ""
+	fileType        = ""
+	jobs            = 10
+	followRedirects = true
 
 	// url rules
 	correctURLregex = &regexp.Regexp{}
@@ -77,9 +78,11 @@ type ignoreURLs struct {
 }
 
 type link struct {
-	URL     *url.URL               `json:"url"`
-	FullURL string                 `json:"fullurl"`
-	Status  int                    `json:"status"`
-	Files   map[string]interface{} `json:"files"`
-	RawURL  string                 `json:"rawurl"`
+	URL          *url.URL               `json:"url"`
+	FullURL      string                 `json:"fullurl"`
+	Status       int                    `json:"status"`
+	Files        map[string]interface{} `json:"files"`
+	RawURL       string                 `json:"rawurl"`
+	FinalURL     string                 `json:"finalurl,omitempty"`
+	RedirectPath []string               `json:"redirect_path,omitempty"`
 }
