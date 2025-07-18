@@ -3,7 +3,7 @@ title: "Chainguard Factory FAQs"
 linktitle: "FAQs"
 type: "article"
 description: "Chainguard Factory FAQs"
-lead: "An introduction to Chainguard’s Factory; the powerhouse of engineering and automation that continuously transforms the chaos of open source into secure, up-to-date containers, libraries, and VMs at massive scale."
+lead: "An introduction to Chainguard’s Factory; the powerhouse of engineering and automation that continuously transforms the complex ecosystem of open source projects into secure, up-to-date containers, libraries, and VMs at massive scale."
 date: 2025-07-17T08:49:31+00:00
 lastmod: 2025-07-17T08:49:31+00:00
 draft: false
@@ -38,15 +38,15 @@ Updates happen constantly and at high speed. There are over 1,500 containers, pl
 
 ## What happens when a core dependency (like Go, OpenSSL, or glibc) is updated?
 
-Updates to foundational packages require cascading rebuilds of all dependent packages and images. For updates to core dependencies, this will mean rebuilds to hundreds, or even thousands, of packages and containers. Major updates like these receive additional engineering focus to ensure a smooth transition.
+Updates to foundational packages require cascading rebuilds of all dependent packages and images. For updates to core dependencies, this results in rebuilds of hundreds, or even thousands, of packages and containers. Major updates like these receive additional engineering focus to ensure a smooth transition.
 
 ## How does Chainguard handle software that goes End-of-Life (EOL) upstream?
 
-When a package is EOL and no longer supported upstream, it will no longer be updated in the Wolfi repository. However, customers benefit from an extended EOL Grace Period with Chainguard OS, during which Chainguard continues to build old versions for an additional timeframe.
+After a package goes EOL, it is no longer supported upstream, and updates will cease in the Wolfi repository. However, customers benefit from an extended EOL Grace Period with Chainguard OS, during which Chainguard continues to build old versions for an additional timeframe.
 
 ## How are CVEs (security advisories) managed?
 
-Chainguard integrates security scanners (like [grype](https://github.com/anchore/grype) and [snyk](https://snyk.io)) to detect when a CVE affects one of its packages. Automation flags these CVEs for investigation by engineers. If determined to be a false positive, the status is set to `Not Affected`; if real, the issue is resolved by patching or updating dependencies and the status changes to `Fixed`.
+Chainguard uses the [grype](https://github.com/anchore/grype) security scanner to detect when a CVE affects one of its packages. Automation flags these CVEs for investigation by engineers. If determined to be a false positive, the status is set to `Not Affected`; if real, the issue is resolved by patching or updating dependencies and the status changes to `Fixed`.
 
 ## How does Chainguard prevent malware or malicious updates?
 
@@ -62,4 +62,4 @@ Automation and AI enable high-velocity operations, handling the bulk of routine 
 
 ## Why is the Chainguard Factory important for customers?
 
-The Factory enables Chainguard to reliably convert open source into ready-to-use, highly secure containers, VMs, and libraries, giving customers timely access to updates while minimizing their security risk and operational overhead.
+The factory enables Chainguard to reliably convert open source into ready-to-use, highly secure containers, VMs, and libraries, giving customers timely access to updates while minimizing their security risk and operational overhead.
