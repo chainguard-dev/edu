@@ -1,0 +1,29 @@
+{
+  "checked": [
+    {
+      "url": {
+        "Scheme": "http",
+        "Opaque": "",
+        "User": null,
+        "Host": "127.0.0.1:51267",
+        "Path": "/start",
+        "RawPath": "",
+        "OmitHost": false,
+        "ForceQuery": false,
+        "RawQuery": "",
+        "Fragment": "",
+        "RawFragment": ""
+      },
+      "fullurl": "http://127.0.0.1:51267/start",
+      "status": 404,
+      "files": null,
+      "rawurl": "http://127.0.0.1:51267/start",
+      "finalurl": "http://127.0.0.1:51267/end",
+      "redirect_path": [
+        "http://127.0.0.1:51267/end"
+      ]
+    }
+  ],
+  "unchecked": null,
+  "ignored": null
+}
