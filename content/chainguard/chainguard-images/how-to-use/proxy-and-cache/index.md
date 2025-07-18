@@ -17,7 +17,7 @@ weight: 009
 toc: true
 ---
 
-This page will walk you through the process of setting up and using Chainguard Helm Charts with Artifactory via remote Helm OCI repositories.
+This page shows you how to set up and use Chainguard Helm Charts with Artifactory via remote Helm OCI repositories.
 
 ## Create and configure Helm OCI repository in Artifactory
 
