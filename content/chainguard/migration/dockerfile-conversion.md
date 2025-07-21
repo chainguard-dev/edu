@@ -315,7 +315,7 @@ CMD ["python", "/app/main.py"]
 
 As you will notice, DFC used a _distroless_ Python Chainguard Container for the final runtime stage: `cgr.dev/ORG/python:3.9`. That is possible because DFC didn't detect any `RUN` instruction in the final stage. If we had system-level dependencies installed via `apk` or other `RUN` instructions in the runtime stage, DFC would instead default to the regular, fully-featured Python image from Chainguard Containers, which in this case would be `cgr.dev/ORG/python:3.9-dev`.
 
-For more details on distroless and how to work with multi-stage builds, check our guide on [Getting Started with Distroless](https://deploy-preview-2401--ornate-narwhal-088216.netlify.app/chainguard/chainguard-images/about/getting-started-distroless/).
+For more details on distroless and how to work with multi-stage builds, check our guide on [Getting Started with Distroless](https://edu.chainguard.dev/chainguard/chainguard-images/about/getting-started-distroless/).
 
 ## Customizing the Conversion
 There are several ways to customize the conversion process of Dockerfiles using `dfc`.
