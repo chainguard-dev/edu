@@ -28,7 +28,7 @@ You can check the status of Chainguard's registry at [https://status.cgr.dev](ht
 
 ## Network Requirements
 
-Refer to our [Network Requirements](/chainguard/administration/network-requirements) reference page for details about how to ensure access to Chainguard's registry in environments using firewalls, access control lists, and proxies.
+Refer to our [Network Requirements](/chainguard/administration/network-requirements/) reference page for details about how to ensure access to Chainguard's registry in environments using firewalls, access control lists, and proxies.
 
 ## Using a Caching Proxy with Chainguard's registry
 

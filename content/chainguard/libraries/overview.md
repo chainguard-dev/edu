@@ -85,4 +85,4 @@ supply chain problems for libraries:
 Chainguard Libraries is available for the following library ecosystems:
 
 * Java and the larger Java Virtual Machine (JVM) ecosystem with [Chainguard 
-Libraries for Java](/chainguard/libraries/java/overview)
+Libraries for Java](/chainguard/libraries/java/overview/)

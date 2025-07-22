@@ -83,8 +83,8 @@ Password: eyJhbGciO..........WF0IjoxN
 The returned username and password combination is a new credential set in the
 organization that is independent of the account used to create and retrieve the
 credential set. It is therefore suitable for use in any service application,
-such as [a repository manager](/chainguard/libraries/java/global-configuration)
-or [a build tool](/chainguard/libraries/java/build-configuration) that is not
+such as [a repository manager](/chainguard/libraries/java/global-configuration/)
+or [a build tool](/chainguard/libraries/java/build-configuration/) that is not
 tied to a specific user.
 
 To use this pull token in another environment, supply the following for username
@@ -133,8 +133,8 @@ Running this command as part of a login script or some other automation allows
 your organization to replace actual username and password values in your build
 tool configuration with environment variable placeholders:
 
-*  [Java build tool configuration](/chainguard/libraries/java/build-configuration)
-*  [Python build tool configuration](/chainguard/libraries/python/build-configuration)
+*  [Java build tool configuration](/chainguard/libraries/java/build-configuration/)
+*  [Python build tool configuration](/chainguard/libraries/python/build-configuration/)
 
 <a id="netrc"></a>
 
@@ -149,9 +149,9 @@ typically located in the user's home directory.
 Use this approach for authentication to a repository manager in your
 organization or to Chainguard Libraries directly, for example with [pip and
 others for Chainguard Libraries for
-Python](/chainguard/libraries/python/build-configuration#pip), with [bazel for
+Python](/chainguard/libraries/python/build-configuration/#pip), with [bazel for
 Chainguard Libraries for
-Java](/chainguard/libraries/java/build-configuration#bazel) or for manual
+Java](/chainguard/libraries/java/build-configuration/#bazel) or for manual
 testing with curl.
 
 The following example shows a suitable setup for a repo manager available at
