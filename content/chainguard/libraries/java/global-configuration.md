@@ -133,9 +133,9 @@ build tools such as Gradle.
 
 Use the URL of the repository, the username, and the password for the server
 authentication block in the [build
-configuration](/chainguard/libraries/java/build-configuration). and build a firs
-test project. In a working setup all libraries retrieved from Chainguard are
-tagged with the name of the upstream proxy.
+configuration](/chainguard/libraries/java/build-configuration/). and build a
+first test project. In a working setup all libraries retrieved from Chainguard
+are tagged with the name of the upstream proxy.
 
 <a name="gar"></a>
 
