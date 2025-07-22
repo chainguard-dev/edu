@@ -18,7 +18,7 @@ toc: true
 ---
 
 ## Do I need to understand melange to use Chainguard Containers?
-No. Chainguard built [melange](https://github.com/chainguard-dev/melange) as part of its open source tooling used for the [Wolfi](/open-source/wolfi) operating system. While you can check out the [project on GitHub](https://github.com/chainguard-dev/melange) and learn more, it’s not a prerequisite for using or working with [Chainguard Containers](/chainguard/chainguard-images).
+No. Chainguard built [melange](https://github.com/chainguard-dev/melange) as part of its open source tooling used for the [Wolfi](/open-source/wolfi/) operating system. While you can check out the [project on GitHub](https://github.com/chainguard-dev/melange) and learn more, it’s not a prerequisite for using or working with [Chainguard Containers](/chainguard/chainguard-images/).
 
 ## How are melange packages defined?
 melange apks are defined declaratively using a YAML file.

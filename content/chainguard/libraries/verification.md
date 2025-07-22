@@ -40,7 +40,7 @@ The following requirements must be met:
 * x86_64 or arm64 processor architecture.
 * `chainctl` installed and available on the `PATH`.
 * `cosign` installed and available on the `PATH`.
-* Sufficient [network access](/chainguard/libraries/network-requirements) available.
+* Sufficient [network access](/chainguard/libraries/network-requirements/) available.
 
 ## Access 
 

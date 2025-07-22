@@ -23,7 +23,7 @@ The Chainguard Factory refers to all the engineering and automation work that go
 ## How does Chainguard keep its software up to date?
 
 Chainguard uses automated systems to vigilantly monitor for new releases using
-the GitHub API, [the Release Monitoring project](release-monitoring.org),
+the GitHub API, [the Release Monitoring project](https://release-monitoring.org),
 [PyPI](https://pypi.org/), [Maven
 Central](https://mvnrepository.com/repos/central) and the [npm
 registry](https://docs.npmjs.com/about-the-public-npm-registry). When a new

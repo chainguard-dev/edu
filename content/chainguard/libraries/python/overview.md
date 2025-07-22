@@ -58,7 +58,7 @@ apply:
 Most organizations consume Chainguard Libraries for Python through a repository
 manager such as Cloudsmith, JFrog Artifactory or Sonatype Nexus Repository. For
 full details, refer to our [Global Configuration
-documentation](/chainguard/libraries/python/global-configuration). The rest of
+documentation](/chainguard/libraries/python/global-configuration/). The rest of
 this article provides details of the underlying implementation of Chainguard
 Libraries for Python and how to access individual libraries manually.
 

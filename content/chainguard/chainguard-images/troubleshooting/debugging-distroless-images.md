@@ -148,7 +148,7 @@ For more strategies on how to debug production distroless containers, check the 
 ## Resources to Learn More
 
 - [Minimal Container Images: Towards a More Secure Future ](https://www.chainguard.dev/unchained/minimal-container-images-towards-a-more-secure-future) - Chainguard Blog
-- [Why Distroless](https://edu.chainguard.dev/chainguard/chainguard-images/overview#why-distroless) - Chainguard Container Documentation
+- [Why Distroless](/chainguard/chainguard-images/overview) - Chainguard Container Documentation
 - [Ephemeral Containers](https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/) - Official Kubernetes Documentation
 - [Introducing Ephemeral Containers](https://opensource.googleblog.com/2022/01/Introducing%20Ephemeral%20Containers.html) - Google Open Source Blog
 - Talk: [Running a Go Debugger in Kubernetes](https://www.youtube.com/watch?v=V3SrFyMxmq4&t=2691s) - Cloud Native Rejekts EU 23

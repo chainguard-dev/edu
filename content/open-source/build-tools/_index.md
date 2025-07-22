@@ -9,4 +9,4 @@ images: []
 weight: 20
 ---
 
-The open source tools that were developed for the [Wolfi](/open-source/wolfi) operating system. 
+The open source tools that were developed for the [Wolfi](/open-source/wolfi/) operating system. 

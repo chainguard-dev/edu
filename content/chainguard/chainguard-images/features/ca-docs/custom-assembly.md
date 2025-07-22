@@ -23,7 +23,7 @@ Chainguard has created Custom Assembly, a tool that allows users to create custo
 
 This overview of Custom Assembly outlines how it works, its limitations, and how you can use container images customized with Custom Assembly. For a more hands-on tutorial on using Custom Assembly, Chainguard Academy currently has documentation for the following methods of managing the tool:
 
-* [Using the Chainguard console](/chainguard/chainguard-images/features/ca-docs/custom-assembly-console)
+* [Using the Chainguard console](/chainguard/chainguard-images/features/ca-docs/custom-assembly-console/)
 * [Using `chainctl`, Chainguard's command-line interface tool](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/)
 * [Using Chainguard's API](/chainguard/chainguard-images/features/ca-docs/custom-assembly-api-demo/)
 

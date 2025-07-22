@@ -60,5 +60,5 @@ Taking the step into distroless by using our standard Chainguard Containers can 
 ## Resources
 
 * [Blog: Minimal container images: Towards a more secure future](https://www.chainguard.dev/unchained/minimal-container-images-towards-a-more-secure-future)
-* [Chainguard Academy: Overview of Chainguard Containers](/chainguard/chainguard-images/overview#why-distroless)
+* [Chainguard Academy: Overview of Chainguard Containers](/chainguard/chainguard-images/overview)
 * [Chainguard Academy: Debugging Distroless Images](/chainguard/chainguard-images/debugging-distroless-images/)
