@@ -1,22 +1,48 @@
 ---
 date: 2025-07-21T08:13:06Z
-title: "chainctl auth"
-slug: chainctl_auth
-url: /chainguard/chainctl/chainctl-docs/chainctl_auth/
+title: "chainctl auth pull-token list"
+slug: chainctl_auth_pull-token_list
+url: /chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl auth
+## chainctl auth pull-token list
 
-Auth related commands for the Chainguard platform.
+List all pull-tokens
+
+```
+chainctl auth pull-token list [--parent=PARENT] [--library-ecosystem=LANGUAGE] [--expired=true|false] [flags]
+```
+
+### Examples
+
+```
+  # List all pull-tokens.
+  chainctl auth pull-token list
+  
+  # Filter pull-tokens to ones associated to a library ecosystem.
+  chainctl auth pull-token list --library-ecosystem=java
+  
+  # List expired pull-tokens
+  chainctl auth pull-token list --expired
+  
+  # List pull tokens associated to a particular organization
+  chainctl auth pull-token list --parent=my-org
+  
+  # Filter pull-tokens to ones associated to a library ecosystem that have expired.
+  chainctl auth pull-token list --library-ecosystem=java --expired
+```
 
 ### Options
 
 ```
-  -h, --help   help for auth
+      --expired                    If true return only expired pull tokens
+  -h, --help                       help for list
+      --library-ecosystem string   The language ecosystem with which the pull-token identity is associated.
+      --parent string              The IAM organization or folder with which the pull-token identity is associated.
 ```
 
 ### Options inherited from parent commands
@@ -35,11 +61,5 @@ Auth related commands for the Chainguard platform.
 
 ### SEE ALSO
 
-* [chainctl](/chainguard/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
-* [chainctl auth configure-docker](/chainguard/chainctl/chainctl-docs/chainctl_auth_configure-docker/)	 - Configure a Docker credential helper
-* [chainctl auth login](/chainguard/chainctl/chainctl-docs/chainctl_auth_login/)	 - Login to the Chainguard platform.
-* [chainctl auth logout](/chainguard/chainctl/chainctl-docs/chainctl_auth_logout/)	 - Logout from the Chainguard platform.
 * [chainctl auth pull-token](/chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token/)	 - Create a pull token.
-* [chainctl auth status](/chainguard/chainctl/chainctl-docs/chainctl_auth_status/)	 - Inspect the local Chainguard Token.
-* [chainctl auth token](/chainguard/chainctl/chainctl-docs/chainctl_auth_token/)	 - Print the local Chainguard Token.
 

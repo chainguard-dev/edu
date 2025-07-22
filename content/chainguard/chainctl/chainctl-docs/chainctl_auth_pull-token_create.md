@@ -1,26 +1,42 @@
 ---
 date: 2025-07-21T08:13:06Z
-title: "chainctl auth pull-token"
-slug: chainctl_auth_pull-token
-url: /chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token/
+title: "chainctl auth pull-token create"
+slug: chainctl_auth_pull-token_create
+url: /chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token_create/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl auth pull-token
+## chainctl auth pull-token create
 
 Create a pull token.
 
 ```
-chainctl auth pull-token [flags]
+chainctl auth pull-token create [--save=true|false] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--library-ecosystem=LANGUAGE] [flags]
+```
+
+### Examples
+
+```
+  # Create a pull-token.
+  chainctl auth pull-token create
+  
+  # Create a pull-token associated to a library ecosystem.
+  chainctl auth pull-token create --library-ecosystem=java
+  
+  # Create a pull-token that will last for 1 day (default is one month)
+  chainctl auth pull-token create --ttl 24
+  
+  # Create a pull token and associate to a particular organisation
+  chainctl auth pull-token create --parent my-org
 ```
 
 ### Options
 
 ```
-  -h, --help                       help for pull-token
+  -h, --help                       help for create
       --library-ecosystem string   The language ecosystem to create this pull token for (e.g. python, java).
       --name string                Optionally set the name for the token (default "pull-token")
       --parent string              The IAM organization or folder with which the pull-token identity is associated.
@@ -44,7 +60,5 @@ chainctl auth pull-token [flags]
 
 ### SEE ALSO
 
-* [chainctl auth](/chainguard/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
-* [chainctl auth pull-token create](/chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token_create/)	 - Create a pull token.
-* [chainctl auth pull-token list](/chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token_list/)	 - List all pull-tokens
+* [chainctl auth pull-token](/chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token/)	 - Create a pull token.
 
