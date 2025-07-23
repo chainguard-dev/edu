@@ -64,3 +64,23 @@ You will need egress rules that allow new traffic to the hosts listed here. You 
 Many of the hosts listed on this page use multiple DNS A records or CNAME aliases. Additionally, many A records have a short time to live of 60 seconds, and the majority are less than an hour (3600s).
 
 If your network filters traffic based on IP addresses, ensure that any firewalls update their rules at an appropriate interval to match the TTL for each DNS record.
+
+## Minimum TLS requirements
+
+For guaranteed connectivity, the following TLS requirements must be at
+minimum supported by clients/servers communicating with Chainguard
+Containers and endpoints:
+
+- TLSv1.3 with TLS_AES_256_GCM_SHA384 cipher suite
+- TLSv1.2 with
+  - ECDHE-ECDSA-AES256-GCM-SHA384 cipher string
+  - [RFC 7627](https://datatracker.ietf.org/doc/html/rfc7627) Extended Master Secret Extenstion support
+- Signatures using P-256 with SHA-256
+- Signatures using RSA-PSS with 2048 bits and SHA-256
+
+The above configuration can be approximately tested with OpenSSL client like so:
+
+```
+openssl s_client -cipher @SECLEVEL=2:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384 -ciphersuites TLS_AES_256_GCM_SHA384 -groups P-256 -connect HOST:PORT
+```
+> Note, in case of TLSv1.2 connectivity, one has to check the output for `Extended master secret: yes`
