@@ -1,18 +1,18 @@
 ---
 title: "SLSA at Chainguard"
-linktitle: "SLSA"
+linktitle: "SLSA 1.1 Level 3 compliance at Chainguard"
 description: "A brief overview of SLSA and Chainguard's compliance efforts."
 type: "article"
-date: 2025-07-22T14:05:09+00:00
-lastmod: 2025-07-22T14:05:09+00:00
+date: 2025-07-23T01:24:23+00:00
+lastmod: 2025-07-23T01:24:23+00:00
 contributors: []
 draft: false
 tags: ["Compliance", "SLSA", "Standards"]
 images: []
 menu:
   docs:
-    parent: "compliance"
-weight: 035
+    parent: "slsa"
+weight: 020
 toc: true
 ---
 
@@ -50,3 +50,13 @@ With SLSA 3, every Chainguard artifact comes with detailed metadata and document
 Reaching SLSA Level 3 compliance with any product is a major achievement. But, as Chainguard is a software security company, more is planned.
 
 See [blog post] for more details.
+
+
+## Sample Provenance Code
+
+TK - I have asked in Slack, but no response yet
+
+-----
+START Wednesday by doing a reorg of compliance content. Maybe make a new section. Move SLSA page from Open Source into the new section.
+-----
+
