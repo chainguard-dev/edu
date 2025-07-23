@@ -194,7 +194,8 @@ def check_spelling(filepath):
                     'ci', 'cd', 'devops', 'gitops', 'mlops', 'devsecops',
                     'lts', 'eol', 'semver', 'changelog', 'readme',
                     'grype', 'apks', 'glibc', 'musl', 'unpatched', 'sla', 'slas',
-                    'chainguard\'s', 'bazel', 'apk', 'nano', 'lastmod'
+                    'chainguard\'s', 'bazel', 'apk', 'nano', 'lastmod', 'netrc',
+                    'iam'
                 }
                 
                 # Filter and track errors with line numbers

@@ -4,7 +4,7 @@ linktitle: "Access"
 description: "Getting access to Chainguard Libraries"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2025-04-07T15:17:00+00:00
+lastmod: 2025-07-22T20:52:57+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -47,8 +47,8 @@ Valid! Id: 8a4141a........7d9904d98c
 
 ## Pull token for libraries
 
-Retrieve a new authentication token for the Chainguard Libraries for Java with
-the [chainctl auth pull-token](/chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token/)
+Create a new pull token for the Chainguard Libraries for Java with the [chainctl
+auth pull-token](/chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token/)
 command:
 
 ```shell
@@ -91,6 +91,12 @@ To use this pull token in another environment, supply the following for username
 and password valid for basic authentication. Note that the actual returned
 values are much longer.
 
+You can not create pull tokens for Chainguard Libraries in the Chainguard
+console.
+
+Find out more about listing tokens and other tasks in [Pull token
+management](#pull-token-management).
+
 ### Verification
 
 Use the credentials for manual testing in a browser or with a script and curl if
@@ -107,7 +113,7 @@ sections for more details:
 ## Use environment variables
 
 Using environment variables for username and password is more secure than
-hardcoding the values in configuration files. In addition, you can use the same
+hard coding the values in configuration files. In addition, you can use the same
 configuration and files for all users to simplify setup and reduce errors.
 
 Use the `env` environment output option to create a snippet for a new token
@@ -219,3 +225,95 @@ can also remove a Chainguard Libraries entitlement:
 chainctl libraries entitlements rm ENTITLEMENT_ID
 ```
 -->
+
+<a id="pull-token-management"></a>
+
+## Pull token management
+
+Pull tokens are separate identities with username and password that are used for
+access to Chainguard Libraries. The tokens have a limited Time to Live (TTL)
+with a default of 30 days and a maximum TTL of 365 days.
+
+As a result, pull tokens become invalid after the TTL and are flagged as expired.
+For your use of Chainguard Libraries you must replace the token with a new one.
+
+Expired tokens can no longer be used for access to Chainguard Libraries, but
+otherwise do not cause any issues and continue to exist until you delete them.
+
+Inspect all pull tokens for your organization in the Chainguard console:
+
+* Use your authentication details to access the console at
+  [https://console.chainguard.dev/](https://console.chainguard.dev/).
+* Select **Overview** in the left-hand navigation.
+* Select the **Manage pull tokens** tab.
+* Alternatively, select **Settings** in the left-hand navigation, and select
+  **Pull Tokens** in the menu on the settings page.
+
+The list includes the following columns:
+
+* **Name** - the name of the pull token, expired pull token are identified by a
+  red **Expired** warning.
+* **Description** - the description of the pull token
+* **Created** - the date when the pull token was created
+* **Expiration** - string description of the expiration status of the token,
+  such as *in 8 months* or *4 days ago*.
+* **Actions** - menu button to perform actions on the pull token, only a Delete
+  action is available.
+
+Use the action to remove a pull token:
+
+* Locate the row of the desired pull token, typically an expired token.
+* Use the menu button in the **Actions** column of the same row and select
+  **Delete**.
+* Confirm the deletion in the dialog by pressing **Delete pull token**.
+
+Alternatively use chainctl with the [auth
+pull-token](/chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token/) and
+[iam identities](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities/)
+commands for various inspection and management tasks.
+
+List all pull tokens with the `list` command:
+
+```shell
+chainctl auth pull-token list
+```
+
+The displayed list includes the following columns:
+
+* **ID** - the identifying username of the pull token
+* **NAME** - the name of the pull token
+* **DESCRIPTION** - the description of the pull token
+* **ROLES** - the assigned organization and role for the pull token. The value
+  shows the name of the organization separate from the role with a colon. Valid
+  roles are all pull authorization from for apk packages `apk.pull`, container
+  images `registry.pull`, Python libraries `libraries.python.pull`, and Java
+  libraries `libraries.java.pull`.
+* **EXPIRES** - the number of days until the end of the TTL period. Negative
+  values indicate expired tokens.
+
+List all pull tokens for Chainguard Libraries for Java that are not yet expired:
+
+```shell
+chainctl auth pull-token list --library-ecosystem=java
+```
+
+List all expired pull tokens for Chainguard Libraries for Python:
+
+```shell
+chainctl auth pull-token list --library-ecosystem=java --expired=true
+```
+
+Use the [delete command for IAM
+identities](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities_delete/)
+to delete a specific pull token using its ID `45a0c61ea6fd97...`:
+
+```shell
+chainctl iam identities delete 45a0c61ea6fd97...
+```
+
+Use the identifier or name of your organization `example` and the `--expired`
+flag to remove all expired pull tokens:
+
+```shell
+chainctl iam ids rm --expired --parent=example
+```
