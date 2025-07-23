@@ -54,7 +54,9 @@ See [blog post] for more details.
 
 ## Sample Provenance Code
 
-We used this command:
+To pull an attestation, you must first [authenticate to Chainguard's registry](https://edu.chainguard.dev/chainguard/chainguard-images/chainguard-registry/authenticating/).
+
+Then you can download an attestation of provenance.
 
 ```
 cosign download attestation \
@@ -65,5 +67,35 @@ cosign download attestation \
 To acquire this example:
 
 ```
-coming...
+{
+  "buildDefinition": {
+    "buildType": "https://apko.dev/slsa-build-type@v1",
+    "internalParameters": {
+      "apk-tools": "2.14.10-r6",
+      "busybox": "1.37.0-r47",
+      "ca-certificates-bundle": "20250619-r3",
+      "glibc": "2.41-r55",
+      "glibc-locale-posix": "2.41-r55",
+      "ld-linux": "2.41-r55",
+      "libcrypt1": "2.41-r55",
+      "libcrypto3": "3.5.1-r1",
+      "libgcc": "15.1.0-r3",
+      "libssl3": "3.5.1-r1",
+      "libxcrypt": "4.4.38-r3",
+      "wolfi-base": "1-r7",
+      "wolfi-baselayout": "20230201-r23",
+      "wolfi-keys": "1-r12",
+      "zlib": "1.3.1-r51"
+    }
+  },
+  "runDetails": {
+    "builder": {
+      "id": "https://github.com/chainguard-dev/terraform-provider-apko",
+      "version": {}
+    },
+    "metadata": {
+      "invocationId": "cgr.dev/chainguard/wolfi-base@sha256:25f877c4528bbb99a1d7ab0c063a7a64958e0cef9e73ee0b98bd52b6e2c83538"
+    }
+  }
+}
 ```
