@@ -7,7 +7,7 @@ aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-pytorch
 description: "Learn how to use Chainguard's PyTorch container image for deep learning with enhanced security, minimal CVEs, and GPU acceleration support"
 date: 2024-04-25T08:00:00+02:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2025-07-23T16:52:56+00:00
 tags: ["Chainguard Containers", "AI"]
 draft: false
 images: []
@@ -70,7 +70,7 @@ It is common for model training to be performed in a development environment, an
 
 In this tutorial, we'll fine-tune a pretrained model for an image classification task: classifying whether a provided image is an octopus 🐙, a whale 🐳, or a penguin 🐧. We've chosen these animals in appreciation of Wolfi and Chainguard, Docker, and Linux, respectively. Rather than train a model from scratch, a process that requires a large set of input data, we'll start with a ResNet model with 18 layers ([resnet18](https://pytorch.org/vision/main/models/generated/torchvision.models.resnet18.html)). Using a fine-tuning approach with a pretrained model with relatively few layers is appropriate when using a limited amount of input data. In our case, we'll be using 60 images for each class, further divided into 40 training and 20 validation images.
 
-For the training step, we'll be accessing the container image as root. This allows us to save the model to a volume and preserve it on the host system. In our inference step, we'll access the container as the nonroot user, an approach that will be more secure for a production use case.
+For the training step, we'll be accessing the container image as root. This allows us to save the model to a volume and preserve it on the host system. In our inference step, we'll access the container as the non-root user, an approach that will be more secure for a production use case.
 
 ## Fine-Tuning the Model
 

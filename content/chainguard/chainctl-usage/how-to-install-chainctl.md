@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "Learn how to install chainctl, Chainguard's command-line interface for managing container images, IAM resources, and security configurations across platforms"
 date: 2022-09-22T15:56:52-07:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2025-07-23T16:52:56+00:00
 draft: false
 tags: ["chainctl"]
 images: []
@@ -72,7 +72,7 @@ sudo install -o $UID -g $(id -g) -m 0755 chainctl /usr/local/bin/
 
 At this point, you'll be able to use the `chainctl` command.
 
-### Installing with `curl` in Windows Powershell
+### Installing with `curl` in Windows PowerShell
 
 As stated previously, you can also use `curl` install `chainctl` on Windows systems. Running the following command in PowerShell will download the appropriate `.exe` file.
 

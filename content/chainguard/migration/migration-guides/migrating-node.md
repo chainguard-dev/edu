@@ -8,7 +8,7 @@ aliases:
 type: "article"
 description: "Learn how to migrate Node.js applications to Chainguard Containers for reduced vulnerabilities, smaller image sizes, and automated security patching"
 date: 2024-05-09T15:56:52-07:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2025-07-23T16:52:56+00:00
 draft: false
 tags: ["Chainguard Containers", "Migration"]
 images: []
@@ -32,7 +32,7 @@ Chainguard Containers base.
 ## Node.js Chainguard Containers
 
 The [Node.js](https://images.chainguard.dev/directory/image/node/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-node) images come in two main
-flavours; runtime images intended for production usage and builder images intended for use in the
+flavors; runtime images intended for production usage and builder images intended for use in the
 build-step of multi-stage builds. The builder images are distinguished by the `-dev` suffix (e.g.,
 `latest-dev`).
 

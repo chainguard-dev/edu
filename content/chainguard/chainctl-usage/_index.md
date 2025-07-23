@@ -4,9 +4,9 @@ lead: "Chainguard's chainctl CLI provides command-line access to manage containe
 description: "Learn how to use chainctl, Chainguard's command-line interface for managing container images, identity and access management, and security resources"
 type: "article"
 date: 2025-03-0320T08:49:15+00:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2025-07-23T16:52:56+00:00
 draft: false
-tags: ["chainctl", "Usage", "Overview"]
+tags: ["chainctl", "Overview"]
 images: []
 weight: 060
 ---

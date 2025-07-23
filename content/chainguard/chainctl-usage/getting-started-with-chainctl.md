@@ -4,9 +4,9 @@ lead: "Chainguard's chainctl CLI enables secure management of container images a
 description: "Get started with chainctl basics including authentication, organization management, and essential commands for Chainguard's container security platform"
 type: "article"
 date: 2025-03-03T08:49:15+00:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2025-07-23T16:52:56+00:00
 draft: false
-tags: ["chainctl", "Getting Started", "Basics"]
+tags: ["chainctl", "Getting Started"]
 images: []
 weight: 020
 ---

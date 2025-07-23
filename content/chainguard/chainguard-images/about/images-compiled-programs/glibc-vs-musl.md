@@ -6,7 +6,7 @@ aliases:
 type: "article"
 description: "An overview of the differences between glibc and musl."
 date: 2024-08-26T18:42:57+00:00
-lastmod: 2025-04-07T10:42:34+00:00
+lastmod: 2025-07-23T16:52:56+00:00
 draft: false
 tags: ["Chainguard Containers", "cheatsheet"]
 images: []
@@ -51,7 +51,7 @@ The following table highlights some of the main differences between glibc and mu
 | Debug Support   	| Several debug features available such as sanitizers, profilers | Does not support sanitizers and limited profilers                  	|
 | DNS Implementation  | Stable and well-supported                                  	| Historical reports of occasional DNS resolution issues             	|
 
-Be aware that binaries are not compatible between Alpine and Wolfi. You **should not** attempt to copy Alipne binaries into a Wolfi-based container image.
+Be aware that binaries are not compatible between Alpine and Wolfi. You **should not** attempt to copy Alpine binaries into a Wolfi-based container image.
 
 
 ## Buffer Overflows

@@ -5,7 +5,7 @@ type: "article"
 description: "Learn about Chainguard Containers, distroless images, and how they provide enhanced security through minimal attack surface and comprehensive supply chain features."
 lead: "Chainguard Containers are security-hardened container images built with a distroless approach, containing only essential application components and runtime dependencies."
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2025-07-23T16:52:56+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -47,7 +47,7 @@ We observed that this approach achieved the following:
 * A ~70% reduction in the total size of unique layer data across our image catalog compared to the single-layer approach
 * A 70-85% reduction in the cumulative bytes transferred when simulating sequential pulls of updated images like PyTorch and NeMo
 
-To maximize the stability and re-useability of our layers, Chainugard identified, analyzed, and implemented three additional technical changes:
+To maximize the stability and re-usability of our layers, Chainguard identified, analyzed, and implemented three additional technical changes:
 * Added in an additional final layer that captures frequently updated OS-level metadata
 * Developed intelligent layer ordering to optimize compatibility
 * Ensured sufficient layer counts to optimize parallel downloads by container clients
