@@ -54,9 +54,16 @@ See [blog post] for more details.
 
 ## Sample Provenance Code
 
-TK - I have asked in Slack, but no response yet
+We used this command:
 
------
-START Wednesday by doing a reorg of compliance content. Maybe make a new section. Move SLSA page from Open Source into the new section.
------
+```
+cosign download attestation \
+  --predicate-type=https://slsa.dev/provenance/v1 \
+  cgr.dev/chainguard/wolfi-base | jq -r .payload | base64 -d | jq .predicate
+```
 
+To acquire this example:
+
+```
+coming...
+```
