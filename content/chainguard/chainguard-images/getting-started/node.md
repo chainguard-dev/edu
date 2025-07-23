@@ -4,9 +4,9 @@ type: "article"
 linktitle: "Node"
 aliases: 
 - /chainguard/chainguard-images/getting-started/getting-started-node
-description: "Tutorial on how to get started with the Chainguard Node container image"
+description: "Learn how to use Chainguard's Node.js container images for secure JavaScript applications with minimal vulnerabilities, distroless design, and built-in npm support"
 date: 2023-02-01T11:07:52+02:00
-lastmod: 2025-03-24T11:07:52+02:00
+lastmod: 2025-07-23T15:09:59+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -17,7 +17,7 @@ weight: 040
 toc: true
 ---
 
-The [Node Chainguard Container](https://images.chainguard.dev/directory/image/node/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-node) is a distroless container image that has the tooling necessary to build and execute Node applications, including  `npm`.
+Chainguard's [Node container image](https://images.chainguard.dev/directory/image/node/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-node) provides a secure runtime for Node.js applications with significantly fewer vulnerabilities than traditional Node images. This distroless image includes Node.js and npm while maintaining a minimal attack surface for production deployments.
 
 In this guide, we'll set up a demo application and create a Dockerfile to build and execute the demo using the Node Chainguard Containers as base.
 

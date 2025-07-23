@@ -6,9 +6,9 @@ aliases:
   - /chainguard/chainguard-images/verifying-chainguard-images-and-metadata-signatures-with-cosign/
   - /chainguard/chainguard-images/how-to-use/verifying-images-with-cosign
 type: "article"
-description: "A walkthrough of verifying Chainguard Containers and metadata signatures with Cosign."
+description: "Learn how to verify Chainguard Container signatures and attestations with Cosign for supply chain security, ensuring image authenticity and integrity"
 date: 2024-03-18T08:59:52-07:00
-lastmod: 2025-06-05T08:59:52-07:00
+lastmod: 2025-07-23T15:09:59+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -19,7 +19,7 @@ weight: 015
 toc: true
 ---
 
-All Chainguard Containers contain verifiable signatures and attestations such as SBOMs (software bills of materials) which enable users to confirm the origin of each image built and have a detailed list of everything that is packed within.
+Chainguard signs all container images and their attestations (including SBOMs) to ensure supply chain security and enable verification of image authenticity. These cryptographic signatures allow you to confirm that images come from Chainguard and haven't been tampered with, while attestations provide detailed information about image contents and build provenance.
 
 This guide outlines how you can use Cosign to download and verify container image signatures and attestations.
 

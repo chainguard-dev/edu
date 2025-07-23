@@ -2,10 +2,10 @@
 title: "Overview of Chainguard Containers"
 linktitle: "Overview"
 type: "article"
-description: "Chainguard Containers Overview"
-lead: "A primer on Chainguard Containers and the distroless approach"
+description: "Learn about Chainguard Containers, distroless images, and how they provide enhanced security through minimal attack surface and comprehensive supply chain features."
+lead: "Chainguard Containers are security-hardened container images built with a distroless approach, containing only essential application components and runtime dependencies."
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2025-05-27T08:49:31+00:00
+lastmod: 2025-07-23T15:09:59+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -16,9 +16,9 @@ weight: 005
 toc: true
 ---
 
-[Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) are a collection of container images designed for security and minimalism.
+[Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) are container images designed for enhanced security through minimalism and supply chain integrity. These images follow a distroless philosophy, containing only the application and its essential runtime dependencies, without shells, package managers, or other common utilities that can increase attack surface.
 
-Many Chainguard Containers are [distroless](/chainguard/chainguard-images/getting-started-distroless/); they contain only an open-source application and its runtime dependencies. These images do not even contain a shell or package manager, and are often paired with an equivalent development variant (sometimes referred to as a `dev` variant) that allows further customization, for build and debug purposes. Chainguard Containers are built with Chainguard OS, designed from the ground up to produce container images that meet the requirements of a secure software supply chain.
+Many Chainguard Containers implement a [distroless approach](/chainguard/chainguard-images/getting-started-distroless/), which means they exclude shells, package managers, and other utilities typically found in container images. This design significantly reduces potential security vulnerabilities. For development and debugging purposes, Chainguard provides `-dev` variants that include necessary tools while maintaining security best practices. All images are built using Chainguard OS, an operating system specifically designed to meet secure software supply chain requirements.
 
 The main features of Chainguard Containers include:
 

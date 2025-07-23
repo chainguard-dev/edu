@@ -5,9 +5,9 @@ linktitle: "C/C++"
 aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-c
 - /chainguard/chainguard-images/getting-started/getting-started-c++
-description: "Tutorial on how to get started with the C/C++ Chainguard Containers"
+description: "Learn how to compile and run C/C++ applications using Chainguard's security-hardened containers with minimal CVEs and optimized runtime environments"
 date: 2024-07-30T15:54:33+00:00
-lastmod: 2025-03-21T19:37:29+00:00
+lastmod: 2025-07-23T15:09:59+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -18,7 +18,7 @@ weight: 002
 toc: true
 ---
 
-C and its derivative, C++, are two widely adopted compiled languages. Chainguard offers a variety of minimal, low-CVE container images built on the [Wolfi un-distro](/open-source/wolfi/overview/) which are suitable for deploying C-based compiled programs. In this guide, you will explore three ways you can use Chainguard Containers to compile and run a C-based binary.
+Chainguard provides security-hardened container images for C and C++ development, offering minimal runtime environments with significantly reduced vulnerabilities compared to traditional base images. Built on [Wolfi](/open-source/wolfi/overview/), these containers enable secure deployment of compiled programs through purpose-built images for different linking scenarios. This guide demonstrates three approaches to compiling and running C/C++ applications using Chainguard's specialized containers.
 
 The container image with which you choose to run your compiled program depends on the nature of your binaries. Static binaries can be executed in the minimal `static` Chainguard Container, while dynamically linked binaries can be run in the `glibc-dynamic` Container. For this demonstration, you will first compile a C binary using the `gcc-glibc` Chainguard Container, and then learn how to use a multi-stage build to run the resulting binary in the `glibc-dynamic` image. You'll also cover an example showing the multi-stage build process for the C++ programming language. To learn more about the differences between these container images, read our article on [Choosing an Container for your Compiled Programs](/chainguard/chainguard-images/about/images-compiled-programs/compiled-programs/).
 

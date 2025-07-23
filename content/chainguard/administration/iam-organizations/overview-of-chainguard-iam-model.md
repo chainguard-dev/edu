@@ -5,10 +5,10 @@ aliases:
 - /chainguard/chainguard-enforce/chainguard-enforce-kubernetes/overview-of-enforce-iam-model/
 - /chainguard/administration/iam-organizations/overview-of-enforce-iam-model/
 type: "article"
-description: "Overview of Chainguard Identity and Access Management"
-lead: "Chainguard Identity and Access Management"
+description: "Learn how Chainguard's Identity and Access Management (IAM) model works with organizations, folders, and role-based access control for more secure resource management"
+lead: "Chainguard's Identity and Access Management (IAM) provides enterprise-grade access control for container registries and security resources through organizations, folders, and fine-grained permissions."
 date: 2022-07-15T15:22:20+01:00
-lastmod: 2024-04-03T15:22:20+01:00
+lastmod: 2025-07-23T15:09:59+00:00
 draft: false
 tags: ["Chainguard Console", "Reference"]
 images: []
@@ -19,7 +19,7 @@ weight: 005
 toc: true
 ---
 
-Chainguard provides a rich Identity and Access Management (IAM) model similar to those used by AWS and GCP. Once authenticated, you can set up a desired structure for managing and delegating Chainguard assets.
+Chainguard's Identity and Access Management (IAM) model enables more secure, fine-grained control over container registries and security resources, using familiar concepts from cloud providers like AWS and GCP. This enterprise-grade IAM system allows organizations to implement least-privilege access, delegate permissions, and integrate with existing identity providers for seamless authentication and authorization.
 
 ## Organizations and Folders
 

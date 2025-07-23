@@ -5,9 +5,9 @@ linktitle: "PyTorch"
 aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-pytorch-cuda12
 - /chainguard/chainguard-images/getting-started/getting-started-pytorch
-description: "Tutorial on the Chainguard PyTorch container image"
+description: "Learn how to use Chainguard's PyTorch container image for deep learning with enhanced security, minimal CVEs, and GPU acceleration support"
 date: 2024-04-25T08:00:00+02:00
-lastmod: 2025-03-24T08:00:00+00:00
+lastmod: 2025-07-23T15:09:59+00:00
 tags: ["Chainguard Containers", "AI"]
 draft: false
 images: []
@@ -18,7 +18,7 @@ weight: 060
 toc: true
 ---
 
-Chainguard offers a minimal, low-CVE container image for deep learning with [PyTorch](https://pytorch.org/) that includes support for the [CUDA](https://developer.nvidia.com/about-cuda) parallel computing platform for performing computation on supported GPUs. This introductory guide to Chainguard's [pytorch container image](https://images.chainguard.dev/directory/image/pytorch/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-pytorch) will walk you through fine-tuning an image classification model, saving the model, and running it securely for inference. We'll also compare the security and footprint of the PyTorch Chainguard Container to the official runtime container image distributed by PyTorch and present ways to adapt the resources in this tutorial to your own deep learning projects powered by PyTorch.
+Chainguard's [PyTorch container image](https://images.chainguard.dev/directory/image/pytorch/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-pytorch) provides a security-hardened foundation for deep learning workloads with significantly fewer vulnerabilities than traditional PyTorch containers. Built with [PyTorch](https://pytorch.org/) and [CUDA](https://developer.nvidia.com/about-cuda) support for GPU acceleration, this minimal image maintains full deep learning capabilities while dramatically reducing attack surface. This guide demonstrates fine-tuning models, secure inference deployment, and compares the enhanced security posture to official PyTorch images.
 
 {{< details "What is Deep Learning?" >}}
 {{< blurb/deep-learning >}}

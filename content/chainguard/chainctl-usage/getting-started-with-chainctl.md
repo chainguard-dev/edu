@@ -1,17 +1,17 @@
 ---
 title: "Get Started with chainctl"
-lead: ""
-description: "chainctl basics for beginners"
+lead: "Chainguard's chainctl CLI enables secure management of container images and IAM resources through command-line operations for DevOps and security workflows."
+description: "Get started with chainctl basics including authentication, organization management, and essential commands for Chainguard's container security platform"
 type: "article"
 date: 2025-03-03T08:49:15+00:00
-lastmod: 2025-03-03T08:49:15+00:00
+lastmod: 2025-07-23T15:09:59+00:00
 draft: false
 tags: ["chainctl", "Getting Started", "Basics"]
 images: []
 weight: 020
 ---
 
-This page presents some of the more commonly used basic `chainctl` commands to help you get started. For a full reference of all commands with details and switches, see [chainctl Reference](/chainguard/chainctl/).
+Chainguard's `chainctl` provides command-line access to manage container images, identity resources, and security configurations across your organization. This guide covers essential commands to begin using `chainctl` effectively in your security and DevOps workflows. For comprehensive command documentation, see the [chainctl Reference](/chainguard/chainctl/).
 
 
 ## Authenticate and Check Auth Status

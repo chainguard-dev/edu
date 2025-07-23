@@ -5,11 +5,11 @@ aliases:
 - /chainguard/chainguard-images/videos/node-images/
 - /chainguard/migration/node-images/
 - /chainguard/migration/migration-guides/node-images/
-lead: ""
-description: "How to migrate an existing Dockerfile for a Node.js application to use Chainguard Containers in order to improve security and reduce image size."
+lead: "Chainguard's Node.js containers enable straightforward migration from traditional Node images while providing enhanced security posture and reduced vulnerabilities."
+description: "Learn how to migrate Node.js applications to Chainguard Containers for improved security, smaller images, and built-in support for npm and yarn package managers"
 type: "article"
 date: 2024-04-25T15:21:01+00:00
-lastmod: 2024-04-25T15:21:01+00:00
+lastmod: 2025-07-23T15:09:59+00:00
 draft: false
 images: []
 menu:
