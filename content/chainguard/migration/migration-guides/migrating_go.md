@@ -4,11 +4,11 @@ linktitle: "Video: Go"
 aliases:
 - /chainguard/chainguard-images/videos/migrating_go/
 - /chainguard/migration/migrating_go/
-lead: ""
-description: "How to migrate an existing Dockerfile for an application that can be statically compiled to Chainguard Containers in order to improve security and reduce file size."
+lead: "Chainguard's static and Go containers provide optimal runtime environments for Go applications, enabling migration to minimal images with enhanced security posture."
+description: "Learn how to migrate Go applications to Chainguard Containers for minimal attack surface, static compilation support, and dramatically reduced image sizes"
 type: "article"
 date: 2024-02-07T01:21:01+00:00
-lastmod: 2024-12-12T15:21:01+00:00
+lastmod: 2025-07-23T16:52:56+00:00
 draft: false
 images: []
 menu:
@@ -46,7 +46,7 @@ We also have a Dockerfile to build our application.
 
 It's extremely simple as well.
 
-We're using the Dockerhub Golang image, copying over the source, and running Go build.
+We're using the Docker Hub Golang image, copying over the source, and running Go build.
 
 So let's try building that.
 

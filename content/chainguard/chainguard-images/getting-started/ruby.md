@@ -4,9 +4,9 @@ linktitle: "Ruby"
 aliases: 
 - /chainguard/chainguard-images/getting-started/getting-started-ruby
 type: "article"
-description: "Tutorial on how to get started with the Chainguard Ruby container image"
+description: "Learn how to use Chainguard's Ruby container images for secure Ruby applications, including multi-stage builds for Rubygems and minimal runtime images"
 date: 2023-05-10T11:07:52+02:00
-lastmod: 2025-02-21T11:07:52+02:00
+lastmod: 2025-07-23T15:09:59+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -17,11 +17,11 @@ weight: 065
 toc: true
 ---
 
-The [Ruby container images](https://images.chainguard.dev/directory/image/ruby/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-ruby) maintained by Chainguard are a mix of development and production distroless images that are suitable for building and running Ruby workloads.
+Chainguard's [Ruby container images](https://images.chainguard.dev/directory/image/ruby/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-ruby) provide secure foundations for Ruby applications with minimal vulnerabilities through both development and production-ready distroless variants. These images significantly reduce attack surface compared to traditional Ruby base images while maintaining full compatibility with Ruby applications and the Rubygems ecosystem.
 
 Because Ruby applications typically require the installation of third-party dependencies via [Rubygems](https://rubygems.org/), using a pure distroless image for building your application would not work. In cases like this, you'll need to implement a [multi-stage Docker build](https://docs.docker.com/build/building/multi-stage/) that uses one of the `-dev` images to set up the application.
 
-In this guide, we’ll build two example applications that demonstrate how to use Ruby container images based on [Wolfi](/open-source/wolfi/overview/) as a runtime. In the first, we’ll use a minimal image containing just Ruby to execute a demo that doesn't have any external dependencies. In the second example, we'll set up a multi-stage Docker build to run a demo that requires the installation of Rubygems via `bundler`.
+In this guide, we'll build two example applications that demonstrate how to use Chainguard's Ruby container images. In the first, we’ll use a minimal image containing just Ruby to execute a demo that doesn't have any external dependencies. In the second example, we'll set up a multi-stage Docker build to run a demo that requires the installation of Rubygems via `bundler`.
 
 {{< details "What is distroless" >}}
 {{< blurb/distroless >}}

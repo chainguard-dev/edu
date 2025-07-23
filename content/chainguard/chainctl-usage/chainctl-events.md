@@ -1,19 +1,17 @@
 ---
 title: "Create, View, and Delete chainctl Events"
-lead: ""
-description: "A simple introduction to chainctl events usage"
+lead: "Chainguard's chainctl events commands enable CloudEvents-based monitoring and alerting for container security events and supply chain activities."
+description: "Learn how to use chainctl events commands to create, view, and manage CloudEvents subscriptions for monitoring Chainguard security events and container activities"
 type: "article"
 date: 2025-05-06T08:49:15+00:00
-lastmod: 2025-05-06T08:49:15+00:00
+lastmod: 2025-07-23T15:09:59+00:00
 draft: false
 tags: ["chainctl"]
 images: []
 weight: 050
 ---
 
-This page shows you the basic usage of `chainctl events` commands. For a full reference of all commands with details and switches, see [chainctl Reference](/chainguard/chainctl/).
-
-Chainguard events use the [CloudEvents](https://cloudevents.io/) specification for describing event data.
+Chainguard's `chainctl events` commands provide programmatic access to security event streams using the [CloudEvents](https://cloudevents.io/) specification. These commands enable you to monitor container activities, security alerts, and supply chain events across your organization for enhanced observability and compliance.
 
 Chainguard Academy has several deeper guides on [Chainguard CloudEvents](/chainguard/administration/cloudevents/). You may find our guide on [Subscribing to Chainguard CloudEvents](/chainguard/administration/cloudevents/events-example/) to be particularly useful for understanding how to work with events from Chainguard while [Chainguard Events](https://edu.chainguard.dev/chainguard/administration/cloudevents/events-reference/) provides a deeper dive into the content and make up of events.
 

@@ -2,18 +2,18 @@
 title: "Manage Chainguard Container Images with chainctl"
 aliases:
 - /chainguard/chainctl-usage/chainctl-images-history
-lead: ""
-description: "Use chainctl to discover, examine, and compare the Chainguard container images available to your account"
+lead: "Chainguard's chainctl images commands enable discovery, analysis, and comparison of security-hardened container images available in your organization."
+description: "Learn how to use chainctl images commands to discover, examine version history, and compare Chainguard's security-hardened container images in your registry"
 type: "article"
 date: 2025-03-06T08:49:15+00:00
-lastmod: 2025-03-06T08:49:15+00:00
+lastmod: 2025-07-23T15:09:59+00:00
 draft: false
 tags: ["chainctl"]
 images: []
 weight: 070
 ---
 
-This page presents some of the more common ways to learn about the Chainguard container images that are available to you. We use `chainctl images` commands to list available repositories and container images, examine images more closely, and compare them to one another.
+Chainguard's `chainctl images` commands provide comprehensive tools for managing security-hardened container images in your organization's registry. These commands enable you to discover available images, analyze version histories, examine security metadata, and compare different image versions to make informed deployment decisions.
 
 For a full reference of all commands with details and switches, see [chainctl Reference](/chainguard/chainctl/).
 

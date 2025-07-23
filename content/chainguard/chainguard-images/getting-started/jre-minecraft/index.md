@@ -2,9 +2,9 @@
 title: "Setting Up a Minecraft Server with the JRE Chainguard Container"
 type: "article"
 linktitle: "JRE + Minecraft"
-description: "Tutorial on how to build a Minecraft Server with Chainguard's JRE Container Image"
+description: "Learn how to set up a secure Minecraft Java server using Chainguard's JRE container image with minimal vulnerabilities and enhanced security features"
 date: 2025-03-26T11:07:52+02:00
-lastmod: 2025-03-26T13:25:40+00:00
+lastmod: 2025-07-23T15:09:59+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -17,7 +17,7 @@ toc: true
 
 ## Introduction
 
-Minecraft is an open-world game where players can build, explore, and adventure in a procedurally generated world. First released in 2011, it is the [best-selling video game of all times](https://en.wikipedia.org/wiki/List_of_best-selling_video_games), with a massive active userbase of 170 million monthly players as of 2024\.
+Chainguard's JRE container image provides an ideal foundation for running Minecraft Java servers with enhanced security and minimal vulnerabilities. Minecraft, the [best-selling video game of all time](https://en.wikipedia.org/wiki/List_of_best-selling_video_games) with 170 million monthly players as of 2024, often requires dedicated servers for multiplayer gameplay where players can build and explore together.
 
 Although single player mode is common, many players prefer to play together in multiplayer mode where they can join forces to tackle more complex projects. This typically requires setting up a remote server with the Minecraft server software, which runs on top of a Java runtime environment (JRE).
 

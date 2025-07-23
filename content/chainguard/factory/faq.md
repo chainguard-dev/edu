@@ -2,10 +2,10 @@
 title: "Chainguard Factory FAQs"
 linktitle: "FAQs"
 type: "article"
-description: "Chainguard Factory FAQs"
-lead: "An introduction to Chainguard’s Factory; the powerhouse of engineering and automation that continuously transforms the complex ecosystem of open source projects into secure, up-to-date containers, libraries, and VMs at massive scale."
+description: "Frequently asked questions about Chainguard Factory, the automated build system that monitors and updates thousands of open source projects for enhanced security"
+lead: "Chainguard Factory is the automated infrastructure that continuously transforms thousands of open source projects into containers, libraries, and VMs with enhanced security posture and the latest patches."
 date: 2025-07-17T08:49:31+00:00
-lastmod: 2025-07-17T08:49:31+00:00
+lastmod: 2025-07-23T15:09:59+00:00
 draft: false
 tags: ["Chainguard Containers", "Chainguard VMs"]
 images: []

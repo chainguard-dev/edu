@@ -5,10 +5,10 @@ aliases:
 - /chainguard/chainguard-images/how-to-use-chainguard-images/
 - /chainguard/chainguard-images/how-to-use/how-to-use-chainguard-images/
 type: "article"
-description: "A primer on how to migrate to Chainguard Containers"
-lead: "A primer on how to migrate to Chainguard Containers"
+description: "Learn how to use Chainguard Containers in your applications, including pulling images, extending base images, and migrating from traditional container images"
+lead: "Chainguard Containers provide more secure, minimal base images that work with standard container tools like Docker and Kubernetes, making migration straightforward while improving security posture."
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2025-04-08T15:56:52-07:00
+lastmod: 2025-07-23T15:09:59+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -19,7 +19,7 @@ weight: 005
 toc: true
 ---
 
-[Chainguard Containers](https://images.chainguard.dev) are based on [Wolfi](/open-source/wolfi/overview/), our Linux _undistro_ designed specifically for containers. Wolfi uses the [apk](https://wiki.alpinelinux.org/wiki/Package_management) package format, which contributes in making packages smaller and more accountable, resulting in smaller images with traceable provenance information based on cryptographic signatures.
+[Chainguard Containers](https://images.chainguard.dev) are minimal container images designed to reduce vulnerabilities and attack surface compared to traditional base images. These images use the [apk](https://wiki.alpinelinux.org/wiki/Package_management) package format to achieve smaller sizes while maintaining complete provenance information with cryptographic signatures, ensuring both enhanced security and traceability.
 
 In this guide, you'll find general instructions on how to get started using Chainguard Containers and how to migrate existing container-based workflows to use our images. For specific image usage instructions, please refer to our [Chainguard Containers Directory](https://images.chainguard.dev), which contains the full list of all images available to the public and their respective documentation.
 

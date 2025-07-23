@@ -2,9 +2,9 @@
 title: "Getting Started with the WordPress Chainguard Container"
 type: "article"
 linktitle: "WordPress"
-description: "Tutorial on how to get started with the Chainguard WordPress container image"
+description: "Learn how to deploy WordPress using Chainguard's security-hardened container image with reduced vulnerabilities and distroless runtime options"
 date: 2024-07-19T11:07:52+02:00
-lastmod: 2025-03-24T11:07:52+02:00
+lastmod: 2025-07-23T15:09:59+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -15,7 +15,7 @@ weight: 70
 toc: true
 ---
 
-The [WordPress](https://images.chainguard.dev/directory/image/wordpress/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-wordpress) Chainguard Container is a container image suitable for creating and running WordPress projects. Designed to work as a drop-in replacement for the official [WordPress FPM-Alpine image](https://hub.docker.com/_/wordpress), the Chainguard WordPress Container features a [distroless](/chainguard/chainguard-images/getting-started-distroless/) variant for increased security on production environments. The image is built with the latest PHP and WordPress versions, and includes the necessary PHP extensions to run WordPress.
+Chainguard's [WordPress container image](https://images.chainguard.dev/directory/image/wordpress/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-wordpress) provides a security-hardened foundation for WordPress deployments with significantly fewer vulnerabilities than traditional WordPress images. Designed as a drop-in replacement for the official [WordPress FPM-Alpine image](https://hub.docker.com/_/wordpress), this container includes a [distroless](/chainguard/chainguard-images/getting-started-distroless/) variant that enhances production security by removing unnecessary system components. Built with the latest PHP and WordPress versions, it includes all required extensions while maintaining a minimal attack surface.
 
 In this guide, we'll demonstrate 3 different ways in which you can use the WordPress Chainguard Container to build and run WordPress projects.
 

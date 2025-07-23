@@ -1,10 +1,10 @@
 ---
 title: "Chainguard Libraries Access"
 linktitle: "Access"
-description: "Getting access to Chainguard Libraries"
+description: "Learn how to access Chainguard Libraries for enhanced security in Java and Python dependencies, including authentication and organization setup"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2025-04-07T15:17:00+00:00
+lastmod: 2025-07-23T15:09:59+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -14,8 +14,7 @@ weight: 002
 toc: true
 ---
 
-Access to Chainguard Libraries is consistent across all permissions and accounts
-of the Chainguard platform.
+Chainguard Libraries provide controlled access to security-enhanced Java and Python dependencies through the unified Chainguard platform authentication system. This guide explains how to set up access for your organization.
 
 If you are not a Chainguard user yet, a new Chainguard account must be created
 and configured for access to Chainguard Libraries.

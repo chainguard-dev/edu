@@ -1,10 +1,10 @@
 ---
 title: "Chainguard Libraries Network Requirements"
 linktitle: "Network Requirements"
-description: "Network requirements for different use cases with Chainguard Libraries"
+description: "Learn the network requirements for accessing Chainguard Libraries, including domains needed for authentication, package downloads, and verification tools"
 type: "article"
 date: 2025-06-04T09:30:00+00:00
-lastmod: 2025-06-04T09:30:00+00:00
+lastmod: 2025-07-23T15:09:59+00:00
 draft: false
 tags: ["Chainguard Libraries", "Reference"]
 menu:
@@ -14,8 +14,7 @@ weight: 003
 toc: true
 ---
 
-The following sections detail the required network access to use Chainguard
-Libraries and the related tools such as chainctl.
+Chainguard Libraries require specific network access to ensure secure delivery of hardened Java and Python dependencies to your development environment. This guide details the domains and ports needed for authentication, package downloads, and verification tools.
 
 ### Access for chainctl and Other Tools
 
