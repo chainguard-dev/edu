@@ -14,6 +14,14 @@ import (
 	"strings"
 )
 
+// sanitizeURL removes newline and carriage return characters from URLs to prevent log injection
+func sanitizeURL(u *url.URL) string {
+	s := u.String()
+	s = strings.ReplaceAll(s, "\n", "")
+	s = strings.ReplaceAll(s, "\r", "")
+	return s
+}
+
 func (l *link) processLink(path string) {
 	if ignores.check(l.RawURL, path) {
 		fmt.Printf("ignoring %v in %v\n", l.RawURL, path)
@@ -126,9 +134,7 @@ func (l *link) check() {
 				redirectPath = append(redirectPath, req.URL.String())
 				// Log redirect for debugging
 				if followRedirects {
-					sanitizedURL := strings.ReplaceAll(via[len(via)-1].URL.String(), "\n", "")
-					sanitizedURL = strings.ReplaceAll(sanitizedURL, "\r", "")
-					fmt.Printf("redirect: %v -> %v\n", sanitizedURL, req.URL)
+					fmt.Printf("redirect: %v -> %v\n", sanitizeURL(via[len(via)-1].URL), sanitizeURL(req.URL))
 				}
 			}
 
