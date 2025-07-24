@@ -11,7 +11,16 @@ import (
 	"net/http"
 	"net/url"
 	"regexp"
+	"strings"
 )
+
+// sanitizeURL removes newline and carriage return characters from URLs to prevent log injection
+func sanitizeURL(u *url.URL) string {
+	s := u.String()
+	s = strings.ReplaceAll(s, "\n", "")
+	s = strings.ReplaceAll(s, "\r", "")
+	return s
+}
 
 func (l *link) processLink(path string) {
 	if ignores.check(l.RawURL, path) {
@@ -108,7 +117,7 @@ func (l *link) check() {
 
 	// Track redirect path
 	var redirectPath []string
-	
+
 	// Create a custom HTTP client that follows redirects
 	client := &http.Client{
 		CheckRedirect: func(req *http.Request, via []*http.Request) error {
@@ -116,7 +125,7 @@ func (l *link) check() {
 			if len(via) >= 10 {
 				return fmt.Errorf("stopped after 10 redirects")
 			}
-			
+
 			// Track redirect URLs
 			if len(via) == 0 {
 				redirectPath = append(redirectPath, req.URL.String())
@@ -125,10 +134,10 @@ func (l *link) check() {
 				redirectPath = append(redirectPath, req.URL.String())
 				// Log redirect for debugging
 				if followRedirects {
-					fmt.Printf("redirect: %v -> %v\n", via[len(via)-1].URL, req.URL)
+					fmt.Printf("redirect: %v -> %v\n", sanitizeURL(via[len(via)-1].URL), sanitizeURL(req.URL))
 				}
 			}
-			
+
 			// If not following redirects, stop after first redirect
 			if !followRedirects {
 				return http.ErrUseLastResponse
@@ -149,13 +158,13 @@ func (l *link) check() {
 
 	defer res.Body.Close()
 	link.Status = res.StatusCode
-	
+
 	// Store final URL and redirect path if redirects occurred
 	if res.Request.URL.String() != l.URL.String() {
 		link.FinalURL = res.Request.URL.String()
 		link.RedirectPath = redirectPath
 	}
-	
+
 	checked.mu.Lock()
 	checked.Links[l.URL.String()] = link
 	checked.mu.Unlock()
