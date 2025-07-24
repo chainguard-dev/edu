@@ -1,5 +1,5 @@
 ---
-title: "How to Use Container Container Digests to Improve Reproducibility "
+title: "How to Use Container Digests to Improve Reproducibility"
 linktitle: "Digests"
 aliases:
 - /chainguard/chainguard-images/videos/container-image-digests/
