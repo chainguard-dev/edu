@@ -68,19 +68,20 @@ If your network filters traffic based on IP addresses, ensure that any firewalls
 ## Minimum TLS requirements
 
 For guaranteed connectivity, the following TLS requirements must be at
-minimum supported by clients/servers communicating with Chainguard
+minimum supported by clients and servers communicating with Chainguard
 Containers and endpoints:
 
-- TLSv1.3 with TLS_AES_256_GCM_SHA384 cipher suite
+- TLSv1.3 with the TLS_AES_256_GCM_SHA384 cipher suite
 - TLSv1.2 with
   - ECDHE-ECDSA-AES256-GCM-SHA384 cipher string
   - [RFC 7627](https://datatracker.ietf.org/doc/html/rfc7627) Extended Master Secret Extenstion support
 - Signatures using P-256 with SHA-256
 - Signatures using RSA-PSS with 2048 bits and SHA-256
 
-The above configuration can be approximately tested with OpenSSL client like so:
+The requirements can be approximately tested with the following OpenSSL client command:
 
 ```
 openssl s_client -cipher @SECLEVEL=2:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384 -ciphersuites TLS_AES_256_GCM_SHA384 -groups P-256 -connect HOST:PORT
 ```
-> Note, in case of TLSv1.2 connectivity, one has to check the output for `Extended master secret: yes`
+
+> Note that in the case of TLSv1.2 connectivity you must check the output for `Extended master secret: yes`.
