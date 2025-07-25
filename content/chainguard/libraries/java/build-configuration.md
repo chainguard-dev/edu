@@ -26,7 +26,7 @@ following steps:
   binaries.
 * Change configuration to access Chainguard Libraries via your repository
   manager after the changes from the [global
-  configuration](/chainguard/libraries/java/global-configuration) are
+  configuration](/chainguard/libraries/java/global-configuration/) are
   implemented.
 
 These changes must be performed on all workstations of individual developers and

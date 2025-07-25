@@ -311,9 +311,9 @@ for accessing the repository:
    replaced with the name of your organization.
 
 Use the URL of the virtual repository in the [build
-configuration](/chainguard/libraries/java/build-configuration) and build a first
-test project. In a working setup the chainguard remote repository contains all
-libraries retrieved from Chainguard.
+configuration](/chainguard/libraries/java/build-configuration/) and build a 
+first test project. In a working setup the chainguard remote repository contains 
+all libraries retrieved from Chainguard.
 
 <a name="nexus"></a>
 
@@ -392,6 +392,6 @@ for accessing the repository:
 Use the URL of the repository group, such as
 *https://repo.example.com/repository/java-all/* or
 *https://repo.example.com/repository/maven-public/* in the [build
-configuration](/chainguard/libraries/java/build-configuration) and build a first
-test project. In a working setup the `java-chainguard` proxy repository contains
+configuration](/chainguard/libraries/java/build-configuration/) and build a 
+first test project. In a working setup the `java-chainguard` proxy repository contains
 all libraries retrieved from Chainguard.
