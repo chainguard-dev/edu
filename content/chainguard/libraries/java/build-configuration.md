@@ -524,7 +524,7 @@ Ensure that the Chainguard repository is listed before any other repositories to
 prioritize it for artifact retrieval. 
 
 For more complex Bazel setups, you can use [.netrc for
-authentication](/chainguard/libraries/access/#netrc-for-authentication).
+authentication](/chainguard/libraries/access/#netrc).
 
 Refer to the [official Bazel documentation for
 rules_jvm_external](https://github.com/bazel-contrib/rules_jvm_external) for

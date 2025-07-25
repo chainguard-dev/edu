@@ -111,7 +111,7 @@ CI/CD.
 dedicated support for configuring authentication to the repository manager or
 the Chainguard Libraries for Python directly. As an alternative that works
 across tools and is often preferred, use [.netrc for
-authentication](/chainguard/libraries/access/#netrc-for-authentication).
+authentication](/chainguard/libraries/access/#netrc).
 
 <a id="pip"></a>
 
@@ -161,7 +161,7 @@ Note the different syntax for `index-url` in the two files.
 
 Refer to the official documentation for [configuring authentication with
 pip](https://pip.pypa.io/en/stable/topics/authentication/) if you are not using
-[.netrc for authentication](/chainguard/libraries/access/#netrc-for-authentication).
+[.netrc for authentication](/chainguard/libraries/access/#netrc).
 
 
 <a id="poetry"></a>
@@ -278,4 +278,4 @@ uv](https://docs.astral.sh/uv/configuration/authentication/) and [using
 alternative package
 indexes](https://docs.astral.sh/uv/guides/integration/alternative-indexes/) if
 you are not using [.netrc for
-authentication](/chainguard/libraries/access/#netrc-for-authentication).
+authentication](/chainguard/libraries/access/#netrc).
