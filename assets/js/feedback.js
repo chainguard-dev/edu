@@ -1,65 +1,41 @@
 document.addEventListener('DOMContentLoaded', function() {
   const feedbackContainers = document.querySelectorAll('.feedback-container');
   
-  // Configuration - Replace these with your Google Forms IDs and entry IDs h
-  const POSITIVE_FORM_ID = '1TksNn5V0uVXm3lNprFISg07ZzB7S89eKn8Iqs4II7fU';
-  const NEGATIVE_FORM_ID = '1wRsf83llItanGKnZ7tZ2VcUZn83hcnjBruUIn77wxiU';
-  
-  const POSITIVE_ENTRIES = {
-    url: 'entry.1628915989',
-    title: 'entry.420806943'
-  };
-  
-  const NEGATIVE_ENTRIES = {
-    url: 'entry.561897852',
-    title: 'entry.408557657',
-    feedback: 'entry.1934740315'
-  };
+  // Configuration for embedded form
+  const NEGATIVE_FORM_ID = '1FAIpQLScaZRQAfqr0CL9fsJ4y4oTdt1A6UQVazmEXw-wibcrqr0UFhg';
+  const URL_FIELD = 'entry.561897852';
+  const TITLE_FIELD = 'entry.408557657';
   
   feedbackContainers.forEach(container => {
     const yesBtn = container.querySelector('.feedback-yes');
     const noBtn = container.querySelector('.feedback-no');
-    const questionDiv = container.querySelector('.feedback-question');
     const feedbackForm = container.querySelector('.feedback-form');
-    const textarea = container.querySelector('.feedback-textarea');
-    const submitBtn = container.querySelector('.feedback-submit-btn');
     const responseDiv = container.querySelector('.feedback-response');
-    const thanksDiv = container.querySelector('.feedback-thanks');
     
     function getPageData() {
       return {
-        url: window.location.href,
-        title: document.title
+        url: encodeURIComponent(window.location.href),
+        title: encodeURIComponent(document.title)
       };
     }
     
-    function submitToGoogleForm(formId, entries, data) {
-      const formData = new FormData();
+    function createEmbeddedForm() {
+      const pageData = getPageData();
+      const formUrl = `https://docs.google.com/forms/d/e/${NEGATIVE_FORM_ID}/viewform?embedded=true&${URL_FIELD}=${pageData.url}&${TITLE_FIELD}=${pageData.title}`;
       
-      Object.keys(entries).forEach(key => {
-        if (data[key]) {
-          formData.append(entries[key], data[key]);
-        }
-      });
+      const iframe = document.createElement('iframe');
+      iframe.src = formUrl;
+      iframe.width = '100%';
+      iframe.height = '500';
+      iframe.frameBorder = '0';
+      iframe.marginHeight = '0';
+      iframe.marginWidth = '0';
+      iframe.style.border = 'none';
+      iframe.style.borderRadius = '8px';
+      iframe.loading = 'lazy';
+      iframe.setAttribute('aria-label', 'Feedback form');
       
-      // Submit silently - ignore response/errors
-      fetch(`https://docs.google.com/forms/d/e/${formId}/formResponse`, {
-        method: 'POST',
-        body: formData,
-        mode: 'no-cors'
-      }).catch(() => {
-        // Silently handle any errors
-      });
-    }
-    
-    function showThankYou() {
-      questionDiv.style.display = 'none';
-      feedbackForm.style.display = 'none';
-      responseDiv.style.display = 'block';
-      
-      setTimeout(() => {
-        responseDiv.classList.add('feedback-response-visible');
-      }, 100);
+      return iframe;
     }
     
     function handlePositiveFeedback() {
@@ -71,13 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
       // Disable both buttons
       yesBtn.disabled = true;
       noBtn.disabled = true;
-      
-      // Submit to Google Form
-      const pageData = getPageData();
-      submitToGoogleForm(POSITIVE_FORM_ID, POSITIVE_ENTRIES, pageData);
-      
-      // Show thank you
-      showThankYou();
     }
     
     function handleNegativeFeedback() {
@@ -90,35 +59,18 @@ document.addEventListener('DOMContentLoaded', function() {
       yesBtn.disabled = true;
       noBtn.disabled = true;
       
-      // Show feedback form
-      questionDiv.style.display = 'none';
+      // Create and show embedded form
+      const iframe = createEmbeddedForm();
+      feedbackForm.innerHTML = '';
+      feedbackForm.appendChild(iframe);
       feedbackForm.style.display = 'block';
+      
+      // Hide the thank you message since Google Forms will show its own confirmation
+      responseDiv.style.display = 'none';
       
       setTimeout(() => {
         feedbackForm.classList.add('feedback-form-visible');
-        textarea.focus();
       }, 100);
-    }
-    
-    function handleSubmitFeedback() {
-      const feedbackText = textarea.value.trim();
-      
-      if (!feedbackText) {
-        textarea.focus();
-        return;
-      }
-      
-      // Disable submit button
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Submitting...';
-      
-      // Submit to Google Form
-      const pageData = getPageData();
-      pageData.feedback = feedbackText;
-      submitToGoogleForm(NEGATIVE_FORM_ID, NEGATIVE_ENTRIES, pageData);
-      
-      // Show thank you
-      showThankYou();
     }
     
     if (yesBtn) {
@@ -127,20 +79,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (noBtn) {
       noBtn.addEventListener('click', handleNegativeFeedback);
-    }
-    
-    if (submitBtn) {
-      submitBtn.addEventListener('click', handleSubmitFeedback);
-    }
-    
-    // Handle Enter key in textarea
-    if (textarea) {
-      textarea.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter' && !e.shiftKey) {
-          e.preventDefault();
-          handleSubmitFeedback();
-        }
-      });
     }
   });
 });
