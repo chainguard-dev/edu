@@ -1,10 +1,10 @@
 ---
 title: "Management and Maintenance"
 linktitle: "Management"
-description: "Working with your Chainguard Libraries for Java use"
+description: "Learn how to manage and maintain Chainguard Libraries for Java, including dependency updates, verification, and monitoring security improvements"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2025-04-03T09:09:00+00:00
+lastmod: 2025-07-23T15:09:59+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java"]
 images: []
@@ -15,14 +15,7 @@ weight: 053
 toc: true
 ---
 
-After the initial [global
-configuration](/chainguard/libraries/java/global-configuration/) and [build
-configuration](/chainguard/libraries/java/build-configuration/) the use of
-Chainguard Libraries for Java is transparently in progress. Newly use artifacts
-from new projects or new artifact versions are automatically retrieved from the
-Chainguard repository as they are available and the Maven Central Repository and
-other configure repositories serve as backstop to provide any additionally
-needed artifacts.
+Chainguard Libraries for Java operates transparently after completing the [global configuration](/chainguard/libraries/java/global-configuration/) and [build configuration](/chainguard/libraries/java/build-configuration/), automatically providing security-enhanced versions of your Maven dependencies. New artifacts and versions are retrieved from Chainguard's hardened repository when available, while Maven Central and other configured repositories provide fallback access to ensure continuous development workflow without interruption.
 
 The following sections detail optional management, maintenance, and auditing
 steps on the repository manager and the build tool.

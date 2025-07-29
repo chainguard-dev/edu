@@ -5,9 +5,9 @@ aliases:
 - /chainguard/migration-guides/migrating-to-chainguard-images/
 - /chainguard/migration/migrating-to-chainguard-images/
 type: "article"
-description: "Guidance on how to migrate existing Dockerfile workloads to use Chainguard Containers"
+description: "Learn how to migrate existing Dockerfiles to Chainguard Containers for improved security, including package compatibility, multi-stage builds, and distro-specific considerations"
 date: 2024-03-25T15:56:52-07:00
-lastmod: 2024-03-25T15:56:52-07:00
+lastmod: 2025-07-23T16:52:56+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -15,7 +15,7 @@ weight: 015
 toc: true
 ---
 
-Based on the [Wolfi](/open-source/wolfi/overview/) Linux _undistro_, Chainguard Containers have special features designed for increased security and provenance attestation. Depending on your current base image and custom commands, you may need to make some adjustments when migrating your current Dockerfile workloads to use Chainguard Containers.
+Chainguard Containers provide enhanced security through minimal design and built-in provenance attestation, requiring some adjustments when migrating from traditional base images. Built on the [Wolfi](/open-source/wolfi/overview/) Linux distribution, these images offer compatibility with most applications while significantly reducing attack surface and vulnerabilities.
 
 A general migration process would involve the following steps:
 
@@ -56,7 +56,7 @@ If you are coming from a Red Hat UBI based Dockerfile, you'll need to adapt some
 ## Migrating from Alpine Dockerfiles
 If your Dockerfile is based on Alpine, the process for migrating to Chainguard Containers should be more straightforward, since you're already using `apk` commands. Wolfi packages typically match what is available in Alpine, with some exceptions. For instance, the Wolfi busybox package is slimmer and doesn't include all tools available in Alpine's busybox. Check the [Alpine Compatibility](/chainguard/migration/alpine-compatibility/) page for a list of common tools and their corresponding packages in Wolfi and Alpine.
 
-Be aware that binaries are not compatible between Alpine and Wolfi. You **should not** attempt to copy Alipne binaries into a Wolfi-based container image.
+Be aware that binaries are not compatible between Alpine and Wolfi. You **should not** attempt to copy Alpine binaries into a Wolfi-based container image.
 
 ## Searching for Packages
 Packages from Debian and other base distributions might have a different name in Wolfi. To search for packages, log into an ephemeral container based on `cgr.dev/chainguard/wolfi-base`:

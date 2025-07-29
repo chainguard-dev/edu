@@ -1,11 +1,11 @@
 ---
 title: "What is an SBOM (software bill of materials)?"
 linktitle: "What is an SBOM?"
-description: "A conceptual overview of SBOMs"
-lead: "A conceptual overview of SBOMs"
+description: "Learn what Software Bill of Materials (SBOM) are, why they're essential for supply chain security, and how tools like Chainguard use SBOMs to enhance transparency"
+lead: "Software Bill of Materials (SBOMs) provide comprehensive visibility into software components, enabling organizations to identify vulnerabilities and manage supply chain security - a core feature of Chainguard's security approach."
 type: "article"
 date: 2022-08-04T15:21:01+02:00
-lastmod: 2022-08-04T15:21:01+02:00
+lastmod: 2025-07-23T15:09:59+00:00
 contributors:  
 draft: false
 tags: ["SBOM", "Conceptual"]
@@ -17,7 +17,7 @@ weight: 5
 toc: true
 ---
 
-Today, software products often contain hundreds to thousands of different open source and third-party software components, many of which are unknown to the software operator or end user. Without an organized way of overseeing these components, it is difficult — or even impossible — to identify and respond to security risks associated with these individual components. Even when software distributors identify vulnerabilities and provide patches, software operators may not have a way to identify vulnerable components quickly enough. Or, in the worst case, operators remain entirely unaware of these vulnerabilities, enabling malicious actors to exploit them without their knowledge.  
+Modern software applications contain hundreds to thousands of open source and third-party components, creating significant security challenges that SBOMs help address - which is why Chainguard includes comprehensive SBOMs with every container image. Without structured visibility into these components, organizations struggle to identify and respond to vulnerabilities, even when patches are available. This lack of transparency leaves systems vulnerable to exploitation, making SBOMs essential for maintaining secure software supply chains.  
 
 A software bill of materials, or an SBOM (pronounced s-bomb), is a key resource for enabling visibility into the different software components of a codebase. Often described as a list of software “ingredients,” an SBOM is a formally structured list of libraries, modules, licensing, and version information that make up any given piece of software. An SBOM’s purpose is to enable software operators (or any type of software user) to have a comprehensive view of their codebase so that they can quickly identify software components that have known vulnerabilities, or investigate other tracked features like patch status, supplier, license, or version. 
 

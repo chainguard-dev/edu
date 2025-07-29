@@ -2,9 +2,9 @@
 title: "Compare chainctl usage with the Chainguard Console"
 linktitle: "chainctl vs Console"
 type: "article"
-description: "A comparison of completing tasks using chainctl vs the Chainguard Console."
+description: "Learn when to use chainctl CLI versus Chainguard Console for managing container security, with practical examples and use case recommendations"
 date: 2025-06--2T11:07:52+02:00
-lastmod: 2025-06--2T11:07:52+02:00
+lastmod: 2025-07-23T15:09:59+00:00
 draft: false
 tags: ["chainctl", "Chainguard Console"]
 images: []
@@ -15,7 +15,7 @@ weight: 025
 toc: true
 ---
 
-_When should I use the Chainguard Console? When is it better to use `chainctl`?_ This page gives some guidance on the benefits of each method for managing your Chainguard Containers to help you make that decision.
+Chainguard provides two powerful interfaces for managing container security resources: the web-based Console for visual exploration and the `chainctl` CLI for automation and scripting. Understanding when to use each tool maximizes your efficiency in managing Chainguard's security-hardened containers and access controls.
 
 
 ## Prerequisites

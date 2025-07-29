@@ -4,12 +4,11 @@ linktitle: "Video: Java"
 aliases:
 - /chainguard/chainguard-images/videos/java-images/
 - /chainguard/migration/java-images/
-lead: ""
-description: "How to migrate an existing Dockerfile for a Java application to use Chainguard Containers
-in order to improve security and reduce image size."
+lead: "Chainguard's Java containers enable seamless migration from traditional Java base images while providing enhanced security posture and significantly smaller image sizes."
+description: "Learn how to migrate Java applications to Chainguard Containers for reduced vulnerabilities, smaller images, and comprehensive JDK/JRE support with daily security updates"
 type: "article"
 date: 2024-04-02T15:21:01+00:00
-lastmod: 2024-04-02T15:21:01+00:00
+lastmod: 2025-07-23T15:09:59+00:00
 draft: false
 images: []
 menu:

@@ -23,10 +23,10 @@ This document defines the approved tag taxonomy and usage guidelines for the Hug
 - **Chainguard Containers** - For all container/image content
 - **Chainguard Libraries** - For library-specific content
 - **chainctl** - CLI tool documentation
-- **Enforce** - Enforcement product docs
 - **Chainguard OS** - Operating system documentation
 - **Custom Assembly** — Custom Assembly
 - **dfc** — Dockerfile Converter
+- **Console** - Chainguard's console
 
 ### Action-Oriented Tags
 - **Migration** - Moving from other solutions
@@ -73,6 +73,7 @@ This document defines the approved tag taxonomy and usage guidelines for the Hug
 - **Terraform** - Terraform provider and IaC content
 - **Kubernetes** - K8s-specific content
 - **OIDC** - OpenID Connect authentication
+- **Registry** - Container image registry, Chainguard's or otherwise
 
 ### Topic Tags
 - **Security** - Security-focused content
@@ -84,6 +85,7 @@ This document defines the approved tag taxonomy and usage guidelines for the Hug
 - **SLSA** - Supply-chain Levels for Software Artifacts
 - **OCI** - Open Container Initiative
 - **AI** - Artificial Intelligence related content
+- **FIPS** - Stands for "Federal Information Processing Standards"
 
 ### Language/Framework Tags
 - **Python** - Python-specific content
@@ -103,6 +105,7 @@ This document defines the approved tag taxonomy and usage guidelines for the Hug
 - **Cosign** - Cosign signing tool
 - **Rekor** - Rekor transparency log
 - **Fulcio** - Fulcio CA
+- **IAM** - Identity access management
 
 ## Examples of Proper Tag Usage
 

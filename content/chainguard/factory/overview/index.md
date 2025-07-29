@@ -2,10 +2,10 @@
 title: "Overview of The Chainguard Factory"
 linktitle: "Overview"
 type: "article"
-description: "Chainguard Factory Overview"
+description: "Learn about Chainguard Factory, the automated build system that continuously updates thousands of containers, libraries, and VMs with the latest security patches"
 lead: "An introduction to Chainguard’s Factory; the powerhouse of engineering and automation that continuously transforms the chaos of open source into secure, up-to-date containers, libraries, and VMs at massive scale."
 date: 2025-07-15T08:49:31+00:00
-lastmod: 2025-07-15T08:49:31+00:00
+lastmod: 2025-07-23T15:09:59+00:00
 draft: false
 tags: ["Chainguard Containers", "Chainguard VMs"]
 images: []
@@ -16,11 +16,7 @@ weight: 005
 toc: true
 ---
 
-The major challenge faced by Chainguard is keeping all of our containers,
-libraries, and VMs up-to-date with the newest versions of software and
-dependencies. This article introduces the Chainguard Factory, which represents
-all the engineering and automation work required to build, publish, and maintain
-the software that goes into our products. 
+Chainguard Factory is the automated build infrastructure that continuously monitors, builds, and updates thousands of open source projects to deliver containers, libraries, and VMs with a strong security posture and the latest patches. This massive automation system tackles one of the industry's biggest challenges: keeping software dependencies current at scale while maintaining security and compatibility across the entire open source ecosystem. 
 
 ![Diagram of a factory](factory.png)
 

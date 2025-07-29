@@ -1,10 +1,10 @@
 ---
 title: "Chainguard Libraries Verification"
 linktitle: "Verification"
-description: "Verifying binaries or projects for Chainguard Libraries"
+description: "Learn how to verify Java and Python dependencies are from Chainguard Libraries using the chainver tool for enhanced supply chain security"
 type: "article"
 date: 2025-07-03T12:00:00+00:00
-lastmod: 2025-07-14T12:00:00+00:00
+lastmod: 2025-07-23T15:09:59+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -16,12 +16,7 @@ toc: true
 
 ## Overview
 
-At any point in time of your use of Chainguard Libraries you can verify binary
-artifacts, project setups, or even entire directories and repositories for the
-use of binaries supplied by Chainguard Libraries. This allows you to check
-adoption of Chainguard Libraries, find opportunities for further replacements or
-gaps in Chainguard Libraries, and identify artifacts originating from other,
-less trusted sources.
+Chainguard's `chainver` tool enables verification that your Java and Python dependencies come from Chainguard Libraries, providing critical visibility into your software supply chain security. By verifying binary artifacts across your projects and repositories, you can ensure dependencies are sourced from Chainguard's hardened build environment rather than potentially compromised public repositories, identify opportunities to improve security posture, and maintain compliance with supply chain security policies.
 
 Chainguard provides the command line tool `chainver` to enable this
 verification with the following features:

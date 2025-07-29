@@ -2,10 +2,10 @@
 title: "Chainguard OS FAQs"
 linktitle: "FAQs"
 type: "article"
-description: "Chainguard OS FAQs"
-lead: "Frequently asked questions about Chainguard OS"
+description: "Frequently asked questions about Chainguard OS, the secure operating system powering production Chainguard containers with enterprise features and continuous updates"
+lead: "Chainguard OS powers production container images with enhanced security, continuous updates, and enterprise-grade features - find answers to common questions about this purpose-built container operating system."
 date: 2025-07-03T08:49:31+00:00
-lastmod: 2025-07-03T08:49:31+00:00
+lastmod: 2025-07-23T15:09:59+00:00
 draft: false
 tags: ["Chainguard OS"]
 images: []
@@ -16,7 +16,7 @@ weight: 020
 toc: true
 ---
 
-Learn answers to your questions about [Chainguard OS](/chainguard/chainguard-os/). 
+This FAQ addresses common questions about [Chainguard OS](/chainguard/chainguard-os/), the security-focused operating system that powers Chainguard's production container images and enterprise features. 
 
 ## What is Chainguard OS?
 Chainguard OS is a minimal, hardened Linux-based operating system designed for secure, containerized software delivery. Built in-house by Chainguard, it serves as the foundation for Chainguard’s container products and emphasizes continuous integration, immutable artifacts, and alignment with upstream software.

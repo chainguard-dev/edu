@@ -7,9 +7,9 @@ aliases:
 - /chainguard/chainguard-images/working-with-images/unique-tags/
 - /chainguard/chainguard-images/features/unique-tags/
 type: "article"
-description: "Overview of what Chainguard's Unique Tags are and how to access them."
+description: "Learn about Chainguard's Unique Tags feature for production container images, enabling precise version tracking and automated deployment workflows with timestamped tags"
 date: 2024-02-29T08:49:31+00:00
-lastmod: 2025-04-08T08:49:31+00:00
+lastmod: 2025-07-23T15:09:59+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -20,7 +20,7 @@ weight: 015
 toc: true
 ---
 
-Some organizations use image tags as an indication that there is a new container image available in a registry. Oftentimes, these organizations' internal automation and policies expect each new build to have its own distinct tag.
+Chainguard's Unique Tags feature provides timestamped, immutable tags for every container image build, addressing enterprise requirements for precise version tracking and automated deployment workflows. Many organizations rely on distinct tags to trigger automated deployments and maintain audit trails, making traditional floating tags like 'latest' unsuitable for production use.
 
 To help with cases like this, Chainguard offers Unique Tags for private registries. Unique Tags are ideal for organizations that require a strict tag per release or update of their images. They benefit teams looking for precise tracking and management of container images.
 

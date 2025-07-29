@@ -4,9 +4,9 @@ type: "article"
 linktitle: "PHP"
 aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-php
-description: "Tutorial on how to get started with the Chainguard PHP container image "
+description: "Learn how to use Chainguard's PHP container images for secure web applications, featuring FPM and CLI variants with minimal vulnerabilities and reduced attack surface"
 date: 2023-01-09T11:07:52+02:00
-lastmod: 2025-03-24T11:07:52+02:00
+lastmod: 2025-07-23T15:09:59+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -17,7 +17,7 @@ weight: 045
 toc: true
 ---
 
-The PHP container images maintained by Chainguard include our standard, minimal images and development variants, both of which are suitable for building and running PHP workloads. The `latest-fpm` variant serves PHP applications over FastCGI, while the `latest` variant runs PHP applications from the command line.
+Chainguard's PHP container images provide secure foundations for PHP applications with minimal vulnerabilities compared to traditional PHP images. These images come in multiple variants: the `latest-fpm` variant for serving web applications via FastCGI, the `latest` variant for CLI applications, and development variants that include additional tools for building and debugging PHP workloads.
 
 In this guide, we'll set up a demo and demonstrate how you can use Chainguard Containers to develop, build, and run PHP applications.
 
