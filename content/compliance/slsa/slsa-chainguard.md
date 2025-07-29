@@ -56,10 +56,10 @@ To pull an attestation, you must first [authenticate to Chainguard's registry](/
 
 Then you can download an attestation of provenance.
 
+If you are a customer, replace $CUSTOMERNAME in this example with your Chainguard registry customer name.
+
 ```
-cosign download attestation \
-  --predicate-type=https://slsa.dev/provenance/v1 \
-  cgr.dev/chainguard/wolfi-base | jq -r .payload | base64 -d | jq .predicate
+cosign download attestation --predicate-type=https://slsa.dev/provenance/v1 cgr.dev/$CUSTOMERNAME/node-fips:latest | jq -r .payload | base64 -d | jq .predicate
 ```
 
 This example returns the following output:
@@ -67,32 +67,107 @@ This example returns the following output:
 ```
 {
   "buildDefinition": {
-    "buildType": "https://apko.dev/slsa-build-type@v1",
+    "buildType": "https://chainguard.dev/buildtypes/apkoaas/v1",
+    "externalParameters": {
+      "image-configuration": {
+        "accounts": {
+          "groups": [
+            {
+              "gid": 65532,
+              "groupname": "nonroot"
+            }
+          ],
+          "run-as": "0",
+          "users": [
+            {
+              "gid": 65532,
+              "homedir": "/home/nonroot",
+              "uid": 65532,
+              "username": "nonroot"
+            }
+          ]
+        },
+        "annotations": {
+          "dev.chainguard.package.main": "bash",
+          "org.opencontainers.image.authors": "Chainguard Team https://www.chainguard.dev/",
+          "org.opencontainers.image.base.digest": "sha256:fbc73f29218d5f88f09a0b5593a6f8ad7ea521e6406a3d30fad211935fb6a6a7",
+          "org.opencontainers.image.source": "https://github.com/chainguard-images/images-private/tree/main/images/bash",
+          "org.opencontainers.image.url": "https://images.chainguard.dev/directory/image/bash/overview",
+          "org.opencontainers.image.vendor": "Chainguard"
+        },
+        "archs": [
+          "amd64"
+        ],
+        "contents": {
+          "packages": [
+            "bash=5.2.37-r33",
+            "busybox=1.37.0-r46",
+            "ca-certificates-bundle=20241121-r42",
+            "chainguard-baselayout=20230214-r13",
+            "curl=8.14.1-r2",
+            "cyrus-sasl=2.1.28-r42",
+            "gdbm=1.25-r2",
+            "glibc-locale-posix=2.41-r50",
+            "glibc=2.41-r50",
+            "heimdal-libs=7.8.0-r41",
+            "keyutils-libs=1.6.3-r35",
+            "krb5-conf=1.0-r6",
+            "krb5-libs=1.21.3-r42",
+            "ld-linux=2.41-r50",
+            "libbrotlicommon1=1.1.0-r5",
+            "libbrotlidec1=1.1.0-r5",
+            "libcom_err=1.47.2-r22",
+            "libcrypt1=2.41-r50",
+            "libcrypto3=3.5.0-r3",
+            "libcurl-openssl4=8.14.1-r2",
+            "libgcc=15.1.0-r1",
+            "libidn2=2.3.8-r2",
+            "libldap=2.6.10-r2",
+            "libnghttp2-14=1.66.0-r0",
+            "libpsl=0.21.5-r5",
+            "libssl3=3.5.0-r3",
+            "libunistring=1.3-r3",
+            "libverto=0.3.2-r5",
+            "libxcrypt=4.4.38-r2",
+            "ncurses-terminfo-base=6.5_p20241228-r3",
+            "ncurses=6.5_p20241228-r3",
+            "readline=8.2.13-r5",
+            "sqlite-libs=3.50.1-r0",
+            "wolfi-baselayout=20230201-r21",
+            "zlib=1.3.1-r50"
+          ],
+          "repositories": [
+            "https://apk.cgr.dev/f69ce42a381de40f0f386e5633b145e40ef84de3"
+          ]
+        },
+        "entrypoint": {
+          "command": "/bin/bash -c"
+        },
+        "layering": {
+          "budget": 10,
+          "strategy": "origin"
+        }
+      }
+    },
     "internalParameters": {
-      "apk-tools": "2.14.10-r6",
-      "busybox": "1.37.0-r47",
-      "ca-certificates-bundle": "20250619-r3",
-      "glibc": "2.41-r55",
-      "glibc-locale-posix": "2.41-r55",
-      "ld-linux": "2.41-r55",
-      "libcrypt1": "2.41-r55",
-      "libcrypto3": "3.5.1-r1",
-      "libgcc": "15.1.0-r3",
-      "libssl3": "3.5.1-r1",
-      "libxcrypt": "4.4.38-r3",
-      "wolfi-base": "1-r7",
-      "wolfi-baselayout": "20230201-r23",
-      "wolfi-keys": "1-r12",
-      "zlib": "1.3.1-r51"
+      "cloud": {
+        "instanceId": "0069c7a98814814175f936ea53c1d4106d910363a23ae2c7e1a8caae21b5c3a0e95ff40d47fcba2fa188ee3fef00c860323d445a8e89c2f864fc5bf5525d6c87f9fb6ea7caf33008b353bb7f0f74b095dc1d769c5dcf15",
+        "region": "projects/554579655540/regions/us-central1",
+        "type": "gcp"
+      }
     }
   },
   "runDetails": {
     "builder": {
-      "id": "https://github.com/chainguard-dev/terraform-provider-apko",
-      "version": {}
+      "id": "https://chainguard.dev/prod/builders/apkoaas/v1",
+      "version": {
+        "apko": "v0.27.9",
+        "apkoaas": "16913c6fa81a3c5448ae25068359c040dcb50a73"
+      }
     },
     "metadata": {
-      "invocationId": "cgr.dev/chainguard/wolfi-base@sha256:25f877c4528bbb99a1d7ab0c063a7a64958e0cef9e73ee0b98bd52b6e2c83538"
+      "finishedOn": "2025-06-24T08:00:45.200379604Z",
+      "startedOn": "2025-06-24T08:00:42.738341658Z"
     }
   }
 }
