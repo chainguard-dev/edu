@@ -17,7 +17,7 @@ weight: 055
 toc: true
 ---
 
-Chainguard's Python container images provide a secure foundation for Python applications through distroless design, containing significantly fewer CVEs compared to traditional Python images. These production-ready images are optimized for building and running Python workloads.
+Chainguard's Python container images provide a more secure foundation for Python applications through distroless design, containing significantly fewer CVEs compared to traditional Python images. These production-ready images are optimized for building and running Python workloads.
 
 Two variants of Chainguard Python images are available: a minimal runtime image containing only Python and its standard library, and a `-dev` variant that includes pip and a shell for development purposes. Since most Python applications require third-party packages, the recommended approach is using a [multi-stage Docker build](https://docs.docker.com/build/building/multi-stage/) with the `-dev` image for dependency installation and the minimal image for runtime.
 
