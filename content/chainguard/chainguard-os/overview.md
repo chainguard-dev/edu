@@ -16,7 +16,7 @@ weight: 010
 toc: true
 ---
 
-Chainguard OS is the secure operating system foundation that powers all Chainguard container images, built specifically to address modern supply chain security challenges. Unlike traditional Linux distributions designed for general-purpose computing, Chainguard OS focuses exclusively on container workloads, enabling faster security updates and significantly reduced attack surface. 
+Chainguard OS provides a more secure operating system that powers all Chainguard container images, built specifically to address modern supply chain security challenges. Unlike traditional Linux distributions designed for general-purpose computing, Chainguard OS focuses exclusively on container workloads, enabling faster security updates and significantly reduced attack surface. 
 
 Chainguard OS adheres to four key principles:
 * Continuous Integration and Delivery
