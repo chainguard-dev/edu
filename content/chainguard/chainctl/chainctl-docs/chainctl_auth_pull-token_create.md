@@ -1,5 +1,5 @@
 ---
-date: 2025-07-23T19:27:33Z
+date: 2025-07-28T20:36:34Z
 title: "chainctl auth pull-token create"
 slug: chainctl_auth_pull-token_create
 url: /chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token_create/
@@ -20,27 +20,27 @@ chainctl auth pull-token create [--save=true|false] [--ttl=NUM_HOURS_ACTIVE] [--
 ### Examples
 
 ```
-  # Create a pull-token.
+  # Create a pull token for container registry pull access.
   chainctl auth pull-token create
   
-  # Create a pull-token associated to a library ecosystem.
+  # Create a pull token for pull access to a library ecosystem.
   chainctl auth pull-token create --library-ecosystem=java
   
-  # Create a pull-token that will last for 1 day (default is one month)
-  chainctl auth pull-token create --ttl 24
+  # Create a pull token that lasts for 24 hours.
+  chainctl auth pull-token create --ttl=24h
   
-  # Create a pull token and associate to a particular organisation
-  chainctl auth pull-token create --parent my-org
+  # Create a pull token for a particular organization.
+  chainctl auth pull-token create --parent=my-org
 ```
 
 ### Options
 
 ```
   -h, --help                       help for create
-      --library-ecosystem string   The language ecosystem to create this pull token for (e.g. python, java).
-      --name string                Optionally set the name for the token (default "pull-token")
-      --parent string              The IAM organization or folder with which the pull-token identity is associated.
-      --save                       If true with --pull-token, save the pull token to the Docker config
+      --library-ecosystem python   The language ecosystem to access with the pull token. Valid values are python and `java`.
+      --name string                Pull token name. (default "pull-token")
+      --parent string              The IAM organization or folder with which the pull token identity is associated.
+      --save                       If true with --pull-token, save the pull token to the Docker configuration.
       --ttl ns                     Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maxiumum value is 8760h or one year. (default 720h0m0s)
 ```
 

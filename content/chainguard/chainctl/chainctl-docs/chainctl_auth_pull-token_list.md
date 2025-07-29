@@ -1,5 +1,5 @@
 ---
-date: 2025-07-23T19:27:33Z
+date: 2025-07-28T20:36:34Z
 title: "chainctl auth pull-token list"
 slug: chainctl_auth_pull-token_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token_list/
@@ -20,26 +20,26 @@ chainctl auth pull-token list [--parent=PARENT] [--library-ecosystem=LANGUAGE] [
 ### Examples
 
 ```
-  # List all pull-tokens.
+  # List all pull tokens.
   chainctl auth pull-token list
   
-  # Filter pull-tokens to ones associated to a library ecosystem.
+  # List all pull tokens associated with the Java library ecosystem.
   chainctl auth pull-token list --library-ecosystem=java
   
-  # List expired pull-tokens
+  # List expired pull tokens.
   chainctl auth pull-token list --expired
   
-  # List pull tokens associated to a particular organization
+  # List pull tokens associated to a particular organization.
   chainctl auth pull-token list --parent=my-org
   
-  # Filter pull-tokens to ones associated to a library ecosystem that have expired.
-  chainctl auth pull-token list --library-ecosystem=java --expired
+  # List all expired pull tokens associated with the Python library ecosystem.
+  chainctl auth pull-token list --library-ecosystem=python --expired
 ```
 
 ### Options
 
 ```
-      --expired                    If true return only expired pull tokens
+      --expired                    If true return only expired pull tokens.
   -h, --help                       help for list
       --library-ecosystem string   The language ecosystem with which the pull-token identity is associated.
       --parent string              The IAM organization or folder with which the pull-token identity is associated.
