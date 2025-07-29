@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Go"
 aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-go
-description: "Learn how to build secure Go applications with Chainguard's Go container images, featuring minimal attack surface and multi-stage build patterns for optimized runtime"
+description: "Learn how to build more secure Go applications with Chainguard's Go container images, featuring minimal attack surface and multi-stage build patterns for optimized runtime"
 date: 2023-02-28T11:07:52+02:00
 lastmod: 2025-07-23T15:09:59+00:00
 tags: ["Chainguard Containers"]
