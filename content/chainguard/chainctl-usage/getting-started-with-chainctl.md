@@ -1,6 +1,6 @@
 ---
 title: "Get Started with chainctl"
-lead: "Chainguard's chainctl CLI enables secure management of container images and IAM resources through command-line operations for DevOps and security workflows."
+lead: "Chainguard's chainctl CLI enables more secure management of container images and IAM resources through command-line operations for DevOps and security workflows."
 description: "Get started with chainctl basics including authentication, organization management, and essential commands for Chainguard's container security platform"
 type: "article"
 date: 2025-03-03T08:49:15+00:00
