@@ -79,9 +79,9 @@ cluster (sometimes even a specially provisioned EKS cluster for images such as
 On top of this, software is constantly going End-of-Life (EOL). When software
 is no longer supported upstream, we will cease updating it in Wolfi (see [Wolfi
 Packages in Chainguard
-Containers](chainguard-images/about/versions/#wolfi-packages-in-chainguard-containers).
+Containers](/chainguard/chainguard-images/about/versions/#wolfi-packages-in-chainguard-containers).
 Customers benefit from an extended [EOL Grace
-Period](chainguard-images/features/eol-gp-overview/)
+Period](/chainguard/chainguard-images/features/eol-gp-overview/)
 with Chainguard OS where we continue to build old versions).
 
 The result is a relentless, orchestrated flow of updates — ensuring our
@@ -107,7 +107,7 @@ After an engineer investigates the issue, the most likely outcomes are:
 before rebuilding and updating the status to `Fixed`. 
 
 See [How Chainguard Issues Security
-Advisories](chainguard-images/staying-secure/security-advisories/how-chainguard-issues/)
+Advisories](/chainguard/chainguard-images/staying-secure/security-advisories/how-chainguard-issues/)
 for full information on the lifecycle of advisories.
 
 ## Identifying Malware and Malicious Updates

@@ -16,7 +16,7 @@ toc: true
 
 The configuration for the use of Chainguard Libraries depends on how you've set up your build tools and CI/CD workflows. At a high level, adopting the use of Chainguard Libraries in your development, build, and deployment workflows involves the following steps:
 
-- If you or an administrator have not done so already, [set up your organization's repository manager to use Chainguard Libraries for Python](/chainguard/libraries/python/global-configuration).
+- If you or an administrator have not done so already, [set up your organization's repository manager to use Chainguard Libraries for Python](/chainguard/libraries/python/global-configuration/).
 - Log into your organization's repository manager and retrieve credentials for the build tool you are configuration.
 - Configure your development or build tool with this information.
 - Remove local caches on workstations and CI/CD pipelines. This step ensures that dependencies are preferentially sourced from Chainguard Libraries.
@@ -111,7 +111,7 @@ CI/CD.
 dedicated support for configuring authentication to the repository manager or
 the Chainguard Libraries for Python directly. As an alternative that works
 across tools and is often preferred, use [.netrc for
-authentication](/chainguard/libraries/access#netrc).
+authentication](/chainguard/libraries/access/#netrc).
 
 <a id="pip"></a>
 
@@ -161,7 +161,7 @@ Note the different syntax for `index-url` in the two files.
 
 Refer to the official documentation for [configuring authentication with
 pip](https://pip.pypa.io/en/stable/topics/authentication/) if you are not using
-[.netrc for authentication](/chainguard/libraries/access#netrc).
+[.netrc for authentication](/chainguard/libraries/access/#netrc).
 
 
 <a id="poetry"></a>
@@ -278,4 +278,4 @@ uv](https://docs.astral.sh/uv/configuration/authentication/) and [using
 alternative package
 indexes](https://docs.astral.sh/uv/guides/integration/alternative-indexes/) if
 you are not using [.netrc for
-authentication](/chainguard/libraries/access#netrc).
+authentication](/chainguard/libraries/access/#netrc).

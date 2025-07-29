@@ -34,8 +34,8 @@ the following domains:
 Chainguard Libraries use is transparent for development efforts and typically
 requires no additional network access for workstations and other infrastructure
 running builds because the libraries are provided by the repository manager as
-configured for [Java](/chainguard/libraries/java/global-configuration) or
-[Python](/chainguard/libraries/python/global-configuration).
+configured for [Java](/chainguard/libraries/java/global-configuration/) or
+[Python](/chainguard/libraries/python/global-configuration/).
 
 The repository manager application must have HTTPS access to the domain
 `libraries.cgr.dev` for library access and `issuer.enforce.dev` for

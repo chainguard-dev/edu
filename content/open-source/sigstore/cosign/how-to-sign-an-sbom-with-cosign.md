@@ -36,7 +36,7 @@ In the following, we'll generate an SBOM and associate it with a specific OCI co
 
 ## Creating a Demonstration Image
 
-Since we'll be attaching an SBOM to a container image, we'll first need to create an example image. We'll base this image on Chainguard's [`wolfi-base`](https://edu.chainguard.dev/open-source/wolfi/overview), and add a single additional package, the venerable `cowsay` utility that prints a message along with some ASCII art. We then set the entrypoint so that, when the image is run, a message will be displayed.
+Since we'll be attaching an SBOM to a container image, we'll first need to create an example image. We'll base this image on Chainguard's [`wolfi-base`](/open-source/wolfi/overview/), and add a single additional package, the venerable `cowsay` utility that prints a message along with some ASCII art. We then set the entrypoint so that, when the image is run, a message will be displayed.
 
 Create a new folder for our Dockerfile build and change your working directory to that folder:
 

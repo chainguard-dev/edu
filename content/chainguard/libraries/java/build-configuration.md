@@ -26,7 +26,7 @@ following steps:
   binaries.
 * Change configuration to access Chainguard Libraries via your repository
   manager after the changes from the [global
-  configuration](/chainguard/libraries/java/global-configuration) are
+  configuration](/chainguard/libraries/java/global-configuration/) are
   implemented.
 
 These changes must be performed on all workstations of individual developers and
@@ -41,7 +41,7 @@ authenticate. Use your username and password for Cloudsmith in your build tool
 configuration.
 
 Follow the steps from the [global
-configuration](/chainguard/libraries/java/global-configuration#cloudsmith) to
+configuration](/chainguard/libraries/java/global-configuration/#cloudsmith) to
 determine URL and authentication details.
 
 ## JFrog Artifactory
@@ -51,8 +51,8 @@ you to authenticate and use the identity token in the configuration of your
 build tool.
 
 Follow the steps from the [global
-configuration](/chainguard/libraries/java/global-configuration#artifactory) to
-determine URL and authentication details.
+configuration](/chainguard/libraries/java/global-configuration/#jfrog-artifactory)
+to determine URL and authentication details.
 
 ## Sonatype Nexus Repository
 
@@ -60,8 +60,8 @@ Build configuration to retrieve artifacts from Nexus may require authentication.
 Use your username and password for Nexus in your build tool configuration.
 
 Follow the steps from the [global
-configuration](/chainguard/libraries/java/global-configuration#nexus) to
-determine URL and authentication details.
+configuration](/chainguard/libraries/java/global-configuration/#sonatype-nexus-repository)
+to determine URL and authentication details.
 
 ## Apache Maven
 
@@ -156,7 +156,7 @@ for the server. The `id` value in the server element must match the `id` value
 in the mirror configuration - `repo-example` in the example. The username
 and password values vary depending on the repository manager and the configured
 authentication, contact the administrator and refer to the [global configuration
-documentation](/chainguard/libraries/java/global-configuration).
+documentation](/chainguard/libraries/java/global-configuration/).
 
 ```xml
 <settings>
@@ -524,7 +524,7 @@ Ensure that the Chainguard repository is listed before any other repositories to
 prioritize it for artifact retrieval. 
 
 For more complex Bazel setups, you can use [.netrc for
-authentication](/chainguard/libraries/access#netrc).
+authentication](/chainguard/libraries/access/#netrc).
 
 Refer to the [official Bazel documentation for
 rules_jvm_external](https://github.com/bazel-contrib/rules_jvm_external) for

@@ -50,9 +50,9 @@ APPROVED_TAGS = {
     "Product", "chainctl"
 }
 
-def get_staged_files():
-    """Get list of staged markdown files."""
-    result = subprocess.run(['git', 'diff', '--cached', '--name-only'], 
+def get_changed_files():
+    """Get list of changed markdown files."""
+    result = subprocess.run(['git', 'diff', '--name-only'], 
                           capture_output=True, text=True)
     files = result.stdout.strip().split('\n')
     return [f for f in files if f.endswith('.md') and f.startswith('content/')]
@@ -194,7 +194,8 @@ def check_spelling(filepath):
                     'ci', 'cd', 'devops', 'gitops', 'mlops', 'devsecops',
                     'lts', 'eol', 'semver', 'changelog', 'readme',
                     'grype', 'apks', 'glibc', 'musl', 'unpatched', 'sla', 'slas',
-                    'chainguard\'s', 'bazel', 'apk', 'nano', 'lastmod'
+                    'chainguard\'s', 'bazel', 'apk', 'nano', 'lastmod', 'netrc',
+                    'iam'
                 }
                 
                 # Filter and track errors with line numbers
@@ -212,7 +213,7 @@ def check_spelling(filepath):
         return {}, [f"Error checking spelling: {str(e)}"]
 
 def update_dates():
-    """Update date fields in staged markdown files (date for new files, lastmod for modified)"""
+    """Update date fields in changed markdown files (date for new files, lastmod for modified)"""
     # Get new files
     result_new = subprocess.run(
         ['git', 'diff', '--cached', '--name-only', '--diff-filter=A'], 
@@ -330,8 +331,8 @@ def update_dates():
 
 def main():
     """Main validation function."""
-    staged_files = get_staged_files()
-    if not staged_files or staged_files == ['']:
+    changed_files = get_changed_files()
+    if not changed_files or changed_files == ['']:
         return 0
     
     total_warnings = []
@@ -351,7 +352,7 @@ def main():
         for file in updated_files:
             print(f"   - {file}")
     
-    for filepath in staged_files:
+    for filepath in changed_files:
         if not Path(filepath).exists():
             continue
         

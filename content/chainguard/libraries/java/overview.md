@@ -145,7 +145,7 @@ If you use the URL directly in a browser, you have to provide the username and
 password to log in to the Chainguard repository to download the file.
 
 Use `curl`, specify the username and password retrieved with [chainctl for basic
-user authentication](/chainguard/libraries/access) and use the URL of the file to
+user authentication](/chainguard/libraries/access/) and use the URL of the file to
 download and save the file with the original name.
 
 With [.netrc authentication](/chainguard/libraries/access/#netrc):
