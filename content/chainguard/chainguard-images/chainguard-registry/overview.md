@@ -16,7 +16,7 @@ aliases:
 - /chainguard/chainguard-registry/overview/
 ---
 
-Chainguard Registry hosts secure container images with two access tiers: public starter images available to everyone, and production images that require authentication for enterprise features like SLAs and version pinning. The registry integrates with standard container tools while providing enhanced security through signed images and comprehensive metadata.
+Chainguard Registry hosts more secure container images with two access tiers: public starter images available to everyone, and production images that require authentication for enterprise features like SLAs and version pinning. The registry integrates with standard container tools while providing enhanced security through signed images and comprehensive metadata.
 
 While all public Chainguard Containers are freely available, logging in with a Chainguard account and authenticating when pulling from the registry provides a mechanism for Chainguard to contact you if there are any current or known upcoming issues with images you are pulling.
 
