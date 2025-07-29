@@ -4,9 +4,9 @@ type: "article"
 linktitle: "Cilium"
 aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-cilium
-description: "Tutorial on the Cilium Chainguard Containers"
+description: "Learn how to deploy Cilium CNI using Chainguard's security-hardened container images for enhanced Kubernetes network security with eBPF"
 date: 2023-12-14T00:00:00+00:00
-lastmod: 2025-03-22T00:00:00+00:00
+lastmod: 2025-07-23T15:09:59+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -17,9 +17,7 @@ weight: 005
 toc: true
 ---
 
-Cilium is open source software for transparently securing the network connectivity between application services deployed using Linux container management platforms like Docker and Kubernetes. At the foundation of Cilium is a new Linux kernel technology called [eBPF](https://ebpf.io/), which enables the dynamic insertion of powerful security visibility and control logic within Linux itself. Because eBPF runs inside the Linux kernel, Cilium security policies can be applied and updated without any changes to the application code or container configuration.
-
-Chainguard offers a set of minimal, security-hardened Cilium container images, built on top the Wolfi OS.
+Chainguard's Cilium container images provide a security-hardened foundation for Kubernetes networking with significantly reduced vulnerabilities compared to standard Cilium deployments. Cilium leverages [eBPF](https://ebpf.io/) technology to transparently secure network connectivity between services, enabling powerful security policies without application changes. Built on Wolfi OS, Chainguard's minimal Cilium images enhance your cluster's security posture while maintaining full compatibility with Cilium's advanced networking features.
 
 We will demonstrate how to get started with the Chainguard Cilium container images on an example K3s cluster. To get started, you'll need Docker, `k3d` (a CLI tool to install `k3s`), `kubectl`, and the `cilium` CLI installed.
 

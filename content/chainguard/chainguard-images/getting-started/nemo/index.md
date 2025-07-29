@@ -4,9 +4,9 @@ type: "article"
 linktitle: "NeMo"
 aliases:
 - /chainguard/chainguard-images/getting-started/nemo
-description: "Get started with the NeMo image for generative deep learning"
+description: "Learn how to use Chainguard's NeMo container image for conversational AI with enhanced security, minimal CVEs, and GPU acceleration support"
 date: 2024-05-16T08:00:00+02:00
-lastmod: 2025-03-24T08:00:00+02:00
+lastmod: 2025-07-23T15:09:59+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -17,7 +17,7 @@ weight: 030
 toc: true
 ---
 
-[NeMo](https://github.com/NVIDIA/NeMo) is a deep learning framework for building conversational AI models that provides standalone module collections for Automatic Speech Recognition (ASR), Natural Language Processing (NLP), and Text-to-Speech (TTS) tasks. The [NeMo Chainguard Container](https://images.chainguard.dev/directory/image/nemo/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-nemo) is a comparatively lightweight NeMo environment with low to no CVEs, making it ideal for both training and production inference. The NeMo Chainguard Container is designed to work with the [CUDA 12](https://developer.nvidia.com/about-cuda) parallel computing platform, and is suited to workloads that take advantage of connected GPUs.
+Chainguard's [NeMo container image](https://images.chainguard.dev/directory/image/nemo/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-nemo) provides a security-hardened environment for NVIDIA's [NeMo](https://github.com/NVIDIA/NeMo) deep learning framework with minimal vulnerabilities compared to traditional AI/ML containers. NeMo enables building conversational AI models through module collections for Automatic Speech Recognition (ASR), Natural Language Processing (NLP), and Text-to-Speech (TTS) tasks. Built for [CUDA 12](https://developer.nvidia.com/about-cuda) GPU acceleration, this lightweight container maintains full NeMo functionality while significantly reducing security risks for both training and production inference workloads.
 
 {{< details "What is Deep Learning?" >}}
 {{< blurb/deep-learning >}}

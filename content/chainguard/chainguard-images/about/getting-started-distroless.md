@@ -5,9 +5,9 @@ aliases:
 - /chainguard/chainguard-images/getting-started-distroless/
 - /chainguard/chainguard-images/about/getting-started-distroless/
 type: "article"
-description: "Why distroless containers are more secure: Chainguard's approach removes shells, package managers, and 90% of attack surface while maintaining compatibility"
+description: "Why distroless containers are more secure: Chainguard's approach removes shells, package managers, and unnecessary components to minimize attack surface while maintaining compatibility"
 date: 2024-03-21T08:49:31+00:00
-lastmod: 2025-04-08T08:49:31+00:00
+lastmod: 2025-07-23T15:09:59+00:00
 draft: false
 tags: ["Chainguard Containers", "Overview"]
 images: []
@@ -19,7 +19,7 @@ toc: true
 ---
 
 ## About Distroless Container Images
-[Distroless](https://www.chainguard.dev/unchained/minimal-container-images-towards-a-more-secure-future) container images are a type of container image that is designed to be minimal. Unlike traditional images based on Debian or Ubuntu — which include package managers, utilities, and shells — distroless images typically contain only essential software required to run an application or service. Chainguard provides distroless images that follow this philosophy to reduce attack surface and minimize vulnerabilities.
+[Distroless](https://www.chainguard.dev/unchained/minimal-container-images-towards-a-more-secure-future) container images, like the ones built by Chainguard, are a type of container image designed to include only essential software required to run an application or service. Unlike traditional images based on Debian or Ubuntu — which include package managers, utilities, and shells — Chainguard's distroless images remove these components to significantly reduce attack surface and minimize vulnerabilities.
 
 This minimal approach offers several benefits, including:
 

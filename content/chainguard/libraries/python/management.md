@@ -1,28 +1,21 @@
 ---
 title: "Management and Maintenance "
 linktitle: "Management "
-description: "Working with your Chainguard Libraries for Python use"
+description: "Learn how to manage and maintain Chainguard Libraries for Python, including package updates, verification, and monitoring security improvements"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2025-04-03T09:09:00+00:00
+lastmod: 2025-07-23T15:09:59+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 images: []
 menu:
   docs:
-    parent: "Python"
+    parent: "python"
 weight: 053
 toc: true
 ---
 
-After the initial [global
-configuration](/chainguard/libraries/java/global-configuration/) and [build
-configuration](/chainguard/libraries/java/build-configuration/) the use of
-Chainguard Libraries for Python is transparently in progress. Newly use artifacts
-from new projects or new artifact versions are automatically retrieved from the
-Chainguard repository as they are available and the PyPI repository and
-other configured repositories serve as backstop to provide any additionally
-needed artifacts.
+Chainguard Libraries for Python operates transparently after completing the [global configuration](/chainguard/libraries/python/global-configuration/) and [build configuration](/chainguard/libraries/python/build-configuration/), automatically providing security-enhanced versions of your PyPI dependencies. New packages and versions are retrieved from Chainguard's hardened repository when available, while PyPI and other configured repositories provide fallback access to ensure continuous development workflow without interruption.
 
 The following sections detail optional management, maintenance, and auditing
 steps on the repository manager and the build tool.

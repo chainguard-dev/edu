@@ -1,17 +1,17 @@
 ---
 title: "chainctl Usage"
-lead: ""
-description: "chainctl Usage Documentation"
+lead: "Chainguard's chainctl CLI provides command-line access to manage container images, IAM, and security resources with enhanced control over your software supply chain."
+description: "Learn how to use chainctl, Chainguard's command-line interface for managing container images, identity and access management, and security resources"
 type: "article"
 date: 2025-03-0320T08:49:15+00:00
-lastmod: 2025-03-0320T08:49:15+00:00
+lastmod: 2025-07-23T16:52:56+00:00
 draft: false
-tags: ["chainctl", "Usage", "Overview"]
+tags: ["chainctl", "Overview"]
 images: []
 weight: 060
 ---
 
-`chainctl` (Chainguard Control) is a CLI tool that helps you control aspects of your Chainguard account and resources. You can use it to manage users, roles, images, tokens, and more. In many ways, `chainctl` parallels the abilities of the <ins>[Chainguard Console](https://console.chainguard.dev)</ins>, but with a different user interface that is both more complex and more powerful.
+Chainguard's `chainctl` (Chainguard Control) is a command-line interface that provides comprehensive control over your Chainguard resources, including container images, identity management, and security configurations. This CLI tool enables automation and advanced operations beyond what's available in the <ins>[Chainguard Console](https://console.chainguard.dev)</ins>, making it essential for DevOps workflows and CI/CD integration.
 
 Like most control commands that end with `ctl`, such as `systemctl` or `loginctl`, `chainctl` uses the familiar `<context> <noun> <verb>` syntax.
 

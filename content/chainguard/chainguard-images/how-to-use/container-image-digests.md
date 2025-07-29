@@ -1,14 +1,14 @@
 ---
-title: "How to Use Container Digests to Improve Reproducibility"
+title: "How to Use Container Image Digests to Improve Reproducibility"
 linktitle: "Digests"
 aliases:
 - /chainguard/chainguard-images/videos/container-image-digests/
 - /chainguard/chainguard-images/how-to-use/container-image-digests/
-lead: ""
-description: "Video demonstration of using digests with Chainguard Containers"
+lead: "Chainguard Containers support digest-based references for reproducible deployments, ensuring you always get the exact same image version across environments."
+description: "Learn how to use container image digests with Chainguard Containers for reproducible deployments and version pinning in production environments"
 type: "article"
 date: 2023-08-07T15:21:01+02:00
-lastmod: 2025-04-08T15:21:01+02:00
+lastmod: 2025-07-23T15:09:59+00:00
 draft: false
 tags: ["Chainguard Containers", "Video"]
 images: []

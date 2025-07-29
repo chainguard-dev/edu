@@ -6,9 +6,9 @@ aliases:
 - /chainguard/migration/migrating-php/
 - /chainguard/migration/migration-guides/migrating-php/
 type: "article"
-description: "Guidance on how to migrate PHP Dockerfile workloads to use Chainguard Containers"
+description: "Learn how to migrate PHP applications to Chainguard Containers for enhanced security, reduced CVEs, and support for both FPM and CLI workloads"
 date: 2024-04-04T15:56:52-07:00
-lastmod: 2024-04-04T15:56:52-07:00
+lastmod: 2025-07-23T15:09:59+00:00
 draft: false
 tags: ["Chainguard Containers", "Migration"]
 images: []
@@ -16,7 +16,7 @@ weight: 005
 toc: true
 ---
 
-Chainguard Containers are built on top of [Wolfi](/open-source/wolfi/), a Linux _undistro_ designed specifically for containers. Our PHP images have a minimal design that ensures a smaller attack surface, which results in smaller images [with few to zero](/chainguard/chainguard-images/vuln-comparison/php/) CVEs. Nightly builds deliver fresh images whenever updated packages are available, which also helps to reduce the toil of manually patching CVEs in PHP images.
+Chainguard's PHP containers provide enhanced security for PHP applications through minimal, purpose-built images that significantly reduce attack surface. Built on [Wolfi](/open-source/wolfi/), these containers achieve [dramatically fewer vulnerabilities](/chainguard/chainguard-images/vuln-comparison/php/) compared to traditional PHP images while maintaining full compatibility with PHP workloads. Daily automated builds ensure applications receive the latest security patches without manual intervention.
 
 This article will assist you in the process of migrating your existing PHP Dockerfiles to leverage the benefits of Chainguard Containers, including a smaller attack surface and a more secure application footprint.
 

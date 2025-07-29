@@ -4,9 +4,9 @@ type: "article"
 linktitle: "PostgreSQL"
 aliases: 
 - /chainguard/chainguard-images/getting-started/getting-started-postgres
-description: "Tutorial on how to get started with the PostgreSQL container image"
+description: "Learn how to deploy PostgreSQL databases using Chainguard's security-hardened container image with minimal vulnerabilities and distroless design"
 date: 2023-08-10T11:07:52+02:00
-lastmod: 2025-03-24T11:07:52+02:00
+lastmod: 2025-07-23T15:09:59+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -17,9 +17,9 @@ weight: 050
 toc: true
 ---
 
-PostgreSQL — commonly known as "Postgres" — is a popular open-source relational database. The PostgreSQL Containers based on Wolfi and maintained by Chainguard provide distroless container images that are suitable for building and running PostgreSQL workloads.
+Chainguard's PostgreSQL container image provides a security-hardened foundation for running Postgres databases with significantly fewer vulnerabilities than traditional PostgreSQL images. Built on Wolfi with a distroless design, this container maintains full PostgreSQL functionality while dramatically reducing attack surface.
 
-Because Chainguard Containers (including the PostgreSQL container image) are rebuilt daily with the latest sources and include the absolute minimum of dependencies, they have significantly fewer vulnerabilities than equivalent container images, typically zero. This means you can use the Chainguard PostgreSQL container image to run Postgres databases in containerized environments with a smaller footprint and greater security.
+Through daily rebuilds with the latest patches and minimal dependencies, Chainguard's PostgreSQL image enhances database security posture. This enables you to run production Postgres workloads in containerized environments with both a smaller footprint and improved protection against supply chain attacks.
 
 In order to illustrate how the PostgreSQL Chainguard Container might be used in practice, this tutorial involves setting up an example PHP application that uses a Postgres database. This guide assumes you have Docker installed to run the demo; specifically, the procedure outlined in this guide uses [Docker Compose](https://docs.docker.com/compose/install/) to manage the environment on your local machine.
 

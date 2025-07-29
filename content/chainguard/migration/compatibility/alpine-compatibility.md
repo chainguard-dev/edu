@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "Differences between Chainguard Containers and Alpine third-party images"
 date: 2024-02-23T15:56:52-07:00
-lastmod: 2024-03-08T15:56:52-07:00
+lastmod: 2025-07-23T16:52:56+00:00
 draft: false
 tags: ["Chainguard Containers", "Reference"]
 images: []
@@ -26,7 +26,7 @@ Note that `$PATH` locations like `/usr/bin` or `/sbin` are not included here. If
 
 Generally, if a tool exists in `busybox` but does not have a `coreutils` counterpart, there will be a specific package that includes it. For example the `zcat` utility is included in the `gzip` package in both Wolfi and Alpine.
 
-Additionally, be aware that binaries are not compatible between Alpine and Wolfi. You **should not** attempt to copy Alipne binaries into a Wolfi-based container image.
+Additionally, be aware that binaries are not compatible between Alpine and Wolfi. You **should not** attempt to copy Alpine binaries into a Wolfi-based container image.
 
 You can use the `apk search` command in Wolfi and Alpine to find out which package includes a tool.
 
