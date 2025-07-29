@@ -5,7 +5,7 @@ aliases:
 - /chainguard/chainguard-images/videos/zerocve/
 - /chainguard/chainguard-images/about/zerocve/
 lead: "Chainguard achieves zero known CVEs in container images through a combination of minimal package inclusion, rapid vulnerability patching, and proactive security advisory management - this video demonstrates our approach."
-description: "Chainguard creates the most secure container images with zero CVEs through minimal packages, rapid updates, and proactive security advisories - learn how we eliminate vulnerabilities"
+description: "Chainguard creates more secure container images with zero CVEs through minimal packages, rapid updates, and proactive security advisories - learn how we eliminate vulnerabilities"
 type: "article"
 tags: ["Video", "Chainguard Containers"]
 date: 2024-05-31T12:21:01+00:00
