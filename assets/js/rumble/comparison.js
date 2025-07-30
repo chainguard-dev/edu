@@ -82,7 +82,7 @@ function makeTable(id, sortedData, vulnIDs) {
         if (column == "vulnerability") {
           let isProd = getEnvUrl();
           if (isProd) {
-            val = `<a href="/vulnerabilities/${val}">${val}</a>`
+            val = `<a href="/vulnerabilities/${val}/">${val}</a>`
           } else {
             val = `<a href="/vulnerabilities/?id=${val}">${val}</a>`
           }
