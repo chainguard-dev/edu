@@ -1,0 +1,265 @@
+name: Compile Documentation Bundle (Secure)
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'content/**'
+      - 'scripts/compile_docs.py'
+      - 'scripts/compile_docs_secure.py'
+  
+  schedule:
+    - cron: '0 2 * * *'
+  
+  workflow_dispatch:
+    inputs:
+      create_release:
+        description: 'Create a GitHub release with signed artifacts'
+        required: false
+        default: 'false'
+
+# Restrict permissions to minimum required
+permissions:
+  contents: write  # For pushing compiled docs and creating releases
+  actions: read
+  id-token: write  # For cosign keyless signing
+  packages: write  # For container registry
+  
+jobs:
+  compile-docs:
+    runs-on: ubuntu-latest
+    environment: documentation  # Use environment protection rules
+    
+    steps:
+    - name: Checkout edu repository
+      uses: actions/checkout@v4
+      with:
+        path: edu
+        persist-credentials: false  # Don't persist auth token
+
+    # Use deploy keys instead of PAT for better security
+    - name: Checkout courses repository
+      uses: actions/checkout@v4
+      with:
+        repository: ${{ github.repository_owner }}/courses
+        path: courses
+        ssh-key: ${{ secrets.COURSES_DEPLOY_KEY }}
+
+    - name: Checkout images-private repository
+      uses: actions/checkout@v4
+      with:
+        repository: ${{ github.repository_owner }}/images-private
+        path: images-private
+        ssh-key: ${{ secrets.IMAGES_DEPLOY_KEY }}
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Cache Python dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+
+    - name: Validate repositories
+      run: |
+        # Verify we have the expected repositories
+        for repo in edu courses images-private; do
+          if [ ! -d "$repo" ]; then
+            echo "Error: Expected repository $repo not found"
+            exit 1
+          fi
+        done
+        
+        # Check for suspicious files
+        find . -name "*.sh" -o -name "*.py" | grep -v -E "(compile_docs\.py|create_compressed_docs\.sh)" | while read file; do
+          echo "Warning: Unexpected script found: $file"
+        done
+
+    - name: Run security scan on Python script
+      run: |
+        cd edu
+        # Install security tools
+        pip install bandit safety
+        
+        # Scan for security issues
+        bandit -r scripts/compile_docs.py -f json -o bandit-report.json || true
+        
+        # Check for critical issues
+        if [ -f bandit-report.json ]; then
+          critical_issues=$(python -c "import json; data=json.load(open('bandit-report.json')); print(len([i for i in data.get('results', []) if i.get('issue_severity') == 'HIGH']))")
+          if [ "$critical_issues" -gt 0 ]; then
+            echo "Critical security issues found in compile_docs.py"
+            cat bandit-report.json
+            exit 1
+          fi
+        fi
+
+    - name: Set environment variable for GitHub Actions
+      run: echo "GITHUB_ACTIONS=true" >> $GITHUB_ENV
+
+    - name: Create temporary directory
+      run: echo "TEMP_BUILD_DIR=$(mktemp -d)" >> $GITHUB_ENV
+
+    - name: Compile documentation with resource limits
+      run: |
+        cd edu
+        # Create output directory
+        mkdir -p $TEMP_BUILD_DIR
+        
+        # Run with timeout and memory limits, output to temp directory
+        timeout 600 python3 scripts/compile_docs.py --output $TEMP_BUILD_DIR/chainguard-complete-docs.md
+        
+        # Verify output file size (max 50MB uncompressed)
+        if [ -f $TEMP_BUILD_DIR/chainguard-complete-docs.md ]; then
+          size=$(stat -c%s $TEMP_BUILD_DIR/chainguard-complete-docs.md)
+          if [ $size -gt 52428800 ]; then
+            echo "Error: Compiled documentation exceeds 50MB limit"
+            exit 1
+          fi
+        fi
+
+    - name: Create compressed versions
+      run: |
+        cd $TEMP_BUILD_DIR
+        
+        # Create compressed versions with integrity checks
+        gzip -k -9 chainguard-complete-docs.md
+        zip -9 chainguard-complete-docs.zip chainguard-complete-docs.md
+        tar -czf chainguard-complete-docs.tar.gz chainguard-complete-docs.md
+        
+        # Generate checksums
+        sha256sum chainguard-complete-docs.* > checksums.sha256
+        
+        # Verify compressed files
+        gzip -t chainguard-complete-docs.md.gz
+        unzip -t chainguard-complete-docs.zip > /dev/null
+        tar -tzf chainguard-complete-docs.tar.gz > /dev/null
+
+    - name: Install cosign
+      uses: sigstore/cosign-installer@v3
+
+    - name: Sign documentation with cosign
+      run: |
+        cd $TEMP_BUILD_DIR
+        
+        # Sign the main documentation file
+        cosign sign-blob chainguard-complete-docs.md \
+          --yes \
+          --output-signature chainguard-complete-docs.md.sig \
+          --output-certificate chainguard-complete-docs.md.pem
+        
+        # Sign the checksums file
+        cosign sign-blob checksums.sha256 \
+          --yes \
+          --output-signature checksums.sha256.sig
+        
+        # Copy verification script
+        cp $GITHUB_WORKSPACE/edu/scripts/verification.sh .
+        
+        # Create release bundle with all verification files
+        tar -czf chainguard-ai-docs.tar.gz \
+          chainguard-complete-docs.md \
+          chainguard-complete-docs.md.sig \
+          chainguard-complete-docs.md.pem \
+          checksums.sha256 \
+          checksums.sha256.sig \
+          verification.sh
+        
+        # Sign the bundle
+        cosign sign-blob chainguard-ai-docs.tar.gz \
+          --yes \
+          --output-signature chainguard-ai-docs.tar.gz.sig
+
+    - name: Build and push container image
+      if: github.ref == 'refs/heads/main'
+      run: |
+        cd edu
+        
+        # Copy necessary files for container build
+        cp $TEMP_BUILD_DIR/chainguard-complete-docs.md scripts/
+        cp $TEMP_BUILD_DIR/chainguard-complete-docs.md.sig scripts/
+        cp $TEMP_BUILD_DIR/chainguard-complete-docs.md.pem scripts/
+        cp $TEMP_BUILD_DIR/checksums.sha256 scripts/
+        cp $TEMP_BUILD_DIR/checksums.sha256.sig scripts/
+        cp scripts/verification.sh scripts/
+        
+        # Build container
+        docker build -f scripts/Dockerfile.ai-docs -t cgr.dev/chainguard/ai-docs:latest scripts/
+        
+        # Login to registry (update with actual registry credentials)
+        # echo "${{ secrets.REGISTRY_TOKEN }}" | docker login cgr.dev -u ${{ secrets.REGISTRY_USER }} --password-stdin
+        
+        # Push image
+        # docker push cgr.dev/chainguard/ai-docs:latest
+        
+        # Sign container image with cosign
+        # cosign sign --yes cgr.dev/chainguard/ai-docs:latest
+
+    - name: Scan for sensitive data
+      run: |
+        cd edu
+        
+        # Install gitleaks
+        wget -q https://github.com/gitleaks/gitleaks/releases/download/v8.18.0/gitleaks_8.18.0_linux_x64.tar.gz
+        tar -xzf gitleaks_8.18.0_linux_x64.tar.gz
+        
+        # Scan compiled documentation for secrets
+        ./gitleaks detect --no-git --source $TEMP_BUILD_DIR/ --verbose --report-format json --report-path gitleaks-report.json
+        
+        # Check results
+        if [ -f gitleaks-report.json ] && [ -s gitleaks-report.json ]; then
+          echo "Potential secrets detected in compiled documentation!"
+          cat gitleaks-report.json
+          exit 1
+        fi
+
+
+    - name: Create GitHub Release
+      if: (github.event.inputs.create_release == 'true' || github.event_name == 'schedule') && github.ref == 'refs/heads/main'
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: ai-docs-${{ github.run_number }}
+        name: AI Documentation Bundle - ${{ github.run_number }}
+        body: |
+          ## Chainguard AI Documentation Bundle
+          
+          Cryptographically signed documentation for AI coding assistants.
+          
+          ### Verification Instructions
+          
+          ```bash
+          # Download and verify the bundle
+          curl -LO https://github.com/${{ github.repository }}/releases/download/ai-docs-${{ github.run_number }}/chainguard-ai-docs.tar.gz
+          curl -LO https://github.com/${{ github.repository }}/releases/download/ai-docs-${{ github.run_number }}/chainguard-ai-docs.tar.gz.sig
+          
+          # Verify with cosign
+          cosign verify-blob \
+            --certificate-identity-regexp ".*github.com/${{ github.repository }}.*" \
+            --certificate-oidc-issuer https://token.actions.githubusercontent.com \
+            --signature chainguard-ai-docs.tar.gz.sig \
+            chainguard-ai-docs.tar.gz
+          
+          # Extract and verify contents
+          tar -xzf chainguard-ai-docs.tar.gz
+          ./verification.sh
+          ```
+          
+          ### Container Distribution
+          
+          ```bash
+          # Pull and verify container (when available)
+          cosign verify cgr.dev/chainguard/ai-docs:${{ github.run_number }}
+          docker run --rm -v $(pwd):/output cgr.dev/chainguard/ai-docs:${{ github.run_number }} extract /output
+          ```
+          
+          ### What's New
+          - Compiled from commit: ${{ github.sha }}
+          - Build date: ${{ github.event.repository.updated_at }}
+        files: |
+          ${{ env.TEMP_BUILD_DIR }}/chainguard-ai-docs.tar.gz
+          ${{ env.TEMP_BUILD_DIR }}/chainguard-ai-docs.tar.gz.sig
+        draft: false
+        prerelease: false
