@@ -1,6 +1,6 @@
 ---
 title: "SLSA Compliance at Chainguard"
-linktitle: "SLSA 1.1 Level 3 compliance at Chainguard"
+linktitle: "SLSA at Chainguard"
 description: "A brief overview of SLSA and Chainguard's compliance efforts."
 type: "article"
 date: 2025-07-23T01:24:23+00:00
