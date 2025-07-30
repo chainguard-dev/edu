@@ -1,5 +1,5 @@
 ---
-title: "Introduction to the PCI Data Security Standard (DSS) 4.0"
+title: "Introduction to PCI DSS"
 description: "How to prepare your organization to meet the requirements of PCI DSS 4.0"
 lead: "How to prepare your organization to meet the requirements of PCI DSS 4.0"
 type: "article"
@@ -7,6 +7,8 @@ date: 2024-08-21T14:05:09+00:00
 lastmod: 2024-08-21T14:05:09+00:00
 contributors: []
 draft: false
+aliases:
+- /chainguard/software-security/compliance/pci-dss-4/intro-pci-dss-4/
 tags: ["Compliance", "PCI DSS 4.0", "Standards"]
 images: []
 menu:

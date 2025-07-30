@@ -1,5 +1,5 @@
 ---
-title: "Overview of CMMC 2.0 Practices/Control Groups"
+title: "CMMC 2.0 Practices"
 description: "Learn about the 14 different domains of practices required for CMMC 2.0"
 lead: "Learn about the 14 different domains of practices required for CMMC 2.0"
 type: "article"
@@ -7,6 +7,8 @@ date: 2024-08-09T19:10:09+00:00
 lastmod: 2024-08-15T19:10:09+00:00
 contributors: []
 draft: false
+aliases:
+- /chainguard/software-security/compliance/cmmc-2/cmmc-practices/
 tags: ["Compliance", "CMMC 2.0", "Standards"]
 images: []
 menu:
