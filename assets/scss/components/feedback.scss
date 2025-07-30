@@ -9,7 +9,7 @@
   padding: 24px;
   border: 1px solid var(--bs-border-color);
   border-radius: 8px;
-  background: var(--primary-2);
+  background: #d0cfee;
 //  background: var(--bs-body-bg);
   transition: all 0.2s ease;
   display: inline-block;
@@ -29,7 +29,7 @@
   .feedback-text {
     font-size: 18px;
     font-weight: 600;
-    color: var(--primary-1);
+    color: #14003d;
     margin-right: 8px;
   }
 }
@@ -58,9 +58,10 @@
   min-width: 60px;
   
   &:hover:not(:disabled) {
-    background: var(--bs-primary-bg-subtle);
+    background: var(--primary-1);
     border-color: var(--primary-1);
-    color: var(--primary-1);
+    color: white;
+    transform: translateY(-1px);
   }
   
   &:active:not(:disabled) {
@@ -95,7 +96,7 @@
 .feedback-thanks {
   font-size: 16px;
   font-weight: 500;
-  color: var(--primary-1);
+  color: #14003d;
   margin-bottom: 8px;
 }
 
@@ -143,28 +144,33 @@
   justify-content: center;
   height: 36px;
   padding: 0 20px;
-  background: var(--primary-1);
-  border: none;
+  background: transparent;
+  border: 2px solid var(--primary-1);
   border-radius: 4px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
-  color: white;
+  color: var(--bs-body-color);
   transition: all 0.2s ease;
+  white-space: nowrap;
   
   &:hover:not(:disabled) {
-    background: var(--primary-2);
+    background: var(--primary-1);
+    border-color: var(--primary-1);
+    color: white;
     transform: translateY(-1px);
   }
   
   &:active:not(:disabled) {
-    transform: translateY(0);
+    transform: scale(0.98);
   }
   
   &:disabled {
     cursor: not-allowed;
-    opacity: 0.7;
+    opacity: 0.6;
     background: var(--bs-secondary);
+    border-color: var(--bs-secondary);
+    color: white;
   }
 }
 

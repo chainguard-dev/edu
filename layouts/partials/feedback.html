@@ -12,7 +12,18 @@
       </div>
     </div>
     <div class="feedback-form" style="display: none;">
-      <!-- Embedded Google Form iframe will be inserted here -->
+      <div class="feedback-textarea-container">
+        <textarea 
+          class="feedback-textarea" 
+          placeholder="What could we improve?"
+          rows="3"
+          required
+          aria-label="Please tell us what we could improve"
+        ></textarea>
+      </div>
+      <button class="feedback-submit-btn" type="button">
+        Submit Feedback
+      </button>
     </div>
     <div class="feedback-response" style="display: none;">
       <div class="feedback-thanks">Thanks for the feedback!</div>
