@@ -1,5 +1,5 @@
 ---
-title: "CMMC 2.0 Maturity Levels"
+title: "CMMC Maturity Levels"
 description: "Learn about the differences between CMMC 2.0's maturity levels"
 lead: "Learn about the differences between CMMC 2.0's maturity levels"
 type: "article"
@@ -7,6 +7,8 @@ date: 2024-08-09T19:10:09+00:00
 lastmod: 2024-08-15T19:10:09+00:00
 contributors: []
 draft: false
+aliases:
+- /chainguard/software-security/compliance/cmmc-2/cmmc-2-levels/
 tags: ["Compliance", "CMMC 2.0", "Standards"]
 images: []
 menu:

@@ -1,5 +1,5 @@
 ---
-title: "Overview of PCI DSS 4.0 Practices/Requirements"
+title: "PCI DSS Practices"
 description: "Learn about the practices required for PCI DSS 4.0"
 lead: "Learn about the practices required for PCI DSS 4.0"
 type: "article"
@@ -7,6 +7,8 @@ date: 2024-08-21T14:05:09+00:00
 lastmod: 2024-08-21T14:05:09+00:00
 contributors: []
 draft: false
+aliases:
+- /chainguard/software-security/compliance/pci-dss-4/pci-dss-practices/
 tags: ["Compliance", "PCI DSS 4.0", "Standards"]
 images: []
 menu:

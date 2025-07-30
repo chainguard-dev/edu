@@ -11,10 +11,16 @@
   weight = 20
 
 [[docs]]
+  name = "Compliance"
+  identifier = "compliance"
+  url = "/compliance/"
+  weight = 30
+
+[[docs]]
   name = "Software Security"
   identifier = "security"
   url = "/software-security/"
-  weight = 20
+  weight = 40
 
 [[main]]
   name = "Product Docs"
@@ -25,6 +31,11 @@
   name = "Open Source"
   identifier = "menu-oss"
   weight = 20
+
+[[main]]
+  name = "Compliance"
+  identifier = "menu-compliance"
+  weight = 30
 
 [[main]]
   name = "Chainguard Containers"
@@ -83,9 +94,21 @@
 
 [[main]]
   name = "SLSA"
-  url = "/open-source/slsa/"
-  parent = "menu-oss"
-  weight = 45
+  url = "/compliance/slsa/"
+  parent = "menu-compliance"
+  weight = 40
+
+[[main]]
+  name = "CMMC"
+  url = "/compliance/cmmc-2/"
+  parent = "menu-compliance"
+  weight = 20
+
+[[main]]
+  name = "PCI DSS"
+  url = "/compliance/pci-dss-4/"
+  parent = "menu-compliance"
+  weight = 30
 
 [[main]]
   name = "Software Security"

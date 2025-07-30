@@ -1,5 +1,5 @@
 ---
-title: "Simplify Your Path to CMMC 2.0 Compliance with Chainguard"
+title: "CMMC at Chainguard"
 description: "Chainguard Containers reduce the time and effort for establishing CMMC 2.0 compliance"
 lead: "Chainguard Containers reduce the time and effort for establishing CMMC 2.0 compliance"
 type: "article"
@@ -7,6 +7,8 @@ date: 2024-08-09T19:10:09+00:00
 lastmod: 2024-08-15T19:10:09+00:00
 contributors: []
 draft: false
+aliases:
+- /chainguard/software-security/compliance/cmmc-2/cmmc-chainguard/
 tags: ["Compliance", "CMMC 2.0", "Standards"]
 images: []
 menu:
