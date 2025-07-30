@@ -1,5 +1,5 @@
 ---
-title: "Simplify Your Path to CMMC 2.0 Compliance with Chainguard"
+title: "CMMC at Chainguard"
 description: "Chainguard Containers reduce the time and effort for establishing CMMC 2.0 compliance"
 lead: "Chainguard Containers reduce the time and effort for establishing CMMC 2.0 compliance"
 type: "article"

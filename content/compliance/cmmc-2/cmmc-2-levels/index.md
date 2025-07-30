@@ -1,5 +1,5 @@
 ---
-title: "CMMC 2.0 Maturity Levels"
+title: "CMMC Maturity Levels"
 description: "Learn about the differences between CMMC 2.0's maturity levels"
 lead: "Learn about the differences between CMMC 2.0's maturity levels"
 type: "article"

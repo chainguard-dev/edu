@@ -1,5 +1,5 @@
 ---
-title: "Introduction to the PCI Data Security Standard (DSS) 4.0"
+title: "Introduction to PCI DSS"
 description: "How to prepare your organization to meet the requirements of PCI DSS 4.0"
 lead: "How to prepare your organization to meet the requirements of PCI DSS 4.0"
 type: "article"

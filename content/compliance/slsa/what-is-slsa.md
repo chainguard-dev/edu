@@ -1,5 +1,5 @@
 ---
-title: "Introduction to the Supply Chain Levels for Software Artifacts (SLSA) 1.1"
+title: "Introduction to SLSA"
 description: "A conceptual overview of SLSA"
 lead: "A conceptual overview of SLSA"
 type: "article"

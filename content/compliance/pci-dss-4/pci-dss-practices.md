@@ -1,5 +1,5 @@
 ---
-title: "Overview of PCI DSS 4.0 Practices/Requirements"
+title: "PCI DSS Practices"
 description: "Learn about the practices required for PCI DSS 4.0"
 lead: "Learn about the practices required for PCI DSS 4.0"
 type: "article"

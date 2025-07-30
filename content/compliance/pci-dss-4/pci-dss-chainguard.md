@@ -1,5 +1,5 @@
 ---
-title: "Simplify Your Path to PCI DSS 4.0 Compliance with Chainguard"
+title: "PCI DSS at Chainguard"
 description: "Chainguard Containers reduce the time and effort for establishing PCI DSS 4.0 compliance"
 lead: "Chainguard Containers reduce the time and effort for establishing PCI DSS 4.0 compliance"
 type: "article"

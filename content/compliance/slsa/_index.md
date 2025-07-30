@@ -5,6 +5,8 @@ type: "article"
 date: 2023-02-14T08:49:15+00:00
 lastmod: 2023-07-05T13:17:17+00:00
 draft: false
+aliases:
+- /chainguard/open-source/slsa/
 images: []
 weight: 015
 ---

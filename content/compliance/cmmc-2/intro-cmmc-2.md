@@ -1,5 +1,5 @@
 ---
-title: "Introduction to the Cybersecurity Maturity Model Certification (CMMC) 2.0"
+title: "Introduction to CMMC"
 description: "How to prepare your organization to meet the requirements of CMMC 2.0"
 lead: "How to prepare your organization to meet the requirements of CMMC 2.0"
 type: "article"
