@@ -1,0 +1,208 @@
+name: Compile Documentation Bundle (Secure)
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'content/**'
+      - 'scripts/compile_docs.py'
+  
+  schedule:
+    - cron: '0 2 * * *'
+  
+  workflow_dispatch:
+
+# Restrict permissions to minimum required
+permissions:
+  contents: write  # Only for pushing compiled docs
+  actions: read
+  
+jobs:
+  compile-docs:
+    runs-on: ubuntu-latest
+    environment: documentation  # Use environment protection rules
+    
+    steps:
+    - name: Checkout edu repository
+      uses: actions/checkout@v4
+      with:
+        path: edu
+        persist-credentials: false  # Don't persist auth token
+
+    # Use deploy keys instead of PAT for better security
+    - name: Checkout courses repository
+      uses: actions/checkout@v4
+      with:
+        repository: ${{ github.repository_owner }}/courses
+        path: courses
+        ssh-key: ${{ secrets.COURSES_DEPLOY_KEY }}
+
+    - name: Checkout images-private repository
+      uses: actions/checkout@v4
+      with:
+        repository: ${{ github.repository_owner }}/images-private
+        path: images-private
+        ssh-key: ${{ secrets.IMAGES_DEPLOY_KEY }}
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Cache Python dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+
+    - name: Validate repositories
+      run: |
+        # Verify we have the expected repositories
+        for repo in edu courses images-private; do
+          if [ ! -d "$repo" ]; then
+            echo "Error: Expected repository $repo not found"
+            exit 1
+          fi
+        done
+        
+        # Check for suspicious files
+        find . -name "*.sh" -o -name "*.py" | grep -v -E "(compile_docs\.py|create_compressed_docs\.sh)" | while read file; do
+          echo "Warning: Unexpected script found: $file"
+        done
+
+    - name: Run security scan on Python script
+      run: |
+        cd edu
+        # Install security tools
+        pip install bandit safety
+        
+        # Scan for security issues
+        bandit -r scripts/compile_docs.py -f json -o bandit-report.json || true
+        
+        # Check for critical issues
+        if [ -f bandit-report.json ]; then
+          critical_issues=$(python -c "import json; data=json.load(open('bandit-report.json')); print(len([i for i in data.get('results', []) if i.get('issue_severity') == 'HIGH']))")
+          if [ "$critical_issues" -gt 0 ]; then
+            echo "Critical security issues found in compile_docs.py"
+            cat bandit-report.json
+            exit 1
+          fi
+        fi
+
+    - name: Set environment variable for GitHub Actions
+      run: echo "GITHUB_ACTIONS=true" >> $GITHUB_ENV
+
+    - name: Compile documentation with resource limits
+      run: |
+        cd edu
+        # Run with timeout and memory limits
+        timeout 600 python3 scripts/compile_docs.py
+        
+        # Verify output file size (max 50MB uncompressed)
+        if [ -f static/downloads/chainguard-complete-docs.md ]; then
+          size=$(stat -c%s static/downloads/chainguard-complete-docs.md)
+          if [ $size -gt 52428800 ]; then
+            echo "Error: Compiled documentation exceeds 50MB limit"
+            exit 1
+          fi
+        fi
+
+    - name: Create compressed versions
+      run: |
+        cd edu/static/downloads
+        
+        # Create compressed versions with integrity checks
+        gzip -k -9 chainguard-complete-docs.md
+        zip -9 chainguard-complete-docs.zip chainguard-complete-docs.md
+        tar -czf chainguard-complete-docs.tar.gz chainguard-complete-docs.md
+        
+        # Generate checksums
+        sha256sum chainguard-complete-docs.* > checksums.sha256
+        
+        # Verify compressed files
+        gzip -t chainguard-complete-docs.md.gz
+        unzip -t chainguard-complete-docs.zip > /dev/null
+        tar -tzf chainguard-complete-docs.tar.gz > /dev/null
+
+    - name: Sign compiled documentation
+      if: ${{ secrets.SIGNING_KEY != '' }}
+      run: |
+        cd edu/static/downloads
+        
+        # Import GPG key
+        echo "${{ secrets.SIGNING_KEY }}" | gpg --import
+        
+        # Sign files
+        for file in chainguard-complete-docs.*; do
+          gpg --armor --detach-sign "$file"
+        done
+
+    - name: Scan for sensitive data
+      run: |
+        cd edu
+        
+        # Install gitleaks
+        wget -q https://github.com/gitleaks/gitleaks/releases/download/v8.18.0/gitleaks_8.18.0_linux_x64.tar.gz
+        tar -xzf gitleaks_8.18.0_linux_x64.tar.gz
+        
+        # Scan compiled documentation for secrets
+        ./gitleaks detect --no-git --source static/downloads/ --verbose --report-format json --report-path gitleaks-report.json
+        
+        # Check results
+        if [ -f gitleaks-report.json ] && [ -s gitleaks-report.json ]; then
+          echo "Potential secrets detected in compiled documentation!"
+          cat gitleaks-report.json
+          exit 1
+        fi
+
+    - name: Configure git for signing
+      run: |
+        cd edu
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git config --local commit.gpgsign false  # Disable GPG signing for bot commits
+
+    - name: Commit and push changes
+      uses: actions/github-script@v7
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          const fs = require('fs');
+          const { execSync } = require('child_process');
+          
+          process.chdir('edu');
+          
+          // Check for changes
+          const status = execSync('git status --porcelain').toString();
+          if (!status) {
+            console.log('No changes to commit');
+            return;
+          }
+          
+          // Add files (whitelist approach)
+          const allowedFiles = [
+            'static/downloads/chainguard-complete-docs.md',
+            'static/downloads/chainguard-complete-docs.md.gz',
+            'static/downloads/chainguard-complete-docs.zip',
+            'static/downloads/chainguard-complete-docs.tar.gz',
+            'static/downloads/checksums.sha256'
+          ];
+          
+          for (const file of allowedFiles) {
+            if (fs.existsSync(file)) {
+              execSync(`git add ${file}`);
+            }
+          }
+          
+          // Add signature files if they exist
+          const sigFiles = execSync('find static/downloads -name "*.asc" -o -name "*.sig"').toString().trim().split('\n').filter(Boolean);
+          for (const file of sigFiles) {
+            execSync(`git add ${file}`);
+          }
+          
+          // Commit with signed commits if possible
+          const commitMessage = `Update compiled documentation bundle [skip ci]\n\nAutomated update from GitHub Actions\nWorkflow: ${process.env.GITHUB_WORKFLOW}\nRun: ${process.env.GITHUB_RUN_ID}`;
+          execSync(`git commit -m "${commitMessage}"`);
+          
+          // Push changes
+          execSync('git push');

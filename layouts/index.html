@@ -13,12 +13,35 @@
   <div class="center-content index-html flex-shrink-1">
     <main class="docs-content">
       <div>
-        <img height="50ems"src="/logos/3d-linky.png">
+        <a href="https://www.chainguard.dev" target="_blank" rel="noopener" style="display: inline-block;">
+          <img height="50ems"src="/logos/3d-linky.png" alt="Chainguard Linky" style="transition: transform 0.2s;">
+        </a>
 
         <h2 class="center-title">Chainguard Academy</h2>
         <div>Documentation and tutorials to help you build the future instead of patch the past</div>
       </div>
 
+      <!-- Developer Documentation Bundle Banner -->
+      <div style="background-color: var(--blockquote-background); border: 1px solid var(--sidebar-item-list-item-selected-background); border-radius: 8px; padding: 20px; margin: 40px 0 0 0; text-align: center;">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 300px;">
+            <h4 style="margin: 0 0 8px 0; color: var(--body-color); display: flex; align-items: center; justify-content: center; gap: 8px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
+                <path d="M19 9H15V3H9V9H5L12 16L19 9ZM5 18V20H19V18H5Z" fill="currentColor"/>
+              </svg>
+              AI-Ready Documentation Bundle
+            </h4>
+            <p style="margin: 0; color: var(--body-color);">Download all Chainguard docs in one file for use with Claude, ChatGPT, and other AI assistants</p>
+          </div>
+          <div>
+            <a href="/chainguard/developer-resources/#download-documentation" 
+               class="btn"
+               style="background-color: var(--contact-us-button-background); color: var(--contact-us-button-color); padding: 10px 24px; text-decoration: none; border-radius: 6px; display: inline-block; white-space: nowrap; border: none;">
+              Download Bundle →
+            </a>
+          </div>
+        </div>
+      </div>
 
       {{ partial "notice.html" . }}
 
@@ -125,7 +148,7 @@
         </div>
       </section>
       <section class="section-sm">
-        <h4 class="section-title mb-2">A secure, trusted software supply chain</h4>
+        <h4 class="section-title mb-2">A more secure and trusted software supply chain</h4>
         <div>
           Deep dive into Chainguard
         </div>
