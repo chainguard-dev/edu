@@ -1,26 +1,26 @@
 ---
 date: 2025-07-30T21:39:07Z
-title: "chainctl config validate"
-slug: chainctl_config_validate
-url: /chainguard/chainctl/chainctl-docs/chainctl_config_validate/
+title: "chainctl iam account-associations check azure"
+slug: chainctl_iam_account-associations_check_azure
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_check_azure/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl config validate
+## chainctl iam account-associations check azure
 
-Run diagnostics on local config.
+Checks that the given location has been properly configured for OIDC federation with AZURE
 
 ```
-chainctl config validate [--output=json|table] [flags]
+chainctl iam account-associations check azure ORGANIZATION_NAME|ORGANIZATION_ID|FOLDER_NAME|FOLDER_ID [flags]
 ```
 
 ### Options
 
 ```
-  -h, --help   help for validate
+  -h, --help   help for azure
 ```
 
 ### Options inherited from parent commands
@@ -39,5 +39,5 @@ chainctl config validate [--output=json|table] [flags]
 
 ### SEE ALSO
 
-* [chainctl config](/chainguard/chainctl/chainctl-docs/chainctl_config/)	 - Local config file commands for chainctl.
+* [chainctl iam account-associations check](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_check/)	 - Check the OIDC federation configurations for cloud providers.
 
