@@ -1,0 +1,23 @@
+{{- $context := .Get "context" | default "info" -}}
+{{- $text := .Get "text" -}}
+{{- $inner := .Inner -}}
+<div class="alert alert-{{ $context }} d-flex" role="alert">
+  <div class="flex-shrink-0">
+    {{- if eq $context "danger" -}}
+      <i class="bi bi-exclamation-triangle-fill" aria-hidden="true"></i>
+    {{- else if eq $context "warning" -}}
+      <i class="bi bi-exclamation-triangle" aria-hidden="true"></i>
+    {{- else if eq $context "success" -}}
+      <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+    {{- else -}}
+      <i class="bi bi-info-circle-fill" aria-hidden="true"></i>
+    {{- end -}}
+  </div>
+  <div class="flex-grow-1 ms-2">
+    {{- if $text -}}
+      {{ $text | markdownify }}
+    {{- else -}}
+      {{ $inner | markdownify }}
+    {{- end -}}
+  </div>
+</div>
