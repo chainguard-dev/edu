@@ -1,31 +1,31 @@
 ---
 date: 2025-07-30T21:39:07Z
-title: "chainctl iam account-associations set gcp"
-slug: chainctl_iam_account-associations_set_gcp
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_set_gcp/
+title: "chainctl iam account-associations set azure"
+slug: chainctl_iam_account-associations_set_azure
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_set_azure/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam account-associations set gcp
+## chainctl iam account-associations set azure
 
-Set GCP account association for a location.
+Set AZURE account association for a location.
 
 ```
-chainctl iam account-associations set gcp ORGANIZATION_NAME|ORGANIZATION_ID|FOLDER_NAME|FOLDER_ID --project-id=PROJECT_ID --project-number=PROJECT_NUMBER [--name=NAME] [--description=DESCRIPTION] [--yes] [--output=id|json|table] [flags]
+chainctl iam account-associations set azure ORGANIZATION_NAME|ORGANIZATION_ID|FOLDER_NAME|FOLDER_ID --tenant-id=TENANT_ID --client-ids=COMPONENT_NAME=CLIENT_ID [--name=NAME] [--description=DESCRIPTION] [--yes] [--output=id|json|table] [flags]
 ```
 
 ### Options
 
 ```
-  -d, --description string      The description of the resource.
-  -h, --help                    help for gcp
-  -n, --name string             Given name of the resource.
-      --project-id string       The GCP project ID.
-      --project-number string   The GCP project number.
-  -y, --yes                     Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
+      --client-ids stringToString   A chainguard component_name to azure client_id map (default [])
+  -d, --description string          The description of the resource.
+  -h, --help                        help for azure
+  -n, --name string                 Given name of the resource.
+      --tenant-id string            The Azure Tenant ID.
+  -y, --yes                         Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 
 ### Options inherited from parent commands
