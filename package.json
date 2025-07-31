@@ -8,10 +8,7 @@
   "browserslist": [
     "defaults"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/h-enk/doks.git"
-  },
+  "repository": "https://github.com/h-enk/doks",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
@@ -72,14 +69,6 @@
     "hugo": "0.99.0"
   },
   "dependencies": {
-    "bootstrap-icons": "^1.10.5",
-    "cors-anywhere": "^0.4.4"
-  },
-  "bugs": {
-    "url": "https://github.com/h-enk/doks/issues"
-  },
-  "homepage": "https://github.com/h-enk/doks#readme",
-  "main": "babel.config.js",
-  "keywords": [],
-  "author": ""
+    "bootstrap-icons": "^1.10.5"
+  }
 }
