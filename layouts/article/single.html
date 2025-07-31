@@ -126,10 +126,6 @@
           {{ end }}-->
       </div>
 
-      {{ if not .Params.hide_feedback -}}
-        {{ partial "feedback.html" . }}
-      {{ end -}}
-
       <!-- <a class="btn cta-button" href="https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement">Contact Us</a> -->
 
       {{ partial "footer/main/docs-navigation.html" . }}
@@ -148,9 +144,6 @@
     {{- $copypage := resources.Get "js/copypage.js" -}}
     {{ $copypage := $copypage | minify }}
     <script src="{{ $copypage.Permalink }}" integrity="{{ $copypage.Data.Integrity }}"></script>
-    {{- $feedback := resources.Get "js/feedback.js" -}}
-    {{ $feedback := $feedback | minify }}
-    <script src="{{ $feedback.Permalink }}" integrity="{{ $feedback.Data.Integrity }}"></script>
     {{ if ne .Params.toc false -}}
     <nav class="docs-toc{{ if ne .Site.Params.options.navbarSticky true }} docs-toc-top{{ end }}" aria-label="Secondary navigation">
       {{ partial "sidebar/docs-toc.html" . }}
