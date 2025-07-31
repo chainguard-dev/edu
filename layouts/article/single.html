@@ -126,6 +126,10 @@
           {{ end }}-->
       </div>
 
+      {{ if not .Params.hide_feedback -}}
+        {{ partial "feedback.html" . }}
+      {{ end -}}
+
       <!-- <a class="btn cta-button" href="https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement">Contact Us</a> -->
 
       {{ partial "footer/main/docs-navigation.html" . }}
