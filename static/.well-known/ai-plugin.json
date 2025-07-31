@@ -1,0 +1,53 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Chainguard Education",
+  "name_for_model": "chainguard_edu",
+  "description_for_human": "Learn about cloud-native security, software supply chain security, and container best practices",
+  "description_for_model": "Documentation and educational resources about cloud-native security, container security, software supply chain security, vulnerability management, and related tools like Wolfi, Melange, Apko, and Cosign. Includes tutorials, conceptual guides, and reference documentation for security professionals and developers.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "website",
+    "url": "https://edu.chainguard.dev",
+    "has_search": true,
+    "search_url": "https://edu.chainguard.dev/search?q={query}"
+  },
+  "logo_url": "https://edu.chainguard.dev/logo.png",
+  "contact_email": "support@chainguard.dev",
+  "legal_info_url": "https://www.chainguard.dev/legal",
+  "navigation": {
+    "sitemap": "/ai-sitemap.json",
+    "concepts": "/concepts.json",
+    "content_index": "/llms.txt",
+    "content_index_full": "/llms-full.txt",
+    "metadata": "/ai-metadata.json"
+  },
+  "content_info": {
+    "content_types": ["documentation", "tutorials", "conceptual_guides", "reference", "blog_posts"],
+    "topics": [
+      "container_security",
+      "supply_chain_security",
+      "vulnerability_management",
+      "software_provenance",
+      "sbom",
+      "sigstore",
+      "kubernetes_security",
+      "cloud_native_security",
+      "zero_trust",
+      "distroless_containers"
+    ],
+    "languages": ["en"],
+    "update_frequency": "daily",
+    "content_format": "markdown_based_html"
+  },
+  "capabilities": {
+    "search": true,
+    "browse": true,
+    "structured_navigation": true,
+    "code_examples": true,
+    "interactive_tutorials": false,
+    "api_access": false
+  },
+  "instructions_url": "/ai-instructions.md"
+}

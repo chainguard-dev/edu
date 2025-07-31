@@ -4,10 +4,10 @@ type: "article"
 linktitle: "Python"
 aliases: 
 - /chainguard/chainguard-images/getting-started/getting-started-python
-description: "Tutorial on the distroless Chainguard Python container image"
+description: "Learn how to use Chainguard's Python container images for secure Python applications with minimal CVEs, distroless design, and comprehensive supply chain security features"
 date: 2023-02-28T11:07:52+02:00
-lastmod: 2025-03-24T13:46:53+00:00
-tags: ["Chainguard Containers", "Product"]
+lastmod: 2025-07-23T15:09:59+00:00
+tags: ["Chainguard Containers"]
 draft: false
 images: []
 menu:
@@ -17,9 +17,9 @@ weight: 055
 toc: true
 ---
 
-The Python container images based on Wolfi and maintained by Chainguard provide distroless images that are suitable for building and running Python workloads.
+Chainguard's Python container images provide a more secure foundation for Python applications through distroless design, containing significantly fewer CVEs compared to traditional Python images. These production-ready images are optimized for building and running Python workloads.
 
-Chainguard offers both a minimal runtime image containing just Python, and a development image that contains a package manager and a shell. Because Python applications typically require the installation of third-party dependencies via the Python package installer pip, you may need to implement a [multi-stage Docker build](https://docs.docker.com/build/building/multi-stage/) that uses the Python `-dev` image to set up the application.
+Two variants of Chainguard Python images are available: a minimal runtime image containing only Python and its standard library, and a `-dev` variant that includes pip and a shell for development purposes. Since most Python applications require third-party packages, the recommended approach is using a [multi-stage Docker build](https://docs.docker.com/build/building/multi-stage/) with the `-dev` image for dependency installation and the minimal image for runtime.
 
 In this guide, we'll cover two examples to showcase Python container images based on Wolfi as a runtime. In the first, we'll use the minimal image containing just Python (which has access to the [Python standard library](https://docs.python.org/3/library/)), and in the second we'll demonstrate a multi-stage build.
 

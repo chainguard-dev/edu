@@ -11,7 +11,7 @@ description: "Article outlining how one can explore and use the Security Advisor
 date: 2023-12-27T11:07:52+02:00
 lastmod: 2025-04-11T15:16:50+01:00
 draft: false
-tags: ["Chainguard Containers", "CVE", "Product"]
+tags: ["Chainguard Containers", "CVE"]
 images: []
 menu:
   docs:

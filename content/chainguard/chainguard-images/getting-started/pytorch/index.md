@@ -5,10 +5,10 @@ linktitle: "PyTorch"
 aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-pytorch-cuda12
 - /chainguard/chainguard-images/getting-started/getting-started-pytorch
-description: "Tutorial on the Chainguard PyTorch container image"
+description: "Learn how to use Chainguard's PyTorch container image for deep learning with enhanced security, minimal CVEs, and GPU acceleration support"
 date: 2024-04-25T08:00:00+02:00
-lastmod: 2025-03-24T08:00:00+00:00
-tags: ["Chainguard Containers", "Product", "AI"]
+lastmod: 2025-07-23T16:52:56+00:00
+tags: ["Chainguard Containers", "AI"]
 draft: false
 images: []
 menu:
@@ -18,7 +18,7 @@ weight: 060
 toc: true
 ---
 
-Chainguard offers a minimal, low-CVE container image for deep learning with [PyTorch](https://pytorch.org/) that includes support for the [CUDA](https://developer.nvidia.com/about-cuda) parallel computing platform for performing computation on supported GPUs. This introductory guide to Chainguard's [pytorch container image](https://images.chainguard.dev/directory/image/pytorch/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-pytorch) will walk you through fine-tuning an image classification model, saving the model, and running it securely for inference. We'll also compare the security and footprint of the PyTorch Chainguard Container to the official runtime container image distributed by PyTorch and present ways to adapt the resources in this tutorial to your own deep learning projects powered by PyTorch.
+Chainguard's [PyTorch container image](https://images.chainguard.dev/directory/image/pytorch/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-pytorch) provides a security-hardened foundation for deep learning workloads with significantly fewer vulnerabilities than traditional PyTorch containers. Built with [PyTorch](https://pytorch.org/) and [CUDA](https://developer.nvidia.com/about-cuda) support for GPU acceleration, this minimal image maintains full deep learning capabilities while dramatically reducing attack surface. This guide demonstrates fine-tuning models, secure inference deployment, and compares the enhanced security posture to official PyTorch images.
 
 {{< details "What is Deep Learning?" >}}
 {{< blurb/deep-learning >}}
@@ -70,7 +70,7 @@ It is common for model training to be performed in a development environment, an
 
 In this tutorial, we'll fine-tune a pretrained model for an image classification task: classifying whether a provided image is an octopus 🐙, a whale 🐳, or a penguin 🐧. We've chosen these animals in appreciation of Wolfi and Chainguard, Docker, and Linux, respectively. Rather than train a model from scratch, a process that requires a large set of input data, we'll start with a ResNet model with 18 layers ([resnet18](https://pytorch.org/vision/main/models/generated/torchvision.models.resnet18.html)). Using a fine-tuning approach with a pretrained model with relatively few layers is appropriate when using a limited amount of input data. In our case, we'll be using 60 images for each class, further divided into 40 training and 20 validation images.
 
-For the training step, we'll be accessing the container image as root. This allows us to save the model to a volume and preserve it on the host system. In our inference step, we'll access the container as the nonroot user, an approach that will be more secure for a production use case.
+For the training step, we'll be accessing the container image as root. This allows us to save the model to a volume and preserve it on the host system. In our inference step, we'll access the container as the non-root user, an approach that will be more secure for a production use case.
 
 ## Fine-Tuning the Model
 

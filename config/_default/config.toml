@@ -18,7 +18,7 @@ disableLanguages = ["de", "nl"]
 # defaultContentLanguageInSubdir = true
 # add redirects/headers
 [outputs]
-home = ["HTML", "RSS", "ALIASES", "REDIRECTS", "HEADERS", "TXT", "FULLTXT", "AIMETADATA"]
+home = ["HTML", "RSS", "ALIASES", "REDIRECTS", "HEADERS", "TXT", "FULLTXT", "AIMETADATA", "AISITEMAP", "CONCEPTS"]
 section = ["HTML", "RSS", "SITEMAP"]
 # remove .{ext} from text/netlify
 [mediaTypes."text/netlify"]
@@ -66,6 +66,18 @@ mediaType = "application/json"
 baseName = "ai-metadata"
 isPlainText = true
 notAlternative = true
+# add output format for ai-sitemap.json
+[outputFormats.AISITEMAP]
+mediaType = "application/json"
+baseName = "ai-sitemap"
+isPlainText = true
+notAlternative = true
+# add output format for concepts.json
+[outputFormats.CONCEPTS]
+mediaType = "application/json"
+baseName = "concepts"
+isPlainText = true
+notAlternative = true
 [caches]
   [caches.getjson]
     dir = ":cacheDir/:project"
@@ -77,6 +89,24 @@ notAlternative = true
 [taxonomies]
   contributor = "contributors"
   tags = "tags"
+[related]
+  # Only include matches with rank >= threshold
+  threshold = 60
+  # Show up to 5 related articles
+  includeNewer = true
+  toLower = false
+  [[related.indices]]
+    name = "section"
+    weight = 100  # Higher weight on section since tags need work
+  [[related.indices]]
+    name = "tags"
+    weight = 50   # Lower weight until tags are improved
+  [[related.indices]]
+    name = "title"
+    weight = 30   # Title similarity can help
+  [[related.indices]]
+    name = "date"
+    weight = 10
 [permalinks]
   blog = "/blog/:title/"
 # docs = "/docs/1.0/:sections[1:]/:title/"

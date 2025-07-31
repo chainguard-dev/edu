@@ -9,7 +9,7 @@ description: "An overview of how to use incert — a Go program from Chainguard 
 date: 2023-07-03T11:07:52+02:00
 lastmod: 2023-07-08T11:07:52+02:00
 draft: false
-tags: ["Chainguard Containers", "Product"]
+tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:

@@ -1,0 +1,24 @@
+/* TEAM */
+Organization: Chainguard
+Site: https://www.chainguard.dev
+Location: Global
+
+/* THANKS */
+Open Source Community
+Hugo Static Site Generator
+All Contributors
+
+/* SITE */
+Last update: 2025-07-09
+Standards: HTML5, CSS3, ES6
+Components: Hugo, Bootstrap, Markdown
+Software: Hugo Static Site Generator
+Language: English
+Purpose: Education and Documentation for Cloud-Native Security
+
+/* TECHNOLOGY */
+AI-Ready: Yes
+AI Endpoints: /ai-sitemap.json, /concepts.json, /llms.txt
+Semantic HTML: Yes
+Accessibility: WCAG 2.1 AA
+Performance: Optimized with lazy loading and responsive images

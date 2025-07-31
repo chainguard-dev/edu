@@ -4,10 +4,10 @@ type: "article"
 linktitle: "MariaDB"
 aliases: 
 - /chainguard/chainguard-images/getting-started/getting-started-mariadb
-description: "Tutorial on how to get started with the MariaDB Chainguard Image"
+description: "Learn how to deploy MariaDB databases using Chainguard's security-hardened container image with minimal vulnerabilities and distroless design"
 date: 2023-07-28T11:07:52+02:00
-lastmod: 2023-09-22T11:07:52+02:00
-tags: ["Chainguard Containers", "Product"]
+lastmod: 2025-07-23T15:09:59+00:00
+tags: ["Chainguard Containers"]
 draft: false
 images: []
 menu:
@@ -17,9 +17,9 @@ weight: 025
 toc: true
 ---
 
-The MariaDB Container based on Wolfi and maintained by Chainguard provide a distroless container image that is suitable for building and running MariaDB workloads.
+Chainguard's MariaDB container image provides a security-hardened foundation for database workloads with significantly fewer vulnerabilities than traditional MariaDB images. Built on Wolfi with a distroless design, this container removes unnecessary components while maintaining full MariaDB functionality.
 
-Because Chainguard Containers (including the MariaDB container image) are rebuilt daily with the latest sources and include the absolute minimum of dependencies, they have significantly less vulnerabilities than equivalent container images, typically zero. This means you can use the Chainguard MariaDB Container to run MariaDB databases in containerized environments with a smaller footprint and greater security.
+Through daily rebuilds with the latest patches and minimal dependencies, Chainguard's MariaDB image dramatically reduces your database's attack surface. This enables you to run production MariaDB databases with enhanced security posture and a smaller container footprint.
 
 In order to illustrate how the MariaDB Chainguard Container might be used in practice, this tutorial involves setting up an example PHP application that uses a MariaDB database. This guide assumes you have Docker installed to run the demo; specifically, the procedure outlined in this guide uses [Docker Compose](https://docs.docker.com/compose/install/) to manage the environment on your local machine.
 

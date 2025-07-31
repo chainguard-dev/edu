@@ -1,5 +1,5 @@
 ---
-date: 2025-07-04T19:53:12Z
+date: 2025-07-28T20:36:34Z
 title: "chainctl auth pull-token"
 slug: chainctl_auth_pull-token
 url: /chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token/
@@ -14,18 +14,18 @@ toc: true
 Create a pull token.
 
 ```
-chainctl auth pull-token [--output=env|json] [flags]
+chainctl auth pull-token [flags]
 ```
 
 ### Options
 
 ```
   -h, --help                       help for pull-token
-      --library-ecosystem string   The language ecosystem to create this pull token for (e.g. python, java).
-      --name string                Optionally set the name for the token (default "pull-token")
-      --parent string              The IAM organization or folder with which the pull-token identity is associated.
-      --save                       If true with --pull-token, save the pull token to the Docker config
-      --ttl duration               For how long a generated pull-token will be valid. (default 720h0m0s)
+      --library-ecosystem python   The language ecosystem to access with the pull token. Valid values are python and `java`.
+      --name string                Pull token name. (default "pull-token")
+      --parent string              The IAM organization or folder with which the pull token identity is associated.
+      --save                       If true with --pull-token, save the pull token to the Docker configuration.
+      --ttl ns                     Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maxiumum value is 8760h or one year. (default 720h0m0s)
 ```
 
 ### Options inherited from parent commands
@@ -45,4 +45,6 @@ chainctl auth pull-token [--output=env|json] [flags]
 ### SEE ALSO
 
 * [chainctl auth](/chainguard/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
+* [chainctl auth pull-token create](/chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token_create/)	 - Create a pull token.
+* [chainctl auth pull-token list](/chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token_list/)	 - List all pull-tokens
 

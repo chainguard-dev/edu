@@ -1,0 +1,11 @@
+{{- /* Enhanced semantic code block rendering for AI parsing */ -}}
+{{- $lang := .Type -}}
+{{- $code := .Inner -}}
+{{- $attrs := .Attributes -}}
+{{- with $attrs.title -}}
+<div class="code-title" id="code-title-{{ . | urlize }}">{{ . }}</div>
+{{- end -}}
+<pre class="highlight" data-language="{{ $lang }}"{{ with $attrs.title }} aria-labelledby="code-title-{{ . | urlize }}"{{ end }}><code class="language-{{ $lang }}" data-lang="{{ $lang }}">{{ $code }}</code></pre>
+{{- with $attrs.caption -}}
+<div class="code-caption">{{ . }}</div>
+{{- end -}}

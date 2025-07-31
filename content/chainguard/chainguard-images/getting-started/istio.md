@@ -4,10 +4,10 @@ type: "article"
 linktitle: "Istio"
 aliases: 
 - /chainguard/chainguard-images/getting-started/getting-started-istio
-description: "Tutorial on how to get started with the Chainguard Istio container images"
+description: "Learn how to deploy Istio service mesh using Chainguard's security-hardened Istio images with reduced vulnerabilities and minimal attack surface"
 date: 2023-12-14T00:00:00+00:00
-lastmod: 2025-03-24T11:07:52+02:00
-tags: ["Chainguard Containers", "Product"]
+lastmod: 2025-07-23T15:09:59+00:00
+tags: ["Chainguard Containers"]
 draft: false
 images: []
 menu:
@@ -17,12 +17,7 @@ weight: 015
 toc: true
 ---
 
-[Istio](https://istio.io) extends Kubernetes to establish a programmable,
-application-aware network using the powerful Envoy service proxy. Working with
-both Kubernetes and traditional workloads, Istio brings standard, universal
-traffic management, telemetry, and security to complex deployments. Chainguard
-offers a set of minimal, security-hardened Istio container images, built on top the Wolfi
-OS.
+Chainguard's [Istio](https://istio.io) container images provide a security-hardened foundation for service mesh deployments with significantly reduced vulnerabilities compared to standard Istio images. Istio extends Kubernetes to establish a programmable, application-aware network using the Envoy service proxy, bringing traffic management, telemetry, and security to complex deployments. Built on Wolfi OS, Chainguard's minimal Istio images maintain full compatibility while enhancing security posture.
 
 We will demonstrate how to get started with the Chainguard Istio container images on an
 example kind cluster. To get started, you'll need Docker, kind, `kubectl`, and `istioctl`

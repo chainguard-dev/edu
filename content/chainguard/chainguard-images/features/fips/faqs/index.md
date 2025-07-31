@@ -6,7 +6,7 @@ description: "Frequently Asked Questions about Chainguard FIPS Container Images"
 date: 2025-01-10T15:56:52-07:00
 lastmod: 2025-04-08T05:56:52-07:00
 draft: false
-tags: ["Chainguard Containers", "Product", "FIPS"]
+tags: ["Chainguard Containers", "FIPS"]
 images: []
 menu:
   docs:

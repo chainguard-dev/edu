@@ -1,0 +1,62 @@
+{{/* AI-Friendly Semantic Meta Tags */}}
+<meta name="article:type" content="{{ .Type }}">
+<meta name="article:section" content="{{ .Section }}">
+{{ with .Description }}<meta name="article:summary" content="{{ . }}">{{ end }}
+{{ with .Params.tags }}<meta name="article:tags" content="{{ delimit . ", " }}">{{ end }}
+{{ if .IsPage }}
+<meta name="article:word_count" content="{{ .WordCount }}">
+<meta name="article:reading_time" content="{{ .ReadingTime }}">
+<meta name="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+<meta name="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">
+{{ end }}
+
+{{/* Open Graph Extensions for AI */}}
+<meta property="og:type" content="article">
+<meta property="og:article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+<meta property="og:article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">
+{{ range .Params.tags }}<meta property="og:article:tag" content="{{ . }}">{{ end }}
+{{ range .Params.contributors }}<meta property="og:article:author" content="{{ . }}">{{ end }}
+
+{{/* Semantic Hints for AI Parsers */}}
+<meta name="ai:content_structure" content="documentation">
+<meta name="ai:content_format" content="markdown-derived-html">
+<meta name="ai:navigation_available" content="true">
+<meta name="ai:endpoints" content="/ai-sitemap.json,/concepts.json,/llms.txt,/llms-full.txt,/ai-metadata.json">
+
+{{/* Language and Reading Level */}}
+<meta name="language" content="{{ .Site.Language.Lang }}">
+<meta name="content-language" content="{{ .Site.Language.Lang }}">
+
+{{/* Custom Data Attributes for JavaScript Enhancement */}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": {{ .Title | jsonify }},
+  "description": {{ .Description | default .Summary | jsonify }},
+  "datePublished": {{ .Date.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
+  "dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
+  "wordCount": {{ .WordCount }},
+  "timeRequired": "PT{{ .ReadingTime }}M",
+  "inLanguage": {{ .Site.Language.Lang | jsonify }},
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": {{ .Site.Title | jsonify }},
+    "url": {{ .Site.BaseURL | jsonify }}
+  },
+  "keywords": {{ .Params.tags | jsonify }},
+  {{ with .Params.contributors }}
+  "author": [
+    {{ range $i, $author := . }}
+    {{ if $i }},{{ end }}
+    {
+      "@type": "Person",
+      "name": {{ $author | jsonify }}
+    }
+    {{ end }}
+  ],
+  {{ end }}
+  "articleSection": {{ .Section | jsonify }},
+  "url": {{ .Permalink | jsonify }}
+}
+</script>

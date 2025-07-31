@@ -6,22 +6,17 @@ aliases:
 - /chainguard/migration/migrating-node/
 - /chainguard/migration/migration-guides/migrating-node/
 type: "article"
-description: "Guidance on how to migrate Node.js Dockerfile workloads to use Chainguard Containers"
+description: "Learn how to migrate Node.js applications to Chainguard Containers for reduced vulnerabilities, smaller image sizes, and automated security patching"
 date: 2024-05-09T15:56:52-07:00
-lastmod: 2024-05-09T15:56:52-07:00
+lastmod: 2025-07-23T16:52:56+00:00
 draft: false
-tags: ["Chainguard Containers", "Product", "Migration"]
+tags: ["Chainguard Containers", "Migration"]
 images: []
 weight: 010
 toc: true
 ---
 
-Chainguard Containers are built on top of [Wolfi](/open-source/wolfi/), a Linux _undistro_ designed
-specifically for containers. Our Node.js images have a minimal design (sometimes known as
-_distroless_) that ensures a smaller attack surface, which results in smaller images [with few to
-zero](/chainguard/chainguard-images/vuln-comparison/node/) CVEs. Nightly builds deliver fresh images
-whenever updated packages are available, which also helps to reduce the toil of manually patching
-CVEs.
+Chainguard's Node.js containers offer a streamlined migration path for applications seeking enhanced security posture through minimal, distroless design. Built on [Wolfi](/open-source/wolfi/), these containers significantly reduce attack surface compared to traditional Node.js images, resulting in [fewer vulnerabilities](/chainguard/chainguard-images/vuln-comparison/node/) and smaller image sizes. Daily automated builds ensure your applications always have the latest security patches without manual intervention.
 
 {{< details "What is Distroless?" >}}
 {{< blurb/distroless >}}
@@ -37,7 +32,7 @@ Chainguard Containers base.
 ## Node.js Chainguard Containers
 
 The [Node.js](https://images.chainguard.dev/directory/image/node/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-node) images come in two main
-flavours; runtime images intended for production usage and builder images intended for use in the
+flavors; runtime images intended for production usage and builder images intended for use in the
 build-step of multi-stage builds. The builder images are distinguished by the `-dev` suffix (e.g.,
 `latest-dev`).
 

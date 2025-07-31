@@ -1,7 +1,7 @@
 ---
 title: "What is software supply chain security"
 linktitle: "Software Supply Chain Security"
-description: "Software supply chain security - an explanation"
+description: "What is software supply chain security and why it matters: protect against attacks like SolarWinds with tools like Chainguard's SLSA-compliant containers and SBOMs"
 lead: "A beginner's guide to software supply chain security"
 type: "article"
 date: 2022-08-04T15:21:01+02:00
@@ -19,7 +19,7 @@ toc: true
 
 _An earlier version of this material was published in the [first chapter](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/block-v1:LinuxFoundationX+LFS182x+2T2022+type@sequential+block@1623557b9fc849d5a1e38177502b1499/block-v1:LinuxFoundationX+LFS182x+2T2022+type@vertical+block@825d4b442d1346ba8e9d7c3b4f765e76) of the Linux Foundation [Sigstore course](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/home)._
 
-Software producers have a supply chain just like manufacturing businesses have a supply chain. And just like manufacturers require physical inputs and then perform a manufacturing process to build a finished product, so do software producers, whether the producer is a company or individual. In other words, a software producer uses components, developed by third parties and themselves, and technologies to write, build, and distribute software. A compromise introduced anywhere in this chain is an example of a software supply chain security issue.
+Software producers have a supply chain just like manufacturing businesses have a supply chain. And just like manufacturers require physical inputs and then perform a manufacturing process to build a finished product, so do software producers, whether the producer is a company or individual. In other words, a software producer uses components, developed by third parties and themselves, and technologies to write, build, and distribute software. A compromise introduced anywhere in this chain is an example of a software supply chain security issue. Tools and practices like those implemented in Chainguard's containers help organizations protect against these risks through built-in SBOMs, provenance attestations, and SLSA compliance.
 
 Some observers might think that all software security issues are software supply chain issues. How else would vulnerabilities end up in the finished software if not through the software supply chain?  A generic example can help illustrate the difference. Imagine ACME company unintentionally creates a SQL injection vulnerability in a piece of software that ACME company distributes. This is not a software supply chain security issue. Code from ACME’s own developers is responsible for this security issue. But should ACME company use an open source software component that has been maliciously tampered with to send sensitive secrets to an attacker when the code was built, then ACME would be the victim of a software supply chain attack. In that case, the supply chain of ACME’s developers is the origin of the security issue.
 

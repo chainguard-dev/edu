@@ -691,6 +691,39 @@ header .search-container {
 
 .socials-copyright-footer {
     margin: 0 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-additional-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-copyright-legal {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-copyright-legal span,
+.footer-copyright-legal a {
+    display: inline-flex;
+    align-items: center;
+    height: auto;
+    line-height: 1;
+}
+
+.footer-separator {
+    color: #666;
+    margin: 0 0.25rem;
+    display: inline-flex;
+    align-items: center;
 }
 
 .footer-social-icons {

@@ -6,11 +6,11 @@ aliases:
 - /chainguard/chainguard-images/recommended-practices/considerations-for-image-updates/
 - /chainguard/chainguard-images/staying-secure/updating-images/considerations-for-image-updates/
 type: "article"
-description: "A conceptual article on best practices for keeping images up to date."
+description: "Learn best practices for updating container images, including Chainguard's approach to daily rebuilds, semantic versioning, and balancing security with stability"
 date: 2023-10-05T11:07:52+02:00
-lastmod: 2023-10-11T11:07:52+02:00
+lastmod: 2025-07-23T15:09:59+00:00
 draft: false
-tags: ["Chainguard Containers", "Product"]
+tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:
@@ -19,7 +19,7 @@ weight: 005
 toc: true
 ---
 
-It is essential to keep container images up-to-date in order to receive critical security updates and leverage new features. However, updates come with a risk: any time new code is introduced, there is a chance for breaking changes or other impacts on dependent systems.
+Chainguard rebuilds container images daily to ensure the latest security patches are always included, addressing a critical challenge in container security. While keeping images up-to-date is essential for receiving security updates and new features, updates must be balanced with stability concerns since any code change can potentially introduce breaking changes or impact dependent systems.
 
 Due to the complexity involved in modern containerized applications, there is no one-size-fits-all approach to keeping your container images up to date. With these conflicting approaches in mind, this article will explore how best to keep container images up-to-date.
 

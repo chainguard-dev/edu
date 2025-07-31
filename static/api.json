@@ -3997,6 +3997,67 @@
             "name": "pageSize",
             "required": false,
             "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "event_statuses filters by event review status (e.g., PENDING, REQUEST_CHANGES)\nWhen specified, only advisories containing at least one event with any of the provided\nstatuses will be returned. This is useful for review workflows where users need to see\nonly events requiring action.",
+            "in": "query",
+            "items": {
+              "enum": [
+                "UNKNOWN",
+                "PENDING",
+                "APPROVED",
+                "REQUEST_CHANGES",
+                "REJECTED"
+              ],
+              "type": "string"
+            },
+            "name": "eventStatuses",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "description": "event_author filters by event author email\nWhen specified, only advisories containing at least one event created by the specified\nauthor will be returned. This enables users to find their own events or events from\nspecific team members.",
+            "in": "query",
+            "name": "eventAuthor",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "event_types filters by event type\nWhen specified, only advisories containing at least one event of any of the provided\ntypes will be returned.\n\n - EVENT_TYPE_FILTER_UNSPECIFIED: Default/unspecified\n - EVENT_TYPE_FILTER_DETECTION: Detection event\n - EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION: True positive determination\n - EVENT_TYPE_FILTER_FIXED: Fixed event\n - EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION: False positive determination\n - EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED: Analysis not planned\n - EVENT_TYPE_FILTER_FIX_NOT_PLANNED: Fix not planned\n - EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX: Pending upstream fix",
+            "in": "query",
+            "items": {
+              "enum": [
+                "EVENT_TYPE_FILTER_UNSPECIFIED",
+                "EVENT_TYPE_FILTER_DETECTION",
+                "EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION",
+                "EVENT_TYPE_FILTER_FIXED",
+                "EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION",
+                "EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED",
+                "EVENT_TYPE_FILTER_FIX_NOT_PLANNED",
+                "EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX"
+              ],
+              "type": "string"
+            },
+            "name": "eventTypes",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "default": "ORDER_BY_UNSPECIFIED",
+            "description": "order_by specifies the sort order for results\nDefault: ID_ASC\nThis field affects the order of advisories returned, which is particularly useful\nfor pagination and review workflows.\n\n - ORDER_BY_UNSPECIFIED: Default sort order\n - ID_ASC: Sort by ID in ascending order\n - ID_DESC: Sort by ID in descending order\n - CREATED_AT_ASC: Sort by creation time in ascending order (oldest first)\n - CREATED_AT_DESC: Sort by creation time in descending order (newest first)",
+            "enum": [
+              "ORDER_BY_UNSPECIFIED",
+              "ID_ASC",
+              "ID_DESC",
+              "CREATED_AT_ASC",
+              "CREATED_AT_DESC"
+            ],
+            "in": "query",
+            "name": "orderBy",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -4195,6 +4256,23 @@
       },
       "type": "object"
     },
+    "AccountAssociationsAzure": {
+      "properties": {
+        "clientIds": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "It serves as the application's identity for authentication with Azure services.",
+          "title": "client_ids is a map from chainguard component to the Azure client IDs (also known as application ID)",
+          "type": "object"
+        },
+        "tenantId": {
+          "description": "tenant_id is the Azure tenant ID where this group and descendants\nare authorized to impersonate service principals to access resources.\n\nA tenant ID is a unique GUID that identifies an organization in\nMicrosoft Entra ID (formerly Azure AD) instance",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "AccountAssociationsChainguard": {
       "properties": {
         "serviceBindings": {
@@ -4212,7 +4290,8 @@
       "enum": [
         "UNKNOWN",
         "GOOGLE",
-        "AMAZON"
+        "AMAZON",
+        "AZURE"
       ],
       "type": "string"
     },
@@ -4769,6 +4848,9 @@
           "$ref": "#/definitions/AccountAssociationsAmazon",
           "description": "amazon holds information associating an Amazon account with the group."
         },
+        "azure": {
+          "$ref": "#/definitions/AccountAssociationsAzure"
+        },
         "chainguard": {
           "$ref": "#/definitions/AccountAssociationsChainguard"
         },
@@ -4796,6 +4878,9 @@
         "amazon": {
           "$ref": "#/definitions/AccountAssociationsAmazon",
           "description": "amazon holds information associating an Amazon account with the group."
+        },
+        "azure": {
+          "$ref": "#/definitions/AccountAssociationsAzure"
         },
         "chainguard": {
           "$ref": "#/definitions/AccountAssociationsChainguard"
@@ -5970,6 +6055,9 @@
           "$ref": "#/definitions/AccountAssociationsAmazon",
           "description": "amazon holds information associating an Amazon account with the group."
         },
+        "azure": {
+          "$ref": "#/definitions/AccountAssociationsAzure"
+        },
         "chainguard": {
           "$ref": "#/definitions/AccountAssociationsChainguard"
         },
@@ -6633,6 +6721,11 @@
     },
     "oidcRawToken": {
       "properties": {
+        "expiry": {
+          "description": "(optional) Expiry time of the token.",
+          "format": "date-time",
+          "type": "string"
+        },
         "refreshToken": {
           "type": "string"
         },
@@ -8332,6 +8425,35 @@
         }
       },
       "type": "object"
+    },
+    "v1EventTypeFilter": {
+      "default": "EVENT_TYPE_FILTER_UNSPECIFIED",
+      "description": "- EVENT_TYPE_FILTER_UNSPECIFIED: Default/unspecified\n - EVENT_TYPE_FILTER_DETECTION: Detection event\n - EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION: True positive determination\n - EVENT_TYPE_FILTER_FIXED: Fixed event\n - EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION: False positive determination\n - EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED: Analysis not planned\n - EVENT_TYPE_FILTER_FIX_NOT_PLANNED: Fix not planned\n - EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX: Pending upstream fix",
+      "enum": [
+        "EVENT_TYPE_FILTER_UNSPECIFIED",
+        "EVENT_TYPE_FILTER_DETECTION",
+        "EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION",
+        "EVENT_TYPE_FILTER_FIXED",
+        "EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION",
+        "EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED",
+        "EVENT_TYPE_FILTER_FIX_NOT_PLANNED",
+        "EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX"
+      ],
+      "title": "EventTypeFilter represents the event types that can be used for filtering\nThese map to the event type values used in the system",
+      "type": "string"
+    },
+    "v1OrderBy": {
+      "default": "ORDER_BY_UNSPECIFIED",
+      "description": "- ORDER_BY_UNSPECIFIED: Default sort order\n - ID_ASC: Sort by ID in ascending order\n - ID_DESC: Sort by ID in descending order\n - CREATED_AT_ASC: Sort by creation time in ascending order (oldest first)\n - CREATED_AT_DESC: Sort by creation time in descending order (newest first)",
+      "enum": [
+        "ORDER_BY_UNSPECIFIED",
+        "ID_ASC",
+        "ID_DESC",
+        "CREATED_AT_ASC",
+        "CREATED_AT_DESC"
+      ],
+      "title": "OrderBy specifies the sort order for advisory list results",
+      "type": "string"
     },
     "v1ReviewStatus": {
       "default": "UNKNOWN",

@@ -6,7 +6,7 @@ description: "An overview of how to work with Chainguard's Private APK Repositor
 date: 2025-02-21T11:07:52+02:00
 lastmod: 2025-02-21T11:07:52+02:00
 draft: false
-tags: ["Chainguard Containers", "Product"]
+tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:
@@ -18,8 +18,6 @@ toc: true
 With Chainguard's Private APK Repositories, you can access packages that are included within your organization's container image entitlements. This allows you to build custom images based on components that are already part of your organization catalog.
 
 This guide provides a brief overview of Chainguard's private APK repositories and outlines different ways you can incorporate them into your organization's workflows.
-
-> **NOTE**: Chainguard's private APK repositories feature is currently in the beta phase and it will likely go through changes before becoming generally available.
 
 
 ## About Private APK Repositories
@@ -107,6 +105,51 @@ apk update
 
 Following that, you can proceed to search and install packages from your private APK repository.
 
+<a id="pull-token-automation"></a>
+
+## Pull Token for Authentication in Automated Workflows
+
+Use a pull token with a custom time to live (TTL) to authenticate to your
+private APK repository. The following example creates a pull token with a TTL of
+2190 hours, equivalent to 3 months, and produces an output with `export`
+commands to set environment variables `CHAINGUARD_IDENTITY_ID` for username and
+`CHAINGUARD_TOKEN` for password values and basic authentication use.
+
+```shell
+$ chainctl auth pull-token --ttl=2190h --output=env --parent=ORGANIZATION
+export CHAINGUARD_IDENTITY_ID=45a.....424eb0
+export CHAINGUARD_TOKEN=eeyJhbGciO..........WF0IjoxN
+```
+
+* `--ttl=2190d`: set the duration for the validity of the token, defaults to
+  `720h` (equivalent to 30 days), maximum valid value is `8760h` (equivalent to
+  365 days), valid unit strings range from nanoseconds to hours and are `ns`,
+  `us`, `ms`, `s`, `m`, and `h`.
+* `--output=env`: set the command output to use export commands for environment
+  variables.
+* `--parent=ORGANIZATION`: specify the parent organization for your account as
+  provided when requesting access and replace `ORGANIZATION`.
+
+Each invocation of the command creates a new identity with access rights as a
+pull token.
+
+Combine the call with `eval` to populate the environment variables directly by
+calling `chainctl`. The following example uses the default TTL value of 30 days,
+which is suitable for regular CI runs:
+
+```shell
+eval $(chainctl auth pull-token --output env --parent=ORGANIZATION)
+```
+
+The generated pull token can be provided in the `HTTP_AUTH` environment variable
+for accessing the private APK repository:
+
+```shell
+export HTTP_AUTH=basic:apk.cgr.dev:user:${CHAINGUARD_IDENTITY_ID}:${CHAINGUARD_TOKEN}
+```
+
+Now you can structure your CI workflow to utilize this variable for
+authentication against the APK repository.
 
 ## Searching for and Installing Packages
 
@@ -183,11 +226,13 @@ FROM cgr.dev/$ORGANIZATION/$IMAGE
 USER root
 RUN echo https://apk.cgr.dev/$ORGANIZATION > /etc/apk/repositories
 RUN --mount=type=secret,id=cgr-token sh -c "export HTTP_AUTH=basic:apk.cgr.dev:user:\$(cat /run/secrets/cgr-token) apk update && apk add wget"
-USER nonroot
+USER 65532
 EOF
 ```
 
 Again, this Dockerfile overwrites the contents of the `/etc/apk/repositories` file. This isn't necessary, but will force Docker to build the image and install the `wget` package without falling back to the default repositories.
+
+You may need to change the final `USER` statement to match the default user of the image you are extending. This can be found by running `docker inspect` or in the Specifications tab of the Chainguard Console entry for the image.
 
 Now you can build the image while passing along credentials obtained with `chainctl`. The following example builds an image named `my-custom-image`:
 

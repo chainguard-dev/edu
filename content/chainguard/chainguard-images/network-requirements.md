@@ -10,7 +10,7 @@ description: "Using Chainguard Containers with firewalls, access control lists, 
 date: 2023-09-08T08:49:31+00:00
 lastmod: 2025-06-17T15:22:20+01:00
 draft: false
-tags: ["Product", "Reference"]
+tags: ["Chainguard Containers", "Reference"]
 images: []
 toc: true
 weight: 010
@@ -48,8 +48,10 @@ This table lists the third-party DNS hostnames, associated ports, and protocols 
 
 | Hostname                                                  | Port | Protocol | Notes                        |
 | --------------------------------------------------------- | ---- | -------- | ---------------------------- |
-| 9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com | 443  | HTTPS    | Blob storage for cgr.dev     |
+| 9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com | 443  | HTTPS    | Blob storage for *.cgr.dev   |
 | support.chainguard.dev                                    | 443  | HTTPS    | Support access for customers |
+
+> Note that the `9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com` host is used to serve both image data and packages via `*.cgr.dev`.
 
 ## Ingress and Egress
 
@@ -62,3 +64,24 @@ You will need egress rules that allow new traffic to the hosts listed here. You 
 Many of the hosts listed on this page use multiple DNS A records or CNAME aliases. Additionally, many A records have a short time to live of 60 seconds, and the majority are less than an hour (3600s).
 
 If your network filters traffic based on IP addresses, ensure that any firewalls update their rules at an appropriate interval to match the TTL for each DNS record.
+
+## Minimum TLS requirements
+
+For guaranteed connectivity, the following TLS requirements must be at
+minimum supported by clients and servers communicating with Chainguard
+Containers and endpoints:
+
+- TLSv1.3 with the TLS_AES_256_GCM_SHA384 cipher suite
+- TLSv1.2 with
+  - ECDHE-ECDSA-AES256-GCM-SHA384 cipher string
+  - [RFC 7627](https://datatracker.ietf.org/doc/html/rfc7627) Extended Master Secret Extenstion support
+- Signatures using P-256 with SHA-256
+- Signatures using RSA-PSS with 2048 bits and SHA-256
+
+The requirements can be approximately tested with the following OpenSSL client command:
+
+```
+openssl s_client -cipher @SECLEVEL=2:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384 -ciphersuites TLS_AES_256_GCM_SHA384 -groups P-256 -connect HOST:PORT
+```
+
+> Note that in the case of TLSv1.2 connectivity you must check the output for `Extended master secret: yes`.

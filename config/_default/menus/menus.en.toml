@@ -11,10 +11,16 @@
   weight = 20
 
 [[docs]]
+  name = "Compliance"
+  identifier = "compliance"
+  url = "/compliance/"
+  weight = 30
+
+[[docs]]
   name = "Software Security"
   identifier = "security"
   url = "/software-security/"
-  weight = 20
+  weight = 40
 
 [[main]]
   name = "Product Docs"
@@ -25,6 +31,11 @@
   name = "Open Source"
   identifier = "menu-oss"
   weight = 20
+
+[[main]]
+  name = "Compliance"
+  identifier = "menu-compliance"
+  weight = 30
 
 [[main]]
   name = "Chainguard Containers"
@@ -83,9 +94,21 @@
 
 [[main]]
   name = "SLSA"
-  url = "/open-source/slsa/"
-  parent = "menu-oss"
-  weight = 45
+  url = "/compliance/slsa/"
+  parent = "menu-compliance"
+  weight = 40
+
+[[main]]
+  name = "CMMC"
+  url = "/compliance/cmmc-2/"
+  parent = "menu-compliance"
+  weight = 20
+
+[[main]]
+  name = "PCI DSS"
+  url = "/compliance/pci-dss-4/"
+  parent = "menu-compliance"
+  weight = 30
 
 [[main]]
   name = "Software Security"
@@ -118,18 +141,18 @@
 
 
 [[social]]
-  name = "GitHub"
-  url = "https://github.com/chainguard-dev?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
-  weight = 10
-  [social.params]
-      icon = "github.svg"
-
-[[social]]
   name = "X"
   url = "https://twitter.com/chainguard_dev?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
-  weight = 20
+  weight = 10
   [social.params]
     icon = "x.svg"        
+
+[[social]]
+  name = "LinkedIn"
+  url = "https://www.linkedin.com/company/chainguard-dev?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
+  weight = 20
+  [social.params]
+    icon = "linkedin.svg"
 
 [[social]]
   name = "YouTube"
@@ -138,13 +161,12 @@
   [social.params]
     icon = "youtube.svg"  
 
-
 [[social]]
-  name = "LinkedIn"
-  url = "https://www.linkedin.com/company/chainguard-dev?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
+  name = "GitHub"
+  url = "https://github.com/chainguard-dev?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
   weight = 40
   [social.params]
-    icon = "linkedin.svg"
+      icon = "github.svg"
 
 [[footer]]
   name = "Products"
@@ -181,45 +203,27 @@
   identifier = "why"
 
 [[footer]]
-  name = "Container Image Security"
-  url = "https://chainguard.dev/solutions/container-image-security?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
-  weight = 1
-  parent = "why"
-
-[[footer]]
-  name = "Vulnerability Remediation"
-  url = "https://chainguard.dev/solutions/vulnerability-remediation?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
-  weight = 2
-  parent = "why"
-
-[[footer]]
-  name = "Compliance and Risk Mitigation"
-  url = "https://chainguard.dev/solutions/compliance-and-risk-mitigation?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
-  weight = 3
-  parent = "why"
-
-[[footer]]
-  name = "Software Supply Chain Security"
-  url = "https://chainguard.dev/solutions/software-supply-chain-security?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
-  weight = 4
-  parent = "why"
-
-[[footer]]
-  name = "AI/ML Security"
-  url = "https://get.chainguard.dev/ai-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
-  weight = 5
-  parent = "why"
-
-[[footer]]
   name = "FedRAMP"
   url = "https://www.chainguard.dev/solutions/fedramp?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
-  weight = 6
+  weight = 1
   parent = "why"
 
 [[footer]]
   name = "PCI"
   url = "https://www.chainguard.dev/solutions/pci?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
-  weight = 7
+  weight = 2
+  parent = "why"
+
+[[footer]]
+  name = "CVE Remediation"
+  url = "https://chainguard.dev/solutions/vulnerability-remediation?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
+  weight = 3
+  parent = "why"
+
+[[footer]]
+  name = "Golden Images"
+  url = "https://chainguard.dev/solutions/golden-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
+  weight = 4
   parent = "why"
 
 [[footer]]
@@ -287,6 +291,12 @@
   name = "Legal"
   url = "https://www.chainguard.dev/legal/acceptable-use-policy?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
   weight = 7
+  parent = "company"
+
+[[footer]]
+  name = "Scanner Partners"
+  url = "https://www.chainguard.dev/scanner-partners?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
+  weight = 8
   parent = "company"
 
 

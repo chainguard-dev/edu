@@ -6,9 +6,9 @@ aliases:
 - /chainguard/administration/manage-chainctl-config
 type: "article"
 date: 2023-07-07T05:56:52-07:00
-lastmod: 2024-12-12T05:56:52-07:00
+lastmod: 2025-07-23T15:09:59+00:00
 draft: false
-tags: ["chainctl", "Product"]
+tags: ["chainctl"]
 images: []
 menu:
   docs:
@@ -17,7 +17,7 @@ toc: true
 weight: 030
 ---
 
-The Chainguard command line interface (CLI) tool, `chainctl`, will help you interact with the account model that Chainguard provides, and enable you to make queries into what's available to you on the Chainguard platform.
+Chainguard's `chainctl` configuration management enables you to customize CLI behavior, set default organizations, configure output formats, and optimize your workflow for managing container security resources. Proper configuration ensures efficient interaction with Chainguard's platform across different environments and use cases.
 
 ## chainctl config CLI
 

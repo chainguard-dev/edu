@@ -26,7 +26,7 @@ following steps:
   binaries.
 * Change configuration to access Chainguard Libraries via your repository
   manager after the changes from the [global
-  configuration](/chainguard/libraries/java/global-configuration) are
+  configuration](/chainguard/libraries/java/global-configuration/) are
   implemented.
 
 These changes must be performed on all workstations of individual developers and
@@ -41,7 +41,7 @@ authenticate. Use your username and password for Cloudsmith in your build tool
 configuration.
 
 Follow the steps from the [global
-configuration](/chainguard/libraries/java/global-configuration#cloudsmith) to
+configuration](/chainguard/libraries/java/global-configuration/#cloudsmith) to
 determine URL and authentication details.
 
 ## JFrog Artifactory
@@ -51,8 +51,8 @@ you to authenticate and use the identity token in the configuration of your
 build tool.
 
 Follow the steps from the [global
-configuration](/chainguard/libraries/java/global-configuration#artifactory) to
-determine URL and authentication details.
+configuration](/chainguard/libraries/java/global-configuration/#jfrog-artifactory)
+to determine URL and authentication details.
 
 ## Sonatype Nexus Repository
 
@@ -60,8 +60,8 @@ Build configuration to retrieve artifacts from Nexus may require authentication.
 Use your username and password for Nexus in your build tool configuration.
 
 Follow the steps from the [global
-configuration](/chainguard/libraries/java/global-configuration#nexus) to
-determine URL and authentication details.
+configuration](/chainguard/libraries/java/global-configuration/#sonatype-nexus-repository)
+to determine URL and authentication details.
 
 ## Apache Maven
 
@@ -101,16 +101,16 @@ activated profile.
   <mirrors>
     <mirror>
       <!-- Set the identifier for the server credentials for repository manager access -->
-      <id>chainguard-maven</id>
+      <id>repo-example</id>
       <!--Send all requests to the repository manager -->
       <mirrorOf>*</mirrorOf>
       <url>https://repo.example.com/repository/group</url>
       <!-- Cloudsmith example -->
-      <!-- <url>https://dl.cloudsmith.io/basic/exampleorg/chainguard-maven/maven/</url> -->
+      <!-- <url>https://dl.cloudsmith.io/basic/exampleorg/java-all/maven/</url> -->
       <!-- JFrog Artifactory example -->
-      <!-- <url>https://example.jfrog.io/artifactory/chainguard-maven/</url> -->
+      <!-- <url>https://example.jfrog.io/artifactory/java-all/</url> -->
       <!-- Sonatype Nexus example -->
-      <!-- <url>https://repo.example.com:8443/repository/chainguard-maven/</url> -->
+      <!-- <url>https://repo.example.com:8443/repository/java-all/</url> -->
     </mirror>
   </mirrors>
 
@@ -153,17 +153,17 @@ activated profile.
 
 If your repository manager requires authentication, you must specify credentials
 for the server. The `id` value in the server element must match the `id` value
-in the mirror configuration - `chainguard-maven` in the example. The username
+in the mirror configuration - `repo-example` in the example. The username
 and password values vary depending on the repository manager and the configured
 authentication, contact the administrator and refer to the [global configuration
-documentation](/chainguard/libraries/java/global-configuration).
+documentation](/chainguard/libraries/java/global-configuration/).
 
 ```xml
 <settings>
 ...
   <servers>
     <server>
-      <id>chainguard-maven</id>
+      <id>repo-example</id>
       <username>YOUR_USERNAME_FOR_REPOSITORY_MANAGER</username>
       <password>YOUR_PASSWORD</password>
     </server>
@@ -182,7 +182,7 @@ therefore settings file, for all users:
 ...
   <servers>
     <server>
-      <id>chainguard-maven</id>
+      <id>repo-example</id>
       <username>${env.CHAINGUARD_JAVA_IDENTITY_ID}</username>
       <password>${env.CHAINGUARD_JAVA_TOKEN}</password>
     </server>
@@ -217,11 +217,11 @@ variables](/chainguard/libraries/access/#env) for the pull token detailed in
 ```xml
 <settings>
  <activeProfiles>
-    <activeProfile>chainguard-maven</activeProfile>
+    <activeProfile>no-repo-manager</activeProfile>
   </activeProfiles>
   <profiles>
     <profile>
-      <id>chainguard-maven</id>
+      <id>no-repo-manager</id>
       <repositories>
         <repository>
           <id>chainguard</id>
@@ -348,9 +348,9 @@ repositories {
 
 Example URLs for repository managers:
 
-* Cloudsmith: `https://dl.cloudsmith.io/basic/exampleorg/chainguard-maven/maven/`
-* JFrog Artifactory: `https://example.jfrog.io/artifactory/chainguard-maven/`
-* Sonatype Nexus: `https://repo.example.com:8443/repository/chainguard-maven/`
+* Cloudsmith: `https://dl.cloudsmith.io/basic/exampleorg/java-all/maven/`
+* JFrog Artifactory: `https://example.jfrog.io/artifactory/java-all/`
+* Sonatype Nexus: `https://repo.example.com:8443/repository/java-all/`
 
 If your organization does not use a repository manager you can configure the
 Chainguard Libraries for Java repository with the credentials from [Chainguard
@@ -378,7 +378,7 @@ variables](/chainguard/libraries/access/#env) and access the values:
 ```groovy
 repositories {
     maven {
-        url = uri("https://libraries.cgr.dev/maven/")
+        url = uri("https://libraries.cgr.dev/java/")
         credentials {
             username = "$System.env.CHAINGUARD_JAVA_IDENTITY_ID"
             password = "$System.env.CHAINGUARD_JAVA_TOKEN"
@@ -402,14 +402,14 @@ allprojects {
   buildscript {
     repositories {
       maven {
-        url = "http://repo.example.com:8081/repository/chainguard-maven/"
+        url = "http://repo.example.com:8081/repository/java-all/"
         allowInsecureProtocol = true
       }
     }
   }
   repositories {
     maven {
-        url = "http://repo.example.com:8081/repository/chainguard-maven/"
+        url = "http://repo.example.com:8081/repository/java-all/"
         allowInsecureProtocol = true
     }
   }
@@ -467,11 +467,11 @@ maven.install(
     ],
     repositories = [
         # To use Chainguard Libraries for Java via a repository manager:
-        "https://repo.example.com/repository/chainguard-maven/",
+        "https://repo.example.com/repository/java-all/",
     ],
     # Uncomment and configure authentication if needed:
     # auth = {
-    #     "https://repo.example.com/repository/chainguard-maven/": {
+    #     "https://repo.example.com/repository/java-all/": {
     #         "type": "basic",
     #         "username": "YOUR_USERNAME_FOR_REPOSITORY_MANAGER", 
     #         "password": "YOUR_PASSWORD",
@@ -484,9 +484,9 @@ use_repo(maven, "maven")
 
 Example URLs for repository managers:
 
-* Cloudsmith: https://dl.cloudsmith.io/basic/exampleorg/chainguard-maven/maven/
-* JFrog Artifactory: https://example.jfrog.io/artifactory/chainguard-maven/
-* Sonatype Nexus: https://repo.example.com:8443/repository/chainguard-maven/
+* Cloudsmith: https://dl.cloudsmith.io/basic/exampleorg/java-all/maven/
+* JFrog Artifactory: https://example.jfrog.io/artifactory/java-all/
+* Sonatype Nexus: https://repo.example.com:8443/repository/java-all/
 
 If your organization does not use a repository manager, you can configure the
 Chainguard Libraries for Java repository directly, and include the Maven Central
@@ -524,7 +524,7 @@ Ensure that the Chainguard repository is listed before any other repositories to
 prioritize it for artifact retrieval. 
 
 For more complex Bazel setups, you can use [.netrc for
-authentication](/chainguard/libraries/access#netrc).
+authentication](/chainguard/libraries/access/#netrc).
 
 Refer to the [official Bazel documentation for
 rules_jvm_external](https://github.com/bazel-contrib/rules_jvm_external) for
@@ -546,6 +546,6 @@ or virtual repository.
 
 Example URLs for repository managers:
 
-* Cloudsmith: `https://dl.cloudsmith.io/basic/exampleorg/chainguard-maven/maven/`
-* JFrog Artifactory: `https://example.jfrog.io/artifactory/chainguard-maven/`
-* Sonatype Nexus: `https://repo.example.com:8443/repository/chainguard-maven/`
+* Cloudsmith: `https://dl.cloudsmith.io/basic/exampleorg/java-all/maven/`
+* JFrog Artifactory: `https://example.jfrog.io/artifactory/java-all/`
+* Sonatype Nexus: `https://repo.example.com:8443/repository/java-all/`

@@ -5,11 +5,11 @@ aliases:
 - /chainguard/chainguard-enforce/how-to-install-chainctl
 - /chainguard/administration/how-to-install-chainctl
 type: "article"
-description: "Install the chainctl command line tool to work with Chainguard"
+description: "Learn how to install chainctl, Chainguard's command-line interface for managing container images, IAM resources, and security configurations across platforms"
 date: 2022-09-22T15:56:52-07:00
-lastmod: 2024-06-24T15:22:20+01:00
+lastmod: 2025-07-23T16:52:56+00:00
 draft: false
-tags: ["chainctl", "Product"]
+tags: ["chainctl"]
 images: []
 menu:
   docs:
@@ -18,7 +18,7 @@ toc: true
 weight: 010
 ---
 
-The Chainguard command line interface (CLI) tool, `chainctl`, will help you interact with the account model that Chainguard provides, and enable you to make queries into the state of your Chainguard resources.
+Chainguard's `chainctl` command-line interface provides essential tools for managing your container security infrastructure, including image management, identity and access control, and resource monitoring. This CLI enables automation of Chainguard operations and integration with CI/CD pipelines.
 
 The tool uses the familiar `<context> <noun> <verb>` style of CLI interactions. For example, to retrieve a list of all the private Chainguard Containers available to your organization, you can run `chainctl images list`.
 
@@ -72,7 +72,7 @@ sudo install -o $UID -g $(id -g) -m 0755 chainctl /usr/local/bin/
 
 At this point, you'll be able to use the `chainctl` command.
 
-### Installing with `curl` in Windows Powershell
+### Installing with `curl` in Windows PowerShell
 
 As stated previously, you can also use `curl` install `chainctl` on Windows systems. Running the following command in PowerShell will download the appropriate `.exe` file.
 
@@ -102,10 +102,10 @@ chainctl version
 You should receive output similar to the following.
 
 ```
-   ____   _   _  	_  	___   _   _	____   _____   _
-  / ___| | | | |	/ \	|_ _| | \ | |  / ___| |_   _| | |
- | | 	| |_| |   / _ \	| |  |  \| | | |   	| |   | |
- | |___  |  _  |  / ___ \   | |  | |\  | | |___	| |   | |___
+   ____   _   _      _      ___   _   _    ____   _____   _
+  / ___| | | | |    / \    |_ _| | \ | |  / ___| |_   _| | |
+ | |     | |_| |   / _ \    | |  |  \| | | |       | |   | |
+ | |___  |  _  |  / ___ \   | |  | |\  | | |___    | |   | |___
   \____| |_| |_| /_/   \_\ |___| |_| \_|  \____|   |_|   |_____|
 chainctl: Chainguard Control
 

@@ -2,12 +2,12 @@
 title: "Overview of Chainguard Containers"
 linktitle: "Overview"
 type: "article"
-description: "Chainguard Containers Overview"
-lead: "A primer on Chainguard Containers and the distroless approach"
+description: "Learn about Chainguard Containers, distroless images, and how they provide enhanced security through minimal attack surface and comprehensive supply chain features."
+lead: "Chainguard Containers are security-hardened container images built with a distroless approach, containing only essential application components and runtime dependencies."
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2025-05-27T08:49:31+00:00
+lastmod: 2025-07-23T16:52:56+00:00
 draft: false
-tags: ["Chainguard Containers", "Product"]
+tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:
@@ -16,9 +16,9 @@ weight: 005
 toc: true
 ---
 
-[Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) are a collection of container images designed for security and minimalism.
+[Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) are container images designed for enhanced security through minimalism and supply chain integrity. These images follow a distroless philosophy, containing only the application and its essential runtime dependencies, without shells, package managers, or other common utilities that can increase attack surface.
 
-Many Chainguard Containers are [distroless](/chainguard/chainguard-images/getting-started-distroless/); they contain only an open-source application and its runtime dependencies. These images do not even contain a shell or package manager, and are often paired with an equivalent development variant (sometimes referred to as a `dev` variant) that allows further customization, for build and debug purposes. Chainguard Containers are built with Chainguard OS, designed from the ground up to produce container images that meet the requirements of a secure software supply chain.
+Many Chainguard Containers implement a [distroless approach](/chainguard/chainguard-images/getting-started-distroless/), which means they exclude shells, package managers, and other utilities typically found in container images. This design significantly reduces potential security vulnerabilities. For development and debugging purposes, Chainguard provides `-dev` variants that include necessary tools while maintaining security best practices. All images are built using Chainguard OS, an operating system specifically designed to meet secure software supply chain requirements.
 
 The main features of Chainguard Containers include:
 
@@ -41,16 +41,16 @@ Note that there is often a development variant of each Chainguard Container avai
 
 Chainguard originally took a single-layer approach to container images built [with apko](/open-source/build-tools/apko/getting-started-with-apko/) in order to offer simplicity and clarity. However, in an effort to deliver better stability, security, and efficiency for larger and more complex applications, Chainguard introduced multi-layer container images in May 2025. This approach leverages container runtime caching so that a layer used by multiple images does not need to be downloaded more than once, and you don't need to download the whole image each time there is an update on one layer.
 
-Chainguard's approach to layering is a "per-origin" strategy, where packages that derive from the same upstream source are grouped in the same layer because they tend to receive updates together. 
+Chainguard's approach to layering is a "per-origin" strategy, where packages that derive from the same upstream source are grouped in the same layer because they tend to receive updates together.
 
 We observed that this approach achieved the following:
 * A ~70% reduction in the total size of unique layer data across our image catalog compared to the single-layer approach
 * A 70-85% reduction in the cumulative bytes transferred when simulating sequential pulls of updated images like PyTorch and NeMo
 
-To maximize the stability and re-useability of our layers, Chainugard identified, analyzed, and implemented three additional technical changes:
+To maximize the stability and re-usability of our layers, Chainguard identified, analyzed, and implemented three additional technical changes:
 * Added in an additional final layer that captures frequently updated OS-level metadata
-* Developed intelligent layer ordering to optimize compatibility 
-* Ensured sufficient layer counts to optimize parallel downloads by container clients 
+* Developed intelligent layer ordering to optimize compatibility
+* Ensured sufficient layer counts to optimize parallel downloads by container clients
 
 The primary benefit of this layered approach is that when one package changes it impacts only its particular layer, requiring only that layer to be downloaded again. Because the other layers don't need to be downloaded again, Chainguard's multi-layer container images support greater efficiency and developer velocity.
 
@@ -80,7 +80,12 @@ You can review more comparisons of Chainguard Containers and external images by 
 
 ## Architecture
 
-By default, all Wolfi-based images are built for x86_64 (also known as AMD64) and AArch64 (also known as ARM64) architectures. Being able to provide multi-platform Chainguard Containers enables the support of more than one runtime environment, like those available on all three major clouds, AWS, GCP, and Azure. The macOS M1 and M2 chips are also based on ARM architecture. Chainguard Containers allow you to take advantage of ARM's power consumption and cost benefits.
+By default, all Wolfi-based images are built for x86_64 (also known as AMD64) and AArch64 (also known as ARM64) architecture with the following CPU Instruction Set Architecture (ISA) baseline features:
+
+* x86_64: x86-64-v2 (Sapphire Rapids)
+* AArch64: Armv8-A with CRC and Cryptographic extensions (Neoverse V2)
+
+Being able to provide multi-platform Chainguard Containers enables the support of more than one runtime environment, like those available on all three major clouds, AWS, GCP, and Azure. The macOS M1 and M2 chips are also based on ARM architecture. Chainguard Containers allow you to take advantage of ARM's power consumption and cost benefits.
 
 You can confirm the available architecture of a given Chainguard Container with Crane. In this example, we'll use the latest Ruby image, but you can opt to use an alternate image.
 

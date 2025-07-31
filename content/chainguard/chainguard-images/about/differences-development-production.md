@@ -9,7 +9,7 @@ description: "Learn about Chainguard's development container images and how they
 date: 2024-11-01T07:52:00+02:00
 lastmod: 2025-04-11T07:52:00+02:00
 draft: false
-tags: ["Chainguard Containers", "Product"]
+tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:
@@ -60,5 +60,5 @@ Taking the step into distroless by using our standard Chainguard Containers can 
 ## Resources
 
 * [Blog: Minimal container images: Towards a more secure future](https://www.chainguard.dev/unchained/minimal-container-images-towards-a-more-secure-future)
-* [Chainguard Academy: Overview of Chainguard Containers](/chainguard/chainguard-images/overview#why-distroless)
+* [Chainguard Academy: Overview of Chainguard Containers](/chainguard/chainguard-images/overview/)
 * [Chainguard Academy: Debugging Distroless Images](/chainguard/chainguard-images/debugging-distroless-images/)

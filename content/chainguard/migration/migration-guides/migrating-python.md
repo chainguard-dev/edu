@@ -6,17 +6,17 @@ aliases:
 - /chainguard/migration/migrating-python/
 - /chainguard/migration/migration-guides/migrating-python/
 type: "article"
-description: "Guide on migrating containerized Python applications to Chainguard Containers"
+description: "Learn how to migrate Python applications to Chainguard Containers for enhanced security posture, reduced CVEs, and streamlined dependency management"
 date: 2024-05-02T15:06:00-07:00
-lastmod: 2024-05-02T15:06:00-07:00
+lastmod: 2025-07-23T15:09:59+00:00
 draft: false
-tags: ["Chainguard Containers", "Product", "Migration"]
+tags: ["Chainguard Containers", "Migration"]
 images: []
 weight: 020
 toc: true
 ---
 
-This guide is a high-level overview for migrating an existing containerized Python application to Chainguard Containers. 
+Chainguard's Python containers provide a migration path to significantly reduce vulnerabilities in Python applications while maintaining full compatibility with existing workloads. This guide explains how to migrate your containerized Python applications to benefit from Chainguard's enhanced security posture and daily updates. 
 
 Chainguard Containers are built on [Wolfi](/open-source/wolfi/), a [distroless](/software-security/videos/distroless/) Linux distribution designed for security and a reduced attack surface. Chainguard Containers are smaller and have [low to no CVE](/chainguard/chainguard-images/vuln-comparison/python/). Our Chainguard Containers for Python are built nightly for extra freshness, so they're always up-to-date with the latest remediations.
 
@@ -47,7 +47,7 @@ When migrating your Python application , keep in mind these differences between 
 
 ## Migrating a Python Application
 
-When migrating most containerized Python applications, we recommend building a virtual environment with any needed Python packages using our provided development images, then copying over the virtual environment to our stripped-down standard image. Chainguard Academy hosts [detailed instructions for a multi-stage build for a CLI-based Python script](/chainguard/chainguard-images/getting-started/python). 
+When migrating most containerized Python applications, we recommend building a virtual environment with any needed Python packages using our provided development images, then copying over the virtual environment to our stripped-down standard image. Chainguard Academy hosts [detailed instructions for a multi-stage build for a CLI-based Python script](/chainguard/chainguard-images/getting-started/python/). 
 
 The below Dockerfile provides an example of such a multi-stage build for a simple Flask application. You can view a version of this Dockerfile with included sample Flask application and `requirements.txt` in [this repository](https://github.com/chainguard-dev/cg-images-python-migration/tree/python-only), and the original unmigrated application in the [v0 branch](https://github.com/chainguard-dev/cg-images-python-migration/tree/v0). A more complex setup with reverse proxy orchestrated with Docker Compose is provided in the next section.
 

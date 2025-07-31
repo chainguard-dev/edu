@@ -37,7 +37,7 @@ In each post's header, the date format should follow year-month-day as `YYYY-MM-
 
 ### Adding Graphic Images
 
-Please reduce the image's file size before adding the image to this project to make page loadtimes faster and more accessible. You can use a tool such as [TinyPNG](https://tinypng.com/).
+Please reduce the image's file size before adding the image to this project to make page load times faster and more accessible. You can use a tool such as [TinyPNG](https://tinypng.com/).
 
 If you are using images, it's best to bundle it together with the appropriate Markdown file. Create a directory with the name of the new page. Within the directory, create an `index.md` file and add the images within the directory as well.
 
@@ -103,3 +103,28 @@ Tags are based on:
 - _Content types_ represented by the content, such as procedural, conceptual, interactive, troubleshooting, etc.
 
 You can review our current list of [Tags](https://edu.chainguard.dev/tags).
+
+## Quick Reference for Contributors
+
+### Pre-commit Hooks
+
+This repository uses automated pre-commit hooks to maintain content quality:
+
+- **Automatic date management** - Adds `date` field to new files and updates `lastmod` when you edit
+- **Tag validation** - Ensures tags match our approved taxonomy
+- **Spell checking** - Catches typos before they're committed (ignores code blocks and technical terms)
+
+**Setup (one-time):**
+```sh
+# Install spell checker
+brew install aspell
+
+# Enable hooks
+./setup-hooks.sh
+```
+
+**Resources:**
+- 📖 [Complete Pre-commit Hook Guide for Contributors](docs/pre-commit-hook-guide.md) - Detailed guide with examples
+- 📋 [Tag Guidelines](TAG_GUIDELINES.md) - Complete approved tag taxonomy
+- 📝 [Custom Dictionary](.aspell.en.pws) - Technical terms for spell checker
+

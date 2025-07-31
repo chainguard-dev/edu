@@ -4,9 +4,9 @@ linktitle: "Manage with Chainguard's API"
 type: "article"
 description: "How to use the Chainguard API to manage Custom Assembly resources."
 date: 2025-05-01T11:07:52+02:00
-lastmod: 2025-05-01T11:07:52+02:00
+lastmod: 2025-07-15T11:07:52+02:00
 draft: false
-tags: ["Chainguard Containers", "Product", "Procedural"]
+tags: ["Chainguard Containers", "Procedural", "Custom Assembly"]
 images: []
 menu:
   docs:
@@ -18,6 +18,8 @@ toc: true
 Chainguard's [Custom Assembly](/chainguard/chainguard-images/features/custom-assembly/) is a tool that allows customers to create customized containers with extra packages added. This enables customers to reduce their risk exposure by creating container images that are tailored to their internal organization and application requirements while still having few-to-zero CVEs.
 
 You can use the Chainguard API to further customize your Custom Assembly builds and retrieve information about them. This tutorial highlights a demo application (which can be found in [Chainguard Academy's Demo Applications repository](https://github.com/chainguard-dev/edu-images-demos/tree/main)) which, when run, updates a Custom Assembly container's configuration based on a provided YAML file.
+
+> **Note**: This tutorial highlights using the Chainguard API to interact with Custom Assembly resources. However, you can also interact with Custom Assembly using [`chainctl`, Chainguard's command-line interface tool](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/), as well as [the Chainguard console](/chainguard/chainguard-images/features/ca-docs/custom-assembly-console/).
 
 
 ## Prerequisites
@@ -201,7 +203,7 @@ From there, edit the following lines:
     	demoRepoName 	= "CUSTOM-IMAGE-NAME"
 ```
 
-Replace `ORGANIZATION` with the name of your organization's repository within the Chainguard registry. This usually takes the form of a domain name, such as `example.com`. Additionally, replace `CUSTOM-IMAGE-NAME` with the name of a Custom Assembly image. This is typically a name like `custom-nginx` or `custom-python`. 
+Replace `ORGANIZATION` with the name of your organization's repository within the Chainguard registry. This usually takes the form of a domain name, such as `example.com`. Additionally, replace `CUSTOM-IMAGE-NAME` with the name of the Chainguard Container you want to customize. For example, you may want to customize an `nginx` or `python` container image.
 
 Save and close the `main.go` file. If you used `nano`, you can do so by pressing `CTRL+X`, `Y`, and then `ENTER`. 
 

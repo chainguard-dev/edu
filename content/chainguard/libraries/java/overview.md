@@ -1,10 +1,10 @@
 ---
 title: "Chainguard Libraries for Java Overview"
 linktitle: "Java Overview"
-description: "Java libraries for your application development"
+description: "Learn about Chainguard Libraries for Java, providing enhanced security for Maven dependencies through automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2025-03-31T15:31:00+00:00
+lastmod: 2025-07-23T15:09:59+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java", "Overview"]
 menu:
@@ -16,11 +16,7 @@ toc: true
 
 ## Introduction
 
-**Chainguard Libraries for Java** represents the first ecosystem support with
-[Chainguard Libraries](/chainguard/libraries/overview/). The Java and larger JVM
-ecosystem consists of hundreds of open source projects from large foundations
-such as the Apache Software Foundation, the Eclipse Foundation, and many smaller
-foundations and projects. 
+Chainguard Libraries for Java provides enhanced security for the Java ecosystem by rebuilding popular Maven dependencies with the latest patches and comprehensive supply chain protection. As the first supported ecosystem in [Chainguard Libraries](/chainguard/libraries/overview/), this service addresses critical vulnerabilities in the vast Java/JVM ecosystem that spans hundreds of projects from organizations like the Apache Software Foundation, Eclipse Foundation, and numerous independent maintainers. 
 
 Chainguard Libraries for Java provides access to all open source libraries
 commonly used. New releases of common libraries or artifacts requested by
@@ -149,7 +145,7 @@ If you use the URL directly in a browser, you have to provide the username and
 password to log in to the Chainguard repository to download the file.
 
 Use `curl`, specify the username and password retrieved with [chainctl for basic
-user authentication](/chainguard/libraries/access) and use the URL of the file to
+user authentication](/chainguard/libraries/access/) and use the URL of the file to
 download and save the file with the original name.
 
 With [.netrc authentication](/chainguard/libraries/access/#netrc):

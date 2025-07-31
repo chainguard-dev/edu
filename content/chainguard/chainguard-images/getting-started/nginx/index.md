@@ -4,10 +4,10 @@ type: "article"
 linktitle: "nginx "
 aliases: 
 - /chainguard/chainguard-images/getting-started/nginx
-description: "Tutorial on how to get started with the nginx container image"
+description: "Learn how to deploy nginx web server using Chainguard's security-hardened container image with minimal vulnerabilities and distroless runtime"
 date: 2023-01-09T11:07:52+02:00
-lastmod: 2025-03-21T13:25:40+00:00
-tags: ["Chainguard Containers", "Product"]
+lastmod: 2025-07-23T15:09:59+00:00
+tags: ["Chainguard Containers"]
 draft: false
 images: []
 menu:
@@ -17,7 +17,7 @@ weight: 035
 toc: true
 ---
 
-The nginx container images maintained by Chainguard include development and production distroless images that are suitable for building and running nginx workloads. Container images tagged with `:latest-dev` include additional packages to facilitate project development and testing. Container images tagged with `:latest` strip back these extra packages to provide a secure, production-ready container image.
+Chainguard's nginx container images provide a security-hardened foundation for web server deployments with significantly fewer vulnerabilities than traditional nginx images. Available in both development (`:latest-dev`) and production (`:latest`) variants, these containers maintain full nginx functionality while dramatically reducing attack surface. The production variant uses a distroless approach, removing shells and package managers to enhance security for production workloads.
 
 In this tutorial, we will create a local demo website using nginx to serve static HTML content to a local port on your machine. Then we will use the nginx Chainguard Container to build and execute the demo in a lightweight containerized environment.
 

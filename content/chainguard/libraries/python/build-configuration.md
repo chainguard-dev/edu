@@ -16,7 +16,7 @@ toc: true
 
 The configuration for the use of Chainguard Libraries depends on how you've set up your build tools and CI/CD workflows. At a high level, adopting the use of Chainguard Libraries in your development, build, and deployment workflows involves the following steps:
 
-- If you or an administrator have not done so already, [set up your organization's repository manager to use Chainguard Libraries for Python](/chainguard/libraries/python/global-configuration).
+- If you or an administrator have not done so already, [set up your organization's repository manager to use Chainguard Libraries for Python](/chainguard/libraries/python/global-configuration/).
 - Log into your organization's repository manager and retrieve credentials for the build tool you are configuration.
 - Configure your development or build tool with this information.
 - Remove local caches on workstations and CI/CD pipelines. This step ensures that dependencies are preferentially sourced from Chainguard Libraries.
@@ -111,7 +111,7 @@ CI/CD.
 dedicated support for configuring authentication to the repository manager or
 the Chainguard Libraries for Python directly. As an alternative that works
 across tools and is often preferred, use [.netrc for
-authentication](/chainguard/libraries/access#netrc).
+authentication](/chainguard/libraries/access/#netrc).
 
 <a id="pip"></a>
 
@@ -161,7 +161,85 @@ Note the different syntax for `index-url` in the two files.
 
 Refer to the official documentation for [configuring authentication with
 pip](https://pip.pypa.io/en/stable/topics/authentication/) if you are not using
-[.netrc for authentication](/chainguard/libraries/access#netrc).
+[.netrc for authentication](/chainguard/libraries/access/#netrc).
+
+
+<a id="poetry"></a>
+
+### Poetry
+
+[Poetry](https://python-poetry.org/) helps you declare, manage, and install
+dependencies of Python projects, and can be used with Chainguard Libraries for
+Python."
+
+
+List the Python package caches used by your Poetry project:
+
+```shell
+poetry cache list
+```
+
+The following commands clear the default cache, the cache for a repository named
+`pypi`, and the cache of packages of the repo `python-all` from your repository
+manager as configured in [the global
+configuration](/chainguard/libraries/python/global-configuration/):
+
+```shell
+poetry cache clear --all _default_cache
+poetry cache clear --all pypi
+poetry cache clear --all python-all
+```
+
+Set up HTTP authentication to the repository `python-all` on your repository
+manager with the username `example` and the password `secret` in your project
+directory:
+
+```shell
+poetry config http-basic.python-all example secret
+```
+
+The authentication is used for the `python-all` repository that you add to the
+`pyproject.toml` with the following command:
+
+```shell
+poetry source add python-all https://repo.example.com/../python-all/simple
+```
+
+Example URLs including the required `simple` context:
+
+* JFrog Artifactory: `https://example.jfrog.io/artifactory/api/pypi/python-all/simple`
+* Sonatype Nexus: `https://repo.example.com:8443/repository/python-all/simple`
+
+The following configuration is added:
+
+```toml
+[[tool.poetry.source]]
+name = "python-all"
+url = "https://repo.example.com/../python-all/simple"
+priority = "primary"
+```
+
+Trigger a new download of the dependencies:
+
+```shell
+poetry install
+```
+
+If necessary, you can fix or even regenerate your `poetry.lock` file:
+
+```shell
+poetry lock
+poetry lock --regenerate
+```
+
+Proceed to build your project:
+
+```shell
+poetry build
+```
+
+The [Poetry documentation](https://python-poetry.org/docs/) contains more
+information about your project build, dependencies, versions, and other aspects. 
 
 ### uv
 
@@ -200,4 +278,4 @@ uv](https://docs.astral.sh/uv/configuration/authentication/) and [using
 alternative package
 indexes](https://docs.astral.sh/uv/guides/integration/alternative-indexes/) if
 you are not using [.netrc for
-authentication](/chainguard/libraries/access#netrc).
+authentication](/chainguard/libraries/access/#netrc).

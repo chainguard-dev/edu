@@ -4,13 +4,13 @@ linktitle: "Minimal Runtime Containers"
 aliases:
 - /chainguard/chainguard-images/videos/minimal-runtime-images/
 - /chainguard/chainguard-images/how-to-use/minimal-runtime-images/
-lead: ""
-description: "Video demonstration of creating minimal images for applications with runtimes, such as Java"
+lead: "Chainguard's approach to minimal runtime images demonstrates how to build secure containers for Java and other runtime-based applications with significantly reduced attack surface."
+description: "Learn how to create minimal container images for runtime-based applications using Chainguard's security-focused approach, reducing vulnerabilities in Java and similar environments"
 type: "article"
 date: 2023-09-06T01:21:01+00:00
-lastmod: 2023-09-06T15:21:01+00:00
+lastmod: 2025-07-23T15:09:59+00:00
 draft: false
-tags: ["Chainguard Containers", "Product", "Video"]
+tags: ["Chainguard Containers", "Video"]
 images: []
 menu:
   docs:

@@ -2,24 +2,24 @@
 title: "How to Use Chainguard Containers with OpenShift"
 linktitle: "Using With OpenShift"
 type: "article"
-description: "Special considerations for using Chainguard Containers with OpenShift"
+description: "Learn how to deploy Chainguard Containers on Red Hat OpenShift, including security context adjustments and permission configurations for enhanced security"
 date: 2025-06-17T08:49:31+00:00
-lastmod: 2025-06-17T08:49:31+00:00
+lastmod: 2025-07-23T15:09:59+00:00
 draft: false
-tags: ["Chainguard Containers", "OpenShift", "Product"]
+tags: ["Chainguard Containers", "OpenShift"]
 images: []
 menu:
   docs:
     parent: "chainguard-images"
-weight: 008
+weight: 011
 toc: true
 ---
 
-In this guide, you'll find general instructions for how to get started using Chainguard Containers on Red Hat OpenShift Container Platform.
+Chainguard Containers are fully compatible with Red Hat OpenShift Container Platform, providing enhanced security while requiring some configuration adjustments for OpenShift's security context constraints. This guide explains how to successfully deploy Chainguard's minimal, security-hardened container images in OpenShift environments.
 
 [Red Hat OpenShift](https://www.redhat.com/en/technologies/cloud-computing/openshift) is an application platform that orchestrates and manages your systems and resources. While it is based on open source software like Kubernetes, OpenShift includes a suite of applications with additional functionality that are configured to work together.
 
-Adding Chainguard Containers to your OpenShift deployment saves you the effort of CVE remediation and speeds up your security and compliance efforts.
+Using Chainguard Containers in your OpenShift deployment significantly reduces CVE remediation efforts and accelerates security compliance through minimal attack surface and daily security updates.
 
 When [Using Chainguard Containers](/chainguard/chainguard-images/how-to-use/how-to-use-chainguard-images/) with OpenShift, there are some adjustments that need to be made to the usual process. This guide provides guidance. See the [OpenShift docs](https://docs.redhat.com/en/documentation/openshift_container_platform/) for more details.
 
@@ -48,7 +48,7 @@ To avoid this being an issue when using Chainguard Containers:
 
 1. Set a `HOME` variable for the user (it would otherwise be set as `/` for root)
 1. Create an `/app` directory in every Dockerfile
-1. Set `/app` directory permissions to `755` and ownership to `65532:0`
+1. Set `/app` directory permissions to `775` and ownership to `65532:0`
 
 This can help you avoid or limit switching to the `root` user during the build phase when no package installation is required.
 
@@ -58,7 +58,7 @@ Here's a sample Dockerfile covering this process.
 # Change this to reference the image you want to pull and
 # if needed, to use the location of your custom image repo
 
-FROM cgr.dev/$ORGANIZATION/aspnet-runtime-db:9
+FROM cgr.dev/$ORGANIZATION/aspnet-runtime:9-dev
 
 USER 0
 

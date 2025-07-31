@@ -7,11 +7,11 @@ aliases:
 - /chainguard/chainguard-images/working-with-images/fips-images/
 - /chainguard/chainguard-images/features/fips-images/
 type: "article"
-description: "A conceptual overview of Chainguard FIPS Containers."
+description: "Learn about Chainguard's FIPS-validated container images for federal compliance, featuring kernel-independent design and simplified deployment for FedRAMP and government requirements"
 date: 2024-02-08T15:56:52-07:00
-lastmod: 2025-05-24T09:58:00+00:00
+lastmod: 2025-07-23T15:09:59+00:00
 draft: false
-tags: ["Chainguard Containers", "Product", "FIPS"]
+tags: ["Chainguard Containers", "FIPS"]
 images: []
 menu:
   docs:
@@ -21,7 +21,7 @@ toc: true
 ---
 
 ## What is FIPS? 
-One of the primary requirements of federal compliance frameworks — including [FedRAMP](https://www.fedramp.gov/) — is to use FIPS-validated cryptography. To help customers meet these requirements, Chainguard offers FIPS-enabled versions of many images. This article provides a high-level overview of what FIPS is, what to expect from Chainguard FIPS Containers, featuring a kernel-independent design, and how Chainguard FIPS images stand out from alternatives.
+Chainguard provides FIPS-validated container images to help organizations meet federal compliance requirements, including [FedRAMP](https://www.fedramp.gov/) and other government security frameworks that mandate FIPS-validated cryptography. These FIPS-enabled containers feature a kernel-independent design that simplifies deployment across different environments while maintaining compliance. This article explains FIPS requirements, Chainguard's approach to FIPS validation, and how these images differ from alternatives.
 
 
 [Federal Information Processing Standards](https://www.nist.gov/itl/publications-0/federal-information-processing-standards-fips) (FIPS) are publicly announced standards developed by the National Institute of Standards and Technology (NIST) in accordance with the Federal Information Security Management Act (FISMA) and approved by the Secretary of Commerce. FIPS compliance ensures that cryptographic security services within applications meet strict security and integrity standards, and are implemented and configured correctly.

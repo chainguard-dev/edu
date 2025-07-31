@@ -7,23 +7,23 @@ aliases:
 - /chainguard/chainguard-images/working-with-images/retrieve-image-sboms/
 - /chainguard/chainguard-images/how-to-use/retrieve-image-sboms/
 type: "article"
-description: "A brief tutorial on how to use Cosign to retrieve Chainguard Container SBOMs."
+description: "How to get SBOM for container images: Chainguard provides Software Bill of Materials for every image - retrieve with Cosign for complete supply chain transparency"
 date: 2023-11-17T11:07:52+02:00
-lastmod: 2025-04-08T11:07:52+02:00
+lastmod: 2025-07-23T15:09:59+00:00
 draft: false
 tags: ["Chainguard Containers", "SBOM"]
 images: []
 menu:
   docs:
     parent: "chainguard-images"
-weight: 010
+weight: 013
 toc: true
 ---
 
 
-Chainguard Containers contain only the minimum number of packages needed to use the software they contain. The purpose of this is to reduce the image's attack surface and minimize the risk that CVEs will impact software that depends on these container images. 
+Chainguard provides a Software Bill of Materials (SBOM) with every container image, enabling complete transparency about package contents and dependencies for security and compliance requirements. These SBOMs are cryptographically signed and attached as attestations, making them retrievable and verifiable. By including only the minimum packages needed, Chainguard Containers reduce attack surface while the SBOM ensures you can verify exactly what's in each image.
 
-Even though they contain the minimum number of packages, there may come a time when you want to know exactly what's running inside of a certain Chainguard Container. For this reason, we include a signed SBOM with each image in the form of a [software attestation](https://slsa.dev/attestation-model).
+Even though they contain the minimum number of packages, there may come a time when you want to know exactly what's running inside of a certain Chainguard Container. For this reason, Chainguard includes a signed SBOM with each image in the form of a [software attestation](https://slsa.dev/attestation-model), allowing you to verify the contents and meet compliance requirements.
 
 [Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign/) — a part of the Sigstore project — supports software artifact signing, verification, and storage in an [OCI (Open Container Initiative)](/open-source/oci/what-is-the-oci/) registry, as well as the retrieval of said artifacts. This tutorial outlines how you can use the `cosign` command to retrieve a Chainguard Container's SBOM. 
 

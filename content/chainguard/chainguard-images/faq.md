@@ -2,11 +2,11 @@
 title: "Chainguard Containers FAQs"
 linktitle: "FAQs"
 type: "article"
-description: "Frequently asked questions about Chainguard Containers"
+description: "Chainguard container FAQs: why they have zero CVEs, how they compare to DockerHub, what makes them more secure, pricing, and enterprise deployment best practices"
 date: 2022-09-01T08:49:31+00:00
 lastmod: 2024-12-18T08:49:31+00:00
 draft: false
-tags: ["Chainguard Containers", "FAQ", "Product"]
+tags: ["Chainguard Containers", "FAQ"]
 images: []
 menu:
   docs:
@@ -15,13 +15,13 @@ weight: 060
 toc: true
 ---
 
-Learn answers to your questions about [Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
+Learn answers to your questions about [Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement). Chainguard provides container images designed with security as the primary focus, featuring zero known CVEs, minimal attack surface, and built-in SBOMs for every image.
 
 ## Which Linux distribution is used as base for Chainguard Containers?
 Chainguard Containers are based on [Wolfi](/open-source/wolfi/), a Linux _undistro_ we built specifically to address software supply chain security issues. We call it an undistro because it doesn't contain certain software you'd normally find in a traditional Linux distribution such as Debian or Alpine. Wolfi is a minimal Linux distribution designed specifically to be used as a base for stripped-down container images.
 
 ## How do Chainguard Containers relate to the Google Distroless Container Images?
-The [Google distroless](https://github.com/GoogleContainerTools/distroless) images follow a similar philosophy to many of our images: they are minimal images that don't include package managers or shells. The main difference is in the implementation. The Google distroless images are built with [Bazel](https://bazel.build) and based on the Debian distribution, whereas Chainguard Containers are built with [apko](/open-source/apko) and based on [Wolfi](/open-source/wolfi). We believe our approach is more maintainable and extensible.
+The [Google distroless](https://github.com/GoogleContainerTools/distroless) images follow a similar philosophy to many of our images: they are minimal images that don't include package managers or shells. The main difference is in the implementation. The Google distroless images are built with [Bazel](https://bazel.build) and based on the Debian distribution, whereas Chainguard Containers are built with [apko](/open-source/apko/) and based on [Wolfi](/open-source/wolfi/). We believe our approach is more maintainable and extensible.
 
 ## Which images are available?
 There are currently over a thousand Chainguard Containers available, which are segmented as **Starter** or **Production**. You can read more about this in the [next question](#what-options-do-i-have-to-use-chainguard-images).

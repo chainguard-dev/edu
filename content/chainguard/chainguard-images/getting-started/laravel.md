@@ -2,10 +2,10 @@
 title: "Getting Started with the Laravel Chainguard Container"
 type: "article"
 linktitle: "Laravel"
-description: "Tutorial on how to get started with the Chainguard Laravel container image"
+description: "Learn how to use Chainguard's Laravel container image for secure PHP web applications, featuring built-in Laravel tooling and minimal vulnerabilities"
 date: 2024-05-17T11:07:52+02:00
-lastmod: 2025-03-24T11:07:52+02:00
-tags: ["Chainguard Containers", "Product"]
+lastmod: 2025-07-23T15:09:59+00:00
+tags: ["Chainguard Containers"]
 draft: false
 images: []
 menu:
@@ -15,7 +15,7 @@ weight: 020
 toc: true
 ---
 
-The [Laravel Chainguard Container](https://images.chainguard.dev/directory/image/laravel/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-laravel) is a container image that has the tooling necessary to develop, build, and execute [Laravel](https://laravel.com) applications, including required extensions. Laravel is a full-stack PHP framework that enables developers to build complex applications using modern tools and techniques that help streamline the development process.
+Chainguard's [Laravel container image](https://images.chainguard.dev/directory/image/laravel/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-laravel) provides a secure foundation for [Laravel](https://laravel.com) applications with minimal vulnerabilities compared to traditional PHP images. This specialized image includes all necessary PHP extensions and tooling for Laravel development while maintaining Chainguard's security-first approach, enabling developers to build complex applications without compromising on security.
 
 In this guide, we'll set up a demo and demonstrate how you can use Chainguard Containers to develop, build, and run Laravel applications.
 

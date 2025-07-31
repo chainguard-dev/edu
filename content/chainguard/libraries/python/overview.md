@@ -1,10 +1,10 @@
 ---
 title: "Chainguard Libraries for Python Overview"
 linktitle: "Python Overview "
-description: "Python libraries for your application development"
+description: "Learn about Chainguard Libraries for Python, providing enhanced security for PyPI packages through automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-04-09:04:00+00:00
-lastmod: 2025-07-02:10:00+00:00
+lastmod: 2025-07-23T15:09:59+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python", "Overview"]
 menu:
@@ -16,13 +16,7 @@ toc: true
 
 ## Introduction
 
-Python is one of the most popular programming languages in the world. The
-open [Python Package Index (PyPI)](https://pypi.org/) contains over 600,000
-libraries for application development, machine learning, data science, and many
-other use cases. Chainguard Libraries for Python rebuilds these powerful open
-source projects within the Chainguard Factory, enabling access to the Python
-ecosystem while dramatically reducing risk from an untrusted software supply
-chain.
+Chainguard Libraries for Python provides enhanced security for the vast Python ecosystem by rebuilding PyPI packages with comprehensive supply chain protection and automated patching. With over 600,000 packages on the [Python Package Index (PyPI)](https://pypi.org/) serving application development, machine learning, and data science needs, Chainguard addresses the critical security challenges of depending on packages from untrusted sources by rebuilding them within the controlled Chainguard Factory environment.
 
 Chainguard Libraries for Python enables access to a growing collection of Python
 packages rebuilt from source. New releases of common libraries or artifacts
@@ -58,7 +52,7 @@ apply:
 Most organizations consume Chainguard Libraries for Python through a repository
 manager such as Cloudsmith, JFrog Artifactory or Sonatype Nexus Repository. For
 full details, refer to our [Global Configuration
-documentation](/chainguard/libraries/python/global-configuration). The rest of
+documentation](/chainguard/libraries/python/global-configuration/). The rest of
 this article provides details of the underlying implementation of Chainguard
 Libraries for Python and how to access individual libraries manually.
 
