@@ -1,26 +1,27 @@
 ---
 date: 2025-07-30T21:39:07Z
-title: "chainctl config validate"
-slug: chainctl_config_validate
-url: /chainguard/chainctl/chainctl-docs/chainctl_config_validate/
+title: "chainctl iam account-associations unset azure"
+slug: chainctl_iam_account-associations_unset_azure
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_unset_azure/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl config validate
+## chainctl iam account-associations unset azure
 
-Run diagnostics on local config.
+Remove AZURE account configuration for a location.
 
 ```
-chainctl config validate [--output=json|table] [flags]
+chainctl iam account-associations unset azure ORGANIZATION_NAME|ORGANIZATION_ID|FOLDER_NAME|FOLDER_ID [--yes] [flags]
 ```
 
 ### Options
 
 ```
-  -h, --help   help for validate
+  -h, --help   help for azure
+  -y, --yes    Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 
 ### Options inherited from parent commands
@@ -39,5 +40,5 @@ chainctl config validate [--output=json|table] [flags]
 
 ### SEE ALSO
 
-* [chainctl config](/chainguard/chainctl/chainctl-docs/chainctl_config/)	 - Local config file commands for chainctl.
+* [chainctl iam account-associations unset](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_unset/)	 - Remove cloud provider account associations from a location.
 
