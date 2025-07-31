@@ -49,7 +49,7 @@ With SLSA 3, every Chainguard artifact comes with detailed metadata and document
 
 Reaching SLSA Level 3 compliance with any product is a major achievement, but even more is planned.
 
-See [blog post] for more details.
+See [the blog post announcement](http://chainguard.dev/unchained/this-shit-is-hard-slsa-l3-and-beyond) for more details.
 
 
 ## Sample Provenance Code
