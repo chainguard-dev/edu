@@ -281,7 +281,7 @@ you are not using [.netrc for
 authentication](/chainguard/libraries/access/#netrc).
 
 ## Direct Access 
-> NOTE: Chainguard does not offer an SLA for uptime availability of the Libraries repository at `libraries.cgr.dev`. To reduce production risk and ensure reliability, we recommend mirroring or proxying Chainguard Libraries through your own artifact repository whenver possible.
+> NOTE: Chainguard does not offer an SLA for uptime availability of the Libraries repository at `libraries.cgr.dev`. To reduce production risk and ensure reliability, we recommend mirroring or proxying Chainguard Libraries through your own artifact repository whenever possible.
 
 If your organization does not use a supported repository manager, you can directly pull from the Chainguard Python Libraries repository using basic authentication.
 
