@@ -53,8 +53,8 @@ For a list of all required practices, see the PCI DSS documentation available in
 
 ## Browse all PCI DSS 4.0 Articles
 
-- [Introduction to PCI DSS 4.0](/software-security/compliance/pci-dss-4/intro-pci-dss-4/)
+- [Introduction to PCI DSS 4.0](/compliance/pci-dss-4/intro-pci-dss-4/)
 - (Current article) Overview of PCI DSS 4.0 Practices/Requirements
-- [How Chainguard Can Help With PCI DSS 4.0](/software-security/compliance/pci-dss-4/pci-dss-chainguard/)
+- [How Chainguard Can Help With PCI DSS 4.0](/compliance/pci-dss-4/pci-dss-chainguard/)
 
 **[Get started with Chainguard FIPS Images today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**
