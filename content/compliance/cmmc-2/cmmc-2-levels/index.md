@@ -70,13 +70,13 @@ At the time of publication, specific Level 3 practices are still being determine
 
 Each CMMC level builds upon the previous one, ensuring that as organizations progress through the levels, their cybersecurity posture becomes more robust and capable of addressing increasingly sophisticated threats. This tiered approach allows organizations of varying sizes and capabilities to incrementally improve their cybersecurity measures while meeting the specific requirements necessary to handle sensitive information.
 
-To learn more about the specific required practices of CMMC 2.0, continue to the [Overview of CMMC 2.0 Practice/Control Groups](/software-security/compliance/cmmc-2/cmmc-practices/).
+To learn more about the specific required practices of CMMC 2.0, continue to the [Overview of CMMC 2.0 Practice/Control Groups](/compliance/cmmc-2/cmmc-practices/).
 
 ## Browse all CMMC 2.0 Articles
 
-- [Introduction to CMMC 2.0](/software-security/compliance/cmmc-2/intro-cmmc-2/)
+- [Introduction to CMMC 2.0](/compliance/cmmc-2/intro-cmmc-2/)
 - (Current article) CMMC 2.0 Maturity Levels
-- [Overview of CMMC 2.0 Practice/Control Groups](/software-security/compliance/cmmc-2/cmmc-practices/)
-- [How Chainguard Can Help With CMMC 2.0](/software-security/compliance/cmmc-2/cmmc-chainguard/)
+- [Overview of CMMC 2.0 Practice/Control Groups](/compliance/cmmc-2/cmmc-practices/)
+- [How Chainguard Can Help With CMMC 2.0](/compliance/cmmc-2/cmmc-chainguard/)
 
 **[Get started with Chainguard FIPS Images today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**

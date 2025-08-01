@@ -47,13 +47,13 @@ Failure to comply with CMMC 2.0 can have several significant impacts:
 - **Legal and Financial Penalties**: Organizations may face legal actions and financial penalties, especially if a security breach occurs involving sensitive information.
 - **Increased Risk**: Non-compliance increases the risk of data breaches and cyberattacks, which can compromise organizational and client data.
 
-Achieving compliance with CMMC 2.0 is not just a regulatory requirement but a critical step in safeguarding national security and contracting with the DoD. To prepare your organization for CMMC 2.0, continue on to the next section of our guide, [CMMC 2.0 Maturity Levels](/software-security/compliance/cmmc-2/cmmc-2-levels/), or read about [how Chainguard Containers can help simplify fulfilling CMMC 2.0 requirements](/software-security/compliance/cmmc-2/cmmc-chainguard/).
+Achieving compliance with CMMC 2.0 is not just a regulatory requirement but a critical step in safeguarding national security and contracting with the DoD. To prepare your organization for CMMC 2.0, continue on to the next section of our guide, [CMMC 2.0 Maturity Levels](/compliance/cmmc-2/cmmc-2-levels/), or read about [how Chainguard Containers can help simplify fulfilling CMMC 2.0 requirements](/compliance/cmmc-2/cmmc-chainguard/).
 
 ## Browse all CMMC 2.0 Articles
 
 - (Current article) Introduction to CMMC 2.0
-- [CMMC 2.0 Maturity Levels](/software-security/compliance/cmmc-2/cmmc-2-levels/)
-- [Overview of CMMC 2.0 Practice/Control Groups](/software-security/compliance/cmmc-2/cmmc-practices/)
-- [How Chainguard Can Help With CMMC 2.0](/software-security/compliance/cmmc-2/cmmc-chainguard/)
+- [CMMC 2.0 Maturity Levels](/compliance/cmmc-2/cmmc-2-levels/)
+- [Overview of CMMC 2.0 Practice/Control Groups](/compliance/cmmc-2/cmmc-practices/)
+- [How Chainguard Can Help With CMMC 2.0](/compliance/cmmc-2/cmmc-chainguard/)
 
 **[Get started with FIPS Chainguard Containers today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**

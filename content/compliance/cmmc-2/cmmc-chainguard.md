@@ -41,9 +41,9 @@ By leveraging Chainguard’s resources, organizations can accelerate their path 
 
 ## Browse all CMMC 2.0 Articles
 
-- [Introduction to CMMC 2.0](/software-security/compliance/cmmc-2/intro-cmmc-2/)
-- [CMMC 2.0 Maturity Levels](/software-security/compliance/cmmc-2/cmmc-2-levels/)
-- [Overview of CMMC 2.0 Practice/Control Groups](/software-security/compliance/cmmc-2/cmmc-practices/)
+- [Introduction to CMMC 2.0](/compliance/cmmc-2/intro-cmmc-2/)
+- [CMMC 2.0 Maturity Levels](/compliance/cmmc-2/cmmc-2-levels/)
+- [Overview of CMMC 2.0 Practice/Control Groups](/compliance/cmmc-2/cmmc-practices/)
 - (Current article) How Chainguard Can Help With CMMC 2.0
 
 
