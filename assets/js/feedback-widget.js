@@ -3,7 +3,6 @@
  * Handles interactive feedback collection and Google Forms submission
  */
 
-<<<<<<< HEAD
 class FeedbackRateLimiter {
   constructor() {
     this.storageKey = 'feedback-submissions';
@@ -72,17 +71,12 @@ class FeedbackRateLimiter {
   }
 }
 
-=======
->>>>>>> f7fe0b570048e95d0d43ec5ac31c752b148030f1
 class FeedbackWidget {
   constructor(container) {
     this.container = container;
     this.data = this.loadFeedbackData();
     this.currentState = 'initial'; // initial, thanks, form, status
-<<<<<<< HEAD
     this.rateLimiter = new FeedbackRateLimiter();
-=======
->>>>>>> f7fe0b570048e95d0d43ec5ac31c752b148030f1
     
     this.elements = {
       prompt: container.querySelector('.feedback-prompt'),
@@ -114,12 +108,7 @@ class FeedbackWidget {
     return {
       pageTitle: document.title,
       pageUrl: window.location.href,
-<<<<<<< HEAD
       appsScriptUrl: 'YOUR_APPS_SCRIPT_URL_HERE' // Will be replaced with actual URL
-=======
-      positiveFormUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSdnnnllDa3BpWSjuS5rax2glIMrOYSEF8rP3pqDss3bSwbchQ/formResponse',
-      negativeFormUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScaZRQAfqr0CL9fsJ4y4oTdt1A6UQVazmEXw-wibcrqr0UFhg/formResponse'
->>>>>>> f7fe0b570048e95d0d43ec5ac31c752b148030f1
     };
   }
 
@@ -142,7 +131,6 @@ class FeedbackWidget {
   }
 
   handlePositiveFeedback() {
-<<<<<<< HEAD
     if (!this.rateLimiter.canSubmit()) {
       this.showRateLimitError();
       return;
@@ -150,15 +138,11 @@ class FeedbackWidget {
     
     this.updateButtonState(this.elements.yesBtn, '👍');
     this.disableButton(this.elements.noBtn);
-=======
-    this.updateButtonState(this.elements.yesBtn, '👍');
->>>>>>> f7fe0b570048e95d0d43ec5ac31c752b148030f1
     this.setState('thanks');
     this.submitPositiveFeedback();
   }
 
   handleNegativeFeedback() {
-<<<<<<< HEAD
     if (!this.rateLimiter.canSubmit()) {
       this.showRateLimitError();
       return;
@@ -166,9 +150,6 @@ class FeedbackWidget {
     
     this.updateButtonState(this.elements.noBtn, '👎');
     this.disableButton(this.elements.yesBtn);
-=======
-    this.updateButtonState(this.elements.noBtn, '👎');
->>>>>>> f7fe0b570048e95d0d43ec5ac31c752b148030f1
     this.setState('form');
     // Focus the textarea for better UX
     setTimeout(() => {
@@ -187,7 +168,6 @@ class FeedbackWidget {
     }
   }
 
-<<<<<<< HEAD
   disableButton(button) {
     if (button) {
       button.disabled = true;
@@ -213,28 +193,14 @@ class FeedbackWidget {
     this.elements.prompt.style.display = 'block';
     
     // Hide secondary sections
-=======
-  setState(newState) {
-    this.currentState = newState;
-    
-    // Hide all sections
-    this.elements.prompt.style.display = 'none';
->>>>>>> f7fe0b570048e95d0d43ec5ac31c752b148030f1
     this.elements.thanks.style.display = 'none';
     this.elements.form.style.display = 'none';
     this.elements.status.style.display = 'none';
 
-<<<<<<< HEAD
     // Show the appropriate section below the prompt
     switch (newState) {
       case 'initial':
         // Only prompt is visible
-=======
-    // Show the appropriate section
-    switch (newState) {
-      case 'initial':
-        this.elements.prompt.style.display = 'block';
->>>>>>> f7fe0b570048e95d0d43ec5ac31c752b148030f1
         break;
       case 'thanks':
         this.elements.thanks.style.display = 'block';
@@ -262,7 +228,6 @@ class FeedbackWidget {
 
   async submitPositiveFeedback() {
     try {
-<<<<<<< HEAD
       await this.submitToAppsScript({
         pageTitle: this.data.pageTitle,
         pageUrl: this.data.pageUrl,
@@ -270,12 +235,6 @@ class FeedbackWidget {
         feedbackText: ''
       });
       this.rateLimiter.recordSubmission();
-=======
-      await this.submitToGoogleForm(this.data.positiveFormUrl, {
-        'entry.1436583328': this.data.pageUrl, // URL field
-        'entry.776814152': this.data.pageTitle // Title field
-      });
->>>>>>> f7fe0b570048e95d0d43ec5ac31c752b148030f1
     } catch (error) {
       console.error('Failed to submit positive feedback:', error);
       // Don't show error for positive feedback since user already saw success
@@ -297,7 +256,6 @@ class FeedbackWidget {
     }
 
     try {
-<<<<<<< HEAD
       const result = await this.submitToAppsScript({
         pageTitle: this.data.pageTitle,
         pageUrl: this.data.pageUrl,
@@ -311,15 +269,6 @@ class FeedbackWidget {
       } else {
         this.showStatus('error', result.error);
       }
-=======
-      await this.submitToGoogleForm(this.data.negativeFormUrl, {
-        'entry.906974735': this.data.pageUrl, // URL field
-        'entry.1319083678': this.data.pageTitle, // Title field
-        'entry.775804475': feedbackText // Feedback field
-      });
-      
-      this.showStatus('success');
->>>>>>> f7fe0b570048e95d0d43ec5ac31c752b148030f1
     } catch (error) {
       console.error('Failed to submit negative feedback:', error);
       this.showStatus('error');
@@ -332,7 +281,6 @@ class FeedbackWidget {
     }
   }
 
-<<<<<<< HEAD
   async submitToAppsScript(data) {
     if (!this.data.appsScriptUrl || this.data.appsScriptUrl === 'YOUR_APPS_SCRIPT_URL_HERE') {
       throw new Error('Apps Script URL not configured');
@@ -356,29 +304,6 @@ class FeedbackWidget {
   }
 
   showStatus(type, errorMessage = null) {
-=======
-  async submitToGoogleForm(formUrl, data) {
-    const formData = new FormData();
-    
-    // Add form fields
-    Object.entries(data).forEach(([key, value]) => {
-      formData.append(key, value);
-    });
-
-    // Submit to Google Form
-    const response = await fetch(formUrl, {
-      method: 'POST',
-      body: formData,
-      mode: 'no-cors' // Google Forms requires no-cors mode
-    });
-
-    // Since no-cors mode doesn't allow reading the response,
-    // we assume success if no error was thrown
-    return response;
-  }
-
-  showStatus(type) {
->>>>>>> f7fe0b570048e95d0d43ec5ac31c752b148030f1
     this.setState('status');
     
     if (type === 'success') {
@@ -387,7 +312,6 @@ class FeedbackWidget {
     } else {
       this.elements.statusSuccess.style.display = 'none';
       this.elements.statusError.style.display = 'block';
-<<<<<<< HEAD
       
       // Update error message if provided
       if (errorMessage) {
@@ -396,8 +320,6 @@ class FeedbackWidget {
           errorText.textContent = errorMessage;
         }
       }
-=======
->>>>>>> f7fe0b570048e95d0d43ec5ac31c752b148030f1
     }
   }
 
@@ -414,13 +336,10 @@ class FeedbackWidget {
     this.elements.yesBtn?.setAttribute('aria-pressed', 'false');
     this.elements.noBtn?.setAttribute('aria-pressed', 'false');
     
-<<<<<<< HEAD
     // Re-enable both buttons
     this.enableButton(this.elements.yesBtn);
     this.enableButton(this.elements.noBtn);
     
-=======
->>>>>>> f7fe0b570048e95d0d43ec5ac31c752b148030f1
     // Reset button text
     const yesText = this.elements.yesBtn?.querySelector('.feedback-btn-text');
     const noText = this.elements.noBtn?.querySelector('.feedback-btn-text');
@@ -430,7 +349,6 @@ class FeedbackWidget {
     // Return to initial state
     this.setState('initial');
   }
-<<<<<<< HEAD
 
   showRateLimitError() {
     const timeLeft = this.rateLimiter.getTimeUntilNextSubmission();
@@ -446,8 +364,6 @@ class FeedbackWidget {
       errorText.textContent = `Please wait ${minutes} minute${minutes > 1 ? 's' : ''} before submitting feedback again.`;
     }
   }
-=======
->>>>>>> f7fe0b570048e95d0d43ec5ac31c752b148030f1
 }
 
 // Initialize feedback widgets when DOM is ready
