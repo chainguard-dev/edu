@@ -279,3 +279,49 @@ alternative package
 indexes](https://docs.astral.sh/uv/guides/integration/alternative-indexes/) if
 you are not using [.netrc for
 authentication](/chainguard/libraries/access/#netrc).
+
+## Direct Access 
+> NOTE: Chainguard does not offer an SLA for uptime availability of the Libraries repository at `libraries.cgr.dev`. To reduce production risk and ensure reliability, we recommend mirroring or proxying Chainguard Libraries through your own artifact repository whenver possible.
+
+If your organization does not use a supported repository manager, you can directly pull from the Chainguard Python Libraries repository using basic authentication.
+
+Use the following index URL:
+https://libraries.cgr.dev/python/simple/
+
+### Authentication via Pull Token
+
+Authentication requires a pull token, which you can create using the `chainctl` CLI using the instructions at [Pull Token for Libraries](https://edu.chainguard.dev/chainguard/libraries/access/#pull-token-for-libraries).
+
+Once you have a pull token, use the generated username and password in your existing build tool’s configuration.
+
+> NOTE: The generated username will typically contain a `/`, which must be replaced with `_` when used in the URL for your build tool configuration file. 
+
+### Example pip Configuration
+
+In `requirements.txt`:
+
+```
+--index-url https://your_token_username:your_token_password@libraries.cgr.dev/python/simple/
+```
+
+In  `~/.pip/pip.conf`:
+```
+[global]
+index-url = https://your_token_username:your_token_password@libraries.cgr.dev/python/simple/
+```
+
+### Example uv Configuration
+In `pyproject.toml`: 
+```
+[[tool.uv.index]]
+name = "chainguard"
+url = "https://your_token_username:your_token_password@libraries.cgr.dev/python/simple/
+```
+
+In `uv.toml`:
+```
+[[index]]
+url = "https://your_token_username:your_token_password@libraries.cgr.dev/python/simple/
+```
+
+You may choose to authenticate using other supported methods, such as a `.netrc` file or environment variables, depending on your build tool’s capabilities and your security practices. The examples above demonstrate inline configuration for convenience, but they are not the only supported approaches. Refer to your build tool's documentation for additional authentication mechanisms.
