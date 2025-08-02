@@ -41,14 +41,14 @@ jobs:
     - name: Checkout courses repository
       uses: actions/checkout@v4
       with:
-        repository: ${{ github.repository_owner }}/courses
+        repository: chainguard-dev/courses
         path: courses
         ssh-key: ${{ secrets.COURSES_DEPLOY_KEY }}
 
     - name: Checkout images-private repository
       uses: actions/checkout@v4
       with:
-        repository: ${{ github.repository_owner }}/images-private
+        repository: chainguard-images/images-private
         path: images-private
         ssh-key: ${{ secrets.IMAGES_DEPLOY_KEY }}
 
