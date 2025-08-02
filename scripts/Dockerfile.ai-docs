@@ -1,0 +1,31 @@
+# Chainguard AI Documentation Container
+# Provides secure distribution of compiled documentation
+
+FROM cgr.dev/chainguard/static:latest AS final
+
+# Add metadata labels
+LABEL org.opencontainers.image.source="https://github.com/chainguard-dev/edu"
+LABEL org.opencontainers.image.description="Chainguard AI Documentation Bundle - Cryptographically signed and verified"
+LABEL org.opencontainers.image.licenses="Apache-2.0"
+LABEL dev.chainguard.ai-docs.version="latest"
+
+# Create directory structure
+WORKDIR /docs
+
+# Copy documentation and verification files
+# These will be added during the build process
+COPY chainguard-complete-docs.md /docs/
+COPY chainguard-complete-docs.md.sig /docs/
+COPY chainguard-complete-docs.md.pem /docs/
+COPY checksums.sha256 /docs/
+COPY checksums.sha256.sig /docs/
+COPY verification.sh /docs/
+COPY extract.sh /usr/local/bin/extract
+COPY verify.sh /usr/local/bin/verify
+COPY list-contents.sh /usr/local/bin/list-contents
+
+# Set permissions
+USER nonroot:nonroot
+
+# Default command shows usage
+CMD ["/usr/local/bin/list-contents"]

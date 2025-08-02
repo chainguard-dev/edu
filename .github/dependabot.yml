@@ -15,8 +15,26 @@ updates:
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 10
+    reviewers:
+      - "security-team"
+    labels:
+      - "dependencies"
+      - "github-actions"
+      - "security"
     groups:
       actions:
         update-types:
           - "minor"
           - "patch"
+          
+  # Python dependencies for documentation compilation
+  - package-ecosystem: "pip"
+    directory: "/scripts"
+    schedule:
+      interval: "weekly"
+    reviewers:
+      - "security-team"
+    labels:
+      - "dependencies"
+      - "security"
+      - "documentation"
