@@ -1544,6 +1544,51 @@
         ]
       }
     },
+    "/iam/v1/rolebindings/batch/{parent}": {
+      "post": {
+        "operationId": "RoleBindings_CreateBatch",
+        "parameters": [
+          {
+            "description": "parent, The Group UIDP path under which the new RoleBinding resides.",
+            "in": "path",
+            "name": "parent",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "RoleBinding to create.",
+            "in": "body",
+            "name": "roleBindings",
+            "required": true,
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/iamRoleBinding",
+                "type": "object"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/iamRoleBindingBatch"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "RoleBindings"
+        ]
+      }
+    },
     "/iam/v1/rolebindings/{id}": {
       "delete": {
         "operationId": "RoleBindings_Delete",
@@ -2308,6 +2353,37 @@
         ]
       }
     },
+    "/registry/v1/digestcount/{parentId}": {
+      "get": {
+        "operationId": "Registry_GetManifestDigestCount",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "parentId",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryManifestDigestCount"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      }
+    },
     "/registry/v1/entitlements/{parent}": {
       "get": {
         "operationId": "Entitlements_ListEntitlements",
@@ -2334,6 +2410,38 @@
             }
           }
         },
+        "tags": [
+          "Entitlements"
+        ]
+      }
+    },
+    "/registry/v1/entitlements/{parent}/catalog-images": {
+      "get": {
+        "operationId": "Entitlements_ListEntitlementCatalogImages",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "parent",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryEntitlementImagesList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "summary": "ListEntitlementCatalogImages returns catalog images for per-repo entitlements only.\nAYCE entitlements return empty list since access is captured in parent Entitlement.",
         "tags": [
           "Entitlements"
         ]
@@ -2693,6 +2801,13 @@
             "schema": {
               "$ref": "#/definitions/registryRepo"
             }
+          },
+          {
+            "description": "Disallow updating an existing repo on create name collision",
+            "in": "query",
+            "name": "preventExisting",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -4058,6 +4173,13 @@
             "name": "orderBy",
             "required": false,
             "type": "string"
+          },
+          {
+            "description": "exclude_event_author filters out advisories where any event was created by the specified author\nWhen specified, advisories containing events by this author will be excluded from results.\nThis is useful for review workflows where users want to see all pending events except their own,\nenabling them to review others' work without seeing their own submissions.",
+            "in": "query",
+            "name": "excludeEventAuthor",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -4442,6 +4564,10 @@
           "title": "events are advisory events associated with this advisory",
           "type": "array"
         },
+        "legacyAdvisoryID": {
+          "title": "legacyAdvisoryID stores the advisory ID from the Github advisories repositories",
+          "type": "string"
+        },
         "reviewer": {
           "title": "reviewer is the person who reviewed this event",
           "type": "string"
@@ -4594,6 +4720,12 @@
           "type": "array"
         },
         "repositories": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "runtimeRepositories": {
           "items": {
             "type": "string"
           },
@@ -5141,6 +5273,17 @@
       "type": "object"
     },
     "ImageConfigVolume": {
+      "type": "object"
+    },
+    "PackageVersionVersionSource": {
+      "properties": {
+        "ref": {
+          "type": "string"
+        },
+        "sha": {
+          "type": "string"
+        }
+      },
       "type": "object"
     },
     "RegistryUpdateRepoBody": {
@@ -6323,6 +6466,18 @@
       },
       "type": "object"
     },
+    "iamRoleBindingBatch": {
+      "properties": {
+        "roleBindings": {
+          "items": {
+            "$ref": "#/definitions/iamRoleBinding",
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "iamRoleBindingList": {
       "properties": {
         "items": {
@@ -7004,6 +7159,13 @@
           "description": "Keys can't be enum types, but string should match CatalogTier.",
           "type": "object"
         },
+        "tiers": {
+          "description": "List of catalog tiers (e.g., [\"APPLICATION\", \"BASE\"]) that have unlimited access.\nThis field is used for AYCE (All You Can Eat) entitlements.",
+          "items": {
+            "$ref": "#/definitions/registryCatalogTier"
+          },
+          "type": "array"
+        },
         "type": {
           "$ref": "#/definitions/registryEntitlementType"
         },
@@ -7078,7 +7240,8 @@
       "enum": [
         "UNKNOWN",
         "TRIAL",
-        "PRODUCTION"
+        "PRODUCTION",
+        "EXTRA"
       ],
       "type": "string"
     },
@@ -7268,6 +7431,15 @@
       },
       "type": "object"
     },
+    "registryManifestDigestCount": {
+      "properties": {
+        "count": {
+          "format": "int64",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "registryManifestMetadata": {
       "properties": {
         "digest": {
@@ -7360,6 +7532,9 @@
         "version": {
           "title": "the version stream identifier",
           "type": "string"
+        },
+        "versionSource": {
+          "$ref": "#/definitions/PackageVersionVersionSource"
         }
       },
       "type": "object"
@@ -7529,6 +7704,19 @@
       },
       "type": "object"
     },
+    "registryRepoTagReference": {
+      "properties": {
+        "repo": {
+          "title": "repo is the name of the repo",
+          "type": "string"
+        },
+        "tag": {
+          "title": "tag is the version of the image",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "registryScanner": {
       "properties": {
         "dbBuildTime": {
@@ -7569,6 +7757,10 @@
         },
         "apkoOverlay": {
           "description": "An apko configuration overlay to rebuild images with when syncing them.",
+          "type": "string"
+        },
+        "azure": {
+          "description": "Azure ACR repo to sync to.",
           "type": "string"
         },
         "expiration": {
@@ -8324,6 +8516,10 @@
         },
         "id": {
           "description": "id is the UIDP for the Advisory.",
+          "type": "string"
+        },
+        "legacyAdvisoryID": {
+          "title": "legacyAdvisoryID stores the advisory ID from the Github advisories repositories",
           "type": "string"
         },
         "reviewer": {
