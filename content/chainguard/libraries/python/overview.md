@@ -126,7 +126,7 @@ curl -n -L -O https://libraries.cgr.dev/files/...
 With [environment variables](/chainguard/libraries/access/#env):
 
 ```
-curl -L --user '$CHAINGUARD_PYTHON_IDENTITY_ID:$CHAINGUARD_PYTHON_TOKEN' \
+curl -L --user "$CHAINGUARD_PYTHON_IDENTITY_ID:$CHAINGUARD_PYTHON_TOKEN" \
   -O https://libraries.cgr.dev/files/...
 ```
 
