@@ -164,7 +164,7 @@ chainctl iam identities create circleci-identity
 --parent=$ORGANIZATION
 ```
 
-Then, use the identity created (5678 in this example) in the above command for the CircleCL config.yml:
+Then, use the identity created in the above command for the CircleCL config.yml:
 
 ```yaml
 version: 2.1
@@ -191,7 +191,7 @@ jobs:
     - run:
         name: Configure Docker auth
         command: |
-          sudo chainctl auth configure-docker --identity-token="$CIRCLE_OIDC_TOKEN" --identity "5678"
+          sudo chainctl auth configure-docker --identity-token="$CIRCLE_OIDC_TOKEN" --identity "1234"
           # Here is the created identity that was mentioned ^^^^
 
     - run:
