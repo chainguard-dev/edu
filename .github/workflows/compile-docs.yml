@@ -9,7 +9,7 @@ on:
       - 'scripts/compile_docs_secure.py'
   
   schedule:
-    - cron: '0 2 * * *'
+    - cron: '0 2 * * 0'  # Weekly on Sundays at 2 AM
   
   workflow_dispatch:
     inputs:
@@ -217,12 +217,28 @@ jobs:
         fi
 
 
+    - name: Delete existing latest release if exists
+      if: (github.event.inputs.create_release == 'true' || github.event_name == 'schedule') && github.ref == 'refs/heads/main'
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        # Delete existing ai-docs-latest release if it exists
+        if gh release view ai-docs-latest > /dev/null 2>&1; then
+          echo "Deleting existing ai-docs-latest release"
+          gh release delete ai-docs-latest -y
+        fi
+        
+        # Also delete the tag
+        if git rev-parse ai-docs-latest > /dev/null 2>&1; then
+          git push --delete origin ai-docs-latest || true
+        fi
+
     - name: Create GitHub Release
       if: (github.event.inputs.create_release == 'true' || github.event_name == 'schedule') && github.ref == 'refs/heads/main'
       uses: softprops/action-gh-release@v1
       with:
-        tag_name: ai-docs-${{ github.run_number }}
-        name: AI Documentation Bundle - ${{ github.run_number }}
+        tag_name: ai-docs-latest
+        name: AI Documentation Bundle - Latest
         body: |
           ## Chainguard AI Documentation Bundle
           
@@ -232,8 +248,9 @@ jobs:
           
           ```bash
           # Download and verify the bundle
-          curl -LO https://github.com/${{ github.repository }}/releases/download/ai-docs-${{ github.run_number }}/chainguard-ai-docs.tar.gz
-          curl -LO https://github.com/${{ github.repository }}/releases/download/ai-docs-${{ github.run_number }}/chainguard-ai-docs.tar.gz.sig
+          # Download latest release
+          curl -LO https://github.com/${{ github.repository }}/releases/latest/download/chainguard-ai-docs.tar.gz
+          curl -LO https://github.com/${{ github.repository }}/releases/latest/download/chainguard-ai-docs.tar.gz.sig
           
           # Verify with cosign
           cosign verify-blob \
@@ -251,8 +268,8 @@ jobs:
           
           ```bash
           # Pull and verify container (when available)
-          cosign verify cgr.dev/chainguard/ai-docs:${{ github.run_number }}
-          docker run --rm -v $(pwd):/output cgr.dev/chainguard/ai-docs:${{ github.run_number }} extract /output
+          cosign verify cgr.dev/chainguard/ai-docs:latest
+          docker run --rm -v $(pwd):/output cgr.dev/chainguard/ai-docs:latest extract /output
           ```
           
           ### What's New
