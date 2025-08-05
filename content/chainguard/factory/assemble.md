@@ -10,7 +10,7 @@ tags: ["Chainguard Factory", "Video", "Overview"]
 images: []
 menu:
   docs:
-    parent: "chainguard-factory-videos"
+    parent: "chainguard-factory"
 weight: 100
 toc: true
 ---
