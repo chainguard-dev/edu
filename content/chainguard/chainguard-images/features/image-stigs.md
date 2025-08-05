@@ -39,7 +39,35 @@ curl -fsSLO https://raw.githubusercontent.com/chainguard-dev/stigs/main/gpos/xml
 
 The `-O` option in this example will redirect the file's contents into a local file also named `ssg-chainguard-gpos-ds.xml` in your working directory. You can then view the checklist locally.
 
-We'll refer to this as the `scan` image, and the `target` image we'll be scanning will be: `cgr.dev/chainguard/wolfi-base:latest`.
+We'll refer to Chainguard's `openscap` container image as the `scan` image, and the `target` image we'll be scanning will be: `cgr.dev/chainguard/wolfi-base:latest`.
+
+The scan may be performed using one of two methods - we may either scan an image in a registry, or a running container.
+
+### Scanning a registry image
+
+First, ensure the target image is present in your local Docker daemon.
+
+```
+docker pull cgr.dev/chainguard/wolfi-base:latest
+```
+
+Next, run the scan image against the target image. 
+
+```
+docker run -i --rm -u 0:0 --pid=host \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v $(pwd)/out:/out \
+  --entrypoint sh \
+  cgr.dev/chainguard/openscap:latest-dev <<_END_DOCKER_RUN
+oscap-docker image cgr.dev/chainguard/wolfi-base:latest xccdf eval \
+  --profile "xccdf_basic_profile_.check" \
+  --report /out/report.html \
+  --results /out/results.xml \
+  /usr/share/xml/scap/ssg/content/ssg-chainguard-gpos-ds.xml
+_END_DOCKER_RUN
+```
+
+### Scanning a running container
 
 First, start the target image:
 
