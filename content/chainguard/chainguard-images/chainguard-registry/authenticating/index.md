@@ -192,6 +192,7 @@ jobs:
         name: Configure Docker auth
         command: |
           sudo chainctl auth configure-docker --identity-token="$CIRCLE_OIDC_TOKEN" --identity "5678"
+          # Here is the created identity that was mentioned ^^^^
 
     - run:
         name: Pull Docker image
