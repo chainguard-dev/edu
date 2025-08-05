@@ -28,6 +28,9 @@ schemaType = "Organization"
 schemaName = "Chainguard"
 schemaUrl = "https://chainguard.dev"
 schemaAuthorTwitter = "https://twitter.com/chainguard_dev"
+
+## Feedback Widget
+feedbackAppsScriptUrl = "https://script.google.com/macros/s/AKfycbwl4SSh2C3Gl6Sukv5l_SCzW5uQVQnMTnWE84IPHVRHEcmvDmDqZhCFH5ul2ut0FP0e/exec"
 schemaAuthorLinkedIn = "https://www.linkedin.com/company/chainguard-dev"
 schemaAuthorGitHub = "https://github.com/chainguard-dev"
 schemaLocale = "en-US"

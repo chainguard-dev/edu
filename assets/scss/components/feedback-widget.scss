@@ -191,19 +191,6 @@
     }
   }
 
-  .feedback-status {
-    .feedback-message {
-      margin-bottom: 0;
-    }
-
-    .feedback-status-success .feedback-text {
-      color: var(--tertiary-2);
-    }
-
-    .feedback-status-error .feedback-text {
-      color: var(--tertiary-3);
-    }
-  }
 }
 
 // Dark mode adjustments
@@ -296,14 +283,30 @@
   }
 }
 
+// Fade in animation for smooth transitions
+.feedback-fade-in {
+  animation: feedbackFadeIn 0.3s ease-in-out forwards;
+}
+
+@keyframes feedbackFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 // Animation for smooth transitions
 .feedback-widget > div {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .feedback-widget .feedback-form,
-.feedback-widget .feedback-thanks,
-.feedback-widget .feedback-status {
+.feedback-widget .feedback-thanks {
   &[style*="display: none"] {
     opacity: 0;
     transform: translateY(-10px);

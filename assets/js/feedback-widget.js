@@ -3,97 +3,67 @@
  * Handles interactive feedback collection and Google Forms submission
  */
 
-class FeedbackRateLimiter {
-  constructor() {
-    this.storageKey = 'feedback-submissions';
-    this.maxSubmissions = 3; // Max submissions per time window
-    this.timeWindow = 15 * 60 * 1000; // 15 minutes in milliseconds
-    this.submissions = this.loadSubmissions();
-  }
-
-  loadSubmissions() {
-    try {
-      const stored = localStorage.getItem(this.storageKey);
-      if (stored) {
-        const submissions = JSON.parse(stored);
-        // Clean up old submissions
-        const now = Date.now();
-        return submissions.filter(timestamp => now - timestamp < this.timeWindow);
-      }
-    } catch (e) {
-      console.warn('Failed to load submission history:', e);
-    }
-    return [];
-  }
-
-  saveSubmissions() {
-    try {
-      localStorage.setItem(this.storageKey, JSON.stringify(this.submissions));
-    } catch (e) {
-      console.warn('Failed to save submission history:', e);
-    }
-  }
-
-  canSubmit() {
-    // To disable rate limiting for testing, uncomment the line below and comment out the rest:
-    // return true;
-    
-    this.cleanOldSubmissions();
-    return this.submissions.length < this.maxSubmissions;
-  }
-
-  recordSubmission() {
-    const now = Date.now();
-    this.submissions.push(now);
-    this.saveSubmissions();
-  }
-
-  cleanOldSubmissions() {
-    const now = Date.now();
-    this.submissions = this.submissions.filter(timestamp => now - timestamp < this.timeWindow);
-    this.saveSubmissions();
-  }
-
-  getTimeUntilNextSubmission() {
-    if (this.canSubmit()) {
-      return 0;
-    }
-    
-    // Find the oldest submission that will expire first
-    const oldestSubmission = Math.min(...this.submissions);
-    const timeUntilExpiry = this.timeWindow - (Date.now() - oldestSubmission);
-    return Math.max(0, timeUntilExpiry);
-  }
-
-  getRemainingSubmissions() {
-    this.cleanOldSubmissions();
-    return Math.max(0, this.maxSubmissions - this.submissions.length);
-  }
-}
-
 class FeedbackWidget {
   constructor(container) {
     this.container = container;
     this.data = this.loadFeedbackData();
-    this.currentState = 'initial'; // initial, thanks, form, status
-    this.rateLimiter = new FeedbackRateLimiter();
+    this.currentState = 'initial'; // initial, thanks, form
+    this.retryCount = 0;
+    this.maxRetries = 2;
     
     this.elements = {
       prompt: container.querySelector('.feedback-prompt'),
       thanks: container.querySelector('.feedback-thanks'),
       form: container.querySelector('.feedback-form'),
-      status: container.querySelector('.feedback-status'),
       yesBtn: container.querySelector('[data-feedback="yes"]'),
       noBtn: container.querySelector('[data-feedback="no"]'),
       textarea: container.querySelector('.feedback-textarea'),
       charCount: container.querySelector('.char-count'),
       submitBtn: container.querySelector('.feedback-submit-btn'),
-      cancelBtn: container.querySelector('.feedback-cancel-btn'),
-      statusSuccess: container.querySelector('.feedback-status-success'),
-      statusError: container.querySelector('.feedback-status-error')
+      cancelBtn: container.querySelector('.feedback-cancel-btn')
     };
 
     this.bindEvents();
+    this.checkExistingFeedback();
+  }
+
+  checkExistingFeedback() {
+    // Check if user has already provided feedback for this page
+    const pageKey = `feedback-${this.data.pageUrl}`;
+    const existingFeedback = localStorage.getItem(pageKey);
+    
+    if (existingFeedback) {
+      const feedbackData = JSON.parse(existingFeedback);
+      const daysSinceFeedback = (Date.now() - feedbackData.timestamp) / (1000 * 60 * 60 * 24);
+      
+      // Show existing feedback state if less than 30 days old
+      if (daysSinceFeedback < 30) {
+        if (feedbackData.type === 'positive') {
+          this.updateButtonState(this.elements.yesBtn, '👍');
+          this.disableButton(this.elements.noBtn);
+        } else if (feedbackData.type === 'negative') {
+          this.updateButtonState(this.elements.noBtn, '👎');
+          this.disableButton(this.elements.yesBtn);
+        }
+        this.setState('thanks');
+      } else {
+        // Clear old feedback
+        localStorage.removeItem(pageKey);
+      }
+    }
+  }
+
+  saveFeedbackState(type) {
+    const pageKey = `feedback-${this.data.pageUrl}`;
+    const feedbackData = {
+      type: type,
+      timestamp: Date.now()
+    };
+    try {
+      localStorage.setItem(pageKey, JSON.stringify(feedbackData));
+    } catch (e) {
+      console.warn('Failed to save feedback state:', e);
+    }
   }
 
   loadFeedbackData() {
@@ -131,11 +101,6 @@ class FeedbackWidget {
   }
 
   handlePositiveFeedback() {
-    if (!this.rateLimiter.canSubmit()) {
-      this.showRateLimitError();
-      return;
-    }
-    
     this.updateButtonState(this.elements.yesBtn, '👍');
     this.disableButton(this.elements.noBtn);
     this.setState('thanks');
@@ -143,11 +108,6 @@ class FeedbackWidget {
   }
 
   handleNegativeFeedback() {
-    if (!this.rateLimiter.canSubmit()) {
-      this.showRateLimitError();
-      return;
-    }
-    
     this.updateButtonState(this.elements.noBtn, '👎');
     this.disableButton(this.elements.yesBtn);
     this.setState('form');
@@ -192,25 +152,34 @@ class FeedbackWidget {
     // Always keep prompt visible
     this.elements.prompt.style.display = 'block';
     
-    // Hide secondary sections
-    this.elements.thanks.style.display = 'none';
-    this.elements.form.style.display = 'none';
-    this.elements.status.style.display = 'none';
+    // Hide secondary sections with fade out
+    const sections = [this.elements.thanks, this.elements.form];
+    sections.forEach(section => {
+      if (section) {
+        section.style.display = 'none';
+        section.classList.remove('feedback-fade-in');
+      }
+    });
 
-    // Show the appropriate section below the prompt
+    // Show the appropriate section below the prompt with fade in
+    let targetElement = null;
     switch (newState) {
       case 'initial':
         // Only prompt is visible
         break;
       case 'thanks':
-        this.elements.thanks.style.display = 'block';
+        targetElement = this.elements.thanks;
         break;
       case 'form':
-        this.elements.form.style.display = 'block';
+        targetElement = this.elements.form;
         break;
-      case 'status':
-        this.elements.status.style.display = 'block';
-        break;
+    }
+    
+    if (targetElement) {
+      targetElement.style.display = 'block';
+      // Trigger reflow to ensure animation plays
+      void targetElement.offsetWidth;
+      targetElement.classList.add('feedback-fade-in');
     }
   }
 
@@ -234,10 +203,12 @@ class FeedbackWidget {
         feedbackType: 'positive',
         feedbackText: ''
       });
-      this.rateLimiter.recordSubmission();
+      this.saveFeedbackState('positive');
     } catch (error) {
       console.error('Failed to submit positive feedback:', error);
       // Don't show error for positive feedback since user already saw success
+      // Still save the state locally even if submission failed
+      this.saveFeedbackState('positive');
     }
   }
 
@@ -249,14 +220,11 @@ class FeedbackWidget {
       return;
     }
 
-    // Disable submit button during submission
-    if (this.elements.submitBtn) {
-      this.elements.submitBtn.disabled = true;
-      this.elements.submitBtn.textContent = 'Submitting...';
-    }
+    // Show loading state
+    this.showLoadingState();
 
     try {
-      const result = await this.submitToAppsScript({
+      const result = await this.submitToAppsScriptWithRetry({
         pageTitle: this.data.pageTitle,
         pageUrl: this.data.pageUrl,
         feedbackType: 'negative',
@@ -264,62 +232,97 @@ class FeedbackWidget {
       });
       
       if (result.success) {
-        this.rateLimiter.recordSubmission();
+        this.saveFeedbackState('negative');
+        this.hideLoadingState();
         this.setState('thanks');
       } else {
-        this.showStatus('error', result.error);
+        // Even if submission fails, thank the user and save state locally
+        this.saveFeedbackState('negative');
+        this.hideLoadingState();
+        this.setState('thanks');
       }
     } catch (error) {
       console.error('Failed to submit negative feedback:', error);
-      this.showStatus('error');
-    } finally {
-      // Reset submit button
-      if (this.elements.submitBtn) {
-        this.elements.submitBtn.disabled = false;
-        this.elements.submitBtn.textContent = 'Submit';
+      // Even if submission fails, thank the user and save state locally
+      this.saveFeedbackState('negative');
+      this.hideLoadingState();
+      this.setState('thanks');
+    }
+  }
+
+  showLoadingState() {
+    if (this.elements.submitBtn) {
+      this.elements.submitBtn.disabled = true;
+      this.elements.submitBtn.textContent = 'Submitting...';
+    }
+  }
+
+  hideLoadingState() {
+    if (this.elements.submitBtn) {
+      this.elements.submitBtn.disabled = false;
+      this.elements.submitBtn.textContent = 'Submit';
+    }
+  }
+
+  async submitToAppsScriptWithRetry(data) {
+    this.retryCount = 0;
+    
+    while (this.retryCount <= this.maxRetries) {
+      try {
+        const result = await this.submitToAppsScript(data);
+        return result;
+      } catch (error) {
+        this.retryCount++;
+        
+        if (this.retryCount > this.maxRetries) {
+          throw error;
+        }
+        
+        // Wait before retrying (exponential backoff)
+        const delay = Math.min(1000 * Math.pow(2, this.retryCount - 1), 4000);
+        await new Promise(resolve => setTimeout(resolve, delay));
+        
+        console.log(`Retrying submission (attempt ${this.retryCount + 1}/${this.maxRetries + 1})...`);
       }
     }
   }
 
   async submitToAppsScript(data) {
-    if (!this.data.appsScriptUrl || this.data.appsScriptUrl === 'YOUR_APPS_SCRIPT_URL_HERE') {
+    if (!this.data.appsScriptUrl || this.data.appsScriptUrl === 'YOUR_APPS_SCRIPT_URL_HERE' || this.data.appsScriptUrl === '') {
       throw new Error('Apps Script URL not configured');
     }
 
-    const response = await fetch(this.data.appsScriptUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'text/plain;charset=utf-8',
-      },
-      body: JSON.stringify(data),
-      redirect: 'follow'
-    });
+    // Create an AbortController for timeout
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
+    try {
+      const response = await fetch(this.data.appsScriptUrl, {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'text/plain;charset=utf-8',
+        },
+        body: JSON.stringify(data),
+        redirect: 'follow',
+        signal: controller.signal
+      });
 
-    const result = await response.json();
-    return result;
-  }
+      clearTimeout(timeoutId);
 
-  showStatus(type, errorMessage = null) {
-    this.setState('status');
-    
-    if (type === 'success') {
-      this.elements.statusSuccess.style.display = 'block';
-      this.elements.statusError.style.display = 'none';
-    } else {
-      this.elements.statusSuccess.style.display = 'none';
-      this.elements.statusError.style.display = 'block';
-      
-      // Update error message if provided
-      if (errorMessage) {
-        const errorText = this.elements.statusError.querySelector('.feedback-text');
-        if (errorText) {
-          errorText.textContent = errorMessage;
-        }
+      if (!response.ok) {
+        throw new Error('Failed to submit feedback. Please try again.');
       }
+
+      const result = await response.json();
+      return result;
+    } catch (error) {
+      clearTimeout(timeoutId);
+      
+      if (error.name === 'AbortError') {
+        throw new Error('Request timeout - please try again');
+      }
+      throw error;
     }
   }
 
@@ -350,20 +353,6 @@ class FeedbackWidget {
     this.setState('initial');
   }
 
-  showRateLimitError() {
-    const timeLeft = this.rateLimiter.getTimeUntilNextSubmission();
-    const minutes = Math.ceil(timeLeft / 60000);
-    
-    // Show error below the prompt instead of replacing it
-    this.setState('status');
-    this.elements.statusSuccess.style.display = 'none';
-    this.elements.statusError.style.display = 'block';
-    
-    const errorText = this.elements.statusError.querySelector('.feedback-text');
-    if (errorText) {
-      errorText.textContent = `Please wait ${minutes} minute${minutes > 1 ? 's' : ''} before submitting feedback again.`;
-    }
-  }
 }
 
 // Initialize feedback widgets when DOM is ready
