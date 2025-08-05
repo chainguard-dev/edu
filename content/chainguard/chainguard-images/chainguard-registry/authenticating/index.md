@@ -152,9 +152,9 @@ If the identity is configured to only work with GitHub Actions workflow runs fro
 
 ## Authenticating with CircieCI OIDC Token
 
-As with GitHub Actions, you can configure authentication with OIDC-aware CircleCI platform.
+You can configure authentication with OIDC-aware CircleCI platform.
 
-First, use chainctl to create an assumed identity. This example uses a CircleCI ID of `1234` and will work for all projects in that organization. Modify the subject pattern regex to reduce the scope to specific repos in the organization.
+First, use `chainctl` to create an assumed identity. This example uses a CircleCI ID of `1234` and will work for all projects in that organization. Modify the subject pattern regex to reduce the scope to specific repos in the organization.
 
 ```sh
 chainctl iam identities create circleci-identity
