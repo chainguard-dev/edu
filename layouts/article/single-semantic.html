@@ -92,6 +92,9 @@
           {{ .Content }}
         </div>
 
+        {{/* Feedback Widget */}}
+        {{ partial "feedback-widget.html" . }}
+
         {{/* Related Content Section */}}
         {{ $related := .Site.RegularPages.Related . | first 5 }}
         {{ with $related }}
@@ -135,6 +138,9 @@
     {{- $copypage := resources.Get "js/copypage.js" -}}
     {{ $copypage := $copypage | minify }}
     <script src="{{ $copypage.Permalink }}" integrity="{{ $copypage.Data.Integrity }}"></script>
+    {{- $feedbackWidget := resources.Get "js/feedback-widget.js" -}}
+    {{ $feedbackWidget := $feedbackWidget | minify }}
+    <script src="{{ $feedbackWidget.Permalink }}" integrity="{{ $feedbackWidget.Data.Integrity }}"></script>
     
     {{ if ne .Params.toc false -}}
     <aside class="docs-toc{{ if ne .Site.Params.options.navbarSticky true }} docs-toc-top{{ end }}" role="navigation" aria-label="Table of contents">
