@@ -58,6 +58,9 @@ options:
       - arg: --flannel-backend=none
         nodeFilters:
           - server:*
+      - arg: --snapshotter=fuse-overlayfs
+        nodeFilters:
+          - server:*
 EOF
 ```
 

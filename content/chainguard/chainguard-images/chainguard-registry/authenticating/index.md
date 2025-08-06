@@ -4,7 +4,7 @@ linktitle: "Authenticate"
 type: "article"
 description: "A guide on authenticating to Chainguard's registry to get container images"
 date: 2023-03-21T15:10:16+00:00
-lastmod: 2025-04-11T15:22:20+01:00
+lastmod: 2025-08-06T15:22:20+01:00
 tags: ["Chainguard Containers", "Registry"]
 draft: false
 images: []
@@ -148,6 +148,65 @@ jobs:
 Pulls authenticated in this way are associated with the Chainguard identity you created, which is associated with the organization selected when the identity was created.
 
 If the identity is configured to only work with GitHub Actions workflow runs from a given repo and branch, that identity will not be able to pull from other repos or branches, including pull requests targeting the specified branch.
+
+
+## Authenticating with CircleCI OIDC Token
+
+You can configure authentication with OIDC-aware CircleCI platform.
+
+First, use `chainctl` to create an [assumed identity](/chainguard/administration/assumable-ids/assumable-ids/#managing-identities-with-chainctl). This example uses a CircleCI ID of `1234` and will work for all projects in that organization. Replace `1234` with your identity issuer org. Modify the subject pattern regex to reduce the scope to specific repos in the organization.
+
+```sh
+chainctl iam identities create circleci-identity
+--identity-issuer="https://oidc.circleci.com/org/1234"
+--subject-pattern="org/1234/project/.+$"
+--role=registry.pull
+--parent=$ORGANIZATION
+```
+
+Then, use the identity created in the above command for the CircleCI config.yml, shown here in the third `run` section as `5678`:
+
+```yaml
+version: 2.1
+
+jobs:
+  install-and-authenticate:
+    machine: true
+    environment:
+    CHAINCTL_TOKEN_FILE: "/tmp/oidc_token"
+
+  steps:
+    - checkout
+
+    - run:
+          name: Download chainctl
+          command: |
+            curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/aarch64/arm64/')"
+
+    - run:
+        name: Install chainctl
+        command: |
+          sudo install -o $UID -g $(id -g) -m 0755 chainctl /usr/local/bin/
+
+    - run:
+        name: Configure Docker auth
+        command: |
+          sudo chainctl auth configure-docker --identity-token="$CIRCLE_OIDC_TOKEN" --identity "5678"
+
+    - run:
+        name: Pull Docker image
+        command: |
+          sudo docker pull cgr.dev/cgr-demo.com/python:latest
+
+workflows:
+  version: 2
+  chainctl-workflow:
+    jobs:
+      - install-and-authenticate  
+```
+
+See the [CircleCI documentation](https://circleci.com/docs/openid-connect-tokens/#format-of-the-openid-connect-id-token) to learn more about using OpenID Connect tokens in CircleCI jobs.
+
 
 ## Authenticating with Kubernetes
 
