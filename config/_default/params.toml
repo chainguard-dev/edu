@@ -30,7 +30,7 @@ schemaUrl = "https://chainguard.dev"
 schemaAuthorTwitter = "https://twitter.com/chainguard_dev"
 
 ## Feedback Widget
-feedbackAppsScriptUrl = "https://script.google.com/macros/s/AKfycbwl4SSh2C3Gl6Sukv5l_SCzW5uQVQnMTnWE84IPHVRHEcmvDmDqZhCFH5ul2ut0FP0e/exec"
+feedbackAppsScriptUrl = "https://script.google.com/macros/s/AKfycbwct0xt8lCQCyr3GGOVCYOln0MnUZZx1g_qC_zSR63mtP_b3jFKXC8NQ9dGMOhuex3q/exec"
 schemaAuthorLinkedIn = "https://www.linkedin.com/company/chainguard-dev"
 schemaAuthorGitHub = "https://github.com/chainguard-dev"
 schemaLocale = "en-US"

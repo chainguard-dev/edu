@@ -60,6 +60,6 @@
 {
   "pageTitle": {{ .Title | jsonify }},
   "pageUrl": {{ .Permalink | jsonify }},
-  "appsScriptUrl": {{ .Site.Params.feedbackAppsScriptUrl | default "" | jsonify }}
+  "appsScriptUrl": "{{ .Site.Params.feedbackAppsScriptUrl | default "" }}"
 }
 </script>
