@@ -31,7 +31,7 @@ To complete this guide, you will need the following.
 * `kubectl` - the command line interface tool for Kubernetes.
 * Access to a Kubernetes cluster.
 
-## Finding the Issuer URL of the Kubernetes Cluster
+## Find the Issuer URL of the Kubernetes Cluster
 
 A Kubernetes cluster operates as an OIDC issuer. How you find the URL for that
 issuer depends on where the cluster is running.
@@ -72,7 +72,7 @@ claim with [`jwt`](https://github.com/mike-engel/jwt-cli).
 kubectl create token default | jwt decode -
 ```
 
-## Creating an Assumable Identity
+## Create an Assumable Identity
 
 Run this `chainctl` command to create an identity for the `default` service
 account in the `default` namespace and assign it the `registry.pull` role.
