@@ -29,17 +29,11 @@ A comprehensive collection of Chainguard documentation including:
 
 Choose your preferred distribution method:
 
-### Direct Download
-
-| Format | Size | Description |
-|--------|------|-------------|
-| [Documentation Bundle](/downloads/chainguard-ai-docs.tar.gz) | ~1.7MB | Complete documentation in compressed format |
-
-### Signed Release (GitHub Actions)
+### GitHub Release
 
 | Format | Description | Verification |
 |--------|-------------|-------------|
-| [Latest Release](https://github.com/chainguard-dev/edu/releases/tag/ai-docs-latest) | Cryptographically signed with Cosign | Includes signatures and certificates |
+| [Latest Release](https://github.com/chainguard-dev/edu/releases/tag/ai-docs-latest) | Cryptographically signed documentation bundle (~1.7MB) | Includes Cosign signatures and certificates |
 
 ### Container Distribution
 
@@ -59,8 +53,8 @@ cosign verify ghcr.io/chainguard-dev/ai-docs:latest \
 ### Quick Start
 
 ```bash
-# Download the documentation bundle
-curl -LO https://edu.chainguard.dev/downloads/chainguard-ai-docs.tar.gz
+# Download the documentation bundle from GitHub releases
+curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-latest/chainguard-ai-docs.tar.gz
 
 # Extract the markdown file
 tar -xzf chainguard-ai-docs.tar.gz
