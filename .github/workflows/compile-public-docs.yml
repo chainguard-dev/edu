@@ -63,9 +63,16 @@ jobs:
         # Run compilation with public content only
         python scripts/compile_docs.py
         
-        # Verify output was created
+        # Debug: Show where we are and what was created
+        echo "Current directory: $(pwd)"
+        echo "Looking for output file..."
+        find . -name "chainguard-complete-docs.md" -type f 2>/dev/null || true
+        
+        # Verify output was created (the script outputs to current dir structure)
         if [ ! -f "static/downloads/chainguard-complete-docs.md" ]; then
-          echo "Error: Documentation compilation failed"
+          echo "Error: Documentation compilation failed - file not found at static/downloads/chainguard-complete-docs.md"
+          echo "Directory contents:"
+          ls -la static/downloads/ || echo "Directory doesn't exist"
           exit 1
         fi
         
