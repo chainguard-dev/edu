@@ -211,9 +211,15 @@ jobs:
     - name: Build and push container image
       if: github.ref == 'refs/heads/main'
       run: |
+        # Debug: Check current location and files
+        echo "Current directory: $(pwd)"
+        echo "Files in static/downloads:"
+        ls -la static/downloads/ | head -10
+        
         cd static/downloads
         
         # Copy necessary files for container build
+        echo "Copying files to scripts directory..."
         cp chainguard-ai-docs.md ../../scripts/
         cp chainguard-ai-docs.md.sig ../../scripts/
         cp chainguard-ai-docs.md.crt ../../scripts/
@@ -221,6 +227,10 @@ jobs:
         # verification.sh is already in scripts/ directory
         
         cd ../../scripts
+        
+        # Debug: List files in scripts directory before build
+        echo "Files in scripts directory before build:"
+        ls -la | grep -E "chainguard-ai-docs|checksums|verification|extract|verify|list-contents"
         
         # Build container with GitHub Container Registry
         docker build -f Dockerfile.ai-docs -t ghcr.io/${{ github.repository_owner }}/ai-docs:latest .
