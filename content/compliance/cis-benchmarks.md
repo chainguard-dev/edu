@@ -8,7 +8,7 @@ lastmod: 2024-09-18T14:05:09+00:00
 contributors: []
 draft: false
 aliases:
-- /chainguard/software-security/compliance/cis-benchmarks/
+- /software-security/compliance/cis-benchmarks/
 tags: ["Compliance", "Standards"]
 images: []
 menu:
