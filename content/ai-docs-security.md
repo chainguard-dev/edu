@@ -90,14 +90,16 @@ Example patterns we redact:
 
 ```bash
 # 1. Download files
-curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs/chainguard-ai-docs.tar.gz
-curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs/chainguard-ai-docs.tar.gz.sig
+curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-latest/chainguard-ai-docs.tar.gz
+curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-latest/chainguard-ai-docs.tar.gz.sig
+curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-latest/chainguard-ai-docs.tar.gz.crt
 
 # 2. Verify signature
 cosign verify-blob \
-  --certificate-identity-regexp ".*github.com/chainguard-dev/edu.*" \
-  --certificate-oidc-issuer https://token.actions.githubusercontent.com \
+  --certificate chainguard-ai-docs.tar.gz.crt \
   --signature chainguard-ai-docs.tar.gz.sig \
+  --certificate-identity-regexp ".*" \
+  --certificate-oidc-issuer https://token.actions.githubusercontent.com \
   chainguard-ai-docs.tar.gz
 
 # 3. Extract and verify contents
@@ -109,16 +111,18 @@ tar -xzf chainguard-ai-docs.tar.gz
 
 ```bash
 # 1. Verify container signature
-cosign verify cgr.dev/chainguard/ai-docs:latest
+cosign verify ghcr.io/chainguard-dev/ai-docs:latest \
+  --certificate-identity-regexp ".*" \
+  --certificate-oidc-issuer https://token.actions.githubusercontent.com
 
 # 2. Inspect without running
-docker create --name temp cgr.dev/chainguard/ai-docs:latest
-docker cp temp:/docs/checksums.sha256 .
+docker create --name temp ghcr.io/chainguard-dev/ai-docs:latest
+docker cp temp:/docs/checksums.txt .
 docker rm temp
 
 # 3. Verify and extract
-docker run --rm cgr.dev/chainguard/ai-docs:latest verify
-docker run --rm -v $(pwd):/output cgr.dev/chainguard/ai-docs:latest extract /output
+docker run --rm ghcr.io/chainguard-dev/ai-docs:latest verify
+docker run --rm -v $(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract /output
 ```
 
 ## Build Frequency
@@ -151,7 +155,7 @@ Yes! The compilation scripts are open source:
 ```bash
 git clone https://github.com/chainguard-dev/edu
 cd edu
-python3 scripts/compile_docs_secure.py
+python3 scripts/compile_docs.py
 ```
 
 ### How do I verify the build logs?
