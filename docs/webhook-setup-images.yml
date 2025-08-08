@@ -1,0 +1,22 @@
+# Add this workflow to the images-private repository at .github/workflows/trigger-docs-compile.yml
+
+name: Trigger Documentation Compilation
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'images/**/README.md'
+      - 'images/**/metadata.yaml'
+
+jobs:
+  trigger-compile:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Trigger edu repository workflow
+      uses: peter-evans/repository-dispatch@v2
+      with:
+        token: ${{ secrets.CROSS_REPO_TOKEN }}
+        repository: ${{ github.repository_owner }}/edu
+        event-type: docs-update
+        client-payload: '{"repository": "images-private", "ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'

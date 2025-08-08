@@ -27,3 +27,10 @@ gha-creds-*.json
 
 /tools/rumble/vulnerability.db
 
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
