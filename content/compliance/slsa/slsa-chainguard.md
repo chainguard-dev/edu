@@ -8,7 +8,7 @@ lastmod: 2025-07-23T01:24:23+00:00
 contributors: []
 draft: false
 aliases:
-- /chainguard/open-source/slsa/slsa-chainguard/
+- /open-source/slsa/slsa-chainguard/
 tags: ["Compliance", "SLSA", "Standards"]
 images: []
 menu:
