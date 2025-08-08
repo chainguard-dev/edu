@@ -25,7 +25,7 @@ There are a number of things one should keep in mind when analyzing revision tre
 * Customers will be now be required to provide an authorization boundary diagram with an associated network diagram that shows all FIPS encrypted flows:
     * Anything that isn’t encrypted needs to be explicitly highlighted.
     * Auditors will ask that these diagrams and flows not just show this but, in some cases, to prove this during the audit with observed testing scenarios.
-* Notable Revision 5 Changes ([Rev 5 - appendix queue](https://www.fedramp.gov/blog/2023-05-30-rev-5-baselines-have-been-approved-and-released/)):
+* Notable Revision 5 Changes ([Rev 5 - appendix queue](https://web.archive.org/web/20250214120456/https://www.fedramp.gov/blog/2023-05-30-rev-5-baselines-have-been-approved-and-released/):
     * Customers must list every client and server communication in the infrastructure and which FIPS module is being used.
     * DoD Security Technical Implementation Guides (STIGs) can be required, although CIS Level 2 benchmarks are accepted if a STIG does not exist, marking a change from Revision 4 which only required CIS Level 1 benchmarks.
 * In order to get FIPS validated, libraries need to be assessed by one of thirteen authorized labs:
