@@ -17,8 +17,8 @@ echo
 echo "[INFO] Extracting verified documentation to $OUTPUT_DIR"
 
 # Copy files
-cp /docs/chainguard-complete-docs.md "$OUTPUT_DIR/"
-cp /docs/checksums.sha256 "$OUTPUT_DIR/"
+cp /docs/chainguard-ai-docs.md "$OUTPUT_DIR/"
+cp /docs/checksums.txt "$OUTPUT_DIR/"
 cp /docs/verification.sh "$OUTPUT_DIR/"
 
 echo "[PASS] Documentation extracted successfully to $OUTPUT_DIR"
