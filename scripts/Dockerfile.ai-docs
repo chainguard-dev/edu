@@ -14,11 +14,10 @@ WORKDIR /docs
 
 # Copy documentation and verification files
 # These will be added during the build process
-COPY chainguard-complete-docs.md /docs/
-COPY chainguard-complete-docs.md.sig /docs/
-COPY chainguard-complete-docs.md.pem /docs/
-COPY checksums.sha256 /docs/
-COPY checksums.sha256.sig /docs/
+COPY chainguard-ai-docs.md /docs/
+COPY chainguard-ai-docs.md.sig /docs/
+COPY chainguard-ai-docs.md.crt /docs/
+COPY checksums.txt /docs/
 COPY verification.sh /docs/
 COPY extract.sh /usr/local/bin/extract
 COPY verify.sh /usr/local/bin/verify
