@@ -8,7 +8,7 @@ lastmod: 2025-07-23T01:24:23+00:00
 contributors:  
 draft: false
 aliases:
-- /chainguard/open-source/slsa/what-is-slsa/
+- /open-source/slsa/what-is-slsa/
 tags: ["SLSA", "Conceptual"]
 images: []
 menu:
