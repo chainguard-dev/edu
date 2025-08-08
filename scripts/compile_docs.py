@@ -275,9 +275,9 @@ def compile_documentation(output_path=None):
     if os.environ.get('GITHUB_ACTIONS'):
         # GitHub Actions environment
         base_path = Path('.')
-        edu_path = base_path / 'edu'
-        courses_path = base_path / 'courses'
-        images_path = base_path / 'images-private'
+        edu_path = base_path  # We're already in the edu repository
+        courses_path = base_path.parent / 'courses'
+        images_path = base_path.parent / 'images-private'
     else:
         # Local development environment
         current_dir = Path(__file__).parent.parent
