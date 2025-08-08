@@ -124,7 +124,7 @@ jobs:
         tar -czf chainguard-complete-docs.tar.gz chainguard-complete-docs.md
         
         # Generate checksums
-        sha256sum chainguard-complete-docs.* > checksums.sha256
+        sha256sum chainguard-complete-docs.* > checksums.txt
         
         # Verify compressed files
         gzip -t chainguard-complete-docs.md.gz
@@ -142,12 +142,12 @@ jobs:
         cosign sign-blob chainguard-complete-docs.md \
           --yes \
           --output-signature chainguard-complete-docs.md.sig \
-          --output-certificate chainguard-complete-docs.md.pem
+          --output-certificate chainguard-complete-docs.md.crt
         
         # Sign the checksums file
-        cosign sign-blob checksums.sha256 \
+        cosign sign-blob checksums.txt \
           --yes \
-          --output-signature checksums.sha256.sig
+          --output-signature checksums.txt.sig
         
         # Copy verification script
         cp $GITHUB_WORKSPACE/edu/scripts/verification.sh .
@@ -156,9 +156,9 @@ jobs:
         tar -czf chainguard-ai-docs.tar.gz \
           chainguard-complete-docs.md \
           chainguard-complete-docs.md.sig \
-          chainguard-complete-docs.md.pem \
-          checksums.sha256 \
-          checksums.sha256.sig \
+          chainguard-complete-docs.md.crt \
+          checksums.txt \
+          checksums.txt.sig \
           verification.sh
         
         # Sign the bundle
@@ -171,12 +171,11 @@ jobs:
       run: |
         cd edu
         
-        # Copy necessary files for container build
-        cp $TEMP_BUILD_DIR/chainguard-complete-docs.md scripts/
-        cp $TEMP_BUILD_DIR/chainguard-complete-docs.md.sig scripts/
-        cp $TEMP_BUILD_DIR/chainguard-complete-docs.md.pem scripts/
-        cp $TEMP_BUILD_DIR/checksums.sha256 scripts/
-        cp $TEMP_BUILD_DIR/checksums.sha256.sig scripts/
+        # Copy necessary files for container build (rename to match Dockerfile expectations)
+        cp $TEMP_BUILD_DIR/chainguard-complete-docs.md scripts/chainguard-ai-docs.md
+        cp $TEMP_BUILD_DIR/chainguard-complete-docs.md.sig scripts/chainguard-ai-docs.md.sig
+        cp $TEMP_BUILD_DIR/chainguard-complete-docs.md.crt scripts/chainguard-ai-docs.md.crt
+        cp $TEMP_BUILD_DIR/checksums.txt scripts/checksums.txt
         # verification.sh is already in scripts/ directory
         
         # Build container with GitHub Container Registry
