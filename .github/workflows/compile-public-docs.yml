@@ -66,8 +66,16 @@ jobs:
         
         # Debug: Show where we are and what was created
         echo "Current directory: $(pwd)"
-        echo "Looking for output file..."
-        find . -name "chainguard-complete-docs.md" -type f 2>/dev/null || true
+        echo "Python script output should show 'Documentation compiled successfully to: [PATH]' above"
+        echo ""
+        echo "Looking for chainguard-complete-docs.md anywhere in the repository..."
+        find . -name "chainguard-complete-docs.md" -type f 2>/dev/null | while read file; do
+          echo "Found at: $file"
+          echo "File size: $(ls -lh "$file" | awk '{print $5}')"
+        done
+        echo ""
+        echo "Contents of static/downloads/:"
+        ls -la static/downloads/ 2>/dev/null | head -10 || echo "Directory static/downloads/ doesn't exist"
         
         # Verify output was created (the script outputs to static/downloads in the current directory)
         if [ ! -f "static/downloads/chainguard-complete-docs.md" ]; then
@@ -137,7 +145,7 @@ jobs:
         cd static/downloads
         
         # Use a fixed tag for the latest release
-        TAG="ai-docs"
+        TAG="ai-docs-latest"
         
         # Delete existing release if it exists
         gh release delete "$TAG" --yes || true
@@ -152,8 +160,7 @@ jobs:
         
         | File | Description | Size |
         |------|-------------|------|
-        | [chainguard-ai-docs.tar.gz](https://github.com/chainguard-dev/edu/releases/download/ai-docs/chainguard-ai-docs.tar.gz) | Compressed bundle | ~1.7MB |
-        | [chainguard-ai-docs.md](https://github.com/chainguard-dev/edu/releases/download/ai-docs/chainguard-ai-docs.md) | Full markdown file | ~11MB |
+        | [chainguard-ai-docs.tar.gz](https://github.com/chainguard-dev/edu/releases/download/ai-docs-latest/chainguard-ai-docs.tar.gz) | Compressed bundle | ~1.7MB |
         
         ## Contents
         - Complete public documentation from the edu repository
@@ -166,9 +173,9 @@ jobs:
         
         ```bash
         # Download files
-        curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs/chainguard-ai-docs.tar.gz
-        curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs/chainguard-ai-docs.tar.gz.sig
-        curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs/chainguard-ai-docs.tar.gz.crt
+        curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-latest/chainguard-ai-docs.tar.gz
+        curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-latest/chainguard-ai-docs.tar.gz.sig
+        curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-latest/chainguard-ai-docs.tar.gz.crt
         
         # Verify tarball
         cosign verify-blob \
@@ -203,9 +210,6 @@ jobs:
           chainguard-ai-docs.tar.gz \
           chainguard-ai-docs.tar.gz.sig \
           chainguard-ai-docs.tar.gz.crt \
-          chainguard-ai-docs.md \
-          chainguard-ai-docs.md.sig \
-          chainguard-ai-docs.md.crt \
           checksums.txt
 
     - name: Build and push container image
@@ -255,8 +259,5 @@ jobs:
           static/downloads/chainguard-ai-docs.tar.gz
           static/downloads/chainguard-ai-docs.tar.gz.sig
           static/downloads/chainguard-ai-docs.tar.gz.crt
-          static/downloads/chainguard-ai-docs.md
-          static/downloads/chainguard-ai-docs.md.sig
-          static/downloads/chainguard-ai-docs.md.crt
           static/downloads/checksums.txt
         retention-days: 90
