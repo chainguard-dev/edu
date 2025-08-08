@@ -1,0 +1,215 @@
+name: Compile Public Documentation Bundle
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'content/**'
+      - 'scripts/compile_docs.py'
+      - '.github/workflows/compile-public-docs.yml'
+  
+  schedule:
+    - cron: '0 2 * * 0'  # Weekly on Sundays at 2 AM
+  
+  workflow_dispatch:
+    inputs:
+      create_release:
+        description: 'Create a GitHub release with signed artifacts'
+        required: false
+        default: 'true'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
+
+permissions:
+  contents: write  # For creating releases
+  actions: read
+  id-token: write  # For cosign keyless signing
+  
+jobs:
+  compile-and-release:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout edu repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    - name: Install cosign
+      uses: sigstore/cosign-installer@v3
+
+    - name: Install dependencies
+      run: |
+        if [ -f scripts/requirements.txt ]; then
+          pip install -r scripts/requirements.txt
+        else
+          # Minimal requirements if file doesn't exist
+          pip install pyyaml
+        fi
+
+    - name: Compile public documentation
+      run: |
+        # Create placeholder directories for private repos
+        mkdir -p ../courses
+        mkdir -p ../images-private
+        echo "# Placeholder" > ../courses/README.md
+        echo "# Placeholder" > ../images-private/README.md
+        
+        # Run compilation with public content only
+        python scripts/compile_docs.py
+        
+        # Verify output was created
+        if [ ! -f "static/downloads/chainguard-complete-docs.md" ]; then
+          echo "Error: Documentation compilation failed"
+          exit 1
+        fi
+        
+        echo "Documentation compiled successfully"
+        ls -lh static/downloads/chainguard-complete-docs.md
+
+    - name: Create compressed bundle
+      run: |
+        cd static/downloads
+        
+        # Rename to more appropriate name for public-only version
+        mv chainguard-complete-docs.md chainguard-ai-docs.md
+        
+        # Create tarball
+        tar -czf chainguard-ai-docs.tar.gz chainguard-ai-docs.md
+        
+        # Create checksums
+        sha256sum chainguard-ai-docs.tar.gz > checksums.txt
+        sha256sum chainguard-ai-docs.md >> checksums.txt
+        
+        echo "Bundle created successfully"
+        ls -lh chainguard-ai-docs.tar.gz
+
+    - name: Sign artifacts with cosign
+      run: |
+        cd static/downloads
+        
+        # Sign the tarball (keyless signing)
+        cosign sign-blob \
+          --yes \
+          chainguard-ai-docs.tar.gz \
+          --output-signature chainguard-ai-docs.tar.gz.sig \
+          --output-certificate chainguard-ai-docs.tar.gz.crt
+        
+        # Sign the markdown file
+        cosign sign-blob \
+          --yes \
+          chainguard-ai-docs.md \
+          --output-signature chainguard-ai-docs.md.sig \
+          --output-certificate chainguard-ai-docs.md.crt
+        
+        echo "Artifacts signed successfully"
+
+    - name: Scan for sensitive data
+      run: |
+        cd static/downloads
+        
+        # Check for common secret patterns
+        if grep -E "(AKIA[0-9A-Z]{16}|ghp_[0-9a-zA-Z]{36}|ghs_[0-9a-zA-Z]{36}|sk-[0-9a-zA-Z]{48})" chainguard-ai-docs.md; then
+          echo "ERROR: Potential secrets detected in compiled documentation!"
+          exit 1
+        fi
+        
+        echo "Security scan passed - no secrets detected"
+
+    - name: Create release
+      if: (github.event_name == 'workflow_dispatch' && github.event.inputs.create_release == 'true') || github.event_name == 'push'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        cd static/downloads
+        
+        # Use a fixed tag for the latest release
+        TAG="ai-docs"
+        
+        # Delete existing release if it exists
+        gh release delete "$TAG" --yes || true
+        
+        # Create release notes
+        cat > release-notes.md << 'EOF'
+        # AI Documentation Bundle (Public)
+        
+        This release contains the compiled Chainguard public documentation bundle for use with AI assistants.
+        
+        ## Download Options
+        
+        | File | Description | Size |
+        |------|-------------|------|
+        | [chainguard-ai-docs.tar.gz](https://github.com/chainguard-dev/edu/releases/download/ai-docs/chainguard-ai-docs.tar.gz) | Compressed bundle | ~1.7MB |
+        | [chainguard-ai-docs.md](https://github.com/chainguard-dev/edu/releases/download/ai-docs/chainguard-ai-docs.md) | Full markdown file | ~11MB |
+        
+        ## Contents
+        - Complete public documentation from the edu repository
+        - Tutorials, guides, and reference documentation
+        - Compiled into a single markdown file for AI assistant consumption
+        
+        ## Verification
+        
+        To verify the signatures:
+        
+        ```bash
+        # Download files
+        curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs/chainguard-ai-docs.tar.gz
+        curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs/chainguard-ai-docs.tar.gz.sig
+        curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs/chainguard-ai-docs.tar.gz.crt
+        
+        # Verify tarball
+        cosign verify-blob \
+          --certificate chainguard-ai-docs.tar.gz.crt \
+          --signature chainguard-ai-docs.tar.gz.sig \
+          --certificate-identity-regexp ".*" \
+          --certificate-oidc-issuer https://token.actions.githubusercontent.com \
+          chainguard-ai-docs.tar.gz
+        ```
+        
+        ## Usage with AI Assistants
+        
+        1. Download and extract the bundle
+        2. Open your AI assistant (Claude, ChatGPT, etc.)
+        3. Upload or paste the markdown file
+        4. Start asking questions about Chainguard!
+        
+        ## Checksums
+        
+        ```
+        $(cat checksums.txt)
+        ```
+        
+        _Last updated: $(date -u +"%Y-%m-%d %H:%M:%S UTC")_
+        EOF
+        
+        # Create GitHub release (recreate with latest tag)
+        gh release create "$TAG" \
+          --title "AI Documentation Bundle - Latest" \
+          --notes-file release-notes.md \
+          --latest \
+          chainguard-ai-docs.tar.gz \
+          chainguard-ai-docs.tar.gz.sig \
+          chainguard-ai-docs.tar.gz.crt \
+          chainguard-ai-docs.md \
+          chainguard-ai-docs.md.sig \
+          chainguard-ai-docs.md.crt \
+          checksums.txt
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: chainguard-ai-docs
+        path: |
+          static/downloads/chainguard-ai-docs.tar.gz
+          static/downloads/chainguard-ai-docs.tar.gz.sig
+          static/downloads/chainguard-ai-docs.tar.gz.crt
+          static/downloads/chainguard-ai-docs.md
+          static/downloads/chainguard-ai-docs.md.sig
+          static/downloads/chainguard-ai-docs.md.crt
+          static/downloads/checksums.txt
+        retention-days: 90

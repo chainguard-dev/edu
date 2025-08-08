@@ -23,95 +23,64 @@ A comprehensive collection of Chainguard documentation including:
 - Migration guides and tutorials
 - API references and code examples
 - Wolfi, melange, and apko documentation
+- Compliance and supply chain security guides
 
 ## Download AI Documentation Bundle
 
-Choose your preferred secure distribution method:
+Choose your preferred distribution method:
 
-### Signed Direct Downloads
+### Direct Download
 
-Download and verify our cryptographically signed documentation:
+| Format | Size | Description |
+|--------|------|-------------|
+| [Documentation Bundle](/downloads/chainguard-ai-docs.tar.gz) | ~1.7MB | Complete documentation in compressed format |
 
-<div style="border: 2px solid #4CAF50; padding: 20px; border-radius: 8px; margin: 20px 0;">
-  <h4>Security Features</h4>
-  <ul>
-    <li>Signed with Sigstore/Cosign</li>
-    <li>SHA-256 checksums included</li>
-    <li>SBOM for transparency</li>
-    <li>Automated security scanning</li>
-  </ul>
-</div>
+### Signed Release (GitHub Actions)
 
-#### Download Options
-
-| Format | Size | Signature | Verification |
-|--------|------|-----------|--------------|
-| [Markdown Bundle](https://github.com/chainguard-dev/edu/releases/download/ai-docs/chainguard-ai-docs.tar.gz) | 1.7MB | [.sig](https://github.com/chainguard-dev/edu/releases/download/ai-docs/chainguard-ai-docs.tar.gz.sig) | [Instructions](#verify-direct) |
-| [Individual Files](https://github.com/chainguard-dev/edu/releases/latest) | Varies | Each signed | [Instructions](#verify-direct) |
-
-#### Quick Verification {#verify-direct}
-
-```bash
-# Download bundle and signature
-curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs/chainguard-ai-docs.tar.gz
-curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs/chainguard-ai-docs.tar.gz.sig
-
-# Verify with cosign
-cosign verify-blob \
-  --certificate-identity-regexp ".*github.com/chainguard-dev/edu.*" \
-  --certificate-oidc-issuer https://token.actions.githubusercontent.com \
-  --signature chainguard-ai-docs.tar.gz.sig \
-  chainguard-ai-docs.tar.gz
-
-# Extract if verification passes
-tar -xzf chainguard-ai-docs.tar.gz
-```
+| Format | Description | Verification |
+|--------|-------------|-------------|
+| [Latest Release](https://github.com/chainguard-dev/edu/releases/tag/ai-docs-latest) | Cryptographically signed with Cosign | Includes signatures and certificates |
 
 ### Container Distribution
 
-For maximum security, use our signed container image:
+```bash
+# Pull the container image
+docker pull ghcr.io/chainguard-dev/ai-docs:latest
 
-<div style="border: 2px solid #2196F3; padding: 20px; border-radius: 8px; margin: 20px 0;">
-  <h4>Additional Container Security</h4>
+# Extract documentation
+docker run --rm -v $(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest /usr/local/bin/extract /output
+
+# Verify signatures
+cosign verify ghcr.io/chainguard-dev/ai-docs:latest \
+  --certificate-identity-regexp ".*" \
+  --certificate-oidc-issuer https://token.actions.githubusercontent.com
+```
+
+### Quick Start
+
+```bash
+# Download the documentation bundle
+curl -LO https://edu.chainguard.dev/downloads/chainguard-ai-docs.tar.gz
+
+# Extract the markdown file
+tar -xzf chainguard-ai-docs.tar.gz
+
+# The extracted file 'chainguard-ai-docs.md' is ready to use with your AI assistant
+```
+
+### Security Features
+
+<div style="border: 2px solid #4CAF50; padding: 20px; border-radius: 8px; margin: 20px 0;">
+  <h4>Available Security Features</h4>
   <ul>
-    <li>Signed container image</li>
-    <li>Immutable distribution</li>
-    <li>Built on Chainguard Images</li>
-    <li>Zero CVEs base image</li>
-    <li>SLSA Level 3 provenance</li>
+    <li>✅ Signed releases with Sigstore/Cosign</li>
+    <li>✅ Container distribution via GitHub Container Registry</li>
+    <li>✅ Automated updates via GitHub Actions</li>
+    <li>✅ Security scanning with gitleaks</li>
+    <li>🔜 Full private documentation (pending credential setup)</li>
   </ul>
 </div>
 
-```bash
-# Verify and pull container
-cosign verify cgr.dev/chainguard/ai-docs:latest \
-  --certificate-identity-regexp ".*" \
-  --certificate-oidc-issuer https://token.actions.githubusercontent.com
-
-# Extract documentation
-docker run --rm -v $(pwd):/output cgr.dev/chainguard/ai-docs:latest extract /output
-
-# Or inspect first
-docker run --rm cgr.dev/chainguard/ai-docs:latest verify
-docker run --rm cgr.dev/chainguard/ai-docs:latest list-contents
-```
-
-### Verification Details
-
-Both distribution methods include:
-
-1. **Cosign Signatures**: Keyless signing via Sigstore
-2. **Transparency Log**: Entries in Rekor
-3. **SBOM**: Software Bill of Materials
-4. **Checksums**: SHA-256 for all files
-5. **Provenance**: Build attestations
-
-### Choose Your Method
-
-| Method | Best For | Verification | Tools Needed |
-|--------|----------|--------------|--------------|
-| **Direct Download** | Simple integration, CI/CD pipelines | Cosign CLI | cosign |
-| **Container** | Maximum security, isolated verification | Container signatures | docker, cosign |
 
 ### Security Transparency
 
@@ -199,12 +168,6 @@ Once you've loaded the documentation, try these prompts with your AI assistant:
 ### Updates
 
 The bundle is regenerated periodically. Check the timestamp in the downloaded file for the compilation date.
-
-To compile manually:
-
-```bash
-python3 scripts/compile_docs.py
-```
 
 ### Need Help?
 
