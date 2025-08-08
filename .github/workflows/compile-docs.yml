@@ -177,7 +177,7 @@ jobs:
         cp $TEMP_BUILD_DIR/chainguard-complete-docs.md.pem scripts/
         cp $TEMP_BUILD_DIR/checksums.sha256 scripts/
         cp $TEMP_BUILD_DIR/checksums.sha256.sig scripts/
-        cp scripts/verification.sh scripts/
+        # verification.sh is already in scripts/ directory
         
         # Build container with GitHub Container Registry
         docker build -f scripts/Dockerfile.ai-docs -t ghcr.io/${{ github.repository_owner }}/ai-docs:latest scripts/
