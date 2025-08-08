@@ -28,16 +28,16 @@ jobs:
     - name: Checkout courses repository
       uses: actions/checkout@v4
       with:
-        repository: ${{ github.repository_owner }}/courses
+        repository: chainguard-dev/courses
         path: courses
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.DOCS_COMPILE_PAT }}
 
     - name: Checkout images-private repository
       uses: actions/checkout@v4
       with:
-        repository: ${{ github.repository_owner }}/images-private
+        repository: chainguard-images/images-private
         path: images-private
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.DOCS_COMPILE_PAT }}
 
     - name: Set up Python
       uses: actions/setup-python@v4
