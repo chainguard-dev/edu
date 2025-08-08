@@ -9,10 +9,6 @@ draft: false
 images: []
 weight: 50
 toc: false
-menu:
-  main:
-    weight: -1
-    parent: ""
 ---
 
 ## AI-Ready Documentation Bundle
@@ -119,13 +115,13 @@ Both distribution methods include:
 
 ### Security Transparency
 
-<div style="background-color: #f0f7ff; border: 1px solid #0066cc; padding: 16px; border-radius: 6px; margin: 20px 0;">
+<div style="background-color: var(--blockquote-background); border: 1px solid var(--sidebar-item-list-item-selected-background); padding: 16px; border-radius: 6px; margin: 20px 0;">
   <strong>Security First:</strong> Our documentation bundles are compiled with extensive security measures.
-  <a href="/chainguard/ai-docs-security" style="font-weight: bold;">Learn about our security practices →</a>
+  <a href="/ai-docs-security" style="font-weight: bold;">Learn about our security practices →</a>
 </div>
 
 View our security resources:
-- **[Security & Compilation Process](/chainguard/ai-docs-security)** - Detailed security measures and verification
+- **[Security and Compilation Process](/ai-docs-security)** - Detailed security measures and verification
 - [Build Logs](https://github.com/chainguard-dev/edu/actions/workflows/compile-docs.yml) - Public compilation logs
 - [Source Code](https://github.com/chainguard-dev/edu/tree/main/scripts) - Open source compilation scripts
 
@@ -140,7 +136,7 @@ View our security resources:
 
 Once you've loaded the documentation, try these prompts with your AI assistant:
 
-#### Container Security & CVEs
+#### Container Security and CVEs
 - "Search for Chainguard container security best practices and CVE management"
 - "How do I migrate from Docker Hub images to Chainguard images?"
 - "Show me examples of using Chainguard images in production"
@@ -164,7 +160,7 @@ Once you've loaded the documentation, try these prompts with your AI assistant:
 - "How to use Chainguard's PostgreSQL image with custom extensions"
 - "Show examples of using Chainguard's NGINX image with custom configs"
 
-#### Security & Compliance
+#### Security and Compliance
 - "Search for SBOM and supply chain security information"
 - "Find information about Chainguard's compliance certifications"
 - "How does Chainguard help with CVE remediation?"
@@ -186,7 +182,7 @@ Once you've loaded the documentation, try these prompts with your AI assistant:
 - "Common migration issues when moving from Alpine to Wolfi-based images"
 - "How to identify missing dependencies in distroless containers"
 
-#### Architecture & Best Practices
+#### Architecture and Best Practices
 - "Explain the architecture of Wolfi and how it differs from Alpine"
 - "What is apko and how does it relate to Chainguard images?"
 - "Best practices for minimizing image size with Chainguard"
