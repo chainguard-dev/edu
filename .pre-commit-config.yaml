@@ -1,0 +1,47 @@
+# Pre-commit hooks for security scanning
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+        args: ['--maxkb=1000']
+      - id: detect-private-key
+      - id: check-merge-conflict
+      - id: mixed-line-ending
+
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.18.0
+    hooks:
+      - id: gitleaks
+        args: ['--config', '.github/gitleaks.toml']
+
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.7.5
+    hooks:
+      - id: bandit
+        args: ['-r', 'scripts/', '-ll']
+        files: \.py$
+
+  - repo: https://github.com/psf/black
+    rev: 23.12.1
+    hooks:
+      - id: black
+        language_version: python3
+        files: \.py$
+
+  - repo: local
+    hooks:
+      - id: check-compilation-script
+        name: Validate compilation script
+        entry: python3 -m py_compile
+        language: system
+        files: scripts/compile_docs.*\.py$
+        
+      - id: check-docs-size
+        name: Check documentation size
+        entry: bash -c 'find static/downloads -name "*.md" -size +50M -exec echo "File {} exceeds 50MB limit" \; -exec false \;'
+        language: system
+        pass_filenames: false
