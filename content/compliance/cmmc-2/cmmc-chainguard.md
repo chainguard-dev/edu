@@ -8,7 +8,7 @@ lastmod: 2024-08-15T19:10:09+00:00
 contributors: []
 draft: false
 aliases:
-- /chainguard/software-security/compliance/cmmc-2/cmmc-chainguard/
+- /software-security/compliance/cmmc-2/cmmc-chainguard/
 tags: ["Compliance", "CMMC 2.0", "Standards"]
 images: []
 menu:
