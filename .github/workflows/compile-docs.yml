@@ -37,20 +37,13 @@ jobs:
         path: edu
         persist-credentials: false  # Don't persist auth token
 
-    # Use deploy keys instead of PAT for better security
-    - name: Checkout courses repository
-      uses: actions/checkout@v4
-      with:
-        repository: chainguard-dev/courses
-        path: courses
-        ssh-key: ${{ secrets.COURSES_DEPLOY_KEY }}
-
-    - name: Checkout images-private repository
-      uses: actions/checkout@v4
-      with:
-        repository: chainguard-images/images-private
-        path: images-private
-        ssh-key: ${{ secrets.IMAGES_DEPLOY_KEY }}
+    - name: Create placeholder directories for compilation
+      run: |
+        # Create empty directories for future repos (will be populated when credentials are added)
+        mkdir -p courses
+        mkdir -p images-private
+        echo "# Placeholder" > courses/README.md
+        echo "# Placeholder" > images-private/README.md
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -186,17 +179,20 @@ jobs:
         cp $TEMP_BUILD_DIR/checksums.sha256.sig scripts/
         cp scripts/verification.sh scripts/
         
-        # Build container
-        docker build -f scripts/Dockerfile.ai-docs -t cgr.dev/chainguard/ai-docs:latest scripts/
+        # Build container with GitHub Container Registry
+        docker build -f scripts/Dockerfile.ai-docs -t ghcr.io/${{ github.repository_owner }}/ai-docs:latest scripts/
+        docker tag ghcr.io/${{ github.repository_owner }}/ai-docs:latest ghcr.io/${{ github.repository_owner }}/ai-docs:${{ github.sha }}
         
-        # Login to registry (update with actual registry credentials)
-        # echo "${{ secrets.REGISTRY_TOKEN }}" | docker login cgr.dev -u ${{ secrets.REGISTRY_USER }} --password-stdin
+        # Login to GitHub Container Registry
+        echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
         
-        # Push image
-        # docker push cgr.dev/chainguard/ai-docs:latest
+        # Push images
+        docker push ghcr.io/${{ github.repository_owner }}/ai-docs:latest
+        docker push ghcr.io/${{ github.repository_owner }}/ai-docs:${{ github.sha }}
         
         # Sign container image with cosign
-        # cosign sign --yes cgr.dev/chainguard/ai-docs:latest
+        cosign sign --yes ghcr.io/${{ github.repository_owner }}/ai-docs:latest
+        cosign sign --yes ghcr.io/${{ github.repository_owner }}/ai-docs:${{ github.sha }}
 
     - name: Scan for sensitive data
       run: |

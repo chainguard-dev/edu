@@ -204,8 +204,11 @@ def process_courses(courses_path):
     """Process course content from the courses repository"""
     courses = []
     
+    # Skip internal-only courses
+    skip_courses = ['Build-Your-First-Chainguard-Container']
+    
     for course_dir in courses_path.iterdir():
-        if course_dir.is_dir() and not course_dir.name.startswith('.'):
+        if course_dir.is_dir() and not course_dir.name.startswith('.') and course_dir.name not in skip_courses:
             # Read course details
             details_file = course_dir / 'details.json'
             if details_file.exists():
@@ -342,6 +345,7 @@ def compile_documentation(output_path=None):
     if images_path.exists():
         print("Processing additional documentation...")
         image_readmes = process_images_readmes(images_path)
+        print(f"Found {len(image_readmes)} image READMEs to process")
         for readme in image_readmes:
             compiled_md.append(f"### {readme['name']}\n")
             compiled_md.append(readme['content'])
