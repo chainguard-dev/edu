@@ -173,7 +173,7 @@ jobs:
   install-and-authenticate:
     machine: true
     environment:
-    CHAINCTL_TOKEN_FILE: "/tmp/oidc_token"
+      CHAINCTL_TOKEN_FILE: "/tmp/oidc_token"
 
   steps:
     - checkout
@@ -210,16 +210,18 @@ See the [CircleCI documentation](https://circleci.com/docs/openid-connect-tokens
 
 ## Authenticating with Microsoft Entra ID OIDC Token
 
-You can configure authentication with OIDC using Microsoft Entra ID, which was formerly called Azure Active Directory (AD).
+You can configure authentication with OIDC using Microsoft Entra ID (formerly Azure Active Directory).
 
-ID tokens are not issued by default with Entra ID and must be enabled for specific applications to have access, so you must register Chainguard with the platform and [enable ID tokens](https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc#enable-id-tokens) as a prerequisite.
+ID tokens are not issued by default with Entra ID and must be enabled for specific applications to have access. This involves creating an App Registration in Entra ID, [enabling ID tokens](https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc#enable-id-tokens) by checking a box in the _Implicit grant and hybrid flows_ section, and configuring a redirect URI.
 
-Read the Microsoft Entra ID documentation to learn how to [authenticate a user and request an ID token](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow#request-an-authorization-code).
+Follow Microsoft's documentation to [authenticate a user and request an ID token](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow#request-an-authorization-code).
 
-Next, use `chainctl` to create an [assumed identity](/chainguard/administration/assumable-ids/assumable-ids/#managing-identities-with-chainctl). Replace `{tenant}` with your Entra ID `tenant`. Modify the subject pattern regex as appropriate for your organization.
+Retrieve and save an ID token as `MS_ENTRA_ID_OIDC_TOKEN`. The Microsoft docs show how to do this both manually in the web UI as well as via automation. In CI, you can automate retrieval by using the [Microsoft identity platform token endpoint](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow#request-an-id-token) with your app’s client credentials or a federated identity credential.
+
+Next, use `chainctl` to create an [assumed identity](/chainguard/administration/assumable-ids/assumable-ids/#managing-identities-with-chainctl). Replace `{tenant}` with your Entra ID `tenant`. Modify the subject pattern regex to reduce access from all users from that issuer to a more appropriate scope for your needs.
 
 ```sh
-chainctl iam identities create circleci-identity
+chainctl iam identities create entraid-identity
 --identity-issuer="https://login.microsoftonline.com/{tenant}/oauth2/v2.0/"
 --subject-pattern="^.+$"
 --role=registry.pull
@@ -235,7 +237,7 @@ jobs:
   install-and-authenticate:
     machine: true
     environment:
-    CHAINCTL_TOKEN_FILE: "/tmp/oidc_token"
+      CHAINCTL_TOKEN_FILE: "/tmp/oidc_token"
 
   steps:
     - checkout
@@ -253,7 +255,7 @@ jobs:
     - run:
         name: Configure Docker auth
         command: |
-          sudo chainctl auth configure-docker --identity-token="$MS_ENTRA_ID_OIDC_TOKEN" --identity "EntraID"
+          sudo chainctl auth configure-docker --identity-token="$MS_ENTRA_ID_OIDC_TOKEN" --identity "entraid-identity"
 
     - run:
         name: Pull Docker image
@@ -271,6 +273,7 @@ See the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identi
 
 > Don't attempt to validate or read tokens for any API you don't own, including the tokens in this example, in your code. Tokens for Microsoft services can use a special format that will not validate as a JWT, and may also be encrypted for consumer (Microsoft account) users. While reading tokens is a useful debugging and learning tool, do not take dependencies on this in your code or assume specifics about tokens that aren't for an API you control.
 
+Chainguard does not require you to parse or validate the Microsoft-issued token yourself. Instead, just pass the token to `chainctl` as shown above.
 
 ## Authenticating with Kubernetes
 
