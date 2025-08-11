@@ -253,7 +253,7 @@ jobs:
     - run:
         name: Configure Docker auth
         command: |
-          sudo chainctl auth configure-docker --identity-token="$MSENTRAID_OIDC_TOKEN" --identity "EntraID"
+          sudo chainctl auth configure-docker --identity-token="$MS_ENTRA_ID_OIDC_TOKEN" --identity "EntraID"
 
     - run:
         name: Pull Docker image
