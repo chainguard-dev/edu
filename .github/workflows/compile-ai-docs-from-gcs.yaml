@@ -1,0 +1,271 @@
+name: Compile AI Documentation Bundle from GCS
+
+on:
+  schedule:
+    - cron: '0 2 * * 0'  # Weekly on Sundays at 2 AM
+  
+  repository_dispatch:
+    types: [ai-docs-source-updated]
+  
+  workflow_dispatch:
+    inputs:
+      create_release:
+        description: 'Create a GitHub release with the bundle'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
+
+permissions:
+  contents: write  # For committing compiled docs and creating releases
+  id-token: write  # For workload identity federation
+  packages: write  # For pushing to container registry
+  
+jobs:
+  compile-docs:
+    runs-on: ubuntu-latest
+    environment: documentation
+    
+    steps:
+    - name: Harden Runner
+      uses: step-security/harden-runner@91182cccc01eb5e619899d80e4e971d6181294a7 # v2.10.1
+      with:
+        egress-policy: audit
+
+    - name: Checkout edu repository
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      with:
+        persist-credentials: false
+
+    - name: Authenticate to Google Cloud
+      uses: google-github-actions/auth@6fc4af4b145ae7821d527454aa9bd537d1f2dc5f # v2.1.7
+      with:
+        workload_identity_provider: "projects/456977358484/locations/global/workloadIdentityPools/chainguard-academy/providers/chainguard-edu"
+        service_account: "github-chainguard-academy@chainguard-academy.iam.gserviceaccount.com"
+
+    - name: Set up Cloud SDK
+      uses: google-github-actions/setup-gcloud@f0990588f1e5b5af6827153b93673613abdc6ec7 # v2.1.1
+
+    - name: Set up Python
+      uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5.3.0
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: |
+        if [ -f scripts/requirements.txt ]; then
+          pip install -r scripts/requirements.txt
+        else
+          pip install pyyaml
+        fi
+
+    - name: Download documentation from GCS
+      run: |
+        echo "Downloading documentation bundles from GCS..."
+        
+        # Create directories for extracted content
+        mkdir -p ../images-private
+        mkdir -p ../courses
+        
+        # Download and extract edu docs (from GCS, not local)
+        if gcloud storage cp gs://academy-all-docs/edu/docs-export.tar.gz /tmp/edu.tar.gz \
+           --project=chainguard-academy 2>/dev/null; then
+          echo "Extracting edu documentation..."
+          # For edu, we'll extract to a temp location and copy selectively
+          mkdir -p /tmp/edu-docs
+          tar -xzf /tmp/edu.tar.gz -C /tmp/edu-docs --strip-components=1
+          # Copy content but avoid duplicating what's already in the local edu repo
+          if [ -d "/tmp/edu-docs/content" ]; then
+            echo "✓ edu docs downloaded from GCS ($(find /tmp/edu-docs -name "*.md" | wc -l) files)"
+          fi
+        else
+          echo "⚠ edu docs not found in GCS (will use local content)"
+        fi
+        
+        # Download and extract images-private docs
+        if gcloud storage cp gs://academy-all-docs/images-private/docs-export.tar.gz /tmp/images-private.tar.gz \
+           --project=chainguard-academy 2>/dev/null; then
+          echo "Extracting images-private documentation..."
+          tar -xzf /tmp/images-private.tar.gz -C ../images-private --strip-components=1
+          echo "✓ images-private docs downloaded"
+        else
+          echo "⚠ images-private docs not found in GCS (will use placeholder)"
+          echo "# Images Private Documentation" > ../images-private/README.md
+          echo "Documentation not yet available" >> ../images-private/README.md
+        fi
+        
+        # Download and extract courses docs
+        if gcloud storage cp gs://academy-all-docs/courses/docs-export.tar.gz /tmp/courses.tar.gz \
+           --project=chainguard-academy 2>/dev/null; then
+          echo "Extracting courses documentation..."
+          tar -xzf /tmp/courses.tar.gz -C ../courses --strip-components=1
+          echo "✓ courses docs downloaded"
+        else
+          echo "⚠ courses docs not found in GCS (will use placeholder)"
+          echo "# Courses Documentation" > ../courses/README.md
+          echo "Documentation not yet available" >> ../courses/README.md
+        fi
+        
+        # Download metadata files for logging
+        echo ""
+        echo "Metadata information:"
+        for repo in edu images-private courses; do
+          if gcloud storage cp gs://academy-all-docs/${repo}/metadata.json /tmp/${repo}-metadata.json \
+             --project=chainguard-academy 2>/dev/null; then
+            echo "${repo}: $(cat /tmp/${repo}-metadata.json | jq -r '.export_time // "unknown"')"
+          fi
+        done
+
+    - name: Compile documentation
+      run: |
+        echo "Compiling documentation bundle..."
+        python3 scripts/compile_docs.py
+        
+        # Verify output
+        if [ ! -f "static/downloads/chainguard-complete-docs.md" ]; then
+          echo "Error: Documentation compilation failed"
+          exit 1
+        fi
+        
+        echo "Documentation compiled successfully"
+        ls -lh static/downloads/chainguard-complete-docs.md
+
+    - name: Create AI-specific bundle
+      run: |
+        cd static/downloads
+        
+        # Rename for clarity
+        cp chainguard-complete-docs.md chainguard-ai-docs.md
+        
+        # Create compressed versions
+        tar -czf chainguard-ai-docs.tar.gz chainguard-ai-docs.md
+        gzip -k chainguard-ai-docs.md
+        zip chainguard-ai-docs.zip chainguard-ai-docs.md
+        
+        # Generate checksums
+        sha256sum chainguard-ai-docs.* > checksums.txt
+        
+        echo "AI documentation bundle created:"
+        ls -lh chainguard-ai-docs.*
+
+    - name: Build and push container image
+      if: github.ref == 'refs/heads/main'
+      run: |
+        # Copy files for container build
+        cp static/downloads/chainguard-ai-docs.md scripts/
+        cp static/downloads/checksums.txt scripts/
+        
+        # Build container with GitHub Container Registry
+        docker build -f scripts/Dockerfile.ai-docs -t ghcr.io/${{ github.repository_owner }}/ai-docs:latest scripts/
+        docker tag ghcr.io/${{ github.repository_owner }}/ai-docs:latest ghcr.io/${{ github.repository_owner }}/ai-docs:${{ github.sha }}
+        
+        # Login to GitHub Container Registry
+        echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+        
+        # Push images
+        docker push ghcr.io/${{ github.repository_owner }}/ai-docs:latest
+        docker push ghcr.io/${{ github.repository_owner }}/ai-docs:${{ github.sha }}
+
+    - name: Upload bundle back to GCS for distribution
+      run: |
+        echo "Uploading compiled bundle to GCS..."
+        
+        # Upload the compiled bundle for easy distribution
+        gcloud storage cp static/downloads/chainguard-ai-docs.tar.gz \
+          gs://academy-all-docs/compiled/chainguard-ai-docs.tar.gz \
+          --project=chainguard-academy
+        
+        # Upload checksums
+        gcloud storage cp static/downloads/checksums.txt \
+          gs://academy-all-docs/compiled/checksums.txt \
+          --project=chainguard-academy
+        
+        # Create and upload compilation metadata
+        cat > /tmp/compilation-metadata.json << EOF
+        {
+          "compiled_at": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
+          "commit": "${{ github.sha }}",
+          "triggered_by": "${{ github.event_name }}",
+          "file_size": "$(ls -l static/downloads/chainguard-ai-docs.md | awk '{print $5}')"
+        }
+        EOF
+        
+        gcloud storage cp /tmp/compilation-metadata.json \
+          gs://academy-all-docs/compiled/metadata.json \
+          --project=chainguard-academy
+        
+        echo "✓ Bundle uploaded to GCS"
+
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        
+        # Check if there are changes
+        if git diff --quiet; then
+          echo "No changes to commit"
+        else
+          git add static/downloads/chainguard-ai-docs.*
+          git add static/downloads/checksums.txt
+          git commit -m "Update AI documentation bundle [skip ci]
+
+        Sources downloaded from GCS bucket: academy-all-docs
+        Triggered by: ${{ github.event_name }}
+        " || echo "No changes to commit"
+          git push
+        fi
+
+    - name: Delete existing latest release if exists
+      if: (github.event.inputs.create_release == 'true' || github.event_name == 'schedule') && github.ref == 'refs/heads/main'
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        # Delete existing ai-docs-latest release if it exists
+        if gh release view ai-docs-latest > /dev/null 2>&1; then
+          echo "Deleting existing ai-docs-latest release"
+          gh release delete ai-docs-latest -y
+        fi
+        
+        # Also delete the tag
+        if git rev-parse ai-docs-latest > /dev/null 2>&1; then
+          git push --delete origin ai-docs-latest || true
+        fi
+
+    - name: Create GitHub Release
+      if: (github.event.inputs.create_release == 'true' || github.event_name == 'schedule') && github.ref == 'refs/heads/main'
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        # Create release with ai-docs-latest tag
+        gh release create ai-docs-latest \
+          static/downloads/chainguard-ai-docs.tar.gz \
+          static/downloads/chainguard-ai-docs.md \
+          static/downloads/chainguard-ai-docs.zip \
+          static/downloads/checksums.txt \
+          --title "AI Documentation Bundle - Latest" \
+          --notes "Chainguard AI documentation bundle for use with AI coding assistants.
+        
+        ## Download
+        
+        \`\`\`bash
+        # Download the markdown file directly
+        curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-latest/chainguard-ai-docs.md
+        
+        # Or download the compressed bundle
+        curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-latest/chainguard-ai-docs.tar.gz
+        tar -xzf chainguard-ai-docs.tar.gz
+        \`\`\`
+        
+        ## Container Distribution
+        
+        \`\`\`bash
+        # Pull the container image
+        docker pull ghcr.io/chainguard-dev/ai-docs:latest
+        
+        # Extract documentation to current directory
+        docker run --rm -v \$(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract /output
+        \`\`\`
+        
+        Generated: $(date -u '+%Y-%m-%d %H:%M UTC')"
