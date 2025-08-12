@@ -1,5 +1,5 @@
 ---
-date: 2025-08-06T15:22:12Z
+date: 2025-08-11T21:01:29Z
 title: "chainctl iam identity-providers update"
 slug: chainctl_iam_identity-providers_update
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers_update/
@@ -21,10 +21,10 @@ chainctl iam identity-providers update IDENTITY_PROVIDER_ID [--name=NAME] [--des
 
 ```
   # Update name and description of an identity provider by ID
-  chainctl iam identity-provider update fb694596eb1678321f94eec283e1e0be690f655c/a2973bac66ebfde3 --name=new-name --description=new-description
+  chainctl iam identity-providers update fb694596eb1678321f94eec283e1e0be690f655c/a2973bac66ebfde3 --name=new-name --description=new-description
   
   # Update the default role for an identity provider by name
-  chainctl iam identity-provider update my-idp --default=role=viewer
+  chainctl iam identity-providers update my-idp --default=role=viewer
 ```
 
 ### Options
