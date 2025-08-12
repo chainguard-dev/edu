@@ -64,7 +64,7 @@ jobs:
           token_format: 'access_token'
 
       - name: Setup G Cloud SDK
-        uses: 'google-github-actions/setup-gcloud@6a7c903a70c8625ed6700fa299f5ddb4ca6022e9' # v2.0.11
+        uses: 'google-github-actions/setup-gcloud@cb1e50a9932213ecece00a606661ae9ca44f3397' # v2.0.11
 
       - name: Configure GCR auth
         shell: bash
