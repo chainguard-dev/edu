@@ -216,7 +216,7 @@ ID tokens are not issued by default with Entra ID and must be enabled for specif
 
 Follow Microsoft's documentation to [authenticate a user and request an ID token](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow#request-an-authorization-code).
 
-Retrieve and save an ID token as `MS_ENTRA_ID_OIDC_TOKEN`. The Microsoft docs show how to do this both manually in the web UI as well as via automation. In CI, you can automate retrieval by using the [Microsoft identity platform token endpoint](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow#request-an-id-token) with your app’s client credentials or a federated identity credential.
+Retrieve and save an ID token as `MS_ENTRA_ID_OIDC_TOKEN` (or whatever you choose). The Microsoft docs show how to do this both manually in the web UI as well as via automation. In CI, you can automate retrieval by using the [Microsoft identity platform token endpoint](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow#request-an-id-token) with your app’s client credentials or a federated identity credential.
 
 Next, use `chainctl` to create an [assumed identity](/chainguard/administration/assumable-ids/assumable-ids/#managing-identities-with-chainctl). Replace `{tenant}` with your Entra ID `tenant`. Modify the subject pattern regex to reduce access from all users from that issuer to a more appropriate scope for your needs.
 
