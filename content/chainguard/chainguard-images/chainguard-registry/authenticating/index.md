@@ -4,7 +4,7 @@ linktitle: "Authenticate"
 type: "article"
 description: "A guide on authenticating to Chainguard's registry to get container images"
 date: 2023-03-21T15:10:16+00:00
-lastmod: 2025-08-06T15:22:20+01:00
+lastmod: 2025-08-11T15:22:20+01:00
 tags: ["Chainguard Containers", "Registry"]
 draft: false
 images: []
@@ -173,7 +173,7 @@ jobs:
   install-and-authenticate:
     machine: true
     environment:
-    CHAINCTL_TOKEN_FILE: "/tmp/oidc_token"
+      CHAINCTL_TOKEN_FILE: "/tmp/oidc_token"
 
   steps:
     - checkout
@@ -207,6 +207,73 @@ workflows:
 
 See the [CircleCI documentation](https://circleci.com/docs/openid-connect-tokens/#format-of-the-openid-connect-id-token) to learn more about using OpenID Connect tokens in CircleCI jobs.
 
+
+## Authenticating with Microsoft Entra ID OIDC Token
+
+You can configure authentication with OIDC using Microsoft Entra ID (formerly Azure Active Directory).
+
+ID tokens are not issued by default with Entra ID and must be enabled for specific applications to have access. This involves creating an App Registration in Entra ID, [enabling ID tokens](https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc#enable-id-tokens) by checking a box in the _Implicit grant and hybrid flows_ section, and configuring a redirect URI.
+
+Follow Microsoft's documentation to [authenticate a user and request an ID token](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow#request-an-authorization-code).
+
+Retrieve and save an ID token as `MS_ENTRA_ID_OIDC_TOKEN` (or whatever you choose). The Microsoft docs show how to do this both manually in the web UI as well as via automation. In CI, you can automate retrieval by using the [Microsoft identity platform token endpoint](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow#request-an-id-token) with your app’s client credentials or a federated identity credential.
+
+Next, use `chainctl` to create an [assumed identity](/chainguard/administration/assumable-ids/assumable-ids/#managing-identities-with-chainctl). Replace `{tenant}` with your Entra ID `tenant`. Modify the subject pattern regex to reduce access from all users from that issuer to a more appropriate scope for your needs.
+
+```sh
+chainctl iam identities create entraid-identity
+--identity-issuer="https://login.microsoftonline.com/{tenant}/oauth2/v2.0/"
+--subject-pattern="^.+$"
+--role=registry.pull
+--parent=$ORGANIZATION
+```
+
+Then, use the identity created in the above command for the Entra ID config.yml, shown here in the third `run` section as `EntraID`:
+
+```yaml
+version: 2.1
+
+jobs:
+  install-and-authenticate:
+    machine: true
+    environment:
+      CHAINCTL_TOKEN_FILE: "/tmp/oidc_token"
+
+  steps:
+    - checkout
+
+    - run:
+          name: Download chainctl
+          command: |
+            curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/aarch64/arm64/')"
+
+    - run:
+        name: Install chainctl
+        command: |
+          sudo install -o $UID -g $(id -g) -m 0755 chainctl /usr/local/bin/
+
+    - run:
+        name: Configure Docker auth
+        command: |
+          sudo chainctl auth configure-docker --identity-token="$MS_ENTRA_ID_OIDC_TOKEN" --identity "entraid-identity"
+
+    - run:
+        name: Pull Docker image
+        command: |
+          sudo docker pull cgr.dev/cgr-demo.com/python:latest
+
+workflows:
+  version: 2
+  chainctl-workflow:
+    jobs:
+      - install-and-authenticate  
+```
+
+See the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc) to learn more about using OpenID Connect tokens on the Microsoft Entra ID platform. Of special note is their warning about reading and validating their tokens:
+
+> Don't attempt to validate or read tokens for any API you don't own, including the tokens in this example, in your code. Tokens for Microsoft services can use a special format that will not validate as a JWT, and may also be encrypted for consumer (Microsoft account) users. While reading tokens is a useful debugging and learning tool, do not take dependencies on this in your code or assume specifics about tokens that aren't for an API you control.
+
+Chainguard does not require you to parse or validate the Microsoft-issued token yourself. Instead, just pass the token to `chainctl` as shown above.
 
 ## Authenticating with Kubernetes
 
