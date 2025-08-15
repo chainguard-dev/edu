@@ -3769,6 +3769,7 @@
             "type": "array"
           },
           {
+            "description": "Deprecated: use scopes instead",
             "in": "query",
             "name": "scope",
             "required": false,
@@ -3797,6 +3798,17 @@
             "name": "identityProvider",
             "required": false,
             "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "One or more group scopes to restrict the returned token to.\nIf scope and scopes are both provided, the union of their values is\nconsidered, after deduplication.\n\nThe returned token will include role bindings for the requested scopes,\nif any exist, that are either granted directly at that scope or inherited from\nits ancestors. That is, a role binding granted at a \"lower\" scope in the ancestry\napplies to all descendants of that scope.\n\nFor example, given a role binding on group `foo` with id `foo/rb-id-1`\nand a role binding on group `foo/bar` with id `foo/bar/rb-id-2`:\n - given scopes = [foo, foo/bar] =\u003e {foo: [foo/rb-id-1], foo/bar: [foo/bar/rb-id-2]}\n - given scopes = [foo/bar] =\u003e {foo/bar: [foo/rb-id-1, foo/bar/rb-id-2]}",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "scopes",
+            "required": false,
+            "type": "array"
           }
         ],
         "responses": {
@@ -3831,6 +3843,7 @@
             "type": "array"
           },
           {
+            "description": "Deprecated: use scopes instead",
             "in": "query",
             "name": "scope",
             "required": false,
@@ -3859,6 +3872,17 @@
             "name": "identityProvider",
             "required": false,
             "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "One or more group scopes to restrict the returned token to.\nIf scope and scopes are both provided, the union of their values is\nconsidered, after deduplication.\n\nThe returned token will include role bindings for the requested scopes,\nif any exist, that are either granted directly at that scope or inherited from\nits ancestors. That is, a role binding granted at a \"lower\" scope in the ancestry\napplies to all descendants of that scope.\n\nFor example, given a role binding on group `foo` with id `foo/rb-id-1`\nand a role binding on group `foo/bar` with id `foo/bar/rb-id-2`:\n - given scopes = [foo, foo/bar] =\u003e {foo: [foo/rb-id-1], foo/bar: [foo/bar/rb-id-2]}\n - given scopes = [foo/bar] =\u003e {foo/bar: [foo/rb-id-1, foo/bar/rb-id-2]}",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "scopes",
+            "required": false,
+            "type": "array"
           }
         ],
         "responses": {
@@ -3895,6 +3919,7 @@
             "type": "array"
           },
           {
+            "description": "Deprecated: use scopes instead",
             "in": "query",
             "name": "scope",
             "required": false,
@@ -3908,6 +3933,17 @@
               "type": "string"
             },
             "name": "cap",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "One or more group scopes to restrict the returned token to.\nIf scope and scopes are both provided, the union of their values is\nconsidered, after deduplication.\n\nThe returned token will include role bindings for the requested scopes,\nif any exist, that are either granted directly at that scope or inherited from\nits ancestors. That is, a role binding granted at a \"lower\" scope in the ancestry\napplies to all descendants of that scope.\n\nFor example, given a role binding on group `foo` with id `foo/rb-id-1`\nand a role binding on group `foo/bar` with id `foo/bar/rb-id-2`:\n - given scopes = [foo, foo/bar] =\u003e {foo: [foo/rb-id-1], foo/bar: [foo/bar/rb-id-2]}\n - given scopes = [foo/bar] =\u003e {foo/bar: [foo/rb-id-1, foo/bar/rb-id-2]}",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "scopes",
             "required": false,
             "type": "array"
           }
@@ -5099,6 +5135,11 @@
         },
         "description": {
           "description": "description, human readable of identity.",
+          "type": "string"
+        },
+        "lastSeen": {
+          "description": "last_seen is the timestamp for when the identity was last federated.",
+          "format": "date-time",
           "type": "string"
         },
         "name": {
@@ -6353,6 +6394,11 @@
         },
         "id": {
           "description": "id is unique identifier of this specific identity.",
+          "type": "string"
+        },
+        "lastSeen": {
+          "description": "last_seen is the timestamp for when the identity was last federated.",
+          "format": "date-time",
           "type": "string"
         },
         "name": {
