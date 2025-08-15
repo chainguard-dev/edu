@@ -35,6 +35,12 @@ If you prefer to use the Go toolchain, you can install dfc directly from source.
 go install github.com/chainguard-dev/dfc@latest
 ```
 
+If that does not work, make sure the PATH environment variable is properly set:
+
+```shell
+export PATH="$PATH:$(go env GOPATH)/bin"
+```
+
 To verify that the installation was successful, run:
 
 ```shell
