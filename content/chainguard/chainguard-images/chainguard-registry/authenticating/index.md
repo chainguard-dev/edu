@@ -232,7 +232,7 @@ chainctl iam identities create entraid-identity \
   --parent="$ORGANIZATION"
 ```
 
-Then, use the identity created in the above command for the Entra ID config.yml, shown here in the third `run` section as `EntraID`:
+Then, use the identity created in the above command for the Entra ID config.yml, shown here in the third `run` section as `entraid-identity`:
 
 ```yaml
 version: 2.1
