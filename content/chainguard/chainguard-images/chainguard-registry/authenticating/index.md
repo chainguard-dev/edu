@@ -214,7 +214,9 @@ You can configure authentication with OIDC using Microsoft Entra ID (formerly Az
 
 Acquiring an OIDC ID token in Entra requires completing an OAuth 2.0/OIDC flow. Entra issues access tokens (for authorization) and ID tokens (for authentication) as separate but related JWTs. Access tokens grant API access, while ID tokens prove user identity.
 
-If you use the implicit or hybrid flows, enable **ID tokens (used for implicit and hybrid flows)** under **Authentication → Implicit grant and hybrid flows** in Entra ID for your application, and configure a redirect URI as described in [Enable ID tokens](https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc#enable-id-tokens). For authorization code flow (recommended), request the `openid` scope to receive an ID token; no portal checkbox is required. Then, [authenticate a user and request an ID token](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow#request-an-authorization-code).
+If you use the implicit or hybrid flows, in Entra ID enable **ID tokens (used for implicit and hybrid flows)** under **Authentication → Implicit grant and hybrid flows** in for your application, and configure a redirect URI as described in [Enable ID tokens](https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc#enable-id-tokens).
+
+For authorization code flow (recommended), request the `openid` scope to receive an ID token; no portal checkbox is required. Then, [authenticate a user and request an ID token](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow#request-an-authorization-code).
 
 **CI workloads:** Microsoft’s workload identity federation (federated identity credentials) exchanges your CI’s OIDC token for an **access token** to a resource; it does **not** issue ID tokens. If you need a non-interactive OIDC ID token for Chainguard, prefer using your CI provider’s native OIDC issuer directly with Chainguard, or run an interactive user flow (for example, device code) to obtain an ID token.
 
