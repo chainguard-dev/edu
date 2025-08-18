@@ -63,6 +63,26 @@ chainctl iam roles create new-role --parent=example-org --capabilities=roles.lis
 
 This example creates a new role named `new-role` under an organization named `example-org`. The new role will only have the ability to list roles in the organization.
 
+You can also grant multiple capabilities to a custom role with one command, as in this example:
+
+```sh
+chainctl iam roles create puller-role --parent=example-org --capabilities=apk.list,groups.list,manifest.list,manifest.metadata.list,record_signatures.list,repo.list,sboms.list,tag.list,vuln.list
+```
+
+This example command creates a role named `puller-role` that has the following capabilities:
+
+* `apk.list`
+* `groups.list`
+* `manifest.list`
+* `manifest.metadata.list`
+* `record_signatures.list`
+* `repo.list`
+* `sboms.list`
+* `tag.list`
+* `vuln.list`
+
+This essentially combines the capabilities of the `registry.pull` and `apk.pull` roles, allowing any identities bound to this role to be able to pull both Chainguard Containers and APKs.
+
 You can also use `chainctl` to delete custom roles.
 
 ```sh
