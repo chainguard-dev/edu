@@ -28,7 +28,13 @@ You should also:
 * Remove all prior cached artifacts in the virtual server or proxy public repository. This step reduces confusion about the origin of libraries and assists technical evaluation and adoption of Chainguard Libraries.
 * Remove any repositories that are no longer desired or necessary. Depending on your library requirements, this step can result in removal of some proxy repositories or even removal of all proxy repositories. 
 
-If your organization does not use a repository manager, you can still use Chainguard Libraries. However, this approach requires configuration of multiple build and development platforms and utilities to use Chainguard Libraries. For this reason, adopting the use of a repository manager is the recommended approach. 
+If your organization does not use a repository manager, you can still use
+Chainguard Libraries. However, this approach requires configuration of multiple
+build and development platforms and utilities to use Chainguard Libraries. For
+this reason, adopting the use of a repository manager is the recommended
+approach. Refer to the [direct access documentation for build
+tools](/chainguard/libraries/python/build-configuration/#direct-access) for more
+information.
 
 <a id="cloudsmith"></a>
 

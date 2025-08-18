@@ -168,7 +168,7 @@ VMs
 STIGs
 cryptographic
 Cryptographic
-Chainguard’s
+Chainguard's
 userspace
 entrypoint
 reproducibility
@@ -193,3 +193,7 @@ JARs
 remediations
 codebase
 codebases
+proxying
+scalable
+sbt
+Leiningen
