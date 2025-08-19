@@ -2,7 +2,7 @@
 title: "Built-in Roles and Capabilities Reference"
 linktitle: "Built-in Roles & Capabilities"
 lead: "Reference for Chainguard's built-in roles and their specific capabilities"
-description: "A comprehensive reference documenting the capabilities and permissions of Chainguard's built-in IAM roles."
+description: "A resource documenting the capabilities and permissions of Chainguard's built-in IAM roles."
 type: "article"
 date: 2025-08-14T00:00:00Z
 lastmod: 2025-08-14T00:00:00Z
@@ -12,9 +12,9 @@ images: []
 weight: 010
 ---
 
-Chainguard provides customers with a set of built-in roles as part of its Identity and Access Management (IAM) system. These roles have different permissions and capabilties that allow them to serve specialized purposes purposes, from general administrative access to access for specific resources like registries, APK packages, and programming language libraries.
+Chainguard provides customers with a set of built-in roles as part of its Identity and Access Management (IAM) system. These roles have different permissions and capabilities that allow them to serve specialized purposes, from general administrative access to access for specific resources like registries, APK packages, and programming language libraries.
 
-This reference provides a comprehensive view of all Chainguard IAM capabilities and shows which built-in roles include each capability. Each capability represents a specific permission or action that can be performed within the Chainguard platform.
+This reference provides an overview of all Chainguard IAM capabilities and shows which built-in roles include each capability. Each capability represents a specific permission or action that can be performed within the Chainguard platform.
 
 For more information on roles and role-bindings within Chainguard's IAM model, please refer to our [Overview of Roles and Role-bindings](/chainguard/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
 
@@ -24,7 +24,7 @@ For more information on roles and role-bindings within Chainguard's IAM model, p
 This guide outlines the built-in Chainguard IAM roles available to most customer organizations. You can find more info about specific roles in your organization with the following `chainctl` command:
 
 ```shell
-chainctl iam roles list -o table
+chainctl iam roles list
 ```
 
 Every role has at least one of four capabilities (`create`, `list`, `update`, `delete`) in relation to at least one Chainguard resource. For example, the `owner` role can create, delete, list, and update custom roles within Chainguard, while the `viewer` role can only list them. 
@@ -43,9 +43,9 @@ This guide outlines the following twelve built-in roles provided by Chainguard:
     * `libraries.java.pull` - Java library access
     * `libraries.java.pull_token_creator` - Java token management
     * `libraries.python.pull` - Python library access
-    * `libraries.python.pull_token_creator` - Python token management
+    * `libraries.python.pull_token_creator` - Python library token management
     * `libraries.javascript.pull` - JavaScript library access
-    * `libraries.javascript.pull_token_creator` - JavaScript token management with extensive registry capabilities
+    * `libraries.javascript.pull_token_creator` - JavaScript library token management
 
 The administrative roles are useful for user profiles that require broad, but clearly defined capabilities. The registry, container, and library roles have limited permissions, allowing them to manage only one specific Chainguard resource. These specialized, resource-specific roles grant minimal required access.
 
