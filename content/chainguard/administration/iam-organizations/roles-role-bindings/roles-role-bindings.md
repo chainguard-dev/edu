@@ -24,20 +24,28 @@ This guide includes several examples of how you can manage roles and role-bindin
 
 ## Roles
 
-There are a number of built-in roles in Chainguard's IAM model that customers can assign to identities within their organization. 
+There are a number of built-in roles in Chainguard's IAM model that customers can assign to identities within their organization. Most users within your organization will likely have one of three roles with broadly-defined privileges: `owner`, `editor`, or `viewer`.
 
 `owner` is the role with the most privileges. An owner can create, delete, view (list), and modify (update) organizations, account associations, role-bindings, organization invitations, custom roles, role-bindings, and subscriptions. 
 
-`editor` is the role with read access and limited creation and modification access. An editor can create, delete, and view images, clusters, role-bindings, and subscriptions. Additionally, an editor can modify role-bindings and subscriptions. As opposed to the owner role, an editor can view images, policies, records, organizations, organization invites, roles, and account associations but cannot create or make changes to these resources.
+`editor` is the role with read access and limited creation and modification access. An editor can create, delete, and view images, role-bindings, and subscriptions. Additionally, an editor can modify role-bindings and subscriptions. As opposed to the owner role, an editor can view images, policies, records, organizations, organization invites, roles, and account associations but cannot create or make changes to these resources.
 
-`viewer` is a role that generally only has read-only access. That is, a viewer can list images, policies, organizations (and organization invites), clusters, records, roles and role-bindings, subscriptions, and account associations.
+`viewer` is a role that generally only has read-only access. That is, a viewer can list images, policies, organizations (and organization invites), records, roles and role-bindings, subscriptions, and account associations.
 
 The remaining roles are for more specialized functions. For example, `registry.pull`, `registry.push`, and `registry.pull_token_creator` relate to administering a registry of Chainguard products.
+
+The `owner`, `editor`, and `viewer` roles are useful for user profiles that require broad, but clearly defined capabilities. The registry, container, and library roles have limited permissions, allowing them to manage only one specific Chainguard resource. These specialized, resource-specific roles grant minimal required access.
+
+Every role has at least one of four capabilities (`create`, `list`, `update`, `delete`) in relation to at least one Chainguard resource. For example, the `apk.pull` role only grants `list` access for APK packages and groups. This means identities with this role can pull the organization's APK packages and retrieve information about the organization, but won't have general access to the organization's [Chainguard registry](/chainguard/chainguard-images/chainguard-registry/overview/) access. 
+
+Chainguard's built-in default roles serve as building blocks and can be complemented with custom roles for specific use cases. Custom roles can extend or restrict default role capabilities, and offer or your organization greater flexibility, allowing you to mix default and custom roles based on your team's structure and needs.
+
+When assigning a role, do so based on the principle of least privilege; assign only the role needed for the indentity's function. For example, CI systems should have a role like `registry.pull`, not `editor`.
 
 You can run `chainctl iam roles list` to retrieve a list of all the roles available to your organization and review each of their specific capabilities. This command will list all the built-in roles as well as any custom roles created for your organization. The next section outlines how to create and manage such custom roles. 
 
 
-## Managing custom roles
+## Managing Custom Roles
 
 You can use `chainctl` to create custom roles for teams or individuals in your organization, like in the following example.
 
@@ -54,6 +62,26 @@ chainctl iam roles create new-role --parent=example-org --capabilities=roles.lis
 ```
 
 This example creates a new role named `new-role` under an organization named `example-org`. The new role will only have the ability to list roles in the organization.
+
+You can also grant multiple capabilities to a custom role with one command, as in this example:
+
+```sh
+chainctl iam roles create puller-role --parent=example-org --capabilities=apk.list,groups.list,manifest.list,manifest.metadata.list,record_signatures.list,repo.list,sboms.list,tag.list,vuln.list
+```
+
+This example command creates a role named `puller-role` that has the following capabilities:
+
+* `apk.list`
+* `groups.list`
+* `manifest.list`
+* `manifest.metadata.list`
+* `record_signatures.list`
+* `repo.list`
+* `sboms.list`
+* `tag.list`
+* `vuln.list`
+
+This essentially combines the capabilities of the `registry.pull` and `apk.pull` roles, allowing any identities bound to this role to be able to pull both Chainguard Containers and APKs.
 
 You can also use `chainctl` to delete custom roles.
 
