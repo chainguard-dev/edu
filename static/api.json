@@ -2384,6 +2384,44 @@
         ]
       }
     },
+    "/registry/v1/entitlements/{id}": {
+      "delete": {
+        "operationId": "Entitlements_DeleteEntitlement",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "parent",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {},
+              "type": "object"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Entitlements"
+        ]
+      }
+    },
     "/registry/v1/entitlements/{parent}": {
       "get": {
         "operationId": "Entitlements_ListEntitlements",
@@ -2401,6 +2439,43 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/registryEntitlementList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Entitlements"
+        ]
+      },
+      "post": {
+        "operationId": "Entitlements_CreateEntitlement",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "parent",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "entitlement",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/registryEntitlement"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryEntitlement"
             }
           },
           "default": {
@@ -5329,6 +5404,13 @@
     },
     "RegistryUpdateRepoBody": {
       "properties": {
+        "activeTags": {
+          "description": "(optional) actively maintained tags in this repository.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
         "aliases": {
           "description": "aliases is a list of equivalent images.",
           "items": {
@@ -7684,6 +7766,13 @@
     },
     "registryRepo": {
       "properties": {
+        "activeTags": {
+          "description": "(optional) actively maintained tags in this repository.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
         "aliases": {
           "description": "aliases is a list of equivalent images.",
           "items": {
