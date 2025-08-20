@@ -1,5 +1,5 @@
 ---
-date: 2025-07-30T21:39:07Z
+date: 2025-08-19T19:52:13Z
 title: "chainctl iam identity-providers create"
 slug: chainctl_iam_identity-providers_create
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers_create/
@@ -21,7 +21,7 @@ chainctl iam identity-providers create --parent ORGANIZATION_NAME | ORGANIZATION
 
 ```
   # Setup a custom OIDC provider and bind new users to the viewer role
-  chainctl iam identity-provider create --name=google --parent=example \
+  chainctl iam identity-providers create --name=google --parent=example \
   --oidc-issuer=https://accounts.google.com \
   --oidc-client-id=foo \
   --oidc-client-secret=bar \

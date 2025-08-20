@@ -8,7 +8,7 @@ lastmod: 2024-09-18T14:05:09+00:00
 contributors: []
 draft: false
 aliases:
-- /chainguard/software-security/compliance/cis-benchmarks/
+- /software-security/compliance/cis-benchmarks/
 tags: ["Compliance", "Standards"]
 images: []
 menu:
@@ -64,4 +64,4 @@ Regarding this last bullet, [CIS Controls](https://www.cisecurity.org/controls) 
 
 By implementing CIS benchmarks, organizations not only improve their security against evolving cyber threats but also align with regulatory standards, ensuring compliance and minimizing risks. To explore the full range of benchmarks and start implementing these best practices, visit the [CIS website](https://www.cisecurity.org/cis-benchmarks) today.
 
-Additionally, you may find our resources on other [compliance frameworks](/software-security/compliance/) to be of interest.
+Additionally, you may find our resources on other [compliance frameworks](/compliance/) to be of interest.

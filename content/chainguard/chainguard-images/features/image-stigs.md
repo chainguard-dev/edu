@@ -18,7 +18,7 @@ weight: 010
 toc: true
 ---
 
-The practice of using Security Technical Implementation Guides, or "STIGs," to secure various technologies originated with the United States Department of Defense (DoD). If an organization uses a certain kind of software, say MySQL 8.0, they must ensure that their implementation of it meets the requirements of the [associated Security Requirements Guides (SRG)](https://public.cyber.mil/stigs/) in order to qualify as a vendor for the DoD. More recently, other compliance frameworks have begun acknowledging the value of STIGS, with some going so far as to require the use of STIGs in their guidelines.
+The practice of using Security Technical Implementation Guides, or "STIGs," to secure various technologies originated with the United States Department of Defense (DoD). If an organization uses a certain kind of software, say MySQL 8.0, they must ensure that their implementation of it meets the requirements of the [associated Security Requirements Guides (SRG)](https://www.cyber.mil/stigs/) in order to qualify as a vendor for the DoD. More recently, other compliance frameworks have begun acknowledging the value of STIGS, with some going so far as to require the use of STIGs in their guidelines.
 
 [Chainguard announced](https://www.chainguard.dev/unchained/stig-hardening-container-images) the release of a STIG for the [General Purpose Operating System (GPOS) SRG](https://stigviewer.com/stigs/general_purpose_operating_system_security_requirements_guide) — an SRG that specifies security requirements for general purpose operating systems running in a network. The goal for this new STIG is that it will help customers confidently and securely integrate Chainguard Containers into their workflows. This conceptual article aims to give a brief overview of what STIGs are and how they can be valuable in the context of container images. It also includes instructions on how to get started with Chainguard's STIG for the GPOS SRG. 
 
@@ -74,7 +74,7 @@ As mentioned previously, "STIG" is an acronym that stands for Security Technical
 
 A STIG is typically written by the developer or vendor of the given piece of software against a published DOD Security Requirements Guide (SRG). STIGs are presented in the XCCDF (Extensible Configuration Checklist Description Format), allowing them to be ingested into a SCAP-validated tool to validate that a given target is in compliance with them.
 
-After drafting the STIG, the vendor will submit it to the [Defense Information Systems Agency (DISA)](https://www.disa.mil/), an agency within the DoD. One of DISA's responsibilities is publishing and maintaining STIGs on the [DoD Cyber Exchange website](https://public.cyber.mil/stigs/downloads/), and the process from a STIG being submitting to it being published by DISA can take years. As of this writing, DISA has published over 450 STIGs for a wide variety of software applications.
+After drafting the STIG, the vendor will submit it to the [Defense Information Systems Agency (DISA)](https://www.disa.mil/), an agency within the DoD. One of DISA's responsibilities is publishing and maintaining STIGs on the [DoD Cyber Exchange website](https://www.cyber.mil/stigs/downloads/), and the process from a STIG being submitting to it being published by DISA can take years. As of this writing, DISA has published over 450 STIGs for a wide variety of software applications.
 
 
 ## How STIGs can be used to harden container images

@@ -8,7 +8,7 @@ lastmod: 2024-08-21T14:05:09+00:00
 contributors: []
 draft: false
 aliases:
-- /chainguard/software-security/compliance/pci-dss-4/intro-pci-dss-4/
+- /software-security/compliance/pci-dss-4/intro-pci-dss-4/
 tags: ["Compliance", "PCI DSS 4.0", "Standards"]
 images: []
 menu:
@@ -78,12 +78,12 @@ Further, any entity that handles covered data and does not comply with PCI DSS r
 
 These consequences may further result in cancelled contracts, additional revenue losses, and even closures.
 
-Achieving compliance with PCI DSS 4.0 is not just an industry self-regulatory requirement but a critical step in safeguarding payment information. To prepare your organization for PCI DSS 4.0, continue on to the next section of our guide, [PCI DSS 4.0 Maturity Levels](/software-security/compliance/cmmc-2/cmmc-2-levels/), or read about [how Chainguard Containers can help simplify fulfilling PCI DSS 4.0 requirements](/software-security/compliance/cmmc-2/cmmc-chainguard/).
+Achieving compliance with PCI DSS 4.0 is not just an industry self-regulatory requirement but a critical step in safeguarding payment information. To prepare your organization for PCI DSS 4.0, continue on to the next section of our guide, [PCI DSS 4.0 Maturity Levels](/compliance/cmmc-2/cmmc-2-levels/), or read about [how Chainguard Containers can help simplify fulfilling PCI DSS 4.0 requirements](/compliance/cmmc-2/cmmc-chainguard/).
 
 ## Browse all PCI DSS 4.0 Articles
 
 - (Current article) Introduction to PCI DSS 4.0
-- [Overview of PCI DSS 4.0 Practices/Requirements](/software-security/compliance/pci-dss-4/pci-dss-practices/)
-- [How Chainguard Can Help With PCI DSS 4.0](/software-security/compliance/pci-dss-4/pci-dss-chainguard/)
+- [Overview of PCI DSS 4.0 Practices/Requirements](/compliance/pci-dss-4/pci-dss-practices/)
+- [How Chainguard Can Help With PCI DSS 4.0](/compliance/pci-dss-4/pci-dss-chainguard/)
 
 **[Get started with FIPS Chainguard Containers today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**

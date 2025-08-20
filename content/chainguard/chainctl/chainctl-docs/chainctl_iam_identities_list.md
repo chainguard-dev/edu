@@ -1,5 +1,5 @@
 ---
-date: 2025-07-30T21:39:07Z
+date: 2025-08-19T19:52:13Z
 title: "chainctl iam identities list"
 slug: chainctl_iam_identities_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_list/
@@ -36,11 +36,11 @@ chainctl iam identities list [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOL
 ### Options
 
 ```
-      --expired               Return only expired static identities.
-  -h, --help                  help for list
-      --name string           Filter identities by name.
-      --parent string         The name or id of the parent location to list identities from.
-      --relationship string   Filter identities by relationship type (aws, claim_match, pull_token, service_principal, static).
+      --expired         Return only expired static identities.
+  -h, --help            help for list
+      --name string     Filter identities by name.
+      --parent string   The name or id of the parent location to list identities from.
+      --type string     Filter identities by type (one of aws, claim_match, pull_token, service_principal, static).
 ```
 
 ### Options inherited from parent commands

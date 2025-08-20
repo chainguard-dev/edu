@@ -1,0 +1,34 @@
+# Chainguard AI Documentation Container
+# Provides secure distribution of compiled documentation
+
+# Use wolfi-base which includes a shell but is still minimal and secure
+FROM cgr.dev/chainguard/wolfi-base:latest AS final
+
+# Add metadata labels
+LABEL org.opencontainers.image.source="https://github.com/chainguard-dev/edu"
+LABEL org.opencontainers.image.description="Chainguard AI Documentation Bundle - Cryptographically signed and verified"
+LABEL org.opencontainers.image.licenses="Apache-2.0"
+LABEL dev.chainguard.ai-docs.version="latest"
+
+# Create directory structure
+WORKDIR /docs
+
+# Copy documentation and verification files
+# These will be added during the build process
+COPY chainguard-ai-docs.md /docs/
+COPY chainguard-ai-docs.md.sig /docs/
+COPY chainguard-ai-docs.md.crt /docs/
+COPY checksums.txt /docs/
+COPY verification.sh /docs/
+
+# Copy scripts and make them executable
+COPY extract.sh /usr/local/bin/extract
+COPY verify.sh /usr/local/bin/verify
+COPY list-contents.sh /usr/local/bin/list-contents
+RUN chmod +x /usr/local/bin/extract /usr/local/bin/verify /usr/local/bin/list-contents
+
+# Set permissions
+USER nonroot:nonroot
+
+# Default command shows usage
+CMD ["/usr/local/bin/list-contents"]

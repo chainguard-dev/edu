@@ -1,0 +1,90 @@
+name: Compile Docs on Repository Update
+
+on:
+  # Trigger on repository dispatch events
+  repository_dispatch:
+    types: [docs-update]
+  
+  # Also allow manual trigger
+  workflow_dispatch:
+
+# Restrict permissions to minimum required
+permissions:
+  contents: write  # Only for pushing compiled docs
+  actions: read
+
+jobs:
+  compile-docs:
+    runs-on: ubuntu-latest
+    environment: documentation  # Use environment protection rules
+    
+    steps:
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@ec9f2d5744a09debf3a187a3f4f675c53b671911 # v2.13.0
+      with:
+        egress-policy: audit
+
+    - name: Checkout edu repository
+      uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      with:
+        path: edu
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Checkout courses repository
+      uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      with:
+        repository: chainguard-dev/courses
+        path: courses
+        token: ${{ secrets.DOCS_COMPILE_PAT }}
+
+    - name: Checkout images-private repository
+      uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      with:
+        repository: chainguard-images/images-private
+        path: images-private
+        token: ${{ secrets.DOCS_COMPILE_PAT }}
+
+    - name: Set up Python
+      uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+      with:
+        python-version: '3.10'
+
+    - name: Set environment variable for GitHub Actions
+      run: echo "GITHUB_ACTIONS=true" >> $GITHUB_ENV
+
+    - name: Compile documentation
+      run: |
+        cd edu
+        python3 scripts/compile_docs.py
+
+    - name: Create compressed versions
+      run: |
+        cd edu/static/downloads
+        gzip -k chainguard-complete-docs.md
+        zip chainguard-complete-docs.zip chainguard-complete-docs.md
+        tar -czf chainguard-complete-docs.tar.gz chainguard-complete-docs.md
+
+    - name: Scan for sensitive data
+      run: |
+        cd edu
+        
+        # Simple check for common secret patterns
+        if grep -E "(AKIA[0-9A-Z]{16}|ghp_[0-9a-zA-Z]{36}|ghs_[0-9a-zA-Z]{36}|sk-[0-9a-zA-Z]{48})" static/downloads/chainguard-complete-docs.md; then
+          echo "WARNING: Potential secrets detected in compiled documentation!"
+          exit 1
+        fi
+
+    - name: Commit and push changes
+      run: |
+        cd edu
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        
+        # Check if there are changes
+        if git diff --quiet; then
+          echo "No changes to commit"
+        else
+          git add static/downloads/chainguard-complete-docs.*
+          git commit -m "Update compiled documentation bundle from ${{ github.event.client_payload.repository }} [skip ci]" || echo "No changes to commit"
+          git push
+        fi

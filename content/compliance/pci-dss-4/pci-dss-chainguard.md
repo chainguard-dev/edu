@@ -8,7 +8,7 @@ lastmod: 2024-08-21T14:05:09+00:00
 contributors: []
 draft: false
 aliases:
-- /chainguard/software-security/compliance/pci-dss-4/pci-dss-chainguard/
+- /software-security/compliance/pci-dss-4/pci-dss-chainguard/
 tags: ["Compliance", "PCI DSS 4.0", "Standards"]
 images: []
 menu:
@@ -52,8 +52,8 @@ Chainguard Containers are carefully engineered to contain low-to-no CVEs. Organi
 
 ## Browse all CMMC 2.0 Articles
 
-- [Introduction to PCI DSS 4.0](/software-security/compliance/pci-dss-4/intro-pci-dss-4/)
-- [Overview of PCI DSS 4.0 Practices/Requirements](/software-security/compliance/pci-dss-4/pci-dss-practices/)
+- [Introduction to PCI DSS 4.0](/compliance/pci-dss-4/intro-pci-dss-4/)
+- [Overview of PCI DSS 4.0 Practices/Requirements](/compliance/pci-dss-4/pci-dss-practices/)
 - (Current article) How Chainguard Can Help With CMMC 2.0
 
 

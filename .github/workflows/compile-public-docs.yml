@@ -1,0 +1,268 @@
+name: Compile Public Documentation Bundle
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'content/**'
+      - 'scripts/compile_docs.py'
+      - '.github/workflows/compile-public-docs.yml'
+  
+  schedule:
+    - cron: '0 2 * * 0'  # Weekly on Sundays at 2 AM
+  
+  workflow_dispatch:
+    inputs:
+      create_release:
+        description: 'Create a GitHub release with signed artifacts'
+        required: false
+        default: 'true'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
+
+permissions:
+  contents: write  # For creating releases
+  actions: read
+  id-token: write  # For cosign keyless signing
+  packages: write  # For GitHub Container Registry
+  
+jobs:
+  compile-and-release:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@ec9f2d5744a09debf3a187a3f4f675c53b671911 # v2.13.0
+      with:
+        egress-policy: audit
+
+    - name: Checkout edu repository
+      uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+
+    - name: Set up Python
+      uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+      with:
+        python-version: '3.10'
+
+    - name: Install cosign
+      uses: sigstore/cosign-installer@d58896d6a1865668819e1d91763c7751a165e159 # v3.9.2
+
+    - name: Install dependencies
+      run: |
+        if [ -f scripts/requirements.txt ]; then
+          pip install -r scripts/requirements.txt
+        else
+          # Minimal requirements if file doesn't exist
+          pip install pyyaml
+        fi
+
+    - name: Compile public documentation
+      run: |
+        # Create placeholder directories for private repos
+        mkdir -p ../courses
+        mkdir -p ../images-private
+        echo "# Placeholder" > ../courses/README.md
+        echo "# Placeholder" > ../images-private/README.md
+        
+        # Run compilation with public content only
+        python scripts/compile_docs.py
+        
+        # Debug: Show where we are and what was created
+        echo "Current directory: $(pwd)"
+        echo "Python script output should show 'Documentation compiled successfully to: [PATH]' above"
+        echo ""
+        echo "Looking for chainguard-complete-docs.md anywhere in the repository..."
+        find . -name "chainguard-complete-docs.md" -type f 2>/dev/null | while read file; do
+          echo "Found at: $file"
+          echo "File size: $(ls -lh "$file" | awk '{print $5}')"
+        done
+        echo ""
+        echo "Contents of static/downloads/:"
+        ls -la static/downloads/ 2>/dev/null | head -10 || echo "Directory static/downloads/ doesn't exist"
+        
+        # Verify output was created (the script outputs to static/downloads in the current directory)
+        if [ ! -f "static/downloads/chainguard-complete-docs.md" ]; then
+          echo "Error: Documentation compilation failed - file not found at static/downloads/chainguard-complete-docs.md"
+          echo "Directory contents:"
+          ls -la static/downloads/ || echo "Directory doesn't exist"
+          exit 1
+        fi
+        
+        echo "Documentation compiled successfully"
+        ls -lh static/downloads/chainguard-complete-docs.md
+
+    - name: Create compressed bundle
+      run: |
+        cd static/downloads
+        
+        # Rename to more appropriate name for public-only version
+        mv chainguard-complete-docs.md chainguard-ai-docs.md
+        
+        # Create tarball
+        tar -czf chainguard-ai-docs.tar.gz chainguard-ai-docs.md
+        
+        # Create checksums
+        sha256sum chainguard-ai-docs.tar.gz > checksums.txt
+        sha256sum chainguard-ai-docs.md >> checksums.txt
+        
+        echo "Bundle created successfully"
+        ls -lh chainguard-ai-docs.tar.gz
+
+    - name: Sign artifacts with cosign
+      run: |
+        cd static/downloads
+        
+        # Sign the tarball (keyless signing)
+        cosign sign-blob \
+          --yes \
+          chainguard-ai-docs.tar.gz \
+          --output-signature chainguard-ai-docs.tar.gz.sig \
+          --output-certificate chainguard-ai-docs.tar.gz.crt
+        
+        # Sign the markdown file
+        cosign sign-blob \
+          --yes \
+          chainguard-ai-docs.md \
+          --output-signature chainguard-ai-docs.md.sig \
+          --output-certificate chainguard-ai-docs.md.crt
+        
+        echo "Artifacts signed successfully"
+
+    - name: Scan for sensitive data
+      run: |
+        cd static/downloads
+        
+        # Check for common secret patterns
+        if grep -E "(AKIA[0-9A-Z]{16}|ghp_[0-9a-zA-Z]{36}|ghs_[0-9a-zA-Z]{36}|sk-[0-9a-zA-Z]{48})" chainguard-ai-docs.md; then
+          echo "ERROR: Potential secrets detected in compiled documentation!"
+          exit 1
+        fi
+        
+        echo "Security scan passed - no secrets detected"
+
+    - name: Create release
+      if: (github.event_name == 'workflow_dispatch' && github.event.inputs.create_release == 'true') || github.event_name == 'push'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        cd static/downloads
+        
+        # Use a fixed tag for the latest release
+        TAG="ai-docs-latest"
+        
+        # Delete existing release if it exists
+        gh release delete "$TAG" --yes || true
+        
+        # Create release notes
+        cat > release-notes.md << 'EOF'
+        # AI Documentation Bundle (Public)
+        
+        This release contains the compiled Chainguard public documentation bundle for use with AI assistants.
+        
+        ## Download Options
+        
+        | File | Description | Size |
+        |------|-------------|------|
+        | [chainguard-ai-docs.tar.gz](https://github.com/chainguard-dev/edu/releases/download/ai-docs-latest/chainguard-ai-docs.tar.gz) | Compressed bundle | ~1.7MB |
+        
+        ## Contents
+        - Complete public documentation from the edu repository
+        - Tutorials, guides, and reference documentation
+        - Compiled into a single markdown file for AI assistant consumption
+        
+        ## Verification
+        
+        To verify the signatures:
+        
+        ```bash
+        # Download files
+        curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-latest/chainguard-ai-docs.tar.gz
+        curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-latest/chainguard-ai-docs.tar.gz.sig
+        curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-latest/chainguard-ai-docs.tar.gz.crt
+        
+        # Verify tarball
+        cosign verify-blob \
+          --certificate chainguard-ai-docs.tar.gz.crt \
+          --signature chainguard-ai-docs.tar.gz.sig \
+          --certificate-identity-regexp ".*" \
+          --certificate-oidc-issuer https://token.actions.githubusercontent.com \
+          chainguard-ai-docs.tar.gz
+        ```
+        
+        ## Usage with AI Assistants
+        
+        1. Download and extract the bundle
+        2. Open your AI assistant (Claude, ChatGPT, etc.)
+        3. Upload or paste the markdown file
+        4. Start asking questions about Chainguard!
+        
+        ## Checksums
+        
+        ```
+        $(cat checksums.txt)
+        ```
+        
+        _Last updated: $(date -u +"%Y-%m-%d %H:%M:%S UTC")_
+        EOF
+        
+        # Create GitHub release (recreate with latest tag)
+        gh release create "$TAG" \
+          --title "AI Documentation Bundle - Latest" \
+          --notes-file release-notes.md \
+          --latest \
+          chainguard-ai-docs.tar.gz \
+          chainguard-ai-docs.tar.gz.sig \
+          chainguard-ai-docs.tar.gz.crt \
+          checksums.txt
+
+    - name: Build and push container image
+      if: github.ref == 'refs/heads/main'
+      run: |
+        # Debug: Check current location and files
+        echo "Current directory: $(pwd)"
+        echo "Files in static/downloads:"
+        ls -la static/downloads/ | head -10
+        
+        cd static/downloads
+        
+        # Copy necessary files for container build
+        echo "Copying files to scripts directory..."
+        cp chainguard-ai-docs.md ../../scripts/
+        cp chainguard-ai-docs.md.sig ../../scripts/
+        cp chainguard-ai-docs.md.crt ../../scripts/
+        cp checksums.txt ../../scripts/
+        # verification.sh is already in scripts/ directory
+        
+        cd ../../scripts
+        
+        # Debug: List files in scripts directory before build
+        echo "Files in scripts directory before build:"
+        ls -la | grep -E "chainguard-ai-docs|checksums|verification|extract|verify|list-contents"
+        
+        # Build container with GitHub Container Registry
+        docker build -f Dockerfile.ai-docs -t ghcr.io/${{ github.repository_owner }}/ai-docs:latest .
+        docker tag ghcr.io/${{ github.repository_owner }}/ai-docs:latest ghcr.io/${{ github.repository_owner }}/ai-docs:${{ github.sha }}
+        
+        # Login to GitHub Container Registry
+        echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+        
+        # Push images
+        docker push ghcr.io/${{ github.repository_owner }}/ai-docs:latest
+        docker push ghcr.io/${{ github.repository_owner }}/ai-docs:${{ github.sha }}
+        
+        # Sign container image with cosign
+        cosign sign --yes ghcr.io/${{ github.repository_owner }}/ai-docs:latest
+        cosign sign --yes ghcr.io/${{ github.repository_owner }}/ai-docs:${{ github.sha }}
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+      with:
+        name: chainguard-ai-docs
+        path: |
+          static/downloads/chainguard-ai-docs.tar.gz
+          static/downloads/chainguard-ai-docs.tar.gz.sig
+          static/downloads/chainguard-ai-docs.tar.gz.crt
+          static/downloads/checksums.txt
+        retention-days: 90
