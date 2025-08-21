@@ -63,6 +63,14 @@ Follow the steps from the [global
 configuration](/chainguard/libraries/java/global-configuration/#sonatype-nexus-repository)
 to determine URL and authentication details.
 
+## Direct access
+
+Build configuration to retrieve artifacts **directly** from the Chainguard
+Libraries
+for Java repository at `https://libraries.cgr.dev/java/` requires authentication
+with username and password from a pull token as detailed in
+[access documentation](/chainguard/libraries/access/#pull-token).
+
 ## Apache Maven
 
 [Apache Maven](https://maven.apache.org/) is the most widely used build tool in
@@ -87,7 +95,7 @@ for Java. If the administrator for your organization’s repository manager
 created a new repository or virtual repository or group repository, you must
 update your settings defined in `~/.m2/settings.xml`.
 
-A typical setup defines a global mirror (id `ecosystems`) for all artifacts and
+A typical setup defines a global mirror (id `repo-example`) for all artifacts and
 configures the URL of the repository group or virtual repository from your
 repository manager `https://repo.example.com/group/`. Since the group or virtual
 repository combines release and snapshot artifacts you must override the
@@ -111,6 +119,8 @@ activated profile.
       <!-- <url>https://example.jfrog.io/artifactory/java-all/</url> -->
       <!-- Sonatype Nexus example -->
       <!-- <url>https://repo.example.com:8443/repository/java-all/</url> -->
+      <!-- Direct access example -->
+      <!-- <url>https://libraries.cgr.dev/java/</url> -->
     </mirror>
   </mirrors>
 
@@ -323,7 +333,7 @@ Before running a new build you must configure access to the Chainguard Libraries
 for Java. If the administrator for your organization’s repository manager
 created a new repository or virtual repository or group repository, you must
 update your Gradle configuration. Artifact download is Gradle can be configured
-in an [init
+in an [`init`
 script](https://docs.gradle.org/current/userguide/init_scripts.html#sec:using_an_init_script)
 using the repositories definition. Each project can also [declare
 repositories](https://docs.gradle.org/current/userguide/declaring_repositories_basics.html)
@@ -449,7 +459,7 @@ configuration to use the repository manager.
 Bazel uses `MODULE.bazel` files to define external dependencies as `artifacts`.
 You can configure a Maven repository for artifact retrieval using `repositories`
 from the
-[rules_jvm_external](https://github.com/bazel-contrib/rules_jvm_external) rule: 
+[`rules_jvm_external`](https://github.com/bazel-contrib/rules_jvm_external) rule: 
 
 Following is an example configuration for a repository manager:
 
@@ -527,7 +537,7 @@ For more complex Bazel setups, you can use [.netrc for
 authentication](/chainguard/libraries/access/#netrc).
 
 Refer to the [official Bazel documentation for
-rules_jvm_external](https://github.com/bazel-contrib/rules_jvm_external) for
+`rules_jvm_external`](https://github.com/bazel-contrib/rules_jvm_external) for
 more detailed configuration options.
 
 ## Other build tools

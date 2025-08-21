@@ -26,7 +26,8 @@ These changes must be performed on all workstations of individual developers and
 
 ## Retrieving authentication credentials
 
-To configure any build tool, you must first access credentials from your organization's repository manager.
+To configure any build tool, you must first access credentials from your
+organization's repository manager or for direct access.
 
 <a id="cloudsmith"></a>
 
@@ -99,6 +100,14 @@ for accessing your organization's Sonatype Nexus repository group.
    authentication is required, you must use the relevant details such as
    username and password in your build tool configuration.
 
+### Direct access
+
+Build configuration to retrieve artifacts **directly** from the Chainguard Libraries
+for Python repository at `https://libraries.cgr.dev/python/` with the simple
+index at `https://libraries.cgr.dev/python/simple` requires authentication with
+username and password from a pull token as detailed in [access
+documentation](/chainguard/libraries/access/#pull-token).
+
 ## Configuring build tools
 
 Once you have credentials and the index URL from your organization's repository
@@ -163,6 +172,26 @@ Refer to the official documentation for [configuring authentication with
 pip](https://pip.pypa.io/en/stable/topics/authentication/) if you are not using
 [.netrc for authentication](/chainguard/libraries/access/#netrc).
 
+When using [direct access](#direct-access) to the Chainguard Libraries for
+Python repository with `pip`, you must ensure the following are set in your
+configuration file:
+
+* Replace any `/` in the username value `CG_PULLTOKEN_USERNAME` with `_`.
+* Ensure the `simple` context is used for the URL.
+* The password value `CG_PULLTOKEN_PASSWORD` remains unchanged.
+
+Example for `requirements.txt`:
+
+```example
+--index-url https://CG_PULLTOKEN_USERNAME:CG_PULLTOKEN_PASSWORD@libraries.cgr.dev/python/simple/
+```
+
+Example for `~/.pip/pip.conf`:
+
+```example
+[global]
+index-url = https://CG_PULLTOKEN_USERNAME:CG_PULLTOKEN_PASSWORD@libraries.cgr.dev/python/simple/
+```
 
 <a id="poetry"></a>
 
@@ -171,7 +200,6 @@ pip](https://pip.pypa.io/en/stable/topics/authentication/) if you are not using
 [Poetry](https://python-poetry.org/) helps you declare, manage, and install
 dependencies of Python projects, and can be used with Chainguard Libraries for
 Python."
-
 
 List the Python package caches used by your Poetry project:
 
@@ -202,20 +230,20 @@ The authentication is used for the `python-all` repository that you add to the
 `pyproject.toml` with the following command:
 
 ```shell
-poetry source add python-all https://repo.example.com/../python-all/simple
+poetry source add python-all https://repo.example.com/../python-all/simple/
 ```
 
 Example URLs including the required `simple` context:
 
-* JFrog Artifactory: `https://example.jfrog.io/artifactory/api/pypi/python-all/simple`
-* Sonatype Nexus: `https://repo.example.com:8443/repository/python-all/simple`
+* JFrog Artifactory: `https://example.jfrog.io/artifactory/api/pypi/python-all/simple/`
+* Sonatype Nexus: `https://repo.example.com:8443/repository/python-all/simple/`
 
 The following configuration is added:
 
 ```toml
 [[tool.poetry.source]]
 name = "python-all"
-url = "https://repo.example.com/../python-all/simple"
+url = "https://repo.example.com/../python-all/simple/"
 priority = "primary"
 ```
 
@@ -236,6 +264,23 @@ Proceed to build your project:
 
 ```shell
 poetry build
+```
+
+For [direct access](#direct-access) to Chainguard Libraries for Python with
+Poetry, use your username `CG_PULLTOKEN_USERNAME` and password
+`CG_PULLTOKEN_PASSWORD` values from the pull token creation and the URL with the
+simple context `https://libraries.cgr.dev/python/simple/`:
+
+
+```shell
+poetry config http-basic.chainguard CG_PULLTOKEN_USERNAME CG_PULLTOKEN_PASSWORD
+```
+
+The authentication is used for the `chainguard` repository that you add to the
+`pyproject.toml` with the following command:
+
+```shell
+poetry source add chainguard https://libraries.cgr.dev/python/simple/
 ```
 
 The [Poetry documentation](https://python-poetry.org/docs/) contains more
@@ -280,48 +325,22 @@ indexes](https://docs.astral.sh/uv/guides/integration/alternative-indexes/) if
 you are not using [.netrc for
 authentication](/chainguard/libraries/access/#netrc).
 
-## Direct Access 
-> NOTE: Chainguard does not offer an SLA for uptime availability of the Libraries repository at `libraries.cgr.dev`. To reduce production risk and ensure reliability, we recommend mirroring or proxying Chainguard Libraries through your own artifact repository whenever possible.
+For [direct access](#direct-access) to Chainguard Libraries for Python with
+uv, use .netrc or your username `CG_PULLTOKEN_USERNAME` and password
+`CG_PULLTOKEN_PASSWORD` values from the pull token creation and the URL with the
+simple context `https://libraries.cgr.dev/python/simple/`:
 
-If your organization does not use a supported repository manager, you can directly pull from the Chainguard Python Libraries repository using basic authentication.
+Example for `pyproject.toml`:
 
-Use the following index URL:
-https://libraries.cgr.dev/python/simple/
-
-### Authentication via Pull Token
-
-Authentication requires a pull token, which you can create using the `chainctl` CLI using the instructions at [Pull Token for Libraries](https://edu.chainguard.dev/chainguard/libraries/access/#pull-token-for-libraries).
-
-Once you have a pull token, use the generated username and password in your existing build tool’s configuration.
-
-> NOTE: The generated username will typically contain a `/`, which must be replaced with `_` when used in the URL for your build tool configuration file. 
-
-### Example pip Configuration
-
-In `requirements.txt`:
-
-```
---index-url https://your_token_username:your_token_password@libraries.cgr.dev/python/simple/
-```
-
-In  `~/.pip/pip.conf`:
-```
-[global]
-index-url = https://your_token_username:your_token_password@libraries.cgr.dev/python/simple/
-```
-
-### Example uv Configuration
-In `pyproject.toml`: 
 ```
 [[tool.uv.index]]
 name = "chainguard"
-url = "https://your_token_username:your_token_password@libraries.cgr.dev/python/simple/
+url = "https://CG_PULLTOKEN_USERNAME:CG_PULLTOKEN_PASSWORD@libraries.cgr.dev/python/simple/
 ```
 
-In `uv.toml`:
+Example for `uv.toml`:
+
 ```
 [[index]]
-url = "https://your_token_username:your_token_password@libraries.cgr.dev/python/simple/
+url = "https://CG_PULLTOKEN_USERNAME:CG_PULLTOKEN_PASSWORD@libraries.cgr.dev/python/simple/
 ```
-
-You may choose to authenticate using other supported methods, such as a `.netrc` file or environment variables, depending on your build tool’s capabilities and your security practices. The examples above demonstrate inline configuration for convenience, but they are not the only supported approaches. Refer to your build tool's documentation for additional authentication mechanisms.
