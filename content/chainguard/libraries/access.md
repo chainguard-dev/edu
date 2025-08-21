@@ -44,6 +44,8 @@ Successfully exchanged token.
 Valid! Id: 8a4141a........7d9904d98c
 ```
 
+<a id name="pull-token"></a>
+
 ## Pull token for libraries
 
 Create a new pull token for the Chainguard Libraries for Java with the [chainctl
@@ -82,13 +84,24 @@ Password: eyJhbGciO..........WF0IjoxN
 The returned username and password combination is a new credential set in the
 organization that is independent of the account used to create and retrieve the
 credential set. It is therefore suitable for use in any service application,
-such as [a repository manager](/chainguard/libraries/java/global-configuration/)
-or [a build tool](/chainguard/libraries/java/build-configuration/) that is not
-tied to a specific user.
+such as a repository manager or a build tool that is not tied to a specific
+user. You can also use the token as an individual for your development with
+direct access to Chainguard Libraries.
 
-To use this pull token in another environment, supply the following for username
-and password valid for basic authentication. Note that the actual returned
-values are much longer.
+To use the pull token in another environment, supply the username and password
+for basic authentication. Note that the actual returned values are much longer.
+
+> **Note**: Chainguard does not offer an SLA for uptime availability of the
+> Chainguard Libraries repositories at `libraries.cgr.dev`. To reduce production
+> risk and ensure reliability, we recommend proxying the repositories through
+> your own artifact repository whenever possible.
+
+Refer to the following resources for more specific information for your needs:
+
+* [Repository manager configuration with Java](/chainguard/libraries/java/global-configuration/)
+* [Build tool and direct access configuration with Java](/chainguard/libraries/java/build-configuration/)
+* [Repository manager configuration with Python](/chainguard/libraries/python/global-configuration/)
+* [Build tool and direct access configuration with Python](/chainguard/libraries/python/build-configuration/)
 
 You can not create pull tokens for Chainguard Libraries in the Chainguard
 console.

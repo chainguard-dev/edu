@@ -48,7 +48,9 @@ Adopting the use of a repository manager is the recommended approach, however if
 your organization does not use a repository manager, you can still use
 Chainguard Libraries. All access to the Chainguard libraries repository is then
 distributed across all your build platforms and therefore more complex to
-configure and control. 
+configure and control. Refer to the [direct access documentation for build
+tools](/chainguard/libraries/java/build-configuration/#direct-access) for more
+information.
 
 <a name="cloudsmith"></a>
 
