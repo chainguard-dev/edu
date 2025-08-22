@@ -57,7 +57,7 @@ const customizeUI = (pre) => {
   // } else {
   const output = document.createElement("span");
   output.classList.add("language-selector");
-  output.textContent = language || "Output";
+  output.textContent = language || "";
   actionContainer.append(output);
   // }
 
