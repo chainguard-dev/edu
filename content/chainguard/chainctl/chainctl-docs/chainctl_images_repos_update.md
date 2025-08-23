@@ -1,26 +1,28 @@
 ---
 date: 2025-08-22T22:08:01Z
-title: "chainctl auth token"
-slug: chainctl_auth_token
-url: /chainguard/chainctl/chainctl-docs/chainctl_auth_token/
+title: "chainctl images repos update"
+slug: chainctl_images_repos_update
+url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_update/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl auth token
+## chainctl images repos update
 
-Print the local Chainguard Token.
+Update image repositories.
 
 ```
-chainctl auth token [flags]
+chainctl images repos update {REPO_NAME|REPO_ID} --parent ORGANIZATION_NAME | ORGANIZATION_ID
 ```
 
 ### Options
 
 ```
-  -h, --help   help for token
+  -h, --help            help for update
+      --name string     Updated name for the repo.
+      --parent string   The name or id of the parent location of the repo to update.
 ```
 
 ### Options inherited from parent commands
@@ -39,5 +41,5 @@ chainctl auth token [flags]
 
 ### SEE ALSO
 
-* [chainctl auth](/chainguard/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
+* [chainctl images repos](/chainguard/chainctl/chainctl-docs/chainctl_images_repos/)	 - Image repo related commands for the Chainguard platform.
 
