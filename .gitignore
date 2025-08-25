@@ -34,3 +34,16 @@ __pycache__/
 *.so
 .Python
 
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Scripts with hardcoded values
+scripts/*-gcs.sh
+scripts/backup-*.sh
+scripts/manual-upload-*.sh
+
+# Keep secure versions and examples
+!scripts/*-secure.sh
+!.env.example
