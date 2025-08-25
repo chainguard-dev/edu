@@ -17,7 +17,7 @@ toc: true
 
 Chainguard offers catalog pricing for our container catalog, providing access across the Chainguard Container images catalog.
 
-Catalog pricing is Chainguard's pricing model for container usage that replaces the manual ticket process for adding images to an organization. This enables you to request individual images in the console to be added to your repository from the wider Chainguard catalog.
+Catalog pricing is an alternative pricing model for container usage that replaces the manual ticket process for adding images to an organization, like must be done using a per-image pricing model. Catalog pricing enables you to request individual images in the console to be added to your repository from the wider Chainguard catalog.
 
 The catalog pricing model is an option that requires you to be on the Catalog Pricing plan.
 
@@ -28,7 +28,7 @@ The catalog pricing model is an option that requires you to be on the Catalog Pr
 
 - **What’s included**: Unlimited access to the full Chainguard-maintained container image catalog.
 - **Benefits**:
-  - One subscription covers the entire catalog if your plan includes FIPS, otherwise it includes all non-FIPS catalog options.
+  - One subscription covers the entire catalog within your purchased options, for example whether or not your license includes FIPS images.
   - No more per-repository licenses.
   - Predictable monthly or annual costs.
 - **Use cases**: Ideal for organizations that pull many different Chainguard images across multiple teams or projects.
