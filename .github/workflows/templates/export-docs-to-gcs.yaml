@@ -1,0 +1,219 @@
+# Template workflow for images-private and courses repositories
+# Copy this to .github/workflows/export-docs-to-gcs.yaml in each repo
+
+name: Export Documentation to GCS for AI Bundle
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'content/**'
+      - 'docs/**'
+      - '**.md'
+  
+  schedule:
+    - cron: '30 1 * * 0'  # Weekly on Sundays at 1:30 AM
+  
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write  # Required for workload identity federation
+
+jobs:
+  export-docs:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Harden Runner
+      uses: step-security/harden-runner@91182cccc01eb5e619899d80e4e971d6181294a7 # v2.10.1
+      with:
+        egress-policy: audit
+
+    - name: Checkout repository
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      with:
+        persist-credentials: false
+
+    - name: Authenticate to Google Cloud
+      uses: google-github-actions/auth@6fc4af4b145ae7821d527454aa9bd537d1f2dc5f # v2.1.7
+      with:
+        workload_identity_provider: "projects/456977358484/locations/global/workloadIdentityPools/chainguard-academy/providers/chainguard-edu"
+        service_account: "github-chainguard-academy@chainguard-academy.iam.gserviceaccount.com"
+
+    - name: Set up Cloud SDK
+      uses: google-github-actions/setup-gcloud@f0990588f1e5b5af6827153b93673613abdc6ec7 # v2.1.1
+
+    - name: Prepare documentation export
+      run: |
+        set -euo pipefail  # Exit on error, undefined variable, or pipe failure
+        
+        # Use mktemp for secure temp directory
+        EXPORT_DIR=$(mktemp -d)
+        trap "rm -rf $EXPORT_DIR" EXIT  # Clean up on exit
+        
+        # Copy all markdown content (adjust paths as needed for each repo)
+        echo "Collecting documentation files..."
+        
+        # For images-private repo
+        if [[ "${{ github.repository }}" == *"images-private"* ]]; then
+          echo "Collecting README.md files from image directories..."
+          
+          # Create images directory structure
+          mkdir -p "$EXPORT_DIR/images"
+          
+          # Find all README.md files in images/*/README.md pattern
+          # This captures only the main README for each image, not nested subdirectories
+          find images -mindepth 2 -maxdepth 2 -name "README.md" -type f | while read file; do
+            # Get the image directory name (e.g., adoptium-jdk-fips from images/adoptium-jdk-fips/README.md)
+            image_dir=$(dirname "$file")
+            
+            # Create the directory structure in export
+            mkdir -p "$EXPORT_DIR/$image_dir"
+            
+            # Copy and clean the README.md file
+            # Remove HTML comments like <!--monopod:start-->, <!--getting:start-->, etc.
+            sed -E 's/<!--[^>]*-->//g' "$file" | \
+              sed '/^[[:space:]]*$/N;/\n[[:space:]]*$/d' > "$EXPORT_DIR/$file"
+            
+            echo "  ✓ Processed $file"
+          done
+          
+          echo "Total image READMEs collected: $(find "$EXPORT_DIR/images" -name "README.md" | wc -l)"
+        fi
+        
+        # For courses repo
+        if [[ "${{ github.repository }}" == *"courses"* ]]; then
+          echo "Processing courses repository HTML content..."
+          
+          # Install pandoc for HTML to Markdown conversion
+          echo "Installing pandoc for HTML conversion..."
+          sudo apt-get update && sudo apt-get install -y pandoc
+          
+          # Find and process HTML files in course structure
+          # Pattern: /CourseDirectory/lessons/*/content-*.html
+          course_count=0
+          lesson_count=0
+          
+          # Look for course directories (they typically start with capital letters)
+          for course_dir in [A-Z]*; do
+            # Skip internal/private courses
+            if [ "$course_dir" = "Build-Your-First-Chainguard-Container" ]; then
+              echo "Skipping internal course: $course_dir"
+              continue
+            fi
+            
+            if [ -d "$course_dir/lessons" ]; then
+              echo "Processing course: $course_dir"
+              course_count=$((course_count + 1))
+              
+              # Create course directory in export
+              mkdir -p "$EXPORT_DIR/$course_dir/lessons"
+              
+              # Process each lesson directory
+              for lesson_dir in "$course_dir/lessons"/*; do
+                if [ -d "$lesson_dir" ]; then
+                  lesson_name=$(basename "$lesson_dir")
+                  echo "  Processing lesson: $lesson_name"
+                  
+                  # Create lesson directory
+                  mkdir -p "$EXPORT_DIR/$course_dir/lessons/$lesson_name"
+                  
+                  # Convert HTML files to markdown
+                  for html_file in "$lesson_dir"/content-*.html; do
+                    if [ -f "$html_file" ]; then
+                      base_name=$(basename "$html_file" .html)
+                      output_file="$EXPORT_DIR/$course_dir/lessons/$lesson_name/${base_name}.md"
+                      
+                      # Convert HTML to Markdown using pandoc, then clean up
+                      pandoc -f html -t markdown_strict "$html_file" | \
+                        sed -E 's/<!--[^>]*-->//g' | \
+                        sed '/^[[:space:]]*$/N;/\n[[:space:]]*$/d' > "$output_file"
+                      
+                      lesson_count=$((lesson_count + 1))
+                      echo "    ✓ Converted $(basename "$html_file")"
+                    fi
+                  done
+                fi
+              done
+            fi
+          done
+          
+          echo "Processed $course_count courses with $lesson_count lesson files"
+        fi
+        
+        # Create metadata file
+        cat > "$EXPORT_DIR/metadata.json" << EOF
+        {
+          "repository": "${{ github.repository }}",
+          "export_time": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
+          "commit": "${{ github.sha }}",
+          "ref": "${{ github.ref }}",
+          "files_count": $(find "$EXPORT_DIR" \( -name "*.md" -o -name "*.html" \) -type f | wc -l)
+        }
+        EOF
+        
+        # Validate JSON
+        python3 -m json.tool "$EXPORT_DIR/metadata.json" > /dev/null
+        
+        # Create tarball with restricted permissions
+        cd "$(dirname "$EXPORT_DIR")"
+        tar --owner=0 --group=0 --mode='u+rwX,go+rX,go-w' \
+            -czf /tmp/docs-export.tar.gz "$(basename "$EXPORT_DIR")"
+        
+        echo "Documentation export created:"
+        ls -lh /tmp/docs-export.tar.gz
+        echo "Files included: $(tar -tzf /tmp/docs-export.tar.gz | wc -l)"
+
+    - name: Upload to GCS
+      run: |
+        set -euo pipefail
+        
+        # Determine repo name for path
+        if [[ "${{ github.repository }}" == *"images-private"* ]]; then
+          REPO_PATH="images-private"
+        elif [[ "${{ github.repository }}" == *"courses"* ]]; then
+          REPO_PATH="courses"
+        else
+          REPO_PATH=$(echo "${{ github.repository }}" | cut -d'/' -f2)
+        fi
+        
+        # Upload to GCS with specific content types
+        echo "Uploading to gs://academy-all-docs/${REPO_PATH}/"
+        
+        gcloud storage cp /tmp/docs-export.tar.gz \
+          "gs://academy-all-docs/${REPO_PATH}/docs-export.tar.gz" \
+          --project=chainguard-academy \
+          --content-type="application/gzip" \
+          --cache-control="no-cache"
+        
+        # Extract for metadata upload
+        EXPORT_DIR=$(mktemp -d)
+        trap "rm -rf $EXPORT_DIR" EXIT
+        tar -xzf /tmp/docs-export.tar.gz -C "$EXPORT_DIR" --strip-components=1
+        
+        # Upload metadata
+        gcloud storage cp "$EXPORT_DIR/metadata.json" \
+          "gs://academy-all-docs/${REPO_PATH}/metadata.json" \
+          --project=chainguard-academy \
+          --content-type="application/json" \
+          --cache-control="no-cache"
+        
+        echo "Successfully uploaded documentation to GCS"
+
+    - name: Trigger edu repo workflow
+      if: github.event_name != 'workflow_dispatch'  # Only trigger on automatic runs
+      uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}  # Or use a PAT if cross-repo
+        script: |
+          await github.rest.repos.createDispatchEvent({
+            owner: 'chainguard-dev',
+            repo: 'edu',
+            event_type: 'ai-docs-source-updated',
+            client_payload: {
+              repository: '${{ github.repository }}',
+              commit: '${{ github.sha }}',
+              repo_path: process.env.REPO_PATH
+            }
+          });
