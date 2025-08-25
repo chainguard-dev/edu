@@ -164,7 +164,7 @@ chainctl iam identities create circleci-identity
 --parent=$ORGANIZATION
 ```
 
-Then, use the identity created in the above command for the CircleCI config.yml, shown here in the third `run` section as `5678`:
+Use the identity created in the above command, shown here in the third `run` section as `5678`, to configure your workflow to install `chainctl` and assume this identity when the workflow runs:
 
 ```yaml
 version: 2.1
@@ -212,17 +212,17 @@ See the [CircleCI documentation](https://circleci.com/docs/openid-connect-tokens
 
 You can configure authentication with OIDC using Microsoft Entra ID (formerly Azure Active Directory).
 
-Acquiring an OIDC ID token in Entra requires completing an OAuth 2.0/OIDC flow. Entra issues access tokens (for authorization) and ID tokens (for authentication) as separate but related JWTs. Access tokens grant API access, while ID tokens prove user identity.
+To acquire an OIDC ID token in Entra, you must complete an OAuth 2.0/OIDC flow. Entra issues access tokens (for authorization) and ID tokens (for authentication) as separate but related JWTs or [JSON Web Tokens](https://www.rfc-editor.org/rfc/rfc7519). Access tokens grant API access, while ID tokens prove user identity.
 
-If you use the implicit or hybrid flows, in Entra ID enable **ID tokens (used for implicit and hybrid flows)** under **Authentication → Implicit grant and hybrid flows** in for your application, and configure a redirect URI as described in [Enable ID tokens](https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc#enable-id-tokens).
+If you use the [implicit or hybrid flows](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-implicit-grant-flow) in Entra ID, enable **ID tokens (used for implicit and hybrid flows)** for your application. This can be found under **Authentication → Implicit grant and hybrid flows**. Then, configure a redirect URI as described in [Enable ID tokens](https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc#enable-id-tokens).
 
-For authorization code flow (recommended), request the `openid` scope to receive an ID token; no portal checkbox is required. Then, [authenticate a user and request an ID token](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow#request-an-authorization-code).
+If you use the authorization code flow (recommended), request the `openid` scope to receive an ID token; you don't need to select any of the portal checkboxes. Then, [authenticate a user and request an ID token](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow#request-an-authorization-code).
 
-**CI workloads:** Microsoft’s workload identity federation (federated identity credentials) exchanges your CI’s OIDC token for an **access token** to a resource; it does **not** issue ID tokens. If you need a non-interactive OIDC ID token for Chainguard, prefer using your CI provider’s native OIDC issuer directly with Chainguard, or run an interactive user flow (for example, device code) to obtain an ID token.
+> **NOTE**: For CI workloads, Microsoft’s workload identity federation (federated identity credentials) exchanges your CI’s OIDC token for an **access token** to a resource; it does **not** issue ID tokens. If you need a non-interactive OIDC ID token for Chainguard, you will have an easier time using your CI provider’s native OIDC issuer directly with Chainguard, or you need to run an interactive user flow (for example, device code) to obtain an ID token.
 
-Retrieve and save an ID token as `MS_ENTRA_ID_OIDC_TOKEN` (or whatever you choose).
+Retrieve and save an ID token as a local environment variable. The following examples use `MS_ENTRA_ID_OIDC_TOKEN`.
 
-Next, use `chainctl` to create an [assumed identity](/chainguard/administration/assumable-ids/assumable-ids/#managing-identities-with-chainctl). Replace `{tenant}` with your Entra ID tenant ID (GUID). Modify the subject pattern regex to reduce access from all users from that issuer to a more appropriate scope for your needs.
+Next, use `chainctl` to create an [assumed identity](/chainguard/administration/assumable-ids/assumable-ids/#managing-identities-with-chainctl). Replace `{tenant}` with your Entra ID tenant ID (GUID). Modify the subject pattern regular expression to reduce access from all users from that issuer to a more appropriate scope for your needs.
 
 ```sh
 chainctl iam identities create entraid-identity \
@@ -232,7 +232,7 @@ chainctl iam identities create entraid-identity \
   --parent="$ORGANIZATION"
 ```
 
-Then, use the identity created in the above command for the Entra ID config.yml, shown here in the third `run` section as `entraid-identity`:
+Use the identity created in the above command, shown here in the third `run` section as `entraid-identity`, to configure your workflow to install `chainctl` and assume this identity when the workflow runs:
 
 ```yaml
 version: 2.1
@@ -271,7 +271,7 @@ workflows:
       - install-and-authenticate  
 ```
 
-See the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc) to learn more about using OpenID Connect tokens on the Microsoft Entra ID platform. Of special note is their warning about reading and validating their tokens:
+Refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc) to learn more about using OpenID Connect tokens on the Microsoft Entra ID platform. Of special note is their warning about reading and validating their tokens:
 
 > Don't attempt to validate or read tokens for any API you don't own, including the tokens in this example, in your code. Tokens for Microsoft services can use a special format that will not validate as a JWT, and may also be encrypted for consumer (Microsoft account) users. While reading tokens is a useful debugging and learning tool, do not take dependencies on this in your code or assume specifics about tokens that aren't for an API you control.
 
