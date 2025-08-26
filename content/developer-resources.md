@@ -4,7 +4,7 @@ lead: "AI-ready documentation bundle for development"
 description: "Compiled Chainguard documentation optimized for use with AI coding assistants"
 type: "article"
 date: 2025-07-29T10:00:00+00:00
-lastmod: 2025-07-29T10:00:00+00:00
+lastmod: 2025-08-25T10:00:00+00:00
 draft: false
 images: []
 weight: 50
@@ -18,7 +18,7 @@ This page provides compiled Chainguard documentation optimized for use with AI c
 ### What's Included
 
 A comprehensive collection of Chainguard documentation including:
-- Complete Chainguard Images documentation
+- Complete Chainguard Containers documentation
 - Security best practices and CVE management
 - Migration guides and tutorials
 - API references and code examples
@@ -67,11 +67,10 @@ tar -xzf chainguard-ai-docs.tar.gz
 <div style="border: 2px solid #4CAF50; padding: 20px; border-radius: 8px; margin: 20px 0;">
   <h4>Available Security Features</h4>
   <ul>
-    <li>✅ Signed releases with Sigstore/Cosign</li>
-    <li>✅ Container distribution via GitHub Container Registry</li>
-    <li>✅ Automated updates via GitHub Actions</li>
-    <li>✅ Security scanning with gitleaks</li>
-    <li>🔜 Full private documentation (pending credential setup)</li>
+    <li>Signed releases with Sigstore/Cosign</li>
+    <li>Container distribution via GitHub Container Registry</li>
+    <li>Automated updates via GitHub Actions</li>
+    <li>Security scanning with gitleaks</li>
   </ul>
 </div>
 
@@ -79,7 +78,7 @@ tar -xzf chainguard-ai-docs.tar.gz
 ### Security Transparency
 
 <div style="background-color: var(--blockquote-background); border: 1px solid var(--sidebar-item-list-item-selected-background); padding: 16px; border-radius: 6px; margin: 20px 0;">
-  <strong>Security First:</strong> Our documentation bundles are compiled with extensive security measures.
+  <strong>Security First:</strong> Our documentation bundles are compiled with security measures.
   <a href="/ai-docs-security" style="font-weight: bold;">Learn about our security practices →</a>
 </div>
 
@@ -166,6 +165,6 @@ The bundle is regenerated periodically. Check the timestamp in the downloaded fi
 ### Need Help?
 
 If you have questions or need assistance:
-- Visit [Chainguard Support](https://support.chainguard.dev)
-- Join our [Community Slack](https://go.chainguard.dev/slack)
+- Visit [Chainguard Support](https://support.chainguard.dev?utm=docs)
+- Join our [Community Slack](https://go.chainguard.dev/slack?utm=docs)
 - Review our [Documentation](https://edu.chainguard.dev)
