@@ -1,31 +1,28 @@
 ---
 date: 2025-08-25T23:34:45Z
-title: "chainctl iam account-associations set gcp"
-slug: chainctl_iam_account-associations_set_gcp
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_set_gcp/
+title: "chainctl images repos update"
+slug: chainctl_images_repos_update
+url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_update/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam account-associations set gcp
+## chainctl images repos update
 
-Set GCP account association for a location.
+Update image repositories.
 
 ```
-chainctl iam account-associations set gcp ORGANIZATION_NAME|ORGANIZATION_ID|FOLDER_NAME|FOLDER_ID --project-id=PROJECT_ID --project-number=PROJECT_NUMBER [--name=NAME] [--description=DESCRIPTION] [--yes] [--output=id|json|table] [flags]
+chainctl images repos update {REPO_NAME|REPO_ID} --parent ORGANIZATION_NAME | ORGANIZATION_ID
 ```
 
 ### Options
 
 ```
-  -d, --description string      The description of the resource.
-  -h, --help                    help for gcp
-  -n, --name string             Given name of the resource.
-      --project-id string       The GCP project ID.
-      --project-number string   The GCP project number.
-  -y, --yes                     Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
+  -h, --help            help for update
+      --name string     Updated name for the repo.
+      --parent string   The name or id of the parent location of the repo to update.
 ```
 
 ### Options inherited from parent commands
@@ -44,5 +41,5 @@ chainctl iam account-associations set gcp ORGANIZATION_NAME|ORGANIZATION_ID|FOLD
 
 ### SEE ALSO
 
-* [chainctl iam account-associations set](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_set/)	 - Set cloud provider account associations for a location.
+* [chainctl images repos](/chainguard/chainctl/chainctl-docs/chainctl_images_repos/)	 - Image repo related commands for the Chainguard platform.
 
