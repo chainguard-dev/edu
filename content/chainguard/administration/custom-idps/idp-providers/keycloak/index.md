@@ -63,7 +63,7 @@ Now that your Keycloak Client is ready, you can create the custom identity provi
 
 First, log in to Chainguard with `chainctl`, using an OIDC provider like Google, GitHub, or GitLab to bootstrap your account.
 
-```Shell
+```sh
 chainctl auth login
 ```
 
@@ -79,9 +79,10 @@ You will also need the UIDP for the Chainguard organization under which you want
 
 You can retrieve a list of all the Chainguard organizations you belong to — along with their UIDPs — with the following command.
 
-```Shell
+```shell
 chainctl iam organizations ls -o table
-```Output
+```
+```output
                          	ID                         	|  	  NAME    |	DESCRIPTION
 --------------------------------------------------------+-------------+---------------------
   59156e77fb23e1e5ebcb1bd9c5edae471dd85c43              | sample_org  |
@@ -92,7 +93,7 @@ Note down the `ID` value for your chosen organization.
 
 With this information in hand, create a new identity provider with the following commands.
 
-```Shell
+```sh
 export NAME=keycloak-idp
 export CLIENT_ID=<your application/client id here>
 export CLIENT_SECRET=<your client secret here>
@@ -118,7 +119,7 @@ To log in to the Chainguard Console with the new identity provider you just crea
 
 You can also use the custom identity provider to log in through `chainctl`. To do this, run the `chainctl auth login` command and add the `--identity-provider` option followed by the identity provider's ID value:
 
-```Shell
+```sh
 chainctl auth login --identity-provider <IDP-ID>
 ```
 

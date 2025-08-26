@@ -23,13 +23,13 @@ Chainguard's `chainctl` configuration management enables you to customize CLI be
 
 `chainctl` has a local configuration you can manage. To get a list of all options available, you can run:
 
-```Shell
+```shell
 chainctl config -h
 ```
 
 You'll receive output like the following:
 
-```Output
+```
 Local config file commands for chainctl.
 
 Usage:
@@ -61,13 +61,13 @@ Use "chainctl config [command] --help" for more information about a command.
 
 To view your current `chainctl` config, run:
 
-```Shell
+```shell
 chainctl config view
 ```
 
 You'll receive output similar to this:
 
-```Output
+```shell
 # Base Config file: /home/erika/.config/chainctl/config.yaml
 auth:
     mode: browser
@@ -103,13 +103,13 @@ The full documentation for the `chainctl config` command is available on the rel
 
 You can edit the `chainctl` config directly with an editor. The following command will open your default command line text editor (typically `nano`) where you can edit the local `chainctl` config.
 
-```Shell
+```shell
 chainctl config edit
 ```
 
 Alternatively, you can update one attribute at a time with the `set` option, as demonstrated in the next command:
 
-```Shell
+```shell
 chainctl config set platform.api=https://console-api.enforce.dev
 ```
 
@@ -119,7 +119,7 @@ You can review the `chainctl config set` options on the relevant [docs page](/ch
 
 If you run into issues with your `chainctl` configuration, you can use the following command to reset it to the default state:
 
-```Shell
+```shell
 chainctl config reset
 ```
 

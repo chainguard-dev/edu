@@ -49,7 +49,7 @@ You can run `chainctl iam roles list` to retrieve a list of all the roles availa
 
 You can use `chainctl` to create custom roles for teams or individuals in your organization, like in the following example.
 
-```Shell
+```sh
 chainctl iam roles create my-role
 ```
 
@@ -57,7 +57,7 @@ After running this command, an interactive prompt will appear asking you to sele
 
 You can avoid using the interactive prompt by including the `--parent` and `--capabilities` options in this command. 
 
-```Shell
+```sh
 chainctl iam roles create new-role --parent=example-org --capabilities=roles.list
 ```
 
@@ -65,7 +65,7 @@ This example creates a new role named `new-role` under an organization named `ex
 
 You can also grant multiple capabilities to a custom role with one command, as in this example:
 
-```Shell
+```sh
 chainctl iam roles create puller-role --parent=example-org --capabilities=apk.list,groups.list,manifest.list,manifest.metadata.list,record_signatures.list,repo.list,sboms.list,tag.list,vuln.list
 ```
 
@@ -85,7 +85,7 @@ This essentially combines the capabilities of the `registry.pull` and `apk.pull`
 
 You can also use `chainctl` to delete custom roles.
 
-```Shell
+```sh
 chainctl iam roles delete new-role
 ```
 
@@ -98,7 +98,7 @@ You can assign a role — and all of its capabilities — to a given user by cre
 
 You can run a command like the following example to create a role-binding.
 
-```Shell
+```sh
 chainctl iam role-bindings create
 ```
 
@@ -106,7 +106,7 @@ This will start an interactive prompt where you can enter the appropriate detail
 
 To avoid using the interactive prompt, you can add these details to the command by including the `--identity`, `--role`, and `--parent` options.
 
-```Shell
+```sh
 chainctl iam role-bindings create --identity=example-id --role=viewer --parent=example-org
 ```
 
