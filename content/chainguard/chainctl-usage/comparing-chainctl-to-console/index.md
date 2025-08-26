@@ -51,8 +51,9 @@ To find the images available to you in the Console, do this:
 
 To find the images available to you using `chainctl`, use this command. The list of available images is likely to be long and will scroll past you quickly in the terminal, so it may be more useful to you by piping the output into a grep search or redirecting the output into a file.
 
-```Shell
+```
 chainctl images list
+
 ```
 
 
@@ -79,7 +80,7 @@ To invite a user using the Console, follow these steps:
 
 To invite a user using `chainctl`, use this command, substituting your organization name for ORGANIZATION along with setting the role, email address, length of time for the invite to be valid, and whether this invite may only be used once:
 
-```Shell
+```
 chainctl iam invite create ORGANIZATION
 --role=viewer
 --email=sample@organization.dev
@@ -107,13 +108,13 @@ This list contains columns with data about each image release, like the Pull URL
 
 To examine the history of an image using `chainctl`, enter this, replacing ORGANIZATION with your organization:
 
-```Shell
+```
 chainctl image history kubectl:latest --parent=ORGANIZATION
 ```
 
 This will return a reverse-chronological history of when a specific tag was update to point to a new manifest digest. This list can be long. Here's an excerpt:
 
-```Output
+```
 - time: 2025-05-29 03:08:31 UTC
   digest: sha256:34798f562dffc3746cb69bab49b93ff83aa57bea393a07997e87c37bc83a62db
   architectures:

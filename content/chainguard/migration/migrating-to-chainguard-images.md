@@ -61,19 +61,19 @@ Be aware that binaries are not compatible between Alpine and Wolfi. You **should
 ## Searching for Packages
 Packages from Debian and other base distributions might have a different name in Wolfi. To search for packages, log into an ephemeral container based on `cgr.dev/chainguard/wolfi-base`:
 
-```Shell
+```shell
 docker run -it --rm --entrypoint /bin/sh cgr.dev/chainguard/wolfi-base
 ```
 
 Then, run `apk update` to update the local apk cache with latest Wolfi packages:
 
-```Shell
+```shell
 apk update
 ```
 
 You'll get output similar to this:
 
-```Output
+```
 fetch https://packages.wolfi.dev/os/x86_64/APKINDEX.tar.gz
 [https://packages.wolfi.dev/os]
 OK: 46985 distinct packages available
@@ -81,12 +81,12 @@ OK: 46985 distinct packages available
 
 Now you can use `apk search` to look for packages. The following example searches for PHP 8.2 XML extensions:
 
-```Shell
+```shell
 apk search php*8.2*xml*
 ```
 You should get output similar to this:
 
-```Output
+```
 php-8.2-simplexml-8.2.17-r0
 php-8.2-simplexml-config-8.2.17-r0
 php-8.2-xml-8.2.17-r0
@@ -104,24 +104,24 @@ php-xmlwriter-8.2.11-r1
 ### Searching which package has a command
 To search in which package you can find a command, you can use the syntax `apk search cmd:command-name`. For instance, if you want to discover which package has the command `useradd`, you can use:
 
-```Shell
+```shell
 apk search cmd:useradd
 ```
 You'll get output indicating that the `shadow` package has the command you are looking for.
 
-```Output
+```
 shadow-4.15.1-r0
 ```
 
 ### Searching for package dependencies
 To check for package dependencies, you can use the syntax `apk search -R info package-name`. For example, to search which packages are listed as dependencies for the `shadow` package that we've seen in the previous section, you can run:
 
-```Shell
+```shell
 apk -R info shadow
 ```
 And this will give you a list of dependencies for each version of the `shadow` package currently available:
 
-```Output
+```
 ...
 shadow-4.15.1-r0 depends on:
 so:ld-linux-x86-64.so.2
@@ -135,7 +135,7 @@ so:libpam_misc.so.0
 ### Searching for packages that include a shared object
 To search which packages include a shared object, you can use the syntax `apk search so:shared-library`. As an example, if you want to check which packages include the `libxml2` shared library, you can run something like:
 
-```Shell
+```shell
 apk search so:libxml2.so*
 ```
 And this should give you output indicating that this shared object is included within the `libxml2-2.12.6-r0` package.

@@ -56,24 +56,24 @@ In addition to those, the Laravel image includes the following extensions:
 
 You can run a temporary container with the `php -m` command to see a list of enabled extensions:
 
-```Shell
+```shell
 docker run --rm --entrypoint php cgr.dev/chainguard/php -m
 ```
 
 To check for extensions available for installation, you can run a temporary container with the `dev` variant of a given image and use `apk` to search for packages. For instance, this will log you into a container based on the `php:latest-dev` image:
 
-```Shell
+```shell
 docker run -it --rm --entrypoint /bin/sh --user root cgr.dev/chainguard/php:latest-dev
 ```
 
 Make sure to update the package manager cache:
 
-```Shell
+```shell
 apk update
 ```
 If you want to search for PHP 8.2 XML extensions, for example, you can run the following:
 
-```Shell
+```shell
 apk search php*8.2*xml*
 ```
 And this should give you a list of all PHP 8.2 XML extensions available in Wolfi.
@@ -123,7 +123,7 @@ The overall migration process is essentially the same as described in the previo
 
 You can use [Docker Compose](https://docs.docker.com/compose/) to create a LEMP environment and test your setup locally. The following `docker-compose.yaml` file creates a local environment to serve a PHP web application using our PHP-FPM, Nginx, and MariaDB images:
 
-```YAML
+```yaml
 version: "3.7"
 services:
   app:
@@ -169,7 +169,7 @@ Notice that the environment creates a few shared volumes to share the applicatio
 
 An example `nginx.conf` file to handle PHP requests with default settings:
 
-```YAML
+```yaml
 pid /var/run/nginx.pid;
 
 events {
@@ -213,7 +213,7 @@ Development images can be identified by the `-dev` suffix (e.g: `php:latest-dev`
 To be able to write to your host's filesystem through a shared volume, you'll need to use the **root** container user when installing dependencies with Composer using the `latest-dev` or `latest-fpm-dev` image variants.
 
 **Example 1: Installing Dependencies**
-```Shell
+```shell
 docker run --rm -v ${PWD}:/app --entrypoint composer --user root \
     cgr.dev/chainguard/php:latest-dev \
     install
@@ -221,7 +221,7 @@ docker run --rm -v ${PWD}:/app --entrypoint composer --user root \
 
 **Example 2: Requiring a new dependency**
 
-```Shell
+```shell
 docker run --rm -v ${PWD}:/app --entrypoint composer --user root \
     cgr.dev/chainguard/php:latest-dev \
     require minicli/minicli
@@ -229,7 +229,7 @@ docker run --rm -v ${PWD}:/app --entrypoint composer --user root \
 
 You'll need to fix file permissions once installation is finished:
 
-```Shell
+```shell
 sudo chown -R ${USER}:${USER} .
 ```
 
@@ -238,7 +238,7 @@ You can use the built-in PHP web server to preview web applications using a `doc
 
 The following command will run the `php:latest-dev` image variant with the built-in server (`php -S`) on port `8000`, redirecting all requests to the same port on the host machine, and using the current folder as document root:
 
-```Shell
+```shell
 docker run -p 8000:8000 --rm -it -v ${PWD}:/work \
     cgr.dev/chainguard/php:latest-dev \
     -S 0.0.0.0:8000 -t /work
@@ -253,7 +253,7 @@ The `laravel:latest-dev` image has a system user with uid `1000` that can be use
 
 The following command will create a new Laravel project called **demo-laravel** in the current folder.
 
-```Shell
+```shell
 docker run --rm -v ${PWD}:/app --entrypoint composer --user laravel \
     cgr.dev/chainguard/laravel:latest-dev \
     create-project laravel/laravel demo-laravel --working-dir=/app
@@ -263,7 +263,7 @@ docker run --rm -v ${PWD}:/app --entrypoint composer --user laravel \
 
 To run Artisan commands, you'll need to create a volume to share your Laravel application within the container and set the image entrypoint to `/app/artisan`. The following example runs the `artisan migrate` command from the application folder:
 
-```Shell
+```shell
 docker run --rm -v ${PWD}:/app --entrypoint /app/artisan --user laravel \
     cgr.dev/chainguard/laravel:latest-dev \
     migrate
@@ -273,7 +273,7 @@ docker run --rm -v ${PWD}:/app --entrypoint /app/artisan --user laravel \
 
 To quickly preview your Laravel application, you can use Artisan's built-in web server. The following command runs the built-in Artisan web server from the application folder:
 
-```Shell
+```shell
 docker run -p 8000:8000 --rm -it -v ${PWD}:/app --entrypoint /app/artisan --user laravel \
     cgr.dev/chainguard/laravel:latest-dev \
     serve --host=0.0.0.0

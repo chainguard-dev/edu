@@ -20,14 +20,14 @@ For a full reference of all commands with details and switches, see [chainctl Re
 
 To see which `chainctl` version you have installed, use:
 
-```Shell
+```shell
 chainctl version
 ```
 
 This command tells you more than just a release number.
 
 
-```Output
+```shell
 
                ▄▄▄▄▄▄▄▄▄▄▄              
              ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄            
@@ -70,13 +70,13 @@ Platform:      linux/amd64
 
 To update your `chainctl` installation to the latest release, use:
 
-```Shell
+```shell
 chainctl update
 ```
 
 This will present the following:
 
-```Output
+```shell
 Current version         v0.2.66
 Latest version          0.2.73
 
@@ -92,7 +92,7 @@ Do you want to continue? [Y,n]:
 
 Enter `Y` to proceed and the upgrade will continue and confirm like this:
 
-```Output
+```shell
    ✔ Download complete!
 
 Backing up current chainctl (/usr/local/bin/chainctl)

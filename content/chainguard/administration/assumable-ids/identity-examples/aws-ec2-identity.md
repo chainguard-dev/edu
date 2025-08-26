@@ -89,7 +89,7 @@ Be sure to change the `chainguard.edu` placeholder to reflect the name of your o
 
 This command will return a value like the following:
 
-```Output
+```
 . . .
 45a0cEXAMPLE977f050c5fb9ac06a69EXAMPLE95/2c5f7EXAMPLE3871
 ```
@@ -195,7 +195,7 @@ Finally, use this token — along with the `$CHAINGUARD_IDENTITY` variable — t
 ```EC2
 chainctl auth login  --identity-token $TOK --identity $CHAINGUARD_IDENTITY
 ```
-```Output
+```
 Successfully exchanged token.
 Valid! Id: 45a0cEXAMPLE977f050c5fb9ac06a69EXAMPLE95/2c5f7EXAMPLE3871
 ```

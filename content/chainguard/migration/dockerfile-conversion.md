@@ -25,31 +25,31 @@ Chainguard's [Dockerfile Converter (dfc)](https://github.com/chainguard-dev/dfc)
 
 If you use Homebrew, you can install dfc with:
 
-```Shell
+```shell
 brew install chainguard-dev/tap/dfc
 ```
 
 If you prefer to use the Go toolchain, you can install dfc directly from source. The following command will download the latest version of dfc and install it in your `$GOPATH/bin` directory:
 
-```Shell
+```shell
 go install github.com/chainguard-dev/dfc@latest
 ```
 
 If that does not work, make sure the PATH environment variable is properly set:
 
-```Shell
+```shell
 export PATH="$PATH:$(go env GOPATH)/bin"
 ```
 
 To verify that the installation was successful, run:
 
-```Shell
+```shell
 dfc -v
 ```
 
 You will receive output indicating which version of dfc you have installed, such as:
 
-```Output
+```
 dfc version v0.9.3
 ```
 
@@ -61,13 +61,13 @@ DFC supports inline conversion of entire Dockerfiles and single `FROM` and `RUN`
 
 With inline usage, you can convert single instructions or entire Dockerfiles. For example, to convert a single `FROM` line, you can run:
 
-```Shell
+```shell
 echo "FROM node" | dfc -
 ```
 
 This will give you the following result:
 
-```Output
+```
 FROM cgr.dev/ORG/node:latest
 ```
 
@@ -75,19 +75,19 @@ The `ORG` here is a placeholder that you should replace with your unique organiz
 
 You can also convert single `RUN` directives such as the following:
 
-```Shell
+```shell
 echo "RUN apt-get update && apt-get install -y nano" | dfc -
 ```
 
 Which will give you the following output:
 
-```Output
+```
 RUN apk add --no-cache nano
 ```
 
 It is also possible to convert a whole Dockerfile using inline mode. Here we use a heredoc input stream to create the Dockerfile content and pipe it to `dfc`:
 
-```Shell
+```shell
 cat <<DOCKERFILE | dfc -
 FROM node
 RUN apt-get update && apt-get install -y nano
@@ -96,7 +96,7 @@ DOCKERFILE
 
 This will convert to:
 
-```Output
+```
 FROM cgr.dev/ORG/node:latest-dev
 USER root
 RUN apk add --no-cache nano
@@ -107,13 +107,13 @@ Notice the `USER root` directive that has been included here to allow for packag
 ### Usage with Regular Dockerfiles
 Unless specified, dfc will not make any direct changes to your Dockerfile, writing the results to the default output stream. To convert a Dockerfile and save the output to a new file called `Dockerfile.converted`, run the following command:
 
-```Shell
+```shell
 dfc ./Dockerfile > ./Dockerfile.converted
 ```
 
 You can also pipe the Dockerfile’s contents from stdin:
 
-```Shell
+```shell
 cat ./Dockerfile | dfc -
 ```
 
@@ -130,12 +130,12 @@ DFC will convert the `FROM` instruction in a Dockerfile using two main mechanism
 
 For example, the following command will convert an inline `FROM` instruction using `node` as the base image:
 
-```Shell
+```shell
 echo "FROM node" | dfc -
 ```
 You will receive the following output:
 
-```Shell
+```shell
 FROM cgr.dev/ORG/node:latest
 ```
 
@@ -186,7 +186,7 @@ CMD ["python", "/src/index.py"]
 
 The following command will convert this Dockerfile and print the results to stdout:
 
-```Shell
+```shell
 dfc Dockerfile
 ```
 
@@ -294,7 +294,7 @@ CMD ["python", "/app/main.py"]
 
 Running DFC on this Dockerfile with default options will give you the following result:
 
-```Shell
+```shell
 FROM cgr.dev/ORG/python:3.9-dev AS builder
 USER root
 WORKDIR /app
@@ -332,7 +332,7 @@ By default, `dfc` uses `ORG` as a placeholder for the image registry address. Yo
 
 For example, the following command will convert a Dockerfile and set the organization to `chainguard`:
 
-```Shell
+```shell
 echo "FROM node" | dfc --org chainguard -
 ```
 You will receive output similar to this:
@@ -344,7 +344,7 @@ FROM cgr.dev/chainguard/node:latest
 
 You can also specify a custom registry to use for the conversion. This is useful if you have your own registry. To do this, use the `--registry` flag followed by the desired registry URL. For example, if you want to use `myregistry.example.com` as the registry, you can run:
 
-```Shell
+```shell
 echo "FROM node" | dfc --registry myregistry.example.com -
 ```
 
@@ -387,7 +387,7 @@ images:
 
 Then, when running `dfc`, we can specify this mapping file using the `--mapping` flag:
 
-```Shell
+```shell
 dfc Dockerfile --mappings mappings.yaml
 ```
 And this will produce the following output:
@@ -410,7 +410,7 @@ RUN cd /application && composer install
 
 By default, dfc will print the converted Dockerfile to stdout, and won’t make any changes to your original Dockerfile. You can use the `--in-place` flag to make dfc overwrite the original file. This will also create a `.bak` file to back up the original file contents.
 
-```Shell
+```shell
 dfc Dockerfile --in-place
 ```
 
@@ -425,7 +425,7 @@ This method does not work with inline input.
 
 If you plan on using `dfc` programmatically, the JSON output can come in handy. For example, the following will convert an inline Dockerfile and output the results in JSON format, parsed by `jq` for readability:
 
-```Shell
+```shell
 cat <<DOCKERFILE | dfc --org chainguard.edu --json - | jq
 FROM node
 RUN apt-get update && apt-get install -y nano

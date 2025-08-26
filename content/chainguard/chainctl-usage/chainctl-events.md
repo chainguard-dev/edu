@@ -22,7 +22,7 @@ There are three `chainctl events` commands available: `create`, `list`, and `del
 
 To create a new event and subscribe to events in that organization or folder, use:
 
-```Shell
+```shell
 chainctl events subscriptions create $SINK_URL
 ```
 
@@ -35,7 +35,7 @@ Depending on the sink, you may be prompted to respond to some questions before t
 
 To retrieve a list of all your Chainguard account's subscriptions, use:
 
-```Shell
+```shell
 chainctl events subscriptions list
 ```
 
@@ -46,7 +46,7 @@ This will return a list of IDs and sinks for all of your subscriptions.
 
 To delete an existing event, use:
 
-```Shell
+```shell
 chainctl events subscriptions delete $SUBSCRIPTION_ID
 ```
 

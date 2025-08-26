@@ -44,7 +44,7 @@ For example, if your GitLab project URL is `https://gitlab.com/mycompany/myproje
 - `<group_name>` should be `mycompany`
 - `<project_name>` should be `myproject`
 
-```Shell
+```shell
 chainctl iam identities create cg-gitlab-id \
   --parent=<organization> \
   --identity-issuer="https://gitlab.com" \
@@ -68,7 +68,7 @@ To see all available roles and their permissions, run `chainctl iam roles list`.
 
 If you ever need to retrieve information about it in the future, you can run the following command:
 
-```Shell
+```shell
 chainctl iam identities ls
 ```
 
@@ -83,7 +83,7 @@ This section outlines how to use Terraform to create an identity for a GitLab pi
 
 To help explain each configuration file's purpose, we will go over what they do and how to create each file one by one. First, though, create a directory to hold the Terraform configuration and navigate into it.
 
-```Shell
+```shell
 mkdir ~/gitlab-tf && cd $_
 ```
 
@@ -96,7 +96,7 @@ The first file, which we will call `main.tf`, will serve as the scaffolding for 
 
 The file will consist of the following content.
 
-```HCL
+```hcl
 terraform {
   required_providers {
     chainguard = {
@@ -115,7 +115,7 @@ The `gitlab.tf` file is what will actually create the identity for your GitLab C
 
 The first section section looks up a Chainguard IAM organization named `myorg.biz`:
 
-```HCL
+```hcl
 data "chainguard_group" "group" {
   name   	 = "myorg.biz"
 }
@@ -125,7 +125,7 @@ Be sure to change `myorg.biz` to the name of your own Chainguard organization.
 
 The next section creates the identity itself.
 
-```HCL
+```hcl
 resource "chainguard_identity" "gitlab" {
   parent_id   = data.chainguard_group.group.id
   name    	= "gitlab-ci"
@@ -152,7 +152,7 @@ The GitLab documentation provides [several examples of `subject` claims](https:/
 
 The next section will output the new identity's `id` value. This is a unique value that represents the identity itself.
 
-```HCL
+```hcl
 output "gitlab-identity" {
   value = chainguard_identity.gitlab.id
 }
@@ -160,7 +160,7 @@ output "gitlab-identity" {
 
 The section after that looks up the `viewer` role.
 
-```HCL
+```hcl
 data "chainguard_role" "viewer" {
   name = "viewer"
 }
@@ -168,7 +168,7 @@ data "chainguard_role" "viewer" {
 
 The final section grants this role to the identity.
 
-```HCL
+```hcl
 resource "chainguard_rolebinding" "view-stuff" {
   identity = chainguard_identity.gitlab.id
   group	= data.chainguard_group.group.id
@@ -182,25 +182,25 @@ Following that, your Terraform configuration will be ready. Now you can run a fe
 
 First, run `terraform init` to initialize Terraform's working directory.
 
-```Shell
+```shell
 terraform init
 ```
 
 Then run `terraform plan`. This will produce a speculative execution plan that outlines what steps Terraform will take to create the resources defined in the files you set up in the last section.
 
-```Shell
+```shell
 terraform plan
 ```
 
 Then apply the configuration.
 
-```Shell
+```shell
 terraform apply
 ```
 
 Before going through with applying the Terraform configuration, this command will prompt you to confirm that you want it to do so. Enter `yes` to apply the configuration.
 
-```Output
+```
 ...
 
 Plan: 4 to add, 0 to change, 0 to destroy.
@@ -217,7 +217,7 @@ Do you want to perform these actions?
 
 After typing `yes` and pressing `ENTER`, the command will complete and will output a `gitlab-ci` value.
 
-```Output
+```
 ...
 
 Apply complete! Resources: 4 added, 0 changed, 0 destroyed.
@@ -229,7 +229,7 @@ gitlab-identity = "<your actions identity>"
 
 This is the identity's [UIDP (unique identity path)](/chainguard/administration/cloudevents/events-reference/#uidp-identifiers), which you configured the `gitlab.tf` file to emit in the previous section. Note this value down, as you'll need it to set up the GitLab CI pipeline you'll use to test the identity. If you need to retrieve this UIDP later on, though, you can always run the following `chainctl` command to obtain a list of the UIDPs of all your existing identities.
 
-```Shell
+```shell
 chainctl iam identities ls
 ```
 
@@ -246,7 +246,7 @@ In the list of the repository's contents, there will be a file named `.gitlab-ci
 
 Click on the `.gitlab-ci.yml` file, then click the **Edit** button and select an option for editing the file. For the purpose of this guide, delete whatever content is in this file to start and replace it with the following.
 
-```.gitlab-ci.yml
+```
 image: cgr.dev/chainguard/wolfi-base
 
 stages:
@@ -326,13 +326,13 @@ data "chainguard_roles" "editor" {
 
 To retrieve a list of all the available roles — including any custom roles — you can run the following command.
 
-```Shell
+```shell
 chainctl iam roles list
 ```
 
 You can also edit the pipeline itself to change its behavior. For example, instead of inspecting the image repos the identity has access to, you could have the workflow inspect the organization like in the following example.
 
-```Shell
+```shell
 chainctl iam orgs ls
 ```
 
@@ -343,7 +343,7 @@ The GitLab pipeline will only be able to perform certain actions on certain reso
 
 To delete the identity created directly with `chainctl`, run the following:
 
-```Shell
+```shell
 chainctl iam identities delete cg-gitlab-id
 ```
 
@@ -351,7 +351,7 @@ This will also remove the identity's role-binding.
 
 To remove the resources Terraform created, you can run the `terraform destroy` command.
 
-```Shell
+```shell
 terraform destroy
 ```
 
@@ -359,7 +359,7 @@ This will destroy identity and the role-binding created in this guide. It will n
 
 You can then remove the working directory to clean up your system.
 
-```Shell
+```shell
 rm -r ~/gitlab-tf/
 ```
 

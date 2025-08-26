@@ -84,7 +84,7 @@ again. By default the cache, also known as the local repository, is located in a
 hidden `.m2/repository` directory in your user's home directory. Use the
 following command to delete it:
 
-```Shell
+```shell
 rm -rf ~/.m2/repository
 ```
 
@@ -103,7 +103,7 @@ built-in `central` repository and its configuration in an automatically
 activated profile.
 
 
-```XML
+```xml
 <settings>
 
   <mirrors>
@@ -168,7 +168,7 @@ and password values vary depending on the repository manager and the configured
 authentication, contact the administrator and refer to the [global configuration
 documentation](/chainguard/libraries/java/global-configuration/).
 
-```XML
+```xml
 <settings>
 ...
   <servers>
@@ -187,7 +187,7 @@ CI/CD pipelines into environment variables, for example `CHAINGUARD_JAVA_IDENTIT
 and `CHAINGUARD_JAVA_TOKEN`. You can then use an identical server configuration, and
 therefore settings file, for all users:
 
-```XML
+```xml
 <settings>
 ...
   <servers>
@@ -224,7 +224,7 @@ desired configuration and placeholder values `CG_PULLTOKEN_USERNAME` and
 variables](/chainguard/libraries/access/#env) for the pull token detailed in
 [Chainguard Libraries access](/chainguard/libraries/access/)
 
-```XML
+```xml
 <settings>
  <activeProfiles>
     <activeProfile>no-repo-manager</activeProfile>
@@ -309,7 +309,7 @@ Java you must delete that local cache so that libraries are downloaded again. By
 default the cache is located in a hidden `.gradle/.cache` directory in your
 users home directory. Use the following command to delete it:
 
-```Shell
+```shell
 rm -rf ~/.gradle/caches/
 ```
 
@@ -317,7 +317,7 @@ Gradle can also be configured to use a local Maven repository with a repository
 configuration in the global `init.gradle` or a project specific `build.gradle`
 file:
 
-```Groovy
+```groovy
 repositories {
    ...
     mavenLocal()    
@@ -344,7 +344,7 @@ and any other repositories, and adds a replacement definition with the URL of th
 repository group or virtual repository from your repository manager
 `https://repo.example.com/group/` and any applicable authentication details.
 
-```Groovy
+```groovy
 repositories {
     maven {
         url = uri("https://repo.example.com/group/")
@@ -369,7 +369,7 @@ Libraries access](/chainguard/libraries/access/) replacing the placeholders
 Chainguard repository is located above the `mavenCentral` repository and any
 other repositories:
 
-```Groovy
+```groovy
 repositories {
     maven {
         url = uri("https://libraries.cgr.dev/java/")
@@ -385,7 +385,7 @@ repositories {
 Alternatively configure [environment
 variables](/chainguard/libraries/access/#env) and access the values:
 
-```Groovy
+```groovy
 repositories {
     maven {
         url = uri("https://libraries.cgr.dev/java/")
@@ -407,7 +407,7 @@ authentication using HTTP only. Since this is not advisable unless other
 networking setups allow a secure use with HTTP, the override with the property
 `allowInsecureProtocol` is required:
 
-```Groovy
+```groovy
 allprojects {
   buildscript {
     repositories {
@@ -441,7 +441,7 @@ downloaded again. By default, the cache is located in the `.cache/bazel` on
 Linux or `/private/var/tmp/_bazel_$USER` on MacOS directory in your user's home
 directory. Use the following command to delete it:
 
-```Shell
+```shell
 bazel clean --expunge
 ```
 

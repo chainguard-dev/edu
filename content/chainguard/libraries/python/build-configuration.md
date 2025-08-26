@@ -134,7 +134,7 @@ from Chainguard Libraries.
 First, let's clear your local `pip` cache to ensure that packages are sourced
 from Chainguard Libraries for Python:
 
-```Shell
+```sh
 pip cache purge
 ```
 
@@ -142,7 +142,7 @@ To update `pip` to use our repository manager's URL globally, create or edit
 your `~/.pip/pip.conf` file. You may need to create the `~/.pip` folder as
 well. For example:
 
-```Shell
+```sh
 mkdir -p ~/.pip
 nano ~/.pip/pip.conf
 ```
@@ -203,7 +203,7 @@ Python."
 
 List the Python package caches used by your Poetry project:
 
-```Shell
+```shell
 poetry cache list
 ```
 
@@ -212,7 +212,7 @@ The following commands clear the default cache, the cache for a repository named
 manager as configured in [the global
 configuration](/chainguard/libraries/python/global-configuration/):
 
-```Shell
+```shell
 poetry cache clear --all _default_cache
 poetry cache clear --all pypi
 poetry cache clear --all python-all
@@ -222,14 +222,14 @@ Set up HTTP authentication to the repository `python-all` on your repository
 manager with the username `example` and the password `secret` in your project
 directory:
 
-```Shell
+```shell
 poetry config http-basic.python-all example secret
 ```
 
 The authentication is used for the `python-all` repository that you add to the
 `pyproject.toml` with the following command:
 
-```Shell
+```shell
 poetry source add python-all https://repo.example.com/../python-all/simple/
 ```
 
@@ -240,7 +240,7 @@ Example URLs including the required `simple` context:
 
 The following configuration is added:
 
-```TOML
+```toml
 [[tool.poetry.source]]
 name = "python-all"
 url = "https://repo.example.com/../python-all/simple/"
@@ -249,20 +249,20 @@ priority = "primary"
 
 Trigger a new download of the dependencies:
 
-```Shell
+```shell
 poetry install
 ```
 
 If necessary, you can fix or even regenerate your `poetry.lock` file:
 
-```Shell
+```shell
 poetry lock
 poetry lock --regenerate
 ```
 
 Proceed to build your project:
 
-```Shell
+```shell
 poetry build
 ```
 
@@ -272,14 +272,14 @@ Poetry, use your username `CG_PULLTOKEN_USERNAME` and password
 simple context `https://libraries.cgr.dev/python/simple/`:
 
 
-```Shell
+```shell
 poetry config http-basic.chainguard CG_PULLTOKEN_USERNAME CG_PULLTOKEN_PASSWORD
 ```
 
 The authentication is used for the `chainguard` repository that you add to the
 `pyproject.toml` with the following command:
 
-```Shell
+```shell
 poetry source add chainguard https://libraries.cgr.dev/python/simple/
 ```
 
@@ -296,14 +296,14 @@ To update your global configuration to use your organization's repository
 manager with `uv`, create or edit the `~/.config/uv/uv.toml` configuration file.
 You may also need to create the `~/.config/uv/` folder first. For example:
 
-```Shell
+```sh
 mkdir -p ~/.config/uv
 nano ~/.config/uv/uv.toml
 ```
 
 Add the following to your `uv` global configuration file:
 
-```TOML
+```toml
 [[tool.uv.index]]
 name = "<repository-manager-name>"
 url = "<repository-url>"
