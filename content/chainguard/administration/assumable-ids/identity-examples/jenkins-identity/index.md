@@ -37,7 +37,7 @@ We will be using Terraform to create an identity for a Jenkins pipeline to assum
 
 To help explain each configuration file's purpose, we will go over what they do and how to create each file one by one. First, though, create a directory to hold the Terraform configuration and navigate into it.
 
-```sh
+```shell
 mkdir ~/jenkins-id && cd $_
 ```
 
@@ -64,7 +64,7 @@ This is a fairly barebones Terraform configuration file, but we will define the 
 
 To create the `main.tf` file, run the following command.
 
-```sh
+```shell
 cat > main.tf <<EOF
 terraform {
   required_providers {
@@ -101,7 +101,7 @@ The `jenkins.tf` file is what will actually create the identity for your Jenkins
 
 The first section creates the identity itself.
 
-```
+```hcl
 resource "chainguard_identity" "jenkins" {
   parent_id   = data.chainguard_group.group.id
   name        = "jenkins"
@@ -134,7 +134,7 @@ For the purposes of this guide, you will need to replace `%your-audience%`, `%yo
 
 The next section will output the new identity's `id` value. This is a unique value that represents the identity itself.
 
-```
+```hcl
 output "jenkins-identity" {
   value = chainguard_identity.jenkins.id
 }
@@ -142,7 +142,7 @@ output "jenkins-identity" {
 
 The section after that looks up the `viewer` role.
 
-```
+```hcl
 data "chainguard_role" "viewer" {
   name = "viewer"
 }
@@ -150,7 +150,7 @@ data "chainguard_role" "viewer" {
 
 The final section grants this role to the identity.
 
-```
+```hcl
 resource "chainguard_rolebinding" "view-stuff" {
   identity = chainguard_identity.jenkins.id
   group    = data.chainguard_group.group.id
@@ -164,25 +164,25 @@ Following that, your Terraform configuration will be ready. Now you can run a fe
 
 First, run `terraform init` to initialize Terraform's working directory.
 
-```sh
+```shell
 terraform init
 ```
 
 Then run `terraform plan`. This will produce a speculative execution plan that outlines what steps Terraform will take to create the resources defined in the files you set up in the last section.
 
-```sh
+```shell
 terraform plan
 ```
 
 If the plan worked successfully and you're satisfied that it will produce the resources you expect, you can apply it.
 
-```sh
+```shell
 terraform apply
 ```
 
 Before going through with applying the Terraform configuration, this command will prompt you to confirm that you want it to do so. Enter `yes` to apply the configuration.
 
-```
+```Output
 . . .
 Plan: 4 to add, 0 to change, 0 to destroy.
 
@@ -198,7 +198,7 @@ Do you want to perform these actions?
 
 After pressing `ENTER`, the command will complete and will output an `jenkins-identity` value.
 
-```
+```Output
 . . .
 Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
 
@@ -209,7 +209,7 @@ jenkins-identity = "<your jenkins identity>"
 
 This is the identity's [UIDP (unique identity path)](/chainguard/administration/cloudevents/events-reference/#uidp-identifiers), which you configured the `jenkins.tf` file to emit in the previous section. Note this value down, as you'll need it when you test this identity using a Jenkins workflow. If you need to retrieve this UIDP later on, though, you can always run the following `chainctl` command to obtain a list of the UIDPs of all your existing identities.
 
-```sh
+```shell
 chainctl iam identities ls
 ```
 
@@ -266,11 +266,11 @@ Save the job, and then build it using the `Build with Parameters` option.
 
 Assuming everything works as expected, your pipeline will be able to assume the identity and run the `chainctl images repos list` command, listing repositories available to the organization.
 
-```
+```Output
 . . .
 chainctl        	100%[===================>]  54.34M  6.78MB/s	in 13s
 
-2023-05-17 13:19:45 (4.28 MB/s) - ‘chainctl’ saved [56983552/56983552]
+2023-05-17 13:19:45 (4.28 MB/s) - 'chainctl' saved [56983552/56983552]
 
 Successfully exchanged token.
 Valid! Id: 3f4ad8a9d5e63be71d631a359ba0a91dcade94ab/d3ed9c70b538a796
@@ -298,7 +298,7 @@ Of course, the Jenkins pipeline will only be able to perform certain actions on 
 
 To remove the resources Terraform created, you can run the `terraform destroy` command.
 
-```sh
+```shell
 terraform destroy
 ```
 
@@ -306,7 +306,7 @@ This will destroy the role-binding, and the identity created in this guide. It w
 
 You can then remove the working directory to clean up your system.
 
-```sh
+```shell
 rm -r ~/jenkins-id/
 ```
 

@@ -24,13 +24,13 @@ Organizations can optionally be verified. Verification modifies some aspects of 
 
 Verification is currently a manual process. To verify your organization, please contact your customer support contact. You can check if your organization is verified using [`chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/).
 
-```sh
+```Shell
 chainctl iam organization ls -o json | jq
 ```
 
 Verified organizations will have a field `verified: true` set.
 
-```json
+```JSON
 [
   {
 	"id": "f5a2c73d75a8d7fe666ecb623c79a2b771d78765",
@@ -50,26 +50,26 @@ If you've configured a [custom identity provider](/chainguard/administration/cus
 
 When authenticating with `chainctl`, the `--org-name` flag can be passed. Here, the command uses the example organization name `example.com`.
 
-```sh
+```Shell
 chainctl auth login --org-name example.com
 ```
 
 As an alternative, you can set the organization name by editing the `chainctl` configuration file. You can do so with the following command.
 
-```sh
+```Shell
 chainctl config edit
 ```
 
 This will open a text editor (nano, by default) where you can edit the local `chainctl` config. Add the following lines to this file.
 
-```yaml
+```YAML
 default:
   org-name: example.com
 ```
 
 You can also set this with a single command using the `chainctl config set` subcommand, as in this example.
 
-```sh
+```Shell
 chainctl config set default.org-name example.com
 ```
 

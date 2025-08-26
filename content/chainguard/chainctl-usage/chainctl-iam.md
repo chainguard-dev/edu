@@ -24,13 +24,13 @@ Folders contain the catalogs of things your organization has access to.
 
 Find out what folders are available to your organization with:
 
-```shell
+```Shell
 chainctl iam folders list $ORGANIZATION_NAME
 ```
 
 For example, for our Developer Enablement team, which uses the `chainguard.edu` organization, the interaction looks like this:
 
-```shell
+```Shell
 $ chainctl iam folders list chainguard.edu
 [chainguard.edu] Developer Enablement images catalog
 ```
@@ -42,13 +42,13 @@ This command can also delete, describe, and update folders by replacing `list` w
 
 To list all of the existing identities along with roles, types, and more, use:
 
-```shell
+```Shell
 chainctl iam identities list
 ```
 
 Because this command requests a large amount of information, you may find it useful to direct the output into a file or pipe it into a filter. If you know the specific `IDENTITY_NAME` or `IDENTITY_ID` that you want to know more about, use:
 
-```shell
+```Shell
 chainctl iam identities describe {IDENTITY_NAME | IDENTITY_ID}
 ```
 
@@ -59,7 +59,7 @@ This command can also create, delete, describe, and update identities by replaci
 
 This command enables you to manage your own identity management provider, such as a custom OIDC provider. To list all currently configured identity management providers, use:
 
-```shell
+```Shell
 chainctl iam identity-providers list
 ```
 
@@ -67,7 +67,7 @@ This command can also create, delete, and update your organization's identity pr
 
 To tell chainctl about your OIDC provider and enable users to start using it, use create:
 
-```shell
+```Shell
 chainctl iam identity-provider create --name=google --parent=example \
 --oidc-issuer=https://accounts.google.com \
 --oidc-client-id=foo \
@@ -80,7 +80,7 @@ chainctl iam identity-provider create --name=google --parent=example \
 
 This command lets you manage invite codes that register identities with Chainguard. To list current invites, use:
 
-```shell
+```Shell
 chainctl iam invites list
 ```
 
@@ -90,7 +90,7 @@ This command can also create and delete invites by replacing `list` with `create
 
 To create a new invite, use create, like in this example that defines a role, an email address to tie the invite to, the valid length of the invitation, and that it can only be used once:
 
-```shell
+```Shell
 chainctl iam invite create ORGANIZATION_NAME
 --role=viewer
 --email=sandra@organization.dev
@@ -103,7 +103,7 @@ chainctl iam invite create ORGANIZATION_NAME
 
 To list all of the organizations your account is associated with, use:
 
-```shell
+```Shell
 chainctl iam organizations list
 ```
 
@@ -116,7 +116,7 @@ This command can also delete and describe organizations by replacing `list` with
 
 To list all of the roles your account is associated with, use:
 
-```shell
+```Shell
 chainctl iam roles list
 ```
 
@@ -124,20 +124,20 @@ This command can also create, delete, and update identities by replacing `list` 
 
 It is possible to define role details during creation or create a role interactively. To create a role interactively, use:
 
-```shell
+```Shell
 chainctl iam roles create ROLE_NAME
 ```
 
 
 To find out what actions can be done by each role, use:
 
-```shell
+```Shell
 chainctl iam roles capabilities list
 ```
 
 This returns a list like this sample:
 
-```shell
+```Shell
 $ chainctl iam roles capabilities list
          RESOURCE        |                 ACTION                  
 -------------------------+-----------------------------------------
@@ -180,7 +180,7 @@ $ chainctl iam roles capabilities list
 
 To find out about role bindings, use:
 
-```shell
+```Shell
 chainctl iam role-bindings list
 ```
 

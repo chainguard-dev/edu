@@ -39,7 +39,7 @@ You can find all the code associated with this sample application in our [Platfo
 
 To set up the sample application, you can create a Terraform configuration file and apply it to set up the necessary resources. To begin, create a new directory to hold the configuration and navigate into it.
 
-```sh
+```shell
 mkdir ~/gcp-example && cd $_
 ```
 
@@ -47,7 +47,7 @@ From within the `gcp-example` directory, you can begin creating a Terraform conf
 
 This configuration will consist of a single module. For the purposes of this example, we will call it `image-copy`. This module's `source` value will be the `iac` folder from the application code in the examples repository.
 
-```
+```hcl
 module "image-copy" {
   source = "github.com/chainguard-dev/platform-examples/image-copy-gcp/iac"
 ```
@@ -65,7 +65,7 @@ As an example, if the `name` value you specify is `chainguard-dev` and the `dst_
 
 Be sure to include a closing curly bracket after the final line.
 
-```
+```hcl
   name = "chainguard-dev"
 
   project_id = "<project-id>"
@@ -80,7 +80,7 @@ Be sure to include a closing curly bracket after the final line.
 
 You can create this file with a command like the following.
 
-```sh
+```shell
 cat > main.tf <<EOF
 module "image-copy" {
   source = "github.com/chainguard-dev/platform-examples/image-copy-gcp/iac"
@@ -108,38 +108,38 @@ Specifically, it will build the mirroring application into a container image usi
 
 Before applying the configuration, you'll need to log in to both the Chainguard platform with `chainctl` and GCP with `gcloud`.
 
-```sh
+```shell
 chainctl auth login
 gcloud auth login
 ```
 
 If you haven't already done so, you will also need to acquire new access credentials to use as [Application Default Credentials](https://cloud.google.com/docs/authentication/application-default-credentials). You can do so with this command.
 
-```sh
+```shell
 gcloud auth application-default login
 ```
 
 Following that, run `terraform init` to initialize Terraform’s working directory.
 
-```sh
+```shell
 terraform init
 ```
 
 Then run `terraform plan`. This will produce a speculative execution plan that outlines what steps Terraform will take to create the resources defined in the file you set up in the last section.
 
-```sh
+```shell
 terraform plan
 ```
 
 If the plan worked successfully and you’re satisfied that it will produce the resources you expect, you can apply it.
 
-```sh
+```shell
 terraform apply
 ```
 
 Before going through with applying the Terraform configuration, this command will prompt you to confirm that you want it to do so. Enter `yes` to apply the configuration. 
 
-```
+```Output
 . . .
 
 Plan: 8 to add, 0 to change, 0 to destroy.
@@ -175,7 +175,7 @@ Be aware that just because the application is listening for `registry.push` even
 
 If you'd like to remove the resources you created with Terraform, you can run the `terraform destroy` command.
 
-```sh
+```shell
 terraform destroy
 ```
 
@@ -183,7 +183,7 @@ This will destroy everything created in your Terraform configuration, including 
 
 You can then remove the working directory to clean up your system.
 
-```sh
+```shell
 rm -r ~/gcp-example/
 ```
 

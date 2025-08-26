@@ -51,7 +51,7 @@ determining the checksum and then locating it in your repository manager.
 Calculate the different commonly used sums for a file `example.jar` with the
 following commands and output examples:
 
-```shell
+```Shell
 $ sha1sum example.jar
 aea83e64ebec6a37e0be100f968a55fb381143c2  example.jar
 

@@ -39,7 +39,7 @@ These files are available in [Chainguard's GitHub Repository of Platform Example
 
 To help explain each configuration file's purpose, we will go over what they do one by one. First, though, create a directory to hold the Terraform configuration and navigate into it.
 
-```sh
+```shell
 mkdir ~/aws-id && cd $_
 ```
 
@@ -51,7 +51,7 @@ The first file, which we will call `main.tf`, will serve as the scaffolding for 
 
 The file will consist of the following content.
 
-```
+```hcl
 terraform {
   required_providers {
     aws        = { source = "hashicorp/aws" }
@@ -183,25 +183,25 @@ After defining these resources, your Terraform configuration will be ready. Now 
 
 First, run `terraform init` to initialize Terraform's working directory.
 
-```sh
+```shell
 terraform init
 ```
 
 Then run `terraform plan`. This will produce a speculative execution plan that outlines what steps Terraform will take to create the resources defined in the files you set up in the last section.
 
-```sh
+```shell
 terraform plan
 ```
 
 Then apply the configuration.
 
-```sh
+```shell
 terraform apply
 ```
 
 Before going through with applying the Terraform configuration, this command will prompt you to confirm that you want it to do so. Enter `yes` to apply the configuration.
 
-```
+```Output
 ...
 
 Plan: 8 to add, 0 to change, 0 to destroy.
@@ -218,7 +218,7 @@ Do you want to perform these actions?
 
 After typing `yes` and pressing `ENTER`, the command will complete and will output an `aws-identity` value.
 
-```
+```Output
 ...
 
 Apply complete! Resources: 8 added, 0 changed, 0 destroyed.
@@ -230,7 +230,7 @@ aws-identity = "<your identity>"
 
 This is the identity's [UIDP (unique identity path)](/chainguard/administration/cloudevents/events-reference/#uidp-identifiers), which you configured the `chainguard.tf` file to emit in the previous section. Note this value down, as you'll need it to set up the AWS role you'll use to test the identity. If you need to retrieve this UIDP later on, though, you can always run the following `chainctl` command to obtain a list of the UIDPs of all your existing identities.
 
-```sh
+```shell
 chainctl iam identities ls
 ```
 
@@ -288,19 +288,19 @@ ls, err := clients.Registry().ListRepos(ctx, &registry.RepoFilter{
 
 To remove the resources Terraform created, you can run the `terraform destroy` command.
 
-```sh
+```shell
 terraform destroy
 ```
 
 This will destroy the role-binding, and the identity created in this guide. However, you'll need to destroy the `example-group` organization yourself with `chainctl`. It will also delete all the AWS resources defined earlier in `chainguard.tf` and `lambda.tf`.
 
-```sh
+```shell
 chainctl iam organizations rm example-group
 ```
 
 You can then remove the working directory to clean up your system.
 
-```sh
+```shell
 rm -r ~/aws-id/
 ```
 

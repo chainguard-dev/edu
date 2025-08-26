@@ -68,7 +68,7 @@ other distributions.
 
 The easiest way to search for packages is via apk tools. For example:
 
-```shell
+```Shell
 docker run -it --rm cgr.dev/chainguard/wolfi-base
 f273a9aa3242:/# apk update
 fetch https://packages.wolfi.dev/os/aarch64/APKINDEX.tar.gz
