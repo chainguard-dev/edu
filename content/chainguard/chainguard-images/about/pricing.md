@@ -38,7 +38,7 @@ The catalog pricing model is an option that requires you to be on the Catalog Pr
 
 To add an image to your organization, select **Images** in the sidebar menu and then select the **Chainguard catalog** tab.
 
-Scroll through the list or use search to find the image you want. If the image is available to your organization, use the **Add to org** button in the row for the image listing. If your organization doesn't not have access to FIPS images, you will not be able to add them. The **Add image** dialog will appear. Click **Add image** to close the dialog and finish.
+Scroll through the list or use search to find the image you want. If the image is available to your organization, use the **Add to org** button in the row for the image listing. If your organization does not have access to FIPS images, you will not be able to add them. The **Add image** dialog will appear. Click **Add image** to close the dialog and finish.
 
 > NOTE: If you see **Available in org** in the place of the add button, return to **Images** and click the **Add image** button above the list of organization images. Use search in the dialog that appears to find the image and click the bookmark icon next to the image name. You will be required to enter a different name for the new image, which will be added alongside the existing image when you click **Add image**.
 
