@@ -70,7 +70,7 @@ Next, you can create the `sample.tf` file.
 
 This Terraform configuration consists of two main parts. The first part of the file will contain the following lines.
 
-```
+```hcl
 data "chainguard_group" "group" {
   name = "my-customer.biz"
 }
@@ -86,7 +86,7 @@ The `actions.tf` file is what will actually create the identity for your GitHub 
 
 The first section creates the identity itself.
 
-```
+```hcl
 resource "chainguard_identity" "actions" {
   parent_id   = data.chainguard_group.group.id
   name    	= "github-actions"
@@ -110,7 +110,7 @@ In this case, the `issuer` field points to `https://token.actions.githubusercont
 
 The next section will output the new identity's `id` value. This is a unique value that represents the identity itself.
 
-```
+```hcl
 output "actions-identity" {
   value = chainguard_identity.actions.id
 }
@@ -118,7 +118,7 @@ output "actions-identity" {
 
 The section after that looks up the `viewer` role.
 
-```
+```hcl
 data "chainguard_role" "viewer" {
   name = "viewer"
 }
@@ -126,7 +126,7 @@ data "chainguard_role" "viewer" {
 
 The final section grants this role to the identity.
 
-```
+```hcl
 resource "chainguard_rolebinding" "view-stuff" {
   identity = chainguard_identity.actions.id
   group	= data.chainguard_group.group.id
@@ -248,7 +248,7 @@ This indicates that the workflow can indeed assume the identity and interact wit
 
 If you'd like to experiment further with this identity and what the workflow can do with it, there are a few parts of this setup that you can tweak. For instance, if you'd like to give this identity different permissions you can change the role data source to the role you would like to grant.
 
-```
+```hcl
 data "chainguard_role" "editor" {
   name = "editor"
 }

@@ -47,7 +47,7 @@ From within the `gcp-example` directory, you can begin creating a Terraform conf
 
 This configuration will consist of a single module. For the purposes of this example, we will call it `image-copy`. This module's `source` value will be the `iac` folder from the application code in the examples repository.
 
-```
+```hcl
 module "image-copy" {
   source = "github.com/chainguard-dev/platform-examples/image-copy-gcp/iac"
 ```
@@ -65,7 +65,7 @@ As an example, if the `name` value you specify is `chainguard-dev` and the `dst_
 
 Be sure to include a closing curly bracket after the final line.
 
-```
+```hcl
   name = "chainguard-dev"
 
   project_id = "<project-id>"
@@ -139,7 +139,7 @@ terraform apply
 
 Before going through with applying the Terraform configuration, this command will prompt you to confirm that you want it to do so. Enter `yes` to apply the configuration. 
 
-```
+```output
 . . .
 
 Plan: 8 to add, 0 to change, 0 to destroy.

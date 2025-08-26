@@ -27,7 +27,7 @@ chainctl version
 This command tells you more than just a release number.
 
 
-```shell
+```output
 
                ▄▄▄▄▄▄▄▄▄▄▄              
              ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄            
@@ -76,7 +76,7 @@ chainctl update
 
 This will present the following:
 
-```shell
+```output
 Current version         v0.2.66
 Latest version          0.2.73
 
@@ -92,7 +92,7 @@ Do you want to continue? [Y,n]:
 
 Enter `Y` to proceed and the upgrade will continue and confirm like this:
 
-```shell
+```output
    ✔ Download complete!
 
 Backing up current chainctl (/usr/local/bin/chainctl)
