@@ -2,7 +2,8 @@
   "urls": [
     "http://0.0.0.0:8080/Chainguard%20Customer",
     "http://0.0.0.0:8080/version",
-    "https://example.com"
+    "https://example.com",
+    "/ai-docs-security"
   ],
   "regexps": [
     "^#",

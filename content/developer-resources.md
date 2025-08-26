@@ -167,5 +167,5 @@ The bundle is regenerated periodically. Check the timestamp in the downloaded fi
 
 If you have questions or need assistance:
 - Visit [Chainguard Support](https://support.chainguard.dev)
-- Join our [Community Slack](https://chainguard.dev/slack)
+- Join our [Community Slack](https://go.chainguard.dev/slack)
 - Review our [Documentation](https://edu.chainguard.dev)
