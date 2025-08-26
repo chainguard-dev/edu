@@ -17,7 +17,7 @@ weight: 210
 toc: true
 ---
 
-Over the years, various implementations of the [C standard library](https://en.wikipedia.org/wiki/C_standard_library) — such as the [GNU C library](https://www.gnu.org/software/libc/), [musl](https://musl.libc.org/about.html), [dietlibc](https://www.fefe.de/dietlibc/), [μClibc](https://uclibc.org/), and many others — have emerged with different goals and characteristics. These various implementations exist because the C standard library defines the required functionality for operating system services (such as file input/output and memory management) but does not specify implementation details. Among these implementations, the GNU C Library ([glibc](https://www.gnu.org/software/libc/)) and [musl](https://musl.libc.org/about.html) are among the most popular.
+Over the years, various implementations of the [C standard library](https://en.wikipedia.org/wiki/C_standard_library) — such as the [GNU C library](https://www.gnu.org/software/libc/), [musl](https://musl.libc.org/about.html), [dietlibc](https://www.fefe.de/dietlibc/), [uClibc-ng](https://www.uclibc-ng.org/), and many others — have emerged with different goals and characteristics. These various implementations exist because the C standard library defines the required functionality for operating system services (such as file input/output and memory management) but does not specify implementation details. Among these implementations, the GNU C Library ([glibc](https://www.gnu.org/software/libc/)) and [musl](https://musl.libc.org/about.html) are among the most popular.
 
 When developing [Wolfi](/open-source/wolfi/overview/), the "undistro" on which all Chainguard Containers are built, Chainguard elected to have it use glibc instead of another implementation like musl. This conceptual article aims to highlight the differences between these two implementations within the context of Chainguard's choice of using glibc over musl as the default implementation for the Wolfi undistro.
 
@@ -285,7 +285,7 @@ The [Go](https://hub.docker.com/_/golang) image also mentions that Alpine is not
 
 ## Unsupported Debug Features
 
-Certain applications that rely on debug features for testing — including [sanitizers](https://wiki.musl-libc.org/open-issues#Sanitizer-compatibility) (such as [Addressanitizer](https://clang.llvm.org/docs/AddressSanitizer.html), [threadsanitizer](https://clang.llvm.org/docs/ThreadSanitizer.html), etc.) and profilers (such as [gprof](https://ftp.gnu.org/old-gnu/Manuals/gprof-2.9.1/html_mono/gprof.html)) — are not supported by musl.
+Certain applications that rely on debug features for testing — including [sanitizers](https://wiki.musl-libc.org/open-issues#Sanitizer-compatibility) (such as [Addressanitizer](https://clang.llvm.org/docs/AddressSanitizer.html), [threadsanitizer](https://clang.llvm.org/docs/ThreadSanitizer.html), etc.) and profilers (such as [gprof](https://man7.org/linux/man-pages/man1/gprof.1.html)) — are not supported by musl.
 
 Sanitizers help debug and detect behaviors such as buffer overflows or dangling pointers. According to the [musl wiki open issues](https://wiki.musl-libc.org/open-issues), GCC and LLVM sanitizer implementations rely on libc internals and are incompatible with musl. Feature requests have been made in the LLVM sanitizer repository for support for musl (check out [this issue](https://github.com/google/sanitizers/issues/1080) or [this one](https://github.com/google/sanitizers/issues/1544) for examples), but they have not been addressed.
 
