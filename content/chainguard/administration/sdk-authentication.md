@@ -25,7 +25,7 @@ To follow along with this guide you must have [Go installed](https://go.dev/doc/
 
 Additionally, it may help to run these examples from a temporary directory, like `/tmp` so the code is automatically removed from your system the next time it boots:
 
-```shell
+```Shell
 cd /tmp
 ```
 
@@ -73,7 +73,7 @@ This code works by executing the `chainctl` binary to retrieve a token and makin
 
 To run this example, save the `main.go` file to your local machine. Then run the following commands:
 
-```shell
+```Shell
 go mod init github.com/chainguard-dev/sdk && go mod tidy
 ```
 
@@ -81,13 +81,13 @@ The `go mod init` command will initialize a new `go.mod` file in the current dir
 
 Following that, execute the program with `go run`:
 
-```shell
+```Shell
 go run main.go
 ```
 
 This will return output like the following:
 
-```
+```Output
 {
   "mediaType": "application/vnd.oci.image.index.v1+json",
   "size": 925,
@@ -149,19 +149,19 @@ This example is similar to the previus one, but has the following differences:
 
 To run this example, First, delete the previous example's `main.go` file if you haven't alraedy. Then save the `exchange` example's `main.go` file to your local machine. Then run the following `go mod init` and `go mod tidy` commands:
 
-```shell
+```Shell
 go mod init github.com/chainguard-dev/sdk && go mod tidy
 ```
 
 Following that, execute the program:
 
-```shell
+```Shell
 go run main.go
 ```
 
 This will return output like the following:
 
-```
+```Output
 {
   "mediaType": "application/vnd.oci.image.index.v1+json",
   "size": 925,

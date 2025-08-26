@@ -44,7 +44,7 @@ The following requirements must be met:
 Use the following script to automatically determine the latest available version
 and download the ZIP archive.
 
-```shell
+```Shell
 # Get the latest version
 export LATEST=$(curl -s "https://storage.googleapis.com/us.artifacts.prod-enforce-fabc.appspot.com/?prefix=chainver/" | \
   grep -oE 'chainver/[0-9]+\.[0-9]+\.[0-9]+/' | \
@@ -68,7 +68,7 @@ chainver_0.3.6_Windows_x86_64.zip
 Extract the package, in the example for MacOS and ARM processor, and copy it to
 a directory that is on the `PATH`:
 
-```shell
+```Shell
 $ tar xfvz chainver_0.3.6_Darwin_arm64.tar.gz
 x LICENSE
 x README.md
@@ -77,7 +77,7 @@ x chainver
 
 Verify running `chainver` and inspect the version:
 
-```shell
+```Shell
 $ chainver version
 ChainVer version 0.3.6 (3277bb5)
   built with go1.24.0 on darwin/arm64

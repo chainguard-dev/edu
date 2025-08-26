@@ -24,7 +24,7 @@ Chainguard provides development (or `-dev`) variants of its containers which inc
 
 To illustrate, if you try to get a shell in the `cgr.dev/chainguard/nginx:latest` image it will return an error:
 
-```bash
+```Shell
 docker run -it --entrypoint /bin/sh --user root cgr.dev/chainguard/nginx:latest
 
 docker: Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: exec: "/bin/sh": stat /bin/sh: no such file or directory: unknown.
@@ -32,7 +32,7 @@ docker: Error response from daemon: failed to create task for container: failed 
 
 But this is possible with the `latest-dev` variant:
 
-```bash
+```Shell
 docker run -it --entrypoint /bin/sh --user root cgr.dev/chainguard/nginx:latest-dev
 
 / # apk add php
@@ -60,7 +60,7 @@ In these cases you have a choice — you can update your scripts to work in ash,
 
 For example:
 
-```bash
+```Shell
 docker run -it cgr.dev/$ORGANIZATION/chainguard-base
 
 423450e3fd52:/# echo {1..5}
@@ -90,7 +90,7 @@ Following on from the last point, you'll often need to install extra utilities t
 
 For example, say we are porting a Dockerfile that uses the `groupadd` command. We could convert this to the BusyBox `addgroup` equivalent, but it's also perfectly fine to add the `groupadd` utility. The only issue is that there's no `groupadd` package, so we have to search for it:
 
-```bash
+```Shell
 docker run -it cgr.dev/$ORGANIZATION/chainguard-base
 
 ae154854dc6d:/# groupadd
@@ -131,7 +131,7 @@ Options:
 
 Another useful trick is the `cmd:` syntax for finding packages that provide commands. For example, searching for `ldd` returns multiple results:
 
-```bash
+```Shell
 ae154854dc6d:/# apk search ldd
 dpkg-dev-1.22.6-r0
 nfs-utils-2.6.4-r1
@@ -140,14 +140,14 @@ posix-libc-utils-2.39-r1
 
 But if we use the `cmd:` syntax we only get a single result:
 
-```bash
+```Shell
 ae154854dc6d:/# apk search cmd:ldd
 posix-libc-utils-2.39-r1
 ```
 
 And we can even use the syntax directly in `apk add`:
 
-```bash
+```Shell
 ae154854dc6d:/# apk add cmd:ldd
 (1/4) Installing ncurses-terminfo-base (6.4_p20231125-r1)
 (2/4) Installing ncurses (6.4_p20231125-r1)
@@ -162,7 +162,7 @@ In some cases, the entrypoint of Chainguard Containers can have a different beha
 
 For example, if you run Docker Hub's official Python image, it opens the Python interpreter by default:
 
-```bash
+```Shell
 docker run -it python
 Python 3.12.3 (main, Apr 10 2024, 11:26:46) [GCC 12.2.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
@@ -171,7 +171,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 And the Chainguard Container works in the same way:
 
-```bash
+```Shell
 docker run -it cgr.dev/chainguard/python
 Python 3.12.3 (main, Apr  9 2024, 16:36:34) [GCC 13.2.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
@@ -180,21 +180,21 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 But if you pass a Linux command to the Docker Hub image, it will be run from a shell:
 
-```bash
+```Shell
 docker run -it python echo "in a shell"
 in a shell
 ```
 
 The Chainguard Python image doesn't use an entrypoint script. It relies on the Python interpreter as single entrypoint for both the `latest` and the `latest-dev` variants. So instead of executing the command through a shell, it tries to parse the command as an argument to the Python interpreter:
 
-```bash
+```Shell
 docker run -it cgr.dev/chainguard/python echo "in a shell"
 /usr/bin/python: can't open file '//echo': [Errno 2] No such file or directory
 ```
 
 The same behavior can be observed in the `latest-dev` variant, which does contain a shell, but uses the Python interpreter as entrypoint to keep consistency with the `latest` variant:
 
-```bash
+```Shell
 docker run -it cgr.dev/chainguard/python:latest-dev echo "in a shell"
 /usr/bin/python: can't open file '//echo': [Errno 2] No such file or directory
 ```
@@ -209,7 +209,7 @@ Because they don't run as the root user, you may need to include a `USER root` s
 
 Additionally, be aware that `-dev` images also do not run as root in most cases, which can result in permission errors like the following:
 
-```bash
+```Shell
 docker run -it --entrypoint bin/bash chainguard/python:latest-dev
 
 bash-5.2$ mkdir test
@@ -221,7 +221,7 @@ bash: sudo: command not found
 
 In cases like this, you can instead run a command like the following to access the container's shell as the root user:
 
-```bash
+```Shell
 docker run -it --user root --entrypoint bin/bash chainguard/python:latest-dev
 ```
 
