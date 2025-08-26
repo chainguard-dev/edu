@@ -52,7 +52,7 @@ Now that you have a better understanding of what assumable identities are, let's
 
 To set up an assumable identity with Terraform, you will need to add a few specific blocks to your Terraform configuration. The following example `resource` block is the most important of these, as it is what creates the assumable identity.
 
-```hcl
+```HCL
 resource "chainguard_identity" "<id-ref>" {
   parent_id   = <chainguard organization ID>
   name   	 = "<identity name>"
@@ -73,7 +73,7 @@ The `claim_match` block within this section is what specifies the users and work
 
 This example provides literal values for both the `issuer` and `subject` fields. This means that any workload or individual attempting to use this identity must have a signature whose issuer and subject match those within the `claim_match` block exactly. You can instead use the `issuer_pattern`, `subject_pattern`, or `audience_pattern` fields to pass regular expression patterns which clients must match in order to assume the identity.
 
-```hcl
+```HCL
   claim_match {
 	issuer_pattern = ".*"
 	subject_pattern = ".*"
@@ -85,7 +85,7 @@ This gives you some more flexibility with defining who has access to the identit
 
 Another block to include in your Terraform configuration is an `output` block that outputs the UIDP of the identity you're trying to assume. This is a unique value that you can use to let Chainguard know that you want to assume the role.
 
-```hcl
+```HCL
 output "<id-ref>-identity" {
   value = chainguard_identity.<id-ref>.id
 }
@@ -93,7 +93,7 @@ output "<id-ref>-identity" {
 
 The last two blocks you should include in a Terraform configuration are what apply a role-binding to the new identity. First, you need to include a `data` section to look up the role. In this example it looks up Chainguard's built-in `viewer` role.
 
-```hcl
+```HCL
 data "chainguard_roles" "viewer" {
   name = "viewer"
 }
@@ -101,7 +101,7 @@ data "chainguard_roles" "viewer" {
 
 Then you need to include another `resource` block to create the role-binding using the determined role. The identity will have the permissions of that role over the organization specified within this block.
 
-```hcl
+```HCL
 resource "chainguard_rolebinding" "view-stuff" {
   identity = chainguard_identity.<id-ref>.id
   group    = chainguard_group.user-group.id
@@ -118,7 +118,7 @@ Applying this configuration will create the assumable identity. You can follow a
 
 You can also set up an assumed identity using the `chainctl` command-line tool. Specifically, you can run the `chainctl iam identities create` subcommand, which uses the following syntax:
 
-```shell
+```Shell
 chainctl iam identities create <identity-name> \
     --identity-issuer=<issuer of the identity> \
     --issuer-keys=<keys for the issuer> \
@@ -131,13 +131,13 @@ As with Terraform, you must provide `chainctl` with certain information about th
 
 You can change an existing identity with the `update` command. The following example would update the identity's issuer.
 
-```shell
+```Shell
 chainctl iam identities update <identity-name> --identity-issuer=https://new-issuer.mycompany.com
 ```
 
 To delete an identity, use the `delete` subcommand.
 
-```shell
+```Shell
 chainctl iam identities delete <identity-name>
 ```
 
@@ -148,7 +148,7 @@ For more detailed information on managing identities with `chainctl`, we encoura
 
 Whether you create an identity with `chainctl` or with Terraform, Chainguard will generate a UIDP (unique identifier path) tied to the identity. You can retrieve a list of all the identities you've created — along with their UIDPs — with the following command.
 
-```shell
+```Shell
 chainctl iam identities ls -o table
 ```
 ```Output

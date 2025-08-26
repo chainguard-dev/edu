@@ -36,7 +36,7 @@ We will be using Terraform to create an identity for a Bitbucket pipeline to ass
 
 To help explain each configuration file's purpose, we will go over what they do and how to create each file one by one. First, though, create a directory to hold the Terraform configuration and navigate into it.
 
-```shell
+```Shell
 mkdir ~/bitbucket-id && cd $_
 ```
 
@@ -49,7 +49,7 @@ The first file, which we will call `main.tf`, will serve as the scaffolding for 
 
 The file will consist of the following content.
 
-```hcl
+```HCL
 terraform {
   required_providers {
     chainguard = {
@@ -148,19 +148,19 @@ Following that, your Terraform configuration will be ready. Now you can run a fe
 
 First, run `terraform init` to initialize Terraform's working directory.
 
-```shell
+```Shell
 terraform init
 ```
 
 Then run `terraform plan`. This will produce a speculative execution plan that outlines what steps Terraform will take to create the resources defined in the files you set up in the last section.
 
-```shell
+```Shell
 terraform plan
 ```
 
 If the plan worked successfully and you're satisfied that it will produce the resources you expect, you can apply it.
 
-```shell
+```Shell
 terraform apply
 ```
 
@@ -195,7 +195,7 @@ bitbucket-identity = "%bitbucket-identity%"
 
 This is the identity's [UIDP (unique identity path)](/chainguard/administration/cloudevents/events-reference/#uidp-identifiers), which you configured the `bitbucket.tf` file to emit in the previous section. Note this value down, as you'll need it when you test this identity using a Bitbucket workflow. If you need to retrieve this UIDP later on, though, you can always run the following `chainctl` command to obtain a list of the UIDPs of all your existing identities.
 
-```shell
+```Shell
 chainctl iam identities ls
 ```
 
@@ -272,7 +272,7 @@ Of course, the Bitbucket pipeline will only be able to perform certain actions o
 
 To remove the resources Terraform created, you can run the `terraform destroy` command.
 
-```shell
+```Shell
 terraform destroy
 ```
 
@@ -280,7 +280,7 @@ This will destroy the role-binding, and the identity created in this guide. It w
 
 You can then remove the working directory to clean up your system.
 
-```shell
+```Shell
 rm -r ~/bitbucket-id/
 ```
 
