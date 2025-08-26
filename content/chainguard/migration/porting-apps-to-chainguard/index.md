@@ -51,7 +51,7 @@ The first task was to get the 10-year-old application building and running again
 In order to follow along with the tutorial, please clone the code and switch to the `v1` branch:
 
 
-```Shell
+```bash
 git clone https://github.com/chainguard-dev/identidock-cg.git
 cd identidock-cg
 git switch v1
@@ -61,7 +61,7 @@ git switch v1
 
 To begin, we'll update the heart of the application – the dnmonster service. dnmonster is based on [monsterid.js](https://github.com/KevinGaudin/monsterid.js/) by Kevin Gaudin. The dnmonster container hosts an API which returns an [identicon](https://en.wikipedia.org/wiki/Identicon) based on the input it's given.
 
-```Shell
+```bash
 docker run -d -p 8080:8080 amouat/dnmonster
 curl --output ./monster.png 'localhost:8080/monster/wolfi?size=100'
 ```
@@ -103,14 +103,14 @@ CMD [ "npm", "start" ]
 
 The container image can be built with:
 
-```Shell
+```bash
 cd dnmonster
 docker build --pull -t dnmonster .
 ```
 
 Looking at this image:
 
-```Shell
+```bash
 docker images dnmonster
 REPOSITORY   TAG       IMAGE ID       CREATED         SIZE
 dnmonster    latest    3337171ebb44   4 minutes ago   1.79GB
@@ -209,14 +209,14 @@ ENTRYPOINT [ "npm", "start" ]
 
 At this point, we have a version of dnmonster that works and is equivalent to the previous version. We can build this image:
 
-```Shell
+```bash
 docker build --pull -t dnmonster-cg .
 ...
 ```
 
 And investigate it again:
 
-```Shell
+```bash
 docker images dnmonster-cg
 REPOSITORY     TAG       IMAGE ID       CREATED              SIZE
 dnmonster-cg   latest    5b785d38a022   About a minute ago   1.55GB
@@ -291,7 +291,7 @@ We've added an `as build` statement to the first `FROM` line and added a second 
 Build and investigate the image:
 
 
-```Shell
+```bash
 docker build --pull -t dnmonster-multi .
 …
 docker images dnmonster-multi
@@ -354,14 +354,14 @@ This version is also available in the [main branch of the repository](https://gi
 
 Build it:
 
-```Shell
+```bash
 docker build --pull -t dnmonster-final .
 …
 ```
 
 And run it to prove it still works:
 
-```Shell
+```bash
 docker run -d -p 8080:8080 dnmonster-final
 ...
 curl --output ./monster.png 'localhost:8080/monster/wolfi?size=100'
@@ -391,7 +391,7 @@ CMD ["/cmd.sh"]
 
 The image can be built with the following, assuming the current directory is the root of repo:
 
-```Shell
+```bash
 cd identidock
 docker build --pull -t identidock .
 …
@@ -399,7 +399,7 @@ docker build --pull -t identidock .
 
 Inspect the container image:
 
-```Shell
+```bash
 docker images identidock
 REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
 identidock   latest    a718358590ff   11 seconds ago   1.51GB
@@ -407,7 +407,7 @@ identidock   latest    a718358590ff   11 seconds ago   1.51GB
 
 Scan for vulnerabilities:
 
-```Shell
+```bash
 grype docker:identidock
  ✔ Loaded image                                                                                               identidock:latest
  ✔ Parsed image                                         sha256:0b4ac715984206f1e9134aa48a8efeba88e7badc3969d6f8c79cca98b47df676
@@ -439,7 +439,7 @@ RUN addgroup uwsgi && adduser -D -G uwsgi uwsgi
 
 The image now builds, but there are issues due to differences in the image entrypoint. If you run the container image, you will get a confusing error message such as:
 
-```Shell
+```bash
 `File "/cmd.sh", line 4`
   if [ "$ENV" = 'DEV' ]; then
          ^^^^^^
@@ -450,7 +450,7 @@ This is caused by the Chainguard Containers using `/usr/bin/python` as the entry
 
 This is the file `cmd.sh` in the identidock directory:
 
-```Shell
+```bash
 #!/bin/bash
 set -e
 
@@ -516,7 +516,7 @@ gunicorn==23.0.0
 
 The first thing to notice is that we have a multistage build now. If you want the Development container image rather than the production one, you can specify it during docker build:
 
-```Shell
+```bash
 docker build --pull --target dev -t identidock:dev .
 ```
 
@@ -532,13 +532,13 @@ To get a minimal, clean production install, we are using a Python virtual enviro
 
 Build the final image:
 
-```Shell
+```bash
 docker build --pull -t identidock-cg .
 ```
 
 And take a look at it:
 
-```Shell
+```bash
 docker images identidock-cg
 REPOSITORY      TAG       IMAGE ID       CREATED          SIZE
 identidock-cg   latest    1b5689af14a1   14 seconds ago   122MB
@@ -547,7 +547,7 @@ identidock-cg   latest    1b5689af14a1   14 seconds ago   122MB
 Run a scan with grype:
 
 
-```Shell
+```bash
 grype docker:identidock-cg
  ✔ Loaded image                                                                                            identidock-cg:latest
  ✔ Parsed image                                         sha256:c79295258a2b67f2a0eda49c41a2d791888df6cc7b3bdea694d810ec5d2916d8
@@ -575,7 +575,7 @@ Updating Redis is straightforward. We're not making any changes to the applicati
 To update Compose, in the top level directory of the repo, replace the content of the `docker-compose.yml` file with the following:
 
 
-```YAML
+```yaml
 name: identidock
 
 services:
@@ -607,7 +607,7 @@ Porting our application to Chainguard Containers was relatively straightforward.
 
 To clean up the resources used in this guide, first stop any containers started by Compose:
 
-```Shell
+```bash
 docker-compose down
 ```
 
@@ -616,6 +616,6 @@ Then check `docker ps` to see if any containers are still running and stop them 
 
 You can then remove any container images you've built:
 
-```Shell
+```bash
 docker rmi -f dnmonster dnmonster-cg dnmonster-multi identidock identidock:dev identidock-cg
 ```

@@ -35,7 +35,7 @@ To complete this guide, you will need the following.
 
 There are a few things you must have in place in order to follow this guide. First, create a testing directory to hold the Terraform configuration and navigate into it.
 
-```Shell
+```sh
 mkdir ~/github-team && cd $_
 ```
 
@@ -45,7 +45,7 @@ Next, you'll need to set up a few environment variables that the Terraform confi
 
 Start by creating an environment variable named `GITHUB_ORG` that points to the name of your GitHub organization. Run the following command to create this variable, but be sure to replace `<your GitHub organization>` with actual name of your organization as it appears in URLs. For example, if your organization owns a repository at the URL `htttps://github.com/orgName-example/repository-name`, then the value you would pass here would be `orgName-example`.
 
-```Shell
+```sh
 export GITHUB_ORG=<your GitHub organization>
 ```
 
@@ -53,13 +53,13 @@ Next, create a variable named `GITHUB_TEAM` set to the slug of the GitHub team f
 
 If you aren't sure of what your team's slug is, you can find it with `gh`, the GitHub command line interface. You can use a command like the following to retrieve a list of all your organization's teams.
 
-```Shell
+```sh
 gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /orgs/$GITHUB_ORG/teams
 ```
 
 Scroll through this command's output to find the `slug` value for the team in question.
 
-```JSON
+```
 [
 . . .
 
@@ -76,19 +76,19 @@ Scroll through this command's output to find the `slug` value for the team in qu
 
 With the team's slug in hand, run the following command to create the `GITHUB_TEAM` environment variable.
 
-```Shell
+```sh
 export GITHUB_TEAM=<your GitHub team slug>
 ```
 
 Following that, you will need to provide Terraform with your GitHub personal access token so it can access information related to your GitHub organization. Rather than hard coding your token into the Terraform configuration or having Terraform prompt you to enter it manually, you can create an environment variable named `GITHUB_TOKEN` which Terraform will automatically use. Create this variable with the following command.
 
-```Shell
+```sh
 export GITHUB_TOKEN=<your GitHub token>
 ```
 
 Lastly, the Chainguard role-bindings that this guide's Terraform configuration will create must all be tied to an organization. Create another variable named `CHAINGUARD_ORG` with the following command, replacing `<UIDP of target Chainguard IAM organization>` with the UIDP of the Chainguard IAM organization you want to tie the role-bindings to. You can find the UIDP for your Chainguard IAM organization by running `chainctl iam organizations ls -o table`.
 
-```Shell
+```sh
 export CHAINGUARD_ORG="<UIDP of target Chainguard IAM organization>"
 ```
 
@@ -108,7 +108,7 @@ First, we will create a `main.tf` file which will set up the necessary Terraform
 
 This file will consist of the following lines.
 
-```HCL
+```hcl
 terraform {
   required_providers {
     chainguard = {
@@ -131,7 +131,7 @@ The `provider` block sets up the `github` provider with one argument — `owner`
 
 Create the `main.tf` file with the following command.
 
-```Shell
+```sh
 cat  <<EOF > main.tf
 terraform {
   required_providers {
@@ -159,7 +159,7 @@ The `rolebindings.tf` file will contain a few separate blocks that retrieve info
 
 The first block creates a `github_team` data source named `team`.
 
-```HCL
+```
 data "github_team" "team" {
   slug = "$GITHUB_TEAM"
 }
@@ -169,7 +169,7 @@ Using the arguments you provided in the `github` provider block in `main.tf`, Te
 
 After the first block retrieves information about the team, we need to retrieve information about each member of the team in order to create an identity for each of them. To this end, the next block creates a `github_user` data source named `team_members`.
 
-```HCL
+```
 data "github_user" "team_members" {
   for_each = toset(data.github_team.team.members)
   username = each.key
@@ -182,7 +182,7 @@ Additionally, the `github_user` data source [requires you](https://registry.terr
 
 The next block retrieves Chainguard identities for each member of the GitHub team.
 
-```HCL
+```
 data "chainguard_identity" "team_ids" {
   for_each = toset([for x in data.github_user.team_members : x.id])
 
@@ -197,7 +197,7 @@ If there are members of the GitHub team who have not yet registered with Chaingu
 
 The next block retrieves the predefined `viewer` role from Chainguard.
 
-```HCL
+```
 data "chainguard_role" "viewer" {
   name = "viewer"
 }
@@ -205,7 +205,7 @@ data "chainguard_role" "viewer" {
 
 The final block puts all this information together to create the role-bindings for each member of the team.
 
-```HCL
+```
 resource "chainguard_rolebinding" "cg-binding" {
   for_each = data.chainguard_identity.team_ids
   identity = each.value.id
@@ -218,7 +218,7 @@ This `resource` block iterates through the list of Chainguard identities, assign
 
 Create the `rolebindings.tf` file with the following command.
 
-```Shell
+```sh
 cat  <<EOF > rolebindings.tf
 data "github_team" "team" {
   slug = "$GITHUB_TEAM"
@@ -264,25 +264,25 @@ Now that your Terraform configuration is in place, you're ready to apply it and 
 
 First, run `terraform init` to initialize Terraform's working directory.
 
-```Shell
+```sh
 terraform init
 ```
 
 Then run `terraform plan`. This will produce a speculative execution plan that outlines what steps Terraform will take to create the resources defined in the files you set up in the last section.
 
-```Shell
+```sh
 terraform plan
 ```
 
 If the plan worked successfully and you're satisfied that it will produce the resources you expect, you can apply it.
 
-```Shell
+```sh
 terraform apply
 ```
 
 Before going through with applying the Terraform configuration, this command will prompt you to confirm that you want it to do so. Enter `yes` to apply the configuration.
 
-```Output
+```
 . . .
 
 Plan: 2 to add, 0 to change, 0 to destroy.
@@ -296,7 +296,7 @@ Do you want to perform these actions?
 
 After pressing `ENTER`, the command will complete.
 
-```Output
+```
 . . .
 
 Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
@@ -304,7 +304,7 @@ Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
 
 Following this, any members of your GitHub team for whom you've created role-bindings will be able to view the resources associated with the Chainguard organization you specified. To do so, they need to log in to the Chainguard platform, either by logging into the [Chainguard Console](https://console.chainguard.dev/) or with the following command.
 
-```Shell
+```sh
 chainctl auth login
 ```
 
@@ -321,7 +321,7 @@ The Terraform configuration used in this guide is meant to serve as a starting p
 
 For example, rather than applying the `viewer` role to your team's role-bindings, you can apply one of the other built-in roles, or any custom roles created within your Chainguard organization. The following `data` and `resource` block examples could be used in place of the ones used in this guide's `rolebindings.tf` file. Instead of granting the identities the `viewer` role, this grants them the `editor` role.
 
-```HCL
+```
 data "chainguard_roles" "editor" {
   name = "editor"
 }
@@ -336,7 +336,7 @@ resource "chainguard_rolebinding" "cg-binding" {
 
 The Terraform configuration language is quite flexible. You can update your Terraform configuration to retrieve information about a single user, rather than an entire team.
 
-```HCL
+```
 data "github_user" "user" {
   username = "$USERNAME"
 }
@@ -344,7 +344,7 @@ data "github_user" "user" {
 
 Likewise, you can retrieve a GitHub user's Chainguard identity without having to include the `for_each` meta-argument.
 
-```HCL
+```
 data "chainguard_identity" "gh-user-chainguard-rb" {
   issuer  = "https://auth.chainguard.dev/"
   subject = "github|${data.github_user.$USERNAME.id}"
@@ -358,13 +358,13 @@ You can refer to the [Terraform language documentation](https://developer.hashic
 
 To remove the resources Terraform created, you can run the `terraform destroy` command.
 
-```Shell
+```sh
 terraform destroy
 ```
 
 This will destroy the Chainguard role-bindings created for your GitHub team. You can then remove the working directory to clean up your system.
 
-```Shell
+```sh
 rm -r ~/github-team/
 ```
 

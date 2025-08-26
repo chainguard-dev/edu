@@ -27,7 +27,7 @@ Chainguard provides a rich Identity and Access Management (IAM) model similar to
 
 To authenticate into the Chainguard platform, run the following login command.
 
-```Shell
+```sh
 chainctl auth login
 ```
 
@@ -38,23 +38,23 @@ A web browser window will open to prompt you to log in via your chosen OIDC flow
 
 At any time, you can list the organizations your account has access to by using the `list` subcommand. To make it more human readable, you can output the information as a table by passing `-o table` to the end of the command.
 
-```Shell
+```sh
 chainctl iam organizations list
 ```
 
 You’ll get output regarding each of the organizations the user you're logged in as belongs to, including a description of each organization, if available.
 
-```Shell
+```sh
 [demo-org] This is a shared IAM organization for running demos
 [tutorial-org] This is a shared IAM organization for tutorials.
 ```
 
 You can retrieve your organizations' UIDPs by adding the `-o table` option to the previous `list` command.
 
-```Shell
+```sh
 chainctl iam organizations list -o table
 ```
-```Output
+```
           ID          |     NAME     |  	DESCRIPTION
 ----------------------+--------------+---------------------------------
   <Organization UIDP> | tutorial-org | This is a shared IAM
@@ -72,19 +72,19 @@ You can use `chainctl` to generate invite codes in order to invite others to a s
 
 To do so, run the following command, making sure to replace `$ORGANIZATION` with the name of your chosen organization.
 
-```Shell
+```sh
 chainctl iam invite create $ORGANIZATION
 ```
 
 You will be prompted for the scope that the invite code will be granted. After selecting the [role-bindings](/chainguard/administration/iam-organizations/roles-role-bindings/), this command will generate both an invite code and an invite link.  If you ever lose the invite code, you can retrieve a list of active invite codes with the following `chainctl` command:
 
-```Shell
+```sh
 chainctl iam invite list
 ```
 
 This will provide output in the form of a table with the organization ID, a timestamp indicating when the invitation to the organization will expire, the invite code's key ID, and the selected role.
 
-```Output
+```
           ID          |        EXPIRATION        |     KEYID     |          	ROLE          	 
 ----------------------+--------------------------+---------------+---------------------------------
   <Organization UIDP> | 2024-03-23T00:55:04.813Z | <Invite code> | [editor] Editor            	 
@@ -94,7 +94,7 @@ Note that this invite code found under the `KEYID` column will be shorter than t
 
 To invite team members, auditors, or others to your desired organizations, securely distribute the invite code and have them log in with chainctl as follows.
 
-```Shell
+```sh
 chainctl auth login --invite-code $INVITE_CODE
 ```
 
@@ -102,7 +102,7 @@ You can also securely distribute the invite link and have users open it in their
 
 Note that you can tighten the scope of an invite code by including the `--email` and `--ttl` flags when creating the invite.
 
-```Shell
+```sh
 chainctl iam invite create $ORGANIZATION --email linky@example.com --ttl 24h
 ```
 

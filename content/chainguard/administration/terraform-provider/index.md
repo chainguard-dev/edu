@@ -33,7 +33,7 @@ Terraform uses [a native configuration language](https://developer.hashicorp.com
 
 To use the Chainguard Terraform provider, add it to the block of required providers in your configuration:
 
-```HCL
+```
 terraform {
   required_providers {
 	chainguard = { source = "chainguard-dev/chainguard" }
@@ -45,7 +45,7 @@ If you don't have an active Chainguard token when you apply the configuration, t
 
 You can customize the behavior of the authentication flow in a number of ways. For example, you can specify an identity to assume, or a [verified organization](/chainguard/administration/iam-organizations/verified-orgs/) name in order to use a previously-configured custom identity provider:
 
-```HCL
+```
 provider "chainguard" {
   login_options {
 	organization_name = "my-org.com"
@@ -58,7 +58,7 @@ provider "chainguard" {
 
 You can also configure the provider to use an OIDC token, either by supplying it directly or pulling it from a file, with the automatic browser flow disabled. This is useful when setting up CI workflows:
 
-```HCL
+```
 provider "chainguard" {
   login_options {
 	# Disable the automatic browser authentication flow.
@@ -94,7 +94,7 @@ chainctl iam organizations list -o table
 
 Once you've copied the UIDP of your organization (the 40-digit long hex string listed in the `ID` column of the previous command's output), you can use it to create a local variable in Terraform:
 
-```HCL
+```
 locals {
   org_id = "[organization UIDP]"
 }
@@ -108,7 +108,7 @@ Throughout your Terraform code, you can refer to this value as `local.org_id`. I
 
 If you know the exact name of your organization, you can use a data resource to query the API for it:
 
-```HCL
+```
 data "chainguard_group" "org" {
   # This indicates the group is an organization.
   parent_id = "/"
@@ -125,7 +125,7 @@ The Chainguard Terraform provider is useful for configuring your organization's 
 
 To configure a new identity provider for your organization, use the `chainguard_identity_provider` resource. You must provide a `parent_id` (your organization's ID), a `name` (the identity provider service is a good choice), a `default_role` that new users will be bound to upon their first login, and an `oidc` configuration:
 
-```HCL
+```
 # The default role can be either a built-in role, or a custom role.
 # To see the list of available built-in roles
 # use chainctl iam roles list --managed
@@ -160,7 +160,7 @@ If you're not bringing your own identity provider, but rather relying on one of 
 
 As an example, say you want your users to log in with their GitHub account. To pre-bind users to a role within your organization, you will need to know their GitHub IDs and add them to a Terraform configuration like the following:
 
-```HCL
+```
 # Create a custom role in this example for first time users.
 resource "chainguard_role" "default_role" {
   parent_id   = data.chainguard_group.org.id

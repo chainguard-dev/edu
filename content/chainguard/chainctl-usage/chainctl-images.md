@@ -22,13 +22,13 @@ For a full reference of all commands with details and switches, see [chainctl Re
 
 When you want to know which Chainguard Containers are available to your account, use the following command:
 
-```Shell
+```shell
 chainctl images list
 ```
 
 This will respond with a list of organizations available to your account. For most users, there will only be one entry in the list. This example shows an account with access to several organizations within the fictional MyCorp.
 
-```Output
+```shell
     Which organization would you like to list images from?                                                       
                                                                                                                         
   > [MyCorp-prod]     This group holds the production Chainguard Containers hosted under    cgr.dev/MyCorp-prod                   
@@ -42,7 +42,7 @@ Be warned, that list may take a while to generate and is likely to scroll past q
 
 Here's an abbreviated example of what will be returned:
 
-```Output
+```shell
 ...
 ├ [python]
 │ ├ sha256:038449621d30e512645107e6b141fbfb5320d8f0caacd3d788e5a3be8da16def
@@ -74,7 +74,7 @@ This will continue until all images (like `python` above) are listed with all th
 
 For a list of image repositories available to your account, use:
 
-```Shell
+```shell
 chainctl images repos list
 ```
 
@@ -85,20 +85,20 @@ To examine the history of an image tag in chainctl, like when it was updated and
 
 To examine the history without using the menu shown earlier, use the optional `--parent=$ORGANIZATION` switch to designate your org, like this:
 
-```Shell
+```shell
 chainctl images history $IMAGE:$TAG --parent=$ORGANIZATION
 ```
 
 For example, let's find the history of one of the `python` image variants from our previous list, `3.12.7`. So we enter:
 
-```Shell
+```shell
 chainctl images history python:3.12.7 --parent=chainguard.edu
 ```
 
 
 The returned list is longer than is shown here, but here's a useful excerpt:
 
-```Output
+```shell
 - time: 2024-11-29 08:11:03 UTC
   digest: sha256:16b52893f316d9d7074b9c24c30f82eab1e94356461439d4be1a62fe229e6933
   architectures:
@@ -135,14 +135,14 @@ The command returns a reverse-chronological history of when a specific tag was u
 When the release version tag is not provided, the command will present you with a menu that lets you select which tag you'd like to obtain the history for. For example, if you enter:
 
 
-```Shell
+```
 chainctl images history python --parent=chainguard.edu
 ```
 
 This will present you with a menu like this:
 
 
-```Output
+```
     Which tag of python would you like to view history for?  
                                                              
   > 3                                                        
@@ -168,7 +168,7 @@ Once you make a selection, the details will be returned for that variant.
 
 When you want to compare two Chainguard images, enter:
 
-```Shell
+```shell
 chainctl images diff $FROM_IMAGE $TO_IMAGE
 ```
 
