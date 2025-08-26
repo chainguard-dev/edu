@@ -40,7 +40,7 @@ jobs:
         persist-credentials: false
 
     - name: Authenticate to Google Cloud
-      uses: google-github-actions/auth@6fc4af4b145ae7821d527454aa9bd537d1f2dc5f # v2.1.7
+      uses: step-security/google-github-auth@190f7ef9b7a34cc0dfd0c11f0e327365f70071d6 # v2.1.12
       with:
         workload_identity_provider: "projects/456977358484/locations/global/workloadIdentityPools/chainguard-academy/providers/chainguard-edu"
         service_account: "github-chainguard-academy@chainguard-academy.iam.gserviceaccount.com"
