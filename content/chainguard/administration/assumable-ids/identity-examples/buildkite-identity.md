@@ -37,7 +37,7 @@ We will be using Terraform to create an identity for a Buildkite pipeline to ass
 
 To help explain each configuration file's purpose, we will go over what they do and how to create each file one by one. First, though, create a directory to hold the Terraform configuration and navigate into it.
 
-```sh
+```Shell
 mkdir ~/buildkite-id && cd $_
 ```
 
@@ -70,7 +70,7 @@ Next, you can create the `sample.tf` file.
 
 This Terraform configuration consists of two main parts. The first part of the file will contain the following lines.
 
-```
+```hcl
 data "chainguard_group" "group" {
   name = "my-customer.biz"
 }
@@ -86,7 +86,7 @@ The `buildkite.tf` file is what will actually create the identity for your Build
 
 The first section creates the identity itself.
 
-```
+```hcl
 resource "chainguard_identity" "buildkite" {
   parent_id   = data.chainguard_group.group.id
   name   	 = "buildkite"
@@ -114,7 +114,7 @@ You may refer to [the official Buildkite documentation](https://buildkite.com/do
 
 The next section will output the new identity's `id` value. This is a unique value that represents the identity itself.
 
-```
+```hcl
 output "buildkite-identity" {
   value = chainguard_identity.buildkite.id
 }
@@ -122,7 +122,7 @@ output "buildkite-identity" {
 
 The section after that looks up the `viewer` role.
 
-```
+```hcl
 data "chainguard_role" "viewer" {
   name = "viewer"
 }
@@ -130,7 +130,7 @@ data "chainguard_role" "viewer" {
 
 The final section grants this role to the identity.
 
-```
+```hcl
 resource "chainguard_rolebinding" "view-stuff" {
   identity = chainguard_identity.buildkite.id
   group	= data.chainguard_group.group.id
@@ -144,31 +144,31 @@ Following that, your Terraform configuration will be ready. Now you can run a fe
 
 First, run `terraform init` to initialize Terraform's working directory.
 
-```sh
+```Shell
 terraform init
 ```
 
 Then run `terraform plan`. This will produce a speculative execution plan that outlines what steps Terraform will take to create the resources defined in the files you set up in the last section.
 
-```sh
+```Shell
 terraform plan
 ```
 
 If the plan worked successfully and you're satisfied that it will produce the resources you expect, you can apply it. First, though, you'll need to log in to `chainctl` to ensure that Terraform can create the Chainguard resources.
 
-```sh
+```Shell
 chainctl auth login
 ```
 
 Then apply the configuration.
 
-```sh
+```Shell
 terraform apply
 ```
 
 Before going through with applying the Terraform configuration, this command will prompt you to confirm that you want it to do so. Enter `yes` to apply the configuration.
 
-```
+```Output
 ...
 Plan: 4 to add, 0 to change, 0 to destroy.
 
@@ -184,7 +184,7 @@ Do you want to perform these actions?
 
 After pressing `ENTER`, the command will complete and will output an `buildkite-identity` value.
 
-```
+```Output
 ...
 
 Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
@@ -196,7 +196,7 @@ buildkite-identity = "<your buildkite identity>"
 
 This is the identity's [UIDP (unique identity path)](/chainguard/administration/cloudevents/events-reference/#uidp-identifiers), which you configured the `buildkite.tf` file to emit in the previous section. Note this value down, as you'll need it when you test this identity using a Buildkite workflow. If you need to retrieve this UIDP later on, though, you can always run the following `chainctl` command to obtain a list of the UIDPs of all your existing identities.
 
-```sh
+```Shell
 chainctl iam identities ls
 ```
 
@@ -251,11 +251,11 @@ Click the **Save and Build** button. Ensure that your Buildkite agent is running
 
 Assuming everything works as expected, your pipeline will be able to assume the identity and run the `chainctl images repos list` command, returning the images available to the organization. Then it will pull an image from the organization's repository.
 
-```
+```Output
 ...
 chainctl        	100%[===================>]  54.34M  6.78MB/s	in 13s
 
-2023-05-17 13:19:45 (4.28 MB/s) - ‘chainctl’ saved [56983552/56983552]
+2023-05-17 13:19:45 (4.28 MB/s) - 'chainctl' saved [56983552/56983552]
 
 Successfully exchanged token.
 Valid! Id: 3f4ad8a9d5e63be71d631a359ba0a91dcade94ab/d3ed9c70b538a796
@@ -282,7 +282,7 @@ Of course, the Buildkite pipeline will only be able to perform certain actions o
 
 To remove the resources Terraform created, you can run the `terraform destroy` command.
 
-```sh
+```Shell
 terraform destroy
 ```
 
@@ -290,7 +290,7 @@ This will destroy the role-binding and the identity created in this guide. It wi
 
 You can then remove the working directory to clean up your system.
 
-```sh
+```Shell
 rm -r ~/buildkite-id/
 ```
 

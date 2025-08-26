@@ -25,7 +25,7 @@ Once an administrator has [configured an identity provider](#setup-and-administr
 
 [`chainctl`, the Chainguard command line interface (CLI)](/chainguard/chainctl/), supports SSO authentication by supplying the identity provider organization name as a flag or by setting it as a default in configuration. To use a flag to authenticate using SSO, pass the `--identity-provider` flag to `chainctl auth login`.
 
-```sh
+```Shell
 export IDP_ID=<your identity provider id here>
 chainctl auth login --identity-provider=$IDP_ID
 ```
@@ -36,7 +36,7 @@ Note that you can also use the [`--headless` option](/chainguard/administration/
 
 To log in with a custom IDP using the `--headless` option, you would run a command like the following:
 
-```sh
+```Shell
 chainctl auth login --headless --identity-provider=$IDP_ID
 ```
 
@@ -44,7 +44,7 @@ Then you can use the URL in this command's output to complete the login flow fro
 
 > **Note**: As of this writing (September 2024), using the headless login flow with a custom IDP is still an experimental feature. Please reach out to us through your customer success manager or the support portal to report any feedback. Also, until this feature becomes enabled by default, you must enable it yourself with the following command:
 
-```sh
+```Shell
 chainctl config set auth.device-flow chainguard
 ```
 
@@ -53,13 +53,13 @@ chainctl config set auth.device-flow chainguard
 
 As an alternative to remembering identity provider IDs, you can set the default identity provider by editing the `chainctl` configuration file. You can do so with the following command.
 
-```sh
+```Shell
 chainctl config edit
 ```
 
 This will open your system's default text editor where you can edit the local `chainctl` config. Add the following lines to this file.
 
-```
+```YAML
 default:
   identity-provider: <your identity provider id here>
 ```
@@ -68,7 +68,7 @@ Then save and close the file. If your system's default editor is `nano`, for exa
 
 You can also set this with a single command using the `chainctl config set` subcommand, as in this example.
 
-```sh
+```Shell
 chainctl config set default.identity-provider <your identity provider id here>
 ```
 
@@ -79,7 +79,7 @@ Once set, the configured identity provider will be used automatically any time y
 
 If your organization is [verified](/chainguard/administration/iam-organizations/verified-orgs/), you can use your organization name instead of the ID of your identity provider to authenticate.
 
-```sh
+```Shell
 chainctl auth login --org-name example.com
 ```
 
@@ -150,7 +150,7 @@ Finally, configure a set of client credentials and make note of the following de
 
 Next, use `chainctl` to log in to Chainguard with an OIDC provider (such as Google, GitHub, or GitLab) to bootstrap your account.
 
-```sh
+```Shell
 chainctl auth login
 ```
 
@@ -158,7 +158,7 @@ The bootstrap account can use any supported IDP -- for example you may choose to
 
 Create a new identity provider using the details you noted from your OIDC application. Be sure to update the details in the following example `export` commands to align with your own application/client ID, client secret, and issuer URL.
 
-```sh
+```Shell
 export NAME=my-sso-identity-provider
 export CLIENT_ID=<your application/client id here>
 export CLIENT_SECRET=<your client secret here>
@@ -185,10 +185,9 @@ Be aware that if you don't include the `--parent` or `--default-role` options in
 
 You can retrieve a list of all your Chainguard organizations — along with their UIDPs — with the following command.
 
-```shell
+```Shell
 chainctl iam organizations ls -o table
-```
-```output
+```Output
                         	ID                      	|    NAME    | DESCRIPTION
 --------------------------------------------------------+------------+---------------------
   59156e77fb23e1e5ebcb1bd9c5edae471dd85c43          	| sample_org |
@@ -204,13 +203,13 @@ Identity providers can be managed via `chainctl` using the `chainctl iam identit
 
 To create new providers, you can use the `create` subcommand.
 
-```sh
+```Shell
 chainct iam identity-provider create
 ```
 
 To list out every configured identity provider, run the `list` subcommand.
 
-```sh
+```Shell
 chainctl iam identity-provider list
 ```
 
@@ -218,7 +217,7 @@ This will return a list of details for each of your identity providers, includin
 
 To modify an existing identity provider, use the `update` subcommand.
 
-```sh
+```Shell
 chainctl iam identity-provider update
 ```
 
@@ -226,7 +225,7 @@ This can be useful for rotating client credentials.
 
 Lastly, to delete an identity provider, run the `delete` subcommand.
 
-```sh
+```Shell
 chainctl iam identity-provider delete
 ```
 

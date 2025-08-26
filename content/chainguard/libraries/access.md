@@ -32,14 +32,14 @@ Chainguard Control `chainctl` command line
 tool](/chainguard/chainctl-usage/how-to-install-chainctl/) and login to your
 account:
 
-```shell
+```Shell
 chainctl auth login
 ```
 
 After authentication in a browser window, a successful login displays a message
 and a token:
 
-```shell
+```Output
 Successfully exchanged token.
 Valid! Id: 8a4141a........7d9904d98c
 ```
@@ -52,7 +52,7 @@ Create a new pull token for the Chainguard Libraries for Java with the [chainctl
 auth pull-token](/chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token/)
 command:
 
-```shell
+```Shell
 chainctl auth pull-token --library-ecosystem=java --parent=example --ttl=8670h
 ```
 
@@ -75,7 +75,7 @@ Press `/` to filter the list.
 `chainctl` returns a username and password suitable for basic authentication in
 the response:
 
-```shell
+```Output
 Username: 45a.....424eb0
 
 Password: eyJhbGciO..........WF0IjoxN
@@ -131,7 +131,7 @@ configuration and files for all users to simplify setup and reduce errors.
 Use the `env` environment output option to create a snippet for a new token
 suitable for integration in a script.
 
-```shell
+```Shell
 $ chainctl auth pull-token --output env --library-ecosystem=java --parent=example
 export CHAINGUARD_JAVA_IDENTITY_ID=45a.....424eb0
 export CHAINGUARD_JAVA_TOKEN=eeyJhbGciO..........WF0IjoxN
@@ -140,7 +140,7 @@ export CHAINGUARD_JAVA_TOKEN=eeyJhbGciO..........WF0IjoxN
 Combine the call with `eval` to populate the environment variables directly by
 calling `chainctl`:
 
-```shell
+```Shell
 eval $(chainctl auth pull-token --output env --library-ecosystem=java --parent=example)
 ```
 
@@ -199,13 +199,13 @@ Note that the long string for the password value must use only one line.
 You can verify entitlements for your organization `example` with the following
 command:
 
-```shell
+```Shell
 chainctl libraries entitlements list --parent=example
 ```
 
 The output must include the desired ecosystem in the table:
 
-```shell
+```Output
 Ecosystem Library Entitlements for example (45a0...764595)
 
                              ID                             | ECOSYSTEM
@@ -286,7 +286,7 @@ commands for various inspection and management tasks.
 
 List all pull tokens with the `list` command:
 
-```shell
+```Shell
 chainctl auth pull-token list
 ```
 
@@ -305,13 +305,13 @@ The displayed list includes the following columns:
 
 List all pull tokens for Chainguard Libraries for Java that are not yet expired:
 
-```shell
+```Shell
 chainctl auth pull-token list --library-ecosystem=java
 ```
 
 List all expired pull tokens for Chainguard Libraries for Python:
 
-```shell
+```Shell
 chainctl auth pull-token list --library-ecosystem=java --expired=true
 ```
 
@@ -319,13 +319,13 @@ Use the [delete command for IAM
 identities](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities_delete/)
 to delete a specific pull token using its ID `45a0c61ea6fd97...`:
 
-```shell
+```Shell
 chainctl iam identities delete 45a0c61ea6fd97...
 ```
 
 Use the identifier or name of your organization `example` and the `--expired`
 flag to remove all expired pull tokens:
 
-```shell
+```Shell
 chainctl iam ids rm --expired --parent=example
 ```

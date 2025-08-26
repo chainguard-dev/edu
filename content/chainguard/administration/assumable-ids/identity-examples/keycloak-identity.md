@@ -36,7 +36,7 @@ We will be using Terraform to create an identity for a Keycloak user to assume. 
 
 To help explain each configuration file's purpose, we will go over what they do and how to create each file one by one. First, though, create a directory to hold the Terraform configuration and navigate into it.
 
-```sh
+```Shell
 mkdir ~/keycloak-id && cd $_
 ```
 
@@ -49,7 +49,7 @@ The first file, which we will call `main.tf`, will serve as the scaffolding for 
 
 The file will consist of the following content.
 
-```hcl
+```HCL
 terraform {
   required_providers {
     chainguard = {
@@ -69,7 +69,7 @@ Next, you can create the `sample.tf` file.
 
 This Terraform configuration consists of two main parts. The first part of the file will contain the following lines.
 
-```hcl
+```HCL
 data "chainguard_group" "group" {
   name   	 = "my-customer.biz"
 }
@@ -79,7 +79,7 @@ This section looks up a Chainguard IAM organization named `my-customer.biz`. Thi
 
 If you aren't sure of the name of your organization, you can retrieve a list of available organizations with the following command.
 
-```sh
+```Shell
 chainctl iam organizations list -o table
 ```
 
@@ -91,7 +91,7 @@ The `keycloak.tf` file is what will actually create the identity for your CLI to
 
 The first section creates the identity itself.
 
-```
+```HCL
 resource "chainguard_identity" "keycloak" {
   parent_id   = data.chainguard_group.group.id
   name    	= "keycloak"
@@ -116,13 +116,13 @@ In this case, the `issuer` field points to the realm you are using on your Keycl
 
 To discover the issuer, audience, and subject you will need to authenticate with the Keycloak server from the CLI and decode the JWT token returned. There are many ways to authenticate, but here is one example with password authentication:
 
-```sh
+```Shell
 curl --data "grant_type=password&client_id=<client name>&client_secret=<client secret>&username=<user>&password=<password>" https://<DNS NAME>/realms/<realm>/protocol/openid-connect/token | jq -r .access_token | cut -d\. -f2 | sed 's/$/==/' | base64 -d | jq | jq .iss,.aud,.sub
 ```
 
 The next section of the `keycloak.tf` file will output the new identity's `id` value. This is a unique value that represents the identity itself.
 
-```
+```HCL
 output "keycloak-identity" {
   value = chainguard_identity.keycloak.id
 }
@@ -130,7 +130,7 @@ output "keycloak-identity" {
 
 The section after that looks up the `viewer` role.
 
-```
+```HCL
 data "chainguard_role" "viewer" {
   name = "viewer"
 }
@@ -138,7 +138,7 @@ data "chainguard_role" "viewer" {
 
 The final section grants this role to the identity.
 
-```
+```HCL
 resource "chainguard_rolebinding" "view-stuff" {
   identity = chainguard_identity.keycloak.id
   group	= data.chainguard_group.group.id
@@ -152,25 +152,25 @@ Following that, your Terraform configuration will be ready. Now you can run a fe
 
 First, run `terraform init` to initialize Terraform's working directory.
 
-```sh
+```Shell
 terraform init
 ```
 
 Then run `terraform plan`. This will produce a speculative execution plan that outlines what steps Terraform will take to create the resources defined in the files you set up in the last section.
 
-```sh
+```Shell
 terraform plan
 ```
 
 Then apply the configuration.
 
-```sh
+```Shell
 terraform apply
 ```
 
 Before going through with applying the Terraform configuration, this command will prompt you to confirm that you want it to do so. Enter `yes` to apply the configuration.
 
-```
+```Output
 ...
 
 Plan: 4 to add, 0 to change, 0 to destroy.
@@ -187,7 +187,7 @@ Do you want to perform these actions?
 
 After typing `yes` and pressing `ENTER`, the command will complete and will output a `keycloak-ci` value.
 
-```
+```Output
 ...
 
 Apply complete! Resources: 4 added, 0 changed, 0 destroyed.
@@ -199,7 +199,7 @@ keycloak-identity = "<your actions identity>"
 
 This is the identity's [UIDP (unique identity path)](/chainguard/administration/cloudevents/events-reference/#uidp-identifiers), which you configured the `keycloak.tf` file to emit in the previous section. Note this value down, as you'll need it to authenticate with `chainctl`. If you need to retrieve this UIDP later on, though, you can always run the following `chainctl` command to obtain a list of the UIDPs of all your existing identities.
 
-```sh
+```Shell
 chainctl iam identities ls
 ```
 
@@ -211,7 +211,7 @@ From a CLI with the `chainctl` binary installed and access to the Keycloak serve
 
 First, create a pair of environment variables for when you log into Chainguard using the identity. This command generates a JSON Web Token (JWT) by logging in to Keycloak with a username and password and then assigning the token to a variable named `ID_TOKEN`.
 
-```sh
+```Shell
 export ID_TOKEN=$(curl \
   --data "grant_type=password&client_id=<client>&client_secret=<client secret>&username=<user>&password=<password>" \
   https://<keycloak URL>/realms/<realm>/protocol/openid-connect/token | jq -r .access_token)
@@ -219,7 +219,7 @@ export ID_TOKEN=$(curl \
 
 Next set a variable named `ID` to your identity's UIDP value with the following command. Be sure to replace `<identity UIDP>` with the identity's UIDP value, which you noted down in the previous section.
 
-```sh 
+```Shell 
 export ID=<identity UIDP>
 ```
 
@@ -237,7 +237,7 @@ chainctl auth configure-docker \
 
 After logging in, the pipeline will be able to run any `chainctl` command under the assumed identity. To test out this ability, this configuration runs the `chainctl images repos list` command to list all available image repositories associated associated with the organization.
 
-```sh
+```Shell
 chainctl images repos list
 
 ```
@@ -246,7 +246,7 @@ After updating the Keycloak configuration, commit the changes and the pipeline w
 
 If the token times out, `chainctl` will try to reauthenticate and fail. If you repeat the same login command with the old token you will see messages like this:
 
-```sh
+```Shell
 chainctl auth login --identity-token $ID_TOKEN --identity $ID
 Error: [101] unable to exchange tokens: rpc error: code = PermissionDenied desc = verifying token: oidc: token is expired (Token Expiry: 2024-03-18 11:44:35 +0000 UTC)
 ```
@@ -263,7 +263,7 @@ data "chainguard_roles" "editor" {
 
 To retrieve a list of all the available roles, you can run the following command.
 
-```sh
+```Shell
 chainctl iam roles list
 ```
 
@@ -274,7 +274,7 @@ This command's output will also include any custom roles you are able to grant.
 
 To remove the resources Terraform created, you can run the `terraform destroy` command.
 
-```sh
+```Shell
 terraform destroy
 ```
 
@@ -282,7 +282,7 @@ This will destroy identity and the role-binding created in this guide. It will n
 
 You can then remove the working directory to clean up your system.
 
-```sh
+```Shell
 rm -r ~/keycloak-id/
 ```
 

@@ -39,7 +39,7 @@ These files are available in [Chainguard's GitHub Repository of Platform Example
 
 To help explain each configuration file's purpose, we will go over what they do one by one. First, though, create a directory to hold the Terraform configuration and navigate into it.
 
-```sh
+```Shell
 mkdir ~/aws-id && cd $_
 ```
 
@@ -51,7 +51,7 @@ The first file, which we will call `main.tf`, will serve as the scaffolding for 
 
 The file will consist of the following content.
 
-```
+```HCL
 terraform {
   required_providers {
     aws        = { source = "hashicorp/aws" }
@@ -69,7 +69,7 @@ Next we'll create `lambda.tf` to define the AWS resources to run the Lambda func
 
 The `lambda.tf` describes the AWS role that a Lambda function will run as.
 
-```hcl
+```HCL
 data "aws_iam_policy_document" "lambda" {
   statement {
     effect  = "Allow"
@@ -98,7 +98,7 @@ The `lambda.tf` file also creates an AWS Lambda function that will assume the id
 
 The final section defines a AWS lambda function implemented in Go that will assume the identity you created in the previous section:
 
-```hcl
+```HCL
 resource "aws_lambda_function" "test_lambda" {
   filename      = "lambda_function_payload.zip"
   function_name = "lambda_function_name"
@@ -137,7 +137,7 @@ This section creates a Chainguard IAM organization named `example-group`, as wel
 
 Then we'll define a Chainguard identity that can be assumed by the AWS role created in `lambda.tf` above:
 
-```hcl
+```HCL
 resource "chainguard_identity" "aws" {
   parent_id   = data.chainguard_group.example-group.id
   name        = "aws-auth-identity"
@@ -183,25 +183,25 @@ After defining these resources, your Terraform configuration will be ready. Now 
 
 First, run `terraform init` to initialize Terraform's working directory.
 
-```sh
+```Shell
 terraform init
 ```
 
 Then run `terraform plan`. This will produce a speculative execution plan that outlines what steps Terraform will take to create the resources defined in the files you set up in the last section.
 
-```sh
+```Shell
 terraform plan
 ```
 
 Then apply the configuration.
 
-```sh
+```Shell
 terraform apply
 ```
 
 Before going through with applying the Terraform configuration, this command will prompt you to confirm that you want it to do so. Enter `yes` to apply the configuration.
 
-```
+```Output
 ...
 
 Plan: 8 to add, 0 to change, 0 to destroy.
@@ -218,7 +218,7 @@ Do you want to perform these actions?
 
 After typing `yes` and pressing `ENTER`, the command will complete and will output an `aws-identity` value.
 
-```
+```Output
 ...
 
 Apply complete! Resources: 8 added, 0 changed, 0 destroyed.
@@ -230,7 +230,7 @@ aws-identity = "<your identity>"
 
 This is the identity's [UIDP (unique identity path)](/chainguard/administration/cloudevents/events-reference/#uidp-identifiers), which you configured the `chainguard.tf` file to emit in the previous section. Note this value down, as you'll need it to set up the AWS role you'll use to test the identity. If you need to retrieve this UIDP later on, though, you can always run the following `chainctl` command to obtain a list of the UIDPs of all your existing identities.
 
-```sh
+```Shell
 chainctl iam identities ls
 ```
 
@@ -288,19 +288,19 @@ ls, err := clients.Registry().ListRepos(ctx, &registry.RepoFilter{
 
 To remove the resources Terraform created, you can run the `terraform destroy` command.
 
-```sh
+```Shell
 terraform destroy
 ```
 
 This will destroy the role-binding, and the identity created in this guide. However, you'll need to destroy the `example-group` organization yourself with `chainctl`. It will also delete all the AWS resources defined earlier in `chainguard.tf` and `lambda.tf`.
 
-```sh
+```Shell
 chainctl iam organizations rm example-group
 ```
 
 You can then remove the working directory to clean up your system.
 
-```sh
+```Shell
 rm -r ~/aws-id/
 ```
 

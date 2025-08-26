@@ -23,7 +23,7 @@ For more information on roles and role-bindings within Chainguard's IAM model, p
 
 This guide outlines the built-in Chainguard IAM roles available to most customer organizations. You can find more info about specific roles in your organization with the following `chainctl` command:
 
-```shell
+```Shell
 chainctl iam roles list
 ```
 

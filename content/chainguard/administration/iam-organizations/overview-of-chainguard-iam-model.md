@@ -42,7 +42,7 @@ You can also create assumable identities. These are typically used to allow auto
 
 To authenticate into the Chainguard platform, run the following login command.
 
-```sh
+```Shell
 chainctl auth login
 ```
 
@@ -54,7 +54,7 @@ Note that you can also use `chainctl`'s `--headless` option to log in. This opti
 
 The headless login flow is when you invoke `chainctl auth login --headless` in the terminal. 
 
-```sh
+```Shell
 chainctl auth login --headless
 ```
 

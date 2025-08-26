@@ -42,7 +42,7 @@ chainctl events subscriptions create https://webhook.site/aEXAMPLE-b689-49a5-94d
 
 Select the organization whose events you want to subscribe to when prompted. If successful, this returns an ID for the subscription:
 
-```
+```Output
    ✔ Selected folder chainguard.edu.
                          	ID                         	|                       	SINK
 ------------------------------------------------------------+------------------------------------------------------------
@@ -57,7 +57,7 @@ docker pull cgr.dev/chainguard.edu/istio-pilot:1-dev
 
 Be sure to change this command to use your own organization's repository and an image you have access to.
 
-```
+```Output
 7.0.10: Pulling from chainguard.edu/istio-pilot
 Digest: sha256:5a4583fb12ee4b33306a2c23ff33c9f2d04e6d1c7580703850928abf50de5dcf
 Status: Image is up to date for cgr.dev/chainguard.edu/istio-pilot:1-dev
@@ -66,7 +66,7 @@ cgr.dev/chainguard.edu/istio-pilot:1-dev
 
 Then, navigate back to Webhook.site. It may take a few moments, but in time an event will appear with request content like the following:
 
-```
+```JSON
 {
   "actor": {
     "subject": "261ea43771f4d962f17c1d206155a38b9b17ff18",
