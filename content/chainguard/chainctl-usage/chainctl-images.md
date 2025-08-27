@@ -28,7 +28,7 @@ chainctl images list
 
 This will respond with a list of organizations available to your account. For most users, there will only be one entry in the list. This example shows an account with access to several organizations within the fictional MyCorp.
 
-```shell
+```output
     Which organization would you like to list images from?                                                       
                                                                                                                         
   > [MyCorp-prod]     This group holds the production Chainguard Containers hosted under    cgr.dev/MyCorp-prod                   
@@ -42,7 +42,7 @@ Be warned, that list may take a while to generate and is likely to scroll past q
 
 Here's an abbreviated example of what will be returned:
 
-```shell
+```output
 ...
 ├ [python]
 │ ├ sha256:038449621d30e512645107e6b141fbfb5320d8f0caacd3d788e5a3be8da16def
@@ -98,7 +98,7 @@ chainctl images history python:3.12.7 --parent=chainguard.edu
 
 The returned list is longer than is shown here, but here's a useful excerpt:
 
-```shell
+```output
 - time: 2024-11-29 08:11:03 UTC
   digest: sha256:16b52893f316d9d7074b9c24c30f82eab1e94356461439d4be1a62fe229e6933
   architectures:
@@ -135,14 +135,14 @@ The command returns a reverse-chronological history of when a specific tag was u
 When the release version tag is not provided, the command will present you with a menu that lets you select which tag you'd like to obtain the history for. For example, if you enter:
 
 
-```
+```shell
 chainctl images history python --parent=chainguard.edu
 ```
 
 This will present you with a menu like this:
 
 
-```
+```output
     Which tag of python would you like to view history for?  
                                                              
   > 3                                                        

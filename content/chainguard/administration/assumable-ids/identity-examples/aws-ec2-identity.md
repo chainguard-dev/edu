@@ -89,7 +89,7 @@ Be sure to change the `chainguard.edu` placeholder to reflect the name of your o
 
 This command will return a value like the following:
 
-```
+```output
 . . .
 45a0cEXAMPLE977f050c5fb9ac06a69EXAMPLE95/2c5f7EXAMPLE3871
 ```

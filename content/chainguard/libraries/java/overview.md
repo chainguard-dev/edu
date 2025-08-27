@@ -150,14 +150,14 @@ download and save the file with the original name.
 
 With [.netrc authentication](/chainguard/libraries/access/#netrc):
 
-```
+```shell
 curl -n -L --user "$CHAINGUARD_JAVA_IDENTITY_ID:$CHAINGUARD_JAVA_TOKEN" \
   -O https://libraries.cgr.dev/java/commons-io/commons-io/2.17.0/commons-io-2.17.0.pom
 ```
 
 With [environment variables](/chainguard/libraries/access/#env):
 
-```
+```shell
 curl -L --user "$CHAINGUARD_JAVA_IDENTITY_ID:$CHAINGUARD_JAVA_TOKEN" \
   -O https://libraries.cgr.dev/java/commons-io/commons-io/2.17.0/commons-io-2.17.0.pom
 ```

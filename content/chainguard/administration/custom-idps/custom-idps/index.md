@@ -59,7 +59,7 @@ chainctl config edit
 
 This will open your system's default text editor where you can edit the local `chainctl` config. Add the following lines to this file.
 
-```
+```yaml
 default:
   identity-provider: <your identity provider id here>
 ```

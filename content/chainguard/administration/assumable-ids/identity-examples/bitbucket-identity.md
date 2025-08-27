@@ -49,7 +49,7 @@ The first file, which we will call `main.tf`, will serve as the scaffolding for 
 
 The file will consist of the following content.
 
-```
+```hcl
 terraform {
   required_providers {
     chainguard = {
@@ -69,7 +69,7 @@ Next, you can create the `sample.tf` file.
 
 This Terraform configuration consists of two main parts. The first part of the file will contain the following lines.
 
-```
+```hcl
 data "chainguard_group" "group" {
   name = "my-customer.biz"
 }
@@ -85,7 +85,7 @@ The `bitbucket.tf` file is what will actually create the identity for your Bitbu
 
 The first section creates the identity itself.
 
-```
+```hcl
 resource "chainguard_identity" "bitbucket" {
   parent_id   = data.chainguard_group.group.id
   name        = "bitbucket"
@@ -116,7 +116,7 @@ Refer to your Bitbucket repository OIDC settings page for reference values. To f
 
 The next section will output the new identity's `id` value. This is a unique value that represents the identity itself.
 
-```
+```hcl
 output "bitbucket-identity" {
   value = chainguard_identity.bitbucket.id
 }
@@ -124,7 +124,7 @@ output "bitbucket-identity" {
 
 The section after that looks up the `viewer` role.
 
-```
+```hcl
 data "chainguard_role" "viewer" {
   name = "viewer"
 }
@@ -132,7 +132,7 @@ data "chainguard_role" "viewer" {
 
 The final section grants this role to the identity.
 
-```
+```hcl
 resource "chainguard_rolebinding" "view-stuff" {
   identity = chainguard_identity.bitbucket.id
   group    = data.chainguard_group.group.id
@@ -208,7 +208,7 @@ To test the identity you created with Terraform in the previous section, ensure 
 
 Copy the following pipeline definition into your `bitbucket-pipelines.yml` file and commit it to the repository.
 
-```
+```bitbucket-pipelines.yml
 image: atlassian/default-image:3
 
 pipelines:
@@ -229,7 +229,7 @@ The important line is the `oidc: true` option, which enables OIDC for the indivi
 
 Now you can add the commands for testing the identity like `chainctl images repos list` in the following example:
 
-```
+```bitbucket-pipelines.yml
 ...
           # Assume the bitbucket pipeline identity
           - ./chainctl auth login --identity-token $BITBUCKET_STEP_OIDC_TOKEN --identity %bitbucket-identity%
@@ -261,7 +261,7 @@ data "chainguard_roles" "editor" {
 
 You can also edit the pipeline itself to change its behavior. For example, instead of listing the repos the identity has access to, you could have the workflow inspect the organizations.
 
-```
+```bitbucket-pipelines.yml
           - ./chainctl images repos list
 ```
 

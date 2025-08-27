@@ -59,7 +59,7 @@ gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-1
 
 Scroll through this command's output to find the `slug` value for the team in question.
 
-```
+```json
 [
 . . .
 
@@ -159,7 +159,7 @@ The `rolebindings.tf` file will contain a few separate blocks that retrieve info
 
 The first block creates a `github_team` data source named `team`.
 
-```
+```hcl
 data "github_team" "team" {
   slug = "$GITHUB_TEAM"
 }
@@ -169,7 +169,7 @@ Using the arguments you provided in the `github` provider block in `main.tf`, Te
 
 After the first block retrieves information about the team, we need to retrieve information about each member of the team in order to create an identity for each of them. To this end, the next block creates a `github_user` data source named `team_members`.
 
-```
+```hcl
 data "github_user" "team_members" {
   for_each = toset(data.github_team.team.members)
   username = each.key
@@ -282,7 +282,7 @@ terraform apply
 
 Before going through with applying the Terraform configuration, this command will prompt you to confirm that you want it to do so. Enter `yes` to apply the configuration.
 
-```
+```output
 . . .
 
 Plan: 2 to add, 0 to change, 0 to destroy.
@@ -321,7 +321,7 @@ The Terraform configuration used in this guide is meant to serve as a starting p
 
 For example, rather than applying the `viewer` role to your team's role-bindings, you can apply one of the other built-in roles, or any custom roles created within your Chainguard organization. The following `data` and `resource` block examples could be used in place of the ones used in this guide's `rolebindings.tf` file. Instead of granting the identities the `viewer` role, this grants them the `editor` role.
 
-```
+```hcl
 data "chainguard_roles" "editor" {
   name = "editor"
 }

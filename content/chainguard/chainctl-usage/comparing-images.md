@@ -55,7 +55,7 @@ chainctl images diff cgr.dev/chainguard/go:latest cgr.dev/chainguard/go:latest-d
 
 This will return output like the following.
 
-```
+```output
 Fetching vulnerabilities for cgr.dev/chainguard/go@sha256:6fee3fff87854aa6e4762c7998c127436a68b09877f9c1010deca35e0f1e27bc
 Fetching vulnerabilities for cgr.dev/chainguard/go@sha256:e62ce9fe5e62296186066e647d22cd8d16565d8eee9c2d18541094cec9ddd7a3
 {
@@ -97,7 +97,7 @@ This command first uses Grype to scan each container image's vulnerability data 
 
 `chainctl`compares the images like this because of the order they appear in the command. If you reversed the order of the images in the example command, the packages shown as `added` and `removed` would also be flipped:
 
-```
+```output
 Fetching vulnerabilities for cgr.dev/chainguard/go@sha256:e62ce9fe5e62296186066e647d22cd8d16565d8eee9c2d18541094cec9ddd7a3
 Fetching vulnerabilities for cgr.dev/chainguard/go@sha256:6fee3fff87854aa6e4762c7998c127436a68b09877f9c1010deca35e0f1e27bc
 {

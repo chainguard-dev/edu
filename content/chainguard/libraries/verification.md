@@ -57,7 +57,7 @@ curl -LO "https://dl.enforce.dev/chainver/${LATEST}/chainver-v${LATEST}.zip"
 Extract the ZIP archive and find archives for different operating systems and
 processor architectures in the created `chainver-package/archives` directory:
 
-```
+```output
 chainver_0.3.6_Linux_x86_64.tar.gz
 chainver_0.3.6_Darwin_arm64.tar.gz
 chainver_0.3.6_Darwin_x86_64.tar.gz
@@ -68,7 +68,7 @@ chainver_0.3.6_Windows_x86_64.zip
 Extract the package, in the example for MacOS and ARM processor, and copy it to
 a directory that is on the `PATH`:
 
-```shell
+```output
 $ tar xfvz chainver_0.3.6_Darwin_arm64.tar.gz
 x LICENSE
 x README.md
@@ -77,7 +77,7 @@ x chainver
 
 Verify running `chainver` and inspect the version:
 
-```shell
+```output
 $ chainver version
 ChainVer version 0.3.6 (3277bb5)
   built with go1.24.0 on darwin/arm64

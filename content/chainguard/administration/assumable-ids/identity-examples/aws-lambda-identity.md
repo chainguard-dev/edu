@@ -51,7 +51,7 @@ The first file, which we will call `main.tf`, will serve as the scaffolding for 
 
 The file will consist of the following content.
 
-```
+```hcl
 terraform {
   required_providers {
     aws        = { source = "hashicorp/aws" }
@@ -123,7 +123,7 @@ Next, you can create the `chainguard.tf` file.
 
 `chainguard.tf` will create a few resources that will help us test out the identity.
 
-```
+```hcl
 resource "chainguard_group" "example-group" {
   name   	 = "example-group"
   description = <<EOF
@@ -159,7 +159,7 @@ The `aws_user_id_pattern` field configures the identity to be assumable only by 
 
 The section after that looks up the `viewer` role.
 
-```
+```hcl
 data "chainguard_role" "viewer" {
   name = "viewer"
 }
@@ -167,7 +167,7 @@ data "chainguard_role" "viewer" {
 
 The final section grants this role to the identity on the `example-group`.
 
-```
+```hcl
 resource "chainguard_rolebinding" "view-stuff" {
   identity = chainguard_identity.aws.id
   group	= data.chainguard_group.example-group.id
@@ -201,7 +201,7 @@ terraform apply
 
 Before going through with applying the Terraform configuration, this command will prompt you to confirm that you want it to do so. Enter `yes` to apply the configuration.
 
-```
+```output
 ...
 
 Plan: 8 to add, 0 to change, 0 to destroy.
@@ -218,7 +218,7 @@ Do you want to perform these actions?
 
 After typing `yes` and pressing `ENTER`, the command will complete and will output an `aws-identity` value.
 
-```
+```output
 ...
 
 Apply complete! Resources: 8 added, 0 changed, 0 destroyed.

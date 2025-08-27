@@ -91,7 +91,7 @@ The `keycloak.tf` file is what will actually create the identity for your CLI to
 
 The first section creates the identity itself.
 
-```
+```hcl
 resource "chainguard_identity" "keycloak" {
   parent_id   = data.chainguard_group.group.id
   name    	= "keycloak"
@@ -122,7 +122,7 @@ curl --data "grant_type=password&client_id=<client name>&client_secret=<client s
 
 The next section of the `keycloak.tf` file will output the new identity's `id` value. This is a unique value that represents the identity itself.
 
-```
+```hcl
 output "keycloak-identity" {
   value = chainguard_identity.keycloak.id
 }
@@ -130,7 +130,7 @@ output "keycloak-identity" {
 
 The section after that looks up the `viewer` role.
 
-```
+```hcl
 data "chainguard_role" "viewer" {
   name = "viewer"
 }
@@ -138,7 +138,7 @@ data "chainguard_role" "viewer" {
 
 The final section grants this role to the identity.
 
-```
+```hcl
 resource "chainguard_rolebinding" "view-stuff" {
   identity = chainguard_identity.keycloak.id
   group	= data.chainguard_group.group.id
@@ -225,7 +225,7 @@ export ID=<identity UIDP>
 
 After creating these variables, run the following commands to log in to Chainguard under the assumed identity. 
 
-```
+```shell
 chainctl auth login \
   --identity-token $ID_TOKEN \
   --identity $ID
@@ -255,7 +255,7 @@ To authenticate with `chainctl` you will need to generate a new token with Keycl
 
 If you'd like to experiment further with this identity and what the workflow can do with it, there are a few parts of this setup that you can tweak. For instance, if you'd like to give this identity different permissions you can change the role data source to the role you would like to grant.
 
-```
+```hcl
 data "chainguard_roles" "editor" {
   name = "editor"
 }
