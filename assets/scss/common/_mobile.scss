@@ -172,9 +172,9 @@
   }
 
   .top-card-container .card-container {
-    // Slighly less than 300 so the second image is partially on screen
-    width: 270%;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    // Keep cards in single column on mobile to prevent horizontal scrolling
+    width: 100%;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 
   .install-container {

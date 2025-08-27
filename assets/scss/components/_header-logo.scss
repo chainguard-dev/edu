@@ -1,0 +1,122 @@
+// Header logo styles to match www.chainguard.dev
+// Flat octopus icon + Chainguard text + Academy subtext
+
+.navbar-title-padding {
+    padding: 12px 12px 16px 12px;
+    border-bottom: 1px solid var(--leftnav-border);
+}
+
+.navbar-logo-link {
+    display: block;
+    
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+.navbar-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+// Octopus icon - flat version
+.navbar-logo-icon {
+    height: 36px;
+    width: auto;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+    
+    .navbar-logo-link:hover & {
+        transform: scale(1.05) rotate(-3deg);
+    }
+}
+
+// Text container (Chainguard + Academy)
+.navbar-logo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    justify-content: center;
+}
+
+// Chainguard wordmark text
+.navbar-logo-wordmark {
+    font-family: $titleFont;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--body-color);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+// Academy text
+.navbar-logo-academy {
+    font-family: $TextFont;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--body-color);
+    opacity: 0.7;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+}
+
+// Dark mode text adjustments (no filter needed for logos anymore)
+@media (prefers-color-scheme: dark) {
+    .navbar-logo-wordmark {
+        color: var(--secondary-3);
+    }
+    
+    .navbar-logo-academy {
+        color: var(--secondary-3);
+        opacity: 0.6;
+    }
+}
+
+// Also handle :root[data-dark-mode] for manual dark mode toggle
+:root[data-dark-mode] {
+    .navbar-logo-wordmark {
+        color: var(--secondary-3);
+    }
+    
+    .navbar-logo-academy {
+        color: var(--secondary-3);
+        opacity: 0.6;
+    }
+}
+
+// Mobile adjustments
+@media (max-width: 768px) {
+    .navbar-logo-container {
+        gap: 8px;
+    }
+    
+    .navbar-logo-icon {
+        height: 32px;
+    }
+    
+    .navbar-logo-wordmark {
+        font-size: 16px;
+    }
+    
+    .navbar-logo-academy {
+        font-size: 12px;
+    }
+}
+
+// Compact mode for very small screens
+@media (max-width: 480px) {
+    .navbar-logo-text {
+        .navbar-logo-academy {
+            display: none; // Hide "Academy" on very small screens
+        }
+    }
+    
+    .navbar-logo-icon {
+        height: 30px;
+    }
+    
+    .navbar-logo-wordmark {
+        font-size: 15px;
+    }
+}

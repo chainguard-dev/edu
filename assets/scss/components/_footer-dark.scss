@@ -1,0 +1,263 @@
+// Dark footer style similar to modern marketing sites
+// Professional dark background with light text
+
+footer {
+    background: #0F0A24; // Very dark purple/blue
+    color: rgba(255, 255, 255, 0.9);
+    border-top: none;
+    margin-top: 4rem;
+    padding: 4rem 0 2rem;
+    
+    .container.footer {
+        max-width: 1368px;
+        margin: 0 auto;
+        padding: 0 24px;
+    }
+}
+
+// Main footer columns
+.footer-column-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 3rem;
+    padding: 0 0 3rem 0;
+    margin-bottom: 3rem;
+    
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem 4rem;
+    }
+    
+    @media (min-width: 1200px) {
+        grid-template-columns: repeat(5, 1fr);
+        padding: 0 5% 3rem 5%;
+    }
+}
+
+// Footer columns - dark theme
+.footer-column {
+    padding: 0;
+    
+    .footer-title {
+        font-family: $TextFont;
+        font-size: 15px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.95);
+        margin-bottom: 1.25rem;
+        letter-spacing: 0.01em;
+    }
+    
+    .footer-item {
+        display: block;
+        font-size: 14px;
+        line-height: 2;
+        color: rgba(255, 255, 255, 0.65) !important;
+        text-decoration: none;
+        transition: color 0.2s ease;
+        margin-bottom: 0.25rem;
+        
+        &:hover {
+            color: rgba(255, 255, 255, 0.95) !important;
+            text-decoration: none;
+        }
+        
+        // External link indicator
+        span svg {
+            width: 12px;
+            height: 12px;
+            margin-left: 4px;
+            opacity: 0.5;
+        }
+    }
+}
+
+// Remove column wrapper distinction
+.footer-column-left,
+.footer-column-right {
+    display: contents;
+}
+
+// Bottom section - simplified dark theme
+.socials-copyright-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2.5rem;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2rem;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    
+    @media (min-width: 768px) {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    @media (min-width: 1200px) {
+        margin: 0 5%;
+    }
+}
+
+// Legal and copyright section
+.footer-copyright-legal {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    text-align: center;
+    order: 1;
+    
+    @media (min-width: 768px) {
+        flex-direction: row;
+        gap: 1.5rem;
+        text-align: left;
+        align-items: center;
+    }
+    
+    span, a {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.5) !important;
+        text-decoration: none;
+        white-space: nowrap;
+        
+        &:hover {
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+    }
+    
+    .footer-separator {
+        display: none;
+        
+        @media (min-width: 768px) {
+            display: inline;
+            color: rgba(255, 255, 255, 0.2);
+            margin: 0 0.5rem;
+        }
+    }
+}
+
+// Additional links section
+.footer-additional-links {
+    display: none; // Hide if redundant with legal section
+}
+
+// Social icons - right aligned
+.footer-social-icons {
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    justify-content: center;
+    order: 2;
+    
+    @media (min-width: 768px) {
+        justify-content: flex-end;
+    }
+    
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        transition: all 0.2s ease;
+        
+        &:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        img {
+            width: 20px;
+            height: 20px;
+            filter: brightness(0) invert(1);
+            opacity: 0.8;
+        }
+    }
+}
+
+// Logo placement (if needed)
+.footer-logo {
+    grid-column: 1 / -1;
+    margin-bottom: 2rem;
+    
+    @media (min-width: 768px) {
+        grid-column: 1 / 2;
+        margin-bottom: 0;
+    }
+    
+    img {
+        height: 28px;
+        width: auto;
+        filter: brightness(0) invert(1);
+    }
+}
+
+// Dark mode adjustments (in this case, keep it dark)
+:root[data-dark-mode] {
+    footer {
+        background: #0A0618; // Even darker for dark mode
+        
+        .footer-column {
+            .footer-title {
+                color: rgba(255, 255, 255, 0.9);
+            }
+            
+            .footer-item {
+                color: rgba(255, 255, 255, 0.6) !important;
+                
+                &:hover {
+                    color: var(--primary-2) !important;
+                }
+            }
+        }
+        
+        .footer-social-icons {
+            a {
+                background: rgba(255, 255, 255, 0.08);
+                
+                &:hover {
+                    background: rgba(122, 240, 254, 0.2);
+                }
+            }
+        }
+    }
+}
+
+// Mobile optimizations
+@media (max-width: 767px) {
+    footer {
+        padding: 3rem 0 2rem;
+    }
+    
+    .footer-column-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+    
+    .footer-column {
+        .footer-title {
+            font-size: 14px;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-item {
+            font-size: 14px;
+        }
+    }
+}
+
+// Remove underlines from all footer links
+footer a {
+    text-decoration: none !important;
+}
+
+// Ensure proper spacing from main content
+main {
+    padding-bottom: 2rem;
+}

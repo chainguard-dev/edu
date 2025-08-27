@@ -1,0 +1,56 @@
+// Fix for border appearing above footer in dark mode
+// Remove any borders that might be creating a line
+
+// Remove border from article wrapper if it exists
+.article-wrapper,
+.article,
+article,
+.docs-content,
+.center-content,
+.content-and-terminal {
+    border-bottom: none !important;
+}
+
+// Specifically for dark mode
+:root[data-dark-mode] {
+    .article-wrapper,
+    .article,
+    article,
+    .docs-content,
+    .center-content,
+    .content-and-terminal,
+    main {
+        border-bottom: none !important;
+        border: none !important;
+    }
+    
+    // Remove any pseudo-element borders
+    .article-wrapper::after,
+    .article::after,
+    article::after,
+    .docs-content::after,
+    .center-content::after,
+    .content-and-terminal::after,
+    main::after {
+        border: none !important;
+        border-bottom: none !important;
+    }
+}
+
+// Ensure footer has no top border
+footer {
+    border-top: none !important;
+    
+    &::before {
+        display: none !important;
+    }
+}
+
+// Dark mode specific footer border removal
+:root[data-dark-mode] footer {
+    border-top: none !important;
+    
+    &::before {
+        display: none !important;
+    }
+}

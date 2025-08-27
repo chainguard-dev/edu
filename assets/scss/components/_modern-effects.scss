@@ -1,0 +1,185 @@
+// Modern visual effects and gradients for Chainguard Academy
+// Aligned with marketing site aesthetics
+
+// Gradient backgrounds
+.gradient-purple {
+    background: linear-gradient(135deg, #7545FB 0%, #3443F4 100%);
+}
+
+.gradient-purple-soft {
+    background: linear-gradient(135deg, rgba(117, 69, 251, 0.1) 0%, rgba(52, 67, 244, 0.1) 100%);
+}
+
+.gradient-mesh {
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(122, 69, 251, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(52, 67, 244, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(254, 199, 238, 0.05) 0%, transparent 50%);
+}
+
+// Modern card styles
+.card-modern {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(20, 0, 61, 0.06);
+    
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        border-color: var(--primary-1);
+    }
+}
+
+// Glassmorphism effect
+.glass-effect {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+}
+
+// Dark mode glassmorphism
+:root[data-dark-mode] .glass-effect {
+    background: rgba(15, 10, 36, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+// Smooth shadows
+.shadow-sm {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.shadow-md {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.shadow-lg {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.shadow-xl {
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.16);
+}
+
+// Colored shadows for brand elements
+.shadow-purple {
+    box-shadow: 0 8px 24px rgba(117, 69, 251, 0.15);
+}
+
+// Modern button styles
+.btn-modern {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    
+    &.btn-primary {
+        background: var(--primary-1);
+        color: white;
+        
+        &:hover {
+            background: var(--secondary-2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(117, 69, 251, 0.3);
+        }
+    }
+    
+    &.btn-secondary {
+        background: var(--secondary-3);
+        color: var(--primary-3);
+        
+        &:hover {
+            background: var(--secondary-1);
+            transform: translateY(-2px);
+        }
+    }
+    
+    &.btn-outline {
+        background: transparent;
+        border: 2px solid var(--primary-1);
+        color: var(--primary-1);
+        
+        &:hover {
+            background: var(--primary-1);
+            color: white;
+            transform: translateY(-2px);
+        }
+    }
+}
+
+// Animated gradient text
+.gradient-text {
+    background: linear-gradient(135deg, #7545FB 0%, #3443F4 50%, #7AF0FE 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+    animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+// Hover lift effect
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    }
+}
+
+// Modern focus states
+.focus-ring {
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(117, 69, 251, 0.2);
+    }
+}
+
+// Smooth transitions
+.transition-all {
+    transition: all 0.3s ease;
+}
+
+.transition-fast {
+    transition: all 0.15s ease;
+}
+
+// Removed custom scrollbar styling - using default browser scrollbars instead
+// The blurple color was too prominent and distracting from the content
+
+// Dark mode adjustments
+:root[data-dark-mode] {
+    .card-modern {
+        background: var(--board-background-color);
+        border-color: rgba(255, 255, 255, 0.1);
+        
+        &:hover {
+            border-color: var(--primary-2);
+        }
+    }
+    
+    .shadow-sm,
+    .shadow-md,
+    .shadow-lg,
+    .shadow-xl {
+        box-shadow: none;
+    }
+    
+    .gradient-purple-soft {
+        background: linear-gradient(135deg, rgba(117, 69, 251, 0.2) 0%, rgba(52, 67, 244, 0.2) 100%);
+    }
+}

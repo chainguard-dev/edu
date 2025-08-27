@@ -1,0 +1,76 @@
+<footer>
+  <div class="container footer">
+    <div class="footer-column-container">
+      <div class="footer-column-left">
+        {{ range .Site.Menus.footer }}
+        {{ if ne .Identifier "resources" }}
+        <div class="footer-column" data-identifier="{{ .Identifier }}">
+          {{ if .HasChildren}}
+          <div class="footer-title">{{ .Name }}</div>
+          <div class="d-flex flex-column gap-1">
+            {{ range .Children -}}
+            <a href="{{ .URL }}" class="footer-item">{{ .Name }}<span>{{ .Pre | safeHTML }}</span></a>
+            {{ end }}
+          </div>
+          {{ else }}
+          <div><a class="footer-item" href="{{ .URL }}"> {{ .Name }}</a></div>
+          {{ end }}
+        </div>
+        {{ end }}
+        {{ end }}
+      </div>
+      <div class="footer-column-right">
+        {{ range .Site.Menus.footer }}
+        {{ if eq .Identifier "resources" }}
+        <div class="footer-column" data-identifier="{{ .Identifier }}">
+          {{ if .HasChildren}}
+          <div class="footer-title">{{ .Name }}</div>
+          <div class="d-flex flex-column gap-1">
+            {{ range .Children -}}
+            <a href="{{ .URL }}" class="footer-item">{{ .Name }}<span>{{ .Pre | safeHTML }}</span></a>
+            {{ end }}
+          </div>
+          {{ else }}
+          <div><a class="footer-item" href="{{ .URL }}"> {{ .Name }}</a></div>
+          {{ end }}
+        </div>
+        {{ end }}
+        {{ end }}
+      </div>
+    </div>
+
+    {{- /* Copyright notice. */ -}}
+    <div class="socials-copyright-footer">
+      <span class="footer-social-icons ">
+      {{ range .Site.Menus.social }}
+
+        <span>
+          <a target="_blank" href="{{ .URL }}">
+            <img src="/iconography/socials/{{ .Params.icon }}" alt="Follow Chainguard on {{ .Name}}">
+          </a>              
+        </span>
+        {{ end }}
+    </span>
+
+    <div class="footer-additional-links">
+      <a class="footer-item" href="https://www.chainguard.dev/media-kit?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement">Media Kit</a>
+      <span class="footer-separator">|</span>
+      <a class="footer-item" href="https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement">Contact Us</a>
+    </div>
+    
+    <div class="footer-copyright-legal">
+      <span>
+        <a class="footer-item" href="https://www.chainguard.dev">©{{ time.Now.Year }} Chainguard. All Rights Reserved.</a>
+      </span>
+      <span class="footer-separator">|</span>
+      <a class="footer-item" href="https://www.chainguard.dev/legal/privacy-policy?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement">Privacy Policy</a>
+      <span class="footer-separator">|</span>
+      <a class="footer-item" href="https://www.chainguard.dev/legal/terms-of-use?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement">Terms of Use</a>
+    </div>
+  </div>
+</footer>
+
+<div id="notification">
+  <i class="bi bi-files-opposite"></i>
+  <div id="notification-text"></div>
+</div>

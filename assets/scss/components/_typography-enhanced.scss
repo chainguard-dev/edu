@@ -1,0 +1,306 @@
+// Enhanced typography styles for Chainguard Academy
+// Aligned with marketing site aesthetics
+
+// Font weight variables for consistency
+$font-light: 300;
+$font-normal: 400;
+$font-medium: 500;
+$font-semibold: 600;
+$font-bold: 700;
+
+// Typography scale
+$text-xs: 0.75rem;    // 12px
+$text-sm: 0.875rem;   // 14px
+$text-base: 1rem;     // 16px
+$text-lg: 1.125rem;   // 18px
+$text-xl: 1.25rem;    // 20px
+$text-2xl: 1.5rem;    // 24px
+$text-3xl: 1.875rem;  // 30px
+$text-4xl: 2.25rem;   // 36px
+$text-5xl: 3rem;      // 48px
+
+// Line height scale
+$leading-tight: 1.25;
+$leading-snug: 1.375;
+$leading-normal: 1.5;
+$leading-relaxed: 1.625;
+$leading-loose: 2;
+
+// Headings enhancement
+h1, h2, h3, h4, h5, h6 {
+    font-family: $titleFont;
+    font-weight: $font-bold;
+    line-height: $leading-tight;
+    color: var(--body-color);
+    margin-top: 0;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: $font-bold;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    
+    @media (min-width: 768px) {
+        font-size: $text-5xl;
+    }
+}
+
+h2 {
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    font-weight: $font-semibold;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    
+    @media (min-width: 768px) {
+        font-size: $text-4xl;
+    }
+}
+
+h3 {
+    font-size: clamp(1.25rem, 3vw, 1.875rem);
+    font-weight: $font-semibold;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    
+    @media (min-width: 768px) {
+        font-size: $text-3xl;
+    }
+}
+
+h4 {
+    font-size: $text-2xl;
+    font-weight: $font-medium;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+h5 {
+    font-size: $text-xl;
+    font-weight: $font-medium;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+h6 {
+    font-size: $text-lg;
+    font-weight: $font-medium;
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+// Body text enhancement
+p {
+    font-family: $TextFont;
+    font-size: $text-base;
+    line-height: $leading-relaxed;
+    margin-bottom: 1.25rem;
+    color: var(--body-color);
+    
+    &.lead {
+        font-size: $text-lg;
+        line-height: $leading-relaxed;
+        font-weight: $font-normal;
+        color: var(--body-color);
+        opacity: 0.9;
+    }
+    
+    &.small {
+        font-size: $text-sm;
+    }
+}
+
+// Links enhancement
+a {
+    color: var(--article-link-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    position: relative;
+    
+    &:hover {
+        color: var(--secondary-2);
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 2px;
+    }
+    
+    &.link-underline {
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 2px;
+        
+        &:hover {
+            text-decoration-thickness: 2px;
+        }
+    }
+}
+
+// Lists enhancement
+ul, ol {
+    font-family: $TextFont;
+    font-size: $text-base;
+    line-height: $leading-relaxed;
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+    
+    li {
+        margin-bottom: 0.5rem;
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    
+    ul, ol {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+}
+
+// Blockquote enhancement
+blockquote {
+    font-family: $TextFont;
+    font-size: $text-lg;
+    font-style: italic;
+    line-height: $leading-relaxed;
+    color: var(--body-color);
+    opacity: 0.9;
+    border-left: 4px solid var(--primary-1);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    
+    p {
+        margin-bottom: 0;
+    }
+    
+    cite {
+        display: block;
+        font-size: $text-sm;
+        font-style: normal;
+        font-weight: $font-medium;
+        margin-top: 1rem;
+        opacity: 0.8;
+        
+        &:before {
+            content: "— ";
+        }
+    }
+}
+
+// Code typography
+code {
+    font-family: $monoFont;
+    font-size: 0.875em;
+    font-weight: $font-normal;
+    padding: 0.125rem 0.375rem;
+    border-radius: 4px;
+    background-color: var(--code-color);
+    color: var(--body-color);
+}
+
+pre {
+    font-family: $monoFont;
+    font-size: $text-sm;
+    line-height: $leading-normal;
+    
+    code {
+        padding: 0;
+        background-color: transparent;
+        border-radius: 0;
+        font-size: inherit;
+    }
+}
+
+// Tables typography
+table {
+    th {
+        font-family: $TextFont;
+        font-weight: $font-semibold;
+        font-size: $text-sm;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+    
+    td {
+        font-family: $TextFont;
+        font-size: $text-base;
+        line-height: $leading-normal;
+    }
+}
+
+// Labels and badges
+.label, .badge {
+    font-family: $TextFont;
+    font-size: $text-xs;
+    font-weight: $font-medium;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+// Strong emphasis
+strong, b {
+    font-weight: $font-semibold;
+    color: var(--body-color);
+}
+
+// Emphasized text
+em, i {
+    font-style: italic;
+}
+
+// Small text
+small, .text-sm {
+    font-size: $text-sm;
+}
+
+// Large text
+.text-lg {
+    font-size: $text-lg;
+}
+
+// Extra large text
+.text-xl {
+    font-size: $text-xl;
+}
+
+// Text alignment utilities
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+
+// Text transform utilities
+.uppercase { text-transform: uppercase; }
+.lowercase { text-transform: lowercase; }
+.capitalize { text-transform: capitalize; }
+
+// Font weight utilities
+.font-light { font-weight: $font-light; }
+.font-normal { font-weight: $font-normal; }
+.font-medium { font-weight: $font-medium; }
+.font-semibold { font-weight: $font-semibold; }
+.font-bold { font-weight: $font-bold; }
+
+// Letter spacing utilities
+.tracking-tight { letter-spacing: -0.05em; }
+.tracking-normal { letter-spacing: 0; }
+.tracking-wide { letter-spacing: 0.05em; }
+
+// Responsive typography adjustments
+@media (max-width: 768px) {
+    body {
+        font-size: $text-base;
+    }
+    
+    p {
+        font-size: $text-base;
+        line-height: $leading-normal;
+    }
+    
+    blockquote {
+        font-size: $text-base;
+        padding-left: 1rem;
+    }
+}
