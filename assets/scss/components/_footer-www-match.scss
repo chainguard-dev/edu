@@ -1,0 +1,319 @@
+// Footer matching www.chainguard.dev layout exactly
+// Left side: Logo, Contact button, Social icons
+// Right side: Navigation columns
+// Bottom: Copyright (left) and legal links (right)
+
+footer {
+    background: #0F0A24; // Dark background
+    color: rgba(255, 255, 255, 0.9);
+    border-top: none;
+    margin-top: 4rem;
+    padding: 4rem 0 2rem;
+    
+    .container.footer {
+        max-width: 1368px;
+        margin: 0 auto;
+        padding: 0 24px;
+    }
+}
+
+// Main footer container with two-part layout
+.footer-main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding-bottom: 3rem;
+    
+    @media (min-width: 992px) {
+        flex-direction: row;
+        gap: 4rem;
+    }
+    
+    @media (min-width: 1200px) {
+        padding: 0 5% 3rem 5%;
+    }
+}
+
+// Left side: Brand section
+.footer-brand-section {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    text-align: center;
+    
+    @media (min-width: 992px) {
+        align-items: flex-start;
+        text-align: left;
+        min-width: 250px;
+    }
+    
+    // Logo with icon and text
+    .footer-logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        
+        .footer-logo-icon {
+            height: 32px;
+            width: auto;
+            opacity: 0.95;
+        }
+        
+        .footer-logo-text {
+            height: 24px;
+            width: auto;
+            opacity: 0.95;
+        }
+    }
+    
+    // Contact Us button
+    .footer-contact-btn {
+        display: inline-flex;
+        align-items: center;
+        padding: 10px 24px;
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 6px;
+        color: rgba(255, 255, 255, 0.9) !important;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        
+        &:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+            color: white !important;
+        }
+    }
+    
+    // Social icons in left section
+    .footer-brand-socials {
+        display: flex;
+        gap: 0.75rem;
+        
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.2s ease;
+            
+            &:hover {
+                background: rgba(255, 255, 255, 0.2);
+                transform: translateY(-2px);
+            }
+            
+            img {
+                width: 18px;
+                height: 18px;
+                color: white;
+                opacity: 0.9;
+            }
+            
+            svg {
+                width: 18px;
+                height: 18px;
+                fill: rgba(255, 255, 255, 0.8);
+            }
+        }
+    }
+}
+
+// Right side: Navigation columns
+.footer-nav-section {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 3rem;
+    
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    @media (min-width: 1200px) {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+// Footer navigation columns
+.footer-column {
+    .footer-title {
+        font-size: 15px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.95);
+        margin-bottom: 1rem;
+        letter-spacing: 0.01em;
+    }
+    
+    .footer-item {
+        display: block;
+        font-size: 14px;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.65) !important;
+        text-decoration: none;
+        transition: color 0.2s ease;
+        
+        &:hover {
+            color: rgba(255, 255, 255, 0.95) !important;
+        }
+        
+        // External link indicator
+        span svg {
+            width: 12px;
+            height: 12px;
+            margin-left: 4px;
+            opacity: 0.5;
+        }
+    }
+}
+
+// Bottom section: Copyright and legal
+.footer-bottom-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    // No border-top line
+    
+    @media (min-width: 768px) {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+    
+    @media (min-width: 1200px) {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    
+    // Copyright text on left
+    .footer-copyright {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.5);
+        
+        @media (max-width: 767px) {
+            order: 2;
+        }
+    }
+    
+    // Legal links on right
+    .footer-legal-links {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        font-size: 13px;
+        
+        @media (max-width: 767px) {
+            order: 1;
+        }
+        
+        a {
+            color: rgba(255, 255, 255, 0.5) !important;
+            text-decoration: none;
+            
+            &:hover {
+                color: rgba(255, 255, 255, 0.8) !important;
+            }
+        }
+        
+        .separator {
+            color: rgba(255, 255, 255, 0.2);
+        }
+    }
+}
+
+// Remove column wrapper distinction
+.footer-column-left,
+.footer-column-right {
+    display: contents;
+}
+
+// Keep old elements visible if they exist as fallback
+// They will be overridden by the new structure
+
+// Dark mode adjustments
+:root[data-dark-mode] {
+    footer {
+        background: #0A0618;
+        
+        .footer-brand-section {
+            .footer-contact-btn {
+                border-color: rgba(255, 255, 255, 0.2);
+                
+                &:hover {
+                    background: rgba(122, 240, 254, 0.1);
+                    border-color: var(--primary-2);
+                    color: var(--primary-2) !important;
+                }
+            }
+            
+            .footer-brand-socials a {
+                &:hover {
+                    background: rgba(122, 240, 254, 0.15);
+                }
+            }
+        }
+        
+        .footer-column {
+            .footer-item {
+                &:hover {
+                    color: var(--primary-2) !important;
+                }
+            }
+        }
+        
+        .footer-bottom-section {
+            // No border in dark mode either
+        }
+    }
+}
+
+// Mobile optimizations
+@media (max-width: 991px) {
+    footer {
+        padding: 3rem 0 2rem;
+    }
+    
+    .footer-main-content {
+        padding-bottom: 2rem;
+    }
+    
+    .footer-brand-section {
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .footer-nav-section {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem 2rem;
+    }
+    
+    .footer-bottom-section {
+        padding-top: 2rem;
+        margin-top: 2rem;
+    }
+}
+
+// Ensure footer links don't have underlines
+footer a {
+    text-decoration: none !important;
+}
+
+// Remove underlines from all footer links
+footer a {
+    text-decoration: none !important;
+}
+
+// Ensure proper spacing from main content
+main {
+    padding-bottom: 2rem;
+}

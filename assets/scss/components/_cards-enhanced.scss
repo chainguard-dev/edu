@@ -1,0 +1,298 @@
+// Enhanced card component styles for Chainguard Academy
+// Aligned with marketing site aesthetics
+
+// Base card styles
+.card {
+    background: var(--body-background);
+    border: 1px solid rgba(20, 0, 61, 0.08);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        border-color: var(--primary-1);
+    }
+    
+    .card-header {
+        background: transparent;
+        border-bottom: 1px solid rgba(20, 0, 61, 0.06);
+        padding: 1.25rem;
+        font-weight: 600;
+    }
+    
+    .card-body {
+        padding: 1.5rem;
+    }
+    
+    .card-footer {
+        background: var(--board-background-color);
+        border-top: 1px solid rgba(20, 0, 61, 0.06);
+        padding: 1rem 1.5rem;
+    }
+}
+
+// Feature cards with gradient backgrounds
+.feature-card {
+    position: relative;
+    padding: 2rem;
+    border-radius: 16px;
+    background: linear-gradient(135deg, 
+                                rgba(117, 69, 251, 0.05) 0%, 
+                                rgba(52, 67, 244, 0.03) 100%);
+    border: 1px solid rgba(117, 69, 251, 0.1);
+    transition: all 0.3s ease;
+    
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, 
+                                    var(--primary-1) 0%, 
+                                    var(--secondary-2) 100%);
+        border-radius: 16px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: -1;
+    }
+    
+    &:hover {
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: 0 16px 32px rgba(117, 69, 251, 0.15);
+        border-color: var(--primary-1);
+        
+        &::before {
+            opacity: 0.05;
+        }
+    }
+    
+    .feature-icon {
+        width: 48px;
+        height: 48px;
+        background: linear-gradient(135deg, var(--primary-1) 0%, var(--secondary-2) 100%);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        color: white;
+        font-size: 1.5rem;
+    }
+    
+    .feature-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--body-color);
+    }
+    
+    .feature-description {
+        color: var(--body-color);
+        opacity: 0.8;
+        line-height: 1.6;
+    }
+}
+
+// Topic cards for documentation sections
+.topic-card {
+    background: var(--body-background);
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    
+    &::after {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(135deg, var(--primary-1) 0%, var(--secondary-2) 100%);
+        border-radius: 12px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: -1;
+    }
+    
+    &:hover {
+        transform: translateY(-3px);
+        background: var(--board-background-color);
+        
+        &::after {
+            opacity: 1;
+        }
+        
+        .topic-title {
+            color: var(--primary-1);
+        }
+    }
+    
+    .topic-title {
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        transition: color 0.3s ease;
+    }
+    
+    .topic-count {
+        font-size: 0.875rem;
+        color: var(--body-color);
+        opacity: 0.7;
+    }
+}
+
+// Info cards with icons
+.info-card {
+    display: flex;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: var(--board-background-color);
+    border-radius: 10px;
+    border: 1px solid rgba(20, 0, 61, 0.06);
+    transition: all 0.2s ease;
+    
+    &:hover {
+        background: var(--body-background);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        
+        .info-icon {
+            transform: scale(1.1);
+        }
+    }
+    
+    .info-icon {
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, var(--primary-1) 0%, var(--secondary-2) 100%);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        transition: transform 0.2s ease;
+    }
+    
+    .info-content {
+        flex: 1;
+        
+        .info-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .info-description {
+            font-size: 0.875rem;
+            color: var(--body-color);
+            opacity: 0.8;
+        }
+    }
+}
+
+// Stats cards
+.stats-card {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+    
+    .stats-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, var(--primary-1) 0%, var(--secondary-2) 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 0.5rem;
+    }
+    
+    .stats-label {
+        font-size: 0.875rem;
+        color: var(--body-color);
+        opacity: 0.7;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+    
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        
+        .stats-number {
+            animation: gradient-shift 3s ease infinite;
+        }
+    }
+}
+
+// Dark mode adjustments
+:root[data-dark-mode] {
+    .card {
+        background: var(--board-background-color);
+        border-color: rgba(255, 255, 255, 0.08);
+        box-shadow: none;
+        
+        &:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            border-color: var(--primary-2);
+        }
+        
+        .card-header,
+        .card-footer {
+            border-color: rgba(255, 255, 255, 0.06);
+        }
+    }
+    
+    .feature-card {
+        background: linear-gradient(135deg, 
+                                    rgba(122, 240, 254, 0.05) 0%, 
+                                    rgba(117, 69, 251, 0.03) 100%);
+        border-color: rgba(122, 240, 254, 0.1);
+        
+        &:hover {
+            box-shadow: 0 16px 32px rgba(122, 240, 254, 0.1);
+            border-color: var(--primary-2);
+        }
+    }
+    
+    .topic-card {
+        background: var(--board-background-color);
+        
+        &:hover {
+            background: rgba(255, 255, 255, 0.02);
+            
+            .topic-title {
+                color: var(--primary-2);
+            }
+        }
+    }
+    
+    .info-card {
+        background: rgba(255, 255, 255, 0.02);
+        border-color: rgba(255, 255, 255, 0.08);
+        
+        &:hover {
+            background: var(--board-background-color);
+            box-shadow: none;
+        }
+    }
+    
+    .stats-card {
+        background: var(--board-background-color);
+        box-shadow: none;
+        
+        &:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+    }
+}
