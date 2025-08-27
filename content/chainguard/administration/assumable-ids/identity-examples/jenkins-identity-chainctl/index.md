@@ -93,7 +93,7 @@ This example [Jenkins pipeline](https://www.jenkins.io/doc/book/pipeline/):
 - Assumes the Jenkins identity to obtain short-lived credentials
   - `chainctl auth login` authenticates Jenkins with Chainguard using the stored API token.
   - `chainctl iam identities assume` exchanges that authentication for a short-lived identity credential and runs `docker login cgr.dev`.
-- Builds and pushes an image
+- Pulls an image
 
 ```groovy
 pipeline {
@@ -111,11 +111,10 @@ pipeline {
         '''
       }
     }
-    stage('Build and Push Image') {
+    stage('Pull Image') {
       steps {
         sh '''
-          docker build -t cgr.dev/my-org/my-image:$BUILD_NUMBER .
-          docker push cgr.dev/my-org/my-image:$BUILD_NUMBER
+          docker pull cgr.dev/my-org/my-image:$BUILD_NUMBER
         '''
       }
     }
