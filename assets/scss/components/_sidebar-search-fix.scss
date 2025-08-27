@@ -1,0 +1,160 @@
+// Fix for search bar in sidebar navigation
+// Ensures proper sizing and alignment
+
+// Sidebar search container
+#sidebar-default .search-container,
+.leftnav .search-container {
+    padding: 12px;
+    margin-bottom: 1rem;
+    background: transparent;
+    position: relative;
+    
+    .doks-search {
+        width: 100%;
+        margin: 0;
+        
+        .search.is-search {
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            padding-left: 36px;
+            padding-right: 36px;
+            height: 36px;
+            line-height: 36px;
+            font-size: 14px;
+            background: var(--search-background);
+            border: 1px solid var(--leftnav-border);
+            border-radius: 6px;
+            color: var(--body-color); // Use body text color for better contrast
+            
+            &:focus {
+                border-color: var(--primary-1);
+                outline: none;
+                box-shadow: 0 0 0 2px rgba(117, 69, 251, 0.1);
+            }
+            
+            &::placeholder {
+                color: #8C8C8C; // Use neutral gray for placeholder in light mode
+                opacity: 0.7;
+            }
+        }
+        
+        // Search icon positioning
+        &::before {
+            content: var(--search-icon-url);
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        // Slash shortcut icon
+        &::after {
+            content: "/";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            border: 1px solid var(--search-slash-border);
+            border-radius: 3px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8C8C8C; // Use same neutral gray as placeholder
+            pointer-events: none;
+            z-index: 1;
+        }
+    }
+}
+
+// Ensure proper spacing for mobile sidebar
+.offcanvas-body {
+    .search-container {
+        padding: 12px;
+        margin-bottom: 1rem;
+        
+        .doks-search {
+            width: 100%;
+            
+            .search.is-search {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+// Fix for sidebar width constraints
+.leftnav {
+    .search-container {
+        max-width: 100%;
+        overflow: hidden;
+    }
+}
+
+// Dark mode adjustments
+:root[data-dark-mode] {
+    #sidebar-default .search-container,
+    .leftnav .search-container {
+        .doks-search {
+            .search.is-search {
+                background: var(--search-background);
+                border-color: rgba(255, 255, 255, 0.1);
+                color: var(--body-color); // Ensure proper text color in dark mode
+                
+                &:focus {
+                    border-color: var(--primary-2);
+                    box-shadow: 0 0 0 2px rgba(122, 240, 254, 0.1);
+                }
+                
+                &::placeholder {
+                    color: var(--placeholder-color); // Use theme placeholder color for dark mode
+                    opacity: 0.7;
+                }
+            }
+            
+            // Update slash icon color for dark mode
+            &::after {
+                color: var(--placeholder-color); // Use theme placeholder color for consistency
+            }
+        }
+    }
+}
+
+// Responsive adjustments
+@media (max-width: 1024px) {
+    .leftnav .search-container {
+        padding: 8px;
+        
+        .doks-search {
+            .search.is-search {
+                height: 34px;
+                line-height: 34px;
+                font-size: 13px;
+            }
+        }
+    }
+}
+
+// Fix overlapping issues
+.sidebar-item-list-item-first {
+    clear: both;
+}
+
+// Ensure search doesn't overflow sidebar
+.leftnav {
+    overflow-x: hidden;
+    
+    .search-container {
+        width: calc(100% - 24px);
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+}
