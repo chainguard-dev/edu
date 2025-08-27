@@ -1,6 +1,6 @@
 ---
 title : "Create an Assumable Identity for a Jenkins Pipeline"
-linktitle: "Jenkins"
+linktitle: "Jenkins with Terraform"
 aliases:
 - /chainguard/chainguard-enforce/authentication/identity-examples/enforce-jenkins-identity/
 - /chainguard/chainguard-enforce/iam-groups/enforce-jenkins-identity/
@@ -19,7 +19,7 @@ weight: 025
 
 Chainguard's [*assumable identities*](/chainguard/administration/iam-organizations/assumable-ids/) are identities that can be assumed by external applications or workflows in order to perform certain tasks that would otherwise have to be done by a human.
 
-This procedural tutorial outlines how to create an identity using Terraform, and then how to update a Jenkins pipeline so that it can assume the identity and interact with Chainguard resources.
+This procedural tutorial outlines how to create an identity using Terraform, and then how to update a Jenkins pipeline so that it can assume the identity and interact with Chainguard resources. An additional example shows [how to do this using `chainctl` directly](/chainguard/administration/assumable-ids/identity-examples/jenkins-identity-chainctl/).
 
 
 ## Prerequisites
