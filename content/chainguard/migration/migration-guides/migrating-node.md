@@ -143,7 +143,7 @@ CMD npm start
 
 If you've cloned the GitHub repository, you can build this image with:
 
-```
+```shell
 docker build -t node-classic-image -f Dockerfile-classic .
 ```
 
@@ -197,7 +197,7 @@ CMD ["node", "app.js"]
 
 If you've cloned the GitHub repository, you can build this image with:
 
-```
+```shell
 docker build -t node-multi-image -f Dockerfile-multi .
 ```
 

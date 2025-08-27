@@ -78,7 +78,7 @@ apk search php*8.2*xml*
 ```
 And this should give you a list of all PHP 8.2 XML extensions available in Wolfi.
 
-```
+```output
 php-8.2-simplexml-8.2.17-r0
 php-8.2-simplexml-config-8.2.17-r0
 php-8.2-xml-8.2.17-r0

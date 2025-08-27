@@ -67,7 +67,7 @@ chainctl config view
 
 You'll receive output similar to this:
 
-```shell
+```output
 # Base Config file: /home/erika/.config/chainctl/config.yaml
 auth:
     mode: browser

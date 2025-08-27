@@ -101,7 +101,7 @@ chainctl version
 
 You should receive output similar to the following.
 
-```
+```output
    ____   _   _      _      ___   _   _    ____   _____   _
   / ___| | | | |    / \    |_ _| | \ | |  / ___| |_   _| | |
  | |     | |_| |   / _ \    | |  |  \| | | |       | |   | |
@@ -136,7 +136,7 @@ cosign verify-blob \
 
 You should receive the following output:
 
-```
+```output
 Verified OK
 ```
 

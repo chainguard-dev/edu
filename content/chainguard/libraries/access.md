@@ -39,7 +39,7 @@ chainctl auth login
 After authentication in a browser window, a successful login displays a message
 and a token:
 
-```shell
+```output
 Successfully exchanged token.
 Valid! Id: 8a4141a........7d9904d98c
 ```
@@ -75,7 +75,7 @@ Press `/` to filter the list.
 `chainctl` returns a username and password suitable for basic authentication in
 the response:
 
-```shell
+```output
 Username: 45a.....424eb0
 
 Password: eyJhbGciO..........WF0IjoxN
@@ -205,7 +205,7 @@ chainctl libraries entitlements list --parent=example
 
 The output must include the desired ecosystem in the table:
 
-```shell
+```output
 Ecosystem Library Entitlements for example (45a0...764595)
 
                              ID                             | ECOSYSTEM

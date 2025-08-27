@@ -70,7 +70,7 @@ Next, you can create the `sample.tf` file.
 
 This Terraform configuration consists of two main parts. The first part of the file will contain the following lines.
 
-```
+```hcl
 data "chainguard_group" "group" {
   name = "my-customer.biz"
 }
@@ -86,7 +86,7 @@ The `buildkite.tf` file is what will actually create the identity for your Build
 
 The first section creates the identity itself.
 
-```
+```hcl
 resource "chainguard_identity" "buildkite" {
   parent_id   = data.chainguard_group.group.id
   name   	 = "buildkite"
@@ -114,7 +114,7 @@ You may refer to [the official Buildkite documentation](https://buildkite.com/do
 
 The next section will output the new identity's `id` value. This is a unique value that represents the identity itself.
 
-```
+```hcl
 output "buildkite-identity" {
   value = chainguard_identity.buildkite.id
 }
@@ -122,7 +122,7 @@ output "buildkite-identity" {
 
 The section after that looks up the `viewer` role.
 
-```
+```hcl
 data "chainguard_role" "viewer" {
   name = "viewer"
 }
@@ -130,7 +130,7 @@ data "chainguard_role" "viewer" {
 
 The final section grants this role to the identity.
 
-```
+```hcl
 resource "chainguard_rolebinding" "view-stuff" {
   identity = chainguard_identity.buildkite.id
   group	= data.chainguard_group.group.id

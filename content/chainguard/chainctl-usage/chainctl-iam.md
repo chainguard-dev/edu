@@ -31,7 +31,9 @@ chainctl iam folders list $ORGANIZATION_NAME
 For example, for our Developer Enablement team, which uses the `chainguard.edu` organization, the interaction looks like this:
 
 ```shell
-$ chainctl iam folders list chainguard.edu
+chainctl iam folders list chainguard.edu
+```
+```output
 [chainguard.edu] Developer Enablement images catalog
 ```
 
