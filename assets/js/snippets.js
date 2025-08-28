@@ -11,6 +11,46 @@ function toast(textContent) {
   requestAnimationFrame(() => notification.classList.add("notification-toast"));
 }
 
+// Function to normalize code block labels with consistent formatting
+const normalizeCodeBlockLabel = (rawLabel) => {
+  if (!rawLabel) {
+    return ''; // Keep unlabeled blocks unlabeled
+  }
+
+  // Define transformation rules for existing labels only
+  const labelTransforms = {
+    // Shell variants
+    'shell': 'Shell',
+    'sh': 'Shell', 
+    'bash': 'Shell',
+    
+    // Configuration formats
+    'yaml': 'YAML',
+    'yml': 'YAML',
+    'json': 'JSON',
+    'xml': 'XML',
+    
+    // Database
+    'sql': 'SQL',
+    'mariadb': 'SQL',
+    'mysql': 'SQL',
+    'postgresql': 'SQL',
+    'postgres': 'SQL',
+    
+    // Container formats
+    'dockerfile': 'Dockerfile',
+    
+    // Output
+    'output': 'Output'
+  };
+
+  const lowerLabel = rawLabel.toLowerCase();
+  
+  // Return transformed label or capitalize first letter as fallback
+  return labelTransforms[lowerLabel] || 
+         (rawLabel.charAt(0).toUpperCase() + rawLabel.slice(1));
+};
+
 const expandCode = (expanded, codeContent, expandButtonText, expandIcon) => {
   if (expanded) {
     expandButtonText.textContent = "Expand code";
@@ -57,7 +97,7 @@ const customizeUI = (pre) => {
   // } else {
   const output = document.createElement("span");
   output.classList.add("language-selector");
-  output.textContent = language || "";
+  output.textContent = normalizeCodeBlockLabel(language);
   actionContainer.append(output);
   // }
 
