@@ -1,5 +1,5 @@
 ---
-date: 2025-08-26T18:36:09Z
+date: 2025-08-27T22:10:41Z
 title: "chainctl images repos build list"
 slug: chainctl_images_repos_build_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_list/
@@ -22,6 +22,7 @@ chainctl images repos build list [--parent ORGANIZATION_NAME | ORGANIZATION_ID |
 ```
   -h, --help            help for list
       --parent string   The name or id of the parent location to list build reports.
+      --recursive       Search repositories recursively through all descendants instead of just children
       --repo string     Search for a specific repo by name, or ID.
 ```
 

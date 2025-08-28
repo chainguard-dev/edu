@@ -1,34 +1,22 @@
 ---
 date: 2025-08-27T22:10:41Z
-title: "chainctl images list"
-slug: chainctl_images_list
-url: /chainguard/chainctl/chainctl-docs/chainctl_images_list/
+title: "chainctl images entitlements"
+slug: chainctl_images_entitlements
+url: /chainguard/chainctl/chainctl-docs/chainctl_images_entitlements/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl images list
+## chainctl images entitlements
 
-List tagged images from Chainguard registries.
-
-```
-chainctl images list [--repo=REPO_NAME] [--public | --parent=PARENT_NAME|PARENT_ID] [--updated-within=DURATION] [--show-dates] [--show-epochs] [--show-referrers] [--output=csv|id|json|table|terse|tree|wide]
-```
+Manage entitlements to registry repositories.
 
 ### Options
 
 ```
-  -h, --help                      help for list
-      --parent string             The name or id of the parent location to list image repos.
-      --public                    List repos from the public Chainguard registry.
-      --recursive                 Search repositories recursively through all descendants instead of just children
-      --repo string               Search for a specific repo by name.
-      --show-dates                Whether to show date tags of the form latest-{date}.
-      --show-epochs               Whether to show epoch tags of the form 1.2.3-r4.
-      --show-referrers            Whether to show referrer tags of the form sha256-deadbeef.{sig,sbom,att}.
-      --updated-within duration   The duration within which an image must have been updated (0 disables the filter).
+  -h, --help   help for entitlements
 ```
 
 ### Options inherited from parent commands
@@ -48,4 +36,5 @@ chainctl images list [--repo=REPO_NAME] [--public | --parent=PARENT_NAME|PARENT_
 ### SEE ALSO
 
 * [chainctl images](/chainguard/chainctl/chainctl-docs/chainctl_images/)	 - Images related commands for the Chainguard platform.
+* [chainctl images entitlements list](/chainguard/chainctl/chainctl-docs/chainctl_images_entitlements_list/)	 - List registry entitlements of an organization.
 
