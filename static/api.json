@@ -154,6 +154,17 @@
             "type": "boolean"
           },
           {
+            "collectionFormat": "multi",
+            "description": "ids are a list of exact UIDPs of records.",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "uidp.ids",
+            "required": false,
+            "type": "array"
+          },
+          {
             "description": "A name to filter by.",
             "in": "query",
             "name": "packageName",
@@ -489,6 +500,17 @@
             "name": "uidp.inRoot",
             "required": false,
             "type": "boolean"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "ids are a list of exact UIDPs of records.",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "uidp.ids",
+            "required": false,
+            "type": "array"
           }
         ],
         "responses": {
@@ -929,6 +951,17 @@
             "type": "boolean"
           },
           {
+            "collectionFormat": "multi",
+            "description": "ids are a list of exact UIDPs of records.",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "uidp.ids",
+            "required": false,
+            "type": "array"
+          },
+          {
             "description": "name is the exact name of the record.",
             "in": "query",
             "name": "name",
@@ -1098,6 +1131,17 @@
             "name": "uidp.inRoot",
             "required": false,
             "type": "boolean"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "ids are a list of exact UIDPs of records.",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "uidp.ids",
+            "required": false,
+            "type": "array"
           },
           {
             "description": "id is unique identifier to look up.",
@@ -1353,6 +1397,17 @@
             "name": "uidp.inRoot",
             "required": false,
             "type": "boolean"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "ids are a list of exact UIDPs of records.",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "uidp.ids",
+            "required": false,
+            "type": "array"
           }
         ],
         "responses": {
@@ -1523,6 +1578,17 @@
             "name": "uidp.inRoot",
             "required": false,
             "type": "boolean"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "ids are a list of exact UIDPs of records.",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "uidp.ids",
+            "required": false,
+            "type": "array"
           }
         ],
         "responses": {
@@ -1753,6 +1819,17 @@
             "name": "uidp.inRoot",
             "required": false,
             "type": "boolean"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "ids are a list of exact UIDPs of records.",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "uidp.ids",
+            "required": false,
+            "type": "array"
           }
         ],
         "responses": {
@@ -2252,6 +2329,17 @@
             "type": "boolean"
           },
           {
+            "collectionFormat": "multi",
+            "description": "ids are a list of exact UIDPs of records.",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "uidp.ids",
+            "required": false,
+            "type": "array"
+          },
+          {
             "description": "use to choose reports started after this time.\ndefaults to 1 day ago.",
             "format": "date-time",
             "in": "query",
@@ -2317,6 +2405,17 @@
             "name": "uidp.inRoot",
             "required": false,
             "type": "boolean"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "ids are a list of exact UIDPs of records.",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "uidp.ids",
+            "required": false,
+            "type": "array"
           },
           {
             "description": "use to choose reports started after this time.\ndefaults to 1 day ago.",
@@ -2650,6 +2749,17 @@
             "type": "boolean"
           },
           {
+            "collectionFormat": "multi",
+            "description": "ids are a list of exact UIDPs of records.",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "uidp.ids",
+            "required": false,
+            "type": "array"
+          },
+          {
             "in": "query",
             "name": "name",
             "required": false,
@@ -2752,6 +2862,17 @@
             "name": "uidp.inRoot",
             "required": false,
             "type": "boolean"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "ids are a list of exact UIDPs of records.",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "uidp.ids",
+            "required": false,
+            "type": "array"
           },
           {
             "description": "name is the exact name of the record.",
@@ -3330,6 +3451,17 @@
             "name": "uidp.inRoot",
             "required": false,
             "type": "boolean"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "ids are a list of exact UIDPs of records.",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "uidp.ids",
+            "required": false,
+            "type": "array"
           },
           {
             "description": "The unique name of the Tag to list.",
@@ -4112,6 +4244,17 @@
             "type": "boolean"
           },
           {
+            "collectionFormat": "multi",
+            "description": "ids are a list of exact UIDPs of records.",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "uidp.ids",
+            "required": false,
+            "type": "array"
+          },
+          {
             "description": "active_since is the timestamp after which the records should\nhave last been observed in the returned context.",
             "format": "date-time",
             "in": "query",
@@ -4151,11 +4294,57 @@
         "operationId": "Advisories_List",
         "parameters": [
           {
-            "description": "advisory_id filters by advisory ID",
+            "description": "advisory_id filters by advisory ID (e.g., CGA-xvgw-cvr7-9g2q)",
             "in": "query",
             "name": "advisoryId",
             "required": false,
             "type": "string"
+          },
+          {
+            "description": "id is the exact UID of the record.",
+            "in": "query",
+            "name": "id",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "in": "query",
+            "name": "uidp.inRoot",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "ids are a list of exact UIDPs of records.",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "uidp.ids",
+            "required": false,
+            "type": "array"
           },
           {
             "description": "artifact_type filters by artifact type",
@@ -6201,6 +6390,13 @@
         "descendantsOf": {
           "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
           "type": "string"
+        },
+        "ids": {
+          "description": "ids are a list of exact UIDPs of records.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         },
         "inRoot": {
           "title": "in_root resticts responses to root level resources (organizations, user identities)",

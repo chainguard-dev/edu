@@ -1,22 +1,27 @@
 ---
 date: 2025-08-27T22:10:41Z
-title: "chainctl iam role-bindings"
-slug: chainctl_iam_role-bindings
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings/
+title: "chainctl images entitlements list"
+slug: chainctl_images_entitlements_list
+url: /chainguard/chainctl/chainctl-docs/chainctl_images_entitlements_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam role-bindings
+## chainctl images entitlements list
 
-IAM role-bindings resource interactions.
+List registry entitlements of an organization.
+
+```
+chainctl images entitlements list --parent=PARENT [--output=json|table] [flags]
+```
 
 ### Options
 
 ```
-  -h, --help   help for role-bindings
+  -h, --help            help for list
+      --parent string   The name or id of the org to list registry entitlements for.
 ```
 
 ### Options inherited from parent commands
@@ -35,9 +40,5 @@ IAM role-bindings resource interactions.
 
 ### SEE ALSO
 
-* [chainctl iam](/chainguard/chainctl/chainctl-docs/chainctl_iam/)	 - IAM related commands for the Chainguard platform.
-* [chainctl iam role-bindings create](/chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings_create/)	 - Create a role-binding
-* [chainctl iam role-bindings delete](/chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings_delete/)	 - Delete a role-binding.
-* [chainctl iam role-bindings list](/chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings_list/)	 - List role-bindings.
-* [chainctl iam role-bindings update](/chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings_update/)	 - Update a role-binding.
+* [chainctl images entitlements](/chainguard/chainctl/chainctl-docs/chainctl_images_entitlements/)	 - Manage entitlements to registry repositories.
 
