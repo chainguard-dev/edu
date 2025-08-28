@@ -1,5 +1,5 @@
 ---
-date: 2025-08-25T23:34:45Z
+date: 2025-08-27T22:10:41Z
 title: "chainctl images history"
 slug: chainctl_images_history
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_history/
@@ -39,6 +39,7 @@ chainctl images history IMAGE[:TAG] [flags]
 ```
   -h, --help            help for history
       --parent string   Organization to view image history from
+      --recursive       Search repositories recursively through all descendants instead of just children
 ```
 
 ### Options inherited from parent commands

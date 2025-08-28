@@ -1,5 +1,5 @@
 ---
-date: 2025-08-25T23:34:45Z
+date: 2025-08-27T22:10:41Z
 title: "chainctl images list"
 slug: chainctl_images_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_list/
@@ -23,6 +23,7 @@ chainctl images list [--repo=REPO_NAME] [--public | --parent=PARENT_NAME|PARENT_
   -h, --help                      help for list
       --parent string             The name or id of the parent location to list image repos.
       --public                    List repos from the public Chainguard registry.
+      --recursive                 Search repositories recursively through all descendants instead of just children
       --repo string               Search for a specific repo by name.
       --show-dates                Whether to show date tags of the form latest-{date}.
       --show-epochs               Whether to show epoch tags of the form 1.2.3-r4.

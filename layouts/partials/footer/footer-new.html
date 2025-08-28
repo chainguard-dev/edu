@@ -1,0 +1,77 @@
+<footer>
+  <div class="container footer">
+    <!-- Main footer content with two-part layout -->
+    <div class="footer-main-content">
+      
+      <!-- Left side: Brand section -->
+      <div class="footer-brand-section">
+        <!-- Logo -->
+        <a href="/" class="footer-logo">
+          <img src="/Chainguard_Wordmark_White.svg" alt="Chainguard" />
+        </a>
+        
+        <!-- Contact Us button -->
+        <a href="https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement" 
+           class="footer-contact-btn" target="_blank">
+          Contact us
+        </a>
+        
+        <!-- Social icons in brand section -->
+        <div class="footer-brand-socials">
+          {{ range .Site.Menus.social }}
+          <a target="_blank" href="{{ .URL }}" title="Follow Chainguard on {{ .Name }}">
+            <img src="/iconography/socials/{{ .Params.icon }}" alt="{{ .Name }}">
+          </a>
+          {{ end }}
+        </div>
+      </div>
+      
+      <!-- Right side: Navigation columns -->
+      <div class="footer-nav-section">
+        {{ range .Site.Menus.footer }}
+        <div class="footer-column">
+          {{ if .HasChildren }}
+          <div class="footer-title">{{ .Name }}</div>
+          <div>
+            {{ range .Children }}
+            <a href="{{ .URL }}" class="footer-item">
+              {{ .Name }}{{ with .Pre }}<span>{{ . | safeHTML }}</span>{{ end }}
+            </a>
+            {{ end }}
+          </div>
+          {{ else }}
+          <a class="footer-item" href="{{ .URL }}">{{ .Name }}</a>
+          {{ end }}
+        </div>
+        {{ end }}
+      </div>
+      
+    </div>
+    
+    <!-- Bottom section: Copyright and legal -->
+    <div class="footer-bottom-section">
+      <div class="footer-legal">
+        <a href="https://www.chainguard.dev">©{{ time.Now.Year }} Chainguard. All Rights Reserved.</a>
+        <span class="separator">|</span>
+        <a href="https://www.chainguard.dev/legal/privacy-policy?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement">Privacy Policy</a>
+        <span class="separator">|</span>
+        <a href="https://www.chainguard.dev/legal/terms-of-use?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement">Terms of Use</a>
+      </div>
+      
+      <!-- Optional: Social icons repeated at bottom (remove if not needed) -->
+      <div class="footer-bottom-socials">
+        {{ range .Site.Menus.social }}
+        <a target="_blank" href="{{ .URL }}" title="{{ .Name }}">
+          <img src="/iconography/socials/{{ .Params.icon }}" alt="{{ .Name }}">
+        </a>
+        {{ end }}
+      </div>
+    </div>
+    
+  </div>
+</footer>
+
+<div id="notification">
+  <i class="bi bi-files-opposite"></i>
+  <div id="notification-text"></div>
+</div>
