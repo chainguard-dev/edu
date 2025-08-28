@@ -13,7 +13,7 @@ images: []
 weight: 030
 ---
 
-This guide explains how to configure Jenkins to authenticate with Chainguard using an assumable identity. This example uses `chainctl` directly, instead of Terraform like in [the other example](/chainguard/administration/assumable-ids/identity-examples/jenkins-identity-terraform/).
+This guide explains how to configure Jenkins to authenticate with Chainguard using an assumable identity. This example uses `chainctl`, Chainguard's command line tool. If you would like to follow this guide using Terraform, you can review [Use Terraform to Create an Assumable Identity for a Jenkins Pipeline](/chainguard/administration/assumable-ids/identity-examples/jenkins-identity-terraform/).
 
 With this setup, Jenkins jobs can securely push and pull container images from the Chainguard registry without managing static credentials.
 
@@ -58,20 +58,20 @@ This grants Jenkins permission to authenticate as a member.
 
 There are two ways to do this, via the Jenkins UI or using Jenkins Configuration as Code (JCasC).
 
-### Via the Jenkins UI
+### Jenkins UI
 
 In your Jenkins instance, open Manage Jenkins → Credentials → Global credentials (unrestricted).
 
 Add a new Secret text credential as described in the [Jenkins documentation](https://www.jenkins.io/doc/book/using/using-credentials/). Enter the following in these fields:
 
 - ID: `chainctl-token`
-- Secret text: Enter a [long-lived API token](/chainguard/administration/api-tokens/) for your Jenkins service account.
+- Secret text: Enter a long-lived API token for your Jenkins service account.
 
 This token will allow Jenkins to call chainctl and exchange the API token for short-lived OIDC tokens when needed.
 
-### Via Jenkins Configuration as Code
+### Jenkins Configuration as Code (JCasC)
 
-Insert this YAML information into your configuration.
+Insert this YAML information into your [JCasC](https://www.jenkins.io/projects/jcasc/) configuration, as seen in the [longer example](https://github.com/jenkinsci/configuration-as-code-plugin/blob/master/README.md) in the JenkinsCI GitHub repository.
 
 ```yaml
 credentials:
@@ -85,15 +85,12 @@ credentials:
 
 ```
 
+Once your credentials are configured using either the Jenkins UI or JCasC method, you are ready to use the identity in your pipeline.
+
 
 ## Use the Identity in a Jenkins Pipeline
 
-This example [Jenkins pipeline](https://www.jenkins.io/doc/book/pipeline/):
-- Logs chainctl in using the stored API token
-- Assumes the Jenkins identity to obtain short-lived credentials
-  - `chainctl auth login` authenticates Jenkins with Chainguard using the stored API token.
-  - `chainctl iam identities assume` exchanges that authentication for a short-lived identity credential and runs `docker login cgr.dev`.
-- Pulls an image
+This example [Jenkins pipeline](https://www.jenkins.io/doc/book/pipeline/) logs chainctl in using the stored API token. It then assumes the Jenkins identity to obtain short-lived credentials where `chainctl auth login` authenticates Jenkins with Chainguard using the stored API token and `chainctl iam identities assume` exchanges that authentication for a short-lived identity credential and runs `docker login cgr.dev`. Finally, it pulls an image.
 
 ```groovy
 pipeline {
@@ -122,9 +119,11 @@ pipeline {
 }
 ```
 
+Now your Jenkins jobs can securely interact with the Chainguard registry without managing static credentials.
+
 
 ## Learn More
 
-- [Assumable IDs](https://chatgpt.com/chainguard/administration/assumable-ids/)
-- [chainctl API](/chainguard/chainguard-cli/install/)
-- [Authenticating with Chainguard Registry](https://chatgpt.com/chainguard/chainguard-images/chainguard-registry/authenticating/)
+- [Assumable IDs](/chainguard/administration/assumable-ids/)
+- [How to Install chainctl](/chainguard/chainctl-usage/how-to-install-chainctl/)
+- [Authenticating with Chainguard Registry](/chainguard/chainguard-images/chainguard-registry/authenticating/)

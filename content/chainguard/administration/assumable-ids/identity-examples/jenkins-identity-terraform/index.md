@@ -1,5 +1,5 @@
 ---
-title : "Create an Assumable Identity for a Jenkins Pipeline"
+title : "Use Terraform to Create an Assumable Identity for a Jenkins Pipeline"
 linktitle: "Jenkins with Terraform"
 aliases:
 - /chainguard/chainguard-enforce/authentication/identity-examples/enforce-jenkins-identity/
@@ -19,7 +19,7 @@ weight: 025
 
 Chainguard's [*assumable identities*](/chainguard/administration/iam-organizations/assumable-ids/) are identities that can be assumed by external applications or workflows in order to perform certain tasks that would otherwise have to be done by a human.
 
-This procedural tutorial outlines how to create an identity using Terraform, and then how to update a Jenkins pipeline so that it can assume the identity and interact with Chainguard resources. An additional example shows [how to do this using `chainctl` directly](/chainguard/administration/assumable-ids/identity-examples/jenkins-identity-chainctl/).
+This procedural tutorial outlines how to create an identity using Terraform, and then how to update a Jenkins pipeline so that it can assume the identity and interact with Chainguard resources. If you would like to follow this guide using `chainctl`, Chainguard's command line tool, you can review [Use chainctl to Create an Assumable Identity for a Jenkins Pipeline](/chainguard/administration/assumable-ids/identity-examples/jenkins-identity-chainctl/).
 
 
 ## Prerequisites
@@ -60,7 +60,7 @@ terraform {
 }
 ```
 
-This is a fairly barebones Terraform configuration file, but we will define the rest of the resources in the other two files. In `main.tf`, we declare and initialize the Chainguard Terraform provider.
+This is a fairly bare-bones Terraform configuration file, but we will define the rest of the resources in the other two files. In `main.tf`, we declare and initialize the Chainguard Terraform provider.
 
 To create the `main.tf` file, run the following command.
 
@@ -126,7 +126,7 @@ The `audience` and `issuer` fields use settings from your configured Jenkins OID
 
 ![Jenkins OICD token configuration page](jenkins-oidc-credential.png)
 
-For the subject, refer to your Jenkins repository OIDC settings page. You can find these by naivgating back to the **Manage Jenkins** landing page in your dashboard and clicking on **Security**. From there, scroll to the `OpenID Connect` section on the page, click on the **Claim templates** button, and locate the `sub` field. The `subject` value you should use will be the value in the **Value format** field under the first `sub` template. In the following example, the value to use is `jenkins-oidc-test`.
+For the subject, refer to your Jenkins repository OIDC settings page. You can find these by navigating back to the **Manage Jenkins** landing page in your dashboard and clicking on **Security**. From there, scroll to the `OpenID Connect` section on the page, click on the **Claim templates** button, and locate the `sub` field. The `subject` value you should use will be the value in the **Value format** field under the first `sub` template. In the following example, the value to use is `jenkins-oidc-test`.
 
 ![Jenkins OpenID Connect configuration](jenkins-oidc-connect-config.png)
 
