@@ -39,7 +39,7 @@ to manage the size of the index.
 
 Retrieving the build configuration for the latest version of nginx:
 
-```
+```shell
 cosign verify-attestation \
   --type https://apko.dev/image-configuration \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com \
@@ -49,7 +49,7 @@ cosign verify-attestation \
 
 Building the image:
 
-```
+```shell
 apko publish latest.apko.json ttl.sh/nginx-repro
 
 ```

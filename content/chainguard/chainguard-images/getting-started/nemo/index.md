@@ -47,7 +47,7 @@ We'll start by running the NeMo Chainguard Container interactively and determine
 
 Use the following command to pull the container image, run it with GPU access, and start a Python interpreter inside the running container.
 
-```bash
+```shell
 docker run -it --rm \
   --gpus all \
   --shm-size=8g \
@@ -62,8 +62,10 @@ These options allow access to all available GPUs, allocate a custom amount of sh
 
 Running this command for the first time may take a few minutes, since it will download  the NeMo Chainguard Container to your host machine. Once the image is pulled and the command runs successfully, you will be interacting with a bash shell in the running container. Enter the following commands at the prompt to check the availability of your GPU.
 
+```shell
+python
 ```
-$ python
+```python
 Python 3.11.9 (main, May  1 2024, 21:48:03) [GCC 13.2.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> from nemo.core import pytorch_lightning
@@ -103,13 +105,13 @@ In this section, we'll run a script that uses the NeMo Chainguard Container to:
 
 First, let's create a folder to work in on your host machine:
 
-```bash
+```shell
 mkdir -p ~/nemo-tts && cd ~/nemo-tts
 ```
 
 Next, let's download our [tts.py](https://github.com/chainguard-dev/nemo-examples/blob/main/tts.py) script:
 
-```bash
+```shell
 curl https://raw.githubusercontent.com/chainguard-dev/nemo-examples/main/tts.py > tts.py
 ```
 
@@ -119,7 +121,7 @@ We'll be mounting this folder in our container as a volume, which will allow us 
 
 We'll now start a container based on our NeMo Chainguard Container, mount the current working directory containing our `tts.py` script inside the container as a volume, and run the script in the container:
 
-```bash
+```shell
 docker run -it --rm \
   --gpus all \
   --user root \
@@ -140,11 +142,11 @@ Note that NeMo collections are large, and initial imports can take up to a minut
 
 After imports are complete, you should see a large amount of output as NeMo pulls models and works through the steps in the script (tokenizing, generating a spectrogram, generating audio, and writing audio to disk). On completion, the script outputs a `test.wav` file. Because we mounted a volume, this file should now be present in the working directory of your host machine.
 
-```bash
+```shell
 ls
 ```
 
-```
+```output
 test.wav  tts.py
 ```
 

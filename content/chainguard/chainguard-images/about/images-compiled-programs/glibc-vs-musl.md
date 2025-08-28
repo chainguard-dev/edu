@@ -145,7 +145,7 @@ docker run --rm musl-test
 
 Because musl does not prevent buffer overflows by default, it will allow the program to print `This is a very long string that will overflow the buffer.`:
 
-```
+```output
 Buffer content: This is a very long string that will overflow the buffer.
 ```
 
@@ -157,7 +157,7 @@ docker run --rm glibc-test
 
 glibc has built-in protection, so the output here will only let you know that the program was terminated:
 
-```Output
+```output
 *** stack smashing detected ***: terminated
 ```
 
