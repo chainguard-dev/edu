@@ -45,7 +45,7 @@ Edit this file by adding or removing any packages you like. Then, save and close
 
 Before applying the change, `chainctl` will outline the changes you made and prompt you to confirm that you want to move forward with the change:
 
-```
+```output
 /tmp/3352123767.yaml (-deletion / +addition):
 
  contents:

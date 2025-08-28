@@ -98,7 +98,7 @@ Be sure to replace `<organization>` with your organization's name or ID.
 
 This command will return a `docker login` command like the following:
 
-```
+```output
 . . .
 
 	docker login "cgr.dev" --username "<pull_token_ID>" --password "<password>"

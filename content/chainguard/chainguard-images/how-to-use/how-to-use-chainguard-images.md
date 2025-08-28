@@ -106,7 +106,7 @@ docker run --rm -t cgr.dev/chainguard/cosign:latest version
 
 You'll receive the version information that confirms the image is working as expected.
 
-```
+```output
   ______   ______        _______. __    _______ .__   __.
  /      | /  __  \      /       ||  |  /  _____||  \ |  |
 |  ,----'|  |  |  |    |   (----`|  | |  |  __  |   \|  |
@@ -199,7 +199,7 @@ docker run -it --rm advice-slip:test
 
 You should get output like this, with a random piece of advice:
 
-```
+```output
 "Big things have small beginnings."
 ```
 

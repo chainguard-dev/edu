@@ -26,7 +26,7 @@ toc: true
 
 For Homebrew, use:
 
-```bash
+```shell
 brew install trivy
 ```
 Aqua Security [maintains sources and packages for a variety of additional operating systems and distributions](https://aquasecurity.github.io/trivy/latest/getting-started/installation/) on their installation page.
@@ -35,13 +35,13 @@ Aqua Security [maintains sources and packages for a variety of additional operat
 
 Aqua Security provides an [installation script for Trivy](https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh). To install Trivy with the script, change the `/usr/local/bin` argument to the desired installation location on your path before running the following command:
 
-```bash
+```shell
 curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.52.2
 ```
 
 On many system configurations, you may need to provide elevated permissions via `sudo`:
 
-```bash
+```shell
 curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sudo sh -s -- -b /usr/local/bin v0.52.2
 ```
 
@@ -53,7 +53,7 @@ Container images for Trivy are hosted on a variety of registries. When running T
 
 The following command will pull Trivy from Docker Hub, mount the two volumes, run the Trivy container, and use the running container to scan the official nginx image on Docker Hub:
 
-```bash
+```shell
 docker run \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v $HOME/Library/Caches:/root/.cache/ \
@@ -67,7 +67,7 @@ Throughout this tutorial, we'll use the `trivy` command to run Trivy. If you're 
 
 To use Trivy, provide a subcommand indicating the type of artifact or deployment to be scanned along with the location of the target. For example, to scan the official Python image on Docker Hub:
 
-```bash
+```shell
 trivy image python
 ```
 
@@ -81,13 +81,13 @@ Trivy can scan a wide variety of artifacts, collections, or deployments, collect
 
 To scan a container image on Docker Hub, use the `image` subcommand and the name of the image as an  argument:
 
-```bash
+```shell
 trivy image nginx
 ```
 
 For images on other registries:
 
-```bash
+```shell
 trivy image cgr.dev/chainguard/nginx:latest
 ```
 
@@ -95,7 +95,7 @@ trivy image cgr.dev/chainguard/nginx:latest
 
 Trivy can recursively scan directories on a local machine.. To start a filesystem scan, run:
 
-```bash
+```shell
 trivy fs <path>
 ```
 
@@ -103,7 +103,7 @@ where `<path>` indicates the root folder where the scan will begin. Trivy looks 
 
 The following creates a Python project folder with virtual environment, installs a set of older packages, generates a `requirements.txt` file itemizing all transitive dependencies, and scans the project folder using Trivy:
 
-```
+```shell
 mkdir python-project && cd python-project
 python -m venv venv
 ./venv/bin/pip install WTForms==2.3.3 Werkzeug==2.0.1
@@ -112,7 +112,7 @@ trivy fs .
 ```
 The following creates a default Node project, installs an older package with `npm`, and scans the project with Trivy:
 
-```bash
+```shell
 mkdir node_project && cd node_project
 npm init -y
 npm install qs@6.5.2
@@ -125,7 +125,7 @@ You should see a summary and itemized list of CVEs for the outdated Node package
 
 To scan a Kubernetes cluster:
 
-```bash
+```shell
 trivy k8s --report summary <cluster-name>
 ```
 
@@ -133,13 +133,13 @@ To try out the above command on a test Kubernetes cluster, First install [Kind](
 
 Once Kind is installed and accessible on your path, run the following to create a cluster:
 
-```bash
+```shell
 kind create cluster --name test-cluster
 ```
 
 Run the following to scan the new cluster with Trivy:
 
-```bash
+```shell
 trivy k8s --report summary kind-test-cluster
 ```
 
@@ -155,13 +155,13 @@ Trivy can both generate and scan SBOMs.
 
 First, generate an SBOM file in CycloneDX format to scan
 
-```bash
+```shell
 trivy image -f cyclonedx -o results.cdx.json nginx
 ```
 
 Trivy can scan this generated CycloneDX SBOM with the following:
 
-```bash
+```shell
 trivy sbom results.cdx.json
 ```
 
@@ -169,7 +169,7 @@ By default, the `sbom` subcommand scans only for vulnerabilities. License scanni
 
 Some image providers, such as Chainguard, associate images with an [SBOM attestation](https://edu.chainguard.dev/open-source/sbom/sboms-and-attestations/) verifying that the image has not been tampered with since the time of creation. Trivy provides functionality to query attestations registered in the [Rekor transparency log](https://github.com/sigstore/rekor). To retrieve an SBOM attestation from a Rekor transparency log, set the `--sbom-sources` flag to `rekor` and provide the `--rekor-url` flag to the instance of the transparency log you wish to query against. The following will perform a scan using the SBOM attestation for Chainguard's `nginx` image as registered on the [Rekor public server](https://rekor.sigstore.dev/):
 
-```bash
+```shell
 trivy image --sbom-sources rekor --rekor-url https://rekor.sigstore.dev/ cgr.dev/chainguard/nginx
 ```
 
@@ -183,7 +183,7 @@ When run with default output and formatting, Trivy first prints a series of info
 
 Scan the image with the following command:
 
-```bash
+```shell
 trivy image python:3.10.14-alpine3.20
 ```
 
@@ -199,7 +199,7 @@ In the initial portion of its results output, Trivy summarizes information on th
 
 Following the log, Trivy shows the name of the image and a count of issues by severity.
 
-```
+```output
 Total: 8 (UNKNOWN: 0, LOW: 0, MEDIUM: 8, HIGH: 0, CRITICAL: 0)
 ```
 
@@ -227,13 +227,13 @@ Trivy can scan not only for known vulnerabilities, but also for misconfiguration
 
 Individual scanners can be selected by passing a comma-separated list after the `--scanners` flag. To add a misconfigurations scan to an analysis of a container image:
 
-```bash
+```shell
 trivy image --scanners vuln,misconfig,secret nginx
 ```
 
 To recursively scan only for exposed secrets on a filesystem:
 
-```bash
+```shell
 trivy fs --scanners secret .
 ```
 
@@ -243,13 +243,13 @@ This will perform a recursive scan of all files and folders in the current worki
 
 Trivy provides an opinionated license scan that flags license clauses that may pose a business risk. To perform a license scan on a container image:
 
-```
+```shell
 trivy image --scanners license nginx
 ```
 
 By default, the Trivy license scan only looks at packages installed by managers such as `apt` or `apk`. To scan other files, add the `--license-full` flag:
 
-```bash
+```shell
 trivy image --scanners license --license-full nginx
 ```
 Using the `--license-full`flag will also show results for "loose" licenses, such as those provided as text files in project folders.
@@ -262,23 +262,23 @@ Trivy allows output in JSON, SARIF, CycloneDX, SPDX, SPDX-JSON, and GitHub forma
 
 The `-q` or `--quiet` flag suppresses the logging output normally printed to `stderr`. The following returns just the line summarizing the number and severity of issues:
 
-```bash
+```shell
 trivy image -q nginx | grep Total:
 ```
 
-```
+```output
 Total: 173 (UNKNOWN: 2, LOW: 88, MEDIUM: 59, HIGH: 22, CRITICAL: 2)
 
 ```
 
 The `-f` or `--format` flag specifies the output format, and the `-o` or `--output` flag specifies an output file. The following writes a JSON-formatted report to a `results.json` file.
 
-```bash
+```shell
 trivy image -f json -o results.json nginx
 ```
 Similarly, the following would write a report in SARIF format:
 
-```bash
+```shell
 trivy image -f sarif -o results.sarif nginx
 ```
 Other formats can be generated by passing the appropriate format type with the `-f` or `--format` flag.
@@ -287,7 +287,7 @@ Other formats can be generated by passing the appropriate format type with the `
 
 The CycloneDX, SPDX, and SPDX-JSON output formats are considered SBOMs, and can be scanned with the `trivy sbom` subcommand. The following command will generate an SBOM in CycloneDX format:
 
-```bash
+```shell
 trivy image -f cyclonedx -o results.cdx.json nginx
 ```
 
@@ -298,12 +298,12 @@ See [Scanning SBOMs](#scanning-sboms) for more on scanning these output formats.
 
 Trivy can generate reports in additional formats from user-contributed templates. To use templates, first clone the Trivy GitHub repository to your home folder:
 
-```bash
+```shell
 git clone https://github.com/aquasecurity/trivy.git ~/.trivy
 ```
 To generate a report using the HTML template, specify the path to the template in the cloned repository:
 
-```bash
+```shell
 trivy image --format template --template "@.trivy/contrib/html.tpl" -o report.html nginx
 ```
 

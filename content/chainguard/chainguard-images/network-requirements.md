@@ -80,7 +80,7 @@ Containers and endpoints:
 
 The requirements can be approximately tested with the following OpenSSL client command:
 
-```
+```shell
 openssl s_client -cipher @SECLEVEL=2:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384 -ciphersuites TLS_AES_256_GCM_SHA384 -groups P-256 -connect HOST:PORT
 ```
 

@@ -132,8 +132,7 @@ First check that the `/etc/apk/repositories` file contains the correct lines:
 
 ```shell
 cat /etc/apk/repositories
-```
-```Output
+```output
 https://<ARTIFACTORY-USER-PROFILE>:<WOLFI-TOKEN>@<ARTIFACTORY-HOSTNAME>.jfrog.io/artifactory/cg-wolfi/
 https://<ARTIFACTORY-USER-PROFILE>:<EXTRAS-TOKEN>@<ARTIFACTORY-HOSTNAME>.jfrog.io/artifactory/cg-extras/
 ```
@@ -143,7 +142,7 @@ Then test that you can install a package from these repositories with `apk`. Thi
 ```shell
 apk add curl
 ```
-```Output
+```output
 fetch https://<ARTIFACTORY-USER-PROFILE>:*@<ARTIFACTORY-HOSTNAME>.jfrog.io/artifactory/cg-wolfi/
 fetch https://<ARTIFACTORY-USER-PROFILE>:*@<ARTIFACTORY-HOSTNAME>.jfrog.io/artifactory/cg-extras/
 (1/1) Installing curl (8.11.0-r0)

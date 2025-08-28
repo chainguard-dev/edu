@@ -48,7 +48,7 @@ kind create cluster
 
 This will return output similar to the following:
 
-```
+```output
 Creating cluster "kind" ...
  ✓ Ensuring node image (kindest/node:v1.27.3) 🖼 
  ✓ Preparing nodes 📦  

@@ -76,7 +76,7 @@ When it comes to container versions, pinning an application to a major version i
 docker images --digests cgr.dev/chainguard/wolfi-base
 ```
 
-```
+```output
 REPOSITORY                   TAG    DIGEST                                                                 IMAGE ID    CREATED   SIZE
 cgr.dev/chainguard/wolfi-base   latest sha256:490977f0fd3d8596d173839dbb314153797312553b43f6a24b0e341cf2e8d473   2606ed78c658   9 days ago   10.9MB
 ```

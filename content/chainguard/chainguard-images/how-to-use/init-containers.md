@@ -222,7 +222,7 @@ nginx-chainguard-d49d7496c-stxcj   0/1     Init:0/1   0          6s
 
 If you do so again shortly after, you will find the init container has completed and the application is running:
 
-```
+```output
 NAME                               READY   STATUS    RESTARTS   AGE
 nginx-chainguard-d49d7496c-stxcj   1/1     Running   0          55s
 ```

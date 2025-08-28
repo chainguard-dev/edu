@@ -118,7 +118,7 @@ cilium install \
 ```
 
 This will return output similar to the following:
-```
+```output
 🔮 Auto-detected Kubernetes kind: K3s
 ℹ️  Using Cilium version 1.14.2
 🔮 Auto-detected cluster name: k3d-k3s-default

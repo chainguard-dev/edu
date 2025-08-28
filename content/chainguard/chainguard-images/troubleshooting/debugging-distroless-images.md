@@ -78,31 +78,31 @@ Suppose you have a Kubernetes cluster and one of the containers is having issues
 
 Let's review an example. We'll start by running a Chainguard NGINX image on a Kubernetes cluster:
 
-```
+```shell
 kubectl run nginx --image=cgr.dev/chainguard/nginx:latest
 ```
 
 Which should result in:
 
-```
+```output
 pod/nginx created
 ```
 
 We can try to start a shell in this pod:
 
-```
+```shell
 kubectl exec -it nginx -- sh
 ```
 
 But the following error occurs:
 
-```
+```output
 error: Internal error occurred: error executing command in container: failed to exec in container: failed to start exec "67bd5164394b1170ac1846bd77ea0b826332365970fbde3b3201bb9abec9b72c": OCI runtime exec failed: exec failed: unable to start container process: exec: "sh": executable file not found in $PATH: unknown
 ```
 
 Which is a long way of telling us there is no shell in the image. What we can do instead is use an ephemeral container. An ephemeral container will connect to the namespaces of an existing container, effectively allowing you to sideload debugging tools. Let's try that now:
 
-```
+```shell
 kubectl debug -it nginx --image=cgr.dev/chainguard/wolfi-base --target=nginx
 ```
 

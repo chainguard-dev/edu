@@ -95,7 +95,7 @@ Replace `$ORGANIZATION` with the name of your organization.
 
 This command will return a table showing the UIDPs of every Chainguard Container the specified organization has access to:
 
-```
+```output
                 ID                 |      REGISTRY       |   REPO   |        BUNDLES        |    TIER 	 
 -----------------------------------+---------------------+----------+-----------------------+--------------
   ORGANIZATION_ID/165aEXAMPLE5b7ae | cgr.dev/example.com | nginx    | application, featured | APPLICATION  
@@ -116,7 +116,7 @@ It also pipes the `curl` command's output into `jq`, a lightweight JSON processo
 
 This command will return EOL data for each image within the repository, which will be delivered in the following format:
 
-```
+```output
 {
   "items": [
 
