@@ -143,7 +143,7 @@ nano catfact.php
 
 The following code makes a query to the cat facts API, returning the quote as output. Copy the contents to your own `catfact.php` script:
 
-```php
+```catfact.php 
 <?php
 
 require __DIR__ . '/vendor/autoload.php';
