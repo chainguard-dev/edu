@@ -74,6 +74,32 @@ html[data-dark-mode] .logo-purple {
   }
 }
 
+// Fix sidebar overflow issues on mobile only
+@media (max-width: 768px) {
+    .leftnav-container {
+        overflow-x: hidden;
+        
+        .leftnav {
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+    }
+    
+    // Force offcanvas menu to show content
+    .offcanvas-body {
+        .sidebar-category {
+            color: var(--body-color) !important;
+            display: block !important;
+            font-weight: bold !important;
+            margin: 10px 0 !important;
+        }
+        
+        #sidebar-default {
+            min-height: 300px !important;
+        }
+    }
+}
+
 .docs-content {
     padding-bottom: 0;
     margin-left: 0 em;
@@ -734,6 +760,9 @@ header .search-container {
 .toggle-light {
     line-height: 17px;
 }
+
+// Fix toggle visibility - remove conflicting rules
+// Let the original styles from node_modules work
 
 #sidebar-default {
     padding-left: 12px;
