@@ -103,7 +103,7 @@ where `<path>` indicates the root folder where the scan will begin. Trivy looks 
 
 The following creates a Python project folder with virtual environment, installs a set of older packages, generates a `requirements.txt` file itemizing all transitive dependencies, and scans the project folder using Trivy:
 
-```
+```bash
 mkdir python-project && cd python-project
 python -m venv venv
 ./venv/bin/pip install WTForms==2.3.3 Werkzeug==2.0.1
@@ -199,7 +199,7 @@ In the initial portion of its results output, Trivy summarizes information on th
 
 Following the log, Trivy shows the name of the image and a count of issues by severity.
 
-```
+```output
 Total: 8 (UNKNOWN: 0, LOW: 0, MEDIUM: 8, HIGH: 0, CRITICAL: 0)
 ```
 

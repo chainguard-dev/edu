@@ -89,13 +89,13 @@ Being able to provide multi-platform Chainguard Containers enables the support o
 
 You can confirm the available architecture of a given Chainguard Container with Crane. In this example, we'll use the latest Ruby image, but you can opt to use an alternate image.
 
-```sh
+```shell
 crane manifest cgr.dev/chainguard/ruby:latest |jq -r '.manifests []| .platform'
 ```
 
 Once you run this command, you'll receive output similar to the following.
 
-```
+```output
 {
   "architecture": "amd64",
   "os": "linux"

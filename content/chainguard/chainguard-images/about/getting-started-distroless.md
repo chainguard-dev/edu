@@ -86,7 +86,7 @@ docker run c-distroless
 
 You should get output like this:
 
-```
+```output
 Hello Distroless!
 ```
 
@@ -96,7 +96,7 @@ You can note the size of the resulting image.
 docker images c-distroless
 ```
 
-```
+```output
 REPOSITORY     TAG       IMAGE ID       CREATED          SIZE
 c-distroless   latest    cd3bb76a84f5   45 seconds ago   2.04MB
 ```
@@ -196,14 +196,16 @@ docker run --rm distroless-demo-php
 
 And you should get a cat fact as output, such as:
 
-```shell
+```output
 A domestic cat can run at speeds of 30 mph.
 ```
 
 Upon inspection with `docker images`, you can check the image size around 38MB:
 
 ```shell
-❯ docker images distroless-demo-php
+docker images distroless-demo-php
+```
+```output
 REPOSITORY            TAG       IMAGE ID       CREATED         SIZE
 distroless-demo-php   latest    8691d09f56ca   2 minutes ago   37.9MB
 ```
