@@ -96,7 +96,7 @@ This takes you to a **Basic** configuration tab where you can enter the followin
 * **User Name** — This is used by Artifactory to authenticate to Chainguard and access your private APK repository. Use the pull token identity ID value you set to the `CHAINGUARD_IDENTITY_ID` variable.
 * **Password / Access Token** — Enter the value from CHAINGUARD_TOKEN. 
 
-Click the **Create Remote Repository** button to create the remote repository and return you to the **Repositories** page. 
+Click the **Create Remote Repository** button to create the remote repository and returns you to the **Repositories** page. 
 
 
 ### Generating a token for the remote repository
@@ -265,8 +265,6 @@ export VIRTUAL_TOKEN=my-virtual-repo-token
 ```
 
 You'll use this token to create one more Dockerfile in the next section.
-
-### Testing pull-through with a virtual package repository
 
 To test out the virtual repository, create a Dockerfile that configures an image to use it as outlined previously. You can test this out however you like, but here we stick to the example showing how to install a package into the built image:
 
