@@ -20,20 +20,19 @@ With this setup, Jenkins jobs can securely push and pull container images from t
 
 ## Prerequisites
 
-- A running Jenkins controller or agent with:
-    - chainctl installed and available in $PATH.
-    - Docker or another container runtime installed.
-- Admin access to your Chainguard organization.
-- An existing assumable ID created for Jenkins, or permissions to create one.
+- A running Jenkins controller.
+- chainctl installed and accessible from Jenkins agents.
+- Access to your Chainguard organization with permission to create IAM identities.
 
 
 ## Create a Jenkins Assumable ID
 
-Use chainctl to create an identity that Jenkins can use to authenticate:
+Use `chainctl` to create an identity that Jenkins can use to authenticate:
 
-```sh
-chainctl iam identities create \
-  --name jenkins-ci \
+```shell
+chainctl iam identities create jenkins-oidc \
+  --identity-issuer https://chainguard.dev/ \
+  --subject jenkins \
   --description "Identity for Jenkins builds" \
   --output json
 ```
@@ -46,84 +45,101 @@ Note the returned identity ID. This guide uses `iam-1234567890` for an example.
 Bind the new identity to your Chainguard organization’s default role or a more restrictive one:
 
 ```sh
-chainctl iam roles bindings create \
-  --role chainguard:member \
-  --identity iam-1234567890
+chainctl iam role-bindings create \
+  --identity=iam-1234567890 \
+  --role=registry.pull
 ```
 
-This grants Jenkins permission to authenticate as a member.
+This example grants Jenkins permission to authenticate as a member with privileges for pulling from the Chainguard registry.
 
 
 ## Configure Jenkins Credentials
 
-There are two ways to do this, via the Jenkins UI or using Jenkins Configuration as Code (JCasC).
+Jenkins needs a way to supply `chainctl` with an API token so it can exchange it for short-lived credentials when a pipeline runs.
 
-### Jenkins UI
+In this example, Jenkins mints an OIDC ID token during each build and `chainctl` uses that token to assume your Chainguard identity — no long-lived secrets are required.
 
-In your Jenkins instance, open Manage Jenkins → Credentials → Global credentials (unrestricted).
+> **NOTE**: Why not a “long-lived API token”? Chainguard does not issue general-purpose, long-lived API tokens. This ensures your automation relies only on short-lived, scoped credentials.
 
-Add a new Secret text credential as described in the [Jenkins documentation](https://www.jenkins.io/doc/book/using/using-credentials/). Enter the following in these fields:
 
-- ID: `chainctl-token`
-- Secret text: Enter a long-lived API token for your Jenkins service account.
+### Install & Configure the Jenkins OIDC Plugin
 
-This token will allow Jenkins to call chainctl and exchange the API token for short-lived OIDC tokens when needed.
+Jenkins does not come with OIDC functionality by default, but it is available in the **Open ID Connect Provider** plugin that you may need to install. Refer to https://plugins.jenkins.io/oidc-provider/ for more information about the plugin.
 
-### Jenkins Configuration as Code (JCasC)
 
-Insert this YAML information into your [JCasC](https://www.jenkins.io/projects/jcasc/) configuration, as seen in the [longer example](https://github.com/jenkinsci/configuration-as-code-plugin/blob/master/README.md) in the JenkinsCI GitHub repository.
+### Create an OIDC token credential
 
-```yaml
-credentials:
-  system:
-    domainCredentials:
-      - credentials:
-          - string:
-              id: "chainctl-token"
-              description: "Chainguard API token for chainctl"
-              secret: "${CHAINCTL_TOKEN_VALUE}"
+In the Jenkins UI, go to Manage Jenkins > Credentials > (Global) and from here select **Add Credentials**.
 
+Use the **Kind** dropdown to select **OpenID Connect id token**.
+
+Enter an **ID**, our example uses `jenkins-oidc`.
+
+
+### Create a Matching Chainguard Identity
+
+The Jenkins OIDC token’s issuer is typically `https://YOUR_JENKINS/oidc`.
+
+Create an identity that uses your Jenkins OIDC URL.
+
+```shell
+chainctl iam identities create jenkins-ci \
+  --identity-issuer https://YOUR_JENKINS/oidc \
+  --subject jenkins \
+  --description "Identity for Jenkins builds" \
+  --output json
 ```
 
-Once your credentials are configured using either the Jenkins UI or JCasC method, you are ready to use the identity in your pipeline.
+Bind a role to the identity.
+
+```shell
+chainctl iam role-bindings create \
+  --identity=jenkins-oidc \
+  --role=registry.pull
+```
+
+Now you are ready to use the token.
 
 
-## Use the Identity in a Jenkins Pipeline
+## Use the token in your Pipeline
 
-This example [Jenkins pipeline](https://www.jenkins.io/doc/book/pipeline/) logs chainctl in using the stored API token. It then assumes the Jenkins identity to obtain short-lived credentials where `chainctl auth login` authenticates Jenkins with Chainguard using the stored API token and `chainctl iam identities assume` exchanges that authentication for a short-lived identity credential and runs `docker login cgr.dev`. Finally, it pulls an image.
+Here is a minimal working example Jenkinsfile that uses what we just created.
 
 ```groovy
 pipeline {
   agent any
+
   environment {
-    CHAINCTL_TOKEN = credentials('chainctl-token')
-    IDENTITY = "iam-1234567890"
+    CHAINCTL_IDENTITY = "iam-1234567890" // replace with your identity ID
   }
+
   stages {
-    stage('Login to Chainguard') {
+    stage('Auth with Chainguard') {
       steps {
-        sh '''
-          echo "$CHAINCTL_TOKEN" | chainctl auth login --token-stdin
-          chainctl iam identities assume $IDENTITY -- docker login cgr.dev
-        '''
+        withCredentials([string(credentialsId: 'jenkins-oidc', variable: 'IDTOKEN')]) {
+          sh '''
+            echo "Logging in to Chainguard using OIDC..."
+            chainctl auth login \
+              --identity-token "$IDTOKEN" \
+              --identity "$CHAINCTL_IDENTITY"
+            chainctl auth configure-docker
+          '''
+        }
       }
     }
-    stage('Pull Image') {
+
+    stage('Pull image') {
       steps {
-        sh '''
-          docker pull cgr.dev/my-org/my-image:$BUILD_NUMBER
-        '''
+        sh 'docker pull cgr.dev/chainguard/python:latest'
       }
     }
   }
 }
 ```
 
-Now your Jenkins jobs can securely interact with the Chainguard registry without managing static credentials.
-
-
 ## Learn More
 
 - [Assumable IDs](/chainguard/administration/assumable-ids/)
 - [How to Install chainctl](/chainguard/chainctl-usage/how-to-install-chainctl/)
 - [Authenticating with Chainguard Registry](/chainguard/chainguard-images/chainguard-registry/authenticating/)
+
