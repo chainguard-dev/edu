@@ -29,6 +29,5 @@
 {{- end -}}
 
 {{ if hugo.IsProduction }}
-  {{ template "_internal/google_analytics.html" . }}
   {{ partial "googleTagManagerHead.html" . }}
 {{ end }}
