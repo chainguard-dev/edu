@@ -10,7 +10,7 @@ lastmod: 2025-08-27T08:03:42+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
-weight: 030
+weight: 025
 ---
 
 This guide explains how to configure Jenkins to authenticate with Chainguard using an assumable identity. This example uses `chainctl`, Chainguard's command line tool. If you would like to follow this guide using Terraform, you can review [Use Terraform to Create an Assumable Identity for a Jenkins Pipeline](/chainguard/administration/assumable-ids/identity-examples/jenkins-identity-terraform/).
@@ -44,7 +44,7 @@ Note the returned identity ID. This guide uses `iam-1234567890` for an example.
 
 Bind the new identity to your Chainguard organization’s default role or a more restrictive one:
 
-```sh
+```shell
 chainctl iam role-bindings create \
   --identity=iam-1234567890 \
   --role=registry.pull
