@@ -108,6 +108,8 @@ index at `https://libraries.cgr.dev/python/simple` requires authentication with
 username and password from a pull token as detailed in [access
 documentation](/chainguard/libraries/access/#pull-token).
 
+Note that not all Python package managers support the ability to pull from multiple indexes while setting a priority for a specific index. If you want to keep PyPI as a fallback index repository while pulling direct, `uv` supports [searching across multiple indexes](https://docs.astral.sh/uv/concepts/indexes/#searching-across-multiple-indexes) while setting a prirority index.
+
 ## Configuring build tools
 
 Once you have credentials and the index URL from your organization's repository
