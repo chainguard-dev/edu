@@ -13,44 +13,18 @@ images: []
 weight: 025
 ---
 
-This guide explains how to configure Jenkins to authenticate with Chainguard using an assumable identity. This example uses `chainctl`, Chainguard's command line tool. If you would like to follow this guide using Terraform, you can review [Use Terraform to Create an Assumable Identity for a Jenkins Pipeline](/chainguard/administration/assumable-ids/identity-examples/jenkins-identity-terraform/).
+Jenkins is an open source automation server that supports building, deploying, and automating projects.
 
-With this setup, Jenkins jobs can securely push and pull container images from the Chainguard registry without managing static credentials.
+This guide explains how to use `chainctl` to create an assumable identity and configure Jenkins to use that identity to authenticate to Chainguard. To accomplish this, we will create an OIDC token credential in Jenkins and then a matching Chainguard identity that uses the Jenkins OIDC URL and put the process into an example Jenkins build pipeline.
+
+If you would like to follow this guide using Terraform, you can review [Use Terraform to Create an Assumable Identity for a Jenkins Pipeline](/chainguard/administration/assumable-ids/identity-examples/jenkins-identity-terraform/).
 
 
 ## Prerequisites
 
-- A running Jenkins controller.
-- chainctl installed and accessible from Jenkins agents.
-- Access to your Chainguard organization with permission to create IAM identities.
-
-
-## Create a Jenkins Assumable ID
-
-Use `chainctl` to create an identity that Jenkins can use to authenticate:
-
-```shell
-chainctl iam identities create jenkins-oidc \
-  --identity-issuer https://chainguard.dev/ \
-  --subject jenkins \
-  --description "Identity for Jenkins builds" \
-  --output json
-```
-
-Note the returned identity ID. This guide uses `iam-1234567890` for an example.
-
-
-## Allow Jenkins to Assume the Identity
-
-Bind the new identity to your Chainguard organization’s default role or a more restrictive one:
-
-```shell
-chainctl iam role-bindings create \
-  --identity=iam-1234567890 \
-  --role=registry.pull
-```
-
-This example grants Jenkins permission to authenticate as a member with privileges for pulling from the Chainguard registry.
+- A running [Jenkins](https://www.jenkins.io/doc/pipeline/tour/getting-started/) instance with the **Open ID Connect Provider** plugin installed. Refer to https://plugins.jenkins.io/oidc-provider/ for more information about the plugin.
+- [chainctl](https://edu.chainguard.dev/chainguard/chainctl-usage/how-to-install-chainctl/) installed locally.
+- Administrative privileges within your Chainguard organization to create IAM identities (`identities.create`); this capability is available to users with [the owner role](https://edu.chainguard.dev/chainguard/administration/iam-organizations/roles-role-bindings/capabilities-reference/#chainguard-role-capabilities).
 
 
 ## Configure Jenkins Credentials
@@ -62,11 +36,6 @@ In this example, Jenkins mints an OIDC ID token during each build and `chainctl`
 > **NOTE**: Why not a “long-lived API token”? Chainguard does not issue general-purpose, long-lived API tokens. This ensures your automation relies only on short-lived, scoped credentials.
 
 
-### Install & Configure the Jenkins OIDC Plugin
-
-Jenkins does not come with OIDC functionality by default, but it is available in the **Open ID Connect Provider** plugin that you may need to install. Refer to https://plugins.jenkins.io/oidc-provider/ for more information about the plugin.
-
-
 ### Create an OIDC token credential
 
 In the Jenkins UI, go to Manage Jenkins > Credentials > (Global) and from here select **Add Credentials**.
@@ -76,11 +45,9 @@ Use the **Kind** dropdown to select **OpenID Connect id token**.
 Enter an **ID**, our example uses `jenkins-oidc`.
 
 
-### Create a Matching Chainguard Identity
+## Create a Matching Chainguard Identity
 
-The Jenkins OIDC token’s issuer is typically `https://YOUR_JENKINS/oidc`.
-
-Create an identity that uses your Jenkins OIDC URL.
+Create an identity that uses your Jenkins OIDC URL. This is typically `https://YOUR_JENKINS/oidc`:
 
 ```shell
 chainctl iam identities create jenkins-ci \
@@ -90,7 +57,7 @@ chainctl iam identities create jenkins-ci \
   --output json
 ```
 
-Bind a role to the identity.
+Bind the identity to a role.
 
 ```shell
 chainctl iam role-bindings create \
@@ -120,7 +87,6 @@ pipeline {
           sh '''
             echo "Logging in to Chainguard using OIDC..."
             chainctl auth login \
-              --identity-token "$IDTOKEN" \
               --identity "$CHAINCTL_IDENTITY"
             chainctl auth configure-docker
           '''
