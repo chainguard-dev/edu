@@ -108,8 +108,6 @@ index at `https://libraries.cgr.dev/python/simple` requires authentication with
 username and password from a pull token as detailed in [access
 documentation](/chainguard/libraries/access/#pull-token).
 
-Note that not all Python package managers support the ability to pull from multiple indexes while setting a priority for a specific index. If you want to keep PyPI as a fallback index repository while pulling direct, `uv` supports [searching across multiple indexes](https://docs.astral.sh/uv/concepts/indexes/#searching-across-multiple-indexes) while setting a priority index.
-
 ## Configuring build tools
 
 Once you have credentials and the index URL from your organization's repository
@@ -194,6 +192,13 @@ Example for `~/.pip/pip.conf`:
 [global]
 index-url = https://CG_PULLTOKEN_USERNAME:CG_PULLTOKEN_PASSWORD@libraries.cgr.dev/python/simple/
 ```
+
+Note that `pip` does not support installing Python libraries from multiple 
+indexes while prioritizing one index over another. If you are using `pip` 
+and prefer to pull from multiple indexes while prioritizing the Chainguard 
+Python Libraries index, we recommend using a repository manager. Alternatively, 
+other Python package managers below provide support for index priority 
+resolution behavior.
 
 <a id="poetry"></a>
 
@@ -288,6 +293,11 @@ poetry source add chainguard https://libraries.cgr.dev/python/simple/
 The [Poetry documentation](https://python-poetry.org/docs/) contains more
 information about your project build, dependencies, versions, and other aspects. 
 
+If you want to install Python libraries from multiple indexes with a priority 
+index resolution order, `poetry` supports setting a [primary package source](https://python-poetry.org/docs/repositories/#project-configuration). 
+For example, some organizations may choose to prioritize the Chainguard Python 
+Libraries index, while falling back to the PyPI public index.
+
 ### uv
 
 [uv](https://docs.astral.sh/uv) is a fast Python package and project manager
@@ -346,3 +356,9 @@ Example for `uv.toml`:
 [[index]]
 url = "https://CG_PULLTOKEN_USERNAME:CG_PULLTOKEN_PASSWORD@libraries.cgr.dev/python/simple/
 ```
+
+If you want to install Python libraries from multiple indexes with a priority 
+index resolution order, `uv` supports [searching across multiple indexes](https://docs.astral.sh/uv/concepts/indexes/#searching-across-multiple-indexes) 
+while setting a priority index. For example, some organizations may choose to 
+prioritize the Chainguard Python Libraries index, while falling back to the PyPI 
+public index.
