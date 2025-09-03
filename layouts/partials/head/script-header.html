@@ -12,13 +12,12 @@
        style-src 'self' 'unsafe-inline' edu.chainguard.dev https://tagmanager.google.com/ cdn.jsdelivr.net https://fonts.googleapis.com https://unpkg.com https://use.fontawesome.com;
        form-action 'self';
        font-src 'self' edu.chainguard.dev https://fonts.googleapis.com https://fonts.gstatic.com https://cdn.jsdelivr.net https://use.fontawesome.com;
-       script-src 'self' 'unsafe-eval' 'unsafe-inline' edu.chainguard.dev  https://www.googletagmanager.com  *.googleapis.com cdn.jsdelivr.net *.googletagmanager.com *.6sc.co and *.6sense.com 'sha256-vOgyKS2vkH4n5TxBJpeh9SgzrE6LVGsAeOAvEST6oCc=' 'sha256-R2OmoLN/NlJovrWBYuTwjPfAD+YHvBVdudGDjY2VLmI=' 'sha256-5M/47rNTtVV+JBPpOpf0mUyIBBEvIovsIA0oUNvD9uw=' https://unpkg.com http://localhost:1313 http://localhost:8080;
-       connect-src 'self' www.googletagmanager.com *.google-analytics.com *.6sc.co and *.6sense.com https://storage.googleapis.com https://packages.wolfi.dev https://script.google.com https://script.googleusercontent.com;
-       img-src 'self' 'unsafe-inline' https://ssl.gstatic.com/ *.6sc.co and *.6sense.com edu.chainguard.dev https://storage.googleapis.com www.googletagmanager.com data:;
+       script-src 'self' 'unsafe-inline' edu.chainguard.dev https://www.googletagmanager.com *.googleapis.com cdn.jsdelivr.net *.googletagmanager.com https://www.google-analytics.com https://snap.licdn.com https://unpkg.com http://localhost:1313 http://localhost:8080;
+       connect-src 'self' https://www.googletagmanager.com *.google-analytics.com *.googletagmanager.com https://px.ads.linkedin.com https://storage.googleapis.com https://packages.wolfi.dev https://script.google.com https://script.googleusercontent.com;
+       img-src 'self' 'unsafe-inline' https://ssl.gstatic.com edu.chainguard.dev https://storage.googleapis.com https://www.googletagmanager.com https://www.google-analytics.com data:;
        base-uri 'self';
      ">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<script id="6senseWebTag" src="https://j.6sc.co/j/edd32455-d420-405e-a9ba-ca4b02be04d3.js"></script>
 
 {{ if .Site.Params.options.darkMode -}}
   {{ $darkModeInit := resources.Get "js/darkmode-init.js" | js.Build | minify | fingerprint "sha512" -}}
@@ -30,6 +29,5 @@
 {{- end -}}
 
 {{ if hugo.IsProduction }}
-  {{ template "_internal/google_analytics.html" . }}
   {{ partial "googleTagManagerHead.html" . }}
 {{ end }}
