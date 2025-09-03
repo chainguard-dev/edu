@@ -1,5 +1,5 @@
 ---
-date: 2025-08-28T17:59:05Z
+date: 2025-09-02T09:39:16Z
 title: "chainctl images repos build edit"
 slug: chainctl_images_repos_build_edit
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_edit/
@@ -11,7 +11,7 @@ toc: true
 ---
 ## chainctl images repos build edit
 
-Edit a build config
+Edit a build config, optionally creating a new repo with --save-as
 
 ```
 chainctl images repos build edit [flags]
@@ -20,9 +20,10 @@ chainctl images repos build edit [flags]
 ### Options
 
 ```
-  -h, --help            help for edit
-      --parent string   The name or id of the parent location to apply build config.
-      --repo string     The name or id of the repo to apply build config.
+  -h, --help             help for edit
+      --parent string    The name or id of the parent location to apply build config.
+      --repo string      The name or id of the repo to apply build config.
+      --save-as string   Create a new repo with the edited configuration instead of updating the existing one.
 ```
 
 ### Options inherited from parent commands
