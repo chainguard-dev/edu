@@ -272,8 +272,7 @@ Configure a remote repository for the Chainguard Libraries for Java repository:
 1. Set the **URL** to *https://libraries.cgr.dev/java/*.
 1. Set **User Name** and **Password / Access Token** to the [values as retrieved
    with chainctl](/chainguard/libraries/access/).
-1. Check the **Enable Token Authentication** checkbox.
-1. Press **Test** to validate the connection.
+1. Optionally click the **Test** button to verify connection and authentication.
 1. Deactivate **Maven Settings - Handle Snapshots**.
 1. Access the **Advanced** configuration tab and deactivate the **Block
    Mismatching Mime Types** setting in the **Others** section.
