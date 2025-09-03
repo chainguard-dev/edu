@@ -194,9 +194,9 @@ index-url = https://CG_PULLTOKEN_USERNAME:CG_PULLTOKEN_PASSWORD@libraries.cgr.de
 ```
 
 Note that `pip` does not support installing Python libraries from multiple 
-indexes while prioritizing one index over another. If you are using `pip` 
-and prefer to pull from multiple indexes while prioritizing the Chainguard 
-Python Libraries index, we recommend using a repository manager. Alternatively, 
+repositories while prioritizing one over another. If you are using `pip` 
+and prefer to pull from multiple repositories while prioritizing Chainguard 
+Libraries for Python, we recommend using a repository manager. Alternatively, 
 other Python package managers below provide support for index priority 
 resolution behavior.
 
@@ -293,10 +293,10 @@ poetry source add chainguard https://libraries.cgr.dev/python/simple/
 The [Poetry documentation](https://python-poetry.org/docs/) contains more
 information about your project build, dependencies, versions, and other aspects. 
 
-If you want to install Python libraries from multiple indexes with a priority 
-index resolution order, `poetry` supports setting a [primary package source](https://python-poetry.org/docs/repositories/#project-configuration). 
-For example, some organizations may choose to prioritize the Chainguard Libraries for 
-Python index, while falling back to the PyPI public index.
+In order to install Python libraries from multiple repositories with Chainguard Libraries
+for Python as the priority, `poetry` supports setting a [primary package source](https://python-poetry.org/docs/repositories/#project-configuration). 
+You can use this to configure Chainguard Libraries for Python as the first choice for any 
+library access, with a fallback to the PyPI public index.
 
 ### uv
 
@@ -357,8 +357,7 @@ Example for `uv.toml`:
 url = "https://CG_PULLTOKEN_USERNAME:CG_PULLTOKEN_PASSWORD@libraries.cgr.dev/python/simple/
 ```
 
-If you want to install Python libraries from multiple indexes with a priority 
-index resolution order, `uv` supports [searching across multiple indexes](https://docs.astral.sh/uv/concepts/indexes/#searching-across-multiple-indexes) 
-while setting a priority index. For example, some organizations may choose to 
-prioritize the Chainguard Libraries for Python index, while falling back to the PyPI 
-public index.
+In order to install Python libraries from multiple repositories with Chainguard Libraries
+for Python as the priority, `uv` supports [searching across multiple indexes](https://docs.astral.sh/uv/concepts/indexes/#searching-across-multiple-indexes) 
+while setting a priority index. You can use this to configure Chainguard Libraries for 
+Python as the first choice for any library access, with a fallback to the PyPI public index.
