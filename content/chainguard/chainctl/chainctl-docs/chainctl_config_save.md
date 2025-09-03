@@ -1,5 +1,5 @@
 ---
-date: 2025-08-28T17:59:05Z
+date: 2025-09-02T09:39:16Z
 title: "chainctl config save"
 slug: chainctl_config_save
 url: /chainguard/chainctl/chainctl-docs/chainctl_config_save/
