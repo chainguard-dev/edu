@@ -295,8 +295,8 @@ information about your project build, dependencies, versions, and other aspects.
 
 If you want to install Python libraries from multiple indexes with a priority 
 index resolution order, `poetry` supports setting a [primary package source](https://python-poetry.org/docs/repositories/#project-configuration). 
-For example, some organizations may choose to prioritize the Chainguard Python 
-Libraries index, while falling back to the PyPI public index.
+For example, some organizations may choose to prioritize the Chainguard Libraries for 
+Python index, while falling back to the PyPI public index.
 
 ### uv
 
@@ -360,5 +360,5 @@ url = "https://CG_PULLTOKEN_USERNAME:CG_PULLTOKEN_PASSWORD@libraries.cgr.dev/pyt
 If you want to install Python libraries from multiple indexes with a priority 
 index resolution order, `uv` supports [searching across multiple indexes](https://docs.astral.sh/uv/concepts/indexes/#searching-across-multiple-indexes) 
 while setting a priority index. For example, some organizations may choose to 
-prioritize the Chainguard Python Libraries index, while falling back to the PyPI 
+prioritize the Chainguard Libraries for Python index, while falling back to the PyPI 
 public index.
