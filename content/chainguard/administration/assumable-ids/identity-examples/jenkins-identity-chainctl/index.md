@@ -31,7 +31,7 @@ If you would like to follow this guide using Terraform, you can review [Use Terr
 
 Jenkins needs a way to supply `chainctl` with an API token so it can exchange it for short-lived credentials when a pipeline runs.
 
-In this example, Jenkins mints an OIDC ID token during each build and `chainctl` uses that token to assume your Chainguard identity — no long-lived secrets are required.
+In this example, Jenkins mints an OIDC ID token during each build and `chainctl` uses that token to allow the build pipeline to assume your Chainguard identity — no long-lived secrets are required.
 
 > **NOTE**: Why not a “long-lived API token”? Chainguard does not issue general-purpose, long-lived API tokens. This ensures your automation relies only on short-lived, scoped credentials.
 
@@ -57,7 +57,7 @@ chainctl iam identities create jenkins-ci \
   --output json
 ```
 
-Bind the identity to a role.
+Bind the identity to a role. We chose `registry.pull` for this example, but you should adjust according to your needs. Refer to [Overview of Roles and Role-bindings in Chainguard](https://edu.chainguard.dev/chainguard/administration/iam-organizations/roles-role-bindings/roles-role-bindings/) to learn more.
 
 ```shell
 chainctl iam role-bindings create \
@@ -65,12 +65,19 @@ chainctl iam role-bindings create \
   --role=registry.pull
 ```
 
-Now you are ready to use the token.
+Next you use this identity in your build pipeline to authenticate to Chainguard
 
 
-## Use the token in your Pipeline
+## Use the Identity and Create a Token in Your Jenkins Pipeline
 
-Here is a minimal working example Jenkinsfile that uses what we just created.
+Here is a minimal working example Jenkinsfile that uses what we just created. In this pipeline:
+
+- `jenkins-oidc` is the credential ID you created in Jenkins for an OpenID Connect (OIDC) token.
+- The `withCredentials` step injects the value of that credential into the environment variable `IDTOKEN` for the duration of the block.
+- Inside the sh step, `$IDTOKEN` refers to that environment variable containing the actual OIDC token issued by Jenkins at build time while `chainctl auth login --identity-token "$IDTOKEN"` uses that token to authenticate to Chainguard and assume the Jenkins identity.
+
+> **NOTE**: `$IDTOKEN` is not something you create manually; it comes from the Jenkins credentials plugin at runtime. You just need to make sure that you created the credential in Jenkins with ID `jenkins-oidc` and that the credential type is OpenID Connect ID token.
+
 
 ```groovy
 pipeline {
