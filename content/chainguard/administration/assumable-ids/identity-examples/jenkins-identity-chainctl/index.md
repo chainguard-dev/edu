@@ -38,11 +38,15 @@ In this example, Jenkins mints an OIDC ID token during each build and `chainctl`
 
 ### Create an OIDC token credential
 
-In the Jenkins UI, go to Manage Jenkins > Credentials > (Global) and from here select **Add Credentials**.
+To get started, create an OIDC token with Jenkins.
 
-Use the **Kind** dropdown to select **OpenID Connect id token**.
-
-Enter an **ID**, our example uses `jenkins-oidc`.
+1. Log in to the Jenkins UI
+2. Navigate to the **Manage Jenkins** page by clicking the settings gear (**⚙**) in the upper-right corner
+3. Navigate to the **Credentials** page by clicking **Credentials**
+4. In the Domain column, click **(global)**
+5. On the **Global credentials (unrestricted)** page, click **Add Credentials**
+6. Use the **Kind** dropdown to select **OpenID Connect id token**
+7. Enter an **ID**, our example uses `jenkins-oidc`. Click **Create**
 
 
 ## Create a Matching Chainguard Identity
