@@ -44,7 +44,7 @@ bazel run @@//:apko_bazelrc && chmod +x .apko/range.sh
 
 Finally, paste this into your preferred \`.bazelrc\` file,
 
-```shell
+```
 # Required for rules_apko to make range requests
 try-import %workspace%/.apko/.bazelrc
 ```
