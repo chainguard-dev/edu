@@ -55,7 +55,7 @@ helm repo add sigstore https://sigstore.github.io/helm-charts
 
 You should receive output like this:
 
-```
+```output
 "sigstore" has been added to your repositories
 ```
 
@@ -67,7 +67,7 @@ helm repo update
 
 You'll receive output like the following:
 
-```
+```output
 Hang tight while we grab the latest from your chart repositories...
 ...Successfully got an update from the "sigstore" chart repository
 Update Complete. ⎈Happy Helming!⎈
@@ -90,7 +90,7 @@ kubectl -n cosign-system wait --for=condition=Available deployment/policy-contro
 
 Once the Policy Controller deployments are done you will receive output like the following:
 
-```
+```output
 deployment.apps/policy-controller-webhook condition met
 deployment.apps/policy-controller-policy-webhook condition met
 ```
@@ -119,7 +119,7 @@ kubectl run --image cgr.dev/chainguard/nginx:latest nginx
 
 The Policy Controller will deny the admission request with a message like the following:
 
-```
+```output
 Error from server (BadRequest): admission webhook "policy.sigstore.dev" denied the request: validation failed: no matching policies: spec.containers[0].image
 cgr.dev/chainguard/nginx@sha256:628a01724b84d7db2dc3866f645708c25fab8cce30b98d3e5b76696291d65c4a
 ```
@@ -163,7 +163,7 @@ kubectl apply -f /tmp/cip.yaml
 
 You will receive output showing the policy is created:
 
-```
+```output
 clusterimagepolicy.policy.sigstore.dev/chainguard-image-policy created
 ```
 
@@ -175,13 +175,13 @@ kubectl run --image cgr.dev/chainguard/nginx:latest nginx
 
 Since the image matches the policy, you will receive a message that the pod was created successfully:
 
-```
+```output
 pod/nginx created
 ```
 
 Delete the pod once you're done experimenting with it:
 
-```
+```shell
 kubectl delete pod nginx
 ```
 

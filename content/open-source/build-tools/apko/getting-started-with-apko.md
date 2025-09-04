@@ -52,7 +52,7 @@ docker run --rm cgr.dev/chainguard/apko version
 
 You should get output similar to this:
 
-```
+```output
      _      ____    _  __   ___
     / \    |  _ \  | |/ /  / _ \
    / _ \   | |_) | | ' /  | | | |
@@ -120,7 +120,7 @@ docker run --rm -v ${PWD}:/work -w /work cgr.dev/chainguard/apko build wolfi-bas
 
 You should get output similar to this:
 
-```
+```output
 . . .
 Mar 15 20:17:02.023 [INFO] [arch:x86_64] Building images for 1 architectures: [amd64]
 Mar 15 20:17:02.023 [INFO] [arch:x86_64] building tags [wolfi-base:test]

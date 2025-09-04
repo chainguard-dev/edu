@@ -84,7 +84,7 @@ You can install Cosign using the Go package manager. Installing with Go will wor
 go version
 ```
 
-```
+```output
 go version go1.23.4 linux/amd64
 ```
 

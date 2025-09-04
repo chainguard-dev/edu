@@ -341,7 +341,7 @@ It is likely that your build won't work on the first run, and that is completely
 
 In this scenario, it is often useful to check the build environment, which is preserved for debugging. The build output will inform you where to find these files in your development environment.
 
-```
+```output
 2023/10/25 15:37:27 ERROR: failed to build package. the build environment has been preserved:
 ℹ️  x86_64    |   workspace dir: /tmp/melange-workspace-4269468499
 ℹ️  x86_64    |   guest dir: /tmp/melange-guest-3734950176
@@ -415,9 +415,6 @@ With a successful build, it's time to test the packages to make sure they are in
 
 The first test you'll want to run with your package is to check if you can use `apk` to install it without errors. For that, we'll use the `local-wolfi` environment, which brings up a new container environment using the Wolfi-base image, with additional settings to make your new package available in the test environment alongside the melange keys that were created to sign your package at build time. We'll call this your **Wolfi Test Environment**.
 
-```shell
-make local-wolfi
-```
 ```
 ❯ make local-wolfi
 docker run --rm -it \

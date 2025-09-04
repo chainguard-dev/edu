@@ -34,14 +34,14 @@ cosign sign-blob --key cosign.key artifact
 
 You’ll get output similar to the following, and a prompt to enter your password for your signing key.
 
-```
+```output
 Using payload from: artifact
 Enter password for private key:
 ```
 
 With your password entered, you’ll receive your signature output.
 
-```
+```output
 MEUCIAb9Jxbbk9w8QF4/m5ADd+AvvT6pm/gp0HE6RMPp3SfOAiEAsWnpkaVZanjhQDyk5b0UPnlsMhodCcvYaGl1sj9exJI=
 ```
 
@@ -53,7 +53,7 @@ cosign verify-blob --key cosign.pub --signature MEUCIAb9Jxbbk9w8QF4/m5ADd+AvvT6p
 
 Note that the whole output of the signature needed to be passed to this command. You’ll get feedback that the blob’s signature was verified.
 
-```
+```output
 Verified OK
 ```
 
@@ -65,7 +65,7 @@ cosign upload blob -f artifact docker-username/artifact
 
 You’ll receive feedback that the file was uploaded, and it will already have the SHA signature as part of the artifact.
 
-```
+```output
 Uploading file from [artifact] to [index.docker.io/docker-username/artifact:latest] with media type [text/plain]
 File [artifact] is available directly at [index.docker.io/v2/docker-username/artifact/blobs/sha256:dcf8ff…
 Uploaded image to:

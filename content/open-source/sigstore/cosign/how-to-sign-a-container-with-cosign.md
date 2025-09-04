@@ -73,7 +73,7 @@ If you receive an error message or a “failed” message, check that your user 
 
 You should get guidance in the output that your build was successful when you receive no errors.
 
-```
+```output
 => => naming to docker.io/docker-username/hello-container
 ```
 
@@ -85,7 +85,7 @@ docker run docker-username/hello-container
 
 You should receive the expected output of the echo message you added to the Dockerfile.
 
-```
+```output
 Hello, Cosign!
 ```
 
@@ -95,7 +95,7 @@ You can further confirm that the Docker container is among your listed container
 docker ps -a
 ```
 
-```
+```output
 CONTAINER ID   IMAGE             COMMAND                  CREATED          STATUS                     PORTS     NAMES
 c828db494203   hello-container   "echo 'Hello, Cosign…"   13 seconds ago   Exited (0) 9 seconds ago             confident_lamarr
 ```
@@ -130,7 +130,7 @@ cosign sign docker-username/hello-container
 
 You will be asked to verify that you agree with having your information in the transparency log and will be taken through an OIDC workflow.
 
-```
+```output
 Generating ephemeral keys...
 Retrieving signed certificate...
 
@@ -146,7 +146,7 @@ Your browser will now be opened to:
 
 You’ll receive output indicating that the signature was pushed to the container registry.
 
-```
+```output
 Successfully verified SCT...
 tlog entry created with index:
 Pushing signature to: index.docker.io/docker-username/hello-container
@@ -171,7 +171,7 @@ Here, we are passing the public key contained in the cosign.pub file to the `cos
 
 You should receive output indicating that the Cosign claims were validated.
 
-```
+```output
 Verification for index.docker.io/docker-username/hello-container:latest --
 The following checks were performed on each of these signatures:
   - The cosign claims were validated

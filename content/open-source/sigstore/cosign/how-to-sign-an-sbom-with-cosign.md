@@ -114,7 +114,7 @@ If you take a look at the contents of the file, you will find our installed pack
 syft --quiet $DH_USERNAME/example-image:latest | grep cowsay
 ```
 
-```
+```output
 cowsay                  3.04-r0       apk
 ```
 
@@ -154,7 +154,7 @@ cosign attest --type spdxjson \
 
 You will receive the following prompt:
 
-```
+```output
 Generating ephemeral keys...
 Retrieving signed certificate...
 
