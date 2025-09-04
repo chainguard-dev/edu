@@ -44,7 +44,7 @@ vexctl version
 
 You should receive output similar to the following.
 
-```
+```output
  _   _  _____ __   __ _____  _____  _
 | | | ||  ___|\ \ / //  __ \|_   _|| |
 | | | || |__   \ V / | /  \/  | |  | |
@@ -228,14 +228,14 @@ vexctl attest --attach --sign hello.vex.json your-username/your-container-image:
 
 Upon running this command, you'll be taken through a signing workflow with [Sigstore](https://www.sigstore.dev/). Your terminal output will indicate your progress.
 
-```
+```output
 Generating ephemeral keys...
 Retrieving signed certificate...
 ```
 
 A browser window will open for you to select an OIDC provider. When the attestation is complete, you'll receive feedback that it was successful.
 
-```
+```output
 Successfully verified SCT...
 {"payloadType":"application/vnd.in-toto+json","payload":"e...o=","signatures":[{"keyid":"","sig":"MEY...z"}]}
 ```

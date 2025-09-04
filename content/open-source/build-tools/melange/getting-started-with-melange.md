@@ -60,7 +60,7 @@ docker run --rm cgr.dev/chainguard/melange version
 
 You should get output similar to the following:
 
-```
+```output
   __  __   _____   _          _      _   _    ____   _____
  |  \/  | | ____| | |        / \    | \ | |  / ___| | ____|
  | |\/| | |  _|   | |       / _ \   |  \| | | |  _  |  _|
