@@ -201,7 +201,7 @@ But these images are not the same. The following command will give you a glimpse
 docker images linky-demo
 ```
 
-```
+```output
 REPOSITORY   TAG          IMAGE ID       CREATED         SIZE
 linky-demo    distroless   619ef9b6c52d   6 seconds ago   90.3MB
 linky-demo    latest       4832e9093348   4 minutes ago   110MB

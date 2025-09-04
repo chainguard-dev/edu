@@ -52,7 +52,7 @@ cosign sign docker-username/demo-container
 
 You'll be taken through a workflow that requests you to grant permission to have your information stored permanently in transparency logs, and moves to a workflow with an OIDC provider.
 
-```
+```output
 Generating ephemeral keys...
 Retrieving signed certificate...
 
@@ -70,7 +70,7 @@ At this point, a browser window will open and you will be directed to a page tha
 
 On the terminal, you’ll receive output that you were successfully verified, and you’ll get confirmation that the signature was pushed.
 
-```
+```output
 Successfully verified SCT...
 tlog entry created with index:
 Pushing signature to: index.docker.io/docker-username/demo-container
@@ -87,7 +87,7 @@ cosign verify \
     docker-username/demo-container
 ```
 
-```
+```output
 Verification for index.docker.io/docker-username/demo-container:latest --
 The following checks were performed on each of these signatures:
   - The cosign claims were validated
@@ -107,7 +107,7 @@ You can also use Cosign with long-lived key pairs. If you would like to follow a
 cosign generate-key-pair
 ```
 
-```
+```output
 Enter password for private key:
 Enter again:
 Private key written to cosign.key
@@ -120,7 +120,7 @@ You can sign a container and store the signature in the registry with the cosign
 cosign sign --key cosign.key docker-username/demo-container
 ```
 
-```
+```output
 Enter password for private key:
 Pushing signature to: index.docker.io/sigstore-course/demo:sha256-87ef60f558bad79beea6425a3b28989f01dd417164150ab3baab98dcbf04def8.sig
 ```
@@ -131,7 +131,7 @@ Finally, you can verify a software artifact against a public key with the cosign
 cosign verify --key cosign.pub docker-username/demo-container
 ```
 
-```
+```output
 The following checks were performed on these signatures:
   - The cosign claims were validated
   - The signatures were verified against the specified public key

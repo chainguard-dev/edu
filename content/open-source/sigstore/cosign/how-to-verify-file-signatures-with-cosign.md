@@ -49,13 +49,13 @@ cosign verify-blob \
 
 Running the command may take a moment, but when it completes you will receive the following output:
 
-```
+```output
 Verified OK
 ```
 
 If any of the URLs are incorrect, if there was a problem with the `apko` release file, if the signature or certificate identity don't match, or if the release file was not signed, you will receive an error like the following:
 
-```
+```output
 Error: searching log query: [POST /api/v1/log/entries/retrieve][400] searchLogQueryBadRequest  &{Code:400 Message:verifying signature: invalid signature when validating ASN.1 encoded signature}
 main.go:74: error during command execution: searching log query: [POST /api/v1/log/entries/retrieve][400] searchLogQueryBadRequest  &{Code:400 Message:verifying signature: invalid signature when validating ASN.1 encoded signature}
 ```

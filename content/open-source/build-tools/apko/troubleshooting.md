@@ -60,7 +60,7 @@ If this is your case, you should find error messages similar to this when enabli
 
 This is how your packages directory tree should be set up, including the `APKINDEX.tgz` file for each architecture:
 
-```
+```output
 packages
 ├── aarch64
 │   ├── APKINDEX.tar.gz
