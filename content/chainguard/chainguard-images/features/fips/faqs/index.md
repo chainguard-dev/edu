@@ -143,7 +143,7 @@ RUN keytool -list -cacerts -storepass changeit -alias servercert
 
 If you have an existing Java truststore, you can import all certificates from it using the `-importkeystore` command.
 
-```
+```sh
 USER root
 RUN keytool -importkeystore -noprompt \
 -srckeystore mytruststore.jks -destkeystore /etc/ssl/certs/java/cacerts  \
