@@ -46,8 +46,6 @@ spec:
     kinds:
       - apiGroups: [""]
         kinds: ["Pod"]
-    # In certain managed Kubernetes solutions, you may not be able to control
-    # where images provided by the platform are hosted.
     excludedNamespaces:
       - "kube-system"
   parameters:
@@ -55,6 +53,8 @@ spec:
       - "cgr.dev/*"
 EOF
 ```
+
+Note that  you may not be able to control where images provided by the platform are hosted in certain managed Kubernetes solutions.
 
 To test that this constraint is working correctly, try to create a non-compliant pod:
 
@@ -104,12 +104,12 @@ spec:
     kinds:
       - apiGroups: [""]
         kinds: ["Pod"]
-    # In certain managed Kubernetes solutions, you may not be able to control
-    # whether images provided by the platform are referenced by digest.
     excludedNamespaces:
       - "kube-system"
 EOF
 ```
+
+Be aware that in certain managed Kubernetes solutions, you may not be able to control whether images provided by the platform are referenced by digest.
 
 To test the constraint, try to create a non-compliant pod:
 
