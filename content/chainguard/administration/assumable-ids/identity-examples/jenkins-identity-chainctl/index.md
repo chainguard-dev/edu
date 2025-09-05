@@ -81,9 +81,8 @@ Here is an example Jenkinsfile that uses what we just created. In this pipeline:
 - `jenkins-oidc` is the credential ID you created in Jenkins for an OpenID Connect (OIDC) token.
 - The `withCredentials` step injects the value of that credential into the environment variable `IDTOKEN` for the duration of the block.
 - Inside the `sh` section of the `withCredentials` step, `$IDTOKEN` refers to that environment variable containing the actual OIDC token issued by Jenkins at build time while `chainctl auth login --identity-token "$IDTOKEN"` uses that token to authenticate to Chainguard and assume the Jenkins identity.
-- Be sure to replace the `ORGANIZATION` placeholder with the name used for your organization's private repository within the Chainguard Registry.
 
-> **NOTE**: `$IDTOKEN` is not something you create manually; it comes from the Jenkins credentials plugin at runtime. You just need to make sure that you created the credential in Jenkins with ID `jenkins-oidc` and that the credential type is OpenID Connect ID token.
+Be sure to replace the `ORGANIZATION` placeholder with the name used for your organization's private repository within the Chainguard Registry.
 
 
 ```groovy
@@ -127,6 +126,8 @@ pipeline {
   }
 }
 ```
+
+> **NOTE**: `$IDTOKEN` is not something you create manually; it comes from the Jenkins credentials plugin at runtime. You just need to make sure that you created the credential in Jenkins with ID `jenkins-oidc` and that the credential type is OpenID Connect ID token.
 
 After you run this pipeline, check to see that the requested Chainguard image was pulled to confirm everything is set up properly.
 
