@@ -120,7 +120,7 @@ Note these instructions work correctly for both FIPS and non-FIPS Java images.
 Note the "changeit" password is the default password for cacerts public certificate trust store.
 It is FIPS compliant to not change it, and it is best left as is.
 
-```
+```sh
 USER root
 RUN keytool -importcert -noprompt -cacerts -storepass changeit -file /tmp/servercert.pem -alias servercert
 ```
