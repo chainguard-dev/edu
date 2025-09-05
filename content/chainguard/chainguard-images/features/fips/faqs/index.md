@@ -137,7 +137,7 @@ Explanation of every option:
 
 After import, execute list command to check if the certificate was imported successfully:
 
-```
+```sh
 RUN keytool -list -cacerts -storepass changeit -alias servercert
 ```
 
