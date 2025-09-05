@@ -154,7 +154,7 @@ RUN keytool -importkeystore -noprompt \
 Review the list for an explanation of each option.
 
 * `-importkeystore` bulk import all aliases from one keystore to another
-* `-noprompt` do not interactively ask Yes/No confirmation to trust the certificates, best for non-interactive usage
+* `-noprompt` do not interactively ask `Yes/No` confirmation to trust the certificates, best for non-interactive usage
 * `-srckeystore mytruststore.jks` specify source trust store
 * `-destkeystore /etc/ssl/certs/java/cacerts` specify destination trust store, this is the default cacerts trust store
 * `-srcstoretype JKS` specify source trust store type, note this can be autodetected from extension as well
