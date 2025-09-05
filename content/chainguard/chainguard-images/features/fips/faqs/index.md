@@ -141,7 +141,7 @@ After import, execute list command to check if the certificate was imported succ
 RUN keytool -list -cacerts -storepass changeit -alias servercert
 ```
 
-If you have an existing Java truststore, you can import all certificates from it using `-importkeystore` command.
+If you have an existing Java truststore, you can import all certificates from it using the `-importkeystore` command.
 
 ```
 USER root
