@@ -151,7 +151,7 @@ RUN keytool -importkeystore -noprompt \
 -srcstorepass changeit -deststorepass changeit
 ```
 
-Explanation of every option:
+Review the list for an explanation of each option.
 
 * `-importkeystore` bulk import all aliases from one keystore to another
 * `-noprompt` do not interactively ask Yes/No confirmation to trust the certificates, best for non-interactive usage
