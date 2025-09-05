@@ -132,7 +132,7 @@ Explanation of every option:
 * `-cacerts` access the default trust store
 * `-storepass changeit` specify the cacerts default password, the default password like this is FIPS compliant for public certificates
 * `-file /tmp/servercert.pem` filepath to your PEM certificate
-* `-alias servercert` desired alias for your certificate, must be unique. otherwise import fill fail or will ask interactively to specify server alias
+* `-alias servercert` desired alias for your certificate, must be unique. Otherwise import will fail or will ask interactively to specify server alias
 
 
 After import, execute list command to check if the certificate was imported successfully:
