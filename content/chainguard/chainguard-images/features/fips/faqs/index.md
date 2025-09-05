@@ -114,8 +114,50 @@ As it stands today, the WireGuard protocol is not customizable (like TLS), and i
 
 For approved cryptography and similar functionality, please consider using OpenVPN or Strongswan, both of which can be configured to use approved cryptography only, with a FIPS cryptographic module.
 
+## How to add a custom certificate to the default cacerts Java truststore?
+
+Note these instructions work correctly for both FIPS and non-FIPS Java images.
+Note the "changeit" password is the default password for cacerts public certificate trust store.
+It is FIPS compliant to not change it, and it is best left as is.
+
+```sh
+USER root
+RUN keytool -importcert -noprompt -cacerts -storepass changeit -file /tmp/servercert.pem -alias servercert
+```
+
+Explanation of every option:
+
+* `-importcert` import a PEM formatted certificate
+* `-noprompt` do not interactively ask `Yes/No` confirmation to trust the certificate, for non-interactive usage
+* `-cacerts` access the default trust store
+* `-storepass changeit` specify the cacerts default password, the default password like this is FIPS compliant for public certificates
+* `-file /tmp/servercert.pem` filepath to your PEM certificate
+* `-alias servercert` desired alias for your certificate, must be unique. Otherwise import will fail or will ask interactively to specify server alias
 
 
+After import, execute list command to check if the certificate was imported successfully:
 
+```sh
+RUN keytool -list -cacerts -storepass changeit -alias servercert
+```
 
+If you have an existing Java truststore, you can import all certificates from it using the `-importkeystore` command.
 
+```sh
+USER root
+RUN keytool -importkeystore -noprompt \
+-srckeystore mytruststore.jks -destkeystore /etc/ssl/certs/java/cacerts  \
+-srcstoretype JKS -deststoretype JKS \
+-srcstorepass changeit -deststorepass changeit
+```
+
+Review the list for an explanation of each option.
+
+* `-importkeystore` bulk import all aliases from one keystore to another
+* `-noprompt` do not interactively ask `Yes/No` confirmation to trust the certificates, best for non-interactive usage
+* `-srckeystore mytruststore.jks` specify source trust store
+* `-destkeystore /etc/ssl/certs/java/cacerts` specify destination trust store, this is the default cacerts trust store
+* `-srcstoretype JKS` specify source trust store type, note this can be autodetected from extension as well
+* `-deststoretype JKS` specify destination trust store type
+* `-srcstorepass changeit` specify source trust store password, the default password like this is FIPS compliant for public certificates
+* `-deststorepass changeit` specify destination trust store password, the default password like this is FIPS compliant for public certificates
