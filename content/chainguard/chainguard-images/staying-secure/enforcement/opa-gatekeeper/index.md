@@ -125,7 +125,7 @@ spec:
       image: cgr.dev/chainguard/nginx
 EOF
 ```
-```txt
+```output
 Error from server (Forbidden): error when creating "STDIN": admission webhook "validation.gatekeeper.sh" denied the request: [container-image-must-have-digest] container <nginx> uses an image without a digest <cgr.dev/chainguard/nginx>
 ```
 
