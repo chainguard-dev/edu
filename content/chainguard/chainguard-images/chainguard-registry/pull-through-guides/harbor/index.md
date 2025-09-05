@@ -1,9 +1,6 @@
 ---
 title: "How to Sync Images from Chainguard's Registry to Harbor"
 linktitle: "Harbor"
-aliases:
-- /chainguard/chainguard-registry/harbor-pull-through/
-- /chainguard/chainguard-registry/pull-through-guides/harbor-pull-through/
 type: "article"
 description: "Tutorial outlining how to sync images from Chainguard's registry to Harbor."
 date: 2025-08-19T12:00:00-00:00
@@ -18,132 +15,118 @@ toc: true
 weight: 015
 ---
 
-This tutorial outlines how to sync images from Chainguard's registry to an
-instance of [Harbor](https://goharbor.io/).
+[Harbor](https://goharbor.io) is an open-source artifact registry. It's designed to securely store, manage, and distribute OCI artifacts, including container images and Helm charts by enforcing policies like vulnerability scanning, image signing, and role-based access control. Harbor delivers enterprise-grade compliance, performance, and interoperability across platforms like Kubernetes and Docker, all accessible via a web UI or RESTful API.
 
-It describes two approaches:
+This tutorial outlines how to sync images from Chainguard's registry to a Harbor instance. It describes two approaches:
 
-1. A [Proxy
-Cache](https://goharbor.io/docs/2.1.0/administration/configure-proxy-cache/),
-   which configures a Harbor project as a pull through cache.
-2. A [Replication
-Rule](https://goharbor.io/docs/2.1.0/administration/configuring-replication/create-replication-rules/),
-   which copies images to a Harbor project.
+1. A [proxy cache](https://goharbor.io/docs/2.1.0/administration/configure-proxy-cache/), which configures a Harbor project as a pull through cache.
+2. A [replication rule](https://goharbor.io/docs/2.1.0/administration/configuring-replication/create-replication-rules/), which copies images to a Harbor project.
 
 ## Prerequisites
 
-In order to complete this tutorial, you will need the following:
+You need the following in order to complete this tutorial:
 
-* Administrative privileges over a Harbor instance.
-* Privileges to create a pull token on a Chainguard registry.
+* Administrative privileges over a Harbor instance. Refer to the [official Harbor documentation](https://goharbor.io/docs/2.13.0/) to learn how to set this up.
+* `chainctl` — Chainguard's command-line interface — installed on your local machine. If you don't have `chainctl` installed, refer to our [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) guide to set this up.
+* Permissions pull Chainguard container images from your organization's repository within the Chainguard registry. This is necessary, as you will create a pull token for Harbor to use to access the registry, and you cannot generate a pull token that grants broader access than your own.
+
 
 ## Create a Registry Endpoint
 
-Before configuring a Proxy Cache or Replication Rule, you must create a
-registry endpoint for the Chainguard registry.
+Before configuring a proxy cache or replication rule, you must create a registry endpoint for the Chainguard registry.
 
-Firstly, if you don't already have one, generate a pull token in your
-organization. Make a note of the username and password.
+If you don't already have one, generate a pull token in your organization:
 
 ```shell
 chainctl auth configure-docker --parent <org-name> --pull-token
 ```
 
-Then, from the Harbor UI, navigate to `Administraion > Registries` and select
-`+ NEW ENDPOINT`.
+This returns username and password credentials:
 
-Configure the endpoint with these details:
+```Output
+To use this pull token in another environment, run this command:
 
-* `Name` — This is used to refer to your repository. You can choose whatever
-  name you like here, but this guide's examples will use the name `cgr.dev`.
-* `Endpoint URL` - Must be `https://cgr.dev`.
-* `Access ID` - The username of the pull token.
-* `Access Secret` - The password of the pull token.
+    docker login "cgr.dev" --username "<pull-token-username>" --password "<pull-token-password>"
+```
 
-Select `TEST CONNECTION` to ensure that Harbor can reach `cgr.dev` successfully.
-Then press `OK` to create the endpoint.
+Note these values down, as you'll need them shortly.
 
-![Screenshot of the Harbor Registry Endpoint creation screen, showing the required configuration.](registry-endpoint.png)
+Next, open up the Harbor UI and perform the following steps:
+
+1. Navigate to **Administration > Registries**
+2. Click the **+ NEW ENDPOINT** button..
+3. Configure the endpoint with these details:
+    * **Provider** — There is no specific integration with the Chainguard registry, so here you must select the generic `Docker Registry` provider type.
+    * **Name** — This is used to refer to your repository. You can choose whatever name you like here, but this guide's examples use the name `cgr.dev`.
+    * **Endpoint URL** — This value **must** be `https://cgr.dev`.
+    * **Access ID** — Enter the username value returned by the `chainctl auth` command you just ran.
+    * **Access Secret** — Here, enter the password value returned by the `chainctl auth` command.
+4. Click the **TEST CONNECTION** button to ensure that Harbor can reach `cgr.dev` successfully.
+5. Click **OK** to create the endpoint.
+
+After creating the endpoint, you can move on to creating a proxy cache.
+
 
 ## Create a Proxy Cache
 
-A [Proxy
-Cache](https://goharbor.io/docs/2.1.0/administration/configure-proxy-cache/)
-allows Harbor to proxy and cache images from a Chainguard registry.
+A [*proxy* cache](https://goharbor.io/docs/2.1.0/administration/configure-proxy-cache/) allows Harbor to proxy and cache images from the Chainguard registry.
 
-To configure a cache, navigate to `Projects` and select `+ NEW PROJECT`.
+To configure a cache, perform the following steps in the Harbor UI:
 
-Create the project with these details:
+1. Navigate to **Projects**.
+2. Click the **+ NEW PROJECT** button.
+3. Create the project with these details:
+    * **Project Name** — This can be whatever you like. This guide uses the name `cgr—proxy`.
+    * **Proxy Cache** — Toggle this on.
+    * **Endpoint** — Choose the endpoint you created in the previous step.
+4. Click **OK**
 
-* `Project Name` - This can be whatever you like. This guide will use the name
-  `cgr-proxy`.
-* `Proxy Cache` - Toggle this on.
-* `Endpoint` - Choose the endpoint you created in the previous step.
-
-![Screenshot of the Harbor Project creation screen, showing the required configuration for a Proxy Cache.](proxy-cache.png)
-
-You should be able to pull images from the project like this:
+Following that, you can pull images from the Harbor project like so:
 
 ```shell
-docker pull <harbor-url>/cgr-proxy/<org-name>/<image-name>:latest
+docker pull $HARBOR_URL/cgr-proxy/$ORGANIZATION/$IMAGE:$TAG
 ```
+
+Be sure to replace the placeholder values (`$HARBOR_URL`, `$ORGANIZATION`, `$IMAGE`, and `$TAG`) to reflect your own setup.
+
 
 ## Create a Replication Rule
 
-A [Replication
-Rule](https://goharbor.io/docs/2.1.0/administration/configuring-replication/create-replication-rules/)
-is an alternative approach to a Proxy Cache that copies images from
-Chainguard's registry to a Harbor project. This is how to configure one.
+A [*replication rule*](https://goharbor.io/docs/2.1.0/administration/configuring-replication/create-replication-rules/) is an alternative approach to a proxy cache. This section outlines how to configure a replication rule that copies images from the Chainguard registry to a Harbor project.
 
-Firstly, create a project. From the Harbor UI, navigate to
-`Projects` and select `+ NEW PROJECT`.
+First, create a project. From the Harbor UI, navigate to **Projects** and click the **+ NEW PROJECT** button.
 
-Give the project a name. This guide will use the name `cgr-mirror`.
+Give the project a name (this guide uses the name `cgr-mirror`) and be sure to leave the **Proxy Cache** option switched off.
 
-![Screenshot of the Harbor Project creation screen.](new-project.png)
+Then, perform the following steps to create a new replication rule:
 
-Then, navigate to `Administration > Replications` and select `+ NEW REPLICATION
-RULE`.
+1. Navigate to **Administration > Replications**.
+2. Click the **+ NEW REPLICATION RULE** button.
+3. Create a new rule with these details:
+    * **Name** — This can be whatever you like. This guide uses the name  `cgr-mirror`.
+    * **Replication mode** — Must be `Pull-based`.
+    * **Source registry** — Specify the `cgr.dev` endpoint.
+    * **Source resource filter > Name** — (Optional) You can ensure you only select images in your organization by setting this to `<org-name>/*`.
+    * **Destination > Namespace** — This should be the project you created before.
+    * **Destination > Flattening** — Set to `Flatten All Levels`. This removes the organization name from the path.
+    * **Trigger Mode** — Set to `Scheduled` to run the replication regularly or `Manual` to trigger on an ad hoc basis.
+    * **Override** — Ensure this is enabled so that tags in the destination project are replaced when they change.
+4. Click the **Save** button.
 
-Create a new rule with these details:
-
-* `Name` - This can be whatever you like. This guide will use the name
-  `cgr-mirror`.
-* `Replication mode` - Must be `Pull-based`.
-* `Source registry` - The `cgr.dev` endpoint.
-* `Source resource filter > Name` - Optional. Ensure you only select images in
-  your organization by setting this to `<org-name>/*`.
-* `Destination > Namespace` - This should be the project you created before.
-* `Destination > Flattening` - Set to `Flatten All Levels`. This will remove the
-  organization name from the path.
-* `Trigger Mode` - Set to `Scheduled` to run the replication regularly. Or
-  `Manual` to trigger on an ad-hoc basis.
-* `Override` - Ensure this is enabled so that tags in the destination project
-  are replaced when they change.
-
-![Screenshot of the Harbor Replication Rule creation screen, with the required configuration.](replication-rule.png)
-
-To trigger the replication manually, select the `cgr-mirror` rule in the table
-and hit `REPLICATE`. Navigate to `Projects > cgr-mirror` and observe images populating.
-
-
-![Screenshot of the Harbor Replications screen.](replications.png)
+To trigger the replication manually, select the `cgr-mirror` rule in the table and click the **REPLICATE** button. Then, navigate to **Projects > cgr-mirror** and observe images populating.
 
 You should be able to pull images from the project like this:
 
 ```shell
-docker pull <harbor-url>/cgr-mirror/<image-name>:latest
+docker pull $HARBOR_URL/cgr-mirror/$ORGANIZATION/$IMAGE:$TAG
 ```
+
+Again, be sure to replace this command's placeholder values as necessary.
+
+
 
 ## Learn More
 
-If you haven't already done so, you may find it useful to review our
-[Registry Overview](/chainguard/chainguard-registry/overview/) to learn more
-about Chainguard's registry.
+If you haven't already done so, you may find it useful to review our [Registry Overview](/chainguard/chainguard-registry/overview/) to learn more about Chainguard's registry. You can also learn more about Chainguard Containers by checking out our [Containers documentation](/chainguard/chainguard-images/overview/).
 
-You can also learn more about Chainguard
-Containers by checking out our
-[Containers documentation](/chainguard/chainguard-images/overview/).
-
-If you'd like to learn more about Harbor, we encourage you to refer to the
-[official Harbor documentation](https://goharbor.io/docs).
+Additionally, if you'd like to learn more about Harbor, we encourage you to refer to the [official Harbor documentation](https://goharbor.io/docs).
