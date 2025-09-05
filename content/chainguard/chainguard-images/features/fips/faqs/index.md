@@ -128,7 +128,7 @@ RUN keytool -importcert -noprompt -cacerts -storepass changeit -file /tmp/server
 Explanation of every option:
 
 * `-importcert` import a PEM formatted certificate
-* `-noprompt` do not interactively ask Yes/No confirmation to trust the certificate, for non-interactive usage
+* `-noprompt` do not interactively ask `Yes/No` confirmation to trust the certificate, for non-interactive usage
 * `-cacerts` access the default trust store
 * `-storepass changeit` specify cacerts default password, the default password like this is FIPS compliant for public certificates
 * `-file /tmp/servercert.pem` filepath to your PEM certificate
