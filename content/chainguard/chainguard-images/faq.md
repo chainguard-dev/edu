@@ -58,7 +58,6 @@ Chainguard Containers are rebuilt every night to ensure that new package version
 ## Can I simply replace my current base image with a Chainguard Container and it will work out of the box?
 Chainguard Containers are designed to be minimal, and many of them don't come with a package manager. Depending on your stack and specific dependencies, you may need to include additional software by combining `-dev` container images and our [distroless](/chainguard/chainguard-images/getting-started-distroless/) images in a multi-stage Docker build.
 
-
 ## What packages are available in Chainguard Containers?
 
 Chainguard Containers only contain packages that come from the [Wolfi Project](https://github.com/wolfi-dev) or those that are built and maintained internally by Chainguard.
@@ -69,6 +68,9 @@ This change ensures that Chainguard can provide the most up-to-date patches to a
 
 ## What does Chainguard do when a CVE is published, but a patch is not available from the owner of the OSS code?
 Chainguard investigates the CVE and marks relevant images as affected or not. If Chainguard can identify a patch that's unreleased, Chainguard may apply a patch before it lands upstream. In either case, when the patch lands upstream, Chainguard picks it up and rolls it out.
+
+## Why are some CVEs persistent in select Chainguard Containers?
+There are several Chainguard Containers container images--such as Druid and Spark--with a notable number of CVEs that are marked `pending-upstream-fix.` The reasons that these CVEs can't be remediated by standard engineering procedures include: some vulnerabilities can only be patched through major version upgrades, which often break compatibility through broken builds or tests; many of these CVEs (over fifty percent by one internal Chainguard analysis) stem from "shaded" JARs, JAR files that bundle their dependencies internally; and a small portion of these CVEs simply have no fix available. The Chainguard engineering team continually investigates new approaches to fixing these persistent CVEs.
 
 ## I added software on top of one of Chainguard's base container images, why are there CVEs?
 Chainguard is not responsible for CVEs in software you add on top of base images.
