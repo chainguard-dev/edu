@@ -4440,7 +4440,7 @@
           },
           {
             "collectionFormat": "multi",
-            "description": "event_types filters by event type\nWhen specified, only advisories containing at least one event of any of the provided\ntypes will be returned.\n\n - EVENT_TYPE_FILTER_UNSPECIFIED: Default/unspecified\n - EVENT_TYPE_FILTER_DETECTION: Detection event\n - EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION: True positive determination\n - EVENT_TYPE_FILTER_FIXED: Fixed event\n - EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION: False positive determination\n - EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED: Analysis not planned\n - EVENT_TYPE_FILTER_FIX_NOT_PLANNED: Fix not planned\n - EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX: Pending upstream fix",
+            "description": "event_types filters by event type\nWhen specified, only advisories containing at least one event of any of the provided\ntypes will be returned.\n\n - EVENT_TYPE_FILTER_UNSPECIFIED: Default/unspecified\n - EVENT_TYPE_FILTER_DETECTION: Detection event\n - EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION: True positive determination\n - EVENT_TYPE_FILTER_FIXED: Fixed event\n - EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION: False positive determination\n - EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED: Analysis not planned\n - EVENT_TYPE_FILTER_FIX_NOT_PLANNED: Fix not planned\n - EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX: Pending upstream fix\n - EVENT_TYPE_FILTER_PATCHED: Patched event",
             "in": "query",
             "items": {
               "enum": [
@@ -4451,7 +4451,8 @@
                 "EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION",
                 "EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED",
                 "EVENT_TYPE_FILTER_FIX_NOT_PLANNED",
-                "EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX"
+                "EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX",
+                "EVENT_TYPE_FILTER_PATCHED"
               ],
               "type": "string"
             },
@@ -4539,6 +4540,7 @@
             "description": "id is the exact UIDP of the advisory to delete.",
             "in": "path",
             "name": "id",
+            "pattern": ".+",
             "required": true,
             "type": "string"
           }
@@ -4569,6 +4571,7 @@
             "description": "id is the UIDP for the Advisory.",
             "in": "path",
             "name": "id",
+            "pattern": ".+",
             "required": true,
             "type": "string"
           },
@@ -4608,6 +4611,7 @@
             "description": "parent_id is the IAM scope identifier. If you are fetching a single\nAdvisoryEvent you can use this to get the exact one.",
             "in": "path",
             "name": "parentId",
+            "pattern": ".+",
             "required": true,
             "type": "string"
           }
@@ -4637,6 +4641,7 @@
             "description": "parent_id is the UIDP of the Advisory the events belong to.",
             "in": "path",
             "name": "parentId",
+            "pattern": ".+",
             "required": true,
             "type": "string"
           },
@@ -4944,6 +4949,20 @@
       "properties": {
         "fixedVersion": {
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "AdvisoryEventPatched": {
+      "properties": {
+        "note": {
+          "type": "string"
+        },
+        "patchedVersions": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         }
       },
       "type": "object"
@@ -8903,6 +8922,9 @@
           "title": "issue is the original CVE Dashboard issue",
           "type": "string"
         },
+        "patched": {
+          "$ref": "#/definitions/AdvisoryEventPatched"
+        },
         "pendingUpstreamFix": {
           "$ref": "#/definitions/AdvisoryEventPendingUpstreamFix"
         },
@@ -8955,7 +8977,7 @@
     },
     "v1EventTypeFilter": {
       "default": "EVENT_TYPE_FILTER_UNSPECIFIED",
-      "description": "- EVENT_TYPE_FILTER_UNSPECIFIED: Default/unspecified\n - EVENT_TYPE_FILTER_DETECTION: Detection event\n - EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION: True positive determination\n - EVENT_TYPE_FILTER_FIXED: Fixed event\n - EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION: False positive determination\n - EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED: Analysis not planned\n - EVENT_TYPE_FILTER_FIX_NOT_PLANNED: Fix not planned\n - EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX: Pending upstream fix",
+      "description": "- EVENT_TYPE_FILTER_UNSPECIFIED: Default/unspecified\n - EVENT_TYPE_FILTER_DETECTION: Detection event\n - EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION: True positive determination\n - EVENT_TYPE_FILTER_FIXED: Fixed event\n - EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION: False positive determination\n - EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED: Analysis not planned\n - EVENT_TYPE_FILTER_FIX_NOT_PLANNED: Fix not planned\n - EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX: Pending upstream fix\n - EVENT_TYPE_FILTER_PATCHED: Patched event",
       "enum": [
         "EVENT_TYPE_FILTER_UNSPECIFIED",
         "EVENT_TYPE_FILTER_DETECTION",
@@ -8964,7 +8986,8 @@
         "EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION",
         "EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED",
         "EVENT_TYPE_FILTER_FIX_NOT_PLANNED",
-        "EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX"
+        "EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX",
+        "EVENT_TYPE_FILTER_PATCHED"
       ],
       "title": "EventTypeFilter represents the event types that can be used for filtering\nThese map to the event type values used in the system",
       "type": "string"
