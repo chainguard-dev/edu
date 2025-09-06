@@ -28,6 +28,4 @@
   <script src="{{ $alertInit.RelPermalink }}" integrity="{{ $alertInit.Data.Integrity }}" crossorigin="anonymous" defer></script>
 {{- end -}}
 
-{{ if hugo.IsProduction }}
-  {{ partial "googleTagManagerHead.html" . }}
-{{ end }}
+{{ partial "googleTagManagerHead.html" . }}
