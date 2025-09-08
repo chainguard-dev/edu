@@ -1,8 +1,6 @@
 ---
-title : "Use chainctl to Create an Assumable Identity for a Jenkins Pipeline"
+title: "Use chainctl to Create an Assumable Identity for a Jenkins Pipeline"
 linktitle: "Jenkins with chainctl"
-aliases:
-lead: ""
 description: "How to use chainctl to create a Chainguard identity that can be assumed by a Jenkins Pipeline."
 type: "article"
 date: 2025-08-27T08:03:42+00:00
