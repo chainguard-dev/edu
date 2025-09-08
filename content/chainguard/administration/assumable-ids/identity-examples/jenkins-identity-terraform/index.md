@@ -1,12 +1,11 @@
 ---
-title : "Use Terraform to Create an Assumable Identity for a Jenkins Pipeline"
+title: "Use Terraform to Create an Assumable Identity for a Jenkins Pipeline"
 linktitle: "Jenkins with Terraform"
 aliases:
 - /chainguard/chainguard-enforce/authentication/identity-examples/enforce-jenkins-identity/
 - /chainguard/chainguard-enforce/iam-groups/enforce-jenkins-identity/
 - /chainguard/administration/iam-organizations/identity-examples/jenkins-identity/
 - /chainguard/administration/assumable-ids/identity-examples/jenkins-identity/
-lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by a Jenkins Pipeline."
 type: "article"
 date: 2023-05-19T21:23:42+00:00
