@@ -15,7 +15,7 @@ weight: 025
 
 This guide explains how to use `chainctl` to create an assumable identity and configure Jenkins to use that identity to authenticate to Chainguard. To accomplish this, we will create an OIDC token credential in Jenkins and then a matching Chainguard identity that uses the Jenkins OIDC URL and put the process into an example Jenkins build pipeline.
 
-If you would like to follow this guide using Terraform, you can review [Use Terraform to Create an Assumable Identity for a Jenkins Pipeline](/chainguard/administration/assumable-ids/identity-examples/jenkins-identity-terraform/).
+If you would like to follow this guide using Terraform, you can review [Use Terraform to Create an Assumable Identity for a Jenkins Pipeline](/chainguard/administration/assumable-ids/identity-examples/jenkins-terraform/).
 
 
 ## Prerequisites
