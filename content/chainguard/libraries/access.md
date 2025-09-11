@@ -14,7 +14,9 @@ weight: 002
 toc: true
 ---
 
-Chainguard Libraries provide controlled access to security-enhanced Java and Python dependencies through the unified Chainguard platform authentication system. This guide explains how to set up access for your organization.
+Chainguard Libraries provide controlled access to security-enhanced Java and
+Python dependencies through the unified Chainguard platform authentication
+system. This guide explains how to set up access for your organization.
 
 If you are not a Chainguard user yet, a new Chainguard account must be created
 and configured for access to Chainguard Libraries.
@@ -48,6 +50,12 @@ Valid! Id: 8a4141a........7d9904d98c
 
 ## Pull token for libraries
 
+Pull tokens are separate identities with an assigned role to access the
+repositories from Chainguard Libraries. You can create the pull tokens with the
+chainctl command or using the Chainguard console.
+
+### Creating pull tokens with chainctl
+
 Create a new pull token for the Chainguard Libraries for Java with the [chainctl
 auth pull-token](/chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token/)
 command:
@@ -66,6 +74,9 @@ chainctl auth pull-token --library-ecosystem=java --parent=example --ttl=8670h
   365 days), valid unit strings range from nanoseconds to hours and are `ns`,
   `us`, `ms`, `s`, `m`, and `h`.
 
+Use the optional `--name` flag to supply a meaningful and short name for the
+token, to be able to locate it easier at a later stage.
+
 When omitting the parent parameter, potentially a list of organizations is
 displayed. Use the arrow keys to navigate the selection displayed after the
 question “With which location is the pull token associated?” and select the
@@ -80,6 +91,8 @@ Username: 45a.....424eb0
 
 Password: eyJhbGciO..........WF0IjoxN
 ```
+
+### Pull token characteristics and use
 
 The returned username and password combination is a new credential set in the
 organization that is independent of the account used to create and retrieve the
@@ -103,11 +116,40 @@ Refer to the following resources for more specific information for your needs:
 * [Repository manager configuration with Python](/chainguard/libraries/python/global-configuration/)
 * [Build tool and direct access configuration with Python](/chainguard/libraries/python/build-configuration/)
 
-You can not create pull tokens for Chainguard Libraries in the Chainguard
-console.
+### Creating pull tokens with the Chainguard console
 
-Find out more about listing tokens and other tasks in [Pull token
-management](#pull-token-management).
+Use the following steps to create a pull tokens for Chainguard Libraries in the
+Chainguard console.
+
+* Use your authentication details to access the console at
+  [https://console.chainguard.dev/](https://console.chainguard.dev/).
+* Select **Overview** in the left-hand navigation.
+* Select the **Manage pull tokens** tab.
+  * Alternatively, select **Settings** in the left-hand navigation, and select
+    **Pull Tokens** in the menu on the settings page.
+* Press **Create pull token**.
+* Provide a **Name** for the token. The name can later be used to locate the
+  token in the list.
+  * Optionally provide a **Description** and change the time until
+    **Expiration**.
+* Take note of the **Username** and **Password** values in a separate system
+  since they are required for pull token use and not available at a later stage.
+
+The created token has access to pull containers from your organization's
+Chainguard registries. Use the following steps to change the role to allow use
+with Chainguard Libraries:
+
+* Select the **Manage pull tokens** tab.
+* Locate the row of created token based on the name used earlier. Note that the
+  string `- registry` is appended to the name automatically.
+* Use the menu button in the **Actions** column of the same row and select
+  **Edit**.
+* Update the **Name** value by removing the `- registry` string and add any
+  other desired modifications.
+* Use the **Role** input under **Add role** to add the `libraries.java.pull` or
+  `libraries.python.pull` roles and press **Update**.
+  * Optionally click on the `registry.pull` role under **Roles**, press **Edit
+    role**, and then **Delete** to remove the role.
 
 ### Verification
 
@@ -258,8 +300,8 @@ Inspect all pull tokens for your organization in the Chainguard console:
   [https://console.chainguard.dev/](https://console.chainguard.dev/).
 * Select **Overview** in the left-hand navigation.
 * Select the **Manage pull tokens** tab.
-* Alternatively, select **Settings** in the left-hand navigation, and select
-  **Pull Tokens** in the menu on the settings page.
+  * Alternatively, select **Settings** in the left-hand navigation, and select
+    **Pull Tokens** in the menu on the settings page.
 
 The list includes the following columns:
 
