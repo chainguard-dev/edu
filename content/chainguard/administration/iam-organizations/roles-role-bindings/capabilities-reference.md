@@ -52,6 +52,8 @@ The administrative roles are useful for user profiles that require broad, but cl
 For example, the `apk.pull` role only grants `list` access for APK packages and groups. This means identities with this role can pull the organization's APK packages and retrieve information about the organization, but won't have general access to the organization's [Chainguard registry](/chainguard/chainguard-images/chainguard-registry/overview/) access.
 
 
+
+
 ## Chainguard Role Capabilities
 
 The following table maps Chainguard resources to the built-in roles that have permissions for them. Each row represents a specific resource type (like `apk`, `repo`, `identity`, etc.), describes its purpose, and lists which built-in roles have what capabilities (create, delete, list, update) for that resource.
@@ -112,6 +114,10 @@ The following table compares the general abilities of the twelve built-in roles 
 
 </div>
 
+**Notes**
+- **Pull Images/List Tags/Repos/View SBOMs**: These capabilities refer to container registry operations relating to the `manifest`, `repo`, `tag`, and `sboms` resources
+- **APK Pull**: The `apk.pull` role is specialized for APK package management, not container operations
+
 ### Pull token creator roles
 
 The following roles are used for managing pull tokens for certain resources:
@@ -121,16 +127,11 @@ The following roles are used for managing pull tokens for certain resources:
 * `libraries.python.pull_token_creator`
 * `libraries.javascript.pull_token_creator`
 
-These roles are able to create pull tokens because of the `identity.create` capability. However, you'll notice in this chart that none of these roles have the `identity.list` capability, meaning that none of them are able to list the pull tokens they've created. 
+For example, `libraries.*.pull` and `libraries.*.pull_token_creator` roles are focused on their respective library ecosystems and don't have container registry access.
+
+These roles are able to create pull tokens because of the `identity.create` capability. However, none of these roles have the `identity.list` capability, meaning that they aren't able to view the pull tokens they've created. 
 
 The reason for this is that Chainguard doesn't distinguish pull token identities from other [assumable identities](/chainguard/administration/assumable-ids/assumable-ids/) at the IAM level. If these roles also had the `identity.list` capability, they would be able to view **all** the identities in that scope. By not including `identity.list` among their capabilities, the pull token creator roles have a more limited, as intended.
-
-### Other notes
-
-- **Pull Images/List Tags/Repos/View SBOMs**: These capabilities refer to container registry operations relating to the `manifest`, `repo`, `tag`, and `sboms` resources
-- **Library-specific roles**: `libraries.*.pull` and `libraries.*.pull_token_creator` roles are focused on their respective library ecosystems and don't have container registry access
-- **APK Pull**: The `apk.pull` role is specialized for APK package management, not container operations
-
 
 ## Learn More
 
