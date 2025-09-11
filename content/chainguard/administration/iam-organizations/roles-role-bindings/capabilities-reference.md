@@ -49,7 +49,9 @@ This guide outlines the following twelve built-in roles provided by Chainguard:
 
 The administrative roles are useful for user profiles that require broad, but clearly defined capabilities. The registry, container, and library roles have limited permissions, allowing them to manage only one specific Chainguard resource. These specialized, resource-specific roles grant minimal required access.
 
-For example, the `apk.pull` role only grants `list` access for APK packages and groups. This means identities with this role can pull the organization's APK packages and retrieve information about the organization, but won't have general access to the organization's [Chainguard registry](/chainguard/chainguard-images/chainguard-registry/overview/) access. 
+For example, the `apk.pull` role only grants `list` access for APK packages and groups. This means identities with this role can pull the organization's APK packages and retrieve information about the organization, but won't have general access to the organization's [Chainguard registry](/chainguard/chainguard-images/chainguard-registry/overview/) access.
+
+
 
 
 ## Chainguard Role Capabilities
@@ -65,7 +67,7 @@ The following table maps Chainguard resources to the built-in roles that have pe
 | `build_report` | Access detailed build and scan reports for images and packages | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li></ul> |
 | `group_invites` | Send and manage invitations to join Chainguard organization | <ul><li>`owner` (create, delete, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li></ul> |
 | `groups` | Manage organization and hierarchical structures | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`libraries.java.pull_token_creator` (list)</li><li>`libraries.python.pull_token_creator` (list)</li><li>`libraries.javascript.pull_token_creator` (list)</li></ul> |
-| `identity` | Create and manage user identities and service accounts | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`registry.pull_token_creator` (create)</li><li>`libraries.java.pull_token_creator` (create)</li><li>`libraries.python.pull_token_creator` (create)</li><li>`libraries.javascript.pull_token_creator` (create)</li></ul> |
+| `identity` | Create and manage user identities, service accounts, and pull tokens | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`registry.pull_token_creator` (create)</li><li>`libraries.java.pull_token_creator` (create)</li><li>`libraries.python.pull_token_creator` (create)</li><li>`libraries.javascript.pull_token_creator` (create)</li></ul> |
 | `identity_providers` | Configure [custom identity providers](/chainguard/administration/custom-idps/custom-idps/) (OIDC, SAML) for authentication | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li></ul> |
 | `libraries.artifacts` | View Chainguard Library artifact metadata and information | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li></ul> |
 | `libraries.entitlements` | Manage access permissions for Chainguard Libraries | <ul><li>`owner` (create, delete, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`libraries.java.pull` (list)</li><li>`libraries.python.pull` (list)</li><li>`libraries.javascript.pull` (list)</li><li>`libraries.java.pull_token_creator` (list)</li><li>`libraries.python.pull_token_creator` (list)</li><li>`libraries.javascript.pull_token_creator` (list)</li></ul> |
@@ -112,11 +114,24 @@ The following table compares the general abilities of the twelve built-in roles 
 
 </div>
 
-**Notes:**
+**Notes**
 - **Pull Images/List Tags/Repos/View SBOMs**: These capabilities refer to container registry operations relating to the `manifest`, `repo`, `tag`, and `sboms` resources
-- **Library-specific roles**: `libraries.*.pull` and `libraries.*.pull_token_creator` roles are focused on their respective library ecosystems and don't have container registry access
 - **APK Pull**: The `apk.pull` role is specialized for APK package management, not container operations
 
+### Pull token creator roles
+
+The following roles are used for managing pull tokens for certain resources:
+
+* `registry.pull_token_creator`
+* `libraries.java.pull_token_creator`
+* `libraries.python.pull_token_creator`
+* `libraries.javascript.pull_token_creator`
+
+For example, `libraries.*.pull` and `libraries.*.pull_token_creator` roles are focused on their respective library ecosystems and don't have container registry access.
+
+These roles are able to create pull tokens because of the `identity.create` capability. However, none of these roles have the `identity.list` capability, meaning that they aren't able to view the pull tokens they've created. 
+
+The reason for this is that Chainguard doesn't distinguish pull token identities from other [assumable identities](/chainguard/administration/assumable-ids/assumable-ids/) at the IAM level. If these roles also had the `identity.list` capability, they would be able to view **all** the identities in that scope. By not including `identity.list` among their capabilities, the pull token creator roles have a more limited, as intended.
 
 ## Learn More
 
