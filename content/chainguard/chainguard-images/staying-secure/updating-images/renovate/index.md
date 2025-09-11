@@ -1,7 +1,7 @@
 ---
 title: "Using Renovate with Chainguard Containers"
 linktitle: "Using Renovate"
-aliases: 
+aliases:
 - /chainguard/chainguard-images/working-with-images/renovate/
 - /chainguard/chainguard-images/staying-secure/updating-images/renovate/
 type: "article"
@@ -107,7 +107,7 @@ Ideally, image references should also be pinned to a digest, as shown in the fol
 
 ## Updating `:latest` Container Images
 
-Renovate also supports updating image references that are pinned to digests. This allows you to keep floating tags such as `:latest` in sync with the most up-to-date version. 
+Renovate also supports updating image references that are pinned to digests. This allows you to keep floating tags such as `:latest` in sync with the most up-to-date version.
 
 As an example, for the following Dockerfile Renovate opened two similar pull requests:
 
@@ -131,6 +131,164 @@ ENTRYPOINT ["/hello"]
 The following screenshot shows the PR to update the static image:
 
 ![Screenshot showing Renovate PR to update static image digest](static_update.png)
+
+## Running Renovate in Github Actions
+
+You can use
+[`renovatebot/github-action`](https://github.com/renovatebot/github-action) to
+run Renovate from a GitHub Actions workflow. This can be combined with an
+[assumable identity](/chainguard/administration/assumable-ids/assumable-ids/) to
+authenticate to `cgr.dev` and update references to Chainguard images in your
+repository.
+
+To follow these steps, you must have:
+- `chainctl` — the Chainguard command line interface tool — installed on your
+  local machine. Follow our guide on [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/)
+  to set this up.
+- Access to an account with permissions to create identities in your Chainguard
+  organization. For instance, the `owner` role.
+
+First, create a `renovate.json` file at the root of your GitHub repository.
+Refer to the [official documentation](https://docs.renovatebot.com/configuration-options/)
+for all the supported options.
+
+This is an example of the most minimal configuration:
+
+```json
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json"
+}
+```
+
+Push this file to the `main` branch.
+
+Next, create an assumable identity for your GitHub repository.
+
+```shell
+chainctl iam identities create github <identity-name> \
+  --github-repo=<github-org>/<github-repo-name> \
+  --github-ref=refs/heads/main \
+  --role=registry.pull
+```
+
+Then, create `.github/workflows/renovate.yaml` with this
+content. Replace `<identity-id>` with the ID returned by the previous command.
+
+```yaml
+name: Renovate
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 3 * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  renovate:
+    name: Renovate
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      id-token: write
+
+    steps:
+    # Install chainctl and log in as the assumed identity
+    - uses: chainguard-dev/setup-chainctl@be0acd273acf04bfdf91f51198327e719f6af978 # v0.4.0
+      with:
+        identity: "<identity-id>"
+
+    # Export a short lived token for cgr.dev as RENOVATE_DOCKER_CGR_DEV_PASSWORD
+    - shell: bash
+      run: |
+        RENOVATE_DOCKER_CGR_DEV_PASSWORD=$(chainctl auth token --audience=cgr.dev)
+        echo "::add-mask::$RENOVATE_DOCKER_CGR_DEV_PASSWORD"
+        echo "RENOVATE_DOCKER_CGR_DEV_PASSWORD=$RENOVATE_DOCKER_CGR_DEV_PASSWORD" >> $GITHUB_ENV
+
+    # Run renovate with RENOVATE_DETECT_HOST_RULES_FROM_ENV=true so that it will
+    # use the password exported by the previous step
+    - name: Run Renovate
+      uses: renovatebot/github-action@6927a58a017ee9ac468a34a5b0d2a9a9bd45cac3 # v43.0.11
+      env:
+        RENOVATE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        RENOVATE_REPOSITORIES: ${{ github.repository }}
+        RENOVATE_DETECT_HOST_RULES_FROM_ENV: "true"
+        RENOVATE_DOCKER_CGR_DEV_USERNAME: "_token"
+```
+
+Push this file to the `main` branch.
+
+This workflow is scheduled to run every morning at 3 AM. You can trigger it
+manually by navigating to **Actions > Renovate** and selecting **Run workflow**.
+
+Once the workflow has ran successfully, you should see pull requests in your
+repository for any image references that need to be updated.
+
+## Running Renovate with Docker
+
+Chainguard provide [an image for
+Renovate](https://images.chainguard.dev/directory/image/renovate/overview). This
+is an example of how you can run this image to keep references to Chainguard
+images up to date in a GitHub repository.
+
+To follow these steps, you must have:
+- `chainctl` — the Chainguard command line interface tool — installed on your
+  local machine. Follow our guide on [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/)
+  to set this up.
+- Access to an account with permissions to pull Chainguard container images
+  from your organization’s repository within the Chainguard registry.
+- The `renovate` image present in your Chainguard registry.
+
+Firstly, if you don't already have one, generate a Personal Access Token for
+your GitHub user as described in Renovate's [official
+documentation](https://docs.renovatebot.com/modules/platform/github/#authentication).
+
+Export the token as `RENOVATE_TOKEN` for use in subsequent steps.
+
+```shell
+export RENOVATE_TOKEN=ghp_XXXXXXXXXXXXXXXXXX
+```
+
+Next, create a `renovate.json` file at the root of any GitHub repositories you
+want to target with Renovate. Refer to the [official documentation](https://docs.renovatebot.com/configuration-options/)
+for all the supported options.
+
+This is an example of the most minimal configuration:
+
+```json
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json"
+}
+```
+
+Then, login with `chainctl`.
+
+```shell
+chainctl auth login
+```
+
+Finally, run Renovate. Substitute `<org-name>` with the name of your Chainguard
+organization and provide any GitHub repositories that you want to target as
+arguments in the form `<github-org>/<github-repo-name>`.
+
+```shell
+docker run \
+  -it \
+  --rm \
+  -e RENOVATE_TOKEN="${RENOVATE_TOKEN}" \
+  -e RENOVATE_DETECT_HOST_RULES_FROM_ENV=true \
+  -e RENOVATE_DOCKER_CGR_DEV_USERNAME=_token \
+  -e RENOVATE_DOCKER_CGR_DEV_PASSWORD=$(chainctl auth token --audience cgr.dev) \
+  cgr.dev/<org-name>/renovate \
+  <github-org>/<github-repo-name>
+```
+
+This example passes a short-lived token for `cgr.dev` via the
+`RENOVATE_DOCKER_CGR_DEV_PASSWORD` environment variable.
 
 ## Troubleshooting
 
