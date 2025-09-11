@@ -127,7 +127,7 @@ The following roles are used for managing pull tokens for certain resources:
 * `libraries.python.pull_token_creator`
 * `libraries.javascript.pull_token_creator`
 
-For example, `libraries.*.pull` and `libraries.*.pull_token_creator` roles are focused on their respective library ecosystems and don't have container registry access.
+For example, the `libraries.*.pull_token_creator` roles are focused on their respective library ecosystems and don't have container registry access.
 
 These roles are able to create pull tokens because of the `identity.create` capability. However, none of these roles have the `identity.list` capability, meaning that they aren't able to view the pull tokens they've created. 
 
