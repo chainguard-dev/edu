@@ -123,7 +123,7 @@ The following roles are used for managing pull tokens for certain resources:
 
 These roles are able to create pull tokens because of the `identity.create` capability. However, you'll notice in this chart that none of these roles have the `identity.list` capability, meaning that none of them are able to list the pull tokens they've created. 
 
-The reason for this is that Chainguard doesn't distinguish pull token identities from other [assumable identities](/chainguard/administration/assumable-ids/assumable-ids/) at the IAM level. If these roles also had the `identity.list` capability, they would be able to view **all** the identities in that scope. By not including `identity.list` among their capabilities, the pull token creator roles are more limited, as intended.
+The reason for this is that Chainguard doesn't distinguish pull token identities from other [assumable identities](/chainguard/administration/assumable-ids/assumable-ids/) at the IAM level. If these roles also had the `identity.list` capability, they would be able to view **all** the identities in that scope. By not including `identity.list` among their capabilities, the pull token creator roles have a more limited, as intended.
 
 ### Other notes
 
