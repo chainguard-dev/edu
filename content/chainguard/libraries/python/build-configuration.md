@@ -102,11 +102,11 @@ for accessing your organization's Sonatype Nexus repository group.
 
 ### Direct access
 
-Build configuration to retrieve artifacts **directly** from the Chainguard Libraries
-for Python repository at `https://libraries.cgr.dev/python/` with the simple
-index at `https://libraries.cgr.dev/python/simple` requires authentication with
-username and password from a pull token as detailed in [access
-documentation](/chainguard/libraries/access/#pull-token).
+The build configuration to retrieve artifacts **directly** from the Chainguard Libraries
+for Python repositories requires authentication with username and password from a pull token as detailed in [access
+documentation](/chainguard/libraries/access/#pull-token). Note that there are multiple repositories:
+- `https://libraries.cgr.dev/python/` with the simple index at `https://libraries.cgr.dev/python/simple` 
+- `https://libraries.cgr.dev/python-remediated` with the simple index at `https://libraries.cgr.dev/python-remediated/simple` 
 
 ## Configuring build tools
 
@@ -360,4 +360,5 @@ url = "https://CG_PULLTOKEN_USERNAME:CG_PULLTOKEN_PASSWORD@libraries.cgr.dev/pyt
 In order to install Python libraries from multiple repositories with Chainguard Libraries
 for Python as the priority, `uv` supports [searching across multiple indexes](https://docs.astral.sh/uv/concepts/indexes/#searching-across-multiple-indexes) 
 while setting a priority index. You can use this to configure Chainguard Libraries for 
-Python as the first choice for any library access, with a fallback to the PyPI public index.
+Python as the first choice for any library access, with a fallback to the PyPI public index. 
+In addition, if you are consuming from our remediated Python libraries index, we recommend setting the [index-strategy setting](https://docs.astral.sh/uv/reference/settings/#index-strategy) to `unsafe-best-match`. This will ensure that index resolution continues to work when remediated libraries have dependencies on non-remediated librarie.
