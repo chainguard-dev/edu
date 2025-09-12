@@ -135,7 +135,7 @@ Combine the two repositories in a new virtual repository:
 
 At this point, you have a virtual repository set up in Artifactory that allows you or others in your organization to access Chainguard Libraries for Python with your chosen tools. This setup falls back to the public PyPI index in cases where a package is not available in Chainguard's index.
 
-#### Configure Remediated Libraries index
+### Additional configuration for CVE Remediation
 We recommend customers also configure the repository for **Python Libraries with CVE Remediation** so that remediated versions with High and Critical CVE fixes can be consumed automatically.  
 
 1. Create a new **Remote repository**:  
@@ -148,12 +148,12 @@ We recommend customers also configure the repository for **Python Libraries with
    - Set the **Pypi Settings - Registry URL** to `https://libraries.cgr.dev/python-remediated/`.
    - Select **Create Remote Repository**.  
 
-2. Add this new repository to your existing **Virtual repository** (e.g. `python-all`):  
+2. Add this new repository to the existing **Virtual repository** (e.g. `python-all`):  
    - Edit the virtual repository configuration.  
    - Add `python-remediated` alongside `python-chainguard` and `python-public`.  
    - Drag `python-remediated` to the top of the list to ensure it take the highest priority. 
 
-With this configuration, Artifactory will prefer remediated versions whenever available (e.g. `gunicorn==20.1.0` resolves to `20.1.0+cgr.1`). If no remediated version exists, it will fall back to the standard Chainguard repository and then PyPI.  
+With this configuration, Artifactory will prefer remediated versions whenever available. For example, `gunicorn` version `20.1.0` will resolve to the remediated version, `20.1.0+cgr.1`. If no remediated version exists, it will fall back to the standard Chainguard repository and then PyPI.  
 
 ### Build tool access
 
