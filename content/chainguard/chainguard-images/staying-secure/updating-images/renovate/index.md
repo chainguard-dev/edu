@@ -132,6 +132,69 @@ The following screenshot shows the PR to update the static image:
 
 ![Screenshot showing Renovate PR to update static image digest](static_update.png)
 
+## Pinning Digests
+
+The `pinDigests` option configures Renovate to add digests to image references
+that don't contain them.
+
+Here is an example `renovate.json` that sets this.
+
+```json
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": ["docker"],
+      "pinDigests": true
+    }
+  ]
+}
+```
+
+This configures Renovate to open PRs that will pin a reference like
+`cgr.dev/chainguard/python:3.12` to a digest like
+`cgr.dev/chainguard/python:3.12@sha256:e3b524a97c37c32ba590aae0ebcebe3a983c1f69a5093b670fdba980f97a09b3`.
+
+## Disabling Non-Digest Updates
+
+You can use the `matchUpdateTypes` option to disable updates for any update
+types other than `digest`.
+
+Here is an example `renovate.json` that does this.
+
+```json
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": [
+        "major",
+        "minor",
+        "patch"
+      ],
+      "enabled": false
+    }
+  ]
+}
+```
+
+This will configure Renovate to update the digest for a reference like
+`cgr.dev/chainguard/python:3.12@sha256:e3b524a97c37c32ba590aae0ebcebe3a983c1f69a5093b670fdba980f97a09b3`
+but not the tag.
+
+The benefit of this approach is that it allows you to define your update
+strategy for each image reference by the use of a mutable tag, rather than having
+separate rules for different images in your Renovate configuration. Similar to
+Chainguard's [Digestabot](https://github.com/chainguard-dev/digestabot)
+Github Action.
+
 ## Running Renovate in Github Actions
 
 You can use
