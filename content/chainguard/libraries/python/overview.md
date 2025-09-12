@@ -16,7 +16,7 @@ toc: true
 
 ## Introduction
 
-Chainguard Libraries for Python provides enhanced security for the vast Python ecosystem by rebuilding PyPI packages with comprehensive supply chain protection and automated patching. With over 600,000 packages on the [Python Package Index (PyPI)](https://pypi.org/) serving application development, machine learning, and data science needs, Chainguard addresses the critical security challenges of depending on packages from untrusted sources by rebuilding them within the controlled Chainguard Factory environment.
+Chainguard Libraries for Python provides enhanced security for the vast Python ecosystem by rebuilding PyPI packages with comprehensive supply chain protection and automated patching. With over 600,000 packages on the [Python Package Index (PyPI)](https://pypi.org/) serving application development, machine learning, and data science needs, Chainguard addresses the critical security challenges of depending on packages from untrusted sources by rebuilding them within the controlled Chainguard Factory environment. In addition, Chainguard eliminates security risk by remediating High and Critical vulnerabilities across older package versions where upstream maintainers are not able to prioritize fixes.
 
 Chainguard Libraries for Python enables access to a growing collection of Python
 packages rebuilt from source. New releases of common libraries or artifacts
@@ -47,6 +47,12 @@ apply:
 * Processor architecture of the runtime environment must be `x86_64` or
   `aarch64`.
 
+## CVE Remediation
+
+Chaingard Libraries for Python includes includes [CVE Remediation](/chainguard/libraries/cve-remediation.md). This provides access to remediated library versions with High and Critical CVE fixes, particularly when upstream maintainers are not able to backport fixes to older versions. Python libraries with CVE remediation include a local version identifier of `+cgr.N`. For example, the `flask` library has CVE-2023-30861 remediated in versions `1.1.2+cgr.1` and `2.0.0+cgr.1`.
+
+In some cases, multiple CVEs may be remediated in the same library version across separate local version bumps. For example, `aiohttp` has both CVE-2024-23334 and CVE-2024-30251 remediated in the version `3.9.1+cgr.2`. Python package management tools interpret the `+cgr.N` suffix as a local version, which takes precedence over versions without the version suffix during dependency resolution.
+
 ## Technical details
 
 Most organizations consume Chainguard Libraries for Python through a repository
@@ -56,23 +62,26 @@ documentation](/chainguard/libraries/python/global-configuration/). The rest of
 this article provides details of the underlying implementation of Chainguard
 Libraries for Python and how to access individual libraries manually.
 
-The Chainguard Libraries for Python index uses the PyPI repository format and
-only includes release artifacts of the libraries built by Chainguard from
-source.
+The Chainguard Libraries for Python indexes use the PyPI repository format and 
+only include release artifacts of the libraries built by Chainguard from source.
 
-The URL for the repository is:
+The URLs for the repositories are:
 
 ```
 https://libraries.cgr.dev/python/
+https://libraries.cgr.dev/python-remediated/
 ```
 
-Use the URL with your [username and password retrieved with
+The first index provides all Python libraries that we build from source, without remediated versions. The second index provides remediated libraries with High and Critical CVE fixes applied to older versions.
+
+Use the URLs with your [username and password retrieved with
 chainctl](/chainguard/libraries/access/) to access the Chainguard Libraries for
 Python repository manually with a browser.
 
 After successful login, you are redirected to the `simple` sub-context at
-`https://libraries.cgr.dev/python/simple/` that allows you to inspect the
-available packages. The top level contains an alphabetical list of packages:
+`https://libraries.cgr.dev/python/simple/` or `https://libraries.cgr.dev/python-remediated/simple/` 
+that allows you to inspect the available packages. The top level contains 
+an alphabetical list of packages:
 
 ```
 2captcha-python
