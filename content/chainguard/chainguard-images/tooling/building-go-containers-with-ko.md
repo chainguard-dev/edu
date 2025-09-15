@@ -128,10 +128,18 @@ Once you’re able to pull images without being prompted to authenticate, you ca
 
 ## Step 3 — Building Your First Container with Ko
 
-To get started, build your application locally using Ko’s default configuration:
+To get started, you'll build your application locally using Ko’s default configuration. Ko supports cross-compilation to other CPU architectures and operating systems via the `--platform` flag, so it can build container images for any platform that is supported by the base image. Chainguard Containers are available for both `amd64` and `arm64` architectures.
+
+To build the image locally using default settings, run:
 
 ```shell
 ko build --local .
+```
+
+If you're on macOS, you may want to include the `--platform=linux/arm64` flag to your command, or use `--platform=all` to build all supported platforms.
+
+```shell
+ko build --local --platform=linux/arm64 .
 ```
 
 The `--local` flag tells Ko to build the image and load it into your local Docker daemon instead of pushing it to a registry. The output includes information such as the image name and tags added to this build:
