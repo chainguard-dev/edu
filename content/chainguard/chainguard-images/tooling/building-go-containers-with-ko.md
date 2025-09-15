@@ -146,7 +146,7 @@ The `--local` flag tells Ko to build the image and load it into your local Docke
 ko.local/ko-demo-f2e1cf7eebaa497931a6a58522f6d83f:2f27fb1252ce004cf29fa713e8c7d3bce1c2e95352f3ddb33fb72690431e73fd
 ```
 
-By default, Ko creates a unique image name for the project based on the import path, and a unique tag name that identifies this specific build. If you run the command again multiple times, you’ll get the same combination of image name \+ tag. The tag will only change if there are changes in the build, such as code changes, updates in the base image or in its dependencies. This feature facilitates reproducible builds.
+By default, Ko creates a unique image name for the project based on the import path, and a unique tag name that identifies this specific build. If you run the command again multiple times, you’ll get the same combination of image name \+ tag. The tag will only change if there are changes in the build, such as  updates in the base image, or updates to dependencies. This feature facilitates reproducible builds.
 
 You can change this behavior at runtime with the flags `--base-import-paths` to omit the hash appended to the image name, and `--bare` to use only the base registry name. For example, the following command will rebuild the image using only the path information for the image name, while still creating a unique tag in addition to `latest`:
 
@@ -180,7 +180,7 @@ It’s worth noting that the resulting image is very minimal, with less than 10M
 Now you can test your containerized application. The following command runs the image using a port mapping to redirect requests on port `8080` in the host to the same port inside the container:
 
 ```shell
-docker run -p 8080:8080 ko.local/ko-demo-f2e1cf7eebaa497931a6a58522f6d83f:2f27fb1252ce004cf29fa713e8c7d3bce1c2e95352f3ddb33fb72690431e73fd
+docker run -p 8080:8080 ko.local/ko-demo
 ```
 
 Your application should start inside the container. Test it with curl in another terminal:
@@ -204,27 +204,28 @@ export KO_DOCKER_REPO=linky
 To build the image and push it to the remote registry, run:
 
 ```shell
-ko build
+ko build --base-import-paths
 ```
 
 The image will be built and pushed to the remote registry automatically, which you can confirm from the output:
 
 ```
-2025/08/13 14:44:08 Using base cgr.dev/chainguard/static:latest@sha256:6a4b683f4708f1f167ba218e31fcac0b7515d94c33c3acf223c36d5c6acd3783 for ko-demo
-2025/08/13 14:44:09 current folder is not a git repository. Git info will not be available
-2025/08/13 14:44:09 Building ko-demo for linux/amd64
-2025/08/13 14:44:09 Publishing linky/ko-demo-f2e1cf7eebaa497931a6a58522f6d83f:latest
-2025/08/13 14:44:22 pushed blob: sha256:783cdc11942ed7e82166d08ed7e708f2e1afe19f7cde0db459f688fbaf9d7415
-2025/08/13 14:44:22 pushed blob: sha256:250c06f7c38e52dc77e5c7586c3e40280dc7ff9bb9007c396e06d96736cf8542
-2025/08/13 14:44:28 pushed blob: sha256:edc4717dd190d1a269acfde822b21165f745073ee98e863ad83e36c7796b84be
-2025/08/13 14:44:32 pushed blob: sha256:d73997d0d871754b7302d50310dedc601d10a8063c7842fc3c6cd1f8a7038d88
-2025/08/13 14:44:37 index.docker.io/linky/ko-demo-f2e1cf7eebaa497931a6a58522f6d83f:sha256-2f27fb1252ce004cf29fa713e8c7d3bce1c2e95352f3ddb33fb72690431e73fd.sbom: digest: sha256:88195f100820f91819d588fbc539d5e068a11ff7022ec25d3eb341918c4aceb1 size: 373
-2025/08/13 14:44:37 Published SBOM index.docker.io/linky/ko-demo-f2e1cf7eebaa497931a6a58522f6d83f:sha256-2f27fb1252ce004cf29fa713e8c7d3bce1c2e95352f3ddb33fb72690431e73fd.sbom
-2025/08/13 14:44:45 pushed blob: sha256:dc71e315ba0ec96c2048114da412e1260b3b55e6d74a62b5d468825897ff0e8c
-2025/08/13 14:44:47 pushed blob: sha256:5ceb481790be82050a57f67262b1bbbeddf54e5fcff0128cddb06cb903c19791
-2025/08/13 14:44:48 linky/ko-demo-f2e1cf7eebaa497931a6a58522f6d83f:latest: digest: sha256:2f27fb1252ce004cf29fa713e8c7d3bce1c2e95352f3ddb33fb72690431e73fd size: 1336
-2025/08/13 14:44:48 Published linky/ko-demo-f2e1cf7eebaa497931a6a58522f6d83f@sha256:2f27fb1252ce004cf29fa713e8c7d3bce1c2e95352f3ddb33fb72690431e73fd
-linky/ko-demo-f2e1cf7eebaa497931a6a58522f6d83f@sha256:2f27fb1252ce004cf29fa713e8c7d3bce1c2e95352f3ddb33fb72690431e73fd
+2025/09/15 13:09:10 Using base cgr.dev/chainguard/static:latest@sha256:b2e1c3d3627093e54f6805823e73edd17ab93d6c7202e672988080c863e0412b for ko-demo
+2025/09/15 13:09:11 current folder is not a git repository. Git info will not be available
+2025/09/15 13:09:11 Building ko-demo for linux/amd64
+2025/09/15 13:09:11 Publishing linky/ko-demo:latest
+2025/09/15 13:09:14 pushed blob: sha256:8cf6f1c6fcba0c40fba9e61b39672b1cd91626c7c6fd78d3ce1679dfae2b8b1c
+2025/09/15 13:09:14 pushed blob: sha256:8d9d552233adea41e9d0d6b73cf2847b736ac13bd9a4b8df39836193652c6500
+2025/09/15 13:09:15 pushed blob: sha256:250c06f7c38e52dc77e5c7586c3e40280dc7ff9bb9007c396e06d96736cf8542
+2025/09/15 13:09:15 pushed blob: sha256:7493e3cb9c5dc55615efb3f5298804d5817c43127a5e82bc7d6d6b5edf472912
+2025/09/15 13:09:16 pushed blob: sha256:4fcce664a6320a086990883b95e0377ca0e410844c7fa93a8ca02869aac6dd12
+2025/09/15 13:09:16 pushed blob: sha256:59b34ce0532f011950c3e51cd19f924aaa4dc9fdb722448610a0e3e47ea1138b
+2025/09/15 13:09:17 index.docker.io/linky/ko-demo:sha256-6ce1b8b932e5249ce5aaaee33ceaa491ef5c83ef3a2f44dc51700113806f46c6.sbom: digest: sha256:a5dd8c1ad4a415db5944f848427271a4bb87b475cd04cd31eb17a6bfd4dd0b5b size: 373
+2025/09/15 13:09:17 Published SBOM index.docker.io/linky/ko-demo:sha256-6ce1b8b932e5249ce5aaaee33ceaa491ef5c83ef3a2f44dc51700113806f46c6.sbom
+2025/09/15 13:09:17 linky/ko-demo:latest: digest: sha256:6ce1b8b932e5249ce5aaaee33ceaa491ef5c83ef3a2f44dc51700113806f46c6 size: 1336
+2025/09/15 13:09:17 Published linky/ko-demo@sha256:6ce1b8b932e5249ce5aaaee33ceaa491ef5c83ef3a2f44dc51700113806f46c6
+linky/ko-demo@sha256:6ce1b8b932e5249ce5aaaee33ceaa491ef5c83ef3a2f44dc51700113806f46c6
+
 ```
 
 You’ll notice that Ko also pushes an SBOM to the remote registry.
@@ -232,8 +233,10 @@ You’ll notice that Ko also pushes an SBOM to the remote registry.
 To verify that the image is available in the remote registry, you can pull it to your local machine with a command similar to this, using the remote registry’s URL and the image name:
 
 ```shell
-docker pull
+docker pull linky/ko-demo
 ```
+
+Remember to replace `linky/ko-demo` with your own unique registry address and image name.
 
 ## Next Steps
 
