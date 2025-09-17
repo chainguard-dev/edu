@@ -1,26 +1,27 @@
 ---
 date: 2025-09-16T14:02:37Z
-title: "chainctl iam account-associations check aws"
-slug: chainctl_iam_account-associations_check_aws
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_check_aws/
+title: "chainctl auth delete-account"
+slug: chainctl_auth_delete-account
+url: /chainguard/chainctl/chainctl-docs/chainctl_auth_delete-account/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam account-associations check aws
+## chainctl auth delete-account
 
-Checks that the given location has been properly configured for OIDC federation with AWS
+Permanently delete your user account.
 
 ```
-chainctl iam account-associations check aws ORGANIZATION_NAME|ORGANIZATION_ID|FOLDER_NAME|FOLDER_ID [flags]
+chainctl auth delete-account [flags]
 ```
 
 ### Options
 
 ```
-  -h, --help   help for aws
+  -h, --help   help for delete-account
+  -y, --yes    Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 
 ### Options inherited from parent commands
@@ -39,5 +40,5 @@ chainctl iam account-associations check aws ORGANIZATION_NAME|ORGANIZATION_ID|FO
 
 ### SEE ALSO
 
-* [chainctl iam account-associations check](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_check/)	 - Check the OIDC federation configurations for cloud providers.
+* [chainctl auth](/chainguard/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
 
