@@ -215,7 +215,8 @@ If you retrieve information about your Kubernetes pod immediately after deployme
 ```shell
 kubectl get pods
 ```
-```
+
+```output
 NAME                               READY   STATUS     RESTARTS   AGE
 nginx-chainguard-d49d7496c-stxcj   0/1     Init:0/1   0          6s
 ```
@@ -232,7 +233,8 @@ Once the workload is running, you can test whether nginx is working as expected.
 ```shell
 kubectl port-forward deploy/nginx-chainguard 8080:80
 ```
-```
+
+```output
 Forwarding from 127.0.0.1:8080 -> 80
 Forwarding from [::1]:8080 -> 80
 ```
@@ -242,7 +244,8 @@ Then, **in a separate terminal window**, use `curl` to reach the pod:
 ```shell
 curl http://localhost:8080
 ```
-```
+
+```output
 Hello from minimal NGINX!
 ```
 

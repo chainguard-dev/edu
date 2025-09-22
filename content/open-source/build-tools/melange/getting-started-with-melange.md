@@ -75,7 +75,6 @@ BuildDate:     '2024-07-19T16:04:17Z'
 GoVersion:     go1.22.5
 Compiler:      gc
 Platform:      linux/amd64
-
 ```
 
 With melange installed, you’re ready to proceed.
@@ -110,7 +109,7 @@ docker run --rm -it -v "${PWD}":/app cgr.dev/chainguard/php /app/minicli advice
 
 You should get a random piece of advice such as:
 
-```
+```output
 Gratitude is said to be the secret to happiness.
 ```
 
@@ -172,7 +171,6 @@ pipeline:
       /usr/bin/composer install -d "${MINICLI_HOME}" --no-dev
       cp ./minicli "${EXEC_DIR}"
       chmod +x "${EXEC_DIR}/minicli"
-
 ```
 
 Our build pipeline will set up two distinct directories, separating the application dependencies from its executable entry point. The executable `minicli` script will be copied into `/usr/bin`, while the vendor files will be located at `/usr/share/minicli`.
@@ -184,9 +182,10 @@ Before building the package, you'll need to create a temporary keypair to sign i
 ```shell
 docker run --rm -v "${PWD}":/work cgr.dev/chainguard/melange keygen
 ```
+
 This will generate a `melange.rsa` and `melange.rsa.pub` files in the current directory.
 
-```
+```output
 2024/08/01 16:55:31 INFO generating keypair with a 4096 bit prime, please wait...
 2024/08/01 16:55:33 INFO wrote private key to melange.rsa
 2024/08/01 16:55:33 INFO wrote public key to melange.rsa.pub
@@ -200,11 +199,12 @@ docker run --privileged --rm -v "${PWD}":/work \
   --arch amd64,aarch64 \
   --signing-key melange.rsa
 ```
+
 This will set up a volume sharing your current folder with the location `/work` inside the container. We'll build packages for `amd64` and `aarch64` platforms and sign them using the `melange.rsa` key created in the previous command.
 
 When the build is finished, you should be able to find a `packages` folder containing the generated apks (and associated apk index files):
 
-```
+```output
 packages
 ├── aarch64
 │   ├── APKINDEX.json
@@ -260,6 +260,7 @@ The following command will set up a volume sharing your current folder with the 
 docker run --rm --workdir /work -v ${PWD}:/work cgr.dev/chainguard/apko \
   build apko.yaml hello-minicli:test hello-minicli.tar --arch host
 ```
+
 This will build an OCI image based on your host system's architecture (specified by the `--arch host` flag). If you receive warnings at this point, those are likely related to the types of SBOMs being uploaded and can be safely ignored.
 
 The command will generate a few new files in the app's directory:
@@ -272,7 +273,8 @@ Next, load your image within Docker:
 ```shell
 docker load < hello-minicli.tar
 ```
-```
+
+```output
 7cbaefdf1c30: Loading layer   13.7MB/13.7MB
 Loaded image: hello-minicli:test-%host-architecture%
 ```
@@ -284,9 +286,10 @@ Now you can run your Minicli program with:
 ```shell
 docker run --rm hello-minicli:test-%host-architecture%
 ```
+
 The demo should output an advice slip such as:
 
-```
+```output
 Only those who attempt the impossible can achieve the absurd.
 ```
 

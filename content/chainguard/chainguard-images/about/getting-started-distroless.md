@@ -130,11 +130,13 @@ The following command will create a new `composer.json` file with a single depen
 ```shell
 docker run --rm --entrypoint composer --user=root -v ${PWD}:/app cgr.dev/chainguard/php:latest-dev require minicli/curly
 ```
+
 In this case, we had to use the **root** image user in order to be able to write files in the current host directory. The following command will fix file permissions for our current system user:
 
 ```shell
 sudo chown -R ${USER}:${USER} .
 ```
+
 Now create the PHP executable. You can call it `catfact.php`:
 
 ```shell
@@ -143,7 +145,7 @@ nano catfact.php
 
 The following code makes a query to the cat facts API, returning the quote as output. Copy the contents to your own `catfact.php` script:
 
-```catfact.php 
+```php
 <?php
 
 require __DIR__ . '/vendor/autoload.php';
@@ -167,7 +169,7 @@ nano Dockerfile
 
 The following Dockerfile will create a `run.php` script that makes a curl query using the library we just added as a dependency.
 
-```Dockerfile
+```dockerfile
 FROM cgr.dev/chainguard/php:latest-dev AS builder
 USER root
 COPY . /app
@@ -205,6 +207,7 @@ Upon inspection with `docker images`, you can check the image size around 38MB:
 ```shell
 docker images distroless-demo-php
 ```
+
 ```output
 REPOSITORY            TAG       IMAGE ID       CREATED         SIZE
 distroless-demo-php   latest    8691d09f56ca   2 minutes ago   37.9MB

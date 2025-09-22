@@ -184,7 +184,8 @@ Here's what each line of this Dockerfile does:
         ```shell
         docker run -it --entrypoint id chainguard/python:latest-dev
         ```
-        ```Output
+
+        ```output
         uid=65532(nonroot) gid=65532(nonroot) groups=65532(nonroot)
         docker run -it --entrypoint id chainguard/go:latest-dev
         uid=0(root) gid=0(root) groups=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel),11(floppy),20(dialout),26(tape),27(video)

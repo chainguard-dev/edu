@@ -65,6 +65,7 @@ Running this command for the first time may take a few minutes, since it will do
 ```shell
 python
 ```
+
 ```python
 Python 3.11.9 (main, May  1 2024, 21:48:03) [GCC 13.2.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
@@ -132,6 +133,7 @@ docker run -it --rm \
   cgr.dev/$ORGANIZATION/nemo:latest \
  "/home/nonroot/nemo-test/tts.py"
 ```
+
 Note that we ran the above script as root. This allows us to share the script and output `.wav` file between the host and container. Remember not to run your container image as root in a production environment.
 
 If your host machine does not have attached GPUs and you'd like to run the above on your CPU, omit the `  --gpus all \` line. The script tests for availability of the CUDA platform and sets the accelerator to CPU if CUDA is not detected, so the script will also function on CPU.

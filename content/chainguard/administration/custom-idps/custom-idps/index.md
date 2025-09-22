@@ -48,7 +48,6 @@ Then you can use the URL in this command's output to complete the login flow fro
 chainctl config set auth.device-flow chainguard
 ```
 
-
 ### Setting a default identity provider
 
 As an alternative to remembering identity provider IDs, you can set the default identity provider by editing the `chainctl` configuration file. You can do so with the following command.
@@ -188,6 +187,7 @@ You can retrieve a list of all your Chainguard organizations — along with thei
 ```shell
 chainctl iam organizations ls -o table
 ```
+
 ```output
                         	ID                      	|    NAME    | DESCRIPTION
 --------------------------------------------------------+------------+---------------------

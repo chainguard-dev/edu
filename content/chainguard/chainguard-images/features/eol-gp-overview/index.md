@@ -101,7 +101,6 @@ This command will return a table showing the UIDPs of every Chainguard Container
   ORGANIZATION_ID/165aEXAMPLE5b7ae | cgr.dev/example.com | nginx    | application, featured | APPLICATION  
   ORGANIZATION_ID/4408EXAMPLE4131a | cgr.dev/example.com | node     | base                  | UNKNOWN 	 
   ORGANIZATION_ID/37a2EXAMPLE0d419 | cgr.dev/example.com | python   | base, featured        | UNKNOWN 	 
-
 ```
 
 With the image repository ID, you can make a request to the API endpoint with a command like the following. Make sure to replace `$ORGANIZATION_ID/4408EXAMPLE4131a` with the container image repository UIDP you just found:

@@ -13,7 +13,7 @@ toc: true
 
 Set AWS account association for a location.
 
-```
+```sh
 chainctl iam account-associations set aws ORGANIZATION_NAME|ORGANIZATION_ID|FOLDER_NAME|FOLDER_ID --account=ACCOUNT [--name=NAME] [--description=DESCRIPTION] [--yes] [--output=id|json|table] [flags]
 ```
 

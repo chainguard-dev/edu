@@ -13,13 +13,13 @@ toc: true
 
 List identities.
 
-```
+```sh
 chainctl iam identities list [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--name=NAME] [--relationship={aws|claim_match|pull_token|service_principal|static}] [--expired] [--output=id|json|table]
 ```
 
 ### Examples
 
-```
+```sh
   # List all identities.
   chainctl iam identities list
   

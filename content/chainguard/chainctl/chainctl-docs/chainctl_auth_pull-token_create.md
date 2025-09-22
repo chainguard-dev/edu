@@ -13,13 +13,13 @@ toc: true
 
 Create a pull token.
 
-```
+```sh
 chainctl auth pull-token create [--save=true|false] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--library-ecosystem=LANGUAGE] [flags]
 ```
 
 ### Examples
 
-```
+```sh
   # Create a pull token for container registry pull access.
   chainctl auth pull-token create
   

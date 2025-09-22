@@ -13,7 +13,7 @@ toc: true
 
 Describe cloud provider account associations for a location.
 
-```
+```sh
 chainctl iam account-associations describe ORGANIZATION_NAME|ORGANIZATION_ID|FOLDER_NAME|FOLDER_ID [--aws] [--gcp] [--chainguard] [--output=id|json|table] [flags]
 ```
 

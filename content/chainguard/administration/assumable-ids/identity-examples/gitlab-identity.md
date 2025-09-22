@@ -200,7 +200,7 @@ terraform apply
 
 Before going through with applying the Terraform configuration, this command will prompt you to confirm that you want it to do so. Enter `yes` to apply the configuration.
 
-```
+```output
 ...
 
 Plan: 4 to add, 0 to change, 0 to destroy.
@@ -217,7 +217,7 @@ Do you want to perform these actions?
 
 After typing `yes` and pressing `ENTER`, the command will complete and will output a `gitlab-ci` value.
 
-```
+```output
 ...
 
 Apply complete! Resources: 4 added, 0 changed, 0 destroyed.
@@ -246,7 +246,7 @@ In the list of the repository's contents, there will be a file named `.gitlab-ci
 
 Click on the `.gitlab-ci.yml` file, then click the **Edit** button and select an option for editing the file. For the purpose of this guide, delete whatever content is in this file to start and replace it with the following.
 
-```
+```yaml
 image: cgr.dev/chainguard/wolfi-base
 
 stages:
@@ -297,7 +297,7 @@ After updating the configuration, commit the changes and the pipeline will run a
 
 Click **Build** and then **Pipelines** to view the pipeline, and then click the **assume-and-explore** job button to open the job's output from the last run. There you should see a list of container repositories accessible to your organization:
 
-```Output
+```output
 . . .
 Successfully exchanged token.
 Valid! Id: $ORGANIZATION/$IDENTITY
@@ -318,7 +318,7 @@ This indicates that the GitLab CI/CD pipeline did indeed assume the identity and
 
 If you'd like to experiment further with this identity and what the workflow can do with it, there are a few parts of this setup that you can tweak. For instance, if you'd like to give this identity different permissions you can change the role data source to the role you would like to grant.
 
-```
+```hcl
 data "chainguard_roles" "editor" {
   name = "editor"
 }

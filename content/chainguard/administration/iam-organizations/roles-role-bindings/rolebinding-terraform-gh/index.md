@@ -182,7 +182,7 @@ Additionally, the `github_user` data source [requires you](https://registry.terr
 
 The next block retrieves Chainguard identities for each member of the GitHub team.
 
-```
+```hcl
 data "chainguard_identity" "team_ids" {
   for_each = toset([for x in data.github_user.team_members : x.id])
 
@@ -197,7 +197,7 @@ If there are members of the GitHub team who have not yet registered with Chaingu
 
 The next block retrieves the predefined `viewer` role from Chainguard.
 
-```
+```hcl
 data "chainguard_role" "viewer" {
   name = "viewer"
 }
@@ -205,7 +205,7 @@ data "chainguard_role" "viewer" {
 
 The final block puts all this information together to create the role-bindings for each member of the team.
 
-```
+```hcl
 resource "chainguard_rolebinding" "cg-binding" {
   for_each = data.chainguard_identity.team_ids
   identity = each.value.id
@@ -251,7 +251,7 @@ EOF
 
 Note that the fourteenth line of this file contains a backslash (`\`).
 
-```
+```hcl
   subject = "github|\${each.key}"
 ```
 
@@ -296,7 +296,7 @@ Do you want to perform these actions?
 
 After pressing `ENTER`, the command will complete.
 
-```
+```output
 . . .
 
 Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
@@ -336,7 +336,7 @@ resource "chainguard_rolebinding" "cg-binding" {
 
 The Terraform configuration language is quite flexible. You can update your Terraform configuration to retrieve information about a single user, rather than an entire team.
 
-```
+```hcl
 data "github_user" "user" {
   username = "$USERNAME"
 }
@@ -344,7 +344,7 @@ data "github_user" "user" {
 
 Likewise, you can retrieve a GitHub user's Chainguard identity without having to include the `for_each` meta-argument.
 
-```
+```hcl
 data "chainguard_identity" "gh-user-chainguard-rb" {
   issuer  = "https://auth.chainguard.dev/"
   subject = "github|${data.github_user.$USERNAME.id}"

@@ -67,7 +67,7 @@ nano index.html
 
 The following HTML file displays a graphic of Linky alongside a fun octopus fact.
 
-```HTML
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -102,7 +102,7 @@ nano stylesheet.css
 
 Copy the following code to your `stylesheet.css` file. 
 
-```CSS
+```css
 /*
 Chainguard Academy nginx Demo Website
 */
@@ -128,7 +128,6 @@ p {
 .corners {
     border-radius: 10px;
 }
-
 ```
 
 After copying the code into the `stylesheet.css` file, save and close it.
@@ -234,6 +233,7 @@ In the `nginxdemo` directory, create the `Dockerfile` with the text editor of yo
 ```shell
 nano Dockerfile
 ```
+
 The following Dockerfile will:
 
 1. Start a new build based on the `cgr.dev/chainguard/nginx:latest` container image;
@@ -242,13 +242,14 @@ The following Dockerfile will:
 
 Copy this content to your own `Dockerfile`:
 
-```Dockerfile
+```dockerfile
 FROM cgr.dev/chainguard/nginx:latest
 
 EXPOSE 8080
 
 COPY data /usr/share/nginx/html/
 ```
+
 Save the file when you're finished.
 
 You can now build the container image with:

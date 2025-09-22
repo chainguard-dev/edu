@@ -73,7 +73,7 @@ apk update
 
 You'll get output similar to this:
 
-```
+```output
 fetch https://packages.wolfi.dev/os/x86_64/APKINDEX.tar.gz
 [https://packages.wolfi.dev/os]
 OK: 46985 distinct packages available
@@ -84,9 +84,10 @@ Now you can use `apk search` to look for packages. The following example searche
 ```shell
 apk search php*8.2*xml*
 ```
+
 You should get output similar to this:
 
-```
+```output
 php-8.2-simplexml-8.2.17-r0
 php-8.2-simplexml-config-8.2.17-r0
 php-8.2-xml-8.2.17-r0
@@ -107,9 +108,10 @@ To search in which package you can find a command, you can use the syntax `apk s
 ```shell
 apk search cmd:useradd
 ```
+
 You'll get output indicating that the `shadow` package has the command you are looking for.
 
-```
+```output
 shadow-4.15.1-r0
 ```
 
@@ -119,9 +121,10 @@ To check for package dependencies, you can use the syntax `apk search -R info pa
 ```shell
 apk -R info shadow
 ```
+
 And this will give you a list of dependencies for each version of the `shadow` package currently available:
 
-```
+```output
 ...
 shadow-4.15.1-r0 depends on:
 so:ld-linux-x86-64.so.2
@@ -138,6 +141,7 @@ To search which packages include a shared object, you can use the syntax `apk se
 ```shell
 apk search so:libxml2.so*
 ```
+
 And this should give you output indicating that this shared object is included within the `libxml2-2.12.6-r0` package.
 
 For detailed information about apk options and flags when searching for packages, check the [official documentation](https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html#_searching_for_packages).

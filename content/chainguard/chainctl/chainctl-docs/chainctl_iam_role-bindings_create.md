@@ -13,13 +13,13 @@ toc: true
 
 Create a role-binding
 
-```
+```sh
 chainctl iam role-bindings create [--identity=IDENTITY] [--role=ROLE] [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--output=id|json|table]
 ```
 
 ### Examples
 
-```
+```sh
   # Bind a user-created identity as viewer to a location
   chainctl iam role-bindings create --identity=guest-identity --role=viewer --parent=engineering
   

@@ -13,13 +13,13 @@ toc: true
 
 Delete a custom IAM role.
 
-```
+```sh
 chainctl iam roles delete ROLE_NAME|ROLE_ID [--yes] [--output=id|json|table]
 ```
 
 ### Examples
 
-```
+```sh
   # Delete a role by ID
   chainctl iam roles delete 3ed98fc...
 ```

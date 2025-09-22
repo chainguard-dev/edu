@@ -44,7 +44,7 @@ bazel run @@//:apko_bazelrc && chmod +x .apko/range.sh
 
 Finally, paste this into your preferred \`.bazelrc\` file,
 
-```
+```output
 # Required for rules_apko to make range requests
 try-import %workspace%/.apko/.bazelrc
 ```
@@ -102,6 +102,7 @@ load("@example_lock//:repositories.bzl", "apko_repositories")
 
 apko_repositories()
 ```
+
 ## Rules
 
 Public API re-exports

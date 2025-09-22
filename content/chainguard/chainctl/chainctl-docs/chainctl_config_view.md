@@ -13,7 +13,7 @@ toc: true
 
 View the current chainctl config.
 
-```
+```sh
 chainctl config view [--diff] [flags]
 ```
 

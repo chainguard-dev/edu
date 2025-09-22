@@ -44,6 +44,7 @@ Start by cloning the demos repository to your local machine:
 ```shell
 git clone git@github.com:chainguard-dev/edu-images-demos.git
 ```
+
 Access the `go` folder in the repository:
 
 ```shell
@@ -63,7 +64,7 @@ cd go-greeter
 
 For reference, here is the content of the `Dockerfile` for this demo:
 
-```Dockerfile
+```dockerfile
 FROM cgr.dev/chainguard/go AS builder
 COPY . /app
 RUN cd /app && go build -o go-greeter .
@@ -93,9 +94,10 @@ You can now run the container image with:
 ```shell
 docker run go-greeter
 ```
+
 You should get output similar to the following:
 
-```
+```output
 Hello, Linky 🐙!
 ```
 
@@ -104,11 +106,13 @@ You can also pass in arguments that will be parsed by the Go CLI application:
 ```shell
 docker run go-greeter -g Greetings "Chainguard user"
 ```
+
 This will produce the following output:
 
-```
+```output
 Greetings, Chainguard user!
 ```
+
 The application will also share usage instructions when prompted with the `--help` flag or when invalid flags are passed.
 
 Because we used the `static` Chainguard Container as our runtime, the final container image only requires a few megabytes on disk:
@@ -116,9 +120,11 @@ Because we used the `static` Chainguard Container as our runtime, the final cont
 ```shell
 docker inspect go-greeter | jq -c 'first' | jq .Size | numfmt --to iec --format "%8.4f"
 ```
+
+```output
+3.3009M
 ```
- 3.3009M
-```
+
 The final size, `3.309M`, is orders of magnitude smaller than it would be running the application using a Go image. However, if your application is dynamically linked to shared objects, consider using the `glibc-dynamic` Chainguard Container for your runtime or take extra steps to build your Go binary statically. In the next example, we'll build a web application and use the `glibc-dynamic` Chainguard Container as runtime.
 
 ## Example 2: Web Application
@@ -133,7 +139,7 @@ cd greet-server
 
 For reference, here is the content of the `Dockerfile` for this demo:
 
-```Dockerfile
+```dockerfile
 FROM cgr.dev/chainguard/go AS builder
 COPY . /app
 RUN cd /app && go build
@@ -160,13 +166,13 @@ docker run -p 8080:8080 greet-server
 
 Visit `http://0.0.0.0:8080/` using a web browser on your host machine. You should get a greeting message:
 
-```
+```output
 Hello, Linky 🐙!
 ```
 
 Changes to the URI will be routed to the application. Try visiting [http://0.0.0.0:8080/Chainguard%20Customer](http://0.0.0.0:8080/Chainguard%20Customer). You should see the following output:
 
-```
+```output
 Hello, Chainguard Customer!
 ```
 
@@ -187,11 +193,13 @@ The `go-digester` demo uses the `go-containerregistry` library to print out the 
 ```shell
 go run main.go
 ```
+
 You should obtain output similar to this:
 
-```
+```output
 The latest digest of the go Chainguard Container is sha256:86178b42db2e32763304e37f4cf3c6ec25b7bb83660dcb985ab603e3726a65a6
 ```
+
 We'll now use ko to build an image that is suitable to run the application defined in `main.go`. By default, ko uses the `cgr.dev/chainguard/static` image as the base image for the build. You can override this by setting the `KO_DEFAULTBASEIMAGE` environment variable to a different base image.
 
 Before building the container image, you'll need to set up the environment variable `KO_DOCKER_REPO`. This environment variable identifies where ko should push images that it builds. This is usually a remote registry like the GitHub Container registry or Docker Hub, but you can publish to your local machine for testing and demonstration purposes.
@@ -210,7 +218,7 @@ ko build .
 
 Once you run this command, you'll receive output similar to the following.
 
-```
+```output
 2024/12/06 13:03:14 Using base cgr.dev/chainguard/static:latest@sha256:5ff428f8a48241b93a4174dbbc135a4ffb2381a9e10bdbbc5b9db145645886d5 for go-digester
 2024/12/06 13:03:15 git doesn't contain any tags. Tag info will not be available
 2024/12/06 13:03:15 Building go-digester for linux/amd64
@@ -230,9 +238,10 @@ We'll demonstrate running the above built container with Docker.
 ```shell
 docker run --rm ko.local/go-digester-edc0ed689c7fb820a565f76425bed013:0914a85d803988ab10964323c0cd7b4bf89aed2603f6e8e276f798491c731336
 ```
+
 Here, you'll expect to receive the same output as before that shows the digest of the Go container.
 
-```
+```output
 The latest digest of the go Chainguard Container is sha256:86178b42db2e32763304e37f4cf3c6ec25b7bb83660dcb985ab603e3726a65a6
 ```
 
@@ -242,7 +251,7 @@ You can also pass in an optional argument to specify which Chainguard Container 
 docker run --rm ko.local/go-digester-edc0ed689c7fb820a565f76425bed013:0914a85d803988ab10964323c0cd7b4bf89aed2603f6e8e276f798491c731336 mariadb
 ```
 
-```
+```output
 The latest digest of the mariadb Chainguard Container is sha256:6ba5d792d463b69f93e8d99541384d11b0f9b274e93efdeb91497f8f0aae03d1
 ```
 

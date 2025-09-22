@@ -66,7 +66,6 @@ Here's an abbreviated example of what will be returned:
 ...
 ```
 
-
 This will continue until all images (like `python` above) are listed with all their variants (releases like `3.13.3`). Notice that the list is not necessarily in order of release.
 
 
@@ -77,7 +76,6 @@ For a list of image repositories available to your account, use:
 ```shell
 chainctl images repos list
 ```
-
 
 ## Examine the History of Container Images
 
@@ -95,10 +93,9 @@ For example, let's find the history of one of the `python` image variants from o
 chainctl images history python:3.12.7 --parent=chainguard.edu
 ```
 
-
 The returned list is longer than is shown here, but here's a useful excerpt:
 
-```output
+```yaml
 - time: 2024-11-29 08:11:03 UTC
   digest: sha256:16b52893f316d9d7074b9c24c30f82eab1e94356461439d4be1a62fe229e6933
   architectures:
@@ -127,7 +124,6 @@ The returned list is longer than is shown here, but here's a useful excerpt:
   architectures:
     amd64: sha256:637af1b20e5f8cee7e538b07a1ae3934297769216a65acc454e34fac3dcd3828 (23.46 MB)
     arm64: sha256:8dce068942fa4dd155c87b6b8a3e4b8e2482a5fdb5232cb9dd73c39e63003038 (22.41 MB)
-
 ```
 
 The command returns a reverse-chronological history of when a specific tag was updated to point to a new manifest digest. If images are not multi-arch, only a single digest without architecture will be displayed.

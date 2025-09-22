@@ -255,6 +255,7 @@ update:
   release-monitor:
     identifier: 3627
 ```
+
 You can obtain the identifier from the [release monitoring page](https://release-monitoring.org/) - search for the package and grab the ID that shows up at the URL.
 
 Here is another example, this time from a package that is released via GitHub:
@@ -267,6 +268,7 @@ update:
     strip-prefix: v
     tag-filter: v
 ```
+
 Again, this section is only required when submitting the package to Wolfi. For more details about Wolfi's automated package updates, check [the official docs](https://github.com/wolfi-dev/os/blob/main/docs/UPDATES.md) on the subject.
 
 ## Building Packages
@@ -291,7 +293,7 @@ make dev-container
 
 This will create an ephemeral container based on the Wolfi SDK image, with a few predefined settings. We'll call this your **Wolfi development environment**.
 
-```
+```shell
 ❯ make dev-container
 docker run --privileged --rm -it \
     -v "/home/erika/Projects/os:/home/erika/Projects/os" \
@@ -317,7 +319,7 @@ make package/<your-package-name>
 
 For instance, to build PHP 8.3, which is defined in a file named `php-8.3.yaml`, you would run `make package/php-8.3`:
 
-```
+```shell
 [sdk] ❯ make package/php-8.3
 make yamlfile=php-8.3.yaml pkgname=php-8.3 packages/x86_64/php-8.3-8.3_rc3-r1.apk
 make[1]: Entering directory '/home/erika/Projects/os'
@@ -346,6 +348,7 @@ In this scenario, it is often useful to check the build environment, which is pr
 ℹ️  x86_64    |   workspace dir: /tmp/melange-workspace-4269468499
 ℹ️  x86_64    |   guest dir: /tmp/melange-guest-3734950176
 ```
+
 The **workspace dir** is where you will find the `melange_out` directory, which contains the output of your package. The **guest dir** directory contains the filesystem of your build environment.
 
 Another useful strategy is to include `set -x` before commands in your pipeline, in order to get extended debug information.
@@ -415,7 +418,7 @@ With a successful build, it's time to test the packages to make sure they are in
 
 The first test you'll want to run with your package is to check if you can use `apk` to install it without errors. For that, we'll use the `local-wolfi` environment, which brings up a new container environment using the Wolfi-base image, with additional settings to make your new package available in the test environment alongside the melange keys that were created to sign your package at build time. We'll call this your **Wolfi Test Environment**.
 
-```
+```shell
 ❯ make local-wolfi
 docker run --rm -it \
 	--mount type=bind,source="/home/erika/Projects/os/packages",destination="/work/packages",readonly \

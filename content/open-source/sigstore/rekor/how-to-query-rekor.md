@@ -29,7 +29,7 @@ rekor-cli get --rekor_server https://rekor.sigstore.dev --log-index 100
 
 An abridged version of the output is below:
 
-```
+```output
 LogID: c0d23d6ad406973f9559f3ba2d1ca01f84147d8ffc5b8445c224f98b9591801d
 Index: 100
 IntegratedTime: 2021-01-19T19:38:52Z

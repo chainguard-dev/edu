@@ -74,6 +74,7 @@ if __FILE__ == $0
   fact.random_line
 end
 ```
+
 Copy this code to your `octo.rb` script, then save and close the file.
 
 Next, pull down the `facts.txt` file with `curl`. You can [inspect the file's contents](https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/main/ruby/octo-facts/facts.txt) before downloading it to ensure it is safe to do so. Make sure you are still in the same directory where your `octo.rb` script is.
@@ -113,7 +114,7 @@ The following Dockerfile will:
 
 Copy the following content to your `Dockerfile`:
 
-```Dockerfile
+```dockerfile
 FROM cgr.dev/chainguard/ruby:latest
 
 WORKDIR /app
@@ -164,6 +165,7 @@ source 'https://rubygems.org'
 
 gem 'rainbow'
 ```
+
 Save and close the file.
 
 Next, create a new Ruby script file called `linky.rb`:
@@ -222,6 +224,7 @@ Create a new Dockerfile using your code editor of choice, for example `nano`:
 ```shell
 nano Dockerfile
 ```
+
 The following Dockerfile will:
 
 1. Start a new build stage based on the `cgr.dev/chainguard/ruby:latest-dev`container image and call it `builder`;
@@ -236,7 +239,7 @@ The following Dockerfile will:
 
 Copy this content to your own `Dockerfile`:
 
-```Dockerfile
+```dockerfile
 FROM cgr.dev/chainguard/ruby:latest-dev AS builder
 
 ENV GEM_HOME=/work/vendor
@@ -253,8 +256,8 @@ COPY --from=builder /work/ /work/
 COPY linky.rb linky.txt /work/
 
 ENTRYPOINT [ "ruby", "linky.rb" ]
-
 ```
+
 Save the file when you're finished.
 
 You can now build the image with:
@@ -271,8 +274,7 @@ docker run --rm linky-says Wolfi says hi
 
 And you should get output like this:
 
-```
-
+```output
                                        Wolfi says hi
                    @@@
               @@@*******@@@              /
@@ -288,7 +290,6 @@ And you should get output like this:
     @@@/////////@///////@///(((((%@@@
      #@///////@@@///////@@@((((((#@
          @@@    /@@///@@,    @@@
-
 ```
 
 If you inspect the image with a `docker image inspect linky-says`, you'll notice that it has only **three** layers, thanks to the use of a multi-stage Docker build.
@@ -296,7 +297,8 @@ If you inspect the image with a `docker image inspect linky-says`, you'll notice
 ```shell
 docker image inspect linky-says
 ```
-```shell
+
+```json
 ...
         "RootFS": {
             "Type": "layers",
@@ -311,8 +313,8 @@ docker image inspect linky-says
         }
     }
 ]
-
 ```
+
 In such cases, the last `FROM` section from the Dockerfile is the one that composes the final image. That's why in our case it only adds two layers on top of the base `cgr.dev/chainguard/ruby:latest` image, containing the two `COPY` commands we use to copy the application files and its dependencies to the final image.
 
 It's worth highlighting that no code or data is carried from one stage to the other unless you use a `COPY` command to explicitly copy it. This approach facilitates creating a slim final image with only what's absolutely necessary to execute the application. Using a multi-stage build like this, without shell tools and interactive language interpreters built in also makes your final container image more secure.
@@ -320,4 +322,3 @@ It's worth highlighting that no code or data is carried from one stage to the ot
 ## Advanced Usage
 
 {{< blurb/images-advanced image="Ruby" >}}
-

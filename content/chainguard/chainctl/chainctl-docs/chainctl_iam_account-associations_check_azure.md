@@ -13,7 +13,7 @@ toc: true
 
 Checks that the given location has been properly configured for OIDC federation with AZURE
 
-```
+```sh
 chainctl iam account-associations check azure ORGANIZATION_NAME|ORGANIZATION_ID|FOLDER_NAME|FOLDER_ID [flags]
 ```
 

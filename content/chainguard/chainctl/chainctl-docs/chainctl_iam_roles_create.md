@@ -13,13 +13,13 @@ toc: true
 
 Create an IAM role.
 
-```
+```sh
 chainctl iam roles create ROLE_NAME --parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID --capabilities=CAPABILITY,... [--description=DESCRIPTION] [--yes] [--output=id|json|table]
 ```
 
 ### Examples
 
-```
+```sh
   # Create a role
   chainctl iam roles create my-role --parent=engineering --capabilities=policy.list,groups.list
   

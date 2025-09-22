@@ -52,7 +52,7 @@ nano Dockerfile
 
 Type the following into your editor:
 
-```Dockerfile
+```dockerfile
 FROM alpine
 CMD ["echo", "Hello, Cosign!"]
 ```

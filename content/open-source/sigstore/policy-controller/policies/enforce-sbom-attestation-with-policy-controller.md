@@ -39,13 +39,13 @@ kubectl -n cosign-system wait --for=condition=Available deployment/policy-contro
 
 When both deployments are finished, verify the `default` namespace is using the Policy Controller:
 
-```
+```sh
 kubectl get ns -l policy.sigstore.dev/include=true
 ```
 
 You should receive output like the following:
 
-```
+```output
 NAME      STATUS   AGE
 default   Active   24s
 ```
@@ -58,7 +58,7 @@ kubectl run --image k8s.gcr.io/pause:3.9 test
 
 Since there is no `ClusterImagePolicy` defined yet, the Policy Controller will deny the admission request with a message like the following:
 
-```
+```output
 Error from server (BadRequest): admission webhook "policy.sigstore.dev" denied the request: validation failed: no matching policies: spec.containers[0].image
 k8s.gcr.io/pause@sha256:7031c1b283388d2c2e09b57badb803c05ebed362dc88d84b480cc47f72a21097
 ```
@@ -116,7 +116,7 @@ kubectl apply -f /tmp/cip.yaml
 
 You will receive output showing the policy is created:
 
-```
+```output
 clusterimagepolicy.policy.sigstore.dev/must-have-spdx-cue created
 ```
 
@@ -128,7 +128,7 @@ kubectl run --image k8s.gcr.io/pause:3.9 noattestedimage
 
 Since the image does not contain any attached SBOM, you will receive a message that the pod was rejected:
 
-```
+```output
 Error from server (BadRequest): admission webhook "policy.sigstore.dev" denied the request: validation failed: failed policy: demo: spec.containers[0].image
 k8s.gcr.io/pause:3.9 no matching attestations with type https://spdx.dev/Document
 ```
@@ -141,13 +141,13 @@ kubectl run --image registry.enforce.dev/chainguard/node mysbomattestedimage
 
 Since the image has now a SBOM attestation, you will receive a message that the pod was created successfully:
 
-```
+```output
 pod/mysbomattestedimage created
 ```
 
 Delete the pod once you're done experimenting with it:
 
-```
+```sh
 kubectl delete pod mysbomattestedimage
 ```
 

@@ -24,7 +24,7 @@ If an SBOM package contains multiple PURLs, results will contain multiple entrie
 Vulnerability scans are done via grype, which must be available on the system PATH.
 
 
-```
+```sh
 chainctl images diff FROM_IMAGE TO_IMAGE [flags]
 ```
 

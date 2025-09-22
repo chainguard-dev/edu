@@ -43,7 +43,7 @@ cosign sign-blob test-file.txt --output-certificate fulcio.crt.base64 --output-s
 
 After authentication, you can close the browser tab. In your terminal, you will receive output similar to this:
 
-```
+```output
 Using payload from: test-file.txt
 Generating ephemeral keys...
 Retrieving signed certificate...

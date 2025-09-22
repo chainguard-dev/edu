@@ -57,13 +57,13 @@ This section outlines some commonly employed solutions for keeping images up to 
 
 One common strategy is to only use the `latest` tag or major version tags. This means having something like the following in your Dockerfile:
 
-``` Dockerfile
+```dockerfile
 FROM cgr.dev/chainguard/redis:3
 ```
 
 Or, if you're using a  Kubernetes manifest, you might have a line like this:
 
-``` Kubernetes
+```yaml
 image: cgr.dev/chainguard/redis:latest
 ```
 
@@ -111,11 +111,11 @@ A best practice in supply chain security is to specify GitHub actions and contai
 
 However, It is possible to get something human-readable as well as immutable. The following are valid image references which specify both a meaningful tag and an immutable digest:
 
-``` 
+```output
 cgr.dev/chainguard/wolfi-base:latest@sha256:3eff851ab805966c768d2a8107545a96218426cee1e5cc805865505edbe6ce92
 ```
 
-``` 
+```output
 redis:7@sha256:01afb31d6d633451d84475ff3eb95f8c48bf0ee59ec9c948b161adb4da882053
 ```
 

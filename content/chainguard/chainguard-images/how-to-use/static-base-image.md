@@ -28,7 +28,7 @@ toc: true
 
 ## Dockerfile
 
-```Dockerfile
+```dockerfile
 FROM cgr.dev/chainguard/go AS build
 
 

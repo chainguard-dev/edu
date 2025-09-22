@@ -54,7 +54,7 @@ brew services start mariadb && sudo mysql_secure_installation
 
 Once you run the above command, you will be prompted to enter your system password, and then will receive a number of prompts as terminal output. You can answer “no” or `N` to the first question on changing the root password, and “yes” or `Y` to the remaining prompts.
 
-```
+```output
 Switch to unix_socket authentication [Y/n] n
 …
 Change the root password? [Y/n] n
@@ -94,7 +94,7 @@ sudo sh -x createdb.sh
 
 You should receive output that indicates that the test database and user were created.
 
-```
+```diff
 + DB=test
 + USER=test
 + PASS=zaphod
@@ -128,7 +128,7 @@ $(go env GOPATH)/bin/trillian_log_server --logtostderr \
 
 Your output will indicate that the server has started, and the session will hang.
 
-```
+```output
 I0629 18:11:27.222341    7395 quota_provider.go:46] Using MySQL QuotaManager
 I0629 18:11:27.222847    7395 main.go:141]          HTTP server starting on localhost:8090
 I0629 18:11:27.222851    7395 main.go:180]          RPC server starting on localhost:8091
@@ -143,7 +143,7 @@ $(go env GOPATH)/bin/trillian_log_signer --logtostderr --force_master --http_end
 
 You’ll receive output that indicates that the log signer has started. This session will also hang.
 
-```
+```output
 I0629 18:13:42.226319    8513 main.go:98] **** Log Signer Starting ****
 W0629 18:13:42.227281    8513 main.go:129] **** Acting as master for all logs ****
 …
@@ -158,7 +158,7 @@ $(go env GOPATH)/bin/createtree --admin_server localhost:8091 \
 
 In the Trillian log server terminal, you should have output similar to the following:
 
-```
+```output
 Acting as master for 2 / 2 active logs: master for: <log-2703303398771250657> <log-5836066877012007666>
 ```
 
@@ -262,7 +262,7 @@ $HOME/go/bin/cosign verify \
 
 If everything goes well, your resulting output after running the above command should be similar to this:
 
-```
+```output
 Verification for index.docker.io/docker-username/hello-container:latest --
 The following checks were performed on each of these signatures:
 - The cosign claims were validated

@@ -13,13 +13,13 @@ toc: true
 
 
 
-```
+```sh
 chainctl iam identities create github NAME --github-repo=REPO [--github-ref=REF] [--github-audience=AUD] [--parent=PARENT] [--description=DESC] [--role=ROLE,ROLE,...] [--output=id|json|table]
 ```
 
 ### Examples
 
-```
+```sh
   # Create a GitHub Actions identity for any branch in a repo
   chainctl iam identities create github my-gha-identity --github-repo=my-org/repo-name --parent=eng-org
   

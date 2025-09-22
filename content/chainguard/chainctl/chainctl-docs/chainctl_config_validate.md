@@ -13,7 +13,7 @@ toc: true
 
 Run diagnostics on local config.
 
-```
+```sh
 chainctl config validate [--output=json|table] [flags]
 ```
 

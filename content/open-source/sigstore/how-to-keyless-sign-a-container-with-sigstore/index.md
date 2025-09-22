@@ -77,7 +77,7 @@ nano requirements.txt
 
 Once the file is open, write the following into it to set and pin your dependencies.
 
-```
+```output
 Django>=3.0,<4.0
 psycopg2>=2.8
 ```
@@ -148,7 +148,7 @@ At this point, your Django container is set up. You can run the `tree` command t
 tree
 ```
 
-```
+```output
 .
 ├── Dockerfile
 ├── docker-compose.yml
@@ -295,7 +295,7 @@ cd ~/Documents/GitHub/django-keyless-signing
 tree -a
 ```
 
-```
+```output
 .
 ├── .github
 │   └── workflows
@@ -345,7 +345,7 @@ At this point, you can check that your Git stage is all set for committing and t
 git status
 ```
 
-```
+```output
 On branch main
 
 No commits yet
@@ -364,7 +364,7 @@ The output indicates that changes are ready to be committed. You will now commit
 git commit -m "first commit"
 ```
 
-```
+```output
 [main (root-commit) 301800b] first commit
  4 files changed, 93 insertions(+)
  create mode 100644 .github/workflows/docker-publish.yml
@@ -398,7 +398,7 @@ Password for 'https://github-username@github.com':
 
 Once you enter these, you’ll receive output that your changes were committed to the remote repository.
 
-```
+```output
 Enumerating objects: 8, done.
 Counting objects: 100% (8/8), done.
 Delta compression using up to 10 threads
@@ -428,7 +428,7 @@ From here, you can click into each step of the build process and dial in further
 
 This will dropdown and provide you with more information, like so.
 
-```
+```output
 Run cosign sign ghcr.io/github-username/django-keyless-signing@sha256:a53e24bd4ab87ac4764fb8736dd76f388fd2672c1d372446c9a2863e977f6e54
 Generating ephemeral keys...
 Retrieving signed certificate...
@@ -456,7 +456,7 @@ cosign verify ghcr.io/github-username/django-keyless-signing \
 
 Your output should be similar to the following, though note that the strings are abbreviated.
 
-```
+```output
 Verification for ghcr.io/github-username/django-keyless-signing:latest --
 The following checks were performed on each of these signatures:
   - The cosign claims were validated
@@ -498,7 +498,7 @@ You can use either `verify` or `get` with the Rekor CLI. In the first case, your
 rekor-cli verify --rekor_server https://rekor.sigstore.dev --log-index XXXXXX
 ```
 
-```
+```output
 Current Root Hash: 1ce1a05f2ec146e503d78649c093
 Entry Hash: e739fb04525a9e8a0d590b9f944714ce469c
 Entry Index: XXXXXX
@@ -518,7 +518,7 @@ In the second instance, you’ll receive JSON formatted output. Note the output 
 rekor-cli get --rekor_server https://rekor.sigstore.dev --log-index XXXXXX
 ```
 
-```
+```output
 LogID: c0d23d6ad406973f9559f3ba2d1ca01f84147d8ffc5b8445c224f98b9591801d
 Index: XXXXXXX
 IntegratedTime: 2022-06-03T17:12:38Z

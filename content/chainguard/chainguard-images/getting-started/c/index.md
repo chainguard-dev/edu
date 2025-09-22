@@ -62,7 +62,7 @@ nano hello.c
 
 Inside of your `hello.c` file, add in the following C code which will execute a "Hello, world!" application.
 
-```C
+```c
 /* Chainguard Academy (edu.chainguard.dev)
 *  Getting Started with the C/C++ Chainguard Containers
 *  Examples 1 & 2 - C
@@ -96,7 +96,7 @@ Once your program has compiled, you can run it with the following command:
 
 This will return the "Hello, world!" program output in your terminal if the program executed successfully.
 
-```Output
+```output
 Hello, world!
 I am a demo from the Chainguard Academy.
 My code was written in C.
@@ -123,7 +123,7 @@ This Dockerfile will do the following:
 6. Set the image to run as a non-root user; and,
 7. Execute the compiled binary when the container is started.
 
-```Dockerfile
+```dockerfile
 # Example 1 - Single Stage Build for C
 
 FROM cgr.dev/chainguard/gcc-glibc:latest
@@ -157,7 +157,7 @@ docker run --name example1 example1:latest
 
 You will see output in your terminal identical to that of the binary you compiled locally.
 
-```Output
+```output
 Hello, world!
 I am a demo from the Chainguard Academy.
 My code was written in C.
@@ -189,7 +189,7 @@ This time, the Dockerfile will do the following:
 7. Set the image to run as a non-root user; and,
 8. Execute your binary from the `glibc-dynamic` image when the container is started.
 
-```Dockerfile
+```dockerfile
 # Example 2 - Multi-Stage Build for C
 
 FROM cgr.dev/chainguard/gcc-glibc:latest AS builder
@@ -226,7 +226,7 @@ docker run --name example2 example2:latest
 
 You will see output in your terminal identical to that of the previous example.
 
-```Output
+```output
 Hello, world!
 I am a demo from the Chainguard Academy.
 My code was written in C.
@@ -248,7 +248,7 @@ nano hello.cpp
 
 Add the following C++ code to the file you just created. This code will display a greeting specifying that it was written in C++.
 
-```C++
+```cpp
 /* Chainguard Academy (edu.chainguard.dev)
 *  Getting Started with the C/C++ Chainguard Containers
 *  Example 3 - C++
@@ -283,7 +283,7 @@ Now you can test your compiled binary.
 
 You will see the following output in your terminal.
 
-```Output
+```output
 Hello, world!
 I am a demo from the Chainguard Academy.
 My code was written in C++.
@@ -309,7 +309,7 @@ This Dockerfile will do the following:
 7. Set the image to run as a non-root user; and,
 8. Execute your binary from the `glibc-dynamic` image when the container is started.
 
-```Dockerfile
+```dockerfile
 # Example 3 - Multi-Stage Build for C++
 
 FROM cgr.dev/chainguard/gcc-glibc:latest AS builder
@@ -340,13 +340,13 @@ docker build -f Dockerfile3 -t example3:latest .
 
 With your image built, you can now run it with the following command.
 
-```
+```sh
 docker run --name example3 example3:latest
 ```
 
 You will see output in your terminal identical to that of the C++ binary you compiled locally.
 
-```Output
+```output
 Hello, world!
 I am a demo from the Chainguard Academy.
 My code was written in C++.
@@ -372,7 +372,7 @@ docker image rm example1:latest example2:latest example3:latest
 
 To remove the directory containing your Dockerfiles, binaries, and program code, run the following command:
 
-```
+```sh
 rm -r ~/cguide
 ```
 

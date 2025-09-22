@@ -13,13 +13,13 @@ toc: true
 
 Delete one or more identities.
 
-```
+```sh
 chainctl iam identities delete {IDENTITY_NAME | IDENTITY_ID | --expired [--parent=PARENT]} [--yes]
 ```
 
 ### Examples
 
-```
+```sh
   # Delete an identity by name
   chainctl iam identities delete my-identity
   

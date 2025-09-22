@@ -17,7 +17,7 @@ Edit the current chainctl config file.
 
 Edit the current chainctl config file. Use the environment variable EDITOR to set the path to your preferred editor (default: nano).
 
-```
+```sh
 chainctl config edit [--config FILE] [--yes] [flags]
 ```
 

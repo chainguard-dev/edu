@@ -57,7 +57,7 @@ cd edu-images-demos/ && ls
 
 For now, this directory only contains the repository's `LICENSE` and `README` files:
 
-```
+```output
 LICENSE  README.md
 ```
 
@@ -88,7 +88,7 @@ This section will only provide a general overview of the application. We encoura
 
 The demo application uses the following packages:
 
-```main.go
+```go
 import (
 	"context"
 	"flag"
@@ -104,7 +104,7 @@ import (
 
 The application also uses the Chainguard SDK to interact with the Chainguard API and demonstrates proper patterns for authentication, error handling, and resource management. For this reason, the `import` section also brings in a number of protos from [`github.com/chainguard-dev/sdk`](https://github.com/chainguard-dev/sdk), the GitHub repository that stores Chainguard's public SDK for integrating with the Chainguard platform:
 
-```main.go
+```go
 import (
 	
 	. . .
@@ -124,7 +124,7 @@ Note that the `imports` block also contains `gopkg.in/yaml.v2`, the import path 
 
 Immediately below the imports, the application creates a few constants used throughout the code:
 
-```main.go
+```go
 const (
 	defaultAPIURL	= "https://console-api.enforce.dev"
 	tokenEnvVariable = "TOK"
@@ -197,7 +197,7 @@ nano main.go
 
 From there, edit the following lines:
 
-```
+```go
     	// Group and repository settings
     	defaultGroupName = "ORGANIZATION"
     	demoRepoName 	= "CUSTOM-IMAGE-NAME"
@@ -215,7 +215,7 @@ nano build.yaml
 
 This file will have the following content:
 
-```
+```yaml
 contents:
   packages:
 	- wolfi-base
@@ -232,7 +232,7 @@ go run main.go
 
 The application will start by listing the information outlined previously, including the specified organization's repositories and build reports for the chosen Custom Assembly image:
 
-```
+```output
 Group: example.com (ID: 45a0cEXAMPLE977f050c5fb9aEXAMPLEed764595)
 
 All repositories in example.com:
@@ -245,19 +245,18 @@ Repository: custom-assembly (ID: 45a0cEXAMPLE977f050c5fb9aEXAMPLEed764595/c375EX
 Build Reports for custom-node repository:
 
 . . .
-
 ```
 
 It will then prompt you to confirm that you want to apply the customization configuration listed in the `build.yaml` file:
 
-```
+```output
 About to apply customization using configuration file: build.yaml
 Are you sure you want to update repository custom-node? (y/n): y
 ```
 
 Enter `y` to confirm. Then, if everything was configured correctly, the application output will show successful build reports:
 
-```
+```output
 . . .
 
 - Started: Mon, 28 Apr 2025 00:28:44 UTC, Result: Success, Digest: . . .
@@ -269,7 +268,7 @@ Although the demo application has been tested to ensure that it works properly, 
 
 For example, you may run into an error like the following:
 
-```
+```output
 Failed to list groups: rpc error: code = Internal desc = stream terminated by RST_STREAM with error code: PROTOCOL_ERROR
 ```
 
@@ -281,7 +280,7 @@ export TOK=$(chainctl auth token)
 
 You may also encounter errors like the following:
 
-```
+```output
 cannot find package "chainguard.dev/sdk/auth" . . .
 ```
 

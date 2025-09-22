@@ -76,7 +76,7 @@ At this point, you'll be able to use the `chainctl` command.
 
 As stated previously, you can also use `curl` install `chainctl` on Windows systems. Running the following command in PowerShell will download the appropriate `.exe` file.
 
-```PowerShell
+```powershell
 curl -o chainctl.exe https://dl.enforce.dev/chainctl/latest/chainctl_windows_x86_64.exe
 ```
 
@@ -84,7 +84,7 @@ It may take several minutes for this operation to complete.
 
 Following that you can use `chainctl`. Be aware that Windows PowerShell does not load commands from the working directory by default so you will need to include `.\` before any `chainctl` commands you run, as in this example.
 
-```PowerShell
+```powershell
 .\chainctl auth login
 ```
 

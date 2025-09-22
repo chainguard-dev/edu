@@ -13,7 +13,7 @@ toc: true
 
 Create a pull token.
 
-```
+```sh
 chainctl auth pull-token [flags]
 ```
 

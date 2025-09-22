@@ -217,7 +217,7 @@ testing with curl.
 The following example shows a suitable setup for a repo manager available at
 `repo.example.com`:
 
-```
+```ini
 machine repo.example.com
 login YOUR_USERNAME_FOR_REPOSITORY_MANAGER
 password YOUR_PASSWORD
@@ -228,7 +228,7 @@ curl, use the following example with the username
 `CHAINGUARD_PYTHON_IDENTITY_ID` and password `CHAINGUARD_PYTHON_TOKEN` value for
 the pull token for the desired language ecosystem:
 
-```
+```ini
 machine libraries.cgr.dev
 login CHAINGUARD_PYTHON_IDENTITY_ID
 password CHAINGUARD_PYTHON_TOKEN

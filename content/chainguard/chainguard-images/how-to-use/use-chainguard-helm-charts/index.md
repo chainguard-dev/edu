@@ -61,7 +61,6 @@ volumePermissions:
     digest: sha256:... # Use specific digest instead of tag
 ```
 
-
 ## Authentication
 
 You will need to authenticate to pull charts. These instructions explain how to use charts and images with the `cgr.dev` repository. If you have mirrored or copied the charts and images to an organization-specific registry, you will need to adapt these instructions to authenticate to your registry, as appropriate.
@@ -81,7 +80,6 @@ global:
   imagePullSecrets:
     - name: chainguard-pull-secret
 ```
-
 
 ### Deploy a Chainguard Helm chart using a Kubernetes pull secret
 
@@ -147,7 +145,6 @@ helm install rabbitmq oci://cgr.dev/$ORGANIZATION/iamguarded-charts/rabbitmq \
   --set "global.imagePullSecrets[0].name=chainguard-pull-secret"
 ```
 
-
 When the install is successful, it returns a confirmation message, like this:
 
 ```sh
@@ -191,7 +188,6 @@ WARNING: There are "resources" sections in the chart not set. Using "resourcesPr
   - resources
 +info https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
 ```
-
 
 ### Use cluster node-scoped registry permissions
 

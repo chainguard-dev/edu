@@ -177,7 +177,6 @@ GitHub Workflow Ref: refs/heads/main
 ...
 ```
 
-
 ### Private/Dedicated Registry
 
 ```shell

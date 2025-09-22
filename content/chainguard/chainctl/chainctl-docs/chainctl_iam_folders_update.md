@@ -13,14 +13,13 @@ toc: true
 
 Update a folder.
 
-```
+```sh
 chainctl iam folders update FOLDER_NAME | FOLDER_ID [--name FOLDER_NAME] [--description FOLDER_DESCRIPTION]
 ```
 
 ### Examples
 
-```
-
+```sh
 # Update a folder's name
 chainctl iam folders update my-folder --name new-folder-name
 

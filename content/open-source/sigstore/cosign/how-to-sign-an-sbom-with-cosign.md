@@ -49,9 +49,10 @@ Create a new `Dockerfile` in the folder using Nano or your preferred text editor
 ```sh
 nano Dockerfile
 ```
+
 Paste the following commands into the file:
 
-```Dockerfile
+```dockerfile
 FROM cgr.dev/chainguard/wolfi-base
 RUN apk add cowsay
 ENTRYPOINT ["cowsay", "-f", "tux", "I love FOSS!"]
@@ -104,6 +105,7 @@ Now let's generate an SBOM for `example-image`, the image we built in the previo
 ```sh
 syft $DH_USERNAME/example-image:latest -o spdx-json > example-image.spdx.json
 ```
+
 {{< details "What is SPDX?" >}}
 {{< blurb/spdx >}}
 {{< /details >}}
@@ -261,7 +263,7 @@ cosign verify-attestation \
 
 If the identity is successfully verified, an initial message similar to the following is printed to `stderr`:
 
-```
+```output
 Verification for $DH_USERNAME/example-image@sha256:545a731e803b917daf44e292b03b427427f8090c4e6c4a704e4c18d56c38539f --
 The following checks were performed on each of these signatures:
   - The cosign claims were validated

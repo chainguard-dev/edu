@@ -13,13 +13,13 @@ toc: true
 
 List all pull-tokens
 
-```
+```sh
 chainctl auth pull-token list [--parent=PARENT] [--library-ecosystem=LANGUAGE] [--expired=true|false] [flags]
 ```
 
 ### Examples
 
-```
+```sh
   # List all pull tokens.
   chainctl auth pull-token list
   

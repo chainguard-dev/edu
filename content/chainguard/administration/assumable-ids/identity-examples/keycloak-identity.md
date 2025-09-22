@@ -170,7 +170,7 @@ terraform apply
 
 Before going through with applying the Terraform configuration, this command will prompt you to confirm that you want it to do so. Enter `yes` to apply the configuration.
 
-```
+```output
 ...
 
 Plan: 4 to add, 0 to change, 0 to destroy.
@@ -187,7 +187,7 @@ Do you want to perform these actions?
 
 After typing `yes` and pressing `ENTER`, the command will complete and will output a `keycloak-ci` value.
 
-```
+```output
 ...
 
 Apply complete! Resources: 4 added, 0 changed, 0 destroyed.
@@ -219,7 +219,7 @@ export ID_TOKEN=$(curl \
 
 Next set a variable named `ID` to your identity's UIDP value with the following command. Be sure to replace `<identity UIDP>` with the identity's UIDP value, which you noted down in the previous section.
 
-```sh 
+```sh
 export ID=<identity UIDP>
 ```
 
@@ -239,7 +239,6 @@ After logging in, the pipeline will be able to run any `chainctl` command under 
 
 ```sh
 chainctl images repos list
-
 ```
 
 After updating the Keycloak configuration, commit the changes and the pipeline will run automatically. A status box in the dashboard will let you know whether the pipeline runs successfully.

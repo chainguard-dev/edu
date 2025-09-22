@@ -13,7 +13,7 @@ toc: true
 
 Remove local chainctl config files and restore defaults.
 
-```
+```sh
 chainctl config reset [--yes]
 ```
 

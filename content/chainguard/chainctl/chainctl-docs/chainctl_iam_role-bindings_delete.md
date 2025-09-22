@@ -13,13 +13,13 @@ toc: true
 
 Delete a role-binding.
 
-```
+```sh
 chainctl iam role-bindings delete ROLE_BINDING_ID [--yes] [--output=id]
 ```
 
 ### Examples
 
-```
+```sh
   # Delete a role-binding
   chainctl iam role-bindings delete 9b6da6e64b45129eb4e9f9f3ce9b69ca2a550c6b/034e4afcda8c0b07/55b470f08e38b4d2
 ```

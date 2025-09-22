@@ -33,6 +33,7 @@ For example, for our Developer Enablement team, which uses the `chainguard.edu` 
 ```shell
 chainctl iam folders list chainguard.edu
 ```
+
 ```output
 [chainguard.edu] Developer Enablement images catalog
 ```
@@ -77,7 +78,6 @@ chainctl iam identity-provider create --name=google --parent=example \
 --default-role=viewer
 ```
 
-
 ## List and Create Invites
 
 This command lets you manage invite codes that register identities with Chainguard. To list current invites, use:
@@ -99,7 +99,6 @@ chainctl iam invite create ORGANIZATION_NAME
 --ttl=7d
 --single-use
 ```
-
 
 ## List organizations
 
@@ -129,7 +128,6 @@ It is possible to define role details during creation or create a role interacti
 ```shell
 chainctl iam roles create ROLE_NAME
 ```
-
 
 To find out what actions can be done by each role, use:
 
@@ -178,7 +176,7 @@ $ chainctl iam roles capabilities list
   vuln_report            | create, list                            
   vuln_reports           | list                                    
   workloads              | list 
-  ```
+```
 
 To find out about role bindings, use:
 

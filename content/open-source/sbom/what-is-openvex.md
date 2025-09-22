@@ -121,7 +121,7 @@ vexctl create --product="pkg:apk/wolfi/git@2.38.1-r0?arch=x86_64" \
 
 This code snippet will create the following OpenVEX document:
 
-```Output
+```output
 {
   "@context": "https://openvex.dev/ns/v0.2.0",
   "@id": "https://openvex.dev/docs/public/vex-783356508926ad84f48fa51480d2ed85476160dd3d4169eb0024c346edd1f10b",
@@ -151,6 +151,7 @@ Or, to filter out vulnerabilities from security scanner results that are fixed o
 ```shell
 vexctl filter scan_results.sarif.json vex_data.csaf
 ```
+
 This command will return output showing vulnerabilities from the scanner that are not resolved by the VEX document. 
 
 To learn about other commands and capabilities of the `vexctl` tool, visit the [OpenVEX repo](https://github.com/openvex/vexctl).  

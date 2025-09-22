@@ -13,7 +13,7 @@ toc: true
 
 Print the local Chainguard Token.
 
-```
+```sh
 chainctl auth token [flags]
 ```
 

@@ -75,7 +75,7 @@ The version of the code on the v1 branch already contains a few updates from the
 The Dockerfile for this version of the dnmonster service can be found in the dnmonster folder:
 
 
-```Dockerfile
+```dockerfile
 FROM node
 
 RUN apt-get update && apt-get install -yy --no-install-recommends \
@@ -118,7 +118,7 @@ dnmonster    latest    3337171ebb44   4 minutes ago   1.79GB
 
 We can also run the [Grype scanning tool](https://github.com/anchore/grype) to investigate if there are any known vulnerabilities present in the image:
 
-```
+```output
 grype docker:dnmonster
  ✔ Loaded image                                                                                                dnmonster:latest
  ✔ Parsed image                                         sha256:17ad85081f0b4151b30556e2750ceab3222495cfc32caec2bf6e7be3647de78e
@@ -138,13 +138,13 @@ This tells us that (at the time of writing) the image is 1.79 GB in size and has
 The first step in moving to Chainguard Containers is to try switching the container image name in to check if anything breaks. In this case, we’ll begin with the development variant of the Node image. Change the first line of the Dockerfile from:
 
 
-```Dockerfile
+```dockerfile
 FROM node
 ```
 
 To:
 
-```Dockerfile
+```dockerfile
 FROM cgr.dev/chainguard/node:latest-dev
 ```
 
@@ -155,7 +155,7 @@ If you try building this image, you'll find that it breaks in several places. Th
 Make these changes by replacing the `RUN apt-get …` line with the following `RUN apk update` and adding a `USER root` line. The start of the Dockerfile should look like this:
 
 
-```Dockerfile
+```dockerfile
 FROM cgr.dev/chainguard/node:latest-dev
 
 USER root
@@ -167,19 +167,19 @@ RUN apk update && apk add \
 
 The next change we need to make is to the `RUN groupadd …` line. Chainguard Containers use BusyBox by default, which means `groupadd` needs to become `addgroup`. Rewrite the line so that it looks like this:
 
-```Dockerfile
+```dockerfile
 RUN addgroup dnmonster && adduser -D -G dnmonster dnmonster
 ```
 
 Finally, the default entrypoint for the Chainguard container image is `/usr/bin/node`. If we leave the `CMD` as it is, it will be interpreted as an argument to node, which isn't what we want. The Docker official image uses an entrypoint script to interpret commands, but this isn't available in the `cgr.dev/chainguard/node:latest-dev` image. The easiest fix is to change the `CMD` command to `ENTRYPOINT` which will override the `/usr/bin/node` command:
 
-```Dockerfile
+```dockerfile
 ENTRYPOINT [ "npm", "start" ]
 ```
 
 Once you've made all these changes, you should have a Dockerfile that looks like:
 
-```Dockerfile
+```dockerfile
 FROM cgr.dev/chainguard/node:latest-dev
 
 USER root
@@ -246,7 +246,7 @@ Ideally, we would use the `cgr.dev/chainguard/node:latest` image for this, but w
 
 To do this, replace the Dockerfile with the following:
 
-```Dockerfile
+```dockerfile
 FROM cgr.dev/chainguard/node:latest-dev AS build
 
 USER root
@@ -318,7 +318,7 @@ We're most of the way now, but there are still a couple of finishing touches to 
 
 The `tini` binary will run as PID 1, launch npm as a subprocess and take care of PID 1 responsibilities. Now, the final Dockerfile looks like this:
 
-```Dockerfile
+```dockerfile
 FROM cgr.dev/chainguard/node:latest-dev AS build
 
 USER root
@@ -374,7 +374,7 @@ The next service we will look at updating is Identidock, the main entrypoint for
 
 Again, the version of the code on the v1 branch already contains a few updates from the original code, but in this case all that was needed was to bump various libraries to newer versions. The Dockerfile for the v1 version can be found in the identidock folder and looks like:
 
-```Dockerfile
+```dockerfile
 FROM python
 
 RUN groupadd -r uwsgi && useradd -r -g uwsgi uwsgi
@@ -425,14 +425,14 @@ At the time of writing, this container image is 1.51GB with hundreds of vulnerab
 
 Again as a first step, we will try to switch out directly to the Chainguard Container. To do this, edit the Dockerfile so the first line reads:
 
-```Dockerfile
+```dockerfile
 FROM cgr.dev/chainguard/python:latest-dev
 ```
 
 Before building the image we need to also update `groupadd` syntax to use the `addgroup` format. As Chainguard Containers don't run as root by default for security reasons, we also need to change to the root user for this command to work. Replace the `RUN groupadd` line with the lines:
 
 
-```Dockerfile
+```dockerfile
 USER root
 RUN addgroup uwsgi && adduser -D -G uwsgi uwsgi
 ```
@@ -473,7 +473,7 @@ Let’s skip to the final Dockerfile for our image and walk through the changes 
 
 Replace the Dockerfile with this one (this is also available on the ["main" branch](https://github.com/chainguard-dev/identidock-cg/blob/main/identidock/Dockerfile)):
 
-```Dockerfile
+```dockerfile
 FROM cgr.dev/chainguard/python:latest-dev AS dev
 
 ENV LANG=C.UTF-8
@@ -507,7 +507,7 @@ ENTRYPOINT [ "gunicorn", "-b", "0.0.0.0:9090", "identidock:app" ]
 
 And add the file `requirements.txt` to the current directory (`identidock`) with the following contents:
 
-```
+```output
 Flask==3.1.0
 requests==2.32.3
 redis==5.2.1

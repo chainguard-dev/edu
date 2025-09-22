@@ -13,7 +13,7 @@ toc: true
 
 Remove GCP account configuration for a location.
 
-```
+```sh
 chainctl iam account-associations unset gcp ORGANIZATION_NAME|ORGANIZATION_ID|FOLDER_NAME|FOLDER_ID [--yes] [flags]
 ```
 

@@ -17,7 +17,7 @@ The feedback widget is an interactive component that appears at the end of every
 
 ### Technical Architecture
 
-```
+```text
 User Interaction → JavaScript → Google Apps Script → Google Sheets
 ```
 

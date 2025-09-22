@@ -39,7 +39,7 @@ step certificate inspect fulcio.crt
 
 A sample output is below. Pay attention especially to the `x509v3 Subject Alternative Name` field, which is the e-mail associated with the party that created the signature and the issuer, which is Sigstore. The ten minute time window of validity also details the period of time for which the signature is valid.
 
-```
+```yaml
 Certificate:
     Data:
         Version: 3 (0x2)

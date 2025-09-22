@@ -13,13 +13,13 @@ toc: true
 
 Update an identity
 
-```
+```sh
 chainctl iam identities update IDENTITY_NAME | IDENTITY_ID [--description=DESC] [--identity-issuer=ISS | --identity-issuer-pattern=PAT] [--subject=SUB | --subject-pattern=PAT] [--audience=AUD | --audience-pattern=PAT] [--claim-pattern=claim:pattern,claim:pattern...] [--issuer-keys=KEYS] [--expiration=yyyy-mm-dd] [--output=id|json|table] [flags]
 ```
 
 ### Examples
 
-```
+```sh
   # Update the issuer of an identity.
   chainctl iam identities update my-identity --identity-issuer=https://new-issuer.mycompany.com
   

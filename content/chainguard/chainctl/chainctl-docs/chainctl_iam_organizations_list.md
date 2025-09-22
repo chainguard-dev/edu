@@ -13,7 +13,7 @@ toc: true
 
 List organizations.
 
-```
+```sh
 chainctl iam organizations list [--output=id|json|table|tree]
 ```
 

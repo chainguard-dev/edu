@@ -13,7 +13,7 @@ toc: true
 
 List tagged images from Chainguard registries.
 
-```
+```sh
 chainctl images list [--repo=REPO_NAME] [--public | --parent=PARENT_NAME|PARENT_ID] [--updated-within=DURATION] [--show-dates] [--show-epochs] [--show-referrers] [--output=csv|id|json|table|terse|tree|wide]
 ```
 

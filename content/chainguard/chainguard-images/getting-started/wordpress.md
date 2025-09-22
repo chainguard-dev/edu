@@ -123,7 +123,7 @@ To persist customizations made to your WordPress site, such as the installation 
 
 Navigate to the `02-customizing` directory to follow along. This is how the described Dockerfile included in this directory looks:
 
-```Dockerfile
+```dockerfile
 FROM cgr.dev/chainguard/wordpress:latest-dev
 ARG UID=1000
 
@@ -230,7 +230,7 @@ This demo includes a theme ([Cue](https://wordpress.org/themes/cue/), a simple b
 
 Navigate to the `03-distroless` directory to follow along. This is what the Dockerfile included in this directory looks like:
 
-```Dockerfile
+```dockerfile
 FROM cgr.dev/chainguard/wordpress:latest-dev AS builder
 #trigger wp-config.php creation
 ENV WORDPRESS_DB_HOST=foo
@@ -293,7 +293,6 @@ services:
 
 volumes:
   document-root:
-
 ```
 
 You can now build and run your environment with:
@@ -309,6 +308,7 @@ To stop the services, type `CTRL+C` in the terminal where the services are runni
 ```bash
 docker compose down
 ```
+
 To keep your WordPress installation up-to-date with latest versions, you can use [digestabot](https://edu.chainguard.dev/chainguard/chainguard-images/videos/digestabot/), a GitHub Action that works in a similar way to Dependabot, sending a pull request to a repository whenever a new version of a container image is available. This will ensure you're always running the most recent version of WordPress available in Wolfi.
 
 ## Advanced Usage

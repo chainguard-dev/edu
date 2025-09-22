@@ -13,7 +13,7 @@ toc: true
 
 Configure a Docker credential helper
 
-```
+```sh
 chainctl auth configure-docker [flags]
 ```
 

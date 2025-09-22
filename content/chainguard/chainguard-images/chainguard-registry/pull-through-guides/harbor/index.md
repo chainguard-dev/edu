@@ -43,7 +43,7 @@ chainctl auth configure-docker --parent <org-name> --pull-token
 
 This returns username and password credentials:
 
-```Output
+```output
 To use this pull token in another environment, run this command:
 
     docker login "cgr.dev" --username "<pull-token-username>" --password "<pull-token-password>"

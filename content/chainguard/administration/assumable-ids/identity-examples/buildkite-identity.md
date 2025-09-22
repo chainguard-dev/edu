@@ -168,7 +168,7 @@ terraform apply
 
 Before going through with applying the Terraform configuration, this command will prompt you to confirm that you want it to do so. Enter `yes` to apply the configuration.
 
-```
+```output
 ...
 Plan: 4 to add, 0 to change, 0 to destroy.
 
@@ -184,7 +184,7 @@ Do you want to perform these actions?
 
 After pressing `ENTER`, the command will complete and will output an `buildkite-identity` value.
 
-```
+```output
 ...
 
 Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
@@ -209,7 +209,7 @@ To test the identity you created with Terraform in the previous section, navigat
 
 From there, click the **Edit Steps** button to add the following commands to a step in your pipeline. Be sure to replace `<your buildkite identity>` with the identity UIDP you noted down in the previous section.
 
-```
+```yaml
 - command: |
 	curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m)"
 	chmod +x chainctl
@@ -226,7 +226,7 @@ There are a couple ways you can add commands to an existing Buildkite pipeline, 
 
 If you followed the [**Getting Started** guide linked in the prerequisites](https://buildkite.com/docs/tutorials/getting-started), your pipeline will have a structure like this.
 
-```
+```yaml
 steps:
   - label: "Pipeline upload"
 	command: buildkite-agent pipeline upload
@@ -234,7 +234,7 @@ steps:
 
 You could add the commands for testing the identity like this.
 
-```
+```yaml
 steps:
   - label: "Buildkite test"
 	command: |
@@ -251,7 +251,7 @@ Click the **Save and Build** button. Ensure that your Buildkite agent is running
 
 Assuming everything works as expected, your pipeline will be able to assume the identity and run the `chainctl images repos list` command, returning the images available to the organization. Then it will pull an image from the organization's repository.
 
-```
+```output
 ...
 chainctl        	100%[===================>]  54.34M  6.78MB/s	in 13s
 
@@ -263,7 +263,7 @@ Valid! Id: 3f4ad8a9d5e63be71d631a359ba0a91dcade94ab/d3ed9c70b538a796
 
 If you'd like to experiment further with this identity and what the pipeline can do with it, there are a few parts of this setup that you can tweak. For instance, if you'd like to give this identity different permissions you can change the role data source to the role you would like to grant.
 
-```
+```hcl
 data "chainguard_roles" "editor" {
   name = "editor"
 }
@@ -271,7 +271,7 @@ data "chainguard_roles" "editor" {
 
 You can also edit the pipeline itself to change its behavior. For example, instead of listing repos, you could have the workflow inspect the organization.
 
-```
+```sh
 chainctl iam organizations ls
 ```
 

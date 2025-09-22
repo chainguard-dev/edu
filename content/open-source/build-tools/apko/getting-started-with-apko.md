@@ -140,8 +140,10 @@ To test the generated image with Docker, you'll need to use the `docker load` co
 ```shell
 docker load <  wolfi-test.tar
 ```
+
 You'll get output like this:
-```
+
+```output
 bf6e72d71c13: Loading layer [==================================================>]  5.491MB/5.491MB
 Loaded image: wolfi-base:test-amd64
 ```

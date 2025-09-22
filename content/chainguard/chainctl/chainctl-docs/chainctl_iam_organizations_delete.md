@@ -13,14 +13,13 @@ toc: true
 
 Delete an organization.
 
-```
+```sh
 chainctl iam organizations delete [ORGANIZATION_NAME | ORGANIZATION_ID] [--skip-refresh] [--yes]
 ```
 
 ### Examples
 
-```
-
+```sh
 # Delete an organization by ID
 chainctl iam organizations delete e533448ca9770c46f99f2d86d60fc7101494e4a3
 
@@ -29,7 +28,6 @@ chainctl iam organizations delete my-org
 
 # Delete an organization to be selected interactively
 chainctl iam organizations delete
-
 ```
 
 ### Options

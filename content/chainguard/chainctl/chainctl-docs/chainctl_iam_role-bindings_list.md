@@ -13,13 +13,13 @@ toc: true
 
 List role-bindings.
 
-```
+```sh
 chainctl iam role-bindings list [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--output=json|table|tree]
 ```
 
 ### Examples
 
-```
+```sh
   # List role-bindings
   chainctl iam role-bindings list
   

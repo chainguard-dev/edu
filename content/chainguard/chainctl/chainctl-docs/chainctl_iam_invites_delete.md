@@ -13,7 +13,7 @@ toc: true
 
 Delete invite codes
 
-```
+```sh
 chainctl iam invites delete {INVITE_ID... | --expired} [--yes] [flags]
 ```
 

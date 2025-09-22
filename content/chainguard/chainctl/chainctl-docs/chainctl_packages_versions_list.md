@@ -13,7 +13,7 @@ toc: true
 
 List package version data from Chainguard repositories.
 
-```
+```sh
 chainctl packages versions list PACKAGE_NAME [--show-eol] [--show-active] [--show-fips] [--output=csv|json|table|wide]
 ```
 

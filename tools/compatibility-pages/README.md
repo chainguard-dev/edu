@@ -2,7 +2,7 @@ This script will output a Markdown formatted table showing the differences betwe
 
 To run it:
 
-```
+```sh
 python compare.py debian
 ```
 

@@ -13,7 +13,7 @@ toc: true
 
 Prints the version
 
-```
+```sh
 chainctl version [flags]
 ```
 

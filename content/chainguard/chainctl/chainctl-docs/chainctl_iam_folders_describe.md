@@ -13,7 +13,7 @@ toc: true
 
 Describe a folder.
 
-```
+```sh
 chainctl iam folders describe [FOLDER_NAME | FOLDER_ID] [--active-within=DURATION] [--output=json]
 ```
 

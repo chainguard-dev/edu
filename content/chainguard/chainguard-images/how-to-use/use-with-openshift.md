@@ -35,7 +35,7 @@ There are required access settings for an image to support running as an arbitra
 
 Following the Red Hat requirements, to use Chainguard Containers you must make a change in your Dockerfile to set the required ownership and permissions. For example, if you have one or more files that you need to execute stored in `/some/directory`, then you would do this:
 
-```
+```dockerfile
 RUN chgrp -R 0 /some/directory && \
     chmod -R g=u /some/directory
 ```
@@ -54,7 +54,7 @@ This can help you avoid or limit switching to the `root` user during the build p
 
 Here's a sample Dockerfile covering this process.
 
- ```
+```dockerfile
 # Change this to reference the image you want to pull and
 # if needed, to use the location of your custom image repo
 
@@ -73,8 +73,7 @@ WORKDIR /app
 ENV HOME=/app
 
 ENTRYPOINT ["dotnet", "Sample.Service.dll"]
- ```
-
+```
 
 # Use Special Container Images for Hard-coded User IDs
 

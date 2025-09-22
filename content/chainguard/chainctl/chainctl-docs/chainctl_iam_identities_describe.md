@@ -13,7 +13,7 @@ toc: true
 
 View the details of an identity.
 
-```
+```sh
 chainctl iam identities describe {IDENTITY_NAME | IDENTITY_ID} [flags]
 ```
 

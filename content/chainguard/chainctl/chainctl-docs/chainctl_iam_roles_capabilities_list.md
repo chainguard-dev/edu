@@ -13,13 +13,13 @@ toc: true
 
 List IAM role capabilities.
 
-```
+```sh
 chainctl iam roles capabilities list [--actions=ACTION,...] [--resources=RESOURCE,...] [--output=json|table|tree]
 ```
 
 ### Examples
 
-```
+```sh
   # List all capabilities
   chainctl iam roles capabilities list
   

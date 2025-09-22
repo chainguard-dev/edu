@@ -108,7 +108,7 @@ kubectl debug -it nginx --image=cgr.dev/chainguard/wolfi-base --target=nginx
 
 You should get output similar to:
 
-```
+```output
 Targeting container "nginx". If you don't see processes from this container it may be because the container runtime doesn't support this feature.
 Defaulting debug container name to debugger-87792.
 If you don't see a command prompt, try pressing enter.
@@ -117,7 +117,7 @@ nginx:/#
 
 Now we can try running some debugging commands. Let's start by seeing what's running:
 
-```
+```shell
 nginx:/# ps aux
 PID   USER     TIME  COMMAND
     1 65532     0:00 nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -e /dev/stderr
@@ -134,7 +134,7 @@ PID   USER     TIME  COMMAND
 
 And the open ports:
 
-```
+```shell
 nginx:/# netstat -lntu
 Active Internet connections (only servers)
 Proto Recv-Q Send-Q Local Address           Foreign Address         State

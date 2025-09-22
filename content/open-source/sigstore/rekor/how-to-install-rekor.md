@@ -28,7 +28,7 @@ go version
 
 If Go is installed, you'll receive output similar to the following.
 
-```
+```output
 go version go1.13.8 linux/amd64
 ```
 
@@ -52,7 +52,7 @@ rekor-cli version
 
 You should receive output similar to that of below:
 
-```
+```output
 GitVersion:    v0.4.0-59-g2025bf8
 GitCommit:     2025bf8aa50b368fc3972bb276dfeae8b604d435
 GitTreeState:  clean

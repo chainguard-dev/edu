@@ -13,7 +13,7 @@ toc: true
 
 List folders under an organization.
 
-```
+```sh
 chainctl iam folders list ORGANIZATION_NAME | ORGANIZATION_ID [--output=id|json|table|tree]
 ```
 

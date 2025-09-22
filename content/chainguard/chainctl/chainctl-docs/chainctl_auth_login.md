@@ -13,13 +13,13 @@ toc: true
 
 Login to the Chainguard platform.
 
-```
+```sh
 chainctl auth login [--invite-code=INVITE_CODE] [--identity-token=PATH_TO_TOKEN] [--identity=IDENTITY_ID] [--identity-provider=IDP_ID] [--org-name=ORG_NAME] [--social-login={email|google|github|gitlab}] [--headless] [--prefer-ambient-credentials] [--refresh] [--output=id|json|none|table]
 ```
 
 ### Examples
 
-```
+```sh
   # Default auth login flow:
   chainctl auth login
   

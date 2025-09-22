@@ -13,7 +13,7 @@ toc: true
 
 Chainguard Control
 
-```
+```sh
 chainctl [flags]
 ```
 

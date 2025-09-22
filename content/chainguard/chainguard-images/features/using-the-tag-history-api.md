@@ -85,7 +85,7 @@ echo $auth_header
 
 You should receive `Authorization: Bearer` followed by a long string (a [JWT](https://jwt.io/introduction)) as output. You can now run a `curl` query to this endpoint, following the below format.
 
-```shell
+```
 https://cgr.dev/v2/ORGANIZATION_NAME/IMAGE_NAME/_chainguard/history/IMAGE_TAG
 ```
 
@@ -111,7 +111,7 @@ curl -H "$auth_header" \
 
 You should get output like the following:
 
-```
+```json
 {
   "history": [
 	{
@@ -174,13 +174,13 @@ Please note that the Tag History API will return a maximum of 1000 records on a 
 
 Setting up your Dockerfile to use an older build is a matter of modifying your `FROM` line to use a container image digest instead of a tag. For instance, let's say you want to make sure you keep using the current latest build of the Python image. In a previous section of this page we obtained the tag history of the Python image, and the most recent build digest is listed as `sha256:81c334de6dd4583897f9e8d0691cbb75ad41613474360740824d8a7fa6a8fecb`. With that information, you can edit your Dockerfile and replace:
 
-```
+```dockerfile
 FROM cgr.dev/chainguard/python:latest
 ```
 
 With:
 
-```
+```dockerfile
 FROM cgr.dev/chainguard/python@sha256:81c334de6dd4583897f9e8d0691cbb75ad41613474360740824d8a7fa6a8fecb
 ```
 

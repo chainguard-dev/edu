@@ -45,7 +45,7 @@ To access the data stored in Rekor, the `rekor-cli` requires either the log inde
 
 The log index of an entry identifies the order in which the entry was entered into the log. Someone who wants to collect all the log entries or perhaps a large subset of the entries might use the log index, and receive an object as below, in their standard output.
 
-```
+```output
 LogID: c0d23d6ad406973f9559f3ba2d1ca01f84147d8ffc5b8445c224f98b9591801d
 Index: 100
 IntegratedTime: 2021-01-19T19:38:52Z

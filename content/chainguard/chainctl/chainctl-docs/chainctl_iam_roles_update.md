@@ -13,13 +13,13 @@ toc: true
 
 Update an IAM role.
 
-```
+```sh
 chainctl iam roles update ROLE_NAME|ROLE_ID [--capabilities=CAPABILITY,...] [--add-capabilities=CAPABILITY,...] [--remove-capabilities=CAPABILITY,...] [--description=DESCRIPTION] [--yes] [--output=id|json|table]
 ```
 
 ### Examples
 
-```
+```sh
   # Update a role with a complete set of capabilities
   chainctl iam roles update my-role --capabilities=policy.list,groups.list,identity.list
   

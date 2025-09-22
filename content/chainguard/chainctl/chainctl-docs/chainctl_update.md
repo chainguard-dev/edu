@@ -13,7 +13,7 @@ toc: true
 
 Update chainctl.
 
-```
+```sh
 chainctl update [--yes] [--force]
 ```
 

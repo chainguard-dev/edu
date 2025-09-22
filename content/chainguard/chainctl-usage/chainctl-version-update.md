@@ -26,9 +26,7 @@ chainctl version
 
 This command tells you more than just a release number.
 
-
 ```output
-
                ▄▄▄▄▄▄▄▄▄▄▄              
              ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄            
            ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄          
@@ -60,11 +58,7 @@ BuildDate:     2025-04-09T07:49:51Z
 GoVersion:     go1.24.1
 Compiler:      gc
 Platform:      linux/amd64
-
 ```
-
-
-
 
 ## Update your chainctl install
 
@@ -135,5 +129,4 @@ Platform:      linux/amd64
 
 Temporary files may need to be removed manually:
   rm -f /root/.cache/chainctl/chainctl.bak
-
 ```

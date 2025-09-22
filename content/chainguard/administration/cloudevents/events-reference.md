@@ -71,7 +71,7 @@ The following list of services and methods show example HTTP headers and bodies 
 
 #### Example HTTP Headers
 
-```
+```http
 POST / HTTP/1.1
 Host: console-api.enforce.dev
 Accept-Encoding: gzip
@@ -87,7 +87,6 @@ Ce-Type: dev.chainguard.registry.pull.v1
 Content-Length: 777
 Content-Type: application/json
 User-Agent: Chainguard Enforce
-
 ```
 
 #### Example HTTP Body
@@ -116,12 +115,13 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: Registry - Push
 ### Method: Pushed
 
 #### Example HTTP Headers
 
-```
+```http
 POST / HTTP/1.1
 Host: console-api.enforce.dev
 Accept-Encoding: gzip
@@ -137,7 +137,6 @@ Ce-Type: dev.chainguard.registry.push.v1
 Content-Length: 707
 Content-Type: application/json
 User-Agent: Chainguard Enforce
-
 ```
 
 #### Example HTTP Body
@@ -165,12 +164,13 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: auth - Auth
 ### Method: Register
 
 #### Example HTTP Headers
 
-```
+```http
 POST / HTTP/1.1
 Host: console-api.enforce.dev
 Accept-Encoding: gzip
@@ -186,7 +186,6 @@ Ce-Type: dev.chainguard.api.auth.registered.v1
 Content-Length: 154
 Content-Type: application/json
 User-Agent: Chainguard Enforce
-
 ```
 
 #### Example HTTP Body
@@ -202,12 +201,13 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: events - Subscriptions
 ### Method: Create
 
 #### Example HTTP Headers
 
-```
+```http
 POST / HTTP/1.1
 Host: console-api.enforce.dev
 Accept-Encoding: gzip
@@ -223,7 +223,6 @@ Ce-Type: dev.chainguard.api.events.subscription.created.v1
 Content-Length: 152
 Content-Type: application/json
 User-Agent: Chainguard Enforce
-
 ```
 
 #### Example HTTP Body
@@ -239,11 +238,12 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: Delete
 
 #### Example HTTP Headers
 
-```
+```http
 POST / HTTP/1.1
 Host: console-api.enforce.dev
 Accept-Encoding: gzip
@@ -259,7 +259,6 @@ Ce-Type: dev.chainguard.api.events.subscription.deleted.v1
 Content-Length: 119
 Content-Type: application/json
 User-Agent: Chainguard Enforce
-
 ```
 
 #### Example HTTP Body
@@ -274,12 +273,13 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: iam - GroupAccountAssociations
 ### Method: Create
 
 #### Example HTTP Headers
 
-```
+```http
 POST / HTTP/1.1
 Host: console-api.enforce.dev
 Accept-Encoding: gzip
@@ -295,7 +295,6 @@ Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
 User-Agent: Chainguard Enforce
-
 ```
 
 #### Example HTTP Body
@@ -319,11 +318,12 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: Update
 
 #### Example HTTP Headers
 
-```
+```http
 POST / HTTP/1.1
 Host: console-api.enforce.dev
 Accept-Encoding: gzip
@@ -339,7 +339,6 @@ Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
 User-Agent: Chainguard Enforce
-
 ```
 
 #### Example HTTP Body
@@ -363,11 +362,12 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: Delete
 
 #### Example HTTP Headers
 
-```
+```http
 POST / HTTP/1.1
 Host: console-api.enforce.dev
 Accept-Encoding: gzip
@@ -383,7 +383,6 @@ Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
 User-Agent: Chainguard Enforce
-
 ```
 
 #### Example HTTP Body
@@ -398,12 +397,13 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: iam - GroupInvites
 ### Method: Create
 
 #### Example HTTP Headers
 
-```
+```http
 POST / HTTP/1.1
 Host: console-api.enforce.dev
 Accept-Encoding: gzip
@@ -419,7 +419,6 @@ Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
 User-Agent: Chainguard Enforce
-
 ```
 
 #### Example HTTP Body
@@ -437,11 +436,12 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: Delete
 
 #### Example HTTP Headers
 
-```
+```http
 POST / HTTP/1.1
 Host: console-api.enforce.dev
 Accept-Encoding: gzip
@@ -457,7 +457,6 @@ Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
 User-Agent: Chainguard Enforce
-
 ```
 
 #### Example HTTP Body
@@ -472,12 +471,13 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: iam - Groups
 ### Method: Create
 
 #### Example HTTP Headers
 
-```
+```http
 POST / HTTP/1.1
 Host: console-api.enforce.dev
 Accept-Encoding: gzip
@@ -493,7 +493,6 @@ Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
 User-Agent: Chainguard Enforce
-
 ```
 
 #### Example HTTP Body
@@ -510,11 +509,12 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: Update
 
 #### Example HTTP Headers
 
-```
+```http
 POST / HTTP/1.1
 Host: console-api.enforce.dev
 Accept-Encoding: gzip
@@ -530,7 +530,6 @@ Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
 User-Agent: Chainguard Enforce
-
 ```
 
 #### Example HTTP Body
@@ -547,11 +546,12 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: Delete
 
 #### Example HTTP Headers
 
-```
+```http
 POST / HTTP/1.1
 Host: console-api.enforce.dev
 Accept-Encoding: gzip
@@ -567,7 +567,6 @@ Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
 User-Agent: Chainguard Enforce
-
 ```
 
 #### Example HTTP Body
@@ -582,12 +581,13 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: iam - Identities
 ### Method: Create
 
 #### Example HTTP Headers
 
-```
+```http
 POST / HTTP/1.1
 Host: console-api.enforce.dev
 Accept-Encoding: gzip
@@ -603,7 +603,6 @@ Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
 User-Agent: Chainguard Enforce
-
 ```
 
 #### Example HTTP Body
@@ -624,11 +623,12 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: Update
 
 #### Example HTTP Headers
 
-```
+```http
 POST / HTTP/1.1
 Host: console-api.enforce.dev
 Accept-Encoding: gzip
@@ -644,7 +644,6 @@ Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
 User-Agent: Chainguard Enforce
-
 ```
 
 #### Example HTTP Body
@@ -662,11 +661,12 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: Delete
 
 #### Example HTTP Headers
 
-```
+```http
 POST / HTTP/1.1
 Host: console-api.enforce.dev
 Accept-Encoding: gzip
@@ -682,7 +682,6 @@ Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
 User-Agent: Chainguard Enforce
-
 ```
 
 #### Example HTTP Body
@@ -697,12 +696,13 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: iam - IdentityProviders
 ### Method: Create
 
 #### Example HTTP Headers
 
-```
+```http
 POST / HTTP/1.1
 Host: console-api.enforce.dev
 Accept-Encoding: gzip
@@ -718,7 +718,6 @@ Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
 User-Agent: Chainguard Enforce
-
 ```
 
 #### Example HTTP Body
@@ -739,11 +738,12 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: Update
 
 #### Example HTTP Headers
 
-```
+```http
 POST / HTTP/1.1
 Host: console-api.enforce.dev
 Accept-Encoding: gzip
@@ -759,7 +759,6 @@ Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
 User-Agent: Chainguard Enforce
-
 ```
 
 #### Example HTTP Body
@@ -777,11 +776,12 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: Delete
 
 #### Example HTTP Headers
 
-```
+```http
 POST / HTTP/1.1
 Host: console-api.enforce.dev
 Accept-Encoding: gzip
@@ -797,7 +797,6 @@ Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
 User-Agent: Chainguard Enforce
-
 ```
 
 #### Example HTTP Body
@@ -812,12 +811,13 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: iam - RoleBindings
 ### Method: Create
 
 #### Example HTTP Headers
 
-```
+```http
 POST / HTTP/1.1
 Host: console-api.enforce.dev
 Accept-Encoding: gzip
@@ -833,7 +833,6 @@ Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
 User-Agent: Chainguard Enforce
-
 ```
 
 #### Example HTTP Body
@@ -853,11 +852,12 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: CreateBatch
 
 #### Example HTTP Headers
 
-```
+```http
 POST / HTTP/1.1
 Host: console-api.enforce.dev
 Accept-Encoding: gzip
@@ -873,7 +873,6 @@ Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
 User-Agent: Chainguard Enforce
-
 ```
 
 #### Example HTTP Body
@@ -894,11 +893,12 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: Update
 
 #### Example HTTP Headers
 
-```
+```http
 POST / HTTP/1.1
 Host: console-api.enforce.dev
 Accept-Encoding: gzip
@@ -914,7 +914,6 @@ Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
 User-Agent: Chainguard Enforce
-
 ```
 
 #### Example HTTP Body
@@ -931,11 +930,12 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: Delete
 
 #### Example HTTP Headers
 
-```
+```http
 POST / HTTP/1.1
 Host: console-api.enforce.dev
 Accept-Encoding: gzip
@@ -951,7 +951,6 @@ Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
 User-Agent: Chainguard Enforce
-
 ```
 
 #### Example HTTP Body
@@ -966,12 +965,13 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: registry - Registry
 ### Method: CreateRepo
 
 #### Example HTTP Headers
 
-```
+```http
 POST / HTTP/1.1
 Host: console-api.enforce.dev
 Accept-Encoding: gzip
@@ -987,7 +987,6 @@ Ce-Type: dev.chainguard.api.platform.registry.repo.created.v1
 Content-Length: 243
 Content-Type: application/json
 User-Agent: Chainguard Enforce
-
 ```
 
 #### Example HTTP Body
@@ -1007,11 +1006,12 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: UpdateRepo
 
 #### Example HTTP Headers
 
-```
+```http
 POST / HTTP/1.1
 Host: console-api.enforce.dev
 Accept-Encoding: gzip
@@ -1027,7 +1027,6 @@ Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
 User-Agent: Chainguard Enforce
-
 ```
 
 #### Example HTTP Body
@@ -1047,11 +1046,12 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: DeleteRepo
 
 #### Example HTTP Headers
 
-```
+```http
 POST / HTTP/1.1
 Host: console-api.enforce.dev
 Accept-Encoding: gzip
@@ -1067,7 +1067,6 @@ Ce-Type: dev.chainguard.api.platform.registry.repo.deleted.v1
 Content-Length: 116
 Content-Type: application/json
 User-Agent: Chainguard Enforce
-
 ```
 
 #### Example HTTP Body
@@ -1082,11 +1081,12 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: CreateTag
 
 #### Example HTTP Headers
 
-```
+```http
 POST / HTTP/1.1
 Host: console-api.enforce.dev
 Accept-Encoding: gzip
@@ -1102,7 +1102,6 @@ Ce-Type: dev.chainguard.api.platform.registry.tag.created.v1
 Content-Length: 197
 Content-Type: application/json
 User-Agent: Chainguard Enforce
-
 ```
 
 #### Example HTTP Body
@@ -1119,11 +1118,12 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: UpdateTag
 
 #### Example HTTP Headers
 
-```
+```http
 POST / HTTP/1.1
 Host: console-api.enforce.dev
 Accept-Encoding: gzip
@@ -1139,7 +1139,6 @@ Ce-Type: dev.chainguard.api.platform.registry.tag.updated.v1
 Content-Length: 197
 Content-Type: application/json
 User-Agent: Chainguard Enforce
-
 ```
 
 #### Example HTTP Body
@@ -1156,11 +1155,12 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: DeleteTag
 
 #### Example HTTP Headers
 
-```
+```http
 POST / HTTP/1.1
 Host: console-api.enforce.dev
 Accept-Encoding: gzip
@@ -1176,7 +1176,6 @@ Ce-Type: dev.chainguard.api.platform.registry.tag.deleted.v1
 Content-Length: 109
 Content-Type: application/json
 User-Agent: Chainguard Enforce
-
 ```
 
 #### Example HTTP Body

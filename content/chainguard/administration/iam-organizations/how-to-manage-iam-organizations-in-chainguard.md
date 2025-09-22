@@ -54,6 +54,7 @@ You can retrieve your organizations' UIDPs by adding the `-o table` option to th
 ```sh
 chainctl iam organizations list -o table
 ```
+
 ```output
           ID          |     NAME     |  	DESCRIPTION
 ----------------------+--------------+---------------------------------

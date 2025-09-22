@@ -71,11 +71,13 @@ Make sure to update the package manager cache:
 ```shell
 apk update
 ```
+
 If you want to search for PHP 8.2 XML extensions, for example, you can run the following:
 
 ```shell
 apk search php*8.2*xml*
 ```
+
 And this should give you a list of all PHP 8.2 XML extensions available in Wolfi.
 
 ```output
@@ -92,6 +94,7 @@ php-xml-8.2.11-r1
 php-xmlreader-8.2.11-r1
 php-xmlwriter-8.2.11-r1
 ```
+
 For more searching tips, check the [Searching for Packages](/chainguard/migration/migrating-to-chainguard-images/#searching-for-packages) section of our base migration guide.
 
 ## Migrating PHP CLI workloads to use Chainguard Containers
@@ -99,7 +102,7 @@ Our `latest` and `latest-dev` PHP image variants are designed to run CLI applica
 
 The following `Dockerfile` uses the `php:latest-dev` image to build the application, which in this case means copying the application files and installing dependencies via `composer`. A second build stage copies the application to a final distroless image based on `php:latest`.
 
-```Dockerfile
+```dockerfile
 FROM cgr.dev/chainguard/php:latest-dev AS builder
 USER root
 COPY .. /app
@@ -162,7 +165,6 @@ services:
 networks:
   wolfi:
     driver: bridge
-
 ```
 
 Notice that the environment creates a few shared volumes to share the application files and also the `nginx.conf` file with the specific web server configuration. You'll need that to tell Nginx to redirect `.php` requests to the `php-fpm` service.
@@ -243,6 +245,7 @@ docker run -p 8000:8000 --rm -it -v ${PWD}:/work \
     cgr.dev/chainguard/php:latest-dev \
     -S 0.0.0.0:8000 -t /work
 ```
+
 The preview should be live at `localhost:8000`.
 
 ### Developing Laravel Applications
@@ -278,6 +281,7 @@ docker run -p 8000:8000 --rm -it -v ${PWD}:/app --entrypoint /app/artisan --user
     cgr.dev/chainguard/laravel:latest-dev \
     serve --host=0.0.0.0
 ```
+
 The preview should be live at `localhost:8000`.
 
 ## Additional Resources

@@ -13,7 +13,7 @@ toc: true
 
 Subscribe to events under an organization or folder.
 
-```
+```sh
 chainctl events subscriptions create SINK_URL [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--yes] [--output=id|json|table]
 ```
 

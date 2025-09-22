@@ -13,7 +13,7 @@ toc: true
 
 Save the current chainctl config to a config file.
 
-```
+```sh
 chainctl config save [--config FILE] [--yes] [flags]
 ```
 

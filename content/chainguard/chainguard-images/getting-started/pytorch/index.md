@@ -46,7 +46,7 @@ docker run --rm -it \
 
 Running the above for the first time may take a few minutes to pull the `pytorch` Chainguard Container, currently 3.3GB. Once the image runs, you will be interacting with a Python interpreter in the running container. Enter the following commands at the prompt to check the availability of your GPU.
 
-```
+```python
 Python 3.11.9 (main, Apr  2 2024, 15:40:32) [GCC 13.2.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import torch

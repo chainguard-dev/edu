@@ -13,13 +13,13 @@ toc: true
 
 List organization and folder invites.
 
-```
+```sh
 chainctl iam invites list [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--output=id|json|table]
 ```
 
 ### Examples
 
-```
+```sh
   # List all accessible invites
   chainctl iam invites list
   

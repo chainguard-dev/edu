@@ -151,7 +151,7 @@ Update this configuration file with the following, replacing `<repository-url>`
 with the URL provided by your repository manager including the `simple/`
 context:
 
-```
+```ini
 [global]
 index-url = <repository-url>
 ```
@@ -161,7 +161,7 @@ workstation. Alternately, if your project uses a `requirements.txt` file in
 projects, you can add the following to it to configure on a project-by-project
 basis:
 
-```
+```sh
 --index-url <repository-url>
 package-name==version
 ```
@@ -182,13 +182,13 @@ configuration file:
 
 Example for `requirements.txt`:
 
-```example
+```sh
 --index-url https://CG_PULLTOKEN_USERNAME:CG_PULLTOKEN_PASSWORD@libraries.cgr.dev/python/simple/
 ```
 
 Example for `~/.pip/pip.conf`:
 
-```example
+```ini
 [global]
 index-url = https://CG_PULLTOKEN_USERNAME:CG_PULLTOKEN_PASSWORD@libraries.cgr.dev/python/simple/
 ```
@@ -344,7 +344,7 @@ simple context `https://libraries.cgr.dev/python/simple/`:
 
 Example for `pyproject.toml`:
 
-```
+```toml
 [[tool.uv.index]]
 name = "chainguard"
 url = "https://CG_PULLTOKEN_USERNAME:CG_PULLTOKEN_PASSWORD@libraries.cgr.dev/python/simple/
@@ -352,7 +352,7 @@ url = "https://CG_PULLTOKEN_USERNAME:CG_PULLTOKEN_PASSWORD@libraries.cgr.dev/pyt
 
 Example for `uv.toml`:
 
-```
+```toml
 [[index]]
 url = "https://CG_PULLTOKEN_USERNAME:CG_PULLTOKEN_PASSWORD@libraries.cgr.dev/python/simple/
 ```

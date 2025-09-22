@@ -13,13 +13,13 @@ toc: true
 
 Update an identity provider
 
-```
+```sh
 chainctl iam identity-providers update IDENTITY_PROVIDER_ID [--name=NAME] [--description=DESCRIPTION] [--oidc-issuer=ISSUER] [--oidc-client-id=CLIENTID] [--oidc-client-secret=CLIENTSECRET] [--oidc-additional-scopes=SCOPE,...] [--default-role=ROLE] [--output=id|json|table]
 ```
 
 ### Examples
 
-```
+```sh
   # Update name and description of an identity provider by ID
   chainctl iam identity-providers update fb694596eb1678321f94eec283e1e0be690f655c/a2973bac66ebfde3 --name=new-name --description=new-description
   

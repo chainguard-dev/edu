@@ -126,7 +126,7 @@ https://repo1.maven.org/maven2/commons-io/commons-io/2.17.0/commons-io-2.17.0.po
 
 And then use the path composed from the Maven coordinates
 
-```
+```output
 commons-io/commons-io/2.17.0/commons-io-2.17.0.pom
 ```
 

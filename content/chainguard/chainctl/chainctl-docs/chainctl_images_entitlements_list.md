@@ -13,7 +13,7 @@ toc: true
 
 List registry entitlements of an organization.
 
-```
+```sh
 chainctl images entitlements list --parent=PARENT [--output=json|table] [flags]
 ```
 

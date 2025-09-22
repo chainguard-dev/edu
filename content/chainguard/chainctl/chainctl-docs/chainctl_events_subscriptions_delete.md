@@ -13,7 +13,7 @@ toc: true
 
 Delete a subscription.
 
-```
+```sh
 chainctl events subscriptions delete SUBSCRIPTION_ID [--yes] [--output=id] [flags]
 ```
 

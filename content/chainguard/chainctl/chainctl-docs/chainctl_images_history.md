@@ -30,7 +30,7 @@ Examples:
   # Show history for a tag in a specific organization
   chainctl images history nginx:1.21.0 --parent=my-org
 
-```
+```sh
 chainctl images history IMAGE[:TAG] [flags]
 ```
 

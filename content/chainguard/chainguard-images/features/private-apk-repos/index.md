@@ -58,7 +58,7 @@ To access the apk packages in your private repository, you'll first need to auth
 
 The `HTTP_AUTH` environment variable expects a string in the following format:
 
-```example
+```shell
 HTTP_AUTH=basic:apk.cgr.dev:user:password
 ```
 
@@ -91,7 +91,7 @@ First, you'll need to retrieve your organization's private repository address. R
 
 From the interactive container's shell, add the repository address to your list of apk repositories with a command like the following:
 
-```container
+```shell
 echo https://apk.cgr.dev/$ORGANIZATION > /etc/apk/repositories
 ```
 
@@ -99,7 +99,7 @@ Note that this command uses `>` to overwrite the contents of the `/etc/apk/repos
 
 Then update the apk cache to include the newly-added private repository:
 
-```container
+```shell
 apk update
 ```
 
@@ -157,26 +157,25 @@ As an example of how you can search for and install packages from these private 
 
 First, search for the `wget` package from the interactive container's shell:
 
-```container
+```shell
 apk search wget
 ```
 
 You will receive output similar to the following:
 
-```Output
+```output
 wget-1.25.0-r0
 ```
 
 You can call `apk policy` to find which repositories contains the package:
 
-```container
+```shell
 apk policy wget
 ```
 
 This example output shows that it's available from the private APK repository:
 
-```Output
-wget policy:
+```output
 wget policy:
   1.24.5-r4:
     https://apk.cgr.dev/$ORGANIZATION
@@ -184,21 +183,21 @@ wget policy:
     https://apk.cgr.dev/$ORGANIZATION
   1.25.0-r0:
     https://apk.cgr.dev/$ORGANIZATION
-
 ```
 
 Install the package with `apk add`:
 
-```container
+```shell
 apk add wget
 ```
 
 Finally,run the same `apk policy` command you ran previously:
 
-```container
+```shell
 apk policy wget
 ```
-```Output
+
+```output
 wget policy:
   1.24.5-r4:
     https://apk.cgr.dev/$ORGANIZATION
@@ -207,7 +206,6 @@ wget policy:
   1.25.0-r0:
     lib/apk/db/installed
     https://apk.cgr.dev/$ORGANIZATION
-
 ```
 
 This output shows that the `wget` package is now installed.
@@ -246,7 +244,8 @@ Following that, you can verify that the image has access to the private reposito
 ```shell
 docker run --rm my-custom-image apk policy wget
 ```
-```Output
+
+```output
 wget policy:
   1.24.5-r4:
     https://apk.cgr.dev/$ORGANIZATION

@@ -74,7 +74,7 @@ After successful login, you are redirected to the `simple` sub-context at
 `https://libraries.cgr.dev/python/simple/` that allows you to inspect the
 available packages. The top level contains an alphabetical list of packages:
 
-```
+```text
 2captcha-python
 3d-converter
 absql
@@ -90,7 +90,7 @@ A list of all wheels and tarballs for the versions of a specific package is
 available in the context of the package. For example, the `apiflask` context at
 `https://libraries.cgr.dev/python/simple/apiflask/` shows the following list:
 
-```
+```text
 Links for apiflask
 apiflask-0.1.0-py3-none-any.whl
 apiflask-0.1.0.tar.gz

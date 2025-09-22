@@ -97,7 +97,7 @@ Currently, most images encountered in the wild are either OCI or Docker images. 
 
 Otherwise, the mediatype string will likely include “docker” as follows: 
 
-```json 
+```json
 "mediaType": "application/vnd.docker.distribution.manifest.v2+json"
 ```
 

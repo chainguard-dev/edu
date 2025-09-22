@@ -86,37 +86,37 @@ The following purls are used in Chainguard SPDX SBOM:
 
 * `pkg:apk` denotes binary package origin, name, full version number with epoch, and architecture:
 
-```
-pkg:apk/wolfi/ca-certificates-bundle@20240315-r4?arch=x86_64
-```
+  ```
+  pkg:apk/wolfi/ca-certificates-bundle@20240315-r4?arch=x86_64
+  ```
 
 * `pkg:github` is used for upstream source code reference for packages built from GitHub repositories. These purls always include a fixed commit hash and, when available, also include a tag-version:
 
-```
-pkg:github/openssl/openssl.git@openssl-3.3.1
-pkg:github/openssl/openssl.git@db2ac4f6ebd8f3d7b2a60882992fbea1269114e2
-```
+  ```
+  pkg:github/openssl/openssl.git@openssl-3.3.1
+  pkg:github/openssl/openssl.git@db2ac4f6ebd8f3d7b2a60882992fbea1269114e2
+  ```
 
 * Note that `pkg:github` is also used to reference melange packaging files from Wolfi and Chainguard. These are provided with a subpath component and a fixed commit hash:
 
-```
-pkg:github/wolfi-dev/os@f18ff825f94b9177cf603c6e3d72936683a504d2#glibc.yaml
-```
+  ```
+  pkg:github/wolfi-dev/os@f18ff825f94b9177cf603c6e3d72936683a504d2#glibc.yaml
+  ```
 
 * `pkg:generic` is used to reference any other upstream download locations, most commonly tarballs:
 
-```
-pkg:generic/gcc@13.2.0?
-checksum=sha256%3A8cb4be3796651976f94b9356fa08d833524f62420d6292c5033a9a26af315078&
-download_url=https%3A%2F%2Fftp.gnu.org%2Fgnu%2Fgcc%2Fgcc-13.2.0%2Fgcc-13.2.0.tar.gz
-```
+  ```
+  pkg:generic/gcc@13.2.0?
+  checksum=sha256%3A8cb4be3796651976f94b9356fa08d833524f62420d6292c5033a9a26af315078&
+  download_url=https%3A%2F%2Fftp.gnu.org%2Fgnu%2Fgcc%2Fgcc-13.2.0%2Fgcc-13.2.0.tar.gz
+  ```
 
 * Also note that `pkg:generic` is used to reference upstream git repositories, outside of GitHub:
 
-```
-pkg:generic/ca-certificates@20240315?
-vcs_url=git%2Bhttps%3A%2F%2Fgitlab.alpinelinux.org%2Falpine%2Fca-certificates%4009e5e43336e532ec8217ae3bfc912bcb7048f65a
-```
+  ```
+  pkg:generic/ca-certificates@20240315?
+  vcs_url=git%2Bhttps%3A%2F%2Fgitlab.alpinelinux.org%2Falpine%2Fca-certificates%4009e5e43336e532ec8217ae3bfc912bcb7048f65a
+  ```
 
 purls are human-readable, but various programming and scripting languages have [implementations](https://github.com/package-url/purl-spec?tab=readme-ov-file#known-implementations) that can parse them.
 

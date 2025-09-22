@@ -80,7 +80,7 @@ Here we include the hostname we specified previously (`www.example.com`) as well
 
 This command will return a warning that self-signed certificates are insecure. This is the expected behavior for `cfssl`, and since we are only using these certificates to demonstrate how `incert` works there won't be any security concerns.
 
-```
+```output
 . . .
 
 *** WARNING ***
@@ -99,7 +99,8 @@ Following that, if you check the contents of your working directory you will fin
 ```sh
 ls
 ```
-```
+
+```output
 csr.json  selfsigned.csr  selfsigned-key.pem  selfsigned.pem
 ```
 
@@ -150,7 +151,8 @@ At this point, if you tried to use `curl` to access the running nginx container,
 ```sh
 curl https://localhost:8443
 ```
-```
+
+```output
 curl: (60) SSL certificate problem: self-signed certificate
 More details here: https://curl.se/docs/sslcerts.html
 
@@ -168,7 +170,8 @@ To do this you'll need to find the nginx container's IP address. First, find the
 ```sh
 docker ps
 ```
-```
+
+```output
 CONTAINER ID   IMAGE                      COMMAND                  CREATED         STATUS         PORTS                                       NAMES
 9e211033635b   cgr.dev/chainguard/nginx   "/usr/sbin/nginx -c …"   2 minutes ago   Up 2 minutes   0.0.0.0:8443->8443/tcp, :::8443->8443/tcp   agitated_jones
 ```
@@ -181,7 +184,7 @@ docker inspect --format '{{ .NetworkSettings.IPAddress }}' agitated_jones
 
 This will return the container's IP address:
 
-```
+```output
 172.17.0.2
 ```
 
@@ -195,7 +198,7 @@ docker run -it --add-host example.com:172.17.0.2 cgr.dev/chainguard/curl:latest-
 
 However, the public Chainguard `curl` image doesn't have the certificate inside it, so this command will fail. 
 
-```
+```output
 curl: (60) rustls_connection_process_new_packets: invalid peer certificate: UnknownIssuer
 More details here: https://curl.se/docs/sslcerts.html
 
@@ -223,7 +226,7 @@ For this final option, this example specifies [`ttl.sh`](http://ttl.sh/), an eph
 
 This command will take a few moments to complete, but once it finishes you will receive output showing the image that was created and uploaded to the destination repo. 
 
-```
+```output
 ttl.sh/curl-with-cert:1h@sha256:877762fdd511a3df8aa24faf6a6209036370b7cfc1638e16b81098143c2a0215
 ```
 
@@ -235,7 +238,7 @@ docker run -it --add-host example.com:[ipaddress] ttl.sh/curl-with-cert:1h https
 
 This time, the `curl` container is able to reach the running nginx container.
 
-```
+```output
 . . .
 <!DOCTYPE html>
 <html>

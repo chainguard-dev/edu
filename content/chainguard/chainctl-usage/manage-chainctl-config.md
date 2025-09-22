@@ -29,7 +29,7 @@ chainctl config -h
 
 You'll receive output like the following:
 
-```
+```output
 Local config file commands for chainctl.
 
 Usage:

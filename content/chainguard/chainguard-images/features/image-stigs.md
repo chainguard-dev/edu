@@ -47,13 +47,13 @@ The scan may be performed using one of two methods - we may either scan an image
 
 First, ensure the target image is present in your local Docker daemon.
 
-```
+```bash
 docker pull cgr.dev/chainguard/wolfi-base:latest
 ```
 
 Next, run the scan image against the target image. 
 
-```
+```bash
 docker run -i --rm -u 0:0 --pid=host \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v $(pwd)/out:/out \

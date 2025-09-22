@@ -39,6 +39,7 @@ Then, using `go`, install the `wolfictl` tool:
 ```sh
 go install
 ```
+
 If you encounter any errors during installation, your installed version of `go` may be out of date. You can check what version of `go` you have installed by running `go version` in your terminal. Check the [`go.mod` file](https://github.com/wolfi-dev/wolfictl/blob/main/go.mod) in the `wolfictl` repository to determine what version of `go` you will need, and be sure to update `go` to this version or a later release to continue. Alternatively, you may need to add the `wolfictl` binary to your `$PATH` after installation if your system does not recognize the command.
 
 You can verify that you have successfully installed `wolfictl` by executing the `wolfictl version` command in your terminal.
@@ -46,9 +47,10 @@ You can verify that you have successfully installed `wolfictl` by executing the 
 ```sh
 wolfictl version
 ```
+
 A successful installation of `wolfictl` will display output similar to the following. Note that the exact output will vary over time as new `wolfictl` versions are released. 
 
-```Output
+```output
  __        __   ___    _       _____   ___    ____   _____   _
  \ \      / /  / _ \  | |     |  ___| |_ _|  / ___| |_   _| | |
   \ \ /\ / /  | | | | | |     | |_     | |  | |       | |   | |
@@ -101,7 +103,7 @@ wolfictl advisory list -p glibc --history
 ```
 
 The following shows a small sample of output from this command at the time of this writing. Note that the output of this command may change as vulnerability entries are added and updated over time.
-```Output
+```output
 glibc CGA-49g3-q5cv-7m6g (CVE-2023-4527, GHSA-hmf7-f8gf-8f4p)    2023-09-22T14:14:01Z fixed (2.38-r2)
       CGA-573p-mg38-75fh (CVE-2019-1010024, GHSA-3q29-89cr-qgvj) 2023-03-06T13:22:06Z false positive (vulnerability-record-analysis-contested)
       CGA-57wh-hj4x-5342 (CVE-2023-4911, GHSA-m77w-6vjw-wh2f)    2023-10-03T22:58:32Z fixed (2.38-r5)
@@ -153,7 +155,7 @@ wolfictl advisory diff
 
 From this command, you can see the local addition of your new advisory for the `glibc` package.
 
-```Output
+```output
 Auto-detected distro: Wolfi
 
 ( - removed / ~ modified / + added )

@@ -17,13 +17,13 @@ Unset a configuration property and return it to default.
 
 Unset a configuration property and return it to default. Property names are dot delimited and lowercase (for example, output.color.pass).
 
-```
+```sh
 chainctl config unset PROPERTY_NAME
 ```
 
 ### Examples
 
-```
+```sh
   # Return the pass color to its default
   chainctl config unset output.color.pass
 ```

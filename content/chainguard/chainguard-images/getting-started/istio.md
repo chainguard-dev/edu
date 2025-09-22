@@ -149,6 +149,7 @@ In another terminal, send a request to the Istio Ingress Gateway:
 ```sh
 curl -H "Host: hello.example.com" localhost:8080
 ```
+
 This will return `Hello, world!` to the terminal output.
 
 ## Clean up your kind cluster 

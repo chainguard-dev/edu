@@ -13,7 +13,7 @@ toc: true
 
 Logout from the Chainguard platform.
 
-```
+```sh
 chainctl auth logout [--audience=AUDIENCE]
 ```
 

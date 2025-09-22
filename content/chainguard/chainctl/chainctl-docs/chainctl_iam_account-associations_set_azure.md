@@ -13,7 +13,7 @@ toc: true
 
 Set AZURE account association for a location.
 
-```
+```sh
 chainctl iam account-associations set azure ORGANIZATION_NAME|ORGANIZATION_ID|FOLDER_NAME|FOLDER_ID --tenant-id=TENANT_ID --client-ids=COMPONENT_NAME=CLIENT_ID [--name=NAME] [--description=DESCRIPTION] [--yes] [--output=id|json|table] [flags]
 ```
 

@@ -52,7 +52,7 @@ packages are available. This container is intentionally minimal - it includes th
 Wolfi, a package manager (apk) and a shell, but not much else. You will need to use apk to install
 any tools you need. Here is an example session:
 
-```
+```sh
 docker run -it cgr.dev/chainguard/wolfi-base
 ce557598406a:/# cat /etc/os-release
 ID=wolfi

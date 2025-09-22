@@ -51,7 +51,7 @@ When migrating most containerized Python applications, we recommend building a v
 
 The below Dockerfile provides an example of such a multi-stage build for a simple Flask application. You can view a version of this Dockerfile with included sample Flask application and `requirements.txt` in [this repository](https://github.com/chainguard-dev/cg-images-python-migration/tree/python-only), and the original unmigrated application in the [v0 branch](https://github.com/chainguard-dev/cg-images-python-migration/tree/v0). A more complex setup with reverse proxy orchestrated with Docker Compose is provided in the next section.
 
-```Dockerfile
+```dockerfile
 # syntax=docker/dockerfile:1
 
 FROM cgr.dev/chainguard/python:latest-dev AS dev
@@ -86,7 +86,7 @@ We recommend that you pin dependencies to specific versions in your own applicat
 
 You may wish to include the following environmental variables in your Dockerfile. The first prevents the buffering of output, meaning that all messages printed to standard output are immediately printed rather than being held in a cache. The second prevents the creation of cached bytecode, which can marginally reduce image size.
 
-```Dockerfile
+```dockerfile
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
 ```
@@ -95,7 +95,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 
 We provide an [nginx Chainguard Container](https://images.chainguard.dev/directory/image/nginx/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-python), also with low to no CVEs, that can be used as a secure and performant reverse proxy to serve your application. You can view an [example orchestration of a Flask application and nginx using Chainguard Containers](https://github.com/chainguard-dev/cg-images-python-migration/tree/compose-flask-nginx) at the linked repository. The `compose.yml` file is provided as a reference below.
 
-```Dockerfile
+```dockerfile
 services:
   flask-app:
     build:

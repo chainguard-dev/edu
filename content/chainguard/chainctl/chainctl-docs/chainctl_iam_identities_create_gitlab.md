@@ -13,13 +13,13 @@ toc: true
 
 
 
-```
+```sh
 chainctl iam identities create gitlab NAME --project-path=GITLAB-GROUP/GITLAB-PROJECT --ref-type={tag|branch} [--ref=REF] [--parent=PARENT] [--description=DESC] [--role=ROLE,ROLE,...] [--output=id|json|table]
 ```
 
 ### Examples
 
-```
+```sh
   # Create a Gitlab CI identity for any branch in a given Gitlab project
   chainctl iam identities create gitlab my-gitlab-identity --project-path=my-group/my-project --ref-type=branch --parent=eng-org
   

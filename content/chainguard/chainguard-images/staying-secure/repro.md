@@ -51,7 +51,6 @@ Building the image:
 
 ```shell
 apko publish latest.apko.json ttl.sh/nginx-repro
-
 ```
 
 ## Transcript

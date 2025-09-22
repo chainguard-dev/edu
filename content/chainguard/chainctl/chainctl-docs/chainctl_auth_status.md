@@ -13,7 +13,7 @@ toc: true
 
 Inspect the local Chainguard Token.
 
-```
+```sh
 chainctl auth status [--output=json|table|terse] [flags]
 ```
 

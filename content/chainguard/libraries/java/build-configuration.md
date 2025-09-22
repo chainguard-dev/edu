@@ -463,7 +463,7 @@ from the
 
 Following is an example configuration for a repository manager:
 
-```MODULE.bazel
+```starlark
 bazel_dep(name = "rules_jvm_external", version = "6.3")
 maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
 
@@ -503,7 +503,7 @@ Chainguard Libraries for Java repository directly, and include the Maven Central
 repository as fallback. Replace the placeholders `CHAINGUARD_JAVA_IDENTITY_ID`
 and `CHAINGUARD_JAVA_TOKEN` with the credentials provided by Chainguard:
 
-```MODULE.bazel
+```starlark
 maven.install(
     name = "maven",
     # Example dependencies to retrieve

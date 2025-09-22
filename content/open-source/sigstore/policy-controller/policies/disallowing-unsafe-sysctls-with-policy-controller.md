@@ -39,13 +39,13 @@ kubectl -n cosign-system wait --for=condition=Available deployment/policy-contro
 
 When both deployments are finished, verify the `default` namespace is using the Policy Controller:
 
-```
+```sh
 kubectl get ns -l policy.sigstore.dev/include=true
 ```
 
 You should receive output like the following:
 
-```
+```output
 NAME      STATUS   AGE
 default   Active   24s
 ```
@@ -58,7 +58,7 @@ kubectl run --image docker.io/ubuntu ubuntu
 
 Since there is no `ClusterImagePolicy` defined yet, the Policy Controller will deny the admission request with a message like the following:
 
-```
+```output
 Error from server (BadRequest): admission webhook "policy.sigstore.dev" denied the request: validation failed: no matching policies: spec.containers[0].image
 index.docker.io/library/ubuntu@sha256:854037bf6521e9c321c101c269272f756e481fb5f167ae032cb53da08aebcd5a
 ```
@@ -77,7 +77,7 @@ nano /tmp/cip.yaml
 
 Copy the following policy to the `/tmp/cip.yaml` file:
 
-```
+```yaml
 apiVersion: policy.sigstore.dev/v1beta1
 kind: ClusterImagePolicy
 metadata:
@@ -115,7 +115,7 @@ kubectl apply -f /tmp/cip.yaml
 
 You will receive output showing the policy is created:
 
-```
+```output
 clusterimagepolicy.policy.sigstore.dev/unsafe-sysctls-mask-cue
 ```
 
@@ -127,7 +127,7 @@ Now that you have a policy defined, you can test that it successfully rejects or
 
 Use `nano` or your preferred editor to create a new file `/tmp/pod.yaml` and copy in the following pod spec that uses an unsafe sysctl:
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -144,11 +144,11 @@ spec:
 
 Apply the pod spec and check for the Policy Controller admission denied message:
 
-```
+```sh
 kubectl apply -f /tmp/pod.yaml
 ```
 
-```
+```output
 Error from server (BadRequest): error when creating "/tmp/pod.yaml": admission webhook "policy.sigstore.dev" denied the request: validation failed: failed policy: unsafe-sysctls-mask-cue: spec.containers[0].image
 index.docker.io/library/ubuntu@sha256:854037bf6521e9c321c101c269272f756e481fb5f167ae032cb53da08aebcd5a failed evaluating cue policy for ClusterImagePolicy: failed to evaluate the policy with error: spec.securityContext.sysctls.0.name: 5 errors in empty disjunction: (and 5 more errors)
 ```
@@ -157,35 +157,30 @@ The first line shows the error message and the failing `ClusterImagePolicy` name
 
 Edit the `/tmp/pod.yaml` file and change the `sysctls` section to use the following safe parameter:
 
+```yaml
     sysctls:
     - name: net.ipv4.tcp_syncookies
       value: "1"
     - name: net.ipv4.tcp_syncookies
       value: "1"
-
 ```
 
 Save and apply the spec:
 
-```
-
+```shell
 kubectl apply -f /tmp/pod.yaml
-
 ```
 
 The pod will be admitted into the cluster with the following message:
 
-```
-
+```output
 pod/yolo created
-
 ```
 
 Since the `net.ipv4.tcp_syncookies` sysctl is considered safe and only runs in specific Kubernetes namespaces, the Policy Controller evaluates the pod spec against the CUE policy and admits the pod into the cluster.
 
 Delete the pod once you're done experimenting with it:
 
-```
-
+```shell
 kubectl delete pod yolo
 ```

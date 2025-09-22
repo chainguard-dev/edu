@@ -62,7 +62,7 @@ cd edu-images-demos/ && ls
 
 For now, this directory will only contain the repository's `LICENSE` and `README` files.
 
-```
+```output
 LICENSE  README.md
 ```
 
@@ -131,7 +131,7 @@ cat docker-compose.yml
 
 We're interested in the `mariadb` service:
 
-```
+```yaml
 . . .
 
   mariadb:
@@ -162,13 +162,13 @@ docker exec -it mariadb-mariadb-1 mariadb --user php -p
 
 Following that, the remainder of this command represents the command that will be run within the container. Here, we run the `mariadb` command to access the database specifying that we want to connect as the `php` user. The final `-p` option indicates that we want to be prompted to enter the password.
 
-```
+```output
 Enter password:
 ```
 
 Enter `password` and you'll then be presented with the MariaDB command line SQL shell.
 
-```
+```output
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
 Your MariaDB connection id is 3
 Server version: 10.11.4-MariaDB MariaDB Server
@@ -184,7 +184,7 @@ From here, you can interact with the database from within the `mariadb-mariadb-1
 
 To close the MariaDB prompt, you can enter the following command.
 
-```MariaDB
+```postgresql
 \q
 ```
 

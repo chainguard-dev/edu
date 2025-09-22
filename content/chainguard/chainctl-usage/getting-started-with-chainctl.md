@@ -44,7 +44,6 @@ To configure a Docker credential helper, which will use a token to pull images w
 chainctl auth configure-docker
 ```
 
-
 ## Update chainctl to the Latest Release
 
 To see which `chainctl` version you have installed, use:

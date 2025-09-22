@@ -40,13 +40,13 @@ kubectl -n cosign-system wait --for=condition=Available deployment/policy-contro
 
 When both deployments are finished, verify the `default` namespace is using the Policy Controller:
 
-```
+```sh
 kubectl get ns -l policy.sigstore.dev/include=true
 ```
 
 You should receive output like the following:
 
-```
+```output
 NAME      STATUS   AGE
 default   Active   24s
 ```
@@ -137,7 +137,7 @@ kubectl apply -f /tmp/cip.yaml
 
 You will receive output showing the policy is created:
 
-```
+```output
 clusterimagepolicy.policy.sigstore.dev/maximum-image-age-rego created
 ```
 
@@ -149,19 +149,19 @@ kubectl run --image cgr.dev/chainguard/static mydailyfreshimage
 
 Since the image is built on daily basis, you will receive a message that the pod was created successfully:
 
-```
+```output
 pod/mydailyfreshimage created
 ```
 
 However, if we now create a pod using our old image `myoldimage`, PolicyController rejects the admission request with a message like the following:
 
-```
+```output
 Error from server (BadRequest): admission webhook "policy.sigstore.dev" denied the request: validation failed: ghcr.io/distroless/static@sha256:a9650a15060275287ebf4530b34020b8d998bd2de9aea00d113c332d8c41eb0b failed evaluating rego policy for type ClusterImagePolicy: policy is not compliant for query 'isCompliant = data.sigstore.isCompliant' with errors: Image exceeds maximum allowed age.
 ```
 
 Delete the pod once you're done experimenting with it:
 
-```
+```sh
 kubectl delete pod mydailyfreshimage
 ```
 

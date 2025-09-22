@@ -13,7 +13,7 @@ toc: true
 
 List image repositories.
 
-```
+```sh
 chainctl images repos list [--repo=REPO_NAME] [--public | --parent=PARENT_NAME|PARENT_ID] [--updated-within=DURATION] [--show-dates] [--show-epochs] [--show-referrers]
 ```
 

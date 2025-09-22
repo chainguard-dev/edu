@@ -102,7 +102,6 @@ The `vexctl create` command above renders the following document.
     }
   ]
 }
-
 ```
 
 You can also create a VEX document with abbreviated information. For instance, when a given CVE was addressed in the image and you want to attest that it has been fixed.

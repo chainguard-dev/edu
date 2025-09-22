@@ -17,13 +17,13 @@ Set an individual configuration value property.
 
 Set an individual configuration value property. Property names are dot delimited and lowercase (for example, output.color.pass).
 
-```
+```sh
 chainctl config set PROPERTY_NAME PROPERTY_VALUE
 ```
 
 ### Examples
 
-```
+```sh
   # Set the api URL
   chainctl config set platform.api https://console-api.enforce.dev
 ```

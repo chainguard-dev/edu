@@ -66,7 +66,7 @@ cgr.dev/chainguard.edu/istio-pilot:1-dev
 
 Then, navigate back to Webhook.site. It may take a few moments, but in time an event will appear with request content like the following:
 
-```
+```json
 {
   "actor": {
     "subject": "261ea43771f4d962f17c1d206155a38b9b17ff18",

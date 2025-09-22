@@ -40,13 +40,13 @@ kubectl -n cosign-system wait --for=condition=Available deployment/policy-contro
 
 When both deployments are finished, verify the `default` namespace is using the Policy Controller:
 
-```
+```sh
 kubectl get ns -l policy.sigstore.dev/include=true
 ```
 
 You should receive output like the following:
 
-```
+```output
 NAME      STATUS   AGE
 default   Active   24s
 ```
@@ -59,7 +59,7 @@ kubectl run --image cgr.dev/chainguard/nginx:latest nginx
 
 Since there is no `ClusterImagePolicy` defined yet, the Policy Controller will deny the admission request with a message like the following:
 
-```
+```output
 Error from server (BadRequest): admission webhook "policy.sigstore.dev" denied the request: validation failed: no matching policies: spec.containers[0].image
 cgr.dev/chainguard/nginx@sha256:628a01724b84d7db2dc3866f645708c25fab8cce30b98d3e5b76696291d65c4a
 ```
@@ -118,7 +118,7 @@ kubectl apply -f /tmp/cip.yaml
 
 You will receive output showing the policy is created:
 
-```
+```output
 clusterimagepolicy.policy.sigstore.dev/chainguard-images-are-signed created
 ```
 
@@ -130,7 +130,7 @@ kubectl run --image cgr.dev/chainguard/nginx:latest nginx
 
 Since the image matches the policy, you will receive a message that the pod was created successfully:
 
-```
+```output
 pod/nginx created
 ```
 
@@ -138,7 +138,7 @@ In the background, the Policy Controller queries the specified `ctlog` from the 
 
 Delete the pod once you're done experimenting with it:
 
-```
+```sh
 kubectl delete pod nginx
 ```
 

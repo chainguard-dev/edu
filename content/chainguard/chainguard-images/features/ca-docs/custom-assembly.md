@@ -101,10 +101,11 @@ Note that this command injects an `HTTP_AUTH` environment variable directly into
 
 By default, your organization's private APK repository will be listed in the container's list of APK repositories:
 
-```container
+```shell
 cat /etc/apk/repositories
 ```
-```Output
+
+```output
 https://apk.cgr.dev/45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595
 ```
 
@@ -112,10 +113,11 @@ The repository address in this file (which includes a long unpronounceable strin
 
 To search for and install packages from the private APK repository, first the package index:
 
-```container
+```shell
 apk update
 ```
-```Output
+
+```output
 fetch https://apk.cgr.dev/45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/x86_64/APKINDEX.tar.gz
  [https://apk.cgr.dev/45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595]
 OK: 1019 distinct packages available
@@ -123,10 +125,11 @@ OK: 1019 distinct packages available
 
 Then you can search for packages available in your private repo. The following example searches for packages named "mongo":
 
-```container
+```shell
 apk search mongo
 ```
-```Output
+
+```output
 mongo-5.0-5.0.31-r0
 mongo-6.0-6.0.20-r0
 mongo-7.0-7.0.16-r0
@@ -139,10 +142,11 @@ mongod-8.0-8.0.4-r1
 
 Finally, you can install a package with `apk`:
 
-```container
+```shell
 apk add mongo
 ```
-```Output
+
+```output
 (1/1) Installing mongo-8.0 (8.0.4-r1)
 Executing busybox-1.37.0-r0.trigger
 OK: 719 MiB in 78 packages

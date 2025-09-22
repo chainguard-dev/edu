@@ -13,7 +13,7 @@ toc: true
 
 List subscriptions.
 
-```
+```sh
 chainctl events subscriptions list [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--output=id|json|table]
 ```
 

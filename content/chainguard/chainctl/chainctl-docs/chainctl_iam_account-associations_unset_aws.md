@@ -13,7 +13,7 @@ toc: true
 
 Remove AWS account configuration for a location.
 
-```
+```sh
 chainctl iam account-associations unset aws ORGANIZATION_NAME|ORGANIZATION_ID|FOLDER_NAME|FOLDER_ID [--yes] [flags]
 ```
 

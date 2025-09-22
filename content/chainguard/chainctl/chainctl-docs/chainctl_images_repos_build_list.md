@@ -13,7 +13,7 @@ toc: true
 
 List build reports
 
-```
+```sh
 chainctl images repos build list [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [flags]
 ```
 

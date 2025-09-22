@@ -58,7 +58,7 @@ kubectl run --image cgr.dev/chainguard/nginx:latest nginx
 
 Since there is no `ClusterImagePolicy` defined yet, the Policy Controller will deny the admission request with a message like the following:
 
-```
+```output
 Error from server (BadRequest): admission webhook "policy.sigstore.dev" denied the request: validation failed: no matching policies: spec.containers[0].image
 cgr.dev/chainguard/nginx@sha256:628a01724b84d7db2dc3866f645708c25fab8cce30b98d3e5b76696291d65c4a
 ```
@@ -77,7 +77,7 @@ nano /tmp/cip.yaml
 
 Copy the following policy to the `/tmp/cip.yaml` file:
 
-```
+```yaml
 apiVersion: policy.sigstore.dev/v1beta1
 kind: ClusterImagePolicy
 metadata:
@@ -135,7 +135,7 @@ The Policy Controller will check each type of container's definition (`initConta
 
 The set of allowed capabilities is defined in this portion of the CUE policy and can be added to or changed to match your specific workload's needs:
 
-```
+```output
 #Allowed: "AUDIT_WRITE" |
                 "CHOWN" |
 . . .
@@ -149,7 +149,7 @@ kubectl apply -f /tmp/cip.yaml
 
 You will receive output showing the policy is created:
 
-```
+```output
 clusterimagepolicy.policy.sigstore.dev/non-default-capabilities-cue
 ```
 
@@ -161,7 +161,7 @@ Now that you have a policy defined, you can test that it successfully rejects or
 
 Use `nano` or your preferred editor to create a new file `/tmp/pod.yaml` and copy in the following pod spec that runs with elevated privileges:
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -181,11 +181,11 @@ spec:
 
 Apply the pod spec and check for the Policy Controller admission denied message:
 
-```
+```sh
 kubectl apply -f /tmp/pod.yaml
 ```
 
-```
+```output
 Error from server (BadRequest): error when creating "pod.yaml": admission webhook "policy.sigstore.dev" denied the request: validation failed: failed policy: non-default-capabilities-cue: spec.containers[0].image
 index.docker.io/library/ubuntu@sha256:2adf22367284330af9f832ffefb717c78239f6251d9d0f58de50b86229ed1427 failed evaluating cue policy for ClusterImagePolicy: failed to evaluate the policy with error: spec.containers.0.securityContext.capabilities.add.0: 12 errors in empty disjunction: (and 12 more errors)
 ```
@@ -194,7 +194,7 @@ The first line shows the error message and the failing `ClusterImagePolicy` name
 
 Edit the `/tmp/pod.yaml` file and remove or edit the `add` portion of the `capabilities` section. If there are no extra capabilities then the section should look like the following:
 
-```
+```yaml
     capabilities:
         drop:
         - ALL
@@ -202,13 +202,13 @@ Edit the `/tmp/pod.yaml` file and remove or edit the `add` portion of the `capab
 
 Save and apply the spec:
 
-```
+```sh
 kubectl apply -f /tmp/pod.yaml
 ```
 
 The pod will be admitted into the cluster with the following message:
 
-```
+```output
 pod/yolo created
 ```
 
@@ -216,6 +216,6 @@ Since the pod spec now ensures the container does not have and extra capabilitie
 
 Delete the pod once you're done experimenting with it:
 
-```
+```sh
 kubectl delete pod yolo
 ```

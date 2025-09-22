@@ -28,7 +28,7 @@ bash --version
 
 You’ll receive output similar to the following:
 
-```
+```output
 GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
 Copyright (C) 2007 Free Software Foundation, Inc.
 ```
@@ -69,7 +69,7 @@ which -a bash
 
 Your output will likely be two different versions of bash — the one that was preinstalled on your machine, and the new Homebrew version.
 
-```
+```output
 /opt/homebrew/bin/bash
 /bin/bash
 ```
@@ -122,7 +122,7 @@ bash --version
 
 You should receive output indicating that you are using version 4 or 5 of bash.
 
-```
+```output
 GNU bash, version 5.1.16(1)-release (aarch64-apple-darwin21.1.0)
 Copyright (C) 2020 Free Software Foundation, Inc.
 ...

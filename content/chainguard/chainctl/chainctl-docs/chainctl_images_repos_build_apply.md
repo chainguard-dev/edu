@@ -13,7 +13,7 @@ toc: true
 
 Apply a build config
 
-```
+```sh
 chainctl images repos build apply [flags]
 ```
 

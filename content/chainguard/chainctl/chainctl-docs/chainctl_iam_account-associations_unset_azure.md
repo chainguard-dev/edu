@@ -13,7 +13,7 @@ toc: true
 
 Remove AZURE account configuration for a location.
 
-```
+```sh
 chainctl iam account-associations unset azure ORGANIZATION_NAME|ORGANIZATION_ID|FOLDER_NAME|FOLDER_ID [--yes] [flags]
 ```
 

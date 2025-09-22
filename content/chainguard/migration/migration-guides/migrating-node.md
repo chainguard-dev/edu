@@ -124,7 +124,7 @@ GitHub](https://github.com/chainguard-dev/cg-images-node-migration).
 
 Our starting Dockerfile uses the `node:latest` image from Docker Hub in a single-stage build:
 
-```Docker
+```dockerfile
 FROM node:latest
 
 ENV NODE_ENV production
@@ -149,7 +149,7 @@ docker build -t node-classic-image -f Dockerfile-classic .
 
 Directly porting to Chainguard Containers with the least number of changes results in this Dockerfile:
 
-```Docker
+```dockerfile
 FROM cgr.dev/chainguard/node:latest-dev
 
 ENV NODE_ENV production
@@ -172,7 +172,7 @@ Here we've changed the image to `cgr.dev/chainguard/latest-dev` and the `CMD` co
 We can still do better in terms of size and security. A multi-stage Dockerfile would look like:
 
 
-```Docker
+```dockerfile
 FROM cgr.dev/chainguard/node:latest-dev AS builder
 
 ENV NODE_ENV production

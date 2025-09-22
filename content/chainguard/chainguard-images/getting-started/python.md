@@ -74,7 +74,6 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 ```
 
 Copy this code to your `main.py` script, save and close the file.
@@ -93,7 +92,7 @@ python main.py
 
 You should receive the output of a randomized octopus fact.
 
-```
+```output
 The wolfi octopus was discovered in 1913.
 ```
 
@@ -116,7 +115,7 @@ The following Dockerfile will:
 3. Copy the script and the text file that's being read;
 4. Set up the application as entry point for this container.
 
-```Dockerfile
+```dockerfile
 FROM cgr.dev/chainguard/python:latest
 
 WORKDIR /octo-facts
@@ -142,7 +141,7 @@ docker run --rm octo-facts
 
 And you should get output similar to what you got before, with a random octopus fact.
 
-```
+```output
 Octopuses can breathe and see through their skin.
 ```
 
@@ -242,7 +241,7 @@ The following Dockerfile will:
 
 Copy this configuration to your own Dockerfile:
 
-```Dockerfile
+```dockerfile
 FROM cgr.dev/chainguard/python:latest-dev AS builder
 
 ENV LANG=C.UTF-8

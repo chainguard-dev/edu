@@ -89,6 +89,7 @@ You can retrieve a list of all Chainguard organizations you belong to — along 
 ```shell
 chainctl iam organizations ls -o table
 ```
+
 ```output
                          	ID                         	|  	  NAME    |	DESCRIPTION
 --------------------------------------------------------+-------------+---------------------

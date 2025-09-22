@@ -38,7 +38,7 @@ nano README.txt
 
 Then within the file, we can type some text into it, such as the following.
 
-```
+```text
 [label README.txt]
 
 Hello, Rekor!
@@ -54,7 +54,7 @@ ssh-keygen -Y sign -n file -f id_ed25519 README.txt
 
 You should receive the following output.
 
-```
+```output
 Signing file README.txt
 Write signature to README.txt.sig
 ```

@@ -26,7 +26,7 @@ This guide is primarily framed around the Chainguard Directory and the Chainguar
 
 If you would like to open the console with your Organization already selected, you can use (and bookmark) a link like this, replacing ORGANIZATION with your organization's name:
 
-```html
+```
 https://console.chainguard.dev/auth/login?org=ORGANIZATION
 ```
 

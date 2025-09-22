@@ -13,13 +13,13 @@ toc: true
 
 Update a role-binding.
 
-```
+```sh
 chainctl iam role-bindings update BINDING_ID [--role=ROLE] [--identity=IDENTITY] [--output=id|json|table]
 ```
 
 ### Examples
 
-```
+```sh
   # Update the role an identity is bound to
   chainctl iam role-bindings update fb694596eb1678321f94eec283e1e0be690f655c/a2973bac66ebfde3 --role=editor
   

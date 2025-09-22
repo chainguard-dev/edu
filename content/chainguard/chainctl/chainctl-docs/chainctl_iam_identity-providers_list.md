@@ -13,13 +13,13 @@ toc: true
 
 List identity providers.
 
-```
+```sh
 chainctl iam identity-providers list [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--output=json|table|tree]
 ```
 
 ### Examples
 
-```
+```sh
   # List identity providers
   chainctl iam identity-providers list
   

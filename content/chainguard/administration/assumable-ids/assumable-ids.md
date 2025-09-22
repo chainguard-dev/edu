@@ -151,6 +151,7 @@ Whether you create an identity with `chainctl` or with Terraform, Chainguard wil
 ```sh
 chainctl iam identities ls -o table
 ```
+
 ```output
                              ID                             |      NAME      |    TYPE     | DESCRIPTION |         ROLES         |                   ISSUER                    | EXPIRES
 ------------------------------------------------------------+----------------+-------------+-------------+-----------------------+---------------------------------------------+----------

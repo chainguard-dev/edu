@@ -105,6 +105,7 @@ When the connection is successful, you should get output like this on the termin
 ```shell
 2023-02-07T15:48:54:2450  INFO: POST /test
 ```
+
 You can now test that the content was saved by running a GET request to the same endpoint:
 
 ```shell
@@ -126,6 +127,7 @@ In your code editor of choice, create a new Dockerfile:
 ```shell
 nano Dockerfile
 ```
+
 The following Dockerfile will:
 
 1. Start a new image based on the `cgr.dev/chainguard/node:latest` container image;
@@ -136,7 +138,7 @@ The following Dockerfile will:
 
 Copy this content to your own `Dockerfile`:
 
-```Dockerfile
+```dockerfile
 FROM cgr.dev/chainguard/node
 ENV NODE_ENV=production
 
@@ -148,6 +150,7 @@ RUN npm install --omit=dev
 
 CMD [ "server.js" ]
 ```
+
 Save the file when you're finished.
 
 You can now build the container with:
@@ -170,12 +173,14 @@ curl --request POST \
   --header 'content-type: application/json' \
   --data '{"msg": "testing node wolfi image" }'
 ```
+
 You can now query the same endpoint to receive the data that was stored in memory when you run the previous command:
 
 ```shell
 curl http://localhost:8000/test
 ```
-```shell
+
+```json
 {"code":"success","meta":{"total":1,"count":1},"payload":[{"msg":"testing node wolfi image","id":"6011f987-b9f8-4442-8253-d54166df5966","createDate":"2023-02-07T15:57:23.520Z"}]}
 ```
 

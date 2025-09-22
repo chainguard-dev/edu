@@ -86,7 +86,7 @@ e is 65537 (0x010001)
 
 And from that private key we can output the public key.
 
-```
+```bash
 $ openssl rsa -in key.pem -pubout -out pub.pem
 writing RSA key
 ```
@@ -370,7 +370,7 @@ fi
 
 Running this monstrosity, we can see that verification was successful!
 
-```
+```bash
 $ ./verify.sh
 ./verify.sh
 0x00 || leaf
@@ -453,7 +453,7 @@ verification successful! got: b054e63c475d8751b14b51a54255918e4ae0aa26e0ee60c9c7
 
 This is the same flow that the Rekor CLI will step through.
 
-```
+```bash
 $ rekor-cli verify --uuid 24296fb24b8ad77a7e53fd5d089af142b7909598d214e13ca76001cc575fddaad3210adbee86363e
 
 Current Root Hash: f0e0de7e6b03385bc086c46703b7a2abbbd16ae10fc28b3f480125b1898536fb
@@ -474,7 +474,6 @@ SHA256(0x01 | 24296fb24b8ad77a7e53fd5d089af142b7909598d214e13ca76001cc575fddaad3
         768fdb04aac9d523a34adbfeecd3268f920ff250ffc809867bae28bd10eb5f15
 …
 ```
-
 
 If you have any question you can reach me [@eddiezane](https://twitter.com/eddiezane)!
 

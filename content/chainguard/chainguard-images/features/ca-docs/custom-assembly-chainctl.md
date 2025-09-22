@@ -83,7 +83,7 @@ chainctl image repo build apply -f build.yaml --parent chainguard.edu --repo cus
 
 This command will again ask you to confirm that you want to apply the new configuration. To make this example completely declarative, this example includes `--yes` to automatically confirm the changes:
 
-```
+```output
 Applying build config to custom-assembly
   (*v1.CustomOverlay)(Inverse(protocmp.Transform, protocmp.Message{
   	"@type": s"chainguard.platform.registry.CustomOverlay",
@@ -115,7 +115,7 @@ chainctl image repo build list --parent $ORGANIZATION --repo $REPO
 
 This command is useful for quickly determining which builds were successful or failed:
 
-```
+```output
            START TIME           |        COMPLETION TIME        | RESULT  |                    TAGS                     
 --------------------------------+-------------------------------+---------+---------------------------------------------
   Thu, 01 May 2025 10:10:40 PDT | Thu, 01 May 2025 10:10:45 PDT | Success | 20, 20.19, 20.19.1                          
@@ -133,7 +133,7 @@ chainctl image repo build logs --parent $ORGANIZATION --repo $REPO
 
 This command will prompt you to select the build report you want to view. These are organized in reverse chronological order by the time of each build:
 
-```
+```output
 	Select a build report to view logs:                                                                          	 
                                                                                                                  	 
 	Wed, 16 Apr 2025 16:36:52 PDT - Wed, 16 Apr 2025 16:37:08 PDT Success (18-dev, 18.20-dev, 18.20.8-dev)       	 
@@ -152,13 +152,12 @@ This command will prompt you to select the build report you want to view. These 
                                                                                                                  	 
 	••••••••••••••                                                                                               	 
                                                                                                                  	 
-	↑/k up • ↓/j down • / filter • q quit • ? more  
-
+	↑/k up • ↓/j down • / filter • q quit • ? more
 ```
 
 Highlight your chosen build report and select it by pressing `ENTER`. This will open up the build's logs:
 
-```
+```output
 2025-04-17T16:00:08-07:00[INFO]Building image with locked configuration: {Contents:{BuildRepositories:[] RuntimeRepositories:[https://apk.cgr.dev/45a0c61eEXAMPLEf050c5fb9ac06a69eed764595]
 ```
 

@@ -22,7 +22,7 @@ You may also review the [Sigstore Policy Controller documentation](https://docs.
 
 ## Policy enforcing signed containers
 
-```
+```yaml
 apiVersion: policy.sigstore.dev/v1beta1
 kind: ClusterImagePolicy
 metadata:
@@ -40,7 +40,7 @@ spec:
 
 Example using Chainguard Containers from Chainguard's registry:
 
-```
+```yaml
 ...
   images:
     - glob: cgr.dev/chainguard/**
@@ -49,7 +49,7 @@ Example using Chainguard Containers from Chainguard's registry:
 
 An example using Docker Hub images:
 
-```
+```yaml
 ...
   images:
     - glob: "index.docker.io/*"
@@ -59,7 +59,7 @@ An example using Docker Hub images:
 
 An example using Google Cloud Registry:
 
-```
+```yaml
 ...
   images:
     - glob: gcr.io/your-image-here/*
@@ -68,7 +68,7 @@ An example using Google Cloud Registry:
 
 ## Policy enforcing signer identity through an OIDC provider and subject
 
-```
+```yaml
 apiVersion: policy.sigstore.dev/v1beta1
 kind: ClusterImagePolicy
 metadata:
@@ -85,7 +85,7 @@ spec:
 
 An alternate issuer and subject:
 
-```
+```yaml
 ...
       - issuer: https://accounts.google.com
         subject: your-gmail@gmail.com
@@ -95,7 +95,7 @@ An alternate issuer and subject:
 
 This policy asserts that all images must have a signed SPDX SBOM attestation from a custom key.
 
-```
+```yaml
 apiVersion: policy.sigstore.dev/v1beta1
 kind: ClusterImagePolicy
 metadata:
@@ -144,7 +144,7 @@ cosign attest --yes --type spdxjson \
 
 ## Policy enforcing that releases are signed by GitHub Actions
 
-```
+```yaml
 apiVersion: policy.sigstore.dev/v1beta1
 kind: ClusterImagePolicy
 metadata:
@@ -167,7 +167,7 @@ spec:
 
 ## Policy allowing trusted GKE images
 
-```
+```yaml
 apiVersion: policy.sigstore.dev/v1beta1
 kind: ClusterImagePolicy
 metadata:
@@ -180,9 +180,10 @@ spec:
     - static:
         action: pass
 ```
+
 ## Enforce that cert-manager is signed
 
-```
+```yaml
 apiVersion: policy.sigstore.dev/v1beta1
 kind: ClusterImagePolicy
 metadata:
@@ -212,7 +213,7 @@ spec:
 
 ## Enforce that Chainguard agent is signed
 
-```
+```yaml
 apiVersion: policy.sigstore.dev/v1beta1
 kind: ClusterImagePolicy
 metadata:
@@ -234,7 +235,7 @@ spec:
 
 ## Enforce that Google's distroless images are signed
 
-```
+```yaml
 apiVersion: policy.sigstore.dev/v1beta1
 kind: ClusterImagePolicy
 metadata:
@@ -254,7 +255,7 @@ spec:
 
 ## Enforce that Istio images are signed
 
-```
+```yaml
 apiVersion: policy.sigstore.dev/v1beta1
 kind: ClusterImagePolicy
 metadata:
@@ -270,4 +271,3 @@ spec:
           7HTEVN+BkNI4D1+66ufzn1eGTrbaC9dceJqCAkhp37vMxhWOrGufpBUokg==
           -----END PUBLIC KEY-----
 ```
-

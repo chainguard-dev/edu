@@ -17,7 +17,7 @@ First, visit the [billing page](https://console.cloud.google.com/billing) in Goo
 11. Toggle on IAP off, then back on for `App Engine app`: https://console.cloud.google.com/security/iap
 12. You may receive errors about Identity-Aware Proxy being disabled like the following. If this happens wait a few minutes, then run `terraform plan -out plan.out` and then `terraform apply "plan.out"` again.
 
-```
+```output
 Error: Error applying IAM policy for iap web "projects/chainguard-academy-staging/iap_web": Error setting IAM policy for iap web "projects/chainguard-academy-staging/iap_web": googleapi: Error 403: Cloud Identity-Aware Proxy API has not been used in project 293474827457 before or it is disabled.
 ```
 

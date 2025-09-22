@@ -90,7 +90,7 @@ As a cluster-level resource, a Kubernetes Pod Security Policy allows a cluster a
 
 This policy checks to make sure our Pod security specifications are properly set.
 
- ```sh
+```sh
        isCompliant {
 
         input.spec.hostNetwork == "false"
@@ -185,7 +185,7 @@ Rego policies have the added benefit of allowing you to define custom error and 
 
 This example `attestations` block requires clusters to have a vulnerability report in order to be deemed compliant. Notice, though, that it also defines an `errorMsg` string.
 
-```
+```yaml
   attestations:
     - name: must-have-vuln-report
       predicateType: vuln
@@ -211,7 +211,7 @@ Notice, too, that the previous example defines a `warnMsg` variable. Policy Cont
 
 The following `attestations` block is similar to the previous one, but this time it defines the `warnMsg` variable to be used as a custom warning message.
 
-```
+```yaml
   attestations:
     - name: must-have-vuln-report
       predicateType: vuln

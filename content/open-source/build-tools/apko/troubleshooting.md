@@ -27,6 +27,7 @@ docker run --rm -v ${PWD}:/work cgr.dev/chainguard/apko build --debug \
   apko.yaml hello-minicli:test hello-minicli.tar \
   -k melange.rsa.pub
 ```
+
 ## Common Errors
 
 When the apk package manager is unable to resolve your requirements to a set of installable packages, you will get an error similar to this:
@@ -60,7 +61,7 @@ If this is your case, you should find error messages similar to this when enabli
 
 This is how your packages directory tree should be set up, including the `APKINDEX.tgz` file for each architecture:
 
-```
+```output
 packages
 ├── aarch64
 │   ├── APKINDEX.tar.gz
@@ -77,6 +78,7 @@ packages
 
 4 directories, 8 files
 ```
+
 ## Further Resources
 
 For additional guidance, please refer to the [apko repository](https://github.com/chainguard-dev/apko) on GitHub, where you can find [more examples](https://github.com/chainguard-dev/apko/tree/main/examples) or [open an issue](https://github.com/chainguard-dev/apko/issues/new/choose) in case of problems.

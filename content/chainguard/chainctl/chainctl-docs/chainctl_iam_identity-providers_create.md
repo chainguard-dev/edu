@@ -13,13 +13,13 @@ toc: true
 
 Create an identity provider
 
-```
+```sh
 chainctl iam identity-providers create --parent ORGANIZATION_NAME | ORGANIZATION_ID [--name=NAME] [--description=DESCRIPTION] --oidc-issuer=ISSUER --oidc-client-id=CLIENTID --oidc-client-secret=CLIENTSECRET [--oidc-additional-scopes=SCOPE,...] --default-role=ROLE [--output=id|json|table]
 ```
 
 ### Examples
 
-```
+```sh
   # Setup a custom OIDC provider and bind new users to the viewer role
   chainctl iam identity-providers create --name=google --parent=example \
   --oidc-issuer=https://accounts.google.com \

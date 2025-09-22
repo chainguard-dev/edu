@@ -13,7 +13,7 @@ toc: true
 
 Update image repositories.
 
-```
+```sh
 chainctl images repos update {REPO_NAME|REPO_ID} --parent ORGANIZATION_NAME | ORGANIZATION_ID
 ```
 

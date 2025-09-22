@@ -13,7 +13,7 @@ toc: true
 
 Set GCP account association for a location.
 
-```
+```sh
 chainctl iam account-associations set gcp ORGANIZATION_NAME|ORGANIZATION_ID|FOLDER_NAME|FOLDER_ID --project-id=PROJECT_ID --project-number=PROJECT_NUMBER [--name=NAME] [--description=DESCRIPTION] [--yes] [--output=id|json|table] [flags]
 ```
 

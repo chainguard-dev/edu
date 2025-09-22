@@ -98,7 +98,7 @@ go run main.go
 
 Your application should start and display output similar to:
 
-```
+```output
 2025/08/04 15:35:45 Server starting on port 8080
 ```
 
@@ -110,7 +110,7 @@ curl http://localhost:8080
 
 You should receive the following response:
 
-```
+```output
 Hello from Ko! Running on port 8080
 ```
 
@@ -144,7 +144,7 @@ ko build --local --platform=linux/arm64 .
 
 The `--local` flag tells Ko to build the image and load it into your local Docker daemon instead of pushing it to a registry. The output includes information such as the image name and tags added to this build:
 
-```
+```output
 ...
 2025/08/04 15:53:05 Building ko-demo for linux/amd64
 2025/08/04 15:53:11 Loading ko.local/ko-demo-f2e1cf7eebaa497931a6a58522f6d83f:2f27fb1252ce004cf29fa713e8c7d3bce1c2e95352f3ddb33fb72690431e73fd
@@ -162,7 +162,7 @@ You can change this behavior at runtime with the flags `--base-import-paths` to 
 ko build --local . --base-import-paths
 ```
 
-```
+```output
 ...
 2025/09/02 12:57:00 Adding tag latest
 2025/09/02 12:57:00 Added tag latest
@@ -175,12 +175,11 @@ You can use the `docker image list` command to check the images and tags you cre
 docker image list | grep ko
 ```
 
-```
+```output
 ko.local/ko-demo                  d403c3992168125d8dbb960f6c47783dfb7d20f660791d16334310e9dee26b9e   9c710b8a98a2   4 weeks ago     9.07MB
 ko.local/ko-demo                  latest                                                             9c710b8a98a2   4 weeks ago     9.07MB
 ko.local/ko-demo-f2e1cf7eebaa497931a6a58522f6d83f   d403c3992168125d8dbb960f6c47783dfb7d20f660791d16334310e9dee26b9e   9c710b8a98a2   4 weeks ago     9.07MB
 ko.local/ko-demo-f2e1cf7eebaa497931a6a58522f6d83f   latest                                           86528e034ac8   4 weeks ago     9.07MB
-
 ```
 
 It’s worth noting that the resulting image is very minimal, with less than 10MB in size.
@@ -217,7 +216,7 @@ ko build --base-import-paths
 
 The image will be built and pushed to the remote registry automatically, which you can confirm from the output:
 
-```
+```output
 2025/09/15 13:09:10 Using base cgr.dev/chainguard/static:latest@sha256:b2e1c3d3627093e54f6805823e73edd17ab93d6c7202e672988080c863e0412b for ko-demo
 2025/09/15 13:09:11 current folder is not a git repository. Git info will not be available
 2025/09/15 13:09:11 Building ko-demo for linux/amd64
@@ -233,7 +232,6 @@ The image will be built and pushed to the remote registry automatically, which y
 2025/09/15 13:09:17 linky/ko-demo:latest: digest: sha256:6ce1b8b932e5249ce5aaaee33ceaa491ef5c83ef3a2f44dc51700113806f46c6 size: 1336
 2025/09/15 13:09:17 Published linky/ko-demo@sha256:6ce1b8b932e5249ce5aaaee33ceaa491ef5c83ef3a2f44dc51700113806f46c6
 linky/ko-demo@sha256:6ce1b8b932e5249ce5aaaee33ceaa491ef5c83ef3a2f44dc51700113806f46c6
-
 ```
 
 You’ll notice that Ko also pushes an SBOM to the remote registry.

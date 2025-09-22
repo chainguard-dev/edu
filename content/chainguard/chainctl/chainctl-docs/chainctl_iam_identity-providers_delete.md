@@ -13,13 +13,13 @@ toc: true
 
 Delete an identity provider.
 
-```
+```sh
 chainctl iam identity-providers delete IDENTITY_PROVIDER_ID|IDENTITY_PROVIDER_NAME [--yes] [--output=id]
 ```
 
 ### Examples
 
-```
+```sh
   # Delete an identity provider by ID
   chainctl iam identity-providers delete 9b6da6e64b45129eb4e9f9f3ce9b69ca2a550c6b/034e4afcda8c0b07
   

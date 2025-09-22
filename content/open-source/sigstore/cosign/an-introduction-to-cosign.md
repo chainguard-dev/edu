@@ -86,6 +86,7 @@ cosign verify \
     --certificate-oidc-issuer https://accounts.google.com \
     docker-username/demo-container
 ```
+
 ```output
 Verification for index.docker.io/docker-username/demo-container:latest --
 The following checks were performed on each of these signatures:

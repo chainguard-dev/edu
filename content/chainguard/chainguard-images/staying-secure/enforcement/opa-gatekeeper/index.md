@@ -70,6 +70,7 @@ spec:
       image: nginx
 EOF
 ```
+
 ```output
 Error from server (Forbidden): error when creating "STDIN": admission webhook "validation.gatekeeper.sh" denied the request: [repo-is-cgr-dev] container <nginx> has an invalid image <nginx>, allowed images are ["cgr.dev/*"]
 ```
@@ -125,6 +126,7 @@ spec:
       image: cgr.dev/chainguard/nginx
 EOF
 ```
+
 ```output
 Error from server (Forbidden): error when creating "STDIN": admission webhook "validation.gatekeeper.sh" denied the request: [container-image-must-have-digest] container <nginx> uses an image without a digest <cgr.dev/chainguard/nginx>
 ```
@@ -147,6 +149,7 @@ You can also find non-compliant resources that exist in the cluster by reviewing
 ```shell
 kubectl get k8simagedigests container-image-must-have-digest -o json | jq -r '.status.violations[]'
 ```
+
 ```output
 {
   "enforcementAction": "warn",

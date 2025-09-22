@@ -90,7 +90,7 @@ nano Dockerfile
 
 Copy the following content to it:
 
-```Dockerfile
+```dockerfile
 FROM cgr.dev/chainguard/wolfi-base
 
 ARG version=3.12
@@ -147,7 +147,7 @@ nano DockerfileDistroless
 
 Copy the following code into your new file:
 
-```Dockerfile
+```dockerfile
 FROM cgr.dev/chainguard/wolfi-base AS builder
 
 ARG version=3.12

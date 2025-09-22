@@ -97,7 +97,8 @@ Note that this application includes a Dockerfile.
 ```sh
 cat Dockerfile
 ```
-```
+
+```dockerfile
 FROM cgr.dev/chainguard/php:latest-fpm-dev
 
 USER root
@@ -141,7 +142,7 @@ cat docker-compose.yml
 
 We're interested in the `postgres` service:
 
-```
+```yaml
 . . .
 
   postgres:
@@ -170,13 +171,13 @@ psql -p 5432 -U php -W -d php-test
 
 Following that, the remainder of this command represents the command that will be run within the container. Here, we run the `psql` command to access the database specifying that we want to connect over port `5432` as the `php` user. The `-W` option indicates that we want to be prompted to enter the password interactively, and `-d php-test` specifies that we want to connect to the `php-test` database.
 
-```
+```output
 Password:
 ```
 
 Enter `password` and you'll then be presented with the `psql` command prompt.
 
-```
+```output
 psql (15.3)
 Type "help" for help.
 
@@ -187,7 +188,7 @@ From here, you can interact with the database from within the `postgres-postgres
 
 To close the `psql` prompt, you can enter the following command.
 
-```PostgreSQL
+```postgresql
 \q
 ```
 

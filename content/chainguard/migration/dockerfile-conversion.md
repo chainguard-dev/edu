@@ -49,7 +49,7 @@ dfc -v
 
 You will receive output indicating which version of dfc you have installed, such as:
 
-```
+```output
 dfc version v0.9.3
 ```
 
@@ -67,7 +67,7 @@ echo "FROM node" | dfc -
 
 This will give you the following result:
 
-```
+```dockerfile
 FROM cgr.dev/ORG/node:latest
 ```
 
@@ -81,7 +81,7 @@ echo "RUN apt-get update && apt-get install -y nano" | dfc -
 
 Which will give you the following output:
 
-```
+```dockerfile
 RUN apk add --no-cache nano
 ```
 
@@ -96,7 +96,7 @@ DOCKERFILE
 
 This will convert to:
 
-```
+```dockerfile
 FROM cgr.dev/ORG/node:latest-dev
 USER root
 RUN apk add --no-cache nano
@@ -117,7 +117,6 @@ You can also pipe the Dockerfile’s contents from stdin:
 cat ./Dockerfile | dfc -
 ```
 
-
 ## How it Works
 DFC was designed to work offline by default, which means it doesn't validate image names or check for the existence of images in a live registry. Instead, it relies on a set of rules and mappings to convert Dockerfiles to use Chainguard Containers. This includes not only the change of base image used in a Dockerfile, but also the conversion of package managers and commands used in `RUN` instructions.
 
@@ -133,9 +132,10 @@ For example, the following command will convert an inline `FROM` instruction usi
 ```shell
 echo "FROM node" | dfc -
 ```
+
 You will receive the following output:
 
-```shell
+```output
 FROM cgr.dev/ORG/node:latest
 ```
 
@@ -170,7 +170,7 @@ In addition to that, DFC automatically includes a `USER root` directive when it 
 
 For example, consider the following Dockerfile based on Fedora:
 
-```Dockerfile
+```dockerfile
 FROM fedora
 
 RUN dnf -y update && dnf clean all && dnf -y install python-pip && dnf clean all
@@ -192,7 +192,7 @@ dfc Dockerfile
 
 You will receive the following output:
 
-```Dockerfile
+```dockerfile
 FROM cgr.dev/ORG/chainguard-base:latest
 USER root
 
@@ -212,7 +212,7 @@ DFC will automatically change any `useradd` and `groupadd` instructions in your 
 
 For example, consider the following Dockerfile that adds a `nonroot` user to the image:
 
-```Dockerfile
+```dockerfile
 FROM php:8.3-cli
 
 RUN apt-get update && apt-get install -y \
@@ -239,7 +239,7 @@ ENTRYPOINT [ "php", "minicli", "mycommand" ]
 
 When converting this Dockerfile with `dfc`, the `useradd` command will be replaced with `adduser`, and the resulting Dockerfile will look like this:
 
-```Dockerfile
+```dockerfile
 FROM cgr.dev/ORG/php:8.3-dev
 USER root
 
@@ -268,7 +268,7 @@ DFC is designed to recognize and process multi-stage Dockerfiles the same way it
 
 Consider this multi-stage Python Dockerfile, which includes a few build-time dependencies and a leaner runtime:
 
-```Dockerfile
+```dockerfile
 FROM python:3.9 as builder
 WORKDIR /app
 
@@ -335,11 +335,13 @@ For example, the following command will convert a Dockerfile and set the organiz
 ```shell
 echo "FROM node" | dfc --org chainguard -
 ```
+
 You will receive output similar to this:
 
-```
+```dockerfile
 FROM cgr.dev/chainguard/node:latest
 ```
+
 ### Using a Custom Registry
 
 You can also specify a custom registry to use for the conversion. This is useful if you have your own registry. To do this, use the `--registry` flag followed by the desired registry URL. For example, if you want to use `myregistry.example.com` as the registry, you can run:
@@ -350,7 +352,7 @@ echo "FROM node" | dfc --registry myregistry.example.com -
 
 You'll get output like this:
 
-```
+```dockerfile
 FROM myregistry.example.com/node:latest
 ```
 
@@ -361,7 +363,7 @@ You can also provide a custom mapping file to `dfc` using the `--mapping` flag. 
 
 For example, consider the following Dockerfile based on the `php:fpm` image:
 
-```Dockerfile
+```dockerfile
 FROM php:fpm
 
 RUN apt-get update && apt-get install -y \
@@ -390,9 +392,10 @@ Then, when running `dfc`, we can specify this mapping file using the `--mapping`
 ```shell
 dfc Dockerfile --mappings mappings.yaml
 ```
+
 And this will produce the following output:
 
-```Dockerfile
+```dockerfile
 FROM cgr.dev/ORG/php:latest-fpm-dev
 USER root
 
@@ -414,7 +417,7 @@ By default, dfc will print the converted Dockerfile to stdout, and won’t make 
 dfc Dockerfile --in-place
 ```
 
-```
+```output
 2025/03/14 14:54:21 saving dockerfile backup to Dockerfile.bak
 2025/03/14 14:54:21 overwriting Dockerfile
 ```
@@ -432,7 +435,7 @@ RUN apt-get update && apt-get install -y nano
 DOCKERFILE
 ```
 
-```
+```json
 {
   "lines": [
     {
@@ -460,7 +463,6 @@ DOCKERFILE
     }
   ]
 }
-
 ```
 
 Check also the [Useful jq formulas](https://github.com/chainguard-dev/dfc?tab=readme-ov-file#useful-jq-formulas) section from the dfc repository as reference on how to use jq to filter the JSON output.

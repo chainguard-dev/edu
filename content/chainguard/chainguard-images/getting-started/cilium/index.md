@@ -68,6 +68,7 @@ Then, we'll start up the cluster:
 ```sh
 k3d cluster create --config k3d.yaml
 ```
+
 If cluster creation fails with errors, check that Docker is running.
 
 Next, Cilium requires some system mounts for the nodes. Run the following command to configure the mounts:
@@ -148,7 +149,7 @@ cilium connectivity test \
 
 This should takes about 5 minutes to complete. It will return output similar to the following:
 
-```
+```output
 ℹ️  Single-node environment detected, enabling single-node connectivity test
 ℹ️  Monitor aggregation detected, will skip some flow validation steps
 ✨ [k3d-k3s-default] Creating namespace cilium-test for connectivity check...

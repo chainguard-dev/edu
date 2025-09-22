@@ -5,12 +5,14 @@ This tool is designed to help with docs maintenance for Chainguard Academy. It p
 You can use the included `make` command to create a chaindocs container. This will land you in a container with the chaindocs tool installed, where you can run the commands listed in the Usage section.
 
 From the root of the Academy repository, run:
+
 ```shell
 make chaindocs
 ```
+
 You'll get output similar to this:
 
-```shell
+```output
 Building Chaindocs...
 docker  build tools/chaindocs -t chaindocs.local
 [+] Building 0.1s (8/8) FINISHED                                                                         docker:default
@@ -53,6 +55,7 @@ If you prefer to install chaindocs manually, you can do so by following these st
 cd tools/chaindocs
 composer install
 ```
+
 ## Usage
 
 ### Audit Summary

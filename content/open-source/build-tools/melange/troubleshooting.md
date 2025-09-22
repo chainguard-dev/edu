@@ -31,6 +31,7 @@ pipeline:
       APP_HOME="${{targets.destdir}}/usr/share/hello-minicli"
 ...
 ```
+
 ## Common Errors
 
 When melange is unable to finish a build successfully, you will get an error similar to this:

@@ -98,7 +98,7 @@ With both files set up, you are ready to run a test server. Start by building th
 docker compose build
 ```
 
-```
+```output
 [+] Building 0.1s (12/12) FINISHED                               docker:default
  => [minecraft-java internal] load build definition from Dockerfile        0.0s
  => => transferring dockerfile: 493B                                       0.0s
@@ -127,7 +127,7 @@ docker compose up
 
 You’ll get output with details of the server setup, such as the server version (1.21.5), game mode (`survival`), and port (`25565`). By default, this will spin up a new Minecraft world in survival mode with difficulty set to “normal”, and a random world seed, which means the world’s spawn area (where players first start when joining a new game) will be set by random.
 
-```
+```output
 [+] Running 2/2
  ✔ Network minecraft-server_default             Created                                                             0.1s
  ✔ Container minecraft-server-minecraft-java-1  Created                                                             0.1s
@@ -152,7 +152,6 @@ minecraft-java-1  | [13:58:09] [Worker-Main-6/INFO]: Preparing spawn area: 51%
 minecraft-java-1  | [13:58:10] [Worker-Main-15/INFO]: Preparing spawn area: 51%
 minecraft-java-1  | [13:58:10] [Server thread/INFO]: Time elapsed: 2189 ms
 minecraft-java-1  | [13:58:10] [Server thread/INFO]: Done (4.333s)! For help, type "help"
-
 ```
 
 Now, from a Java Minecraft client running on the same local network as your server, access the **Multiplayer** menu and add a new server using your server’s local IP address and port `25565`. If you are running the client on the same machine as the server, you can use `localhost` or `127.0.0.1` as server address:
@@ -163,7 +162,7 @@ Now, from a Java Minecraft client running on the same local network as your serv
 
 Click **Done** and select the new server from the list to connect. Your Docker Compose logs should indicate that a user has joined the game:
 
-```
+```output
 minecraft-java-1  | [18:20:29] [User Authenticator #1/INFO]: UUID of player boredcatmom is xxxx-xxxx-xxxx-xxxx-xxxx
 minecraft-java-1  | [18:20:30] [Server thread/INFO]: boredcatmom[/192.168.178.41:37810] logged in with entity id 27 at (-184.5, 69.0, 67.5)
 minecraft-java-1  | [18:20:30] [Server thread/INFO]: boredcatmom joined the game
@@ -223,7 +222,7 @@ curl -O https://raw.githubusercontent.com/chainguard-dev/guardcraft-server/refs/
 
 You’ll now edit your `Dockerfile` to copy the script to the image and replace the image’s entrypoint command. The script will run before the actual Java command that starts the server. Using a text editor of your choice, edit your `Dockerfile` so that it contains the following content:
 
-```Dockerfile
+```dockerfile
 FROM cgr.dev/chainguard/jre:latest-dev
 
 USER root
@@ -267,7 +266,6 @@ services:
       MC_level_seed: "69420018030897796"
 ```
 
-
 Before rebuilding your image, run the following command to remove the containers created in the last run:
 
 ```shell
@@ -282,7 +280,7 @@ docker compose up --build
 
 After the image is built and the container starts running, you should get output from the entrypoint script indicating which variables were set:
 
-```
+```output
 ...
 minecraft-java-1  | Setting difficulty=easy
 minecraft-java-1  | Setting gamemode=survival
@@ -363,7 +361,7 @@ Next, update the Dockerfile to use this script. You’ll need to make three chan
 
 Open the `Dockerfile` with an editor of your choice and replace its content with this updated version:
 
-```Dockerfile
+```dockerfile
 FROM cgr.dev/chainguard/jre:latest-dev
 
 ARG VERSION="latest"
@@ -397,7 +395,7 @@ docker compose up --build
 
 You should be able to identify the server version in the output. At the time of this writing, the latest version is the stable release `1.21.5`:
 
-```
+```output
 ...
 minecraft-java-1  | [11:56:29] [ServerMain/INFO]: No existing world data, creating new world
 minecraft-java-1  | [11:56:30] [ServerMain/INFO]: Loaded 1373 recipes
@@ -442,7 +440,7 @@ This volume will be set in a location that can be obtained with a `docker volume
 docker inspect guardcraft-world
 ```
 
-```
+```json
 [
     {
         "CreatedAt": "2025-02-14T12:20:08Z",
@@ -486,7 +484,6 @@ volumes:
       external: true
 ```
 
-
 The `external: true` option tells Docker Compose that this volume is managed outside of the Compose lifecycle.
 
 You can now run the following command to bring your environment up and put the changes into effect. You don’t need to rebuild the image, since there are no changes to the Dockerfile:
@@ -501,7 +498,7 @@ This will start a new environment that uses the `guardcraft-world` volume to per
 sudo ls /var/lib/docker/volumes/guardcraft-world/_data/GuardCraft
 ```
 
-```
+```output
 advancements  data  datapacks  DIM-1  DIM1  entities  level.dat  level.dat_old	playerdata  poi  region  session.lock  stats
 ```
 

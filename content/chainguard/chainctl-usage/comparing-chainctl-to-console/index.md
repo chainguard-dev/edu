@@ -51,11 +51,9 @@ To find the images available to you in the Console, do this:
 
 To find the images available to you using `chainctl`, use this command. The list of available images is likely to be long and will scroll past you quickly in the terminal, so it may be more useful to you by piping the output into a grep search or redirecting the output into a file.
 
-```
+```sh
 chainctl images list
-
 ```
-
 
 ## Invite Users
 
@@ -80,15 +78,13 @@ To invite a user using the Console, follow these steps:
 
 To invite a user using `chainctl`, use this command, substituting your organization name for ORGANIZATION along with setting the role, email address, length of time for the invite to be valid, and whether this invite may only be used once:
 
-```
+```sh
 chainctl iam invite create ORGANIZATION
---role=viewer
---email=sample@organization.dev
---ttl=7d
---single-use
-
+  --role=viewer
+  --email=sample@organization.dev
+  --ttl=7d
+  --single-use
 ```
-
 
 ## Review Container Image History
 
@@ -108,13 +104,13 @@ This list contains columns with data about each image release, like the Pull URL
 
 To examine the history of an image using `chainctl`, enter this, replacing ORGANIZATION with your organization:
 
-```
+```sh
 chainctl image history kubectl:latest --parent=ORGANIZATION
 ```
 
 This will return a reverse-chronological history of when a specific tag was update to point to a new manifest digest. This list can be long. Here's an excerpt:
 
-```
+```yaml
 - time: 2025-05-29 03:08:31 UTC
   digest: sha256:34798f562dffc3746cb69bab49b93ff83aa57bea393a07997e87c37bc83a62db
   architectures:
@@ -134,7 +130,6 @@ This will return a reverse-chronological history of when a specific tag was upda
     arm64: sha256:b288bc13da78aa7b2a82d50dbca45ed2fe286f0f1f248fa2e12604ef9a109f33 (16.40 MB)
 
 ...
-
 ```
 
 The details that are returned here and the details found in the Console vary in focus, but where the same details are provided they should match. See [Examine the History of Container Images](/chainguard/chainctl-usage/chainctl-images/#examine-the-history-of-container-images) for more information about this command.

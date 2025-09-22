@@ -13,7 +13,7 @@ toc: true
 
 Checks that the given location has been properly configured for OIDC federation with GCP
 
-```
+```sh
 chainctl iam account-associations check gcp ORGANIZATION_NAME|ORGANIZATION_ID|FOLDER_NAME|FOLDER_ID [flags]
 ```
 

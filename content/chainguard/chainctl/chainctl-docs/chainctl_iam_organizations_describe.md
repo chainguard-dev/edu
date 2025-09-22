@@ -13,7 +13,7 @@ toc: true
 
 Describe an organization.
 
-```
+```sh
 chainctl iam organizations describe [ORGANIZATION_NAME | ORGANIZATION_ID] [--active-within=DURATION] [--output=json]
 ```
 

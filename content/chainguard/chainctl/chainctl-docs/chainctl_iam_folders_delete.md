@@ -13,14 +13,13 @@ toc: true
 
 Delete a folder.
 
-```
+```sh
 chainctl iam folders delete [FOLDER_NAME | FOLDER_ID] [--skip-refresh] [--yes]
 ```
 
 ### Examples
 
-```
-
+```sh
 # Delete a folder by ID
 chainctl iam folders delete 19d3a64f20c64ba3ccf1bc86ce59d03e705959ad/efb53f2857d567f2
 
@@ -29,7 +28,6 @@ chainctl iam folders delete my-folder
 
 # Delete a folder to be selected interactively
 chainctl iam folders delete
-
 ```
 
 ### Options

@@ -13,14 +13,13 @@ toc: true
 
 Generate an invite code to identities with Chainguard.
 
-```
+```sh
 chainctl iam invites create [ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--role=ROLE_ID|ROLE_NAME] [--ttl=TTL_DURATION] [--email=EMAIL] [--single-use] [--output=id|json|table]
 ```
 
 ### Examples
 
-```
-
+```sh
 # Create an invite that will be valid for 5 days:
 chainctl iam invite create my-org-name --role=viewer --ttl=5d
 
@@ -29,7 +28,6 @@ chainctl iam invite create my-org-name --email=kim@example.com
 
 # Create an invite code that can only be used once.
 chainctl iam invite create my-org-name --single-use
-
 ```
 
 ### Options

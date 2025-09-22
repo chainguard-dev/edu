@@ -166,7 +166,7 @@ terraform apply
 
 Before going through with applying the Terraform configuration, this command will prompt you to confirm that you want it to do so. Enter `yes` to apply the configuration.
 
-```
+```output
 . . .
 
 Plan: 4 to add, 0 to change, 0 to destroy.
@@ -183,7 +183,7 @@ Do you want to perform these actions?
 
 After pressing `ENTER`, the command will complete and will output an `bitbucket-identity` value. Note that you may receive a `PermissionDenied` error part way through the apply step. If so, run `chainctl auth login` once more, and then `terraform apply` again to resume creating the identity and resources.
 
-```
+```output
 . . .
 
 Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
@@ -208,7 +208,7 @@ To test the identity you created with Terraform in the previous section, ensure 
 
 Copy the following pipeline definition into your `bitbucket-pipelines.yml` file and commit it to the repository.
 
-```bitbucket-pipelines.yml
+```yaml
 image: atlassian/default-image:3
 
 pipelines:
@@ -229,7 +229,7 @@ The important line is the `oidc: true` option, which enables OIDC for the indivi
 
 Now you can add the commands for testing the identity like `chainctl images repos list` in the following example:
 
-```bitbucket-pipelines.yml
+```yaml
 ...
           # Assume the bitbucket pipeline identity
           - ./chainctl auth login --identity-token $BITBUCKET_STEP_OIDC_TOKEN --identity %bitbucket-identity%
@@ -241,7 +241,7 @@ Once you commit the `bitbucket-pipelines.yml` file the pipeline will run.
 
 Assuming everything works as expected, your pipeline will be able to assume the identity and run the `chainctl images repos list` command, listing repos available to the organization.
 
-```
+```output
 . . .
 chainctl        	100%[===================>]  54.34M  6.78MB/s	in 13s
 
@@ -253,7 +253,7 @@ Valid! Id: 3f4ad8a9d5e63be71d631a359ba0a91dcade94ab/d3ed9c70b538a796
 
 If you'd like to experiment further with this identity and what the pipeline can do with it, there are a few parts of this setup that you can tweak. For instance, if you'd like to give this identity different permissions you can change the role data source to the role you would like to grant.
 
-```
+```hcl
 data "chainguard_roles" "editor" {
   name = "editor"
 }
@@ -261,7 +261,7 @@ data "chainguard_roles" "editor" {
 
 You can also edit the pipeline itself to change its behavior. For example, instead of listing the repos the identity has access to, you could have the workflow inspect the organizations.
 
-```bitbucket-pipelines.yml
+```yaml
           - ./chainctl images repos list
 ```
 

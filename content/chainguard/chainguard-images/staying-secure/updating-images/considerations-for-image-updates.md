@@ -33,7 +33,7 @@ Semantic versioning is intended to improve problems associated with having a lar
 
 When referencing an image, it's important to know exactly what image you are working with. Docker uses the following format for image names.
 
-```image
+```
 [host]/[repository][image_name][:tag]
 ```
 

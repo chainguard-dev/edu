@@ -63,7 +63,7 @@ That's it! The hook will now run automatically when you commit.
 When you run `git commit`, you'll see output like this:
 
 ### ✅ Success Case
-```
+```output
 🔍 Running pre-commit checks...
 
 📅 Updated lastmod dates for 1 file(s)

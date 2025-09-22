@@ -13,7 +13,7 @@ toc: true
 
 Get build logs
 
-```
+```sh
 chainctl images repos build logs [flags]
 ```
 

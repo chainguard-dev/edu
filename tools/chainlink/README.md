@@ -4,7 +4,7 @@ This tool is designed to parse Markdown or HTML files, scan for links, and then 
 
 ### Running
 
-```
+```sh
 go run . -contentDir ../../content
 ```
 
@@ -54,19 +54,19 @@ When redirects are followed, the results include:
 
 Parse the resulting json for checked URLs that 404:
 
-```
+```sh
 jq '[.checked [] | select(.status == 404) | {(.url.Path): {"pages":(.files |keys)}}]' results.json
 ```
 
 And get a list of relative/bad URLs that were not checked:
 
-```
+```sh
 jq '[.unchecked [] | {(.url.Path): {"pages":(.files |keys)}}]' results.json
 ```
 
 Find URLs that redirect and show their final destinations:
 
-```
+```sh
 jq '[.checked [] | select(.finalurl) | {original: .url, final: .finalurl, status: .status}]' results.json
 ```
 

@@ -29,7 +29,6 @@ Additionally, it may help to run these examples from a temporary directory, like
 cd /tmp
 ```
 
-
 ## Example 1 — Authenticate Using Local Credentials 
 
 The first example from the SDK repository we will go over is the [`chainctl` example](https://github.com/chainguard-dev/sdk/tree/main/examples/registry/chainctl). This example shows how to use a token source backed by `chainctl` — Chainguard's command-line tool — to access the Chainguard registry using local credentials.
@@ -87,7 +86,7 @@ go run main.go
 
 This will return output like the following:
 
-```
+```json
 {
   "mediaType": "application/vnd.oci.image.index.v1+json",
   "size": 925,
@@ -161,7 +160,7 @@ go run main.go
 
 This will return output like the following:
 
-```
+```json
 {
   "mediaType": "application/vnd.oci.image.index.v1+json",
   "size": 925,

@@ -39,13 +39,13 @@ kubectl -n cosign-system wait --for=condition=Available deployment/policy-contro
 
 When both deployments are finished, verify the `default` namespace is using the Policy Controller:
 
-```
+```sh
 kubectl get ns -l policy.sigstore.dev/include=true
 ```
 
 You should receive output like the following:
 
-```
+```output
 NAME      STATUS   AGE
 default   Active   24s
 ```
@@ -58,7 +58,7 @@ kubectl run --image cgr.dev/chainguard/nginx:latest nginx
 
 Since there is no `ClusterImagePolicy` defined yet, the Policy Controller will deny the admission request with a message like the following:
 
-```
+```output
 Error from server (BadRequest): admission webhook "policy.sigstore.dev" denied the request: validation failed: no matching policies: spec.containers[0].image
 cgr.dev/chainguard/nginx@sha256:628a01724b84d7db2dc3866f645708c25fab8cce30b98d3e5b76696291d65c4a
 ```
@@ -77,7 +77,7 @@ nano /tmp/cip.yaml
 
 Copy the following policy to the `/tmp/cip.yaml` file:
 
-```
+```yaml
 apiVersion: policy.sigstore.dev/v1beta1
 kind: ClusterImagePolicy
 metadata:
@@ -122,7 +122,7 @@ kubectl apply -f /tmp/cip.yaml
 
 You will receive output showing the policy is created:
 
-```
+```output
 clusterimagepolicy.policy.sigstore.dev/disallow-runasuser-root-cue
 ```
 
@@ -134,7 +134,7 @@ Now that you have a policy defined, you can test that it successfully rejects or
 
 Use `nano` or your preferred editor to create a new file `/tmp/pod.yaml` and copy in the following pod spec that runs as root:
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -150,11 +150,11 @@ spec:
 
 Apply the pod spec and check for the Policy Controller admission denied message:
 
-```
+```sh
 kubectl apply -f /tmp/pod.yaml
 ```
 
-```
+```output
 Error from server (BadRequest): error when creating "/tmp/pod.yaml": admission webhook "policy.sigstore.dev" denied the request: validation failed: failed policy: disallow-runasuser-root-cue: spec.containers[0].image
 index.docker.io/library/ubuntu@sha256:2adf22367284330af9f832ffefb717c78239f6251d9d0f58de50b86229ed1427 failed evaluating cue policy for ClusterImagePolicy: failed to evaluate the policy with error: spec.containers.0.securityContext.runAsUser: invalid value 0 (out of bound !=0)
 ```
@@ -163,19 +163,19 @@ The first line shows the error message and the failing `ClusterImagePolicy` name
 
 Edit the `/tmp/pod.yaml` file and change the `runAsUser` setting to use a non-root user:
 
-```
+```yaml
     - runAsUser: 65532
 ```
 
 Save and apply the spec:
 
-```
+```sh
 kubectl apply -f /tmp/pod.yaml
 ```
 
 The pod will be admitted into the cluster with the following message:
 
-```
+```output
 pod/yolo created
 ```
 
@@ -183,6 +183,6 @@ Since the pod spec now uses a non-root user to run its processes, the Policy Con
 
 Delete the pod once you're done experimenting with it:
 
-```
+```sh
 kubectl delete pod yolo
 ```

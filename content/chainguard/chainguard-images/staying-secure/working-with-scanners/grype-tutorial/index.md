@@ -63,7 +63,7 @@ brew install grype
 
 #### Chocolatey
 
-```cmd
+```bash
 choco install grype -y
 ```
 
@@ -166,7 +166,7 @@ grype python:3.10.14-alpine3.20
 
 You will receive output similar to the following:
 
-```
+```output
  ✔ Vulnerability DB                [no update av
  ✔ Parsed image                    sha256:f48490
  ✔ Cataloged contents              09feb83998b9d
@@ -205,14 +205,16 @@ Finally, this portion gives a count of the number of CVEs detected by severity a
 
 In our output, we can see that we have 0 critical, 1 high, and 8 medium CVEs:
 
-```
+```output
    ├── by severity: 0 critical, 1 high, 8 medium, 0 low, 0 negligible
 ```
+
 Grype also counts the number of CVEs by fixed status. If a CVE is marked as fixed, it can be resolved by updating to a newer version of the package. Our output suggests that 7 packages have been fixed and can be remediated with updates:
 
-```
+```output
    └── by status:   7 fixed, 3 not-fixed, 0 ignored
 ```
+
 ### Itemized CVEs
 
 In addition to the summary, Grype provides an itemized list of CVEs. By default, these are in table format, and list the package name, current version, severity, and package type (such as `apt`, `apk`, or `binary`). If the package is fixed, Grype will also indicate the package version where the fix was introduced.
@@ -222,6 +224,7 @@ Grype writes itemized CVEs to stdout, so you can redirect the report of itemized
 ```bash
 grype python:3.10.14-alpine3.20 > report.txt
 ```
+
 Alternatively, you can use the `--file` flag to write to a file:
 
 
@@ -270,8 +273,8 @@ Grype provides an explain subcommand that gives information on the nature of a s
 To use `grype explain`, generate JSON output from Grype and pipe it into the `grype explain` subcommand. Indicate the CVE you'd like information on using the `--id` flag. The `-q` flag in the following example suppresses the summary output.
 
 ```bash
- grype -q python:3.10.14-alpine3.20 -o json | grype explain --id CVE-2023-36632
- ```
+grype -q python:3.10.14-alpine3.20 -o json | grype explain --id CVE-2023-36632
+```
 
 Grype uses information from the JSON output to generate a human-readable report on the specific CVE that includes match information, file locations, and links to information on the vulnerability.
 

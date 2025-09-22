@@ -13,13 +13,13 @@ toc: true
 
 Create a new identity.
 
-```
+```sh
 chainctl iam identities create NAME {--filename FILE | {--identity-issuer=ISS | --identity-issuer-pattern=PAT} {--subject=SUB | --subject-pattern=PAT} [--audience=AUD | --audience-pattern=PAT] [--claim-pattern=claim:pattern,claim:pattern...] | --identity-issuer=ISS --issuer-keys=KEYS --subject=SUB [--expiration=yyyy-mm-dd]} [--parent=PARENT] [--description=DESC] [--role=ROLE,ROLE,...] [--output=id|json|table]
 ```
 
 ### Examples
 
-```
+```sh
   # Create a static identity using the default expiration.
   chainctl iam identities create my-identity --identity-issuer=https://issuer.mycompany.com --issuer-keys=deadbeef --subject=1234
   

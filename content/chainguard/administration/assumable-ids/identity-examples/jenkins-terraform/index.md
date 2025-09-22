@@ -182,7 +182,7 @@ terraform apply
 
 Before going through with applying the Terraform configuration, this command will prompt you to confirm that you want it to do so. Enter `yes` to apply the configuration.
 
-```
+```output
 . . .
 Plan: 4 to add, 0 to change, 0 to destroy.
 
@@ -198,7 +198,7 @@ Do you want to perform these actions?
 
 After pressing `ENTER`, the command will complete and will output an `jenkins-identity` value.
 
-```
+```output
 . . .
 Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
 
@@ -227,7 +227,7 @@ Once you are on the pipeline configuration page, click the **This project is par
 
 Next copy the following pipeline definition into the `Script` body for your job:
 
-```
+```hcl
 pipeline {
     agent any
     stages {
@@ -251,7 +251,7 @@ The important line is `withCredentials` option, which maps the generated OIDC to
 
 Now you can add the commands for testing the identity using `chainctl images repos list` in the following example:
 
-```
+```sh
 sh '''
     wget -O chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_linux_\$(uname -m)"
     chmod +x chainctl
@@ -266,7 +266,7 @@ Save the job, and then build it using the `Build with Parameters` option.
 
 Assuming everything works as expected, your pipeline will be able to assume the identity and run the `chainctl images repos list` command, listing repositories available to the organization.
 
-```
+```output
 . . .
 chainctl        	100%[===================>]  54.34M  6.78MB/s	in 13s
 
@@ -287,7 +287,7 @@ data "chainguard_role" "editor" {
 
 You can also edit the pipeline itself to change its behavior. For example, instead of inspecting the policies the identity has access to, you could have the workflow inspect the organizations.
 
-```
+```yaml
 	. . .
 	- './chainctl iam organizations ls'
 ```

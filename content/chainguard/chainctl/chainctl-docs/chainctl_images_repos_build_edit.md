@@ -13,7 +13,7 @@ toc: true
 
 Edit a build config, optionally creating a new repo with --save-as
 
-```
+```sh
 chainctl images repos build edit [flags]
 ```
 

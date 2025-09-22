@@ -157,7 +157,7 @@ The following example Renovate configuration includes this option:
 
 This configures Renovate to open PRs that will pin a reference like `cgr.dev/chainguard/python:3.12` to a digest like the following:
 
-```
+```output
 cgr.dev/chainguard/python:3.12@sha256:e3b524a97c37c32ba590aae0ebcebe3a983c1f69a5093b670fdba980f97a09b3
 ```
 
@@ -325,7 +325,8 @@ This example passes a short-lived token for `cgr.dev` using the `RENOVATE_DOCKER
 If Renovate isn't working as expected, try running it in debug mode and/or dumping the resolved configuration.
 
 For example:
-```
+
+```output
 LOG_LEVEL=debug renovate --print-config
 ...
        "hostRules": [
@@ -362,7 +363,7 @@ If you have problems getting Renovate to monitor `cgr.dev`, please double check 
 
 You may encounter errors such as the following:
 
-```
+```output
 DEBUG: getReleaseList error (repository=chainguard-images/images-private, branch=renovate/cgr.dev-chainguard.edu-python-3.x)
        "type": "github",
        "apiBaseUrl": "https://api.github.com/",

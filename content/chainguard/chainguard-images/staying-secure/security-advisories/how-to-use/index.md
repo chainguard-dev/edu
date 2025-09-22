@@ -55,7 +55,7 @@ grype cgr.dev/example.com/go:1.21.2
 
 Because this is the digest for an older version of Chainguard's Go container image, this command's output will show a number of vulnerabilities that have been found to exist within this specific version of the container image. 
 
-```
+```output
 . . .
 
    ├── by severity: 28 critical, 230 high, 185 medium, 4 low, 0
@@ -72,7 +72,7 @@ Within this output,, we find that the package `nghttp2` is referenced.
 grype cgr.dev/example.com/go:1.21.2| grep nghttp2
 ```
 
-```
+```output
 ...
 libnghttp2-14        1.56.0-r0  1.57.0-r0        apk        CVE-2023-44487       High      
 libnghttp2-14        1.56.0-r0  1.61.0-r0        apk        CVE-2024-28182       Medium    
@@ -127,7 +127,7 @@ cgr.dev/example.com/go:1.21.5 | jq .
 
 This example will return a lot of output, as there are significant differences from version `1.21.2` to `1.21.5` of the Go container image. If you scroll down to the `vulnerabilities` section of this output, you'll find a list of vulnerabilities that are present in version `1.21.2` but have been removed by version `1.21.5`.
 
-```
+```json
   "vulnerabilities": {
 
 . . .

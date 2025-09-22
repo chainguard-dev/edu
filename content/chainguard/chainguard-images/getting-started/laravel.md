@@ -68,11 +68,13 @@ docker run --rm -v ${PWD}:/app --entrypoint npm --user root \
     cgr.dev/chainguard/node:latest-dev \
     install
 ```
+
 Then, fix permissions on node modules with:
 
 ```shell
 sudo chown -R ${USER} node_modules/
 ```
+
 The next step is to build front end assets. You can use the `npm run build` command for that. Like with `npm install`, you'll need to set the container user to **root**.
 
 ```shell
@@ -152,7 +154,7 @@ This `docker-compose.yaml` file defines 3 services to run the application (**app
 
 The following `nginx.conf` file is also included within the root of the application folder. This file is based on the [recommended Nginx deployment configuration](https://laravel.com/docs/11.x/deployment#nginx) from official Laravel docs.
 
-```nginx configuration
+```nginx
 pid /var/run/nginx.pid;
 
 events {
@@ -226,12 +228,14 @@ First, look for the container running the `app` service and copy its name.
 ```shell
 docker compose ps
 ```
-```shell
+
+```output
 NAME                   IMAGE                                   COMMAND                  SERVICE   CREATED          STATUS          PORTS
 octo-facts-app-1       cgr.dev/chainguard/laravel:latest-dev   "/bin/s6-svscan /sv"     app       11 seconds ago   Up 10 seconds
 octo-facts-mariadb-1   cgr.dev/chainguard/mariadb              "/usr/local/bin/dock…"   mariadb   11 seconds ago   Up 10 seconds   0.0.0.0:3306->3306/tcp, :::3306->3306/tcp
 octo-facts-nginx-1     cgr.dev/chainguard/nginx                "/usr/sbin/nginx -c …"   nginx     11 seconds ago   Up 10 seconds   0.0.0.0:8000->8080/tcp, :::8000->8080/tcp
 ```
+
 Then, you can run migrations like this:
 
 ```shell
@@ -247,7 +251,7 @@ To demonstrate this approach, we'll now build a distroless container image and t
 
 The following Dockerfile is included within the root of the application:
 
-```Dockerfile
+```dockerfile
 FROM cgr.dev/chainguard/laravel:latest-dev AS builder
 USER root
 RUN apk update && apk add nodejs npm
@@ -285,6 +289,7 @@ If your environment is still running, you should stop it before proceeding. Hit 
 ```shell
 docker compose down
 ```
+
 This will stop and remove all containers, networks, and volumes created by the previous `docker-compose.yaml` file. You can now bring the new environment up with:
 
 ```shell

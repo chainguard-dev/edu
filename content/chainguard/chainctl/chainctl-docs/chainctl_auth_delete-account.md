@@ -13,7 +13,7 @@ toc: true
 
 Permanently delete your user account.
 
-```
+```sh
 chainctl auth delete-account [flags]
 ```
 

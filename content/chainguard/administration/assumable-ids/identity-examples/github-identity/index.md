@@ -158,7 +158,7 @@ terraform apply
 
 Before going through with applying the Terraform configuration, this command will prompt you to confirm that you want it to do so. Enter `yes` to apply the configuration.
 
-```
+```output
 . . .
 
 Plan: 3 to add, 0 to change, 0 to destroy.
@@ -175,7 +175,7 @@ Do you want to perform these actions?
 
 After pressing `ENTER`, the command will complete and will output an `actions-identity` value.
 
-```
+```output
 . . .
 
 Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
@@ -207,7 +207,7 @@ You can name the workflow file whatever you like, although the default — `main
 
 In the **Edit** textbox, add the following. Be sure to replace `<your actions identity>` with the `actions-identity` value produced by the previous `terraform apply` command.
 
-```
+```yaml
 name: Assume and Explore
 
 on:
@@ -256,7 +256,7 @@ data "chainguard_role" "editor" {
 
 You can also edit the workflow itself to change its behavior. For example, instead of pulling an image, you could have the workflow list available repos:
 
-```
+```yaml
 	- run: chainctl images repos list
 ```
 
