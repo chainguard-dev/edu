@@ -159,7 +159,7 @@ terraform apply
 Before going through with applying the Terraform configuration, this command will prompt you to confirm that you want it to do so. Enter `yes` to apply the configuration.
 
 ```output
-. . .
+...
 
 Plan: 3 to add, 0 to change, 0 to destroy.
 
@@ -176,7 +176,7 @@ Do you want to perform these actions?
 After pressing `ENTER`, the command will complete and will output an `actions-identity` value.
 
 ```output
-. . .
+...
 
 Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
 

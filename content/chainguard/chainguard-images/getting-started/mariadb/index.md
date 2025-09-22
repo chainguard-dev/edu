@@ -132,7 +132,7 @@ cat docker-compose.yml
 We're interested in the `mariadb` service:
 
 ```yaml
-. . .
+  ...
 
   mariadb:
 	image: cgr.dev/chainguard/mariadb

@@ -61,16 +61,17 @@ Scroll through this command's output to find the `slug` value for the team in qu
 
 ```json
 [
-. . .
+...
 
   {
 	"name": "Team Name",
 	"id": 9999999,
 	"node_id": "T_kwDOBTYtm84AbTQX",
 	"slug": "team-slug",
-. . .
+  ...
   },
-. . .
+
+  ...
 ]
 ```
 
@@ -283,7 +284,7 @@ terraform apply
 Before going through with applying the Terraform configuration, this command will prompt you to confirm that you want it to do so. Enter `yes` to apply the configuration.
 
 ```output
-. . .
+...
 
 Plan: 2 to add, 0 to change, 0 to destroy.
 
@@ -297,7 +298,7 @@ Do you want to perform these actions?
 After pressing `ENTER`, the command will complete.
 
 ```output
-. . .
+...
 
 Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
 ```

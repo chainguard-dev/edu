@@ -56,7 +56,7 @@ grype cgr.dev/example.com/go:1.21.2
 Because this is the digest for an older version of Chainguard's Go container image, this command's output will show a number of vulnerabilities that have been found to exist within this specific version of the container image. 
 
 ```output
-. . .
+...
 
    ├── by severity: 28 critical, 230 high, 185 medium, 4 low, 0
 ...
@@ -128,17 +128,19 @@ cgr.dev/example.com/go:1.21.5 | jq .
 This example will return a lot of output, as there are significant differences from version `1.21.2` to `1.21.5` of the Go container image. If you scroll down to the `vulnerabilities` section of this output, you'll find a list of vulnerabilities that are present in version `1.21.2` but have been removed by version `1.21.5`.
 
 ```json
-  "vulnerabilities": {
+  "vulnerabilities": [
 
-. . .
+	...
   	
-{
+	{
     	"id": "CVE-2023-44487",
     	"reference": "chainguard:distro:chainguard:rolling",
     	"severity": "High"
   	},
 
-	. . .
+	...
+	
+  ]
 ```
 
 As this output indicates, `CVE0223-44487` is no longer present in later versions of the Go Chainguard Container. If you were using version `1.21.2`, you should seriously consider upgrading to a later version.

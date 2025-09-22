@@ -62,7 +62,7 @@ In practice, this will look like the following, with images in place for both th
 
 Within the Markdown file, add images like so, with the alt text at the front:
 
-```
+```markdown
 ![Protect branches with Chainguard Enforce](protected-branch.png)
 ```
 
@@ -86,7 +86,7 @@ This line should appear between the `draft` line and the `images` line in the fr
 
 For example:
 
-```
+```yaml
 ...
 draft: false
 tags: ["Chainguard Containers", "Overview", "Product"]

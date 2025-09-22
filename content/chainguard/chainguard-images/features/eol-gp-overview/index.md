@@ -119,29 +119,29 @@ This command will return EOL data for each image within the repository, which wi
 {
   "items": [
 
-. . .
+    ...
 
-  {
-    "id": "ORGANIZATION_ID/4408EXAMPLE4131a/9ef6EXAMPLE6265c",
-    "name": "18.20.8-slim",
-    "mainPackageName": "nodejs",
-    "tagStatus": "TAG_IN_GRACE",
-    "mainPackageVersion": {
-      "eolDate": "2025-04-30",
-      "exists": true,
-      "fips": false,
-      "lts": "2022-10-25",
-      "releaseDate": "2022-04-19",
-      "version": "18",
-      "eolBroken": false
+    {
+      "id": "ORGANIZATION_ID/4408EXAMPLE4131a/9ef6EXAMPLE6265c",
+      "name": "18.20.8-slim",
+      "mainPackageName": "nodejs",
+      "tagStatus": "TAG_IN_GRACE",
+      "mainPackageVersion": {
+        "eolDate": "2025-04-30",
+        "exists": true,
+        "fips": false,
+        "lts": "2022-10-25",
+        "releaseDate": "2022-04-19",
+        "version": "18",
+        "eolBroken": false
+      },
+      "graceStatus": "GRACE_ACTIVE",
+      "gracePeriodExpiryDate": "2025-10-30T00:00:00Z"
     },
-    "graceStatus": "GRACE_ACTIVE",
-    "gracePeriodExpiryDate": "2025-10-30T00:00:00Z"
-  },
 
-. . .
+    ...
 
-  ]
+    ]
 }
 ```
 

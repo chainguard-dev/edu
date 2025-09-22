@@ -167,7 +167,7 @@ terraform apply
 Before going through with applying the Terraform configuration, this command will prompt you to confirm that you want it to do so. Enter `yes` to apply the configuration.
 
 ```output
-. . .
+...
 
 Plan: 4 to add, 0 to change, 0 to destroy.
 
@@ -184,7 +184,7 @@ Do you want to perform these actions?
 After pressing `ENTER`, the command will complete and will output an `bitbucket-identity` value. Note that you may receive a `PermissionDenied` error part way through the apply step. If so, run `chainctl auth login` once more, and then `terraform apply` again to resume creating the identity and resources.
 
 ```output
-. . .
+...
 
 Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
 
