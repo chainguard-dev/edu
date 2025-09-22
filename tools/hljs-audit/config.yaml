@@ -1,0 +1,39 @@
+# Allowed Highlight.js languages (canonical, lowercase).
+# Replace/extend this list with the full set from core highlight.js in your environment.
+allowed_languages:
+  - bash
+  - sh
+  - shell
+  - dockerfile
+  - yaml
+  - json
+  - toml
+  - go
+  - css
+  - javascript
+  - js
+  - python
+  - xml
+  - php
+  - html
+  - c
+  - cpp
+  - groovy
+  - powershell
+  - postgresql
+  - ini
+  - nginx
+  - ruby
+  - hcl
+  - starlark
+  - http
+  - text
+  - diff
+  - output
+  - markdown
+
+# Optional: alias map to unify variants to a canonical language.
+aliases:
+  javascript: [js, node]
+  bash: [sh, zsh, shell]
+  postgres: [postgresql, psql]
