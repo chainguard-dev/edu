@@ -361,4 +361,4 @@ In order to install Python libraries from multiple repositories with Chainguard 
 for Python as the priority, `uv` supports [searching across multiple indexes](https://docs.astral.sh/uv/concepts/indexes/#searching-across-multiple-indexes) 
 while setting a priority index. You can use this to configure Chainguard Libraries for 
 Python as the first choice for any library access, with a fallback to the PyPI public index. 
-In addition, if you are consuming from our remediated Python libraries index, we recommend setting the [index-strategy setting](https://docs.astral.sh/uv/reference/settings/#index-strategy) to `unsafe-best-match`. This will ensure that index resolution continues to work when remediated libraries have dependencies on non-remediated librarie.
+In addition, if you are consuming from our remediated Python libraries index, we recommend setting the [index-strategy setting](https://docs.astral.sh/uv/reference/settings/#index-strategy) to `unsafe-best-match`. This will ensure that index resolution continues to work when remediated libraries have dependencies on non-remediated libraries.
