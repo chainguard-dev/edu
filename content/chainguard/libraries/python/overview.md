@@ -72,7 +72,7 @@ https://libraries.cgr.dev/python/
 https://libraries.cgr.dev/python-remediated/
 ```
 
-The first index provides all Python libraries that we build from source, without remediated versions. The second index provides remediated libraries with High and Critical CVE fixes applied to older versions.
+The first index provides all Python libraries that we build from source, without remediated versions. The second index provides remediated libraries with high and critical CVE fixes applied to older versions. The separate indexes provide users the option to decide when they want to use remediated libraries. 
 
 Use the URLs with your [username and password retrieved with
 chainctl](/chainguard/libraries/access/) to access the Chainguard Libraries for
