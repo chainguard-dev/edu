@@ -227,21 +227,28 @@
   parent = "solutions"
 
 [[footer]]
+  name = "CMMC 2.0"
+  url = "https://www.chainguard.dev/solutions/cmmc?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
+  weight = 3
+  parent = "solutions"
+
+
+[[footer]]
   name = "Golden Images"
   url = "https://chainguard.dev/solutions/golden-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
-  weight = 3
+  weight = 4
   parent = "solutions"
 
 [[footer]]
   name = "CVE Remediation"
-  url = "https://chainguard.dev/solutions/vulnerability-remediation?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
-  weight = 4
+  url = "https://www.chainguard.dev/solutions/cve-remediation?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
+  weight = 5
   parent = "solutions"
 
 [[footer]]
   name = "Public Sector"
   url = "https://www.chainguard.dev/solutions/public-sector?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
-  weight = 5
+  weight = 6
   parent = "solutions"
 
 [[footer]]
@@ -257,7 +264,7 @@
 
 [[footer]]
   name = "Chainguard Reviews"
-  url = "https://chainguard.dev/chainguard-reviews?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
+  url = "https://www.chainguard.dev/chainguard-love?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement"
   weight = 2
   parent = "customers"
 
