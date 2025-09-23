@@ -1,37 +1,27 @@
 ---
 date: 2025-09-18T15:03:55Z
-title: "chainctl iam role-bindings list"
-slug: chainctl_iam_role-bindings_list
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings_list/
+title: "chainctl auth delete-account"
+slug: chainctl_auth_delete-account
+url: /chainguard/chainctl/chainctl-docs/chainctl_auth_delete-account/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam role-bindings list
+## chainctl auth delete-account
 
-List role-bindings.
-
-```
-chainctl iam role-bindings list [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--output=json|table|tree]
-```
-
-### Examples
+Permanently delete your user account.
 
 ```
-  # List role-bindings
-  chainctl iam role-bindings list
-  
-  # Filter role-bindings by organization
-  chainctl iam role-bindings list --parent=my-org
+chainctl auth delete-account [flags]
 ```
 
 ### Options
 
 ```
-  -h, --help            help for list
-      --parent string   List role-bindings from this location.
+  -h, --help   help for delete-account
+  -y, --yes    Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 
 ### Options inherited from parent commands
@@ -50,5 +40,5 @@ chainctl iam role-bindings list [--parent ORGANIZATION_NAME | ORGANIZATION_ID | 
 
 ### SEE ALSO
 
-* [chainctl iam role-bindings](/chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings/)	 - IAM role-bindings resource interactions.
+* [chainctl auth](/chainguard/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
 
