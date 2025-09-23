@@ -49,7 +49,7 @@ apply:
 
 ## CVE Remediation
 
-Chaingard Libraries for Python includes includes [CVE Remediation](/chainguard/libraries/cve-remediation.md). This provides access to remediated library versions with High and Critical CVE fixes, particularly when upstream maintainers are not able to backport fixes to older versions. Remediated libraries include a local version identifier of `+cgr.N`. For example, the `flask` library has a fix for CVE-2023-30861 in versions `1.1.2+cgr.1` and `2.0.0+cgr.1`.
+Chaingard Libraries for Python includes [CVE Remediation](/chainguard/libraries/cve-remediation.md). This provides access to remediated library versions with high and critical CVE fixes, particularly when upstream maintainers are not able to backport fixes to older versions. Remediated libraries include a local version identifier of `+cgr.N`. For example, the `flask` library has a fix for CVE-2023-30861 in versions `1.1.2+cgr.1` and `2.0.0+cgr.1`.
 
 In some cases, multiple CVEs may be remediated in a specific library version. For example, `aiohttp` has fixes for both  CVE-2024-23334 and CVE-2024-30251 in the version `3.9.1+cgr.2`. Python package management tools interpret the `+cgr.N` suffix as a local version, which takes precedence over versions without the version suffix during dependency resolution.
 
