@@ -94,7 +94,7 @@ This takes you to a **Basic** configuration tab where you can enter the followin
 
 Then, navigate to the **Advanced** configuration tab and enter the following details:
 
-* **Disable URL Normalization** - This must be enabled because, in some cases, the normalization will invalidate the URLs that packages are served from.
+* **Disable URL Normalization** — This must be enabled because, in some cases, the normalization will invalidate the URLs that packages are served from.
 
 Click the **Create Remote Repository** button to create the remote repository and return to the **Repositories** page. 
 
