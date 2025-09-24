@@ -258,7 +258,7 @@ virtual repository:
 Configure a remote repository for the Maven Central Repository:
 
 1. Press **Create a Repository** and choose the **Remote** option.
-1. Select *Maven* as the Package type.
+1. Select *Maven* as the **Package type**.
 1. Set the **Repository Key** to *java-public*.
 1. Set the **URL** to *https://repo1.maven.org/maven2/* .
 1. Deactivate **Maven Settings - Handle Snapshots**.
@@ -281,6 +281,7 @@ Configure a remote repository for the Chainguard Libraries for Java repository:
 Combine the two repositories in a new virtual repository:
 
 1. Press **Create a Repository** and choose the **Virtual** option.
+1. Select *Maven* as the **Package type**.
 1. Set the **Repository Key** to *java-all*.
 1. Scroll down to the **Repositories** section
 1. Add the *java-chainguard* and *java-public* repositories. Ensure the
