@@ -69,7 +69,7 @@ Note that the latest version of the JRE (currently 24) is freely available from
 Chainguard but access to other versions requires a subscription.
 
 
-## Step 1 — Creating a Demo Java Application
+## Stage 1 — Creating a Demo Java Application
 
 Start by creating a demo Java application to demonstrate Jib's containerization
 capabilities. This example uses a basic Spring Boot application, but the
@@ -210,7 +210,7 @@ After validating that the application builds successfully and works as
 expected, you can stop the server by pressing `Ctrl+C` in the terminal where it's
 running.
 
-## Step 2 — Configuring Jib with Chainguard Containers
+## Stage 2 — Configuring Jib with Chainguard Containers
 
 The next step is to include and configure Jib as a plugin in the `pom.xml`
 file. 
@@ -268,12 +268,12 @@ The configuration specifies several settings:
   - **Creation time**: Uses the current timestamp
 
 
-## Step 3 — Building Container Images with Jib
+## Stage 3 — Building Container Images with Jib
 
 With Jib configured, you can now build your containerized Java application.
 Because we have specified `dockerBuild` as the execution goal, this step will
 require a local Docker install. If you want to avoid using Docker and push the
-image straight to a registry, jump to step 5.
+image straight to a registry, jump to Stage 5.
 
 Run:
 
@@ -338,7 +338,7 @@ No vulnerabilities found
 
 In this case, there were no CVEs found. Try comparing those results to images built with different base images.
 
-## Step 4 — Testing the Containerized Application
+## Stage 4 — Testing the Containerized Application
 
 After building your container image, test it to ensure it works correctly.
 Start by running the container locally:
@@ -374,7 +374,7 @@ Application is healthy
 
 Stop the container by pressing `Ctrl+C` in the terminal where it's running.
 
-## Step 5 — Building and pushing to a remote registry
+## Stage 5 — Building and pushing to a remote registry
 
 One of the strongest points of jib is that you don't need Docker installed to
 build and distribute container images. In this step we will change `pom.xml` to
