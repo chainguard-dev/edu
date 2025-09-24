@@ -53,7 +53,7 @@ since Jib handles the compilation outside the container.
 
 You can verify the version of Java in a container as follows:
 
-```
+```bash
 docker run --rm cgr.dev/chainguard/jre:latest -version
 ```
 
@@ -77,7 +77,7 @@ principles apply to any Java application.
 
 Create a new directory for your project and navigate into it:
 
-```shell
+```bash
 mkdir jib-demo
 cd jib-demo
 ```
@@ -127,6 +127,7 @@ The application is bootstrapped, but still needs build details for Maven. The
 following command will create the pom.xml file with basic build settings for
 Java 21:
 
+```xml
 cat > pom.xml <<EOF
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0           http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -166,6 +167,7 @@ cat > pom.xml <<EOF
   </build>
 </project>
 EOF
+```
 
 To run the build, run the following command:
 
@@ -482,7 +484,7 @@ This doesn't work for multiplatform images unfortunately, so to test you will
 need to remove one of the platforms in the from definition. (Or alternatively,
 pull the architecture setting into a parameter.)
 
-The following plugin definition will build a tarball for the amd64 platform:
+The following plugin definition will build a tarball for the `amd64` platform:
 
 ```xml
 <plugin>
