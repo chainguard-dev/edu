@@ -43,17 +43,17 @@ Chainguard provides several Java-related images optimized for different use
 cases. Understanding which image to use depends on your application's
 requirements:
 
- - cgr.dev/chainguard/jre: Java Runtime Environment only; for running pre-compiled Java applications
- - cgr.dev/chainguard/jdk: Full Java Development Kit; use if your build process requires compilation within the container
- - cgr.dev/chainguard/maven: Pre-configured with Apache Maven for build environments
- - cgr.dev/chainguard/gradle: Pre-configured with Gradle for build environments
+ - [cgr.dev/chainguard/jre](https://images.chainguard.dev/directory/image/jre): Java Runtime Environment only; for running pre-compiled Java applications
+ - [cgr.dev/chainguard/jdk](https://images.chainguard.dev/directory/image/jdk): Full Java Development Kit; use if your build process requires compilation within the container
+ - cgr.dev/chainguard/maven](https://images.chainguard.dev/directory/image/maven): Pre-configured with Apache Maven for build environments
+ - cgr.dev/chainguard/gradle](https://images.chainguard.dev/directory/image/gradle): Pre-configured with Gradle for build environments
 
 For most production applications built with Jib, the JRE image is appropriate
 since Jib handles the compilation outside the container. 
 
 You can verify the version of Java in a container as follows:
 
-```bash
+```shell
 docker run --rm cgr.dev/chainguard/jre:latest -version
 ```
 
@@ -77,7 +77,7 @@ principles apply to any Java application.
 
 Create a new directory for your project and navigate into it:
 
-```bash
+```shell
 mkdir jib-demo
 cd jib-demo
 ```
@@ -218,7 +218,7 @@ file.
 Locate the `<plugins>` section of your `pom.xml` file. Add the Jib plugin
 definition like this:
 
-```
+```xml
       <plugin>
         <groupId>com.google.cloud.tools</groupId>
         <artifactId>jib-maven-plugin</artifactId>
