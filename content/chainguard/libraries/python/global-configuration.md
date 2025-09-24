@@ -15,18 +15,32 @@ weight: 052
 toc: true
 ---
 
-Python library consumption in a large organization is typically managed by a repository manager. Commonly used repository manager applications are [Cloudsmith](https://cloudsmith.com/), [JFrog Artifactory](https://jfrog.com/artifactory/), and [Sonatype Nexus Repository](https://www.sonatype.com/products/sonatype-nexus-repository). The repository manager acts as a single point of access for developers and development tools to retrieve the required libraries.
+Python library consumption in a large organization is typically managed by a
+repository manager. Commonly used repository manager applications are
+[Cloudsmith](https://cloudsmith.com/), [JFrog
+Artifactory](https://jfrog.com/artifactory/), and [Sonatype Nexus
+Repository](https://www.sonatype.com/products/sonatype-nexus-repository). The
+repository manager acts as a single point of access for developers and
+development tools to retrieve the required libraries.
 
-At a high level, adopting the use of Chainguard Libraries consists of the following steps:
+At a high level, adopting the use of Chainguard Libraries consists of the
+following steps:
 
 * Add Chainguard Libraries as a remote repository for library retrieval.
 * Add the public [PyPI](https://pypi.org/) repository as a remote repository.
-* Create a group, virtual, or polyglot repository combining these repository sources with any desired internal repositories. Configure the Chainguard Libraries repository as the first choice for any library access after any desired internal repositories.
+* Create a group, virtual, or polyglot repository combining these repository
+  sources with any desired internal repositories. Configure the Chainguard
+  Libraries repository as the first choice for any library access after any
+  desired internal repositories.
 
 You should also:
 
-* Remove all prior cached artifacts in the virtual server or proxy public repository. This step reduces confusion about the origin of libraries and assists technical evaluation and adoption of Chainguard Libraries.
-* Remove any repositories that are no longer desired or necessary. Depending on your library requirements, this step can result in removal of some proxy repositories or even removal of all proxy repositories. 
+* Remove all prior cached artifacts in the virtual server or proxy public
+  repository. This step reduces confusion about the origin of libraries and
+  assists technical evaluation and adoption of Chainguard Libraries.
+* Remove any repositories that are no longer desired or necessary. Depending on
+  your library requirements, this step can result in removal of some proxy
+  repositories or even removal of all proxy repositories. 
 
 If your organization does not use a repository manager, you can still use
 Chainguard Libraries. However, this approach requires configuration of multiple
@@ -40,7 +54,13 @@ information.
 
 ## Cloudsmith
 
-[Cloudsmith](https://cloudsmith.com/) supports Python repositories for proxying and hosting and polyglot repositories that combine multiple repositories sources with compatible formats. Refer to the [Cloudsmith Python Repository documentation](https://help.cloudsmith.io/docs/python-repository) and the [Cloudsmith documentation for creating a repository](https://help.cloudsmith.io/docs/create-a-repository) for more information. 
+[Cloudsmith](https://cloudsmith.com/) supports Python repositories for proxying
+and hosting and polyglot repositories that combine multiple repositories sources
+with compatible formats. Refer to the [Cloudsmith Python Repository
+documentation](https://help.cloudsmith.io/docs/python-repository) and the
+[Cloudsmith documentation for creating a
+repository](https://help.cloudsmith.io/docs/create-a-repository) for more
+information. 
 
 ### Initial configuration
 
@@ -56,7 +76,8 @@ First, create a repository:
    repository. The name should include *python* to identify the repository
    format. This convention helps avoid confusion, since repositories in
    Cloudsmith are multi-format. 
-1. Select a storage region that is appropriate for your organization and infrastructure.
+1. Select a storage region that is appropriate for your organization and
+   infrastructure.
 1. Select **+ Create Repository**. 
 
 Next, configure the upstream proxies:
@@ -64,15 +85,23 @@ Next, configure the upstream proxies:
 1. Select the name of the new *python-all* repository on the repositories page
    to configure it.
 1. Access the **Upstreams** tab and click **+ Add Upstream Proxy**.
-1. Configure an upstream proxy with the format **python** and the following details: 
+1. Configure an upstream proxy with the format **python** and the following
+   details: 
     * **Name**: `python-chainguard`
     * **Priority**: `1`
     * **Upstream URL**: `https://libraries.cgr.dev/python/`
     * **Mode**: `Cache and Proxy`
+   * Add the **Username** and **Password** value from [Chainguard Libraries
+      access](/chainguard/libraries/access/) in **Authentication Settings**
 1. Select **Create Upstream Proxy**.
+1. If you want to use the separate repository with
+   [remediated Python libraries](/chainguard/libraries/python/overview/#cve-remediation),
+   repeat the preceding two steps with the name `python-chainguard-remediated`,
+   the priority `2`, the same authentication details, and the URL
+   `https://libraries.cgr.dev/python-remediated/`.
 1. Configure another upstream proxy with the following details
     * **Name**: `python-public`
-    * **Priority**: `2`
+    * **Priority**: `3`
     * **Upstream URL**: `https://pypi.org/`
     * **Mode**: `Cache and Proxy`
 1. Select **Create Upstream Proxy**.
@@ -80,14 +109,18 @@ Next, configure the upstream proxies:
 ### Build tool access
 
 See the page on [build tool configuration for Chainguard Libraries for
-Python](/chainguard/libraries/python/build-configuration/#cloudsmith) for information on
-accessing credentials and setting up build tools.
+Python](/chainguard/libraries/python/build-configuration/#cloudsmith) for
+information on accessing credentials and setting up build tools.
 
 <a id="artifactory"></a>
 
 ## JFrog Artifactory
 
-[JFrog Artifactory](https://jfrog.com/artifactory/) supports PyPI repositories for proxying and virtual repositories to combine multiple sources into a single repository. The following instructions are based on the [PyPI Repository documentation for Artifactory](https://jfrog.com/help/r/jfrog-artifactory-documentation/set-up-pypi-repositories-on-artifactory).
+[JFrog Artifactory](https://jfrog.com/artifactory/) supports PyPI repositories
+for proxying and virtual repositories to combine multiple sources into a single
+repository. The following instructions are based on the [PyPI Repository
+documentation for
+Artifactory](https://jfrog.com/help/r/jfrog-artifactory-documentation/set-up-pypi-repositories-on-artifactory).
 
 ### Initial configuration
 
@@ -107,11 +140,18 @@ Configure a remote repository for the Chainguard Libraries for Python index:
 1. Set the **URL** to `https://libraries.cgr.dev/python/`.
 1. Set **User Name** and **Password / Access Token** to the [values as retrieved
    with chainctl](/chainguard/libraries/access/).
-1. Set the **Pypi Settings - Registry URL** to `https://libraries.cgr.dev/python/`.
+1. Set the **PyPI Settings - Registry URL** to
+   `https://libraries.cgr.dev/python/`.
 1. Optionally click the **Test** button to verify connection and authentication.
 1. Access the **Advanced** configuration tab and deactivate the **Block
    Mismatching Mime Types** setting in the **Others** section.
 1. Press **Create Remote Repository**.
+
+If you want to use the separate repository with [remediated Python
+libraries](/chainguard/libraries/python/overview/#cve-remediation) repeat the
+preceding steps with the name `python-chainguard-remediated`, the same
+authentication details, and the URL
+`https://libraries.cgr.dev/python-remediated/`.
 
 Configure a remote repository for the PyPI public index:
 
@@ -119,7 +159,7 @@ Configure a remote repository for the PyPI public index:
 1. Select *PyPI* as the Package type.
 1. Set the **Repository Key** to `python-public`.
 1. Set the **URL** to `https://files.pythonhosted.org`.
-1. Set the **Pypi Settings - Registry URL** to `https://pypi.org/`.
+1. Set the **PyPI Settings - Registry URL** to `https://pypi.org/`.
 1. Select **Create Remote Repository**.
 
 Combine the two repositories in a new virtual repository:
@@ -133,27 +173,11 @@ Combine the two repositories in a new virtual repository:
    name to drag and drop repositories into the desired position.
 1. Select **Create Virtual Repository**.
 
-At this point, you have a virtual repository set up in Artifactory that allows you or others in your organization to access Chainguard Libraries for Python with your chosen tools. This setup falls back to the public PyPI index in cases where a package is not available in Chainguard's index.
-
-### Additional configuration for CVE Remediation
-We recommend users also configure the repository for **Python Libraries with CVE Remediation** so that remediated versions with high and critical CVE fixes can be consumed automatically.  
-
-1. Create a new **Remote repository**:  
-   - Select **Create a Repository** and choose the **Remote** option.  
-   - Select *PyPI* as the Package type.  
-   - Set the Repository Key to `python-remediated`.  
-   - Set the URL to `https://libraries.cgr.dev/python-remediated/`.  
-   - Set **User Name** and **Password / Access Token** to the same [values as retrieved
-   with chainctl](/chainguard/libraries/access/). 
-   - Set the **Pypi Settings - Registry URL** to `https://libraries.cgr.dev/python-remediated/`.
-   - Select **Create Remote Repository**.  
-
-2. Add this new repository to the existing **Virtual repository** (for example, `python-all`):  
-   - Edit the virtual repository configuration.  
-   - Add `python-remediated` alongside `python-chainguard` and `python-public`.  
-   - Drag `python-remediated` to the top of the list to ensure it take the highest priority. 
-
-With this configuration, Artifactory will select remediated versions whenever available. For example, `gunicorn` version `20.1.0` will resolve to the remediated version, `20.1.0+cgr.1`. If no remediated version exists, it will fall back to the standard Chainguard repository and then PyPI.  
+At this point, you have a virtual repository set up in Artifactory that allows
+you or others in your organization to access Chainguard Libraries for Python,
+optionally including remediated versions, with your chosen tools. This setup
+falls back to the public PyPI index in cases where a package is not available in
+Chainguard's index.
 
 ### Build tool access
 
@@ -165,7 +189,11 @@ information on accessing credentials and setting up build tools.
 
 ## Sonatype Nexus Repository
 
-[Sonatype Nexus Repository](https://www.sonatype.com/products/sonatype-nexus-repository) allows for merging multiple remote repositories as a repository group. The below instructions for  are based on the [Nexus documentation for PyPI](https://help.sonatype.com/en/pypi-repositories.html) 
+[Sonatype Nexus
+Repository](https://www.sonatype.com/products/sonatype-nexus-repository) allows
+for merging multiple remote repositories as a repository group. The below
+instructions for  are based on the [Nexus documentation for
+PyPI](https://help.sonatype.com/en/pypi-repositories.html) 
 
 ### Initial configuration
 
@@ -173,7 +201,9 @@ The following steps create remote repositories for Chainguard Libraries for
 Python, a remote repository for the public PyPI index, and a repository group
 combining these sources.
 
-First, log in to Sonatype Nexus as a user with administrator privileges and access the **Server administration** and configuration section within the gear icon in the top navigation bar.
+First, log in to Sonatype Nexus as a user with administrator privileges and
+access the **Server administration** and configuration section within the gear
+icon in the top navigation bar.
 
 Next, configure a remote repository for the public PyPI index:
 
@@ -181,7 +211,8 @@ Next, configure a remote repository for the public PyPI index:
 1. Select **Create repository**.
 1. Select the **PyPI (proxy)** recipe.
 1. Provide a new name, such as `python-public`.
-1. In the **Proxy - Remote storage** field, add the following URL: `https://pypi.org/`.
+1. In the **Proxy - Remote storage** field, add the following URL:
+   `https://pypi.org/`.
 1. Select **Create repository**.
 
 Configure a remote repository for the Chainguard Libraries for Python repository:
@@ -190,9 +221,18 @@ Configure a remote repository for the Chainguard Libraries for Python repository
 1. Select **Create repository**.
 1. Select the **PyPI (proxy)** recipe.
 1. Provide a new name, such as `python-chainguard`.
-1. In the **Proxy - Remote storage**field, add the following URL: `https://libraries.cgr.dev/python/`.
-1. In **HTTP - Authentication**, set the **Authentication type** to *username* and enter the the [username and password values as retrieved with chainctl](/chainguard/libraries/access/).
+1. In the **Proxy - Remote storage**field, add the following URL:
+   `https://libraries.cgr.dev/python/`.
+1. In **HTTP - Authentication**, set the **Authentication type** to *username*
+   and enter the the [username and password values as retrieved with
+   chainctl](/chainguard/libraries/access/).
 1. Select **Create repository**. 
+
+If you want to use the separate repository with [remediated Python
+libraries](/chainguard/libraries/python/overview/#cve-remediation) repeat the
+preceding steps with the name `python-chainguard-remediated`, the same
+authentication details, and the URL
+`https://libraries.cgr.dev/python-remediated/`.
 
 Finally, create a new repository group and add the two repositories:
 
@@ -203,6 +243,8 @@ Finally, create a new repository group and add the two repositories:
 1. In the section **Group - Member repositories**, move the new repositories
    `python-public` and `python-chainguard` to the right and move the
    `python-chainguard` repository to the top of the list with the arrow control.
+   If you configured the  `python-chainguard-remediated` repository, also move
+   it to the right and the top of the list.
 
 ### Build tool access
 
