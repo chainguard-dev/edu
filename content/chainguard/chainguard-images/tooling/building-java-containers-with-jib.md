@@ -45,8 +45,8 @@ requirements:
 
  - [cgr.dev/chainguard/jre](https://images.chainguard.dev/directory/image/jre): Java Runtime Environment only; for running pre-compiled Java applications
  - [cgr.dev/chainguard/jdk](https://images.chainguard.dev/directory/image/jdk): Full Java Development Kit; use if your build process requires compilation within the container
- - cgr.dev/chainguard/maven](https://images.chainguard.dev/directory/image/maven): Pre-configured with Apache Maven for build environments
- - cgr.dev/chainguard/gradle](https://images.chainguard.dev/directory/image/gradle): Pre-configured with Gradle for build environments
+ - [cgr.dev/chainguard/maven](https://images.chainguard.dev/directory/image/maven): Pre-configured with Apache Maven for build environments
+ - [cgr.dev/chainguard/gradle](https://images.chainguard.dev/directory/image/gradle): Pre-configured with Gradle for build environments
 
 For most production applications built with Jib, the JRE image is appropriate
 since Jib handles the compilation outside the container. 
