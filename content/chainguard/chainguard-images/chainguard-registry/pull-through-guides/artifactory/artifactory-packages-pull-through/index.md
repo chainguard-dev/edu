@@ -6,7 +6,7 @@ aliases:
 type: "article"
 description: "Tutorial for setting up remote Artifactory repositories as pull-through caches for apk packages from Chainguard's package repositories."
 date: 2024-11-14T15:56:52-07:00
-lastmod: 2025-08-28T15:56:52-07:00
+lastmod: 2025-09-24T06:00:00-07:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -91,6 +91,10 @@ This takes you to a **Basic** configuration tab where you can enter the followin
 * **URL** — This must be set to `https://apk.cgr.dev/${CHAINGUARD_ORG}`, but with your organization's actual name in place of `${CHAINGUARD_ORG}`. For example, if your organization is named `example` use `https://apk.cgr.dev/example`.
 * **User Name** — This is used by Artifactory to authenticate to Chainguard and access your private APK repository. Use the pull token identity ID value you set to the `CHAINGUARD_IDENTITY_ID` variable.
 * **Password / Access Token** — This is used along with the user name to authenticate to Chainguard. Here, enter the value from `CHAINGUARD_TOKEN`. 
+
+Then, navigate to the **Advanced** configuration tab and enter the following details:
+
+* **Disable URL Normalization** - This must be enabled because, in some cases, the normalization will invalidate the URLs that packages are served from.
 
 Click the **Create Remote Repository** button to create the remote repository and return to the **Repositories** page. 
 
