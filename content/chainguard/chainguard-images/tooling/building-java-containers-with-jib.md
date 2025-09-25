@@ -21,9 +21,11 @@ approaches, Jib does not depend on Docker or require users to write
 Dockerfiles. Instead, Jib integrates directly with the Maven and Gradle build
 systems to create container images for Java applications. When paired with
 [Chainguard Java
-Containers](https://images.chainguard.dev/directory/image/jre/versions), Jib
-provides a streamlined path to building secure, minimal container images for
-Java applications.
+Containers](https://images.chainguard.dev/directory/image/jre/versions), these tools provide: 
+  - improved security through minimal base images,
+  - faster builds through layer optimization,
+  - and simplified CI/CD intergration without Docker daemon requirements
+
 
 This tutorial will walk you through building a demo application with Maven,
 Jib, and Chainguard Containers.  
@@ -32,10 +34,9 @@ Jib, and Chainguard Containers.
 
 Before proceeding, you'll need to meet the following requirements:
 
- - A Linux or macOS system with terminal access
- - Java Development Kit (JDK) 21 or later installed
- - Maven 3.6+ installed
- - Docker to test the containerized application
+ - [Java Development Kit](https://www.oracle.com/java/technologies/downloads/) (JDK) 21 or later installed
+ - [Maven 3.6+](https://maven.apache.org/install.html) installed 
+ - [Docker](https://docs.docker.com/engine/install/) to test the containerized application
 
 ## Understanding Chainguard Java Images
 
@@ -53,7 +54,7 @@ since Jib handles the compilation outside the container.
 
 You can verify the version of Java in a container as follows:
 
-```shell
+```sh
 docker run --rm cgr.dev/chainguard/jre:latest -version
 ```
 
@@ -77,14 +78,14 @@ principles apply to any Java application.
 
 Create a new directory for your project and navigate into it:
 
-```shell
+```sh
 mkdir jib-demo
 cd jib-demo
 ```
 
 Next, create the following source code directory for your application:
 
-```shell
+```sh
 mkdir -p src/main/java/com/example/demo
 ```
 
@@ -93,7 +94,7 @@ new `DemoApplication.java` file defining a Spring Boot application with two
 endpoints that you can use to verify that the containerized application works
 correctly:
 
-```
+```java
 cat > src/main/java/com/example/demo/DemoApplication.java <<EOF
 package com.example.demo;
 
@@ -171,7 +172,7 @@ EOF
 
 To run the build, run the following command:
 
-```
+```sh
 mvn clean install 
 ```
 
@@ -189,14 +190,14 @@ Observe the  output indicating that the build was successful:
 
 Now you can run the application with the following command:
 
-```
+```sh
 java -jar target/jib-demo-1.0.0.jar
 ```
 
 The application exposes a web server on port `8080`. You can test the application
 with a `curl` request from another terminal window: 
 
-```
+```sh
 curl localhost:8080
 ```
 
@@ -277,7 +278,7 @@ image straight to a registry, jump to Stage 5.
 
 Run:
 
-```shell
+```sh
 mvn clean install
 ```
 
@@ -301,7 +302,7 @@ into the local Docker instance.
 
 To verify that the image was built:
 
-```shell
+```sh
 docker images linky
 ```
 
@@ -316,7 +317,7 @@ You should also scan the image for CVEs. This example uses
 [grype](https://github.com/anchore/grype), but you can use your preferred
 scanner: 
 
-```
+```sh
 grype linky
 ```
 
@@ -343,14 +344,14 @@ In this case, there were no CVEs found. Try comparing those results to images bu
 After building your container image, test it to ensure it works correctly.
 Start by running the container locally:
 
-```shell
+```sh
 docker run -p 8080:8080 linky
 ```
 
 The application will start, and you'll see Spring Boot's startup logs. In a
 separate terminal, test the endpoints:
 
-```shell
+```sh
 curl http://localhost:8080/
 ```
 
@@ -362,7 +363,7 @@ Hello from Jib and Chainguard!
 
 Test the health endpoint:
 
-```shell
+```sh
 curl http://localhost:8080/health
 ```
 
@@ -382,11 +383,11 @@ push the image directly to a container registry.
 
 This example uses `ttl.sh`, which is a free-to-use Docker registry for short-lived hosting of images. You can also change the code to use your own registry such as a local one or the Docker Hub.
 
-Replace the previous plugin definition with this one (or add this one if you skipped step 3):
+Replace the previous plugin definition with this one (or add this one if you skipped Stage 3):
 
 
 ```xml
- <plugin>
+      <plugin>
         <groupId>com.google.cloud.tools</groupId>
         <artifactId>jib-maven-plugin</artifactId>
         <version>3.4.6</version>
@@ -433,7 +434,7 @@ local Docker instance.
 
 Run the build again:     
 
-```shell
+```sh
 mvn clean install
 ```
 
@@ -453,12 +454,17 @@ You’ll get output like this:
 
 The image name is parameterised with a timestamp, so yours will look different.
 The image won't be in your local Docker instance, but you can pull it as
-normal:
+normal (remember to copy your image name from the output):
 
-```shell
+```sh
 docker pull ttl.sh/jib-demo-20250912095951:20m
 ```
 
+And run it as before:
+
+```sh
+docker run -p 8080:8080 ttl.sh/jib-demo-20250912095951:20m
+```
 
 The `ttl.sh` registry is only for temporary testing of images and your image
 will be deleted in 20 minutes. 
@@ -468,7 +474,7 @@ from an `amd64` host you will get the `amd64` version and if you pull from an
 `arm64` host you will get the `arm64` version. You can also force the platform
 when pulling:
 
-```shell
+```sh
 docker pull --platform amd64 ttl.sh/jib-demo-20250912095951:20m
 ```
 
@@ -487,7 +493,7 @@ pull the architecture setting into a parameter.)
 The following plugin definition will build a tarball for the `amd64` platform:
 
 ```xml
-<plugin>
+      <plugin>
         <groupId>com.google.cloud.tools</groupId>
         <artifactId>jib-maven-plugin</artifactId>
         <version>3.4.6</version>
@@ -525,7 +531,7 @@ The following plugin definition will build a tarball for the `amd64` platform:
 
 After replacing the plugin definition, run:
 
-```shell
+```sh
 mvn clean install
 ```
      
@@ -540,7 +546,7 @@ And the output should give you the location of the built tarball:
 
 You can directly load this tarball into Docker:
 
-```shell
+```sh
 docker load < target/jib-image.tar
 ```
 
@@ -554,9 +560,9 @@ If required, the image can then be retagged and pushed to a registry.
 
 ### Calling goals directly
 
-In these examples, you've been editing the pom.xml to configure the execution goal. You can also directly call these from Maven e.g:
+In these examples, you've been editing the pom.xml to configure the execution goal. You can also directly call these from Maven, for example: 
 
-```shell
+```sh
 mvn install jib:dockerBuild
 ```
 
@@ -564,10 +570,10 @@ For full details of Jib plugin configuration and features, see the [guide on Git
 
 ## Next Steps
 
-You've successfully containerized a Java application using Jib and Chainguard's
-minimal container images. This approach provides several advantages: improved
-security through minimal base images, faster builds through layer optimization,
-and simplified CI/CD integration without Docker daemon requirements.
+You've now successfully containerized a Java application using Jib and Chainguard's
+minimal container images. You have seen how Jib and Chainguard combine to provide
+a streamlined path to building secure, minimal container images for Java
+applications.
 
 To continue learning about container security and optimization for the Java ecosystem, consider exploring:
 
