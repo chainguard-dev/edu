@@ -24,7 +24,7 @@ systems to create container images for Java applications. When paired with
 Containers](https://images.chainguard.dev/directory/image/jre/versions), these tools provide: 
   - improved security through minimal base images,
   - faster builds through layer optimization,
-  - and simplified CI/CD intergration without Docker daemon requirements
+  - and simplified CI/CD integration without Docker daemon requirements
 
 
 This tutorial will walk you through building a demo application with Maven,
