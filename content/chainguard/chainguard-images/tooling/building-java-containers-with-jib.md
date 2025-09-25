@@ -61,12 +61,12 @@ docker run --rm cgr.dev/chainguard/jre:latest -version
 This will display the Java version information from the image:
 
 ```
-openjdk version "24.0.2" 2025-07-15
-OpenJDK Runtime Environment (build 24.0.2+-wolfi-r5)
-OpenJDK 64-Bit Server VM (build 24.0.2+-wolfi-r5, mixed mode, sharing)
+openjdk version "25" 2025-09-16
+OpenJDK Runtime Environment (build 25+-wolfi-r1)
+OpenJDK 64-Bit Server VM (build 25+-wolfi-r1, mixed mode, sharing)
 ```
 
-Note that the latest version of the JRE (currently 24) is freely available from
+Note that the latest version of the JRE (currently 25) is freely available from
 Chainguard but access to other versions requires a subscription.
 
 
@@ -147,7 +147,7 @@ cat > pom.xml <<EOF
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
-      <version>3.5.5</version>
+      <version>3.5.6</version>
     </dependency>
   </dependencies>
   <build>
@@ -155,7 +155,7 @@ cat > pom.xml <<EOF
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
-        <version>3.5.5</version>
+        <version>3.5.6</version>
         <executions>
           <execution>
             <goals>
@@ -183,9 +183,9 @@ Observe the  output indicating that the build was successful:
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  6.741 s
-[INFO] Finished at: 2025-08-19T16:54:25+02:00
-[INFO] -
+[INFO] Total time:  0.733 s
+[INFO] Finished at: 2025-09-25T11:40:03+01:00
+[INFO] ---
 ```
 
 Now you can run the application with the following command:
@@ -310,7 +310,7 @@ Which will provide details on the new image:
 
 ```
 REPOSITORY   TAG       IMAGE ID       CREATED         SIZE
-linky        latest    43171844f68e   3 minutes ago   465MB
+linky        latest    43171844f68e   3 minutes ago   466MB
 ```
 
 You should also scan the image for CVEs. This example uses
@@ -324,14 +324,14 @@ grype linky
 This should give you output similar to the following:
 
 ```
-✔ Vulnerability DB                [updated]
- ✔ Loaded image                                                                 linky:latest
- ✔ Parsed image                    sha256:078478c4d49bae684d8337c3a97df00722f7d1c0d8507e6e1ae
- ✔ Cataloged contents              a7123bf3bfc2296155ab226593f9f0d79b322c29da5d94af90fdc267cc
-   ├── ✔ Packages                        [75 packages]
-   ├── ✔ File metadata                   [1,391 locations]
-   ├── ✔ Executables                     [124 executables]
-   └── ✔ File digests                    [1,391 files]
+ ✔ Vulnerability DB                [updated]
+ ✔ Loaded image                                                  linky:latest
+ ✔ Parsed image                    sha256:bf2e8781db85416a96815753aa5dce19f9d8
+ ✔ Cataloged contents              a25dc3225e1f655da4f3f160acf6004973061ae0a25
+   ├── ✔ Packages                        [72 packages]
+   ├── ✔ Executables                     [121 executables]
+   ├── ✔ File metadata                   [1,335 locations]
+   └── ✔ File digests                    [1,335 files]
  ✔ Scanned for vulnerabilities     [0 vulnerability matches]
    ├── by severity: 0 critical, 0 high, 0 medium, 0 low, 0 negligible
 No vulnerabilities found
@@ -442,28 +442,28 @@ You’ll get output like this:
 
 ```
 ...
-[INFO] Using base image with digest: sha256:e210680d61b774aa26e76d169ecc036d1fd90e1e5bada56818747cf2b848e2ea
+[INFO] Using base image with digest: sha256:60a6d264537fbad2f5d37a01cf6222f2f172415f686bf59afe3b1043f79323f0
+[INFO]
 [INFO]
 [INFO] Container entrypoint set to [java, -cp, @/app/jib-classpath-file, com.example.demo.DemoApplication]
-[INFO]
 [INFO] Container entrypoint set to [java, -cp, @/app/jib-classpath-file, com.example.demo.DemoApplication]
 [INFO]
-[INFO] Built and pushed image as ttl.sh/jib-demo-20250912095951:20m
+[INFO] Built and pushed image as ttl.sh/jib-demo-20250925104449:20m
 ...
 ```
 
 The image name is parameterised with a timestamp, so yours will look different.
 The image won't be in your local Docker instance, but you can pull it as
-normal (remember to copy your image name from the output):
+normal (remember to copy your unique image name from the output):
 
 ```sh
-docker pull ttl.sh/jib-demo-20250912095951:20m
+docker pull ttl.sh/jib-demo-20250925104449:20m
 ```
 
 And run it as before:
 
 ```sh
-docker run -p 8080:8080 ttl.sh/jib-demo-20250912095951:20m
+docker run -p 8080:8080 ttl.sh/jib-demo-20250925104449:20m
 ```
 
 The `ttl.sh` registry is only for temporary testing of images and your image
@@ -475,7 +475,7 @@ from an `amd64` host you will get the `amd64` version and if you pull from an
 when pulling:
 
 ```sh
-docker pull --platform amd64 ttl.sh/jib-demo-20250912095951:20m
+docker pull --platform amd64 ttl.sh/jib-demo-20250925104449:20m
 ```
 
 ## Other Features
