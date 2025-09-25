@@ -64,12 +64,15 @@ command:
 chainctl auth pull-token --library-ecosystem=java --parent=example --ttl=8670h
 ```
 
-* `--library-ecosystem=java`: retrieve the token for use with Chainguard
-  Libraries for Java. Use `python` for a token to use Chainguard Libraries for
-  Python.
+* `--library-ecosystem=java`: retrieve the token for use with [Chainguard
+  Libraries for Java](/chainguard/libraries/java/overview). Use `python` for a
+  token to use [Chainguard Libraries for
+  Python](/chainguard/libraries/python/overview) and `javascript` for a token to
+  use [Chainguard Libraries for
+  JavaScript](/chainguard/libraries/python/overview).
 * `--parent=example`: specify the parent organization for your account as
   provided when requesting access to Chainguard Libraries and replace `example`.
-* `--ttl=8670d`: set the duration for the validity of the token, defaults to
+* `--ttl=8670h`: set the duration for the validity of the token, defaults to
   `720h` (equivalent to 30 days), maximum valid value is `8760h` (equivalent to
   365 days), valid unit strings range from nanoseconds to hours and are `ns`,
   `us`, `ms`, `s`, `m`, and `h`.
@@ -111,10 +114,18 @@ for basic authentication. Note that the actual returned values are much longer.
 
 Refer to the following resources for more specific information for your needs:
 
-* [Repository manager configuration with Java](/chainguard/libraries/java/global-configuration/)
-* [Build tool and direct access configuration with Java](/chainguard/libraries/java/build-configuration/)
-* [Repository manager configuration with Python](/chainguard/libraries/python/global-configuration/)
-* [Build tool and direct access configuration with Python](/chainguard/libraries/python/build-configuration/)
+* [Repository manager configuration with
+  Java](/chainguard/libraries/java/global-configuration/)
+* [Build tool and direct access configuration with
+  Java](/chainguard/libraries/java/build-configuration/)
+* [Repository manager configuration with
+  JavaScript](/chainguard/libraries/javascript/global-configuration/)
+* [Build tool and direct access configuration with
+  JavaScript](/chainguard/libraries/javascript/build-configuration/)
+* [Repository manager configuration with
+  Python](/chainguard/libraries/python/global-configuration/)
+* [Build tool and direct access configuration with
+  Python](/chainguard/libraries/python/build-configuration/)
 
 ### Creating pull tokens with the Chainguard console
 
@@ -146,8 +157,9 @@ with Chainguard Libraries:
   **Edit**.
 * Update the **Name** value by removing the `- registry` string and add any
   other desired modifications.
-* Use the **Role** input under **Add role** to add the `libraries.java.pull` or
-  `libraries.python.pull` roles and press **Update**.
+* Use the **Role** input under **Add role** to add the `libraries.java.pull`,
+  `libraries.javascript.pull` or `libraries.python.pull` roles and press
+  **Update**.
   * Optionally click on the `registry.pull` role under **Roles**, press **Edit
     role**, and then **Delete** to remove the role.
 
@@ -157,8 +169,12 @@ Use the credentials for manual testing in a browser or with a script and curl if
 you know the URL for a specific library artifact. Refer to the following
 sections for more details:
 
-* [Technical details and manual testing for Java libraries](/chainguard/libraries/java/overview/#technical-details)
-* [Technical details and manual testing for Python libraries](/chainguard/libraries/python/overview/#technical-details)
+* [Technical details and manual testing for Java
+  libraries](/chainguard/libraries/java/overview/#technical-details)
+* [Technical details and manual testing for JavaScript
+  libraries](/chainguard/libraries/javascript/overview/#technical-details)
+* [Technical details and manual testing for Python
+  libraries](/chainguard/libraries/python/overview/#technical-details)
 * [Use environment variables](#env)
 * [.netrc for authentication](#netrc)
 
@@ -186,15 +202,20 @@ calling `chainctl`:
 eval $(chainctl auth pull-token --output env --library-ecosystem=java --parent=example)
 ```
 
-Equivalent commands for Python are supported and result in values for the
-`CHAINGUARD_PYTHON_IDENTITY_ID` and `CHAINGUARD_PYTHON_TOKEN` variables.
+Equivalent commands for Python and JavaScript are supported and result in values
+for the `CHAINGUARD_PYTHON_IDENTITY_ID`/`CHAINGUARD_PYTHON_TOKEN` and
+`CHAINGUARD_JAVASCRIPT_IDENTITY_ID`/`CHAINGUARD_JAVASCRIPT_TOKEN` variables.
 
 Running this command as part of a login script or some other automation allows
 your organization to replace actual username and password values in your build
 tool configuration with environment variable placeholders:
 
-*  [Java build tool configuration](/chainguard/libraries/java/build-configuration/)
-*  [Python build tool configuration](/chainguard/libraries/python/build-configuration/)
+* [Java build tool
+  configuration](/chainguard/libraries/java/build-configuration/)
+* [JavaScript build tool
+  configuration](/chainguard/libraries/javascript/build-configuration/)
+* [Python build tool
+  configuration](/chainguard/libraries/python/build-configuration/)
 
 <a id="netrc"></a>
 
@@ -252,6 +273,7 @@ Ecosystem Library Entitlements for example (45a0...764595)
 
                              ID                             | ECOSYSTEM
 ------------------------------------------------------------+------------
+  45a...................................................2cf | JAVASCRIPT
   45a....................................................e1 | JAVA
   45a....................................................x6 | PYTHON
 ```
@@ -340,8 +362,9 @@ The displayed list includes the following columns:
 * **ROLES** - the assigned organization and role for the pull token. The value
   shows the name of the organization separate from the role with a colon. Valid
   roles are all pull authorization from for apk packages `apk.pull`, container
-  images `registry.pull`, Python libraries `libraries.python.pull`, and Java
-  libraries `libraries.java.pull`.
+  images `registry.pull`, Python libraries `libraries.python.pull`, Java
+  libraries `libraries.java.pull`, and JavaScript libraries
+  `libraries.javascript.pull` .
 * **EXPIRES** - the number of days until the end of the TTL period. Negative
   values indicate expired tokens.
 

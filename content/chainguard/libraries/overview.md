@@ -14,11 +14,22 @@ weight: 001
 toc: true
 ---
 
-Chainguard Libraries provide enhanced security for open source dependencies in Java and Python ecosystems, addressing critical supply chain vulnerabilities through automated patching and continuous monitoring. Modern applications rely heavily on libraries from public repositories like [Maven Central](https://central.sonatype.com/), [npm](https://www.npmjs.com/), and [PyPI](https://pypi.org/), but these dependencies often contain vulnerabilities that put applications at risk.
+Chainguard Libraries provide enhanced security for open source dependencies in
+the Java, JavaScript, and Python ecosystems, addressing critical supply chain
+vulnerabilities through automated patching and continuous monitoring. Modern
+applications rely heavily on libraries from public repositories like [Maven
+Central](https://central.sonatype.com/), [npm Registry](https://www.npmjs.com/),
+and [PyPI](https://pypi.org/), but these dependencies often contain
+vulnerabilities that put applications at risk.
 
 ## Background
 
-Open source libraries distributed through public repositories face several security challenges: maintainers may not promptly address vulnerabilities, binary artifacts can be compromised, and the sheer volume of transitive dependencies makes manual security management impractical. While these repositories enable rapid development, they also introduce supply chain risks that traditional security approaches struggle to address.
+Open source libraries distributed through public repositories face several
+security challenges: maintainers may not promptly address vulnerabilities,
+binary artifacts can be compromised, and the sheer volume of transitive
+dependencies makes manual security management impractical. While these
+repositories enable rapid development, they also introduce supply chain risks
+that traditional security approaches struggle to address.
 
 While convenient, these services remove the direct link from your application to
 the source code of a specific project, and create a potential risk for quality
@@ -77,5 +88,8 @@ Chainguard Libraries is available for the following library ecosystems:
 
 * Java and the larger Java Virtual Machine (JVM) ecosystem with [Chainguard
   Libraries for Java](/chainguard/libraries/java/overview/)
+* JavaScript and the larger ecosystem around JavaScript, TypeScript, npm, React
+  and others with [Chainguard Libraries for
+  JavaScript](/chainguard/libraries/javascript/overview/)
 * Python and the larger ecosystem with [Chainguard Libraries for
   Python](/chainguard/libraries/python/overview/)
