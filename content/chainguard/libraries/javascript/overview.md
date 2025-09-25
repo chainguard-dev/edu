@@ -14,8 +14,8 @@ weight: 051
 toc: true
 ---
 
-**Chainguard Libraries for JavaScript** is a major ecosystem supported
-by [Chainguard Libraries](/chainguard/libraries/overview/). The JavaScript
+**Chainguard Libraries for JavaScript** is a major ecosystem supported by
+[Chainguard Libraries](/chainguard/libraries/overview/). The JavaScript
 ecosystem consists of thousands of open source projects from the communities
 around [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript),
 [TypeScript](https://www.typescriptlang.org/), [Node.js](https://nodejs.org/),
