@@ -52,7 +52,6 @@ configure and control. Refer to the [direct access documentation for build
 tools](/chainguard/libraries/javascript/build-configuration/#direct-access) for more
 information.
 
-<!-- Removed for now for testing 
 <a name="cloudsmith"></a>
 
 ## Cloudsmith
@@ -95,10 +94,11 @@ Configure an upstream proxy for the npm registry:
     * **Mode** *Cache and Proxy*
 1. Press **Create Upstream Proxy**.
 
-Configure an upstream proxy for the Chainguard Libraries for JavaScript repository:
+Configure an upstream proxy for the Chainguard Libraries for JavaScript
+repository:
 
-1. Click the name of the new *javascript-chainguard* repository on the repositories
-   page to configure it.
+1. Click the name of the new *javascript-chainguard* repository on the
+   repositories page to configure it.
 1. Access the **Upstreams** tab and click **+ Add Upstream Proxy**.
 1. Configure an upstream proxy with the format **npm** and the following details:
     * **Name** *javascript-chainguard*
@@ -115,8 +115,7 @@ repository.
 
 ### Build tool access
 
-
--->
+TBD
 
 <a name="artifactory"></a>
 
