@@ -71,9 +71,9 @@ used for managing JavaScript dependencies and scripts. It allows developers to
 install, share, and manage packages for their projects. For more details, see
 the [npm documentation](https://docs.npmjs.com/).
 
-Using npm, dependencies to JavaScript packages are declared in a `package.json`
-file and separated into development and runtime dependencies. The following
-snippet shows a minimal example with a couple of dependencies each:
+With npm, you declare JavaScript package dependencies in a `package.json` file
+and separated into development and runtime dependencies. The following snippet
+shows a minimal example with a couple of dependencies each:
 
 ```json
 {
@@ -94,10 +94,10 @@ snippet shows a minimal example with a couple of dependencies each:
 }
 ```
 
-By default, the packages are retrieved from the npm Registry at
-`https://registry.npmjs.org` and stored locally in the `node_modules` directory
-after running `npm install`. This operation also creates the `package-lock.json`
-file. 
+By default, npm retrieves packages from the npm Registry at
+`https://registry.npmjs.org` and stores them locally in the `node_modules`
+directory of the project after running `npm install`. This operation also
+creates the `package-lock.json` file. 
 
 Note that dependency versions are typically declared with the `^` before the
 version string. This indicates higher, compatible versions, following the
@@ -111,20 +111,20 @@ therefore an update to the lock file. The lock file also encodes the checksum
 values in the `integrity` field and the download URL in the `resolved` field for
 each module.
 
-To switch a project to use Chainguard Libraries for JavaScript, set the registry
+To change a project to use Chainguard Libraries for JavaScript, set the registry
 URL to point to your repository manager in your user `.npmrc` file: 
 
 ```shell
 npm config set registry https://repo.example.com:8443/repository/javascript-all/
 ```
 
-The command results in the following line:
+The command results in the following line in the `.npmrc` file:
 
 ```properties
 registry=https://repo.example.com:8443/repository/javascript-all/
 ```
 
-Check the [npmrc
+Refer to the [`npmrc`
 documentation](https://docs.npmjs.com/cli/v11/configuring-npm/npmrc) for
 alternative configurations, for example per project or globally, and details for
 configuring authentication.
@@ -146,11 +146,11 @@ Now you can proceed with your development and testing.
 
 [pnpm](https://pnpm.io/) is a fast, disk space-efficient package manager for
 JavaScript, designed as an alternative to npm and Yarn. For
-more information, see the [pnpm documentation](https://pnpm.io/).
+more information, see the [pnpm documentation](https://pnpm.io/motivation).
 
-Using pnpm, dependencies to JavaScript packages are declared in a `package.json`
-file and separated into development and runtime dependencies. The following
-snippet shows a minimal example with a couple of dependencies each:
+With pnpm, you declare JavaScript package dependencies in a `package.json` file
+and separated into development and runtime dependencies. The following snippet
+shows a minimal example with a couple of dependencies each:
 
 ```json
 {
@@ -171,14 +171,14 @@ snippet shows a minimal example with a couple of dependencies each:
 }
 ```
 
-By default, the packages are retrieved from the npm Registry at
-`https://registry.npmjs.org` and stored locally in the `node_modules` directory
-after running `pnpm install`. This operation also creates the `pnpm-lock.yaml`
-file. 
+By default, pnpm retrieves the packages the npm Registry at
+`https://registry.npmjs.org` and stores them locally in the `node_modules`
+directory of the project after running `pnpm install`. This operation also
+creates the `pnpm-lock.yaml` file. 
 
 Note that dependency versions are typically declared with the `^` before the
 version string. This indicates higher, compatible versions, following the
-semantic versioning scheme of the package are used automatically. For example,
+semantic versioning scheme of the package, are used automatically. For example,
 the declaration of version `^22.18.0` for `node`, actually results in the use of
 version `22.20.0` or even a higher version once available and pnpm install is
 run.  
@@ -187,20 +187,20 @@ Any dependency or dependency version changes require another install and
 therefore an update to the lock file. The lock file also encodes the checksum
 values in the `integrity` field and other information for each module.
 
-To switch a project to use Chainguard Libraries for JavaScript, set the registry
+To change a project to use Chainguard Libraries for JavaScript, set the registry
 URL to point to your repository manager in your user `.npmrc` file: 
 
 ```shell
 pnpm config set registry https://repo.example.com:8443/repository/javascript-all/
 ```
 
-The command results in the following line:
+The command results in the following line in the `.npmrc` file:
 
 ```properties
 registry=https://repo.example.com:8443/repository/javascript-all/
 ```
 
-Check the [pnpm registry
+Refer to the [pnpm registry
 documentation](https://pnpm.io/settings#registry--authentication-settings) for
 alternative configurations, for example per project or globally, and details for
 configuring authentication.
@@ -216,36 +216,155 @@ To change the packages, remove the `node_modules` directory and the
 
 Now you can proceed with your development and testing. 
 
-<!--
 <a id="yarn"></a>
 
 ## Yarn
 
 [Yarn](https://yarnpkg.com/) is a popular package manager for JavaScript
 projects, offering fast, reliable, and secure dependency management as an
-alternative to npm. It is widely used for managing project dependencies,
-scripts, and workflows in Node.js and other JavaScript development environments.
-For more details, refer to the [Yarn
+alternative to npm. It is widely used for managing
+project dependencies, scripts, and workflows in Node.js and other JavaScript
+development environments. For more details, refer to the [Yarn
 documentation](https://yarnpkg.com/getting-started/documentation). 
 
 This section applies to modern versions of Yarn, also known as Yarn Berry, with
-versions 2.x and higher.
+versions 2.x and higher. If you are using Yarn 1.x refer to the [Yarn Classic
+section](#yarn-classic).
+
+With Yarn, you declare JavaScript package dependencies in a `package.json` file
+and separated into different scoped dependencies such as development and runtime
+dependencies. The following block shows a minimal example with `react` and
+`node` as main runtime dependencies and `eslint` as development dependency:
+
+```json
+{
+  "name": "yarn-berry-example",
+  "packageManager": "yarn@4.10.3",
+  "dependencies": {
+    "node": "^22.20.0",
+    "react": "^19.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^9.36.0"
+  }
+}
+```
+By default, Yarn retrieves the packages from the registry at
+`https://registry.yarnpkg.com` and stored locally folder `.yarn` in the users
+home directory after running `yarn`. Specific packages are linked into the
+project. This operation also creates the `yarn.lock` file.
+
+Note that dependency versions are typically declared with the `^` before the
+version string. This indicates higher, compatible versions, following the
+semantic versioning scheme of the package, are used automatically. For example,
+the declaration of version `^22.18.0` for `node`, actually results in the use of
+version `22.20.0` or even a higher version once available and `yarn` is run.  
+
+Any dependency or dependency version changes require another install and
+therefore an update to the lock file. The lock file also encodes the checksum
+values in the `checksum` field.
+
+To change a project to use Chainguard Libraries for JavaScript, set the registry
+URL to point to your repository manager in your project `.yarnrc.yml` file: 
+
+```shell
+yarn config set npmRegistryServer https://repo.example.com:8443/repository/javascript-all/
+```
+
+The command results in the following line in the `.yarnrc.yml` file:
 
 ```
-yarn config set registry http://localhost:8081/repository/javascript-all/
+npmRegistryServer: "https://repo.example.com:8443/repository/javascript-all/"
 ```
 
-for newer yarn
+Refer to the [`config set` documentation](https://yarnpkg.com/cli/config/set) for
+more details such as authentication support.
 
-```
-yarn config set npmRegistryServer http://localhost:8081/repository/javascript-all/
-``` 
+Example URLs:
+
+* JFrog Artifactory: https://example.jfrog.io/artifactory/javascript-all/
+* Sonatype Nexus: https://repo.example.com:8443/repository/javascript-all/
+* Direct access: https://libraries.cgr.dev/javascript/
+
+To change the packages, run the `yarn` command again. This forces an updated of
+all packages from the new registry and regeneration of the lock file.
+
+Now you can proceed with your development and testing. 
 
 <a id="yarn-classic"></a>
 
 ## Yarn Classic
 
-[Yarn Classic](https://classic.yarnpkg.com/) is the legacy release of Yarn using
-versions 1.x.
+[Yarn Classic](https://classic.yarnpkg.com/) is the legacy 1.x release of
+[Yarn](#yarn).
 
--->
+With Yarn, you declare JavaScript package dependencies in a `package.json` file
+and separated into different scoped dependencies such as development and runtime
+dependencies. The following block shows a minimal example with `react` and
+`node` as main runtime dependencies and `eslint` as development dependency:
+
+```json
+{
+  "name": "yarn-classic-example",
+  "version": "1.0.0",
+  "description": "A minimal example project for using yarn classic",
+  "main": "index.js",
+  "author": "Chainguard",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "node": "^22.18.0",
+    "react": "^19.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^9.36.0"
+  }
+}
+```
+
+By default, Yarn retrieves the packages from the registry at
+`https://registry.yarnpkg.com` and stores them locally in the `node_modules`
+directory of the project after running `yarn`. This operation also creates the
+`yarn.lock` file.
+
+Note that dependency versions are typically declared with the `^` before the
+version string. This indicates higher, compatible versions, following the
+semantic versioning scheme of the package, are used automatically. For example,
+the declaration of version `^22.18.0` for `node`, actually results in the use of
+version `22.20.0` or even a higher version once available and `yarn` is run.  
+
+Any dependency or dependency version changes require another install and
+therefore an update to the lock file. The lock file also encodes the checksum
+values in the `integrity` field and the download URL in the `resolved` field for
+each module.
+
+To change a project to use Chainguard Libraries for JavaScript, set the registry
+URL to point to your repository manager in your user `.yarnrc` file: 
+
+```shell
+yarn config set registry https://repo.example.com:8443/repository/javascript-all/
+```
+
+The command results in the following line in the `.yarnrc` file:
+
+```
+registry "https://repo.example.com:8443/repository/javascript-all/"
+```
+
+Refer to the [`.yarnrc`
+documentation](https://classic.yarnpkg.com/lang/en/docs/yarnrc/) for more
+details.
+
+Example URLs:
+
+* JFrog Artifactory: https://example.jfrog.io/artifactory/javascript-all/
+* Sonatype Nexus: https://repo.example.com:8443/repository/javascript-all/
+* Direct access: https://libraries.cgr.dev/javascript/
+
+To change the packages, remove the `node_modules` directory and the `yarn.lock`
+file and run the `yarn` command again. This forces a new download of all
+packages from the new registry and regeneration of the lock file. Alternatively,
+you can run `yarn upgrade` to update all dependencies to their latest allowed
+versions and regenerate the lock file.
+
+Now you can proceed with your development and testing. 
