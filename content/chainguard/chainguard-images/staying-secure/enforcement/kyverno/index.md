@@ -8,29 +8,24 @@ lastmod: 2025-09-26T10:00:00-00:00
 draft: false
 tags: ["Chainguard Containers", "Overview", "Policy"]
 images: []
-weight: 005
+weight: 010
 toc: true
 ---
 
-[Kyverno](https://kyverno.io/) is an admission controller that enforces
-policies in Kubernetes clusters. This article describes how it can be leveraged
-to ensure resources follow best practices related to the use of Chainguard
-Containers.
+[Kyverno](https://kyverno.io/) is an admission controller that enforces policies in Kubernetes clusters. This article describes how it can be leveraged to ensure resources follow best practices related to the use of Chainguard Containers.
 
 ## Prerequisites
 
 To follow the examples in this guide, you will need the following:
-- `kubectl` — the command line interface tool for Kubernetes — installed on
-  your local machine.
-- Administrative access to a Kubernetes cluster where
-     [Kyverno is already installed](https://kyverno.io/docs/installation/).
 
-## Ensure Images are Pulled From Allowed Repositories
+- `kubectl` — the command line interface tool for Kubernetes — installed on your local machine.
+- Administrative access to a Kubernetes cluster where [Kyverno is already installed](https://kyverno.io/docs/installation/).
 
-You can use a `ClusterPolicy` to ensure that images are only pulled from a list
-of allowed repositories.
+## Ensure Images are Pulled from Allowed Repositories
 
-Create `restrict-image-registries.yaml` with this content:
+You can use the [`ClusterPolicy` policy type](https://kyverno.io/docs/policy-types/cluster-policy/) to ensure that images are only pulled from a list of allowed repositories.
+
+Create file named `restrict-image-registries.yaml` with the following content:
 
 ```yaml
 apiVersion: kyverno.io/v1
@@ -39,31 +34,28 @@ metadata:
   name: restrict-image-registries
 spec:
   rules:
-  - name: validate-registries
-    match:
-      any:
-      - resources:
-          kinds:
-          - Pod
-    validate:
-      failureAction: Enforce
-      message: "Invalid image registry. Images must be hosted in cgr.dev."
-      pattern:
-        spec:
-          =(ephemeralContainers):
-          - image: "cgr.dev/*"
-          =(initContainers):
-          - image: "cgr.dev/*"
-          containers:
-          - image: "cgr.dev/*"
+    - name: validate-registries
+      match:
+        any:
+          - resources:
+              kinds:
+                - Pod
+      validate:
+        failureAction: Enforce
+        message: "Invalid image registry. Images must be hosted in cgr.dev."
+        pattern:
+          spec:
+            =(ephemeralContainers):
+              - image: "cgr.dev/*"
+            =(initContainers):
+              - image: "cgr.dev/*"
+            containers:
+              - image: "cgr.dev/*"
 ```
 
-This defines a policy that only allows images hosted in `cgr.dev`. Note that if
-you are mirroring Chainguard container images into a different registry, then
-you could replace this with your own registry.
+This defines a policy that only allows images hosted in `cgr.dev`. Note that if you've set up a different registry to function as [a pull-through cache for your Chainguard container images](/chainguard/chainguard-images/chainguard-registry/pull-through-guides/), you could replace this with your own registry.
 
-If you need to support more than one registry, you can define multiple
-values with a pattern like `cgr.dev/* | your.internal.repo/*`.
+If you need to support more than one registry, you can define multiple values with a pattern like `cgr.dev/* | your.internal.repo/*`.
 
 Apply the policy with `kubectl`:
 
@@ -71,8 +63,7 @@ Apply the policy with `kubectl`:
 kubectl apply -f restrict-image-registries.yaml
 ```
 
-To test that the policy is working correctly, try to create a non-compliant
-pod:
+To test that the policy works correctly, try to create a non-compliant pod:
 
 ```shell
 kubectl create -f - <<EOF
@@ -87,6 +78,8 @@ spec:
 EOF
 ```
 
+This example manifest attempts to create a pod using a container image downloaded from the Docker Hub registry, not Chainguard's registry. As this output indicates, attempting to create a non-compliant pod results in an error, and the request is denied:
+
 ```output
 Error from server: error when creating "STDIN": admission webhook "validate.kyverno.svc-fail" denied the request:
 
@@ -97,29 +90,17 @@ restrict-image-registries:
     in cgr.dev. rule validate-registries failed at path /spec/containers/0/image/'
 ```
 
-This example tries to create a pod using a container image downloaded from the
-Docker Hub registry, not Chainguard's registry. As this output indicates,
-attempting to create a non-compliant pod resulted in an error, and the request
-was denied.
-
 To clean up, delete the policy:
 
 ```shell
 kubectl delete -f restrict-image-registries.yaml
 ```
 
-## Ensure Images are Referenced By Digest
+## Ensure Images are Referenced by Digest
 
-Chainguard Containers are updated frequently to incorporate CVE fixes and
-package updates. The tags for Chainguard's container images are highly mutable,
-meaning that the underlying image changes frequently, even for very specific
-tags like `v1.2.3-r1`.
+Chainguard Containers are updated frequently to incorporate CVE fixes and package updates. The tags for Chainguard's container images are highly mutable, meaning that the underlying image changes frequently, even for very specific tags like `v1.2.3-r1`.
 
-To prevent the risk of updates introducing breaking changes, you can pull by
-digest to ensure the use of a specific image.
-
-You can use a `ClusterPolicy` to ensure that images are only referenced by
-digest.
+To prevent the risk of updates introducing breaking changes, you can [pull by digest](/chainguard/chainguard-images/how-to-use/container-image-digests/) to ensure the use of a specific image. When using Kyverno, you can use a `ClusterPolicy` policy to ensure that images are only referenced by digest.
 
 Create `require-image-digest.yaml` with this content:
 
@@ -130,48 +111,46 @@ metadata:
   name: require-image-digest
 spec:
   rules:
-  - name: require-image-digest
-    match:
-      any:
-      - resources:
-          kinds:
-          - Pod
-    validate:
-      failureAction: Enforce
-      message: "cgr.dev images must use digests."
-      foreach:
-      - list: "request.object.spec.containers[?starts_with(image, 'cgr.dev')]"
-        pattern:
-          image: "*@*"
-      - list: "request.object.spec.?initContainers[?starts_with(image, 'cgr.dev')] || []"
-        pattern:
-          image: "*@*"
-      - list: "request.object.spec.?ephemeralContainers[?starts_with(image, 'cgr.dev')] || []"
-        pattern:
-          image: "*@*"
+    - name: require-image-digest
+      match:
+        any:
+          - resources:
+              kinds:
+                - Pod
+      validate:
+        failureAction: Enforce
+        message: "cgr.dev images must use digests."
+        foreach:
+          - list: "request.object.spec.containers[?starts_with(image, 'cgr.dev')]"
+            pattern:
+              image: "*@*"
+          - list: "request.object.spec.?initContainers[?starts_with(image, 'cgr.dev')] || []"
+            pattern:
+              image: "*@*"
+          - list: "request.object.spec.?ephemeralContainers[?starts_with(image, 'cgr.dev')] || []"
+            pattern:
+              image: "*@*"
 ```
 
-This is a slightly more advanced example that only applies the rule to images
-hosted in `cgr.dev`. If you want to enforce this for any image in the cluster
-than you could simplify the `validate` section like this:
+This is a slightly more advanced example that only applies the rule to images hosted in `cgr.dev`. If you want to enforce this for any image in the cluster than you could simplify the `validate` section like this:
 
 ```yaml
-    validate:
-      failureAction: Enforce
-      message: "Images must use digests."
-      pattern:
-        spec:
-          =(ephemeralContainers):
-          - image: "*@*"
-          =(initContainers):
-          - image: "*@*"
-          containers:
-          - image: "*@*"
+validate:
+  failureAction: Enforce
+  message: "Images must use digests."
+  pattern:
+    spec:
+      =(ephemeralContainers):
+        - image: "*@*"
+      =(initContainers):
+        - image: "*@*"
+      containers:
+        - image: "*@*"
 ```
 
 Apply the policy to the cluster:
 
-```
+```shell
 kubectl apply -f require-image-digest.yaml
 ```
 
@@ -190,6 +169,8 @@ spec:
 EOF
 ```
 
+This example attempts to create a pod using the `nginx` Chainguard container image, but does not pull the image by its digest as required by the policy. As the output indicates, the attempt resulted in an error and the request was denied:
+
 ```output
 Error from server: error when creating "STDIN": admission webhook "validate.kyverno.svc-fail" denied the request:
 
@@ -200,12 +181,7 @@ require-image-digest:
     use digests. rule require-image-digest failed at path /image/'
 ```
 
-This example attempts to create a pod using the `nginx` Chainguard container
-image, but does not pull the image by its digest as required by the policy.
-As the output indicates, the attempt resulted in an error and the request was
-denied.
-
-To clean up, delete the policy:
+To clean up, delete the `require-image-digest` policy:
 
 ```shell
 kubectl delete -f require-image-digest.yaml
@@ -213,17 +189,13 @@ kubectl delete -f require-image-digest.yaml
 
 ## Ensure Images Are Based on Chainguard
 
-Every Chainguard image is labelled and annotated with
-`org.opencontainers.image.vendor=Chainguard`, indicating that it was produced
-by Chainguard.
+Every Chainguard Container is labelled and annotated with `org.opencontainers.image.vendor=Chainguard`, indicating that it was produced by Chainguard.
 
-When an image is built by `docker`, it inherits the labels of
-its base image. Therefore, you can use the presence of the vendor label to infer
-that an image is a Chainguard image, or was based upon one.
+When a container image is built by `docker`, it inherits the labels of its base image. Therefore, you can use the presence of the vendor label to check whether a container image is a Chainguard Container, or was based upon one.
 
-You can perform this check in a Kyverno `ClusterPolicy`.
+You can perform this check in Kyverno with a `ClusterPolicy` policy.
 
-Firstly, create `require-chainguard-image-vendor.yaml` with this content:
+First, create `require-chainguard-image-vendor.yaml` with the following content:
 
 ```yaml
 apiVersion: kyverno.io/v1
@@ -232,42 +204,42 @@ metadata:
   name: require-chainguard-image-vendor
 spec:
   rules:
-  - name: require-chainguard-image-vendor
-    match:
-      any:
-      - resources:
-          kinds:
-          - Pod
-    validate:
-      failureAction: Enforce
-      message: >-
-        Only Chainguard images and images based on Chainguard images are
-        allowed.
-      foreach:
-      - list: "request.object.spec.[ephemeralContainers, initContainers, containers][]"
-        context:
-        - name: imageData
-          imageRegistry:
-            reference: "{{ element.image }}"
-        - name: imageVendor
-          variable:
-            jmesPath: imageData.configData.config.Labels."org.opencontainers.image.vendor"
-            default: ''
-        deny:
-          conditions:
-            any:
-              - key: "{{ imageVendor }}"
-                operator: NotEquals
-                value: "Chainguard"
+    - name: require-chainguard-image-vendor
+      match:
+        any:
+          - resources:
+              kinds:
+                - Pod
+      validate:
+        failureAction: Enforce
+        message: >-
+          Only Chainguard Containers and images based on Chainguard Containers are
+          allowed.
+        foreach:
+          - list: "request.object.spec.[ephemeralContainers, initContainers, containers][]"
+            context:
+              - name: imageData
+                imageRegistry:
+                  reference: "{{ element.image }}"
+              - name: imageVendor
+                variable:
+                  jmesPath: imageData.configData.config.Labels."org.opencontainers.image.vendor"
+                  default: ""
+            deny:
+              conditions:
+                any:
+                  - key: "{{ imageVendor }}"
+                    operator: NotEquals
+                    value: "Chainguard"
 ```
 
-Apply it to the cluster:
+Next, apply this policy to the cluster:
 
 ```shell
 kubectl apply -f require-chainguard-image-vendor.yaml
 ```
 
-Then try to create a pod with a non-Chainguard image.
+Then try to create a pod with a container image that wasn't built by Chainguard:
 
 ```shell
 kubectl create -f - <<EOF
@@ -288,14 +260,13 @@ Error from server: error when creating "STDIN": admission webhook "validate.kyve
 resource Pod/default/nginx-disallowed was blocked due to the following policies
 
 require-chainguard-image-vendor:
-  require-chainguard-image-vendor: 'validation failure: Only Chainguard images and
-    images based on Chainguard images are allowed.'
+  require-chainguard-image-vendor: 'validation failure: Only Chainguard Containers and
+    images based on Chainguard Containers are allowed.'
 ```
 
-This request is denied because the image does not contain the
-`org.opencontainers.image.vendor=Chainguard` label.
+This request is denied because the image does not contain the `org.opencontainers.image.vendor=Chainguard` label.
 
-Try to to create a pod with a Chainguard image.
+Try to create a pod again, but this time try using a Chainguard container image:
 
 ```shell
 kubectl create -f - <<EOF
@@ -310,16 +281,13 @@ spec:
 EOF
 ```
 
+This request succeeds because the image contains the required label:
+
 ```output
 pod/nginx-allowed created
 ```
 
-This request succeeds because the image contains the required label.
-
-Please note that it's possible to subvert this policy by purposely adding the
-label to a non-Chainguard image. Therefore, this policy can operate as a strong
-incentive to use an approved base image but cannot decisively ensure that its
-the case.
+Please note that it's possible to subvert this policy by purposely adding the label to a non-Chainguard container image. Therefore, this policy can operate as a strong incentive to use an approved base image but cannot decisively ensure that its the case.
 
 To clean up, delete the policy:
 
@@ -329,19 +297,13 @@ kubectl delete -f require-chainguard-image-vendor.yaml
 
 ## Verify Image Signatures
 
-Chainguard signs all container images to ensure supply chain security and
-enable verification of image authenticity. These cryptographic signatures allow
-you to confirm that images come from Chainguard and haven’t been tampered with.
+Chainguard signs all container images to ensure supply chain security and enable verification of image authenticity. These cryptographic signatures allow you to confirm that your container images come from Chainguard and haven’t been tampered with.
 
-You can use a `verifyImages` rule in a `ClusterPolicy` to ensure that images are
-signed by Chainguard.
+You can use a `verifyImages` rule in a `ClusterPolicy` to ensure that images are signed by Chainguard.
 
-Firstly, retrieve the IDs of the `catalog_syncer` and `apko_builder` identities
-for your organization as described [on this
-page](/chainguard/chainguard-images/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/#chainguards-signing-identities).
+To begin, retrieve the IDs of the `catalog_syncer` and `apko_builder` identities for your organization as described [on this page](/chainguard/chainguard-images/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/#chainguards-signing-identities).
 
-Next, create `verify-image-signatures.yaml` with this content. Replace
-`<catalog-syncer-id>` and `<apko-builder-id>` with the appropriate values.
+Next, create `verify-image-signatures.yaml` with this content. Be sure to replace `<catalog-syncer-id>` and `<apko-builder-id>` with the appropriate values:
 
 ```yaml
 apiVersion: kyverno.io/v1
@@ -355,20 +317,20 @@ spec:
     - name: verify-image-signatures
       match:
         any:
-        - resources:
-            kinds:
-              - Pod
+          - resources:
+              kinds:
+                - Pod
       verifyImages:
-      - imageReferences:
-        - "cgr.dev/*"
-        failureAction: Enforce
-        attestors:
-        - entries:
-          - keyless:
-              subjectRegExp: "^https://issuer.enforce.dev/(<catalog-syncer-id>|<apko-builder-id>)$"
-              issuer: "https://issuer.enforce.dev"
-              rekor:
-                url: https://rekor.sigstore.dev
+        - imageReferences:
+            - "cgr.dev/*"
+          failureAction: Enforce
+          attestors:
+            - entries:
+                - keyless:
+                    subjectRegExp: "^https://issuer.enforce.dev/(<catalog-syncer-id>|<apko-builder-id>)$"
+                    issuer: "https://issuer.enforce.dev"
+                    rekor:
+                      url: https://rekor.sigstore.dev
 ```
 
 Apply the policy to the cluster:
@@ -377,8 +339,7 @@ Apply the policy to the cluster:
 kubectl apply -f verify-image-signatures.yaml
 ```
 
-To test the policy, try to create a pod using the public Chainguard `nginx`
-container image:
+To test the policy, try creating a pod using the public Chainguard `nginx` container image:
 
 ```shell
 kubectl create -f - <<EOF
@@ -393,6 +354,8 @@ spec:
 EOF
 ```
 
+Public images in `cgr.dev/chainguard` are signed by different identities than the images in your organization. Therefore, this operation is blocked:
+
 ```output
 Error from server: error when creating "STDIN": admission webhook "mutate.kyverno.svc-fail" denied the request:
 
@@ -404,9 +367,6 @@ verify-image-signatures:
     received https://github.com/chainguard-images/images/.github/workflows/release.yaml@refs/heads/main'
 ```
 
-Public images in `cgr.dev/chainguard` are signed by different identities than
-the images in your organization. Therefore, this operation is blocked.
-
 To clean up, delete the policy:
 
 ```shell
@@ -415,22 +375,18 @@ kubectl delete -f verify-image-signatures.yaml
 
 ## Audit First, Enforce Later
 
-When introducing new policies into a cluster, it is a good idea to initially
-configure rules with [`failureAction: Audit`](https://kyverno.io/docs/policy-types/cluster-policy/validate/#failure-action)
-so as to avoid blocking existing workloads.
+When introducing new policies into a cluster, it is a good idea to initially configure rules with [`failureAction: Audit`](https://kyverno.io/docs/policy-types/cluster-policy/validate/#failure-action) so as to avoid blocking existing workloads.
 
-If you also set `spec.emitWarning: true`, then users will get a warning when
-they create a non-compliant resource. This gives the user a signal that they
-should update their configuration without disrupting their deployment.
+If you also set `spec.emitWarning: true`, users will receive a warning when they create a non-compliant resource, like the following example:
 
 ```output
-Warning: policy require-chainguard-image-vendor.require-chainguard-image-vendor: validation failure: Only Chainguard images and images based on Chainguard images are allowed.
+Warning: policy require-chainguard-image-vendor.require-chainguard-image-vendor: validation failure: Only Chainguard Containers and images based on Chainguard Containers are allowed.
 pod/nginx-disallowed created
 ```
 
-You can also find non-compliant resources that exist in the cluster by
-reviewing the [`PolicyReport` resources](https://kyverno.io/docs/policy-reports/)
-created by Kyverno:
+This gives the user a signal that they should update their configuration without disrupting their deployment.
+
+You can also find non-compliant resources that exist in the cluster by reviewing the [`PolicyReport` resources](https://kyverno.io/docs/policy-reports/) created by Kyverno:
 
 ```shell
 kubectl get policyreport -o json | jq -r '.items[] | .metadata.ownerReferences as $resource | .results[] | select(.result == "fail") | {resource: $resource, result: .}'
@@ -447,7 +403,7 @@ kubectl get policyreport -o json | jq -r '.items[] | .metadata.ownerReferences a
     }
   ],
   "result": {
-    "message": "validation failure: Only Chainguard images and images based on Chainguard images are allowed.",
+    "message": "validation failure: Only Chainguard Containers and images based on Chainguard Containers are allowed.",
     "policy": "require-chainguard-image-vendor",
     "properties": {
       "process": "background scan"
@@ -464,18 +420,10 @@ kubectl get policyreport -o json | jq -r '.items[] | .metadata.ownerReferences a
 }
 ```
 
-Once all the failures have been addressed, you can switch to
-`failureAction: Enforce` and Kyverno will start to block the creation of
-resources that violate the policy.
+Once all the failures have been addressed, you can switch to `failureAction: Enforce` and Kyverno will start to block the creation of resources that violate the policy.
 
 ## Learn More
 
-By combining Kyverno with Chainguard container images, you gain a powerful way
-to enforce security and compliance across your Kubernetes clusters. Kyverno
-ensures that only container images meeting your defined policies are deployed,
-while Chainguard Containers provide a minimal, hardened foundation to reduce
-risk from the start. Together, they help teams ship software more securely and
-confidently, without slowing down development.
+By combining Kyverno with Chainguard Containers, you gain a powerful way to enforce security and compliance across your Kubernetes clusters. Kyverno ensures that only container images meeting your defined policies are deployed, while Chainguard Containers provide a minimal, hardened foundation to reduce risk from the start. Together, they help teams ship software more securely and confidently, without slowing down development.
 
-If you'd like to learn more about Kyverno, we encourage you to refer to the
-[official documentation](https://kyverno.io/docs/).
+If you'd like to learn more about Kyverno, we encourage you to refer to the [official documentation](https://kyverno.io/docs/).
