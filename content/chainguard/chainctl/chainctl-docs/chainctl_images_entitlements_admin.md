@@ -1,22 +1,22 @@
 ---
 date: 2025-09-29T18:30:00Z
-title: "chainctl iam folders"
-slug: chainctl_iam_folders
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_folders/
+title: "chainctl images entitlements admin"
+slug: chainctl_images_entitlements_admin
+url: /chainguard/chainctl/chainctl-docs/chainctl_images_entitlements_admin/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam folders
+## chainctl images entitlements admin
 
-IAM folders interactions.
+Administrative commands for registry entitlements.
 
 ### Options
 
 ```
-  -h, --help   help for folders
+  -h, --help   help for admin
 ```
 
 ### Options inherited from parent commands
@@ -35,9 +35,6 @@ IAM folders interactions.
 
 ### SEE ALSO
 
-* [chainctl iam](/chainguard/chainctl/chainctl-docs/chainctl_iam/)	 - IAM related commands for the Chainguard platform.
-* [chainctl iam folders delete](/chainguard/chainctl/chainctl-docs/chainctl_iam_folders_delete/)	 - Delete a folder.
-* [chainctl iam folders describe](/chainguard/chainctl/chainctl-docs/chainctl_iam_folders_describe/)	 - Describe a folder.
-* [chainctl iam folders list](/chainguard/chainctl/chainctl-docs/chainctl_iam_folders_list/)	 - List folders under an organization.
-* [chainctl iam folders update](/chainguard/chainctl/chainctl-docs/chainctl_iam_folders_update/)	 - Update a folder.
+* [chainctl images entitlements](/chainguard/chainctl/chainctl-docs/chainctl_images_entitlements/)	 - Manage entitlements to registry repositories.
+* [chainctl images entitlements admin state](/chainguard/chainctl/chainctl-docs/chainctl_images_entitlements_admin_state/)	 - Show the entitlement state for an organization as JSON.
 
