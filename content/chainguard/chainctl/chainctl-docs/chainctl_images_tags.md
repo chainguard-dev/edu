@@ -1,22 +1,26 @@
 ---
 date: 2025-09-29T18:30:00Z
-title: "chainctl iam folders"
-slug: chainctl_iam_folders
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_folders/
+title: "chainctl images tags"
+slug: chainctl_images_tags
+url: /chainguard/chainctl/chainctl-docs/chainctl_images_tags/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam folders
+## chainctl images tags
 
-IAM folders interactions.
+Tags related commands for images.
+
+### Synopsis
+
+Commands for listing and resolving image tags.
 
 ### Options
 
 ```
-  -h, --help   help for folders
+  -h, --help   help for tags
 ```
 
 ### Options inherited from parent commands
@@ -35,9 +39,7 @@ IAM folders interactions.
 
 ### SEE ALSO
 
-* [chainctl iam](/chainguard/chainctl/chainctl-docs/chainctl_iam/)	 - IAM related commands for the Chainguard platform.
-* [chainctl iam folders delete](/chainguard/chainctl/chainctl-docs/chainctl_iam_folders_delete/)	 - Delete a folder.
-* [chainctl iam folders describe](/chainguard/chainctl/chainctl-docs/chainctl_iam_folders_describe/)	 - Describe a folder.
-* [chainctl iam folders list](/chainguard/chainctl/chainctl-docs/chainctl_iam_folders_list/)	 - List folders under an organization.
-* [chainctl iam folders update](/chainguard/chainctl/chainctl-docs/chainctl_iam_folders_update/)	 - Update a folder.
+* [chainctl images](/chainguard/chainctl/chainctl-docs/chainctl_images/)	 - Images related commands for the Chainguard platform.
+* [chainctl images tags list](/chainguard/chainctl/chainctl-docs/chainctl_images_tags_list/)	 - List tags from repositories using --parent, --public, or --repo flags.
+* [chainctl images tags resolve](/chainguard/chainctl/chainctl-docs/chainctl_images_tags_resolve/)	 - Resolve tags for a specific image reference.
 
