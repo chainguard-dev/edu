@@ -189,7 +189,7 @@ You also have access to the public `chainguard` and `extra-packages` repositorie
 You must create two remote repositories within Artifactory — one for each public package repo — by following the same steps as before. Enter the following details for these two remote repositories: 
 
 * **Repository Key** — This is the name used to identify your remote repository. Again, you can choose whatever names you like here but this guide's examples use the names `cg-chainguard` and `cg-extras`.
-* **URL** — This must be set to `https://virtualapk.cgr.dev/<ORGANIZATION-ID>/chainguard` for the `chainguard` repository and `https://virtualapk.cgr.dev/<ORGANIZATION-ID>/chainguard` for the `extra-packages` repository.
+* **URL** — This must be set to `https://virtualapk.cgr.dev/<ORGANIZATION-ID>/chainguard` for the `chainguard` repository and `https://virtualapk.cgr.dev/<ORGANIZATION-ID>/extra-packages` for the `extra-packages` repository.
     * For both of these URLs, you need to replace the `<ORGANIZATION-ID>` placeholder with your Chainguard organization's UID. You can find this by running the `chainctl iam organizations list -o table`; the UID is the value in your organization's `ID` column. Alternatively, you can find it by checking the **Settings** ⇒ **General** page in the [Chainguard Console](https://console.chainguard.dev). 
 
 You **do not** need to set any values for the **User Name** or **Password / Access Token** fields, as the public repositories do not require authentication. Keep all the remaining fields set to their default values and click the **Create Remote Repository** button. This creates the remote repository and returns you to the **Repositories** page. 
