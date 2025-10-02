@@ -22,7 +22,7 @@ Answers to your questions about Chainguard FIPS container images.
 
 All Chainguard FIPS Containers are configured in approved-only mode as noted in our [FIPS commitment](https://www.chainguard.dev/legal/fips-commitment).
 
-For non-approved mode, our recommendation is to purchase and use a non-FIPS Chainguard Container.
+For non-approved mode, our recommendation is to use a non-FIPS Chainguard Container.
 
 Because it is error prone, difficult to support, and fragile, Chainguard does not provide the ability to switch to non-FIPS from a FIPS container image. If you require that, please contact a [NIST-approved security lab](https://csrc.nist.gov/projects/testing-laboratories) to help you achieve your certification needs when using our FIPS modules. 
 

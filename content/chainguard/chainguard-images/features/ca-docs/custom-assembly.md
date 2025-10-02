@@ -40,7 +40,7 @@ After selecting the packages for your customized container image, Chainguard wil
 
 Custom Assembly only allows you to add packages into a given container image; you cannot remove the packages included in the source application image by default. For example, Chainguard's Node.js container image comes with packages like `nodejs-23`, `npm`, and `glibc` by default. These packages can't be removed from a Node.js image using the Custom Assembly tool but you can add other packages into it, and you can remove these added packages in later builds.
 
-The packages you can add to a container image are those that your organization already has access to based on the Chainguard Containers you have already purchased. Additionally, you can only add supported versions of packages to a customized image.
+The packages you can add to a container image are those that your organization already has access to, based on the Chainguard Containers that your organization is entitled to. Additionally, you can only add supported versions of packages to a customized image.
 
 The changes you make to your customized container image may affect its functional behavior when deployed. Chainguard doesn’t test your final customized image and therefore doesn't guarantee its functional behavior. Please test your customized images extensively to ensure they meet your requirements.
 
