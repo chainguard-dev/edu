@@ -222,7 +222,7 @@ contents:
 	- go
 ```
 
-Here, replace `wolfi-base` and `go` with whatever packages you'd like to be included in the customized container image. Note that you can only add packages that your organization already has access to, based on the Chainguard Containers you have already purchased. Refer to the [Custom Assembly Overview](/chainguard/chainguard-images/features/ca-docs/custom-assembly/#limitations) for more details on the limitations of what packages you can add to a Custom Assembly image.
+Here, replace `wolfi-base` and `go` with whatever packages you'd like to be included in the customized container image. Note that you can only add packages that your organization already has access to, based on the Chainguard Containers your organization has access to. Refer to the [Custom Assembly Overview](/chainguard/chainguard-images/features/ca-docs/custom-assembly/#limitations) for more details on the limitations of what packages you can add to a Custom Assembly image.
 
 Save and close the `build.yaml` file. Finally, you can run the application to apply the configuration listed in the `build.yaml` file to your organization's Custom Assembly image:
 
