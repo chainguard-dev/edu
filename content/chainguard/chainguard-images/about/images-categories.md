@@ -102,7 +102,7 @@ For more information, please refer to our conceptual article on [FIPS Chainguard
 
 There is some overlap between the different container image categories outlined in this guide. For example, the [PyTorch](https://images.chainguard.dev/directory/image/pytorch/overview) image is an AI image, but it is also part of our free tier, meaning it's also a Starter image. 
 
-Many customers purchase both Application and Base Containers. Note that it often takes more time to migrate your applications to a Base container image in comparison to an Application image due to the complexity of coordinating multiple teams, testing, and release schedules. We recommend starting with and migrating to Application container images first while your teams get trained and onboarded with Base container images.
+Many customers use both Application and Base Containers. Note that it often takes more time to migrate your applications to a Base container image in comparison to an Application image due to the complexity of coordinating multiple teams, testing, and release schedules. We recommend starting with and migrating to Application container images first while your teams get trained and onboarded with Base container images.
 
 A common requirement for many customers is to add a company-specific certificate or other security related content. The three most common ways to accomplish this are:
 
