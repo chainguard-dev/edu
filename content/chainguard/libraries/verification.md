@@ -39,7 +39,19 @@ The following requirements must be met:
 
 ## Access 
 
-[Download the latest release - version 0.4.0](https://dl.enforce.dev/chainver/0.4.0/chainver-v0.4.0.zip)
+[Download the latest release - version 0.4.1](https://dl.enforce.dev/chainver/0.4.1/chainver-v0.4.1.zip)
+
+### Version-Agnostic Download
+
+To download the latest chainver release without specifying a version, use the metadata endpoint:
+
+```shell
+# Get current latest version and download
+LATEST_URL=$(curl -s https://dl.enforce.dev/chainver/latest/latest-metadata.json | jq -r '.download_url')
+curl -LO "${LATEST_URL}"
+```
+
+### Version Detection Script
 
 Use the following script to automatically determine the latest available version
 and download the ZIP archive.
@@ -54,22 +66,31 @@ export LATEST=$(curl -s "https://storage.googleapis.com/us.artifacts.prod-enforc
 curl -LO "https://dl.enforce.dev/chainver/${LATEST}/chainver-v${LATEST}.zip"
 ```
 
+Alternatively, use the latest metadata endpoint to detect the version:
+
+```shell
+# Get the latest version using metadata endpoint
+export LATEST=$(curl -s https://dl.enforce.dev/chainver/latest/latest-metadata.json | jq -r '.version')
+# Download the release zip file
+curl -LO "https://dl.enforce.dev/chainver/${LATEST}/chainver-v${LATEST}.zip"
+```
+
 Extract the ZIP archive and find archives for different operating systems and
 processor architectures in the created `chainver-package/archives` directory:
 
 ```output
-chainver_0.4.0_Linux_x86_64.tar.gz
-chainver_0.4.0_Darwin_arm64.tar.gz
-chainver_0.4.0_Darwin_x86_64.tar.gz
-chainver_0.4.0_Linux_arm64.tar.gz
-chainver_0.4.0_Windows_x86_64.zip
+chainver_0.4.1_Linux_x86_64.tar.gz
+chainver_0.4.1_Darwin_arm64.tar.gz
+chainver_0.4.1_Darwin_x86_64.tar.gz
+chainver_0.4.1_Linux_arm64.tar.gz
+chainver_0.4.1_Windows_x86_64.zip
 ```
 
 Extract the package, in the example for MacOS and ARM processor, and copy it to
 a directory that is on the `PATH`:
 
 ```output
-$ tar xfvz chainver_0.4.0_Darwin_arm64.tar.gz
+$ tar xfvz chainver_0.4.1_Darwin_arm64.tar.gz
 x LICENSE
 x README.md
 x chainver
@@ -79,7 +100,7 @@ Verify running `chainver` and inspect the version:
 
 ```output
 $ chainver version
-ChainVer version 0.4.0 (2c9d7ed)
+ChainVer version 0.4.1 (a4f3805)
   built with go1.24.0 on darwin/arm64
 ```
 
