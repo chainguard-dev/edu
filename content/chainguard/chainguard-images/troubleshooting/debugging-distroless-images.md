@@ -143,6 +143,57 @@ tcp        0      0 0.0.0.0:8080            0.0.0.0:*               LISTEN
 
 To facilitate accessing processes running in other containers without having to specify a target, you may enable [process namespace sharing](https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/) within your Pod setup. It's also worth noting that the filesystem may not be accessible due to default user permissions.
 
+### Troubleshooting Volume Mounts
+
+Kubernetes starts the ephemeral container without mounting the same volumes in the target container. As a result, directories like `/var/log`, which are backed by a volume in the original container, will appear empty or missing in the ephemeral container.
+
+Kubernetes does not currently offer a built-in way to automatically replicate volume mounts from the main container to the ephemeral debug container. There is ongoing discussion in the Kubernetes community regarding this limitation, including proposals for features like `--with-volume-mounts[=<container>]` which would allow mounting the same volumes in ephemeral containers. This feature is not yet available.
+
+To work around this issue, you can manually create a copy of the pod definition with a new debug container that replicates the necessary volume mounts.
+
+Proxy the Kubernetes API:
+```
+kubectl proxy
+```
+
+Patch the pod to add an ephemeral container:
+```
+curl http://localhost:8001/api/v1/namespaces/default/pods/<pod-name>/ephemeralcontainers \
+-X PATCH \
+-H 'Content-Type: application/strategic-merge-patch+json' \
+-d '
+{
+  "spec": {
+    "ephemeralContainers": [
+      {
+        "name": "debugger",
+        "command": ["sh"],
+        "image": "cgr.dev/chainguard/wolfi-base",
+        "targetContainerName": "<container-name>",
+        "stdin": true,
+        "tty": true,
+        "volumeMounts": [
+          {
+            "mountPath": "/var/log",
+            "name": "varlog",
+            "readOnly": true
+          }
+        ]
+      }
+    ]
+  }
+}'
+```
+- Replace `<pod-name>` and `<container-name>` with your actual values.
+- Be sure to match the `volumeMounts` spec to those in your target container.
+
+Attach to the debug container:
+```
+kubectl attach <pod-name> -c debugger -ti
+```
+
+In the ephemeral container shell, you should now see the expected contents within `/var/log` or other paths you’ve mounted.
+
 For more strategies on how to debug production distroless containers, check the [Kubernetes documentation on debugging running Pods](https://kubernetes.io/docs/tasks/debug/debug-application/debug-running-pod/).
 
 ## Resources to Learn More
