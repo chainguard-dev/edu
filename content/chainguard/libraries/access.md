@@ -65,11 +65,11 @@ chainctl auth pull-token --library-ecosystem=java --parent=example --ttl=8670h
 ```
 
 * `--library-ecosystem=java`: retrieve the token for use with [Chainguard
-  Libraries for Java](/chainguard/libraries/java/overview). Use `python` for a
+  Libraries for Java](/chainguard/libraries/java/overview/). Use `python` for a
   token to use [Chainguard Libraries for
-  Python](/chainguard/libraries/python/overview) and `javascript` for a token to
+  Python](/chainguard/libraries/python/overview/) and `javascript` for a token to
   use [Chainguard Libraries for
-  JavaScript](/chainguard/libraries/python/overview).
+  JavaScript](/chainguard/libraries/python/overview/).
 * `--parent=example`: specify the parent organization for your account as
   provided when requesting access to Chainguard Libraries and replace `example`.
 * `--ttl=8670h`: set the duration for the validity of the token, defaults to
