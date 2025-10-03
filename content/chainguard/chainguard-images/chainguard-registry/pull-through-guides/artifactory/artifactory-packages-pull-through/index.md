@@ -194,6 +194,10 @@ You must create two remote repositories within Artifactory — one for each publ
 
 You **do not** need to set any values for the **User Name** or **Password / Access Token** fields, as the public repositories do not require authentication. Keep all the remaining fields set to their default values and click the **Create Remote Repository** button. This creates the remote repository and returns you to the **Repositories** page. 
 
+In both remote repositories created, navigate to the **Advanced** configuration tab and enter the following details:
+
+* **Disable URL Normalization** — This must be enabled because, in some cases, the normalization will invalidate the URLs that packages are served from.
+
 After creating both repositories, generate and retrieve a token for each one as you did for the `cg-private` remote repository:
 
 1. On the Repositories page, find both remote repositories you just created.
@@ -246,6 +250,7 @@ If you run into issues when trying to pull from Chainguard's package repositorie
     * If necessary, ensure that you've set the correct UID for your organization in the URL field.
 * It may help to [clear the Artifactory cache](https://jfrog.com/help/r/artifactory-cleanup-best-practices/clearing-an-oversized-cache).
 * It could be that your Artifactory repository was misconfigured. In this case, create and configure a new Remote Artifactory repository to test with.
+* If you see `package mentioned in index not found`, it usually means Artifactory or a CDN is normalizing/rewriting APK URLs (stripping query strings, collapsing path segments, or altering tokens), so enable Artifactory's **"Disable URL Normalization"** to preserve exact filenames and tokens. 
 
 
 ## Learn More
