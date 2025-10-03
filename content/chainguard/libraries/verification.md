@@ -62,18 +62,19 @@ cosign version
 
 ## Installation
 
-### Binary
+[Download the latest release - version 0.4.1](https://dl.enforce.dev/chainver/0.4.1/chainver-v0.4.1.zip)
 
-Download and install the latest chainver binary for your platform.
+### Binary (macOS and Linux)
 
-In the below command, set the `ARCH` variable to match your system using one of
+The below command will download the latest version of `chainver` as an archive, extract it, verify the download, and move the binary to `/usr/local/bin`.
+
+First,, set the `ARCH` variable to match your system using one of
 the following options:
 
 - `Linux_x86_64` - Linux with x86_64 processor
 - `Linux_arm64` - Linux with ARM processor
 - `Darwin_arm64` - macOS with Apple Silicon (M1/M2/M3)
 - `Darwin_x86_64` - macOS with Intel processor
-- `Windows_x86_64` - Windows with x86_64 processor
 
 ```sh
 ARCH=Linux_x86_64 && \
@@ -119,6 +120,15 @@ Analyze remote artifacts:
 ```sh
 docker run cgr.dev/chainguard/chainver:latest \
   remote:repo1.maven.org/maven2/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar
+```
+
+### Version-Agnostic Download
+
+Download the latest release using `curl`. (Note that [`jq`](https://jqlang.org/download/) must be on the path.)
+
+```sh
+LATEST_URL=$(curl -s https://dl.enforce.dev/chainver/latest/latest-metadata.json | jq -r '.download_url') && \
+ curl -LO "${LATEST_URL}"
 ```
 
 ## Authentication Setup
