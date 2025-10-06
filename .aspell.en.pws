@@ -208,3 +208,6 @@ pnpm
 npmrc
 hostname
 CPython
+integrations
+Grype
+Trivy
