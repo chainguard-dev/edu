@@ -56,7 +56,7 @@ jobs:
         python-version: '3.10'
 
     - name: Cache Python dependencies
-      uses: actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809 # v4.2.4
+      uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
       with:
         path: ~/.cache/pip
         key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
@@ -260,7 +260,7 @@ jobs:
 
     - name: Create GitHub Release
       if: (github.event.inputs.create_release == 'true' || github.event_name == 'schedule') && github.ref == 'refs/heads/main'
-      uses: step-security/action-gh-release@2677a32b1ab8b24324ede3be9da4e1d8c3f686ee # v2.3.2
+      uses: step-security/action-gh-release@76378d4dd5f9fc6c666da0e1d2e84452695e0992 # v2.3.3
       with:
         tag_name: ai-docs-latest
         name: AI Documentation Bundle - Latest

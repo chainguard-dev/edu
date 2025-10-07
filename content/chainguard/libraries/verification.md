@@ -39,7 +39,7 @@ The following requirements must be met:
 
 ## Access 
 
-[Download the latest release - version 0.3.8](https://dl.enforce.dev/chainver/0.3.8/chainver-v0.3.8.zip)
+[Download the latest release - version 0.4.0](https://dl.enforce.dev/chainver/0.4.0/chainver-v0.4.0.zip)
 
 Use the following script to automatically determine the latest available version
 and download the ZIP archive.
@@ -58,18 +58,18 @@ Extract the ZIP archive and find archives for different operating systems and
 processor architectures in the created `chainver-package/archives` directory:
 
 ```output
-chainver_0.3.8_Linux_x86_64.tar.gz
-chainver_0.3.8_Darwin_arm64.tar.gz
-chainver_0.3.8_Darwin_x86_64.tar.gz
-chainver_0.3.8_Linux_arm64.tar.gz
-chainver_0.3.8_Windows_x86_64.zip
+chainver_0.4.0_Linux_x86_64.tar.gz
+chainver_0.4.0_Darwin_arm64.tar.gz
+chainver_0.4.0_Darwin_x86_64.tar.gz
+chainver_0.4.0_Linux_arm64.tar.gz
+chainver_0.4.0_Windows_x86_64.zip
 ```
 
 Extract the package, in the example for MacOS and ARM processor, and copy it to
 a directory that is on the `PATH`:
 
 ```output
-$ tar xfvz chainver_0.3.8_Darwin_arm64.tar.gz
+$ tar xfvz chainver_0.4.0_Darwin_arm64.tar.gz
 x LICENSE
 x README.md
 x chainver
@@ -79,7 +79,7 @@ Verify running `chainver` and inspect the version:
 
 ```output
 $ chainver version
-ChainVer version 0.3.8 (3277bb5)
+ChainVer version 0.4.0 (2c9d7ed)
   built with go1.24.0 on darwin/arm64
 ```
 

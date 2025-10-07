@@ -225,7 +225,7 @@ projects, offering fast, reliable, and secure dependency management as an
 alternative to npm. It is widely used for managing
 project dependencies, scripts, and workflows in Node.js and other JavaScript
 development environments. For more details, refer to the [Yarn
-documentation](https://yarnpkg.com/getting-started/documentation). 
+documentation](https://yarnpkg.com/getting-started). 
 
 This section applies to modern versions of Yarn, also known as Yarn Berry, with
 versions 2.x and higher. If you are using Yarn 1.x refer to the [Yarn Classic

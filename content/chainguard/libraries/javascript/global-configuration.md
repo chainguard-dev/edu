@@ -192,7 +192,7 @@ for accessing the repository:
    replaced with the name of your organization.
 
 Use the URL of the virtual repository in the [build
-configuration](/chainguard/libraries/javascript/build-configuration) and build a
+configuration](/chainguard/libraries/javascript/build-configuration/) and build a
 first test project. In a working setup the chainguard remote repository contains
 all libraries retrieved from Chainguard.
 
@@ -268,6 +268,6 @@ for accessing the repository:
 
 Use the URL of the repository group, such as
 *https://repo.example.com/repository/javascript-all/* in the [build
-configuration](/chainguard/libraries/javascript/build-configuration) and build a
+configuration](/chainguard/libraries/javascript/build-configuration/) and build a
 first test project. In a working setup the `javascript-chainguard` proxy
 repository contains all libraries retrieved from Chainguard.

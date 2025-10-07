@@ -1,25 +1,26 @@
 ---
 date: 2025-10-02T22:42:52Z
-title: "chainctl images list"
-slug: chainctl_images_list
-url: /chainguard/chainctl/chainctl-docs/chainctl_images_list/
+title: "chainctl images tags list"
+slug: chainctl_images_tags_list
+url: /chainguard/chainctl/chainctl-docs/chainctl_images_tags_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl images list
+## chainctl images tags list
 
-List tagged images from Chainguard registries.
+List tags from repositories using --parent, --public, or --repo flags.
 
 ```
-chainctl images list [--repo=REPO_NAME] [--public | --parent=PARENT_NAME|PARENT_ID] [--updated-within=DURATION] [--show-dates] [--show-epochs] [--show-referrers] [--output=csv|id|json|table|terse|tree|wide]
+chainctl images tags list [--repo=REPO_NAME] [--public | --parent=PARENT_NAME|PARENT_ID] [--updated-within=DURATION] [--show-dates] [--show-epochs] [--show-referrers] [--output=id|json|table]
 ```
 
 ### Options
 
 ```
+      --all                       Return all tags that match the digest of the specified image reference.
   -h, --help                      help for list
       --parent string             The name or id of the parent location to list image repos.
       --public                    List repos from the public Chainguard registry.
@@ -47,5 +48,5 @@ chainctl images list [--repo=REPO_NAME] [--public | --parent=PARENT_NAME|PARENT_
 
 ### SEE ALSO
 
-* [chainctl images](/chainguard/chainctl/chainctl-docs/chainctl_images/)	 - Images related commands for the Chainguard platform.
+* [chainctl images tags](/chainguard/chainctl/chainctl-docs/chainctl_images_tags/)	 - Tags related commands for images.
 

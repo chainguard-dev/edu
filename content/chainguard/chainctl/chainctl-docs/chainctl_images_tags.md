@@ -1,31 +1,26 @@
 ---
 date: 2025-10-02T22:42:52Z
-title: "chainctl images repos update"
-slug: chainctl_images_repos_update
-url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_update/
+title: "chainctl images tags"
+slug: chainctl_images_tags
+url: /chainguard/chainctl/chainctl-docs/chainctl_images_tags/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl images repos update
+## chainctl images tags
 
-Update image repositories.
+Tags related commands for images.
 
-```
-chainctl images repos update {REPO_NAME|REPO_ID} --parent ORGANIZATION_NAME | ORGANIZATION_ID
-```
+### Synopsis
+
+Commands for listing and resolving image tags.
 
 ### Options
 
 ```
-      --bundles string    Comma-separated list of bundles to assign to the repo.
-      --expiration time   Sync expiration time (e.g., 1970-01-01).
-  -h, --help              help for update
-      --name string       Updated name for the repo.
-      --parent string     The name or id of the parent location of the repo to update.
-      --tier string       Catalog tier. One of: [APPLICATION,BASE,FIPS,AI,DEVTOOLS]
+  -h, --help   help for tags
 ```
 
 ### Options inherited from parent commands
@@ -44,5 +39,7 @@ chainctl images repos update {REPO_NAME|REPO_ID} --parent ORGANIZATION_NAME | OR
 
 ### SEE ALSO
 
-* [chainctl images repos](/chainguard/chainctl/chainctl-docs/chainctl_images_repos/)	 - Image repo related commands for the Chainguard platform.
+* [chainctl images](/chainguard/chainctl/chainctl-docs/chainctl_images/)	 - Images related commands for the Chainguard platform.
+* [chainctl images tags list](/chainguard/chainctl/chainctl-docs/chainctl_images_tags_list/)	 - List tags from repositories using --parent, --public, or --repo flags.
+* [chainctl images tags resolve](/chainguard/chainctl/chainctl-docs/chainctl_images_tags_resolve/)	 - Resolve tags for a specific image reference.
 
