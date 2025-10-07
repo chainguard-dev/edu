@@ -31,7 +31,7 @@ After logging in to the [Chainguard console](https://console.chainguard.dev/auth
 
 Click on **Images** and scroll or search for the container image that you want to customize. Note that you can use Custom Assembly to customize any Chainguard Container that your organization has access to.
 
-Clicking on your chosen container image will take you to its entry in the console. In the upper right corner of this page, you'll find a three buttons, one of which says **Customize image**: 
+Clicking on your chosen container image will take you to its entry in the console. In the upper right corner of this page, you'll find three buttons, one of which says **Customize image**: 
 
 <center><img src="ca-2.png" alt="Screenshot of a Custom Assembly container (named 'customized_node') page with the 'Customize Container' button highlighted in a yellow box." style="width:1100px;"></center>
 <br /> 
@@ -46,7 +46,7 @@ After selecting your chosen packages, click the **Continue** button. After doing
     * This option requires you to select a new name for the container image. Note that whatever name you select can only contain lowercase alphanumeric characters, `-`, or `_`. 
 * **Customize current image**: This option overrides the existing container image with your customizations. Note that any customizations applied to this image will also apply to any users in your organization that are already consuming it.
 
-<center><img src="ca-3.png" alt="" style="width:650px;"></center>
+<center><img src="ca-3.png" alt="Screenshot of the Customize Image display, showing the two customization options. The 'Create new image' option is selected, with the name 'customized_node' entered into the naming field." style="width:650px;"></center>
 <br /> 
 
 After selecting one of these options, click the **Preview changes** button to view all the packages you've selected for the customized image:
@@ -106,7 +106,7 @@ If you elected to create a new container image with Custom Assembly, you can ren
 
 You can also delete new container images that you've created with Custom Assembly. To do so, click the **More** button and select **Delete**. This will open a window prompting you to enter the name of the container image to confirm that you want to delete it:
 
-<center><img src="ca-8.png" alt="Screenshot of the image deletion window for the customized_node container image. It shows a warning reading 'This action cannot be undone. The image will be permanently deleted from your organization and will no longer be available.', and the name of the image ('customized_node') has been entered into the prompt." style="width:650px;"></center>
+<center><img src="ca-8.png" alt="Screenshot of the image deletion window for the customized_node container image. It shows a warning reading 'This action cannot be undone. The image will be permanently deleted from your organization and will no longer be available.' The name of the image ('customized_node') has been entered into the prompt." style="width:650px;"></center>
 <br />
 
 
