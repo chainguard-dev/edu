@@ -1,5 +1,5 @@
 ---
-title: "Using Grype to Scan Container Images for Vulnerabilities"
+title: "Using Grype to Scan Software Artifacts"
 type: "article"
 linktitle: "Grype"
 aliases:
