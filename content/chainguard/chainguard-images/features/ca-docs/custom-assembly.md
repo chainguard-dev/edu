@@ -45,6 +45,28 @@ The packages you can add to a container image are those that your organization a
 The changes you make to your customized container image may affect its functional behavior when deployed. Chainguard doesn’t test your final customized image and therefore doesn't guarantee its functional behavior. Please test your customized images extensively to ensure they meet your requirements.
 
 
+## Why Use Custom Assembly for Adding Packages
+
+When customers add packages to Chainguard Containers using apk add commands without pinning to specific package versions, they expose themselves to version compatibility conflicts that can break their builds. Chainguard continuously updates its APK repository with the latest package versions to ensure customers receive the most recent security patches and updates. However, this creates a timing window where a newly-updated core package (like libcrypto) may be available in the APK repository before the corresponding image build has been synced to the customer's registry, resulting in mismatched dependencies between packages.
+
+Custom Assembly solves this problem by building customized images on Chainguard's infrastructure, where the build pipeline automatically ensures all packages — both those included in the base image and those being added — remain on compatible versions. Rather than manually installing packages at runtime with apk add, Custom Assembly treats package additions as a declarative configuration that Chainguard builds, maintains, and automatically rebuilds as packages are updated. This approach eliminates version conflicts by design, as the entire dependency graph is resolved during the build process.
+
+The alternative approach — manually pinning each package to a specific version when using apk add — requires ongoing maintenance to update those pins when new versions are released, and it doesn't guarantee compatibility with the base image's packages. For example, running `apk add openssl=3.1.4-r0` pins only OpenSSL but doesn't ensure compatibility with the version of `libcrypto` already installed in the base image. This manual pinning also means missing out on automatic security updates unless someone actively manages and updates the version pins.
+
+Custom Assembly is the officially supported method for extending Chainguard Containers with additional packages. It leverages Chainguard's build infrastructure to produce tailored container images without requiring customers to maintain their own build pipelines, reducing engineering overhead and complexity. Because Chainguard automatically rebuilds Custom Assembly images when constituent packages are updated, customers receive timely security patches without manual intervention while avoiding the version conflicts inherent in ad-hoc apk add usage.
+
+
+## Why Use Custom Assembly for Adding Packages
+
+When customers add packages to Chainguard Containers using apk add commands without pinning to specific package versions, they expose themselves to version compatibility conflicts that can break their builds. Chainguard continuously updates its APK repository with the latest package versions to ensure customers receive the most recent security patches. However, this creates a timing window where a newly-updated core package may be available in the APK repository before the corresponding image build has been synced to the customer's registry, resulting in mismatched dependencies between packages.
+
+Custom Assembly solves this problem by building customized images on Chainguard's infrastructure, where the build pipeline automatically ensures all packages (both those included in the base image and those being added) remain on compatible versions. Rather than manually installing packages at runtime with `apk add`, Custom Assembly treats package additions as a declarative configuration that Chainguard builds, maintains, and automatically rebuilds as packages are updated.
+
+The alternative approach — manually pinning each package to a specific version when using apk add — requires ongoing maintenance to update those pins when new versions are released, and it doesn't guarantee compatibility with the base image's packages. For example, running `apk add openssl=3.1.4-r0` pins only OpenSSL but doesn't ensure compatibility with, for example, the version of `libcrypto` already installed in the base image.
+
+Custom Assembly is the officially supported method for extending Chainguard Containers with additional packages. It leverages Chainguard's build infrastructure to produce tailored container images without requiring customers to maintain their own build pipelines. Because Chainguard automatically rebuilds Custom Assembly images when constituent packages are updated, customers receive timely security patches without manual intervention while avoiding the version conflicts inherent in ad-hoc apk add usage.
+
+
 ## Custom Assembly Permissions Requirements
 
 In order to build customized container images, you must have the appropriate permissions in relation to your Chainguard organization. Specifically, a Chainguard user must have a role with the `repo.update` capability. If you find yourself unable to customize container images with Custom Assembly, it may be that you don't have adequate permissions within your organization to do so.
