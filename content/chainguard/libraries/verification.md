@@ -2,7 +2,7 @@
 title: "Chainguard Libraries Verification"
 linktitle: "Verification"
 description:
-  "Learn how to verify Java and Python dependencies are from Chainguard
+  "Learn how to verify libraries and packages are from Chainguard
   Libraries using the chainver tool for enhanced supply chain security"
 type: "article"
 date: 2025-07-03T12:00:00+00:00
@@ -49,7 +49,7 @@ You also need:
 - A Linux, macOS, or Windows system (x86_64 or arm64)
 - Sufficient [network access](/chainguard/libraries/network-requirements/)
 
-You can confirm that `chainctl` and `cosign` are installed with the following
+Confirm that `chainctl` and `cosign` are installed and available on the `PATH` with the following commands:
 commands:
 
 ```sh
@@ -66,9 +66,9 @@ cosign version
 
 ### Binary (macOS and Linux)
 
-The below command will download the latest version of `chainver` as an archive, extract it, verify the download, and move the binary to `/usr/local/bin`.
+The following command downloads the latest version of `chainver` as an archive, extracts it, verifies the download, and moves the binary to `/usr/local/bin`.
 
-First,, set the `ARCH` variable to match your system using one of
+First, set the `ARCH` variable to match your system using one of
 the following options:
 
 - `Linux_x86_64` - Linux with x86_64 processor
@@ -135,16 +135,16 @@ LATEST_URL=$(curl -s https://dl.enforce.dev/chainver/latest/latest-metadata.json
 
 ### Using chainctl
 
-You can authenticate with your Chainguard organization using chainctl. First,
+You can authenticate with your Chainguard organization using `chainctl`. First,
 initiate the login flow:
 
 ```sh
 chainctl auth login
 ```
 
-Then log in using one of the provided options.
+Log in using one of the provided options:
 
-Next, find your organization name:
+Find your organization name:
 
 ```sh
 chainctl iam organizations list
@@ -160,7 +160,7 @@ chainver --parent <your-organization> /path/to/artifact.jar
 
 ### Using Tokens
 
-For CI/CD pipelines or environments without chainctl, you can use a token.
+For CI/CD pipelines or environments without `chainctl`, you can use a token.
 First, [create a pull token for Chainguard Libraries](https://edu.chainguard.dev/chainguard/libraries/access/#pull-token-for-libraries).
 
 Once you have your token, you can authenticate by passing it to `chainver` using
@@ -223,7 +223,7 @@ Analyze multiple artifacts with detailed output:
 chainver --detailed artifact1.jar artifact2.zip
 ```
 
-JSON output for CI/CD integration:
+Receive JSON output for CI/CD integration:
 
 ```sh
 chainver -o json /path/to/artifact.jar
