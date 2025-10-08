@@ -22,7 +22,8 @@ The lab notes often include demo projects, a slide presentation, sample
 commands, links to specific sections in the video, and pointers to more
 resources:
 
-- [AI with Hardened Container Images - July 2025](/software-security/learning-labs/ll202506/)
+- [Getting Started with Chainguard's Dockerfile Converter - August 2025](/software-security/learning-labs/ll202508/)
+- [AI with Hardened Container Images - July 2025](/software-security/learning-labs/ll202507/)
 - [Chainguard Libraries for Python - June 2025](/software-security/learning-labs/ll202506/)
 - [Chainguard Libraries for Java - May 2025](/software-security/learning-labs/ll202505/)
 
