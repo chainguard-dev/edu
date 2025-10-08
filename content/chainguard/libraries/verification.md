@@ -206,7 +206,7 @@ Receive JSON output for CI/CD integration:
 chainver -o json /path/to/artifact.jar
 ```
 
-Generate inventory from repository:
+Generate inventory from repository. (Note that passing a URL from the public Maven Central repository will return a negative result, i.e. `chainver` will indicate that packages were not built by Chainguard.)
 
 ```sh
 chainver inventory --ecosystem java remote:repo1.maven.org/maven2/org/apache
