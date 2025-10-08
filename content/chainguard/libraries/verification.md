@@ -18,7 +18,7 @@ toc: true
 
 ## Overview
 
-Chainguard's `chainver` tool verifies that your Java and Python dependencies
+Chainguard's `chainver` tool verifies that your language ecosystem dependencies
 come from Chainguard Libraries, providing critical visibility into your software
 supply chain security. By verifying binary artifacts across your projects and
 repositories, you can ensure dependencies are sourced from Chainguard's hardened
@@ -34,12 +34,12 @@ The `chainver` tool:
 - Allows analysis of directories and nested archive files.
 - Creates output in text, json, yaml, and CSV formats.
 
-## Prerequisites
+## Requirements
 
 Before installing chainver, ensure you have the following installed and
 available on your path:
 
-- [`chainctl`](https://edu.chainguard.dev/chainguard/chainctl-usage/how-to-install-chainctl/)
+- [`chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/)
   — A Chainguard-maintained tool used for authentication
 - [`cosign`](https://docs.sigstore.dev/cosign/system_config/installation/) — A
   Sigstore-maintained tool used to verify signatures
@@ -64,7 +64,18 @@ cosign version
 
 [Download the latest release - version 0.4.1](https://dl.enforce.dev/chainver/0.4.1/chainver-v0.4.1.zip)
 
-### Binary (macOS and Linux)
+### Version-Agnostic Download
+
+Download the latest release using `curl`. (Note that [`jq`](https://jqlang.org/download/) must be on the path.)
+
+```sh
+LATEST_URL=$(curl -s https://dl.enforce.dev/chainver/latest/latest-metadata.json | jq -r '.download_url') && \
+ curl -LO "${LATEST_URL}"
+```
+
+Once you've downloaded the archive, unpack it and place the binary for your chosen platform on the path. 
+
+### Binary Install Script (macOS and Linux)
 
 The following command downloads the latest version of `chainver` as an archive, extracts it, verifies the download, and moves the binary to `/usr/local/bin`.
 
@@ -97,40 +108,6 @@ cd .. && rm -rf chainver-*.zip chainver-package && \
 chainver version
 ```
 
-### Go
-
-If you have the [Go runtime installed](https://go.dev/doc/install), you can
-install `chainver` with the following:
-
-```sh
-go install github.com/chainguard-dev/chainver@latest
-```
-
-### Container Image
-
-Run chainver using the Chainguard container image:
-
-```sh
-docker run -v /path/to/artifacts:/data \
-  cgr.dev/chainguard/chainver:latest /data/your-artifact.jar
-```
-
-Analyze remote artifacts:
-
-```sh
-docker run cgr.dev/chainguard/chainver:latest \
-  remote:repo1.maven.org/maven2/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar
-```
-
-### Version-Agnostic Download
-
-Download the latest release using `curl`. (Note that [`jq`](https://jqlang.org/download/) must be on the path.)
-
-```sh
-LATEST_URL=$(curl -s https://dl.enforce.dev/chainver/latest/latest-metadata.json | jq -r '.download_url') && \
- curl -LO "${LATEST_URL}"
-```
-
 ## Authentication Setup
 
 ### Using chainctl
@@ -161,7 +138,7 @@ chainver --parent <your-organization> /path/to/artifact.jar
 ### Using Tokens
 
 For CI/CD pipelines or environments without `chainctl`, you can use a token.
-First, [create a pull token for Chainguard Libraries](https://edu.chainguard.dev/chainguard/libraries/access/#pull-token-for-libraries).
+First, [create a pull token for Chainguard Libraries](/chainguard/libraries/access/#pull-token-for-libraries).
 
 Once you have your token, you can authenticate by passing it to `chainver` using
 the `--token` flag:
@@ -229,12 +206,6 @@ Receive JSON output for CI/CD integration:
 chainver -o json /path/to/artifact.jar
 ```
 
-Run via Docker:
-
-```sh
-docker run -v /path/to/artifacts:/data cgr.dev/chainguard/chainver:latest /data/your-artifact
-```
-
 Generate inventory from repository:
 
 ```sh
@@ -258,3 +229,7 @@ chainver --parent <your-organization> remote:files.pythonhosted.org/packages/70/
 - [Chainguard Libraries Overview](/chainguard/libraries/overview)
 - [Chainguard Libraries Authentication](/chainguard/libraries/access/)
 - [Learning Lab: Chainguard Libraries for Java](/software-security/learning-labs/ll202505/)
+- [Learning Lab: Chainguard Libraries for Python](/software-security/learning-labs/ll202506)
+
+
+
