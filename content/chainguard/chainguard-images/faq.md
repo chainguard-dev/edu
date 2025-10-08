@@ -69,11 +69,7 @@ This change ensures that Chainguard can provide the most up-to-date patches to a
 
 ## How do I add packages to a Chainguard Container?
 
-Chainguard's [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) tool is the officially supported approach for extending Chainguard Containers with additional packages. Custom Assembly automatically ensures all packages remain on compatible versions and handles rebuilds when packages are updated, eliminating version conflicts and reducing maintenance overhead.
-
-While you can use `apk add` to install packages at runtime, this approach requires careful version pinning (for example, `apk add openssl=3.1.4-r0`) to avoid compatibility conflicts between the base image and newly installed packages. Without explicit version pins, timing mismatches between APK repository updates and image builds can cause dependency conflicts that break your containers. Even with pinning, you'll need to manually manage version updates to receive security patches.
-
-Refer to our [Custom Assembly documentation](/chainguard/chainguard-images/features/ca-docs/) for more information.
+{{< blurb/why_ca >}}
 
 
 ## What does Chainguard do when a CVE is published, but a patch is not available from the owner of the OSS code?

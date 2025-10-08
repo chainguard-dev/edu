@@ -94,6 +94,11 @@ Use only packages from Chainguard images you’re entitled to, which are covered
 
 Custom Assembly provides the tools and defaults for secure image creation — but ongoing vigilance is key.
 
+## Can't I Just Add Packages with `apk add`?
+
+{{< blurb/why_ca >}}
+
+
 ## Custom Assembly Troubleshooting
 Build failures can occur for a number of reasons, including the following:
 
