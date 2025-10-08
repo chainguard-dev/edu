@@ -91,7 +91,7 @@ For images on other registries:
 trivy image cgr.dev/chainguard/nginx:latest
 ```
 
-#### Scanning a Filesystem
+### Scanning a Filesystem
 
 Trivy can recursively scan directories on a local machine.. To start a filesystem scan, run:
 
@@ -121,7 +121,7 @@ trivy fs .
 
 You should see a summary and itemized list of CVEs for the outdated Node package.
 
-#### Scanning Clusters
+### Scanning Clusters
 
 To scan a Kubernetes cluster:
 
