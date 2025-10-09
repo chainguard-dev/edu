@@ -66,6 +66,12 @@ Starting in March of 2024, Chainguard will maintain one version of each Wolfi pa
 
 This change ensures that Chainguard can provide the most up-to-date patches to all packages for our customers. Note that specific package versions can be made available in Production containers. If you have a request for a specific package version, please [contact us](https://www.chainguard.dev/contact?utm=docs).
 
+
+## How do I add packages to a Chainguard Container?
+
+{{< blurb/why_ca >}}
+
+
 ## What does Chainguard do when a CVE is published, but a patch is not available from the owner of the OSS code?
 Chainguard investigates the CVE and marks relevant images as affected or not. If Chainguard can identify a patch that's unreleased, Chainguard may apply a patch before it lands upstream. In either case, when the patch lands upstream, Chainguard picks it up and rolls it out.
 
