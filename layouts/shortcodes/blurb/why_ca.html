@@ -1,12 +1,22 @@
-Chainguard's [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) tool is the officially
-supported approach for extending Chainguard Containers with additional packages. Custom Assembly automatically ensures
-all packages remain on compatible versions and handles rebuilds when packages are updated, eliminating version conflicts
-and reducing maintenance overhead.
-
-While you can use `apk add` to install packages at runtime, this approach requires careful version pinning (for example,
-`apk add openssl=3.1.4-r0`) to avoid compatibility conflicts between the base image and newly installed packages.
-Without explicit version pins, timing mismatches between APK repository updates and image builds can cause dependency
-conflicts that break your containers. Even with pinning, you'll need to manually manage version updates to receive
-security patches.
-
-Refer to our [Custom Assembly documentation](/chainguard/chainguard-images/features/ca-docs/) for more information.
+<p>
+    Chainguard&#39;s <a href="/chainguard/chainguard-images/features/ca-docs/custom-assembly/">Custom Assembly</a> tool
+    is the officially supported approach for extending Chainguard Containers with additional packages. Custom Assembly
+    automatically
+    ensures all packages remain on compatible versions and handles rebuilds when packages are updated, eliminating
+    version
+    conflicts and reducing maintenance overhead.
+</p>
+<p>
+    While you can use <code>apk add</code> to install packages at runtime, this approach requires careful version
+    pinning
+    (for example, <code>apk add openssl=3.1.4-r0</code>) to avoid compatibility conflicts between the base image and
+    newly installed
+    packages. Without explicit version pins, timing mismatches between APK repository updates and image builds can cause
+    dependency conflicts that break your containers. Even with pinning, you&#39;ll need to manually manage version
+    updates to
+    receive security patches.
+</p>
+<p>
+    Refer to our <a href="/chainguard/chainguard-images/features/ca-docs/">Custom Assembly documentation</a> for more
+    information.
+</p>
