@@ -94,7 +94,7 @@ Use only packages from Chainguard images you’re entitled to, which are covered
 
 Custom Assembly provides the tools and defaults for secure image creation — but ongoing vigilance is key.
 
-## Can't I Just Add Packages with `apk add`?
+## Why Not Use `apk add` to Add Packages?
 
 {{< blurb/why_ca >}}
 
