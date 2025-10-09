@@ -1,22 +1,30 @@
 <p>
-    Chainguard&#39;s <a href="/chainguard/chainguard-images/features/ca-docs/custom-assembly/">Custom Assembly</a> tool
-    is the officially supported approach for extending Chainguard Containers with additional packages. Custom Assembly
-    automatically
-    ensures all packages remain on compatible versions and handles rebuilds when packages are updated, eliminating
-    version
-    conflicts and reducing maintenance overhead.
+    Chainguard's
+    <a href="/chainguard/chainguard-images/features/ca-docs/custom-assembly/">Custom Assembly</a>
+    tool is the officially supported approach for extending Chainguard
+    Containers with additional packages. Custom Assembly automatically ensures
+    all packages remain on compatible versions and handles rebuilds when
+    packages are updated, eliminating version conflicts and reducing maintenance
+    overhead.
 </p>
 <p>
-    While you can use <code>apk add</code> to install packages at runtime, this approach requires careful version
-    pinning
-    (for example, <code>apk add openssl=3.1.4-r0</code>) to avoid compatibility conflicts between the base image and
-    newly installed
-    packages. Without explicit version pins, timing mismatches between APK repository updates and image builds can cause
-    dependency conflicts that break your containers. Even with pinning, you&#39;ll need to manually manage version
-    updates to
-    receive security patches.
+    While using <code>apk add</code> to add packages in a Dockerfile or similar
+    is effective, issues can arise when packages in a base image conflict with
+    new packages that are added. This can be particularly pronounced when base
+    packages are updated — there can be brief windows when the latest version of
+    a base image has a conflict with the latest version of a package.
 </p>
 <p>
-    Refer to our <a href="/chainguard/chainguard-images/features/ca-docs/">Custom Assembly documentation</a> for more
-    information.
+    For example, when the <code>openssl</code> package is updated, there will be
+    a brief window where base images with an old and potentially incompatible
+    version of <code>libcrypto</code>, and attempting to
+    <code>apk add openssl</code> will fail. This conflict will be resolved in a
+    few hours when a new version of the base image is released. The only way
+    around this is to pin to specific versions of packages and images, which
+    adds its own significant maintenance burden.
+</p>
+<p>
+    Refer to our
+    <a href="/chainguard/chainguard-images/features/ca-docs/">Custom Assembly documentation</a>
+    for more information.
 </p>
