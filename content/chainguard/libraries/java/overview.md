@@ -88,11 +88,11 @@ builds, yet are not included:
 Some types of artifacts are included if the source build produces them, but are
 often not available:
 
-* Source JAR artifacts
-* Javadocs JAR artifacts
+* JAR artifacts containing the source code
+* JAR artifacts containing JavaDoc HTML files
 * Distributable versions of artifacts such JARs with dependencies or tar.gz archives
 * Other package formats sometimes found such as RPMs, SO files, Android AARs,
-  and similar rarely used artifacts
+  and similar, rarely used artifacts
 
 As a result, you must configure the repository as the first point of contact and
 request for any retrieval of a library. This ensures that any library that is
@@ -111,38 +111,33 @@ Alternatively, you can use the token for direct access from a build tool as
 discussed in [Build
 configuration](/chainguard/libraries/java/build-configuration/).
 
-<a id="java-repo-test">
+<a id="manual">
 
-### Manual testing
+## Manual access
 
-You can manually download specific artifacts from the repository if you know the
-URL as determined by the identifying GAV coordinates for an artifact.
+Use the URL [`https://libraries.cgr.dev/java/`](https://libraries.cgr.dev/java/)
+with your [username and password retrieved with
+chainctl](/chainguard/libraries/access/) to access the Chainguard Libraries for
+Java repository and manually browse the repository contents.
 
-For example, you can locate a Maven POM file on the Maven Central Repository:
+This site provides a directory browsing and file listing capability similar to
+the Maven Central repository at
+[`https://repo1.maven.org/maven2/`](https://repo1.maven.org/maven2/). The
+structure follows the [Maven repository
+format](https://maven.apache.org/repository/layout.html).
 
-```
-https://repo1.maven.org/maven2/commons-io/commons-io/2.17.0/commons-io-2.17.0.pom
-```
+All leaf directories are allocated for a specific version of a specific library
+and contain all relevant files. 
 
-And then use the path composed from the Maven coordinates
+For example, the directory at
+`https://libraries.cgr.dev/java/commons-io/commons-io/2.17.0/` contains all
+files for the `commons-io:commons-io:2.17.0` library. Specifically, this
+includes the file `commons-io-2.17.0.pom` for the main Maven metadata from the
+project and main JAR file `commons-io-2.17.0.jar`. The directory also includes
+numerous other files, and related checksum files. Specific files vary between
+the different libraries.
 
-```
-commons-io/commons-io/2.17.0/commons-io-2.17.0.pom
-```
-
-And combine it with the URL for the Chainguard Libraries for Java repository to
-check for the presence of the same file:
-
-```
-https://libraries.cgr.dev/java/commons-io/commons-io/2.17.0/commons-io-2.17.0.pom
-```
-
-Use the [Maven Central Repository search](https://central.sonatype.com/) or
-[browse functionality](https://repo1.maven.org/maven2/) to locate artifacts of
-interest.
-
-If you use the URL directly in a browser, you have to provide the username and
-password to log in to the Chainguard repository to download the file.
+All filenames can be used to download individual files.
 
 Use `curl`, specify the username and password retrieved with [chainctl for basic
 user authentication](/chainguard/libraries/access/) and use the URL of the file to
@@ -151,7 +146,7 @@ download and save the file with the original name.
 With [.netrc authentication](/chainguard/libraries/access/#netrc):
 
 ```shell
-curl -n -L --user "$CHAINGUARD_JAVA_IDENTITY_ID:$CHAINGUARD_JAVA_TOKEN" \
+curl -n -L \
   -O https://libraries.cgr.dev/java/commons-io/commons-io/2.17.0/commons-io-2.17.0.pom
 ```
 
