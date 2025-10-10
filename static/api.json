@@ -286,6 +286,39 @@
         ]
       }
     },
+    "/auth/v1/delete/{id}": {
+      "delete": {
+        "operationId": "Auth_Delete",
+        "parameters": [
+          {
+            "description": "id is the exact UID of the identity to be deleted from the platform.\nIt must be a root identity, and the UID must match the subject\nof the token.",
+            "in": "path",
+            "name": "id",
+            "pattern": "[^/]+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {},
+              "type": "object"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Auth"
+        ]
+      }
+    },
     "/auth/v1/ok": {
       "get": {
         "operationId": "Auth_Validate",
@@ -2348,11 +2381,27 @@
             "type": "string"
           },
           {
+            "description": "use to choose reports started before this time.",
+            "format": "date-time",
+            "in": "query",
+            "name": "startedBefore",
+            "required": false,
+            "type": "string"
+          },
+          {
             "description": "Opt-in to exclude raw log output via Log field\nNote: including logs has lead to high db input/output and timeouts\ndepending on the size of the returned log contents",
             "in": "query",
             "name": "excludeLogs",
             "required": false,
             "type": "boolean"
+          },
+          {
+            "description": "The maximum number of artifacts to return per request.\nThe service may return fewer than this value.",
+            "format": "int32",
+            "in": "query",
+            "name": "pageSize",
+            "required": false,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -2365,7 +2414,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -2426,11 +2475,27 @@
             "type": "string"
           },
           {
+            "description": "use to choose reports started before this time.",
+            "format": "date-time",
+            "in": "query",
+            "name": "startedBefore",
+            "required": false,
+            "type": "string"
+          },
+          {
             "description": "Opt-in to exclude raw log output via Log field\nNote: including logs has lead to high db input/output and timeouts\ndepending on the size of the returned log contents",
             "in": "query",
             "name": "excludeLogs",
             "required": false,
             "type": "boolean"
+          },
+          {
+            "description": "The maximum number of artifacts to return per request.\nThe service may return fewer than this value.",
+            "format": "int32",
+            "in": "query",
+            "name": "pageSize",
+            "required": false,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -2443,7 +2508,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -2474,7 +2539,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -2512,7 +2577,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -2543,7 +2608,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -2580,7 +2645,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -2611,7 +2676,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -2643,7 +2708,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -2675,7 +2740,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -2706,7 +2771,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -2778,6 +2843,20 @@
             "name": "pageSize",
             "required": false,
             "type": "string"
+          },
+          {
+            "description": "Exclude tags of the form \"*-20yymmdd\".",
+            "in": "query",
+            "name": "excludeDates",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "Exclude tags of the form \"*-r[0-9]+\".",
+            "in": "query",
+            "name": "excludeEpochs",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -2790,7 +2869,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -2822,7 +2901,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -2899,7 +2978,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -2932,7 +3011,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -2970,7 +3049,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -3016,7 +3095,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -3070,7 +3149,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -3111,7 +3190,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -3158,7 +3237,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -3212,7 +3291,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -3259,7 +3338,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -3307,7 +3386,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -3347,7 +3426,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -3379,7 +3458,39 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      }
+    },
+    "/registry/v1/repos/{repoId}:syncstatus": {
+      "get": {
+        "operationId": "Registry_GetSyncStatus",
+        "parameters": [
+          {
+            "description": "The UIDP of the image repo to get sync status for.",
+            "in": "path",
+            "name": "repoId",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registrySyncStatus"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -3411,7 +3522,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -3523,7 +3634,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -3556,7 +3667,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -3594,7 +3705,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -3640,7 +3751,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -3679,7 +3790,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -3711,7 +3822,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -4204,91 +4315,6 @@
         ]
       }
     },
-    "/tenant/v1/vulnreports": {
-      "get": {
-        "operationId": "VulnReports_List",
-        "parameters": [
-          {
-            "description": "id is the exact UID of the record.",
-            "in": "query",
-            "name": "id",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
-            "in": "query",
-            "name": "uidp.ancestorsOf",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
-            "in": "query",
-            "name": "uidp.descendantsOf",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "children_of are groups reachable by directly proceeding from parent to children.",
-            "in": "query",
-            "name": "uidp.childrenOf",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
-            "in": "query",
-            "name": "uidp.inRoot",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "collectionFormat": "multi",
-            "description": "ids are a list of exact UIDPs of records.",
-            "in": "query",
-            "items": {
-              "type": "string"
-            },
-            "name": "uidp.ids",
-            "required": false,
-            "type": "array"
-          },
-          {
-            "description": "active_since is the timestamp after which the records should\nhave last been observed in the returned context.",
-            "format": "date-time",
-            "in": "query",
-            "name": "activeSince",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "include_raw_vuln_report is a flag to return a list of reports containing the raw report.",
-            "in": "query",
-            "name": "includeRawVulnReport",
-            "required": false,
-            "type": "boolean"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/tenantVulnReportList"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "tags": [
-          "VulnReports"
-        ]
-      }
-    },
     "/vulnerabilities/v1/advisories": {
       "get": {
         "operationId": "Advisories_List",
@@ -4435,6 +4461,13 @@
             "description": "event_author filters by event author email\nWhen specified, only advisories containing at least one event created by the specified\nauthor will be returned. This enables users to find their own events or events from\nspecific team members.",
             "in": "query",
             "name": "eventAuthor",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "event_reviewer filters by event reviewer email\nWhen specified, only advisories containing at least one event reviewed by the specified\nauthor will be returned. This enables users to find their own events or events from\nspecific team members.",
+            "in": "query",
+            "name": "eventReviewer",
             "required": false,
             "type": "string"
           },
@@ -4672,6 +4705,46 @@
           "Advisories"
         ]
       }
+    },
+    "/vulnerabilities/v1/advisory_events/{id}": {
+      "put": {
+        "operationId": "Advisories_UpdateAdvisoryEvent",
+        "parameters": [
+          {
+            "description": "id is the UIDP of this event, child of Advisory UIDP it belongs to.",
+            "in": "path",
+            "name": "id",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AdvisoriesUpdateAdvisoryEventBody"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1AdvisoryEvent"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Advisories"
+        ]
+      }
     }
   },
   "definitions": {
@@ -4800,12 +4873,62 @@
     },
     "AdvisoriesCreateAdvisoryEventBody": {
       "properties": {
-        "items": {
-          "items": {
-            "$ref": "#/definitions/v1AdvisoryEvent",
-            "type": "object"
-          },
-          "type": "array"
+        "advisoryEvent": {
+          "$ref": "#/definitions/v1AdvisoryEvent"
+        }
+      },
+      "type": "object"
+    },
+    "AdvisoriesUpdateAdvisoryEventBody": {
+      "properties": {
+        "analysisNotPlanned": {
+          "$ref": "#/definitions/AdvisoryEventAnalysisNotPlanned"
+        },
+        "author": {
+          "title": "author is the person who created this event",
+          "type": "string"
+        },
+        "detection": {
+          "$ref": "#/definitions/AdvisoryEventDetection"
+        },
+        "falsePositiveDetermination": {
+          "$ref": "#/definitions/AdvisoryEventFalsePositiveDetermination"
+        },
+        "findings": {
+          "format": "byte",
+          "title": "findings is the JSON-encoded struct containing vulnerability findings",
+          "type": "string"
+        },
+        "fixNotPlanned": {
+          "$ref": "#/definitions/AdvisoryEventFixNotPlanned"
+        },
+        "fixed": {
+          "$ref": "#/definitions/AdvisoryEventFixed"
+        },
+        "issue": {
+          "title": "issue is the original CVE Dashboard issue",
+          "type": "string"
+        },
+        "patched": {
+          "$ref": "#/definitions/AdvisoryEventPatched"
+        },
+        "pendingUpstreamFix": {
+          "$ref": "#/definitions/AdvisoryEventPendingUpstreamFix"
+        },
+        "reviewer": {
+          "title": "reviewer is the person who reviewed this event",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/v1ReviewStatus",
+          "title": "status is the status of the review"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "truePositiveDetermination": {
+          "$ref": "#/definitions/AdvisoryEventTruePositiveDetermination"
         }
       },
       "type": "object"
@@ -4872,14 +4995,6 @@
         "legacyAdvisoryID": {
           "title": "legacyAdvisoryID stores the advisory ID from the Github advisories repositories",
           "type": "string"
-        },
-        "reviewer": {
-          "title": "reviewer is the person who reviewed this event",
-          "type": "string"
-        },
-        "status": {
-          "$ref": "#/definitions/v1ReviewStatus",
-          "description": "status is the status of the review. Note that not all the entries need to\nget reviewed, so this is optional."
         },
         "updatedAt": {
           "format": "date-time",
@@ -6530,6 +6645,25 @@
       },
       "type": "object"
     },
+    "googlerpcStatus": {
+      "properties": {
+        "code": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "details": {
+          "items": {
+            "$ref": "#/definitions/protobufAny",
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "iamAccountAssociations": {
       "properties": {
         "amazon": {
@@ -7446,9 +7580,6 @@
       "default": "UNKNOWN",
       "enum": [
         "UNKNOWN",
-        "FREE",
-        "STANDARD",
-        "PREMIUM",
         "APPLICATION",
         "BASE",
         "FIPS",
@@ -8141,6 +8272,31 @@
       },
       "type": "object"
     },
+    "registrySyncStatus": {
+      "description": "SyncStatus is the sync status of a repo in the workqueue.",
+      "properties": {
+        "createTime": {
+          "description": "The time when the task was created in the workqueue.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/registrySyncStatusStatus",
+          "description": "The current status of the repo in the workqueue."
+        }
+      },
+      "type": "object"
+    },
+    "registrySyncStatusStatus": {
+      "default": "UNKNOWN",
+      "enum": [
+        "UNKNOWN",
+        "QUEUED",
+        "IN_PROGRESS",
+        "FAILED"
+      ],
+      "type": "string"
+    },
     "registryTag": {
       "properties": {
         "bundles": {
@@ -8444,54 +8600,6 @@
       },
       "type": "object"
     },
-    "tenantAttestation": {
-      "description": "Attestation represents a normalized Attestation that we have ingested into our datastore.\nThey are linked to Signatures via ID, as in they are 'children' of Signatures\nThere can be multiple of these that we keep.",
-      "properties": {
-        "description": {
-          "title": "Short description of the Attestation",
-          "type": "string"
-        },
-        "digest": {
-          "title": "digest of the Attestation when ingested",
-          "type": "string"
-        },
-        "format": {
-          "title": "format holds the Document format type",
-          "type": "string"
-        },
-        "generatedAt": {
-          "description": "generated_at holds when the Attestation was generated.",
-          "format": "date-time",
-          "type": "string"
-        },
-        "id": {
-          "description": "id, The Attestation UIDP at which this Attestation resides in the hierarchy.",
-          "type": "string"
-        },
-        "name": {
-          "description": "Name of the Attestation.",
-          "type": "string"
-        },
-        "rawAttestation": {
-          "format": "byte",
-          "title": "raw_attestation is a free form type to stub in any attestations so we don't end up a\nadding new tables for all the new type of attestations, initial goal is to add image configs\nand anything which comes up after that",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "tenantAttestationList": {
-      "properties": {
-        "items": {
-          "items": {
-            "$ref": "#/definitions/tenantAttestation",
-            "type": "object"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
     "tenantComponentGraph": {
       "properties": {
         "edges": {
@@ -8623,18 +8731,6 @@
       },
       "type": "object"
     },
-    "tenantSbom2List": {
-      "properties": {
-        "items": {
-          "items": {
-            "$ref": "#/definitions/tenantSbom2",
-            "type": "object"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
     "tenantScanner": {
       "properties": {
         "name": {
@@ -8682,18 +8778,6 @@
           "description": "Report's list of vulnerability matches(s).",
           "items": {
             "$ref": "#/definitions/tenantVulnerabilityMatch",
-            "type": "object"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "tenantVulnReportList": {
-      "properties": {
-        "items": {
-          "items": {
-            "$ref": "#/definitions/tenantVulnReport",
             "type": "object"
           },
           "type": "array"
@@ -8871,14 +8955,6 @@
         "legacyAdvisoryID": {
           "title": "legacyAdvisoryID stores the advisory ID from the Github advisories repositories",
           "type": "string"
-        },
-        "reviewer": {
-          "title": "reviewer is the person who reviewed this event",
-          "type": "string"
-        },
-        "status": {
-          "$ref": "#/definitions/v1ReviewStatus",
-          "description": "status is the status of the review. Note that not all the entries need to\nget reviewed, so this is optional."
         },
         "updatedAt": {
           "format": "date-time",
@@ -9086,15 +9162,6 @@
     },
     {
       "name": "Vulnerabilities"
-    },
-    {
-      "name": "Attestations"
-    },
-    {
-      "name": "Sboms"
-    },
-    {
-      "name": "VulnReports"
     },
     {
       "name": "Advisories"
