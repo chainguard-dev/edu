@@ -28,9 +28,9 @@ All users have access to two distinct package repositories maintained by Chaingu
 
 Additionally, Chainguard customers have access to a Private APK Repository specific to their organization.
 
-> **Note**: Be aware that the packages maintained by Chainguard are not covered by an SLA.
+> **Note**: Be aware that SLAs apply to container images, not individual packages.
 
-Chainguard Containers are designed to run apk (Alpine Package Keeper) packages, a package format developed for [Alpine Linux](https://www.alpinelinux.org/). Accordingly, Chainguard's package repositories contain apk packages, and you can interact with them using the standard [`apk` commands](https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html). Chainguard maintains the packages within all of these package repositories. 
+Chainguard Containers are designed to run apk packages, a package format developed for [Alpine Linux](https://www.alpinelinux.org/). Accordingly, Chainguard's package repositories contain apk packages, and you can interact with them using the standard [`apk` commands](https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html). Chainguard maintains the packages within all of these package repositories. 
 
 The following table presents a high-level overview of these package repositories:
 
@@ -74,7 +74,7 @@ The Extra Packages repository follows similar rules to the Wolfi repo, but expli
 
 The Extra Packages repository isn't specified in the `/etc/apk/repositories` file of Chainguard's Starter images by default. However, users that aren't Chainguard customers can access it through the generic address `https://apk.cgr.dev/extra-packages`. 
 
-Like the Wolfi repository, though, customers can access it with a URL that's unique to their organization:
+Like the Wolfi repository, customers can access it with a URL that's unique to their organization:
 
 ```url
 https://virtualapk.cgr.dev/$ORGANIZATION_ID/extra-packages
