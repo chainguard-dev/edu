@@ -93,3 +93,21 @@ Chainguard Libraries is available for the following library ecosystems:
   JavaScript](/chainguard/libraries/javascript/overview/)
 * Python and the larger ecosystem with [Chainguard Libraries for
   Python](/chainguard/libraries/python/overview/)
+
+## Other Resources
+
+* [Chainguard Libraries product page](https://www.chainguard.dev/libraries)
+* [Learning Lab for June 2025 on Chainguard Libraries for Python](/software-security/learning-labs/ll202506/)
+* [Learning Lab for May 2025 about Chainguard Libraries for Java](/software-security/learning-labs/ll202505/)
+
+Blog posts
+
+* [Mitigating Malware in the npm Ecosystem with Chainguard Libraries](https://www.chainguard.dev/unchained/mitigating-malware-in-the-npm-ecosystem-with-chainguard-libraries
+)
+* [Announcing Chainguard Libraries for JavaScript: Malware-Resistant Dependencies Built Securely from Source](https://www.chainguard.dev/unchained/announcing-chainguard-libraries-for-javascript-malware-resistant-dependencies-built-securely-from-source)
+* [Registries and the npm Breach: Securing the Weakest Link in the Software Supply Chain](https://www.chainguard.dev/unchained/registries-and-the-npm-breach-securing-the-weakest-link-in-the-software-supply-chain)
+* [Malware-Resistant Python without the Guesswork](https://www.chainguard.dev/unchained/malware-resistant-python-without-the-guesswork)
+* [This Shit is Hard: Java Archeology at a Massive Scale](https://www.chainguard.dev/unchained/this-shit-is-hard-java-archeology-at-a-massive-scale)
+* [Mitigating Malware in the Python Ecosystem with Chainguard Libraries](https://www.chainguard.dev/unchained/mitigating-malware-in-the-python-ecosystem-with-chainguard-libraries)
+* [Announcing Chainguard Libraries for Python: Malware-Resistant Dependencies Built Securely from Source](https://www.chainguard.dev/unchained/announcing-chainguard-libraries-for-python-malware-resistant-dependencies-built-securely-from-source)
+* [Announcing Chainguard Libraries: Guarded Java Language Dependencies Built from Source](https://www.chainguard.dev/unchained/announcing-chainguard-libraries-guarded-java-language-dependencies-built-from-source)
