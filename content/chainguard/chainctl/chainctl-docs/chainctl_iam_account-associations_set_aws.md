@@ -1,5 +1,5 @@
 ---
-date: 2025-10-06T17:48:56Z
+date: 2025-10-09T16:05:44Z
 title: "chainctl iam account-associations set aws"
 slug: chainctl_iam_account-associations_set_aws
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_set_aws/
