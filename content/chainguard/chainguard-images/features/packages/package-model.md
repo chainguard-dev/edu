@@ -4,13 +4,15 @@ linktitle: "Package Repositories"
 lead: "Overview of Chainguard's package repositories, highlighting the different repositories and how to access them."
 description: "Overview of Chainguard's package repositories, highlighting the different repositories and how to access them."
 type: "article"
-date: 2025-09-12T00:00:00Z
-lastmod: 2025-09-12T00:00:00Z
+date: 2025-10-09T00:00:00Z
+lastmod: 2025-10-09T00:00:00Z
 draft: false
 tags: ["Chainguard Containers", "Overview", "Product"]
 images: []
 weight: 001
 ---
+
+Chainguard Containers are built using packages from the Wolfi and Chainguard OS Linux distributions. If you need to extend or customize an image, it can be useful to access these packages directly.
 
 Chainguard offers curated package repositories to support containerized workloads and simplify dependency management. These repositories ensure you can access trusted packages — whether building custom container images, working with Chainguard OS, or using Chainguard Containers in production.
 
@@ -19,30 +21,31 @@ This article provides an overview of Chainguard's package model, highlighting th
 
 ## Repository Types
 
-Chainguard Customers have access to three distinct package repositories maintained by Chainguard:
+All users have access to two distinct package repositories maintained by Chainguard:
 
 * Wolfi
 * Extra
-* A Private APK Repository specific to their organization
+
+Additionally, Chainguard customers have access to a Private APK Repository specific to their organization.
 
 > **Note**: Be aware that the packages maintained by Chainguard are not covered by an SLA.
 
-Chainguard Containers are built to run `apk` (Alpine Package Keeper) packages, a package format developed for [Alpine Linux](https://www.alpinelinux.org/). Accordingly, Chainguard's package repositories contain apk packages, the package format developed for apk, and you can interact with them using the standard [`apk` commands](https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html). Chainguard maintains the packages within all of these package repositories. 
+Chainguard Containers are designed to run apk (Alpine Package Keeper) packages, a package format developed for [Alpine Linux](https://www.alpinelinux.org/). Accordingly, Chainguard's package repositories contain apk packages, and you can interact with them using the standard [`apk` commands](https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html). Chainguard maintains the packages within all of these package repositories. 
 
 The following table presents a high-level overview of these package repositories:
 
 | Repository Type | Access Level | Package Scope | Authentication Required | Typical Use Case |
 |-----------------|:----------------:|:----------------------:|:-----------------------:|:------------------------:|
 | Wolfi | Public | Wolfi ecosystem | No | Starter images |
-| Extra | Public | Supplemental utilities | No | Additional dependencies |
+| Extra | Public | Supplemental utilities | No | Additional dependencies, non-open source software  |
 | Private | Private/Organization-specific | Packages in org-entitled container images | Yes | Customizing Chainguard Containers with [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) |
 
 
 ## Public Repositories
 
-Chainguard has two public package repositories: the Wolfi and Extra package repositories. These repos typically include the latest stable versions and explicitly exclude FIPS-validated packages or version streams. 
+Chainguard has two public package repositories: the Wolfi and Extra Packages repositories. These repos typically include the latest stable versions and explicitly exclude FIPS-validated packages or version streams. 
 
-### Wolfi packages repository
+### Wolfi
 
 The [Wolfi packages repository](https://github.com/wolfi-dev/os) is the public package source for [Wolfi, Chainguard's open-source Linux "undistro."](/open-source/wolfi/overview/) It contains all the open-source packages used in Chainguard's Starter tier of free container images. As a public repository, the Wolfi APK repo doesn't require authentication. 
 
@@ -55,21 +58,23 @@ docker run -it --rm --entrypoint cat cgr.dev/chainguard/python:latest-dev /etc/a
 https://apk.cgr.dev/chainguard
 ```
 
-Chainguard customers can access it with a URL that's unique to their organization:
+Users that aren't Chainguard customers can use this URL to add packages from the Wolfi repository. Chainguard customers can access it with a URL that's unique to their organization:
 
 ```url
 https://virtualapk.cgr.dev/$ORGANIZATION_ID/chainguard
 ```
 
-If you need packages outside Wolfi's open-source scope, or under less permissive licenses, Chainguard offers a supplemental Extra packages repository
+If you need packages outside Wolfi's open-source scope, or under less permissive licenses, Chainguard offers a supplemental Packages repository
 
-### Extra packages repository
+### Extra Packages
 
 Chainguard's Extra Packages repository is a public-facing APK repository that includes utilities and compatibility packages that aren't fully open-source, but can still be redistributed by Chainguard. The repository’s primary role is to provide supplemental packages needed to support containerized applications, especially when those utilities fall outside the scope of the official base images or are under less permissive licenses than those in the Wolfi repository.
 
-The Extra packages repository follows similar rules to the Wolfi repo, but explicitly allows packages under more restrictive licenses as long as redistribution is permitted.
+The Extra Packages repository follows similar rules to the Wolfi repo, but explicitly allows packages under more restrictive licenses as long as redistribution is permitted.
 
-The Extra package repository isn't specified in the `/etc/apk/repositories` file of Chainguard's Starter images by default. Like the Wolfi repository, though, customers can access it with a URL that's unique to their organization:
+The Extra Packages repository isn't specified in the `/etc/apk/repositories` file of Chainguard's Starter images by default. However, users that aren't Chainguard customers can access it through the generic address `https://apk.cgr.dev/extra-packages`. 
+
+Like the Wolfi repository, though, customers can access it with a URL that's unique to their organization:
 
 ```url
 https://virtualapk.cgr.dev/$ORGANIZATION_ID/extra-packages
@@ -88,6 +93,10 @@ You must replace `$ORGANIZATION_ID` with your organization's unique identifier (
 ```shell
 chainctl iam orgs ls -o table
 ```
+
+You must replace `$ORGANIZATION_ID` with your organization's `ID` value, not its name:
+
+
 ```output
                     ID                    |      NAME       |          DESCRIPTION                          
 ------------------------------------------|-----------------|--------------------------------------
@@ -101,16 +110,14 @@ For any of your organization's Chainguard Containers that include the APK packag
 
 ## Private APK Repositories
 
-Chainguard customers have access to a private APK repository that is only accessible to members of their organization, allowing them to pull apk packages maintained by Chainguard. The packages in a private APK repository include any Chainguard packages not available in the Wolfi or Extra repositories. These include the main packages found in Chainguard container images, as well as any packages relating to FIPS support.
+Chainguard customers have access to a private APK repository that is only accessible to members of their organization. An organization's private APK repository contains packages not included in either of the public repos, such as the main packages found in [Production Containers](/chainguard/chainguard-images/about/images-categories/#production-containers), as well as any packages relating to FIPS support. That said, it's likely an organization's private APK repository also includes many of the same packages found in the Wolf or Extra Packages repositories.
 
-However, a given organization's private APK repository will only contain a subset of the packages not included in the Wolfi or Extra repositories. The list of packages available in an organization’s private repository is based on the packages available in the Chainguard Containers that the organization already has access to.
-
-For example, say your organization has access to the Chainguard MySQL container image. Along with the container's main package (`mysql`), this image comes with other apk packages, including `bash`, `glibc`, and `pwgen`. This means that you’ll have access to these apk packages through your organization’s private APK repository, along with any others that appear in Chainguard container images that your organization has access to.
+The list of packages available in a given organization’s private repository is based on the packages available in the Chainguard Containers that the organization already has access to. For example, say your organization has access to the Chainguard MySQL container image. Along with the container's main package (`mysql`), this image comes with other apk packages, including `bash`, `glibc`, and `pwgen`. This means that you’ll have access to these apk packages through your organization’s private APK repository, along with any that appear in other Chainguard container images that your organization has access to.
 
 Chainguard's private APK repositories have URLs that follow this form:
 
 ```url
-https://apk.cgr.dev/$ORGANIZATION
+https://apk.cgr.dev/$ORGANIZATION_ID
 ```
 
 Because Chainguard's private APK repos are only accessible to members of a specific organization, you must authenticate in order to access them. Refer to our overview of [Chainguard's Private APK Repositories](/chainguard/chainguard-images/features/private-apk-repos/) for more information. Additionally, note that if you customize a Chainguard Container using the [Custom Assembly tool](/chainguard/chainguard-images/features/ca-docs/custom-assembly/), the list of packages available for you to add to your container image is taken from your organization's private APK repository.
