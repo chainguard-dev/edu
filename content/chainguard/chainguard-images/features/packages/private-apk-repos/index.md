@@ -1,6 +1,8 @@
 ---
 title: "Chainguard's Private APK Repositories"
 linktitle: "Private APK Repositories"
+aliases:
+- /chainguard/chainguard-images/features/private-apk-repos/
 type: "article"
 description: "An overview of how to work with Chainguard's Private APK Repositories."
 date: 2025-02-21T11:07:52+02:00
@@ -8,9 +10,6 @@ lastmod: 2025-02-21T11:07:52+02:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
-menu:
-  docs:
-    parent: "features"
 weight: 028
 toc: true
 ---
