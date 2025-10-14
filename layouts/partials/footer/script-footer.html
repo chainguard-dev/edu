@@ -104,4 +104,12 @@
   {{ end -}}
 {{ end -}}
 
+{{ $cookieBannerOverride := resources.Get "js/cookie-banner-override.js" -}}
+{{ if eq (hugo.Environment) "development" -}}
+  <script src="{{ $cookieBannerOverride.RelPermalink }}" defer></script>
+{{ else -}}
+  {{ $cookieBannerOverride := $cookieBannerOverride | minify | fingerprint "sha512" -}}
+  <script src="{{ $cookieBannerOverride.RelPermalink }}" integrity="{{ $cookieBannerOverride.Data.Integrity }}" crossorigin="anonymous" defer></script>
+{{ end -}}
+
 {{ partial "footer/linkedin-insight.html" . }}
