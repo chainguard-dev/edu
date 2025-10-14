@@ -1,0 +1,165 @@
+// HubSpot Cookie Consent Banner Overrides
+// Custom styling for cookie banner to work with light/dark modes
+
+// Light mode CSS variables
+:root {
+  --hs-banner-backgroundColor: #ffffff;
+  --hs-banner-backgroundColorRgba: rgba(255, 255, 255, 0.98);
+  --hs-banner-textColor: #1a1a1a;
+  --hs-banner-linkColor: #7545fb;
+  --hs-banner-accentColor: #7545fb;
+  --hs-banner-settings-text-color: #ffffff;
+  --hs-banner-border-color: rgba(0, 0, 0, 0.1);
+  --hs-banner-button-hover-color: #5a35d1;
+}
+
+// Dark mode CSS variables
+[data-dark-mode] {
+  --hs-banner-backgroundColor: #1a1a2e;
+  --hs-banner-backgroundColorRgba: rgba(26, 26, 46, 0.98);
+  --hs-banner-textColor: #e0e0e0;
+  --hs-banner-linkColor: #9d7bff;
+  --hs-banner-accentColor: #7545fb;
+  --hs-banner-settings-text-color: #ffffff;
+  --hs-banner-border-color: rgba(255, 255, 255, 0.1);
+  --hs-banner-button-hover-color: #9d7bff;
+}
+
+// Main banner container - move to bottom
+#hs-eu-cookie-confirmation {
+  position: fixed !important;
+  bottom: 0 !important;
+  top: auto !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  background-color: var(--hs-banner-backgroundColor) !important;
+  border-top: 1px solid var(--hs-banner-border-color) !important;
+  border-bottom: none !important;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1) !important;
+  padding: 24px !important;
+  z-index: 10000 !important;
+
+  // Smooth background transition
+  transition: background-color 0.2s ease;
+}
+
+// Inner container
+#hs-eu-cookie-confirmation-inner {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 24px !important;
+
+  @media (max-width: 768px) {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 16px !important;
+  }
+}
+
+// Banner text
+#hs-eu-cookie-confirmation p,
+#hs-eu-cookie-confirmation span {
+  color: var(--hs-banner-textColor) !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  margin: 0 !important;
+}
+
+// Links in banner
+#hs-eu-cookie-confirmation a {
+  color: var(--hs-banner-linkColor) !important;
+  text-decoration: underline !important;
+  transition: opacity 0.2s ease !important;
+
+  &:hover {
+    opacity: 0.8 !important;
+  }
+}
+
+// Button group container
+#hs-eu-confirmation-button-group {
+  display: flex !important;
+  gap: 12px !important;
+  flex-shrink: 0 !important;
+
+  @media (max-width: 768px) {
+    width: 100% !important;
+    flex-direction: column !important;
+  }
+}
+
+// All buttons
+#hs-eu-confirmation-button,
+#hs-eu-decline-button,
+#hs-eu-cookie-settings-button {
+  padding: 10px 20px !important;
+  border-radius: 6px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  border: none !important;
+  white-space: nowrap !important;
+
+  @media (max-width: 768px) {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
+
+// Accept button (primary)
+#hs-eu-confirmation-button {
+  background-color: var(--hs-banner-accentColor) !important;
+  color: var(--hs-banner-settings-text-color) !important;
+
+  &:hover {
+    background-color: var(--hs-banner-button-hover-color) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 2px 8px rgba(117, 69, 251, 0.3) !important;
+  }
+}
+
+// Settings button (secondary)
+#hs-eu-cookie-settings-button {
+  background-color: transparent !important;
+  color: var(--hs-banner-accentColor) !important;
+  border: 2px solid var(--hs-banner-accentColor) !important;
+
+  &:hover {
+    background-color: rgba(117, 69, 251, 0.1) !important;
+    transform: translateY(-1px) !important;
+  }
+}
+
+// Decline button (if present)
+#hs-eu-decline-button {
+  background-color: transparent !important;
+  color: var(--hs-banner-textColor) !important;
+  border: 1px solid var(--hs-banner-border-color) !important;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+  }
+}
+
+[data-dark-mode] #hs-eu-decline-button:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+// Cookie settings modal/panel (if present)
+#hs-eu-cookie-settings {
+  background-color: var(--hs-banner-backgroundColor) !important;
+  color: var(--hs-banner-textColor) !important;
+  border: 1px solid var(--hs-banner-border-color) !important;
+}
+
+// Policy text container
+#hs-eu-policy-wording {
+  flex: 1 !important;
+  min-width: 0 !important;
+}
