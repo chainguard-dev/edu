@@ -119,51 +119,65 @@
   }
 }
 
-// Accept button (primary) - Light mode
-#hs-eu-confirmation-button {
+// Accept button (primary) - Light mode with maximum specificity
+body #hs-eu-cookie-confirmation button#hs-eu-confirmation-button,
+#hs-eu-cookie-confirmation #hs-eu-confirmation-button-group button#hs-eu-confirmation-button,
+button#hs-eu-confirmation-button[aria-label] {
   background-color: #7545fb !important;
   color: #ffffff !important;
+  background: #7545fb !important;
 
   &:hover {
     background-color: #5a35d1 !important;
+    background: #5a35d1 !important;
     transform: translateY(-1px) !important;
     box-shadow: 0 2px 8px rgba(117, 69, 251, 0.3) !important;
   }
 }
 
-// Settings button (secondary) - Light mode
-#hs-eu-cookie-settings-button {
+// Settings button (secondary) - Light mode with maximum specificity
+body #hs-eu-cookie-confirmation button#hs-eu-cookie-settings-button,
+#hs-eu-cookie-confirmation #hs-eu-confirmation-button-group button#hs-eu-cookie-settings-button,
+button#hs-eu-cookie-settings-button[aria-label] {
   background-color: #f5f5f5 !important;
+  background: #f5f5f5 !important;
   color: #1a1a1a !important;
   border: 2px solid #e0e0e0 !important;
 
   &:hover {
     background-color: #e0e0e0 !important;
+    background: #e0e0e0 !important;
     border-color: #cccccc !important;
     transform: translateY(-1px) !important;
   }
 }
 
-// Dark mode overrides for buttons
-[data-dark-mode] {
-  #hs-eu-confirmation-button {
-    background-color: #7545fb !important;
-    color: #ffffff !important;
+// Dark mode overrides for buttons with maximum specificity
+[data-dark-mode] body #hs-eu-cookie-confirmation button#hs-eu-confirmation-button,
+[data-dark-mode] #hs-eu-cookie-confirmation #hs-eu-confirmation-button-group button#hs-eu-confirmation-button,
+[data-dark-mode] button#hs-eu-confirmation-button[aria-label] {
+  background-color: #7545fb !important;
+  background: #7545fb !important;
+  color: #ffffff !important;
 
-    &:hover {
-      background-color: #9d7bff !important;
-    }
+  &:hover {
+    background-color: #9d7bff !important;
+    background: #9d7bff !important;
   }
+}
 
-  #hs-eu-cookie-settings-button {
-    background-color: #2a2a3e !important;
-    color: #e0e0e0 !important;
-    border: 2px solid #444458 !important;
+[data-dark-mode] body #hs-eu-cookie-confirmation button#hs-eu-cookie-settings-button,
+[data-dark-mode] #hs-eu-cookie-confirmation #hs-eu-confirmation-button-group button#hs-eu-cookie-settings-button,
+[data-dark-mode] button#hs-eu-cookie-settings-button[aria-label] {
+  background-color: #2a2a3e !important;
+  background: #2a2a3e !important;
+  color: #e0e0e0 !important;
+  border: 2px solid #444458 !important;
 
-    &:hover {
-      background-color: #363650 !important;
-      border-color: #5a5a6e !important;
-    }
+  &:hover {
+    background-color: #363650 !important;
+    background: #363650 !important;
+    border-color: #5a5a6e !important;
   }
 }
 
