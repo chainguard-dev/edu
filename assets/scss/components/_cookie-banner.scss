@@ -25,8 +25,8 @@
   --hs-banner-button-hover-color: #9d7bff;
 }
 
-// Main banner container - move to bottom
-#hs-eu-cookie-confirmation {
+// Parent container - override HubSpot's inline styles
+#hs-banner-parent {
   position: fixed !important;
   bottom: 0 !important;
   top: auto !important;
@@ -34,12 +34,19 @@
   right: 0 !important;
   width: 100% !important;
   max-width: 100% !important;
+  transform: none !important;
+  inset: auto 0 0 0 !important;
+  z-index: 10000 !important;
+}
+
+// Main banner container - move to bottom
+#hs-eu-cookie-confirmation {
+  position: relative !important;
   background-color: var(--hs-banner-backgroundColor) !important;
   border-top: 1px solid var(--hs-banner-border-color) !important;
   border-bottom: none !important;
   box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1) !important;
   padding: 24px !important;
-  z-index: 10000 !important;
 
   // Smooth background transition
   transition: background-color 0.2s ease;
@@ -112,27 +119,51 @@
   }
 }
 
-// Accept button (primary)
+// Accept button (primary) - Light mode
 #hs-eu-confirmation-button {
-  background-color: var(--hs-banner-accentColor) !important;
-  color: var(--hs-banner-settings-text-color) !important;
+  background-color: #7545fb !important;
+  color: #ffffff !important;
 
   &:hover {
-    background-color: var(--hs-banner-button-hover-color) !important;
+    background-color: #5a35d1 !important;
     transform: translateY(-1px) !important;
     box-shadow: 0 2px 8px rgba(117, 69, 251, 0.3) !important;
   }
 }
 
-// Settings button (secondary)
+// Settings button (secondary) - Light mode
 #hs-eu-cookie-settings-button {
-  background-color: transparent !important;
-  color: var(--hs-banner-accentColor) !important;
-  border: 2px solid var(--hs-banner-accentColor) !important;
+  background-color: #f5f5f5 !important;
+  color: #1a1a1a !important;
+  border: 2px solid #e0e0e0 !important;
 
   &:hover {
-    background-color: rgba(117, 69, 251, 0.1) !important;
+    background-color: #e0e0e0 !important;
+    border-color: #cccccc !important;
     transform: translateY(-1px) !important;
+  }
+}
+
+// Dark mode overrides for buttons
+[data-dark-mode] {
+  #hs-eu-confirmation-button {
+    background-color: #7545fb !important;
+    color: #ffffff !important;
+
+    &:hover {
+      background-color: #9d7bff !important;
+    }
+  }
+
+  #hs-eu-cookie-settings-button {
+    background-color: #2a2a3e !important;
+    color: #e0e0e0 !important;
+    border: 2px solid #444458 !important;
+
+    &:hover {
+      background-color: #363650 !important;
+      border-color: #5a5a6e !important;
+    }
   }
 }
 
