@@ -39,7 +39,8 @@ It is the default repository in all commonly used build tools from the
 JavaScript community, including [npm](https://www.npmjs.com/),
 [pnpm](https://pnpm.io/), [Yarn](https://classic.yarnpkg.com/), and [Yarn
 Berry](https://yarnpkg.com/), and uses the npm repository format. Chainguard
-Libraries for JavaScript covers all open source artifacts from the npm Registry.
+Libraries for JavaScript covers many of the open source artifacts found in the 
+npm Registry.
 
 Chainguard Libraries for JavaScript provides access to a growing collection of
 popular Javascript packages rebuilt from source. New releases of common packages
@@ -55,7 +56,7 @@ The runtime requirements for JavaScript packages available from Chainguard
 Libraries for JavaScript are identical to the requirements of the original
 upstream project. For example, if a package retrieved from the npm Registry
 requires Node.JS v22 or higher, the same Node.JS v22 requirement applies to the
-package from Chainguard Libraries for Java. The same applies to JavaScript,
+package from Chainguard Libraries for JavaScript. The same applies to JavaScript,
 Typescript, or React versions, as well as any other requirements of the original
 upstream project.
 
@@ -63,7 +64,7 @@ upstream project.
 
 The [username and password retrieved with
 chainctl](/chainguard/libraries/access/) are required to access the Chainguard
-Libraries for Java repository. The URL for the repository is:
+Libraries for JavaScript repository. The URL for the repository is:
 
 ```
 https://libraries.cgr.dev/javascript/
