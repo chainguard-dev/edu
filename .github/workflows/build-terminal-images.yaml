@@ -107,7 +107,7 @@ jobs:
       #  run: cosign sign -y "$(cat image-refs.txt)
 
       - name: Post failure notice to Slack
-        uses: step-security/action-slack-notify@cafbebd7b2b3e2f62d6a3cebac172962e7f55c05 # v2.3.4
+        uses: step-security/action-slack-notify@e04c77a65bae8b6c0373478a1cb8fd7e012637e6 # v2.3.5
         if: ${{ failure() }}
         env:
           SLACK_ICON: http://github.com/chainguard-dev.png?size=48
