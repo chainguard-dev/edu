@@ -30,11 +30,17 @@
   function applyCustomStyles() {
     const isDarkMode = document.documentElement.hasAttribute('data-dark-mode');
 
-    // Create backdrop overlay
+    // Target the parent container - check if it exists FIRST
+    const bannerParent = document.getElementById('hs-banner-parent');
+
+    // Only create backdrop if banner actually exists
+    if (!bannerParent) {
+      return false;
+    }
+
+    // Create backdrop overlay only after confirming banner exists
     const backdrop = createBackdrop();
 
-    // Target the parent container
-    const bannerParent = document.getElementById('hs-banner-parent');
     if (bannerParent) {
       bannerParent.style.setProperty('position', 'fixed', 'important');
       bannerParent.style.setProperty('bottom', '0', 'important');
@@ -44,12 +50,14 @@
       bannerParent.style.setProperty('transform', 'none', 'important');
       bannerParent.style.setProperty('opacity', '1', 'important');
       bannerParent.style.setProperty('z-index', '10000', 'important');
+      bannerParent.style.setProperty('pointer-events', 'auto', 'important');
     }
 
     // Target the main banner confirmation element
     const confirmation = document.getElementById('hs-eu-cookie-confirmation');
     if (confirmation) {
       confirmation.style.setProperty('opacity', '1', 'important');
+      confirmation.style.setProperty('pointer-events', 'auto', 'important');
       if (isDarkMode) {
         confirmation.style.setProperty('background-color', 'rgb(26, 26, 46)', 'important');
         confirmation.style.setProperty('background', 'rgb(26, 26, 46)', 'important');
@@ -76,6 +84,7 @@
     if (cookieSettings) {
       cookieSettings.style.setProperty('opacity', '1', 'important');
       cookieSettings.style.setProperty('z-index', '10001', 'important');
+      cookieSettings.style.setProperty('pointer-events', 'auto', 'important');
       if (isDarkMode) {
         cookieSettings.style.setProperty('background-color', 'rgb(26, 26, 46)', 'important');
         cookieSettings.style.setProperty('background', 'rgb(26, 26, 46)', 'important');
@@ -105,6 +114,8 @@
       acceptButton.style.setProperty('color', '#ffffff', 'important');
       acceptButton.style.setProperty('border', 'none', 'important');
       acceptButton.style.setProperty('opacity', '1', 'important');
+      acceptButton.style.setProperty('pointer-events', 'auto', 'important');
+      acceptButton.style.setProperty('cursor', 'pointer', 'important');
     }
 
     // Target the Cookie Settings button
@@ -122,6 +133,8 @@
         settingsButton.style.setProperty('border', '2px solid #e0e0e0', 'important');
       }
       settingsButton.style.setProperty('opacity', '1', 'important');
+      settingsButton.style.setProperty('pointer-events', 'auto', 'important');
+      settingsButton.style.setProperty('cursor', 'pointer', 'important');
     }
 
     // Target the Decline button (if present)
@@ -139,7 +152,16 @@
         declineButton.style.setProperty('border', '2px solid #e0e0e0', 'important');
       }
       declineButton.style.setProperty('opacity', '1', 'important');
+      declineButton.style.setProperty('pointer-events', 'auto', 'important');
+      declineButton.style.setProperty('cursor', 'pointer', 'important');
     }
+
+    // Ensure all buttons and links in banner are clickable
+    const allButtons = document.querySelectorAll('#hs-eu-cookie-confirmation button, #hs-eu-cookie-settings button, #hs-eu-cookie-confirmation a, #hs-eu-cookie-settings a');
+    allButtons.forEach(function(btn) {
+      btn.style.setProperty('pointer-events', 'auto', 'important');
+      btn.style.setProperty('cursor', 'pointer', 'important');
+    });
 
     return !!(bannerParent || acceptButton || settingsButton);
   }
