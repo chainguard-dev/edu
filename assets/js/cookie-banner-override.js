@@ -4,9 +4,34 @@
 (function() {
   'use strict';
 
+  // Create or update backdrop overlay
+  function createBackdrop() {
+    let backdrop = document.getElementById('cookie-banner-backdrop');
+    if (!backdrop) {
+      backdrop = document.createElement('div');
+      backdrop.id = 'cookie-banner-backdrop';
+      document.body.appendChild(backdrop);
+    }
+
+    backdrop.style.setProperty('position', 'fixed', 'important');
+    backdrop.style.setProperty('top', '0', 'important');
+    backdrop.style.setProperty('left', '0', 'important');
+    backdrop.style.setProperty('right', '0', 'important');
+    backdrop.style.setProperty('bottom', '0', 'important');
+    backdrop.style.setProperty('background-color', 'rgba(0, 0, 0, 0.5)', 'important');
+    backdrop.style.setProperty('z-index', '9999', 'important');
+    backdrop.style.setProperty('pointer-events', 'none', 'important');
+    backdrop.style.setProperty('display', 'block', 'important');
+
+    return backdrop;
+  }
+
   // Function to apply custom styles
   function applyCustomStyles() {
     const isDarkMode = document.documentElement.hasAttribute('data-dark-mode');
+
+    // Create backdrop overlay
+    const backdrop = createBackdrop();
 
     // Target the parent container
     const bannerParent = document.getElementById('hs-banner-parent');
@@ -18,6 +43,7 @@
       bannerParent.style.setProperty('right', '0', 'important');
       bannerParent.style.setProperty('transform', 'none', 'important');
       bannerParent.style.setProperty('opacity', '1', 'important');
+      bannerParent.style.setProperty('z-index', '10000', 'important');
     }
 
     // Target the main banner confirmation element
@@ -25,25 +51,50 @@
     if (confirmation) {
       confirmation.style.setProperty('opacity', '1', 'important');
       if (isDarkMode) {
-        confirmation.style.setProperty('background-color', '#1a1a2e', 'important');
-        confirmation.style.setProperty('background', '#1a1a2e', 'important');
+        confirmation.style.setProperty('background-color', 'rgb(26, 26, 46)', 'important');
+        confirmation.style.setProperty('background', 'rgb(26, 26, 46)', 'important');
       } else {
-        confirmation.style.setProperty('background-color', '#ffffff', 'important');
-        confirmation.style.setProperty('background', '#ffffff', 'important');
+        confirmation.style.setProperty('background-color', 'rgb(255, 255, 255)', 'important');
+        confirmation.style.setProperty('background', 'rgb(255, 255, 255)', 'important');
       }
+
+      // Fix all text colors in the banner
+      const allTextElements = confirmation.querySelectorAll('p, span, a, div, h1, h2, h3, h4, h5, h6');
+      allTextElements.forEach(function(el) {
+        if (!el.closest('button')) { // Don't style text inside buttons
+          if (isDarkMode) {
+            el.style.setProperty('color', '#e0e0e0', 'important');
+          } else {
+            el.style.setProperty('color', '#1a1a1a', 'important');
+          }
+        }
+      });
     }
 
     // Target the cookie settings modal
     const cookieSettings = document.getElementById('hs-eu-cookie-settings');
     if (cookieSettings) {
       cookieSettings.style.setProperty('opacity', '1', 'important');
+      cookieSettings.style.setProperty('z-index', '10001', 'important');
       if (isDarkMode) {
-        cookieSettings.style.setProperty('background-color', '#1a1a2e', 'important');
-        cookieSettings.style.setProperty('background', '#1a1a2e', 'important');
+        cookieSettings.style.setProperty('background-color', 'rgb(26, 26, 46)', 'important');
+        cookieSettings.style.setProperty('background', 'rgb(26, 26, 46)', 'important');
       } else {
-        cookieSettings.style.setProperty('background-color', '#ffffff', 'important');
-        cookieSettings.style.setProperty('background', '#ffffff', 'important');
+        cookieSettings.style.setProperty('background-color', 'rgb(255, 255, 255)', 'important');
+        cookieSettings.style.setProperty('background', 'rgb(255, 255, 255)', 'important');
       }
+
+      // Fix all text colors in the modal
+      const allModalText = cookieSettings.querySelectorAll('p, span, a, div, h1, h2, h3, h4, h5, h6, label');
+      allModalText.forEach(function(el) {
+        if (!el.closest('button')) { // Don't style text inside buttons
+          if (isDarkMode) {
+            el.style.setProperty('color', '#e0e0e0', 'important');
+          } else {
+            el.style.setProperty('color', '#1a1a1a', 'important');
+          }
+        }
+      });
     }
 
     // Target the Accept button
@@ -93,6 +144,20 @@
     return !!(bannerParent || acceptButton || settingsButton);
   }
 
+  // Remove backdrop when banner is closed
+  function removeBackdrop() {
+    const backdrop = document.getElementById('cookie-banner-backdrop');
+    if (backdrop) {
+      backdrop.remove();
+    }
+  }
+
+  // Check if banner is still visible
+  function isBannerVisible() {
+    const bannerParent = document.getElementById('hs-banner-parent');
+    return bannerParent && bannerParent.offsetParent !== null;
+  }
+
   // Wait for the banner to appear in the DOM
   function waitForBanner() {
     const maxAttempts = 50; // Try for 5 seconds (50 * 100ms)
@@ -104,10 +169,21 @@
       if (applyCustomStyles()) {
         clearInterval(checkInterval);
         setupMutationObserver();
+        setupBannerVisibilityWatcher();
       } else if (attempts >= maxAttempts) {
         clearInterval(checkInterval);
       }
     }, 100);
+  }
+
+  // Watch for banner removal/hiding
+  function setupBannerVisibilityWatcher() {
+    const checkVisibility = setInterval(function() {
+      if (!isBannerVisible()) {
+        removeBackdrop();
+        clearInterval(checkVisibility);
+      }
+    }, 500);
   }
 
   // Watch for HubSpot re-applying inline styles
