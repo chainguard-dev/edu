@@ -124,15 +124,16 @@ Chainguard Containers follow the [Open Container Initiative (OCI) Image Specific
 * `org.opencontainers.image.vendor`: The distributing organization, always set to `Chainguard`
 * `org.opencontainers.image.created`: Timestamp indicating when the image was built; specifically, this annotation is calculated from the build time of the most recently built package within the container image
 
-In addition to the standard OCI annotations, Chainguard sets custom annotations (which begin with `dev.chainguard` instead of `org.opencontainers`) that provide additional context about the container image. However, the `dev.chainguard` labels are an internal implementation detail that support Chainguard platform features. They are not set universally across all Chainguard Containers and can change from time to time. 
+In addition to the standard OCI annotations, Chainguard sets custom annotations (which begin with `dev.chainguard` instead of `org.opencontainers`) that provide additional context about the container image:
+
+* `dev.chainguard.package.main`: The name of the primary package in the image. This may change between different versions of an image. In some situations, it may also be empty. 
 
 ### Retrieving annotation information
 
-You can inspect a Chainguard Container's annotations using the `docker inspect` command. The following example uses [`jq`](https://jqlang.org/), a command-line JSON processor, to filter the output to only show the `apko` image's annotations:
+You can inspect image annotations using [`crane`](https://github.com/google/go-containerregistry/tree/main/cmd/crane). This section's examples uses [`jq`](https://jqlang.org/), a command-line JSON processor, to filter the output to only show the relevant information:
 
 ```shell
-docker pull cgr.dev/chainguard/apko:latest
-docker inspect cgr.dev/chainguard/apko:latest | jq '.[].Config.Labels'
+crane manifest cgr.dev/chainguard/apko:latest | jq -r .annotations
 ```
 
 This will output all the annotations set on the image:
@@ -148,13 +149,24 @@ This will output all the annotations set on the image:
 }
 ```
 
-You can also inspect image annotations using [`crane`](https://github.com/google/go-containerregistry/tree/main/cmd/crane):
+Chainguard also sets these annotation values as *labels*. In the context of OCI specifications, labels are similar to annotations but the two are ultimately distinct. [This blog post](https://adrianmouat.com/posts/annotations-and-labels-in-container-images/) outlines the differences between the two.
+
+You can also inspect a Chainguard Container's labels using the `crane config` command:
 
 ```shell
 crane config cgr.dev/chainguard/apko:latest | jq '.config.Labels'
 ```
 
-This returns the same annotation information as the `docker inspect` command, but without requiring you to download the container image beforehand.
+This returns the same output as the previous `crane` command. 
+
+Lastly, you can use the `docker inspect` command to inspect a container image's labels:
+
+```shell
+docker pull cgr.dev/chainguard/apko:latest
+docker inspect cgr.dev/chainguard/apko:latest | jq '.[].Config.Labels'
+```
+
+Again, this returns the same information as before. However, using `docker inspect` requires you to download the container image beforehand.
 
 ### Adding container image annotations
 

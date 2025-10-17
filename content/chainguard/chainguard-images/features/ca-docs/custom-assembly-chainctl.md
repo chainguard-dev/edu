@@ -138,7 +138,7 @@ Note that you **must** pass the new image's name when using the `--save-as` opti
 
 ## Adding Custom Annotations
 
-Chainguard Containers include metadata in the form of *annotations* (also commonly referred to as "*labels*"). These annotations provide important information about the container image's origin, contents, and characteristics. 
+Chainguard Containers include metadata in the form of *annotations*. These annotations provide important information about the container image's origin, contents, and characteristics. 
 
 With Custom Assembly, you can add custom annotations to your Chainguard Containers using `chainctl`. The process is the same as the one outlined previously for adding packages. First run a command like the following:
 
