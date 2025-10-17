@@ -4,7 +4,7 @@ linktitle: "Build Configuration  "
 description: "Configuring Chainguard Libraries for JavaScript on your workstation"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2025-09-11T20:11:49+00:00
+lastmod: 2025-10-22T20:44:26+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
@@ -215,6 +215,46 @@ To change the packages, remove the `node_modules` directory and the
 `pnpm-lock.yaml` file and run the `pnpm install` command again. 
 
 Now you can proceed with your development and testing. 
+
+### Minimal example project
+
+Use the following steps to create a minimal example project for pnpm  with
+Chainguard Libraries for JavaScript.
+
+```shell
+mkdir pnpm-example
+cd pnpm-example
+pnpm init
+```
+
+For testing purposes, you can use direct access and environment variables as
+detailed in the [access documentation](/chainguard/libraries/access/#env). Once
+the environment variables are set, the following steps configure registry
+access with authentication in the `.npmrc` file in the current project
+directory:
+
+```shell
+export token=$(echo -n "${CHAINGUARD_JAVASCRIPT_IDENTITY_ID}:${CHAINGUARD_JAVASCRIPT_TOKEN}" | base64 -w 0)
+
+pnpm config set registry https://libraries.cgr.dev/javascript/ --location=project
+pnpm config set //libraries.cgr.dev/javascript/:_auth "${token}" --location=project
+```
+
+Add dependencies for your project into the `package.json` file to test retrieval
+from Chainguard Libraries:
+
+```shell
+pnpm add commander@4.1.1
+pnpm install
+pnpm list
+```
+
+Following this, you find the downloaded package in
+`node_modules/.pnpm/commander@4.1.1`. The commands also result in the creation
+of the lock file `pnpm-lock.yaml`.
+
+Adjust the registry configuration to use your repository manager and any other
+desired packages for further testing.
 
 <a id="yarn"></a>
 
