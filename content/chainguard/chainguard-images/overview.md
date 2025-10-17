@@ -109,3 +109,57 @@ Once you run this command, you'll receive output similar to the following.
 This verifies that the Ruby Chainguard Container is built for both AMD64 and ARM64 architectures.
 
 You can read more about our support of ARM64 in our blog on [Building Wolfi from the ground up](https://www.chainguard.dev/unchained/building-wolfi-from-the-ground-up-and-announcing-arm64-support?utm=docs).
+
+
+## Annotations
+
+All Chainguard Containers include metadata in the form of *annotations* (also commonly referred to as "*labels*"). These annotations provide important information about a container image's origin, contents, and characteristics. The annotations are visible in every container image's **Specifications** tab in both the [Chainguard Console](https://console.chainguard.dev) and [Directory](https://images.chainguard.dev/), and can also be inspected programmatically using container tools.
+
+Chainguard Containers follow the [Open Container Initiative (OCI) Image Specification](https://github.com/opencontainers/image-spec/blob/main/annotations.md) for annotations. Chainguard sets the following standard OCI annotations on its container images:
+
+* `org.opencontainers.image.authors`: Contact details for the Chainguard Container's author (typically `Chainguard Team https://www.chainguard.dev/`)
+* `org.opencontainers.image.url`: URL to the container image's Overview page in the Chainguard Directory (for example, `https://images.chainguard.dev/directory/image/nginx/overview`)
+* `org.opencontainers.image.source`: URL to the source code used to build the image in the Chainguard images repository
+* `org.opencontainers.image.base.digest`: The SHA256 digest of the base image used to build this container image
+* `org.opencontainers.image.vendor`: The distributing organization, always set to `Chainguard`
+* `org.opencontainers.image.created`: Timestamp indicating when the image was built; specifically, this annotation is calculated from the build time of the most recently built package within the container image
+
+In addition to the standard OCI annotations, Chainguard sets custom annotations (which begin with `dev.chainguard` instead of `org.opencontainers`) that provide additional context about the container image. However, the `dev.chainguard` labels are an internal implementation detail that support Chainguard platform features. They are not set universally across all Chainguard Containers and can change from time to time. 
+
+### Retrieving annotation information
+
+You can inspect a Chainguard Container's annotations using the `docker inspect` command. The following example uses [`jq`](https://jqlang.org/), a command-line JSON processor, to filter the output to only show the `apko` image's annotations:
+
+```shell
+docker pull cgr.dev/chainguard/apko:latest
+docker inspect cgr.dev/chainguard/apko:latest | jq '.[].Config.Labels'
+```
+
+This will output all the annotations set on the image:
+
+```output
+{
+  "dev.chainguard.package.main": "apko",
+  "org.opencontainers.image.authors": "Chainguard Team https://www.chainguard.dev/",
+  "org.opencontainers.image.created": "2025-10-14T09:49:49Z",
+  "org.opencontainers.image.source": "https://github.com/chainguard-images/images/tree/main/images/apko",
+  "org.opencontainers.image.url": "https://images.chainguard.dev/directory/image/apko/overview",
+  "org.opencontainers.image.vendor": "Chainguard"
+}
+```
+
+You can also inspect image annotations using [`crane`](https://github.com/google/go-containerregistry/tree/main/cmd/crane):
+
+```shell
+crane config cgr.dev/chainguard/apko:latest | jq '.config.Labels'
+```
+
+This returns the same annotation information as the `docker inspect` command, but without requiring you to download the container image beforehand.
+
+### Adding container image annotations
+
+OCI labels are specific to a container image, not to an entire layer. This means that for base images, annotation information is often overridden later on with more accurate details after the image has been ingested. For example, the `image.author` annotation might be reset to reflect the customer consuming the container image.
+
+Some users relabel their container images after they've been ingested. As an example, it may make sense add an annotation like `com.mycompany.image.source=chainguard` to your Chainguard Containers; this would allow you to filter for all the container images provided by Chainguard at `mycompany`. 
+
+Some package mirroring tools support this functionality, but we recommend using Chainguard's [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) tool to add custom annotations to your Chainguard Containers. Refer to our guide on [managing Custom Assembly resources with `chainctl`](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/#adding-custom-annotations-with-custom-assembly) for more information.
