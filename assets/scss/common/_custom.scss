@@ -1,5 +1,6 @@
 @font-face {
-    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
     font-family: "Bw Fusiona";
     font-style: normal;
     font-weight: 400;
@@ -33,58 +34,60 @@
 // Logo base styles
 .navbar-title img,
 .logo-purple {
-  opacity: 1 !important;
-  visibility: visible !important;
-  display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
 }
 
 .navbar-title img {
-  height: 1.5em !important;
+    height: 1.5em !important;
 }
 
 // LIGHT MODE - No filters, show original purple color
 html:not([data-dark-mode]) img[src="/logos/linky-flat.svg"],
 html:not([data-dark-mode]) .logo-purple {
-  filter: none !important;
+    filter: none !important;
 }
 
 // DARK MODE - Invert purple to white
 html[data-dark-mode] img[src="/logos/linky-flat.svg"],
 html[data-dark-mode] .logo-purple {
-  filter: brightness(0) invert(1) !important;
+    filter: brightness(0) invert(1) !important;
 }
 
 // Override for automatic detection
 @media (prefers-color-scheme: light) {
-  img[src="/logos/linky-flat.svg"],
-  .logo-purple {
-    filter: none !important;
-  }
-  
-  html[data-dark-mode="true"] img[src="/logos/linky-flat-white.svg"],
-  html[data-dark-mode="true"] .logo-purple {
-    filter: brightness(0) invert(1) !important;
-  }
+
+    img[src="/logos/linky-flat.svg"],
+    .logo-purple {
+        filter: none !important;
+    }
+
+    html[data-dark-mode="true"] img[src="/logos/linky-flat-white.svg"],
+    html[data-dark-mode="true"] .logo-purple {
+        filter: brightness(0) invert(1) !important;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
-  html:not([data-dark-mode="false"]) img[src="/logos/linky-flat-white.svg"],
-  html:not([data-dark-mode="false"]) .logo-purple {
-    filter: brightness(0) invert(1) !important;
-  }
+
+    html:not([data-dark-mode="false"]) img[src="/logos/linky-flat-white.svg"],
+    html:not([data-dark-mode="false"]) .logo-purple {
+        filter: brightness(0) invert(1) !important;
+    }
 }
 
 // Fix sidebar overflow issues on mobile only
 @media (max-width: 768px) {
     .leftnav-container {
         overflow-x: hidden;
-        
+
         .leftnav {
             overflow-x: hidden;
             overflow-y: auto;
         }
     }
-    
+
     // Force offcanvas menu to show content
     .offcanvas-body {
         .sidebar-category {
@@ -93,7 +96,7 @@ html[data-dark-mode] .logo-purple {
             font-weight: bold !important;
             margin: 10px 0 !important;
         }
-        
+
         #sidebar-default {
             min-height: 300px !important;
         }
@@ -111,18 +114,18 @@ html[data-dark-mode] .logo-purple {
 }
 
 // tag history page image digests are long, wrap them
-.docs-content > table > tbody > tr > td:nth-child(3) > code {
+.docs-content>table>tbody>tr>td:nth-child(3)>code {
     max-width: 320px;
     word-wrap: anywhere;
 }
 
-.docs-content > table {
+.docs-content>table {
     --bs-table-bg: transparent !important;
     table-layout: fixed;
     word-wrap: anywhere;
 }
 
-.docs-content > table > code {
+.docs-content>table>code {
     word-wrap: anywhere;
 }
 
@@ -154,14 +157,14 @@ html[data-dark-mode] .logo-purple {
     align-items: center;
     // Darker, more prominent gradient for light mode to match dark mode aesthetic
     background: linear-gradient(135deg,
-                                rgba(117, 69, 251, 0.25) 0%,
-                                rgba(52, 67, 244, 0.20) 50%,
-                                rgba(122, 69, 251, 0.15) 100%);
+            rgba(117, 69, 251, 0.25) 0%,
+            rgba(52, 67, 244, 0.20) 50%,
+            rgba(122, 69, 251, 0.15) 100%);
     border-radius: 12px;
     width: 100%;
     box-shadow: 0 4px 16px rgba(122, 69, 251, 0.15);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    
+
     &:hover {
         transform: translateY(-2px);
         box-shadow: 0 8px 24px rgba(122, 69, 251, 0.20);
@@ -171,17 +174,17 @@ html[data-dark-mode] .logo-purple {
 // Dark mode override for card backgrounds
 :root[data-dark-mode] .card-background {
     background: linear-gradient(135deg,
-                                rgba(117, 69, 251, 0.4) 0%,
-                                rgba(52, 67, 244, 0.3) 50%,
-                                rgba(122, 240, 254, 0.2) 100%);
+            rgba(117, 69, 251, 0.4) 0%,
+            rgba(52, 67, 244, 0.3) 50%,
+            rgba(122, 240, 254, 0.2) 100%);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     border: 1px solid rgba(117, 69, 251, 0.3);
-    
+
     &:hover {
         background: linear-gradient(135deg,
-                                    rgba(117, 69, 251, 0.5) 0%,
-                                    rgba(52, 67, 244, 0.4) 50%,
-                                    rgba(122, 240, 254, 0.3) 100%);
+                rgba(117, 69, 251, 0.5) 0%,
+                rgba(52, 67, 244, 0.4) 50%,
+                rgba(122, 240, 254, 0.3) 100%);
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
         border-color: rgba(117, 69, 251, 0.4);
         transform: translateY(-3px);
@@ -336,9 +339,9 @@ h2[id^="chainctl"] {
 }
 
 .section-title {
-    font-size: 22px;  // Increased from 20px for better readability
+    font-size: 22px; // Increased from 20px for better readability
     font-weight: 600;
-    line-height: 32px;  // Increased from 28px to maintain proportion
+    line-height: 32px; // Increased from 28px to maintain proportion
     text-align: left;
 }
 
@@ -361,16 +364,16 @@ h2[id^="chainctl"] {
 }
 
 .caption.caption.caption.caption {
-    font-size: 15px;  // Increased from 14px for better readability
+    font-size: 15px; // Increased from 14px for better readability
     color: var(--caption-color);
-    line-height: 24px;  // Increased from 22px to maintain proportion
+    line-height: 24px; // Increased from 22px to maintain proportion
 }
 
 .caption-title {
     font-weight: 500;
-    font-size: 18px;  // Increased from 16px for better readability
-    line-height: 24px;  // Increased from 20px to maintain proportion
-    margin-bottom: 6px;  // Slightly increased for better spacing
+    font-size: 18px; // Increased from 16px for better readability
+    line-height: 24px; // Increased from 20px to maintain proportion
+    margin-bottom: 6px; // Slightly increased for better spacing
     margin-top: 0;
     color: var(--caption-title-color);
 
@@ -397,7 +400,7 @@ h2[id^="chainctl"] {
     font-size: 14px;
     transition: all 0.2s ease;
     display: inline-block;
-    
+
     &:hover {
         background-color: var(--primary-1);
         color: white !important;
@@ -527,7 +530,7 @@ h2[id^="chainctl"] {
 }
 
 .block {
-    display:block;
+    display: block;
 }
 
 .navbar-title-padding {
@@ -549,7 +552,7 @@ h2[id^="chainctl"] {
 
 .search-container {
     flex: 1;
-    padding: 0  12px;
+    padding: 0 12px;
     position: sticky;
     top: 0;
     background-color: var(--board-background-color);
@@ -581,7 +584,7 @@ header .search-container {
 
 // Beat <a> reset
 .topic-container.topic-container a:not(.tag) {
-   color: var(--article-link-color);
+    color: var(--article-link-color);
 }
 
 .topic-title {
@@ -746,7 +749,7 @@ header .search-container {
     margin: auto;
     flex: 1;
     padding-left: 3em;
-    padding-right:3em;
+    padding-right: 3em;
 }
 
 .toggle-icon {
@@ -770,13 +773,16 @@ header .search-container {
     overflow-y: auto;
     overflow-x: visible;
     padding-right: 12px;
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 
-#sidebar-default::-webkit-scrollbar { 
-    display: none;  /* Safari and Chrome */
+#sidebar-default::-webkit-scrollbar {
+    display: none;
+    /* Safari and Chrome */
 }
 
 #sidebar-default:hover {
@@ -865,10 +871,11 @@ header .search-container {
 }
 
 @media (min-width: 673px) {
-  .footer-column-left,
-  .footer-column-right {
-    display: contents;
-  }
+
+    .footer-column-left,
+    .footer-column-right {
+        display: contents;
+    }
 }
 
 .form-check-input {
@@ -947,15 +954,15 @@ header .search-container {
 }
 
 .center-title {
-    font-size: 40px;  // Increased from 36px for better prominence
+    font-size: 40px; // Increased from 36px for better prominence
     margin-top: 24px;
-    margin-bottom: 16px;  // Increased from 12px for better spacing
+    margin-bottom: 16px; // Increased from 12px for better spacing
     color: var(--center-title-color);
 }
 
 // Subtitle text on index page
-.center-title + div {
-    font-size: 17px;  // Increased for better readability
+.center-title+div {
+    font-size: 17px; // Increased for better readability
     line-height: 26px;
     margin-bottom: 32px;
 }
@@ -1006,7 +1013,8 @@ header .search-container {
     color: var(--suggestion-title-color);
 }
 
-.suggestion__description, .suggestion__no-results {
+.suggestion__description,
+.suggestion__no-results {
     color: var(--suggestion-description-color);
 }
 
@@ -1043,13 +1051,13 @@ header .search-container {
     color: var(--docs-navigation-button-color) !important;
     max-width: 50%;
     transition: all 0.2s ease;
-    
+
     &:hover {
         border-color: var(--primary-1);
         background-color: rgba(122, 69, 251, 0.04);
         transform: translateX(2px);
     }
-    
+
     &.docs-navigation-button-previous:hover {
         transform: translateX(-2px);
     }
@@ -1102,7 +1110,7 @@ header .search-container {
 }
 
 .docs-navigation-summary .docs-navigation-button:last-child {
-  margin-bottom: 32px;
+    margin-bottom: 32px;
 }
 
 .docs-navigation-summary .next-title {
@@ -1300,8 +1308,8 @@ code {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding-bottom: 36px;  // Increased to 36px for more generous spacing
-    margin-top: 16px;  // Increased top margin for better breathing room
+    padding-bottom: 36px; // Increased to 36px for more generous spacing
+    margin-top: 16px; // Increased top margin for better breathing room
 }
 
 #notification {
@@ -1411,12 +1419,15 @@ code {
 }
 
 [data-dark-mode] .docs-content.docs-content {
-    a.sl-block, a.sl-link {
+
+    a.sl-block,
+    a.sl-link {
         color: var(--article-link-secondary-color);
     }
 }
 
-h4, .h4 {
+h4,
+.h4 {
     font-family: $titleFont;
     font-style: normal;
     font-weight: 600;
@@ -1429,12 +1440,19 @@ blockquote p a {
     color: var(--blockquote-link-color) !important;
 }
 
-.note,.cta {
+.note,
+.cta {
     padding: 1em;
-    background:  var(--note-cta-background);
+    background: var(--note-cta-background);
     color: var(--note-cta) !important;
+    font-size: 1.25em;
+    text-align: center;
+    max-width: 80ch;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+
     a {
-    color: var(--note-cta-link) !important;
+        color: var(--note-cta-link) !important;
     }
 }
 
@@ -1443,9 +1461,18 @@ blockquote p a {
     padding-bottom: 1em;
     margin-top: 1em;
     margin-bottom: -3em;
-;}
+    display: flex;
+    justify-content: center;
 
-.figure, .figure-img, .img-fluid {
+    .note {
+        max-width: 80ch;
+        width: 100%;
+    }
+}
+
+.figure,
+.figure-img,
+.img-fluid {
     display: block !important;
     margin: auto !important;
     max-height: 45em;
@@ -1456,7 +1483,11 @@ blockquote p a {
     /* Optional but recommended to prevent any stretching */
     scale: 1;
     transform: scale(1);
-}.figure, .figure-img, .img-fluid {
+}
+
+.figure,
+.figure-img,
+.img-fluid {
     display: block !important;
     margin: auto !important;
     max-height: 45em;
