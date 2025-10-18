@@ -2558,12 +2558,6 @@
             "pattern": ".+",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "parent",
-            "required": false,
-            "type": "string"
           }
         ],
         "responses": {
@@ -3090,6 +3084,116 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/registryRepo"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      }
+    },
+    "/registry/v1/repos/{parentId}/deployment": {
+      "post": {
+        "operationId": "Registry_CreateDeployment",
+        "parameters": [
+          {
+            "description": "parent_id is the Repo UIDP under which to create the deployment.",
+            "in": "path",
+            "name": "parentId",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RegistryCreateDeploymentBody"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryDeployment"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      }
+    },
+    "/registry/v1/repos/{repoId}/deployment": {
+      "get": {
+        "operationId": "Registry_GetDeployment",
+        "parameters": [
+          {
+            "description": "repo_id is the Repo UIDP to get deployment for.",
+            "in": "path",
+            "name": "repoId",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryDeployment"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      },
+      "put": {
+        "operationId": "Registry_UpdateDeployment",
+        "parameters": [
+          {
+            "description": "repo_id is the Repo UIDP to update deployment for.",
+            "in": "path",
+            "name": "repoId",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RegistryUpdateDeploymentBody"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryDeployment"
             }
           },
           "default": {
@@ -5725,6 +5829,32 @@
       },
       "type": "object"
     },
+    "RegistryCreateDeploymentBody": {
+      "properties": {
+        "charts": {
+          "description": "Helm chart configurations for this deployment.",
+          "items": {
+            "$ref": "#/definitions/registryHelmChart",
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "RegistryUpdateDeploymentBody": {
+      "properties": {
+        "charts": {
+          "description": "Helm chart configurations for this deployment.",
+          "items": {
+            "$ref": "#/definitions/registryHelmChart",
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "RegistryUpdateRepoBody": {
       "properties": {
         "activeTags": {
@@ -7609,6 +7739,24 @@
       },
       "type": "object"
     },
+    "registryDeployment": {
+      "properties": {
+        "charts": {
+          "description": "Helm chart configurations for this deployment.",
+          "items": {
+            "$ref": "#/definitions/registryHelmChart",
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "id": {
+          "description": "id is the identifier of this deployment, same as parent Repo UIDP.",
+          "type": "string"
+        }
+      },
+      "title": "Deployment configuration for a repository",
+      "type": "object"
+    },
     "registryEntitlement": {
       "description": "Entitlement contains information about what an organization is entitled to.",
       "properties": {
@@ -7772,6 +7920,9 @@
             "type": "object"
           },
           "type": "array"
+        },
+        "nextPageToken": {
+          "type": "string"
         }
       },
       "type": "object"
@@ -7820,6 +7971,20 @@
           "type": "string"
         }
       },
+      "type": "object"
+    },
+    "registryHelmChart": {
+      "properties": {
+        "repo": {
+          "description": "repo is the Helm chart repository URL.",
+          "type": "string"
+        },
+        "source": {
+          "description": "source is an optional link to the source code (e.g., GitHub repository URL).",
+          "type": "string"
+        }
+      },
+      "title": "Helm chart configuration",
       "type": "object"
     },
     "registryImageConfig": {
