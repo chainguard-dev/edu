@@ -1,29 +1,26 @@
 ---
 date: 2025-10-17T18:20:42Z
-title: "chainctl iam account-associations describe"
-slug: chainctl_iam_account-associations_describe
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_describe/
+title: "chainctl auth token capabilities"
+slug: chainctl_auth_token_capabilities
+url: /chainguard/chainctl/chainctl-docs/chainctl_auth_token_capabilities/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam account-associations describe
+## chainctl auth token capabilities
 
-Describe cloud provider account associations for a location.
+Print the capabiltities of the local Chainguard Token.
 
 ```
-chainctl iam account-associations describe ORGANIZATION_NAME|ORGANIZATION_ID|FOLDER_NAME|FOLDER_ID [--aws] [--gcp] [--chainguard] [--output=id|json|table] [flags]
+chainctl auth token capabilities [flags]
 ```
 
 ### Options
 
 ```
-      --aws          Include the AWS account association.
-      --chainguard   Include the Chainguard service principal account association.
-      --gcp          Include the GCP account association.
-  -h, --help         help for describe
+  -h, --help   help for capabilities
 ```
 
 ### Options inherited from parent commands
@@ -42,5 +39,5 @@ chainctl iam account-associations describe ORGANIZATION_NAME|ORGANIZATION_ID|FOL
 
 ### SEE ALSO
 
-* [chainctl iam account-associations](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations/)	 - Configure and manage cloud provider account associations.
+* [chainctl auth token](/chainguard/chainctl/chainctl-docs/chainctl_auth_token/)	 - Print the local Chainguard Token.
 
