@@ -162,3 +162,28 @@ The option `-L` is required to follow redirects for the actual file locations.
 [Use checksums of any file to
 verify](/chainguard/libraries/java/management/#java-verification) if it
 originates from the Chainguard repository.
+
+## SBOM and attestation files
+
+Chainguard Libraries for Java include files that contain software bill of
+material (SBOM) information. Additional files attest details about build
+infrastructure with  the [Supply-chain Levels for Software Artifacts
+(SLSA)](https://slsa.dev/) provenance information.
+
+The related files for Chainguard Libraries for Java are located in the same
+location as the `.pom`, `.jar`, and other artifacts for a specific library
+version and uses the same `artifactId-version` naming convention with the
+following extensions:
+
+* `.slsa-attestation.json` for the SLSA provenance attestation
+* `.spdx.json for the SBOM information
+
+For example, the file location for artifactId `commons-compress` and version
+`1.28.0` is
+[https://libraries.cgr.dev/java/org/apache/commons/commons-compress/1.28.0/](https://libraries.cgr.dev/java/org/apache/commons/commons-compress/1.28.0/).
+It includes the following files:
+
+* `commons-compress-1.28.0.pom`
+* `commons-compress-1.28.0.jar`
+* `commons-compress-1.28.0.slsa-attestation.json`
+* `commons-compress-1.28.0.spdx.json`
