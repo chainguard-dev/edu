@@ -121,13 +121,13 @@ To use `chainctl` to create new customized container images with Custom Assembly
 chainctl image repo build edit --parent $ORGANIZATION --repo $CONTAINER --save-as $NEW_NAME
 ```
 
-The following example command will create a new image named `custom-node` after applying the customizations:
+The following example command creates a new image named `custom-node` after applying the customizations:
 
 ```shell
 chainctl image repo build edit --parent example.com --repo node --save-as custom-node
 ```
 
-Following this example, the new container image would be accessible from the following URL:
+Once you run this example, the new container image would be accessible from the following URL:
 
 ```url
 cgr.dev/example.com/custom-node

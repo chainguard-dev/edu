@@ -130,7 +130,7 @@ In addition to the standard OCI annotations, Chainguard sets custom annotations 
 
 ### Retrieving annotation information
 
-You can inspect image annotations using [`crane`](https://github.com/google/go-containerregistry/tree/main/cmd/crane). This section's examples uses [`jq`](https://jqlang.org/), a command-line JSON processor, to filter the output to only show the relevant information:
+You can inspect image annotations using [`crane`](https://github.com/google/go-containerregistry/tree/main/cmd/crane). This section's examples use [`jq`](https://jqlang.org/), a command-line JSON processor, to filter the output to only show the relevant information:
 
 ```shell
 crane manifest cgr.dev/chainguard/apko:latest | jq -r .annotations
@@ -172,6 +172,6 @@ Again, this returns the same information as before. However, using `docker inspe
 
 OCI labels are specific to a container image, not to an entire layer. This means that for base images, annotation information is often overridden later on with more accurate details after the image has been ingested. For example, the `image.author` annotation might be reset to reflect the customer consuming the container image.
 
-Some users relabel their container images after they've been ingested. As an example, it may make sense add an annotation like `com.mycompany.image.source=chainguard` to your Chainguard Containers; this would allow you to filter for all the container images provided by Chainguard at `mycompany`. 
+Some users relabel their container images after they've been ingested. As an example, you may wish to add an annotation like `com.mycompany.image.source=chainguard` to your Chainguard Containers; this would allow you to filter for all the container images provided by Chainguard at `mycompany`. 
 
 Some package mirroring tools support this functionality, but we recommend using Chainguard's [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) tool to add custom annotations to your Chainguard Containers. Refer to our guide on [managing Custom Assembly resources with `chainctl`](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/#adding-custom-annotations-with-custom-assembly) for more information.
