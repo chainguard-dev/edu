@@ -1,5 +1,5 @@
 ---
-date: 2025-10-17T18:20:42Z
+date: 2025-10-20T19:05:26Z
 title: "chainctl images tags resolve"
 slug: chainctl_images_tags_resolve
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_tags_resolve/
