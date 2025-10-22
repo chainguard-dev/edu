@@ -30,7 +30,7 @@ For platform engineers and DevOps teams, this means:
 
 ## VMs and Containers Compared
 
-To understand the applicability of Chainguard VMs in your organization, it might be helpful to compare its features with Chainguard Containers. In a nutshell, the main differences come from the fact that Chainguard VMs boot from and run with their own hardened kernel as part of Chainguard OS, while Chainguard Containers rely on the host system's kernel.
+To understand the applicability of Chainguard VMs to your organization, it might be helpful to compare the features of Chainguard VMs to Chainguard Containers. In a nutshell, the main differences come from the fact that Chainguard VMs boot from and run with their own hardened kernel as part of Chainguard OS, while Chainguard Containers rely on the host system's kernel.
 
 | Feature | Chainguard Container                                   | Chainguard VM                                                                               |
 | :---- |:-------------------------------------------------------|:--------------------------------------------------------------------------------------------|
