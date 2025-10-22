@@ -368,3 +368,84 @@ you can run `yarn upgrade` to update all dependencies to their latest allowed
 versions and regenerate the lock file.
 
 Now you can proceed with your development and testing. 
+
+
+<a id="bun"></a>
+
+## Bun
+
+[Bun](https://bun.com/) is a fast, all-in-one JavaScript runtime, bundler, and
+package manager designed as an alternative to Node.js tooling. It provides an
+integrated package manager that is compatible with the npm ecosystem.
+
+With Bun you declare dependencies in a `package.json` file just like
+[npm](#npm). The following snippet shows a minimal example:
+
+```json
+{
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@fontsource/roboto": "^5.1.1",
+    "node": "^22.18.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.1.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.14.0",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5"
+  }
+}
+```
+
+By default Bun installs packages from the npm Registry at
+`https://registry.npmjs.org` and stores them locally in the `node_modules`
+directory after running `bun install`. Bun creates a binary lockfile named
+`bun.lock` to record resolved versions and checksums.
+
+Note that dependency versions are typically declared with `^` to allow
+compatible newer releases under semantic versioning. For example, `^22.18.0` for
+`node` can result in `22.20.0` or higher when `bun install` runs.
+
+Any dependency or version changes require running `bun install` again, which
+updates the lockfile.
+
+To switch a project to use Chainguard Libraries for JavaScript, point Bun at
+your repository manager. Add the [registry
+configuration](https://bun.com/docs/runtime/bunfig#install-registry) to the
+`bunfig.toml` file of your project: `
+
+```toml
+[install]
+# set default registry as a string
+registry = "https://repo.example.com:8443/repository/javascript-all/"
+```
+
+Alternatively you can use an [`.npmrc` file](#npm)
+
+You can also temporarily override for install:
+
+```shell
+bun install --registry=https://repo.example.com:8443/repository/javascript-all/
+```
+
+Refer to [Bun documentation]() for additional registry and authentication options.
+
+Example registry URLs:
+
+* JFrog Artifactory: https://example.jfrog.io/artifactory/javascript-all/
+* Sonatype Nexus: https://repo.example.com:8443/repository/javascript-all/
+* Direct access: https://libraries.cgr.dev/javascript/
+
+To apply the registry change to an existing project, remove `node_modules` and
+the `bun.lock` file and run:
+
+```shell
+bun install
+```
+
+This forces packages to be re-fetched from the configured registry and
+regenerates the lockfile. Now you can continue development and testing with
+Chainguard Libraries.
