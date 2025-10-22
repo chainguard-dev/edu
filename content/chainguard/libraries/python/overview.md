@@ -262,3 +262,86 @@ curl -L --user "$CHAINGUARD_PYTHON_IDENTITY_ID:$CHAINGUARD_PYTHON_TOKEN" \
 ```
 
 The option `-L` is required to follow redirects for the actual file locations.
+
+## SBOM and attestation files
+
+Chainguard Libraries for Python include files that contain software bill of
+material (SBOM) information. Additional files attest details about build
+infrastructure with  the [Supply-chain Levels for Software Artifacts
+(SLSA)](https://slsa.dev/) provenance information.
+
+The related files for Chainguard Libraries for Python are located within the
+Python wheel file for each package following the [PEP 770 Improving
+measurability of Python packages with Software Bill-of-Materials
+specification](https://peps.python.org/pep-0770/) for software composition
+analytis (SCA) using the SPDX format.
+
+Specifically a wheel file contains two directories, the main code directory that
+uses the name of the library only, and the version-specific distribution info
+directory `.dist.info`. For example, the wheel archive for Flask version 2.0.0
+includes a directory `flask-2.0.0.dist.info`. You can also find this directory
+in the `site-packages` directory of a Python project using a virtual environment.
+
+Find the SBOM information in the file `sboms/sbom.spdx.json`. Any package from
+Chainguard includes the reference to Chainguard in the creators section:
+
+```json
+{
+  "spdxVersion": "SPDX-2.3",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "name": "flask",
+  "documentNamespace": "https://anchore.com/syft/dir/flask-17f2a052-031c...",
+  "creationInfo": {
+    "licenseListVersion": "3.27",
+    "creators": [
+      "Tool: Syft",
+      "Tool: ecosystems-wheels-rebuilder",
+      "Organization: Chainguard, Inc"
+    ],
+  ...
+  }
+}
+```
+
+SLSA provenance is available from the Chainguard Python index following the [PEP
+740 – Index support for digital attestations
+specification](https://peps.python.org/pep-0740/) within the integrity context
+at `https://libraries.cgr.dev/python/integrity/PACKAGE/VERSION/FILE/provenance`
+with `PACKAGE` as the Python package name, `VERSION` the package version, and
+`FILE` the filename of the package archive with configured [basic authentication
+using a pull token](/chainguard/libraries/access/).
+
+For example, for version `2.0.0` of the package `flask` available as a platform
+independent wheel archive file `flask-2.0.0-py3-none-any.whl` you can retrieve
+the provenance information from
+`https://libraries.cgr.dev/python/integrity/flask/2.0.0/flask-2.0.0-py3-none-any.whl/provenance`.
+
+Packages from Chainguard are identified by the `publisher`:`environment` set as
+`chainguard`:
+
+```json
+{
+  "attestation_bundles": [
+    {
+      "attestations": [
+        ...
+      ]
+      "publisher": {
+        "environment": "chainguard",
+        "kind": "URL",
+        "issuer": "https://issuer.enforce.dev",
+        "identity": "https://issuer.enforce.dev/3fab4fe4edb624d...",
+        "repository": "chainguard-dev/ecosystems-wheel-rebuilder",
+        "workflow": "python-build-versions.yaml"
+      }
+    }
+  ],
+  "version": 1
+}
+```
+
+A [Sigstore bundle file](https://docs.sigstore.dev/about/bundle/) is available
+as `bundle.json` from the integrity context at
+`https://libraries.cgr.dev/python/integrity/PACKAGE/VERSION/FILE/bundle.json`
+specifically for each package, version, and file. 
