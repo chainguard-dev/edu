@@ -36,7 +36,7 @@ Application VMs come pre-packaged with popular backend applications running as s
 
 ## Which operating system is used by Chainguard VMs?
 
-Chainguard VMs are based on Chainguard OS, our minimal Linux distribution initially designed to run on containers and now extended to include a kernel and other components.
+Chainguard VMs are based on [Chainguard OS](https://get.chainguard.dev/chainguard-your-os-whitepaper-0), our minimal Linux distribution initially designed to run on containers and now extended to include a kernel and other components.
 
 ## Which Linux kernel is used in Chainguard VMs?
 
