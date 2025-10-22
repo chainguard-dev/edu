@@ -216,3 +216,5 @@ RPMs
 AARs
 backfill
 distributable
+bundler
+lockfile
