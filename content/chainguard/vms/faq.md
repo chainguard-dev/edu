@@ -1,7 +1,7 @@
 ---
 title: "Chainguard VMs FAQ"
 linktitle: "FAQ"
-description: "Frequently asked questions about Chainguard VMs, including availability, supported ecosystems, compliance questions, and more"
+description: "Frequently asked questions about Chainguard VMs, including availability, supported ecosystems, compliance, and more"
 type: "article"
 date: 2025-10-21T08:04:00+00:00
 lastmod: 2025-10-21T15:09:59+00:00
