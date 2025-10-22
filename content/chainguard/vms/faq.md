@@ -40,7 +40,7 @@ Chainguard VMs are based on [Chainguard OS](https://get.chainguard.dev/chainguar
 
 ## Which Linux kernel is used in Chainguard VMs?
 
-The Chainguard Factory tracks both the stable upstream and the latest LTS (for FIPS) versions of the kernel, building from source to provide the most up-to-date and patched versions.
+The [Chainguard Factory](/chainguard/factory/overview/) tracks both the stable upstream and the latest LTS (for FIPS) versions of the kernel, building from source to provide the most up-to-date and patched versions.
 
 ## Do Chainguard VMs support in-place upgrades?
 
