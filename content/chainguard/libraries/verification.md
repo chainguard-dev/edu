@@ -62,18 +62,19 @@ cosign version
 
 ## Installation
 
-[Download the latest release - version 0.4.1](https://dl.enforce.dev/chainver/0.4.1/chainver-v0.4.1.zip)
+[Download the latest release - version 0.5.0](https://dl.enforce.dev/chainver/0.5.0/chainver-v0.5.0.zip)
 
 ### Version-Agnostic Download
 
-Download the latest release using `curl`. (Note that [`jq`](https://jqlang.org/download/) must be on the path.)
+Download the latest release using `curl`. Note that [`jq`](https://jqlang.org/download/) must be on the path.
 
 ```sh
 LATEST_URL=$(curl -s https://dl.enforce.dev/chainver/latest/latest-metadata.json | jq -r '.download_url') && \
  curl -LO "${LATEST_URL}"
 ```
 
-Once you've downloaded the archive, unpack it and place the binary for your chosen platform on the path. 
+Once you've downloaded the archive, unpack the platform specific archive for
+your system, and place the binary `chainver` for your platform on the path. 
 
 ### Binary Install Script (macOS and Linux)
 
