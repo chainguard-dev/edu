@@ -118,15 +118,19 @@ All Chainguard Containers include metadata in the form of *annotations* (also co
 Chainguard Containers follow the [Open Container Initiative (OCI) Image Specification](https://github.com/opencontainers/image-spec/blob/main/annotations.md) for annotations. Chainguard sets the following standard OCI annotations on its container images:
 
 * `org.opencontainers.image.authors`: Contact details for the Chainguard Container's author (typically `Chainguard Team https://www.chainguard.dev/`)
-* `org.opencontainers.image.url`: URL to the container image's Overview page in the Chainguard Directory (for example, `https://images.chainguard.dev/directory/image/nginx/overview`)
-* `org.opencontainers.image.source`: URL to the source code used to build the image in the Chainguard images repository
 * `org.opencontainers.image.base.digest`: The SHA256 digest of the base image used to build this container image
-* `org.opencontainers.image.vendor`: The distributing organization, always set to `Chainguard`
+
 * `org.opencontainers.image.created`: Timestamp indicating when the image was built; specifically, this annotation is calculated from the build time of the most recently built package within the container image
+* `org.opencontainers.image.source`: URL to the source code used to build the image in the Chainguard images repository
+* `org.opencontainers.image.title`: The original image name as listed in the catalogue (for example `chainguard-base`)
+* `org.opencontainers.image.url`: URL to the container image's Overview page in the Chainguard Directory (for example, `https://images.chainguard.dev/directory/image/nginx/overview`)
+* `org.opencontainers.image.vendor`: The distributing organization, always set to `Chainguard`
+
 
 In addition to the standard OCI annotations, Chainguard sets custom annotations (which begin with `dev.chainguard` instead of `org.opencontainers`) that provide additional context about the container image:
 
-* `dev.chainguard.package.main`: The name of the primary package in the image. This may change between different versions of an image. In some situations, it may also be empty. 
+* `dev.chainguard.package.main`: The name of the primary package in the image. This may change between different versions of an image. In some situations, it may also be empty or unset.
+* `dev.chainguard.image.title`: Duplicate of the original image name as listed in the catalogue, in case downstream build processes override the same value in the `org.opencontainers` namespace.
 
 ### Retrieving annotation information
 
@@ -138,12 +142,14 @@ crane manifest cgr.dev/chainguard/apko:latest | jq -r .annotations
 
 This will output all the annotations set on the image:
 
-```output
+```json
 {
+  "dev.chainguard.image.title": "apko",
   "dev.chainguard.package.main": "apko",
   "org.opencontainers.image.authors": "Chainguard Team https://www.chainguard.dev/",
-  "org.opencontainers.image.created": "2025-10-14T09:49:49Z",
+  "org.opencontainers.image.created": "2025-10-20T02:17:10Z",
   "org.opencontainers.image.source": "https://github.com/chainguard-images/images/tree/main/images/apko",
+  "org.opencontainers.image.title": "apko",
   "org.opencontainers.image.url": "https://images.chainguard.dev/directory/image/apko/overview",
   "org.opencontainers.image.vendor": "Chainguard"
 }
@@ -157,6 +163,20 @@ You can also inspect a Chainguard Container's labels using the `crane config` co
 crane config cgr.dev/chainguard/apko:latest | jq '.config.Labels'
 ```
 
+The expected output is the same:
+```json
+{
+  "dev.chainguard.image.title": "apko",
+  "dev.chainguard.package.main": "apko",
+  "org.opencontainers.image.authors": "Chainguard Team https://www.chainguard.dev/",
+  "org.opencontainers.image.created": "2025-10-20T02:17:10Z",
+  "org.opencontainers.image.source": "https://github.com/chainguard-images/images/tree/main/images/apko",
+  "org.opencontainers.image.title": "apko",
+  "org.opencontainers.image.url": "https://images.chainguard.dev/directory/image/apko/overview",
+  "org.opencontainers.image.vendor": "Chainguard"
+}
+```
+
 This returns the same output as the previous `crane` command. 
 
 Lastly, you can use the `docker inspect` command to inspect a container image's labels:
@@ -164,6 +184,20 @@ Lastly, you can use the `docker inspect` command to inspect a container image's 
 ```shell
 docker pull cgr.dev/chainguard/apko:latest
 docker inspect cgr.dev/chainguard/apko:latest | jq '.[].Config.Labels'
+```
+
+The expected output is the same:
+```json
+{
+  "dev.chainguard.image.title": "apko",
+  "dev.chainguard.package.main": "apko",
+  "org.opencontainers.image.authors": "Chainguard Team https://www.chainguard.dev/",
+  "org.opencontainers.image.created": "2025-10-20T02:17:10Z",
+  "org.opencontainers.image.source": "https://github.com/chainguard-images/images/tree/main/images/apko",
+  "org.opencontainers.image.title": "apko",
+  "org.opencontainers.image.url": "https://images.chainguard.dev/directory/image/apko/overview",
+  "org.opencontainers.image.vendor": "Chainguard"
+}
 ```
 
 Again, this returns the same information as before. However, using `docker inspect` requires you to download the container image beforehand.
