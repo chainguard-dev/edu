@@ -46,9 +46,7 @@ Chainguard Libraries for JavaScript provides access to a growing collection of
 popular Javascript packages rebuilt from source. New releases of common packages
 requested by customer builds are added to the index by an automated system.
 
-You can use Chainguard Libraries for JavaScript alongside third-party software
-repositories to create a single source of truth with your repository manager
-application. 
+You can use your repository manager (Artifactory, Cloudsmith, etc.) as a single source of truth, pulling packages from Chainguard Libraries for JavaScript and from public software repositories like npm.
 
 ## Runtime requirements
 
