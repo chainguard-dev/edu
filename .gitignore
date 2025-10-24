@@ -6,6 +6,9 @@ resources
 .DS_Store
 .bash_history
 
+# Auto-fetched data files
+data/package-mappings.yaml
+
 # AI Tools
 .claude/
 
