@@ -91,8 +91,7 @@ resolution.
 For example, the `flask` library has a fix for CVE-2023-30861 available in the
 upstream codebase. Upon customer request for a specific version, the fix is
 backported to the flask versions `1.1.2` and `2.0.0` and made available in new
-versions `1.1.2+cgr.1` and `2.0.0+cgr.1`. The package management tools consider
-this versions as newer and a compatible replacement automatically.
+versions `1.1.2+cgr.1` and `2.0.0+cgr.1`. Python package management tools consider these local versions such as  1.1.2+cgr.1 and 2.0.0+cgr.1 as newer, compatible replacements automatically.
 
 In some cases, multiple CVEs may be remediated in a specific library version.
 For example, `aiohttp` has fixes for both  CVE-2024-23334 and CVE-2024-30251 in
