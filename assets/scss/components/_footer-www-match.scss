@@ -4,8 +4,8 @@
 // Bottom: Copyright (left) and legal links (right)
 
 footer {
-    background: #0F0A24; // Dark background
-    color: rgba(255, 255, 255, 0.9);
+    background: var(--footer-background); // Light gray background
+    color: var(--primary-3);
     border-top: none;
     margin-top: 4rem;
     padding: 4rem 0 2rem;
@@ -58,68 +58,67 @@ footer {
         .footer-logo-icon {
             height: 32px;
             width: auto;
-            opacity: 0.95;
+            opacity: 1;
         }
-        
+
         .footer-logo-text {
             height: 24px;
             width: auto;
-            opacity: 0.95;
+            opacity: 1;
         }
     }
     
-    // Contact Us button
+    // Contact Us button - Blurple solid
     .footer-contact-btn {
         display: inline-flex;
         align-items: center;
-        padding: 10px 24px;
-        background: transparent;
-        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 12px 28px;
+        background: var(--primary-1);
+        border: none;
         border-radius: 6px;
-        color: rgba(255, 255, 255, 0.9) !important;
+        color: #ffffff !important;
         text-decoration: none;
-        font-size: 14px;
-        font-weight: 500;
+        font-size: 15px;
+        font-weight: 600;
         transition: all 0.2s ease;
-        
+
         &:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.5);
-            color: white !important;
+            background: #7545FB;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(98, 38, 240, 0.25);
         }
     }
     
-    // Social icons in left section
+    // Social icons in left section - Black on light gray
     .footer-brand-socials {
         display: flex;
-        gap: 0.75rem;
-        
+        gap: 1rem;
+
         a {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             border-radius: 8px;
-            background: rgba(255, 255, 255, 0.1);
+            background: transparent;
             transition: all 0.2s ease;
-            
+
             &:hover {
-                background: rgba(255, 255, 255, 0.2);
+                background: rgba(98, 38, 240, 0.08);
                 transform: translateY(-2px);
             }
-            
+
             img {
-                width: 18px;
-                height: 18px;
-                color: white;
-                opacity: 0.9;
+                width: 20px;
+                height: 20px;
+                opacity: 0.8;
             }
-            
+
             svg {
-                width: 18px;
-                height: 18px;
-                fill: rgba(255, 255, 255, 0.8);
+                width: 20px;
+                height: 20px;
+                fill: var(--primary-3);
             }
         }
     }
@@ -144,23 +143,25 @@ footer {
 // Footer navigation columns
 .footer-column {
     .footer-title {
-        font-size: 15px;
-        font-weight: 600;
-        color: rgba(255, 255, 255, 0.95);
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--primary-3);
         margin-bottom: 1rem;
-        letter-spacing: 0.01em;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        opacity: 0.6;
     }
-    
+
     .footer-item {
         display: block;
         font-size: 14px;
-        line-height: 1.8;
-        color: rgba(255, 255, 255, 0.65) !important;
+        line-height: 1.9;
+        color: var(--primary-3) !important;
         text-decoration: none;
         transition: color 0.2s ease;
-        
+
         &:hover {
-            color: rgba(255, 255, 255, 0.95) !important;
+            color: var(--primary-1) !important;
         }
         
         // External link indicator
@@ -198,35 +199,39 @@ footer {
     // Copyright text on left
     .footer-copyright {
         font-size: 13px;
-        color: rgba(255, 255, 255, 0.5);
-        
+        color: var(--primary-3);
+        opacity: 0.6;
+
         @media (max-width: 767px) {
             order: 2;
         }
     }
-    
+
     // Legal links on right
     .footer-legal-links {
         display: flex;
         gap: 1rem;
         align-items: center;
         font-size: 13px;
-        
+
         @media (max-width: 767px) {
             order: 1;
         }
-        
+
         a {
-            color: rgba(255, 255, 255, 0.5) !important;
+            color: var(--primary-3) !important;
+            opacity: 0.6;
             text-decoration: none;
-            
+
             &:hover {
-                color: rgba(255, 255, 255, 0.8) !important;
+                opacity: 1;
+                color: var(--primary-1) !important;
             }
         }
-        
+
         .separator {
-            color: rgba(255, 255, 255, 0.2);
+            color: var(--primary-3);
+            opacity: 0.3;
         }
     }
 }
@@ -240,39 +245,58 @@ footer {
 // Keep old elements visible if they exist as fallback
 // They will be overridden by the new structure
 
-// Dark mode adjustments
+// Dark mode adjustments - Keep light footer even in dark mode
 :root[data-dark-mode] {
     footer {
-        background: #0A0618;
-        
+        background: var(--footer-background); // Still light gray
+        color: var(--primary-3);
+
         .footer-brand-section {
             .footer-contact-btn {
-                border-color: rgba(255, 255, 255, 0.2);
-                
+                background: var(--primary-1);
+
                 &:hover {
-                    background: rgba(122, 240, 254, 0.1);
-                    border-color: var(--primary-2);
-                    color: var(--primary-2) !important;
+                    background: #7545FB;
                 }
             }
-            
+
             .footer-brand-socials a {
+                svg {
+                    fill: var(--primary-3);
+                }
+
                 &:hover {
-                    background: rgba(122, 240, 254, 0.15);
+                    background: rgba(98, 38, 240, 0.08);
                 }
             }
         }
-        
+
         .footer-column {
+            .footer-title {
+                color: var(--primary-3);
+            }
+
             .footer-item {
+                color: var(--primary-3) !important;
+
                 &:hover {
-                    color: var(--primary-2) !important;
+                    color: var(--primary-1) !important;
                 }
             }
         }
-        
+
         .footer-bottom-section {
-            // No border in dark mode either
+            .footer-copyright {
+                color: var(--primary-3);
+            }
+
+            .footer-legal-links a {
+                color: var(--primary-3) !important;
+
+                &:hover {
+                    color: var(--primary-1) !important;
+                }
+            }
         }
     }
 }
@@ -289,7 +313,7 @@ footer {
     
     .footer-brand-section {
         padding-bottom: 1rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(13, 22, 28, 0.1);
     }
     
     .footer-nav-section {

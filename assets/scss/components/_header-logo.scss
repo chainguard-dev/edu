@@ -3,6 +3,7 @@
 
 .navbar-title-padding {
     padding: 12px 12px 16px 12px;
+    background-color: transparent; // White/clean background
     border-bottom: 1px solid var(--leftnav-border);
 }
 
@@ -26,7 +27,9 @@
     width: auto;
     flex-shrink: 0;
     transition: transform 0.3s ease;
-    
+    // Show original purple logo color
+    filter: none;
+
     .navbar-logo-link:hover & {
         transform: scale(1.05) rotate(-3deg);
     }
@@ -45,7 +48,7 @@
     font-family: $titleFont;
     font-size: 18px;
     font-weight: 700;
-    color: var(--body-color);
+    color: var(--body-color); // Dark text
     line-height: 1.2;
     letter-spacing: -0.01em;
 }
@@ -55,33 +58,43 @@
     font-family: $TextFont;
     font-size: 13px;
     font-weight: 400;
-    color: var(--body-color);
-    opacity: 0.7;
+    color: var(--body-color); // Dark text
+    opacity: 0.65;
     letter-spacing: 0.01em;
     line-height: 1.2;
 }
 
-// Dark mode text adjustments (no filter needed for logos anymore)
+// Dark mode text adjustments
 @media (prefers-color-scheme: dark) {
     .navbar-logo-wordmark {
-        color: var(--secondary-3);
+        color: var(--body-color);
     }
-    
+
     .navbar-logo-academy {
-        color: var(--secondary-3);
-        opacity: 0.6;
+        color: var(--body-color);
+        opacity: 0.65;
+    }
+
+    .navbar-logo-icon {
+        // Invert logo to white in dark mode
+        filter: brightness(0) invert(1);
     }
 }
 
 // Also handle :root[data-dark-mode] for manual dark mode toggle
 :root[data-dark-mode] {
     .navbar-logo-wordmark {
-        color: var(--secondary-3);
+        color: var(--body-color);
     }
-    
+
     .navbar-logo-academy {
-        color: var(--secondary-3);
-        opacity: 0.6;
+        color: var(--body-color);
+        opacity: 0.65;
+    }
+
+    .navbar-logo-icon {
+        // Invert logo to white in dark mode
+        filter: brightness(0) invert(1);
     }
 }
 
