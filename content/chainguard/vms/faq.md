@@ -16,7 +16,7 @@ toc: true
 
 ## Which platforms and hypervisors are Chainguard VMs available for?
 
-Chainguard VMs are available for AWS (EC2 and ECS/EKS), GCP (Compute Engine), and Azure Compute cloud environments, and also for on-prem solutions based on KVM such as QEmu, VMWare, Nutanix, among others.
+Chainguard VMs are available for AWS ([EC2](https://aws.amazon.com/ec2/) and [ECS](https://aws.amazon.com/ecs/)/[EKS](https://aws.amazon.com/eks/)), [GCP](https://cloud.google.com/?hl=en) (Compute Engine), and [Azure Compute](https://azure.microsoft.com/en-us/products/category/compute) cloud environments, and also for on-prem solutions based on KVM such as [QEmu](https://www.qemu.org/), [VMWare](https://www.vmware.com/products/cloud-infrastructure/vsphere), [Nutanix](https://www.nutanix.com/), among others.
 
 ## What kinds of VMs are currently available?
 
@@ -48,12 +48,10 @@ No, Chainguard VMs do not support in-place upgrades (e.g. via package upgrade). 
 
 ## Do Chainguard VMs support FIPS?
 
-Yes, Chainguard VMs support Kernel Independent FIPS.
+Yes, Chainguard VMs support Kernel Independent FIPS. This means that application workloads use a FIPS validated entropy source independent of the kernel. The advantage to this approach is that the certification of the entropy source does not need to be performed against a specific kernel, so customers can take advantage of new kernel features while remaining FIPS compliant. It also means that VMs no longer need to be booted in FIPS mode.  The disadvantage is that some low level operating system functions such as disk encryption, IPSEC etc.. are not able to use FIPS validated entropy. On cloud platforms, disk volumes are encrypted and provided with FIPS validated entropy, as is network and filesystem encryption. On the cloud, kernel independent FIPS is a more efficient way of servicing FIPS workloads in VMs.
 
 ## How does FIPS work on VMs?
 
 Traditionally, FIPS in Virtual Machines is dependent on the Linux Kernel. That means that Linux Kernel’s entropy source and Cryptographic subsystem needs to be FIPS validated. Using a FIPS validated Linux Kernel allows VMs to provide FIPS graded cryptography for use cases like Disk Encryption, IPSec, KMSV, dm-verity, dm-integrity, etc.
 
 This is more relevant in on-prem environments.
-
-Chainguard VMs support kernel independent FIPS. This means that application workloads use a FIPS validated entropy source independent of the kernel. The advantage to this approach is that the certification of the entropy source does not need to be performed against a specific kernel, so customers can take advantage of new kernel features while remaining FIPS compliant. It also means that VMs no longer need to be booted in FIPS mode.  The disadvantage is that some low level operating system functions such as disk encryption, IPSEC etc.. are not able to use FIPS validated entropy. In clouds, disk volumes are encrypted and provided with FIPS validated entropy, as is network and filesystem encryption. In cloud, kernel independent FIPS is a more efficient way of servicing FIPS workloads in VMs.
