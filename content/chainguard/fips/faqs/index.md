@@ -1,6 +1,8 @@
 ---
 title: "Chainguard FIPS Container FAQs"
-linktitle: "FIPS FAQs"
+linktitle: "FAQs"
+aliases: 
+- /chainguard/chainguard-images/features/fips/faqs/
 type: "article"
 description: "Frequently Asked Questions about Chainguard FIPS Container Images"
 date: 2025-01-10T15:56:52-07:00
@@ -11,7 +13,7 @@ images: []
 menu:
   docs:
     parent: "features"
-weight: 005
+weight: 050
 toc: true
 ---
 
