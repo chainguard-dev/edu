@@ -107,8 +107,6 @@ This approach is useful in cases where you would prefer to avoid any kind of int
 
 ### Using the `--save-as` option
 
-> **Note**: The Custom Assembly `--save-as` option is currently in beta. [Contact us](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) if you'd like to access this feature during the beta period.
-
 When customizing a Chainguard Container with Custom Assembly, you have the option to either customize the image itself or create a new image based on the original with your customizations applied to it.
 
 For example, say your organization has access to Chainguard's [`node` container image](https://images.chainguard.dev/directory/image/node/versions). If you use Custom Assembly to customize the `node` image without creating a new image, then the customizations applied to it will also apply to any users in your organization that are already consuming the image. Anyone who runs `docker pull cgr.dev/example.come/node` will download the customized image instead of the original, uncustomized one.
