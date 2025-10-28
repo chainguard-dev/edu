@@ -24,8 +24,6 @@ By the end of this guide, you'll be able to create, customize, and manage your o
 
 ## Selecting Packages and Building a Customized Container
 
-> **Note**: This section highlights the **Create a new image** option. This feature is currently in beta. [Contact us](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) if you'd like to access this feature during the beta period.
-
 After logging in to the [Chainguard console](https://console.chainguard.dev/auth/login), you will be greeted with your account overview page. If you belong to more than one organization, be sure to select an organization with access to Custom Assembly from the drop-down menu in the top-left corner:
 
 <center><img src="ca-1.png" alt="Screenshot of the Chainguard console, with the Organization selection drop-down menu highlighted in a yellow box." style="width:1100px;"></center>
