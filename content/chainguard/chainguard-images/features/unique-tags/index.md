@@ -2,10 +2,10 @@
 title: "Unique Tags for Chainguard Containers"
 linktitle: "Unique Tags"
 aliases:
-- /chainguard/chainguard-images/unique-tags
-- /chainguard/chainguard-images/images-features/unique-tags
-- /chainguard/chainguard-images/working-with-images/unique-tags/
-- /chainguard/chainguard-images/features/unique-tags/
+  - /chainguard/chainguard-images/unique-tags
+  - /chainguard/chainguard-images/images-features/unique-tags
+  - /chainguard/chainguard-images/working-with-images/unique-tags/
+  - /chainguard/chainguard-images/features/unique-tags/
 type: "article"
 description: "Learn about Chainguard's Unique Tags feature for production container images, enabling precise version tracking and automated deployment workflows with timestamped tags"
 date: 2024-02-29T08:49:31+00:00
@@ -20,7 +20,7 @@ weight: 015
 toc: true
 ---
 
-Chainguard's Unique Tags feature provides timestamped, immutable tags for every container image build, addressing enterprise requirements for precise version tracking and automated deployment workflows. Many organizations rely on distinct tags to trigger automated deployments and maintain audit trails, making traditional floating tags like 'latest' unsuitable for production use.
+Chainguard's Unique Tags feature provides unique timestamped tags for every container image build, addressing enterprise requirements for precise version tracking and automated deployment workflows. Many organizations rely on distinct tags to trigger automated deployments and maintain audit trails, making traditional floating tags like 'latest' unsuitable for production use.
 
 To help with cases like this, Chainguard offers Unique Tags for private registries. Unique Tags are ideal for organizations that require a strict tag per release or update of their images. They benefit teams looking for precise tracking and management of container images.
 
@@ -58,13 +58,17 @@ To illustrate, toggle this button on and then click on any paid Production conta
 
 Here there are a number of container image versions with tags similar to `:openjdk-17-202412120223`. This means that this particular version of the container image was last updated on December 12, 2024, at 2:23 AM. You can use this version's **Pull URL** (`cgr.dev/$ORGANIZATION/jdk-fips:openjdk-17-202412120223`) to download this container image, and you can be confident that this Pull URL will always refer to the same container image.
 
+## Unique vs Immutable Tags
 
-## Learn More
+By design, container image tags are mutable and can change over time. Although Unique Tags are meant to serve as a solution for teams whose internal workflows desire unique tags, for true image immutability we recommend that users reference container images by their digests: `cgr.dev/example.com/image@sha256:...`.
 
-It should be noted that by their design, container image tags are mutable, meaning that they can change over time. Although Unique Tags are meant to serve as a secure solution for teams whose internal workflows assume tag immutability, we still recommend that users pull container images by their digests whenever possible. Check out the ["Pulling by Digest" section](/chainguard/chainguard-images/how-to-use-chainguard-images/#pulling-by-digest) of our guide on How to Use Chainguard Containers for more information. You may also find our video on [How to Use Container Image Digests to Improve Reproducibility](/chainguard/chainguard-images/videos/container-image-digests/) to be useful.
+Check out the ["Pulling by Digest" section](/chainguard/chainguard-images/how-to-use-chainguard-images/#pulling-by-digest) of our guide on How to Use Chainguard Containers for more information.
+You may also find our video on [How to Use Container Image Digests to Improve Reproducibility](/chainguard/chainguard-images/videos/container-image-digests/) to be useful.
 
 Additionally, you may find our three-part blog series on Chainguard's image tagging philosophy to be of interest.
 
-* [Part 1](https://www.chainguard.dev/unchained/chainguards-image-tagging-philosophy-enabling-high-velocity-updates-pt-1-of-3?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)
-* [Part 2](https://www.chainguard.dev/unchained/chainguards-image-tagging-philosophy-enabling-high-velocity-updates-pt-2-of-3)
-* [Part 3](https://www.chainguard.dev/unchained/chainguards-image-tagging-philosophy-enabling-high-velocity-updates-pt-3-of-3)
+- [Part 1](https://www.chainguard.dev/unchained/chainguards-image-tagging-philosophy-enabling-high-velocity-updates-pt-1-of-3?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)
+- [Part 2](https://www.chainguard.dev/unchained/chainguards-image-tagging-philosophy-enabling-high-velocity-updates-pt-2-of-3)
+- [Part 3](https://www.chainguard.dev/unchained/chainguards-image-tagging-philosophy-enabling-high-velocity-updates-pt-3-of-3)
+
+Many dependency automation tools like [Dependabot](https://docs.github.com/en/code-security/dependabot/ecosystems-supported-by-dependabot/supported-ecosystems-and-repositories#docker) and [Renovatebot](https://docs.renovatebot.com/docker/#digest-pinning) support digest pinning with tag hints. For example if an image is of the form `cgr.dev/example.com/image:1.2@sha256:...`, these tools will attempt to update image digests based on the `1.2` tag. **NOTE**: OCI/docker runtimes ignore tags in this format - there is no guarantee that the digest belonged to the tag at any point in time. They are used as version hints, but are not enforced - digest takes priority.
