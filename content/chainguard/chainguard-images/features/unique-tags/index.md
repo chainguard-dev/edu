@@ -60,7 +60,7 @@ Here there are a number of container image versions with tags similar to `:openj
 
 ## Unique vs Immutable Tags
 
-By design, container image tags are mutable and can change over time. Although Unique Tags are meant to serve as a solution for teams whose internal workflows desire unique tags, for true image immutability we recommend that users references container images by their digests: `cgr.dev/example.com/image@sha256:...`.
+By design, container image tags are mutable and can change over time. Although Unique Tags are meant to serve as a solution for teams whose internal workflows desire unique tags, for true image immutability we recommend that users reference container images by their digests: `cgr.dev/example.com/image@sha256:...`.
 
 Check out the ["Pulling by Digest" section](/chainguard/chainguard-images/how-to-use-chainguard-images/#pulling-by-digest) of our guide on How to Use Chainguard Containers for more information.
 You may also find our video on [How to Use Container Image Digests to Improve Reproducibility](/chainguard/chainguard-images/videos/container-image-digests/) to be useful.
