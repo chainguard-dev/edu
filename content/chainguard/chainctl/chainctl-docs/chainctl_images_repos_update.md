@@ -1,5 +1,5 @@
 ---
-date: 2025-10-23T22:01:23Z
+date: 2025-10-27T18:30:01Z
 title: "chainctl images repos update"
 slug: chainctl_images_repos_update
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_update/
@@ -20,12 +20,13 @@ chainctl images repos update {REPO_NAME|REPO_ID} --parent ORGANIZATION_NAME | OR
 ### Options
 
 ```
-      --bundles string    Comma-separated list of bundles to assign to the repo.
-      --expiration time   Sync expiration time (e.g., 1970-01-01).
-  -h, --help              help for update
-      --name string       Updated name for the repo.
-      --parent string     The name or id of the parent location of the repo to update.
-      --tier string       Catalog tier. One of: [BASE,FIPS,AI,DEVTOOLS,APPLICATION]
+      --bundles string       Comma-separated list of bundles to assign to the repo.
+      --description string   Updated description for the repo.
+      --expiration time      Sync expiration time (e.g., 1970-01-01).
+  -h, --help                 help for update
+      --name string          Updated name for the repo.
+      --parent string        The name or id of the parent location of the repo to update.
+      --tier string          Catalog tier. One of: [APPLICATION,BASE,FIPS,AI,DEVTOOLS]
 ```
 
 ### Options inherited from parent commands
