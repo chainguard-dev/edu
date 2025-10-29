@@ -26,7 +26,7 @@ This guide is primarily framed around the Chainguard Directory and the Chainguar
 
 If you would like to open the console with your Organization already selected, you can use (and bookmark) a link like this, replacing `ORGANIZATION` with your organization's name:
 
-```html
+```URL
 https://console.chainguard.dev/auth/login?org=ORGANIZATION
 ```
 
@@ -39,7 +39,7 @@ The Chainguard Console and Directory offer slightly different experiences for br
 
 ### Browsing in the Console
 
-After signing in to the [Chainguard Console](https://console.chainguard.dev), your browser will take you to the Overview page:
+After signing in to the [Chainguard Console](https://console.chainguard.dev), your browser will take you to the Overview page. The following screenshot shows the Overview Page for an organization that hasn't paid for access to any container images:
 
 <center><img src="imgs-dir-A.png" alt="Screenshot showing the Chainguard Console's Overview page." style="width:1100px;"></center>
 <br /> 
@@ -58,10 +58,12 @@ The **Chainguard catalog** tab has a table with four columns:
 * **Description**: a brief description of each container image
 * **Updated**: how long it's been since the container image was last updated
 
-Additionally, container images listed in the **Organization** container images tab have an extra column labeled **Status**. This column specifies what resources an organization has purchased and has access to. This column can show one of two possible values: **Active**, meaning that your organization is able to download and use the container image, or **Expired**, meaning that your organization had access to the container image in the past but not anymore:
+The **Organization** tab doesn't have a **Description** column, but has two additional columns. The first of these, labeled **Status** specifies what resources an organization has purchased and has access to. This column can show one of two possible values: **Active**, meaning that your organization is able to download and use the container image, or **Expired**, meaning that your organization had access to the container image in the past but not anymore:
 
 <center><img src="imgs-dir-C.png" alt="Screenshot showing a portion of an Organization container images directory, including the 'Status' column. This example shows five container: metrics-server, a customized metrics-server image, mongodb, nginx, and node." style="width:700px;"></center>
 <br /> 
+
+The other additional column is labeled **Pull URL**, and contains a URL you can use to pull the given image, as in a `docker pull` command.
 
 You can click on any of these column names to sort the list of container images in ascending or descending order based on the values in these columns.
 
@@ -87,12 +89,15 @@ By default, the Directory only shows a set of featured container images. You can
 
 Below this menu is a button labeled **View all images** which you can click to view all the images at once. Above the cards is a search box you can use to search for specific Chainguard Containers. Clicking on any card or search result takes you to that container image's details page.
 
+
 ## Container image information
 
-Next, let's inspect an individual container image. Click on any container image you'd like. This example shows the page for `argocd` in the Console:
+Next, let's inspect an individual container image. Click on any container image you'd like:
 
 <center><img src="imgs-dir-E.png" alt="Screenshot of the Container Details page for the argocd image, showing the 'Tags' tab." style="width:1100px;"></center>
 <br /> 
+
+This example shows the details page for `argocd` in the Console. However, the details pages for container images are identical in the Console and Directory, unless otherwise noted below.
 
 Each container image details page has several tabs that provide information about various facets of the given image.
 
@@ -181,9 +186,7 @@ Please be aware that, as with SBOM data, Chainguard began generating vulnerabili
 
 ### Advisories
 
-When you scan a newly-built Chainguard Container with a vulnerability scanner, the scanner typically won't report any CVEs. However, as software packages age, more vulnerabilities are reported and CVEs will begin to accumulate in images. When this happens, Chainguard releases security advisories to communicate these vulnerabilities to downstream container image users. You can find all the advisories issued for a given image in its Advisories tab. 
-
-This tab contains a timeline of each security advisory released for a given container image, starting with the most recent. Each entry specifies the date and time the advisory was released, the CVE in question, the affected package, and the [current status](/chainguard/chainguard-images/staying-secure/security-advisories/how-chainguard-issues/#summary-of-advisory-statuses). 
+The **Advisories** tab lists any CVEs that have affected the image in the past and what action Chainguard took to remediate the CVE. This tab shows a timeline of each security advisory released for a given container image, starting with the most recent. Each entry specifies the date and time the advisory was released, the CVE in question, the affected package, and the [current status](/chainguard/chainguard-images/staying-secure/security-advisories/how-chainguard-issues/#summary-of-advisory-statuses). 
 
 To learn more about Chainguard security advisories, we encourage you to read our article on [How Chainguard Issues Security Advisories](/chainguard/chainguard-images/staying-secure/security-advisories/how-chainguard-issues/) as well as our guide on [How to Use Chainguard Security Advisories](/chainguard/chainguard-images/staying-secure/security-advisories/how-to-use/). You an also find every security advisory published for Chainguard Containers by exploring our self-service [Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory).
 
