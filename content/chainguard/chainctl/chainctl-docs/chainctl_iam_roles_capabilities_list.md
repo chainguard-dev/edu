@@ -1,5 +1,5 @@
 ---
-date: 2025-10-23T22:01:23Z
+date: 2025-10-27T18:30:01Z
 title: "chainctl iam roles capabilities list"
 slug: chainctl_iam_roles_capabilities_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_roles_capabilities_list/
