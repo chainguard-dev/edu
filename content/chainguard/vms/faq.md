@@ -46,12 +46,16 @@ The [Chainguard Factory](/chainguard/factory/overview/) tracks both the stable u
 
 No, Chainguard VMs do not support in-place upgrades (e.g. via package upgrade). The upgrade strategy is based on node replacement.
 
-## Do Chainguard VMs support FIPS?
-
-Yes, Chainguard VMs support Kernel Independent FIPS. This means that application workloads use a FIPS validated entropy source independent of the kernel. The advantage to this approach is that the certification of the entropy source does not need to be performed against a specific kernel, so customers can take advantage of new kernel features while remaining FIPS compliant. It also means that VMs no longer need to be booted in FIPS mode.  The disadvantage is that some low level operating system functions such as disk encryption, IPSEC etc.. are not able to use FIPS validated entropy. On cloud platforms, disk volumes are encrypted and provided with FIPS validated entropy, as is network and filesystem encryption. On the cloud, kernel independent FIPS is a more efficient way of servicing FIPS workloads in VMs.
-
 ## How does FIPS work on VMs?
 
-Traditionally, FIPS in Virtual Machines is dependent on the Linux Kernel. That means that Linux Kernel’s entropy source and Cryptographic subsystem needs to be FIPS validated. Using a FIPS validated Linux Kernel allows VMs to provide FIPS graded cryptography for use cases like Disk Encryption, IPSec, KMSV, dm-verity, dm-integrity, etc.
+In Virtual Machines, FIPS is traditionally dependent on the Linux kernel, which requires engineers to provision dedicated hardware and virtual machines (VMs) with the host kernel configured in FIPS mode in order to be compliant. Using a FIPS validated Linux kernel allows VMs to provide FIPS graded cryptography for use cases like Disk Encryption, IPSec, KMSV, dm-verity, dm-integrity, among others.
 
-This is more relevant in on-prem environments.
+This design, which requires maintenance of FIPS cryptographic boundaries at the kernel-level, drives significant friction for vendors delivering FIPS compliant workloads for modern cloud-native applications, since it forces a dependence on a limited set of FIPS-enabled kernels. With kernel FIPS you often need separate, kernel-pinned images (and careful reboots) to keep the validated stack intact.
+
+Making the cryptographic module user-space or [kernel independent](https://www.chainguard.dev/unchained/kernel-independent-fips-images) breaks that coupling, so the same validated module can serve many VMs and kernels with less toil and fewer surprises.
+
+## Do Chainguard VMs support FIPS?
+
+Yes, Chainguard VMs support **kernel independent FIPS**. This means that application workloads use a FIPS validated entropy source independent of the kernel. The advantage to this approach is that the certification of the entropy source does not need to be performed against a specific kernel, so customers can take advantage of new kernel features while remaining FIPS compliant. It also means that VMs no longer need to be booted in FIPS mode.
+
+The disadvantage is that some low level operating system functions such as disk encryption, IPSEC, KMSV, among others are not able to use FIPS validated entropy. This is less relevant on cloud platforms, since disk volumes are encrypted and provided with FIPS validated entropy, as is network and filesystem encryption. On the cloud, kernel independent FIPS is a more efficient way of servicing FIPS workloads in VMs.
