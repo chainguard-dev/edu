@@ -66,16 +66,6 @@ The following table shows how upstream container image names map to Chainguard C
 
 {{< package-mappings/image-mappings >}}
 
-## Keeping Mappings Up to Date
-
-The package and image mappings shown above are automatically updated from Chainguard's [dfc repository](https://github.com/chainguard-dev/dfc/blob/main/pkg/dfc/builtin-mappings.yaml) every time this site is built. This ensures you always have access to the latest mapping information without any manual intervention.
-
-If you encounter a package or image that isn't listed here, you can:
-1. Check if the package exists in Wolfi with the same name
-2. Search the [Wolfi package repository](https://github.com/wolfi-dev/os) to see if it's available under a different name
-3. Search the [Chainguard Images Directory](https://images.chainguard.dev/) to find available container images
-4. Contribute to the [dfc project](https://github.com/chainguard-dev/dfc) to suggest new mappings
-
 ## Learn More
 
 For more information about working with Chainguard Containers and package management, see:
