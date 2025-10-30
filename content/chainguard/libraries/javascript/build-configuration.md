@@ -216,6 +216,8 @@ To change the packages, remove the `node_modules` directory and the
 
 Now you can proceed with your development and testing. 
 
+<a id="pnpm-minimal"></a>
+
 ### Minimal example project
 
 Use the following steps to create a minimal example project for pnpm  with
@@ -239,6 +241,17 @@ export token=$(echo -n "${CHAINGUARD_JAVASCRIPT_IDENTITY_ID}:${CHAINGUARD_JAVASC
 pnpm config set registry https://libraries.cgr.dev/javascript/ --location=project
 pnpm config set //libraries.cgr.dev/javascript/:_auth "${token}" --location=project
 ```
+
+To avoid the use of base64, which can behave differently across operating
+systems, you can alternatively set `username` and `password` instead of `auth`
+with a token.
+
+```shell
+pnpm config set //libraries.cgr.dev/javascript/:username "${CHAINGUARD_JAVASCRIPT_IDENTITY_ID}" --location=project
+pnpm config set //libraries.cgr.dev/javascript/:_password "${CHAINGUARD_JAVASCRIPT_TOKEN}" --location=project
+```
+
+Also note that the trailing slash in the registry URL is required.
 
 Add dependencies for your project into the `package.json` file to test retrieval
 from Chainguard Libraries:
