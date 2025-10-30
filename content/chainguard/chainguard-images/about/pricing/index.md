@@ -26,6 +26,8 @@ The Catalog Pricing model provides a single subscription that grants unlimited a
 
 Chainguard's catalog contains more than a thousand secure-by-default container images that are continuously rebuilt and maintained under a [CVE SLA](https://www.chainguard.dev/legal/cve-policy). With Catalog Pricing, organizations can use any image in the catalog without having to manage individual licenses or track image usage.
 
+You can also add multiple instances of the same container image to your organization. Note that, as of this writing, organizations are limited to a maximum of 2500 container image repositories.
+
 This model is best suited for organizations that use many different Chainguard images across teams or projects. It allows platform and security teams to standardize on Chainguard images while giving developers unrestricted access to pull the images they need. Once a subscription is in place, any image from the catalog can be pulled and used without additional approvals or per-image fees.
 
 
@@ -62,6 +64,15 @@ Within this tab, scroll or search for whatever image you want to add to your org
 <br /> 
 
 Click the **Add to org** button to add the image to your organization; this will follow the same process as outlined previously. As before, you have the option to set a new name for the container image before clicking the **Add image** button.
+
+After provisioning your new container image through Self-Serve, you and other members of your organization will be able to access it from the Console, with `chainctl`, or through Chainguard's API.
+
+If there comes a point where you no longer need the image, you can remove it. Navigate to the image's page within the Console and click the **More** button in the upper-right corner:
+
+<center><img src="self-serve-5.png" alt="Screenshot showing the Delete button within a Chainguard Container's details page." style="width:550px;"></center>
+<br /> 
+
+Click **Delete** and enter the name of the container image to confirm that you want to remove it. 
 
 
 ## Learn More
