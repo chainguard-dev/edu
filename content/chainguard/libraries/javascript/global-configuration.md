@@ -52,7 +52,6 @@ configure and control. Refer to the [direct access documentation for build
 tools](/chainguard/libraries/javascript/build-configuration/#direct-access) for more
 information.
 
-<!-- Removed for now for testing 
 <a name="cloudsmith"></a>
 
 ## Cloudsmith
@@ -95,10 +94,11 @@ Configure an upstream proxy for the npm registry:
     * **Mode** *Cache and Proxy*
 1. Press **Create Upstream Proxy**.
 
-Configure an upstream proxy for the Chainguard Libraries for JavaScript repository:
+Configure an upstream proxy for the Chainguard Libraries for JavaScript
+repository:
 
-1. Click the name of the new *javascript-chainguard* repository on the repositories
-   page to configure it.
+1. Click the name of the new *javascript-chainguard* repository on the
+   repositories page to configure it.
 1. Access the **Upstreams** tab and click **+ Add Upstream Proxy**.
 1. Configure an upstream proxy with the format **npm** and the following details:
     * **Name** *javascript-chainguard*
@@ -115,8 +115,34 @@ repository.
 
 ### Build tool access
 
+The following steps allow you to determine the URL and authentication details
+for accessing the repository:
 
--->
+1. Select the **Packages** tab.
+1. Press **Push/Pull Packages**.
+1. Choose the format **NPM**.
+1. Refer to the **Pull Package** tab.
+1. Note the registry URL and syntax from the code snippets for npm. For example,
+   the URL for the registry in the `example` organization is
+   `https://npm.cloudsmith.io/example/javascript-all/`.
+1. Note that authentication is using an authentication token and the syntax for
+   npm in the `example` organization is
+   `//npm.cloudsmith.io/example/javascript-all/:_authToken=YOUR-API-KEY`
+
+Use the provided code snippets directly for your use with npm, or adjust as
+necessary for other JavaScript build and packaging tools. Find relevant details
+in the [Build
+Configuration](/chainguard/libraries/javascript/build-configuration/) and
+specific packaging tool documentation.
+
+Use the following steps to retrieve the necessary API key as an authentication
+token for the registry access:
+
+1. Click on your user name at the top, right corner. 
+1. Select *Personal API keys**.
+1. Authenticate again in the **Confirm access** dialog.
+1. Create a new token or refresh the existing one in case you lost the token
+   value.
 
 <a name="artifactory"></a>
 
