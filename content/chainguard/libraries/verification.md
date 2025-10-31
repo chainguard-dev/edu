@@ -227,10 +227,10 @@ chainver --parent <your-organization> remote:files.pythonhosted.org/packages/70/
 
 ## Resources
 
-- [Chainguard Libraries Overview](/chainguard/libraries/overview)
+- [Chainguard Libraries Overview](/chainguard/libraries/overview/)
 - [Chainguard Libraries Authentication](/chainguard/libraries/access/)
 - [Learning Lab: Chainguard Libraries for Java](/software-security/learning-labs/ll202505/)
-- [Learning Lab: Chainguard Libraries for Python](/software-security/learning-labs/ll202506)
+- [Learning Lab: Chainguard Libraries for Python](/software-security/learning-labs/ll202506/)
 
 
 
