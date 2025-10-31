@@ -15,7 +15,7 @@ weight: 055
 toc: true
 ---
 
-Chainguard offers Catalog Pricing for our library of secure container images, providing access to the full catalog of Chainguard Containers. This pricing model provides an alternative to the manual ticket process for adding images to an organization, which is how container images must be added under a per-image pricing model. Catalog Pricing enables you to add individual images from the wider Chainguard catalog to your organization's repository using the Self-Serve Experience in the [Chainguard Console](https://console.chainguard.dev).
+Chainguard offers Catalog Pricing for our library of secure container images, providing access to the full catalog of Chainguard Containers. Catalog Pricing enables you to add individual images from the wider Chainguard catalog to your organization's repository using the Self-Serve Experience in the [Chainguard Console](https://console.chainguard.dev).
 
 This article highlights the benefits of the Catalog Pricing plan and outlines how you can provision container images through the Console's Self-Serve Experience.
 
