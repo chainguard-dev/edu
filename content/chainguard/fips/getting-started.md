@@ -317,7 +317,7 @@ No special runners or kernel configurations required.
 
 **Cause**: The application may be using a cryptographic library that doesn't support FIPS.
 
-**Solution**: Ensure your application uses OpenSSL-backed cryptography. For language-specific guidance, see the [language guides](/chainguard/fips/language-guides/).
+**Solution**: Ensure your application uses OpenSSL-backed cryptography.
 
 ### Issue: Performance degradation
 
@@ -335,8 +335,6 @@ No special runners or kernel configurations required.
 
 Now that you've deployed your first FIPS container:
 
-- **Language-specific guides**: Learn detailed configuration for [Go](/chainguard/fips/language-guides/go/), [Java](/chainguard/fips/language-guides/java/), and other languages
 - **Kernel-independent architecture**: Understand [how it works](/chainguard/fips/kernel-independent-architecture/) under the hood
 - **FAQs**: Check [common questions](/chainguard/fips/faqs/) about FIPS implementation
-- **Migration guide**: Plan your [migration to FIPS](/chainguard/fips/migration-guide/) for existing applications
 - **Chainguard support**: [Contact us](https://www.chainguard.dev/contact) for questions or custom requirements
