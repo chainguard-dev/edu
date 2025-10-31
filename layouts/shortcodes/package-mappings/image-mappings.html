@@ -1,0 +1,29 @@
+<div>
+  <p>
+    <a class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#imageNameMappingsTable" role="button" aria-expanded="false" aria-controls="imageNameMappingsTable">
+      Click to expand/collapse image name mappings table
+    </a>
+  </p>
+  <div class="collapse" id="imageNameMappingsTable">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Upstream Image Name</th>
+            <th>Chainguard Container</th>
+          </tr>
+        </thead>
+        <tbody>
+        {{ range $upstream, $chainguard := index $.Site.Data "package-mappings" "images" }}
+          <tr>
+            <td><code>{{ $upstream }}</code></td>
+            <td><code>{{ $chainguard }}</code></td>
+          </tr>
+        {{ end }}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- LLM-friendly: Full table content is in DOM, just CSS hidden for humans -->
