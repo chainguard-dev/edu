@@ -4952,6 +4952,12 @@
         },
         "groupName": {
           "type": "string"
+        },
+        "members": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         }
       },
       "type": "object"
@@ -4963,6 +4969,12 @@
           "type": "integer"
         },
         "groupName": {
+          "type": "string"
+        },
+        "homeDir": {
+          "type": "string"
+        },
+        "shell": {
           "type": "string"
         },
         "uid": {
@@ -5889,6 +5901,10 @@
         "customOverlay": {
           "$ref": "#/definitions/registryCustomOverlay",
           "description": "(optional) custom apko image configuration that gets applied to images in this repo."
+        },
+        "description": {
+          "description": "(optional) human-readable description of the repository.",
+          "type": "string"
         },
         "name": {
           "description": "name is the human-readable name of the repository.",
@@ -8309,6 +8325,10 @@
         "customOverlay": {
           "$ref": "#/definitions/registryCustomOverlay",
           "description": "(optional) custom apko image configuration that gets applied to images in this repo."
+        },
+        "description": {
+          "description": "(optional) human-readable description of the repository.",
+          "type": "string"
         },
         "id": {
           "description": "id is the identifier of this specific repository.",
