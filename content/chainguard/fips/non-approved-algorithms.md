@@ -105,7 +105,7 @@ Error setting context
 
 There are some caveats and bypasses, some digital signature algorithms allow signing raw data, or prehashed values. In such cases, one can out of band calculate MD5 hash, padded it according to PKCSv1.5 and RSA2048 modulus size and execute raw RSA signing operation. Such a service is non-approved, and is unable to know that it is abused to sign an MD5 hash instead of SHA256. Please don't do this (your FIPS auditors will make you change it). Higher level one shot EVP APIs typically accept a message to sign, and perform hashing and padding internally and correctly block creating MD5 signatures. This again highlights that FIPS is about consent, one has to try to use FIPS cryptography intentionally.
 
-If there is C/C++ software that uses OpenSSL APIs and needs access to MD5 and doesn't support `-fips` property query string, please open a support request for Chainguard engineering to look into adding support.
+If there is C/C++ software that uses OpenSSL APIs and needs access to MD5 and doesn't support `-fips` property query string, please [open a support request](https://support.chainguard.dev/) for Chainguard engineering to look into adding support.
 
 ### Python FIPS and MD5
 
