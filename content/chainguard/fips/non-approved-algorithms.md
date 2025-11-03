@@ -14,7 +14,7 @@ toc: true
 
 ## Overview
 
-FIPS cryptographic modules implement cryptographically strong protection of data at rest and in transit. The NIST position on this is very [clear](https://csrc.nist.gov/projects/cryptographic-module-validation-program):
+FIPS cryptographic modules implement cryptographically strong protection of data at rest and in transit. NIST's position on this is very clear ([source](https://csrc.nist.gov/projects/cryptographic-module-validation-program)):
 
 > Non-validated cryptography is viewed as providing no protection to the information or data — in effect the data would be considered unprotected plaintext. If the agency specifies that the information or data be cryptographically protected, then FIPS 140-2 or FIPS 140-3 is applicable. In essence, if cryptography is required, then it must be validated. Should the cryptographic module be revoked, use of that module is no longer permitted.
 
