@@ -178,4 +178,4 @@ Currently under investigation.
 
 ## All other projects
 
-If you have queries about this guidance, or any other packages, projects, languages or ecosystems, click "No" below and fill in feedback, or please open a support ticket.
+If you have queries about this guidance, or any other packages, projects, languages or ecosystems, click "No" below and fill in feedback, or please [open a support ticket](https://support.chainguard.dev/).
