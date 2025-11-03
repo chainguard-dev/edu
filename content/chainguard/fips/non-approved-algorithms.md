@@ -69,7 +69,7 @@ Note that using CRC32C or MD5 doesn't even provide performance gains, as special
 
 However, if you need interoperability with existing formats and services **and** it is established that digest usage is for non-security purposes, you must use the insecure digests. Chainguard is integrating support for such use cases for MD5 and SHA1 across our FIPS images. Each language and application implementation is very different and specific, documented below.
 
-Although SHA1 is currently approved, it is already deprecated by RFCs and NIST is deprecating SHA1 by 2030, thus below implementations are forward looking and attempt to address access to MD5 today and SHA1 in the future.
+Although SHA1 is currently approved, it is already deprecated by RFCs. NIST is deprecating SHA1 by 2030.  The implementations below are forward-looking and attempt to address access to MD5 today and SHA1 in the future.
 
 SHA1 is available as approved in Chainguard FIPS Provider for OpenSSL versions 3.0.9, 3.1.2 and 3.4.0. It is non-approved starting in version 3.6.0. The below guidance will apply to SHA1 as well likely in 2027.
 
