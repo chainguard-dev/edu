@@ -42,7 +42,7 @@ In addition, attempts to make use of this IG to include algorithms in the approv
 
 ### Chainguard FIPS Commitment
 
-As documented in the [Chainguard FIPS Commitment](https://www.chainguard.dev/legal/fips-commitment), our FIPS images enable only approved services and algorithms by default. This simplifies reasoning, audit and testing about what is or isn't a security function, if everything uses approved only services. For example, Chainguard [gradle-fips](https://www.chainguard.dev/legal/fips-commitment) has been modified to use an approved keystore to store build settings. It is not a security function, but it was easier to do that, than enable non-approved keystore usage which could then leak into the build process and testing.
+As documented in the [Chainguard FIPS Commitment](https://www.chainguard.dev/legal/fips-commitment), our FIPS images enable only approved services and algorithms by default. This simplifies reasoning, audit and testing about what is or isn't a security function, if everything uses approved only services. For example, Chainguard [gradle-fips](https://images.chainguard.dev/directory/image/gradle-fips/versions) has been modified to use an approved keystore to store build settings. It is not a security function, but it was easier to do that, than enable non-approved keystore usage which could then leak into the build process and testing.
 
 All cases of usage that might be related to a security function also are made to use approved only services, this includes but not limited to:
 
