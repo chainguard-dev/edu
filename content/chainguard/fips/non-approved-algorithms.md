@@ -20,7 +20,7 @@ FIPS cryptographic modules implement cryptographically strong protection of data
 
 ## NIST guidance on non-approved algorithm usage
 
-As part of FIPS collection of publications, NIST publishes [FIPS 140-3 Implementation Guidance](https://csrc.nist.gov/projects/cryptographic-module-validation-program/fips-140-3-ig-announcements) (FIPS 140 I.G.). The Cryptogrpahic Module Validation Programme (CMVP) requirements for the FIPS 140-3 include ISO standards, SP 800 series documents as well as the FIPS 140-3 I.G. The full set of documents and diagram are shown [here](https://csrc.nist.gov/Projects/cryptographic-module-validation-program/fips-140-3-standards).
+As part of the FIPS collection of publications, NIST publishes [FIPS 140-3 Implementation Guidance](https://csrc.nist.gov/projects/cryptographic-module-validation-program/fips-140-3-ig-announcements) (FIPS 140 I.G.). The Cryptographic Module Validation Program (CMVP) requirements for the FIPS 140-3 include ISO standards, SP 800 series documents as well as the FIPS 140-3 I.G. The full set of documents and diagram are shown [here](https://csrc.nist.gov/Projects/cryptographic-module-validation-program/fips-140-3-standards).
 
 The FIPS 140-3 I.G. 2.4.A "Definition and Use of a non-Approved Security Function" is three pages long, and must be read in conjungtion with all other relevant NIST & ISO publications. It provides many examples, exceptions and carve outs that at times let you use non-approved algorithms as part of higher level approved services. For example, some algorithms might not be safe to use directly, but with appropriate safeguards can be cryptographically secure. This is often the case with complex protocols such as TLS, which combines cryptographic primitives in a safe way.
 
