@@ -27,19 +27,22 @@ The FIPS 140-3 I.G. 2.4.A "Definition and Use of a non-Approved Security Functio
 Skipping to additional comments, let's focus on these statements (current edition, see the current [FIPS 140-3 I.G.](https://csrc.nist.gov/projects/cryptographic-module-validation-program/fips-140-3-ig-announcements) for any changes).
 
 > The vendor must provide clear documentation and reasoning as to why the non-approved cryptographic algorithms can be used in an approved mode, i.e., not being used to meet the requirements of FIPS 140-3 sections 6 and 7. It is at the discretion of the CMVP to determine if such usage of an algorithm fits within the guidance laid out in this IG.
-
 > In addition, attempts to make use of this IG to include algorithms in the approved mode will not be accepted unless all of the following are met:
+>
 > 1) the algorithm is not used whatsoever to meet any FIPS 140-3 requirements;
 > 2) the algorithm does not access or share CSPs in a way that counters the requirements of this IG;
 > 3) the algorithm is either:
->   i) not intended to be used as a security function (e.g. interoperability or for memory wear leveling);
->   ii) redundant to an approved algorithm (e.g. double encryption);
->   iii) a cryptographic or mathematical operation applied for “good measure” but not for providing sound security (e.g. XORing a CSP with a secret value, using a proprietary algorithm, or using non-approved algorithms to obfuscate stored CSPs which are considered plaintext);
+>
+>    i) not intended to be used as a security function (e.g. interoperability or for memory wear leveling);
+>    ii) redundant to an approved algorithm (e.g. double encryption);
+>    iii) a cryptographic or mathematical operation applied for “good measure” but not for providing sound security (e.g. XORing a CSP with a secret value, using a proprietary algorithm, or using non-approved algorithms to obfuscate stored CSPs which are considered plaintext);
+>
 > 4) the algorithm’s non-approved use and purpose (from 3) above) is unambiguous to the operator and can’t be easily confused for a security function.
 
 As documented in the [Chainguard FIPS Commitment](https://www.chainguard.dev/legal/fips-commitment), our FIPS images enable only approved services and algorithms by default. This simplifies reasoning, audit and testing about what is or isn't a security function, if everything uses approved only services. For example, Chainguard [gradle-fips](https://www.chainguard.dev/legal/fips-commitment) has been modified to use an approved keystore to store build settings. It is not a security function, but it was easier to do that, than enable non-approved keystore usage which could then leak into the build process and testing.
 
 All cases of usage that might be related to a security function also are made to use approved only services, this includes but not limited to:
+
 * encryption / decryption
 * digital signature creation and verfication
 * random number generation
@@ -51,6 +54,7 @@ All cases of usage that might be related to a security function also are made to
 The one functionality that errs on the side of non-security function is calculating a digest alone, not part of MAC, HMAC, merkle-tree, integrity scheme, or digital signatures. Specificaly, MD4, MD5, and SHA1 are universally deprecated and dissallowed as part of security schemes, and yet they remain widely used for non-security functionality.
 
 Examples of such non-security usage are:
+
 * Webpack 4 uses MD4 to precompute perfect hashtables from trusted input at build time [issue](https://github.com/webpack/webpack/issues/14560)
 * Amazon S3 supports many algorithms for object integrity checking over trusted channel, including MD5 and SHA1 [docs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity-upload.html). Many client implementations default to MD5.
 * Google Bucket storage can use CRC32C or MD5, and clients typically default to MD5 for object integrity during uploads [docs](https://docs.cloud.google.com/storage/docs/data-validation)
