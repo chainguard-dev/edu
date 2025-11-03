@@ -73,7 +73,7 @@ Although SHA1 is currently approved, it is already deprecated by RFCs. NIST is d
 
 SHA1 is available as approved in Chainguard FIPS Provider for OpenSSL versions 3.0.9, 3.1.2 and 3.4.0. It is non-approved starting in version 3.6.0. The below guidance will apply to SHA1 as well likely in 2027.
 
-## Access to MD5 for non-security purposes
+## Access to unapproved algorithms for non-security purposes
 
 ### OpenSSL FIPS and MD5
 
