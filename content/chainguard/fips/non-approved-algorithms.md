@@ -33,12 +33,12 @@ The vendor must provide clear documentation and reasoning as to why the non-appr
 In addition, attempts to make use of this IG to include algorithms in the approved mode will not be accepted unless all of the following are met:
 
 1) the algorithm is not used whatsoever to meet any FIPS 140-3 requirements;
-2) the algorithm does not access or share CSPs in a way that counters the requirements of this IG;
-3) the algorithm is either:
-   i) not intended to be used as a security function (e.g. interoperability or for memory wear leveling);
-   ii) redundant to an approved algorithm (e.g. double encryption);
-   iii) a cryptographic or mathematical operation applied for “good measure” but not for providing sound security (e.g. XORing a CSP with a secret value, using a proprietary algorithm, or using non-approved algorithms to obfuscate stored CSPs which are considered plaintext);
-4) the algorithm’s non-approved use and purpose (from 3) above) is unambiguous to the operator and can’t be easily confused for a security function.
+1) the algorithm does not access or share CSPs in a way that counters the requirements of this IG;
+1) the algorithm is either:
+   1) not intended to be used as a security function (e.g. interoperability or for memory wear leveling);
+   1) redundant to an approved algorithm (e.g. double encryption);
+   1) a cryptographic or mathematical operation applied for “good measure” but not for providing sound security (e.g. XORing a CSP with a secret value, using a proprietary algorithm, or using non-approved algorithms to obfuscate stored CSPs which are considered plaintext);
+1) the algorithm’s non-approved use and purpose (from 3) above) is unambiguous to the operator and can’t be easily confused for a security function.
 
 ### Chainguard FIPS Commitment
 
