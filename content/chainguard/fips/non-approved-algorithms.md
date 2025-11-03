@@ -134,7 +134,7 @@ Alternatively submit upstream fixes to correct the code. Here are some examples 
 * Google Cloud Platform storage [pull request](https://github.com/googleapis/python-storage/pull/1522)
 * PyPDF project [pull requst](https://github.com/py-pdf/pypdf/pull/3438)
 
-If there are Python projects that need MD5 access in FIPS mode and currently do not use `usedforsecurity=False` please open a support request for Chainguard engineering to look into adding support.
+If there are Python projects that need MD5 access in FIPS mode and currently do not use `usedforsecurity=False` please [open a support request](https://support.chainguard.dev/) for Chainguard engineering to look into adding support.
 
 ### Python pyca/cryptography FIPS and MD5
 
