@@ -1,5 +1,5 @@
 ---
-title: "FIPS and non-approved MD5"
+title: "FIPS and non-approved algorithms"
 linktitle: "FIPS and MD5"
 type: "article"
 description: "Technical deep-dive into Chainguard FIPS images access to non-approved algorithms such as MD5 and SHA1"
