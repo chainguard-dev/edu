@@ -15,6 +15,7 @@ menu:
     parent: "getting-started"
 weight: 065
 toc: true
+contentType: "tutorial"
 ---
 
 Chainguard's [Ruby container images](https://images.chainguard.dev/directory/image/ruby/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-ruby) provide secure foundations for Ruby applications with minimal vulnerabilities through both development and production-ready distroless variants. These images significantly reduce attack surface compared to traditional Ruby base images while maintaining full compatibility with Ruby applications and the Rubygems ecosystem.

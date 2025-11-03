@@ -12,6 +12,7 @@ menu:
     parent: "wolfi"
 weight: 750
 toc: true
+contentType: "conceptual"
 ---
 
 This document explains how to specify version constraints for packages installed with the apk tool, as well as apko and melange. Understanding version selection will enable you to choose the version you're looking for, determine what updates and vulnerability fixes you receive, and can allow you to reproduce an image's digest through exact version matching. 

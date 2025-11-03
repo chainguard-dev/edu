@@ -12,6 +12,7 @@ menu:
     parent: "libraries"
 weight: 002
 toc: true
+contentType: "product-docs"
 ---
 
 Chainguard Libraries provide controlled access to security-enhanced Java and

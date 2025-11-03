@@ -8,4 +8,5 @@ lastmod: 2025-09-11T08:49:15+00:00
 draft: false
 images: []
 weight: 039
+contentType: "how-to-guide"
 ---

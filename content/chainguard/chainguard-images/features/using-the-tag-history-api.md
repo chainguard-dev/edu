@@ -17,6 +17,7 @@ menu:
     parent: "images-features"
 weight: 020
 toc: true
+contentType: "product-docs"
 ---
 
 Chainguard Containers have automated nightly builds, which ensures our container images are always fresh including any recent patches and updated software. Even though it is important to keep your base images always updated, there will be situations where you'll want to keep using an older build to make sure nothing will change in your container environment until you feel it's safe to update.

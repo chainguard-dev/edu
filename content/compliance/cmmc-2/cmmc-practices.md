@@ -16,6 +16,7 @@ menu:
     parent: "cmmc-2"
 weight: 003
 toc: true
+contentType: "conceptual"
 ---
 
 Cybersecurity Maturity Model Certification (CMMC) 2.0 requires a progressive set of practices. Level 1 has 17 practices. Level 2 includes Level 1 practices plus an additional 110 practices. Level 3 practices include Level 2 practices, plus additional practices that are still being determined. These practices are divided into 14 domains, each of which covers a different aspect of cybersecurity.

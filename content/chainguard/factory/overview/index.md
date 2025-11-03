@@ -14,6 +14,7 @@ menu:
     parent: "chainguard-factory"
 weight: 005
 toc: true
+contentType: "product-docs"
 ---
 
 Chainguard Factory is the automated build infrastructure that continuously monitors, builds, and updates thousands of open source projects to deliver containers, libraries, and VMs with a strong security posture and the latest patches. This massive automation system tackles one of the industry's biggest challenges: keeping software dependencies current at scale while maintaining security and compatibility across the entire open source ecosystem. 

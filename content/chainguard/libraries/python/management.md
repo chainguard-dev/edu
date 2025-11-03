@@ -13,6 +13,7 @@ menu:
     parent: "python"
 weight: 053
 toc: true
+contentType: "product-docs"
 ---
 
 Chainguard Libraries for Python operates transparently after completing the [global configuration](/chainguard/libraries/python/global-configuration/) and [build configuration](/chainguard/libraries/python/build-configuration/), automatically providing security-enhanced versions of your PyPI dependencies. New packages and versions are retrieved from Chainguard's hardened repository when available, while PyPI and other configured repositories provide fallback access to ensure continuous development workflow without interruption.

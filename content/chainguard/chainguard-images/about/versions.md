@@ -16,6 +16,7 @@ menu:
     parent: "about"
 weight: 025
 toc: true
+contentType: "product-docs"
 ---
 
 [Chainguard Containers](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) are able to offer few-to-zero known vulnerabilities because they are updated frequently. Because of this continuous release cycle, the best way to mitigate vulnerabilities is to use the newest build of each Chainguard Container available. Chainguard keeps Containers up to date by doing one or more of the following:

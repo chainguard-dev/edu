@@ -13,6 +13,7 @@ menu:
   docs:
     parent: "chainguard"
 weight: 100
+contentType: "product-docs"
 ---
 
 {{< openapi spec-url="/api.json" >}}

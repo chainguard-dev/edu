@@ -16,6 +16,7 @@ menu:
     parent: "about"
 weight: 010
 toc: true
+contentType: "tutorial"
 ---
 
 ## About Distroless Container Images

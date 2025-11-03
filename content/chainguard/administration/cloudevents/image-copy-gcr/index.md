@@ -13,6 +13,7 @@ menu:
     parent: "cloudevents"
 weight: 015
 toc: true
+contentType: "how-to-guide"
 ---
 
 Certain interactions with Chainguard resources will emit [CloudEvents](/chainguard/administration/cloudevents/events-reference/) that you or an application can subscribe to. This allows you to do things like receive alerts when a user downloads one or more of your organization's private container images or when a new image gets added to your organization's registry.

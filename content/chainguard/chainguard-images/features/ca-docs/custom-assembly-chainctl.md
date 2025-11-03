@@ -13,6 +13,7 @@ menu:
     parent: "features"
 weight: 010
 toc: true
+contentType: "product-docs"
 ---
 
 Chainguard's [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) is a tool that allows customers to create customized containers with extra packages and annotations added. This enables customers to reduce their risk exposure by creating container images that are tailored to their internal organization and application requirements while still having few-to-zero CVEs.

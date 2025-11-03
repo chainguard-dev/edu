@@ -16,6 +16,7 @@ menu:
     parent: "migration-guides"
 weight: 025
 toc: true
+contentType: "how-to-guide"
 ---
 
 {{< youtube IuEOyACeJE8 >}}

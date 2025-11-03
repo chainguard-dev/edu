@@ -13,6 +13,7 @@ menu:
     parent: "features"
 weight: 005
 toc: true
+contentType: "product-docs"
 ---
 
 Chainguard's [Custom Assembly feature](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) allows you to build customized container images that include only the packages your application needs. This tutorial will walk you through using the [Chainguard console's web interface](https://console.chainguard.dev) to manage Custom Assembly resources, including selecting packages, building customized containers, and monitoring build status.

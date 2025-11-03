@@ -13,6 +13,7 @@ menu:
     parent: "getting-started"
 weight: 065
 toc: true
+contentType: "tutorial"
 ---
 
 MinIO is a high-performance, S3-compatible object storage system that has become widely adopted across the cloud-native ecosystem, with over 1 billion pulls on Docker Hub. It's used for testing, local development, and production deployments across on-premises and cloud environments. MinIO's solid S3 compatibility has made it a common choice for developers who need S3-compatible storage without AWS dependencies, and it's integrated into popular open source projects like Trino and Apache Spark for backup and archival, AI/ML workloads, data lakes, and application data storage.

@@ -10,6 +10,7 @@ draft: false
 tags: ["chainctl", "Overview"]
 images: []
 weight: 005
+contentType: "product-docs"
 ---
 
 In the context of Chainguard, an *identity* represents an individual user within an organization. Chainguard's IAM model allows administrators to assign identities to specialized *roles* which define the level of access that an identity has to the organization's resources. You assign a role by creating a *role-binding*, which is what ties an identity to a given role. 

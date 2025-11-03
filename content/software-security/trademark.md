@@ -14,6 +14,7 @@ menu:
     parent: "software-security"
 weight: 999
 toc: true
+contentType: "product-docs"
 ---
 
 Chainguard has a [Trademark Use Policy](https://www.chainguard.dev/legal/chainguard-trademark-use-policy) for Chainguard™ and Wolfi™. The Trademark Use Policy for Chainguard™ is in connection with its software tools and platforms for container image registry services and related educational services. The Trademark Use Policy for Wolfi™ is in connection with software tools and related community services. This policy helps ensure that Chainguard’s trademarks remain reliable indicators of the qualities that they are meant to preserve. 

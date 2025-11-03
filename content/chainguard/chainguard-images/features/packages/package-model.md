@@ -10,6 +10,7 @@ draft: false
 tags: ["Chainguard Containers", "Overview", "Product"]
 images: []
 weight: 001
+contentType: "product-docs"
 ---
 
 Chainguard Containers are built using packages from the Wolfi and Chainguard OS Linux distributions. If you need to extend or customize an image, it can be useful to access these packages directly.

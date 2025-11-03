@@ -9,5 +9,6 @@ aliases:
 - /software-security/compliance/
 images: []
 weight: 003
+contentType: "conceptual"
 ---
 

@@ -14,6 +14,7 @@ weight: 005
 toc: true
 aliases:
 - /chainguard/chainguard-registry/overview/
+contentType: "product-docs"
 ---
 
 Chainguard Registry hosts more secure container images with two access tiers: public starter images available to everyone, and production images that require authentication for enterprise features like SLAs and version pinning. The registry integrates with standard container tools while providing enhanced security through signed images and comprehensive metadata.

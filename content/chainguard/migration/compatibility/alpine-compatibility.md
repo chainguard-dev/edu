@@ -16,6 +16,7 @@ menu:
     parent: "compatibility"
 weight: 005
 toc: true
+contentType: "how-to-guide"
 ---
 
 Chainguard Containers and Alpine base images have different binaries and scripts included in their respective `busybox` and `coreutils` packages.

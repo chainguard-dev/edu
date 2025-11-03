@@ -15,6 +15,7 @@ menu:
     parent: "security-advisories"
 weight: 020
 toc: true
+contentType: "product-docs"
 ---
 
 When you scan a newly-built Chainguard Container with a vulnerability scanner, typically, no CVEs will be reported. However, as software packages age, more vulnerabilities are reported and CVEs will begin to accumulate in container images. When this happens, Chainguard releases security advisories to communicate these vulnerabilities to downstream images users.

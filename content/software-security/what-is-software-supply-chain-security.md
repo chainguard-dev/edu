@@ -15,6 +15,7 @@ menu:
     parent: "software-security"
 weight: 10
 toc: true
+contentType: "conceptual"
 ---
 
 _An earlier version of this material was published in the [first chapter](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/block-v1:LinuxFoundationX+LFS182x+2T2022+type@sequential+block@1623557b9fc849d5a1e38177502b1499/block-v1:LinuxFoundationX+LFS182x+2T2022+type@vertical+block@825d4b442d1346ba8e9d7c3b4f765e76) of the Linux Foundation [Sigstore course](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/home)._

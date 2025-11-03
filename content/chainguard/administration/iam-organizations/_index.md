@@ -7,6 +7,7 @@ lastmod: 2025-01-07T15:22:20+01:00
 draft: false
 images: []
 weight: 010
+contentType: "product-docs"
 ---
 
 Tutorials on IAM and Organizations

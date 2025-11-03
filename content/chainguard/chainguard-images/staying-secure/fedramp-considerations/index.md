@@ -13,6 +13,7 @@ menu:
     parent: "features"
 weight: 007
 toc: true
+contentType: "product-docs"
 ---
 
 Many frequently asked questions revolve around how organizations are meant to stay on top of the changing landscape for FedRAMP, PMOS, Revisions, and Certificates. This article outlines various considerations and risk factors that organizations should keep in mind when working to become and stay FedRAMP authorized.

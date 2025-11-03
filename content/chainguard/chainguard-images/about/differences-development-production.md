@@ -16,6 +16,7 @@ menu:
     parent: "about"
 weight: 020
 toc: true
+contentType: "product-docs"
 ---
 
 Chainguard Containers follow a distroless philosophy, meaning that only software absolutely necessary for a specific workload is included in an image. Designed to be as minimal as possible, Chainguard's standard container images do not contain package managers such as apk, shells such as b/a/sh, or development utilities such as Git or text editors. However, this distroless approach isn't suitable for every use case. For this reason, most Chainguard Containers have what's called a *development* variant.

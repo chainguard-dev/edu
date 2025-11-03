@@ -12,6 +12,7 @@ menu:
     parent: "open-source"
 weight: 100
 toc: true
+contentType: "how-to-guide"
 ---
 
 The bash release included with macOS (v3.2) needs to be updated for Chainguard scripts. You’ll need to install a newer release and ensure it appears before `/bin/bash` in `$PATH`.

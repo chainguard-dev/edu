@@ -13,6 +13,7 @@ menu:
     parent: "migration"
 weight: 007
 toc: true
+contentType: "how-to-guide"
 ---
 
 The process of migrating over to Chainguard Containers isn't always straightforward. To help customers become acquainted with Chainguard Containers as they go through the migration process, we've assembled this list of tips and strategies for migrating over their applications.

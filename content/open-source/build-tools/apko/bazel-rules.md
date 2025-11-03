@@ -16,6 +16,7 @@ menu:
     parent: "apko"
 weight: 900
 toc: true
+contentType: "how-to-guide"
 ---
 
 `rules_apko` is an open source plugin for Bazel that makes it possible to build secure, minimal Wolfi-based container images using the popular Bazel build system. This wraps the [apko](https://github.com/chainguard-dev/apko) tool for use under Bazel.

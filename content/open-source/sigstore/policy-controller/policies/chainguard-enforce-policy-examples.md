@@ -14,6 +14,7 @@ menu:
     parent: "policies"
 weight: 075
 toc: true
+contentType: "how-to-guide"
 ---
 
 The [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) allows users to create their own security policies that they can be enforced on Kubernetes clusters. Here are a few example policies to help you get started. 

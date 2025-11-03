@@ -15,6 +15,7 @@ menu:
     parent: "pull-through-guides"
 toc: true
 weight: 005
+contentType: "product-docs"
 ---
 
 Organizations can use Chainguard Containers along with third-party software repositories in order to integrate with current workflows as the single source of truth for software artifacts. In this situation, you can set up a proxy repository to function as a mirror of [Chainguard's registry](/chainguard/chainguard-registry/overview/). This mirror can then serve as a pull through cache for your Chainguard Containers.

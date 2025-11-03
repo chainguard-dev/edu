@@ -13,6 +13,7 @@ menu:
     parent: "java"
 weight: 052
 toc: true
+contentType: "product-docs"
 ---
 
 Java and JVM library consumption in a large organization is typically managed by

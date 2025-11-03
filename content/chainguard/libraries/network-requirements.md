@@ -12,6 +12,7 @@ menu:
     parent: "libraries"
 weight: 003
 toc: true
+contentType: "product-docs"
 ---
 
 Chainguard Libraries require specific network access to ensure secure delivery of hardened Java and Python dependencies to your development environment. This guide details the domains and ports needed for authentication, package downloads, and verification tools.

@@ -14,6 +14,7 @@ menu:
     parent: "melange"
 weight: 10
 toc: true
+contentType: "how-to-guide"
 ---
 [melange](https://github.com/chainguard-dev/melange) is an [apk](https://wiki.alpinelinux.org/wiki/Package_management) builder tool that uses declarative pipelines to create apk packages. It is part of the open source tooling used for [Wolfi](/open-source/wolfi/), which is the operating system used to power [Chainguard Containers](/chainguard/chainguard-images/).
 

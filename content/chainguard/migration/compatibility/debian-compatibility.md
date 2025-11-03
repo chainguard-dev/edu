@@ -17,6 +17,7 @@ menu:
     parent: "compatibility"
 weight: 010
 toc: true
+contentType: "how-to-guide"
 ---
 
 Chainguard Containers and Debian base images have different binaries and scripts included in their respective `busybox` and `coreutils` packages.

@@ -13,6 +13,7 @@ menu:
     parent: "python"
 weight: 052
 toc: true
+contentType: "product-docs"
 ---
 
 Python library consumption in a large organization is typically managed by a

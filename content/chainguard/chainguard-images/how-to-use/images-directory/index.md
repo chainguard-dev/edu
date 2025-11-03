@@ -15,6 +15,7 @@ menu:
     parent: "chainguard-images"
 weight: 020
 toc: true
+contentType: "product-docs"
 ---
 
 There are hundreds of Chainguard Containers available for use. To help users explore and better understand all of these container images, we've developed the Chainguard Directory. This guide serves as a walkthrough of the browsing experience for Chainguard Containers in the Directory and Console, including how to access it and get the most out of its features.

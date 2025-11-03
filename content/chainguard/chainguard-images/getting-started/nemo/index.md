@@ -15,6 +15,7 @@ menu:
     parent: "getting-started"
 weight: 030
 toc: true
+contentType: "tutorial"
 ---
 
 Chainguard's [NeMo container image](https://images.chainguard.dev/directory/image/nemo/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-nemo) provides a security-hardened environment for NVIDIA's [NeMo](https://github.com/NVIDIA/NeMo) deep learning framework with minimal vulnerabilities compared to traditional AI/ML containers. NeMo enables building conversational AI models through module collections for Automatic Speech Recognition (ASR), Natural Language Processing (NLP), and Text-to-Speech (TTS) tasks. Built for [CUDA 12](https://developer.nvidia.com/about-cuda) GPU acceleration, this lightweight container maintains full NeMo functionality while significantly reducing security risks for both training and production inference workloads.

@@ -16,6 +16,7 @@ menu:
     parent: "administration"
 toc: true
 weight: 010
+contentType: "how-to-guide"
 ---
 
 Chainguard's `chainctl` command-line interface provides essential tools for managing your container security infrastructure, including image management, identity and access control, and resource monitoring. This CLI enables automation of Chainguard operations and integration with CI/CD pipelines.

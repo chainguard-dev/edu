@@ -10,6 +10,7 @@ tags: ["Chainguard Containers", "Overview", "Policy"]
 images: []
 weight: 005
 toc: true
+contentType: "integration"
 ---
 
 [Gatekeeper](https://open-policy-agent.github.io/gatekeeper/website/) is an admission controller that enforces policies in Kubernetes clusters. This

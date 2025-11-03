@@ -15,6 +15,7 @@ menu:
     parent: "getting-started"
 weight: 055
 toc: true
+contentType: "tutorial"
 ---
 
 Chainguard's Python container images provide a more secure foundation for Python applications through distroless design, containing significantly fewer CVEs compared to traditional Python images. These production-ready images are optimized for building and running Python workloads.

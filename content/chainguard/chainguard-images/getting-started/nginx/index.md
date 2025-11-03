@@ -15,6 +15,7 @@ menu:
     parent: "getting-started"
 weight: 035
 toc: true
+contentType: "tutorial"
 ---
 
 Chainguard's nginx container images provide a security-hardened foundation for web server deployments with significantly fewer vulnerabilities than traditional nginx images. Available in both development (`:latest-dev`) and production (`:latest`) variants, these containers maintain full nginx functionality while dramatically reducing attack surface. The production variant uses a distroless approach, removing shells and package managers to enhance security for production workloads.

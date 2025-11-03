@@ -15,6 +15,7 @@ menu:
     parent: "getting-started"
 weight: 040
 toc: true
+contentType: "tutorial"
 ---
 
 Chainguard's [Node container image](https://images.chainguard.dev/directory/image/node/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-node) provides a secure runtime for Node.js applications with significantly fewer vulnerabilities than traditional Node images. This distroless image includes Node.js and npm while maintaining a minimal attack surface for production deployments.

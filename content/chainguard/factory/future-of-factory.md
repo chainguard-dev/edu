@@ -13,6 +13,7 @@ menu:
     parent: "chainguard-factory"
 weight: 060
 toc: true
+contentType: "product-docs"
 ---
 
 {{< youtube eF9EYK6AKPA >}}

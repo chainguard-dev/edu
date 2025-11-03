@@ -15,6 +15,7 @@ menu:
     parent: "getting-started"
 weight: 010
 toc: true
+contentType: "tutorial"
 ---
 
 Chainguard's [Go container image](https://images.chainguard.dev/directory/image/go/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-go) provides a secure foundation for building Go applications with significantly fewer vulnerabilities than traditional Go images. The distroless `latest` variant contains only the Go compiler and runtime, while the `latest-dev` variant includes additional build tools and package management capabilities for development workflows.

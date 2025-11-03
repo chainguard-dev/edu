@@ -15,6 +15,7 @@ menu:
     parent: "software-security"
 weight: 10
 toc: true
+contentType: "conceptual"
 ---
 
 Maximizing the performance of computer hardware has been a critical undertaking for software engineers for decades. First developed in the 1960s, virtual machines (VMs) were an early answer to this challenge, allowing a single computer to host multiple, isolated operating systems. VMs enable different guest users or processes to share physical infrastructure while keeping their concurrent operations separated. However, as VMs are both slow to initialize and resource-intensive, a modern solution arrived in the early 2000s: containers.

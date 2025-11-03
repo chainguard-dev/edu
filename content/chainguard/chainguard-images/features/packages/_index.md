@@ -9,4 +9,5 @@ lastmod: 2025-09-12T08:48:45+00:00
 draft: false
 images: []
 weight: 003
+contentType: "product-docs"
 ---

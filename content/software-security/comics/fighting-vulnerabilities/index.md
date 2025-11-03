@@ -15,6 +15,7 @@ menu:
     parent: "comics"
 weight: 001
 toc: true
+contentType: "conceptual"
 ---
 
 <img alt="Comic featuring Chainguard's mascot, Linky the octopus, using their tentacles to defend a vulnerable computer from software vulnerabilities. The vulnerabilities take the form of robotic octopuses charging forward as an army toward the computer." src="seacuring-software-ep1.png" />

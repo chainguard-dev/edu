@@ -13,6 +13,7 @@ menu:
     parent: "iam-organizations"
 weight: 015
 toc: true
+contentType: "product-docs"
 ---
 
 Resources on the Chainguard platform are organized in a hierarchical structure called [IAM Organizations](https://edu.chainguard.dev/chainguard/administration/iam-organizations/overview-of-chainguard-iam-model/). Single customers or organizations typically use a single root-level _Organization_ to manage their

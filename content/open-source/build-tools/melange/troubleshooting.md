@@ -17,6 +17,7 @@ docs:
   parent: "melange"
 weight: 200
 toc: true
+contentType: "how-to-guide"
 ---
 
 ## Debug Options

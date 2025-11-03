@@ -10,4 +10,5 @@ aliases:
 - /software-security/compliance/cmmc-2/
 images: []
 weight: 010
+contentType: "conceptual"
 ---

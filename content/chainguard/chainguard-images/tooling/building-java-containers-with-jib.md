@@ -13,6 +13,7 @@ menu:
     parent: "chainguard-images"
 weight: 001
 toc: true
+contentType: "how-to-guide"
 ---
 
 [Google's Jib](https://github.com/GoogleContainerTools/jib) is a container

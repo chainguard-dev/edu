@@ -13,6 +13,7 @@ menu:
     parent: "getting-started"
 weight: 70
 toc: true
+contentType: "tutorial"
 ---
 
 Chainguard's [WordPress container image](https://images.chainguard.dev/directory/image/wordpress/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-wordpress) provides a security-hardened foundation for WordPress deployments with significantly fewer vulnerabilities than traditional WordPress images. Designed as a drop-in replacement for the official [WordPress FPM-Alpine image](https://hub.docker.com/_/wordpress), this container includes a [distroless](/chainguard/chainguard-images/getting-started-distroless/) variant that enhances production security by removing unnecessary system components. Built with the latest PHP and WordPress versions, it includes all required extensions while maintaining a minimal attack surface.

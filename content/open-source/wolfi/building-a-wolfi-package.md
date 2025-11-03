@@ -12,6 +12,7 @@ menu:
     parent: "wolfi"
 weight: 300
 toc: true
+contentType: "tutorial"
 ---
 
 Wolfi is a Linux distro created specifically for building stripped-down container images that only include the essential packages needed to run applications in containers. This makes it more secure, as there are fewer potential attack vectors due to the reduced surface area.

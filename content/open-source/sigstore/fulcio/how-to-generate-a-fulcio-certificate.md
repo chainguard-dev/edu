@@ -13,6 +13,7 @@ menu:
     parent: "fulcio"
 weight: 630
 toc: true
+contentType: "how-to-guide"
 ---
 
 _An earlier version of this material was published in the [Fulcio chapter](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/block-v1:LinuxFoundationX+LFS182x+2T2022+type@sequential+block@2fbe6328019c4b1fbf934bd3bfb7e308/block-v1:LinuxFoundationX+LFS182x+2T2022+type@vertical+block@1f71fcbe8219471fb82e25731b18be11) of the Linux Foundation [Sigstore course](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/home)._

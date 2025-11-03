@@ -7,6 +7,7 @@ date: 2025-07-31T16:00:00+00:00
 lastmod: 2025-08-05T18:57:13+00:00
 draft: false
 weight: 040
+contentType: "product-docs"
 ---
 
 The Chainguard Factory is our automated build system that continuously monitors, builds, tests, and publishes secure software artifacts from thousands of open source projects.

@@ -14,6 +14,7 @@ menu:
     parent: "libraries"
 weight: 001
 toc: true
+contentType: "product-docs"
 ---
 
 Chainguard Libraries provide enhanced security for open source dependencies in

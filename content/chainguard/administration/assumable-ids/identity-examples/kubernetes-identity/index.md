@@ -11,6 +11,7 @@ draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
 weight: 012
+contentType: "integration"
 ---
 
 Chainguard's [*assumable identities*](/chainguard/administration/iam-organizations/assumable-ids/)

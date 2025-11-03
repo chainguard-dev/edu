@@ -15,6 +15,7 @@ menu:
     parent: "apko"
 weight: 50
 toc: true
+contentType: "how-to-guide"
 ---
 
 ## Do I need to understand apko to use Chainguard Containers?

@@ -13,6 +13,7 @@ menu:
     parent: "cloudevents"
 weight: 010
 toc: true
+contentType: "how-to-guide"
 ---
 
 Chainguard implements [CloudEvents](/chainguard/administration/cloudevents/events-reference/), a specification for a standard format for events data. This means developers can use events (generated based on interactions with Chainguard resources) to initiate processes and thus automate certain actions. For example, you could set up infrastructure to listen for push events to an organization's private registry and [mirror any new Chainguard Containers in the registry to a third-party repository](/chainguard/administration/cloudevents/image-copy-gcr/).

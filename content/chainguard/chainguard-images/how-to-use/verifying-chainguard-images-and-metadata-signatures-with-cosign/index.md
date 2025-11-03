@@ -17,6 +17,7 @@ menu:
     parent: "chainguard-images"
 weight: 015
 toc: true
+contentType: "how-to-guide"
 ---
 
 Chainguard signs all container images and their attestations (including SBOMs) to ensure supply chain security and enable verification of image authenticity. These cryptographic signatures allow you to confirm that images come from Chainguard and haven't been tampered with, while attestations provide detailed information about image contents and build provenance.

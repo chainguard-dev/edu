@@ -15,6 +15,7 @@ menu:
     parent: "apko"
 weight: 100
 toc: true
+contentType: "tutorial"
 ---
 
 [apko](http://github.com/chainguard-dev/apko) is a command-line tool to build container images using a declarative language based on YAML. apko is so named as it uses the [apk](https://wiki.alpinelinux.org/wiki/Package_management) package format and is inspired by the [ko](https://github.com/google/ko) build tool. It is part of the open source tooling Chainguard developed to create the [Wolfi](/open-source/wolfi/) operating system which is used in [Chainguard Containers](/chainguard/chainguard-images/).

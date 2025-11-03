@@ -16,6 +16,7 @@ menu:
     parent: "pci-dss-4"
 weight: 001
 toc: true
+contentType: "conceptual"
 ---
 
 PCI DSS 4.0, or Payment Card Industry Data Security Standard, is a global standard in the payments industry that includes a set of foundational technical and operational requirements surrounding the protection of payment data. Its goal is to ensure the security of information involved when payment cards are used and while those payments are processed. PCI DSS 4.0 replaces the earlier PCI DSS 3.2.1, which was retired in March 2024.

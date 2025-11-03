@@ -7,6 +7,7 @@ date: 2020-10-06T08:49:15+00:00
 lastmod: 2020-10-06T08:49:15+00:00
 draft: false
 images: []
+contentType: "conceptual"
 ---
 
 The Open Container Initiative (OCI) is a Linux Foundation project dedicated to managing specifications and projects related to the storage, distribution, and execution of container images.

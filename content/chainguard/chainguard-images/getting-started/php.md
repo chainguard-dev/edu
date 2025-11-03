@@ -15,6 +15,7 @@ menu:
     parent: "getting-started"
 weight: 045
 toc: true
+contentType: "tutorial"
 ---
 
 Chainguard's PHP container images provide secure foundations for PHP applications with minimal vulnerabilities compared to traditional PHP images. These images come in multiple variants: the `latest-fpm` variant for serving web applications via FastCGI, the `latest` variant for CLI applications, and development variants that include additional tools for building and debugging PHP workloads.

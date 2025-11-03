@@ -15,6 +15,7 @@ menu:
     parent: "about"
 weight: 210
 toc: true
+contentType: "conceptual"
 ---
 
 Over the years, various implementations of the [C standard library](https://en.wikipedia.org/wiki/C_standard_library) — such as the [GNU C library](https://www.gnu.org/software/libc/), [musl](https://musl.libc.org/about.html), [dietlibc](https://www.fefe.de/dietlibc/), [uClibc-ng](https://www.uclibc-ng.org/), and many others — have emerged with different goals and characteristics. These various implementations exist because the C standard library defines the required functionality for operating system services (such as file input/output and memory management) but does not specify implementation details. Among these implementations, the GNU C Library ([glibc](https://www.gnu.org/software/libc/)) and [musl](https://musl.libc.org/about.html) are among the most popular.

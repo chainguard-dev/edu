@@ -14,6 +14,7 @@ menu:
     parent: "chainguard-factory"
 weight: 010
 toc: true
+contentType: "product-docs"
 ---
 
 ## What is the Chainguard Factory?

@@ -15,6 +15,7 @@ menu:
     parent: "chainguard-images"
 weight: 007
 toc: true
+contentType: "how-to-guide"
 ---
 
 [Helm](https://helm.sh) is the package manager for Kubernetes that simplifies the installation and management of applications by automating the creation of Kubernetes resources. Helm charts are reusable, versioned packages that define a collection of Kubernetes resources required to run an application or service. You use Helm to define, install, and perform upgrades to your applications on Kubernetes.

@@ -12,6 +12,7 @@ menu:
     parent: "software-security"
 weight: 10
 toc: true
+contentType: "conceptual"
 ---
 
 ## Attestation and Signature

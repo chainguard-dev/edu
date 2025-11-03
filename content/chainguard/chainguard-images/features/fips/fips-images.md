@@ -18,6 +18,7 @@ menu:
     parent: "features"
 weight: 005
 toc: true
+contentType: "product-docs"
 ---
 
 ## What is FIPS? 

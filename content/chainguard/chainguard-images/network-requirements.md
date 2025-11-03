@@ -14,6 +14,7 @@ tags: ["Chainguard Containers", "Reference"]
 images: []
 toc: true
 weight: 010
+contentType: "product-docs"
 ---
 
 This document provides an overview of network requirements for using [Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement). To use Chainguard tools and Containers in environments with firewalls, VPNs, and IDS/IPS systems, you will need to add some rules to allow traffic into and out of your networks.

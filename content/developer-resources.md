@@ -9,6 +9,7 @@ draft: false
 images: []
 weight: 50
 toc: false
+contentType: "conceptual"
 ---
 
 ## AI-Ready Documentation Bundle

@@ -16,6 +16,7 @@ menu:
     parent: "concepts"
 weight: 010
 toc: true
+contentType: "how-to-guide"
 ---
 
 ### Porting Key Points

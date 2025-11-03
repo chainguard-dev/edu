@@ -8,4 +8,5 @@ lastmod: 2025-09-02T10:00:00-00:00
 draft: false
 images: []
 weight: 030
+contentType: "product-docs"
 ---

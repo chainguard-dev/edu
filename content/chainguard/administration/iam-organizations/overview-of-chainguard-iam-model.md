@@ -17,6 +17,7 @@ menu:
     parent: "iam-organizations"
 weight: 005
 toc: true
+contentType: "product-docs"
 ---
 
 Chainguard's Identity and Access Management (IAM) model enables more secure, fine-grained control over container registries and security resources, using familiar concepts from cloud providers like AWS and GCP. This enterprise-grade IAM system allows organizations to implement least-privilege access, delegate permissions, and integrate with existing identity providers for seamless authentication and authorization.

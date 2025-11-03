@@ -12,4 +12,5 @@ lastmod: 2025-04-07T18:42:57+00:00
 draft: false
 images: []
 weight: 030
+contentType: "conceptual"
 ---

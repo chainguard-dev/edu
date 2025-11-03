@@ -15,6 +15,7 @@ menu:
     parent: "getting-started"
 weight: 025
 toc: true
+contentType: "tutorial"
 ---
 
 Chainguard's MariaDB container image provides a security-hardened foundation for database workloads with significantly fewer vulnerabilities than traditional MariaDB images. Built on Wolfi with a distroless design, this container removes unnecessary components while maintaining full MariaDB functionality.

@@ -12,6 +12,7 @@ menu:
     parent: "libraries"
 weight: 006
 toc: true
+contentType: "product-docs"
 ---
 
 Vulnerability scanners enable you to understand the potential security risks

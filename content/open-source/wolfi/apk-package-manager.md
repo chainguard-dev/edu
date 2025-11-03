@@ -14,6 +14,7 @@ menu:
     parent: "apko"
 weight: 400
 toc: true
+contentType: "conceptual"
 ---
 
 [apko](/open-source/apko/getting-started-with-apko/) uses the [apk](https://wiki.alpinelinux.org/wiki/Package_management) package manager to compose container images based on declarative pipelines.

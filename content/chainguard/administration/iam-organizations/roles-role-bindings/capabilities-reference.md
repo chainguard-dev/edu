@@ -10,6 +10,7 @@ draft: false
 tags: ["IAM", "Reference", "Product"]
 images: []
 weight: 010
+contentType: "product-docs"
 ---
 
 Chainguard provides customers with a set of built-in roles as part of its Identity and Access Management (IAM) system. These roles have different permissions and capabilities that allow them to serve specialized purposes, from general administrative access to access for specific resources like registries, APK packages, and programming language libraries.

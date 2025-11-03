@@ -17,6 +17,7 @@ menu:
     parent: "chainguard-images"
 weight: 005
 toc: true
+contentType: "tutorial"
 ---
 
 [Chainguard Containers](https://images.chainguard.dev) are minimal container images designed to reduce vulnerabilities and attack surface compared to traditional base images. These images use the [apk](https://wiki.alpinelinux.org/wiki/Package_management) package format to achieve smaller sizes while maintaining complete provenance information with cryptographic signatures, ensuring both enhanced security and traceability.

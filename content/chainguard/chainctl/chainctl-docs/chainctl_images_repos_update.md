@@ -8,6 +8,7 @@ tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
+contentType: "product-docs"
 ---
 ## chainctl images repos update
 

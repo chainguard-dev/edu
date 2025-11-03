@@ -16,6 +16,7 @@ menu:
     parent: "pci-dss-4"
 weight: 005
 toc: true
+contentType: "conceptual"
 ---
 
 Compliance with PCI DSS 4.0, or Payment Card Industry Data Security Standard, requires adherence to strong security standards. Rigorous requirements must be met in order to secure your networks, systems, storage, and access according to the guidelines.

@@ -16,6 +16,7 @@ menu:
     parent: "scanners"
 weight: 120
 toc: true
+contentType: "tutorial"
 ---
 
 [Trivy](https://github.com/aquasecurity/trivy) is a vulnerability scanner for a wide variety of software artifacts and deployments. Trivy is written in the Go programming language and is maintained by [Aqua Security](https://www.aquasec.com/). Trivy targets container images, VMs, filesystems, remote GitHub repositories, and Kubernetes and Amazon Web Services deployments. The tool can be used to detect known vulnerabilities (CVEs), generate SBOMs, analyze licenses, and scan for misconfigurations and exposed secrets. Trivy can be installed from [package managers](#package-managers) or as a [binary](#binary-installation), and can also be run as a [container image](#container-image).

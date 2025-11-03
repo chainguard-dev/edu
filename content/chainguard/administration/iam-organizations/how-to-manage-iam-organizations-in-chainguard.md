@@ -17,6 +17,7 @@ menu:
     parent: "iam-organizations"
 weight: 010
 toc: true
+contentType: "product-docs"
 ---
 
 Chainguard provides a rich Identity and Access Management (IAM) model similar to those used by AWS and GCP. This guide outlines how to manage Chainguard's IAM structures with the [`chainctl` command line tool](/chainguard/chainctl/). 

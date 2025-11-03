@@ -7,6 +7,7 @@ lastmod: 2025-01-16T15:22:20+01:00
 draft: false
 images: []
 weight: 030
+contentType: "product-docs"
 ---
 
 Documentation and resources on Chainguard's Assumable Identities.

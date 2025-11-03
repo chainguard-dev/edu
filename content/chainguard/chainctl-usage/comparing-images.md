@@ -20,6 +20,7 @@ menu:
     parent: "chainguard-images"
 weight: 045
 toc: true
+contentType: "how-to-guide"
 ---
 
 Chainguard's `chainctl images diff` command provides detailed comparisons between container image versions, enabling you to track security improvements, package updates, and vulnerability changes across builds. This powerful feature helps you understand exactly what changes between image versions, whether comparing daily builds, analyzing CVE remediation, or evaluating custom image updates.

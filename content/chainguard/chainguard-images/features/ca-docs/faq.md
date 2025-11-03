@@ -15,6 +15,7 @@ menu:
     identifier: "Custom Assembly FAQs"
 weight: 002
 toc: true
+contentType: "product-docs"
 ---
 
 ## What is Chainguard’s Custom Assembly?

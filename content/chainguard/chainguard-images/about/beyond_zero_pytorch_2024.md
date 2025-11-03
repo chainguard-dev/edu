@@ -17,6 +17,7 @@ menu:
     parent: "about"
 weight: 050
 toc: true
+contentType: "conceptual"
 ---
 
 {{< youtube 1klynk1dxYA >}}

@@ -10,6 +10,7 @@ tags: ["Chainguard Containers", "Overview", "Policy"]
 images: []
 weight: 010
 toc: true
+contentType: "integration"
 ---
 
 [Kyverno](https://kyverno.io/) is an admission controller that enforces policies in Kubernetes clusters. This article describes how it can be leveraged to ensure resources follow best practices related to the use of Chainguard Containers.

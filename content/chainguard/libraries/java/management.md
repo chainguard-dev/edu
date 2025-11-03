@@ -13,6 +13,7 @@ menu:
     parent: "java"
 weight: 053
 toc: true
+contentType: "product-docs"
 ---
 
 Chainguard Libraries for Java operates transparently after completing the [global configuration](/chainguard/libraries/java/global-configuration/) and [build configuration](/chainguard/libraries/java/build-configuration/), automatically providing security-enhanced versions of your Maven dependencies. New artifacts and versions are retrieved from Chainguard's hardened repository when available, while Maven Central and other configured repositories provide fallback access to ensure continuous development workflow without interruption.

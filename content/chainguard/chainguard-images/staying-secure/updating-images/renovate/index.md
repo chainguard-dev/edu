@@ -16,6 +16,7 @@ menu:
     parent: "chainguard-images"
 weight: 020
 toc: true
+contentType: "tutorial"
 ---
 
 [Renovate](https://github.com/renovatebot/renovate) can be used to alert on updates to Chainguard Containers. This can be an effective way to keep your images up-to-date and free of CVEs. This article explains how to configure Renovate to support Chainguard Containers.

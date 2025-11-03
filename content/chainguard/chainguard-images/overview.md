@@ -14,6 +14,7 @@ menu:
     parent: "chainguard-images"
 weight: 005
 toc: true
+contentType: "product-docs"
 ---
 
 [Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) are container images designed for enhanced security through minimalism and supply chain integrity. These images follow a distroless philosophy, containing only the application and its essential runtime dependencies, without shells, package managers, or other common utilities that can increase attack surface.

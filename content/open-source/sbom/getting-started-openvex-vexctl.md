@@ -14,6 +14,7 @@ menu:
     parent: "sbom"
 weight: 10
 toc: true
+contentType: "tutorial"
 ---
 
 The `vexctl` CLI is a tool to make VEX work. As part of the open source [OpenVex](/open-source/sbom/what-is-openvex/) project, `vexctl` enables you to create, apply, and attest VEX (Vulnerability Exploitability eXchange) data in order to filter out false positive security alerts.

@@ -16,6 +16,7 @@ menu:
     parent: "compliance"
 weight: 025
 toc: true
+contentType: "conceptual"
 ---
 
 The [Center for Internet Security](https://www.cisecurity.org/) (CIS) is a nonprofit organization dedicated to enhancing the cybersecurity posture of organizations worldwide. Founded in 2000, CIS aims to develop best practices and guidelines that help organizations protect themselves against cyber threats.

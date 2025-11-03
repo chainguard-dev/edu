@@ -14,6 +14,7 @@ tags: ["Chainguard Containers", "Migration"]
 images: []
 weight: 020
 toc: true
+contentType: "how-to-guide"
 ---
 
 Chainguard's Python containers provide a migration path to significantly reduce vulnerabilities in Python applications while maintaining full compatibility with existing workloads. This guide explains how to migrate your containerized Python applications to benefit from Chainguard's enhanced security posture and daily updates. 

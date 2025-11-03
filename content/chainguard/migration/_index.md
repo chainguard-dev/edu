@@ -51,4 +51,5 @@ tutorials: [
   },
 ]
 
+contentType: "how-to-guide"
 ---

@@ -12,6 +12,7 @@ draft: false
 tags: ["Chainguard Console", "Procedural"]
 images: []
 weight: 010
+contentType: "how-to-guide"
 ---
 
 There may be cases where an organization will want multiple users to have access to the same Chainguard organization. Chainguard allows you to grant other users access to Chainguard by [generating an invite link or code](/chainguard/administration/iam-organizations/how-to-manage-iam-organizations-in-chainguard/#inviting-others-to-an-organization).

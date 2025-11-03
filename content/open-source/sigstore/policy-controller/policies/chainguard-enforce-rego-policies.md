@@ -13,6 +13,7 @@ menu:
     parent: "policies"
 weight: 010
 toc: true
+contentType: "how-to-guide"
 ---
 
 The [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) supports the [Rego Policy Language](https://www.openpolicyagent.org/docs/latest/policy-language/), which is a declarative policy language that is used to evaluate structured input data such as Kubernetes manifests and JSON documents. This feature enables users to apply policies that can evaluate Kubernetes admission requests and object metadata to make comprehensive decisions about the workloads that are admitted to their clusters. Rego support also enables users to enhance existing cloud-native policies by adding additional software supply chain security checks.

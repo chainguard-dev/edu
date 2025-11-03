@@ -13,6 +13,7 @@ menu:
     parent: "about"
 weight: 004
 toc: true
+contentType: "product-docs"
 ---
 
 There are currently over [1,000 Chainguard Containers](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) and that number is always growing as we add more to our expanding catalog.

@@ -13,6 +13,7 @@ menu:
     parent: "getting-started"
 weight: 020
 toc: true
+contentType: "tutorial"
 ---
 
 Chainguard's [Laravel container image](https://images.chainguard.dev/directory/image/laravel/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-laravel) provides a secure foundation for [Laravel](https://laravel.com) applications with minimal vulnerabilities compared to traditional PHP images. This specialized image includes all necessary PHP extensions and tooling for Laravel development while maintaining Chainguard's security-first approach, enabling developers to build complex applications without compromising on security.

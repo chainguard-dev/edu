@@ -13,6 +13,7 @@ menu:
     parent: "migration"
 weight: 030
 toc: true
+contentType: "how-to-guide"
 ---
 
 Chainguard's [Dockerfile Converter (dfc)](https://github.com/chainguard-dev/dfc) was designed to facilitate the process of porting existing Dockerfiles to use Chainguard Containers. The following platforms are currently supported:

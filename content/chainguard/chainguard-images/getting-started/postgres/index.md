@@ -15,6 +15,7 @@ menu:
     parent: "getting-started"
 weight: 050
 toc: true
+contentType: "tutorial"
 ---
 
 Chainguard's PostgreSQL container image provides a security-hardened foundation for running Postgres databases with significantly fewer vulnerabilities than traditional PostgreSQL images. Built on Wolfi with a distroless design, this container maintains full PostgreSQL functionality while dramatically reducing attack surface.

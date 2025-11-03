@@ -16,6 +16,7 @@ menu:
     parent: ""
     weight: 9999
     hidden: true
+contentType: "conceptual"
 ---
 
 ## Overview

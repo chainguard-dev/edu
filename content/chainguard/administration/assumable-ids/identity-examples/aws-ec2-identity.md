@@ -10,6 +10,7 @@ draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
 weight: 012
+contentType: "integration"
 ---
 
 Chainguard's [*assumable identities*](/chainguard/administration/assumable-ids/assumable-ids/) are identities that can be assumed by external applications or workflows in order to access Chainguard resources or perform certain actions.

@@ -13,6 +13,7 @@ menu:
     parent: "oci"
 weight: 100
 toc: true
+contentType: "conceptual"
 ---
 The [Open Container Initiative](https://opencontainers.org/) (OCI) is a Linux Foundation project dedicated to managing specifications and projects related to the storage, distribution, and execution of container images. The OCI was formed in 2015 when developers recognized that the quickly growing container industry needed standards to ensure the portability of containers across systems and platforms. As one of the most popular container developers, Docker was a key partner in the formation of the OCI and donated its specifications and associated code for OCI image formats and runtime specifications. Today, the OCI manages three specifications (the Image Specification, the Runtime Specification, and the Distribution Specification), which are evolving according to community participation and industry development. 
 

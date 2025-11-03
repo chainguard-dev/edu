@@ -9,6 +9,7 @@ images: []
 weight: 10
 aliases:
 - /chainguard/chainguard-registry/pull-through-guides/artifactory/
+contentType: "product-docs"
 ---
 
 Guides explaining how to set up the JFrog Artifactory registry as a pull-through cache or mirror of Chainguard's registry.

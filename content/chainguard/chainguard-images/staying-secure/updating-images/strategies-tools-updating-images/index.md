@@ -16,6 +16,7 @@ menu:
     parent: "chainguard-images"
 weight: 015
 toc: true
+contentType: "how-to-guide"
 ---
 
 When it comes to keeping a system secure, one of the most important measures you can take is to regularly apply updates. In modern, containerized infrastructures, this normally means updating containers to use only the latest container images that are still maintained. A casual observer might expect such a standard and important task to have agreed-on best practices and standardized tooling, but they might be surprised by the wide variety of different solutions and opinions on this problem.

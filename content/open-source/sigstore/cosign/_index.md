@@ -9,6 +9,7 @@ menu:
   docs:
     parent: "sigstore"
 images: []
+contentType: "conceptual"
 ---
 
 A Sigstore tool used to sign and verify software artifacts

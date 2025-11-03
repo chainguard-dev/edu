@@ -13,6 +13,7 @@ draft: false
 tags: ["Chainguard Containers", "Overview"]
 images: []
 weight: 005
+contentType: "integration"
 ---
 
 The Chainguard platform supports Single Sign-on (SSO) authentication for users. By default, users can log in with GitHub, GitLab, and Google, but SSO support allows users to bring their own identity provider for authentication. This is helpful when your organization mandates using a corporate identity provider — like Okta or Azure Active Directory — to authenticate to SaaS products.

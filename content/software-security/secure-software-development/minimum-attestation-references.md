@@ -11,6 +11,7 @@ menu:
     parent: "secure-software-development"
 weight: 20
 toc: true
+contentType: "conceptual"
 ---
 The minimum requirements within the Secure Software Attestation Form address requirements
 put forth in EO 14028 subsection (4)(e) and specific SSDF practices and tasks. For reference,

@@ -16,6 +16,7 @@ menu:
     parent: "features"
 weight: 025
 toc: true
+contentType: "product-docs"
 ---
 
 Chainguard provides CVE Visualizations for all of its container images. This feature creates reports with CVE comparisons between Chainguard Containers and popular alternatives, as well as historical CVE remediation metrics. CVE Visualizations provide insight into image health and can help teams measure the engineering, security, and economic benefits gained from using Chainguard Containers.

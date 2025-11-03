@@ -12,6 +12,7 @@ menu:
     parent: "java"
 weight: 051
 toc: true
+contentType: "product-docs"
 ---
 
 ## Introduction

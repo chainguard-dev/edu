@@ -15,6 +15,7 @@ menu:
     parent: "melange"
 weight: 900
 toc: true
+contentType: "how-to-guide"
 ---
 
 ## Do I need to understand melange to use Chainguard Containers?

@@ -9,6 +9,7 @@ menu:
   docs:
     parent: "sigstore"
 images: []
+contentType: "conceptual"
 ---
 
 An immutable, tamper-resistant ledger of metadata generated within a software project’s supply chain

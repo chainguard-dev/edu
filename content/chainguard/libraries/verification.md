@@ -14,6 +14,7 @@ menu:
     parent: "libraries"
 weight: 004
 toc: true
+contentType: "product-docs"
 ---
 
 ## Overview

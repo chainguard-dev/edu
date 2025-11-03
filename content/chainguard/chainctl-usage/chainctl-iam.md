@@ -9,6 +9,7 @@ draft: false
 tags: ["chainctl", "iam"]
 images: []
 weight: 060
+contentType: "how-to-guide"
 ---
 
 Chainguard's identity and access management (IAM) system provides fine-grained control over container registries, security resources, and organizational permissions. The `chainctl iam` commands enable you to manage users, roles, identities, and access policies programmatically for enhanced security and compliance.

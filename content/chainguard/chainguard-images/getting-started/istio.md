@@ -15,6 +15,7 @@ menu:
     parent: "getting-started"
 weight: 015
 toc: true
+contentType: "tutorial"
 ---
 
 Chainguard's [Istio](https://istio.io) container images provide a security-hardened foundation for service mesh deployments with significantly reduced vulnerabilities compared to standard Istio images. Istio extends Kubernetes to establish a programmable, application-aware network using the Envoy service proxy, bringing traffic management, telemetry, and security to complex deployments. Built on Wolfi OS, Chainguard's minimal Istio images maintain full compatibility while enhancing security posture.

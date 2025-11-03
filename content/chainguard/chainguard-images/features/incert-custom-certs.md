@@ -16,6 +16,7 @@ menu:
     parent: "working-with-images"
 weight: 030
 toc: true
+contentType: "product-docs"
 ---
 
 In many enterprise settings, an organization will have its own certificate authority which it uses to issue certificates for its internal services. This is often for security or control reasons but could also be related to regulatory requirements. 

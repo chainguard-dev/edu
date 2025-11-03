@@ -15,6 +15,7 @@ menu:
     parent: "chainguard-images"
 weight: 009
 toc: true
+contentType: "how-to-guide"
 ---
 
 This page shows you how to set up and use Chainguard Helm Charts with Artifactory via remote Helm OCI repositories.

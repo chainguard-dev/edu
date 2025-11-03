@@ -11,6 +11,7 @@ lastmod: 2023-12-07T08:48:45+00:00
 draft: false
 images: []
 weight: 20
+contentType: "integration"
 ---
 
 Procedural tutorials outlining how to create and assume a Chainguard identity for various Continuous Integration systems.

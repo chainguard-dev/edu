@@ -14,6 +14,7 @@ tags: ["Chainguard Containers", "Migration"]
 images: []
 weight: 010
 toc: true
+contentType: "how-to-guide"
 ---
 
 Chainguard's Node.js containers offer a streamlined migration path for applications seeking enhanced security posture through minimal, distroless design. Built on [Wolfi](/open-source/wolfi/), these containers significantly reduce attack surface compared to traditional Node.js images, resulting in [fewer vulnerabilities](/chainguard/chainguard-images/vuln-comparison/node/) and smaller image sizes. Daily automated builds ensure your applications always have the latest security patches without manual intervention.

@@ -49,6 +49,7 @@ tutorials: [
   
 ]
 
+contentType: "conceptual"
 ---
 
 Wolfi is a Linux undistro designed to support the creation of container images that meet the requirements of a secure software supply chain.

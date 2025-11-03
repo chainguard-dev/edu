@@ -14,6 +14,7 @@ menu:
     parent: "apko"
 weight: 10
 toc: true
+contentType: "how-to-guide"
 ---
 
 [apko](http://github.com/chainguard-dev/apko) is a command-line tool designed to create single-layer container images based on the [apk](https://wiki.alpinelinux.org/wiki/Package_management) package format. It was so named as it uses the apk package format and is inspired by the [ko](https://github.com/google/ko) build tool.

@@ -16,6 +16,7 @@ menu:
     parent: "cmmc-2"
 weight: 001
 toc: true
+contentType: "conceptual"
 ---
 
 CMMC 2.0, or Cybersecurity Maturity Model Certification, is a cybersecurity framework established by the U.S. Department of Defense (DoD). It aims to ensure that contractors and subcontractors within the Defense Industrial Base (DIB) comply with rigorous cybersecurity standards. CMMC 2.0 replaces the previous CMMC model with a streamlined and updated version that incorporates lessons learned and feedback from industry stakeholders.

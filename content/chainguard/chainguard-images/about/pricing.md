@@ -13,6 +13,7 @@ menu:
     parent: "chainguard-images"
 weight: 055
 toc: true
+contentType: "product-docs"
 ---
 
 Chainguard offers catalog pricing for our container catalog, providing access across the Chainguard Container images catalog.

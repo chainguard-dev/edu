@@ -16,6 +16,7 @@ menu:
     parent: "concepts"
 weight: 010
 toc: true
+contentType: "product-docs"
 ---
 
 The practice of using Security Technical Implementation Guides, or "STIGs," to secure various technologies originated with the United States Department of Defense (DoD). If an organization uses a certain kind of software, say MySQL 8.0, they must ensure that their implementation of it meets the requirements of the [associated Security Requirements Guides (SRG)](https://www.cyber.mil/stigs/) in order to qualify as a vendor for the DoD. More recently, other compliance frameworks have begun acknowledging the value of STIGS, with some going so far as to require the use of STIGs in their guidelines.

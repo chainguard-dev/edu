@@ -14,6 +14,7 @@ menu:
     parent: "chainguard-os"
 weight: 020
 toc: true
+contentType: "product-docs"
 ---
 
 This FAQ addresses common questions about [Chainguard OS](/chainguard/chainguard-os/), the security-focused operating system that powers Chainguard's production container images and enterprise features. 

@@ -18,6 +18,7 @@ menu:
     parent: "chainguard-images"
 weight: 013
 toc: true
+contentType: "how-to-guide"
 ---
 
 

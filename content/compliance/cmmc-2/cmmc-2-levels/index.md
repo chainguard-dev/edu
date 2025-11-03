@@ -16,6 +16,7 @@ menu:
     parent: "cmmc-2"
 weight: 002
 toc: true
+contentType: "conceptual"
 ---
 
 The  **Cybersecurity Maturity Model Certification (CMMC) 2.0** integrates various cybersecurity standards and best practices into a unified model that encompasses three maturity levels. Each level builds upon the previous one, with increasing rigor in cybersecurity practices and processes. In this article, we’ll provide an overview of the three levels of maturity and example practices that are representative of their requirements.

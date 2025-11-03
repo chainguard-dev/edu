@@ -9,6 +9,7 @@ draft: false
 tags: ["chainctl", "Reference"]
 images: []
 weight: 070
+contentType: "product-docs"
 ---
 
 The CLI tool `chainctl` helps you interact with the account model that Chainguard provides. The tool uses the familiar `<context> <noun> <verb>` style of CLI interactions. Below find the current reference for `chainctl`.

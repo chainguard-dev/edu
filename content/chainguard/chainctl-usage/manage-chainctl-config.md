@@ -15,6 +15,7 @@ menu:
     parent: "administration"
 toc: true
 weight: 030
+contentType: "how-to-guide"
 ---
 
 Chainguard's `chainctl` configuration management enables you to customize CLI behavior, set default organizations, configure output formats, and optimize your workflow for managing container security resources. Proper configuration ensures efficient interaction with Chainguard's platform across different environments and use cases.

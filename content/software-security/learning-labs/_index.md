@@ -9,6 +9,7 @@ images: []
 tags: ["Learning Labs", "Overview"]
 toc: true
 hidepageslist: true
+contentType: "conceptual"
 ---
 
 Learning Labs are [regularly run, virtual events from

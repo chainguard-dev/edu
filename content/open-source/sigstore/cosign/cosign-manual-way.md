@@ -14,6 +14,7 @@ menu:
     parent: "cosign"
 weight: 007
 toc: true
+contentType: "conceptual"
 ---
 
 When I first used [Cosign](https://github.com/sigstore/cosign), the software artifact signing CLI from the [Sigstore](https://www.sigstore.dev/) project, I was amazed at how painless signing and verifying could be.

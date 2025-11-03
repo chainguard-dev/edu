@@ -12,6 +12,7 @@ menu:
     parent: "libraries"
 weight: 010
 toc: true
+contentType: "product-docs"
 ---
 
 ## What security issues can Chainguard Libraries prevent?

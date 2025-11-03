@@ -45,4 +45,5 @@ tutorials: [
   },
 ]
 
+contentType: "conceptual"
 ---

@@ -14,6 +14,7 @@ menu:
     parent: "sigstore"
 weight: 630
 toc: true
+contentType: "how-to-guide"
 ---
 
 _An earlier version of this material was published in the [lab in chapter 5](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/block-v1:LinuxFoundationX+LFS182x+2T2022+type@sequential+block@5fb8482a3b764ce0903e2c424842d32f/block-v1:LinuxFoundationX+LFS182x+2T2022+type@vertical+block@2e3388391d6040f5beb5bacbf19f96f5) of the Linux Foundation [Sigstore course](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/home)._

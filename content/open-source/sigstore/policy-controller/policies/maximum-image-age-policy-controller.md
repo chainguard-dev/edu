@@ -15,6 +15,7 @@ menu:
     parent: "policy-controller"
 weight: 006
 toc: true
+contentType: "how-to-guide"
 ---
 
 This guide demonstrates how to use the [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) to verify image signatures before admitting an image into a Kubernetes cluster. In this guide, you will create a `ClusterImagePolicy` that checks the maximum age of a container image verifying that isn’t older than 30 days. For that, we’ll attempt to create two distroless images one older than 30 days and a fresh one.

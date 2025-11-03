@@ -13,6 +13,7 @@ menu:
     parent: "pull-through-guides"
 toc: true
 weight: 015
+contentType: "product-docs"
 ---
 
 [Harbor](https://goharbor.io) is an open-source artifact registry. It's designed to securely store, manage, and distribute OCI artifacts, including container images and Helm charts by enforcing policies like vulnerability scanning, image signing, and role-based access control. Harbor delivers enterprise-grade compliance, performance, and interoperability across platforms like Kubernetes and Docker, all accessible via a web UI or RESTful API.

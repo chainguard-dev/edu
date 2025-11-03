@@ -16,6 +16,7 @@ menu:
     parent: "getting-started"
 weight: 060
 toc: true
+contentType: "tutorial"
 ---
 
 Chainguard's [PyTorch container image](https://images.chainguard.dev/directory/image/pytorch/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-pytorch) provides a security-hardened foundation for deep learning workloads with significantly fewer vulnerabilities than traditional PyTorch containers. Built with [PyTorch](https://pytorch.org/) and [CUDA](https://developer.nvidia.com/about-cuda) support for GPU acceleration, this minimal image maintains full deep learning capabilities while dramatically reducing attack surface. This guide demonstrates fine-tuning models, secure inference deployment, and compares the enhanced security posture to official PyTorch images.

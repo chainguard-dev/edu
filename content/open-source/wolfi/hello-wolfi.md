@@ -12,6 +12,7 @@ menu:
     parent: "wolfi"
 weight: 500
 toc: true
+contentType: "tutorial"
 ---
 
 ## Introduction

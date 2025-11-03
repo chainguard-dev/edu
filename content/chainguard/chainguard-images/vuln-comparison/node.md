@@ -9,5 +9,6 @@ images: []
 weight: 600
 toc: false
 linktitle: node
+contentType: "conceptual"
 ---
 

@@ -17,6 +17,7 @@ menu:
     parent: "sbom"
 weight: 030
 toc: true
+contentType: "conceptual"
 ---
 
 One of the first steps to improving your software supply chain security is to establish a process for creating quality *Software Bills of Materials* (SBOMs). An [SBOM](/open-source/sbom/) is a formal record that contains the details and supply chain relationships (such as dependencies) of the components used in building software.

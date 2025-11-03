@@ -12,6 +12,7 @@ menu:
     parent: "javascript"
 weight: 051
 toc: true
+contentType: "product-docs"
 ---
 
 **Chainguard Libraries for JavaScript** is a major ecosystem supported by

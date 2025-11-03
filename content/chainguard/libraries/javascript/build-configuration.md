@@ -12,6 +12,7 @@ menu:
     parent: "javascript"
 weight: 053
 toc: true
+contentType: "product-docs"
 ---
 
 The configuration for the use of Chainguard Libraries depends on your build

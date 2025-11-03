@@ -18,6 +18,7 @@ menu:
     parent: "chainguard-images"
 weight: 010
 toc: true
+contentType: "how-to-guide"
 ---
 
 When using scanners such as [Grype](https://github.com/anchore/grype) or [Docker Scout](https://docs.docker.com/scout/) to scan for vulnerabilities in Chainguard Containers, you'll often find that there are few or no CVEs present. However, CVEs can sometimes be found in Chainguard Containers, and you may also encounter CVEs if you're using older tags. In these cases, you will likely wish to check Chainguard's security advisories for information on which CVEs will cause security issues in your deployment.

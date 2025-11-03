@@ -15,6 +15,7 @@ menu:
     parent: "getting-started"
 weight: 005
 toc: true
+contentType: "tutorial"
 ---
 
 Chainguard's Cilium container images provide a security-hardened foundation for Kubernetes networking with significantly reduced vulnerabilities compared to standard Cilium deployments. Cilium leverages [eBPF](https://ebpf.io/) technology to transparently secure network connectivity between services, enabling powerful security policies without application changes. Built on Wolfi OS, Chainguard's minimal Cilium images enhance your cluster's security posture while maintaining full compatibility with Cilium's advanced networking features.

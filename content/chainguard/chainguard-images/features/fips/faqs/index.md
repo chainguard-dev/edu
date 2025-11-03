@@ -13,6 +13,7 @@ menu:
     parent: "features"
 weight: 005
 toc: true
+contentType: "product-docs"
 ---
 
 Answers to your questions about Chainguard FIPS container images.

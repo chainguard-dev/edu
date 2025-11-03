@@ -13,6 +13,7 @@ menu:
     parent: "about"
 weight: 004
 toc: true
+contentType: "product-docs"
 ---
 
 Typically, specific versions of software receive updates on a schedule for a set amount of time. Eventually, though, every version of software will stop receiving support. When project maintainers stop providing updates, it's known as the *End-of-Life* (EOL) stage.

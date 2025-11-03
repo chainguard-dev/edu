@@ -16,6 +16,7 @@ menu:
     parent: "cosign"
 weight: 006
 toc: true
+contentType: "how-to-guide"
 ---
 
 Cosign can be used to verify binary artifacts ("blobs") using provided signatures as long as they are published to an OCI registry. In this tutorial, we’ll verify a binary artifact — in this case, a release of [`apko`](/open-source/apko/overview/), a command-line tool for building container images using a declarative language based on YAML. The methods in this tutorial apply to any blob file Cosign has signed with a keyless signature.

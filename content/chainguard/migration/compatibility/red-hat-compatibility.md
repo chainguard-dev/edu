@@ -16,6 +16,7 @@ menu:
     parent: "compatibility"
 weight: 020
 toc: true
+contentType: "how-to-guide"
 ---
 
 Chainguard Containers and Red Hat UBI base images have different binaries and scripts included in their respective `busybox` and `coreutils` packages. Note that Red Hat UBI images by default do not have a `busybox` package.

@@ -13,6 +13,7 @@ menu:
     parent: "chainguard-images"
 weight: 001
 toc: true
+contentType: "how-to-guide"
 ---
 [Ko](https://ko.build/) is a tool for building Go applications into container images without using Dockerfiles. When combined with Chainguard's minimal containers, Ko creates smaller and more secure container runtimes with only your application and its essential dependencies.
 

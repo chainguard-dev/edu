@@ -31,6 +31,11 @@ You'll then navigate to `localhost:1313` within the web browser of your choice.
 
 If you identify something that is a major change, please file an [issue](https://github.com/chainguard-dev/edu/issues/new). If you identify a minor change like a typo that needs to be updated, or tech tooling that has a newer package, you are welcome to open a pull request for review from the team.
 
+**Contributor Guides:**
+- **[Tag Guidelines](docs/TAG_GUIDELINES.md)** - Complete approved tag taxonomy for Hugo tags
+- **[Content Type Guide](docs/CONTENT_TYPE_GUIDE.md)** - How to classify content with `contentType` metadata
+- **[Content Management Scripts](scripts/README.md)** - Tools for organizing and auditing content
+
 ### Date Format
 
 In each post's header, the date format should follow year-month-day as `YYYY-MM-DD`.
@@ -104,6 +109,37 @@ Tags are based on:
 
 You can review our current list of [Tags](https://edu.chainguard.dev/tags).
 
+**→ See the complete [Tag Guidelines](docs/TAG_GUIDELINES.md) for the full approved tag taxonomy and usage rules.**
+
+### Content Type Classification
+
+All content pages must include a `contentType` field in the frontmatter to categorize the documentation type:
+
+```yaml
+---
+title: "Your Page Title"
+draft: false
+tags: ["Tag1", "Tag2"]
+contentType: "tutorial"
+---
+```
+
+**Valid content types:**
+- `product-docs` - Chainguard product documentation (APIs, CLI reference, features)
+- `tutorial` - Learning-oriented guides that teach through examples
+- `how-to-guide` - Task-oriented instructions for specific problems
+- `integration` - Third-party tool and platform integrations
+- `conceptual` - Educational content explaining concepts and "why"
+
+**Quick decision guide:**
+- Teaching a specific subject? → `tutorial`
+- Solving a specific task? → `how-to-guide`
+- Product reference documentation? → `product-docs`
+- Explaining concepts? → `conceptual`
+- Integrating with external tools? → `integration`
+
+**→ See the complete [Content Type Guide](docs/CONTENT_TYPE_GUIDE.md) for detailed definitions, examples, and a decision tree.**
+
 ## Quick Reference for Contributors
 
 ### Pre-commit Hooks
@@ -124,7 +160,8 @@ brew install aspell
 ```
 
 **Resources:**
-- 📖 [Complete Pre-commit Hook Guide for Contributors](docs/pre-commit-hook-guide.md) - Detailed guide with examples
-- 📋 [Tag Guidelines](TAG_GUIDELINES.md) - Complete approved tag taxonomy
-- 📝 [Custom Dictionary](.aspell.en.pws) - Technical terms for spell checker
-
+- [Complete Pre-commit Hook Guide for Contributors](docs/pre-commit-hook-guide.md) - Detailed guide with examples
+- [Tag Guidelines](docs/TAG_GUIDELINES.md) - Complete approved tag taxonomy
+- [Content Type Guide](docs/CONTENT_TYPE_GUIDE.md) - Documentation type taxonomy and usage
+- [Custom Dictionary](.aspell.en.pws) - Technical terms for spell checker
+- [Content Management Scripts](scripts/README.md) - Tools for content organization

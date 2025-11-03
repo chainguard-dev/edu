@@ -9,6 +9,7 @@ draft: false
 tags: ["chainctl"]
 images: []
 weight: 040
+contentType: "how-to-guide"
 ---
 
 Chainguard regularly releases updates to `chainctl` with new security features, performance improvements, and expanded capabilities for container management. This guide explains how to check your current version and update to the latest release.

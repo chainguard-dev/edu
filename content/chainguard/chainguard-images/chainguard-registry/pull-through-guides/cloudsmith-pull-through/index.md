@@ -15,6 +15,7 @@ menu:
     parent: "pull-through-guides"
 toc: true
 weight: 020
+contentType: "product-docs"
 ---
 
 Organizations often have their own internal software repositories and registries integrated into their systems. This guide explains how to set up the Cloudsmith artifact repository to ingest [Chainguard Containers](/chainguard/chainguard-images/overview/) by acting as a pull-through cache.

@@ -13,6 +13,7 @@ menu:
     parent: "getting-started"
 weight: 100
 toc: true
+contentType: "tutorial"
 ---
 
 ## Introduction

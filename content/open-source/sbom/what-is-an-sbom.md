@@ -15,6 +15,7 @@ menu:
     parent: "sbom"
 weight: 5
 toc: true
+contentType: "conceptual"
 ---
 
 Modern software applications contain hundreds to thousands of open source and third-party components, creating significant security challenges that SBOMs help address - which is why Chainguard includes comprehensive SBOMs with every container image. Without structured visibility into these components, organizations struggle to identify and respond to vulnerabilities, even when patches are available. This lack of transparency leaves systems vulnerable to exploitation, making SBOMs essential for maintaining secure software supply chains.  

@@ -16,6 +16,7 @@ menu:
     parent: "chainguard-images"
 weight: 005
 toc: true
+contentType: "how-to-guide"
 ---
 
 Because distroless images are minimal and don't include a package manager or a shell, debugging issues that occur at runtime may require a distinctive approach.

@@ -15,6 +15,7 @@ menu:
     parent: "software-security"
 weight: 10
 toc: true
+contentType: "conceptual"
 ---
 
 Software teams building and deploying container-based software applications often use a "base image," an initial set of software packages often associated with a Linux distribution. Software developers, security professionals, and infrastructure teams seeking to make an informed decision about what base image to use must consider a number of criteria when selecting a base image appropriate for their needs. Base images like those provided by Chainguard are designed to meet these security criteria while maintaining compatibility. To help these parties make a more informed decision when selecting a base image, this article describes a range of criteria:

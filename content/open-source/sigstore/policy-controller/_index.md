@@ -9,6 +9,7 @@ menu:
   docs:
     parent: "sigstore"
 images: []
+contentType: "conceptual"
 ---
 
 A Kubernetes admission controller used to validate signatures and attestations on container images as well as enforce policies using CUE or Rego languages.

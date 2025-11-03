@@ -11,4 +11,5 @@ images: []
 weight: 030
 aliases:
 - /chainguard/chainguard-registry/
+contentType: "product-docs"
 ---

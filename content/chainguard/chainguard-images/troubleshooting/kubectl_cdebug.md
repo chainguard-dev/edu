@@ -19,6 +19,7 @@ menu:
     parent: "chainguard-images"
 weight: 015
 toc: true
+contentType: "how-to-guide"
 ---
 
 {{< youtube LQUZGE_w-20 >}}

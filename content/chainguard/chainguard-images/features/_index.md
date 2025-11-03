@@ -52,4 +52,5 @@ tutorials: [
   },
 ]
 
+contentType: "product-docs"
 ---

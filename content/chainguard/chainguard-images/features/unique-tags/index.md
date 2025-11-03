@@ -18,6 +18,7 @@ menu:
     parent: "chainguard-images"
 weight: 015
 toc: true
+contentType: "product-docs"
 ---
 
 Chainguard's Unique Tags feature provides timestamped, immutable tags for every container image build, addressing enterprise requirements for precise version tracking and automated deployment workflows. Many organizations rely on distinct tags to trigger automated deployments and maintain audit trails, making traditional floating tags like 'latest' unsuitable for production use.

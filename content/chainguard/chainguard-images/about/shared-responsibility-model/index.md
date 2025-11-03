@@ -16,6 +16,7 @@ menu:
     parent: "about"
 weight: 005
 toc: true
+contentType: "conceptual"
 ---
 
 Chainguard’s mission is to be the safe source for open source. As part of this mission, Chainguard builds all of our packages and images from upstream open source code and delivers the resulting artifacts to our customers. There are three distinct parties involved here: **Upstream** projects, **Chainguard**, and **Customers**; each of these parties share some measure of responsibility across a few dimensions.

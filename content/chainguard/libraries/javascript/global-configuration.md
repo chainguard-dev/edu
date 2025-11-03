@@ -13,6 +13,7 @@ menu:
     parent: "javascript"
 weight: 052
 toc: true
+contentType: "product-docs"
 ---
 
 JavaScript and npm package consumption in a large organization is typically

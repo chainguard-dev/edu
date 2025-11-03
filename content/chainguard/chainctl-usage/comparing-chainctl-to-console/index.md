@@ -13,6 +13,7 @@ menu:
     parent: "chainctl-usage"
 weight: 025
 toc: true
+contentType: "conceptual"
 ---
 
 Chainguard provides two powerful interfaces for managing container security resources: the web-based Console for visual exploration and the `chainctl` CLI for automation and scripting. Understanding when to use each tool maximizes your efficiency in managing Chainguard's security-hardened containers and access controls.

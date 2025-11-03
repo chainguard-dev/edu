@@ -16,6 +16,7 @@ menu:
     parent: "apko"
 weight: 300
 toc: true
+contentType: "how-to-guide"
 ---
 
 ## Debug Options

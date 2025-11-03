@@ -7,6 +7,7 @@ lastmod: 2024-05-10T08:49:15+00:00
 draft: false
 images: []
 weight: 500
+contentType: "how-to-guide"
 ---
 
 Documentation and resources relating to policies in Sigstore Policy Controller.

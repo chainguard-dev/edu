@@ -14,6 +14,7 @@ menu:
     parent: "software-security"
 weight: 10
 toc: true
+contentType: "conceptual"
 ---
 
 A [software bill of materials](/software-security/glossary/#sbom), or an SBOM (pronounced s-bomb), is a formal record of the components contained in a piece of software. It is analogous to an ingredients list for a recipe. And it has become recognized as one of the key building blocks of software supply chain security. Proponents rightfully point out that organizations can't secure their software if they don't know what's inside their software.

@@ -17,6 +17,7 @@ menu:
     parent: "chainguard-images"
 weight: 045
 toc: true
+contentType: "product-docs"
 ---
 
 {{< youtube P7pmV-s5ZYY >}}

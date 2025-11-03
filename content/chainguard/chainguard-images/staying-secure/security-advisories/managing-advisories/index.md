@@ -15,6 +15,7 @@ menu:
     parent: "security-advisories"
 weight: 030
 toc: true
+contentType: "how-to-guide"
 ---
 
 > **Note**: This document is deprecated as of June 2025. 

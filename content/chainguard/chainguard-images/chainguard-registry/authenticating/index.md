@@ -15,6 +15,7 @@ weight: 050
 toc: true
 aliases:
 - /chainguard/chainguard-registry/authenticating/
+contentType: "product-docs"
 ---
 
 ## Public Container Images

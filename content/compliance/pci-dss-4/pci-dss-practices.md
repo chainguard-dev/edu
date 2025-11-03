@@ -16,6 +16,7 @@ menu:
     parent: "pci-dss-4"
 weight: 003
 toc: true
+contentType: "conceptual"
 ---
 
 PCI DSS 4.0, or Payment Card Industry Data Security Standard is intended for all entities that store, process, or transmit cardholder data and/or authentication data that could impact the security of the cardholder data environment. This includes all entities interacting with information such as the following:

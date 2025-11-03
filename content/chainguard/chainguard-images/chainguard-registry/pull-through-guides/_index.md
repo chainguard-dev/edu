@@ -9,6 +9,7 @@ images: []
 weight: 100
 aliases:
 - /chainguard/chainguard-registry/pull-through-guides/
+contentType: "product-docs"
 ---
 
 Documentation and resources explaining how to set-up various third-party registries as pull-through caches

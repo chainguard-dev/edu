@@ -1,7 +1,7 @@
-# Tag Guidelines for Hugo Documentation
+# Tag Guidelines for Chainguard Academy
 
 ## Overview
-This document defines the approved tag taxonomy and usage guidelines for the Hugo documentation site. Following these guidelines ensures consistent categorization and improved discoverability of content.
+This document defines the approved tag taxonomy and usage guidelines for the Chainguard Academy site. Following these guidelines ensures consistent categorization and improved discoverability of content.
 
 ## Tag Usage Rules
 
@@ -13,9 +13,9 @@ This document defines the approved tag taxonomy and usage guidelines for the Hug
    - 1-2 topic tags as needed
 
 3. **Format requirements**:
-   - Use Title Case for regular words (e.g., "Compliance", "Standards")
-   - Keep acronyms in uppercase (e.g., "CVE", "SBOM", "FAQ")
-   - Maintain version numbers as-is (e.g., "CMMC 2.0", "PCI DSS 4.0")
+   - Use Title Case for regular words (as in "Compliance", "Standards")
+   - Keep acronyms in uppercase (as in "CVE", "SBOM", "FAQ")
+   - Maintain version numbers as-is (as in "CMMC 2.0", "PCI DSS 4.0")
 
 ## Approved Tag Taxonomy
 

@@ -9,6 +9,7 @@ draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
 weight: 025
+contentType: "integration"
 ---
 
 [Jenkins](https://www.jenkins.io/) is an open source automation server that supports building, deploying, and automating projects.

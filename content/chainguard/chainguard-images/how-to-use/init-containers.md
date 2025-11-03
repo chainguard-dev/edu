@@ -14,6 +14,7 @@ menu:
     parent: "how-to-use"
 weight: 035
 toc: true
+contentType: "product-docs"
 ---
 
 Chainguard Containers are designed with minimalism and security in mind. By including fewer packages and tools, Chainguard Containers have a smaller attack surface than their counterparts. However, there are cases where the external counterparts have certain desirable features, like useful startup scripts or configuration defaults.

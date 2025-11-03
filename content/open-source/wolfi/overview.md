@@ -13,6 +13,7 @@ menu:
     parent: "wolfi"
 weight: 100
 toc: true
+contentType: "conceptual"
 ---
 
 [Wolfi](https://github.com/wolfi-dev) is a community Linux [undistro](#why-undistro) designed for the container and cloud-native era. Chainguard started the Wolfi project to build [Chainguard Containers](/chainguard/chainguard-images/overview/), our collection of curated [distroless](/chainguard/chainguard-images/getting-started-distroless/) images that meet the requirements of a secure software supply chain. This required a Linux distribution with components at the appropriate granularity and with support for [glibc](https://www.gnu.org/software/libc/).

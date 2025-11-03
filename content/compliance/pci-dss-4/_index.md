@@ -10,4 +10,5 @@ aliases:
 - /software-security/compliance/pci-dss-4/
 images: []
 weight: 005
+contentType: "conceptual"
 ---

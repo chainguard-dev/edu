@@ -17,6 +17,7 @@ menu:
     parent: "chainguard-images"
 weight: 005
 toc: true
+contentType: "conceptual"
 ---
 
 Chainguard rebuilds container images daily to ensure the latest security patches are always included, addressing a critical challenge in container security. While keeping images up-to-date is essential for receiving security updates and new features, updates must be balanced with stability concerns since any code change can potentially introduce breaking changes or impact dependent systems.

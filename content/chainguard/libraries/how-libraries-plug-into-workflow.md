@@ -13,6 +13,7 @@ menu:
     parent: "chainguard-libraries"
 weight: 070
 toc: true
+contentType: "product-docs"
 ---
 
 {{< youtube SBisxaL855k >}}

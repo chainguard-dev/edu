@@ -16,6 +16,7 @@ menu:
     parent: "about"
 weight: 015
 toc: true
+contentType: "product-docs"
 ---
 
 Chainguard Containers are minimal, distroless container images that you can use to build and run secure applications. Given the importance of secure, highly performant images, Chainguard performs testing to ensure our container images match the functionality of upstream and other external counterparts.

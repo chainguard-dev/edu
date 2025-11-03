@@ -12,6 +12,7 @@ menu:
     parent: "secure-software-development"
 weight: 15
 toc: true
+contentType: "conceptual"
 ---
 
 ## SSDF Table

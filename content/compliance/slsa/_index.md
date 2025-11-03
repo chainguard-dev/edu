@@ -9,5 +9,6 @@ aliases:
 - /chainguard/open-source/slsa/
 images: []
 weight: 015
+contentType: "conceptual"
 ---
 SLSA (pronounced “salsa”), or Supply chain Levels for Software Artifacts, is a framework to help you assess and improve the security of software you create or consume. 

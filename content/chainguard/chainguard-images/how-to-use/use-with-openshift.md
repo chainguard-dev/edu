@@ -13,6 +13,7 @@ menu:
     parent: "chainguard-images"
 weight: 011
 toc: true
+contentType: "integration"
 ---
 
 Chainguard Containers are fully compatible with Red Hat OpenShift Container Platform, providing enhanced security while requiring some configuration adjustments for OpenShift's security context constraints. This guide explains how to successfully deploy Chainguard's minimal, security-hardened container images in OpenShift environments.

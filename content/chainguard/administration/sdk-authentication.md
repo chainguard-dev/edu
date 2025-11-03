@@ -10,6 +10,7 @@ tags: ["Chainguard Console", "Procedural"]
 images: []
 toc: true
 weight: 065
+contentType: "product-docs"
 ---
 
 There are several ways for users to interact with the Chainguard platform, with [`chainctl`](/chainguard/chainctl/) (Chainguard's command-line tool) and the [Chainguard Console](https://console.chainguard.dev/overview) (Chainguard's web interface) being the two most commonly-used methods. However, both of these require a human user to authenticate, and aren't useful for working with Chainguard resources programmatically.

@@ -12,6 +12,7 @@ menu:
     parent: "python"
 weight: 053
 toc: true
+contentType: "product-docs"
 ---
 
 The configuration for the use of Chainguard Libraries depends on how you've set up your build tools and CI/CD workflows. At a high level, adopting the use of Chainguard Libraries in your development, build, and deployment workflows involves the following steps:

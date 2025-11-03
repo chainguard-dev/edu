@@ -8,6 +8,7 @@ draft: false
 images: []
 weight: 50
 toc: false
+contentType: "conceptual"
 ---
 
 This space is for developers, engineers, and security pros who are building and learning together to secure the software supply chain—from distroless containers to CVE-free deployments.

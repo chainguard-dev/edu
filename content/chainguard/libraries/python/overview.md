@@ -12,6 +12,7 @@ menu:
     parent: "python"
 weight: 010
 toc: true
+contentType: "product-docs"
 ---
 
 ## Introduction

@@ -12,6 +12,7 @@ menu:
     parent: "oci"
 weight: 150
 toc: true
+contentType: "conceptual"
 ---
 
 OCI artifacts are a way of using OCI registries, or container registries that are compliant with specifications set by the [Open Container Initiative](/open-source/oci/what-is-the-oci/), to store arbitrary files. They are useful to understand given their growing importance for software supply chain security and their general utility for container engineering. However, community usage of OCI artifacts is still actively evolving and differing opinions and understandings of their purpose can lead to confusion. In this guide, you will learn the difference between OCI "artifacts" and "Artifacts," their utility for software supply chain security, and some important considerations when using them.

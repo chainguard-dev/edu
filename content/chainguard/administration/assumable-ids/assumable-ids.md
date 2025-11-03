@@ -15,6 +15,7 @@ draft: false
 tags: ["Chainguard Containers"]
 images: []
 weight: 005
+contentType: "product-docs"
 ---
 
 Both [`chainctl`](/chainguard/chainctl/) and the [Chainguard Console](https://console.chainguard.dev/) are useful tools for interacting with Chainguard. However, there may be times that you want to hand off certain administrative tasks to an automation system, like Buildkite or GitHub Actions.

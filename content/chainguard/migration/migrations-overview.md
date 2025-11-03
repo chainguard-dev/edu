@@ -16,6 +16,7 @@ menu:
     parent: "migration"
 weight: 005
 toc: true
+contentType: "how-to-guide"
 ---
 
 [Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) are a collection of container images designed for security and minimalism. Many Chainguard Containers are [distroless](/chainguard/chainguard-images/getting-started-distroless/); they contain only an open-source application and its runtime dependencies. These container images do not even contain a shell or package manager, because fewer dependencies reduce the potential attack surface of images.

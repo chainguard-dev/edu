@@ -13,6 +13,7 @@ menu:
     parent: "administration"
 toc: true
 weight: 008
+contentType: "tutorial"
 ---
 
 [Terraform](https://www.terraform.io/) is an infrastructure as code tool that allows users to declaratively configure resources in cloud providers like AWS and GCP, SaaS platforms, and many other API-driven environments. [Terraform providers](https://developer.hashicorp.com/terraform/language/providers) are written by third-party developers to allow Terraform to manage resources in their environment.

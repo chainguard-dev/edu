@@ -14,6 +14,7 @@ menu:
     parent: "sbom"
 weight: 15
 toc: true
+contentType: "conceptual"
 ---
 
 

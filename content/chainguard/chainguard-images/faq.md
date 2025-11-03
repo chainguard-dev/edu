@@ -13,6 +13,7 @@ menu:
     parent: "chainguard-images"
 weight: 060
 toc: true
+contentType: "product-docs"
 ---
 
 Learn answers to your questions about [Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement). Chainguard provides container images designed with security as the primary focus, featuring zero known CVEs, minimal attack surface, and built-in SBOMs for every image.

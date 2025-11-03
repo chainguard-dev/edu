@@ -17,6 +17,7 @@ menu:
     parent: "about"
 weight: 035
 toc: true
+contentType: "product-docs"
 ---
 
 {{< youtube Fuw9lYX6Ne8 >}}

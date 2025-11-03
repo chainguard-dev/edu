@@ -11,6 +11,7 @@ draft: false
 tags: ["chainctl"]
 images: []
 weight: 070
+contentType: "how-to-guide"
 ---
 
 Chainguard's `chainctl images` commands provide comprehensive tools for managing security-hardened container images in your organization's registry. These commands enable you to discover available images, analyze version histories, examine security metadata, and compare different image versions to make informed deployment decisions.

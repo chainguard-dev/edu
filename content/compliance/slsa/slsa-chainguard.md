@@ -16,6 +16,7 @@ menu:
     parent: "slsa"
 weight: 020
 toc: true
+contentType: "conceptual"
 ---
 
 SLSA (pronounced "salsa"), or Supply chain Levels for Software Artifacts, is a security framework consisting of standards and controls that prevent tampering, improve integrity, and secure packages and infrastructure. It is described in depth in [What is SLSA?](/compliance/slsa/what-is-slsa/).

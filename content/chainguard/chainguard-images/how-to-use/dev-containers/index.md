@@ -15,6 +15,7 @@ menu:
     parent: "how-to-use"
 weight: 27
 toc: true
+contentType: "how-to-guide"
 ---
 
 [Development Containers](https://containers.dev/) — sometimes known as "dev containers" — allow you to use a container as a development environment where you can run applications and separate tools, libraries, or runtimes. Dev containers can also help with testing and continuous integration. 

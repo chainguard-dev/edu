@@ -7,6 +7,7 @@ lastmod: 2023-04-13T08:49:15+00:00
 draft: false
 images: []
 weight: 045
+contentType: "integration"
 ---
 
 Example tutorials on integrating various Identity Providers (IDPs) with Chainguard.

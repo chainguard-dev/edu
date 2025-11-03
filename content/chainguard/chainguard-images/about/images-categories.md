@@ -13,6 +13,7 @@ menu:
     parent: "about"
 weight: 027
 toc: true
+contentType: "product-docs"
 ---
 
 Chainguard Containers are a collection of curated, distroless container images designed with a focus on software supply chain security. Chainguard's container images are designed to be slim runtimes for production environments, emphasizing security and efficiency by removing unnecessary elements. Additionally, the images are designed to be easily integrated into existing workflows, helping organizations to build better, more secure software.

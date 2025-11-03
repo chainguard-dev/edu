@@ -17,6 +17,7 @@ menu:
     parent: "about"
 weight: 205
 toc: true
+contentType: "conceptual"
 ---
 
 When selecting the right base image for your application, there are a variety of factors to take into consideration. For starters, it is critical that your application has all of the dependencies it needs to run. The ideal base image will contain the essential packages you need, while leaving out the ones you don’t. However, in practice, you will need to build upon your container images so they meet your specific needs, making it all the more important that you have a strong foundation.

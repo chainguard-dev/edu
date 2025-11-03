@@ -9,6 +9,7 @@ menu:
   docs:
     parent: "rekor"
 images: []
+contentType: "conceptual"
 ---
 
 A new kind of root certificate authority for code signing

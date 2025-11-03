@@ -13,6 +13,7 @@ tags: ["Chainguard Containers"]
 images: []
 weight: 015
 toc: true
+contentType: "how-to-guide"
 ---
 
 Chainguard Containers provide enhanced security through minimal design and built-in provenance attestation, requiring some adjustments when migrating from traditional base images. Built on the [Wolfi](/open-source/wolfi/overview/) Linux distribution, these images offer compatibility with most applications while significantly reducing attack surface and vulnerabilities.

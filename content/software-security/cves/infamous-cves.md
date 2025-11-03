@@ -14,6 +14,7 @@ menu:
     parent: "cves"
 weight: 003
 toc: true
+contentType: "conceptual"
 ---
 
 [Software vulnerabilities](/software-security/cves/cve-intro/) vary in their severity – some are difficult to exploit and have minimal implications, while others can be exploited easily, giving an attacker significant leverage over a computer system. In cases where widely-implemented software contains high-severity vulnerabilities, the damage caused by their exploitation can affect millions of developers and services worldwide.

@@ -16,6 +16,7 @@ menu:
     parent: "getting-started"
 weight: 002
 toc: true
+contentType: "tutorial"
 ---
 
 Chainguard provides security-hardened container images for C and C++ development, offering minimal runtime environments with significantly reduced vulnerabilities compared to traditional base images. Built on Chainguard's own OS, these containers enable more secure deployment of compiled programs through purpose-built images for different linking scenarios. This guide demonstrates three approaches to compiling and running C/C++ applications using Chainguard's specialized containers.

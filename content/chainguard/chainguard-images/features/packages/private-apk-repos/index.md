@@ -12,6 +12,7 @@ tags: ["Chainguard Containers"]
 images: []
 weight: 028
 toc: true
+contentType: "product-docs"
 ---
 
 With Chainguard's Private APK Repositories, you can access packages that are included within your organization's container image entitlements. This allows you to build custom images based on components that are already part of your organization catalog.
