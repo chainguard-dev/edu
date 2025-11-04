@@ -28,7 +28,7 @@ Chainguard provides FIPS-validated container images to help organizations meet f
 
 ## What To Expect from Chainguard FIPS Containers
 
-Chainguard offers 400+ FIPS image variants covering language runtimes (Go, Java, Python, Node.js, .NET, PHP, C/C++), databases, web servers, and Kubernetes components. These images use NIST-validated cryptographic modules including the OpenSSL FIPS provider (CMVP Certificate [#4282](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4282)) and Bouncy Castle FIPS for Java.
+Chainguard offers 700+ FIPS image variants covering language runtimes (Go, Java, Python, Node.js, .NET, PHP, C/C++), databases, web servers, and Kubernetes components. These images use NIST-validated cryptographic modules including the OpenSSL FIPS provider (CMVP Certificate [#4282](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4282)) and Bouncy Castle FIPS for Java.
 
 All FIPS images include STIG hardening, daily builds with zero-to-minimal CVEs under SLA, and build-time SBOMs. Chainguard's warranties and certification details are on the [FIPS Commitment](https://www.chainguard.dev/legal/fips-commitment) page.
 
