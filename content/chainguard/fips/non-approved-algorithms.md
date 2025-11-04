@@ -61,11 +61,11 @@ Examples of such non-security usage are:
 * Webpack 4 uses MD4 to precompute perfect hashtables from trusted input at build time [issue](https://github.com/webpack/webpack/issues/14560)
 * Amazon S3 supports many algorithms for object integrity checking over trusted channel, including MD5 and SHA1 [docs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity-upload.html). Many client implementations default to MD5.
 * Google Bucket storage can use CRC32C or MD5, and clients typically default to MD5 for object integrity during uploads [docs](https://docs.cloud.google.com/storage/docs/data-validation)
-* PDF document identifiers require MD5 by standard, and no newer version of standards or documents exist [pull request](https://github.com/py-pdf/pypdf/pull/3438)
+* PDF document identifiers require MD5 by standard, and no newer version of standard exist.
 
 In all of the above use cases digest calculation does not provide any security functionality, it is meant to detect accidental corruption or provide speed ups. Overall, data is typically protected by SHA2-256 and is transmitted over a secure and authenticated TLS channel.
 
-Note that using CRC32C or MD5 doesn't even provide performance gains, as specialist functions exist for non-security purposes with significantly higher performace, such as [XXHASH](https://xxhash.com/). In most cases, non-security functionality should upgrade from CRC32C, MD5, SHA1 to XXHASH3.
+One alternative to migrating away from MD5 is to choose a specialist function explicitely designed for non-security purposes with significantly higher performace, such as [XXHASH](https://xxhash.com/). In most cases, non-security functionality should upgrade from CRC32C, MD5, SHA1 to XXHASH3.
 
 However, if you need interoperability with existing formats and services **and** it is established that digest usage is for non-security purposes, you must use the insecure digests. Chainguard is integrating support for such use cases for MD5 and SHA1 across our FIPS images. Each language and application implementation is very different and specific, documented below.
 
@@ -144,9 +144,9 @@ If you install pycryptography through [custom assembly](https://edu.chainguard.d
 
 ### .NET FIPS and MD5
 
-.NET upstream chooses to always fetch the MD5 algorithm with `-fips` property query string. To verify that MD5 is blocked for security purposes, you must test calcualting HMAC-MD5 or attempting to create or verify a digital signature with MD5.
+.NET upstream chooses to always fetch the MD5 algorithm with `-fips` property query string. To verify that MD5 is blocked for security purposes, you can test creating or verifying RSA-MD5 signature.
 
-See dotnet/runtime [source code](https://github.com/dotnet/runtime/blob/25800e6537cd47a0a0533fb63bb0fa60d600ec45/src/native/libs/System.Security.Cryptography.Native/pal_evp.c#L290).
+Chainguard is working on blocking HMAC-MD5 in .NET.
 
 ### Go FIPS and MD5
 
