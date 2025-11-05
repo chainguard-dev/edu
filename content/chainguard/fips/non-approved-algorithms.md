@@ -155,7 +155,6 @@ MD5 was deprecated before the Go language was created. The MD5 implementation at
 Currently Chainguard offers two Go FIPS toolchains. Both of them are based on the [microsoft/go](https://github.com/microsoft/go) toolchain and use OpenSSL FIPS at runtime:
 
 * The [go-fips](https://images.chainguard.dev/directory/image/go-fips/overview) image always allows MD5 usage.
-
 * The [go-msft-fips](https://images.chainguard.dev/directory/image/go-msft-fips/overview) image always blocks MD5 usage.
 
 There are a few codepaths in the Go standard library where MD5 is used for authentication. Chainguard is working to correctly block these, and unify the two toolchains into one.
@@ -166,7 +165,7 @@ Currently all Java FIPS implementations in Chainguard FIPS images are powered by
 
 Chainguard is working on using jlink to integrate BouncyCastle FIPS into the runtime image, to eliminate the Sun dependency. Then it will be possible to control MD5 access with BouncyCastle specific security properties. This guidance will be updated when the situation changes.
 
-If blocking behavior is required, ensure to request implementation from the `BCFIPS` provider, or check for `BCFIPS` provider, as it has higest priority in the `java.security` hardened configuration.
+If blocking behavior is required, ensure to request implementation from the `BCFIPS` provider, or check for `BCFIPS` provider, as it has highest priority in the `java.security` hardened configuration.
 
 ### Node FIPS and MD5
 
