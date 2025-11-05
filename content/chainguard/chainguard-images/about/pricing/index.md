@@ -4,7 +4,7 @@ linktitle: "Catalog Pricing"
 type: "article"
 description: "Overview of Chainguard's Container Catalog Pricing model and how to add container images to your organization through the Self-Serve Catalog Experience."
 date: 2025-08-19T08:49:31+00:00
-lastmod: 2025-10-29T08:49:31+00:00
+lastmod: 2025-11-04T08:49:31+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -119,4 +119,5 @@ chainctl images repo update php-new --parent=example.com --name=php
 Chainguard's Catalog Pricing provides access across Chainguard's library of container images. To learn more about the Catalog Pricing model, we encourage you to [reach out for more information](https://www.chainguard.dev/contact?utm=docs). Additionally, you may find the following resources to be helpful:
 
 - [Blog announcement: Unlock the Full Chainguard Containers Catalog – Now with a Catalog Pricing Option](https://www.chainguard.dev/unchained/unlock-the-full-chainguard-containers-catalog-now-with-a-catalog-pricing-option?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)
+- [Blog announcement: Introducing the Self-Serve Catalog Experience](http://chainguard.dev/unchained/introducing-the-self-serve-catalog-experience))
 - [Chainguard Pricing](https://www.chainguard.dev/pricing?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)
