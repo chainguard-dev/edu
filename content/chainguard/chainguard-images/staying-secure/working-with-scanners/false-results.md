@@ -19,7 +19,7 @@ menu:
     parent: "scanners"
 weight: 030
 toc: true
-contentType: "product-docs"
+contentType: "conceptual"
 ---
 
 A *vulnerability scanner* is a tool that analyzes your software components and reports any [CVEs](/software-security/cves/cve-intro/) it finds. Using a vulnerability scanner to find CVEs that impact your system is a critical step in [software vulnerability remediation](/software-security/cves/cve-remediation/), but as you begin to triage scanner-reported vulnerabilities, you may find that your scanner's results are not perfectly accurate.
