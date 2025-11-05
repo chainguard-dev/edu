@@ -109,7 +109,7 @@ If there is C/C++ software that uses OpenSSL APIs and needs access to MD5 and do
 
 ### Python FIPS and MD5
 
-The Python standard library has a keyword argument to specify using a digest for security purposes, see these [docs](https://docs.python.org/3/library/hashlib.html#hashlib.md5).
+The Python standard library has a keyword argument to specify using a digest for security purposes, see [the Python documentation](https://docs.python.org/3/library/hashlib.html#hashlib.md5).
 
 Here are examples:
 
@@ -130,9 +130,9 @@ _hashlib.UnsupportedDigestmodError: [digital envelope routines] unsupported
 
 If this usage is needed in any of the imported libraries, you can use [mock](https://docs.python.org/3/library/unittest.mock.html#where-to-patch) techniques to patch the code to pass the correct argument.
 
-Alternatively submit upstream fixes to correct the code. Here are some examples contributed by Chainguardians:
-* Google Cloud Platform storage [pull request](https://github.com/googleapis/python-storage/pull/1522)
-* PyPDF project [pull requst](https://github.com/py-pdf/pypdf/pull/3438)
+Alternatively, submit upstream fixes to correct the code. Here are some examples contributed by Chainguard engineers:
+* [Google Cloud Platform storage pull request](https://github.com/googleapis/python-storage/pull/1522)
+* [PyPDF project pull requst](https://github.com/py-pdf/pypdf/pull/3438)
 
 If there are Python projects that need MD5 access in FIPS mode and currently do not use `usedforsecurity=False` please [open a support request](https://support.chainguard.dev/) for Chainguard engineering to look into adding support.
 
