@@ -79,7 +79,7 @@ SHA1 is available as approved in Chainguard FIPS Provider for OpenSSL versions 3
 
 In Chainguard FIPS images, OpenSSL operates in approved-only mode and has the default property query string set to `fips=yes` for all algorithms and services, such as message digests, HMAC, and so on.
 
-MD5 is available as a non-approved service. You can request access to it on opt-in basis using a `?fips=yes` (prefer fips implementation if there is one, and fallback to a non-fips one) or `-fips` (disregard request for a fips implementation, and return any available one) property query strings via the C API or via command line options to calculate message digests. Usage of these digests in higher level algorithms is blocked. For example `openssl dgst` calculation is possible, yet `openssl dsgst -sign, -verify, -hmac` is blocked.
+MD5 is available as a non-approved service. You can request access to it on an opt-in basis using a `?fips=yes` (as in, prefer FIPS implementation if there is one, and fallback to a non-FIPS implementation if not available), or `-fips` (disregard request for a FIPS implementation, and return any available implementation) property query strings via the C API or via command line options to calculate message digests. Usage of these digests in higher-level algorithms is blocked. For example `openssl dgst` calculation is possible, yet `openssl dsgst -sign, -verify, -hmac` is blocked.
 
 Examples:
 
