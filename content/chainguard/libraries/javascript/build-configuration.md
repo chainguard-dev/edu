@@ -103,7 +103,7 @@ Note that dependency versions are typically declared with the `^` before the
 version string. This indicates higher, compatible versions, following the
 semantic versioning scheme of the package are used automatically. For example,
 the declaration of version `^22.18.0` for `node`, actually results in the use of
-version `22.20.0` or even a higher version once available and npm install is
+version `22.20.0` or even a higher version once available and `npm install` is
 run.  
 
 Any dependency or dependency version changes require another install and
@@ -139,6 +139,54 @@ To change the packages, remove the `node_modules` directory and the
 `package-lock.json` file and run the `npm install` command again. 
 
 Now you can proceed with your development and testing. 
+
+
+<a id="npm-minimal"></a>
+
+### Minimal example project
+
+Use the following steps to create a minimal example project for npm with
+Chainguard Libraries for JavaScript.
+
+```shell
+mkdir npm-example
+cd npm-example
+npm init -y
+```
+
+For testing purposes, you can use direct access and environment variables as
+detailed in the [access documentation](/chainguard/libraries/access/#env). Once
+the environment variables are set, the following steps configure registry
+access with authentication in the `.npmrc` file in the current project
+directory:
+
+```shell
+export token=$(echo -n "${CHAINGUARD_JAVASCRIPT_IDENTITY_ID}:${CHAINGUARD_JAVASCRIPT_TOKEN}" | base64 -w 0)
+
+npm config set registry https://libraries.cgr.dev/javascript/ --location=project
+npm config set //libraries.cgr.dev/javascript/:_auth "${token}" --location=project
+```
+
+Note that the trailing slash in the registry URL is required, and that setting
+`username` and `_password` instead of `auth` with a token does not work with
+npm. The `-w 0` option for `base64` is required and supported by the GNU
+coreutils versions included in most operating systems.
+
+Add dependencies for your project into the `package.json` file to test retrieval
+from Chainguard Libraries, build the project, and list the dependencies:
+
+```shell
+npm add commander@4.1.1
+npm install
+npm list
+```
+
+Following this, find the downloaded package in `node_modules/commander`. The
+commands also result in the creation of the lock file `package-lock.json`, which
+contains the source URL for each package in the `resolved` field.
+
+Adjust the registry configuration to use your repository manager and add any
+other desired packages for further testing.
 
 <a id="pnpm"></a>
 
@@ -220,7 +268,7 @@ Now you can proceed with your development and testing.
 
 ### Minimal example project
 
-Use the following steps to create a minimal example project for pnpm  with
+Use the following steps to create a minimal example project for pnpm with
 Chainguard Libraries for JavaScript.
 
 ```shell
@@ -242,9 +290,10 @@ pnpm config set registry https://libraries.cgr.dev/javascript/ --location=projec
 pnpm config set //libraries.cgr.dev/javascript/:_auth "${token}" --location=project
 ```
 
-To avoid the use of base64, which can behave differently across operating
-systems, you can alternatively set `username` and `password` instead of `auth`
-with a token.
+Note that the `-w 0` option for `base64` is required and supported by the GNU
+coreutils versions included in most operating systems. To avoid the use of
+`base64`, which can behave differently across operating systems, you can
+alternatively set `username` and `_password` instead of `auth` with a token.
 
 ```shell
 pnpm config set //libraries.cgr.dev/javascript/:username "${CHAINGUARD_JAVASCRIPT_IDENTITY_ID}" --location=project
@@ -254,7 +303,7 @@ pnpm config set //libraries.cgr.dev/javascript/:_password "${CHAINGUARD_JAVASCRI
 Also note that the trailing slash in the registry URL is required.
 
 Add dependencies for your project into the `package.json` file to test retrieval
-from Chainguard Libraries:
+from Chainguard Libraries, build the project, and list the dependencies:
 
 ```shell
 pnpm add commander@4.1.1
@@ -262,12 +311,13 @@ pnpm install
 pnpm list
 ```
 
-Following this, you find the downloaded package in
-`node_modules/.pnpm/commander@4.1.1`. The commands also result in the creation
-of the lock file `pnpm-lock.yaml`.
+Following this, find the downloaded package in
+`node_modules/.pnpm/commander@4.1.1` and `node_modules/commander`. The commands
+also result in the creation of the lock file `pnpm-lock.yaml`, which contains
+the source URL for each package in the `tarball` field.
 
-Adjust the registry configuration to use your repository manager and any other
-desired packages for further testing.
+Adjust the registry configuration to use your repository manager and add any
+other desired packages for further testing.
 
 <a id="yarn"></a>
 
@@ -321,13 +371,13 @@ To change a project to use Chainguard Libraries for JavaScript, set the registry
 URL to point to your repository manager in your project `.yarnrc.yml` file: 
 
 ```shell
-yarn config set npmRegistryServer https://repo.example.com:8443/repository/javascript-all/
+yarn config set npmRegistryServer https://repo.example.com:8443/repository/javascript-all
 ```
 
 The command results in the following line in the `.yarnrc.yml` file:
 
 ```
-npmRegistryServer: "https://repo.example.com:8443/repository/javascript-all/"
+npmRegistryServer: "https://repo.example.com:8443/repository/javascript-all"
 ```
 
 Refer to the [`config set` documentation](https://yarnpkg.com/cli/config/set) for
@@ -335,14 +385,66 @@ more details such as authentication support.
 
 Example URLs:
 
-* JFrog Artifactory: https://example.jfrog.io/artifactory/javascript-all/
-* Sonatype Nexus: https://repo.example.com:8443/repository/javascript-all/
-* Direct access: https://libraries.cgr.dev/javascript/
+* JFrog Artifactory: https://example.jfrog.io/artifactory/javascript-all
+* Sonatype Nexus: https://repo.example.com:8443/repository/javascript-all
+* Direct access: https://libraries.cgr.dev/javascript
 
 To change the packages, run the `yarn` command again. This forces an updated of
 all packages from the new registry and regeneration of the lock file.
 
 Now you can proceed with your development and testing. 
+
+<a id="yarn-berry-minimal"></a>
+
+### Minimal example project
+
+Use the following steps to create a minimal example project for yarn with
+Chainguard Libraries for JavaScript. The script sets the policy to use the
+latest stable release of Yarn.
+
+```shell
+mkdir yarn-berry-example
+cd yarn-berry-example
+yarn policies set-version stable
+yarn init
+```
+
+For testing purposes, you can use direct access and environment variables as
+detailed in the [access documentation](/chainguard/libraries/access/#env). Once
+the environment variables are set, the following steps configure registry
+access with authentication in the `.yarnrc.yml` file in the current project
+directory:
+
+```shell
+export authInfo="${CHAINGUARD_JAVASCRIPT_IDENTITY_ID}:${CHAINGUARD_JAVASCRIPT_TOKEN}"
+
+yarn config set npmRegistryServer https://libraries.cgr.dev/javascript
+yarn config set 'npmRegistries["//libraries.cgr.dev/javascript"].npmAuthIdent' "${authInfo}"
+yarn config set 'npmRegistries["//libraries.cgr.dev/javascript"].npmAlwaysAuth' "true"
+```
+
+Note the following details:
+
+* The `authInfo` token is passed as authentication identity `npmAuthIdent` and only uses 
+  the username and password values from the pull token separated by colon without any further encoding.
+* Setting `npmAlwaysAuth` is required.
+
+Add dependencies for your project into the `package.json` file to test retrieval
+from Chainguard Libraries, build the project, and list the dependencies:
+
+```shell
+yarn add commander@4.1.1
+yarn install
+yarn info
+```
+
+Following this, find the downloaded package in the local shared cache. The
+commands also result in the creation of the lock file `yarn.lock`, which
+contains the source URL for each package in the `archiveUrl` parameter of the
+`resolution` field.
+
+Adjust the registry configuration to use your repository manager and any add
+other desired packages for further testing.
 
 <a id="yarn-classic"></a>
 
@@ -392,27 +494,28 @@ values in the `integrity` field and the download URL in the `resolved` field for
 each module.
 
 To change a project to use Chainguard Libraries for JavaScript, set the registry
-URL to point to your repository manager in your user `.yarnrc` file: 
-
-```shell
-yarn config set registry https://repo.example.com:8443/repository/javascript-all/
-```
-
-The command results in the following line in the `.yarnrc` file:
+URL to point to your repository manager in your `.npmrc` file:
 
 ```
-registry "https://repo.example.com:8443/repository/javascript-all/"
+cat > .npmrc << EOF
+registry=https://repo.example.com:8443/repository/javascript-all
+EOF
 ```
+
+Example URLs:
+
+* JFrog Artifactory: https://example.jfrog.io/artifactory/javascript-all
+* Sonatype Nexus: https://repo.example.com:8443/repository/javascript-all
+* Direct access: https://libraries.cgr.dev/javascript
+
+Note that you can also use the `yarn config set registry` command to set the
+registry in the `.yarnrc` file, however this approach does not support
+authentication as typically required for repository managers as well as for
+direct access to Chainguard Libraries for JavaScript.
 
 Refer to the [`.yarnrc`
 documentation](https://classic.yarnpkg.com/lang/en/docs/yarnrc/) for more
 details.
-
-Example URLs:
-
-* JFrog Artifactory: https://example.jfrog.io/artifactory/javascript-all/
-* Sonatype Nexus: https://repo.example.com:8443/repository/javascript-all/
-* Direct access: https://libraries.cgr.dev/javascript/
 
 To change the packages, remove the `node_modules` directory and the `yarn.lock`
 file and run the `yarn` command again. This forces a new download of all
@@ -422,6 +525,60 @@ versions and regenerate the lock file.
 
 Now you can proceed with your development and testing. 
 
+<a id="yarn-classic-minimal"></a>
+
+### Minimal example project
+
+Use the following steps to create a minimal example project for yarn with
+Chainguard Libraries for JavaScript.
+
+```shell
+mkdir yarn-classic-example
+cd yarn-classic-example
+yarn init -y
+```
+
+For testing purposes, you can use direct access and environment variables as
+detailed in the [access documentation](/chainguard/libraries/access/#env). Once
+the environment variables are set, the following steps configure registry access
+with authentication in the `.npmrc` file directory:
+
+```shell
+export token=$(echo -n "${CHAINGUARD_JAVASCRIPT_IDENTITY_ID}:${CHAINGUARD_JAVASCRIPT_TOKEN}" | base64 -w 0) 
+cat > .npmrc << EOF
+registry=https://libraries.cgr.dev/javascript/
+//libraries.cgr.dev/javascript/:_auth="$token"
+//libraries.cgr.dev/javascript/:always-auth=true
+EOF
+```
+
+Note the following details:
+
+* Using yarn configuration files such as `.yarnrc` and commands like `yarn
+  config set registry` does not work with authentication details, and the
+  proposed approach with `.npmrc` file is preferable. 
+* The `token` token is passed as authentication token `_auth` and uses the
+  username and password values from the pull token separated by colon in
+  `base64` encoding. Note that the `-w 0` option for `base64` is required and
+  supported by the GNU coreutils versions included in most operating systems. 
+* Setting `always-auth` is required.
+* The trailing slash in the registry URL and authentication references to it is required.
+
+Add dependencies for your project into the `package.json` file to test retrieval
+from Chainguard Libraries, build the project, and list the dependencies:
+
+```shell
+yarn add commander@4.1.1
+yarn install
+yarn list
+```
+
+Following this, find the downloaded package in the `node_modules` directory.
+The commands also result in the creation of the lock file `yarn.lock`, which
+contains the source URL for each package in the `resolved` field.
+
+Adjust the registry configuration to use your repository manager and add any
+other desired packages for further testing.
 
 <a id="bun"></a>
 
@@ -476,7 +633,7 @@ configuration](https://bun.com/docs/runtime/bunfig#install-registry) to the
 registry = "https://repo.example.com:8443/repository/javascript-all/"
 ```
 
-Alternatively you can use an [`.npmrc` file](#npm)
+Alternatively you can use an [`.npmrc` file](#npm).
 
 You can also temporarily override for install:
 
@@ -502,3 +659,49 @@ bun install
 This forces packages to be re-fetched from the configured registry and
 regenerates the lockfile. Now you can continue development and testing with
 Chainguard Libraries.
+
+<a id="bun-minimal"></a>
+
+### Minimal example project
+
+Use the following steps to create a minimal example project for bun with
+Chainguard Libraries for JavaScript.
+
+```shell
+mkdir bun-example
+cd bun-example
+bun init -y
+```
+
+For testing purposes, you can use direct access and environment variables as
+detailed in the [access documentation](/chainguard/libraries/access/#env). Once
+the environment variables are set, the following steps configure registry
+access with authentication in the `bunfig.toml` file in the current project
+directory:
+
+```shell
+cat > bunfig.toml << EOF
+[install.registry]
+url = "https://libraries.cgr.dev/javascript/"
+username = "$CHAINGUARD_JAVASCRIPT_IDENTITY_ID"
+password = "$CHAINGUARD_JAVASCRIPT_TOKEN"
+EOF
+```
+
+Note that the trailing slash in the registry URL is required.
+
+Add dependencies for your project into the `package.json` file to test retrieval
+from Chainguard Libraries, build the project, and list the dependencies:
+
+```shell
+bun add commander@4.1.1
+bun install
+bun pm ls
+```
+
+Following this, find the downloaded package in `node_modules/commander`. The
+ commands also result in the creation of the lock file `bun.lock`, which
+contains the source URL for each package in the `packages` section.
+
+Adjust the registry configuration to use your repository manager and add any
+other desired packages for further testing.
