@@ -39,21 +39,18 @@ In order for a user to add images to their organization through the Self-Serve E
 
 The only built-in role with all of these capabilities is the `owner` role. Users intending to work with the Self-Serve Catalog Experience should be bound to the `owner` role or a custom role with the appropriate capabilities. Refer to our documentation [Roles and Role-bindings](/chainguard/administration/iam-organizations/roles-role-bindings/) for more details.
 
-To add a container to your organization through the Self-Serve Experience, start by logging in to the [Chainguard Console](https://console.chainguard.dev). After logging in, click **Images** in the left-hand navigation:
-
-<center><img src="self-serve-1.png" alt="Screenshot showing the Chainguard Console's left-hand navigation menu. 'Images' is highlighted in a yellow box." style="width:400px;"></center>
-<br /> 
+To add a container to your organization through the Self-Serve Experience, start by logging in to the [Chainguard Console](https://console.chainguard.dev). After logging in, click **Images** in the left-hand navigation.
 
 By default, this will take you the **Organization** tab, where you'll find your organization's list of container images. Above the list of container images, to the right of the search box, there will be an **Add image** button. Click this button to open a window containing a list of Chainguard Containers you can add to your organization:
 
-<center><img src="self-serve-2.png" alt="Screenshot the 'Add image' window." style="width:600px;"></center>
+<center><img src="self-serve-2.png" alt="Screenshot the 'Add image' window." style="width:550px;"></center>
 <br /> 
 
 Within this window, you can scroll through the entire list of container images available for you to add to your organization. You can also use the search box within the window to search for a specific Chainguard Container to add.
 
 After finding the container image you want to add to your organization, click on it. This changes the window to include a text field where you can optionally set a different name for the image:
 
-<center><img src="self-serve-3.png" alt="Screenshot showing the window where you can choose a different name for the image. This example shows the 'php' image as the base image, with the name 'php-alternate' entered into the box." style="width:600px;"></center>
+<center><img src="self-serve-3.png" alt="Screenshot showing the window where you can choose a different name for the image. This example shows the 'php' image as the base image, with the name 'php-alternate' entered into the box." style="width:550px;"></center>
 <br /> 
 
 This is the name that your users and tooling will use to refer to the container image, such as in a `docker pull` command. Note that this is required if you're adding another instance of an image already included in your organization's catalog.
