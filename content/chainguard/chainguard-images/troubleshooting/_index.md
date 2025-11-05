@@ -8,5 +8,5 @@ lastmod: 2025-04-11T08:49:15+00:00
 draft: false
 images: []
 weight: 040
-contentType: "how-to-guide"
+contentType: "product-docs"
 ---
