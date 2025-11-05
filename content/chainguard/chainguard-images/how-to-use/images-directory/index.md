@@ -58,6 +58,8 @@ The **Chainguard catalog** tab has a table with four columns:
 * **Description**: a brief description of each container image
 * **Updated**: how long it's been since the container image was last updated
 
+Note that if your organization has signed up for catalog pricing, there will be another column containing buttons labeled **Add to org**, allowing you to provision Chainguard Containers independently without having to reach out to Chainguard. Check out our doc on [Chainguard Container Catalog Pricing](/chainguard/chainguard-images/about/pricing/) for more information.
+
 The **Organization** tab doesn't have a **Description** column, but has two additional columns. The first of these, labeled **Status** specifies what resources an organization has purchased and has access to. This column can show one of two possible values: **Active**, meaning that your organization is able to download and use the container image, or **Expired**, meaning that your organization had access to the container image in the past but not anymore:
 
 <center><img src="imgs-dir-C.png" alt="Screenshot showing a portion of an Organization container images directory, including the 'Status' column. This example shows five container: metrics-server, a customized metrics-server image, mongodb, nginx, and node." style="width:700px;"></center>
