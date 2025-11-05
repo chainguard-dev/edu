@@ -35,14 +35,14 @@ In addition, attempts to make use of this IG to include algorithms in the approv
 1) the algorithm is not used whatsoever to meet any FIPS 140-3 requirements;
 1) the algorithm does not access or share CSPs in a way that counters the requirements of this IG;
 1) the algorithm is either:
-   1) not intended to be used as a security function (e.g. interoperability or for memory wear leveling);
-   1) redundant to an approved algorithm (e.g. double encryption);
-   1) a cryptographic or mathematical operation applied for “good measure” but not for providing sound security (e.g. XORing a CSP with a secret value, using a proprietary algorithm, or using non-approved algorithms to obfuscate stored CSPs which are considered plaintext);
-1) the algorithm’s non-approved use and purpose (from 3) above) is unambiguous to the operator and can’t be easily confused for a security function.
+   1) not intended to be used as a security function (for example, interoperability or for memory wear leveling);
+   1) redundant to an approved algorithm (such as double encryption);
+   1) a cryptographic or mathematical operation applied for “good measure” but not for providing sound security (that is XORing a CSP with a secret value, using a proprietary algorithm, or using non-approved algorithms to obfuscate stored CSPs which are considered plaintext);
+1) the algorithm’s non-approved use and purpose (from 3, above) is unambiguous to the operator and can’t be easily confused for a security function.
 
 ### Chainguard FIPS Commitment
 
-As documented in the [Chainguard FIPS Commitment](https://www.chainguard.dev/legal/fips-commitment), our FIPS images enable only approved services and algorithms by default. This simplifies reasoning, audit and testing about what is or isn't a security function, if everything uses approved only services. For example, Chainguard [gradle-fips](https://images.chainguard.dev/directory/image/gradle-fips/versions) has been modified to use an approved keystore to store build settings. It is not a security function, but it was easier to do that, than enable non-approved keystore usage which could then leak into the build process and testing.
+As documented in the [Chainguard FIPS Commitment](https://www.chainguard.dev/legal/fips-commitment), our FIPS images enable only approved services and algorithms by default. This simplifies reasoning, audit and testing about what is or isn't a security function, since we are using only approved services. For example, Chainguard [gradle-fips](https://images.chainguard.dev/directory/image/gradle-fips/versions) has been modified to use an approved keystore to store build settings. While not a security function, this ensured that no unapproved keystore could leak into the build process and testing.
 
 All cases of usage that might be related to a security function also are made to use approved only services, this includes but not limited to:
 
