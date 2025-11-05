@@ -44,40 +44,40 @@ In addition, attempts to make use of this IG to include algorithms in the approv
 
 As documented in the [Chainguard FIPS Commitment](https://www.chainguard.dev/legal/fips-commitment), our FIPS images enable only approved services and algorithms by default. This simplifies reasoning, audit and testing about what is or isn't a security function, since we are using only approved services. For example, Chainguard [gradle-fips](https://images.chainguard.dev/directory/image/gradle-fips/versions) has been modified to use an approved keystore to store build settings. While not a security function, this ensured that no unapproved keystore could leak into the build process and testing.
 
-All cases of usage that might be related to a security function also are made to use approved only services, this includes but not limited to:
+All cases of usage that might be related to a security function are also made to only use approved services. This includes but is not limited to:
 
 * encryption / decryption
-* digital signature creation and verfication
+* digital signature creation and verification
 * random number generation
 * message authentication code
 * key derivation functions
 * key encapsulation methods
 * key exchange
 
-The one functionality that errs on the side of non-security function is calculating a digest alone, not part of MAC, HMAC, merkle-tree, integrity scheme, or digital signatures. Specificaly, MD4, MD5, and SHA1 are universally deprecated and dissallowed as part of security schemes, and yet they remain widely used for non-security functionality.
+The one functionality that errs on the side of non-security function is calculating a digest alone, not part of MAC, HMAC, Merkle tree, integrity scheme, or digital signatures. Specifically, MD4, MD5, and SHA1 are universally deprecated and disallowed as part of security schemes, and yet they remain widely used for non-security functionality.
 
 Examples of such non-security usage are:
 
-* Webpack 4 uses MD4 to precompute perfect hashtables from trusted input at build time [issue](https://github.com/webpack/webpack/issues/14560)
-* Amazon S3 supports many algorithms for object integrity checking over trusted channel, including MD5 and SHA1 [docs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity-upload.html). Many client implementations default to MD5.
-* Google Bucket storage can use CRC32C or MD5, and clients typically default to MD5 for object integrity during uploads [docs](https://docs.cloud.google.com/storage/docs/data-validation)
-* PDF document identifiers require MD5 by standard, and no newer version of standard exist.
+* Webpack 4 uses MD4 to precompute perfect hashtables from trusted input at build time, see [this issue](https://github.com/webpack/webpack/issues/14560).
+* Amazon S3 supports many algorithms for object integrity checking over trusted channel, including MD5 and SHA1, see [the official docs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity-upload.html). Many client implementations default to MD5.
+* Google Cloud Storage can use CRC32C or MD5, and clients typically default to MD5 for object integrity during uploads [docs](https://docs.cloud.google.com/storage/docs/data-validation)
+* PDF document identifiers require MD5 by standard, and no newer version of the standard exists.
 
-In all of the above use cases digest calculation does not provide any security functionality, it is meant to detect accidental corruption or provide speed ups. Overall, data is typically protected by SHA2-256 and is transmitted over a secure and authenticated TLS channel.
+In all of the above use cases digest calculation does not provide any security functionality, it is meant to detect accidental corruption or improve speed. Overall, data is typically protected by SHA2-256 and is transmitted over a secure and authenticated TLS channel.
 
-One alternative to migrating away from MD5 is to choose a specialist function explicitely designed for non-security purposes with significantly higher performace, such as [XXHASH](https://xxhash.com/). In most cases, non-security functionality should upgrade from CRC32C, MD5, SHA1 to XXHASH3.
+One alternative to migrating away from MD5 is to choose a specialist function explicitly designed for non-security purposes with significantly higher performance, such as [XXHASH](https://xxhash.com/). In most cases, non-security functionality should upgrade from CRC32C, MD5, SHA1 to XXHASH3.
 
-However, if you need interoperability with existing formats and services **and** it is established that digest usage is for non-security purposes, you must use the insecure digests. Chainguard is integrating support for such use cases for MD5 and SHA1 across our FIPS images. Each language and application implementation is very different and specific, documented below.
+However, if you need interoperability with existing formats and services *and* it is established that digest usage is for non-security purposes, you must use the insecure digests. Chainguard is integrating support for such use cases for MD5 and SHA1 across our FIPS images. Each language and application implementation is very different and specific, documented below.
 
 Although SHA1 is currently approved, it is already deprecated by RFCs. NIST is deprecating SHA1 by 2030.  The implementations below are forward-looking and attempt to address access to MD5 today and SHA1 in the future.
 
-SHA1 is available as approved in Chainguard FIPS Provider for OpenSSL versions 3.0.9, 3.1.2 and 3.4.0. It is non-approved starting in version 3.6.0. The below guidance will apply to SHA1 as well likely in 2027.
+SHA1 is available as approved in Chainguard FIPS Provider for OpenSSL versions 3.0.9, 3.1.2 and 3.4.0. It is non-approved starting in version 3.6.0. The below guidance will apply to SHA1 as well, likely beginning in 2027.
 
 ## Access to unapproved algorithms for non-security purposes
 
 ### OpenSSL FIPS and MD5
 
-In Chainguard FIPS images, OpenSSL operates in approved only mode and has the default property query string set to `fips=yes` for all algorithms and services, such as message digests, HMAC, and so on.
+In Chainguard FIPS images, OpenSSL operates in approved-only mode and has the default property query string set to `fips=yes` for all algorithms and services, such as message digests, HMAC, and so on.
 
 MD5 is available as a non-approved service. You can request access to it on opt-in basis using a `?fips=yes` (prefer fips implementation if there is one, and fallback to a non-fips one) or `-fips` (disregard request for a fips implementation, and return any available one) property query strings via the C API or via command line options to calculate message digests. Usage of these digests in higher level algorithms is blocked. For example `openssl dgst` calculation is possible, yet `openssl dsgst -sign, -verify, -hmac` is blocked.
 
