@@ -107,7 +107,7 @@ This command will return a table showing the UIDPs of every Chainguard Container
 With the image repository ID, you can make a request to the API endpoint with a command like the following. Make sure to replace `$ORGANIZATION_ID/4408EXAMPLE4131a` with the container image repository UIDP you just found:
 
 ```shell
-curl -H "Authorization: Bearer $(chainctl auth token)" https://console-api.enforce.dev/registry/v1/eoltags?uidp.childrenOf=$ORGANIZATION_ID/4408EXAMPLE4131a | jq .
+curl -H "Authorization: Bearer $(chainctl auth token)" 'https://console-api.enforce.dev/registry/v1/eoltags?uidp.childrenOf=$ORGANIZATION_ID/4408EXAMPLE4131a' | jq .
 ```
 
 Note that this example includes the `-H` argument to pass an authorization header to the API. This header is constructed with the `chainctl auth token` command which prints the local Chainguard token, allowing you to authenticate to the API. 
