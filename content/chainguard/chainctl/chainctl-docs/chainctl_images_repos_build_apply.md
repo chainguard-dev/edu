@@ -1,5 +1,5 @@
 ---
-date: 2025-10-30T20:47:45Z
+date: 2025-11-04T19:15:55Z
 title: "chainctl images repos build apply"
 slug: chainctl_images_repos_build_apply
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_apply/
