@@ -97,11 +97,9 @@ Note that this is a highly privileged container since we're scanning a container
 
 The results of the scan will be written to a new subdirectory named `out/` within the current working directory.  The `report.html` file will contain a human-readable report of the scan results, and the `results.xml` file will contain the raw results of the scan.
 
-### Retrieve a FIPS registry image's XCCDF report
+### Retrieve a registry FIPS image's XCCDF report
 
-Chainguard also scans each FIPS image with OpenSCAP using the latest release of the aforementioned [GPOS SRG](https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_GPOS_V3R2_SRG.zip) each time an image is built.
-
-Each OpenSCAP scan produces an XCCDF report and this report is included as a signed attestation for each FIPS image (similar to SBOMs), making them retrievable and verifiable.
+Chainguard also scans every FIPS image with OpenSCAP at build time using the latest release of the aforementioned [GPOS SRG](https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_GPOS_V3R2_SRG.zip). OpenSCAP scans produce both an HTML and XCCDF report and the latter is included as a signed attestation for each FIPS image (similar to SBOMs), making them retrievable and verifiable.
 
 [Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign/) — a part of the Sigstore project — supports software artifact signing, verification, and storage in an [OCI (Open Container Initiative)](/open-source/oci/what-is-the-oci/) registry, as well as the retrieval of said artifacts. This tutorial outlines how you can use the `cosign` command to retrieve a Chainguard FIPS Container's XCCDF report.
 
