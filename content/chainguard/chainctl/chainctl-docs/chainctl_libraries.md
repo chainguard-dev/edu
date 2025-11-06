@@ -1,22 +1,22 @@
 ---
 date: 2025-11-04T19:15:55Z
-title: "chainctl events subscriptions"
-slug: chainctl_events_subscriptions
-url: /chainguard/chainctl/chainctl-docs/chainctl_events_subscriptions/
+title: "chainctl libraries"
+slug: chainctl_libraries
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl events subscriptions
+## chainctl libraries
 
-Subscription interactions.
+Ecosystem library related commands.
 
 ### Options
 
 ```
-  -h, --help   help for subscriptions
+  -h, --help   help for libraries
 ```
 
 ### Options inherited from parent commands
@@ -35,8 +35,6 @@ Subscription interactions.
 
 ### SEE ALSO
 
-* [chainctl events](/chainguard/chainctl/chainctl-docs/chainctl_events/)	 - Events related commands for the Chainguard platform.
-* [chainctl events subscriptions create](/chainguard/chainctl/chainctl-docs/chainctl_events_subscriptions_create/)	 - Subscribe to events under an organization or folder.
-* [chainctl events subscriptions delete](/chainguard/chainctl/chainctl-docs/chainctl_events_subscriptions_delete/)	 - Delete a subscription.
-* [chainctl events subscriptions list](/chainguard/chainctl/chainctl-docs/chainctl_events_subscriptions_list/)	 - List subscriptions.
+* [chainctl](/chainguard/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
+* [chainctl libraries inventory](/chainguard/chainctl/chainctl-docs/chainctl_libraries_inventory/)	 - Generate artifact inventory from a repository
 
