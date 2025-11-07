@@ -202,6 +202,29 @@ The expected output is the same:
 
 Again, this returns the same information as before. However, using `docker inspect` requires you to download the container image beforehand.
 
+Additionally "`image.title` by `image.vendor`" is also encoded in the image config as a comment. Use `docker history` to retrieve:
+
+```shell
+docker history cgr.dev/chainguard.edu/node
+```
+
+Note the comment in the output:
+
+```
+IMAGE          CREATED        CREATED BY   SIZE      COMMENT
+a063d5e94934   39 hours ago   apko         151kB     node by Chainguard
+<missing>      39 hours ago   apko         1.97MB    node by Chainguard
+<missing>      39 hours ago   apko         889kB     node by Chainguard
+<missing>      39 hours ago   apko         1.12MB    node by Chainguard
+<missing>      39 hours ago   apko         2.88MB    node by Chainguard
+<missing>      39 hours ago   apko         3.47MB    node by Chainguard
+<missing>      39 hours ago   apko         6.79MB    node by Chainguard
+<missing>      39 hours ago   apko         7.17MB    node by Chainguard
+<missing>      39 hours ago   apko         8.5MB     node by Chainguard
+<missing>      39 hours ago   apko         39.6MB    node by Chainguard
+<missing>      39 hours ago   apko         81.1MB    node by Chainguard
+```
+
 ### Adding container image annotations
 
 OCI labels are specific to a container image, not to an entire layer. This means that for base images, annotation information is often overridden later on with more accurate details after the image has been ingested. For example, the `image.author` annotation might be reset to reflect the customer consuming the container image.
