@@ -20,9 +20,10 @@ Chainguard Libraries provide enhanced security for open source dependencies in
 the Java, JavaScript, and Python ecosystems, addressing critical supply chain
 vulnerabilities through automated patching and continuous monitoring. Modern
 applications rely heavily on libraries from public repositories like [Maven
-Central](https://central.sonatype.com/), [npm Registry](https://www.npmjs.com/),
-and [PyPI](https://pypi.org/), but these dependencies often contain
-vulnerabilities that put applications at risk.
+Central](https://central.sonatype.com/), [npm
+Registry](https://www.npmjs.com/), and [PyPI](https://pypi.org/), but using
+these repositories introduces supply chain risks that could expose your
+applications and system to compromise.
 
 ## Background
 
