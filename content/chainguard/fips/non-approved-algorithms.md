@@ -75,11 +75,13 @@ SHA1 is available as approved in Chainguard FIPS Provider for OpenSSL versions 3
 
 ## Access to unapproved algorithms for non-security purposes
 
-### OpenSSL FIPS and MD5
+### OpenSSL FIPS and MD5 and SHA1
 
-In Chainguard FIPS images, OpenSSL operates in approved-only mode and has the default property query string set to `fips=yes` for all algorithms and services, such as message digests, HMAC, and so on.
+Chainguard FIPS images are configured to load the Chainguard FIPS Provider for OpenSSL in approved-only mode and libcrypto public API has default property query string set to `fips=yes`. It means that the CMVP validated cryptographic module is operating in approved-only mode and all unqualified requests for algorithms and services always returned as FIPS approved and allowed.
 
-MD5 is available as a non-approved service. You can request access to it on an opt-in basis using a `?fips=yes` (as in, prefer FIPS implementation if there is one, and fallback to a non-FIPS implementation if not available), or `-fips` (disregard request for a FIPS implementation, and return any available implementation) property query strings via the C API or via command line options to calculate message digests. Usage of these digests in higher-level algorithms is blocked. For example `openssl dgst` calculation is possible, yet `openssl dsgst -sign, -verify, -hmac` is blocked.
+Separatey, in the Base provider, outside of the CMVP cryptographic module boundary, MD5 and SHA1 are available as a non-approved disallowed service (as in it is viewed as a non-cryptographic plaintext one-way compression algorithm). You can request access them on an opt-in basis using a `?fips=yes` property query string (it means prefer FIPS implementation if there is one, and fallback to a non-FIPS implementation if not available), or `-fips` (disregard request for a FIPS implementation, and return any available implementation) property query strings via the C API or via command line options to calculate message digests. Usage of these digests in higher-level algorithms and services is blocked in the Chainguard FIPS Provider for OpenSSL. We recommend `?fips=yes` because it is more portable across other OpenSSL FIPS implementations from other vendors with different implementations and semantics. For example majority of FIPS modules still provide SHA1 as an approved service.
+
+The end result is that `openssl dgst` calculation is possible on opt-in basis, and yet `openssl dsgst -sign, -verify, -hmac` is blocked.
 
 Examples:
 
@@ -103,7 +105,7 @@ Error setting context
 80AB9D605C7F0000:error:0308010C:digital envelope routines:inner_evp_generic_fetch:unsupported:crypto/evp/evp_fetch.c:341:FIPS internal library context, Algorithm (md5 : 0), Properties (<null>)
 ```
 
-There are some caveats and bypasses, some digital signature algorithms allow signing raw data, or prehashed values. In such cases, one can calculate MD5 hash out of band, pad it according to PKCSv1.5 and RSA2048 modulus size and execute raw RSA signing operation. Such a service is non-approved, and it is not possible to know that it is being abused to sign an MD5 hash instead of SHA256. _Please don't do this_ (your FIPS auditors will require that you change it). Higher level one-shot EVP APIs typically accept a message to sign, and perform hashing and padding internally and correctly block creating MD5 signatures. This again highlights that FIPS is about consent, one should use FIPS cryptography intentionally.
+There are some caveats and bypasses, some digital signature algorithms allow signing raw data, or prehashed values. Such operations succeed and raise a dynamic service indicator that such operation is non-approved, as module cannot guess what data was signed. In such cases, one can calculate MD5 hash out of band, pad it according to PKCSv1.5 and RSA2048 modulus size and execute raw RSA signing operation. Such a service is non-approved, and it is not possible to know that it is being abused to sign an MD5 hash instead of SHA256. _Please don't do this_ (your FIPS auditors will require that you change it). Higher level one-shot EVP APIs typically accept a message to sign, and perform hashing and padding internally and correctly block creating MD5 signatures. This again highlights that FIPS is about consent, one should use FIPS cryptography intentionally. This is not a hypothetical example. This technique is used to trick FIPS approved Cloud KMS in GCP to create valid MD5 and SHA1 signatures, even though the message based API only supports SHA256 signatures and up.
 
 If there is C/C++ software that uses OpenSSL APIs and needs access to MD5 and doesn't support `-fips` property query string, please [open a support request](https://support.chainguard.dev/) for Chainguard engineering to look into adding support.
 
