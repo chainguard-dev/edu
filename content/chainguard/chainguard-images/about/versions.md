@@ -69,6 +69,8 @@ If you are using our enterprise Chainguard Production Containers, you will have 
 * For **multiple-release track projects**, you will have access to major and minor versions that are actively maintained. 
 * For **single-release track projects**, you will receive the `:latest` tag as well as every versioned tag that is released over time.
 
+Chainguard Containers use *floating tags*. This means that a container image's tag always points to the most recent build or version within a version stream, rather than a fixed, immutable image. For example, `python:3.19` will always point to the latest version of that version stream (`3.13.9`, as of this writing), even if older tags like `3.13.8` and `3.13.7` are available. 
+
 ## Chainguard Patches and Maintenance
 
 For multiple release software projects with release schedules clearly published, Chainguard will maintain every currently supported version of the software that is maintained by the upstream project. In other words, Chainguard will apply every patch that is available to every maintained version of the upstream software.
@@ -77,15 +79,25 @@ For single release track software projects, Chainguard will maintain only the `:
 
 Actively maintained Chainguard Containers are rebuilt on a daily cadence, so you can be sure the container image you are using is up to date.
 
-### A note about `-r` tags
+### Epoch tags
 
-In some cases, Chainguard will fix vulnerabilities in tools without waiting for the external project to release patches. As an example, say there's a CVE in Go `1.21.3` and the Go team is uncharacteristically slow releasing a fix. In this case, Chainguard could patch a fix into `1.21.3`, and release it as `1.21.3-r2`. Chainguard would continue to make the original package available in an image tagged as `1.21.3-r1`. If Chainguard had to apply further patches to Go `1.21.3`, it would tag these later patched container images with `-r3`, `-r4`, and so on. We call this the *epoch number*. We may take steps like this in order to patch vulnerabilities, remove unnecessary bloat, rebuild the same source with newer tools, or to address bugs in our build configs and build tooling.
+In some cases, Chainguard will fix vulnerabilities in tools without waiting for the external project to release patches.
+
+As an example, say there's a CVE in Go `1.21.3` and the Go team is uncharacteristically slow releasing a fix. In this case, Chainguard could patch a fix into `1.21.3`, and release it as `1.21.3-r2`. Chainguard would continue to make the original package available in an image tagged as `1.21.3-r1`. If Chainguard had to apply further patches to Go `1.21.3`, it would tag these later patched container images with `-r3`, `-r4`, and so on. This is called the *epoch number*.
+
+Chainguard may take steps like this in order to patch vulnerabilities, remove unnecessary bloat, rebuild the same source with newer tools, or to address bugs in our build configs and build tooling. Epoch tags are useful because they provide a clear, human-readable way to track incremental updates to a specific version of a container image, especially when changes are made to the main package or for security fixes.
+
+If a container image has an epoch tag, that tag will stop being updated as soon as a later epoch tag is available. For example, the tag `1.14.5-r3` will no longer be updated once `1.14.5-r4` is available. Because Chainguard Containers are rebuilt frequently, this may not always be apparent; a container image with these tags may show both as being updated on the same day, when in fact `-r3` was updated only to be replaced later in the day by `-r4`.
+
+As mentioned previously, Chainguard Containers use floating tags. In the context of epoch tags, this means that the minor version and patch will both always point to the latest available epoch tag. For example, if the latest epoch tag for Chainguard's `python` container image is `python:3.14.0-r6`, then `python:3`, `python:3.14`, `python:3.14.0`, and `python3.14.0-r6` will all point to the same container image. However, you could still specify `python:3.14.0-r5` should you need.
 
 Bear in mind that Chainguard's Containers, although minimal, will almost always contain more than one package. At the time of writing this, the Go image has more than 60 distinct packages in it, such as bash, busybox, git, glibc, make, and zlib. When we fix a vulnerability in bash for example, we likewise ensure that fix gets rolled out to every container image that includes bash, including the `go:1.21.3` image. The image tagged `1.21.3-r2` will pull in that bash fix, and fixes for any of the other packages in the image.‍
 
 Put simply, when you opt in to pulling `go:1.21.3-r2`, you're opting in to a consistent version of Go, and potentially floating versions of all the other packages. This means you get CVE fixes as well as patch, and minor, and even major version releases of bash, and every other package the image contains.
 
-You can learn more about our approach by reviewing our [blog on image tagging philosophy](https://www.chainguard.dev/unchained/chainguards-image-tagging-philosophy-enabling-high-velocity-updates-pt-1-of-3?utm=docs).
+It’s important to note that using epoch tags to "lock" to specific images is discouraged, as even specific epoch tags can change over time and may introduce breaking or functional changes. For true immutability, use [image digests](/chainguard/chainguard-images/how-to-use/container-image-digests/) instead. 
+
+You can learn more about our approach by reviewing our [blog on Chainguard's container image tagging philosophy](https://www.chainguard.dev/unchained/chainguards-image-tagging-philosophy-enabling-high-velocity-updates-pt-1-of-3?utm=docs).
 
 
 ## Wolfi Packages in Chainguard Containers
