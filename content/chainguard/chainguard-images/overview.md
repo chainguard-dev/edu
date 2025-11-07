@@ -202,15 +202,15 @@ The expected output is the same:
 
 Again, this returns the same information as before. However, using `docker inspect` requires you to download the container image beforehand.
 
-Additionally "`image.title` by `image.vendor`" is also encoded in the image config as a comment. Use `docker history` to retrieve:
+Additionally, images have "`image.title` by `image.vendor`" encoded in the image config as a comment. You can use `docker history` to retrieve this information:
 
 ```shell
-docker history cgr.dev/chainguard.edu/node
+docker history cgr.dev/chainguard/node
 ```
 
-Note the comment in the output:
+Note the `COMMENT` column in the output:
 
-```
+```output
 IMAGE          CREATED        CREATED BY   SIZE      COMMENT
 a063d5e94934   39 hours ago   apko         151kB     node by Chainguard
 <missing>      39 hours ago   apko         1.97MB    node by Chainguard
