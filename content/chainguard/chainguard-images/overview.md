@@ -137,20 +137,20 @@ In addition to the standard OCI annotations, Chainguard sets custom annotations 
 You can inspect image annotations using [`crane`](https://github.com/google/go-containerregistry/tree/main/cmd/crane). This section's examples use [`jq`](https://jqlang.org/), a command-line JSON processor, to filter the output to only show the relevant information:
 
 ```shell
-crane manifest cgr.dev/chainguard/apko:latest | jq -r .annotations
+crane manifest cgr.dev/chainguard/node:latest | jq -r .annotations
 ```
 
 This will output all the annotations set on the image:
 
 ```json
 {
-  "dev.chainguard.image.title": "apko",
-  "dev.chainguard.package.main": "apko",
+  "dev.chainguard.image.title": "node",
+  "dev.chainguard.package.main": "node",
   "org.opencontainers.image.authors": "Chainguard Team https://www.chainguard.dev/",
   "org.opencontainers.image.created": "2025-10-20T02:17:10Z",
-  "org.opencontainers.image.source": "https://github.com/chainguard-images/images/tree/main/images/apko",
-  "org.opencontainers.image.title": "apko",
-  "org.opencontainers.image.url": "https://images.chainguard.dev/directory/image/apko/overview",
+  "org.opencontainers.image.source": "https://github.com/chainguard-images/images/tree/main/images/node",
+  "org.opencontainers.image.title": "node",
+  "org.opencontainers.image.url": "https://images.chainguard.dev/directory/image/node/overview",
   "org.opencontainers.image.vendor": "Chainguard"
 }
 ```
@@ -160,19 +160,19 @@ Chainguard also sets these annotation values as *labels*. In the context of OCI 
 You can also inspect a Chainguard Container's labels using the `crane config` command:
 
 ```shell
-crane config cgr.dev/chainguard/apko:latest | jq '.config.Labels'
+crane config cgr.dev/chainguard/node:latest | jq '.config.Labels'
 ```
 
 The expected output is the same:
 ```json
 {
-  "dev.chainguard.image.title": "apko",
-  "dev.chainguard.package.main": "apko",
+  "dev.chainguard.image.title": "node",
+  "dev.chainguard.package.main": "node",
   "org.opencontainers.image.authors": "Chainguard Team https://www.chainguard.dev/",
   "org.opencontainers.image.created": "2025-10-20T02:17:10Z",
-  "org.opencontainers.image.source": "https://github.com/chainguard-images/images/tree/main/images/apko",
-  "org.opencontainers.image.title": "apko",
-  "org.opencontainers.image.url": "https://images.chainguard.dev/directory/image/apko/overview",
+  "org.opencontainers.image.source": "https://github.com/chainguard-images/images/tree/main/images/node",
+  "org.opencontainers.image.title": "node",
+  "org.opencontainers.image.url": "https://images.chainguard.dev/directory/image/node/overview",
   "org.opencontainers.image.vendor": "Chainguard"
 }
 ```
@@ -182,25 +182,48 @@ This returns the same output as the previous `crane` command.
 Lastly, you can use the `docker inspect` command to inspect a container image's labels:
 
 ```shell
-docker pull cgr.dev/chainguard/apko:latest
-docker inspect cgr.dev/chainguard/apko:latest | jq '.[].Config.Labels'
+docker pull cgr.dev/chainguard/node:latest
+docker inspect cgr.dev/chainguard/node:latest | jq '.[].Config.Labels'
 ```
 
 The expected output is the same:
 ```json
 {
-  "dev.chainguard.image.title": "apko",
-  "dev.chainguard.package.main": "apko",
+  "dev.chainguard.image.title": "node",
+  "dev.chainguard.package.main": "node",
   "org.opencontainers.image.authors": "Chainguard Team https://www.chainguard.dev/",
   "org.opencontainers.image.created": "2025-10-20T02:17:10Z",
-  "org.opencontainers.image.source": "https://github.com/chainguard-images/images/tree/main/images/apko",
-  "org.opencontainers.image.title": "apko",
-  "org.opencontainers.image.url": "https://images.chainguard.dev/directory/image/apko/overview",
+  "org.opencontainers.image.source": "https://github.com/chainguard-images/images/tree/main/images/node",
+  "org.opencontainers.image.title": "node",
+  "org.opencontainers.image.url": "https://images.chainguard.dev/directory/image/node/overview",
   "org.opencontainers.image.vendor": "Chainguard"
 }
 ```
 
 Again, this returns the same information as before. However, using `docker inspect` requires you to download the container image beforehand.
+
+Additionally, images have "`image.title` by `image.vendor`" encoded in the image config as a comment. You can use `docker history` to retrieve this information:
+
+```shell
+docker history cgr.dev/chainguard/node
+```
+
+Note the `COMMENT` column in the output:
+
+```output
+IMAGE          CREATED        CREATED BY   SIZE      COMMENT
+a063d5e94934   39 hours ago   apko         151kB     node by Chainguard
+<missing>      39 hours ago   apko         1.97MB    node by Chainguard
+<missing>      39 hours ago   apko         889kB     node by Chainguard
+<missing>      39 hours ago   apko         1.12MB    node by Chainguard
+<missing>      39 hours ago   apko         2.88MB    node by Chainguard
+<missing>      39 hours ago   apko         3.47MB    node by Chainguard
+<missing>      39 hours ago   apko         6.79MB    node by Chainguard
+<missing>      39 hours ago   apko         7.17MB    node by Chainguard
+<missing>      39 hours ago   apko         8.5MB     node by Chainguard
+<missing>      39 hours ago   apko         39.6MB    node by Chainguard
+<missing>      39 hours ago   apko         81.1MB    node by Chainguard
+```
 
 ### Adding container image annotations
 
