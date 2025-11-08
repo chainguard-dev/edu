@@ -348,8 +348,8 @@ You can compare the sizes of the two container images with `docker`:
 docker image list | grep dotnet-
 ```
 ```output
-dotnet-linky                                       latest       133f20d2bce1   18 hours ago    171MB
-dotnet-notlinky                                    latest       ab2b43e44aca   2 days ago      199MB
+dotnet-linky                                       latest       046ae0be8f9b   5 minutes ago   171MB
+dotnet-notlinky                                    latest       ab2b43e44aca   7 minutes ago   199MB
 ```
 
 This output shows that the `dotnet-linky` container image is significantly smaller than the `dotnet-notlinky` image.
