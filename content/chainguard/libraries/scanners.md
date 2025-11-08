@@ -226,4 +226,4 @@ specific version and therefore reports an invalid vulnerability.
 For additional guidance for Trivy users, refer to our guide [Using Trivy to Scan
 Software
 Artifacts](/chainguard/chainguard-images/staying-secure/working-with-scanners/trivy-tutorial/)
-as well as the [official documentation](https://trivy.dev/latest/docs/).
+as well as the [official documentation](https://trivy.dev/docs/latest/).
