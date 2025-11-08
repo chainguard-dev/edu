@@ -8,7 +8,7 @@ lastmod: 2025-11-05T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers", "Migration"]
 images: []
-weight: 030
+weight: 023
 toc: true
 ---
 
