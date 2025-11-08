@@ -1,5 +1,5 @@
 ---
-date: 2025-11-04T19:15:55Z
+date: 2025-11-06T15:12:43Z
 title: "chainctl packages versions list"
 slug: chainctl_packages_versions_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_packages_versions_list/
@@ -14,16 +14,17 @@ toc: true
 List package version data from Chainguard repositories.
 
 ```
-chainctl packages versions list PACKAGE_NAME [--show-eol] [--show-active] [--show-fips] [--output=csv|json|table|wide]
+chainctl packages versions list PACKAGE_NAME [--show-eol] [--show-active] [--show-fips] [--include-inactive] [--output=csv|json|table|wide]
 ```
 
 ### Options
 
 ```
-  -h, --help          help for list
-      --show-active   Show only active versions.
-      --show-eol      Show only EOL versions.
-      --show-fips     Show only FIPS versions.
+  -h, --help               help for list
+      --include-inactive   Include only packages within the EOL grace period end date. No end date is considered inclusive.
+      --show-active        Show only active versions.
+      --show-eol           Show only EOL versions.
+      --show-fips          Show only FIPS versions.
 ```
 
 ### Options inherited from parent commands
