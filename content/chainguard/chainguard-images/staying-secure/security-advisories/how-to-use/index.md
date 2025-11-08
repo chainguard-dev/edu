@@ -36,7 +36,7 @@ You don't need any special access or software to explore Chainguard's Security A
 
 To follow along with these examples, you'll need the following tools installed.
 
-* A security scanner like [Trivy](https://aquasecurity.github.io/trivy/v0.18.3/installation/), [Grype](https://github.com/anchore/grype#installation), or [Docker Scout](https://docs.docker.com/get-docker/) — This guide's examples use Grype to scan container images and identify vulnerabilities. However, you should be able to follow along with any container vulnerability scanning tool.
+* A security scanner like [Trivy](https://trivy.dev/docs/latest/getting-started/installation/), [Grype](https://github.com/anchore/grype#installation), or [Docker Scout](https://docs.docker.com/get-docker/) — This guide's examples use Grype to scan container images and identify vulnerabilities. However, you should be able to follow along with any container vulnerability scanning tool.
 * [`chainctl`](/chainguard/chainctl/) — Chainguard's command-line interface tool. To install `chainctl`, follow our [installation guide](/chainguard/chainctl-usage/how-to-install-chainctl/). 
 * [`jq`](https://jqlang.github.io/jq/) — `jq` is a command-line JSON processor that allows you to filter and manipulate streaming JSON data. Although it isn’t strictly necessary for the purposes of this guide, this tutorial includes commands that use `jq` to filter command output that would otherwise be difficult to read. You can install `jq` by following the instructions on [the project’s Download jq page](https://jqlang.github.io/jq/download/).
 
