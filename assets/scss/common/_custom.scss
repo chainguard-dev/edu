@@ -1,18 +1,17 @@
 @font-face {
     font-display: swap;
-    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: "Bw Fusiona";
+    font-family: "Gellix";
     font-style: normal;
     font-weight: 400;
-    src: url("/fonts/bw-fusiona.woff2") format("woff2");
+    src: url("/fonts/Gellix-Regular.woff2") format("woff2");
 }
 
 @font-face {
     font-display: swap;
-    font-family: "Lato";
+    font-family: "Gellix";
     font-style: normal;
-    font-weight: 400;
-    src: url("/fonts/lato/lato-regular-normal-latin.woff2")
+    font-weight: 700;
+    src: url("/fonts/Gellix-Bold.woff2") format("woff2");
 }
 
 @font-face {
@@ -30,6 +29,7 @@
 @import "breakpoints";
 @import "theming";
 @import "../components/typography-improvements";
+@import "../components/academy-rebrand";
 
 // Logo base styles
 .navbar-title img,
@@ -155,39 +155,30 @@ html[data-dark-mode] .logo-purple {
     display: flex;
     justify-content: center;
     align-items: center;
-    // Darker, more prominent gradient for light mode to match dark mode aesthetic
-    background: linear-gradient(135deg,
-            rgba(117, 69, 251, 0.25) 0%,
-            rgba(52, 67, 244, 0.20) 50%,
-            rgba(122, 69, 251, 0.15) 100%);
+    background: #ffffff;
+    border: 1px solid rgba(13, 22, 28, 0.1);
     border-radius: 12px;
     width: 100%;
-    box-shadow: 0 4px 16px rgba(122, 69, 251, 0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 1px 3px rgba(13, 22, 28, 0.05);
+    transition: all 0.2s ease;
 
     &:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(122, 69, 251, 0.20);
+        box-shadow: 0 4px 12px rgba(98, 38, 240, 0.12);
+        border-color: rgba(98, 38, 240, 0.2);
     }
 }
 
 // Dark mode override for card backgrounds
 :root[data-dark-mode] .card-background {
-    background: linear-gradient(135deg,
-            rgba(117, 69, 251, 0.4) 0%,
-            rgba(52, 67, 244, 0.3) 50%,
-            rgba(122, 240, 254, 0.2) 100%);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(117, 69, 251, 0.3);
+    background: #0d0d14;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 
     &:hover {
-        background: linear-gradient(135deg,
-                rgba(117, 69, 251, 0.5) 0%,
-                rgba(52, 67, 244, 0.4) 50%,
-                rgba(122, 240, 254, 0.3) 100%);
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
-        border-color: rgba(117, 69, 251, 0.4);
-        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0, 160, 235, 0.15);
+        border-color: rgba(0, 160, 235, 0.3);
+        transform: translateY(-2px);
     }
 }
 
@@ -390,22 +381,69 @@ h2[id^="chainctl"] {
 }
 
 .tag {
-    background-color: var(--tag-background);
-    color: var(--tag-color) !important;
-    padding: 4px 12px;
+    background-color: var(--secondary-3); // Light blurple
+    color: var(--primary-1) !important; // Blurple text
+    padding: 6px 16px;
     border-radius: 6px;
     font-family: $TextFont;
     font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
+    font-weight: 600;
+    font-size: 13px;
     transition: all 0.2s ease;
     display: inline-block;
+    text-decoration: none;
 
     &:hover {
         background-color: var(--primary-1);
         color: white !important;
         transform: translateY(-1px);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 8px rgba(98, 38, 240, 0.2);
+    }
+}
+
+// Brand color tag variants
+.tag-fuschia,
+.tag-pink {
+    background-color: var(--secondary-1); // Light fuschia
+    color: var(--secondary-2) !important; // Fuschia text
+
+    &:hover {
+        background-color: var(--secondary-2);
+        color: white !important;
+    }
+}
+
+.tag-aqua,
+.tag-blue {
+    background-color: #dff4fe; // Light aqua
+    color: var(--primary-2) !important; // Aqua text
+
+    &:hover {
+        background-color: var(--primary-2);
+        color: white !important;
+    }
+}
+
+.tag-lime,
+.tag-green {
+    background-color: #e9fce8; // Light lime
+    color: var(--tertiary-2) !important; // Lime text
+
+    &:hover {
+        background-color: var(--tertiary-2);
+        color: white !important;
+    }
+}
+
+.tag-solar,
+.tag-red,
+.tag-orange {
+    background-color: #fecedd; // Light solar
+    color: var(--tertiary-3) !important; // Solar text
+
+    &:hover {
+        background-color: var(--tertiary-3);
+        color: white !important;
     }
 }
 

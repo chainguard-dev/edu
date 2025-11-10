@@ -2,6 +2,31 @@
   {{ partial "header/alert.html" . }}
 {{ end -}}
 
+{{/* Top Navigation Bar removed - can be re-enabled later
+<div class="top-nav-bar">
+  <div class="top-nav-container">
+    <div class="top-nav-left">
+      <a href="https://www.chainguard.dev" class="top-nav-logo" aria-label="Chainguard">
+        <img src="/logos/linky-flat.svg" alt="Chainguard" class="top-nav-logo-img" width="32" height="32">
+        <span class="top-nav-brand">Chainguard</span>
+      </a>
+      <nav class="top-nav-links" aria-label="Primary navigation">
+        <a href="https://www.chainguard.dev/platform">Platform</a>
+        <a href="https://www.chainguard.dev/solutions">Solutions</a>
+        <a href="https://www.chainguard.dev/customers">Customers</a>
+        <a href="https://www.chainguard.dev/resources">Resources</a>
+        <a href="https://www.chainguard.dev/company">Company</a>
+        <a href="https://www.chainguard.dev/pricing">Pricing</a>
+      </nav>
+    </div>
+    <div class="top-nav-right">
+      <a href="https://console.chainguard.dev" class="top-nav-login">Login</a>
+      <a href="https://www.chainguard.dev/contact?utm_source=docs" class="top-nav-cta">Get started</a>
+    </div>
+  </div>
+</div>
+*/}}
+
 <header class="navbar header-background">
   <nav class="container-xxl flex-wrap flex-lg-nowrap" aria-label="Main navigation">
     {{- $showFlexSearch := .Site.Params.options.flexSearch }}
