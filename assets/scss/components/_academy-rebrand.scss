@@ -200,8 +200,14 @@
 // Hero Section
 .hero-section {
   text-align: center;
-  margin-bottom: 96px;
+  margin-bottom: 32px;
   position: relative;
+}
+
+// Remove padding from first section to reduce space around cards
+.hero-section + .section {
+  padding-top: 0;
+  padding-bottom: 2rem;
 }
 
 
@@ -235,6 +241,12 @@
     opacity: 0.2;
     z-index: -1;
   }
+}
+
+.hero-highlight-no-underline {
+  display: inline-block;
+  position: relative;
+  color: var(--primary-1);
 }
 
 .hero-subtitle {
@@ -417,8 +429,8 @@
   position: relative;
 
   svg {
-    width: 56px;
-    height: 56px;
+    width: 112px;
+    height: 112px;
     flex-shrink: 0;
     transition: transform 0.3s ease, filter 0.3s ease;
   }
@@ -453,6 +465,16 @@
 
   .basics-card:hover {
     box-shadow: 0 8px 32px rgba(0, 160, 235, 0.2);
+  }
+
+  .form-check-input {
+    background: linear-gradient(135deg, #FD2BF2, #e202e0);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .form-check-input {
+    background: linear-gradient(135deg, #FD2BF2, #e202e0);
   }
 }
 
@@ -807,17 +829,42 @@
   }
 }
 
-.footer-bottom-logo-img {
-  width: 32px;
-  height: 32px;
+.footer-logo-light {
+  display: block;
+  height: 26px;
+  width: auto;
 
   @media (prefers-color-scheme: dark) {
-    filter: brightness(0) invert(1);
+    display: none;
   }
 }
 
-:root[data-dark-mode] .footer-bottom-logo-img {
-  filter: brightness(0) invert(1);
+.footer-logo-dark {
+  display: none;
+  height: 26px;
+  width: auto;
+
+  @media (prefers-color-scheme: dark) {
+    display: block;
+  }
+}
+
+:root[data-dark-mode] .footer-logo-light {
+  display: none;
+}
+
+:root[data-dark-mode] .footer-logo-dark {
+  display: block;
+}
+
+:root:not([data-dark-mode]) .footer-logo-light,
+:root[data-dark-mode="false"] .footer-logo-light {
+  display: block;
+}
+
+:root:not([data-dark-mode]) .footer-logo-dark,
+:root[data-dark-mode="false"] .footer-logo-dark {
+  display: none;
 }
 
 .footer-bottom-brand {
