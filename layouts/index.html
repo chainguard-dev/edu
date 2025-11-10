@@ -12,16 +12,19 @@
   </div>
   <div class="center-content index-html flex-shrink-1">
     <main class="docs-content">
-      <div>
+      <div class="hero-section">
         <a href="https://www.chainguard.dev" target="_blank" rel="noopener" style="display: inline-block;">
           <img class="logo-purple" height="50ems" src="/logos/linky-flat.svg" alt="Chainguard Linky" style="transition: transform 0.2s;">
         </a>
 
-        <h2 class="center-title">Chainguard Academy</h2>
-        <div>Master zero CVE containers, security-focused supply chains, and modern DevSecOps practices</div>
+        <h1 class="hero-title">
+          Master the trusted source for
+          <span class="hero-highlight-no-underline">secure software</span>
+        </h1>
+        <p class="hero-subtitle">Learn to build zero CVE containers, harden your supply chain, and ship secure software with confidence</p>
       </div>
 
-      {{ partial "notice.html" . }}
+      {{/* Banner removed for rebrand */}}
 
 
       <section class="section">
@@ -30,106 +33,58 @@
         <div class="top-card-container">
           <div class="card-container">
             <div>
-              <a href="/chainguard/chainguard-images/" class="a--original">
-                <div class="card-background image-card">
-                  <svg width="104" height="67" viewBox="0 0 16 16" fill="currentColor"
-                    xmlns="http://www.w3.org/2000/svg" alt="Boxes Icon">
-                    <g filter="url(#filter0_d_313_358)">
-                      <path
-                        d="M7.752.066a.5.5 0 0 1 .496 0l3.75 2.143a.5.5 0 0 1 .252.434v3.995l3.498 2A.5.5 0 0 1 16 9.07v4.286a.5.5 0 0 1-.252.434l-3.75 2.143a.5.5 0 0 1-.496 0l-3.502-2-3.502 2.001a.5.5 0 0 1-.496 0l-3.75-2.143A.5.5 0 0 1 0 13.357V9.071a.5.5 0 0 1 .252-.434L3.75 6.638V2.643a.5.5 0 0 1 .252-.434L7.752.066ZM4.25 7.504 1.508 9.071l2.742 1.567 2.742-1.567L4.25 7.504ZM7.5 9.933l-2.75 1.571v3.134l2.75-1.571V9.933Zm1 3.134 2.75 1.571v-3.134L8.5 9.933v3.134Zm.508-3.996 2.742 1.567 2.742-1.567-2.742-1.567-2.742 1.567Zm2.242-2.433V3.504L8.5 5.076V8.21l2.75-1.572ZM7.5 8.21V5.076L4.75 3.504v3.134L7.5 8.21ZM5.258 2.643 8 4.21l2.742-1.567L8 1.076 5.258 2.643ZM15 9.933l-2.75 1.571v3.134L15 13.067V9.933ZM3.75 14.638v-3.134L1 9.933v3.134l2.75 1.571Z"
-                        fill="white" />
-                    </g>
-                    <defs>
-                      <filter id="filter0_d_313_358" x="0" y="0.298828" width="104" height="82.4023"
-                        filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                          result="hardAlpha" />
-                        <feOffset dy="8" />
-                        <feGaussianBlur stdDeviation="8" />
-                        <feComposite in2="hardAlpha" operator="out" />
-                        <feColorMatrix type="matrix"
-                          values="0 0 0 0 0.203922 0 0 0 0 0.262745 0 0 0 0 0.956863 0 0 0 0.12 0" />
-                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_313_358" />
-                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_313_358" result="shape" />
-                      </filter>
-                    </defs>
+              <a href="/chainguard/libraries/overview/" class="a--original">
+                <div class="card-background image-card card-gradient-magenta">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="48 48 96 96" fill="none">
+                    <path d="M86.4 67.2V48H48V86.4H67.2V67.2H86.4Z" fill="#FFFFFF"/>
+                    <path d="M105.6 48V67.2H124.8V86.4H144V48H105.6Z" fill="#FFFFFF"/>
+                    <path d="M105.6 67.2H86.4V86.4H67.2V105.6H86.4V124.8H105.6V105.6H124.8V86.4H105.6V67.2Z" fill="#FFFFFF"/>
+                    <path d="M67.2 105.6H48V144H86.4V124.8H67.2V105.6Z" fill="#FFFFFF"/>
+                    <path d="M105.6 124.8V144H144V105.6H124.8V124.8H105.6Z" fill="#FFFFFF"/>
                   </svg>
                 </div>
-                <h5 class="caption-title">Chainguard Containers</h5>
-                <p class="caption">Deploy production-ready, minimal containers with zero known CVEs</p>
+                <h5 class="caption-title">Chainguard Libraries</h5>
+                <p class="caption">Hardened language packages built for enterprise security requirements</p>
               </a>
             </div>
             <div>
-              <a href="https://courses.chainguard.dev/?utm_source=skilljar&utm_medium=referral&utm_campaign=FY25-DevRel-Skilljar" rel="noreference" class="a--original" target="_blank">
-                <div class="card-background image-card">
-                  <svg width="84" height="67" viewBox="0 0 84 67" fill="none" xmlns="http://www.w3.org/2000/svg"
-                    alt="Article Icon">
-                    <g filter="url(#filter0_d_370_653)">
-                      <path
-                        d="M27.4862 23.1328H56.5139V18.9862H27.4862V23.1328ZM27.4862 48.0139H48.8582V43.8672H27.4862V48.0139ZM27.4862 35.5734H56.5139V31.4267H27.4862V35.5734ZM21.9284 58.7C20.4926 58.7 19.2789 58.2043 18.2873 57.2128C17.2958 56.2212 16.8 55.0075 16.8 53.5717V13.4284C16.8 11.9926 17.2958 10.7789 18.2873 9.78733C19.2789 8.79581 20.4926 8.30005 21.9284 8.30005H62.0717C63.5075 8.30005 64.7212 8.79581 65.7128 9.78733C66.7043 10.7789 67.2 11.9926 67.2 13.4284V53.5717C67.2 55.0075 66.7043 56.2212 65.7128 57.2128C64.7212 58.2043 63.5075 58.7 62.0717 58.7H21.9284Z"
-                        fill="white" />
-                    </g>
-                    <defs>
-                      <filter id="filter0_d_370_653" x="0.800049" y="0.300049" width="82.4" height="82.4"
-                        filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                          result="hardAlpha" />
-                        <feOffset dy="8" />
-                        <feGaussianBlur stdDeviation="8" />
-                        <feComposite in2="hardAlpha" operator="out" />
-                        <feColorMatrix type="matrix"
-                          values="0 0 0 0 0.203922 0 0 0 0 0.262745 0 0 0 0 0.956863 0 0 0 0.12 0" />
-                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_370_653" />
-                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_370_653" result="shape" />
-                      </filter>
-                    </defs>
+              <a href="/chainguard/chainguard-vms/" class="a--original">
+                <div class="card-background image-card card-gradient-cyan">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 96 96" fill="none">
+                    <path d="M76.8 38.4V19.2H57.6V0H38.4V19.2H19.2V38.4H0V57.6H19.2V76.8H38.4V96H57.6V76.8H76.8V57.6H96V38.4H76.8ZM38.4 57.6V38.4H57.6V57.6H38.4Z" fill="#FFFFFF"/>
+                  </svg>
+                </div>
+                <h5 class="caption-title">Chainguard VMs</h5>
+                <p class="caption">Secure virtual machine images with built-in security controls and compliance</p>
+              </a>
+            </div>
+            <div>
+              <a href="https://courses.chainguard.dev/?utm_source=skilljar&utm_medium=referral&utm_campaign=FY25-DevRel-Skilljar" class="a--original" target="_blank">
+                <div class="card-background image-card card-gradient-green">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 70 70" fill="none">
+                    <rect x="0" y="14" width="70" height="14" fill="#FFFFFF"/>
+                    <rect x="14" y="28" width="14" height="14" fill="#FFFFFF"/>
+                    <rect x="42" y="28" width="14" height="14" fill="#FFFFFF"/>
+                    <rect x="14" y="42" width="42" height="14" fill="#FFFFFF"/>
                   </svg>
                 </div>
                 <h5 class="caption-title">Courses</h5>
                 <p class="caption">Level up your security skills with hands-on labs and expert-led training</p>
               </a>
             </div>
-            <div>
-              <a href="/chainguard/libraries/overview/" rel="noreference" class="a--original">
-                <div class="card-background image-card">
-
-                  <svg xmlns="http://www.w3.org/2000/svg" height="67px" viewBox="0 -960 960 960" width="67px" fill="white"
-                  alt="Stack Icon">
-                    <path 
-                      d="M480-400 40-640l440-240 440 240-440 240Zm0 160L63-467l84-46 333 182 333-182 84 46-417 227Zm0 160L63-307l84-46 333 182 333-182 84 46L480-80Zm0-411 273-149-273-149-273 149 273 149Zm0-149Z"
-                      fill="white" />
-                    </g>
-                    <defs>
-                      <filter id="filter0_d_370_655" x="0.351929" y="0.300049" width="97.2963" height="82.4"
-                        filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                          result="hardAlpha" />
-                        <feOffset dy="8" />
-                        <feGaussianBlur stdDeviation="8" />
-                        <feComposite in2="hardAlpha" operator="out" />
-                        <feColorMatrix type="matrix"
-                          values="0 0 0 0 0.203922 0 0 0 0 0.262745 0 0 0 0 0.956863 0 0 0 0.12 0" />
-                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_370_655" />
-                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_370_655" result="shape" />
-                      </filter>
-                    </defs></svg>
-                  
-                </div>
-                <h5 class="caption-title">Chainguard Libraries</h5>
-                <p class="caption">Hardened language packages built for enterprise security requirements</p>
-              </a>
-            </div>
           </div>
         </div>
       </section>
       <section class="section-sm">
-        <h4 class="section-title mb-2">Build on a foundation of security</h4>
-        <div>
+        <h2 class="section-title-bold">
+          <span class="title-with-accent">
+            Build on a foundation of security
+            <div class="title-accent-bar accent-bar-cyan"></div>
+          </span>
+        </h2>
+        <p class="section-description">
           Essential guides and best practices for hardening your software supply chain
-        </div>
+        </p>
         <div class="card-container">
           <div class="basics-card">
             <a href="/chainguard/migration/">
@@ -262,4 +217,31 @@
     </main>
   </div>
 </div>
+
+<!-- Footer CTA Section (Home page only) -->
+<section class="footer-cta-section">
+  <div class="footer-cta-container">
+    <div class="footer-cta-content">
+      <h2 class="footer-cta-title">Want to learn more about Chainguard?</h2>
+      <a href="https://www.chainguard.dev/contact?utm_source=cg-academy" class="footer-cta-button">
+        Contact us
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="footer-cta-arrow">
+          <path d="M12.8 6.4L12.8 3.2L9.6 3.2L9.6 6.4L12.8 6.4Z" fill="#6226FB"/>
+          <path d="M12.8 12.8L12.8 9.6L9.6 9.6L9.6 12.8L12.8 12.8Z" fill="#6226FB"/>
+          <path d="M9.6 3.2L9.6 -2.79753e-07L6.4 -4.19629e-07L6.4 3.2L9.6 3.2Z" fill="#6226FB"/>
+          <path d="M9.6 16L9.6 12.8L6.4 12.8L6.4 16L9.6 16Z" fill="#6226FB"/>
+          <path d="M9.6 9.6L9.6 6.4L6.4 6.4L6.4 9.6L9.6 9.6Z" fill="#6226FB"/>
+          <path d="M16 9.6L16 6.4L12.8 6.4L12.8 9.6L16 9.6Z" fill="#6226FB"/>
+          <path d="M3.2 9.6L3.2 6.4L-4.09445e-06 6.4L-4.23433e-06 9.6L3.2 9.6Z" fill="#6226FB"/>
+        </svg>
+      </a>
+    </div>
+    <div class="footer-cta-decoration">
+      <svg width="83" height="72" viewBox="0 0 83 72" fill="none" xmlns="http://www.w3.org/2000/svg" class="footer-cta-linky">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M68.4616 43.4688C69.1167 41.1984 69.4754 38.7072 69.4754 36C69.4754 19.0608 55.5211 0 41.586 0C27.6509 0 13.6966 19.0608 13.6966 36C13.6966 39.6912 14.3613 42.9792 15.5425 45.864L7.16422 45.3936C3.75456 45.2016 0.607918 47.6448 1.13873 51.0288C1.34437 52.344 1.7365 53.688 2.43947 54.8496C0.0675368 56.5248 -0.898454 59.6016 1.01918 62.016C2.94638 64.4352 5.78218 66.6672 9.67006 66.6672C13.8879 66.6672 16.4224 65.5728 17.9671 64.2C18.0818 64.8 18.3114 65.3904 18.6796 65.9472C20.5733 68.832 23.7056 72 28.3395 72C36.2204 72 37.1004 67.032 37.5451 64.536V64.5312C37.6025 64.2 37.8177 63.912 38.119 63.7632L42.9107 61.3584L47.7023 63.7632C48.0036 63.912 48.2188 64.2 48.2762 64.5312V64.536C48.7162 67.032 49.5961 72 57.4818 72C62.1157 72 65.248 68.832 67.1417 65.9472C67.2182 65.832 67.2852 65.7168 67.3473 65.6016C68.8346 66.2448 70.8 66.6624 73.4063 66.6624C77.1555 66.6624 79.9196 64.5888 81.842 62.2704C84.1565 59.4768 82.8319 55.2048 79.3744 54.12L77.605 53.5632C81.1199 51.7344 81.6268 48.2832 81.2442 45.264C80.8282 41.9616 77.825 40.1712 74.6927 41.2704L68.4568 43.464L68.4616 43.4688Z" fill="white"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
 {{ end }}
