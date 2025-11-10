@@ -98,31 +98,12 @@ curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-latest/
 cosign verify-blob \
   --certificate chainguard-ai-docs.tar.gz.crt \
   --signature chainguard-ai-docs.tar.gz.sig \
-  --certificate-identity-regexp ".*" \
+  --certificate-identity "https://github.com/chainguard-dev/edu/.github/workflows/compile-public-docs.yml@refs/heads/main" \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com \
   chainguard-ai-docs.tar.gz
 
-# 3. Extract and verify contents
+# 3. Extract contents
 tar -xzf chainguard-ai-docs.tar.gz
-./verification.sh
-```
-
-### Container Verification
-
-```bash
-# 1. Verify container signature
-cosign verify ghcr.io/chainguard-dev/ai-docs:latest \
-  --certificate-identity-regexp ".*" \
-  --certificate-oidc-issuer https://token.actions.githubusercontent.com
-
-# 2. Inspect without running
-docker create --name temp ghcr.io/chainguard-dev/ai-docs:latest
-docker cp temp:/docs/checksums.txt .
-docker rm temp
-
-# 3. Verify and extract
-docker run --rm ghcr.io/chainguard-dev/ai-docs:latest verify
-docker run --rm -v $(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract /output
 ```
 
 ## Build Frequency
