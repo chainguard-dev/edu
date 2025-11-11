@@ -1,5 +1,5 @@
 ---
-date: 2025-11-06T15:12:43Z
+date: 2025-11-10T21:50:22Z
 title: "chainctl images repos build apply"
 slug: chainctl_images_repos_build_apply
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_apply/
@@ -20,11 +20,12 @@ chainctl images repos build apply [flags]
 ### Options
 
 ```
-  -f, --file string     The name of the file containing the build config.
-  -h, --help            help for apply
-      --parent string   The name or id of the parent location to apply build config.
-      --repo string     The name or id of the repo to apply build config.
-  -y, --yes             Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
+  -f, --file string      The name of the file containing the build config.
+  -h, --help             help for apply
+      --parent string    The name or id of the parent location to apply build config.
+      --repo string      The name or id of the repo to apply build config.
+      --save-as string   Create a new repo with the edited configuration instead of updating the existing one.
+  -y, --yes              Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 
 ### Options inherited from parent commands
