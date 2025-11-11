@@ -1,5 +1,5 @@
 ---
-date: 2025-11-06T15:12:43Z
+date: 2025-11-10T21:50:22Z
 title: "chainctl auth status"
 slug: chainctl_auth_status
 url: /chainguard/chainctl/chainctl-docs/chainctl_auth_status/
@@ -20,9 +20,14 @@ chainctl auth status [--output=json|table|terse] [flags]
 ### Options
 
 ```
-  -h, --help                    help for status
-      --identity-token string   Use an explicit passed identity token or token path.
-      --quick                   Whether to perform quick offline token checks (vs. calling the Validate API).
+      --headless                   Skip browser authentication and use device flow.
+  -h, --help                       help for status
+      --identity string            The unique ID of the identity to assume when logging in.
+      --identity-provider string   The unique ID of the customer managed identity provider to authenticate with
+      --identity-token string      Use an explicit passed identity token or token path.
+      --org-name string            Organization to use for authentication. If configured the organization's custom identity provider will be used
+      --quick                      Whether to perform quick offline token checks (vs. calling the Validate API).
+      --social-login string        Which of the default identity providers to use for authentication. Must be one of: email, google, github, gitlab
 ```
 
 ### Options inherited from parent commands
