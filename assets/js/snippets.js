@@ -49,6 +49,7 @@ const normalizeCodeBlockLabel = (rawLabel) => {
 
     // Output and diffs
     'diff': 'Diff',
+    // Output
     'output': 'Output'
   };
 
