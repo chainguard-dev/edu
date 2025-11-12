@@ -47,7 +47,8 @@ const normalizeCodeBlockLabel = (rawLabel) => {
     'typescript': 'TypeScript',
     'ts': 'TypeScript',
 
-    // Output
+    // Output and diffs
+    'diff': 'Diff',
     'output': 'Output'
   };
 
