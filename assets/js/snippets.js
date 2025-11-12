@@ -40,15 +40,21 @@ const normalizeCodeBlockLabel = (rawLabel) => {
     // Container formats
     'dockerfile': 'Dockerfile',
 
+    // Programming languages
+    'python': 'Python',
+    'javascript': 'JavaScript',
+    'js': 'JavaScript',
+    'typescript': 'TypeScript',
+    'ts': 'TypeScript',
+
     // Output
     'output': 'Output'
   };
 
   const lowerLabel = rawLabel.toLowerCase();
 
-  // Return transformed label or capitalize first letter as fallback
-  return labelTransforms[lowerLabel] ||
-    (rawLabel.charAt(0).toUpperCase() + rawLabel.slice(1));
+  // Return transformed label if defined, otherwise return original unchanged
+  return labelTransforms[lowerLabel] || rawLabel;
 };
 
 const expandCode = (expanded, codeContent, expandButtonText, expandIcon) => {
