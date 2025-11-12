@@ -215,13 +215,52 @@ COPY --link --from=build /app .
 ENTRYPOINT ["./dotnetapp"]
 ```
 
-Like the Dockerfile in the `not-linky` directory, this Dockerfile uses a multi stage build. However, this Dockerfile has a few key differences from the other one:
+Like the Dockerfile in the `not-linky` directory, this Dockerfile uses a multi stage build. However, there are a few key differences between the two Dockerfiles. To find these differences, run the following `diff` command:
 
-1. **Build stage**: Uses `cgr.dev/chainguard/dotnet-sdk:latest-dev` with the `-dev` variant for build tools
-2. **User switching**: Switches to `USER 0` (root) during the restore phase, as this is required for package operations in Chainguard's security model
-3. **Runtime stage**: Uses `cgr.dev/chainguard/aspnet-runtime:latest` which runs as non-root by default; this means it doesn't require explicit `USER` directives
+```shell
+git diff --no-index -U10000 ../not-linky/Dockerfile Dockerfile
+```
+```diff
+diff --git a/../not-linky/Dockerfile b/Dockerfile
+index ce4d06d..cdd6a64 100644
+--- a/../not-linky/Dockerfile
++++ b/Dockerfile
+@@ -1,21 +1,22 @@
+ # Learn about building .NET container images:
+ # https://github.com/dotnet/dotnet-docker/blob/main/samples/README.md
+-ARG IMAGE_REGISTRY="mcr.microsoft.com"
+-FROM --platform=$BUILDPLATFORM ${IMAGE_REGISTRY}/dotnet/sdk:9.0 AS build
++ARG IMAGE_REGISTRY="cgr.dev/chainguard"
++FROM --platform=$BUILDPLATFORM ${IMAGE_REGISTRY}/dotnet-sdk:latest-dev AS build
+ ARG TARGETARCH
+ WORKDIR /source
+ 
+ # Copy project file and restore as distinct layers
+ COPY --link *.csproj .
++# switch to root user in order to do restore
++USER 0
+ RUN dotnet restore -a $TARGETARCH
+ 
+ # Copy source code and publish app
+ COPY --link . .
+ RUN dotnet publish -a $TARGETARCH --no-restore -o /app
+ 
+ # Runtime stage
+-FROM ${IMAGE_REGISTRY}/dotnet/runtime:9.0
++FROM ${IMAGE_REGISTRY}/aspnet-runtime:latest
+ WORKDIR /app
+ COPY --link --from=build /app .
+-USER $APP_UID
+ ENTRYPOINT ["./dotnetapp"]
+```
 
-Build the container image:
+This `diff` output highlights the following differences:
+
+1. **Build stage**: The `linky` directory's Dockerfile uses `cgr.dev/chainguard/dotnet-sdk:latest-dev` with the `-dev` variant for build tools instead of `mcr.microsoft.com/dotnet/sdk:9.0`
+2. **User switching**: This Dockerfile switches to `USER 0` (root) during the restore phase, as this is required for package operations in Chainguard's security model
+3. **Runtime stage**: The `linky` Dockerfile uses `cgr.dev/chainguard/aspnet-runtime:latest` which runs as non-root by default; this means it doesn't require explicit `USER` directives
+
+Build a container image with this Dockerfile:
 
 ```sh
 docker build -t dotnet-linky .
