@@ -102,11 +102,19 @@ for accessing your organization's Sonatype Nexus repository group.
 
 ### Direct access
 
-The build configuration to retrieve artifacts **directly** from the Chainguard Libraries
-for Python repositories requires authentication with username and password from a pull token as detailed in [access
-documentation](/chainguard/libraries/access/#pull-token). Note that there are multiple repositories:
+The build configuration to retrieve artifacts **directly** from the Chainguard
+Libraries for Python repositories requires authentication with username and
+password from a pull token as detailed in [access
+documentation](/chainguard/libraries/access/#pull-token). 
+
+Note that there are multiple repositories:
+
 - `https://libraries.cgr.dev/python/` with the simple index at `https://libraries.cgr.dev/python/simple` 
-- `https://libraries.cgr.dev/python-remediated` with the simple index at `https://libraries.cgr.dev/python-remediated/simple` 
+- `https://libraries.cgr.dev/python-remediated` with the simple index at `https://libraries.cgr.dev/python-remediated/simple`
+
+Configuration for multiple index use and authentication varies for each
+packaging tool. Typically Python tools include support for
+[.netrc](/chainguard/libraries/access/#netrc).
 
 ## Configuring build tools
 
@@ -134,7 +142,7 @@ from Chainguard Libraries.
 First, let's clear your local `pip` cache to ensure that packages are sourced
 from Chainguard Libraries for Python:
 
-```sh
+```shell
 pip cache purge
 ```
 
@@ -182,23 +190,33 @@ configuration file:
 
 Example for `requirements.txt`:
 
-```example
+```
 --index-url https://CG_PULLTOKEN_USERNAME:CG_PULLTOKEN_PASSWORD@libraries.cgr.dev/python/simple/
 ```
 
 Example for `~/.pip/pip.conf`:
 
-```example
+```
 [global]
 index-url = https://CG_PULLTOKEN_USERNAME:CG_PULLTOKEN_PASSWORD@libraries.cgr.dev/python/simple/
 ```
 
-Note that `pip` does not support installing Python libraries from multiple 
-repositories while prioritizing one over another. If you are using `pip` 
-and prefer to pull from multiple repositories while prioritizing Chainguard 
-Libraries for Python, we recommend using a repository manager. Alternatively, 
-other Python package managers below provide support for index priority 
-resolution behavior.
+Note that `pip` supports installing Python libraries from one main repository
+URL specified with `index-url` and one or more additional repositories specified
+with `extra-index-url` without any specific prioritization beyond resolving
+semantic versions. The following example uses authentication from a local
+`.netrc` file and direct access to Chainguard Libraries including remediated
+package versions:
+
+```
+--index-url https://libraries.cgr.dev/python/simple/
+--extra-index-url https://libraries.cgr.dev/python-remediated/simple/
+```
+
+If you are using `pip` and prefer to pull from multiple repositories while
+prioritizing Chainguard Libraries for Python, we recommend using a repository
+manager. Alternatively, other Python package managers, detailed in the following
+sections, provide support for index priority resolution behavior.
 
 <a id="poetry"></a>
 
@@ -278,6 +296,13 @@ Poetry, use your username `CG_PULLTOKEN_USERNAME` and password
 `CG_PULLTOKEN_PASSWORD` values from the pull token creation and the URL with the
 simple context `https://libraries.cgr.dev/python/simple/`:
 
+In order to install Python libraries from multiple repositories with Chainguard
+Libraries for Python as the priority, `poetry` supports setting a [primary
+package
+source](https://python-poetry.org/docs/repositories/#project-configuration). You
+can use this to configure Chainguard Libraries for Python as the first choice
+for any library access, remediated packages from Chainguard as another choices
+and a fallback to the PyPI public index for any missing packages:
 
 ```shell
 poetry config http-basic.chainguard CG_PULLTOKEN_USERNAME CG_PULLTOKEN_PASSWORD
@@ -287,16 +312,39 @@ The authentication is used for the `chainguard` repository that you add to the
 `pyproject.toml` with the following command:
 
 ```shell
-poetry source add chainguard https://libraries.cgr.dev/python/simple/
+poetry source add --priority=primary chainguard https://libraries.cgr.dev/python/simple/
+```
+
+Optionally, add the remediated Python libraries as supplemental source:
+
+```shell
+poetry source add chainguard-remediated https://libraries.cgr.dev/python-remediated/simple/
+```
+
+If you require a fallback to PyPI, you can add it as supplemental source:
+
+```shell
+poetry source add PyPI
+```
+
+Alternatively, edit the `pyproject.toml` file directly:
+
+```toml
+[[tool.poetry.source]]
+name = "chainguard"
+url = "https://libraries.cgr.dev/python-remediated/simple"
+priority = "primary"
+
+[[tool.poetry.source]]
+name = "chainguard-remediated"
+url = "https://libraries.cgr.dev/python-remediated/simple"
+
+[[tool.poetry.source]]
+name = "PyPI"
 ```
 
 The [Poetry documentation](https://python-poetry.org/docs/) contains more
 information about your project build, dependencies, versions, and other aspects. 
-
-In order to install Python libraries from multiple repositories with Chainguard Libraries
-for Python as the priority, `poetry` supports setting a [primary package source](https://python-poetry.org/docs/repositories/#project-configuration). 
-You can use this to configure Chainguard Libraries for Python as the first choice for any 
-library access, with a fallback to the PyPI public index.
 
 ### uv
 
@@ -338,27 +386,67 @@ you are not using [.netrc for
 authentication](/chainguard/libraries/access/#netrc).
 
 For [direct access](#direct-access) to Chainguard Libraries for Python with
-uv, use .netrc or your username `CG_PULLTOKEN_USERNAME` and password
+uv, use `.netrc` or your username `CG_PULLTOKEN_USERNAME` and password
 `CG_PULLTOKEN_PASSWORD` values from the pull token creation and the URL with the
 simple context `https://libraries.cgr.dev/python/simple/`:
 
 Example for `pyproject.toml`:
 
-```
+```toml
 [[tool.uv.index]]
 name = "chainguard"
-url = "https://CG_PULLTOKEN_USERNAME:CG_PULLTOKEN_PASSWORD@libraries.cgr.dev/python/simple/
+url = "https://CG_PULLTOKEN_USERNAME:CG_PULLTOKEN_PASSWORD@libraries.cgr.dev/python/simple/"
+default = true
 ```
 
 Example for `uv.toml`:
 
-```
+```toml
 [[index]]
-url = "https://CG_PULLTOKEN_USERNAME:CG_PULLTOKEN_PASSWORD@libraries.cgr.dev/python/simple/
+url = "https://CG_PULLTOKEN_USERNAME:CG_PULLTOKEN_PASSWORD@libraries.cgr.dev/python/simple/"
 ```
 
-In order to install Python libraries from multiple repositories with Chainguard Libraries
-for Python as the priority, `uv` supports [searching across multiple indexes](https://docs.astral.sh/uv/concepts/indexes/#searching-across-multiple-indexes) 
-while setting a priority index. You can use this to configure Chainguard Libraries for 
-Python as the first choice for any library access, with a fallback to the PyPI public index. 
-In addition, if you are consuming from our remediated Python libraries index, we recommend setting the [index-strategy setting](https://docs.astral.sh/uv/reference/settings/#index-strategy) to `unsafe-best-match`. This will ensure that index resolution continues to work when remediated libraries have dependencies on non-remediated libraries.
+In order to install Python libraries from multiple repositories with Chainguard
+Libraries for Python as the priority, `uv` supports [searching across multiple
+indexes](https://docs.astral.sh/uv/concepts/indexes/#searching-across-multiple-indexes).
+
+You can use this to configure Chainguard Libraries for Python as the first
+choice for any library access, with a fallback to the PyPI public index. In
+addition, if you are consuming from our remediated Python libraries index, we
+recommend setting the [index-strategy
+setting](https://docs.astral.sh/uv/reference/settings/#index-strategy) to
+`unsafe-best-match`. This ensures that index resolution continues to work when
+remediated libraries have dependencies on non-remediated libraries.
+
+Example `pyproject.toml` index setup for direct access to remediated and default
+packages with netrc-based authentication and lowest priority fallback to PyPI.
+Note that the order of the entries in the configuration file is significant and
+determines the order for resolving dependencies:
+
+```toml
+[[tool.uv.index]]
+name = "cgr-pr"
+url = "https://libraries.cgr.dev/python-remediated/simple"
+authenticate = "always"
+
+[[tool.uv.index]]
+name = "cgr-p"
+url = "https://libraries.cgr.dev/python/simple"
+authenticate = "always"
+
+[[tool.uv.index]]
+name = "pypi"
+url = "https://pypi.org/simple/"
+default = true # important to treat it as lowest priority
+```
+
+Set the index strategy to allow fallback from the remediated package index to
+the Chainguard index and even PyPI as final fallback in `pyproject.toml`:
+
+```toml
+[tool.uv]
+index-strategy = "unsafe-best-match"
+```
+
+Run a build to observe the resolved packages. For example, the declared
+dependency to `flask` version `2.0.0` results in the use of version `2.0.0+cgr.1`.
