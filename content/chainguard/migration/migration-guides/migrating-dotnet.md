@@ -16,17 +16,6 @@ Chainguard's [.NET container images](https://images.chainguard.dev/directory/ima
 
 This guide demonstrates migrating a .NET application from Microsoft's official images to Chainguard's .NET container images by comparing two nearly identical versions of an application side-by-side. This guide also highlights concrete examples of the security improvements resulting from migrating to Chainguard Containers.
 
-{{< details "What is distroless?" >}}
-{{< blurb/distroless >}}
-{{< /details >}}
-
-{{< details "What is Wolfi?" >}}
-{{< blurb/wolfi >}}
-{{< /details >}}
-
-{{< details "Chainguard Images" >}}
-{{< blurb/images >}}
-{{< /details >}}
 
 ## Prerequisites
 
@@ -37,18 +26,18 @@ To follow along, you must have Docker installed on your local machine. If you do
 
 ## Retrieving the Demo Application Files
 
-This step involves downloading the demo application code to your local machine. To ensure that the application files don't remain on your system, navigate to a temporary directory like `/tmp/`:
+This step involves downloading the demo application code to your local machine. To prevent the application files from remaining on your system, navigate to a temporary directory like `/tmp/`:
 
 ```sh
 cd /tmp/
 ```
 
-Your system will automatically delete the `/tmp/` directory's contents the next time it shuts down or reboots.
+Most systems will automatically delete the `/tmp/` directory's contents the next time it shuts down or reboots.
 
-The code that comprises this demo application is hosted in a [public GitHub repository managed by Chainguard](https://github.com/chainguard-demo/cs-workshop/tree/main/dotnet). Pull down the example application files from GitHub with the following command:
+The code that comprises this demo application is hosted in a [public GitHub repository managed by Chainguard](https://github.com/chainguard-dev/edu-images-demos). Pull down the example application files from GitHub with the following command:
 
 ```sh
-git clone --sparse https://github.com/chainguard-demo/cs-workshop.git
+git clone --sparse https://github.com/chainguard-dev/edu-images-demos.git
 ```
 
 Because this guide's demo application code is stored in a repository with other examples, we don't need to pull down every file from this repository. For this reason, this command includes the `--sparse` option. This initializes a [sparse-checkout](https://git-scm.com/docs/git-sparse-checkout) file, causing the working directory to contain only the files in the root of the repository until the sparse-checkout configuration is modified.
@@ -56,7 +45,7 @@ Because this guide's demo application code is stored in a repository with other 
 Navigate into this new directory:
 
 ```sh
-cd cs-workshop
+cd edu-images-demos/
 ```
 
 To retrieve the files you need for this tutorial's sample application, run the following `git` command:
@@ -88,7 +77,7 @@ The demo application in both directories is a .NET console program that displays
 - Hardware information (processor count and memory)
 - Container cgroup memory limits and usage
 
-The only significant difference between the two  is that the application in the `not-linky` directory prints an ASCII art banner reading `dotnet`, while the `linky` directory's application prints ASCII art of Linky, Chainguard's octopus mascot. Otherwise, both directories' `Program.cs` and `dotnetapp.csproj` files are identical.
+The only significant difference between the two is that the application in the `not-linky` directory prints an ASCII art banner reading `dotnet`, while the `linky` directory's application prints ASCII art of Linky, Chainguard's octopus mascot. Otherwise, both directories' `Program.cs` and `dotnetapp.csproj` files are identical.
 
 This sample application is based on Microsoft's [dotnet-runtimeinfo sample](https://github.com/dotnet/core/tree/main/samples/dotnet-runtimeinfo) and demonstrates a typical .NET console application that could be containerized for various use cases.
 
@@ -134,7 +123,7 @@ USER $APP_UID
 ENTRYPOINT ["./dotnetapp"]
 ```
 
-This Dockerfile uses a multi stage build pattern:
+This Dockerfile uses a multi-stage build pattern:
 
 1. **Build stage**: Uses `mcr.microsoft.com/dotnet/sdk:9.0` to compile the application
 2. **Runtime stage**: Uses `mcr.microsoft.com/dotnet/runtime:9.0` for the final image
@@ -215,7 +204,7 @@ COPY --link --from=build /app .
 ENTRYPOINT ["./dotnetapp"]
 ```
 
-Like the Dockerfile in the `not-linky` directory, this Dockerfile uses a multi stage build. However, there are a few key differences between the two Dockerfiles. To find these differences, run the following `diff` command:
+Like the Dockerfile in the `not-linky` directory, this Dockerfile uses a multi-stage build. However, there are a few key differences between the two Dockerfiles. To find these differences, run the following `diff` command:
 
 ```shell
 git diff --no-index -U10000 ../not-linky/Dockerfile Dockerfile
@@ -258,7 +247,7 @@ This `diff` output highlights the following differences:
 
 1. **Build stage**: The `linky` directory's Dockerfile uses `cgr.dev/chainguard/dotnet-sdk:latest-dev` with the `-dev` variant for build tools instead of `mcr.microsoft.com/dotnet/sdk:9.0`
 2. **User switching**: This Dockerfile switches to `USER 0` (root) during the restore phase, as this is required for package operations in Chainguard's security model
-3. **Runtime stage**: The `linky` Dockerfile uses `cgr.dev/chainguard/aspnet-runtime:latest` which runs as non-root by default; this means it doesn't require explicit `USER` directives
+3. **Runtime stage**: The `linky` Dockerfile uses `cgr.dev/chainguard/aspnet-runtime:latest` which runs as non-root by default, meaning it doesn't require explicit `USER` directives
 
 Build a container image with this Dockerfile:
 
@@ -355,7 +344,7 @@ bsdutils            1:2.38.1-5+deb12u3                   deb   CVE-2022-0563    
 . . .
 ```
 
-This portion of the `grype` output shows that the `dotnet-notlinky` container image has 72 vulnerabilities, including five high severity vulnerabilities and one critical.
+This portion of the `grype` output shows that the `dotnet-notlinky` container image has 72 vulnerabilities, including five high-severity vulnerabilities and one critical vulnerability.
 
 Next, scan the Chainguard-based image:
 
@@ -401,7 +390,7 @@ This output shows that the `dotnet-linky` container image is significantly small
 When migrating a .NET application to use Chainguard Containers, keep the following considerations in mind:
 
 - **Registry change**: Update image references from `mcr.microsoft.com` to `cgr.dev/chainguard` (or to your organization's private repository within the Chainguard registry, as in `cgr.dev/example.com`)
-- **Multi stage builds**: Both approaches use [multi stage builds](/chainguard/chainguard-images/about/getting-started-distroless/#multi-stage-builds) to separate build-time and runtime dependencies
+- **Multi-stage builds**: Both approaches use [multi-stage builds](/chainguard/chainguard-images/about/getting-started-distroless/#multi-stage-builds) to separate build-time and runtime dependencies
 - **Development variants**: Use [development variants](/chainguard/chainguard-images/about/differences-development-production/) of Chainguard Containers for build stages that need package management tools
 - **`restore` operations**: Chainguard's security model requires explicit root user switching for `dotnet restore` or `apk` operations:
 
@@ -420,7 +409,7 @@ When migrating your .NET applications to Chainguard Containers, remember to use 
 
 ## Learn More
 
-Migrating .NET applications from Microsoft's official images to Chainguard's container images provides significant security benefits with minimal code changes. The multi stage build pattern remains the same, with the primary differences being:
+Migrating .NET applications from Microsoft's official images to Chainguard's container images provides significant security benefits with minimal code changes. The multi-stage build pattern remains the same, with the primary differences being:
 
 1. Updated image registry and tags
 2. Explicit user switching during package operations in build stages
@@ -430,6 +419,6 @@ These small changes result in containerized applications with few-to-zero vulner
 
 For detailed information about Chainguard's .NET container images and additional configuration options, refer to the following resources:
 
-- The [.NET SDK](https://images.chainguard.dev/directory/image/dotnet-sdk/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-dotnet) and [ASP.NET Runtime](https://images.chainguard.dev/directory/image/aspnet-runtime/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-dotnet) documentation contain full details on Chainguard's .NET images, including usage documentation, provenance and security advisories.
+- The [.NET SDK](https://images.chainguard.dev/directory/image/dotnet-sdk/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-dotnet) and [ASP.NET Runtime](https://images.chainguard.dev/directory/image/aspnet-runtime/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-dotnet) documentation pages contain full details on Chainguard's .NET images, including usage documentation, provenance and security advisories.
 - Our [General Migration Guidance](/chainguard/migration/migrating-to-chainguard-images/) is helpful for understanding migration best practices.
 - Chainguard's [Dockerfile Converter (dfc)](/chainguard/migration/dockerfile-conversion/) is a helpful tool for porting existing Dockerfiles to use Chainguard Containers.
