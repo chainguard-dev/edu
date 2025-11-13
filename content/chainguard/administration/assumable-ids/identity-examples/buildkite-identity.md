@@ -239,15 +239,64 @@ steps:
   - label: "Buildkite test"
 	command: |
 	  buildkite-agent pipeline upload
-    curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m)"
+      curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m)"
 	  chmod +x chainctl
-    token=$(buildkite-agent oidc request-token --audience issuer.enforce.dev)
-	  ./chainctl auth login --identity-token $token --identity <your buildkite identity>
-    ./chainctl auth configure-docker --identity-token $token --identity <your buildkite identity>
-    chainctl images repos list
+      mv chainctl /usr/bin
+      token=$(buildkite-agent oidc request-token --audience issuer.enforce.dev)
+	  chainctl auth login --identity-token $token --identity <your buildkite identity>
+      chainctl auth configure-docker --identity-token $token --identity <your buildkite identity>
+      chainctl images repos list
 ```
 
 Click the **Save and Build** button. Ensure that your Buildkite agent is running, and then wait a few moments for the pipeline to finish building.
+
+Alternatively, you can also create a buildkite plugin, like an example below. This plugin is residing in the same code repository where the pipeline is running.
+
+```
+]$ ls -lrt .buildkite/plugins/cgrauth/
+total 8
+-rw-r--r--  1              staff  226  6 Nov 13:04 plugin.yml
+drwxr-xr-x  3              staff   96  6 Nov 14:45 hooks
+]$ ls -lrt .buildkite/plugins/cgrauth/hooks/    
+total 8
+-rwxr-xr-x  1              staff  589  6 Nov 14:45 pre-command
+]$
+
+]$ cat .buildkite/plugins/cgrauth/plugin.yml 
+name: Auth
+description: Authenticate to pull images
+author: https://github.com/<gitid>
+requirements: [bash]
+configuration:
+  properties:
+    identity: { type: string }
+  required: [identity]
+  additionalProperties: false
+
+]$ cat .buildkite/plugins/cgrauth/hooks/pre-command 
+#!/usr/bin/env bash
+set -euo pipefail
+
+identity="${BUILDKITE_PLUGIN_CGRAUTH_IDENTITY:?missing identity}"
+curl -o chainctl https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr "[:upper:]" "[:lower:]")_$(uname -m)
+chmod +x chainctl
+mv chainctl /usr/bin
+token=$(buildkite-agent oidc request-token --audience issuer.enforce.dev)
+chainctl auth login --identity-token $token --identity $identity
+chainctl auth configure-docker --identity-token $token --identity $identity
+```
+
+And, use the plugin like below
+
+```
+steps:
+  - label: "Buildkite test"
+    plugins:
+      - "./.buildkite/plugins/cgrauth":
+          identity: "<your buildkite identity>"
+    command:
+      - 'chainctl images repos list'
+```
 
 Assuming everything works as expected, your pipeline will be able to assume the identity and run the `chainctl images repos list` command, returning the images available to the organization. Then it will pull an image from the organization's repository.
 
