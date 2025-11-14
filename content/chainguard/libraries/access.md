@@ -61,10 +61,10 @@ auth pull-token](/chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token/)
 command:
 
 ```shell
-chainctl auth pull-token --library-ecosystem=java --parent=example --ttl=8670h
+chainctl auth pull-token --repository=java --parent=example --ttl=8670h
 ```
 
-* `--library-ecosystem=java`: retrieve the token for use with [Chainguard
+* `--repository=java`: retrieve the token for use with [Chainguard
   Libraries for Java](/chainguard/libraries/java/overview/). Use `python` for a
   token to use [Chainguard Libraries for
   Python](/chainguard/libraries/python/overview/) and `javascript` for a token to
@@ -190,7 +190,7 @@ Use the `env` environment output option to create a snippet for a new token
 suitable for integration in a script.
 
 ```shell
-$ chainctl auth pull-token --output env --library-ecosystem=java --parent=example
+$ chainctl auth pull-token --output env --repository=java --parent=example
 export CHAINGUARD_JAVA_IDENTITY_ID=45a.....424eb0
 export CHAINGUARD_JAVA_TOKEN=eeyJhbGciO..........WF0IjoxN
 ```
@@ -199,7 +199,7 @@ Combine the call with `eval` to populate the environment variables directly by
 calling `chainctl`:
 
 ```shell
-eval $(chainctl auth pull-token --output env --library-ecosystem=java --parent=example)
+eval $(chainctl auth pull-token --output env --repository=java --parent=example)
 ```
 
 Equivalent commands for Python and JavaScript are supported and result in values
@@ -371,13 +371,13 @@ The displayed list includes the following columns:
 List all pull tokens for Chainguard Libraries for Java that are not yet expired:
 
 ```shell
-chainctl auth pull-token list --library-ecosystem=java
+chainctl auth pull-token list --repository=java
 ```
 
 List all expired pull tokens for Chainguard Libraries for Python:
 
 ```shell
-chainctl auth pull-token list --library-ecosystem=java --expired=true
+chainctl auth pull-token list --repository=java --expired=true
 ```
 
 Use the [delete command for IAM
