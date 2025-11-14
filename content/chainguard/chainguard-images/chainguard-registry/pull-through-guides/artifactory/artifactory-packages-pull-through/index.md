@@ -42,34 +42,24 @@ export CHAINGUARD_ORG=example.org
 Next, generate a pull token:
 
 ```shell
-chainctl auth pull-token --parent=${CHAINGUARD_ORG} -o env
+chainctl auth pull-token --repository=apk --parent=${CHAINGUARD_ORG} -o env
 ```
 
-The command outputs the credentials as `export` commands you can run to set them as environment variables:
+This `chainctl` command's `--repository=apk` flag creates a role binding to bind the pull token identity the `apk.pull` role, enabling the identity to download packages from the private APK repository of the parent organization.
+
+This command's output shows the pull token credentials:
 
 ```output
-export CHAINGUARD_IDENTITY_ID=<id>
-export CHAINGUARD_TOKEN=<token>
+Creating new APK registry pull-token in example.org
+
+To use this pull token in another environment, supply the following for Basic authorization:
+
+Username: <pull-token-id>
+
+Password: <pull-token-password>
 ```
 
-Run the first of these commands to create an environment variable for the identity:
-
-```shell
-export CHAINGUARD_IDENTITY_ID=<id>
-```
-
-Be sure to note both the identity and token values to use when you create a remote Artifactory repository in the next section.
-
-With the environment variables in place, create a role binding to bind the pull token identity the `apk.pull` role:
-
-```shell
-  chainctl iam role-bindings create \
-    --parent=${CHAINGUARD_ORG} \
-    --identity=${CHAINGUARD_IDENTITY_ID} \
-    --role=apk.pull
-```
-
-This enables the identity to download packages from the private APK repository of the organization.
+Be sure to note down both the `Username` and `Password` values returned by this command, as you will need these when setting up a remote Artifactory repository.
 
 
 ## Setting Up a Pull-Through Cache for a Private APK Repository
@@ -89,8 +79,8 @@ This takes you to a **Basic** configuration tab where you can enter the followin
 
 * **Repository Key** — This is a name used to identify your remote repository, for example `cg-private`.
 * **URL** — This must be set to `https://apk.cgr.dev/${CHAINGUARD_ORG}`, but with your organization's actual name in place of `${CHAINGUARD_ORG}`. For example, if your organization is named `example` use `https://apk.cgr.dev/example`.
-* **User Name** — This is used by Artifactory to authenticate to Chainguard and access your private APK repository. Use the pull token identity ID value you set to the `CHAINGUARD_IDENTITY_ID` variable.
-* **Password / Access Token** — This is used along with the user name to authenticate to Chainguard. Here, enter the value from `CHAINGUARD_TOKEN`. 
+* **User Name** — This is used by Artifactory to authenticate to Chainguard and access your private APK repository. Use the pull token `Username` value you generated with `chainctl` in the previous step.
+* **Password / Access Token** — This is used along with the user name to authenticate to Chainguard. Here, enter the `Password` value generated returned by the `chainctl auth pull-token` command in the previous section. 
 
 Then, navigate to the **Advanced** configuration tab and enter the following details:
 
@@ -130,7 +120,7 @@ If you aren't sure of these values, you can find them in the command from the **
 sudo sh -c "echo 'https://linky:<TOKEN>@example-server-name.jfrog.io/artifactory/cg-private/<BRANCH>/<REPOSITORY>'" >> /etc/apk/repositories
 ```
 
-In this example, the Artifactory username is `linky` and the hostname is `example-hostname`.
+In this example, the Artifactory username is `linky` and the hostname is `example-server-name`.
 
 > **Note**: If your Artifactory username is an email address, you must percent-encode the `@` sign, as in `export ARTIFACTORY_USERNAME=linky%40example.com`. Here, the Artifactory username is `linky@example.com`, but it must be entered into the environment variable as `linky%40example.com`. 
 
