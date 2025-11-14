@@ -99,18 +99,18 @@ The following table compares the general abilities of the twelve built-in roles 
 
 | Role | Pull Images | List Tags/Repos | View SBOMs/Diffs | Create IAM Resources | Create Pull Tokens | Libraries Access |
 |------|-------------|-----------------|------------------|---------------------|--------------------|-----------------|
-| `owner` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| `editor` | ✓ | ✓ | ✓ | ✗ | ✗ | ✗ |
-| `viewer` | ✓ | ✓ | ✓ | ✗ | ✗ | ✗ |
-| `registry.pull` | ✓ | ✓ | ✓ | ✗ | ✗ | ✗ |
-| `registry.pull_token_creator` | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ |
-| `apk.pull` | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
-| `libraries.java.pull` | ✗ | ✗ | ✗ | ✗ | ✗ | ✓ |
-| `libraries.java.pull_token_creator` | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ |
-| `libraries.python.pull` | ✗ | ✗ | ✗ | ✗ | ✗ | ✓ |
-| `libraries.python.pull_token_creator` | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ |
-| `libraries.javascript.pull` | ✗ | ✗ | ✗ | ✗ | ✗ | ✓ |
-| `libraries.javascript.pull_token_creator` | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ |
+| `owner` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| `editor` | ✅ | ✅ | ✅ | ✕ | ✕ | ✕ |
+| `viewer` | ✅ | ✅ | ✅ | ✕ | ✕ | ✕ |
+| `registry.pull` | ✅ | ✅ | ✅ | ✕ | ✕ | ✕ |
+| `registry.pull_token_creator` | ✅ | ✅ | ✅ | ✅ | ✅ | ✕ |
+| `apk.pull` | ✕ | ✕ | ✕ | ✕ | ✕ | ✕ |
+| `libraries.java.pull` | ✕ | ✕ | ✕ | ✕ | ✕ | ✅ |
+| `libraries.java.pull_token_creator` | ✕ | ✕ | ✕ | ✅ | ✅ | ✅ |
+| `libraries.python.pull` | ✕ | ✕ | ✕ | ✕ | ✕ | ✅ |
+| `libraries.python.pull_token_creator` | ✕ | ✕ | ✕ | ✅ | ✅ | ✅ |
+| `libraries.javascript.pull` | ✕ | ✕ | ✕ | ✕ | ✕ | ✅ |
+| `libraries.javascript.pull_token_creator` | ✕ | ✕ | ✕ | ✅ | ✅ | ✅ |
 
 </div>
 
