@@ -97,7 +97,7 @@ resource "chainguard_identity" "buildkite" {
 
   claim_match {
     issuer 		 = "https://agent.buildkite.com"
-    subject_pattern = "organization:<organization-name>:pipeline:<pipeline-name>:ref:refs/heads/main:commit:[0-9a-f]+:step:"
+    subject_pattern = "organization:<organization-name>:pipeline:<pipeline-name>:ref:refs/heads/main:commit:[0-9a-f]+:step:.*"
   }
 }
 ```
@@ -211,13 +211,15 @@ From there, click the **Edit Steps** button to add the following commands to a s
 
 ```
 - command: |
-	curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m)"
-	chmod +x chainctl
-  token=$(buildkite-agent oidc request-token --audience issuer.enforce.dev)
-	./chainctl auth login --identity-token $token --identity <your buildkite identity>
-  ./chainctl auth configure-docker --identity-token $token --identity <your buildkite identity>
-  ./chainctl images repos list
-  docker pull cgr.dev/<organization>/<repo>:<tag>
+    curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m)"
+    chmod +x chainctl
+    mv chainctl /usr/bin
+    buildkite-agent oidc request-token --audience issuer.enforce.dev >.token.txt
+    chainctl auth login --identity-token $(cat .token.txt) --identity <your buildkite identity>
+    chainctl auth configure-docker --identity-token $(cat .token.txt) --identity <your buildkite identity>
+    rm .token.txt
+    chainctl images repos list
+    docker pull cgr.dev/<organization>/<repo>:<tag>
 ```
 
 These commands will cause your Buildkite pipeline to download `chainctl` and make it executable. It will then sign in to Chainguard using the Buildkite identity you generated previously. If this workflow can successfully assume the identity, then it will be able to execute the `chainctl images repos list` command and retrieve the list of repos available to the organization.
@@ -237,13 +239,13 @@ You could add the commands for testing the identity like this.
 ```
 steps:
   - label: "Buildkite test"
-	command: |
-	  buildkite-agent pipeline upload
+    command: |
+      buildkite-agent pipeline upload
       curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m)"
-	  chmod +x chainctl
+      chmod +x chainctl
       mv chainctl /usr/bin
       token=$(buildkite-agent oidc request-token --audience issuer.enforce.dev)
-	  chainctl auth login --identity-token $token --identity <your buildkite identity>
+      chainctl auth login --identity-token $token --identity <your buildkite identity>
       chainctl auth configure-docker --identity-token $token --identity <your buildkite identity>
       chainctl images repos list
 ```
