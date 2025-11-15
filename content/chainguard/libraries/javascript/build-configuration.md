@@ -641,7 +641,7 @@ You can also temporarily override for install:
 bun install --registry=https://repo.example.com:8443/repository/javascript-all/
 ```
 
-Refer to [Bun documentation]() for additional registry and authentication options.
+Refer to [Bun documentation](https://bun.com/docs) for additional registry and authentication options.
 
 Example registry URLs:
 
