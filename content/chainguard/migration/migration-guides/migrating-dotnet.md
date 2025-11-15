@@ -79,7 +79,7 @@ The demo application in both directories is a .NET console program that displays
 
 The only significant difference between the two is that the application in the `not-linky` directory prints an ASCII art banner reading `dotnet`, while the `linky` directory's application prints ASCII art of Linky, Chainguard's octopus mascot. Otherwise, both directories' `Program.cs` and `dotnetapp.csproj` files are identical.
 
-This sample application is based on Microsoft's [dotnet-runtimeinfo sample](https://github.com/dotnet/core/tree/main/samples/dotnet-runtimeinfo) and demonstrates a typical .NET console application that could be containerized for various use cases.
+This sample application is based on Microsoft's [dotnet-runtimeinfo sample](https://github.com/dotnet/dotnet-docker/blob/main/samples/) and demonstrates a typical .NET console application that could be containerized for various use cases.
 
 In the following sections, we'll build and compare both versions of the application.
 
