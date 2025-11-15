@@ -1,0 +1,102 @@
+---
+title: "Chainguard FIPS TLS Connectivity Requirements"
+linktitle: "FIPS TLS Connectivity Requirements"
+lead: ""
+type: "article"
+description: "FIPS TLS requirements for clients and servers to establish connectivity"
+date: 2025-11-15T08:49:31+00:00
+lastmod: 2025-11-15T15:22:20+01:00
+draft: false
+tags: ["FIPS", "TLS"]
+images: []
+toc: true
+weight: 010
+---
+
+This document provides an overview of FIPS TLS connectivy requirements for using Chainguard FIPS products. The FIPS products have **higher** minimum TLS requirements, which reduce connectivity with insecure EOL non-FIPS systems, as well as FIPS systems with lapsed (historical) certification.
+
+Efforts are made to ensure the broadest connectivity possible, however many obsolete systems are still widely used and may experience lack of connectiviy with Chainguard FIPS products.
+
+## FIPS TLS Requirements
+
+### TLSv1.3
+
+The [NIST SP 800-52 Rev. 2](https://csrc.nist.gov/pubs/sp/800/52/r2/final) required all clients and servers to support TLSv1.3 by January 1, 2024.
+
+Whilst majority of FIPS modules do have support for TLSv1.3 there are many FIPS 140-2 certified products and operating systems that do not have TLSv1.3 support. As of November 2025 there are [768 Active FIPS 140-2](https://csrc.nist.gov/projects/cryptographic-module-validation-program/validated-modules/search?SearchMode=Advanced&Standard=140-2&CertificateStatus=Active&ValidationYear=0) validated modules, many of which do not have TLSv1.3 capability.
+
+As a rule of thumb, products launched prior to 2019 do not have TLSv1.3 support, and still require TLSv1.2. If at all possible, ensure to upgrade clients and servers to gain TLSv1.3 capability, as newer FIPS modules have started to drop support for validated TLSv1.2. This is primary driven by adding Post-Quantum Cryptograpy (PQC) which is only supported with TLSv1.3.
+
+### TLSv1.2 RFC 7627
+
+A "tripple handshake" man-in-the-middle attack was discovered in the original TLSv1.2 [RFC 5246](https://datatracker.ietf.org/doc/html/rfc5246) protocol specification. The TLSv1.2 [RFC 7627](https://datatracker.ietf.org/doc/html/rfc7627) published in 2015 addresses this vulnerability with an Extended Master Secret extension.
+
+Connectivity without support for TLSv1.2 RFC 7627 does not guarantee confidentially.
+
+To address this vulnerability in FIPS modules NIST initiated a [programmatic transition](https://csrc.nist.gov/Projects/cryptographic-module-validation-program/programmatic-transitions) to require TLSv1.2 [RFC 7627](https://datatracker.ietf.org/doc/html/rfc7627) in approved mode for all new module validations from May 16, 2023.
+
+This means that all FIPS modules submitted after that date require TLSv1.2 with RFC 7627 support in approved mode.
+
+As a rule of thumb, there are very few products that have support for TLSv1.2 with RFC 7627 without TLSv1.3 support, most notably some versions of Windows and Android.
+
+## Known compatible clients and servers
+
+The following Operating Systems, and newer versions of thereof, are known to support TLSv1.2 RFC 7627 and/or TLSv1.3 and should be able to establish TLS connectivy with Chainguard FIPS products:
+
+* Windows 10
+* Windows Server 2016
+* RHEL 8
+* Fedora 28
+* Ubuntu 18.04
+* Amazon Linux 2023
+* SLES 15
+* OpenSUSE Leap 15
+* Debian 10
+* Android 6.0
+* Apple macOS Siera 10.12
+* iOS 10
+
+This list is not exhaustive. To find FIPS products that suppot TLSv1.2 RFC 7627 or TLS v1.3 one can use [CAVP search](https://csrc.nist.gov/Projects/cryptographic-algorithm-validation-program/validation-search), select Implementation, and in the list of algorithms select "TLS v1.2 RFC7627" or "TLS v1.3 KDF".
+
+### Amazon Linux 2 connectivity support
+
+Amazon Linux 2 has shipped without support for neither TLSv1.2 RFC
+7627 or TLS v1.3.
+
+Amazon Linux 2 FIPS validation in default configuration has lapsed,
+and is now historical without any further updates.
+
+There is no approved mode connectivity with Amazon Linux 2 default
+FIPS and non-FIPS configurations.
+
+Amazon Linux 2 non-FIPS has optional package openssl11, upon
+installing it one can gain approved connectivity with Chainguard FIPS
+products. Note that Amazon Linux 2 openssl11 package does not have
+CMVP validation.
+
+Amazon Linux 2 product has reached end-of-life multiple times, and yet
+keeps getting extended. It is currently scheduled to sunset in June
+30, 2026.
+
+It is recommended to upgrade to Chainguard VMs, Amazon Linux 2023, or
+Bottlerocket.
+
+## Testing Connectivity
+
+For guaranteed connectivity, the following TLS requirements must be at
+minimum supported by clients and servers communicating with Chainguard FIPS products:
+
+- TLSv1.3 with the TLS_AES_256_GCM_SHA384 cipher suite
+- TLSv1.2 with
+  - ECDHE-ECDSA-AES256-GCM-SHA384 cipher string
+  - [RFC 7627](https://datatracker.ietf.org/doc/html/rfc7627) Extended Master Secret Extenstion support
+- Signatures using P-256 with SHA-256
+- Signatures using RSA with 2048 bits and SHA-256
+
+The requirements can be approximately tested with the following OpenSSL client command:
+
+```shell
+openssl s_client -cipher @SECLEVEL=2:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384 -ciphersuites TLS_AES_256_GCM_SHA384 -groups P-256 -connect HOST:PORT
+```
+
+> Note that in the case of TLSv1.2 connectivity you must check the output for `Extended master secret: yes`.
