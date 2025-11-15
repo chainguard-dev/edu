@@ -59,7 +59,7 @@ Username: <pull-token-id>
 Password: <pull-token-password>
 ```
 
-Be sure to note down both the `Username` and `Password` values returned by this command, as you will need these when setting up a remote Artifactory repository.
+Be sure to note down both the `Username` and `Password` values returned by this command, as you will need these when setting up a remote repository on Artifactory.
 
 
 ## Setting Up a Pull-Through Cache for a Private APK Repository

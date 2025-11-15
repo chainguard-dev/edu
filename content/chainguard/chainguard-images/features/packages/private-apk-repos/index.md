@@ -303,7 +303,7 @@ calling `chainctl`. The following example uses the default TTL value of 30 days,
 which is suitable for regular CI runs:
 
 ```shell
-eval $(chainctl auth pull-token --output env --parent=ORGANIZATION)
+eval $(chainctl auth pull-token --repository=apk --output env --parent=ORGANIZATION)
 ```
 
 The generated pull token can be provided in the `HTTP_AUTH` environment variable
