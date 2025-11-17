@@ -111,6 +111,10 @@ Alternatively, you can use the token for direct access from a build tool as
 discussed in [Build
 configuration](/chainguard/libraries/java/build-configuration/).
 
+Follow the steps detailed in [Manual access](#manual) to browse the directories
+of the Maven repository and find available libraries, library versions, and
+available files.
+
 <a id="manual">
 
 ## Manual access
@@ -124,18 +128,36 @@ This site provides a directory browsing and file listing capability similar to
 the Maven Central repository at
 [`https://repo1.maven.org/maven2/`](https://repo1.maven.org/maven2/). The
 structure follows the [Maven repository
-format](https://maven.apache.org/repository/layout.html).
+format](https://maven.apache.org/repository/layout.html). The `groupId` and
+`artifactId` of a library is used to create a nested directory structure,
+similar to the package structure within Java projects.
 
+For example, the Maven coordinates for [Apache Commons
+Lang](https://commons.apache.org/proper/commons-lang/) 3.18.0 are the following:
+
+```xml
+<groupId>org.apache.commons</groupId>
+<artifactId>commons-lang3</artifactId>
+<version>3.18.0</version>
+```
+
+All available versions can be found in
+[https://libraries.cgr.dev/java/org/apache/commons/commons-lang3](https://libraries.cgr.dev/java/org/apache/commons/commons-lang3)
+since the `groupId` is used to create separate, nested directories `org`
+`apache`, and `commons`, and the `artifactId` results in the `commons-lang3`
+directory.
+
+The final leaf directory is created from the `version`, in the example `3.18.0`.
 All leaf directories are allocated for a specific version of a specific library
-and contain all relevant files. 
+and contain all relevant files.
 
 For example, the directory at
-`https://libraries.cgr.dev/java/commons-io/commons-io/2.17.0/` contains all
-files for the `commons-io:commons-io:2.17.0` library. Specifically, this
-includes the file `commons-io-2.17.0.pom` for the main Maven metadata from the
-project and main JAR file `commons-io-2.17.0.jar`. The directory also includes
-numerous other files, and related checksum files. Specific files vary between
-the different libraries.
+`https://libraries.cgr.dev/java/org/apache/commons/commons-lang3` contains all
+files for the `org.apache.commons:commons-lang3:3.18.0` library. Specifically,
+this includes the file `commons-lang3-3.18.0.pom` for the main Maven metadata
+from the project and main JAR file `commons-lang3-3.18.0.jar`. The directory
+also includes numerous other files, and related checksum files. Specific files
+vary between the different libraries.
 
 All filenames can be used to download individual files.
 
