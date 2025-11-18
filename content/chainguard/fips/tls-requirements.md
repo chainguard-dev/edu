@@ -31,7 +31,7 @@ As a rule of thumb, products launched prior to 2019 do not have TLSv1.3 support,
 
 A "triple handshake" man-in-the-middle attack was discovered in the original TLSv1.2 [RFC 5246](https://datatracker.ietf.org/doc/html/rfc5246) protocol specification. The TLSv1.2 [RFC 7627](https://datatracker.ietf.org/doc/html/rfc7627) (published in 2015) addresses this vulnerability with an Extended Master Secret extension.
 
-Connectivity without support for TLSv1.2 RFC 7627 does not guarantee confidentially.
+If you connect to Chainguard's products without support for TLSv1.2 RFC 7627, your privacy and data integrity are not guaranteed.
 
 To address this vulnerability in FIPS modules NIST initiated a [programmatic transition](https://csrc.nist.gov/Projects/cryptographic-module-validation-program/programmatic-transitions) to require TLSv1.2 [RFC 7627](https://datatracker.ietf.org/doc/html/rfc7627) in approved mode for all new module validations from May 16, 2023.
 
