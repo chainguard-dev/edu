@@ -21,7 +21,7 @@ Chainguard strives to ensure the broadest connectivity possible for its FIPS pro
 
 ### TLSv1.3
 
-The [NIST SP 800-52 Rev. 2](https://csrc.nist.gov/pubs/sp/800/52/r2/final) required all clients and servers to support TLSv1.3 by January 1, 2024.
+[NIST Special Publication 800-52 Rev. 2](https://csrc.nist.gov/pubs/sp/800/52/r2/final) required all clients and servers to support TLSv1.3 by January 1, 2024.
 
 While the majority of FIPS modules do have support for TLSv1.3, there are many FIPS 140-2 certified products and operating systems that do not have TLSv1.3 support. As of November 2025 there are [768 Active FIPS 140-2](https://csrc.nist.gov/projects/cryptographic-module-validation-program/validated-modules/search?SearchMode=Advanced&Standard=140-2&CertificateStatus=Active&ValidationYear=0) validated modules, many of which do not have TLSv1.3 capability.
 
