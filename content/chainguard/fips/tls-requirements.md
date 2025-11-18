@@ -29,7 +29,7 @@ As a rule of thumb, products launched prior to 2019 do not have TLSv1.3 support,
 
 ### TLSv1.2 RFC 7627
 
-A "tripple handshake" man-in-the-middle attack was discovered in the original TLSv1.2 [RFC 5246](https://datatracker.ietf.org/doc/html/rfc5246) protocol specification. The TLSv1.2 [RFC 7627](https://datatracker.ietf.org/doc/html/rfc7627) published in 2015 addresses this vulnerability with an Extended Master Secret extension.
+A "triple handshake" man-in-the-middle attack was discovered in the original TLSv1.2 [RFC 5246](https://datatracker.ietf.org/doc/html/rfc5246) protocol specification. The TLSv1.2 [RFC 7627](https://datatracker.ietf.org/doc/html/rfc7627) (published in 2015) addresses this vulnerability with an Extended Master Secret extension.
 
 Connectivity without support for TLSv1.2 RFC 7627 does not guarantee confidentially.
 
