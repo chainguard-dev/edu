@@ -15,7 +15,7 @@ weight: 010
 
 This document provides an overview of FIPS TLS connectivy requirements for using Chainguard FIPS products. The FIPS products have **higher** minimum TLS requirements, which reduce connectivity with insecure EOL non-FIPS systems, as well as FIPS systems with lapsed (historical) certification.
 
-Efforts are made to ensure the broadest connectivity possible, however many obsolete systems are still widely used and may experience lack of connectiviy with Chainguard FIPS products.
+Chainguard strives to ensure the broadest connectivity possible for its FIPS products. However, many obsolete systems are still widely used and may not be able to connect with Chainguard FIPS products.
 
 ## FIPS TLS Requirements
 
