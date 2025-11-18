@@ -33,7 +33,7 @@ A "triple handshake" man-in-the-middle attack was discovered in the original TLS
 
 If you connect to Chainguard's products without support for TLSv1.2 RFC 7627, your privacy and data integrity are not guaranteed.
 
-To address this vulnerability in FIPS modules NIST initiated a [programmatic transition](https://csrc.nist.gov/Projects/cryptographic-module-validation-program/programmatic-transitions) to require TLSv1.2 [RFC 7627](https://datatracker.ietf.org/doc/html/rfc7627) in approved mode for all new module validations from May 16, 2023.
+To address this vulnerability in FIPS modules, NIST initiated a [programmatic transition](https://csrc.nist.gov/Projects/cryptographic-module-validation-program/programmatic-transitions) to require TLSv1.2 [RFC 7627](https://datatracker.ietf.org/doc/html/rfc7627) in approved mode for all new module validations from May 16, 2023.
 
 This means that all FIPS modules submitted after that date require TLSv1.2 with RFC 7627 support in approved mode.
 
