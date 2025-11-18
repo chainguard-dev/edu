@@ -83,8 +83,7 @@ Bottlerocket.
 
 ## Testing Connectivity
 
-For guaranteed connectivity, the following TLS requirements must be at
-minimum supported by clients and servers communicating with Chainguard FIPS products:
+To guarantee connectivity, clients and servers communicating with Chainguard FIPS products must, at minimum, support the following  TLS requirements:
 
 - TLSv1.3 with the TLS_AES_256_GCM_SHA384 cipher suite
 - TLSv1.2 with
@@ -93,7 +92,7 @@ minimum supported by clients and servers communicating with Chainguard FIPS prod
 - Signatures using P-256 with SHA-256
 - Signatures using RSA with 2048 bits and SHA-256
 
-The requirements can be approximately tested with the following OpenSSL client command:
+These requirements can be approximately tested with the following OpenSSL client command:
 
 ```shell
 openssl s_client -cipher @SECLEVEL=2:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384 -ciphersuites TLS_AES_256_GCM_SHA384 -groups P-256 -connect HOST:PORT
