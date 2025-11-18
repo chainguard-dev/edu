@@ -25,7 +25,7 @@ The [NIST SP 800-52 Rev. 2](https://csrc.nist.gov/pubs/sp/800/52/r2/final) requi
 
 While the majority of FIPS modules do have support for TLSv1.3, there are many FIPS 140-2 certified products and operating systems that do not have TLSv1.3 support. As of November 2025 there are [768 Active FIPS 140-2](https://csrc.nist.gov/projects/cryptographic-module-validation-program/validated-modules/search?SearchMode=Advanced&Standard=140-2&CertificateStatus=Active&ValidationYear=0) validated modules, many of which do not have TLSv1.3 capability.
 
-As a rule of thumb, products launched prior to 2019 do not have TLSv1.3 support, and still require TLSv1.2. If at all possible, ensure to upgrade clients and servers to gain TLSv1.3 capability, as newer FIPS modules have started to drop support for validated TLSv1.2. This is primary driven by adding Post-Quantum Cryptograpy (PQC) which is only supported with TLSv1.3.
+As a rule of thumb, products launched prior to 2019 do not have TLSv1.3 support, and still require TLSv1.2. If at all possible, upgrade clients and servers to gain TLSv1.3 capability, as newer FIPS modules have started to drop support for validated TLSv1.2. This is primarily driven by adding Post-Quantum Cryptograpy (PQC) which is only supported with TLSv1.3.
 
 ### TLSv1.2 RFC 7627
 
