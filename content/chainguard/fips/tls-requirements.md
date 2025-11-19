@@ -7,7 +7,7 @@ description: "FIPS TLS requirements for clients and servers to establish connect
 date: 2025-11-15T08:49:31+00:00
 lastmod: 2025-11-15T15:22:20+01:00
 draft: false
-tags: ["FIPS", "TLS"]
+tags: ["FIPS", "TLS", "Product"]
 images: []
 toc: true
 weight: 010
