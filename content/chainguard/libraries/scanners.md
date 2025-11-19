@@ -227,3 +227,6 @@ For additional guidance for Trivy users, refer to our guide [Using Trivy to Scan
 Software
 Artifacts](/chainguard/chainguard-images/staying-secure/working-with-scanners/trivy-tutorial/)
 as well as the [official documentation](https://trivy.dev/docs/latest/).
+
+## AWS Inspector
+AWS Inspector supports detection of remediated Chainguard Libraries. Refer to the AWS docs for additional details.
