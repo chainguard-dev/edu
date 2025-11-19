@@ -60,26 +60,13 @@ This list is not exhaustive. To find FIPS products that suppot TLSv1.2 RFC 7627 
 
 ### Amazon Linux 2 connectivity support
 
-Amazon Linux 2 has shipped without support for neither TLSv1.2 RFC
-7627 or TLS v1.3.
+There is no approved mode for connecting Chainguard products with Amazon Linux 2 in its default FIPS and non-FIPS configurations.
 
-Amazon Linux 2 FIPS validation in default configuration has lapsed,
-and is now historical without any further updates.
+Amazon Linux 2 ships without support for TLSv1.2 RFC 7627 or TLS v1.3. Additionally, Amazon Linux 2 FIPS certification has lapsed.
 
-There is no approved mode connectivity with Amazon Linux 2 default
-FIPS and non-FIPS configurations.
+Amazon Linux 2 non-FIPS has an optional package: `openssl11`. With this installed, it is possible to gain approved connectivity with Chainguard FIPS products.
 
-Amazon Linux 2 non-FIPS has optional package openssl11, upon
-installing it one can gain approved connectivity with Chainguard FIPS
-products. Note that Amazon Linux 2 openssl11 package does not have
-CMVP validation.
-
-Amazon Linux 2 product has reached end-of-life multiple times, and yet
-keeps getting extended. It is currently scheduled to sunset in June
-30, 2026.
-
-It is recommended to upgrade to Chainguard VMs, Amazon Linux 2023, or
-Bottlerocket.
+As of this writing, Amazon Linux 2 is currently scheduled to sunset on June 30, 2026. We recommend upgrading to Chainguard VMs, Amazon Linux 2023, or Bottlerocket.
 
 ## Testing Connectivity
 
