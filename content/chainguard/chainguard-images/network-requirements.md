@@ -87,7 +87,7 @@ openssl s_client -cipher @SECLEVEL=2:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES
 
 > Note that in the case of TLSv1.2 connectivity you must check the output for `Extended master secret: yes`.
 
-One can also replace the `cgr.dev:443` with your own deployments.
+You can replace `cgr.dev:443` with your own deployments.
 
 Many of the endpoints for Chainguard products require support for the encrypted [HTTP/2 protocol](https://http2.github.io/). Some decrypting proxies might not support HTTP/2. 
 
