@@ -77,11 +77,18 @@ Containers and endpoints:
   - [RFC 7627](https://datatracker.ietf.org/doc/html/rfc7627) Extended Master Secret Extenstion support
 - Signatures using P-256 with SHA-256
 - Signatures using RSA-PSS with 2048 bits and SHA-256
+- Support for encrypted HTTP/2 is required, including by any proxies in use
 
 The requirements can be approximately tested with the following OpenSSL client command:
 
 ```shell
-openssl s_client -cipher @SECLEVEL=2:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384 -ciphersuites TLS_AES_256_GCM_SHA384 -groups P-256 -connect HOST:PORT
+openssl s_client -cipher @SECLEVEL=2:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384 -ciphersuites TLS_AES_256_GCM_SHA384 -groups P-256 -alpn h2 -connect cgr.dev:443 < /dev/null
 ```
 
 > Note that in the case of TLSv1.2 connectivity you must check the output for `Extended master secret: yes`.
+
+You can replace `cgr.dev:443` with your own deployments.
+
+Many of the endpoints for Chainguard products require support for the encrypted [HTTP/2 protocol](https://http2.github.io/). Some decrypting proxies might not support HTTP/2. 
+
+Zscaler, a popular decrypting proxy, does not currently support encrypted HTTP/2 traffic. You may need to reconfigure Zscaler to disable its "Block Undecryptable Traffic" setting. Another option is to configure direct (proxyless) access to HTTP/2 endpoints and use the `no_proxy=` environment variable. Please consult your proxy software's documentation for guidance on adjusting these settings.
