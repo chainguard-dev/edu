@@ -77,7 +77,7 @@ Containers and endpoints:
   - [RFC 7627](https://datatracker.ietf.org/doc/html/rfc7627) Extended Master Secret Extenstion support
 - Signatures using P-256 with SHA-256
 - Signatures using RSA-PSS with 2048 bits and SHA-256
-- Encrypted http/2 protocol must be supported, for example by proxies if any are in use
+- Support for encrypted HTTP/2 is required, including by any proxies in use
 
 The requirements can be approximately tested with the following OpenSSL client command:
 
