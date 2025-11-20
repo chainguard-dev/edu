@@ -3635,6 +3635,76 @@
         ]
       }
     },
+    "/registry/v1/settings/{registryId}": {
+      "get": {
+        "operationId": "Registry_GetRegistrySettings",
+        "parameters": [
+          {
+            "description": "registry_id is the UIDP of the root group to get settings for.",
+            "in": "path",
+            "name": "registryId",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryRegistrySettings"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      },
+      "put": {
+        "operationId": "Registry_UpdateRegistrySettings",
+        "parameters": [
+          {
+            "description": "registry_id is the UIDP of the root group (e.g., cgr.dev/\u003cuidp\u003e/...).",
+            "in": "path",
+            "name": "registryId",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RegistryUpdateRegistrySettingsBody"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryRegistrySettings"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      }
+    },
     "/registry/v1/tags": {
       "get": {
         "operationId": "Registry_ListTags",
@@ -4491,13 +4561,6 @@
             "type": "string"
           },
           {
-            "description": "artifact_namespace filters by artifact namespace",
-            "in": "query",
-            "name": "artifactNamespace",
-            "required": false,
-            "type": "string"
-          },
-          {
             "description": "component_name filters by component name",
             "in": "query",
             "name": "componentName",
@@ -4616,6 +4679,25 @@
             "description": "exclude_event_author filters out advisories where any event was created by the specified author\nWhen specified, advisories containing events by this author will be excluded from results.\nThis is useful for review workflows where users want to see all pending events except their own,\nenabling them to review others' work without seeing their own submissions.",
             "in": "query",
             "name": "excludeEventAuthor",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "EVENT_TYPE_FILTER_UNSPECIFIED",
+            "description": "latest_event_type filters out advisories where the _most recent approved event_ is\nof the given type. This is useful to find advisories which are currently detected,\nfixed, patched, etc.\n\n - EVENT_TYPE_FILTER_UNSPECIFIED: Default/unspecified\n - EVENT_TYPE_FILTER_DETECTION: Detection event\n - EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION: True positive determination\n - EVENT_TYPE_FILTER_FIXED: Fixed event\n - EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION: False positive determination\n - EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED: Analysis not planned\n - EVENT_TYPE_FILTER_FIX_NOT_PLANNED: Fix not planned\n - EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX: Pending upstream fix\n - EVENT_TYPE_FILTER_PATCHED: Patched event",
+            "enum": [
+              "EVENT_TYPE_FILTER_UNSPECIFIED",
+              "EVENT_TYPE_FILTER_DETECTION",
+              "EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION",
+              "EVENT_TYPE_FILTER_FIXED",
+              "EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION",
+              "EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED",
+              "EVENT_TYPE_FILTER_FIX_NOT_PLANNED",
+              "EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX",
+              "EVENT_TYPE_FILTER_PATCHED"
+            ],
+            "in": "query",
+            "name": "latestEventType",
             "required": false,
             "type": "string"
           }
@@ -5863,6 +5945,15 @@
             "type": "object"
           },
           "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "RegistryUpdateRegistrySettingsBody": {
+      "properties": {
+        "uniqueTags": {
+          "description": "unique_tags controls whether exported tags will be uniquely labeled by default.",
+          "type": "boolean"
         }
       },
       "type": "object"
@@ -8287,6 +8378,19 @@
         "scanner": {
           "$ref": "#/definitions/registryScanner",
           "description": "scanner is the details of the scanner that generated this report."
+        }
+      },
+      "type": "object"
+    },
+    "registryRegistrySettings": {
+      "properties": {
+        "registryId": {
+          "description": "registry_id is the UIDP of the root group (e.g., cgr.dev/\u003cuidp\u003e/...).",
+          "type": "string"
+        },
+        "uniqueTags": {
+          "description": "unique_tags controls whether exported tags will be uniquely labeled by default.",
+          "type": "boolean"
         }
       },
       "type": "object"
