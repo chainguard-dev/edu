@@ -89,4 +89,6 @@ openssl s_client -cipher @SECLEVEL=2:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES
 
 One can also replace the `cgr.dev:443` with your own deployments.
 
-Many of the end-points require support for encrypted http/2 protocol. Some decrypting proxies might not support http/2. One known popular decrypting proxy Zscaler does not currently support encrypted http/2 traffic. One may need to reconfigure Zscaler to disable "Block Undecryptable Traffic" setting. Another alternative option is to configure direct (proxy-less) access to http/2 end-points and use `no_proxy=` environment variable. Please consult documentation of your proxy software.
+Many of the endpoints for Chainguard products require support for the encrypted [HTTP/2 protocol](https://http2.github.io/). Some decrypting proxies might not support HTTP/2. 
+
+Zscaler, a popular decrypting proxy, does not currently support encrypted HTTP/2 traffic. You may need to reconfigure Zscaler to disable its "Block Undecryptable Traffic" setting. Another option is to configure direct (proxyless) access to HTTP/2 endpoints and use the `no_proxy=` environment variable. Please consult your proxy software's documentation for guidance on adjusting these settings.
