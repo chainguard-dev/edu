@@ -77,11 +77,16 @@ Containers and endpoints:
   - [RFC 7627](https://datatracker.ietf.org/doc/html/rfc7627) Extended Master Secret Extenstion support
 - Signatures using P-256 with SHA-256
 - Signatures using RSA-PSS with 2048 bits and SHA-256
+- Encrypted http/2 protocol must be supported, for example by proxies if any are in use
 
 The requirements can be approximately tested with the following OpenSSL client command:
 
 ```shell
-openssl s_client -cipher @SECLEVEL=2:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384 -ciphersuites TLS_AES_256_GCM_SHA384 -groups P-256 -connect HOST:PORT
+openssl s_client -cipher @SECLEVEL=2:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384 -ciphersuites TLS_AES_256_GCM_SHA384 -groups P-256 -alpn h2 -connect cgr.dev:443 < /dev/null
 ```
 
 > Note that in the case of TLSv1.2 connectivity you must check the output for `Extended master secret: yes`.
+
+One can also replace the `cgr.dev:443` with your own deployments.
+
+Many of the end-points require support for encrypted http/2 protocol. Some decrypting proxies might not support http/2. One known popular decrypting proxy Zscaler does not currently support encrypted http/2 traffic. One may need to reconfigure Zscaler to disable "Block Undecryptable Traffic" setting. Another alternative option is to configure direct (proxy-less) access to http/2 end-points and use `no_proxy=` environment variable. Please consult documentation of your proxy software.
