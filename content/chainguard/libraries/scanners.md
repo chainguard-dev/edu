@@ -229,4 +229,4 @@ Artifacts](/chainguard/chainguard-images/staying-secure/working-with-scanners/tr
 as well as the [official documentation](https://trivy.dev/docs/latest/).
 
 ## AWS Inspector
-AWS Inspector supports detection of remediated Chainguard Libraries. Refer to the [AWS docs](https://github.com/tazinprogga/edu/blob/main/content/chainguard/libraries/scanners.md) for additional details.
+AWS Inspector supports detection of remediated Chainguard Libraries. Refer to the [AWS docs](https://docs.aws.amazon.com/inspector/latest/user/supported.html#:~:text=Supported%20programming%20languages%3A%20Amazon%20ECR%20scanning) for additional details.
