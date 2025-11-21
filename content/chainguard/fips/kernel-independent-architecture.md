@@ -8,7 +8,7 @@ lastmod: 2025-10-16T08:00:00+00:00
 draft: false
 tags: ["FIPS", "Architecture", "Entropy"]
 images: []
-weight: 040
+weight: 050
 toc: true
 ---
 
