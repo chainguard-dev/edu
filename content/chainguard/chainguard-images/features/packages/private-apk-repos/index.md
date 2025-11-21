@@ -310,7 +310,7 @@ The generated pull token can be provided in the `HTTP_AUTH` environment variable
 for accessing the private APK repository:
 
 ```shell
-export HTTP_AUTH=basic:apk.cgr.dev:user:${CHAINGUARD_IDENTITY_ID}:${CHAINGUARD_TOKEN}
+export HTTP_AUTH=basic:apk.cgr.dev:${CHAINGUARD_IDENTITY_ID}:${CHAINGUARD_TOKEN}
 ```
 
 Now you can structure your CI workflow to utilize this variable for
