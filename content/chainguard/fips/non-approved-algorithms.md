@@ -148,9 +148,7 @@ If you install pycryptography through [custom assembly](https://edu.chainguard.d
 
 ### .NET FIPS and MD5
 
-.NET upstream chooses to always fetch the MD5 algorithm with `-fips` property query string. To verify that MD5 is blocked for security purposes, you can test creating or verifying RSA-MD5 signature.
-
-Chainguard is working on blocking HMAC-MD5 in .NET.
+.NET upstream chooses to always fetch the MD5 algorithm with `-fips` property query string. To verify that MD5 is blocked for security purposes, you can instead test that HMAC-MD5 is blocked.
 
 ### Go FIPS and MD5
 
