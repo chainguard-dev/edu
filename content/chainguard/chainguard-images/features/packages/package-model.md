@@ -108,23 +108,22 @@ You can also find this in the [Chainguard Console](https://console.chainguard.de
 For any of your organization's Chainguard Containers that include the APK package manager, these repositories are included by default. You can also add them to the `/etc/apk/repositories` file of any container that uses APK. Our guide on [How to Pull Packages from Chainguard Package Repositories through Artifactory](/chainguard/chainguard-images/chainguard-registry/pull-through-guides/artifactory/artifactory-packages-pull-through/#configuring-pull-through-caches-for-chainguards-public-repositories) includes directions for setting up pull-through caches for these repositories on Artifactory.
 
 
-### Package Retention in Public Repositories
+### Package retention in public repositories
 
 To limit the size of public APK repositories and maintain efficient `apk` operations, Chainguard periodically removes older package versions based on a package retention policy.
 
-Public Wolfi and Extra repositories currently retain non-latest package versions for **12 months**. Over time, this retention window may be reduced to **3 months**; any change will be announced in advance.
+The public Wolfi and Extra repositories currently retain non-latest package versions for **12 months**. Over time, this retention window may be reduced to **3 months**; any change will be announced in advance.
 
 Retention rules for public repositories:
 
 * Non-latest package versions older than 12 months are removed unless:
-
-  * They are required by other Wolfi packages.
-  * They are required by Chainguard Container images.
-* Latest package versions are removed if the corresponding package definition has been removed from the Wolfi source repository (`https://github.com/wolfi-dev/os`), unless they meet one of the exceptions above.
+    * They are required by other Wolfi packages.
+    * They are required by Chainguard Container images.
+* Additionally, Chainguard removes latest package versions if the corresponding package definition has been removed from the Wolfi source repository (`https://github.com/wolfi-dev/os`), unless they meet one of these exceptions.
 
 If you pin specific package versions, ensure those versions remain within the retention window or mirror them internally.
 
-Packages are removed on a monthly basis, on the second Wednesday of each month. Candidates for removal are announced one month in advance.
+Chainguard removes packages on a monthly basis, on the second Wednesday of each month. Candidates for removal are announced one month in advance.
 
 Public repositories affected:
 
@@ -146,7 +145,7 @@ https://apk.cgr.dev/$ORGANIZATION_ID
 
 Because Chainguard's private APK repos are only accessible to members of a specific organization, you must authenticate in order to access them. Refer to our overview of [Chainguard's Private APK Repositories](/chainguard/chainguard-images/features/private-apk-repos/) for more information. Additionally, note that if you customize a Chainguard Container using the [Custom Assembly tool](/chainguard/chainguard-images/features/ca-docs/custom-assembly/), the list of packages available for you to add to your container image is taken from your organization's private APK repository.
 
-## Package Retention in Private Repositories
+### Package retention in private repositories
 
 Private APK repositories for Chainguard customers follow a **12-month** retention period for non-latest package versions. They follow the same retention rules and removal schedule as the public Wolfi repository.
 
