@@ -14,12 +14,10 @@ import (
 	"os"
 	"strings"
 
-	"cloud.google.com/go/bigquery"
 	cgbigquery "github.com/chainguard-dev/edu/tools/rumble/pkg/bigquery"
 	"github.com/chainguard-dev/edu/tools/rumble/pkg/grype"
 	"github.com/spf13/cobra"
 	"golang.org/x/sync/errgroup"
-	"google.golang.org/api/iterator"
 )
 
 type vulnsJson struct {
@@ -73,20 +71,54 @@ func (v *vulnsJson) generateJSON() error {
 	}
 	defer closer()
 
-	q := v.bqClient.Client.Query(cgbigquery.AllVulnsQuery)
-	allVulnRecords, err := v.bqClient.Query(q, cgbigquery.CveQueryType)
+	// Single query to get all vulnerability-image relationships
+	q := v.bqClient.Client.Query(cgbigquery.AllVulnsWithImagesQuery)
+	allRecords, err := v.bqClient.Query(q, cgbigquery.VulnWithImagesQueryType)
 	if err != nil {
-		log.Fatalf("error performing AllVulnsQuery: %v", err)
+		log.Fatalf("error performing AllVulnsWithImagesQuery: %v", err)
 	}
 
-	v.vulns, err = v.grypeDb.ExtractCVEs(allVulnRecords)
+	// Group results by vulnerability ID
+	vulnImageMap := make(map[string][]cgbigquery.VulnWithImages)
+	for _, record := range allRecords {
+		vwi := record.(*cgbigquery.VulnWithImages)
+		vulnImageMap[vwi.Vulnerability] = append(vulnImageMap[vwi.Vulnerability], *vwi)
+	}
+
+	// Extract unique CVE IDs for enrichment
+	var cveRecords []interface{}
+	for vulnID := range vulnImageMap {
+		cveRecords = append(cveRecords, &grype.Cve{Vulnerability: vulnID})
+	}
+
+	// Enrich with Grype metadata from local SQLite DB
+	v.vulns, err = v.grypeDb.ExtractCVEs(cveRecords)
 	if err != nil {
 		log.Fatalf("error querying grype DB: %v", err)
 	}
 
-	err = v.queryAffectedImages()
-	if err != nil {
-		log.Fatalf("error correlating vulnerabilities and images: %v", err)
+	// Populate image data for each vulnerability
+	for i := range v.vulns {
+		vulnID := v.vulns[i].Id
+		imageRecords := vulnImageMap[vulnID]
+
+		// Group by image to aggregate dates
+		imagesMap := make(map[string]grype.VulnImage)
+		for _, record := range imageRecords {
+			img := imagesMap[record.Image]
+			img.Dates = append(img.Dates, record.Time)
+			img.Image = record.Image
+			imagesMap[record.Image] = img
+		}
+
+		// Split into Chainguard vs External
+		for _, img := range imagesMap {
+			if strings.Contains(img.Image, "cgr.dev") {
+				v.vulns[i].Chainguard = append(v.vulns[i].Chainguard, img)
+			} else {
+				v.vulns[i].External = append(v.vulns[i].External, img)
+			}
+		}
 	}
 
 	switch v.opts.upload {
@@ -127,65 +159,4 @@ func (v *vulnsJson) saveFiles(vulns []grype.Vuln) error {
 		})
 	}
 	return eg.Wait()
-}
-
-func (v *vulnsJson) queryAffectedImages() error {
-	eg := new(errgroup.Group)
-	eg.SetLimit(50)
-	for idx, vuln := range v.vulns {
-		vulnerability := vuln
-		i := idx
-		eg.Go(func() error {
-			log.Printf("querying %v", vulnerability.Id)
-			q := v.bqClient.Client.Query(cgbigquery.AffectedImagesQuery)
-			q.DefaultProjectID = v.bqClient.Client.Project()
-			q.Parameters = []bigquery.QueryParameter{
-				{
-					Name: "vulnerability",
-					Value: &bigquery.QueryParameterValue{
-						Type: bigquery.StandardSQLDataType{
-							TypeKind: "STRING",
-						},
-						Value: vulnerability.Id,
-					},
-				},
-			}
-
-			it, err := q.Read(v.bqClient.Ctx)
-			if err != nil {
-				return fmt.Errorf("%v", err)
-			}
-
-			imagesMap := make(map[string]grype.VulnImage)
-			for {
-				res := &grype.VulnImage{}
-				err := it.Next(res)
-				if err == iterator.Done {
-					break
-				}
-				if err != nil {
-					return fmt.Errorf("%v", err)
-				}
-				img := imagesMap[res.Image]
-				img.Dates = append(img.Dates, res.Time)
-				img.Image = res.Image
-				imagesMap[res.Image] = img
-			}
-
-			for _, img := range imagesMap {
-				if strings.Contains(img.Image, "cgr.dev") {
-					v.vulns[i].Chainguard = append(v.vulns[i].Chainguard, img)
-				} else {
-					v.vulns[i].External = append(v.vulns[i].External, img)
-				}
-			}
-
-			return nil
-		})
-	}
-
-	if err := eg.Wait(); err == nil {
-		log.Println("Successfully saved all vulnerabilities.")
-	}
-	return nil
 }
