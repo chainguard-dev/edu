@@ -3,8 +3,8 @@ title: "Verify that Chainguard FIPS Containers are Configured to Use FIPS Module
 linktitle: "FIPS Verification"
 description: "Learn how to verify that Chainguard FIPS Containers are properly configured to use various FIPS modules."
 type: "article"
-date: 2025-11-20T08:04:00+00:00
-lastmod: 2025-11-20T15:09:59+00:00
+date: 2025-11-23T08:04:00+00:00
+lastmod: 2025-11-23T15:09:59+00:00
 draft: false
 tags: ["FIPS", "Chainguard Containers", "Reference"]
 menu:
