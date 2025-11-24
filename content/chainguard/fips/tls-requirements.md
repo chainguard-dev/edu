@@ -55,6 +55,7 @@ The following Operating Systems, and newer versions of thereof, are known to sup
 * Android 6.0
 * Apple macOS Siera 10.12
 * iOS 10
+* AWS RDS Postgres 16.11-R1
 
 This list is not exhaustive. To find FIPS products that suppot TLSv1.2 RFC 7627 or TLS v1.3 one can use [CAVP search](https://csrc.nist.gov/Projects/cryptographic-algorithm-validation-program/validation-search), select **Implementation**, and in the list of algorithms select "**TLS v1.2 RFC7627**" or "**TLS v1.3 KDF**".
 
