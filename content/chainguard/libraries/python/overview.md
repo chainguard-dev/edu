@@ -77,6 +77,10 @@ Alternatively, you can use the token for direct access to the Chainguard
 Libraries for Python index as discussed in [Build
 configuration](/chainguard/libraries/python/build-configuration/).
 
+Follow the steps detailed in [Manual Access](#manual) to browse the Python index
+and find available packages, package versions, source distribution (sdist), and
+Python wheel files for standard and remediated package version.
+
 <a id="cve-remediation"></a>
 
 ## CVE Remediation
@@ -194,6 +198,9 @@ package from PyPI, since it is not available from Chainguard. Any build on Linux
 however, uses suitable a package from Chainguard Libraries. When using CVE remediation,
 this also means that remediated packages with native binaries are only used on
 Linux.
+
+
+<a id="manual"></a>
 
 ## Manual Access
 

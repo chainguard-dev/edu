@@ -38,6 +38,8 @@ To create a pull token, use:
 chainctl auth pull-token
 ```
 
+One important flag you can pass to this command is the `--repository` flag, which allows you to specify the repository type to create the pull token for. For example, specifying `--repository=apk` binds the pull-token identity to the `apk.pull` role, allowing the identity to download packages from the private APK repository of the parent organization.
+
 To configure a Docker credential helper, which will use a token to pull images when using Docker, use:
 
 ```shell
