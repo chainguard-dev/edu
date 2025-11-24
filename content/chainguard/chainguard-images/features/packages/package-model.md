@@ -12,7 +12,7 @@ images: []
 weight: 001
 ---
 
-Chainguard Containers are built using packages from the Wolfi and Chainguard OS Linux distributions. If you need to extend or customize an image, it can be useful to access these packages directly.
+Chainguard Containers are built using packages from the Wolfi and [Chainguard OS](/chainguard/chainguard-os/overview/) Linux distributions. If you need to extend or customize an image, it can be useful to access these packages directly.
 
 Chainguard offers curated package repositories to support containerized workloads and simplify dependency management. These repositories ensure you can access trusted packages — whether building custom container images, working with Chainguard OS, or using Chainguard Containers in production.
 
