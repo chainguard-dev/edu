@@ -68,7 +68,7 @@ AWS RDS Postgres 16.11-R1 and later support TLSv1.3. If you require access to Po
 
 At this time AWS MQ RabbitMQ [does not support](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/data-protection.html) TLSv1.2 RFC 7627 or TLSv1.3. This product is currently out of compliance with [NIST Special Publication 800-52 Rev. 2](https://csrc.nist.gov/pubs/sp/800/52/r2/final).
 
-Please consider using AWS MQ Apache ActiveMQ, or Chainguard [rabbitmq-fips](https://images.chainguard.dev/directory/image/rabbitmq-fips/overview) container image or VM instead.
+Please consider using AWS MQ Apache ActiveMQ, Chainguard's [rabbitmq-fips](https://images.chainguard.dev/directory/image/rabbitmq-fips/overview) container image, or a VM instead.
 
 ### Amazon Linux 2 connectivity support
 
