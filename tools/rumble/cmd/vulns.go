@@ -86,7 +86,7 @@ func (v *vulnsJson) generateJSON() error {
 	}
 
 	// Extract unique CVE IDs for enrichment
-	var cveRecords []interface{}
+	cveRecords := make([]interface{}, 0, len(vulnImageMap))
 	for vulnID := range vulnImageMap {
 		cveRecords = append(cveRecords, &grype.Cve{Vulnerability: vulnID})
 	}
