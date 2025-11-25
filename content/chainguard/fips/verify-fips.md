@@ -14,7 +14,7 @@ weight: 045
 toc: true
 ---
 
-Chainguard offers hundreds of FIPS container image variants covering language runtimes (Go, Java, Python, Node.js, .NET, PHP, C/C++), databases, web servers, and Kubernetes components. These images use NIST-validated cryptographic modules including the OpenSSL FIPS provider (CMVP Certificate [#4282](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4282)), Bouncy Castle FIPS ([#4943](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4943)), and BoringCrypto ([#4407](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4407)).
+Chainguard offers hundreds of FIPS container image variants covering language runtimes (Go, Java, Python, Node.js, .NET, PHP, C/C++), databases, web servers, and Kubernetes components. These images use NIST-validated cryptographic modules including the OpenSSL FIPS provider, Bouncy Castle FIPS, and BoringCrypto. Refer to Chaingaurd's [FIPS Commitment](https://www.chainguard.dev/legal/fips-commitment) for a full list of the modules used in Chaingaurd FIPS Images, as well as their respective CMVP certificates and SBOM indicators.
 
 This guide outlines how to verify that Chainguard's FIPS images are properly configured to use these FIPS modules.
 
@@ -45,86 +45,94 @@ docker run -it --entrypoint openssl-fips-test cgr.dev/$ORGANIZATION/python-fips
 ```
 ```output
 Checking OpenSSL lifecycle assurance.
-*** Running check: FIPS module is available...
-    HMAC : (KAT_Integrity) : Pass
-    HMAC : (Module_Integrity) : Pass
-    SHA1 : (KAT_Digest) : Pass
-    SHA2 : (KAT_Digest) : Pass
-    SHA3 : (KAT_Digest) : Pass
-    AES_GCM : (KAT_Cipher) : Pass
-    AES_ECB_Decrypt : (KAT_Cipher) : Pass
-    RNG : (Continuous_RNG_Test) : Pass
-    RSA : (KAT_Signature) : Pass
-    ECDSA : (KAT_Signature) : Pass
-    DSA : (KAT_Signature) : Pass
-    TLS13_KDF_EXTRACT : (KAT_KDF) : Pass
-    TLS13_KDF_EXPAND : (KAT_KDF) : Pass
-    TLS12_PRF : (KAT_KDF) : Pass
-    PBKDF2 : (KAT_KDF) : Pass
-    SSHKDF : (KAT_KDF) : Pass
-    KBKDF : (KAT_KDF) : Pass
-    HKDF : (KAT_KDF) : Pass
-    SSKDF : (KAT_KDF) : Pass
-    X963KDF : (KAT_KDF) : Pass
-    X942KDF : (KAT_KDF) : Pass
-    HASH : (DRBG) : Pass
-    CTR : (DRBG) : Pass
-    HMAC : (DRBG) : Pass
-    DH : (KAT_KA) : Pass
-    ECDH : (KAT_KA) : Pass
-    RSA_Encrypt : (KAT_AsymmetricCipher) : Pass
-    RSA_Decrypt : (KAT_AsymmetricCipher) : Pass
-    RSA_Decrypt : (KAT_AsymmetricCipher) : Pass
-    Running check: FIPS module is available... passed.
-*** Running check: EVP_default_properties_is_fips_enabled returns true... passed.
-*** Running check: verify unapproved cryptographic routines are not available by default (e.g. HMAC-MD5)... passed.
 
-Public OpenSSL API for TLS and cryptographic routines (libssl.so & libcrypto.so):
-    name:         OpenSSL 3.6.0 1 Oct 2025
-    version:      3.6.0
-    full-version:    3.6.0
-    built-on:     Sun Nov 16 20:50:45 2025 UTC
+	✓ Self-test KAT_Integrity HMAC ... passed.
+	✓ Self-test Module_Integrity HMAC ... passed.
+	✓ Self-test KAT_Digest SHA1 ... passed.
+	✓ Self-test KAT_Digest SHA2 ... passed.
+	✓ Self-test KAT_Digest SHA3 ... passed.
+	✓ Self-test KAT_Cipher AES_GCM ... passed.
+	✓ Self-test KAT_Cipher AES_ECB_Decrypt ... passed.
+	✓ Self-test Continuous_RNG_Test RNG ... passed.
+	✓ Self-test KAT_Signature RSA ... passed.
+	✓ Self-test KAT_Signature ECDSA ... passed.
+	✓ Self-test KAT_Signature DSA ... passed.
+	✓ Self-test KAT_KDF TLS13_KDF_EXTRACT ... passed.
+	✓ Self-test KAT_KDF TLS13_KDF_EXPAND ... passed.
+	✓ Self-test KAT_KDF TLS12_PRF ... passed.
+	✓ Self-test KAT_KDF PBKDF2 ... passed.
+	✓ Self-test KAT_KDF SSHKDF ... passed.
+	✓ Self-test KAT_KDF KBKDF ... passed.
+	✓ Self-test KAT_KDF HKDF ... passed.
+	✓ Self-test KAT_KDF SSKDF ... passed.
+	✓ Self-test KAT_KDF X963KDF ... passed.
+	✓ Self-test KAT_KDF X942KDF ... passed.
+	✓ Self-test DRBG HASH ... passed.
+	✓ Self-test DRBG CTR ... passed.
+	✓ Self-test DRBG HMAC ... passed.
+	✓ Self-test KAT_KA DH ... passed.
+	✓ Self-test KAT_KA ECDH ... passed.
+	✓ Self-test KAT_AsymmetricCipher RSA_Encrypt ... passed.
+	✓ Self-test KAT_AsymmetricCipher RSA_Decrypt ... passed.
+	✓ Self-test KAT_AsymmetricCipher RSA_Decrypt ... passed.
 
-FIPS cryptographic Module details (fips.so):
-    name:         OpenSSL FIPS Provider
-    version:      3.1.2
-    build:        3.1.2
+	✓ 29 out of 29 self-tests passed.
+	✓ Check FIPS cryptographic module is available... passed.
+	✓ Check FIPS approved only mode (EVP_default_properties_is_fips_enabled)... passed.
+	✓ Check non-approved algorithm blocked (HMAC-MD5)... passed.
 
-Locate applicable CMVP certificates at
-    https://csrc.nist.gov/projects/cryptographic-module-validation-program/validated-modules/search?SearchMode=Advanced&ModuleName=OpenSSL&CertificateStatus=Active&CertificateNumber=4985
+Digests available for non-security use as per FIPS 140-3 I.G. 2.4.A (fips=no):
+	✓  MD5
+	✓  SHA1
 
-Lifecycle assurance satisfied.
+Available approved algorithms for security purposes (fips=yes):
+	✗ MD5
+	✓ SHA-1
+	✓ SHA-2
+	✓ SHA-3
+	✓ DSA
+	✓ RSA
+	✓ ECDSA
+	✗ Ed25519
+	✗ DetECDSA
+	✗ ML-DSA
+	✗ SLH-DSA
+	✗ ML-KEM
+	✗ X25519MLKEM768
+	✗ SecP256r1MLKEM768
+
+Public OpenSSL API (libssl.so & libcrypto.so):
+	name:     	OpenSSL 3.6.0 1 Oct 2025
+	version:  	3.6.0
+
+FIPS cryptographic module provider details (fips.so):
+	name:     	OpenSSL FIPS Provider
+	version:  	3.1.2
+	build:    	3.1.2
+
+Locate applicable CMVP certificate(s) at: CMVP #4985
 ```
 
 This output confirms that OpenSSL in the `python-fips` image is properly configured to use its FIPS module. 
 
 
-## Java Bouncy Castle FIPS
+## Bouncy Castle FIPS Java API
 
-All of Chainguard's Java FIPS images support FIPS 140-3 compliance using Bouncy Castle FIPS 2.0 cryptographic modules.
+All of Chainguard's Java FIPS images support FIPS 140-3 compliance using Bouncy Castle FIPS cryptographic modules.
 
 To verify whether Bouncy Castle FIPS is operating correctly, you can execute its `DumpInfo` command. The following example shows how you can do this with the [`jre-fips`](https://images.chainguard.dev/directory/image/jre-fips/overview) container image:
 
 ```shell
-docker run -it --rm cgr.dev/$ORGANIZATION/jre-fips org.bouncycastle.entropy.util.DumpInfo
+docker run -it --rm cgr.dev/$ORGANIZATION/jre-fips org.bouncycastle.util.DumpInfo
 ```
 ```output
-Bouncy Castle JENT Entropy Provider v1.3.6
-Is Ready: true
-Fips Status Message: READY
-
---------------------------------------------------------------------------------
-Jitter Supported:
-    Load Status:                     successfully loaded
-    Load Variant:                    x86_64_linux
-    Loaded Compiler Major Version:   7
-    Native Compiler Info:            /usr/bin/cc 11.4.0
-    Native Build Timestamp:          2025-05-06T09:17:18
-    Jitter Lib Version:              3.6.1
---------------------------------------------------------------------------------
-
-Module Checksum:
-…
+Version Info: BouncyCastle Security Provider (FIPS edition) v2.1.1
+FIPS Ready Status: READY
+Native Ready Status: READY
+Native Variant: vaesf
+Native Build Date: 2024-11-15T15:56:42
+Native Support: AES/CBC AES/CFB AES/CTR AES/ECB AES/GCM DRBG NRBG SHA2
+Module SHA-256 HMAC: …
 ```
 
 Note that this example worked because the `jre-fips` image's entrypoint is `/usr/bin/java`, so it executes `java org.bouncycastle.entropy.util.DumpInfo` within the container. 
