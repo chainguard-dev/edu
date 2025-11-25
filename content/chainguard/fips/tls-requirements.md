@@ -55,6 +55,8 @@ The following Operating Systems, and newer versions of thereof, are known to sup
 * Android 6.0
 * Apple macOS Siera 10.12
 * iOS 10
+* AWS RDS Postgres 16.11-R1
+* AWS MQ Apache ActiveMQ
 
 This list is not exhaustive. To find FIPS products that suppot TLSv1.2 RFC 7627 or TLS v1.3 one can use [CAVP search](https://csrc.nist.gov/Projects/cryptographic-algorithm-validation-program/validation-search), select **Implementation**, and in the list of algorithms select "**TLS v1.2 RFC7627**" or "**TLS v1.3 KDF**".
 
@@ -66,7 +68,7 @@ AWS RDS Postgres 16.11-R1 and later support TLSv1.3. If you require access to Po
 
 At this time AWS MQ RabbitMQ [does not support](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/data-protection.html) TLSv1.2 RFC 7627 or TLSv1.3. This product is currently out of compliance with [NIST Special Publication 800-52 Rev. 2](https://csrc.nist.gov/pubs/sp/800/52/r2/final).
 
-Please consider using Chainguard [rabbitmq-fips](https://images.chainguard.dev/directory/image/rabbitmq-fips/overview) container image or VM instead.
+Please consider using AWS MQ Apache ActiveMQ, or Chainguard [rabbitmq-fips](https://images.chainguard.dev/directory/image/rabbitmq-fips/overview) container image or VM instead.
 
 ### Amazon Linux 2 connectivity support
 
