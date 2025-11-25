@@ -106,7 +106,7 @@ func (v *vulnsJson) generateJSON() error {
 		imagesMap := make(map[string]grype.VulnImage)
 		for _, record := range imageRecords {
 			img := imagesMap[record.Image]
-			img.Dates = append(img.Dates, record.Time)
+			img.Dates = append(img.Dates, record.Time.Format("2006-01-02"))
 			img.Image = record.Image
 			imagesMap[record.Image] = img
 		}
