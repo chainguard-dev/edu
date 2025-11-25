@@ -26,6 +26,17 @@ GROUP BY scan.time, scan.image
 ORDER BY scan.image, scan.time
 `
 
+	AllVulnsWithImagesQuery = `
+SELECT
+  vulns.vulnerability,
+  scan.image,
+  scan.time
+FROM ` + vulnsTable + ` AS vulns
+INNER JOIN ` + summaryTable + ` AS scan
+  ON scan.id = vulns.scan_id
+ORDER BY vulns.vulnerability, scan.image, scan.time
+`
+
 	LegacyCsvQuery = `
 SELECT
 	ROW_NUMBER() OVER (ORDER BY time),
