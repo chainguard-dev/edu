@@ -25,20 +25,20 @@ jobs:
         egress-policy: audit
 
     - name: Checkout edu repository
-      uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+      uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
       with:
         path: edu
         token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Checkout courses repository
-      uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+      uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
       with:
         repository: chainguard-dev/courses
         path: courses
         token: ${{ secrets.DOCS_COMPILE_PAT }}
 
     - name: Checkout images-private repository
-      uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+      uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
       with:
         repository: chainguard-images/images-private
         path: images-private
