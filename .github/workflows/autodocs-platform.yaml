@@ -30,7 +30,7 @@ jobs:
       uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
 
     - name: 'Setup gitsign'
-      uses: chainguard-dev/actions/setup-gitsign@b479012116eacde7f895586c17b598f7ba0ee700 # v1.5.9
+      uses: chainguard-dev/actions/setup-gitsign@3e8a2a226fad9e1ecbf2d359b8a7697554a4ac6d # v1.5.10
 
     - name: Authenticate to Google Cloud
       id: auth
@@ -65,7 +65,7 @@ jobs:
         identity: edu
 
     - name: Create a PR
-      uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
+      uses: peter-evans/create-pull-request@84ae59a2cdc2258d6fa0732dd66352dddae2a412 # v7.0.9
       id: cpr
       with:
         token: ${{ steps.octo-sts.outputs.token }}
