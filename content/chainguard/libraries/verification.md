@@ -3,7 +3,7 @@ title: "Chainguard Libraries Verification"
 linktitle: "Verification"
 description:
   "Learn how to verify libraries and packages are from Chainguard
-  Libraries using the chainver tool for enhanced supply chain security"
+  Libraries using the chainctl tool for enhanced supply chain security"
 type: "article"
 date: 2025-07-03T12:00:00+00:00
 lastmod: 2025-07-23T15:09:59+00:00
@@ -18,15 +18,16 @@ toc: true
 
 ## Overview
 
-Chainguard's `chainver` tool verifies that your language ecosystem dependencies
-come from Chainguard Libraries, providing critical visibility into your software
-supply chain security. By verifying binary artifacts across your projects and
-repositories, you can ensure dependencies are sourced from Chainguard's hardened
-build environment rather than potentially compromised public repositories,
-identify opportunities to improve security posture, and maintain compliance with
-supply chain security policies.
+Chainguard's `chainctl` tool with the command `libraries verify` verifies that
+your language ecosystem dependencies come from Chainguard Libraries, providing
+critical visibility into your software supply chain security. By verifying
+binary artifacts across your projects and repositories, you can ensure
+dependencies are sourced from Chainguard's hardened build environment rather
+than potentially compromised public repositories, identify opportunities to
+improve security posture, and maintain compliance with supply chain security
+policies.
 
-The `chainver` tool:
+Command characteristics:
 
 - Uses a signature-based binary identification and a checksum fallback.
 - Supports different binary formats, including JAR, WAR, EAR, ZIP, TAR, WHL, and
@@ -36,21 +37,23 @@ The `chainver` tool:
 
 ## Requirements
 
-Before installing chainver, ensure you have the following installed and
-available on your path:
+Before using chainctl to verify libraries, ensure you have the following
+installed and available on your path:
 
 - [`chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/)
-  — A Chainguard-maintained tool used for authentication
+  — Chainguard-maintained tool that includes the libraries verify command.
 - [`cosign`](https://docs.sigstore.dev/cosign/system_config/installation/) — A
-  Sigstore-maintained tool used to verify signatures
+  Sigstore-maintained tool used to verify signatures.
 
 You also need:
 
 - A Linux, macOS, or Windows system (x86_64 or arm64)
 - Sufficient [network access](/chainguard/libraries/network-requirements/)
+- Your organization [must include entitlement for access to Chainguard
+  Libraries](/chainguard/libraries/access/#entitlement)
 
-Confirm that `chainctl` and `cosign` are installed and available on the `PATH` with the following commands:
-commands:
+Confirm that `chainctl` and `cosign` are installed and available on the `PATH`
+with the following commands:
 
 ```sh
 chainctl version
@@ -60,58 +63,7 @@ chainctl version
 cosign version
 ```
 
-## Installation
-
-[Download the latest release - version 0.5.0](https://dl.enforce.dev/chainver/0.5.0/chainver-v0.5.0.zip)
-
-### Version-Agnostic Download
-
-Download the latest release using `curl`. Note that [`jq`](https://jqlang.org/download/) must be on the path.
-
-```sh
-LATEST_URL=$(curl -s https://dl.enforce.dev/chainver/latest/latest-metadata.json | jq -r '.download_url') && \
- curl -LO "${LATEST_URL}"
-```
-
-Once you've downloaded the archive, unpack the platform specific archive for
-your system, and place the binary `chainver` for your platform on the path. 
-
-### Binary Install Script (macOS and Linux)
-
-The following command downloads the latest version of `chainver` as an archive, extracts it, verifies the download, and moves the binary to `/usr/local/bin`.
-
-First, set the `ARCH` variable to match your system using one of
-the following options:
-
-- `Linux_x86_64` - Linux with x86_64 processor
-- `Linux_arm64` - Linux with ARM processor
-- `Darwin_arm64` - macOS with Apple Silicon (M1/M2/M3)
-- `Darwin_x86_64` - macOS with Intel processor
-
-```sh
-ARCH=Linux_x86_64 && \
-LATEST=$(curl -s "https://storage.googleapis.com/us.artifacts.prod-enforce-fabc.appspot.com/?prefix=chainver/" | \
-  grep -oE 'chainver/[0-9]+\.[0-9]+\.[0-9]+/' | \
-  sed 's|chainver/||g' | sed 's|/$||g' | \
-  sort -V | tail -1) && \
-curl -LO "https://dl.enforce.dev/chainver/${LATEST}/chainver-v${LATEST}.zip" && \
-unzip -q chainver-*.zip && \
-cd chainver-package && \
-EXT=$([ "$ARCH" = "Windows_x86_64" ] && echo "zip" || echo "tar.gz") && \
-./verify-signatures.sh archives/chainver_${LATEST}_${ARCH}.${EXT} && \
-if [ "$ARCH" = "Windows_x86_64" ]; then \
-  unzip -q archives/chainver_${LATEST}_${ARCH}.zip; \
-else \
-  tar xzf archives/chainver_${LATEST}_${ARCH}.tar.gz; \
-fi && \
-sudo mv chainver /usr/local/bin/ && \
-cd .. && rm -rf chainver-*.zip chainver-package && \
-chainver version
-```
-
-## Authentication Setup
-
-### Using chainctl
+## Authentication and configuration
 
 You can authenticate with your Chainguard organization using `chainctl`. First,
 initiate the login flow:
@@ -120,109 +72,106 @@ initiate the login flow:
 chainctl auth login
 ```
 
-Log in using one of the provided options:
+TBD CONFIRM 
+If you are member of one organization only, you can proceed to use `libraries
+verify` and other commands.
 
-Find your organization name:
+If you are member of multiple organizations you must provide the name of your
+organization using the `--parent` flag as follows, replacing
+`<your-organization>` with the name of your organization, with every command:
+
+```sh
+chainctl libaries verify --parent <your-organization> /path/to/artifact.jar
+```
+
+To avoid the need for the additional parameter, you can configure a default
+organization with the following steps:
+
+Find your organization name with the entitlement:
 
 ```sh
 chainctl iam organizations list
 ```
 
-When using `chainver` commands, provide the name of your organization using the
-`--parent` flag as follows, replacing `<your-organization>` with the name of
-your organization:
+Set the configuration for the default group: TBD - this does NOT yet work, also maybe default.org-name instead??
 
 ```sh
-chainver --parent <your-organization> /path/to/artifact.jar
+chainctl config set default.group <your-organization>
 ```
 
-### Using Tokens
-
-For CI/CD pipelines or environments without `chainctl`, you can use a token.
-First, [create a pull token for Chainguard Libraries](/chainguard/libraries/access/#pull-token-for-libraries).
-
-Once you have your token, you can authenticate by passing it to `chainver` using
-the `--token` flag:
+Verify the configuration:
 
 ```sh
-chainver --token <your-chainguard-token> /path/to/artifact.jar
+chainctl config view
 ```
 
-Alternatively, set the token as an environment variable:
-
-```sh
-export CHAINGUARD_TOKEN=your-chainguard-token
-chainver /path/to/artifact.jar
-```
-
-The following environment variables are supported:
-
-- `CHAINCTL_TOKEN` or `CHAINGUARD_TOKEN` - Authentication token
-- `JFROG_API_KEY` - JFrog Artifactory access
-- `CLOUDSMITH_API_KEY` - Cloudsmith access
+Ensure to use this configuration or add the `--parent` parameter in all
+following examples as necessary.
 
 ## Usage
 
 Analyze a local `.jar` or `.whl` file:
 
 ```sh
-chainver --parent <your-organization> commons-lang3-3.12.0.jar
+chainctl libraries verify commons-lang3-3.12.0.jar
 ```
 
 Analyze a container image on a registry:
 
 ```sh
-chainver --parent <your-organization> cgr.dev/chainguard/nginx:latest
+chainctl  libraries verify cgr.dev/chainguard/nginx:latest
 ```
 
 Analyze a local container:
 
 ```sh
-chainver redis:latest
-chainver nginx:alpine
-chainver ubuntu:20.04
+chainctl libraries verify redis:latest
+chainctl libraries verify nginx:alpine
+chainctl libraries verify ubuntu:20.04
 ```
 
 Analyze a local image with localhost prefix:
 
 ```sh
-chainver --parent <your-organization> localhost/myapp:latest
+chainctl libraries verify --parent <your-organization> localhost/myapp:latest
 ```
 
 Analyze with detailed output:
 
 ```sh
-chainver --detailed /path/to/archive.zip
+chainctl libraries verify --detailed /path/to/archive.zip
 ```
 
 Analyze multiple artifacts with detailed output:
 
 ```sh
-chainver --detailed artifact1.jar artifact2.zip
+chainctl libraries verify --detailed artifact1.jar artifact2.zip
 ```
 
-Receive JSON output for CI/CD integration:
+Receive JSON output:
 
 ```sh
-chainver -o json /path/to/artifact.jar
+chainver libraries verify -o json /path/to/artifact.jar
 ```
 
-Generate inventory from repository. (Note that passing a URL from the public Maven Central repository will return a negative result, i.e. `chainver` will indicate that packages were not built by Chainguard.)
+Generate inventory from repository. Note that passing a URL from the public
+Maven Central repository returns a negative result, because packages were not
+built by Chainguard.
 
 ```sh
-chainver inventory --ecosystem java remote:repo1.maven.org/maven2/org/apache
+chainctl libraries verify inventory --ecosystem java remote:repo1.maven.org/maven2/org/apache
 ```
 
 Analyze a remote artifact on Maven Central:
 
 ```sh
-chainver --parent <your-organization> remote:repo1.maven.org/maven2/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar
+chainctl libraries verify remote:repo1.maven.org/maven2/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar
 ```
 
 Analyze a remote artifact on PyPI:
 
 ```sh
-chainver --parent <your-organization> remote:files.pythonhosted.org/packages/70/8e/0e2d847013cb52cd35b38c009bb167a1a26b2ce6cd6965bf26b47bc0bf44/requests-2.31.0-py3-none-any.whl
+chainver libraries verify remote:files.pythonhosted.org/packages/70/8e/0e2d847013cb52cd35b38c009bb167a1a26b2ce6cd6965bf26b47bc0bf44/requests-2.31.0-py3-none-any.whl
 ```
 
 ## Resources
@@ -231,6 +180,3 @@ chainver --parent <your-organization> remote:files.pythonhosted.org/packages/70/
 - [Chainguard Libraries Authentication](/chainguard/libraries/access/)
 - [Learning Lab: Chainguard Libraries for Java](/software-security/learning-labs/ll202505/)
 - [Learning Lab: Chainguard Libraries for Python](/software-security/learning-labs/ll202506/)
-
-
-
