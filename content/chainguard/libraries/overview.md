@@ -102,6 +102,8 @@ Chainguard Libraries is available for the following library ecosystems:
 ## Other Resources
 
 * [Chainguard Libraries product page](https://www.chainguard.dev/libraries)
+* [Learning Lab for October 2025 on Chainguard Libraries for JavaScript and CVE
+  remediation for Python libraries](/software-security/learning-labs/ll202510/)
 * [Learning Lab for June 2025 on Chainguard Libraries for Python](/software-security/learning-labs/ll202506/)
 * [Learning Lab for May 2025 about Chainguard Libraries for Java](/software-security/learning-labs/ll202505/)
 
