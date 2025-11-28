@@ -1,0 +1,37 @@
+<div>
+  <p>
+    <a class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#fedoraPackagesTable" role="button" aria-expanded="false" aria-controls="fedoraPackagesTable">
+      Click to expand/collapse Fedora package mappings table
+    </a>
+  </p>
+  <div class="collapse" id="fedoraPackagesTable">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Fedora Package Name</th>
+            <th>Chainguard/Wolfi Package Name(s)</th>
+          </tr>
+        </thead>
+        <tbody>
+        {{ range $fedora, $chainguard := index $.Site.Data "package-mappings" "packages" "fedora" }}
+          <tr>
+            <td><code>{{ $fedora }}</code></td>
+            <td>
+              {{ if eq (len $chainguard) 0 }}
+                <em>(not needed - functionality included in base image)</em>
+              {{ else }}
+                {{ range $index, $pkg := $chainguard }}
+                  {{ if $index }}, {{ end }}<code>{{ $pkg }}</code>
+                {{ end }}
+              {{ end }}
+            </td>
+          </tr>
+        {{ end }}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- LLM-friendly: Full table content is in DOM, just CSS hidden for humans -->
