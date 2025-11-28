@@ -148,6 +148,14 @@ to Scan Software
 Artifacts](/chainguard/chainguard-images/staying-secure/working-with-scanners/grype-tutorial/)
 and the [official documentation](https://github.com/anchore/grype).
 
+## Anchore Enterprise
+
+Anchore Enterprise supports the detection of remediated Chainguard Libraries starting with **version 5.23.0**, once the required configuration is applied.
+
+To ensure remediated CVEs are filtered out by default, disable CPE matching for the ecosystem in which you are using Chainguard Libraries. Instructions for disabling CPE matching are available in the [Anchore documentation](https://docs.anchore.com/current/docs/vulnerability_management/).
+
+This limitation is planned to be resolved in Anchore Enterprise v5.24.0.
+
 ## Trivy
 
 [Trivy](https://github.com/aquasecurity/trivy) versions 0.54 and newer support
