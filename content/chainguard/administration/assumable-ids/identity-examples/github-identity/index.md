@@ -7,20 +7,23 @@ aliases:
 - /chainguard/administration/iam-organizations/identity-examples/github-identity/
 - /chainguard/administration/assumable-ids/identity-examples/github-identity/
 lead: ""
-description: "Procedural tutorial outlining how to create a Chainguard Enforce identity that can be assumed by a GitHub Actions workflow."
+description: "Tutorial outlining how to create a Chainguard identity that can be assumed by a GitHub Actions workflow."
 type: "article"
 date: 2023-05-04T08:48:45+00:00
 lastmod: 2025-11-28T06:00:00+00:00
 draft: false
-tags: ["Chainguard Containers", "Procedural"]
+tags: ["Chainguard Containers"]
 images: []
 weight: 005
 ---
 
-Chainguard's [*assumable identities*](/chainguard/administration/iam-organizations/assumable-ids/) are identities that can be assumed by external applications or workflows in order to perform certain tasks that would otherwise have to be done by a human.
+Chainguard's [*assumable identities*](/chainguard/administration/iam-organizations/assumable-ids/)
+are identities that can be assumed by external applications or workflows in
+order to perform certain tasks that would otherwise have to be done by a human.
+For instance, an assumable identity can be used to allow a GitHub Actions
+workflow to pull images from `cgr.dev` without a static pull token.
 
 This tutorial outlines how to create an identity, and then create a GitHub Actions workflow that will assume the identity to interact with Chainguard resources.
-
 
 ## Prerequisites
 
@@ -28,16 +31,25 @@ To complete this guide, you will need the following.
 
 * One of:
   * `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up.
-  * `terraform` installed on your local machine. Terraform is an open-source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
+  * `terraform` installed on your local machine. Terraform is an Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
 * A GitHub repository you can use for testing out GitHub identity federation. To complete this guide, you must have permissions to create GitHub Actions on this testing repo.
 
 ## Creating an Identity
 
 ### Chainctl
 
-This command creates an identity that can be assumed by workflows that run from
-the `main` branch of the `my-org/repo-name` repository. The identity is bound to
-the `registry.pull` role.
+This command creates an identity that can be assumed by workflows in the
+`my-org/repo-name` repository. The identity is bound to the `registry.pull`
+role.
+
+```sh
+chainctl iam identities create github my-identity-name \
+    --github-repo=my-org/repo-name \
+    --role registry.pull
+```
+
+You can also include the `--github-ref` flag to restrict it to workflows that
+run from a specific branch. For instance, the `main` branch.
 
 ```sh
 chainctl iam identities create github my-identity-name \
@@ -108,17 +120,16 @@ You'll need this value to set up the GitHub Actions workflow.
 
 ## Creating and Testing a GitHub Actions Workflow
 
-To create a GitHub workflow, navigate to your repository in your browser and click the **Actions** tab. From there, find and click the **New workflow** button in the left-hand sidebar menu.
+This example workflow definition assumes an identity with the [`setup-chainctl`](https://github.com/chainguard-dev/setup-chainctl)
+GitHub Action, lists repositories with `chainctl` and pulls an
+image from `cgr.dev`.
 
-![Screenshot of part of the Actions tab in a GitHub repository. At the left of the "All workflows" list is a "New workflow" button.](actions-new-workflow.png)
+Commit this workflow to the `main` branch of your repository as
+`.github/workflows/assume-and-explore.yaml`, substituting `<identity-id>` with
+the UIDP of the assumable identity you created in the previous step and
+`<org-name>` with the name of your Chainguard organization.
 
-Next, you'll be prompted to choose a workflow template. Because this tutorial includes the exact code you'll need for this workflow, you can skip this step by clicking the **set up a workflow yourself ➔** link.
-
-You can name the workflow file whatever you like, although the default — `main.yaml` — will work for the purposes of this guide.
-
-In the **Edit** textbox, add the following. Be sure to replace `<identity-id>` with the UIDP of the identity you created in the previous step and `<org-name>` with the name of your Chainguard organization.
-
-```
+```yaml
 name: Assume and Explore
 
 on:
@@ -139,36 +150,15 @@ jobs:
         identity: <identity-id>
 
     - run: |
+        chainctl image repo list --parent=<org-name>
+
+    - run: |
         docker pull cgr.dev/<org-name>/example-image:latest
 ```
 
-This workflow is named `actions assume example`. The `permissions` block grants `write` permissions to the workflow for the `id-token` scope. [Per the GitHub Actions documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#adding-permissions-settings), you **must** grant this permission in order for the workflow to be able to fetch an OIDC token.
-
-This workflow performs two actions:
-
-* First, it assumes the identity.
-* Second, the workflow runs the `docker pull` command to pull an image from the organization's Chainguard registry.
-
-Commit the workflow to your repository, then navigate back to the **Actions** tab. The **Assume and Explore** workflow will appear in the left-hand sidebar menu. Click on this, and then click the **Run workflow** button on the resulting page to execute the workflow.
-
-![Screenshot of the "Assume and Explore" workflow, with the "Run workflow" button showing.](actions-run-workflow.png)
-
-This indicates that the workflow can indeed assume the identity and interact with the organization.
-
-![Screenshot showing the output of the "Assume and Explore" workflow.](actions-workflow-output.png)
-
-If you'd like to experiment further with this identity and what the workflow can
-do with it, there are a few parts of this setup that you can tweak. For
-instance, if you'd like to give this identity different permissions you could
-change the role that is bound to the identity.
-
-You could also edit the workflow itself to change its behavior. For example, instead of pulling an image, you could have the workflow list available repos:
-
-```
-	- run: chainctl images repos list
-```
-
-Of course, the GitHub Actions workflow will only be able to perform certain actions on certain resources, depending on what kind of access you grant it.
+Once its committed, you can trigger the workflow by navigating to
+`Actions > Assume And Explore` from the home page of your repository and
+selecting `Run workflow`.
 
 ## Learn more
 
