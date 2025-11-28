@@ -1,7 +1,7 @@
 ---
 title : "Create an Assumable Identity for an AWS Lambda Role"
 linktitle: "AWS Lambda"
-aliases: 
+aliases:
 - /chainguard/chainguard-enforce/authentication/identity-examples/enforce-aws-identity/
 - /chainguard/chainguard-enforce/iam-groups/enforce-aws-identity/
 - /chainguard/administration/iam-organizations/identity-examples/aws-identity/

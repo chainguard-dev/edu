@@ -9,7 +9,7 @@ lastmod: 2025-03-31T08:48:45+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
-weight: 012
+weight: 011
 ---
 
 Chainguard's [*assumable identities*](/chainguard/administration/assumable-ids/assumable-ids/) are identities that can be assumed by external applications or workflows in order to access Chainguard resources or perform certain actions.
@@ -111,7 +111,7 @@ Following that, you can move on to the next section where you will authenticate 
 
 ## Authenticate from EC2 Using the Newly Created Identity
 
-Now that you've created a Chainguard identity, you can use it to connect to Chainguard from your EC2 instance. This section outlines how to set this up. 
+Now that you've created a Chainguard identity, you can use it to connect to Chainguard from your EC2 instance. This section outlines how to set this up.
 
 > **Note**: All the commands in this section should be run from your EC2 instance.
 
@@ -131,7 +131,7 @@ To do this, first create a session token with the following command:
 TOKEN=$(curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
 ```
 
-This creates a session token that will last for six hours (`21600` seconds) and stores the token header in a variable named `$TOKEN`. 
+This creates a session token that will last for six hours (`21600` seconds) and stores the token header in a variable named `$TOKEN`.
 
 Next, you'll need to find the role associated with the instance. The following command retrieves this role while storing it in a variable named `$ROLE`:
 
