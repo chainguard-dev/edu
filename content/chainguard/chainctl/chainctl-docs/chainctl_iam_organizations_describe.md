@@ -1,5 +1,5 @@
 ---
-date: 2025-11-25T10:01:52Z
+date: 2025-11-26T19:56:08Z
 title: "chainctl iam organizations describe"
 slug: chainctl_iam_organizations_describe
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_organizations_describe/
@@ -14,14 +14,13 @@ toc: true
 Describe an organization.
 
 ```
-chainctl iam organizations describe [ORGANIZATION_NAME | ORGANIZATION_ID] [--active-within=DURATION] [--output=json]
+chainctl iam organizations describe [ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json]
 ```
 
 ### Options
 
 ```
-      --active-within duration   How recently a record must have been active to be listed. Zero will return all records. (default 24h0m0s)
-  -h, --help                     help for describe
+  -h, --help   help for describe
 ```
 
 ### Options inherited from parent commands

@@ -4662,13 +4662,15 @@
           },
           {
             "default": "ORDER_BY_UNSPECIFIED",
-            "description": "order_by specifies the sort order for results\nDefault: ID_ASC\nThis field affects the order of advisories returned, which is particularly useful\nfor pagination and review workflows.\n\n - ORDER_BY_UNSPECIFIED: Default sort order\n - ID_ASC: Sort by ID in ascending order\n - ID_DESC: Sort by ID in descending order\n - CREATED_AT_ASC: Sort by creation time in ascending order (oldest first)\n - CREATED_AT_DESC: Sort by creation time in descending order (newest first)",
+            "description": "order_by specifies the sort order for results\nDefault: ID_ASC\nThis field affects the order of advisories returned, which is particularly useful\nfor pagination and review workflows.\n\n - ORDER_BY_UNSPECIFIED: Default sort order\n - ID_ASC: Sort by ID in ascending order\n - ID_DESC: Sort by ID in descending order\n - CREATED_AT_ASC: Sort by creation time in ascending order (oldest first)\n - CREATED_AT_DESC: Sort by creation time in descending order (newest first)\n - ALIASES_ASC: Sort by aliases to group related advisories in ascending order\n - ALIASES_DESC: Sort by aliases to group related advisories in descending order",
             "enum": [
               "ORDER_BY_UNSPECIFIED",
               "ID_ASC",
               "ID_DESC",
               "CREATED_AT_ASC",
-              "CREATED_AT_DESC"
+              "CREATED_AT_DESC",
+              "ALIASES_ASC",
+              "ALIASES_DESC"
             ],
             "in": "query",
             "name": "orderBy",
@@ -5951,6 +5953,10 @@
     },
     "RegistryUpdateRegistrySettingsBody": {
       "properties": {
+        "eolGracePeriod": {
+          "description": "eol_grace_period controls whether to support EOL grace period by default for repos in this registry.\nWhen enabled, EOL-tagged images are shipped to users during their grace period.",
+          "type": "boolean"
+        },
         "uniqueTags": {
           "description": "unique_tags controls whether exported tags will be uniquely labeled by default.",
           "type": "boolean"
@@ -8384,6 +8390,10 @@
     },
     "registryRegistrySettings": {
       "properties": {
+        "eolGracePeriod": {
+          "description": "eol_grace_period controls whether to support EOL grace period by default for repos in this registry.\nWhen enabled, EOL-tagged images are shipped to users during their grace period.",
+          "type": "boolean"
+        },
         "registryId": {
           "description": "registry_id is the UIDP of the root group (e.g., cgr.dev/\u003cuidp\u003e/...).",
           "type": "string"
@@ -9359,13 +9369,15 @@
     },
     "v1OrderBy": {
       "default": "ORDER_BY_UNSPECIFIED",
-      "description": "- ORDER_BY_UNSPECIFIED: Default sort order\n - ID_ASC: Sort by ID in ascending order\n - ID_DESC: Sort by ID in descending order\n - CREATED_AT_ASC: Sort by creation time in ascending order (oldest first)\n - CREATED_AT_DESC: Sort by creation time in descending order (newest first)",
+      "description": "- ORDER_BY_UNSPECIFIED: Default sort order\n - ID_ASC: Sort by ID in ascending order\n - ID_DESC: Sort by ID in descending order\n - CREATED_AT_ASC: Sort by creation time in ascending order (oldest first)\n - CREATED_AT_DESC: Sort by creation time in descending order (newest first)\n - ALIASES_ASC: Sort by aliases to group related advisories in ascending order\n - ALIASES_DESC: Sort by aliases to group related advisories in descending order",
       "enum": [
         "ORDER_BY_UNSPECIFIED",
         "ID_ASC",
         "ID_DESC",
         "CREATED_AT_ASC",
-        "CREATED_AT_DESC"
+        "CREATED_AT_DESC",
+        "ALIASES_ASC",
+        "ALIASES_DESC"
       ],
       "title": "OrderBy specifies the sort order for advisory list results",
       "type": "string"
