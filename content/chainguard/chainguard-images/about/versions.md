@@ -132,20 +132,19 @@ To help in situations like this, Chainguard offers an end-of-life grace period f
 ## Inspecting the Product Release Lifecycle
 
 There are a number of ways that you can inspect and understand the version
-lifecycle of your Chainguard images.
+lifecycle of your Chainguard Containers.
 
 ### List Active Tags
 
 You can retrieve the list of tags that are being actively maintained for a
-Chainguard image from the output of `chainctl image repo list`.
+Chainguard cointainer image from the output of `chainctl image repo list`.
 
-For instance, this command lists the tags that are currently active for
-`python`.
+For instance, the following command lists the tags that are currently active for
+`python`:
 
 ```sh
 chainctl image repo list --repo=python -o json | jq -r '.items[].activeTags'
 ```
-
 ```output
 [
   "3",
@@ -196,17 +195,12 @@ chainctl image repo list --repo=python -o json | jq -r '.items[].activeTags'
 You can list the version information for packages that have multiple release
 tracks with `chainctl package versions list`.
 
-For instance, this command lists the active release tracks for the `python`
-package. The output also includes the date when the version will become EOL, as
-well as the date after which it will no longer be covered by the EOL grace
-period.
+The following `chainctl` command lists the active release tracks for the `python`
+package:
 
 ```sh
 chainctl package versions list python --show-active
 ```
-
-The output should look like this.
-
 ```output
  VERSION |  EOL DATE  | EOL GRACE PERIOD END DATE
 ---------|------------|---------------------------
@@ -217,17 +211,21 @@ The output should look like this.
  3.14    | 2030-10-31 | 2031-05-01
 ```
 
+This output also includes the date when the version will become EOL, as
+well as the date after which it will no longer be covered by the EOL grace
+period.
+
 Refer to the [`chainctl`
 documentation](/chainguard/chainctl/chainctl-docs/chainctl_packages_versions_list/)
-for the full list of options that can be provided to the command.
+for the full list of options that can be passed to the command.
 
 ### EOL Grace Period API
 
 The [EOL Grace Period
 API](/chainguard/chainguard-images/features/eol-gp-overview/#using-the-eol-grace-period-api)
-provides lifecycle information about a Chainguard image's tags.
+provides lifecycle information about a Chainguard container image's tags.
 
-For instance, this snippet retrieves EOL data for the `python` image.
+For instance, the following snippet retrieves EOL data for the `python` image:
 
 ```sh
 REPO_ID=$(chainctl images repos list --repo=python --parent=${ORGANIZATION} -o json | jq -r '.items[0].id')
@@ -237,7 +235,7 @@ curl -H "Authorization: Bearer $(chainctl auth token)" \
     | jq '.'
 ```
 
-The output should look like this.
+This command will return output like the following:
 
 ```output
 {
@@ -268,11 +266,11 @@ The output should look like this.
 }
 ```
 
-This tells you whether a tag is active, whether it is eligible for an EOL grace
-period and whether it is currently within its grace period.
+This output tells you whether a tag is active, whether it is eligible for an EOL grace
+period, and whether it is currently within its grace period.
 
 For full instructions on how to use the API and interpret its output, refer to
-[this page]((/chainguard/chainguard-images/features/eol-gp-overview/#using-the-eol-grace-period-api)).
+[our overview of the EOL grace period]((/chainguard/chainguard-images/features/eol-gp-overview/#using-the-eol-grace-period-api)).
 
 ### Refer to endoflife.date
 
