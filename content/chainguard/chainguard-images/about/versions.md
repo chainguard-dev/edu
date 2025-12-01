@@ -270,7 +270,7 @@ This output tells you whether a tag is active, whether it is eligible for an EOL
 period, and whether it is currently within its grace period.
 
 For full instructions on how to use the API and interpret its output, refer to
-[our overview of the EOL grace period]((/chainguard/chainguard-images/features/eol-gp-overview/#using-the-eol-grace-period-api)).
+[our overview of the EOL grace period](/chainguard/chainguard-images/features/eol-gp-overview/#using-the-eol-grace-period-api).
 
 ### Refer to endoflife.date
 
