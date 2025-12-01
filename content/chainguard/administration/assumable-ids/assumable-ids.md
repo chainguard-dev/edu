@@ -161,33 +161,33 @@ If a workflow is authorized to assume the identity — meaning that its token ma
 
 There are a few different ways to do this.
 
-### Chainctl
+### Using `chainctl`
 
 On some platforms, such as
 [GitHub](/chainguard/administration/assumable-ids/identity-examples/github-identity/)
-or Google Cloud Platform, `chainctl` should be able to detect your credentials
-transparently, meaning you only need to provide the identity's UIDP to login.
+or Google Cloud Platform, `chainctl` is able to detect your credentials
+transparently. This means you only need to provide the identity's UIDP to log in, as in this example:
 
 ```sh
 chainctl auth login --identity <identity-id>
 ```
 
 Otherwise, you will need to provide the OIDC token explicitly. This can
-either be the raw token value or a path to the token on disk.
+either be the raw token value or a path to the token on disk:
 
 ```sh
 chainctl auth login --identity <identity-id> --identity-token <identity-token>
 ```
 
-Once you're logged in, you should be able to perform the operations that the
+Once you're logged in, you will be able to perform the operations that the
 identity has permissions for. For instance, listing repositories.
 
 ```sh
 chainctl image repo list
 ```
 
-Or, you can use `chainctl auth token` to retrieve a bearer token that you can
-use directly with the Chainguard API.
+Alternatively, you can use `chainctl auth token` to retrieve a bearer token that you can
+use directly with the Chainguard API:
 
 ```sh
 curl -sSf \
@@ -196,12 +196,12 @@ curl -sSf \
     | jq -r .items[].name
 ```
 
-### API
+### Using the Chainguard API
 
-If you want to interact with the API directly, without any use of `chainctl`,
-then you can exchange your platform's OIDC token for a Chainguard API token
-yourself like this. Substituting `<identity-id>` and `<identity-token>` with the
-identity's UIDP and the OIDC token, respectively.
+If you want to interact with the API directly without using `chainctl`, 
+you can exchange your platform's OIDC token for a Chainguard API token
+like in the following example. Be sure to substitute `<identity-id>` and `<identity-token>` with the
+identity's UIDP and the OIDC token, respectively:
 
 ```sh
 curl -sSf \
@@ -211,7 +211,7 @@ curl -sSf \
 ```
 
 This will return a token for the Chainguard API that you can use for subsequent
-requests to the API. For instance, listing repositories.
+requests to the API. For instance, listing repositories:
 
 ```sh
 curl -sSf \
