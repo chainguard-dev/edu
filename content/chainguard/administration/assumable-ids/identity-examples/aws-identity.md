@@ -69,8 +69,8 @@ AIDAEXAMPLEFUBLFJXS6B
 ```
 
 Once you've got the ID, you should create a configuration file called
-`identity.json`. This will define the patterns that dictate which AWS users and
-roles can assume the identity.
+`identity.json`. This will define the name of your identity and the patterns
+that dictate which AWS users and roles can assume it.
 
 For an IAM role, that should look like this. Substitute `<account-id>` with your
 AWS account ID, `<role-name>` with the name of your role and `<role-id>` with
@@ -78,6 +78,7 @@ the role ID you just retrieved.
 
 ```json
 {
+    "name": "my-identity-name",
     "awsIdentity": {
         "aws_account" : "<account-id>",
         "arnPattern"  : "^arn:aws:sts::<account-id>:assumed-role/<role-name>/(.+)$",
@@ -93,6 +94,7 @@ the user ID you just retrieved.
 
 ```json
 {
+    "name": "my-identity-name",
     "awsIdentity": {
         "aws_account" : "<account-id>",
         "arnPattern"  : "arn:aws:iam:<account-id>:user/<user-name>",
