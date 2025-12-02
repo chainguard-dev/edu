@@ -144,7 +144,7 @@ chainctl iam identities delete <identity-name>
 For more detailed information on managing identities with `chainctl`, we encourage you to check out the [`chainctl` reference documentation](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities/).
 
 
-## Assuming an identity
+## Assuming an Identity
 
 Whether you create an identity with `chainctl` or with Terraform, Chainguard will generate a UIDP (unique identifier path) tied to the identity. You can retrieve a list of all the identities you've created — along with their UIDPs — with the following command.
 
@@ -157,8 +157,71 @@ chainctl iam identities ls -o table
   c95870ebffa72a258df087ea727ee92daf177e29/f067a9080d45a098 | sampleidentity | claim_match |             | example-group: viewer | https://token.actions.githubusercontent.com | n/a
 ```
 
-If a workflow is authorized to assume the identity — meaning that its token matches the `issuer` and `subject` specified for the identity — then it only needs to present this identification number in order to assume it.
+If a workflow is authorized to assume the identity — meaning that its token matches the `issuer` and `subject` specified for the identity — then it only needs to present this identification number and the token in order to assume it.
 
+There are a few different ways to do this.
+
+### Using `chainctl`
+
+On some platforms, such as
+[GitHub](/chainguard/administration/assumable-ids/identity-examples/github-identity/)
+or Google Cloud Platform, `chainctl` is able to detect your credentials
+transparently. This means you only need to provide the identity's UIDP to log in, as in this example:
+
+```sh
+chainctl auth login --identity <identity-id>
+```
+
+Otherwise, you will need to provide the OIDC token explicitly. This can
+either be the raw token value or a path to the token on disk:
+
+```sh
+chainctl auth login --identity <identity-id> --identity-token <identity-token>
+```
+
+Once you're logged in, you will be able to perform the operations that the
+identity has permissions for. For instance, listing repositories.
+
+```sh
+chainctl image repo list
+```
+
+Alternatively, you can use `chainctl auth token` to retrieve a bearer token that you can
+use directly with the Chainguard API:
+
+```sh
+curl -sSf \
+    -H "Authorization: Bearer $(chainctl auth token)" \
+    https://console-api.enforce.dev/registry/v1/repos \
+    | jq -r .items[].name
+```
+
+### Using the Chainguard API
+
+If you want to interact with the API directly without using `chainctl`, 
+you can exchange your platform's OIDC token for a Chainguard API token
+like in the following example. Be sure to substitute `<identity-id>` and `<identity-token>` with the
+identity's UIDP and the OIDC token, respectively:
+
+```sh
+curl -sSf \
+    -H "Authorization: Bearer <identity-token>" \
+    "https://issuer.enforce.dev/sts/exchange?aud=https://console-api.enforce.dev&identity=<identity-id>" \
+    | jq -r .token
+```
+
+This will return a token for the Chainguard API that you can use for subsequent
+requests to the API. For instance, listing repositories:
+
+```sh
+curl -sSf \
+    -H "Authorization: Bearer <api-token>" \
+    https://console-api.enforce.dev/registry/v1/repos \
+    | jq -r .items[].name
+```
+
+The API token issued by `/sts/exchange` will be valid for up to an hour. You
+will need to fetch a new token after it has expired.
 
 ## Learn More
 
