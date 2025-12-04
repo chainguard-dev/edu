@@ -24,7 +24,7 @@ Unlike traditional virtual machines, which are often burdened with legacy compon
 
 For platform engineers and DevOps teams, this means:
 
-* **Fewer patching cycles**: With no unnecessary software to maintain, you reduce noise from non-actionable CVEs and focus only on what matters.
+* **Reduced Engineering Toil**: With no unnecessary software to maintain, you reduce noise from non-actionable CVEs and focus only on what matters.
 * **Improved boot and runtime security**: Minimal, hardened images reduce the chances of privilege escalation, kernel exploits, and lateral movement.
 * **Operational consistency**: The same secure-by-default toolchain that powers Chainguard Containers now extends to your VMs, making it easier to manage and audit infrastructure uniformly across environments.
 

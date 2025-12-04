@@ -7,7 +7,7 @@ HUGO_ENV = "production"
 HUGO_VERSION = "0.104.3"
 
 [context.deploy-preview]
-command = "hugo --buildFuture -b $DEPLOY_PRIME_URL"
+command = "npm run build:preview -- -b $DEPLOY_PRIME_URL"
 
 [context.deploy-preview.environment]
 HUGO_ENV = "staging"

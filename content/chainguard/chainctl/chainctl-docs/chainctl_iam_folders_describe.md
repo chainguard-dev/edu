@@ -1,5 +1,5 @@
 ---
-date: 2025-11-13T18:39:07Z
+date: 2025-12-02T15:53:00Z
 title: "chainctl iam folders describe"
 slug: chainctl_iam_folders_describe
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_folders_describe/
@@ -14,14 +14,13 @@ toc: true
 Describe a folder.
 
 ```
-chainctl iam folders describe [FOLDER_NAME | FOLDER_ID] [--active-within=DURATION] [--output=json]
+chainctl iam folders describe [FOLDER_NAME | FOLDER_ID] [--output=json]
 ```
 
 ### Options
 
 ```
-      --active-within duration   How recently a record must have been active to be listed. Zero will return all records. (default 24h0m0s)
-  -h, --help                     help for describe
+  -h, --help   help for describe
 ```
 
 ### Options inherited from parent commands

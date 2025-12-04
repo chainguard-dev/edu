@@ -3635,6 +3635,76 @@
         ]
       }
     },
+    "/registry/v1/settings/{registryId}": {
+      "get": {
+        "operationId": "Registry_GetRegistrySettings",
+        "parameters": [
+          {
+            "description": "registry_id is the UIDP of the root group to get settings for.",
+            "in": "path",
+            "name": "registryId",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryRegistrySettings"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      },
+      "put": {
+        "operationId": "Registry_UpdateRegistrySettings",
+        "parameters": [
+          {
+            "description": "registry_id is the UIDP of the root group (e.g., cgr.dev/\u003cuidp\u003e/...).",
+            "in": "path",
+            "name": "registryId",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RegistryUpdateRegistrySettingsBody"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryRegistrySettings"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      }
+    },
     "/registry/v1/tags": {
       "get": {
         "operationId": "Registry_ListTags",
@@ -4491,13 +4561,6 @@
             "type": "string"
           },
           {
-            "description": "artifact_namespace filters by artifact namespace",
-            "in": "query",
-            "name": "artifactNamespace",
-            "required": false,
-            "type": "string"
-          },
-          {
             "description": "component_name filters by component name",
             "in": "query",
             "name": "componentName",
@@ -4599,13 +4662,15 @@
           },
           {
             "default": "ORDER_BY_UNSPECIFIED",
-            "description": "order_by specifies the sort order for results\nDefault: ID_ASC\nThis field affects the order of advisories returned, which is particularly useful\nfor pagination and review workflows.\n\n - ORDER_BY_UNSPECIFIED: Default sort order\n - ID_ASC: Sort by ID in ascending order\n - ID_DESC: Sort by ID in descending order\n - CREATED_AT_ASC: Sort by creation time in ascending order (oldest first)\n - CREATED_AT_DESC: Sort by creation time in descending order (newest first)",
+            "description": "order_by specifies the sort order for results\nDefault: ID_ASC\nThis field affects the order of advisories returned, which is particularly useful\nfor pagination and review workflows.\n\n - ORDER_BY_UNSPECIFIED: Default sort order\n - ID_ASC: Sort by ID in ascending order\n - ID_DESC: Sort by ID in descending order\n - CREATED_AT_ASC: Sort by creation time in ascending order (oldest first)\n - CREATED_AT_DESC: Sort by creation time in descending order (newest first)\n - ALIASES_ASC: Sort by aliases to group related advisories in ascending order\n - ALIASES_DESC: Sort by aliases to group related advisories in descending order",
             "enum": [
               "ORDER_BY_UNSPECIFIED",
               "ID_ASC",
               "ID_DESC",
               "CREATED_AT_ASC",
-              "CREATED_AT_DESC"
+              "CREATED_AT_DESC",
+              "ALIASES_ASC",
+              "ALIASES_DESC"
             ],
             "in": "query",
             "name": "orderBy",
@@ -4616,6 +4681,25 @@
             "description": "exclude_event_author filters out advisories where any event was created by the specified author\nWhen specified, advisories containing events by this author will be excluded from results.\nThis is useful for review workflows where users want to see all pending events except their own,\nenabling them to review others' work without seeing their own submissions.",
             "in": "query",
             "name": "excludeEventAuthor",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "EVENT_TYPE_FILTER_UNSPECIFIED",
+            "description": "latest_event_type filters out advisories where the _most recent approved event_ is\nof the given type. This is useful to find advisories which are currently detected,\nfixed, patched, etc.\n\n - EVENT_TYPE_FILTER_UNSPECIFIED: Default/unspecified\n - EVENT_TYPE_FILTER_DETECTION: Detection event\n - EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION: True positive determination\n - EVENT_TYPE_FILTER_FIXED: Fixed event\n - EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION: False positive determination\n - EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED: Analysis not planned\n - EVENT_TYPE_FILTER_FIX_NOT_PLANNED: Fix not planned\n - EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX: Pending upstream fix\n - EVENT_TYPE_FILTER_PATCHED: Patched event",
+            "enum": [
+              "EVENT_TYPE_FILTER_UNSPECIFIED",
+              "EVENT_TYPE_FILTER_DETECTION",
+              "EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION",
+              "EVENT_TYPE_FILTER_FIXED",
+              "EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION",
+              "EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED",
+              "EVENT_TYPE_FILTER_FIX_NOT_PLANNED",
+              "EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX",
+              "EVENT_TYPE_FILTER_PATCHED"
+            ],
+            "in": "query",
+            "name": "latestEventType",
             "required": false,
             "type": "string"
           }
@@ -5863,6 +5947,19 @@
             "type": "object"
           },
           "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "RegistryUpdateRegistrySettingsBody": {
+      "properties": {
+        "eolGracePeriod": {
+          "description": "eol_grace_period controls whether to support EOL grace period by default for repos in this registry.\nWhen enabled, EOL-tagged images are shipped to users during their grace period.",
+          "type": "boolean"
+        },
+        "uniqueTags": {
+          "description": "unique_tags controls whether exported tags will be uniquely labeled by default.",
+          "type": "boolean"
         }
       },
       "type": "object"
@@ -8291,6 +8388,23 @@
       },
       "type": "object"
     },
+    "registryRegistrySettings": {
+      "properties": {
+        "eolGracePeriod": {
+          "description": "eol_grace_period controls whether to support EOL grace period by default for repos in this registry.\nWhen enabled, EOL-tagged images are shipped to users during their grace period.",
+          "type": "boolean"
+        },
+        "registryId": {
+          "description": "registry_id is the UIDP of the root group (e.g., cgr.dev/\u003cuidp\u003e/...).",
+          "type": "string"
+        },
+        "uniqueTags": {
+          "description": "unique_tags controls whether exported tags will be uniquely labeled by default.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
     "registryRepo": {
       "properties": {
         "activeTags": {
@@ -9255,13 +9369,15 @@
     },
     "v1OrderBy": {
       "default": "ORDER_BY_UNSPECIFIED",
-      "description": "- ORDER_BY_UNSPECIFIED: Default sort order\n - ID_ASC: Sort by ID in ascending order\n - ID_DESC: Sort by ID in descending order\n - CREATED_AT_ASC: Sort by creation time in ascending order (oldest first)\n - CREATED_AT_DESC: Sort by creation time in descending order (newest first)",
+      "description": "- ORDER_BY_UNSPECIFIED: Default sort order\n - ID_ASC: Sort by ID in ascending order\n - ID_DESC: Sort by ID in descending order\n - CREATED_AT_ASC: Sort by creation time in ascending order (oldest first)\n - CREATED_AT_DESC: Sort by creation time in descending order (newest first)\n - ALIASES_ASC: Sort by aliases to group related advisories in ascending order\n - ALIASES_DESC: Sort by aliases to group related advisories in descending order",
       "enum": [
         "ORDER_BY_UNSPECIFIED",
         "ID_ASC",
         "ID_DESC",
         "CREATED_AT_ASC",
-        "CREATED_AT_DESC"
+        "CREATED_AT_DESC",
+        "ALIASES_ASC",
+        "ALIASES_DESC"
       ],
       "title": "OrderBy specifies the sort order for advisory list results",
       "type": "string"

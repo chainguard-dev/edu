@@ -8,6 +8,7 @@ package cgbigquery
 import (
 	"context"
 	"fmt"
+	"time"
 
 	"cloud.google.com/go/bigquery"
 	"github.com/chainguard-dev/edu/tools/rumble/pkg/grype"
@@ -15,9 +16,10 @@ import (
 )
 
 const (
-	CveQueryType        = "cve"
-	ImageScanQueryType  = "scan"
-	LegacyScanQueryType = "legacyscan"
+	CveQueryType           = "cve"
+	ImageScanQueryType     = "scan"
+	LegacyScanQueryType    = "legacyscan"
+	VulnWithImagesQueryType = "vulnwithimages"
 )
 
 type BqClient struct {
@@ -48,6 +50,12 @@ type ImageScan struct {
 	Version       string
 	Type          string
 	Severity      string
+}
+
+type VulnWithImages struct {
+	Vulnerability string
+	Image         string
+	Time          time.Time
 }
 
 func NewBqClient(project, db string) (BqClient, error) {
@@ -84,6 +92,8 @@ func (b *BqClient) Query(q *bigquery.Query, queryType string) ([]interface{}, er
 			values = &LegacyScan{}
 		case CveQueryType:
 			values = &grype.Cve{}
+		case VulnWithImagesQueryType:
+			values = &VulnWithImages{}
 		}
 		err := it.Next(values)
 		if err == iterator.Done {

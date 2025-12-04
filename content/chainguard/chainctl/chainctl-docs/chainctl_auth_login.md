@@ -1,5 +1,5 @@
 ---
-date: 2025-11-13T18:39:07Z
+date: 2025-12-02T15:53:00Z
 title: "chainctl auth login"
 slug: chainctl_auth_login
 url: /chainguard/chainctl/chainctl-docs/chainctl_auth_login/
