@@ -148,6 +148,16 @@ to Scan Software
 Artifacts](/chainguard/chainguard-images/staying-secure/working-with-scanners/grype-tutorial/)
 and the [official documentation](https://github.com/anchore/grype).
 
+## Anchore Enterprise
+
+Anchore Enterprise supports the detection of remediated Chainguard Libraries
+starting with **version 5.23.0**, once the required configuration is applied.
+
+To ensure remediated CVEs are filtered out by default, disable CPE matching for
+the ecosystem in which you are using Chainguard Libraries. Instructions for
+disabling CPE matching are available in the [Anchore
+documentation](https://docs.anchore.com/current/docs/vulnerability_management/).
+
 ## Trivy
 
 [Trivy](https://github.com/aquasecurity/trivy) versions 0.54 and newer support
@@ -230,4 +240,8 @@ as well as the [official documentation](https://trivy.dev/docs/latest/).
 
 ## AWS Inspector
 
-Chainguard Libraries for Python is now supported by Amazon Inspector’s enhanced scanning for Amazon ECR. This integration brings high-impact CVE remediation directly into your AWS vulnerability management workflows. Refer to the [AWS docs](https://docs.aws.amazon.com/inspector/latest/user/supported.html#:~:text=Supported%20programming%20languages%3A%20Amazon%20ECR%20scanning) for additional details.
+Chainguard Libraries for Python is supported by Amazon Inspector’s enhanced
+scanning for Amazon ECR. This integration brings high-impact CVE remediation
+directly into your AWS vulnerability management workflows. Refer to the [AWS
+documentation](https://docs.aws.amazon.com/inspector/latest/user/supported.html#:~:text=Supported%20programming%20languages%3A%20Amazon%20ECR%20scanning)
+for additional details.
