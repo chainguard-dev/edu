@@ -257,6 +257,8 @@ password CHAINGUARD_PYTHON_TOKEN
 
 Note that the long string for the password value must use only one line.
 
+<a id="entitlement"></a>
+
 ## Verify entitlement
 
 You can verify entitlements for your organization `example` with the following
