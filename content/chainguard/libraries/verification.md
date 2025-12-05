@@ -156,7 +156,7 @@ chainctl libraries verify artifact1.jar artifact2.zip
 Analyze a file and create JSON output:
 
 ```sh
-chainver libraries verify -o json commons-lang3-3.17.0.jar
+chainctl libraries verify -o json commons-lang3-3.17.0.jar
 ```
 
 ## Container analysis
@@ -196,7 +196,7 @@ chainctl libraries verify remote:repo1.maven.org/maven2/org/apache/commons/commo
 Analyze a remote artifact on PyPI:
 
 ```sh
-chainver libraries verify remote:files.pythonhosted.org/packages/...../requests-2.31.0-py3-none-any.whl
+chainctl libraries verify remote:files.pythonhosted.org/packages/...../requests-2.31.0-py3-none-any.whl
 ```
 
 ## Inventory creation
