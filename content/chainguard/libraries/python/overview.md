@@ -47,7 +47,7 @@ Libraries for Python and how to access individual libraries manually.
 The Chainguard Libraries for Python indexes use the PyPI repository format and
 only include release artifacts of the libraries built by Chainguard from source.
 
-The URLs for the repositories include:
+URLs for the repositories:
 
 ```
 https://libraries.cgr.dev/python/
@@ -107,7 +107,8 @@ In some cases, multiple CVEs may be remediated in a specific library version.
 For example, `aiohttp` has fixes for both CVE-2024-23334 and CVE-2024-30251 in
 the version `3.9.1+cgr.2`.
 
-## CUDA Enabled Libraries
+## CUDA-enabled libraries
+
 Chainguard Libraries for Python includes libraries optimized for specific CUDA 
 versions. These libraries are GPU‑accelerated Python wheels that are built 
 and tested against specific NVIDIA CUDA versions. An example is `torch` built 
