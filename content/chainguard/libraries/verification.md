@@ -199,24 +199,12 @@ Analyze a remote artifact on PyPI:
 chainctl libraries verify remote:files.pythonhosted.org/packages/...../requests-2.31.0-py3-none-any.whl
 ```
 
-## Inventory creation
-
-The chainctl tool also supports a `libraries inventory` command. Use it to
-create a list of artifacts available in a specific location. Set the
-`--ecosystem` flag to `java` for Java artifacts and `python` for Python files.
-
-```sh
-chainctl libraries inventory --ecosystem java remote:repo1.maven.org/maven2/org/apache/commons/commons-lang3/3.20.0
-```
-
 ## Built-in help
 
-Use the `help` command for more command options and details for the `verify` and
-`inventory` commands:
+Use the `help` command for more command options and details for the `verify` command:
 
 ```sh
 chainctl help libraries verify
-chainctl help libraries inventory
 ```
 
 ## Resources
