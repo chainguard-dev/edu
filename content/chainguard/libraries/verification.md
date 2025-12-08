@@ -80,7 +80,7 @@ organization using the `--parent` flag as follows, replacing
 `<your-organization>` with the name of your organization, with every command:
 
 ```sh
-chainctl libaries verify --parent <your-organization> /path/to/artifact.jar
+chainctl libraries verify --parent <your-organization> /path/to/artifact.jar
 ```
 
 To avoid the need for the additional parameter, you can configure a default
