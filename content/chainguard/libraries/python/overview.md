@@ -62,8 +62,8 @@ separate indexes provide you the option to make remediated versions available
 for your development or to opt out of using these versions completely and
 continue to use non-remediated versions only. The third index refers to 
 CUDA version-specific indexes which include libraries with 
-GPU-accelerated Python wheels. See more details in the [CUDA Enabled 
-Libraries](#cuda-enabled-libraries) section.
+GPU-accelerated Python wheels. You can find more details in the [CUDA 
+Enabled Libraries](#cuda-enabled-libraries) section.
 
 The Chainguard Libraries for Python repository does not include all packages
 from PyPI. Chainguard Libraries for Python are rebuilt from source and require
