@@ -46,9 +46,47 @@ Successfully exchanged token.
 Valid! Id: 8a4141a........7d9904d98c
 ```
 
+<a id name="python-keyring"></a>
+
+## Python Keyring integration
+
+Where possible, Chainguard recommends using short-lived credentials to access Chainguard Libraries.
+
+Python users can leverage the [Chainguard keyring implementation](https://github.com/chainguard-dev/keyrings-chainguard-libraries) to provide short-lived credentials from supported environments, such as local development and CI/CD platforms that support [assumable identities](https://edu.chainguard.dev/chainguard/administration/assumable-ids/assumable-ids/).
+
+To set up the keyring, install the `keyrings-chainguard-libraries` package:
+
+```shell
+pip install keyrings-chainguard-libraries
+```
+
+Then, when you request to install packages from Chainguard Libraries for Python, the keyring automatically retrieves short-lived credentials for you, using `chainctl`.
+
+To use the keyring with `uv`, install the keyring:
+
+```shell
+uv pip install keyring keyrings-chainguard-libraries
+```
+
+Then to use the keyring you
+
+```shell
+uv pip install --keyring-provider subprocess \
+  --index-url https://__token__@libraries.cgr.dev/python/simple/ \
+  <package-name>
+```
+
+Note that when using `uv pip` you must specify the `--keyring-provider subprocess` option to enable the keyring, and include `__token__@` in the index URL to signal to `uv` that authentication is required.
+
+To use the keyring with `poetry`, install the keyring:
+
+# TODO: POETRY -- DO NOT MERGE
+
 <a id name="pull-token"></a>
 
 ## Pull token for libraries
+
+For environments where short-lived credentials are not suitable, such as some CI/CD platforms, you can generate a pull token, which provides longer-lived access to Chainguard Libraries.
 
 Pull tokens are separate identities with an assigned role to access the
 repositories from Chainguard Libraries. You can create the pull tokens with the
@@ -281,10 +319,10 @@ Ecosystem Library Entitlements for example (45a0...764595)
 ```
 
 Contact your Chainguard account owner for confirmation or adjustments if
-necessary. 
+necessary.
 
 <!-- Removed for now until we decide where this info should live. It is only accessible
-for administrators (so Chainguard internal), but they might also be an audience to 
+for administrators (so Chainguard internal), but they might also be an audience to
 read the docs - so TBD
 
 As administrator you can create entitlements:
