@@ -221,12 +221,12 @@ The [Chainguard SDK For Go](https://pkg.go.dev/chainguard.dev/sdk) provides an [
 
 For an example of how to leverage this function, refer to the [`aws-auth` example](https://github.com/chainguard-dev/platform-examples/tree/main/aws-auth) in Chainguard's public `platform-examples` repository.
 
-### EC2 Instance Metadata
+### EC2 instance metadata
 
 If you don't have the AWS CLI installed on your EC2 instance, you can use the [instance metadata service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html) to retrieve credentials.
 
 Refer to [our AWS EC2 Assumable Identity guide](/chainguard/administration/assumable-ids/identity-examples/aws-ec2-identity/) for more details.
 
-## Learn more
+## Learn More
 
 By following this guide, you will have created a Chainguard identity that you can use to authenticate to Chainguard from AWS. For more information about how assumable identities work in Chainguard, check out our [conceptual overview of assumable identities](/chainguard/administration/assumable-ids/assumable-ids/). Additionally, we encourage you to read through the rest of our documentation on [Administering Chainguard resources](/chainguard/administration/).
