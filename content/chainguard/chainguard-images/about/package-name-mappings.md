@@ -21,14 +21,14 @@ When migrating to Chainguard Containers, you may notice that some package and im
 
 Different Linux distributions often use different names for the same software. For example, Debian calls its C compiler package `build-essential`, while Alpine calls the equivalent package `build-base` and Fedora uses `gcc` and related packages. Chainguard Containers standardize these names to provide consistency regardless of which distribution you're migrating from.
 
-In some cases, upstream package names can be ambiguous or misleading. For instance, `netcat-traditional` becomes `netcat-openbsd` to specify the implementation, and `google-chrome-stable` maps to `chromium` to reflect the open-source base.
+In some cases, upstream package names can be ambiguous or misleading. To create more clarity, Chainguard maps `netcat-traditional` to `netcat-openbsd` to specify the implementation, and `google-chrome-stable` to `chromium` to reflect the open-source base.
 
 Some distributions split a single piece of software into many sub-packages, while others bundle functionality together. Chainguard's package naming reflects a more streamlined approach that reduces the number of packages you need to install, minimizing the attack surface by avoiding unnecessary package splits.
 
-### Container Image Name Conventions
+### Container image name conventions
 
 For container images, Chainguard follows naming conventions that prioritize:
-- **Specificity**: Instead of generic names, we use descriptive names (e.g., `argocd-repo-server` instead of just `argocd`)
+- **Specificity**: Instead of generic names, we use descriptive names (for example, `argocd-repo-server` instead of just `argocd`)
 - **Consistency**: All our images follow similar naming patterns
 - **Discoverability**: Names that clearly indicate the software's purpose
 
@@ -42,19 +42,19 @@ For manual migrations, you can reference the following tables to find the correc
 
 ## Package Name Mappings
 
-### Debian/Ubuntu Packages
+### Debian/Ubuntu packages
 
 The following table shows how Debian and Ubuntu package names (used with `apt`, `apt-get`) map to Chainguard package names (used with `apk`).
 
 {{< package-mappings/debian-packages >}}
 
-### Fedora/RedHat/UBI Packages
+### Fedora/RedHat/UBI packages
 
 The following table shows how Fedora, RedHat, and UBI package names (used with `yum`, `dnf`, `microdnf`) map to Chainguard package names.
 
 {{< package-mappings/fedora-packages >}}
 
-### Alpine Packages
+### Alpine packages
 
 Alpine Linux package names generally align with Chainguard's package names, as both use `apk` and share similar package management philosophies. In most cases, no mapping is necessary when migrating from Alpine to Chainguard Containers.
 
