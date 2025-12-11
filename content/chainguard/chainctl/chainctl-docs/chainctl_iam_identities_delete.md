@@ -1,5 +1,5 @@
 ---
-date: 2025-12-04T13:35:52Z
+date: 2025-12-10T21:44:57Z
 title: "chainctl iam identities delete"
 slug: chainctl_iam_identities_delete
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_delete/
