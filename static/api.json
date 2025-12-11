@@ -184,6 +184,13 @@
             "name": "mostRecentlyUpdated",
             "required": false,
             "type": "boolean"
+          },
+          {
+            "description": "Filter by origin package. Returns all packages (including subpackages)\nthat have this origin. For origin packages, origin equals package_name.",
+            "in": "query",
+            "name": "origin",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2023,6 +2030,20 @@
             "name": "query",
             "required": false,
             "type": "string"
+          },
+          {
+            "description": "Specify the cuda version of the packages to return from the python ecosystem",
+            "in": "query",
+            "name": "cudaVersion",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Flag to return only remediated packages for the ecosystems",
+            "in": "query",
+            "name": "remediated",
+            "required": false,
+            "type": "boolean"
           },
           {
             "description": "The maximum number of artifacts to return per request.\nThe service may return fewer than this value.",
@@ -4501,6 +4522,13 @@
             "type": "string"
           },
           {
+            "description": "advisory_id in the v1 system (e.g., CGA-abcd-efgh-ijkl)",
+            "in": "query",
+            "name": "legacyAdvisoryId",
+            "required": false,
+            "type": "string"
+          },
+          {
             "description": "id is the exact UID of the record.",
             "in": "query",
             "name": "id",
@@ -4573,6 +4601,17 @@
             "name": "componentType",
             "required": false,
             "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "component_location filters by component locations (IE ./PKGINFO)",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "componentLocation",
+            "required": false,
+            "type": "array"
           },
           {
             "collectionFormat": "multi",
@@ -7833,6 +7872,10 @@
     },
     "registryCustomOverlay": {
       "properties": {
+        "accounts": {
+          "$ref": "#/definitions/ApkoConfigAccounts",
+          "description": "Additional account customizations applied during rebuilds."
+        },
         "annotations": {
           "additionalProperties": {
             "type": "string"
@@ -8088,6 +8131,10 @@
     },
     "registryHelmChart": {
       "properties": {
+        "chart": {
+          "description": "chart is the specific chart that is used from a repo.",
+          "type": "string"
+        },
         "repo": {
           "description": "repo is the Helm chart repository URL.",
           "type": "string"
