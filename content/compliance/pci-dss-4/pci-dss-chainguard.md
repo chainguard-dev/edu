@@ -43,7 +43,7 @@ Vulnerability scanners can be noisy and sifting through false positives while ca
 
 Chainguard Containers are carefully engineered to contain low-to-no CVEs. Organizations can use them as their source to build their applications on. The benefits of our solution are:
 
-- **You’re secured by default** : Our images contain low-to-no CVEs. Check out our I[mages Directory](https://images.chainguard.dev) yourself. ‍
+- **You’re secured by default** : Our images contain low-to-no CVEs. Check out our [Images Directory](https://images.chainguard.dev) yourself. ‍
 - [**Extensive scanner partnerships**](https://www.chainguard.dev/scanners): We partner with the industry-leading scanners such as Snyk, Crowdstrike, and Wiz. ‍
 - **SBOM for all Chainguard Containers**: Get full transparency into the packages actually used in our images and ultimately run in your environment. ‍
 - **Less ongoing human overhead**: Every new Chainguard Container version is carefully scanned and any addressable CVEs are fixed. ‍

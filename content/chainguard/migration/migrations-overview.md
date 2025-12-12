@@ -99,7 +99,7 @@ Many Chainguard customers use both application and base container images, but it
 
 When migrating to a [Chainguard Application Container](/chainguard/chainguard-images/about/images-categories/#application-containers) you should first check the image’s overview page on the [Containers  Directory](https://images.chainguard.dev) for usage details and any compatibility notes. There may be user, permissions, or volume path differences with the Chainguard Image that you should be aware of. 
 
-It is a best practice to use the same version of the Chainguard Application Image as what is currently running in your environment, if that version is availble from Chainguard. Post-migration you should thoroughly test and monitor your application.
+It is a best practice to use the same version of the Chainguard Application Image as what is currently running in your environment, if that version is available from Chainguard. Post-migration you should thoroughly test and monitor your application.
 
 #### Base Images
 
