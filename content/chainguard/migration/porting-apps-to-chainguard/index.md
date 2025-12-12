@@ -522,7 +522,7 @@ docker build --pull --target dev -t identidock:dev .
 
 Otherwise, you will get the standard variant only.
 
-There are several more environment variables defined. These prevent the creation of Python bytecode and buffering of output. For more detail on why this is useful, see the blog [PYTHONDONTWRITEBYTECODE and PYTHONUNBUFFERED Explained](https://blog.mimixtech.com/pythondontwritebytecode-and-pythonunbuffered-explained).
+There are several more environment variables defined. These prevent the creation of Python bytecode and buffering of output.
 
 The installation of pip modules has moved to the `requirements.txt` file. The main thinking here is that we don't need to update the Dockerfile each time a dependency is updated or changed.
 
