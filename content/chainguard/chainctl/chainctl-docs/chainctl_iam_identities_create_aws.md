@@ -1,22 +1,22 @@
 ---
 date: 2025-12-15T19:18:15Z
-title: "chainctl iam invites"
-slug: chainctl_iam_invites
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_invites/
+title: "chainctl iam identities create aws"
+slug: chainctl_iam_identities_create_aws
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create_aws/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam invites
+## chainctl iam identities create aws
 
-Manage invite codes that register identities with Chainguard.
+Create a new identity for an AWS IAM resource.
 
 ### Options
 
 ```
-  -h, --help   help for invites
+  -h, --help   help for aws
 ```
 
 ### Options inherited from parent commands
@@ -35,8 +35,7 @@ Manage invite codes that register identities with Chainguard.
 
 ### SEE ALSO
 
-* [chainctl iam](/chainguard/chainctl/chainctl-docs/chainctl_iam/)	 - IAM related commands for the Chainguard platform.
-* [chainctl iam invites create](/chainguard/chainctl/chainctl-docs/chainctl_iam_invites_create/)	 - Generate an invite code to identities with Chainguard.
-* [chainctl iam invites delete](/chainguard/chainctl/chainctl-docs/chainctl_iam_invites_delete/)	 - Delete invite codes
-* [chainctl iam invites list](/chainguard/chainctl/chainctl-docs/chainctl_iam_invites_list/)	 - List organization and folder invites.
+* [chainctl iam identities create](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create/)	 - Create a new identity.
+* [chainctl iam identities create aws role](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create_aws_role/)	 - 
+* [chainctl iam identities create aws user](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create_aws_user/)	 - 
 
