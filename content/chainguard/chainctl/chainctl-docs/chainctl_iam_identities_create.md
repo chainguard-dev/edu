@@ -1,5 +1,5 @@
 ---
-date: 2025-12-10T21:44:57Z
+date: 2025-12-15T19:18:15Z
 title: "chainctl iam identities create"
 slug: chainctl_iam_identities_create
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create/
@@ -71,6 +71,7 @@ chainctl iam identities create NAME {--filename FILE | {--identity-issuer=ISS | 
 ### SEE ALSO
 
 * [chainctl iam identities](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities/)	 - Identity management.
+* [chainctl iam identities create aws](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create_aws/)	 - Create a new identity for an AWS IAM resource.
 * [chainctl iam identities create github](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create_github/)	 - 
 * [chainctl iam identities create gitlab](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create_gitlab/)	 - 
 
