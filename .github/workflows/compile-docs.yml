@@ -32,7 +32,7 @@ jobs:
     
     steps:
     - name: Harden the runner (Audit all outbound calls)
-      uses: step-security/harden-runner@df199fb7be9f65074067a9eb93f12bb4c5547cf2 # v2.13.3
+      uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
       with:
         egress-policy: audit
 
@@ -260,7 +260,7 @@ jobs:
 
     - name: Create GitHub Release
       if: (github.event.inputs.create_release == 'true' || github.event_name == 'schedule') && github.ref == 'refs/heads/main'
-      uses: step-security/action-gh-release@674f8f866246c6b91bd3f1688ba95e27b2ae8d2e # v2.4.1
+      uses: step-security/action-gh-release@5f6a6ab53a5a2c000ff3a16fad038291e5b97ce7 # v2.4.2
       with:
         tag_name: ai-docs-latest
         name: AI Documentation Bundle - Latest
