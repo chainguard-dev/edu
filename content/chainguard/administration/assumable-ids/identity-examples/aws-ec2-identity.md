@@ -48,7 +48,7 @@ This will return information like the following:
 
 **From your local machine**, use this information to create an identity with `chainctl`:
 
-```
+```sh
 chainctl iam id create aws role aws-ec2-identity --aws-account-id=453EXAMPLE43 --aws-role-name=AmazonSSMRoleForInstancesQuickSetup --role=viewer
 ```
 
