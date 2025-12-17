@@ -32,21 +32,21 @@ This guide outlines two methods for creating an identity that can be assumed by 
 
 ### CLI
 
-This example creates an identity for an IAM role and binds it to the `registry.pull` role. Replace `<identity-name>` with the name you'd like to give the identity, `<account-id>` with your AWS account ID and `<role-name>` with the name of your IAM role.
+This example creates an identity for an IAM role and binds it to the `registry.pull` role. Replace `<identity-name>` with the name you'd like to give the identity, `<account-id>` with your AWS account ID, and `<role-name>` with the name of your IAM role.
 
-```
+```shell
 chainctl iam id create aws role <identity-name> --aws-account-id=<account-id> --aws-role-name=<role-name> --role=registry.pull
 ```
 
 For an IAM user, use this command. Replace `<identity-name>` with the name you'd like to give the identity, `<account-id>` with your AWS account ID and `<user-name>` with the name of your IAM user.
 
-```
+```shell
 chainctl iam id create aws user <identity-name> --aws-account-id=<account-id> --aws-user-name=<user-name> --role=registry.pull
 ```
 
 If your IAM resources are in the `aws-cn` or `aws-us-gov` [partitions](https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/partitions.html), you must specify that with the `--aws-partition` flag. For instance, for a role:
 
-```
+```shell
 chainctl iam id create aws role <identity-name> --aws-partition=aws-us-gov --aws-account-id=<account-id> --aws-role-name=<role-name> --role=registry.pull
 ```
 
