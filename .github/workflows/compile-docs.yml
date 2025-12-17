@@ -32,12 +32,12 @@ jobs:
     
     steps:
     - name: Harden the runner (Audit all outbound calls)
-      uses: step-security/harden-runner@95d9a5deda9de15063e7595e9719c11c38c90ae2 # v2.13.2
+      uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
       with:
         egress-policy: audit
 
     - name: Checkout edu repository
-      uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+      uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       with:
         path: edu
         persist-credentials: false  # Don't persist auth token
@@ -56,7 +56,7 @@ jobs:
         python-version: '3.10'
 
     - name: Cache Python dependencies
-      uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+      uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
       with:
         path: ~/.cache/pip
         key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
@@ -260,7 +260,7 @@ jobs:
 
     - name: Create GitHub Release
       if: (github.event.inputs.create_release == 'true' || github.event_name == 'schedule') && github.ref == 'refs/heads/main'
-      uses: step-security/action-gh-release@674f8f866246c6b91bd3f1688ba95e27b2ae8d2e # v2.4.1
+      uses: step-security/action-gh-release@5f6a6ab53a5a2c000ff3a16fad038291e5b97ce7 # v2.4.2
       with:
         tag_name: ai-docs-latest
         name: AI Documentation Bundle - Latest

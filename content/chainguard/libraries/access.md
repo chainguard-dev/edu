@@ -54,6 +54,11 @@ Pull tokens are separate identities with an assigned role to access the
 repositories from Chainguard Libraries. You can create the pull tokens with the
 chainctl command or using the Chainguard console.
 
+To create a pull token you must have the relevant [entitlement](#entitlement)
+for the ecosystem and the `libraries.java.pull_token_creator`,
+`libraries.javascript.pull_token_creator`, or
+`libraries.python.pull_token_creator` role.
+
 ### Creating pull tokens with chainctl
 
 Create a new pull token for the Chainguard Libraries for Java with the [chainctl
@@ -256,6 +261,8 @@ password CHAINGUARD_PYTHON_TOKEN
 ```
 
 Note that the long string for the password value must use only one line.
+
+<a id="entitlement"></a>
 
 ## Verify entitlement
 

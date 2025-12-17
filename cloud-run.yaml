@@ -1,0 +1,95 @@
+name: Deploy to Cloud Run
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    if: github.repository == 'chainguard-dev/edu'
+
+    permissions:
+      contents: read
+      id-token: write # federates with GCP
+
+    steps:
+    - name: 'Github Actions Runner'
+      uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
+      with:
+        egress-policy: audit
+
+    - name: 'Checkout default branch to $GITHUB_WORKSPACE dir'
+      uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+
+    - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+      with:
+        node-version: 16
+
+    - name: Update themes
+      run: git submodule update --init --recursive
+
+    - name: npm install
+      run: npm install
+
+    - name: npm run build
+      run: npm run build
+
+    - name: Authenticate to Google Cloud
+      id: auth
+      uses: step-security/google-github-auth@f0e5c257a9534a30b5df12f43329c1eb7b85a5be # v3.0.0
+      with:
+        token_format: 'access_token'
+        project_id: '${{ secrets.PROJECT_ID }}'
+        workload_identity_provider: '${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}'
+        service_account: '${{ secrets.GCP_SERVICE_ACCOUNT }}'
+
+    - name: Docker Auth
+      id: docker-auth
+      uses: docker/login-action@5e57cd118135c172c3672efd75eb46360885c0ef # v3.6.0
+      with:
+        username: 'oauth2accesstoken'
+        password: '${{ steps.auth.outputs.access_token }}'
+        registry: '${{ secrets.REGISTRY_URL }}'
+
+    - name: Build and push
+      uses: docker/build-push-action@263435318d21b8e681c14492fe198d362a7d2c83 # v6.18.0
+      with:
+        context: .
+        push: true
+        tags: '${{ secrets.REGISTRY_URL }}/${{ secrets.PROJECT_ID }}/${{ secrets.REPOSITORY }}/${{ secrets.SERVICE }}:${{ github.sha }}'
+
+    # Attempt to deploy the terraform configuration
+    - uses: hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd # v2.0.0
+      with:
+        terraform_version: '1.10.x'
+    - env:
+        TF_VAR_image: '${{ secrets.REGISTRY_URL }}/${{ secrets.PROJECT_ID }}/${{ secrets.REPOSITORY }}/${{ secrets.SERVICE }}:${{ github.sha }}'
+        TF_VAR_project_id: ${{ secrets.PROJECT_ID }}
+      working-directory: ./iac
+      run: |
+        terraform init
+
+        terraform plan
+
+        terraform apply -auto-approve
+
+    - name: Post failure notice to Slack
+      uses: step-security/action-slack-notify@e04c77a65bae8b6c0373478a1cb8fd7e012637e6 # v2.3.5
+      if: ${{ failure() }}
+      env:
+        SLACK_ICON: http://github.com/chainguard-dev.png?size=48
+        SLACK_USERNAME: guardian
+        # This is the webhook for #alerts-edu channel
+        # in the chainguard-dev Slack workspace
+        SLACK_WEBHOOK: ${{ secrets.SLACK_ALERTS_EDU_WEBHOOK }}
+        SLACK_CHANNEL: 'alerts-edu'
+        SLACK_COLOR: '#8E1600'
+        MSG_MINIMAL: 'true'
+        SLACK_TITLE: 'Deploy to cloud run failed - ${{ github.repository }}'
+        SLACK_MESSAGE: |
+          For detailed logs: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
