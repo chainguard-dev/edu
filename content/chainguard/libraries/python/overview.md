@@ -143,9 +143,9 @@ Chainguard CUDA index, with your existing package management tools like
 `pip`, `uv`, or `poetry`. 
 
 Note that the CUDA-enabled libraries in these repositories are not dependency 
-complete, as they do not include packages from the NVIDIA CUDA toolkit. You 
-must configure your package manager to pull these NVIDIA components from an 
-upstream index such as https://download.pytorch.org/whl/cu12x, or from PyPI 
+complete, since they do not include packages from the NVIDIA CUDA toolkit. You 
+must configure your package manager to pull NVIDIA components from an 
+upstream source such as NVIDIA's index at https://pypi.nvidia.com, or from PyPI 
 where NVIDIA publishes them directly.
 
 ## Runtime and Build Requirements
