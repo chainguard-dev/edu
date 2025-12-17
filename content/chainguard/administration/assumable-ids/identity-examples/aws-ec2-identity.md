@@ -28,7 +28,7 @@ To complete this guide, you will need the following.
 
 ## Create a Chainguard Assumable Identity
 
-To get started, you will need to retrieve some details about the AWS IAM user on your EC2 instance. You will use these details to create a Chainguard identity that the EC2 user will employ to authenticate to Chainguard.
+To get started, you will need to retrieve some details about the AWS IAM identity of your EC2 instance. You will use these details to create a Chainguard identity that the EC2 instance will employ to authenticate to Chainguard.
 
 Run the following command **from your EC2 instance**:
 
@@ -46,68 +46,15 @@ This will return information like the following:
 }
 ```
 
-**From your local machine**, use this information to create a JSON file named `id.json` which you'll use to define the identity your EC2 instance will use to authenticate to Chainguard:
+**From your local machine**, use this information to create an identity with `chainctl`:
 
-```shell
-cat > id.json <<EOF
-{
-   "name":"aws-ec2-identity",
-   "awsIdentity": {
-  	"aws_account" : "$ACCOUNT",
-  	"arnPattern"  : "$ARN",
-  	"userIdPattern" : "$USER-ID"
-   }
-}
-EOF
+```sh
+chainctl iam id create aws role aws-ec2-identity --aws-account-id=453EXAMPLE43 --aws-role-name=AmazonSSMRoleForInstancesQuickSetup --role=viewer
 ```
 
-Note that this identity definition specifies the name of the Chainguard identity as `aws-ec2-identity`. Be sure to change these placeholder values to reflect the output from the `aws sts get-caller-identity` command you ran on your EC2 instance.
-
-Next, use `chainctl` to authenticate to your Chainguard account:
-
-```shell
-chainctl auth login
-```
-
-After authenticating to Chainguard, you can create an identity that your EC2 instance will be able to assume. First though, you'll need to know the name of the Chainguard organization you want the assumable identity to be associated with.
-
-To retrieve a list of all the organizations you have access to, run the following command:
-
-```shell
-chainctl iam organizations ls -o table
-```
-
-Find the organization you want to use and copy the value from its `NAME` column exactly. You can then use this to create a new Chainguard identity.
-
-The following example uses the `id.json` file you created earlier as the identity definition and associates it with the `chainguard.edu` organization:
-
-```shell
-chainctl iam id create aws --filename id.json -oid --parent chainguard.edu
-```
-
-Be sure to change the `chainguard.edu` placeholder to reflect the name of your own Chainguard organization.
-
-This command will return a value like the following:
-
-```output
-. . .
-45a0cEXAMPLE977f050c5fb9ac06a69EXAMPLE95/2c5f7EXAMPLE3871
-```
-
-Note this value down, as you will need it in the next section when you authenticate to Chainguard from your EC2 instance using this identity.
-
-Before moving on, you must create a [role-binding](/chainguard/administration/iam-organizations/roles-role-bindings/roles-role-bindings/) to bind the identity stored in `$CHAINGUARD_IDENTITY` to a specific role:
-
-```shell
-chainctl iam rolebinding create --identity aws-ec2-identity --role viewer --parent chainguard.edu
-```
-
-This example binds the `aws-ec2-identity` to the `viewer` role, but you can bind it to any role you'd like. For a full list of available roles, you can run the `chainctl iam roles list` command.
-
-Again, be sure to change `chainguard.edu` to reflect the name of your own organization, and change `aws-ec2-identity` to the name of the identity you created previously, if different.
+In addition to creating the identity, this example binds the `aws-ec2-identity` to the `viewer` role, but you can bind it to any role you'd like. For a full list of available roles, you can run the `chainctl iam roles list` command.
 
 Following that, you can move on to the next section where you will authenticate to Chainguard from your EC2 instance using the identity you created.
-
 
 ## Authenticate from EC2 Using the Newly Created Identity
 
