@@ -32,59 +32,33 @@ This guide outlines two methods for creating an identity that can be assumed by 
 
 ### CLI
 
-To begin, you will need to fetch the ID of the AWS IAM role or user that will be assuming the identity.
+This example creates an identity for an IAM role and binds it to the `registry.pull` role. Replace `<identity-name>` with the name you'd like to give the identity, `<account-id>` with your AWS account ID, and `<role-name>` with the name of your IAM role.
 
-For an [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html), fetch the ID with the following command. Make sure to replace `<role-name>` with the name of the role you want to assume the identity:
+```shell
+chainctl iam id create aws role <identity-name> --aws-account-id=<account-id> --aws-role-name=<role-name> --role=registry.pull
+```
+
+For an IAM user, use this command. Replace `<identity-name>` with the name you'd like to give the identity, `<account-id>` with your AWS account ID and `<user-name>` with the name of your IAM user.
+
+```shell
+chainctl iam id create aws user <identity-name> --aws-account-id=<account-id> --aws-user-name=<user-name> --role=registry.pull
+```
+
+If your IAM resources are in the `aws-cn` or `aws-us-gov` [partitions](https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/partitions.html), you must specify that with the `--aws-partition` flag. For instance, for a role:
+
+```shell
+chainctl iam id create aws role <identity-name> --aws-partition=aws-us-gov --aws-account-id=<account-id> --aws-role-name=<role-name> --role=registry.pull
+```
+
+These commands will return the identity's [UIDP (unique identity path)](/chainguard/administration/cloudevents/events-reference/#uidp-identifiers). Note this value down, as you'll need it to assume the identity later.
+
+If you need to retrieve the UIDP later on, you can always run the following `chainctl` command to list the identity.
 
 ```sh
-aws iam get-role --role-name <role-name> | jq -r '.Role.RoleId'
+chainctl iam identities list --name=<identity-name>
 ```
 
-This will return an ID like the following:
-
-```output
-AROAEXAMPLEC2UL7LUB
-```
-
-For an [IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users.html), fetch its ID with this command. Again, be sure to replace `<user-name>` with the name of the AWS user you want to assume the identity:
-
-```sh
-aws iam get-user --user-name <user-name> | jq -r '.User.UserId'
-```
-```output
-AIDAEXAMPLEFUBLFJXS6B
-```
-
-Once you've got the ID, create a configuration file named `identity.json`. This will define the name of your identity and the patterns that dictate which AWS users and roles can assume it.
-
-For an IAM role, the contents of your `identity.json` file should look like this. Substitute `<account-id>` with your AWS account ID, `<role-name>` with the name of your role, and `<role-id>` with the role ID you just retrieved:
-
-```identity.json
-{
-    "name": "my-identity-name",
-    "awsIdentity": {
-        "aws_account" : "<account-id>",
-        "arnPattern"  : "^arn:aws:sts::<account-id>:assumed-role/<role-name>/(.+)$",
-        "userIdPattern" : "^<role-id>:(.+)$"
-    }
-}
-```
-
-For a user, the `identity.json` file should follow this format. Substitute `<account-id>` with your AWS account ID, `<user-name>` with the name of your user and `<user-id>` with the user ID you just retrieved:
-
-
-```identity.json
-{
-    "name": "my-identity-name",
-    "awsIdentity": {
-        "aws_account" : "<account-id>",
-        "arnPattern"  : "arn:aws:iam::<account-id>:user/<user-name>",
-        "userIdPattern" : "<user-id>"
-    }
-}
-```
-
-If you're unsure what the configuration of your assumable identity should look like, you can run `aws sts get-caller-identity` to get the details of the current AWS session. You must run this from the AWS environment you are trying to assume the identity from. For example, if you run this command from an EC2 instance with an assumed role, you might see output like this:
+If you're unsure which IAM identity your AWS resource is using, you can run `aws sts get-caller-identity` to get the details of the current AWS session. You must run this from the AWS environment you are trying to assume the identity from. For example, if you run this command from an EC2 instance with an assumed role, you might see output like this:
 
 ```sh
 aws sts get-caller-identity
@@ -97,25 +71,7 @@ aws sts get-caller-identity
 }
 ```
 
-You can translate this output into the assumable identity configuration described previously.
-
-Once the configuration is prepared, use `chainctl` to create the identity from `identity.json` and bind the `registry.pull` role to it. Substitute `<org-name>` with the name of your Chainguard organization.
-
-```sh
-chainctl iam identities create my-identity-name \
-    --parent=<org-name> \
-    --filename=identity.json \
-    --role=registry.pull \
-    -o id
-```
-
-This will return the identity's [UIDP (unique identity path)](/chainguard/administration/cloudevents/events-reference/#uidp-identifiers). Note this value down, as you'll need it to assume the identity later.
-
-If you need to retrieve the UIDP later on, you can always run the following `chainctl` command to list the identity.
-
-```sh
-chainctl iam identities list --name=my-identity-name
-```
+In this example, the role name is `AmazonSSMRoleForInstancesQuickSetup`.
 
 ### Terraform
 
