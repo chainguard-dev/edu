@@ -1,5 +1,5 @@
 ---
-date: 2025-12-15T19:18:15Z
+date: 2025-12-17T18:32:17Z
 title: "chainctl iam identities create aws role"
 slug: chainctl_iam_identities_create_aws_role
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create_aws_role/
