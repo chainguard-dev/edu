@@ -61,7 +61,6 @@ Chainguard VMs are currently available for the following platforms / hypervisors
 
 Offering broad compatibility, Chainguard VMs allow for deployment in any environment, from public clouds to self-managed infrastructure. This flexibility facilitates one-click deployment across environments and helps prevent vendor lock-in.
 
-[Join the waitlist](https://get.chainguard.dev/vmearlyaccesswaitlist?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) today to get started.
 
 ## Compliance and SLAs
 
@@ -77,7 +76,3 @@ Chainguard VMs (running Chainguard OS) are intentionally designed to minimize ri
 - [Chainguard VMs](https://www.chainguard.dev/vms)
 - [Unchained Blog: Announcing Chainguard VMs: Minimal, Zero-CVE Container Host Images](https://www.chainguard.dev/unchained/announcing-chainguard-vms-minimal-zero-cve-container-host-images)
 - [Unchained Blog: Expanding Chainguard VMs: Zero-CVE Application & Base Virtual Machine Images](https://www.chainguard.dev/unchained/expanding-chainguard-vms-zero-cve-application-base-virtual-machine-images-for-cloud-and-on-prem)
-
-## Learn More and Get Started
-
-Chainguard VMs are available through a subscription. To learn more and get started, [join the waitlist](https://get.chainguard.dev/vmearlyaccesswaitlist?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
