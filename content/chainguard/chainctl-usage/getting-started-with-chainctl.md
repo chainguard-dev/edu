@@ -46,6 +46,8 @@ To configure a Docker credential helper, which will use a token to pull images w
 chainctl auth configure-docker
 ```
 
+> **Note**: {{< blurb/noproxy >}}
+
 
 ## Update chainctl to the Latest Release
 
