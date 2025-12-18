@@ -1,0 +1,4 @@
+Zscaler, a popular decrypting proxy, does not currently support encrypted HTTP/2 traffic. You may need to reconfigure
+Zscaler to disable its "Block Undecryptable Traffic" setting. Another option is to configure direct (proxyless) access
+to HTTP/2 endpoints and use the <code>no_proxy=</code> environment variable. Please consult your proxy software's
+documentation for guidance on adjusting these settings in order to authenticate.

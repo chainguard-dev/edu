@@ -91,4 +91,4 @@ You can replace `cgr.dev:443` with your own deployments.
 
 Many of the endpoints for Chainguard products require support for the encrypted [HTTP/2 protocol](https://http2.github.io/). Some decrypting proxies might not support HTTP/2. 
 
-Zscaler, a popular decrypting proxy, does not currently support encrypted HTTP/2 traffic. You may need to reconfigure Zscaler to disable its "Block Undecryptable Traffic" setting. Another option is to configure direct (proxyless) access to HTTP/2 endpoints and use the `no_proxy=` environment variable. Please consult your proxy software's documentation for guidance on adjusting these settings.
+{{< blurb/noproxy >}}
