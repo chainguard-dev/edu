@@ -156,4 +156,4 @@ Build logs are public on GitHub Actions:
 - [Sigstore Documentation](https://docs.sigstore.dev/)
 - [Cosign Installation](https://docs.sigstore.dev/cosign/system_config/installation/)
 - [Supply Chain Security](https://slsa.dev/)
-- [Chainguard Security Practices](https://www.chainguard.dev/security)
+- [Chainguard Security Practices](https://security.chainguard.dev/)
