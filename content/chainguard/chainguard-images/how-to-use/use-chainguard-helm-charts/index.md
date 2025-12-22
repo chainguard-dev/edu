@@ -254,15 +254,15 @@ parameters:
 volumeBindingMode: WaitForFirstConsumer
 allowVolumeExpansion: true
 EOF
-```sh
+```
 
 You then pass the storage class's name to the `helm install` command. Here, we use `rabbitmq` as an example:
 
 ```sh
 helm install rabbitmq oci://cgr.dev/$ORGANIZATION/iamguarded-charts/rabbitmq \
---set "global.org=$ORGANIZATION" \
---set "global.imagePullSecrets[0].name=chainguard-pull-secret" \
---set "persistence.storageClass=gp3-automode"
+  --set "global.org=$ORGANIZATION" \
+  --set "global.imagePullSecrets[0].name=chainguard-pull-secret" \
+  --set "persistence.storageClass=gp3-automode"
 ```
 
 ## Troubleshooting 
