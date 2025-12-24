@@ -45,7 +45,7 @@ The Octo STS app needs to request a large number of permissions. This set of per
 
 This sequence diagram outlines the token exchange process in Octo STS:
 
-<center><img src="oct-arch.webp" alt="Octo STS sequence diagram showing order of network requests" style="width:950px;"></center>
+<center><img src="octo-arch.webp" alt="Octo STS sequence diagram showing order of network requests" style="width:950px;"></center>
 
 ## Common Use Cases
 
