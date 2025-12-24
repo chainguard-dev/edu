@@ -1,18 +1,18 @@
 ---
 title: "Octo STS"
-linktitle: "Octo STS"
+linktitle: "Overview"
 type: "article"
 lead: "A security token service that eliminates the need for GitHub Personal Access Tokens by enabling OIDC-based federation for GitHub API access"
 description: "Learn about Octo STS, an open source security token service for GitHub that uses OIDC federation to eliminate long-lived Personal Access Tokens"
 date: 2025-12-23T15:04:05+01:00
-lastmod: 2025-12-23T15:04:05+01:00
+lastmod: 2025-12-24T15:04:05+01:00
 tags: ["octo-sts", "Overview", "OIDC", "Security"]
 draft: false
 images: []
 menu:
   docs:
     parent: "open-source"
-weight: 100
+weight: 001
 toc: true
 ---
 
