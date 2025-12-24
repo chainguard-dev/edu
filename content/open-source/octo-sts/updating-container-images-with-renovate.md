@@ -16,7 +16,7 @@ weight: 105
 toc: true
 ---
 
-In this video, Chainguard Staff Developer Relations Engineer Adrian Mouat shows you how you can update container images using Renovate with Octo STS, eliminating the need for Personal Access Tokens.
+In this video, Developer Relations Engineer Adrian Mouat shows you how you can update container images using Renovate with Octo STS, eliminating the need for GitHub Personal Access Tokens.
 
 ## Video
 
