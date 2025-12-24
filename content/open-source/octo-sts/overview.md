@@ -32,76 +32,30 @@ Octo STS addresses this problem by:
 
 ## How Octo STS Works
 
-Octo STS operates through a trust policy model:
+Octo STS operates through a trust policy model. The steps to install and use Octo STS are:
 
 1. **Install the GitHub App**: Add the [octo-sts](https://github.com/apps/octo-sts) GitHub App to your organization or repositories
-2. **Define trust policies**: Create policy files that specify which identities can access which resources
+2. **Define trust policies**: Create policy files (`.github/chainguard/{name}.sts.yaml`) that specify which identities can access which resources
 3. **Exchange tokens**: Workloads present OIDC tokens to Octo STS
 4. **Receive GitHub tokens**: If the identity matches the trust policy, Octo STS issues a short-lived GitHub token with specified permissions
 
+The Octo STS app needs to request a large number of permissions. This set of permissions is reviewed on a quarterly basis to ensure it meets common use cases without being overly broad.
+
 ### The Token Exchange Process
 
-```
-[Workload] → OIDC Token → [Octo STS] → Validates → Trust Policy
-                                          ↓
-                            Short-lived GitHub Token ← Returns
-```
+This sequence diagram outlines the token exchange process in Octo STS:
 
-The workload can then use this GitHub token to interact with the GitHub API, open pull requests, push commits, or perform other operations as defined by the trust policy.
-
-## Key Features
-
-**OIDC-Based Federation**
-Octo STS validates OIDC tokens from various identity providers, including GitHub Actions, cloud provider identity services, and Kubernetes service accounts.
-
-**Fine-Grained Access Control**
-Trust policies specify exactly which permissions to grant, following the principle of least privilege. You can create different policies for different workloads.
-
-**Pattern Matching**
-Trust policies support both exact matching and regular expressions for flexible identity validation, including custom claim matching.
-
-**Repository and Organization Scope**
-Policies can be scoped to individual repositories or shared across an organization, providing flexibility in how you manage access.
-
-**Automatic Token Expiration**
-All tokens issued by Octo STS are short-lived, reducing the window of opportunity if a token is compromised.
+<center><img src="oct-arch.webp" alt="Octo STS sequence diagram showing order of network requests" style="width:950px;"></center>
 
 ## Common Use Cases
 
-**Automated Dependency Updates**
-Run tools like Renovate as GitHub Actions without storing PATs, automatically opening pull requests to update dependencies.
+ - Developing Actions that create Pull Requests (a PAT is required to trigger presubmit GitHub Actions)
 
-**CI/CD Pipelines**
-Enable continuous integration and deployment workflows from cloud environments or Kubernetes clusters to interact with GitHub securely.
+ - Developing Actions that interact across repositories (unsupported by built-in permissions)
 
-**GitOps Workflows**
-Allow Kubernetes operators and controllers to update repository contents without long-lived credentials.
+ - Developing Actions that interact with the GitHub organization level
 
-**Cloud-to-GitHub Integration**
-Connect cloud workloads running in AWS, GCP, or Azure to GitHub repositories using native cloud identity.
-
-**Multi-Repository Automation**
-Create organization-level policies that allow automation tools to work across multiple repositories with appropriate permissions.
-
-## Security Model
-
-Octo STS implements several security best practices:
-
-- **Branch protection enforcement**: Policies cannot bypass repository branch protection rules
-- **Audit trail**: All token exchanges are logged for security monitoring
-- **Minimal permissions**: The app requests a superset of permissions but only grants what's specified in trust policies
-- **Regular permission reviews**: The Octo STS team updates permissions quarterly with community notification
-
-## Getting Started
-
-To begin using Octo STS:
-
-1. [Install the octo-sts GitHub App](https://github.com/apps/octo-sts)
-2. Create your first trust policy in `.github/chainguard/{name}.sts.yaml`
-3. Configure your workload to exchange its OIDC token
-4. Test the token exchange and verify permissions
-
-For detailed instructions, see the [Getting Started with Octo STS](/open-source/octo-sts/getting-started-with-octo-sts/) guide.
+ - Providing external services (e.g. clouds) with access to repositories
 
 ## Learn More
 
