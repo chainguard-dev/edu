@@ -32,9 +32,9 @@ We'll use the `apko_0.19.9_linux_arm64.tar.gz` tar archive from the `apko` [GitH
 
 There are three URLs from the list of assets on that page that you will need to copy:
 
-1. The release itself: `https://github.com/chainguard-dev/apko/releases/download/v0.19.9/apko_0.19.9_linux_arm64.tar.gz`
-2. The signature file: `https://github.com/chainguard-dev/apko/releases/download/v0.19.9/apko_0.19.9_linux_arm64.tar.gz.sig`
-3. The public certificate: `https://github.com/chainguard-dev/apko/releases/download/v0.19.9/apko_0.19.9_linux_arm64.tar.gz.crt`
+1. The release itself: `https://github.com/chainguard-dev/apko/releases/download/v0.30.31/apko_0.30.31_linux_arm64.tar.gz`
+2. The signature file: `https://github.com/chainguard-dev/apko/releases/download/v0.30.31/apko_0.30.31_linux_arm64.tar.gz.sig`
+3. The public certificate: `https://github.com/chainguard-dev/apko/releases/download/v0.30.31/apko_0.30.31_linux_arm64.tar.gz.crt`
 
 With these URLs, construct (or copy) the following command to verify the tar archive:
 
