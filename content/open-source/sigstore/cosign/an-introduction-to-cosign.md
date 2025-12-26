@@ -5,7 +5,7 @@ type: "article"
 lead: "A primer to signing software artifacts with Cosign"
 description: "Understanding Cosign, a project under Sigstore"
 date: 2022-07-19T08:49:31+00:00
-lastmod: 2024-07-29T15:12:18+00:00
+lastmod: 2025-12-26T15:16:50+01:00
 draft: false
 tags: ["Cosign", "Overview"]
 images: []
@@ -26,11 +26,13 @@ By signing software, you can authenticate that you are who you say you are, whic
 
 Software artifacts are distributed widely, can be incorporated into the software of other individuals and organizations, and are often updated throughout their life spans. End users and developers who build upon existing software are increasingly aware of the possibility of threats and vulnerabilities in packages, containers, and other artifacts. How can users and developers decide whether to use software created by others? One answer that has been increasingly gaining traction is *code signing*.
 
-While code signing is not new technology, the growing prevalence of software in our everyday lives coupled with a rising number of attacks like [SolarWinds](https://www.businessinsider.com/solarwinds-hack-explained-government-agencies-cyber-security-2020-12) and [Codecov](https://www.reuters.com/technology/codecov-hackers-breached-hundreds-restricted-customer-sites-sources-2021-04-19/) has created a more pressing need for solutions that build trust, prevent forgery and tampering, and ultimately lead to a more secure software supply chain. Similar in concept to a signature on a document that was signed in the presence of a notary or other professional who can certify your identity, a signature on a software artifact attests that you are who you say you are and that the code was not altered after signing. Instead of a recognized notary when you sign software, it is a recognized **certificate authority** (CA) that validates your identity. These checks that go through recognized bodies able to establish a developer’s identity support the root of trust that security relies on so that bad actors cannot compromise software.
+While code signing is not new technology, the growing prevalence of software in our everyday lives coupled with a rising number of attacks like [SolarWinds](https://www.businessinsider.com/solarwinds-hack-explained-government-agencies-cyber-security-2020-12) and [Codecov](https://www.reuters.com/technology/codecov-hackers-breached-hundreds-restricted-customer-sites-sources-2021-04-19/) has created a more pressing need for solutions that build trust, prevent forgery and tampering, and ultimately lead to a more secure software supply chain.
+
+Similar in concept to a signature on a document that was signed in the presence of a notary or other professional who can certify your identity, a signature on a software artifact attests that you are who you say you are and that the code was not altered after signing. Instead of a recognized notary when you sign software, it is a recognized **certificate authority** (CA) that validates your identity. These checks that go through recognized bodies able to establish a developer’s identity support the root of trust that security relies on so that bad actors cannot compromise software.
 
 Code signing involves a developer, software publisher, or entity (like an automated workload) digitally signing a software artifact to confirm their identity and ensure that the artifact was not tampered with since having been signed. Code signing has several implementations, and Cosign is one such implementation, but all code signing technology follows a similar process as Cosign.
 
-The recommended practice for a developer (or organization) looking to sign their code with Cosign is to use *keyless signing*. This process will first generate an ephemeral key pair which will then be used to create a digital signature for a given software artifact. A **key pair** is a combination of a signing key to sign data, and a verification key that is used to verify data signed with the corresponding signing key. With the `cosign sign` command, the developer will sign their software artifact, and that signature will be stored in the registry (if applicable). This signature can later be verified by others through searching for an artifact, finding its signature, and then verifying it.
+The recommended practice for a developer (or organization) looking to sign their code with Cosign is to use *keyless signing*. This process will first generate an ephemeral key pair which will then be used to create a digital signature for a given software artifact. A *key pair* is a combination of a signing key to sign data, and a verification key that is used to verify data signed with the corresponding signing key. With the `cosign sign` command, the developer will sign their software artifact, and that signature will be stored in the registry (if applicable). This signature can later be verified by others through searching for an artifact, finding its signature, and then verifying it.
 
 ## Keyless Signing
 
@@ -44,41 +46,31 @@ While keyless signing can be used by individuals in the same manner as long-live
 
 Cosign uses ephemeral keys and certificates, gets them signed automatically by the Fulcio root certificate authority, and stores these signatures in the [Rekor](/open-source/sigstore/rekor/) transparency log, which automatically provides an attestation at the time of creation.
 
-You can manually create a keyless signature with the following `cosign` command. In our example, we’ll use [Docker Hub](https://hub.docker.com/) to store the signature. If you would like to follow along, ensure you are logged into Docker Hub on your local machine and that you have a Docker repository with an image available. The following example assumes a username of `docker-username` and a repository name of `demo-container`.
+You can manually create a keyless signature with the following `cosign` command. In our example, we’ll use [Docker Hub](https://hub.docker.com/) to store the signature. If you would like to follow along, ensure you are logged into Docker Hub on your local machine and that you have a Docker repository with an image available. The following example assumes a username of `docker-username` and a repository name of `demo-container`:
 
 ```sh
 cosign sign docker-username/demo-container
 ```
 
-You'll be taken through a workflow that requests you to grant permission to have your information stored permanently in transparency logs, and moves to a workflow with an OIDC provider.
+You'll be taken through a workflow that requests you to grant permission to have your information stored permanently in transparency logs, and moves to a workflow with an OIDC provider:
 
 ```output
-Generating ephemeral keys...
-Retrieving signed certificate...
+    The sigstore service, hosted by sigstore a Series of LF Projects, LLC, is provided pursuant to the Hosted Project Tools Terms of Use, available at https://lfprojects.org/policies/hosted-project-tools-terms-of-use/.
+    Note that if your submission includes personal data associated with this signed artifact, it will be part of an immutable record.
+    This may include the email address associated with the account with which you authenticate your contractual Agreement.
+    This information will be used for signing this artifact and will be stored in public transparency logs and cannot be removed later, and is subject to the Immutable Record notice at https://lfprojects.org/policies/hosted-project-tools-immutable-records/.
 
-	Note that there may be personally identifiable information associated with this signed artifact.
-	This may include the email address associated with the account with which you authenticate.
-	This information will be used for signing this artifact and will be stored in public transparency logs and cannot be removed later.
-
-By typing 'y', you attest that you grant (or have permission to grant) and agree to have this information stored permanently in transparency logs.
-Are you sure you would like to continue? [y/N]
+By typing 'y', you attest that (1) you are not submitting the personal data of any other person; and (2) you understand and agree to the statement and the Agreement terms at the URLs listed above.
+Are you sure you would like to continue? [y/N] y
 Your browser will now be opened to:
 ...
 ```
 
 At this point, a browser window will open and you will be directed to a page that asks you to log in to Sigstore. You can authenticate with GitHub, Google, or Microsoft. Note that the email address that is tied to these credentials will be permanently visible in the Rekor transparency log. This makes it publicly visible that you are the one who signed the given artifact, and helps others trust the given artifact. That said, it is worth keeping this in mind when choosing your authentication method. Once you log in and are authenticated, you’ll receive feedback of “`Sigstore Authentication Successful!`”, and you may now safely close the window.
 
-On the terminal, you’ll receive output that you were successfully verified, and you’ll get confirmation that the signature was pushed.
-
-```output
-Successfully verified SCT...
-tlog entry created with index:
-Pushing signature to: index.docker.io/docker-username/demo-container
-```
-
 If you followed along with Docker Hub, you can check the user interface of your repository and verify that you pushed a signature.
 
-You can then further verify that the keyless signature was successful by using `cosign verify` to check. You will need to know some information in order to verify the entry. You'll need to use the identity flags `--certificate-identity` which corresponds to the email address of the signer, and `--certificate-oidc-issuer` which corresponds to the OIDC provider that the signer used. For example, a Gmail account using Google as the OIDC issuer, will be able to be verified with the following command.
+You can then further verify that the keyless signature was successful by using `cosign verify` to check. You will need to know some information in order to verify the entry. You'll need to use the identity flags `--certificate-identity` which corresponds to the email address of the signer, and `--certificate-oidc-issuer` which corresponds to the OIDC provider that the signer used. For example, a Gmail account using Google as the OIDC issuer, will be able to be verified with the following command:
 
 ```sh
 cosign verify \
@@ -100,7 +92,7 @@ As part of the JSON output, you should get feedback on the issuer that you used 
 
 ## Cosign with Keys
 
-You can also use Cosign with long-lived key pairs. If you would like to follow along, please first [install Cosign](/open-source/sigstore/cosign/how-to-install-cosign/).
+You can also use Cosign with long-lived key pairs. If you would like to follow along, please first [install Cosign](/open-source/sigstore/cosign/how-to-install-cosign/):
 
 ```sh
 cosign generate-key-pair
@@ -113,7 +105,7 @@ Private key written to cosign.key
 Public key written to cosign.pub
 ```
 
-You can sign a container and store the signature in the registry with the cosign sign command.
+You can sign a container and store the signature in the registry with the cosign sign command:
 
 ```sh
 cosign sign --key cosign.key docker-username/demo-container
@@ -124,7 +116,7 @@ Enter password for private key:
 Pushing signature to: index.docker.io/sigstore-course/demo:sha256-87ef60f558bad79beea6425a3b28989f01dd417164150ab3baab98dcbf04def8.sig
 ```
 
-Finally, you can verify a software artifact against a public key with the cosign verify command. This command will return 0 if at least one Cosign formatted signature for the given artifact is found that matches the public key. Any valid formats are printed to standard output in a JSON format.
+Finally, you can verify a software artifact against a public key with the cosign verify command. This command will return 0 if at least one Cosign formatted signature for the given artifact is found that matches the public key. Any valid formats are printed to standard output in a JSON format:
 
 ```sh
 cosign verify --key cosign.pub docker-username/demo-container
@@ -140,4 +132,3 @@ The following checks were performed on these signatures:
 You should now have some familiarity with the process of signing and verifying code in Cosign. For a more thorough tutorial, please review [How to Sign a Container with Cosign](/open-source/sigstore/cosign/how-to-sign-a-container-with-cosign/).
 
 Code signing provides developers and others who release code a way to attest to their identity, and in turn, those who are consumers (whether end users or developers who incorporate existing code) can verify those signatures to ensure that the code is originating from where it is said to have originated, and check that that particular developer (or vendor) is trusted.
-
