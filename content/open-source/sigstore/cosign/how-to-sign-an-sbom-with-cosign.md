@@ -5,7 +5,7 @@ type: "article"
 description: "Signing software bills of materials with Cosign"
 lead: "Use Cosign to sign software bills of materials (SBOMs)"
 date: 2022-07-13T15:22:20+01:00
-lastmod: 2024-10-10T15:12:18+00:00
+lastmod: 2025-12-26T15:16:50+01:00
 draft: false
 tags: ["Cosign", "Procedural", "SBOM"]
 images: []
@@ -83,7 +83,23 @@ You can test out the image by running it:
 docker run $DH_USERNAME/example-image
 ```
 
-This should display the "I love FOSS!" message along with some ASCII art.
+This will display the "I love FOSS!" message along with some ASCII art:
+
+```output
+ ______________ 
+< I love FOSS! >
+ -------------- 
+   \
+    \
+        .--.
+       |o_o |
+       |:_/ |
+      //   \ \
+     (|     | )
+    /'\_   _/`\
+    \___)=(___/
+
+```
 
 ## Generating an SBOM with Syft
 
@@ -115,7 +131,7 @@ syft --quiet $DH_USERNAME/example-image:latest | grep cowsay
 ```
 
 ```output
-cowsay                  3.04-r0       apk
+cowsay                  3.04-r4       apk
 ```
 
 In the next section, we'll associate this SBOM with our container image using Cosign.
@@ -158,10 +174,10 @@ You will receive the following prompt:
 Generating ephemeral keys...
 Retrieving signed certificate...
 
-	The sigstore service, hosted by sigstore a Series of LF Projects, LLC, is provided pursuant to the Hosted Project Tools Terms of Use, available at https://lfprojects.org/policies/hosted-project-tools-terms-of-use/.
-	Note that if your submission includes personal data associated with this signed artifact, it will be part of an immutable record.
-	This may include the email address associated with the account with which you authenticate your contractual Agreement.
-	This information will be used for signing this artifact and will be stored in public transparency logs and cannot be removed later, and is subject to the Immutable Record notice at https://lfprojects.org/policies/hosted-project-tools-immutable-records/.
+    The sigstore service, hosted by sigstore a Series of LF Projects, LLC, is provided pursuant to the Hosted Project Tools Terms of Use, available at https://lfprojects.org/policies/hosted-project-tools-terms-of-use/.
+    Note that if your submission includes personal data associated with this signed artifact, it will be part of an immutable record.
+    This may include the email address associated with the account with which you authenticate your contractual Agreement.
+    This information will be used for signing this artifact and will be stored in public transparency logs and cannot be removed later, and is subject to the Immutable Record notice at https://lfprojects.org/policies/hosted-project-tools-immutable-records/.
 
 By typing 'y', you attest that (1) you are not submitting the personal data of any other person; and (2) you understand and agree to the statement and the Agreement terms at the URLs listed above.
 Are you sure you would like to continue? [y/N]
@@ -169,81 +185,6 @@ Are you sure you would like to continue? [y/N]
 
 Note the warnings — a record of the attestation will be recorded to an immutable log maintained by the Sigstore project. When you're ready, press `y` to agree and attest.
 
-## Retrieving the Signed SBOM
-
-Our `example-image` in our Docker Hub repository should now bear an attached SBOM as an attestation. Let's confirm that this is the case by accessing the image's SBOM from the repository using the `cosign download attestation` command:
-
-```sh
-cosign download attestation \
- $DIGEST | \
- jq -r .payload | base64 -d \
- | jq .predicate
-```
-
-This command will download the `in-toto attestation` envelope using the `cosign download attestation` command. This envelope contains information on the attestation's subject (the image) and predicate (a statement about the subject, in this case the generated SBOM). We decode this envelope from base64, an encoding used to reduce information loss while transferring data, then extract the predicate. The result should be our SBOM in SPDX-JSON:
-
-```json
-{
-  "SPDXID": "SPDXRef-DOCUMENT",
-  "creationInfo": {
-    "created": "2024-10-09T19:16:20Z",
-    "creators": [
-      "Organization: Anchore, Inc",
-      "Tool: syft-1.14.0"
-    ],
-    "licenseListVersion": "3.25"
-  },
-  "dataLicense": "CC0-1.0",
-  "documentNamespace": "https://anchore.com/syft/image/$DH_USERNAME/example-image-15096a2c-e277-40f6-bc6e-93c5a4aff24e",
-  "files": [
-    {
-      "SPDXID": "SPDXRef-File-bin-busybox-b93a85ec4cd132fa",
-      "checksums": [
-[...]
-```
-
-If we choose, we can further parse this output so we can examine the `cowsay` package we added in our `Dockerfile`:
-
-```sh
-cosign download attestation \
- $DIGEST | \
- jq -r .payload | base64 -d |\
- jq .predicate | jq .packages | \
- jq '.[] | select(.name == "cowsay")'
-```
-
-```json
-{
-  "SPDXID": "SPDXRef-Package-apk-cowsay-f6f3edc220b6705a",
-  "copyrightText": "NOASSERTION",
-  "description": "Configurable talking cow (and a few other creatures)",
-  "downloadLocation": "NONE",
-  "externalRefs": [
-    {
-      "referenceCategory": "SECURITY",
-      "referenceLocator": "cpe:2.3:a:cowsay:cowsay:3.04-r0:*:*:*:*:*:*:*",
-      "referenceType": "cpe23Type"
-    },
-    {
-      "referenceCategory": "PACKAGE-MANAGER",
-      "referenceLocator": "pkg:apk/wolfi/cowsay@3.04-r0?arch=x86_64&distro=wolfi-20230201",
-      "referenceType": "purl"
-    }
-  ],
-  "filesAnalyzed": true,
-  "licenseConcluded": "NOASSERTION",
-  "licenseDeclared": "GPL-2.0-or-later",
-  "name": "cowsay",
-  "packageVerificationCode": {
-    "packageVerificationCodeValue": "4f82bdba8e1217f8af0abee5cadc9c2387bf4720"
-  },
-  "sourceInfo": "acquired package info from APK DB: /lib/apk/db/installed",
-  "supplier": "NOASSERTION",
-  "versionInfo": "3.04-r0"
-}
-```
-
-At this point, we've attested to the contents of our image with an SBOM and confirmed that the attestation is attached to the image in our Docker Hub repository. In the next section, we'll learn how to verify the identity of the entity issuing an attestation.
 
 ## Verifying an Attestation
 
@@ -284,4 +225,3 @@ cosign verify-attestation \
 ```
 
 At this point, you have successfully created an image, generated an SBOM for that image, associated the SBOM with the image as an attestation, and verified the identity of the issuer of the attestation. Using this workflow, you can attest to the contents of images you create, allowing others to understand the provenance of software you ship and enabling others to verify that software artifacts and associated documents originate from you.
-

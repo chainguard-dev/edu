@@ -5,7 +5,7 @@ type: "article"
 description: "Use Cosign to sign non-container software artifacts"
 lead: "Cosign can sign software artifacts beyond containers"
 date: 2022-07-13T15:22:20+01:00
-lastmod: 2024-07-29T15:12:18+00:00
+lastmod: 2025-12-26T15:16:50+01:00
 draft: false
 tags: ["Cosign", "Procedural"]
 images: []
@@ -20,50 +20,57 @@ _An earlier version of this material was published in the [Cosign chapter](https
 
 Cosign can sign more than just containers. Blobs, or binary large objects, and standard files can be signed in a similar way. You can publish a blob or other artifact to an OCI (Open Container Initiative) registry with Cosign. This tutorial assumes you have a Cosign key pair set up, which you can achieve by following our [Introduction to Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign/) guide.
 
-Navigate to the directory which contains your `cosign.pub` and `cosign.key` key pair as generated in the [Introduction to Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign/) guide. We’ll create an artifact (in this case, a standard file that contains text). We’ll call the file `artifact` and fill it with the “hello, cosign” text.
+Navigate to the directory which contains your `cosign.pub` and `cosign.key` key pair as generated in the [Introduction to Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign/#cosign-with-keys) guide. We’ll create an artifact (in this case, a standard file that contains text). We’ll call the file `artifact` and fill it with the “hello, cosign” text:
 
 ```sh
 echo "hello, cosign" > artifact
 ```
 
-Cosign offers support for signing blobs with the `cosign sign-blob` and `cosign verify-blob` commands. To sign our file, we’ll pass our signing key and the name of our file to the `cosign sign-blob` command.
+Cosign offers support for signing blobs with the `cosign sign-blob` and `cosign verify-blob` commands. To sign our file, we’ll pass our signing key and the name of our file to the `cosign sign-blob` command:
 
 ```sh
-cosign sign-blob --key cosign.key artifact
+cosign sign-blob --key cosign.key --bundle artifact.sigstore.json artifact
 ```
 
-You’ll get output similar to the following, and a prompt to enter your password for your signing key.
+Note that this command includes the `--bundle` flag, which writes everything required to verify the blog to a file named `artifact.sigstore.json`.
+
+You’ll get output similar to the following, including prompts asking you to confirm that you'd like to sign the artifact and to enter your password for your signing key:
 
 ```output
+Are you sure you would like to continue? [y/N] y
+Enter password for private key: 
 Using payload from: artifact
-Enter password for private key:
+Wrote bundle to file artifact.sigstore.json
 ```
 
-With your password entered, you’ll receive your signature output.
-
-```output
-MEUCIAb9Jxbbk9w8QF4/m5ADd+AvvT6pm/gp0HE6RMPp3SfOAiEAsWnpkaVZanjhQDyk5b0UPnlsMhodCcvYaGl1sj9exJI=
-```
-
-You will need this signature output to verify the artifact signature. Use the `cosign verify-blob` command and pass in the public key, the signature, and the name of your file.
+You'll need your signature, which this command writes to the `artifact.sigstore.json` bundle, to verify the artifact signature. Retrieve it with the following command:
 
 ```sh
-cosign verify-blob --key cosign.pub --signature MEUCIAb9Jxbbk9w8QF4/m5ADd+AvvT6pm/gp0HE6RMPp3SfOAiEAsWnpkaVZanjhQDyk5b0UPnlsMhodCcvYaGl1sj9exJI= artifact
+cat artifact.sigstore.json | jq | grep signature
+```
+```output
+   "signature": "MEQCI************************************************************************************G0knw=="
 ```
 
-Note that the whole output of the signature needed to be passed to this command. You’ll get feedback that the blob’s signature was verified.
+With this signature in hand, run the `cosign verify-blob` command and pass in the public key, the signature, and the name of your file:
+
+```sh
+cosign verify-blob --key cosign.pub --signature MEQCI************************************************************************************G0knw== artifact
+```
+
+Note that the full signature must be passed to this command. You’ll get feedback that the blob’s signature was verified:
 
 ```output
 Verified OK
 ```
 
-You can also publish the artifact to a container registry such as Docker Hub and sign the artifact’s generated image with Cosign. Running this command will create a new repository in your Docker Hub account . We will call this `artifact` but you can use an alternate meaningful name for you.
+You can also publish the artifact to a container registry such as Docker Hub and sign the artifact’s generated image with Cosign. Running this command will create a new repository in your Docker Hub account . We will call this `artifact` but you can use an alternate meaningful name for you:
 
 ```sh
 cosign upload blob -f artifact docker-username/artifact
 ```
 
-You’ll receive feedback that the file was uploaded, and it will already have the SHA signature as part of the artifact.
+You’ll receive feedback that the file was uploaded, and it will already have the SHA signature as part of the artifact:
 
 ```output
 Uploading file from [artifact] to [index.docker.io/docker-username/artifact:latest] with media type [text/plain]
