@@ -1,16 +1,23 @@
 ---
-title : "Create an Assumable Identity to Authenticate from AWS"
-linktitle: "AWS"
+title : "Create an Assumable Identity to Authenticate from AWS (Legacy)"
+linktitle: "AWS (Legacy)"
 lead: ""
 description: "Tutorial outlining how to create a Chainguard identity that can be assumed by an AWS user or role."
 type: "article"
 date: 2025-11-28T16:00:00+00:00
-lastmod: 2025-11-28T16:00:00+00:00
+lastmod: 2026-01-05T09:00:00+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
 weight: 011
 ---
+
+> **Note:** This page describes a custom implementation of assumable identities for AWS that was
+> developed before AWS natively supported issuing OIDC tokens with [IAM outbound
+> identity federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_outbound.html).
+> If possible, you should follow the instructions on
+> [this page](/chainguard/administration/assumable-ids/identity-examples/aws-identity-oidc/)
+> instead.
 
 Chainguard's [*assumable identities*](/chainguard/administration/assumable-ids/assumable-ids/) are identities that can be assumed by external applications or workflows in order to access Chainguard resources or perform certain actions.
 
@@ -176,12 +183,6 @@ chainctl image repo list
 The [Chainguard SDK For Go](https://pkg.go.dev/chainguard.dev/sdk) provides an [`aws.GenerateToken`](https://pkg.go.dev/chainguard.dev/sdk@v0.1.44/auth/aws#GenerateToken) function that makes it straightforward to generate a token from AWS credentials that can be exchanged for a Chainguard API token.
 
 For an example of how to leverage this function, refer to the [`aws-auth` example](https://github.com/chainguard-dev/platform-examples/tree/main/aws-auth) in Chainguard's public `platform-examples` repository.
-
-### EC2 instance metadata
-
-If you don't have the AWS CLI installed on your EC2 instance, you can use the [instance metadata service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html) to retrieve credentials.
-
-Refer to [our AWS EC2 Assumable Identity guide](/chainguard/administration/assumable-ids/identity-examples/aws-ec2-identity/) for more details.
 
 ## Learn More
 
