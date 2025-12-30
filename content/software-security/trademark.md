@@ -19,8 +19,8 @@ toc: true
 Chainguard has a [Trademark Use Policy](https://www.chainguard.dev/legal/chainguard-trademark-use-policy) for Chainguard™ and Wolfi™. The Trademark Use Policy for Chainguard™ is in connection with its software tools and platforms for container image registry services and related educational services. The Trademark Use Policy for Wolfi™ is in connection with software tools and related community services. This policy helps ensure that Chainguard’s trademarks remain reliable indicators of the qualities that they are meant to preserve. 
 
 The Trademark Policy details: 
-* How you may use Chainguard’s trademarks,
-* Scenarios where trademark use is not permitted,
+* How you may use Chainguard’s trademarks
+* Scenarios where trademark use is not permitted
 * When Chainguard’s permission may be required to use a given trademark. 
 
 Under Chainguard’s Trademark Policy, when using the free-tier Chainguard Starter Containers and Wolfi components, artifacts that are created by you must clearly delineate which software is installed by you (instead of Chainguard) in such a way that is clear to vulnerability scanners and end users that you are the author of said changes to the software and not Chainguard. Further, if you attempt to rebuild Chainguard packages or Containers from source, you must remove all references to Chainguard or Wolfi in adherence to the Trademark Policy. 
@@ -43,7 +43,7 @@ Below are non-exhaustive examples of how you may not use the Chainguard Marks:
 * On merchandise or other promotional goods for sale, 
 * In any other forms of commercial use, unless it’s for truthful descriptive reference to Chainguard products or services. 
 
-Chainguard remains committed to open source licensing principles, which primarily concern copyright associated with software. The Chainguard Trademark Policy clearly defines how the organization is protecting consumers as to what products and services are coming from Chainguard and therefore meet relevant security guarantees. 
+Chainguard remains committed to open source licensing principles, which primarily concern copyright associated with software. The Chainguard Trademark Policy clearly defines how the organization is protecting consumers as to what products and services are coming from Chainguard and therefore meet relevant security guarantees.
 
 You can review the full [Chainguard Trademark Policy](https://www.chainguard.dev/legal/chainguard-trademark-use-policy) or find additional information in our [Open Source FAQ](https://www.chainguard.dev/legal/open-source-faq). 
 
