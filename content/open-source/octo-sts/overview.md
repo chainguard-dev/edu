@@ -1,5 +1,5 @@
 ---
-title: "Octo STS"
+title: "Octo STS Overview"
 linktitle: "Overview"
 type: "article"
 lead: "A security token service that eliminates the need for GitHub Personal Access Tokens by enabling OIDC-based federation for GitHub API access"
