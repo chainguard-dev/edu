@@ -8,7 +8,7 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-OUTPUT_DIR="$1"
+OUTPUT_DIR="$1/chainguard-ai-docs"
 
 # Verify first
 /usr/local/bin/verify || exit 1
@@ -16,10 +16,17 @@ OUTPUT_DIR="$1"
 echo
 echo "[INFO] Extracting verified documentation to $OUTPUT_DIR"
 
+# Create subdirectory
+mkdir -p "$OUTPUT_DIR"
+
 # Copy files
 cp /docs/chainguard-ai-docs.md "$OUTPUT_DIR/"
 cp /docs/checksums.txt "$OUTPUT_DIR/"
 cp /docs/verification.sh "$OUTPUT_DIR/"
 
-echo "[PASS] Documentation extracted successfully to $OUTPUT_DIR"
-echo "[INFO] Run ./verification.sh to verify the extracted files"
+echo "[PASS] Documentation extracted successfully"
+echo
+echo "Files extracted to: $OUTPUT_DIR"
+echo "  - chainguard-ai-docs.md (main documentation)"
+echo "  - checksums.txt (file checksums)"
+echo "  - verification.sh (verification script)"
