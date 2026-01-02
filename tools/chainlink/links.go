@@ -6,13 +6,16 @@ SPDX-License-Identifier: Apache-2.0
 package main
 
 import (
-	"crypto/tls"
+	"errors"
 	"fmt"
 	"log"
+	"net"
 	"net/http"
 	"net/url"
 	"regexp"
 	"strings"
+	"syscall"
+	"time"
 )
 
 // sanitizeURL removes newline and carriage return characters from URLs to prevent log injection
@@ -23,9 +26,27 @@ func sanitizeURL(u *url.URL) string {
 	return s
 }
 
+// logVerbose prints a message only if verbose mode is enabled
+func logVerbose(format string, args ...interface{}) {
+	if verbose {
+		fmt.Printf(format, args...)
+	}
+}
+
+// createRequest creates an HTTP request with standard headers
+func createRequest(method, url string) (*http.Request, error) {
+	req, err := http.NewRequest(method, url, nil)
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("User-agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/111.0")
+	req.Header.Add("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8")
+	return req, nil
+}
+
 func (l *link) processLink(path string) {
 	if ignores.check(l.RawURL, path) {
-		fmt.Printf("ignoring %v in %v\n", l.RawURL, path)
+		logVerbose("ignoring %v in %v\n", l.RawURL, path)
 		return
 	}
 
@@ -95,15 +116,15 @@ func (l *link) check() {
 			return
 		}
 	}
-	fmt.Printf("checking %v\n", l.URL.String())
+	logVerbose("checking %v\n", l.URL.String())
 
 	link, ok := checked.Links[l.URL.String()]
 	if !ok {
-		fmt.Printf("client: %v not found in checked links\n", l.URL.String())
+		logVerbose("client: %v not found in checked links\n", l.URL.String())
 		return
 	}
 
-	req, err := http.NewRequest(httpMethod, l.URL.String(), nil)
+	req, err := createRequest(httpMethod, l.URL.String())
 	if err != nil {
 		link.Status = http.StatusTeapot
 		checked.mu.Lock()
@@ -113,14 +134,12 @@ func (l *link) check() {
 		return
 	}
 
-	req.Header.Add("User-agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/111.0")
-	req.Header.Add("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8")
-
 	// Track redirect path
 	var redirectPath []string
 
-	// Create a custom HTTP client that follows redirects
+	// Create a custom HTTP client that follows redirects with timeout
 	client := &http.Client{
+		Timeout: time.Duration(timeout) * time.Second,
 		CheckRedirect: func(req *http.Request, via []*http.Request) error {
 			// Allow up to 10 redirects (Go's default)
 			if len(via) >= 10 {
@@ -135,7 +154,7 @@ func (l *link) check() {
 				redirectPath = append(redirectPath, req.URL.String())
 				// Log redirect for debugging
 				if followRedirects {
-					fmt.Printf("redirect: %v -> %v\n", sanitizeURL(via[len(via)-1].URL), sanitizeURL(req.URL))
+					logVerbose("redirect: %v -> %v\n", sanitizeURL(via[len(via)-1].URL), sanitizeURL(req.URL))
 				}
 			}
 
@@ -150,112 +169,80 @@ func (l *link) check() {
 	res, err := client.Do(req)
 	if err != nil {
 		// Try fallback strategies for common network/protocol issues
+		// Circuit breaker: Each strategy has specific conditions and the timeout prevents hanging
 		if shouldTryFallback(err) {
-			fmt.Printf("HEAD request failed (%v), trying fallback strategies for %v\n", err, l.URL.String())
+			logVerbose("HEAD request failed (%v), trying fallback strategies for %v\n", err, l.URL.String())
 
 			// Strategy 1: Try GET request (some servers don't support HEAD properly)
-			if httpMethod == "HEAD" {
-				getReq, getErr := http.NewRequest("GET", l.URL.String(), nil)
+			// Only runs if: initial request failed AND using HEAD method
+			if err != nil && httpMethod == "HEAD" {
+				getReq, getErr := createRequest("GET", l.URL.String())
 				if getErr == nil {
-					getReq.Header.Add("User-agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/111.0")
-					getReq.Header.Add("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8")
-
 					getRes, getErr := client.Do(getReq)
 					if getErr == nil {
-						defer getRes.Body.Close()
-						fmt.Printf("GET fallback succeeded for %v (status: %d)\n", l.URL.String(), getRes.StatusCode)
+						logVerbose("GET fallback succeeded for %v (status: %d)\n", l.URL.String(), getRes.StatusCode)
 						res = getRes
 						err = nil
-						goto processResponse
 					}
 				}
 			}
 
 			// Strategy 2: Try with no redirect following for redirect loop issues
-			if isRedirectLoopError(err) {
-				fmt.Printf("trying with no redirects for %v\n", l.URL.String())
+			// Only runs if: previous strategies failed AND error is a redirect loop
+			if err != nil && isRedirectLoopError(err) {
+				logVerbose("trying with no redirects for %v\n", l.URL.String())
 				noRedirectClient := &http.Client{
+					Timeout: time.Duration(timeout) * time.Second,
 					CheckRedirect: func(req *http.Request, via []*http.Request) error {
 						return http.ErrUseLastResponse
 					},
 				}
 
-				noRedirectReq, noRedirectErr := http.NewRequest(httpMethod, l.URL.String(), nil)
+				noRedirectReq, noRedirectErr := createRequest(httpMethod, l.URL.String())
 				if noRedirectErr == nil {
-					noRedirectReq.Header.Add("User-agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/111.0")
-					noRedirectReq.Header.Add("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8")
-
 					noRedirectRes, noRedirectErr := noRedirectClient.Do(noRedirectReq)
 					if noRedirectErr == nil {
-						defer noRedirectRes.Body.Close()
 						// Accept any non-error status (2xx, 3xx) as success
 						if noRedirectRes.StatusCode >= 200 && noRedirectRes.StatusCode < 400 {
-							fmt.Printf("no-redirect strategy succeeded for %v (status: %d)\n", l.URL.String(), noRedirectRes.StatusCode)
+							logVerbose("no-redirect strategy succeeded for %v (status: %d)\n", l.URL.String(), noRedirectRes.StatusCode)
 							res = noRedirectRes
 							err = nil
-							goto processResponse
 						}
-					}
-				}
-			}
-
-			// Strategy 3: Try with relaxed TLS verification for certificate issues
-			if isTLSError(err) {
-				fmt.Printf("trying with relaxed TLS verification for %v\n", l.URL.String())
-				relaxedClient := &http.Client{
-					Transport: &http.Transport{
-						TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
-					},
-					CheckRedirect: client.CheckRedirect,
-				}
-
-				relaxedReq, relaxedErr := http.NewRequest(httpMethod, l.URL.String(), nil)
-				if relaxedErr == nil {
-					relaxedReq.Header.Add("User-agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/111.0")
-					relaxedReq.Header.Add("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8")
-
-					relaxedRes, relaxedErr := relaxedClient.Do(relaxedReq)
-					if relaxedErr == nil {
-						defer relaxedRes.Body.Close()
-						fmt.Printf("relaxed TLS verification succeeded for %v (status: %d)\n", l.URL.String(), relaxedRes.StatusCode)
-						res = relaxedRes
-						err = nil
-						goto processResponse
 					}
 				}
 			}
 		}
 
 		// If all fallbacks failed, mark as 404
-		fmt.Printf("error requesting %v\n", err)
-		link.Status = http.StatusNotFound
-		checked.mu.Lock()
-		checked.Links[l.URL.String()] = link
-		checked.mu.Unlock()
-		return
+		if err != nil {
+			fmt.Printf("error requesting %v\n", err)
+			link.Status = http.StatusNotFound
+			checked.mu.Lock()
+			checked.Links[l.URL.String()] = link
+			checked.mu.Unlock()
+			return
+		}
 	}
 
-processResponse:
-
+	// Process response (either from initial request or successful fallback)
 	defer res.Body.Close()
 	link.Status = res.StatusCode
 
 	// Try fallbacks for certain status codes (like 405 Method Not Allowed)
+	// Only runs if: got specific error status codes (405, 400, 403)
 	if shouldTryFallbackForStatus(res.StatusCode) {
-		fmt.Printf("received status %d for %v, trying fallback strategies\n", res.StatusCode, l.URL.String())
+		logVerbose("received status %d for %v, trying fallback strategies\n", res.StatusCode, l.URL.String())
 
 		// Strategy: Try GET request if we got 405 (Method Not Allowed) with HEAD
+		// Only runs if: status is 405 AND using HEAD method
 		if res.StatusCode == http.StatusMethodNotAllowed && httpMethod == "HEAD" {
-			getReq, getErr := http.NewRequest("GET", l.URL.String(), nil)
+			getReq, getErr := createRequest("GET", l.URL.String())
 			if getErr == nil {
-				getReq.Header.Add("User-agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/111.0")
-				getReq.Header.Add("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8")
-
 				getRes, getErr := client.Do(getReq)
 				if getErr == nil {
 					defer getRes.Body.Close()
 					if getRes.StatusCode == http.StatusOK || (getRes.StatusCode >= 200 && getRes.StatusCode < 400) {
-						fmt.Printf("GET fallback for method not allowed succeeded for %v (status: %d)\n", l.URL.String(), getRes.StatusCode)
+						logVerbose("GET fallback for method not allowed succeeded for %v (status: %d)\n", l.URL.String(), getRes.StatusCode)
 						link.Status = getRes.StatusCode
 						// Update final URL if the GET version had redirects
 						if getRes.Request.URL.String() != l.URL.String() {
@@ -274,22 +261,20 @@ processResponse:
 	}
 
 	// If we got a 404 for a relative path without trailing slash, try with trailing slash
+	// Only runs if: status is 404 AND local hostname AND path doesn't end with / AND path is not empty
 	if res.StatusCode == http.StatusNotFound && l.URL.Host == hostname && !strings.HasSuffix(l.URL.Path, "/") && l.URL.Path != "" {
 		trailingSlashURL := *l.URL
 		trailingSlashURL.Path = l.URL.Path + "/"
 
-		fmt.Printf("404 for %v, trying with trailing slash: %v\n", l.URL.String(), trailingSlashURL.String())
+		logVerbose("404 for %v, trying with trailing slash: %v\n", l.URL.String(), trailingSlashURL.String())
 
-		req2, err := http.NewRequest(httpMethod, trailingSlashURL.String(), nil)
+		req2, err := createRequest(httpMethod, trailingSlashURL.String())
 		if err == nil {
-			req2.Header.Add("User-agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/111.0")
-			req2.Header.Add("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8")
-
 			res2, err := client.Do(req2)
 			if err == nil {
 				defer res2.Body.Close()
 				if res2.StatusCode == http.StatusOK || (res2.StatusCode >= 200 && res2.StatusCode < 400) {
-					fmt.Printf("trailing slash version works! updating status from %d to %d\n", link.Status, res2.StatusCode)
+					logVerbose("trailing slash version works! updating status from %d to %d\n", link.Status, res2.StatusCode)
 					link.Status = res2.StatusCode
 					// Update final URL if the trailing slash version worked
 					if res2.Request.URL.String() != trailingSlashURL.String() {
@@ -307,16 +292,32 @@ processResponse:
 
 // shouldTryFallback determines if we should try fallback strategies based on the error
 func shouldTryFallback(err error) bool {
-	errStr := strings.ToLower(err.Error())
+	// Check for redirect loop error (string match needed as it's our custom error)
+	if isRedirectLoopError(err) {
+		return true
+	}
 
-	// Network/protocol issues that might work with fallbacks
-	return strings.Contains(errStr, "tls handshake timeout") ||
-		strings.Contains(errStr, "certificate") ||
-		strings.Contains(errStr, "x509") ||
-		strings.Contains(errStr, "stopped after 10 redirects") ||
-		strings.Contains(errStr, "timeout") ||
-		strings.Contains(errStr, "connection refused") ||
-		strings.Contains(errStr, "no such host")
+	// Check for timeout errors using net.Error interface
+	var netErr net.Error
+	if errors.As(err, &netErr) && netErr.Timeout() {
+		return true
+	}
+
+	// Check for DNS errors
+	var dnsErr *net.DNSError
+	if errors.As(err, &dnsErr) {
+		return true
+	}
+
+	// Check for connection refused errors
+	var opErr *net.OpError
+	if errors.As(err, &opErr) {
+		if errors.Is(opErr.Err, syscall.ECONNREFUSED) {
+			return true
+		}
+	}
+
+	return false
 }
 
 // shouldTryFallbackForStatus determines if we should try fallback strategies based on status code
@@ -327,18 +328,13 @@ func shouldTryFallbackForStatus(statusCode int) bool {
 		statusCode == http.StatusForbidden
 }
 
-// isTLSError determines if the error is specifically a TLS/certificate issue
-func isTLSError(err error) bool {
-	errStr := strings.ToLower(err.Error())
-
-	return strings.Contains(errStr, "certificate") ||
-		strings.Contains(errStr, "x509") ||
-		strings.Contains(errStr, "tls")
-}
-
 // isRedirectLoopError determines if the error is caused by too many redirects
 func isRedirectLoopError(err error) bool {
+	// This checks for our custom redirect loop error message
+	// String matching is necessary here as this is generated by our CheckRedirect function
+	if err == nil {
+		return false
+	}
 	errStr := strings.ToLower(err.Error())
-
 	return strings.Contains(errStr, "stopped after 10 redirects")
 }
