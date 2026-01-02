@@ -134,8 +134,6 @@ Yeah, it looked like that works. It successfully updated our version of Go here.
 
 ## Related Resources
 
-- [Getting Started with Octo STS](/open-source/octo-sts/getting-started-with-octo-sts/)
-- [Using Octo STS with GitHub Actions](/open-source/octo-sts/how-to-use-octo-sts-with-github-actions/)
-- [Trust Policy Reference](/open-source/octo-sts/trust-policy-reference/)
+- [FAQ](/open-source/octo-sts/faq/)
 - [Octo STS GitHub Repository](https://github.com/octo-sts/app)
 - [Renovate Documentation](https://docs.renovatebot.com/)
