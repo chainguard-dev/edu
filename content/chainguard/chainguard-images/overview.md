@@ -62,7 +62,7 @@ Production containers are enterprise-ready images that come with patch SLAs and 
 
 You can access our container images directly from [Chainguard's registry](/chainguard/chainguard-registry/overview/). Chainguard's registry provides public access to all public Chainguard Containers, and provides customer access for Production Containers after logging in and authenticating.
 
-For a complete list of free containers that are currently available, check our [Containers Directory](https://images.chainguard.dev/?category=developer). Registered users can also access all Free and Production containers in the [Chainguard Console](https://console.chainguard.dev/?utm=docs). After logging in you will be able to find all the current Free containers in the **Public containers** tab. If you've selected an appropriate Organization in the drop-down menu above the left hand navigation, you can find your organization's Production containers in the **Organization images** tab.
+For a complete list of Free Containers that are currently available, check our [Containers Directory](https://images.chainguard.dev/?category=developer). Registered users can also access all Free and Production container images in the [Chainguard Console](https://console.chainguard.dev/?utm=docs). After logging in you will be able to find all the current Free containers in the **Chainguard catalog** tab. If you've selected an appropriate Organization in the drop-down menu above the left hand navigation, you can find your organization's Production containers in the **Organization** tab.
 
 
 ## Comparing Container Images
