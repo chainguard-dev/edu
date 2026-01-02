@@ -156,6 +156,11 @@ jobs:
         # Copy files for container build
         cp static/downloads/chainguard-ai-docs.md scripts/
         cp static/downloads/checksums.txt scripts/
+
+        # Create placeholder signature files if they don't exist
+        # (These will be properly signed in a future phase)
+        touch scripts/chainguard-ai-docs.md.sig
+        touch scripts/chainguard-ai-docs.md.crt
         
         # Build container with GitHub Container Registry
         docker build -f scripts/Dockerfile.ai-docs -t ghcr.io/${{ github.repository_owner }}/ai-docs:latest scripts/
