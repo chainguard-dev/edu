@@ -181,6 +181,12 @@ chainctl image repo build edit --parent $ORGANIZATION --repo $CONTAINER
 In the text editor, add an `environment` section like the following example:
 
 ```yaml
+contents:
+  packages:
+    - jq
+    - git
+    - curl
+
 environment:
   NODE_ENV: production
   API_URL: https://api.example.com
