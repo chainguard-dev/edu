@@ -134,7 +134,11 @@ cgr.dev/example.com/custom-node
 Note that you **must** pass the new image's name when using the `--save-as` option; `chainctl` will return an error if you don't include a new name. Additionally, you can only use this option with the `edit` subcommand; you cannot create a new image declaratively using the `apply` subcommand.
 
 
-## Adding Custom Annotations
+## Adding Custom Annotations and Environment Variables
+
+Custom Assembly lets you extend Chainguard Containers with your own metadata and runtime defaults by adding custom annotations and environment variables through `chainctl`.
+
+### Custom annotations
 
 Chainguard Containers include metadata in the form of *annotations*. These annotations provide important information about the container image's origin, contents, and characteristics. 
 
@@ -146,7 +150,7 @@ chainctl image repo build edit --parent $ORGANIZATION --repo $CONTAINER
 
 In the text editor, add an `annotations` section to the bottom of the file like the following example:
 
-```
+```yaml
 contents:
   packages:
     - jq
@@ -163,6 +167,31 @@ After saving and confirming these changes, Custom Assembly will add two custom a
 You can also apply custom annotations declaratively using the `apply` subcommand, as outlined previously.
 
 Note that Custom Assembly blocks `org.opencontainers` and `dev.chainguard` annotations from being changed. 
+
+### Custom environment variables
+
+Chainguard Containers often come with a set of predefined environment variables. These are useful for setting certain configuration details that are available to the container at runtime.
+
+You can follow the same procedure for adding custom annotations to add custom environment variables to your Custom Assembly container images. Start by running a `chainctl image repo build edit` command: 
+
+```shell
+chainctl image repo build edit --parent $ORGANIZATION --repo $CONTAINER
+```
+
+In the text editor, add an `environment` section like the following example:
+
+```yaml
+environment:
+  NODE_ENV: production
+  API_URL: https://api.example.com
+  PORT: "3000"
+  LOG_LEVEL: info
+  CACHE_TTL: "300"
+```
+
+After saving and confirming these changes, Custom Assembly will add these five custom environment variables to the container image. As with packages and annotations, you can also apply custom environment variables declaratively using the `apply` subcommand, as outlined previously.
+
+Be aware that Custom Assembly blocks any environment variable that begins with `CHAINGUARD_` from being added or changed. This is to prevent conflicts with configuration details managed by Chainguard.
 
 
 ## Retrieving Information about Custom Assembly Containers
