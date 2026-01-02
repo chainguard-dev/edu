@@ -29,6 +29,11 @@ A comprehensive collection of Chainguard documentation including:
 
 Choose your preferred distribution method:
 
+<div style="background-color: var(--blockquote-background); border-left: 4px solid #4CAF50; padding: 16px; border-radius: 4px; margin: 20px 0;">
+  <strong>🐳 Container Distribution Recommended</strong><br>
+  For enhanced security and verification, we recommend using the Chainguard container image. It includes built-in verification, runs as non-root, and is built on our secure <code>wolfi-base</code> image.
+</div>
+
 ### GitHub Release
 
 | Format | Description | Verification |
@@ -37,14 +42,32 @@ Choose your preferred distribution method:
 
 ### Container Distribution
 
+Pull the secure, Chainguard-based container with embedded documentation:
+
 ```bash
-# Pull the container image
+# Pull the container image (built on Chainguard wolfi-base)
 docker pull ghcr.io/chainguard-dev/ai-docs:latest
 
-# Extract documentation
-docker run --rm -v $(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest /usr/local/bin/extract /output
+# View available commands and usage
+docker run --rm ghcr.io/chainguard-dev/ai-docs:latest
 
-# Verify signatures
+# Verify documentation integrity
+docker run --rm ghcr.io/chainguard-dev/ai-docs:latest verify
+
+# Extract documentation to current directory
+docker run --rm -v $(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract /output
+```
+
+**Container Features:**
+- Built on Chainguard's minimal `wolfi-base` image
+- Runs as non-root user for enhanced security
+- Includes verification scripts and checksums
+- Cryptographically signed with Cosign
+- Automatically updated weekly
+
+**Verify Container Signature:**
+```bash
+# Verify the container image signature with Cosign
 cosign verify ghcr.io/chainguard-dev/ai-docs:latest \
   --certificate-identity-regexp ".*" \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com
