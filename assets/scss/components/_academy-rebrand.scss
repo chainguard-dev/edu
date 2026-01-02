@@ -367,6 +367,11 @@
   border: none !important;
 }
 
+.card-gradient-purple {
+  background: #6226FB !important;
+  border: none !important;
+}
+
 // Dark mode - keep same flat colors
 :root[data-dark-mode] {
   .card-gradient-magenta {
@@ -379,6 +384,10 @@
 
   .card-gradient-green {
     background: #04BD13 !important;
+  }
+
+  .card-gradient-purple {
+    background: #6226FB !important;
   }
 }
 
