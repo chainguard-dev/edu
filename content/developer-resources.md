@@ -73,6 +73,47 @@ cosign verify ghcr.io/chainguard-dev/ai-docs:latest \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com
 ```
 
+### MCP Server (Model Context Protocol)
+
+**Recommended for:** Developers, agent workflows, IDE integration
+
+Run the container as an MCP server to provide AI assistants with searchable, on-demand access to Chainguard documentation:
+
+```bash
+# Run as MCP server
+docker run --rm -i ghcr.io/chainguard-dev/ai-docs:latest serve-mcp
+```
+
+**MCP Tools Available:**
+- `search_docs` - Search across all documentation
+- `get_image_docs` - Get specific container image docs
+- `list_images` - List available images
+- `get_security_docs` - Get CVE and security information
+- `get_tool_docs` - Get wolfi/apko/melange/chainctl docs
+
+**Claude Desktop Configuration:**
+
+Add to your `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "chainguard-docs": {
+      "command": "docker",
+      "args": ["run", "--rm", "-i", "ghcr.io/chainguard-dev/ai-docs:latest", "serve-mcp"]
+    }
+  }
+}
+```
+
+**Benefits:**
+- Efficient context usage - only retrieve what you need
+- Searchable and queryable documentation
+- Perfect for automated workflows
+- Works with Claude Desktop, Cursor, and other MCP-compatible tools
+
+[**Full MCP Server Documentation →**](/chainguard/mcp-server-ai-docs/)
+
 ### Quick Start
 
 ```bash
