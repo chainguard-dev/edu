@@ -26,6 +26,8 @@ var (
 	fileType        = ""
 	jobs            = 10
 	followRedirects = true
+	verbose         = false
+	timeout         = 10 // timeout in seconds for HTTP requests
 
 	// url rules
 	correctURLregex = &regexp.Regexp{}
