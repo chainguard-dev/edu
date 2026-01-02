@@ -217,7 +217,7 @@ Report bugs in the [Octo STS GitHub repository](https://github.com/octo-sts/app/
 
 ### Where can I ask questions?
 
-- GitHub Discussions in the [Octo STS repository](https://github.com/octo-sts/app/discussions)
+- GitHub Discussions in the [Octo STS repository](https://github.com/octo-sts/app/)
 - Open an issue for specific problems
 - Review existing FAQ and documentation
 
@@ -231,8 +231,3 @@ Octo STS is open source. Contributions are welcome:
 
 See the [repository](https://github.com/octo-sts/app) for contribution guidelines.
 
-## Next Steps
-
-- [Getting Started with Octo STS](/open-source/octo-sts/getting-started-with-octo-sts/) - Set up octo-sts for the first time
-- [Trust Policy Reference](/open-source/octo-sts/trust-policy-reference/) - Detailed trust policy documentation
-- [GitHub Actions Integration](/open-source/octo-sts/how-to-use-octo-sts-with-github-actions/) - Use octo-sts with GitHub Actions
