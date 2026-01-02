@@ -59,14 +59,9 @@ This sequence diagram outlines the token exchange process in Octo STS:
 
 ## Learn More
 
-- [Getting Started with Octo STS](/open-source/octo-sts/getting-started-with-octo-sts/) - Set up Octo STS and create your first trust policy
-- [Using Octo STS with GitHub Actions](/open-source/octo-sts/how-to-use-octo-sts-with-github-actions/) - Integrate Octo STS into GitHub Actions workflows
-- [Using Octo STS with Kubernetes](/open-source/octo-sts/how-to-use-octo-sts-with-kubernetes/) - Federate Kubernetes workload identities with GitHub
-- [Using Octo STS with Cloud Providers](/open-source/octo-sts/how-to-use-octo-sts-with-cloud-providers/) - Connect AWS, GCP, and Azure workloads to GitHub
-- [Trust Policy Reference](/open-source/octo-sts/trust-policy-reference/) - Complete trust policy syntax and options
-- [FAQ](/open-source/octo-sts/faq/) - Frequently asked questions and troubleshooting
+Refer to our [Octo STS FAQ](/open-source/octo-sts/faq/) for answeres to frequently asked questions and troubleshooting recommendations.
 
-## Resources
+You may also find these resources to be useful:
 
 - [Octo STS GitHub Repository](https://github.com/octo-sts/app)
 - [Original Blog Post](https://www.chainguard.dev/unchained/the-end-of-github-pats-you-cant-leak-what-you-dont-have)
