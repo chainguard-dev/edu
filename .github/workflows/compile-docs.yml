@@ -146,13 +146,16 @@ jobs:
         # Sign the main documentation file
         cosign sign-blob chainguard-complete-docs.md \
           --yes \
+          --bundle chainguard-complete-docs.md.bundle \
           --output-signature chainguard-complete-docs.md.sig \
           --output-certificate chainguard-complete-docs.md.crt
-        
+
         # Sign the checksums file
         cosign sign-blob checksums.txt \
           --yes \
-          --output-signature checksums.txt.sig
+          --bundle checksums.txt.bundle \
+          --output-signature checksums.txt.sig \
+          --output-certificate checksums.txt.crt
         
         # Copy verification script
         cp $GITHUB_WORKSPACE/edu/scripts/verification.sh .
@@ -162,14 +165,19 @@ jobs:
           chainguard-complete-docs.md \
           chainguard-complete-docs.md.sig \
           chainguard-complete-docs.md.crt \
+          chainguard-complete-docs.md.bundle \
           checksums.txt \
           checksums.txt.sig \
+          checksums.txt.crt \
+          checksums.txt.bundle \
           verification.sh
         
         # Sign the bundle
         cosign sign-blob chainguard-ai-docs.tar.gz \
           --yes \
-          --output-signature chainguard-ai-docs.tar.gz.sig
+          --bundle chainguard-ai-docs.tar.gz.bundle \
+          --output-signature chainguard-ai-docs.tar.gz.sig \
+          --output-certificate chainguard-ai-docs.tar.gz.crt
 
     - name: Build and push container image
       if: github.ref == 'refs/heads/main'
@@ -303,5 +311,7 @@ jobs:
         files: |
           ${{ env.TEMP_BUILD_DIR }}/chainguard-ai-docs.tar.gz
           ${{ env.TEMP_BUILD_DIR }}/chainguard-ai-docs.tar.gz.sig
+          ${{ env.TEMP_BUILD_DIR }}/chainguard-ai-docs.tar.gz.crt
+          ${{ env.TEMP_BUILD_DIR }}/chainguard-ai-docs.tar.gz.bundle
         draft: false
         prerelease: false
