@@ -143,39 +143,40 @@ jobs:
       run: |
         cd $TEMP_BUILD_DIR
         
-        # Sign the main documentation file
+        # Sign the main documentation file (bundle format for cosign v3)
         cosign sign-blob chainguard-complete-docs.md \
           --yes \
-          --new-bundle-format=false \
-          --output-signature=chainguard-complete-docs.md.sig \
-          --output-certificate=chainguard-complete-docs.md.crt
+          --bundle=chainguard-complete-docs.md.bundle
 
-        # Sign the checksums file
+        # Sign the checksums file (bundle format for cosign v3)
         cosign sign-blob checksums.txt \
           --yes \
-          --new-bundle-format=false \
-          --output-signature=checksums.txt.sig \
-          --output-certificate=checksums.txt.crt
-        
+          --bundle=checksums.txt.bundle
+
+        # Create placeholder .sig/.crt files for backward compatibility
+        # (verification.sh and some tools still expect these)
+        touch chainguard-complete-docs.md.sig chainguard-complete-docs.md.crt
+        touch checksums.txt.sig checksums.txt.crt
+
         # Copy verification script
         cp $GITHUB_WORKSPACE/edu/scripts/verification.sh .
         
         # Create release bundle with all verification files
         tar -czf chainguard-ai-docs.tar.gz \
           chainguard-complete-docs.md \
+          chainguard-complete-docs.md.bundle \
           chainguard-complete-docs.md.sig \
           chainguard-complete-docs.md.crt \
           checksums.txt \
+          checksums.txt.bundle \
           checksums.txt.sig \
           checksums.txt.crt \
           verification.sh
 
-        # Sign the bundle
+        # Sign the bundle (bundle format for cosign v3)
         cosign sign-blob chainguard-ai-docs.tar.gz \
           --yes \
-          --new-bundle-format=false \
-          --output-signature=chainguard-ai-docs.tar.gz.sig \
-          --output-certificate=chainguard-ai-docs.tar.gz.crt
+          --bundle=chainguard-ai-docs.tar.gz.bundle
 
     - name: Build and push container image
       if: github.ref == 'refs/heads/main'
@@ -276,20 +277,19 @@ jobs:
           Cryptographically signed documentation for AI coding assistants.
           
           ### Verification Instructions
-          
+
           ```bash
-          # Download and verify the bundle
           # Download latest release
           curl -LO https://github.com/${{ github.repository }}/releases/latest/download/chainguard-ai-docs.tar.gz
-          curl -LO https://github.com/${{ github.repository }}/releases/latest/download/chainguard-ai-docs.tar.gz.sig
-          
-          # Verify with cosign
+          curl -LO https://github.com/${{ github.repository }}/releases/latest/download/chainguard-ai-docs.tar.gz.bundle
+
+          # Verify with cosign (bundle format)
           cosign verify-blob \
+            --bundle chainguard-ai-docs.tar.gz.bundle \
             --certificate-identity-regexp ".*github.com/${{ github.repository }}.*" \
             --certificate-oidc-issuer https://token.actions.githubusercontent.com \
-            --signature chainguard-ai-docs.tar.gz.sig \
             chainguard-ai-docs.tar.gz
-          
+
           # Extract and verify contents
           tar -xzf chainguard-ai-docs.tar.gz
           ./verification.sh
@@ -308,8 +308,6 @@ jobs:
           - Build date: ${{ github.event.repository.updated_at }}
         files: |
           ${{ env.TEMP_BUILD_DIR }}/chainguard-ai-docs.tar.gz
-          ${{ env.TEMP_BUILD_DIR }}/chainguard-ai-docs.tar.gz.sig
-          ${{ env.TEMP_BUILD_DIR }}/chainguard-ai-docs.tar.gz.crt
           ${{ env.TEMP_BUILD_DIR }}/chainguard-ai-docs.tar.gz.bundle
         draft: false
         prerelease: false
