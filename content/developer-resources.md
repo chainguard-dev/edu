@@ -27,6 +27,12 @@ A comprehensive collection of Chainguard documentation including:
 
 ## Download AI Documentation Bundle
 
+<div style="background-color: #e3f2fd; border-left: 4px solid #2196F3; padding: 20px; border-radius: 4px; margin: 20px 0;">
+  <h3 style="margin-top: 0;">🚀 New: MCP Server Support</h3>
+  <p>Run the container as an <strong>MCP (Model Context Protocol) server</strong> for searchable, on-demand access to Chainguard documentation in AI assistants and IDEs.</p>
+  <p><a href="/chainguard/mcp-server-ai-docs/" style="font-weight: bold; text-decoration: none;">→ Full MCP Server Documentation</a></p>
+</div>
+
 Choose your preferred distribution method:
 
 <div style="background-color: var(--blockquote-background); border-left: 4px solid #4CAF50; padding: 16px; border-radius: 4px; margin: 20px 0;">
