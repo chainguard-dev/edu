@@ -117,13 +117,15 @@ jobs:
         # Sign the tarball (keyless signing)
         cosign sign-blob \
           --yes \
+          --bundle chainguard-ai-docs.tar.gz.bundle \
           chainguard-ai-docs.tar.gz \
           --output-signature chainguard-ai-docs.tar.gz.sig \
           --output-certificate chainguard-ai-docs.tar.gz.crt
-        
+
         # Sign the markdown file
         cosign sign-blob \
           --yes \
+          --bundle chainguard-ai-docs.md.bundle \
           chainguard-ai-docs.md \
           --output-signature chainguard-ai-docs.md.sig \
           --output-certificate chainguard-ai-docs.md.crt
