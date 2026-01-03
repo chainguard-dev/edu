@@ -67,8 +67,8 @@ The server runs in stdio mode and communicates via standard input/output, making
 
 To use this MCP server with Claude Desktop, add it to your configuration file:
 
-**macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-**Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+* **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+* **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
 
 ```json
 {
