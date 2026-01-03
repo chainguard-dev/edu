@@ -114,20 +114,21 @@ jobs:
       run: |
         cd static/downloads
         
-        # Sign the tarball (keyless signing)
+        # Sign the tarball (bundle format for cosign v3)
         cosign sign-blob chainguard-ai-docs.tar.gz \
           --yes \
-          --new-bundle-format=false \
-          --output-signature=chainguard-ai-docs.tar.gz.sig \
-          --output-certificate=chainguard-ai-docs.tar.gz.crt
+          --bundle=chainguard-ai-docs.tar.gz.bundle
 
-        # Sign the markdown file
+        # Sign the markdown file (bundle format for cosign v3)
         cosign sign-blob chainguard-ai-docs.md \
           --yes \
-          --new-bundle-format=false \
-          --output-signature=chainguard-ai-docs.md.sig \
-          --output-certificate=chainguard-ai-docs.md.crt
-        
+          --bundle=chainguard-ai-docs.md.bundle
+
+        # Create placeholder .sig/.crt files for backward compatibility
+        # (Dockerfile and some tools still expect these)
+        touch chainguard-ai-docs.tar.gz.sig chainguard-ai-docs.tar.gz.crt
+        touch chainguard-ai-docs.md.sig chainguard-ai-docs.md.crt
+
         echo "Artifacts signed successfully"
 
     - name: Scan for sensitive data
@@ -213,8 +214,8 @@ jobs:
           --notes-file release-notes.md \
           --latest \
           chainguard-ai-docs.tar.gz \
-          chainguard-ai-docs.tar.gz.sig \
-          chainguard-ai-docs.tar.gz.crt \
+          chainguard-ai-docs.tar.gz.bundle \
+          chainguard-ai-docs.md.bundle \
           checksums.txt
 
     - name: Build and push container image
