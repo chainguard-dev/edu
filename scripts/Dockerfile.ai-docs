@@ -11,21 +11,16 @@ LABEL org.opencontainers.image.licenses="Apache-2.0"
 LABEL dev.chainguard.ai-docs.version="latest"
 LABEL dev.chainguard.ai-docs.mcp-enabled="true"
 
-# Install Python and dependencies for MCP server
-USER root
-RUN apk add --no-cache python3 py3-pip && \
-    pip3 install --no-cache-dir --break-system-packages -r /tmp/mcp-requirements.txt || true
-USER nonroot
-
 # Create directory structure
 WORKDIR /docs
 
-# Copy MCP requirements first (for caching)
+# Copy MCP requirements first (for layer caching)
 COPY mcp-requirements.txt /tmp/
 
-# Install MCP dependencies
+# Install Python and MCP dependencies
 USER root
-RUN pip3 install --no-cache-dir --break-system-packages -r /tmp/mcp-requirements.txt
+RUN apk add --no-cache python3 py3-pip && \
+    pip3 install --no-cache-dir --break-system-packages -r /tmp/mcp-requirements.txt
 USER nonroot
 
 # Copy documentation and verification files
