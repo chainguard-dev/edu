@@ -115,20 +115,18 @@ jobs:
         cd static/downloads
         
         # Sign the tarball (keyless signing)
-        cosign sign-blob \
+        cosign sign-blob chainguard-ai-docs.tar.gz \
           --yes \
-          --bundle chainguard-ai-docs.tar.gz.bundle \
-          chainguard-ai-docs.tar.gz \
-          --output-signature chainguard-ai-docs.tar.gz.sig \
-          --output-certificate chainguard-ai-docs.tar.gz.crt
+          --new-bundle-format=false \
+          --output-signature=chainguard-ai-docs.tar.gz.sig \
+          --output-certificate=chainguard-ai-docs.tar.gz.crt
 
         # Sign the markdown file
-        cosign sign-blob \
+        cosign sign-blob chainguard-ai-docs.md \
           --yes \
-          --bundle chainguard-ai-docs.md.bundle \
-          chainguard-ai-docs.md \
-          --output-signature chainguard-ai-docs.md.sig \
-          --output-certificate chainguard-ai-docs.md.crt
+          --new-bundle-format=false \
+          --output-signature=chainguard-ai-docs.md.sig \
+          --output-certificate=chainguard-ai-docs.md.crt
         
         echo "Artifacts signed successfully"
 
