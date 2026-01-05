@@ -18,8 +18,7 @@ This tutorial outlines how to create a Chainguard identity that can be assumed b
 
 ## Prerequisites
 
-To complete this guide, outbound identity federation must be enabled for your
-AWS account as described on [this page](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_outbound_getting_started.html#enable-outbound-federation).
+To complete this guide, outbound identity federation must be enabled for your AWS account. Follow [the official AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_outbound_getting_started.html#enable-outbound-federation) to set this up.
 
 You will also need the following tools.
 
@@ -30,12 +29,9 @@ You will also need the following tools.
 
 ## Retrieve Token Issuer URL
 
-Each AWS account has a different issuer URL for outbound identity federation.
-You can retrieve it from the AWS Console UI by navigating to
-`IAM > Account settings > STS` as described in
-[the official getting started guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_outbound_getting_started.html).
+Each AWS account has a different issuer URL for outbound identity federation. You can retrieve it from the AWS Console UI by navigating to `IAM > Account settings > STS` as described in [the official getting started guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_outbound_getting_started.html).
 
-It should look like this:
+The token issuer URL will align with the following format:
 
 ```
 https://<uuid>.tokens.sts.global.api.aws
@@ -45,10 +41,7 @@ https://<uuid>.tokens.sts.global.api.aws
 
 This guide outlines two methods for creating an identity that can be assumed by an AWS user or IAM role: one using `chainctl` over a command-line interface, and another using Terraform.
 
-### CLI
-
-Firstly, attach a policy to your role or user that allows it to call
-`sts:GetWebIdentityToken` for the `https://issuer.enforce.dev` audience.
+Prior to starting either method, attach a policy to your AWS role or user that allows it to call `sts:GetWebIdentityToken` for the `https://issuer.enforce.dev` audience. The following example is a minimal policy that allows this:
 
 ```json
 {
@@ -71,37 +64,31 @@ Firstly, attach a policy to your role or user that allows it to call
 }
 ```
 
-Next, create the identity. This example creates an identity and assigns it the
-`registry.pull` role. Substitute `<identity-name>`, `<issuer-url>` and `<aws-arn>`
-with the name you want to give the identity, the issuer URL you just retrieved
-and the ARN of the user or role you want to assume the identity with, respectively.
+### CLI
+
+This example uses `chainctl` to create a Chainguard identity and assign it the `registry.pull` role. Substitute `<identity-name>`, `<issuer-url>` and `<aws-arn>` with the name you want to give the identity, the issuer URL you just retrieved and the ARN of the AWS user or role you want to assume the identity with, respectively.
 
 ```shell
 chainctl iam id create <identity-name> --identity-issuer=<issuer-url> --subject=<aws-arn> --role=registry.pull
 ```
 
-This command should return the identity's
-[UIDP (unique identity path)](/chainguard/administration/cloudevents/events-reference/#uidp-identifiers).
-Note this value down, as you'll need it to assume the identity later.
+This command should return the identity's [UIDP (unique identity path)](/chainguard/administration/cloudevents/events-reference/#uidp-identifiers). Note this value down, as you'll need it to assume the identity later.
 
-If you need to retrieve the UIDP later on, you can always run the following
-`chainctl` command to list the identity.
+If you need to retrieve the UIDP later on, you can always run the following `chainctl` command to list the identity.
 
 ```sh
 chainctl iam identities list --name=<identity-name>
 ```
 
-If you're unsure which ARN or issuer URL to provide to `chainctl iam id create`,
-you can issue a token with `aws sts get-web-identity-token` and inspect the
-claims with [`jwt`](https://github.com/mike-engel/jwt-cli).
+If you're unsure which ARN or issuer URL to provide to `chainctl iam id create`, you can issue a token with `aws sts get-web-identity-token` and inspect the claims with [`jwt`](https://github.com/mike-engel/jwt-cli).
 
 ```shell
-$ aws sts get-web-identity-token \
-    --audience=https://issuer.enforce.dev \
-    --signing-algorithm=ES384 \
-    --query WebIdentityToken \
-    --output text \
-    | jwt decode -j - \
+aws sts get-web-identity-token \
+  --audience=https://issuer.enforce.dev \
+  --signing-algorithm=ES384 \
+  --query WebIdentityToken \
+  --output text \
+  | jwt decode -j - \
 ```
 
 The output will look like this:
@@ -134,17 +121,13 @@ The output will look like this:
 }
 ```
 
-The `sub` and `iss` claims are the values you should provide to `--subject`
-and `--identity-issuer`, respectively.
+The `sub` and `iss` claims are the values you should provide to `--subject` and `--identity-issuer`, respectively.
 
 ### Terraform
 
-You can also create an assumable identity with the [Chainguard Terraform provider](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest).
+You can also create an assumable identity with the [Chainguard Terraform provider](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest). The following example demonstrates creating an identity that can be assumed by an IAM role. It binds the `registry.pull` role to the identity.
 
-The following example demonstrates creating an identity that can be assumed by an IAM role. It binds the `registry.pull` role to the identity.
-
-Substitute your Chainguard organization name for `<org-name>` and the issuer URL
-for `<issuer-url>`.
+Substitute your Chainguard organization name for `<org-name>` and the issuer URL for `<issuer-url>`.
 
 ```hcl
 data "aws_caller_identity" "current" {}
@@ -182,20 +165,17 @@ output "my_identity_name_id" {
 }
 ```
 
-The `my_identity_name_id` output provides the identity’s
-[UIDP (unique identity path)](/chainguard/administration/cloudevents/events-reference/#uidp-identifiers).
-You’ll need this value to assume the identity later.
+The `my_identity_name_id` output provides the identity’s [UIDP (unique identity path)](/chainguard/administration/cloudevents/events-reference/#uidp-identifiers). You’ll need this value to assume the identity later.
 
 ## Assume the Identity
 
-Firstly, generate a token with `aws sts get-web-identity-token`:
+After creating an identity with either method outlined previously, generate a token with `aws sts get-web-identity-token`:
 
 ```shell
 TOK=$(aws sts get-web-identity-token --audience=https://issuer.enforce.dev --signing-algorithm=ES384 --query WebIdentityToken --output text)
 ```
 
-Then use the token to login with `chainctl`. Provide the UIDP of the identity
-as `<identity-id>`:
+Then use the token to log in with `chainctl`. Provide the UIDP of the identity as `<identity-id>`:
 
 ```shell
 chainctl auth login \
@@ -203,9 +183,7 @@ chainctl auth login \
   --identity-token "${TOK}"
 ```
 
-Now you will be able to issue `chainctl` commands under this assumed identity.
-For instance, you could list the container image repositories available to your
-organization:
+Now you will be able to issue `chainctl` commands under this assumed identity. For instance, you could list the container image repositories available to your organization:
 
 ```shell
 chainctl image repo list
