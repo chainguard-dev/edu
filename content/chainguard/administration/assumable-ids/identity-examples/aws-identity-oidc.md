@@ -80,7 +80,7 @@ If you need to retrieve the UIDP later on, you can always run the following `cha
 chainctl iam identities list --name=<identity-name>
 ```
 
-If you're unsure which ARN or issuer URL to provide to `chainctl iam id create`, you can issue a token with `aws sts get-web-identity-token` and inspect the claims with [`jwt`](https://github.com/mike-engel/jwt-cli).
+If you're unsure which ARN or issuer URL to provide to `chainctl iam id create`, you can issue a token with `aws sts get-web-identity-token` and inspect the claims with `jwt`. To complete this command, you must install `jwt` as described on [this page](https://github.com/mike-engel/jwt-cli#installation).
 
 ```shell
 aws sts get-web-identity-token \
