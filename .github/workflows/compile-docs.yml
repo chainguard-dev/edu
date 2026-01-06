@@ -233,18 +233,25 @@ jobs:
         tar -xzf gitleaks_8.18.0_linux_x64.tar.gz
         
         # Scan compiled documentation for secrets with custom config
-        ./gitleaks detect --no-git --source $TEMP_BUILD_DIR/ --config .gitleaks.toml --verbose --report-format json --report-path gitleaks-report.json
-        
-        # Check results
-        if [ -f gitleaks-report.json ] && [ -s gitleaks-report.json ]; then
-          echo "Potential secrets detected in compiled documentation!"
-          cat gitleaks-report.json
-          
-          # Double-check if these are real secrets or just documentation examples
-          if grep -q "Example patterns we redact" gitleaks-report.json; then
-            echo "Note: These appear to be documentation examples, not actual secrets"
+        ./gitleaks detect --no-git --source $TEMP_BUILD_DIR/ --config .gitleaks.toml --verbose --report-format json --report-path gitleaks-report.json || true
+
+        # Check results - parse JSON to see if there are actual findings
+        if [ -f gitleaks-report.json ]; then
+          # Check if JSON array is not empty (more than just "[]")
+          findings_count=$(cat gitleaks-report.json | grep -o '"Description":' | wc -l)
+
+          if [ "$findings_count" -gt 0 ]; then
+            echo "Potential secrets detected in compiled documentation!"
+            cat gitleaks-report.json
+
+            # Double-check if these are real secrets or just documentation examples
+            if grep -q "Example patterns we redact" gitleaks-report.json; then
+              echo "Note: These appear to be documentation examples, not actual secrets"
+            else
+              exit 1
+            fi
           else
-            exit 1
+            echo "No secrets detected in compiled documentation"
           fi
         fi
 
