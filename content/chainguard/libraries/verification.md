@@ -6,7 +6,7 @@ description:
   Libraries using the chainctl tool for enhanced supply chain security"
 type: "article"
 date: 2025-07-03T12:00:00+00:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-01-06T15:09:59+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -18,10 +18,11 @@ toc: true
 
 ## Overview
 
-Chainguard's `chainctl` tool with the command `libraries verify` verifies that
-your language ecosystem dependencies come from Chainguard Libraries, providing
-critical visibility into your software supply chain security. By verifying
-binary artifacts across your projects and repositories, you can ensure
+Chainguard's `chainctl` tool with the command [`libraries
+verify`](/chainguard/chainctl/chainctl-docs/chainctl_libraries_verify/) verifies
+that your language ecosystem dependencies come from Chainguard Libraries,
+providing critical visibility into your software supply chain security. By
+verifying binary artifacts across your projects and repositories, you can ensure
 dependencies are sourced from Chainguard's hardened build environment rather
 than potentially compromised public repositories, identify opportunities to
 improve security posture, and maintain compliance with supply chain security
@@ -41,7 +42,9 @@ Before using chainctl to verify libraries, ensure you have the following
 installed and available on your path:
 
 - [`chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) —
-  Chainguard-maintained tool that includes the `libraries verify` command.
+  Chainguard-maintained tool that includes the `libraries verify` command,
+  details also in the [reference
+  documentation](/chainguard/chainctl/chainctl-docs/chainctl_libraries_verify/).
 - [`cosign`](https://docs.sigstore.dev/cosign/system_config/installation/) — A
   Sigstore-maintained tool used to verify signatures.
 
@@ -224,5 +227,6 @@ chainctl help libraries verify
 
 - [Chainguard Libraries Overview](/chainguard/libraries/overview/)
 - [Chainguard Libraries Authentication](/chainguard/libraries/access/)
+- [`chainctl libraries verify` reference documentation](/chainguard/chainctl/chainctl-docs/chainctl_libraries_verify/)
 - [Learning Lab: Chainguard Libraries for Java](/software-security/learning-labs/ll202505/)
 - [Learning Lab: Chainguard Libraries for Python](/software-security/learning-labs/ll202506/)
