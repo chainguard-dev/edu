@@ -1,43 +1,22 @@
 ---
 date: 2026-01-05T22:24:23Z
-title: "chainctl iam roles list"
-slug: chainctl_iam_roles_list
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_roles_list/
+title: "chainctl libraries"
+slug: chainctl_libraries
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam roles list
+## chainctl libraries
 
-List IAM roles.
-
-```
-chainctl iam roles list [--name=NAME] [--capabilities=CAPABILITY,...] [--parent=PARENT | --managed] [--output=id|json|table]
-```
-
-### Examples
-
-```
-  # List all accessible roles
-  chainctl iam roles list
-  
-  # List all managed (built-in) roles
-  chainctl iam roles list --managed
-  
-  # List all roles that can create groups
-  chainctl iam roles list --capabilities=groups.create
-```
+Ecosystem library related commands.
 
 ### Options
 
 ```
-      --capabilities strings   A comma separated list of capabilities to grant this role.
-  -h, --help                   help for list
-      --managed                Only list managed (built-in) roles.
-      --name string            The exact name of roles to list.
-      --parent string          Location to list roles from.
+  -h, --help   help for libraries
 ```
 
 ### Options inherited from parent commands
@@ -56,5 +35,6 @@ chainctl iam roles list [--name=NAME] [--capabilities=CAPABILITY,...] [--parent=
 
 ### SEE ALSO
 
-* [chainctl iam roles](/chainguard/chainctl/chainctl-docs/chainctl_iam_roles/)	 - IAM role resource interactions.
+* [chainctl](/chainguard/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
+* [chainctl libraries verify](/chainguard/chainctl/chainctl-docs/chainctl_libraries_verify/)	 - A tool to analyze the use of Chainguard Libraries in various artifacts
 
