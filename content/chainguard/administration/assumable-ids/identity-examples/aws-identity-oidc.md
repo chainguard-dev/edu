@@ -41,7 +41,9 @@ https://<uuid>.tokens.sts.global.api.aws
 
 This guide outlines two methods for creating an identity that can be assumed by an AWS user or IAM role: one using `chainctl` over a command-line interface, and another using Terraform.
 
-Prior to starting either method, attach a policy to your AWS role or user that allows it to call `sts:GetWebIdentityToken` for the `https://issuer.enforce.dev` audience. The following example is a minimal policy that allows this:
+### CLI
+
+Firstly, attach a policy to your AWS role or user that allows it to call `sts:GetWebIdentityToken` for the `https://issuer.enforce.dev` audience. The following example is a minimal policy that allows this:
 
 ```json
 {
@@ -64,9 +66,7 @@ Prior to starting either method, attach a policy to your AWS role or user that a
 }
 ```
 
-### CLI
-
-This example uses `chainctl` to create a Chainguard identity and assign it the `registry.pull` role. Substitute `<identity-name>`, `<issuer-url>` and `<aws-arn>` with the name you want to give the identity, the issuer URL you just retrieved and the ARN of the AWS user or role you want to assume the identity with, respectively.
+Then, run this command which uses `chainctl` to create a Chainguard identity and assign it the `registry.pull` role. Substitute `<identity-name>`, `<issuer-url>` and `<aws-arn>` with the name you want to give the identity, the issuer URL you just retrieved and the ARN of the AWS user or role you want to assume the identity with, respectively.
 
 ```shell
 chainctl iam id create <identity-name> --identity-issuer=<issuer-url> --subject=<aws-arn> --role=registry.pull
@@ -130,10 +130,43 @@ You can also create an assumable identity with the [Chainguard Terraform provide
 Substitute your Chainguard organization name for `<org-name>` and the issuer URL for `<issuer-url>`.
 
 ```hcl
+terraform {
+  required_providers {
+    aws        = { source = "hashicorp/aws" }
+    chainguard = { source = "chainguard-dev/chainguard" }
+  }
+}
+
 data "aws_caller_identity" "current" {}
 
 resource "aws_iam_role" "example" {
+  name = "example-role"
+
   # Configuration omitted for brevity
+}
+
+resource "aws_iam_role_policy" "example_policy" {
+  name = "web-identity-token-policy"
+  role = aws_iam_role.example.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect   = "Allow"
+        Action   = "sts:GetWebIdentityToken"
+        Resource = "*"
+        Condition = {
+          "ForAnyValue:StringEquals" = {
+            "sts:IdentityTokenAudience" = "https://issuer.enforce.dev"
+          }
+          "NumericLessThanEquals" : {
+            "sts:DurationSeconds" : 300
+          }
+        }
+      }
+    ]
+  })
 }
 
 data "chainguard_group" "org" {
@@ -141,22 +174,21 @@ data "chainguard_group" "org" {
 }
 
 resource "chainguard_identity" "my_identity_name" {
-  parent_id   = data.chainguard_group.org.id
-  name        = "my-identity-name"
-
+  parent_id = data.chainguard_group.org.id
+  name      = "my-identity-name"
   claim_match {
-    issuer = "<issuer-url>"
+    issuer  = "<issuer-url>"
     subject = aws_iam_role.example.arn
   }
 }
 
-data "chainguard_roles" "registry_pull" {
+data "chainguard_role" "registry_pull" {
   name = "registry.pull"
 }
 
 resource "chainguard_rolebinding" "my_identity_name_registry_pull" {
   identity = chainguard_identity.my_identity_name.id
-  role     = data.chainguard_roles.registry_pull.items[0].id
+  role     = data.chainguard_role.registry_pull.items[0].id
   group    = data.chainguard_group.org.id
 }
 
