@@ -346,10 +346,18 @@ def compile_documentation(output_path=None):
         print("Processing additional documentation...")
         image_readmes = process_images_readmes(images_path)
         print(f"Found {len(image_readmes)} image READMEs to process")
+
+        # Add a clear section header for container images
+        if image_readmes:
+            compiled_md.append("\n---\n")
+            compiled_md.append("## Container Images\n")
+            compiled_md.append("_This section contains documentation for Chainguard container images._\n")
+
         for readme in image_readmes:
             compiled_md.append(f"### {readme['name']}\n")
             compiled_md.append(readme['content'])
-            compiled_md.append("\n---\n")
+            # Use a unique separator that won't appear in the content
+            compiled_md.append("\n<!-- IMAGE_SEPARATOR -->\n")
     
     # Save the compiled documentation
     if output_path:

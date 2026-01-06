@@ -63,15 +63,48 @@ class ChaguardDocsIndex:
         if current_section:
             sections[current_section] = '\n'.join(current_content)
 
+        # Also parse individual container images as separate sections
+        # Find the Container Images section and extract individual image docs
+        container_images_match = re.search(r'^## Container Images\n', self.content, re.MULTILINE)
+        if container_images_match:
+            start_pos = container_images_match.end()
+            section_content = self.content[start_pos:]
+
+            # Use regex to find all image sections (### header followed by content until next separator or end)
+            # Pattern: ### image-name followed by content until <!-- IMAGE_SEPARATOR --> or end of string
+            image_pattern = r'### ([a-z0-9\-]+)\n(.*?)(?=\n<!-- IMAGE_SEPARATOR -->|\Z)'
+            for match in re.finditer(image_pattern, section_content, re.DOTALL):
+                image_name = match.group(1)
+                image_content = f'### {image_name}\n{match.group(2).strip()}'
+                sections[f'image:{image_name}'] = image_content
+
         return sections
 
     def _extract_images(self) -> List[str]:
         """Extract list of container image names from docs."""
         images = set()
-        # Look for image references like cgr.dev/chainguard/python
-        pattern = r'cgr\.dev/chainguard/([a-z0-9\-]+)'
-        for match in re.finditer(pattern, self.content):
-            images.add(match.group(1))
+
+        # Find the "## Container Images" section and extract all ### headers with simple names
+        container_images_match = re.search(r'^## Container Images\n', self.content, re.MULTILINE)
+
+        if container_images_match:
+            # Start from the Container Images section
+            start_pos = container_images_match.end()
+            # Get content from Container Images section to the end
+            section_content = self.content[start_pos:]
+
+            # Extract all ### headers that match image name pattern
+            # Image names are simple: lowercase letters, numbers, and hyphens
+            image_pattern = r'\n### ([a-z0-9\-]+)\n'
+            for match in re.finditer(image_pattern, section_content):
+                images.add(match.group(1))
+
+        # Fallback: also look for cgr.dev references if no images found from headers
+        if not images:
+            pattern = r'cgr\.dev/chainguard/([a-z0-9\-]+)'
+            for match in re.finditer(pattern, self.content):
+                images.add(match.group(1))
+
         return sorted(list(images))
 
     def search(self, query: str, max_results: int = 5) -> List[Dict[str, str]]:
@@ -107,14 +140,17 @@ class ChaguardDocsIndex:
 
     def get_image_docs(self, image_name: str) -> Optional[str]:
         """Get documentation for a specific container image."""
-        # Search for sections mentioning this image
-        for section_name, section_content in self.sections.items():
-            if image_name.lower() in section_content.lower():
-                # Look for image-specific section
-                if image_name in section_name.lower():
-                    return section_content
+        # First, try to find the image-specific section (with image: prefix)
+        image_key = f'image:{image_name}'
+        if image_key in self.sections:
+            return self.sections[image_key]
 
-        # Fallback: search for any mention
+        # Fallback: try without exact match (case-insensitive)
+        for section_name, section_content in self.sections.items():
+            if section_name.startswith('image:') and image_name.lower() in section_name.lower():
+                return section_content
+
+        # Last resort: search for any mention
         results = self.search(image_name, max_results=1)
         if results:
             return results[0]['full_content']
