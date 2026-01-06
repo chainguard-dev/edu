@@ -69,7 +69,7 @@ This code works by executing the `chainctl` binary to retrieve a token and makin
 
 * It imports some packages, including the Chainguard SDK's [auth](https://github.com/chainguard-dev/sdk/tree/main/auth) and [auth/ggcr](https://github.com/chainguard-dev/sdk/tree/main/auth/ggcr) packages. These are what allow the program to interact with the Chainguard registry.
 * The example uses the `auth` package to execute the `chainctl` CLI binary to retrieve a token based on the local user's credentials.
-* Using this token, the example makes a call to the Chainguard registry to retrieve some information about the supplied image. The example uses the `cgr.dev/chainguard/static` Starter image.
+* Using this token, the example makes a call to the Chainguard registry to retrieve some information about the supplied image. The example uses the `cgr.dev/chainguard/static` Free image.
 
 To run this example, save the `main.go` file to your local machine. Then run the following commands:
 
@@ -145,7 +145,7 @@ func main() {
 This example is similar to the previus one, but has the following differences:
 
 * It creates a constant named `sub`. In this example, the `sub` constant's value is set to the UIDP of a Chainguard identity named `all-users` which can be assumed by any Chainguard user.
-* It takes the token retrieved with the `chainctl` binary and exchanges it for the assumable identity to make a call to the Chainguard registry in order retrieve some information about the supplied image. The example uses the `cgr.dev/chainguard/static` Starter image.
+* It takes the token retrieved with the `chainctl` binary and exchanges it for the assumable identity to make a call to the Chainguard registry in order retrieve some information about the supplied image. The example uses the `cgr.dev/chainguard/static` Free image.
 
 To run this example, First, delete the previous example's `main.go` file if you haven't alraedy. Then save the `exchange` example's `main.go` file to your local machine. Then run the following `go mod init` and `go mod tidy` commands:
 
@@ -172,7 +172,7 @@ This will return output like the following:
 
 As with the `chainctl` example, the `exchange` example returns the image's digest and the OCI manifest data. This proves that you've gotten a response back from the registry and that authentication worked as expected.
 
-Again, this example doesn't really reflect a real-world use case. Users will generally access Starter container repositories without authenticating, but this example is still useful for understanding how this can be done with the Chainguard SDK.
+Again, this example doesn't really reflect a real-world use case. Users will generally access Free container repositories without authenticating, but this example is still useful for understanding how this can be done with the Chainguard SDK.
 
 You can experiment with updating this example to authenticate by assuming an identity you created and retrieve the digest of a container image from your organization's private repository within the Chainguard registry.
 

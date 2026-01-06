@@ -36,7 +36,7 @@ This table lists the DNS hostnames, associated ports, and protocols that will ne
 | apk.cgr.dev             | 443  | HTTPS    | Package repository                              |
 | virtualapk.cgr.dev      | 443  | HTTPS    | Package repository                              |
 | packages.cgr.dev        | 443  | HTTPS    | Package repository (Extra packages)             |
-| packages.wolfi.dev      | 443  | HTTPS    | Package repository (Starter containers)         |
+| packages.wolfi.dev      | 443  | HTTPS    | Package repository (Free containers)         |
 
 
 
