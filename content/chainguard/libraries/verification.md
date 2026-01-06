@@ -116,7 +116,17 @@ chainctl libraries verify flask-3.0.1-py3-none-any.whl
 ```
 
 The analysis of wheel files is fast because the provenance information is
-available within the archive.
+available within the archive. Python development tools often unpack the wheel
+file and you can also scan these extracted packages. For example, if you create
+a virtual environment in your Python project, you can subsequently analyze the
+package in the virtual environment:
+
+```sh
+python3 -m venv venv
+source ./venv/bin/activate
+pip3 install -r requirements.txt
+chainctl libraries verify --detailed ./venv/
+```
 
 Analyze a local Java `.jar` file:
 
@@ -127,7 +137,8 @@ chainctl libraries verify commons-lang3-3.17.0.jar
 Verifying a JAR file is performed by looking up checksums and provenance
 information from the Chainguard repositories. This requires network access and
 can take longer if you analyze multiple files or archives that contain multiple
-libraries.
+libraries. Typically, you find the JAR files in the local Maven repository cache
+in `~/.m2/repository`:
 
 Analyze a deployment archive for your custom application that contains other
 libraries:
@@ -185,7 +196,9 @@ chainctl libraries verify localhost/myapp:latest
 The following examples use Maven Central and PyPI URLs and returns a negative
 result, because packages were not built by Chainguard. A practical use of this
 functionality points to an internal repository manager with a mixture of
-artifacts from Chainguard and elsewhere.
+artifacts from Chainguard and elsewhere. Note that authentication to the
+repository is not supported and you must download artifacts to a local directory
+as an alternative method to verify them.
 
 Analyze a remote artifact on Maven Central:
 
