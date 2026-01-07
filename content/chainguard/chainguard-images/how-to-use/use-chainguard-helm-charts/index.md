@@ -238,6 +238,33 @@ Then you refer to the file like this:
 helm install test oci://cgr.dev/chainguard-private/iamguarded-charts/rabbitmq --values ./values.yaml
 ```
 
+### Installing on AWS Elastic Kubernetes Service (EKS) Auto Mode
+When installing on EKS Auto Mode, you may need to create a storage class for the Helm chart's pod(s). This can be done by creating a storage class:
+
+```sh
+cat <<EOF | kubectl apply -f -
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: gp3-automode
+provisioner: ebs.csi.eks.amazonaws.com
+parameters:
+  type: gp3
+  encrypted: "true"
+volumeBindingMode: WaitForFirstConsumer
+allowVolumeExpansion: true
+EOF
+```
+
+You then pass the storage class's name to the `helm install` command. Here, we use `rabbitmq` as an example:
+
+```sh
+helm install rabbitmq oci://cgr.dev/$ORGANIZATION/iamguarded-charts/rabbitmq \
+  --set "global.org=$ORGANIZATION" \
+  --set "global.imagePullSecrets[0].name=chainguard-pull-secret" \
+  --set "persistence.storageClass=gp3-automode"
+```
+
 ## Troubleshooting 
 
 To check the Helm configuration, you can run `helm install` with `--dry-run` flag. This will output the generated Kubernetes YAML. Double check the values for the image and `imagePullSecrets` to ensure they point to the correct registry and authentication is in place.

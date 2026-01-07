@@ -1,17 +1,27 @@
 # Chainguard AI Documentation Container
-# Provides secure distribution of compiled documentation
+# Provides secure distribution of compiled documentation with MCP server support
 
 # Use wolfi-base which includes a shell but is still minimal and secure
 FROM cgr.dev/chainguard/wolfi-base:latest AS final
 
 # Add metadata labels
 LABEL org.opencontainers.image.source="https://github.com/chainguard-dev/edu"
-LABEL org.opencontainers.image.description="Chainguard AI Documentation Bundle - Cryptographically signed and verified"
+LABEL org.opencontainers.image.description="Chainguard AI Documentation Bundle - MCP server and static export"
 LABEL org.opencontainers.image.licenses="Apache-2.0"
 LABEL dev.chainguard.ai-docs.version="latest"
+LABEL dev.chainguard.ai-docs.mcp-enabled="true"
 
 # Create directory structure
 WORKDIR /docs
+
+# Copy MCP requirements first (for layer caching)
+COPY mcp-requirements.txt /tmp/
+
+# Install Python and MCP dependencies
+USER root
+RUN apk add --no-cache python3 py3-pip && \
+    pip3 install --no-cache-dir --break-system-packages -r /tmp/mcp-requirements.txt
+USER nonroot
 
 # Copy documentation and verification files
 # These will be added during the build process
@@ -21,14 +31,20 @@ COPY chainguard-ai-docs.md.crt /docs/
 COPY checksums.txt /docs/
 COPY verification.sh /docs/
 
-# Copy scripts and make them executable
+# Copy all scripts and make them executable
 COPY extract.sh /usr/local/bin/extract
 COPY verify.sh /usr/local/bin/verify
 COPY list-contents.sh /usr/local/bin/list-contents
-RUN chmod +x /usr/local/bin/extract /usr/local/bin/verify /usr/local/bin/list-contents
+COPY serve-mcp.sh /usr/local/bin/serve-mcp
+COPY mcp-server.py /usr/local/bin/mcp-server.py
 
-# Set permissions
-USER nonroot:nonroot
+USER root
+RUN chmod +x /usr/local/bin/extract \
+             /usr/local/bin/verify \
+             /usr/local/bin/list-contents \
+             /usr/local/bin/serve-mcp \
+             /usr/local/bin/mcp-server.py
+USER nonroot
 
 # Default command shows usage
 CMD ["/usr/local/bin/list-contents"]

@@ -36,7 +36,9 @@ This enables you to create identities that can only be assumed by specific autom
 
 * [GitHub](/chainguard/administration/assumable-ids/identity-examples/github-identity/)
 * [GitLab](/chainguard/administration/assumable-ids/identity-examples/gitlab-identity/)
-* [AWS Lambda](/chainguard/administration/assumable-ids/identity-examples/aws-identity/)
+* [AWS (Generic)](/chainguard/administration/assumable-ids/identity-examples/aws-identity/)
+* [AWS Lambda](/chainguard/administration/assumable-ids/identity-examples/aws-lambda-identity/)
+* [AWS EC2](/chainguard/administration/assumable-ids/identity-examples/aws-ec2-identity/)
 * [Jenkins with Terraform](/chainguard/administration/assumable-ids/identity-examples/jenkins-terraform/) or [Jenkins with chainctl](/chainguard/administration/assumable-ids/identity-examples/jenkins-chainctl/)
 * [Buildkite](/chainguard/administration/assumable-ids/identity-examples/buildkite-identity/)
 * [Bitbucket](/chainguard/administration/assumable-ids/identity-examples/bitbucket-identity/)

@@ -1,5 +1,5 @@
 ---
-title: "Chainguard Libraries Access"
+title: "Chainguard Libraries access"
 linktitle: "Access"
 description: "Learn how to access Chainguard Libraries for enhanced security in Java and Python dependencies, including authentication and organization setup"
 type: "article"
@@ -87,6 +87,11 @@ repositories from Chainguard Libraries. You can create the pull tokens with the
 chainctl command or using the Chainguard console.
 
 For environments where short-lived credentials are not suitable, such as some CI/CD platforms, you can generate a pull token, which provides longer-lived access to Chainguard Libraries.
+
+To create a pull token you must have the relevant [entitlement](#entitlement)
+for the ecosystem and the `libraries.java.pull_token_creator`,
+`libraries.javascript.pull_token_creator`, or
+`libraries.python.pull_token_creator` role.
 
 ### Creating pull tokens with chainctl
 

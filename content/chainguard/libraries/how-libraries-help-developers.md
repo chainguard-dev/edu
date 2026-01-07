@@ -1,6 +1,6 @@
 ---
 title: "How does Chainguard Libraries help developers?"
-linktitle: "How Libraries Help"
+linktitle: "How Chainguard Libraries helps"
 type: "article"
 description: "Interview with Dustin Kirkland about the benefits Chainguard Libraries provide to developers"
 date: 2025-08-02T16:00:00+00:00

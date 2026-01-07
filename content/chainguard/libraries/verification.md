@@ -1,12 +1,12 @@
 ---
-title: "Chainguard Libraries Verification"
+title: "Chainguard Libraries verification"
 linktitle: "Verification"
 description:
   "Learn how to verify libraries and packages are from Chainguard
   Libraries using the chainctl tool for enhanced supply chain security"
 type: "article"
 date: 2025-07-03T12:00:00+00:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-01-06T15:09:59+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -18,10 +18,11 @@ toc: true
 
 ## Overview
 
-Chainguard's `chainctl` tool with the command `libraries verify` verifies that
-your language ecosystem dependencies come from Chainguard Libraries, providing
-critical visibility into your software supply chain security. By verifying
-binary artifacts across your projects and repositories, you can ensure
+Chainguard's `chainctl` tool with the command [`libraries
+verify`](/chainguard/chainctl/chainctl-docs/chainctl_libraries_verify/) verifies
+that your language ecosystem dependencies come from Chainguard Libraries,
+providing critical visibility into your software supply chain security. By
+verifying binary artifacts across your projects and repositories, you can ensure
 dependencies are sourced from Chainguard's hardened build environment rather
 than potentially compromised public repositories, identify opportunities to
 improve security posture, and maintain compliance with supply chain security
@@ -41,7 +42,9 @@ Before using chainctl to verify libraries, ensure you have the following
 installed and available on your path:
 
 - [`chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) —
-  Chainguard-maintained tool that includes the `libraries verify` command.
+  Chainguard-maintained tool that includes the `libraries verify` command,
+  details also in the [reference
+  documentation](/chainguard/chainctl/chainctl-docs/chainctl_libraries_verify/).
 - [`cosign`](https://docs.sigstore.dev/cosign/system_config/installation/) — A
   Sigstore-maintained tool used to verify signatures.
 
@@ -80,7 +83,7 @@ organization using the `--parent` flag as follows, replacing
 `<your-organization>` with the name of your organization, with every command:
 
 ```sh
-chainctl libaries verify --parent <your-organization> /path/to/artifact.jar
+chainctl libraries verify --parent <your-organization> /path/to/artifact.jar
 ```
 
 To avoid the need for the additional parameter, you can configure a default
@@ -116,7 +119,17 @@ chainctl libraries verify flask-3.0.1-py3-none-any.whl
 ```
 
 The analysis of wheel files is fast because the provenance information is
-available within the archive.
+available within the archive. Python development tools often unpack the wheel
+file and you can also scan these extracted packages. For example, if you create
+a virtual environment in your Python project, you can subsequently analyze the
+package in the virtual environment:
+
+```sh
+python3 -m venv venv
+source ./venv/bin/activate
+pip3 install -r requirements.txt
+chainctl libraries verify --detailed ./venv/
+```
 
 Analyze a local Java `.jar` file:
 
@@ -127,7 +140,8 @@ chainctl libraries verify commons-lang3-3.17.0.jar
 Verifying a JAR file is performed by looking up checksums and provenance
 information from the Chainguard repositories. This requires network access and
 can take longer if you analyze multiple files or archives that contain multiple
-libraries.
+libraries. Typically, you find the JAR files in the local Maven repository cache
+in `~/.m2/repository`:
 
 Analyze a deployment archive for your custom application that contains other
 libraries:
@@ -185,7 +199,9 @@ chainctl libraries verify localhost/myapp:latest
 The following examples use Maven Central and PyPI URLs and returns a negative
 result, because packages were not built by Chainguard. A practical use of this
 functionality points to an internal repository manager with a mixture of
-artifacts from Chainguard and elsewhere.
+artifacts from Chainguard and elsewhere. Note that authentication to the
+repository is not supported and you must download artifacts to a local directory
+as an alternative method to verify them.
 
 Analyze a remote artifact on Maven Central:
 
@@ -199,29 +215,18 @@ Analyze a remote artifact on PyPI:
 chainctl libraries verify remote:files.pythonhosted.org/packages/...../requests-2.31.0-py3-none-any.whl
 ```
 
-## Inventory creation
-
-The chainctl tool also supports a `libraries inventory` command. Use it to
-create a list of artifacts available in a specific location. Set the
-`--ecosystem` flag to `java` for Java artifacts and `python` for Python files.
-
-```sh
-chainctl libraries inventory --ecosystem java remote:repo1.maven.org/maven2/org/apache/commons/commons-lang3/3.20.0
-```
-
 ## Built-in help
 
-Use the `help` command for more command options and details for the `verify` and
-`inventory` commands:
+Use the `help` command for more command options and details for the `verify` command:
 
 ```sh
 chainctl help libraries verify
-chainctl help libraries inventory
 ```
 
 ## Resources
 
 - [Chainguard Libraries Overview](/chainguard/libraries/overview/)
 - [Chainguard Libraries Authentication](/chainguard/libraries/access/)
+- [`chainctl libraries verify` reference documentation](/chainguard/chainctl/chainctl-docs/chainctl_libraries_verify/)
 - [Learning Lab: Chainguard Libraries for Java](/software-security/learning-labs/ll202505/)
 - [Learning Lab: Chainguard Libraries for Python](/software-security/learning-labs/ll202506/)

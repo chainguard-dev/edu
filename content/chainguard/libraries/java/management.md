@@ -1,5 +1,5 @@
 ---
-title: "Management and Maintenance"
+title: "Management and maintenance"
 linktitle: "Management"
 description: "Learn how to manage and maintain Chainguard Libraries for Java, including dependency updates, verification, and monitoring security improvements"
 type: "article"
@@ -76,7 +76,7 @@ built in the Chainguard Factory from source, and is available at
 [manually download the file to
 compare](/chainguard/libraries/java/overview/#manual), if desired.
 
-## Increase Chainguard Library use
+## Increase Chainguard Libraries use
 
 The number of available artifacts in Chainguard Libraries for Java increases
 over time. If an artifact was already retrieved from the Maven Central

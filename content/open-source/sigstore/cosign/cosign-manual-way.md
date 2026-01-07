@@ -16,6 +16,8 @@ weight: 007
 toc: true
 ---
 
+> **Note:** This tutorial is no longer actively maintained and may reference outdated versions of Cosign and related tools. While the underlying cryptographic concepts remain relevant, we recommend consulting the [current Cosign documentation](https://docs.sigstore.dev/cosign/signing/overview/) for up-to-date usage guidance. This content is preserved for educational purposes and may still provide value for those interested in understanding the mechanics of software signing.
+
 When I first used [Cosign](https://github.com/sigstore/cosign), the software artifact signing CLI from the [Sigstore](https://www.sigstore.dev/) project, I was amazed at how painless signing and verifying could be.
 
 For example, in the three commands below we create a public/private key pair, sign the text file, upload it to the [Rekor](https://github.com/sigstore/rekor) transparency log, and verify the signature of the message.

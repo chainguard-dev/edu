@@ -48,8 +48,6 @@ curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh 
 
 Alternatively, find and download the appropriate package file or binary from the [official releases page](https://github.com/anchore/grype/releases). Place the binary on your system path or install the package using the conventions for your OS and distribution.
 
-Note that Grype can also be [built from source](https://github.com/anchore/grype/blob/main/DEVELOPING.md#native-development).
-
 ### Install via Package Manager
 
 Grype can be installed using the following commands specific to your OS and distribution:

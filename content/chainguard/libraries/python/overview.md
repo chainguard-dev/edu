@@ -1,6 +1,6 @@
 ---
-title: "Chainguard Libraries for Python Overview"
-linktitle: "Python Overview "
+title: "Chainguard Libraries for Python overview"
+linktitle: "Python overview"
 description: "Learn about Chainguard Libraries for Python, providing enhanced security for PyPI packages through automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-04-09:04:00+00:00
@@ -35,7 +35,7 @@ sources if available. In combination with third-party software repository
 managers, you can use Chainguard Libraries for Python as a secure source of
 truth for your development process. 
 
-## Technical Details
+## Technical details
 
 Most organizations consume Chainguard Libraries for Python through a repository
 manager such as Cloudsmith, JFrog Artifactory, or Sonatype Nexus Repository. For
@@ -47,11 +47,12 @@ Libraries for Python and how to access individual libraries manually.
 The Chainguard Libraries for Python indexes use the PyPI repository format and
 only include release artifacts of the libraries built by Chainguard from source.
 
-The URLs for the repositories are:
+URLs for the repositories:
 
 ```
 https://libraries.cgr.dev/python/
 https://libraries.cgr.dev/python-remediated/
+https://libraries.cgr.dev/cu[**version**]/simple/
 ```
 
 The first index provides all Python libraries that Chainguard builds from
@@ -59,7 +60,10 @@ source, without remediated versions. The second index provides remediated
 libraries with high and critical CVE fixes applied to older versions. The
 separate indexes provide you the option to make remediated versions available
 for your development or to opt out of using these versions completely and
-continue to use non-remediated versions only.
+continue to use non-remediated versions only. The third index refers to 
+CUDA version-specific indexes which include libraries with 
+GPU-accelerated Python wheels. You can find more details in the [CUDA 
+Enabled Libraries](#cuda-enabled-libraries) section.
 
 The Chainguard Libraries for Python repository does not include all packages
 from PyPI. Chainguard Libraries for Python are rebuilt from source and require
@@ -83,7 +87,7 @@ Python wheel files for standard and remediated package version.
 
 <a id="cve-remediation"></a>
 
-## CVE Remediation
+## CVE remediation
 
 Chainguard Libraries for Python includes the [CVE
 Remediation](/chainguard/libraries/cve-remediation/) feature. Remediated
@@ -103,9 +107,48 @@ In some cases, multiple CVEs may be remediated in a specific library version.
 For example, `aiohttp` has fixes for both CVE-2024-23334 and CVE-2024-30251 in
 the version `3.9.1+cgr.2`.
 
-<a id="requirements"></a>
+## CUDA-enabled libraries
 
-## Runtime and Build Requirements
+Chainguard Libraries for Python includes libraries optimized for specific CUDA 
+versions. These libraries are GPU‑accelerated Python wheels that are built 
+and tested against specific NVIDIA CUDA versions. An example is `torch` built 
+for CUDA 12.8, available via the `https://libraries.cgr.dev/cu128/simple/` index. 
+These libraries are published to CUDA‑specific indexes to ensure your Python build 
+tools resolve the correct wheel versions, mirroring how other CUDA-optimized 
+ecosystems are commonly distributed.
+
+Chainguard Libraries for Python includes the following repositories for 
+GPU‑accelerated libraries, built for specific CUDA versions:
+
+```
+https://libraries.cgr.dev/cu126/simple/
+https://libraries.cgr.dev/cu128/simple/
+https://libraries.cgr.dev/cu129/simple/
+https://libraries.cgr.dev/cu130/simple/
+```
+
+Many Python package managers and repository managers support configuring 
+multiple package indexes. You can generally treat Chainguard’s CUDA indexes 
+the same way you use other CUDA-specific indexes (for example, the PyTorch 
+CUDA wheels at https://download.pytorch.org/whl/cu128).
+
+If you use a repository manager as described in the [Global Configuration
+documentation](/chainguard/libraries/python/global-configuration/), configure 
+a remote repository that points at the appropriate Chainguard CUDA index, and 
+use it in place of any CUDA-specific index you previously proxied.
+
+If you choose to pull directly without an artifact manager, you can similarly 
+replace the CUDA index you previously used with the corresponding 
+Chainguard CUDA index, with your existing package management tools like 
+`pip`, `uv`, or `poetry`. 
+
+Note that the CUDA-enabled libraries in these repositories are not dependency 
+complete, since they do not include packages from the NVIDIA CUDA toolkit. You 
+must configure your package manager to pull NVIDIA components from an 
+upstream source such as NVIDIA's index at https://pypi.nvidia.com, or from PyPI 
+where NVIDIA publishes them directly.
+
+## Runtime and build requirements
 
 The runtime requirements for Python artifacts available from Chainguard
 Libraries for Python are identical to the requirements of the original upstream
@@ -181,7 +224,7 @@ requirements apply:
 * The runtime environment's processor architecture must be `x86_64` or
   `aarch64`.
 
-### Behavior on Windows and MacOS
+### Behavior on Windows and macOS
 
 As a result of the requirements detailed in the preceding section, the developer
 experience on Windows and MacOS platforms is impacted. Chainguard only provides
@@ -202,7 +245,7 @@ Linux.
 
 <a id="manual"></a>
 
-## Manual Access
+## Manual access
 
 Use the URLs with your [username and password retrieved with
 chainctl](/chainguard/libraries/access/) to access the Chainguard Libraries for

@@ -1,6 +1,6 @@
 ---
-title: "Global Configuration"
-linktitle: "Global Configuration"
+title: "Global configuration"
+linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for Java in your organization"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
