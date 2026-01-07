@@ -199,6 +199,99 @@ After saving and confirming these changes, Custom Assembly will add these five c
 
 Be aware that Custom Assembly blocks any environment variable that begins with `CHAINGUARD_` from being added or changed. This is to prevent conflicts with configuration details managed by Chainguard.
 
+## Adding custom certificates
+
+Many enterprise environments use internal certificate authorities (CAs) to issue certificates for internal services. These custom certificates need to be trusted by containers that communicate with the internal services. Custom Assembly allows you to build custom certificates directly into your container images, ensuring they trust your organization's internal services without requiring manual certificate mounting at runtime.
+
+### Prerequisites and limitations
+
+Before getting started, you'll need:
+* Access to Chainguard's Custom Assembly tool, which is available to any organization with access to Production Chainguard Containers
+* Appropriate permissions in your Chainguard organization to use Custom Assembly. Review the [Custom Assembly Permissions Requirements](https://edu.chainguard.dev/chainguard/chainguard-images/features/ca-docs/custom-assembly/#custom-assembly-permissions-requirements) for more information
+* [`chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) installed and configured
+* One or more PEM-encoded certificate files that you want to add to your container
+  * Each certificate must have a unique name.
+  * Each certificate must be a PEM-encoded string of an x509v3 certificate.
+  * Private keys must not be passed as a certificate, and will be rejected.
+  * The total size of all inlined certificates must not exceed 50 KB. Please reach out to your account team if there are any issues with this limit.
+
+
+Additionally, be aware of the following limitations when adding custom certificates:
+
+* **Certificates must be added via API or chainctl**: Adding new certificates is currently only available via the API and chainctl.
+* **Certificates must be added per-image**: You cannot currently set default certificates for all images in your organization.
+* **No Java truststore support yet**: Custom certificates are only concatenated to the ca-certificates.crt file, but not added to Java-specific truststores. This functionality is planned for a future release.
+* **Certificates not in SBOM**: Custom certificates are included in the image's provenance attestation but are not currently listed in the SBOM. They will appear in the apko configuration attestation
+* **No audit log trail**: Certificate additions are not currently tracked in the Chainguard audit log
+
+### How to add custom certificates via Custom Assembly
+
+With Custom Assembly, you can add custom certificates to your Chainguard Containers using `chainctl`. The process is similar the one outlined previously for adding packages. 
+
+1. Run a command like the following:
+
+```shell
+chainctl image repos build edit my-custom-image --parent $ORGANIZATION --repo $CONTAINER
+```
+
+This will open your default text editor with the current configuration. 
+
+2. Add a `certificates` section with your custom certificates. Note that each entry must contain exactly one PEM block (`BEGIN CERTIFICATE` to `END CERTIFICATE`):
+
+```yaml
+contents:
+  packages:
+    - jq
+    - git
+    - curl
+
+certificates:
+  additional:
+    - name: internal-ca
+      content: |
+        -----BEGIN CERTIFICATE-----
+        MIIDXTCCAkWgAwIBAgIJAKL0UG+mRkmSMA0GCSqGSIb3DQEBCwUAMEUxCzAJBgNV
+        BAYTAkFVMRMwEQYDVQQIDApTb21lLVN0YXRlMSEwHwYDVQQKDBhJbnRlcm5ldCBX
+        ... (certificate content continues)
+        -----END CERTIFICATE-----
+    - name: partner-ca
+      content: |
+        Some descriptive text about this certificate's purpose
+        -----BEGIN CERTIFICATE-----
+        MIIDZTCCAk2gAwIBAgIJALT1VH+nSlnTMA0GCSqGSIb3DQEBCwUAMEYxCzAJBgNV
+        ... (certificate content continues)
+        -----END CERTIFICATE-----
+
+```
+Note that each certificate entry requires:
+
+* `name`: A descriptive name for the certificate (used for the filename)
+* `content`: The certificate in PEM format, including the `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----` markers
+
+Optionally, you can also include descriptive text before the certificate block to document its purpose. 
+
+3. Save and confirm your changes.
+
+After saving and closing the editor, `chainctl` will display the changes and prompt for confirmation before applying them.
+
+The provided inline certificates will be added (concatenated) to the default truststore of the image in `/etc/ssl/certs/ca-certificates.crt`. They will also be individually written to `/usr/local/share/ca-certificates` and will be available for workflows that involve manually running `update-ca-certificates`.
+
+### Verify that certificates were added
+
+You can verify that your certificates were added correctly by examining the truststore inside the container:
+
+```shell
+docker run --rm cgr.dev/my-org/my-custom-image:latest \
+  cat /etc/ssl/certs/ca-certificates.crt | grep "BEGIN CERTIFICATE" | wc -l
+```
+
+You can also check for your specific certificate by name:
+
+```shell
+docker run --rm cgr.dev/my-org/my-custom-image:latest \
+  ls -la /usr/local/share/ca-certificates/ | grep internal-ca
+```
+
 
 ## Retrieving Information about Custom Assembly Containers
 
