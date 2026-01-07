@@ -1,6 +1,6 @@
 ---
-title: "Chainguard Libraries for Python Overview"
-linktitle: "Python Overview "
+title: "Chainguard Libraries for Python overview"
+linktitle: "Python overview"
 description: "Learn about Chainguard Libraries for Python, providing enhanced security for PyPI packages through automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-04-09:04:00+00:00
@@ -35,7 +35,7 @@ sources if available. In combination with third-party software repository
 managers, you can use Chainguard Libraries for Python as a secure source of
 truth for your development process. 
 
-## Technical Details
+## Technical details
 
 Most organizations consume Chainguard Libraries for Python through a repository
 manager such as Cloudsmith, JFrog Artifactory, or Sonatype Nexus Repository. For
@@ -87,7 +87,7 @@ Python wheel files for standard and remediated package version.
 
 <a id="cve-remediation"></a>
 
-## CVE Remediation
+## CVE remediation
 
 Chainguard Libraries for Python includes the [CVE
 Remediation](/chainguard/libraries/cve-remediation/) feature. Remediated
@@ -148,7 +148,7 @@ must configure your package manager to pull NVIDIA components from an
 upstream source such as NVIDIA's index at https://pypi.nvidia.com, or from PyPI 
 where NVIDIA publishes them directly.
 
-## Runtime and Build Requirements
+## Runtime and build requirements
 
 The runtime requirements for Python artifacts available from Chainguard
 Libraries for Python are identical to the requirements of the original upstream
@@ -224,7 +224,7 @@ requirements apply:
 * The runtime environment's processor architecture must be `x86_64` or
   `aarch64`.
 
-### Behavior on Windows and MacOS
+### Behavior on Windows and macOS
 
 As a result of the requirements detailed in the preceding section, the developer
 experience on Windows and MacOS platforms is impacted. Chainguard only provides
@@ -245,7 +245,7 @@ Linux.
 
 <a id="manual"></a>
 
-## Manual Access
+## Manual access
 
 Use the URLs with your [username and password retrieved with
 chainctl](/chainguard/libraries/access/) to access the Chainguard Libraries for

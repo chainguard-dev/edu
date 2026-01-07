@@ -1,6 +1,6 @@
 ---
-title: "Build Configuration"
-linktitle: "Build Configuration "
+title: "Build configuration"
+linktitle: "Build configuration"
 description: "Configuring Chainguard Libraries for Python on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00

@@ -1,6 +1,6 @@
 ---
-title: "Build Configuration"
-linktitle: "Build Configuration  "
+title: "Build configuration"
+linktitle: "Build configuration"
 description: "Configuring Chainguard Libraries for JavaScript on your workstation"
 type: "article"
 date: 2025-06-05T09:00:00+00:00

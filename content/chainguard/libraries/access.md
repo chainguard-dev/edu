@@ -1,5 +1,5 @@
 ---
-title: "Chainguard Libraries Access"
+title: "Chainguard Libraries access"
 linktitle: "Access"
 description: "Learn how to access Chainguard Libraries for enhanced security in Java and Python dependencies, including authentication and organization setup"
 type: "article"

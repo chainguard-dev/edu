@@ -1,6 +1,6 @@
 ---
-title: "Vulnerability Scanners and Chainguard Libraries"
-linktitle: "Vulnerability Scanners"
+title: "Vulnerability scanners and Chainguard Libraries"
+linktitle: "Vulnerability scanners"
 description: "Details for using vulnerability scanners with Chainguard Libraries."
 type: "article"
 date: 2025-10-04T12:00:00+00:00
@@ -33,7 +33,7 @@ information on scanning containers, refer to our guide on [Working with
 Container Image
 Scanners](/chainguard/chainguard-images/staying-secure/working-with-scanners/).
 
-## Vulnerability Scanning
+## Vulnerability scanning
 
 Vulnerability scanning can be performed at various stages throughout the
 software development lifecycle. Scanning earlier in the process helps identify
