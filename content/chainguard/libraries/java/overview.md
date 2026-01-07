@@ -1,6 +1,6 @@
 ---
-title: "Chainguard Libraries for Java Overview"
-linktitle: "Java Overview"
+title: "Chainguard Libraries for Java overview"
+linktitle: "Java overview"
 description: "Learn about Chainguard Libraries for Java, providing enhanced security for Maven dependencies through automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-03-25T08:04:00+00:00

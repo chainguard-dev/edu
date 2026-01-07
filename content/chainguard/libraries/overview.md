@@ -1,6 +1,6 @@
 ---
-title: "Chainguard Libraries Overview"
-linktitle: "Libraries Overview"
+title: "Chainguard Libraries overview"
+linktitle: "Libraries overview"
 description: "Learn about Chainguard Libraries, providing enhanced security for 
     Java, JavaScript, and Python dependencies through automated patching and 
     comprehensive supply chain protection."
@@ -99,7 +99,7 @@ Chainguard Libraries is available for the following library ecosystems:
 * Python and the larger ecosystem with
   [Chainguard Libraries for Python](/chainguard/libraries/python/overview/)
 
-## Other Resources
+## Other resources
 
 * [Chainguard Libraries product page](https://www.chainguard.dev/libraries)
 * [Learning Lab for October 2025 on Chainguard Libraries for JavaScript and CVE

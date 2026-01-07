@@ -1,5 +1,5 @@
 ---
-title: "Chainguard Libraries Verification"
+title: "Chainguard Libraries verification"
 linktitle: "Verification"
 description:
   "Learn how to verify libraries and packages are from Chainguard

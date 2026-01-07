@@ -1,6 +1,6 @@
 ---
-title: "Chainguard Libraries Network Requirements"
-linktitle: "Network Requirements"
+title: "Chainguard Libraries network requirements"
+linktitle: "Network requirements"
 description: "Learn the network requirements for accessing Chainguard Libraries, including domains needed for authentication, package downloads, and verification tools"
 type: "article"
 date: 2025-06-04T09:30:00+00:00
@@ -16,7 +16,7 @@ toc: true
 
 Chainguard Libraries require specific network access to ensure secure delivery of hardened Java and Python dependencies to your development environment. This guide details the domains and ports needed for authentication, package downloads, and verification tools.
 
-### Access for chainctl and Other Tools
+### Access for chainctl and other tools
 
 For initial configuration with chainctl as well as for verification of
 downloaded libraries with cosign and other tools, you must have HTTPS access to
@@ -29,7 +29,7 @@ the following domains:
 * `console.chainguard.dev` for the web console to administrate and use your
   Chainguard accounts.
 
-### Access for Libraries
+### Access for development tools
 
 Chainguard Libraries use is transparent for development efforts and typically
 requires no additional network access for workstations and other infrastructure
