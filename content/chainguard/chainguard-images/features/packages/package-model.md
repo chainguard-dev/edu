@@ -36,7 +36,7 @@ The following table presents a high-level overview of these package repositories
 
 | Repository Type | Access Level | Package Scope | Authentication Required | Typical Use Case |
 |-----------------|:----------------:|:----------------------:|:-----------------------:|:------------------------:|
-| Wolfi | Public | Wolfi ecosystem | No | Starter images |
+| Wolfi | Public | Wolfi ecosystem | No | Free images |
 | Extra | Public | Supplemental utilities | No | Additional dependencies, non-open source software  |
 | Private | Private/Organization-specific | Packages in org-entitled container images | Yes | Customizing Chainguard Containers with [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) |
 
@@ -47,9 +47,9 @@ Chainguard has two public package repositories: the Wolfi and Extra Packages rep
 
 ### Wolfi
 
-The [Wolfi packages repository](https://github.com/wolfi-dev/os) is the public package source for [Wolfi, Chainguard's open-source Linux "undistro."](/open-source/wolfi/overview/) It contains all the open-source packages used in Chainguard's Starter tier of free container images. As a public repository, the Wolfi APK repo doesn't require authentication. 
+The [Wolfi packages repository](https://github.com/wolfi-dev/os) is the public package source for [Wolfi, Chainguard's open-source Linux "undistro."](/open-source/wolfi/overview/) It contains all the open-source packages used in Chainguard's Free container images. As a public repository, the Wolfi APK repo doesn't require authentication. 
 
-By default, Chainguard's Starter container images use a generic address for this repository (`https://apk.cgr.dev/chainguard`) in their `/etc/apk/repositories` files:
+By default, Chainguard's Free container images use a generic address for this repository (`https://apk.cgr.dev/chainguard`) in their `/etc/apk/repositories` files:
 
 ```shell
 docker run -it --rm --entrypoint cat cgr.dev/chainguard/python:latest-dev /etc/apk/repositories
@@ -72,7 +72,7 @@ Chainguard's Extra Packages repository is a public-facing APK repository that in
 
 The Extra Packages repository follows similar rules to the Wolfi repo, but explicitly allows packages under more restrictive licenses as long as redistribution is permitted.
 
-The Extra Packages repository isn't specified in the `/etc/apk/repositories` file of Chainguard's Starter images by default. However, users that aren't Chainguard customers can access it through the generic address `https://apk.cgr.dev/extra-packages`. 
+The Extra Packages repository isn't specified in the `/etc/apk/repositories` file of Chainguard's Free images by default. However, users that aren't Chainguard customers can access it through the generic address `https://apk.cgr.dev/extra-packages`. 
 
 Like the Wolfi repository, customers can access it with a URL that's unique to their organization:
 

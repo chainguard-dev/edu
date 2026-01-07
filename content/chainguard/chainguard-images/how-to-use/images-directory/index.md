@@ -78,12 +78,12 @@ The [Chainguard Containers Directory](https://images.chainguard.dev/) landing pa
 <center><img src="imgs-dir-D.png" alt="Screenshot of the Chainguard Containers Directory landing page, showing nine cards representing nine featured container images. The 'Featured' category is selected in the left-hand menu." style="width:1100px;"></center>
 <br /> 
 
-Each card represents a container image available from Chainguard, and shows the image's name and logo, when it was last changed, the latest tag available. These cards include other details when relevant, like whether the image is part of Chainguard's free tier of Starter Containers, if there is a FIPS-enabled version of the container image available, or if it's a STIG-hardened image.
+Each card represents a container image available from Chainguard, and shows the image's name and logo, when it was last changed, the latest tag available. These cards include other details when relevant, like whether the image is part of Chainguard's Free tier of containers, if there is a FIPS-enabled version of the container image available, or if it's a STIG-hardened image.
 
 By default, the Directory only shows a set of featured container images. You can select other categories of container images to view from the menu to the left of the cards. This menu has the following options:
 
 * **Featured**
-* **Starter**
+* **Free**
 * **AI**
 * **Application**
 * **Base** 
@@ -154,7 +154,7 @@ The table listing an image's packages has four columns.
 
 Above the table is a search box you can use to find and filter the packages listed. To the left of this search box is a drop-down menu you can use to select which version of the image you want to find the SBOM for as well as what architecture (either x86_64 or arm64). 
 
-Finally, to the right of the search box is a button labeled **Download SBOM**. If the image is a free Starter Container or a container image your organization has access to, you can click this button to download the SBOM (in the SPDX format) to your machine.
+Finally, to the right of the search box is a button labeled **Download SBOM**. If the image is a Free Container or a container image your organization has access to, you can click this button to download the SBOM (in the SPDX format) to your machine.
 
 Note that Chainguard began generating SBOMs for its images on November 15, 2023. For this reason, any versions of a given container image that were released before that date will not have any SBOM data to show. 
 

@@ -19,7 +19,7 @@ This guide demonstrates migrating a .NET application from Microsoft's official i
 
 ## Prerequisites
 
-This tutorial uses the publicly available .NET container images from Chainguard's free [Starter tier](/chainguard/chainguard-images/about/images-categories/#starter-containers) of images. You don't need special access or permissions to use these images. 
+This tutorial uses the publicly available .NET container images from Chainguard's [Free tier](/chainguard/chainguard-images/about/images-categories/#starter-containers) of images. You don't need special access or permissions to use these images. 
 
 To follow along, you must have Docker installed on your local machine. If you don't have Docker installed, you can download and install it from the [official Docker website](https://docs.docker.com/get-docker/). Optionally, you can install [Grype](https://github.com/anchore/grype) to scan container images for vulnerabilities and compare the security posture of different base images.
 

@@ -20,7 +20,7 @@ weight: 015
 
 Organizations can use Chainguard Containers along with third-party software repositories in order to integrate with current workflows as the single source of truth for software artifacts. In this situation, you can set up a proxy repository to function as a mirror of [Chainguard's registry](/chainguard/chainguard-registry/overview/). This mirror can then serve as a pull through cache for your Chainguard Containers.
 
-This tutorial outlines how to set up a repository with [Sonatype Nexus](https://www.sonatype.com/products/sonatype-nexus-repository). Specifically, it will walk you through how to set up one repository you can use as a pull through cache for Chainguard's public Starter containers or for Production containers originating from a private Chainguard repository.
+This tutorial outlines how to set up a repository with [Sonatype Nexus](https://www.sonatype.com/products/sonatype-nexus-repository). Specifically, it will walk you through how to set up one repository you can use as a pull through cache for Chainguard's Free containers or for Production containers originating from a private Chainguard repository.
 
 
 ## Prerequisites
@@ -35,11 +35,11 @@ In order to complete this tutorial, you will need the following:
 * A spare port on the Nexus server to serve the repository (Nexus limits you to 20 ports). Or an alternative solution — such as a reverse proxy — which is beyond the scope of this guide.
 
 
-## Setting up Nexus as a pull through for Starter containers
+## Setting up Nexus as a pull through for Free containers
 
-[Starter container images](/chainguard/chainguard-images/about/images-categories/#starter-containers) are free to use, publicly available, and always represent versions tagged as `:latest`.
+[Free container images](/chainguard/chainguard-images/about/images-categories/#starter-containers) are free to use, publicly available, and always represent versions tagged as `:latest`.
 
-To set up a remote repository in Nexus from which you can pull Starter containers, log in to Nexus with an **admin** account. Once there, click on the Administration mode cog in the top bar, click **Repository** in the left-hand navigation menu, and then select **Repositories**. On the Repositories page, click the **Create Repository** button and select the **docker (proxy)** Recipe.
+To set up a remote repository in Nexus from which you can pull Free containers, log in to Nexus with an **admin** account. Once there, click on the Administration mode cog in the top bar, click **Repository** in the left-hand navigation menu, and then select **Repositories**. On the Repositories page, click the **Create Repository** button and select the **docker (proxy)** Recipe.
 
 Following that, you can enter the following details for your new remote repository:
 
@@ -53,7 +53,7 @@ Following that, click the **Create repository** button at the bottom of the page
 
 Your Nexus URL is the hostname of the Nexus server AND the port number you chose; for example, `myrepo.local:5051`. If your Nexus server is running from a Docker container, your Nexus URL would be something like `localhost:5051`.  
 
-### Testing pull through of a Starter container
+### Testing pull through of a Free container
 
 If your setup requires authentication, log in with a valid Nexus username and password:
 
@@ -63,7 +63,7 @@ docker login -u<user> <Nexus URL>
 
 After running this command, you'll be prompted to enter a password.
 
-After running the `docker login` command, you will be able to pull a Starter container image through Nexus. The following example pulls the `wolfi-base` container image:
+After running the `docker login` command, you will be able to pull a Free container image through Nexus. The following example pulls the `wolfi-base` container image:
 
 ```sh
 docker pull <Nexus URL>/chainguard/wolfi-base
@@ -73,7 +73,7 @@ Be sure the `docker pull` command contains the correct Nexus URL for your reposi
 
 ## Setting up Nexus as a pull through for Production containers
 
-Production Chainguard Containers are enterprise-ready images that come with patch SLAs and features such as [Federal Information Processing Standard](/chainguard/chainguard-images/working-with-images/fips-images/) (FIPS) readiness. The process for setting up an Nexus repository that you can use as a pull through cache for Production images is similar to the one outlined previously for Starter containers, but with a few extra steps.
+Production Chainguard Containers are enterprise-ready images that come with patch SLAs and features such as [Federal Information Processing Standard](/chainguard/chainguard-images/working-with-images/fips-images/) (FIPS) readiness. The process for setting up an Nexus repository that you can use as a pull through cache for Production images is similar to the one outlined previously for Free containers, but with a few extra steps.
 
 To get started, you will need to create [a pull token](/chainguard/chainguard-registry/authenticating/#authenticating-with-a-pull-token) for your organization's registry. Pull tokens are longer-lived tokens that can be used to pull containers from other environments that don't support OIDC, such as some CI environments, Kubernetes clusters, or with registry mirroring tools like Nexus.
 

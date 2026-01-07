@@ -31,7 +31,7 @@ The following examples require [Cosign](/open-source/sigstore/cosign/how-to-inst
 
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`. This guide works with Chainguard's public and private registries: 
 
-- `cgr.dev/chainguard`: The public registry contains Chainguard's **Starter container images**, which typically comprise the `:latest` versions of an image.
+- `cgr.dev/chainguard`: The public registry contains Chainguard's **Free container images**, which typically comprise the `:latest` versions of an image.
 - `cgr.dev/YOUR-ORGANIZATION`: A private/dedicated registry contains your organization's **Production container images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 The commands listed on this page will default to the `:latest` tag, but you can specify a different tag to fetch attestations for.
@@ -39,7 +39,7 @@ The commands listed on this page will default to the `:latest` tag, but you can 
 
 ## Chainguard's Signing Identities
 
-Chainguard uses an identity associated with its official GitHub account to sign images in the public registry that contains the free tier of Starter images.
+Chainguard uses an identity associated with its official GitHub account to sign images in the public registry that contains the Free tier of images.
 
 For private images, Chainguard signs all images in your private registry with one of two different identities in your organization:
 
