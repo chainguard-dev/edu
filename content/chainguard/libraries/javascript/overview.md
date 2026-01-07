@@ -1,6 +1,6 @@
 ---
-title: "Chainguard Libraries for JavaScript Overview"
-linktitle: "JavaScript Overview"
+title: "Chainguard Libraries for JavaScript overview"
+linktitle: "JavaScript overview"
 description: "JavaScript libraries for your application development"
 type: "article"
 date: 2025-06-05T09:00:00+00:00

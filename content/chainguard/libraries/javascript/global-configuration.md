@@ -1,6 +1,6 @@
 ---
-title: "Global Configuration"
-linktitle: "Global Configuration  "
+title: "Global configuration"
+linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for JavaScript in your organization"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
