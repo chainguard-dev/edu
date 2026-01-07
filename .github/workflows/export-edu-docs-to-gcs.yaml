@@ -15,7 +15,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write  # Required for repository dispatch events
   id-token: write  # Required for workload identity federation
 
 jobs:
