@@ -291,7 +291,14 @@ You can also check for your specific certificate by name:
 docker run --rm cgr.dev/my-org/my-custom-image:latest \
   ls -la /usr/local/share/ca-certificates/ | grep internal-ca
 ```
+### Alternative: Using incert for certificate injection
 
+For scenarios where you need to add certificates to an existing image without using Custom Assembly, you can use [`incert`](../incert-custom-certs.md), an open-source tool from Chainguard. However, we recommend using Custom Assembly over `incert` whenever possible, as this approach provides: 
+
+* Automatic rebuilds when the base image is updated
+* Integration with Chainguard's security patching lifecycle
+* Provenance attestation for audit and compliance
+* No need to maintain your own build pipeline
 
 ## Retrieving Information about Custom Assembly Containers
 
@@ -355,3 +362,23 @@ Highlight your chosen build report and select it by pressing `ENTER`. This will 
 The `chainctl` commands outlined in this guide show how you can interact with Chainguard's Custom Assembly tool from the command line. 
 
 You can also interact with Custom Assembly with the [Chainguard API](/chainguard/administration/api/). Our tutorial on [Using the Chainguard API to Manage Custom Assembly Resources](/chainguard/chainguard-images/features/ca-docs/custom-assembly-api-demo/) outlines how to run a demo application that updates the configuration of a Custom Assembly container through the Chainguard API. 
+
+### Troubleshooting
+
+#### Certificate validation errors
+
+If you receive validation errors when adding certificates:
+
+* Verify that your certificate file contains only valid PEM-encoded certificate data
+* Check that there is no private key material in the file
+* Ensure the certificate has not expired
+* Verify that the total size of all certificates is under 30KB
+
+#### Applications not trusting custom certificates
+
+If applications within your container are not trusting your custom certificates:
+
+* Verify the certificate was added successfully by checking `/etc/ssl/certs/ca-certificates.crt`
+* Check that the certificate file exists in `/usr/local/share/ca-certificates/`
+* Ensure your application is configured to use the system truststore
+* For Java applications, note that custom Java truststore support is not yet available
