@@ -48,11 +48,11 @@ Valid! Id: 8a4141a........7d9904d98c
 
 <a id name="python-keyring"></a>
 
-## Python Keyring integration
-
-Where possible, Chainguard recommends using short-lived credentials to access Chainguard Libraries.
+## Python keyring integration
 
 Python users can leverage the [Chainguard keyring implementation](https://github.com/chainguard-dev/keyrings-chainguard-libraries) to provide short-lived credentials from supported environments, such as local development and CI/CD platforms that support [assumable identities](https://edu.chainguard.dev/chainguard/administration/assumable-ids/assumable-ids/).
+
+Where possible, Chainguard recommends using short-lived credentials to access Chainguard Libraries.
 
 To set up the keyring, install the `keyrings-chainguard-libraries` package:
 
@@ -68,7 +68,7 @@ To use the keyring with `uv`, install the keyring:
 uv pip install keyring keyrings-chainguard-libraries
 ```
 
-Then to use the keyring you
+Then to use the keyring you can run:
 
 ```shell
 uv pip install --keyring-provider subprocess \
@@ -78,19 +78,15 @@ uv pip install --keyring-provider subprocess \
 
 Note that when using `uv pip` you must specify the `--keyring-provider subprocess` option to enable the keyring, and include `__token__@` in the index URL to signal to `uv` that authentication is required.
 
-To use the keyring with `poetry`, install the keyring:
-
-# TODO: POETRY -- DO NOT MERGE
-
 <a id name="pull-token"></a>
 
 ## Pull token for libraries
 
-For environments where short-lived credentials are not suitable, such as some CI/CD platforms, you can generate a pull token, which provides longer-lived access to Chainguard Libraries.
-
 Pull tokens are separate identities with an assigned role to access the
 repositories from Chainguard Libraries. You can create the pull tokens with the
 chainctl command or using the Chainguard console.
+
+For environments where short-lived credentials are not suitable, such as some CI/CD platforms, you can generate a pull token, which provides longer-lived access to Chainguard Libraries.
 
 ### Creating pull tokens with chainctl
 
