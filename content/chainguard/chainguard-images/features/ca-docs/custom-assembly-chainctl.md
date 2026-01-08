@@ -265,7 +265,7 @@ certificates:
 ```
 Note that each certificate entry requires:
 
-* `name`: A descriptive name for the certificate (used for the filename). If you have multiple certificates, each name must be unique.
+* `name`: A descriptive name for the certificate (used for the filename). 
 * `content`: The certificate in PEM format, including the `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----` markers.
 
 Optionally, you can also include descriptive text before the certificate block to document its purpose. 
