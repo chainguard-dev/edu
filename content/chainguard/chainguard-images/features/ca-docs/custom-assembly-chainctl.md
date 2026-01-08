@@ -206,11 +206,11 @@ Many enterprise environments use internal certificate authorities (CAs) to issue
 ### Prerequisites and limitations
 
 Before getting started, you'll need:
-* Access to Chainguard's Custom Assembly tool, which is available to any organization with access to Production Chainguard Containers
-* Appropriate permissions in your Chainguard organization to use Custom Assembly. Review the [Custom Assembly Permissions Requirements](https://edu.chainguard.dev/chainguard/chainguard-images/features/ca-docs/custom-assembly/#custom-assembly-permissions-requirements) for more information
-* [`chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) installed and configured
-* One or more PEM-encoded certificate files that you want to add to your container
-  * Each certificate must have a unique name.
+* Access to Chainguard's Custom Assembly tool, which is available to any organization with access to Production Chainguard Containers.
+* Permissions in your Chainguard organization to use Custom Assembly. 
+  * Review the [Custom Assembly Permissions Requirements](https://edu.chainguard.dev/chainguard/chainguard-images/features/ca-docs/custom-assembly/#custom-assembly-permissions-requirements) for more information
+* [`chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) installed and configured.
+* One or more PEM-encoded certificate files that you want to add to your container.
   * Each certificate must be a PEM-encoded string of an x509v3 certificate.
   * Private keys must not be passed as a certificate, and will be rejected.
   * The total size of all inlined certificates must not exceed 50 KB. Please reach out to your account team if there are any issues with this limit.
@@ -218,23 +218,23 @@ Before getting started, you'll need:
 
 Additionally, be aware of the following limitations when adding custom certificates:
 
-* **Certificates must be added via API or chainctl**: Adding new certificates is currently only available via the API and chainctl.
-* **Certificates must be added per-image**: You cannot currently set default certificates for all images in your organization.
-* **No Java truststore support yet**: Custom certificates are only concatenated to the ca-certificates.crt file, but not added to Java-specific truststores. This functionality is planned for a future release.
-* **Certificates not in SBOM**: Custom certificates are included in the image's provenance attestation but are not currently listed in the SBOM. They will appear in the apko configuration attestation
-* **No audit log trail**: Certificate additions are not currently tracked in the Chainguard audit log
+* Adding new certificates is currently only available via the API and chainctl.
+* Custom certificates are only concatenated to the ca-certificates.crt file, but not added to Java-specific truststores. This functionality is planned for a future release.
+* Custom certificates are included in the image's provenance attestation but are not currently listed in the SBOM. They will appear in the apko configuration attestation.
 
 ### How to add custom certificates via Custom Assembly
 
-With Custom Assembly, you can add custom certificates to your Chainguard Containers using `chainctl`. The process is similar the one outlined previously for adding packages. 
+With Custom Assembly, you can add custom certificates to your Chainguard Containers using `chainctl images repos build edit` or `chainctl images repos build apply`. The process is similar the one outlined previously for adding packages. 
+
+You can make these changes interactively using an editor as described below, or non-interactively by supplying a YAML configuration file with `-f <file>`. The non-interactive approach is particularly useful for CI/CD pipelines and automation.
 
 1. Run a command like the following:
 
 ```shell
-chainctl image repos build edit my-custom-image --parent $ORGANIZATION --repo $CONTAINER
+chainctl image repos build edit --parent $ORGANIZATION --repo $CONTAINER
 ```
 
-This will open your default text editor with the current configuration. 
+This will open your default text editor with the current configuration. This example includes the `--parent` flag, which points to the name of your organization, and the `--repo` argument, which points to the name of the image you want to customize. If you omit these arguments, `chainctl` will prompt you to select your organization and container image interactively.
 
 2. Add a `certificates` section with your custom certificates. Note that each entry must contain exactly one PEM block (`BEGIN CERTIFICATE` to `END CERTIFICATE`):
 
@@ -265,8 +265,8 @@ certificates:
 ```
 Note that each certificate entry requires:
 
-* `name`: A descriptive name for the certificate (used for the filename)
-* `content`: The certificate in PEM format, including the `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----` markers
+* `name`: A descriptive name for the certificate (used for the filename). If you have multiple certificates, each name must be unique.
+* `content`: The certificate in PEM format, including the `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----` markers.
 
 Optionally, you can also include descriptive text before the certificate block to document its purpose. 
 
@@ -372,7 +372,7 @@ If you receive validation errors when adding certificates:
 * Verify that your certificate file contains only valid PEM-encoded certificate data
 * Check that there is no private key material in the file
 * Ensure the certificate has not expired
-* Verify that the total size of all certificates is under 30KB
+* Verify that the total size of all certificates added is under 50KB
 
 #### Applications not trusting custom certificates
 
