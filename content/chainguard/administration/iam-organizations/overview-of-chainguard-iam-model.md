@@ -48,7 +48,7 @@ There are several ways to authenticate to the Chainguard platform, each with a d
 * [Pull tokens](/chainguard/chainguard-images/chainguard-registry/authenticating/#authenticating-with-a-pull-token): These are ideal for pulling images and libraries and can be long-lived. Pull tokens can be created using the console or with chainctl.
 
 
-### Using the normal login
+### Using the interactive login
 
 To authenticate into the Chainguard platform, run the following login command.
 
