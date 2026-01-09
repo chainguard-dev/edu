@@ -40,11 +40,11 @@ You can also create assumable identities. These are typically used to allow auto
 
 ## Logging in to the Chainguard Platform
 
-There are several ways to authenticate to the Chainguard platform. Each has a different focus. Here is a list that includes the best use for and the pros and cons of each method with links to further information for set up and use.
+There are several ways to authenticate to the Chainguard platform, each with a different focus.
 
-* [Normal login](/chainguard/administration/iam-organizations/overview-of-chainguard-iam-model#using-the-normal-login): This is easy and good for interactive use, but needs a browser available that the current shell can launch.
+* [Interactive login](/chainguard/administration/iam-organizations/overview-of-chainguard-iam-model#using-the-normal-login): This is easy and good for interactive use, but needs a browser available that the current shell can launch.
 * [Headless login](/chainguard/administration/iam-organizations/overview-of-chainguard-iam-model#using-the-headless-login-flow): This is also easy and good for interactive use. It still requires access to a browser, but not directly from within the current shell or even from the current device.
-* [Assumable identities](/chainguard/administration/iam-organizations/assumable-ids/): These are designed for CICD and do not require any interaction, but they do require more setting up and are not ideal outside of CICD-style automation.
+* [Assumable identities](/chainguard/administration/iam-organizations/assumable-ids/): These are designed for CI/CD and do not require any interaction, but they do require more setting up and are not ideal outside of CI/CD-style automation.
 * [Pull tokens](/chainguard/chainguard-images/chainguard-registry/authenticating/#authenticating-with-a-pull-token): These are ideal for pulling images and libraries and can be long-lived. Pull tokens can be created using the console or with chainctl.
 
 
