@@ -1,22 +1,52 @@
 ---
 date: 2026-01-08T16:08:00Z
-title: "chainctl images entitlements"
-slug: chainctl_images_entitlements
-url: /chainguard/chainctl/chainctl-docs/chainctl_images_entitlements/
+title: "chainctl images changelog"
+slug: chainctl_images_changelog
+url: /chainguard/chainctl/chainctl-docs/chainctl_images_changelog/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl images entitlements
+## chainctl images changelog
 
-Manage entitlements to registry repositories.
+Show changelog for image history
+
+### Synopsis
+
+Show changelog for image history.
+
+This command fetches the tag history for an image, analyzes changes between versions,
+and displays human-readable summaries of changes (similar to git log).
+
+```
+chainctl images changelog IMAGE_REFERENCE [flags]
+```
+
+### Examples
+
+```
+
+# Show changelog for an image (default: last 10 versions)
+chainctl images changelog cgr.dev/chainguard/nginx:latest
+
+# Show only last 5 versions
+chainctl images changelog cgr.dev/chainguard/nginx:latest --depth 5
+
+# Output as JSON
+chainctl images changelog cgr.dev/chainguard/nginx:latest --output json
+
+# Output as table
+chainctl images changelog cgr.dev/chainguard/nginx:latest --output table
+```
 
 ### Options
 
 ```
-  -h, --help   help for entitlements
+      --depth int         Number of historical versions to show (default 10)
+  -h, --help              help for changelog
+      --platform string   Platform to use for multi-arch images (e.g., linux/amd64, linux/arm64) (default "linux/amd64")
 ```
 
 ### Options inherited from parent commands
@@ -36,5 +66,4 @@ Manage entitlements to registry repositories.
 ### SEE ALSO
 
 * [chainctl images](/chainguard/chainctl/chainctl-docs/chainctl_images/)	 - Images related commands for the Chainguard platform.
-* [chainctl images entitlements list](/chainguard/chainctl/chainctl-docs/chainctl_images_entitlements_list/)	 - List registry entitlements of an organization.
 
