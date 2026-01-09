@@ -278,28 +278,14 @@ The provided inline certificates will be added (concatenated) to the default tru
 
 ### Verify that certificates were added
 
-You can verify that your certificates are present in the system trust bundle by copying the CA bundle out of the image and inspecting it locally.
+Before following the steps below, ensure you have `crane` installed.
 
-1. Pull the image:
-```shell
-docker pull cgr.dev/my-org/my-custom-image:latest
-```
-2. Create a stopped container from the image:
-```shell
-docker create --name tmp-ca-check cgr.dev/my-org/my-custom-image:latest
-```
-3. Copy the CA bundle out of the container:
-```shell
-docker cp tmp-ca-check:/etc/ssl/certs/ca-certificates.crt ./ca-certificates.crt
-```
-This command writes the file to the path you specify on your local system.
-4. Remove the temporary container:
-```shell
-docker rm tmp-ca-check
-```
-After running these commands, you should see output similar to `Successfully copied 224kB to .../ca-certificates.crt`. 
+You can verify that your certificates are present in the system trust bundle by using `crane` to export the image filesystem, extract the system CA bundle from the archive, and write it to a local file for inspection:
 
-You can now inspect the copied file locally to confirm that your certificate is present.
+```shell
+crane export cgr.dev/my-org/my-custom-image:latest - | tar -xOf - etc/ssl/certs/ca-certificates.crt > ca-certificates.crt
+```
+After running this command, inspect the copied file locally to confirm that your certificate is present.
 
 ### Alternative: Using incert for certificate injection
 
