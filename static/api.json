@@ -3324,6 +3324,46 @@
         ]
       }
     },
+    "/registry/v1/repos/{repoId}/digests/{digest}/chart": {
+      "get": {
+        "operationId": "Registry_GetChart",
+        "parameters": [
+          {
+            "description": "The UIDP of the chart repo.",
+            "in": "path",
+            "name": "repoId",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The digest of the chart.",
+            "in": "path",
+            "name": "digest",
+            "pattern": "[^/]+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryChart"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      }
+    },
     "/registry/v1/repos/{repoId}/digests/{digest}/helm": {
       "get": {
         "operationId": "Registry_GetHelm",
@@ -4575,32 +4615,48 @@
             "type": "array"
           },
           {
+            "collectionFormat": "multi",
             "description": "artifact_type filters by artifact type",
             "in": "query",
+            "items": {
+              "type": "string"
+            },
             "name": "artifactType",
             "required": false,
-            "type": "string"
+            "type": "array"
           },
           {
+            "collectionFormat": "multi",
             "description": "artifact filters by artifact name",
             "in": "query",
+            "items": {
+              "type": "string"
+            },
             "name": "artifactName",
             "required": false,
-            "type": "string"
+            "type": "array"
           },
           {
+            "collectionFormat": "multi",
             "description": "component_name filters by component name",
             "in": "query",
+            "items": {
+              "type": "string"
+            },
             "name": "componentName",
             "required": false,
-            "type": "string"
+            "type": "array"
           },
           {
+            "collectionFormat": "multi",
             "description": "component_type filters by component type",
             "in": "query",
+            "items": {
+              "type": "string"
+            },
             "name": "componentType",
             "required": false,
-            "type": "string"
+            "type": "array"
           },
           {
             "collectionFormat": "multi",
@@ -4625,11 +4681,15 @@
             "type": "array"
           },
           {
+            "collectionFormat": "multi",
             "description": "artifact_architecture filters by architecture (e.g., x86_64, aarch64)",
             "in": "query",
+            "items": {
+              "type": "string"
+            },
             "name": "artifactArchitecture",
             "required": false,
-            "type": "string"
+            "type": "array"
           },
           {
             "description": "Pagination",
@@ -4701,7 +4761,7 @@
           },
           {
             "default": "ORDER_BY_UNSPECIFIED",
-            "description": "order_by specifies the sort order for results\nDefault: ID_ASC\nThis field affects the order of advisories returned, which is particularly useful\nfor pagination and review workflows.\n\n - ORDER_BY_UNSPECIFIED: Default sort order\n - ID_ASC: Sort by ID in ascending order\n - ID_DESC: Sort by ID in descending order\n - CREATED_AT_ASC: Sort by creation time in ascending order (oldest first)\n - CREATED_AT_DESC: Sort by creation time in descending order (newest first)\n - ALIASES_ASC: Sort by aliases to group related advisories in ascending order\n - ALIASES_DESC: Sort by aliases to group related advisories in descending order",
+            "description": "order_by specifies the sort order for results\nDefault: ID_ASC\nThis field affects the order of advisories returned, which is particularly useful\nfor pagination and review workflows.\n\n - ORDER_BY_UNSPECIFIED: Default sort order\n - ID_ASC: Sort by ID in ascending order\n - ID_DESC: Sort by ID in descending order\n - CREATED_AT_ASC: Sort by creation time in ascending order (oldest first)\n - CREATED_AT_DESC: Sort by creation time in descending order (newest first)\n - ALIASES_ASC: Sort by aliases to group related advisories in ascending order\n - ALIASES_DESC: Sort by aliases to group related advisories in descending order\n - UPDATED_AT_ASC: Sort by delete time in ascending order (oldest first)\n - UPDATED_AT_DESC: Sort by update time in descending order (newest first)\n - DELETED_AT_ASC: Sort by delete time in ascending order (oldest first)\n - DELETED_AT_DESC: Sort by delete time in descending order (newest first)",
             "enum": [
               "ORDER_BY_UNSPECIFIED",
               "ID_ASC",
@@ -4709,7 +4769,11 @@
               "CREATED_AT_ASC",
               "CREATED_AT_DESC",
               "ALIASES_ASC",
-              "ALIASES_DESC"
+              "ALIASES_DESC",
+              "UPDATED_AT_ASC",
+              "UPDATED_AT_DESC",
+              "DELETED_AT_ASC",
+              "DELETED_AT_DESC"
             ],
             "in": "query",
             "name": "orderBy",
@@ -4739,6 +4803,13 @@
             ],
             "in": "query",
             "name": "latestEventType",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "origin filters by origin package. Returns all advisories for packages\n(including subpackages) that have this origin. For origin packages, origin equals package_name.\nWhen specified, artifact_name filter is ignored as subpackage names are resolved server-side.",
+            "in": "query",
+            "name": "origin",
             "required": false,
             "type": "string"
           }
@@ -5372,6 +5443,18 @@
       },
       "type": "object"
     },
+    "ApkoConfigCertificates": {
+      "properties": {
+        "additional": {
+          "items": {
+            "$ref": "#/definitions/CertificatesAdditionalEntry",
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "ApkoConfigContents": {
       "properties": {
         "buildRepositories": {
@@ -5495,6 +5578,17 @@
           "description": "The total number of failures for this repo.",
           "format": "int32",
           "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "CertificatesAdditionalEntry": {
+      "properties": {
+        "content": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
         }
       },
       "type": "object"
@@ -7695,6 +7789,9 @@
           },
           "type": "array"
         },
+        "certificates": {
+          "$ref": "#/definitions/ApkoConfigCertificates"
+        },
         "cmd": {
           "type": "string"
         },
@@ -7870,6 +7967,87 @@
       ],
       "type": "string"
     },
+    "registryChart": {
+      "description": "Chart contains metadata parsed from a Helm chart's Chart.yaml.",
+      "properties": {
+        "annotations": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Annotations from Chart.yaml.",
+          "type": "object"
+        },
+        "appVersion": {
+          "description": "The version of the app contained in the chart.",
+          "type": "string"
+        },
+        "dependencies": {
+          "description": "The chart's dependencies.",
+          "items": {
+            "$ref": "#/definitions/registryChartDependency",
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "description": {
+          "description": "A description of the chart.",
+          "type": "string"
+        },
+        "images": {
+          "description": "Images used by the chart, parsed from annotations[\"images\"].",
+          "items": {
+            "$ref": "#/definitions/registryChartImage",
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "name": {
+          "description": "The name of the chart.",
+          "type": "string"
+        },
+        "raw": {
+          "description": "Raw Chart.yaml content.",
+          "type": "string"
+        },
+        "version": {
+          "description": "The version of the chart.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "registryChartDependency": {
+      "description": "ChartDependency represents a dependency of a Helm chart.",
+      "properties": {
+        "name": {
+          "description": "The name of the dependency chart.",
+          "type": "string"
+        },
+        "repository": {
+          "description": "The repository URL of the dependency chart.",
+          "type": "string"
+        },
+        "version": {
+          "description": "The version of the dependency chart.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "registryChartImage": {
+      "description": "ChartImage represents an image used by a Helm chart.\nThis is loosely based off of\nhttps://github.com/helm/community/blob/main/hips/hip-0015.md, but changed\nto be a simpler schema adopted by more of the community.",
+      "properties": {
+        "image": {
+          "description": "The image reference.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name/alias of the image.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "registryCustomOverlay": {
       "properties": {
         "accounts": {
@@ -7882,6 +8060,9 @@
           },
           "type": "object"
         },
+        "certificates": {
+          "$ref": "#/definitions/registryCustomOverlayCertificates"
+        },
         "contents": {
           "$ref": "#/definitions/registryImageContents",
           "description": "Mirrors apko configuration for image contents."
@@ -7891,6 +8072,29 @@
             "type": "string"
           },
           "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "registryCustomOverlayCertificates": {
+      "properties": {
+        "additional": {
+          "items": {
+            "$ref": "#/definitions/registryCustomOverlayCertificatesAdditionalEntry",
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "registryCustomOverlayCertificatesAdditionalEntry": {
+      "properties": {
+        "content": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
         }
       },
       "type": "object"
@@ -9416,7 +9620,7 @@
     },
     "v1OrderBy": {
       "default": "ORDER_BY_UNSPECIFIED",
-      "description": "- ORDER_BY_UNSPECIFIED: Default sort order\n - ID_ASC: Sort by ID in ascending order\n - ID_DESC: Sort by ID in descending order\n - CREATED_AT_ASC: Sort by creation time in ascending order (oldest first)\n - CREATED_AT_DESC: Sort by creation time in descending order (newest first)\n - ALIASES_ASC: Sort by aliases to group related advisories in ascending order\n - ALIASES_DESC: Sort by aliases to group related advisories in descending order",
+      "description": "- ORDER_BY_UNSPECIFIED: Default sort order\n - ID_ASC: Sort by ID in ascending order\n - ID_DESC: Sort by ID in descending order\n - CREATED_AT_ASC: Sort by creation time in ascending order (oldest first)\n - CREATED_AT_DESC: Sort by creation time in descending order (newest first)\n - ALIASES_ASC: Sort by aliases to group related advisories in ascending order\n - ALIASES_DESC: Sort by aliases to group related advisories in descending order\n - UPDATED_AT_ASC: Sort by delete time in ascending order (oldest first)\n - UPDATED_AT_DESC: Sort by update time in descending order (newest first)\n - DELETED_AT_ASC: Sort by delete time in ascending order (oldest first)\n - DELETED_AT_DESC: Sort by delete time in descending order (newest first)",
       "enum": [
         "ORDER_BY_UNSPECIFIED",
         "ID_ASC",
@@ -9424,7 +9628,11 @@
         "CREATED_AT_ASC",
         "CREATED_AT_DESC",
         "ALIASES_ASC",
-        "ALIASES_DESC"
+        "ALIASES_DESC",
+        "UPDATED_AT_ASC",
+        "UPDATED_AT_DESC",
+        "DELETED_AT_ASC",
+        "DELETED_AT_DESC"
       ],
       "title": "OrderBy specifies the sort order for advisory list results",
       "type": "string"
