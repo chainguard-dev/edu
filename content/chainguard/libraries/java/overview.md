@@ -67,7 +67,7 @@ This site provides a directory browsing and file listing capability similar to t
 
 This Chainguard Libraries for Java repository uses the Maven repository format
 and only includes release artifacts of the libraries built by Chainguard from
-source. It does not include aany artifacts from other repositories. Snapshot versions are not available.
+source. It does not include all artifacts from Mavel Central or other repositories. Snapshot versions are not available.
 
 The following components can be required by your application
 builds, but are not included:
