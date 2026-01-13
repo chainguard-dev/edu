@@ -63,11 +63,11 @@ The URL for the repository is:
 https://libraries.cgr.dev/java/
 ```
 
-This site provides a directory browsing and file listing capability similar to the Maven Central repository, allowing you to find available libraries, library versions, and available files. Learn more below under [Manual access](#manual).
+This site provides a directory browsing and file listing capability similar to the Maven Central repository, allowing you to find available libraries, library versions, and available files. Learn more under [Manual access](#manual).
 
 This Chainguard Libraries for Java repository uses the Maven repository format
 and only includes release artifacts of the libraries built by Chainguard from
-source. It does. not include all artifacts from the Maven Central repository or other repositories. Snapshot versions are not available.
+source. It does not include all artifacts from the Maven Central repository or other repositories. Snapshot versions are not available.
 
 The following components can be required by your application
 builds, but are not included:
