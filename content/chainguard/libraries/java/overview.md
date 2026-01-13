@@ -16,7 +16,7 @@ toc: true
 
 ## Introduction
 
-Chainguard Libraries for Java provides enhanced security for the Java ecosystem by rebuilding popular Maven dependencies with the latest patches and comprehensive supply chain protection. As the first supported ecosystem in [Chainguard Libraries](/chainguard/libraries/overview/), this service addresses critical vulnerabilities in the vast Java/JVM ecosystem that spans hundreds of projects from organizations like the Apache Software Foundation, Eclipse Foundation, and numerous independent maintainers. 
+Many Java builds pull dependencies from public sources like Maven Central, but those sources make no guarantees of provenance, CVE remediation, or build integrity. Chainguard Libraries for Java provides enhanced security for the Java ecosystem by rebuilding popular Maven dependencies with the latest patches and comprehensive supply chain protection. As the first supported ecosystem in [Chainguard Libraries](/chainguard/libraries/overview/), this service addresses critical vulnerabilities in the vast Java/JVM ecosystem that spans hundreds of projects from organizations like the Apache Software Foundation, Eclipse Foundation, and numerous independent maintainers. 
 
 Chainguard Libraries for Java provides access to all open source libraries
 commonly used. New releases of common libraries or artifacts requested by
@@ -43,7 +43,9 @@ You can use Chainguard Libraries for Java alongside third-party software
 repositories to create a single source of truth with your repository manager
 application. 
 
-## Runtime requirements
+## Requirements and limitations
+
+### Runtime requirements
 
 The runtime requirements for Java artifacts available from Chainguard Libraries
 for Java are identical to the requirements of the original upstream project. For
@@ -51,82 +53,97 @@ example, if a JAR retrieved from Maven Central requires Java 17 or higher, the
 same Java 17 runtime requirement applies to the binary artifact from Chainguard
 Libraries for Java.
 
+### Limitations
+
+Chainguard Libraries for Java focuses on secure, source-available artifacts. As a result, some content commonly found in Maven Central is intentionally excluded, including:
+
+* Closed-source binary libraries, such as proprietary JDBC drivers (for example, Oracle Database drivers)
+* Artifacts without accessible or complete source code, or where the source code cannot be used to reliably reproduce the binary
+* Artifact variants that are not produced by the upstream source build, which commonly include:
+  * Source JARs (*-sources.jar)
+  * Javadoc JARs (*-javadoc.jar)
+  * Fat or shaded JARs (JARs with dependencies included)
+  * Distribution archives (such as .tar.gz)
+  * Non-JAR formats (for example RPMs, shared libraries, Android AARs)
+
+If your build depends on an artifact that is not available, you may need to request provisioning or configure a fallback repository.
+
+### Repository order and fallback behavior
+
+To ensure your builds use available Chainguard-built artifacts, configure Chainguard Libraries as the first repository in your build tool configuration.
+
+When a dependency cannot be resolved from Chainguard Libraries, your build tool will automatically fall back to the next configured repository (such as Maven Central). This allows you to continue using required dependencies while preferring Chainguard-built artifacts when possible.
+
+Requests for missing artifacts are visible to Chainguard and may be used to trigger backfill or provisioning processes where supported.
+
+#### Repository configuration example
+The following example shows Chainguard Libraries configured as the primary repository, with Maven Central as a fallback:
+
+```xml
+<repositories>
+  <repository>
+    <id>chainguard-libraries</id>
+    <url>https://libraries.cgr.dev/java/</url>
+  </repository>
+
+  <repository>
+    <id>maven-central</id>
+    <url>https://repo.maven.apache.org/maven2</url>
+  </repository>
+</repositories>
+```
+In this configuration, Maven attempts to resolve dependencies from Chainguard Libraries first. If an artifact is not available, Maven falls back to Maven Central.
+
 ## Technical details
 
+### Authentication 
+Access to the Chainguard Libraries for Java repository is authenticated. 
+
+You must obtain a [username and password using `chainctl`](/chainguard/libraries/access/) and configure those credentials in your build tooling or repository manager. 
 The [username and password retrieved with
 chainctl](/chainguard/libraries/access/) are required to access the Chainguard
-Libraries for Java repository. The URL for the repository is:
+Libraries for Java repository. 
+
+The repository endpoint is:
 
 ```
 https://libraries.cgr.dev/java/
 ```
 
+### Repository behavior
 This Chainguard Libraries for Java repository uses the Maven repository format
 and only includes release artifacts of the libraries built by Chainguard from
-source. Snapshot versions are not available.
+source. 
 
-The URL does not expose a browsable directory structure. However, if you know the
-location of any particular artifact you can use the login credentials and a set
-path URL to access a file.
+Note the following:
+* Only released versions of artifacts are available; snapshot (-SNAPSHOT) versions are not supported
+* The repository does not expose a browsable directory listing when accessed via a web browser
+* Artifacts can still be retrieved directly if you know the full Maven path (group ID, artifact ID, version, and filename) and provide valid credentials
+  * Learn more below under [Manual access](#manual).
 
-The Chainguard Libraries for Java repository does not include all artifacts from
-the Maven Central Repository and other repositories.
+This design supports reproducible builds and secure artifact distribution.Snapshot versions are not available.
 
-Specifically, the following components can be required by your application
-builds, yet are not included:
-
-* Binary versions of closed-source libraries. The Maven Central Repository and
-  other repositories often include such libraries. They enable interoperability
-  with open source applications and development of internal applications as a
-  combination of these libraries and other open source libraries. Examples include
-  JDBC drivers for proprietary databases such as Oracle
-* Other artifacts that are found in the Maven Central Repository with incomplete
-  information about the location of the source code or a pointer to a location
-  with access restrictions or an incomplete source, that prevents creation of a
-  binary by Chainguard.
-
-Some types of artifacts are included if the source build produces them, but are
-often not available:
-
-* JAR artifacts containing the source code
-* JAR artifacts containing JavaDoc HTML files
-* Distributable versions of artifacts such JARs with dependencies or tar.gz archives
-* Other package formats sometimes found such as RPMs, SO files, Android AARs,
-  and similar, rarely used artifacts
-
-As a result, you must configure the repository as the first point of contact and
-request for any retrieval of a library. This ensures that any library that is
-available from Chainguard is also used. In addition, any failed requests are
-flagged at Chainguard and backfill processes are run where possible.
-
-At the same time, you must continue to use the Maven Central Repository, and any
-other repository that fills the needs for libraries that are not available from
-the Chainguard Libraries repository.
-
-Typically the access is [configured globally on a repository manager for your
+### Recommended setup
+Access is typically [configured globally on a repository manager for your
 organization](/chainguard/libraries/java/global-configuration/). This approach
 is strongly recommended. 
 
-Alternatively, you can use the token for direct access from a build tool as
-discussed in [Build
+Alternatively, you can configure credentials directly in your build tool (e.g., Maven or Gradle) to access the repository without a repository manager. This approach is typically used for smaller environments or local development. For more informatioin, see [Build
 configuration](/chainguard/libraries/java/build-configuration/).
-
-Follow the steps detailed in [Manual access](#manual) to browse the directories
-of the Maven repository and find available libraries, library versions, and
-available files.
 
 <a id="manual">
 
 ## Manual access
 
-Use the URL [`https://libraries.cgr.dev/java/`](https://libraries.cgr.dev/java/)
+To manually access artifacts in the Chainguard Libraries for Java repository, use the URL [`https://libraries.cgr.dev/java/`](https://libraries.cgr.dev/java/)
 with your [username and password retrieved with
-chainctl](/chainguard/libraries/access/) to access the Chainguard Libraries for
-Java repository and manually browse the repository contents.
+chainctl](/chainguard/libraries/access/).
 
-This site provides a directory browsing and file listing capability similar to
-the Maven Central repository at
-[`https://repo1.maven.org/maven2/`](https://repo1.maven.org/maven2/). The
+The repository follows the standard [Maven repository
+format](https://maven.apache.org/repository/layout.html), where artifacts are organized by `groupId`, `artifactId`, and version. If you know the exact Maven coordinates of an artifact, you can use the full path to retrieve files directly.
+
+This site provides a listing capability similar to
+the [Maven Central repository](https://repo1.maven.org/maven2/) (but unlike Maven Central, the repository does not provide an openly browsable directory index). The
 structure follows the [Maven repository
 format](https://maven.apache.org/repository/layout.html). The `groupId` and
 `artifactId` of a library is used to create a nested directory structure,
