@@ -134,38 +134,22 @@ Refer to the following resources for more specific information for your needs:
 
 ### Creating pull tokens with the Chainguard console
 
-Use the following steps to create a pull tokens for Chainguard Libraries in the
-Chainguard console.
+Follow these steps to create a pull tokens for Chainguard Libraries in the
+Chainguard console:
 
 1. Use your authentication details to access the console at
   [https://console.chainguard.dev/](https://console.chainguard.dev/).
 2. In the left-hand navigation, click **Overview**.
 3. Click the **Manage pull tokens** tab, then click **Create access token**.
-  * Alternatively, select **Access Tokens** from the menu at the top of the **Settings** page.
+    - Alternatively, select **Access Tokens** from the menu at the top of the **Settings** page.
 4. Configure the access token:
-  * **Name**: Provide a name. The name can later be used to locate the
+    - **Name**: Provide a name. The name can later be used to locate the
   token in the list.
-  * **Description**: Optionally provide a description of the token.
-  * **Expiration**: Set an expiration date for the token. The default is 30 days.
+    - **Description**: Optionally provide a description of the token.
+    - **Access**: Choose the library that this token should access.
+    - **Expiration**: Set an expiration date for the token. The default is 30 days.
 5. Click **Create token**.
-6. When the username and password values are displayed, note these values in a secure location, as you will need them for pull token use. These values will not be displayed again. 
-
-The created token has access to pull containers from your organization's
-Chainguard registries. Use the following steps to change the role to allow use
-with Chainguard Libraries:
-
-1. Select the **Manage pull tokens** tab.
-2. Locate the row of created token based on the name used earlier. Note that the
-  string `- registry` is appended to the name automatically.
-3. Use the menu button in the **Actions** column of the same row and select
-  **Edit**.
-4. Update the **Name** value by removing the `- registry` string and add any
-  other desired modifications.
-5. Use the **Role** input under **Add role** to add the `libraries.java.pull`,
-  `libraries.javascript.pull` or `libraries.python.pull` roles and press
-  **Update**.
-  * Optionally click on the `registry.pull` role under **Roles**, press **Edit
-    role**, and then **Delete** to remove the role.
+6. When the username and password values are displayed, note these values in a secure location, as you will need them for pull token use. These values will not be displayed again.  
 
 ### Verification
 
@@ -194,7 +178,7 @@ Use the `env` environment output option to create a snippet for a new token
 suitable for integration in a script.
 
 ```shell
-chainctl auth pull-token --output env --repository=java --parent=example
+$ chainctl auth pull-token --output env --repository=java --parent=example
 export CHAINGUARD_JAVA_IDENTITY_ID=45a.....424eb0
 export CHAINGUARD_JAVA_TOKEN=eeyJhbGciO..........WF0IjoxN
 ```
