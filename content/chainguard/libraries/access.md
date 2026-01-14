@@ -60,7 +60,13 @@ To set up the keyring, install the `keyrings-chainguard-libraries` package:
 pip install keyrings-chainguard-libraries
 ```
 
-Then, when you request to install packages from Chainguard Libraries for Python, the keyring automatically retrieves short-lived credentials for you, using `chainctl`.
+*Note:* If you haven't set up access to Chainguard Libraries for Python, the above command will install the package from PyPI. After installing and configuring Chainguard Libraries for Python, you can get the private package again, to get the package built by Chainguard. To re-install the package:
+
+```
+pip3 install keyrings-chainguard-libraries --ignore-installed --no-cache-dir
+```
+
+Once the keyring package is installed, when you request to install packages from Chainguard Libraries for Python, the keyring automatically retrieves short-lived credentials for you, using `chainctl`.
 
 To use the keyring with `uv`, install the keyring:
 
