@@ -7364,7 +7364,8 @@
         "CATALOG_SYNCER",
         "APKO_BUILDER",
         "ENTITLEMENT_SYNCER",
-        "TENANT_SCANNER"
+        "TENANT_SCANNER",
+        "SEDIMENTOLOGY"
       ],
       "type": "string"
     },
