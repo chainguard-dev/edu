@@ -48,9 +48,9 @@ Valid! Id: 8a4141a........7d9904d98c
 
 <a id name="python-keyring"></a>
 
-## Python keyring integration
+## Python keyring provider
 
-Python users can leverage the [Chainguard keyring implementation](https://github.com/chainguard-dev/keyrings-chainguard-libraries) to provide short-lived credentials from supported environments, such as local development and CI/CD platforms that support [assumable identities](https://edu.chainguard.dev/chainguard/administration/assumable-ids/assumable-ids/).
+Python users can leverage the [Chainguard keyring implementation](https://github.com/chainguard-dev/keyrings-chainguard-libraries) to provide short-lived credentials from supported environments, such as local development and CI/CD platforms that can use [assumable identities](https://edu.chainguard.dev/chainguard/administration/assumable-ids/assumable-ids/).
 
 Where possible, Chainguard recommends using short-lived credentials to access Chainguard Libraries.
 
@@ -68,7 +68,7 @@ pip3 install keyrings-chainguard-libraries --ignore-installed --no-cache-dir
 
 Once the keyring package is installed, when you request to install packages from Chainguard Libraries for Python, the keyring automatically retrieves short-lived credentials for you, using `chainctl`.
 
-To use the keyring with `uv`, install the keyring:
+To use the keyring with a project `uv`, install the keyring:
 
 ```shell
 uv pip install keyring keyrings-chainguard-libraries
