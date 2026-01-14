@@ -24,9 +24,9 @@ customers are added to the growing index by an automated system. The number of
 included libraries continues to grow.
 
 The main public repository for binary artifacts is the [Maven Central
-Repository](https://central.sonatype.com/). It has been in operation for  nearly
+Repository](https://central.sonatype.com/). It has been in operation for nearly
 20 years and hosts artifacts of all releases of most open source projects in the
-Java community.  It is the default repository in all commonly used build tools
+Java community. It is the default repository in all commonly used build tools
 from the Java community including [Apache Maven](https://maven.apache.org/),
 [Gradle](https://gradle.org/), and others and uses the Maven repository format.
 Chainguard Libraries for Java covers all open source artifacts from Maven
@@ -53,27 +53,24 @@ Libraries for Java.
 
 ## Technical details
 
-The [username and password retrieved with
-chainctl](/chainguard/libraries/access/) are required to access the Chainguard
-Libraries for Java repository. The URL for the repository is:
+You must use the [username and password retrieved with
+chainctl](/chainguard/libraries/access/) to access the Chainguard
+Libraries for Java repository. 
+
+The URL for the repository is:
 
 ```
 https://libraries.cgr.dev/java/
 ```
 
+This site provides a directory browsing and file listing capability similar to the Maven Central repository, allowing you to find available libraries, library versions, and available files. Learn more under [Manual access](#manual).
+
 This Chainguard Libraries for Java repository uses the Maven repository format
 and only includes release artifacts of the libraries built by Chainguard from
-source. Snapshot versions are not available.
+source. It does not include all artifacts from Mavel Central or other repositories. Snapshot versions are not available.
 
-The URL does not expose a browsable directory structure. However, if you know the
-location of any particular artifact you can use the login credentials and a set
-path URL to access a file.
-
-The Chainguard Libraries for Java repository does not include all artifacts from
-the Maven Central Repository and other repositories.
-
-Specifically, the following components can be required by your application
-builds, yet are not included:
+The following components can be required by your application
+builds, but are not included:
 
 * Binary versions of closed-source libraries. The Maven Central Repository and
   other repositories often include such libraries. They enable interoperability
@@ -94,8 +91,8 @@ often not available:
 * Other package formats sometimes found such as RPMs, SO files, Android AARs,
   and similar, rarely used artifacts
 
-As a result, you must configure the repository as the first point of contact and
-request for any retrieval of a library. This ensures that any library that is
+As a result, **you must configure the repository as the first point of contact and
+request for any retrieval of a library**. This ensures that any library that is
 available from Chainguard is also used. In addition, any failed requests are
 flagged at Chainguard and backfill processes are run where possible.
 
@@ -111,18 +108,13 @@ Alternatively, you can use the token for direct access from a build tool as
 discussed in [Build
 configuration](/chainguard/libraries/java/build-configuration/).
 
-Follow the steps detailed in [Manual access](#manual) to browse the directories
-of the Maven repository and find available libraries, library versions, and
-available files.
-
 <a id="manual">
 
 ## Manual access
 
-Use the URL [`https://libraries.cgr.dev/java/`](https://libraries.cgr.dev/java/)
+To manually access artifacts in the Chainguard Libraries for Java repository, use the URL [`https://libraries.cgr.dev/java/`](https://libraries.cgr.dev/java/)
 with your [username and password retrieved with
-chainctl](/chainguard/libraries/access/) to access the Chainguard Libraries for
-Java repository and manually browse the repository contents.
+chainctl](/chainguard/libraries/access/).
 
 This site provides a directory browsing and file listing capability similar to
 the Maven Central repository at
