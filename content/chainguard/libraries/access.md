@@ -46,6 +46,40 @@ Successfully exchanged token.
 Valid! Id: 8a4141a........7d9904d98c
 ```
 
+<a id name="python-keyring"></a>
+
+## Python keyring provider
+
+Python users can leverage the [Chainguard keyring implementation](https://github.com/chainguard-dev/keyrings-chainguard-libraries) to provide short-lived credentials from supported environments, such as local development and CI/CD platforms that can use [assumable identities](/chainguard/administration/assumable-ids/assumable-ids/).
+
+Where possible, Chainguard recommends using short-lived credentials to access Chainguard Libraries.
+
+To set up the keyring, install the `keyrings-chainguard-libraries` package:
+
+```shell
+pip install keyrings-chainguard-libraries
+```
+
+*Note:* If you haven't set up access to Chainguard Libraries for Python, the above command installs the package from PyPI. After installing and configuring Chainguard Libraries for Python, you can get the private package again, to get the package built by Chainguard. To re-install the package:
+
+```
+pip install keyrings-chainguard-libraries --ignore-installed --no-cache-dir
+```
+
+Once the keyring package is installed, when you request to install packages from Chainguard Libraries for Python, the keyring automatically retrieves short-lived credentials for you, using `chainctl`.
+
+To use the keyring with a project `uv`, install the keyring:
+
+```shell
+uv pip install keyring keyrings-chainguard-libraries
+```
+
+*Note:* If you haven't set up access to Chainguard Libraries for Python, the above command installs the package from PyPI. After installing and configuring Chainguard Libraries for Python, you can get the private package again, to get the package built by Chainguard. To re-install the package:
+
+```shell
+uv pip install keyring keyrings-chainguard-libraries --ignore-installed --no-cache-dir
+```
+
 <a id name="pull-token"></a>
 
 ## Pull token for libraries
@@ -53,6 +87,8 @@ Valid! Id: 8a4141a........7d9904d98c
 Pull tokens are separate identities with an assigned role to access the
 repositories from Chainguard Libraries. You can create the pull tokens with the
 chainctl command or using the Chainguard console.
+
+For environments where short-lived credentials are not suitable, such as some CI/CD platforms, you can generate a pull token, which provides longer-lived access to Chainguard Libraries.
 
 To create a pull token you must have the relevant [entitlement](#entitlement)
 for the ecosystem and the `libraries.java.pull_token_creator`,
@@ -286,10 +322,10 @@ Ecosystem Library Entitlements for example (45a0...764595)
 ```
 
 Contact your Chainguard account owner for confirmation or adjustments if
-necessary. 
+necessary.
 
 <!-- Removed for now until we decide where this info should live. It is only accessible
-for administrators (so Chainguard internal), but they might also be an audience to 
+for administrators (so Chainguard internal), but they might also be an audience to
 read the docs - so TBD
 
 As administrator you can create entitlements:
