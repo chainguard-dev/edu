@@ -170,39 +170,22 @@ Refer to the following resources for more specific information for your needs:
 
 ### Creating pull tokens with the Chainguard console
 
-Use the following steps to create a pull tokens for Chainguard Libraries in the
-Chainguard console.
+Follow these steps to create a pull tokens for Chainguard Libraries in the
+Chainguard console:
 
-* Use your authentication details to access the console at
+1. Use your authentication details to access the console at
   [https://console.chainguard.dev/](https://console.chainguard.dev/).
-* Select **Overview** in the left-hand navigation.
-* Select the **Manage pull tokens** tab.
-  * Alternatively, select **Settings** in the left-hand navigation, and select
-    **Pull Tokens** in the menu on the settings page.
-* Press **Create pull token**.
-* Provide a **Name** for the token. The name can later be used to locate the
+2. In the left-hand navigation, click **Overview**.
+3. Click the **Manage pull tokens** tab, then click **Create access token**.
+    - Alternatively, select **Access Tokens** from the menu at the top of the **Settings** page.
+4. Configure the access token:
+    - **Name**: Provide a name. The name can later be used to locate the
   token in the list.
-  * Optionally provide a **Description** and change the time until
-    **Expiration**.
-* Take note of the **Username** and **Password** values in a separate system
-  since they are required for pull token use and not available at a later stage.
-
-The created token has access to pull containers from your organization's
-Chainguard registries. Use the following steps to change the role to allow use
-with Chainguard Libraries:
-
-* Select the **Manage pull tokens** tab.
-* Locate the row of created token based on the name used earlier. Note that the
-  string `- registry` is appended to the name automatically.
-* Use the menu button in the **Actions** column of the same row and select
-  **Edit**.
-* Update the **Name** value by removing the `- registry` string and add any
-  other desired modifications.
-* Use the **Role** input under **Add role** to add the `libraries.java.pull`,
-  `libraries.javascript.pull` or `libraries.python.pull` roles and press
-  **Update**.
-  * Optionally click on the `registry.pull` role under **Roles**, press **Edit
-    role**, and then **Delete** to remove the role.
+    - **Description**: Optionally provide a description of the token.
+    - **Access**: Choose the library that this token should access.
+    - **Expiration**: Set an expiration date for the token. The default is 30 days.
+5. Click **Create token**.
+6. When the username and password values are displayed, note these values in a secure location, as you will need them for pull token use. These values will not be displayed again.  
 
 ### Verification
 
