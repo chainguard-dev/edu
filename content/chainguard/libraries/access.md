@@ -50,7 +50,7 @@ Valid! Id: 8a4141a........7d9904d98c
 
 ## Python keyring provider
 
-Python users can leverage the [Chainguard keyring implementation](https://github.com/chainguard-dev/keyrings-chainguard-libraries) to provide short-lived credentials from supported environments, such as local development and CI/CD platforms that can use [assumable identities](https://edu.chainguard.dev/chainguard/administration/assumable-ids/assumable-ids/).
+Python users can leverage the [Chainguard keyring implementation](https://github.com/chainguard-dev/keyrings-chainguard-libraries) to provide short-lived credentials from supported environments, such as local development and CI/CD platforms that can use [assumable identities](/chainguard/administration/assumable-ids/assumable-ids/).
 
 Where possible, Chainguard recommends using short-lived credentials to access Chainguard Libraries.
 
@@ -60,7 +60,7 @@ To set up the keyring, install the `keyrings-chainguard-libraries` package:
 pip install keyrings-chainguard-libraries
 ```
 
-*Note:* If you haven't set up access to Chainguard Libraries for Python, the above command will install the package from PyPI. After installing and configuring Chainguard Libraries for Python, you can get the private package again, to get the package built by Chainguard. To re-install the package:
+*Note:* If you haven't set up access to Chainguard Libraries for Python, the above command installs the package from PyPI. After installing and configuring Chainguard Libraries for Python, you can get the private package again, to get the package built by Chainguard. To re-install the package:
 
 ```
 pip3 install keyrings-chainguard-libraries --ignore-installed --no-cache-dir
