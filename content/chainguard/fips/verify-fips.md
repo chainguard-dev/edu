@@ -29,6 +29,13 @@ These verification steps help you:
 - Troubleshoot configuration issues
 - Generate evidence for compliance documentation
 
+## SBOM indicators
+
+Container images include packages with `NIST-` prefix indicating applicable certification. These also provide URLs to the certificates in the APK database and the SPDX SBOM. The following prefixes are in use:
+
+ * `NIST-CMVP-5132` indicates a cryptoprographic module with the certificate [#5132](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/5132)
+ * `NIST-ESV-191` indicates an entropy source with the certificate [#E191](https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations/certificate/191)
+ * `NIST-MIP-module-name` indicates a non-validated submitted module only available in fips-mip images showcasing [Modules in process](https://csrc.nist.gov/projects/cryptographic-module-validation-program/modules-in-process/modules-in-process-list) containing future FIPS module development
 
 ## OpenSSL
 
