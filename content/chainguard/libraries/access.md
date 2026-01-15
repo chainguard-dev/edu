@@ -63,7 +63,7 @@ pip install keyrings-chainguard-libraries
 *Note:* If you haven't set up access to Chainguard Libraries for Python, the above command installs the package from PyPI. After installing and configuring Chainguard Libraries for Python, you can get the private package again, to get the package built by Chainguard. To re-install the package:
 
 ```
-pip3 install keyrings-chainguard-libraries --ignore-installed --no-cache-dir
+pip install keyrings-chainguard-libraries --ignore-installed --no-cache-dir
 ```
 
 Once the keyring package is installed, when you request to install packages from Chainguard Libraries for Python, the keyring automatically retrieves short-lived credentials for you, using `chainctl`.
@@ -74,15 +74,11 @@ To use the keyring with a project `uv`, install the keyring:
 uv pip install keyring keyrings-chainguard-libraries
 ```
 
-Then to use the keyring you can run:
+*Note:* If you haven't set up access to Chainguard Libraries for Python, the above command installs the package from PyPI. After installing and configuring Chainguard Libraries for Python, you can get the private package again, to get the package built by Chainguard. To re-install the package:
 
 ```shell
-uv pip install --keyring-provider subprocess \
-  --index-url https://__token__@libraries.cgr.dev/python/simple/ \
-  <package-name>
+uv pip install keyring keyrings-chainguard-libraries --ignore-installed --no-cache-dir
 ```
-
-Note that when using `uv pip` you must specify the `--keyring-provider subprocess` option to enable the keyring, and include `__token__@` in the index URL to signal to `uv` that authentication is required.
 
 <a id name="pull-token"></a>
 
