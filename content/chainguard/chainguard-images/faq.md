@@ -89,3 +89,7 @@ To learn how to authenticate into Chainguard's registry, you can review our [aut
 ## Is Chainguard FedRAMP certified?
 
 You will need to ingest Chainguard Containers into an image repository within your FedRAMP boundary. Your repo requires FedRAMP but Chainguard does not since we're outside the boundary. Please [reach out](https://www.chainguard.dev/contact?utm=docs) if you need more details.
+
+## Will Chainguard Containers run alongside eBPF agents or sensors? Will there be any issues?
+
+Chainguard containers are just [OCI](https://opencontainers.org/) containers. eBPF operates at the kernel-level at runtime. This means Chainguard Conainers will not be affected by an eBPF agent or sensor, and vice versa.
