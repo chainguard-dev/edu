@@ -20,7 +20,10 @@ toc: true
 
 Many Chainguard Containers implement a [distroless approach](/chainguard/chainguard-images/getting-started-distroless/), which means they exclude shells, package managers, and other utilities typically found in container images. This design significantly reduces potential security vulnerabilities. For development and debugging purposes, Chainguard provides `-dev` variants that include necessary tools while maintaining security best practices. All images are built using Chainguard OS, an operating system specifically designed to meet secure software supply chain requirements.
 
-The main features of Chainguard Containers include:
+Chainguard Containers are primarily available from [Chainguard's registry](/chainguard/chainguard-registry/overview/), but a selection of developer images is also available on [Docker Hub](https://hub.docker.com/u/chainguard). You can find the complete list of available Chainguard Containers in our public [Containers Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-overview) or within the [Chainguard Console](https://console.chainguard.dev/).
+
+### Built-in security and supply chain guarantees
+All Chainguard Containers are built with a consistent set of security and supply-chain guarantees, without requiring additional configuration:
 
 - Minimal design, with no unnecessary software bloat
 - Automated nightly builds to ensure container images are completely up-to-date and contain all available security patches
@@ -28,8 +31,18 @@ The main features of Chainguard Containers include:
 - [Verifiable signatures](/chainguard/chainguard-images/working-with-images/retrieve-image-sboms/) provided by [Sigstore](/open-source/sigstore/cosign/an-introduction-to-cosign/)
 - Reproducible builds with Cosign and apko ([read more about reproducibility](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds))
 
-Chainguard Containers are primarily available from [Chainguard's registry](/chainguard/chainguard-registry/overview/), but a selection of developer images is also available on [Docker Hub](https://hub.docker.com/u/chainguard). You can find the complete list of available Chainguard Containers in our public [Containers Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-overview) or within the [Chainguard Console](https://console.chainguard.dev/).
 
+### Chainguard Container customization and lifecycle features
+
+Chainguard Containers include features that allow you to customize images, manage updates, and meet security and compliance requirements across the container lifecycle:
+
+- [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/): Customize Chainguard images by adding packages, configuration files, and certificates using chainctl, without maintaining your own Dockerfiles.
+- Custom certificates: Add trusted certificates [to existing containers via Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/) (for organization-specific or environment-specific certificates) or by [using incert to build images with certificates embedded at build time](/chainguard/chainguard-images/features/incert-custom-certs/).
+- [Packages](/chainguard/chainguard-images/features/packages/package-model/): Install and manage additional packages in Chainguard images while preserving Chainguard’s minimal, secure-by-default base images.
+- [EOL grace periods](/chainguard/chainguard-images/features/eol-gp-overview/): Control how end-of-life packages are handled in images to balance security requirements with operational stability.
+- [STIGs](/chainguard/chainguard-images/features/image-stigs/): Use DISA STIG–aligned images to support compliance-driven environments.
+- [Unique tags](/chainguard/chainguard-images/features/unique-tags/) and [tag history](/chainguard/chainguard-images/features/using-the-tag-history-api/): Track image changes over time with immutable tags and access tag history via API.
+- [CVE visualization](/chainguard/chainguard-images/features/cve_visualizations/): Explore vulnerability data for images to better understand risk and remediation timelines.
 
 ## Why Minimal Container Images
 
@@ -58,7 +71,7 @@ The primary benefit of this layered approach is that when one package changes it
 
 Chainguard offers a collection of container images that are publicly available and don't require authentication, being free to use by anyone. We refer to these images as **Free images**, and they cover several use cases for different language ecosystems. Free images are limited to the latest build of a given image, tagged as `latest` and `latest-dev`.
 
-Production containers are enterprise-ready images that come with patch SLAs and features such as [Federal Information Processing Standard (FIPS) readiness](/chainguard/chainguard-images/images-features/fips-images/) and [unique time stamped tags](/chainguard/chainguard-images/images-features/unique-tags/). Unlike Free containers, which are typically paired with only the latest version of an upstream package, Production containers offer specific major and minor versions of open source software. Chainguard offers two pricing options for Production containers: Per-Image Pricing and [Catalog Pricing](/chainguard/chainguard-images/about/pricing/).
+Production containers are enterprise-ready images that come with patch SLAs and features such as [Federal Information Processing Standard (FIPS) readiness](/chainguard/fips/fips-images/) and [unique time-stamped tags](/chainguard/chainguard-images/images-features/unique-tags/). Unlike Free containers, which are typically paired with only the latest version of an upstream package, Production containers offer specific major and minor versions of open source software. Chainguard offers two pricing options for Production containers: Per-Image Pricing and [Catalog Pricing](/chainguard/chainguard-images/about/pricing/).
 
 You can access our container images directly from [Chainguard's registry](/chainguard/chainguard-registry/overview/). Chainguard's registry provides public access to all public Chainguard Containers, and provides customer access for Production Containers after logging in and authenticating.
 
