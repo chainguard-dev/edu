@@ -18,13 +18,14 @@ weight: 030
 toc: true
 ---
 
+> NOTE: If you are looking for a way to add certificates to existing Chainguard images, see [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/). 
+
 In many enterprise settings, an organization will have its own certificate authority which it uses to issue certificates for its internal services. This is often for security or control reasons but could also be related to regulatory requirements. 
 
 If you're using a container that needs to communicate with your organization's services and your organization has its own certificate authority, you'll need to add a valid certificate into your container. One way to do this is to mount the certificate as a [volume](https://docs.docker.com/storage/volumes/) at runtime. This works, but it means that everyone who uses the container has to go through the process of mounting the certificate.
 
 Another solution is to build the certificate directly into the container. This tutorial outlines how to use [`incert`](https://github.com/chainguard-dev/incert) — a Go tool from Chainguard that builds container images with certificates inserted into them.
 
-> NOTE: If you are looking for a way to add certificates to existing Chainguard images, see [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/). 
 
 ## Prerequisites
 
