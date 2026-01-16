@@ -24,6 +24,7 @@ If you're using a container that needs to communicate with your organization's s
 
 Another solution is to build the certificate directly into the container. This tutorial outlines how to use [`incert`](https://github.com/chainguard-dev/incert) — a Go tool from Chainguard that builds container images with certificates inserted into them.
 
+> NOTE: If you are looking for a way to add certificates to existing Chainguard images, see [Custom Assembly](./ca-docs/custom-assembly-chainctl.md). 
 
 ## Prerequisites
 

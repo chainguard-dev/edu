@@ -20,7 +20,10 @@ toc: true
 
 Many Chainguard Containers implement a [distroless approach](/chainguard/chainguard-images/getting-started-distroless/), which means they exclude shells, package managers, and other utilities typically found in container images. This design significantly reduces potential security vulnerabilities. For development and debugging purposes, Chainguard provides `-dev` variants that include necessary tools while maintaining security best practices. All images are built using Chainguard OS, an operating system specifically designed to meet secure software supply chain requirements.
 
-The main features of Chainguard Containers include:
+Chainguard Containers are primarily available from [Chainguard's registry](/chainguard/chainguard-registry/overview/), but a selection of developer images is also available on [Docker Hub](https://hub.docker.com/u/chainguard). You can find the complete list of available Chainguard Containers in our public [Containers Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-overview) or within the [Chainguard Console](https://console.chainguard.dev/).
+
+### Built-in security and supply chain guarantees
+All Chainguard Containers are built with a consistent set of security and supply-chain guarantees, without requiring additional configuration:
 
 - Minimal design, with no unnecessary software bloat
 - Automated nightly builds to ensure container images are completely up-to-date and contain all available security patches
@@ -28,8 +31,18 @@ The main features of Chainguard Containers include:
 - [Verifiable signatures](/chainguard/chainguard-images/working-with-images/retrieve-image-sboms/) provided by [Sigstore](/open-source/sigstore/cosign/an-introduction-to-cosign/)
 - Reproducible builds with Cosign and apko ([read more about reproducibility](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds))
 
-Chainguard Containers are primarily available from [Chainguard's registry](/chainguard/chainguard-registry/overview/), but a selection of developer images is also available on [Docker Hub](https://hub.docker.com/u/chainguard). You can find the complete list of available Chainguard Containers in our public [Containers Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-overview) or within the [Chainguard Console](https://console.chainguard.dev/).
 
+### Chainguard Container customization and lifecycle features
+
+Chainguard Containers include features that allow you to customize images, manage updates, and meet security and compliance requirements across the container lifecycle:
+
+- [Custom Assembly](./features/ca-docs/custom-assembly.md): Customize Chainguard images by adding packages, configuration files, and certificates using chainctl, without maintaining your own Dockerfiles.
+- Custom certificates: Add trusted certificates to container images either by using [Custom Assembly](./features/ca-docs/custom-assembly-chainctl.md) (for organization-specific or environment-specific certificates) or by [using incert to build images with certificates embedded at build time](./features/incert-custom-certs.md).
+- [Packages](./features/packages/package-model.md): Install and manage additional packages in Chainguard images while preserving Chainguard’s minimal, secure-by-default base images.
+- [EOL grace periods](./features/eol-gp-overview/index.md): Control how end-of-life packages are handled in images to balance security requirements with operational stability.
+- [STIGs](./features/image-stigs.md): Use DISA STIG–aligned images to support compliance-driven environments.
+- [Unique tags](./features/unique-tags/index.md) and [tag history](./features/using-the-tag-history-api.md): Track image changes over time with immutable tags and access tag history via API.
+- [CVE visualization](./features/cve_visualizations/index.md): Explore vulnerability data for images to better understand risk and remediation timelines.
 
 ## Why Minimal Container Images
 

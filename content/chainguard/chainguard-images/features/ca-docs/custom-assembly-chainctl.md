@@ -203,6 +203,8 @@ Be aware that Custom Assembly blocks any environment variable that begins with `
 
 Many enterprise environments use internal certificate authorities (CAs) to issue certificates for internal services. These custom certificates need to be trusted by containers that communicate with the internal services. Custom Assembly allows you to build custom certificates directly into your container images, ensuring they trust your organization's internal services without requiring manual certificate mounting at runtime.
 
+> NOTE: If you are looking for a way to embed certificates at build time, see [How To Use incert to Create Container Images with Built-in Custom Certificates](../incert-custom-certs.md). 
+
 ### Prerequisites and limitations
 
 Before getting started, you'll need:
