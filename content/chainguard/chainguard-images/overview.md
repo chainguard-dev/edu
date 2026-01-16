@@ -37,7 +37,7 @@ All Chainguard Containers are built with a consistent set of security and supply
 Chainguard Containers include features that allow you to customize images, manage updates, and meet security and compliance requirements across the container lifecycle:
 
 - [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/): Customize Chainguard images by adding packages, configuration files, and certificates using chainctl, without maintaining your own Dockerfiles.
-- Custom certificates: Add trusted certificates to container images either by using [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/) (for organization-specific or environment-specific certificates) or by [using incert to build images with certificates embedded at build time](/chainguard/chainguard-images/features/incert-custom-certs/).
+- Custom certificates: Add trusted certificates [to existing containers via Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/) (for organization-specific or environment-specific certificates) or by [using incert to build images with certificates embedded at build time](/chainguard/chainguard-images/features/incert-custom-certs/).
 - [Packages](/chainguard/chainguard-images/features/packages/package-model/): Install and manage additional packages in Chainguard images while preserving Chainguard’s minimal, secure-by-default base images.
 - [EOL grace periods](/chainguard/chainguard-images/features/eol-gp-overview/): Control how end-of-life packages are handled in images to balance security requirements with operational stability.
 - [STIGs](/chainguard/chainguard-images/features/image-stigs/): Use DISA STIG–aligned images to support compliance-driven environments.
