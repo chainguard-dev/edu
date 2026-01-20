@@ -71,7 +71,7 @@ The smaller the binary size, the better the system is at debloating. You can fin
 
 ## Portability of Applications
 
-The *portability* of an application refers to its ability to run on various hardware or software environments without requiring significant modifications. Developers can encounter portability issues when moving an application from one libc implementation to another. That said, [Hyrum's Law](https://www.hyrumslaw.com/) reminds us that achieving perfect portability is tough. Even when you design an application to be portable, it might still unintentionally depend on certain quirks of the environment or libc implementation.
+The *portability* of an application refers to its ability to run on various hardware or software environments without requiring significant modifications. In practice, many developers target glibc specifically rather than a generic POSIX C library, much like writing scripts for bash rather than a POSIX-compliant shell. Consequently, developers can encounter portability issues when moving an application from one libc implementation to another. That said, [Hyrum's Law](https://www.hyrumslaw.com/) reminds us that achieving perfect portability is tough. Even when you design an application to be portable, it might still unintentionally depend on certain quirks of the environment or libc implementation.
 
 
 ## Building from Source Performance
@@ -169,4 +169,7 @@ If you spot anything we've overlooked regarding glibc or musl or have additional
 
 ## Additional References
 
-For more information, we recommend [Understanding thread stack sizes and how Alpine is different](https://ariadne.space/2021/06/24/understanding-thread-stack-sizes-and.html), which explains why applications built for glibc can encounter issues on musl.
+For more information, we recommend the following resources:
+
+* [Understanding thread stack sizes and how Alpine is different](https://ariadne.space/2021/06/24/understanding-thread-stack-sizes-and.html): Explains why applications built for glibc can encounter issues on musl.
+* [The tragedy of gethostbyname](https://ariadne.space/2022/03/26/the-tragedy-of-gethostbyname.html): Details why legacy libc DNS APIs are often unreliable across systems.
