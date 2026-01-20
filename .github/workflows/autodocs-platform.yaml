@@ -30,7 +30,7 @@ jobs:
       uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
 
     - name: 'Setup gitsign'
-      uses: chainguard-dev/actions/setup-gitsign@7d647f470c4d3692286221bd17ca78206976a61c # v1.5.11
+      uses: chainguard-dev/actions/setup-gitsign@f77a7c3431f961556be5a41e2602c450a590f3e5 # v1.5.12
 
     - name: Authenticate to Google Cloud
       id: auth
@@ -44,7 +44,7 @@ jobs:
         project_id: "${{ secrets.PROJECT_ID }}"
         storage_bucket: "${{ secrets.STORAGE_BUCKET }}"
 
-    - uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6.1.0
+    - uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
       with:
         node-version: 16
 
