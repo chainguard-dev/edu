@@ -42,124 +42,11 @@ The following table highlights some of the main differences between glibc and mu
 | Compatibility | POSIX Compliant + GNU Extensions | POSIX Compliant
 | Memory Usage    	| Efficient, higher memory usage                             	| Potential performance issues with large memory allocations (e.g. Rust) |
 | Dynamic Linking 	| Supports lazy binding, unloads libraries                   	| No lazy binding, libraries loaded permanently                      	|
-| Threading       	| Native POSIX Thread Library, robust thread safety          	| Simpler threading model, not fully thread-safe                     	|
-| Thread Stack Size   | Varies (2-10 MB), based on resource limits                 	| Default size is 128K, can lead to crashes in some multithreaded code   |
 | Portability Issues  | Fewer portability issues, widely used                      	| Potential issues due to different system call behaviors            	|
 | Python Support  	| Fast build times, supports precompiled wheels              	| Slower build times, often requires source compilation              	|
 | NVIDIA Support  	| Supported by NVIDIA for CUDA                               	| Not supported by NVIDIA for CUDA                                   	|
-| Node.js Support 	| Tier 1 Support - Full Support                              	| Experimental - May not compile or test suite may not pass          	|
-| Debug Support   	| Several debug features available such as sanitizers, profilers | Does not support sanitizers and limited profilers                  	|
-| DNS Implementation  | Stable and well-supported                                  	| Historical reports of occasional DNS resolution issues             	|
 
 Be aware that binaries are not compatible between Alpine and Wolfi. You **should not** attempt to copy Alpine binaries into a Wolfi-based container image.
-
-
-## Buffer Overflows
-
-musl lacks default protection against buffer overflows, potentially causing undefined behavior, while glibc has built-in stack smashing protection. Running a vulnerable C program, glibc terminates with an error upon detecting an overflow, whereas musl allows it without warnings. Even using `FORTIFY_SOURCE` or `-fstack-protector-all` won't prevent the overflow in musl.
-
-To illustrate buffer overflow, this section outlines running a vulnerable C program.
-
-### Creating the necessary files
-
-First, create a working directory and `cd` into it.
-
-```sh
-mkdir ~/ovrflw-bffr-example && cd $_
-```
-
-Within this new directory, create a C program file called `vulnerable.c`. 
-
-```c
-#include <stdio.h>
-#include <string.h>
-
-int main() {
-  char buffer[10];
-
-  strcpy(buffer, "This is a very long string that will overflow the buffer.");
-
-  printf("Buffer content: %sn", buffer);
-
-  return 0;
-}
-```
-
-Next create a Dockerfile named `Dockerfile.musl` to create an Container which will use musl as the C library implementation:
-
-```dockerfile
-FROM alpine:latest
-
-RUN apk add --no-cache gcc musl-dev
-
-COPY vulnerable.c /vulnerable.c
-
-RUN gcc -o /vulnerable_musl /vulnerable.c
-
-CMD ["vulnerable_musl"]
-```
-
-Then create a Dockerfile named `Dockerfile.glibc` for one that uses glibc:
-
-```dockerfile
-# Build stage
-FROM cgr.dev/chainguard/gcc-glibc AS build
-
-WORKDIR /work
-
-COPY vulnerable.c /work/vulnerable.c
-
-RUN gcc vulnerable.c -o vulnerable_glibc
-
-# Runtime stage
-FROM cgr.dev/chainguard/glibc-dynamic
-
-COPY --from=build /work/vulnerable_glibc /vulnerable_glibc
-
-CMD ["/vulnerable_glibc"]
-```
-
-Next, you can build and test both of the new images. 
-
-### Building and testing the container images
-
-First build the image that will use musl:
-
-```shell
-docker build -t musl-test -f Dockerfile.musl .
-```
-
-Then build the image that will use glibc:
-
-```shell
-docker build -t glibc-test -f Dockerfile.glibc .
-```
-
-Then you can run the containers to test them.
-
-First run the `musl-test` container:
-
-```shell
-docker run --rm musl-test
-```
-
-Because musl does not prevent buffer overflows by default, it will allow the program to print `This is a very long string that will overflow the buffer.`:
-
-```output
-Buffer content: This is a very long string that will overflow the buffer.
-```
-
-Next test the `glibc-test` container:
-
-```shell
-docker run --rm glibc-test
-```
-
-glibc has built-in protection, so the output here will only let you know that the program was terminated:
-
-```output
-*** stack smashing detected ***: terminated
-```
 
 > **Note**: As mentioned previously, several of the remaining sections in this guide present data about the differences between glibc and musl across various categories. You can recreate some of these examples by following the same procedure of setting creating and testing container images based on the Dockerfiles and program files relevant to the example you're exploring. You can find the appropriate files in the `glibc-vs-musl` directory of the [Chainguard Academy Containers Demos repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/glibc-vs-musl).
 
@@ -184,11 +71,8 @@ The smaller the binary size, the better the system is at debloating. You can fin
 
 ## Portability of Applications
 
-The *portability* of an application refers to its ability to run on various hardware or software environments without requiring significant modifications. Developers can encounter portability issues when moving an application from one libc implementation to another. That said, [Hyrum's Law](https://www.hyrumslaw.com/) reminds us that achieving perfect portability is tough. Even when you design an application to be portable, it might still unintentionally depend on certain quirks of the environment or libc implementation.
+The *portability* of an application refers to its ability to run on various hardware or software environments without requiring significant modifications. In practice, many developers target glibc specifically rather than a generic POSIX C library, much like writing scripts for bash rather than a POSIX-compliant shell. Consequently, developers can encounter portability issues when moving an application from one libc implementation to another. That said, [Hyrum's Law](https://www.hyrumslaw.com/) reminds us that achieving perfect portability is tough. Even when you design an application to be portable, it might still unintentionally depend on certain quirks of the environment or libc implementation.
 
-One common portability issue is the [smaller thread stack size](https://ariadne.space/2021/06/24/understanding-thread-stack-sizes-and.html) used by musl. musl has a default thread stack size of 128k. glibc has varying stack sizes which are determined based on the resource limit, but usually ends up being 2-10 MB.
-
-This can lead to crashes with multithreaded code in musl, which assumes it has more than 2MiB available for each thread (as in a glibc system). Such issues cause [application crashes](https://www.madetech.com/blog/a-tale-in-adopting-alpine-linux-for-docker-problems-we-faced-with-rspec-testing/) and potentially [introduce new vulnerabilities](https://github.com/devpi/devpi/issues/474), such as stack overflows.
 
 ## Building from Source Performance
 
@@ -256,7 +140,7 @@ As this Dockerfile shows, `pwntools` requires a set of other packages. These in 
 
 ## Runtime Performance
 
-Time is critical. One common bottleneck occurs when allocating large chunks of memory repeatedly. [Various reports](https://elixirforum.com/t/using-alpine-and-musl-instead-of-gnu-libc-affect-performance/57670) have shown musl to be slower in this aspect. We compare this memory allocation performance between Wolfi and the latest Alpine [here](https://github.com/chainguard-dev/edu-images-demos/blob/main/glibc-vs-musl/musl-performance-issues/allocations-slowdown.sh). The benchmark uses JSON dumping, which is known to be [highly memory intensive](https://stackoverflow.com/questions/24239613/memoryerror-using-json-dumps).
+Time is critical. One common bottleneck occurs when allocating large chunks of memory repeatedly. We compare this memory allocation performance between Wolfi and the latest Alpine [here](https://github.com/chainguard-dev/edu-images-demos/blob/main/glibc-vs-musl/musl-performance-issues/allocations-slowdown.sh). The benchmark uses JSON dumping, a highly memory intensive operation.
 
 | Runtime                  	| Alpine (musl) | Wolfi (glibc) |
 | ---------------------------- | ------------- | ------------- |
@@ -264,9 +148,9 @@ Time is critical. One common bottleneck occurs when allocating large chunks of m
 
 This table highlights how excessive memory allocations can cause musl (used by Alpine) to perform up to **2x slower** than glibc (used by Wolfi). A memory-intensive application needs to be wary of performance issues when migrating to the musl-alpine ecosystem. Technical details on why memory allocation (`malloc`) is slow can be found in this [musl discussion thread](https://musl.openwall.narkive.com/J9ymcXt2/what-s-wrong-with-s-malloc).
 
-Apart from memory allocations, multi-threading has also been problematic for musl, as shown in various [GitHub issues](https://github.com/rust-lang/rust/issues/70108) and [discussion threads](https://news.ycombinator.com/item?id=38616023)). glibc provides a thread-safe system, while musl is not thread-safe. The POSIX standard only requires stream operations to be atomic; there are no requirements on thread safety, so musl does not provide additional thread-safe features. This means unexpected behavior or race conditions can occur during multiple threads.
+Apart from memory allocations, multi-threading has also been problematic for musl, as shown in various [GitHub issues](https://github.com/rust-lang/rust/issues/70108). glibc provides a thread-safe system, while musl is not thread-safe. The POSIX standard only requires stream operations to be atomic; there are no requirements on thread safety, so musl does not provide additional thread-safe features. This means unexpected behavior or race conditions can occur during multiple threads.
 
-We used a Rust script (referenced from the [GitHub issue](https://github.com/rust-lang/rust/issues/70108)) to test single-thread and multi-thread performance on Alpine (musl) and Wolfi (glibc). The next table shows performance benchmarks across single-threaded and multi-threaded Rust applications. 
+We used a Rust script (referenced from the [GitHub issue](https://github.com/rust-lang/rust/issues/70108)) to test single-thread and multi-thread performance on Alpine (musl) and Wolfi (glibc). The next table shows performance benchmarks across single-threaded and multi-threaded Rust applications.
 
 | Runtime                   	| Alpine (musl) | Wolfi (glibc) |
 | ----------------------------- | ------------- | ------------- |
@@ -275,35 +159,6 @@ We used a Rust script (referenced from the [GitHub issue](https://github.com/rus
 
 Alpine (musl) has the worse performance out of the two, taking around 4x more time for multi-thread when compared to Wolfi (glibc). As discussed previously, the real source of thread contention is in the `malloc` implementation of musl. Multiple threads may allocate memory at once, or free memory may be allocated to other threads. Therefore, the thread synchronization logic is a bottleneck for performance.
 
-## Experimental Warnings
-
-Developers will most likely encounter musl through Alpine image variants, such as Node.js ([node:alpine](https://github.com/nodejs/docker-node?tab=readme-ov-file#nodealpine)) and Go ([golang:alpine](https://hub.docker.com/_/golang)). Both images have similar warnings that they use musl libc instead of glibc, pointing users to this [Hacker News comment thread⁠](https://news.ycombinator.com/item?id=10782897) to discuss further pros and cons of using Alpine-based images.
-
-Additionally, Node.js mentions in their [building documentation](https://github.com/nodejs/node/blob/main/BUILDING.md#platform-list): "For production applications, run Node.js on supported platforms only." musl and Alpine are experimental supports, whereas glibc is Tier 1 support.
-
-The [Go](https://hub.docker.com/_/golang) image also mentions that Alpine is not officially supported and experimental: "This (Alpine) variant is highly experimental, and *not* officially supported by the Go project (see [golang/go#19938⁠](https://github.com/golang/go/issues/19938) for details)."
-
-## Unsupported Debug Features
-
-Certain applications that rely on debug features for testing — including [sanitizers](https://wiki.musl-libc.org/open-issues#Sanitizer-compatibility) (such as [Addressanitizer](https://clang.llvm.org/docs/AddressSanitizer.html), [threadsanitizer](https://clang.llvm.org/docs/ThreadSanitizer.html), etc.) and profilers (such as [gprof](https://man7.org/linux/man-pages/man1/gprof.1.html)) — are not supported by musl.
-
-Sanitizers help debug and detect behaviors such as buffer overflows or dangling pointers. According to the [musl wiki open issues](https://wiki.musl-libc.org/open-issues), GCC and LLVM sanitizer implementations rely on libc internals and are incompatible with musl. Feature requests have been made in the LLVM sanitizer repository for support for musl (check out [this issue](https://github.com/google/sanitizers/issues/1080) or [this one](https://github.com/google/sanitizers/issues/1544) for examples), but they have not been addressed.
-
-
-## DNS issues
-
-The Domain Name System (DNS) is the backbone of the internet. It can be thought of like the internet's phonebook, mapping internet protocol (IP) addresses to easy-to-remember website names. Multiple historical sources on the web have pointed out DNS issues when using musl-related distros. Some have pointed out issues with TCP (which is [fixed in Alpine 3.18](https://www.theregister.com/2023/05/16/alpine_linux_318/)), and others have pointed out random cases with DNS resolution issues.
-
-Please refer to the following resources regarding musl's history with DNS:
-
-- [GitHub issue highlighting DNS Resolution in K3s using Alpine Linux](https://github.com/k3s-io/k3s/issues/6132)
-
-- [*The tragedy of gethostbyname*](https://ariadne.space/2022/03/26/the-tragedy-of-gethostbyname.html) - Blog
-
-- [*Does Alpine resolve DNS properly?*](https://purplecarrot.co.uk/post/2021-09-04-does_alpine-resolve_dns_properly/) - Blog
-
-- [*musl-libc - Alpine's Greatest Weakness*](https://www.linkedin.com/pulse/musl-libc-alpines-greatest-weakness-rogan-lynch/) - Blog
-
 
 ## Conclusion
 
@@ -311,21 +166,10 @@ glibc and musl both serve well as C implementations. Our goal for this article i
 
 If you spot anything we've overlooked regarding glibc or musl or have additional insights to contribute, please feel free to raise the issue in [chainguard-dev/edu](https://github.com/chainguard-dev/edu). We welcome further discussion on weaknesses in glibc, such as its larger codebase and complexity compared to musl. Additionally, insights into the intricacies of compiler toolchains for cross-compilation are welcomed, especially when dealing with glibc and musl.
 
-Finally, we encourage you to check out this additional set of articles and discussions about others' experiences with musl:
 
-- [*Why I Will Never Use Alpine Linux Ever Again*](https://martinheinz.dev/blog/92) - Blog
+## Additional References
 
-- [*Why does musl make my Rust code so slow?*](https://andygrove.io/2020/05/why-musl-extremely-slow/) - Blog
+For more information, we recommend the following resources:
 
-- GitHub issue: [Investigate musl performance issues](https://github.com/EmbarkStudios/texture-synthesis/issues/8)
-
-- [*Using Alpine can make Python Docker builds 50× slower*](https://pythonspeed.com/articles/alpine-docker-python/) - Blog
-
-- [*Comparison of C/POSIX standard library implementations for Linux*](http://www.etalabs.net/compare_libcs.html) - Blog
-
-- GitHub issue: [Officially support musl the same way glibc is supported](https://github.com/php/php-src/issues/13877)
-
-- GitHub issue: [Musl as default instead of glibc](https://github.com/NixOS/nixpkgs/issues/90147)
-
-- GitHub issue: [Convert docker builds to use debian/glibc images, away from docker alpine/musl](https://github.com/LemmyNet/lemmy/issues/3972)
-
+* [Understanding thread stack sizes and how Alpine is different](https://ariadne.space/2021/06/24/understanding-thread-stack-sizes-and.html): Explains why applications built for glibc can encounter issues on musl.
+* [The tragedy of gethostbyname](https://ariadne.space/2022/03/26/the-tragedy-of-gethostbyname.html): Details why legacy libc DNS APIs are often unreliable across systems.
