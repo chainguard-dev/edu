@@ -1,5 +1,5 @@
 ---
-date: 2026-01-13T18:30:40Z
+date: 2026-01-15T21:53:18Z
 title: "chainctl libraries verify"
 slug: chainctl_libraries_verify
 url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_verify/
