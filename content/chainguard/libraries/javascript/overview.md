@@ -99,3 +99,21 @@ Alternatively, you can use the token for direct access from a build tool as
 discussed in [Build
 configuration](/chainguard/libraries/javascript/build-configuration/).
 
+## SBOM and attestation files
+
+Chainguard Libraries for JavaScript include files that contain software bill of
+material (SBOM) information. Additional files attest details about build
+infrastructure with  the [Supply-chain Levels for Software Artifacts
+(SLSA)](https://slsa.dev/) provenance information.
+
+The related files for Chainguard Libraries for JavaScript are located separately
+from the registry and the packages themselves.
+
+More tbd
+
+From FAQ
+
+* SBOMs are available in SPDX format in the `sbom.spdx.json` file.
+* Provenance is available in the files: `putument.build.json`,
+  `putument.publish.json`, `build.provenance.json`, `provenance.json` ,
+  `rebuilder.provenance.json`, and  `source.provenance.json`.
