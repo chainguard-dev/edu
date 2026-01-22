@@ -1,10 +1,9 @@
 ---
-title: "Using the Chainguard Directory and Console"
-linktitle: "Containers Directory"
+title: "Using the Chainguard Console"
+linktitle: "Using the Chainguard Console"
 aliases: 
-- /chainguard/chainguard-images/working-with-images/images-directory
 type: "article"
-description: "A walkthrough of the Chainguard directory and console."
+description: "A walkthrough of the Chainguard Console."
 date: 2024-02-23T11:07:52+02:00
 lastmod: 2025-10-23T11:07:52+02:00
 draft: false
@@ -13,16 +12,18 @@ images: []
 menu:
   docs:
     parent: "chainguard-images"
-weight: 020
+weight: 003
 toc: true
 ---
 
-There are hundreds of Chainguard Containers available for use. To help users explore and better understand all of these container images, we've developed the Chainguard Directory. This guide serves as a walkthrough of the browsing experience for Chainguard Containers in the Directory and Console, including how to access it and get the most out of its features.
+This guide serves as a walkthrough of the Chainguard Console, which is accessible to anyone, but you'll first need to [create an account and log in](https://console.chainguard.dev/auth/login).
+
+If you're not ready to create a Chainguard account, you can follow along with the public [Chainguard Directory](/chainguard/chainguard-images/how-to-use/chainguard-directory/) which offers similar information, but is only informative as it is not connected to your organization or account. If you use the *Sign In* link in the directory, it brings you to the console.
 
 
-## Accessing the Chainguard Directory and Console
+## Accessing the Chainguard Console
 
-This guide is primarily framed around the Chainguard Directory and the Chainguard Console. The Directory is public facing and doesn't require any authentication to access it. The Console is also accessible to anyone, including users who aren't Chainguard customers. However, to access the Console, you'll first need to [create an account and log in](https://console.chainguard.dev/auth/login).
+Log in to access the [Chainguard Console](https://console.chainguard.dev/auth/login).
 
 If you would like to open the console with your Organization already selected, you can use (and bookmark) a link like this, replacing `ORGANIZATION` with your organization's name:
 
@@ -30,14 +31,8 @@ If you would like to open the console with your Organization already selected, y
 https://console.chainguard.dev/auth/login?org=ORGANIZATION
 ```
 
-If you're not ready to create a Chainguard account, you can follow along with the public [Chainguard Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory). As of this writing, there are some differences between the two websites, but both should provide a similar experience for browsing Chainguard Containers.
 
-
-## Browse Chainguard Containers
-
-The Chainguard Console and Directory offer slightly different experiences for browsing container images.
-
-### Browsing in the Console
+## Browse container images and details in the console
 
 After signing in to the [Chainguard Console](https://console.chainguard.dev), your browser will take you to the Overview page. The following screenshot shows the Overview Page for an organization that hasn't paid for access to any container images:
 
@@ -71,26 +66,6 @@ You can click on any of these column names to sort the list of container images 
 
 Above the table is a search box you can use to find specific container images by their name or latest version number. To the right of this box is a drop-down menu labeled **Category**. You can use this to filter the images listed based on which of [Chainguard's Container Image categories](/chainguard/chainguard-images/about/images-categories/) they belong to.
 
-### Browsing in the Directory
-
-The [Chainguard Containers Directory](https://images.chainguard.dev/) landing page has a card-based layout of container images:
-
-<center><img src="imgs-dir-D.png" alt="Screenshot of the Chainguard Containers Directory landing page, showing nine cards representing nine featured container images. The 'Featured' category is selected in the left-hand menu." style="width:1100px;"></center>
-<br /> 
-
-Each card represents a container image available from Chainguard, and shows the image's name and logo, when it was last changed, the latest tag available. These cards include other details when relevant, like whether the image is part of Chainguard's Free tier of containers, if there is a FIPS-enabled version of the container image available, or if it's a STIG-hardened image.
-
-By default, the Directory only shows a set of featured container images. You can select other categories of container images to view from the menu to the left of the cards. This menu has the following options:
-
-* **Featured**
-* **Free**
-* **AI**
-* **Application**
-* **Base** 
-* **FIPS**
-
-Below this menu is a button labeled **View all images** which you can click to view all the images at once. Above the cards is a search box you can use to search for specific Chainguard Containers. Clicking on any card or search result takes you to that container image's details page.
-
 
 ## Container image information
 
@@ -99,7 +74,7 @@ Next, let's inspect an individual container image. Click on any container image 
 <center><img src="imgs-dir-E.png" alt="Screenshot of the Container Details page for the argocd image, showing the 'Tags' tab." style="width:1100px;"></center>
 <br /> 
 
-This example shows the details page for `argocd` in the Console. However, the details pages for container images are identical in the Console and Directory, unless otherwise noted below.
+This example shows the details page for `argocd` in the Console.
 
 Each container image details page has several tabs that provide information about various facets of the given image.
 
@@ -109,7 +84,7 @@ Each container image details page has several tabs that provide information abou
 The default page for each image is the **Tags** tab which contains information about the version tags available for each image. This contains a table with columns:
 
 * **Tag**: this column lists each tag available for the container image
-* **Pull URL**: the URL you can use to download each version of the image. In the Console, Production containers you don't already have access to will show a message reading `Add to organization for access` if you're logged in under an organization with access to Production Containers; if you're logged in under an unverified organization, the message reads `Request image for access`. In the Directory, this message reads `Contact us for access to this image` with a link to Chainguard's [contact form](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)
+* **Pull URL**: the URL you can use to download each version of the image. In the Console, Production containers you don't already have access to will show a message reading `Add to organization for access` if you're logged in under an organization with access to Production Containers; if you're logged in under an unverified organization, the message reads `Request image for access`.
 * **Compressed size**: the size of the image, in megabytes
 * **Last changed**: when each version of the image was last updated
 
@@ -201,4 +176,4 @@ Our guide on [Using the Chainguard Console to Manage Custom Assembly Resources](
 
 ## Learn More
 
-The Chainguard Console and Containers Directory are useful tools for understanding what Chainguard Containers are available. To better understand how to work with individual container images, you can see if we have a [getting started guide](/chainguard/chainguard-images/getting-started/) available. We also provide a guide on [how to view security advisories](/chainguard/chainguard-images/security-advisories/) through our [self-service public Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory).
+The Chainguard Console is a useful tool for understanding what Chainguard container images are available and learn details about each. To better understand how to work with individual container images, you can see if we have a [getting started guide](/chainguard/chainguard-images/getting-started/) available. We also provide a guide on [how to view security advisories](/chainguard/chainguard-images/security-advisories/) through our [self-service public Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory).
