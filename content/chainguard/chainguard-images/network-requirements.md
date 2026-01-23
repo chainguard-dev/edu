@@ -55,7 +55,7 @@ This table lists the third-party DNS hostnames, associated ports, and protocols 
 
 ## Ingress and Egress
 
-Connections to the hosts listed on this page are generally initiated as new outbound connections. If you are using stateful firewall rules, then you will need to add symmetric rules to ensure that traffic flows correctly.
+Connections to the hosts listed on this page are generally initiated as new outbound connections. If you are using stateless firewall rules, then you will need to add symmetric rules to ensure that traffic flows correctly.
 
 You will need egress rules that allow new traffic to the hosts listed here. You will need corresponding ingress rules that allow related and established traffic.
 
@@ -89,6 +89,6 @@ openssl s_client -cipher @SECLEVEL=2:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES
 
 You can replace `cgr.dev:443` with your own deployments.
 
-Many of the endpoints for Chainguard products require support for the encrypted [HTTP/2 protocol](https://http2.github.io/). Some decrypting proxies might not support HTTP/2. 
+Many of the endpoints for Chainguard products require support for the encrypted [HTTP/2 protocol](https://http2.github.io/). Some decrypting proxies might not support HTTP/2.
 
 {{< blurb/noproxy >}}
