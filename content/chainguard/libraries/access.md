@@ -71,13 +71,28 @@ Once the keyring package is installed, when you request to install packages from
 To use the keyring with a project `uv`, install the keyring:
 
 ```shell
-uv pip install keyring keyrings-chainguard-libraries
+uv pip install keyrings-chainguard-libraries
 ```
 
 *Note:* If you haven't set up access to Chainguard Libraries for Python, the above command installs the package from PyPI. After installing and configuring Chainguard Libraries for Python, you can get the private package again, to get the package built by Chainguard. To re-install the package:
 
 ```shell
-uv pip install keyring keyrings-chainguard-libraries --ignore-installed --no-cache-dir
+uv pip install keyrings-chainguard-libraries --reinstall --no-cache
+```
+
+By default, [uv disables keyring auth](https://docs.astral.sh/uv/reference/settings/#keyring-provider).
+
+To enable it in the global uv.toml:
+
+```toml
+keyring-provider = "subprocess"
+```
+
+To enable it in a project-specific pyproject.toml:
+
+```toml
+[tool.uv]
+keyring-provider = "subprocess"
 ```
 
 <a id name="pull-token"></a>
@@ -185,7 +200,7 @@ Chainguard console:
     - **Access**: Choose the library that this token should access.
     - **Expiration**: Set an expiration date for the token. The default is 30 days.
 5. Click **Create token**.
-6. When the username and password values are displayed, note these values in a secure location, as you will need them for pull token use. These values will not be displayed again.  
+6. When the username and password values are displayed, note these values in a secure location, as you will need them for pull token use. These values will not be displayed again.
 
 ### Verification
 
