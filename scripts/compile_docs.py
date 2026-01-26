@@ -284,12 +284,12 @@ def compile_documentation(output_path=None):
     """Main function to compile all documentation"""
     # Define paths - support both local and CI environments
     if os.environ.get('GITHUB_ACTIONS'):
-        # GitHub Actions environment
-        base_path = Path('.')
-        edu_path = base_path  # We're already in the edu repository
-        courses_path = base_path.parent / 'courses'
-        images_path = base_path.parent / 'images-private'
-        dfc_path = base_path.parent / 'dfc'
+        # GitHub Actions environment - use resolve() to get absolute paths
+        edu_path = Path('.').resolve()
+        parent_path = edu_path.parent
+        courses_path = parent_path / 'courses'
+        images_path = parent_path / 'images-private'
+        dfc_path = parent_path / 'dfc'
     else:
         # Local development environment
         current_dir = Path(__file__).parent.parent
