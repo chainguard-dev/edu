@@ -24,8 +24,9 @@ try:
     )
     import mcp.server.stdio
 except ImportError:
-    print("Error: MCP SDK not installed. Install with: pip install mcp")
-    exit(1)
+    import sys
+    print("Error: MCP SDK not installed. Install with: pip install mcp", file=sys.stderr)
+    sys.exit(1)
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
