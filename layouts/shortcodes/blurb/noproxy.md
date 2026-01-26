@@ -4,7 +4,7 @@ issues using `chainctl` behind Zscaler, follow these steps to enable support for
 1. **Open a Support Ticket with Zscaler**
 
     Before any UI configuration option appears you may need to contact Zscaler Support (TAC) and request that
-    HTTP/2 support be provisioned/activated for your tenant. This is currently a backend setting only support can toggle.
+    HTTP/2 support be provisioned/activated for your tenant. This is currently a backend setting only Support can toggle.
 
     You typically need to provide:
    * Your Company ID
@@ -15,21 +15,21 @@ issues using `chainctl` behind Zscaler, follow these steps to enable support for
 
 2. **Enable HTTP/2 in SSL Inspection Policies**
 
-   Once support has enabled HTTP/2 on your tenant:
+   Once Support has enabled HTTP/2 on your tenant:
 
    1. Log in to the Zscaler Admin Portal.
-   2. Navigate to Policy → SSL Inspection (or Administration → Advanced Settings depending on UI version).
+   2. Navigate to **Policy** → **SSL Inspection** (or **Administration** → **Advanced Settings** depending on UI version).
    3. Edit your relevant SSL Inspection Policy.
    4. Look for the option “Enable HTTP/2” and turn it ON for the required rules/policies.
 
    This setting ensures Zscaler will maintain HTTP/2 where possible rather than downgrading to HTTP/1.1.
-   You may need to enable it on multiple rules if you use granular SSL policies (e.g., by URL category).
+   You may need to enable it on multiple rules if you use granular SSL policies (for example, by URL category).
 
 3. **Check Advanced settings for API/CLI traffic**
 
-    Zscaler has an advanced setting under Admin → Advanced that controls how non-browser (e.g., API/CLI) HTTP/2 traffic is handled.
+    Zscaler has an advanced setting under **Admin** → **Advanced** that controls how non-browser (API or CLI) HTTP/2 traffic is handled.
     This setting is disabled by default, which means Zscaler will downgrade non-browser HTTP/2 traffic to HTTP/1.1. For
-    `chainctl` usage, this must be Enabled.
+    `chainctl` usage, this must be set to **Enabled**.
 
 See this [Zscaler blog post for more details](https://www.zscaler.com/blogs/product-insights/http-2-better-faster-stronger).
 
