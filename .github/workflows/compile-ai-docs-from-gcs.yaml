@@ -68,6 +68,7 @@ jobs:
         # Create directories for extracted content
         mkdir -p ../images-private
         mkdir -p ../courses
+        mkdir -p ../dfc
         
         # Download and extract edu docs (from GCS, not local)
         if gcloud storage cp gs://academy-all-docs/edu/docs-export.tar.gz /tmp/edu.tar.gz \
@@ -88,7 +89,7 @@ jobs:
         if gcloud storage cp gs://academy-all-docs/images-private/docs-export.tar.gz /tmp/images-private.tar.gz \
            --project=chainguard-academy 2>/dev/null; then
           echo "Extracting images-private documentation..."
-          tar -xzf /tmp/images-private.tar.gz -C ../images-private --strip-components=1
+          tar -xzf /tmp/images-private.tar.gz -C ../images-private
           echo "✓ images-private docs downloaded"
         else
           echo "⚠ images-private docs not found in GCS (will use placeholder)"
@@ -107,7 +108,17 @@ jobs:
           echo "# Courses Documentation" > ../courses/README.md
           echo "Documentation not yet available" >> ../courses/README.md
         fi
-        
+
+        # Download and extract dfc docs (Dockerfile Converter mappings)
+        if gcloud storage cp gs://academy-all-docs/dfc/docs-export.tar.gz /tmp/dfc.tar.gz \
+           --project=chainguard-academy 2>/dev/null; then
+          echo "Extracting dfc documentation..."
+          tar -xzf /tmp/dfc.tar.gz -C ../dfc
+          echo "✓ dfc docs downloaded"
+        else
+          echo "⚠ dfc docs not found in GCS (will skip dfc mappings)"
+        fi
+
         # Download metadata files for logging
         echo ""
         echo "Metadata information:"
