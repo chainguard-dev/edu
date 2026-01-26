@@ -92,4 +92,4 @@ You will need to ingest Chainguard Containers into an image repository within yo
 
 ## Will Chainguard Containers run alongside eBPF agents or sensors? Will there be any issues?
 
-Chainguard containers are just [OCI](https://opencontainers.org/) containers. eBPF operates at the kernel-level at runtime. This means Chainguard Conainers will not be affected by an eBPF agent or sensor, and vice versa.
+Chainguard containers are [OCI](https://opencontainers.org/) containers. eBPF operates at the kernel-level at runtime. This means Chainguard Conainers will not be affected by an eBPF agent or sensor, and vice versa.
