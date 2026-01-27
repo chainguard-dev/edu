@@ -38,31 +38,27 @@ In order to follow this guide, you'll need the following installed on your local
 
 ## Using Cosign to retrieve an container image's SBOM
 
-Cosign includes a `download` command that allows you to retrieve a Chainguard Container's attestation over the command line. To do so, you would use this command with syntax like the following.
 
-```shell
-cosign download attestation cgr.dev/chainguard/php | jq -r .payload | base64 -d | jq .predicate
-```
+Cosign includes a `download attestation` command that allows you to retrieve a Chainguard Container's attestation over the command line. Think of an attestation as an authenticated statement about a software artifact. Different types of attestations are [defined by the SLSA 1.0 specification](https://slsa.dev/attestation-model) and are referenced by their **predicate type**. Because attestations must be signed, this is a way to verify the authenticity of the software producer, thereby ensuring the accuracy of the SBOM and the quality of the software.
 
-This example command downloads the attestation of our [php image](https://images.chainguard.dev/directory/image/php/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-retrieve-image-sboms). 
-
-Notice that this example syntax includes `download attestation` rather than `download sbom`. You can generally think of an attestation as an authenticated statement about a software artifact. There are different types of attestations [as defined by the SLSA 1.0 specification](https://slsa.dev/attestation-model), and they are typically referenced by their **predicate type**. One of the available predicate types is SPDX, an open standard for SBOM files. Because attestations must be signed, this is a way to verify the authenticity of the software producer, thereby ensuring the accuracy of the SBOM and the quality of the software.
-
-This attestation data is encoded in base64, making it unreadable without further processing. This is why the output from the first part of the command is piped into `jq` in order to filter out the payload section of the output containing the SBOM. This filtered output is then passed into the `base64` command to be decoded before that output is piped into another `jq` command. The final `jq` command extracts the attestation predicate from the `base64` output and returns it to your terminal.
-
-As an example, to retrieve the `apko` image's attestation you would run a command like this.
+This example command downloads the SPDX attestation for Chainguard's [php image](https://images.chainguard.dev/directory/image/php/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-retrieve-image-sboms):
 
 ```shell
 cosign download attestation \
-  --platform=linux/amd64 \
-  --predicate-type=https://spdx.dev/Document \
-  cgr.dev/chainguard/apko | jq -r .payload | base64 -d | jq .predicate
+  --predicate-type https://spdx.dev/Document \
+  $(crane digest --platform linux/amd64 --full-ref cgr.dev/chainguard/php) \
+| jq -r '.payload' \
+| base64 -d \
+| jq -r '.predicate'
 ```
 
-This example includes two extra arguments not included in the example syntax outlined previously. First, it includes the `--platform` flag which allows you to download the attestation for a specific platform image. This example specifies the `linux/amd64` platform, but you could also use `linux/arm64`. Be aware, though, that in order to use the `--platform` option you'll need to have Cosign version 2.2.1 or newer installed.
+Cosign returns the attestation in a signed envelope, with the SBOM stored as a base64-encoded payload. The command pipes the output through jq to extract the payload, decodes it with base64, and then uses jq again to print the attestation’s predicate, which contains the SBOM.
 
-The other extra argument is the `--predicate-type` flag, required to specify which type of predicate you want to download from the registry. In order to download Chainguard Containers SBOM attestations, you should use the `https://spdx.dev/Document` predicate type.
-
+You can include the following flags when retrieving attestations:
+* The `--platform` flag, which selects the target platform for the image, such as `linux/amd64` or `linux/arm64`. 
+    * This flag requires Cosign version 2.2.1 or newer.
+* The `--predicate-type` flag, required to specify which type of attestation to retrieve. 
+    * Chainguard publishes SBOM attestations in SPDX format for all images. As of January 29, 2026, CycloneDX SBOMs will also be available to customers for new builds and rebuilds. 
 
 ## Image SBOMs in the Chainguard Console
 
