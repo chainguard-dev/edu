@@ -105,7 +105,7 @@ This confirms the container is using OpenSSL for cryptographic operations.
 Every Chainguard image includes a Software Bill of Materials (SBOM). Verify FIPS-required packages:
 
 ```bash
-cosign download sbom cgr.dev/ORGANIZATION/python-fips:latest | grep -E "libcrypto|openssl-config"
+cosign download attestation cgr.dev/$ORGANIZATION/python-fips:latest | jq -r .payload | base64 -d | jq '.predicate.buildDefinition.externalParameters."image-configuration".contents.packages' | grep -E "libcrypto|openssl-config"
 ```
 
 Look for:
