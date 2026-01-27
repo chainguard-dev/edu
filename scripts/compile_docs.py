@@ -331,17 +331,6 @@ def compile_documentation(output_path=None):
     compiled_md.append("## Table of Contents\n")
     compiled_md.append("1. [Usage Guide](#usage-guide)")
     compiled_md.append("2. [Documentation Content](#documentation-content)\n")
-    
-    # Debug: Print paths being used
-    print(f"DEBUG: edu_path = {edu_path.absolute()} (exists: {edu_path.exists()})")
-    print(f"DEBUG: courses_path = {courses_path.absolute()} (exists: {courses_path.exists()})")
-    print(f"DEBUG: images_path = {images_path.absolute()} (exists: {images_path.exists()})")
-    print(f"DEBUG: dfc_path = {dfc_path.absolute()} (exists: {dfc_path.exists()})")
-    if images_path.exists():
-        images_dir = images_path / 'images'
-        print(f"DEBUG: images_dir = {images_dir.absolute()} (exists: {images_dir.exists()})")
-        if images_dir.exists():
-            print(f"DEBUG: images_dir contents (first 5): {list(images_dir.iterdir())[:5]}")
 
     # Process edu content
     print("Processing documentation...")

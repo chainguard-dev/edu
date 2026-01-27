@@ -30,7 +30,7 @@ A comprehensive collection of Chainguard documentation including:
 <div style="background-color: var(--blockquote-background); border-left: 4px solid var(--link-color, #2196F3); padding: 20px; border-radius: 4px; margin: 20px 0;">
   <h3 style="margin-top: 0; color: var(--body-color);">New: MCP Server Support</h3>
   <p style="color: var(--body-color);">Run the container as an <strong>MCP (Model Context Protocol) server</strong> for searchable, on-demand access to Chainguard documentation in AI assistants and IDEs.</p>
-  <p><a href="/chainguard/mcp-server-ai-docs/" style="font-weight: bold; text-decoration: none; color: var(--link-color, #2196F3);">→ Full MCP Server Documentation</a></p>
+  <p><a href="/mcp-server-ai-docs/" style="font-weight: bold; text-decoration: none; color: var(--link-color, #2196F3);">→ Full MCP Server Documentation</a></p>
 </div>
 
 Choose your preferred distribution method:
@@ -118,7 +118,7 @@ Add to your `claude_desktop_config.json`:
 - Perfect for automated workflows
 - Works with Claude Desktop, Cursor, and other MCP-compatible tools
 
-[**Full MCP Server Documentation →**](/chainguard/mcp-server-ai-docs/)
+[**Full MCP Server Documentation →**](/mcp-server-ai-docs/)
 
 ### Quick Start
 
