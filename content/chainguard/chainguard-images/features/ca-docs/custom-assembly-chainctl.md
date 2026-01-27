@@ -53,13 +53,13 @@ Before applying the change, `chainctl` will outline the changes you made and pro
    - yarn
 -  - wget
 +  - bash
- 
+
 Applying build config to $CONTAINER
 Are you sure?
 Do you want to continue? [y,N]:
 ```
 
-Enter `y` to apply the changes. 
+Enter `y` to apply the changes.
 
 Following that, you'll be able to see the updated builds in the Chainguard Console, though it may take a few minutes for these changes to populate.
 
@@ -100,7 +100,7 @@ Applying build config to custom-assembly
   }))
 
 Are you sure?
-Do you want to continue? [y,N]: 
+Do you want to continue? [y,N]:
 ```
 
 This approach is useful in cases where you would prefer to avoid any kind of interactivity, as in a CI/CD or other automation system.
@@ -140,7 +140,7 @@ Custom Assembly lets you extend Chainguard Containers with your own metadata and
 
 ### Custom annotations
 
-Chainguard Containers include metadata in the form of *annotations*. These annotations provide important information about the container image's origin, contents, and characteristics. 
+Chainguard Containers include metadata in the form of *annotations*. These annotations provide important information about the container image's origin, contents, and characteristics.
 
 With Custom Assembly, you can add custom annotations to your Chainguard Containers using `chainctl`. The process is the same as the one outlined previously for adding packages. First run a command like the following:
 
@@ -166,13 +166,13 @@ After saving and confirming these changes, Custom Assembly will add two custom a
 
 You can also apply custom annotations declaratively using the `apply` subcommand, as outlined previously.
 
-Note that Custom Assembly blocks `org.opencontainers` and `dev.chainguard` annotations from being changed. 
+Note that Custom Assembly blocks `org.opencontainers` and `dev.chainguard` annotations from being changed.
 
 ### Custom environment variables
 
 Chainguard Containers often come with a set of predefined environment variables. These are useful for setting certain configuration details that are available to the container at runtime.
 
-You can follow the same procedure for adding custom annotations to add custom environment variables to your Custom Assembly container images. Start by running a `chainctl image repo build edit` command: 
+You can follow the same procedure for adding custom annotations to add custom environment variables to your Custom Assembly container images. Start by running a `chainctl image repo build edit` command:
 
 ```shell
 chainctl image repo build edit --parent $ORGANIZATION --repo $CONTAINER
@@ -203,13 +203,13 @@ Be aware that Custom Assembly blocks any environment variable that begins with `
 
 Many enterprise environments use internal certificate authorities (CAs) to issue certificates for internal services. These custom certificates need to be trusted by containers that communicate with the internal services. Custom Assembly allows you to build custom certificates directly into your container images, ensuring they trust your organization's internal services without requiring manual certificate mounting at runtime.
 
-> NOTE: If you are looking for a way to embed certificates at build time, see [How To Use incert to Create Container Images with Built-in Custom Certificates](/chainguard/chainguard-images/features/incert-custom-certs/). 
+> NOTE: If you are looking for a way to embed certificates at build time, see [How To Use incert to Create Container Images with Built-in Custom Certificates](/chainguard/chainguard-images/features/incert-custom-certs/).
 
 ### Prerequisites and limitations
 
 Before getting started, you'll need:
 * Access to Chainguard's Custom Assembly tool, which is available to any organization with access to Production Chainguard Containers.
-* Permissions in your Chainguard organization to use Custom Assembly. 
+* Permissions in your Chainguard organization to use Custom Assembly.
   * Review the [Custom Assembly Permissions Requirements](https://edu.chainguard.dev/chainguard/chainguard-images/features/ca-docs/custom-assembly/#custom-assembly-permissions-requirements) for more information
 * [`chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) installed and configured.
 * One or more PEM-encoded certificate files that you want to add to your container.
@@ -226,7 +226,7 @@ Additionally, be aware of the following limitations when adding custom certifica
 
 ### How to add custom certificates via Custom Assembly
 
-With Custom Assembly, you can add custom certificates to your Chainguard Containers using `chainctl images repos build edit` or `chainctl images repos build apply`. The process is similar the one outlined previously for adding packages. 
+With Custom Assembly, you can add custom certificates to your Chainguard Containers using `chainctl images repos build edit` or `chainctl images repos build apply`. The process is similar the one outlined previously for adding packages.
 
 You can make these changes interactively using an editor as described below, or non-interactively by supplying a YAML configuration file with `-f <file>`. The non-interactive approach is particularly useful for CI/CD pipelines and automation.
 
@@ -237,6 +237,13 @@ chainctl image repos build edit --parent $ORGANIZATION --repo $CONTAINER
 ```
 
 This will open your default text editor with the current configuration. This example includes the `--parent` flag, which points to the name of your organization, and the `--repo` argument, which points to the name of the image you want to customize. If you omit these arguments, `chainctl` will prompt you to select your organization and container image interactively.
+
+Alternatively, you can use the `--with-certificates` flag to pre-populate the `certificates.additional` section from a selected `.pem` file. Here is an example invocation:
+
+```bash
+chainctl images repos build edit --with-certificates certs.pem --parent $ORGANIZATION --repo $CONTAINER
+```
+
 
 2. Add a `certificates` section with your custom certificates. Note that each entry must contain exactly one PEM block (`BEGIN CERTIFICATE` to `END CERTIFICATE`):
 
@@ -267,10 +274,10 @@ certificates:
 ```
 Note that each certificate entry requires:
 
-* `name`: A descriptive name for the certificate (used for the filename). 
+* `name`: A descriptive name for the certificate (used for the filename).
 * `content`: The certificate in PEM format, including the `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----` markers.
 
-Optionally, you can also include descriptive text before the certificate block to document its purpose. 
+Optionally, you can also include descriptive text before the certificate block to document its purpose.
 
 3. Save and confirm your changes.
 
@@ -291,7 +298,7 @@ After running this command, inspect the copied file locally to confirm that your
 
 ### Alternative: Using incert for certificate injection
 
-For scenarios where you need to add certificates to an existing image without using Custom Assembly, you can use [`incert`](../incert-custom-certs.md), an open-source tool from Chainguard. However, we recommend using Custom Assembly over `incert` whenever possible, as this approach provides: 
+For scenarios where you need to add certificates to an existing image without using Custom Assembly, you can use [`incert`](../incert-custom-certs.md), an open-source tool from Chainguard. However, we recommend using Custom Assembly over `incert` whenever possible, as this approach provides:
 
 * Automatic rebuilds when the base image is updated
 * Integration with Chainguard's security patching lifecycle
@@ -309,11 +316,11 @@ chainctl image repo build list --parent $ORGANIZATION --repo $REPO
 This command is useful for quickly determining which builds were successful or failed:
 
 ```
-           START TIME           |        COMPLETION TIME        | RESULT  |                    TAGS                     
+           START TIME           |        COMPLETION TIME        | RESULT  |                    TAGS
 --------------------------------+-------------------------------+---------+---------------------------------------------
-  Thu, 01 May 2025 10:10:40 PDT | Thu, 01 May 2025 10:10:45 PDT | Success | 20, 20.19, 20.19.1                          
-  Thu, 01 May 2025 10:10:34 PDT | Thu, 01 May 2025 10:10:46 PDT | Success | 22-slim, 22.15-slim, 22.15.0-slim           
-  Thu, 01 May 2025 10:10:33 PDT | Thu, 01 May 2025 10:10:41 PDT | Success | 23, 23.11, 23.11.0, latest                  
+  Thu, 01 May 2025 10:10:40 PDT | Thu, 01 May 2025 10:10:45 PDT | Success | 20, 20.19, 20.19.1
+  Thu, 01 May 2025 10:10:34 PDT | Thu, 01 May 2025 10:10:46 PDT | Success | 22-slim, 22.15-slim, 22.15.0-slim
+  Thu, 01 May 2025 10:10:33 PDT | Thu, 01 May 2025 10:10:41 PDT | Success | 23, 23.11, 23.11.0, latest
 
 . . .
 ```
@@ -327,25 +334,25 @@ chainctl image repo build logs --parent $ORGANIZATION --repo $REPO
 This command will prompt you to select the build report you want to view. These are organized in reverse chronological order by the time of each build:
 
 ```
-    Select a build report to view logs:                                                                               
-                                                                                                                      
-    Wed, 16 Apr 2025 16:36:52 PDT - Wed, 16 Apr 2025 16:37:08 PDT Success (18-dev, 18.20-dev, 18.20.8-dev)            
-  > Wed, 16 Apr 2025 16:36:45 PDT - Wed, 16 Apr 2025 16:37:00 PDT Success (20-dev, 20.19-dev, 20.19.0-dev)            
-    Wed, 16 Apr 2025 16:36:42 PDT - Wed, 16 Apr 2025 16:36:52 PDT Success (18, 18.20, 18.20.8)                        
-    Wed, 16 Apr 2025 16:36:41 PDT - Wed, 16 Apr 2025 16:36:51 PDT Success (22-slim, 22.14-slim, 22.14.0-slim)         
-    Wed, 16 Apr 2025 16:36:32 PDT - Wed, 16 Apr 2025 16:36:57 PDT Success (22-dev, 22.14-dev, 22.14.0-dev)            
-    Wed, 16 Apr 2025 16:36:32 PDT - Wed, 16 Apr 2025 16:36:44 PDT Success (20-slim, 20.19-slim, 20.19.0-slim)         
-    Wed, 16 Apr 2025 16:36:29 PDT - Wed, 16 Apr 2025 16:36:41 PDT Success (23-slim, 23.11-slim, 23.11.0-slim)         
-    Wed, 16 Apr 2025 16:36:19 PDT - Wed, 16 Apr 2025 16:36:29 PDT Success (23, 23.11, 23.11.0, latest)                
+    Select a build report to view logs:
+
+    Wed, 16 Apr 2025 16:36:52 PDT - Wed, 16 Apr 2025 16:37:08 PDT Success (18-dev, 18.20-dev, 18.20.8-dev)
+  > Wed, 16 Apr 2025 16:36:45 PDT - Wed, 16 Apr 2025 16:37:00 PDT Success (20-dev, 20.19-dev, 20.19.0-dev)
+    Wed, 16 Apr 2025 16:36:42 PDT - Wed, 16 Apr 2025 16:36:52 PDT Success (18, 18.20, 18.20.8)
+    Wed, 16 Apr 2025 16:36:41 PDT - Wed, 16 Apr 2025 16:36:51 PDT Success (22-slim, 22.14-slim, 22.14.0-slim)
+    Wed, 16 Apr 2025 16:36:32 PDT - Wed, 16 Apr 2025 16:36:57 PDT Success (22-dev, 22.14-dev, 22.14.0-dev)
+    Wed, 16 Apr 2025 16:36:32 PDT - Wed, 16 Apr 2025 16:36:44 PDT Success (20-slim, 20.19-slim, 20.19.0-slim)
+    Wed, 16 Apr 2025 16:36:29 PDT - Wed, 16 Apr 2025 16:36:41 PDT Success (23-slim, 23.11-slim, 23.11.0-slim)
+    Wed, 16 Apr 2025 16:36:19 PDT - Wed, 16 Apr 2025 16:36:29 PDT Success (23, 23.11, 23.11.0, latest)
     Wed, 16 Apr 2025 16:36:09 PDT - Wed, 16 Apr 2025 16:36:42 PDT Success (23-dev, 23.11-dev, 23.11.0-dev, latest-dev)
-    Wed, 16 Apr 2025 16:36:09 PDT - Wed, 16 Apr 2025 16:36:31 PDT Success (20, 20.19, 20.19.0)                        
-    Wed, 16 Apr 2025 16:36:09 PDT - Wed, 16 Apr 2025 16:36:31 PDT Success (22, 22.14, 22.14.0)                        
-    Wed, 16 Apr 2025 16:36:09 PDT - Wed, 16 Apr 2025 16:36:18 PDT Success (18-slim, 18.20-slim, 18.20.8-slim)         
-    Wed, 16 Apr 2025 16:35:35 PDT - Wed, 16 Apr 2025 16:35:47 PDT Success                                             
-                                                                                                                      
-    ••••••••••••••                                                                                                    
-                                                                                                                      
-    ↑/k up • ↓/j down • / filter • q quit • ? more  
+    Wed, 16 Apr 2025 16:36:09 PDT - Wed, 16 Apr 2025 16:36:31 PDT Success (20, 20.19, 20.19.0)
+    Wed, 16 Apr 2025 16:36:09 PDT - Wed, 16 Apr 2025 16:36:31 PDT Success (22, 22.14, 22.14.0)
+    Wed, 16 Apr 2025 16:36:09 PDT - Wed, 16 Apr 2025 16:36:18 PDT Success (18-slim, 18.20-slim, 18.20.8-slim)
+    Wed, 16 Apr 2025 16:35:35 PDT - Wed, 16 Apr 2025 16:35:47 PDT Success
+
+    ••••••••••••••
+
+    ↑/k up • ↓/j down • / filter • q quit • ? more
 
 ```
 
@@ -357,9 +364,9 @@ Highlight your chosen build report and select it by pressing `ENTER`. This will 
 
 ## Learn More
 
-The `chainctl` commands outlined in this guide show how you can interact with Chainguard's Custom Assembly tool from the command line. 
+The `chainctl` commands outlined in this guide show how you can interact with Chainguard's Custom Assembly tool from the command line.
 
-You can also interact with Custom Assembly with the [Chainguard API](/chainguard/administration/api/). Our tutorial on [Using the Chainguard API to Manage Custom Assembly Resources](/chainguard/chainguard-images/features/ca-docs/custom-assembly-api-demo/) outlines how to run a demo application that updates the configuration of a Custom Assembly container through the Chainguard API. 
+You can also interact with Custom Assembly with the [Chainguard API](/chainguard/administration/api/). Our tutorial on [Using the Chainguard API to Manage Custom Assembly Resources](/chainguard/chainguard-images/features/ca-docs/custom-assembly-api-demo/) outlines how to run a demo application that updates the configuration of a Custom Assembly container through the Chainguard API.
 
 ### Troubleshooting
 
