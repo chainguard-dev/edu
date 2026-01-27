@@ -57,7 +57,7 @@ Let's start with a Python example to verify FIPS is working.
 Replace `ORGANIZATION` with your organization name in the Chainguard Registry:
 
 ```bash
-docker pull cgr.dev/ORGANIZATION/python-fips:latest
+docker pull cgr.dev/$ORGANIZATION/python-fips:latest
 ```
 
 ### Run a Test Script
@@ -84,7 +84,7 @@ Run the script in the FIPS container:
 
 ```bash
 docker run --rm -v $(pwd):/work -w /work \
-  cgr.dev/ORGANIZATION/python-fips:latest \
+  cgr.dev/$ORGANIZATION/python-fips:latest \
   test_fips.py
 ```
 
@@ -119,7 +119,7 @@ These packages indicate kernel-independent FIPS configuration.
 Run a container interactively to check OpenSSL configuration:
 
 ```bash
-docker run --rm -it cgr.dev/ORGANIZATION/python-fips:latest sh
+docker run --rm -it --entrypoint /usr/bin/bash cgr.dev/$ORGANIZATION/python-fips:latest-dev
 ```
 
 Inside the container, verify the FIPS module:
@@ -140,7 +140,7 @@ Example Dockerfile for a Go application:
 
 ```dockerfile
 # Build stage
-FROM cgr.dev/ORGANIZATION/go-fips:latest AS builder
+FROM cgr.dev/$ORGANIZATION/go-fips:latest AS builder
 
 WORKDIR /app
 COPY go.mod go.sum ./
@@ -150,7 +150,7 @@ COPY . .
 RUN go build -o myapp
 
 # Runtime stage
-FROM cgr.dev/ORGANIZATION/glibc-openssl-fips:latest
+FROM cgr.dev/$ORGANIZATION/glibc-openssl-fips:latest
 
 COPY --from=builder /app/myapp /usr/bin/myapp
 
@@ -176,7 +176,7 @@ The resulting container runs on any Linux kernel and maintains FIPS validation.
 ### Python Application with Requirements
 
 ```dockerfile
-FROM cgr.dev/ORGANIZATION/python-fips:latest
+FROM cgr.dev/$ORGANIZATION/python-fips:latest
 
 WORKDIR /app
 COPY requirements.txt .
@@ -190,7 +190,7 @@ CMD ["python", "app.py"]
 ### Node.js Application
 
 ```dockerfile
-FROM cgr.dev/ORGANIZATION/node-fips:latest AS builder
+FROM cgr.dev/$ORGANIZATION/node-fips:latest AS builder
 
 WORKDIR /app
 COPY package*.json ./
@@ -199,7 +199,7 @@ RUN npm ci --production
 COPY . .
 
 # Use multi-stage if you want a smaller runtime
-FROM cgr.dev/ORGANIZATION/node-fips:latest
+FROM cgr.dev/$ORGANIZATION/node-fips:latest
 WORKDIR /app
 COPY --from=builder /app .
 
@@ -209,13 +209,13 @@ CMD ["node", "server.js"]
 ### Java Application
 
 ```dockerfile
-FROM cgr.dev/ORGANIZATION/jdk-fips:latest AS builder
+FROM cgr.dev/$ORGANIZATION/jdk-fips:latest AS builder
 
 WORKDIR /app
 COPY . .
 RUN javac MyApp.java
 
-FROM cgr.dev/ORGANIZATION/jre-fips:latest
+FROM cgr.dev/$ORGANIZATION/jre-fips:latest
 WORKDIR /app
 COPY --from=builder /app/*.class .
 
@@ -231,8 +231,8 @@ To verify that FIPS mode is enforced, you can intentionally break the FIPS confi
 Run a container with access to modify system files:
 
 ```bash
-docker run --rm -it --user root \
-  cgr.dev/ORGANIZATION/python-fips:latest sh
+docker run --rm -it --user root --entrypoint /usr/bin/bash \
+  cgr.dev/$ORGANIZATION/python-fips:latest-dev
 ```
 
 Inside the container, break the FIPS configuration:
@@ -274,8 +274,8 @@ docker run --rm -it \
   -v $(pwd):/app \
   -w /app \
   -p 8000:8000 \
-  cgr.dev/ORGANIZATION/python-fips:latest \
-  bash
+  --entrypoint /usr/bin/bash
+  cgr.dev/$ORGANIZATION/python-fips:latest-dev
 ```
 
 Inside, install development dependencies and run your app.
@@ -294,12 +294,12 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Pull FIPS image
-        run: docker pull cgr.dev/ORGANIZATION/python-fips:latest
+        run: docker pull cgr.dev/$ORGANIZATION/python-fips:latest
 
       - name: Run tests
         run: |
           docker run --rm -v $(pwd):/app -w /app \
-            cgr.dev/ORGANIZATION/python-fips:latest \
+            cgr.dev/$ORGANIZATION/python-fips:latest \
             python -m pytest
 ```
 
