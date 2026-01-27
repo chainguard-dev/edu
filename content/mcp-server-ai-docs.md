@@ -9,12 +9,8 @@ lastmod: 2026-01-02T21:00:00+00:00
 draft: false
 images: []
 weight: 600
-menu:
-  main:
-    identifier: "mcp-server-ai-docs"
-    parent: ""
-    weight: 9999
-    hidden: true
+aliases:
+  - /chainguard/mcp-server-ai-docs/
 ---
 
 ## Overview
