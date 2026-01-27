@@ -114,14 +114,16 @@ list](https://github.com/chainguard-dev/ssc-reading-list).
 
 ## Why do the Chainguard library checksums differ from those published by upstream repositories?
 
-Chainguard rebuilds libraries from source in a controlled environment to improve supply-chain security. As a result, while functionality remains the same, build metadata and generated content (such as SBOMs) will differ from upstream distributions.
+Chainguard rebuilds libraries from source in a controlled environment to improve supply-chain security. As a result, while functionality remains the same, build metadata and generated content, such as SBOMs, differs from upstream distributions.
 
-Checksums will also differ from those published by upstream repositories (such as Maven Central, npm, or PyPI). Checksum mismatch errors can occur during initial migration if artifacts were previously cached from upstream repositories or if builds were pinned to upstream checksums or hashes.
+Whether Chainguard library checksums match upstream depends on the ecosystem and build process.
 
-During initial migration to Chainguard Libraries, we recommend that you:
-* Delete cached artifacts that were previously downloaded from upstream repositories 
-* Re-resolve dependencies from Chainguard Libraries
-* Update or re-lock existing checksums or hashes to match Chainguard artifacts
+During initial migration to Chainguard Libraries, you may encounter checksum errors if:
+* Artifacts were previously cached from upstream repositories
+* Dependencies are pinned to upstream checksums or hashes
+* Repository managers or build tools enforce strict verification
+
+Also note that if an artifact is re-published by Chainguard, cached components may need to be refreshed.
 
 ## Does Chainguard Libraries for Java include CVE remediation fixes?
 
