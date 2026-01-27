@@ -85,7 +85,7 @@ Run the script in the FIPS container:
 ```bash
 docker run --rm -v $(pwd):/work -w /work \
   cgr.dev/ORGANIZATION/python-fips:latest \
-  python test_fips.py
+  test_fips.py
 ```
 
 You should see output like:
