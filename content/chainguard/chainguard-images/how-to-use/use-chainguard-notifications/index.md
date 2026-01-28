@@ -17,13 +17,18 @@ weight: 030
 toc: true
 ---
 
-You can use the [Chainguard Console](/chainguard/chainguard-images/how-to-use/images-directory) to configure how Chainguard is permitted to send notifications about things like breaking changes to users in your organization. These notifications are different from [Chainguard Events](/chainguard/administration/cloudevents/) as Chainguard Notifications are sent by Chainguard’s customer success representatives.
+You can use the [Chainguard Console](/chainguard/chainguard-images/how-to-use/images-directory) to configure how Chainguard is permitted to send notifications about things like breaking changes to users in your organization. The feature is rolling out with options to allow notifications to be sent in-app to the user’s Overview page in the Chainguard Console, via email, and using Slack.
 
-This feature is currently in private beta. If you would like to participate, please [reach out to our Customer Support team](https://www.chainguard.dev/contact?utm=docs). In addition, to use the feature, you must use a user account for the Chainguard Console that is configured with the *owner* role for the organization. In addition, there are two feature flags which must be turned on, `notificationsBeta` and `emailNotifications`. These flags are not available to you until Chainguard enables your access.
+These notifications are different from [Chainguard Events](/chainguard/administration/cloudevents/) as Chainguard Notifications are sent by Chainguard’s customer success representatives.
+
+## Prerequisites and limitations
+
+This feature is currently in private beta. If you would like to participate, please [reach out to our Customer Support team](https://www.chainguard.dev/contact?utm=docs). To use the feature:
+
+- You must use a user account for the Chainguard Console that is configured with the *owner* role for your organization.
+- There are two feature flags which must be turned on, `notificationsBeta` and `emailNotifications`. These flags are not available to you until Chainguard enables your access.
 
 Notifications are currently limited to messages related to breaking changes. In the future, this will expand to include notifications about topics like incidents, new releases, and end of life for specific images.
-
-The feature is rolling out with options to allow notifications to be sent in-app to the user’s Overview page in the Chainguard Console, via email, and using Slack.
 
 The in-app and email notifications can be set up for you by Chainguard when you opt in to enabling the notifications feature, but you have control over which email notifications are sent. You are also able to set one or more additional email addresses to receive notifications for your organizations; these are called forwarding addresses.
 
@@ -31,15 +36,14 @@ Slack requires you to establish the connection between our Chainguard Notificati
 
 ## Manage email notifications
 
-To perform this task, you must use a user account for the Chainguard Console that is configured with the *owner* role for the organization.
+To perform this task, you must use a user account for the Chainguard Console that is configured with the *owner* role for the organization. Then, follow these steps:
 
-In the Chainguard Console, open **Settings \> Notifications**.
+1. In the Chainguard Console, open **Settings \> Notifications**.
 
-Next to the **Email** section heading, click **Edit**.
+1. Next to the **Email** section heading, click **Edit**.
+  You can then change settings for what notification topics will be sent and to whom, either an individual or perhaps to an email alias for a group.
 
-You can then change settings for what notification topics will be sent and to whom, either an individual or perhaps to an email alias for a group.
-
-When you are done, click **Save changes**.
+1. When you are done, click **Save changes**.
 
 <center><img src="notifications-email.png" alt="Screenshot showing the Email section of the Chainguard Console's Settings > Notifications page." style="width:700px;"></center>
 <br /> 
