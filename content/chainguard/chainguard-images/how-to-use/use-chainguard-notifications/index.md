@@ -54,19 +54,20 @@ Make sure you are logged into both the console and to your Slack workspace on th
 
 > For example, when you are trying to add the Chainguard Notifications app to Slack channels, the Slack account you are using will only be shown a list of public and private Slack channels the app has access to and your Slack user account is a member of. If you have a specific channel in mind for these notifications, make sure the Slack user establishing the connection has access to and is a member of that channel.
 
-In the Chainguard Console, open **Settings \> Notifications**.
+To set this up, follow these steps:
 
-Next to the **Integrations** section heading, click **Edit**.
+1. In the Chainguard Console, open **Settings \> Notifications**.
 
-Under the **Slack** subheading, click **Connect Slack**.
+1. Next to the **Integrations** section heading, click **Edit**.
 
-A pop-up window from Slack will appear asking you to allow the **Chainguard Notifications** app to access Slack.
+1. Under the **Slack** subheading, click **Connect Slack**.
+  A pop-up window from Slack will appear asking you to allow the **Chainguard Notifications** app to access Slack.
 
-In the **Workspace** dropdown, select the Slack workspace in which you want to have your users receive Chainguard Notifications.
+1. In the **Workspace** dropdown, select the Slack workspace in which you want to have your users receive Chainguard Notifications.
 
-Click **Allow**.
+1. Click **Allow**.
 
-Click into the **Slack Channels** box under the **Slack** subheading on the **Notifications** page in the console. You will be shown the list of channels available for the Chainguard Notifications app to use. Select the channel(s) where you want these notifications to be posted.
+1. Click into the **Slack Channels** box under the **Slack** subheading on the **Notifications** page in the console. You will be shown the list of channels available for the Chainguard Notifications app to use. Select the channel(s) where you want these notifications to be posted.
 
 <center><img src="notifications-integrations.png" alt="Screenshot showing the Integrations section of the Chainguard Console's Settings > Notifications page." style="width:700px;"></center>
 <br />
