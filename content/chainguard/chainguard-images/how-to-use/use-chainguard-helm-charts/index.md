@@ -85,7 +85,7 @@ volumePermissions:
 You will need to authenticate to pull charts. These instructions explain how to use charts and images with the `cgr.dev` repository. If you have mirrored or copied the charts and images to an organization-specific registry, you will need to adapt these instructions to authenticate to your registry, as appropriate.
 
 This section presents multiple authentication methods:
-- Use Helm values with `gloal.imagePullSecrets`
+- Use Helm values with `global.imagePullSecrets`
 - Deploy a Chainguard Helm chart using a Kubernetes pull secret
 - Use cluster node-scoped registry permissions
 
