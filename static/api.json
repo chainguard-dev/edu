@@ -4555,18 +4555,24 @@
         "operationId": "Advisories_List",
         "parameters": [
           {
-            "description": "advisory_id filters by advisory ID (e.g., CGA-xvgw-cvr7-9g2q)",
+            "collectionFormat": "multi",
             "in": "query",
-            "name": "advisoryId",
+            "items": {
+              "type": "string"
+            },
+            "name": "advisoryIds",
             "required": false,
-            "type": "string"
+            "type": "array"
           },
           {
-            "description": "advisory_id in the v1 system (e.g., CGA-abcd-efgh-ijkl)",
+            "collectionFormat": "multi",
             "in": "query",
-            "name": "legacyAdvisoryId",
+            "items": {
+              "type": "string"
+            },
+            "name": "legacyAdvisoryIds",
             "required": false,
-            "type": "string"
+            "type": "array"
           },
           {
             "description": "id is the exact UID of the record.",
@@ -4724,18 +4730,26 @@
             "type": "array"
           },
           {
+            "collectionFormat": "multi",
             "description": "event_author filters by event author email\nWhen specified, only advisories containing at least one event created by the specified\nauthor will be returned. This enables users to find their own events or events from\nspecific team members.",
             "in": "query",
+            "items": {
+              "type": "string"
+            },
             "name": "eventAuthor",
             "required": false,
-            "type": "string"
+            "type": "array"
           },
           {
+            "collectionFormat": "multi",
             "description": "event_reviewer filters by event reviewer email\nWhen specified, only advisories containing at least one event reviewed by the specified\nauthor will be returned. This enables users to find their own events or events from\nspecific team members.",
             "in": "query",
+            "items": {
+              "type": "string"
+            },
             "name": "eventReviewer",
             "required": false,
-            "type": "string"
+            "type": "array"
           },
           {
             "collectionFormat": "multi",
@@ -4781,11 +4795,15 @@
             "type": "string"
           },
           {
+            "collectionFormat": "multi",
             "description": "exclude_event_author filters out advisories where any event was created by the specified author\nWhen specified, advisories containing events by this author will be excluded from results.\nThis is useful for review workflows where users want to see all pending events except their own,\nenabling them to review others' work without seeing their own submissions.",
             "in": "query",
+            "items": {
+              "type": "string"
+            },
             "name": "excludeEventAuthor",
             "required": false,
-            "type": "string"
+            "type": "array"
           },
           {
             "default": "EVENT_TYPE_FILTER_UNSPECIFIED",
@@ -5373,6 +5391,9 @@
     "AdvisoryEventFixed": {
       "properties": {
         "fixedVersion": {
+          "type": "string"
+        },
+        "note": {
           "type": "string"
         }
       },
@@ -8008,6 +8029,10 @@
         },
         "raw": {
           "description": "Raw Chart.yaml content.",
+          "type": "string"
+        },
+        "values": {
+          "description": "Raw values.yaml content (default values).",
           "type": "string"
         },
         "version": {

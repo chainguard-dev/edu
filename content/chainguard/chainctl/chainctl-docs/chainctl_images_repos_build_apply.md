@@ -1,5 +1,5 @@
 ---
-date: 2026-01-15T21:53:18Z
+date: 2026-01-28T21:39:13Z
 title: "chainctl images repos build apply"
 slug: chainctl_images_repos_build_apply
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_apply/
@@ -11,10 +11,84 @@ toc: true
 ---
 ## chainctl images repos build apply
 
-Apply a build config
+Apply a build config from a file
+
+### Synopsis
+
+
+Apply a pre-written YAML configuration file to customize a Chainguard image.
+
+You can use Custom Assembly to customize any image you are entitled to by
+adding packages from Chainguard's repository, setting environment variables,
+adding OCI annotations, customizing user accounts and groups, or including
+custom certificates. The customized image is built automatically without
+requiring you to fork images or maintain custom build pipelines.
+
+This command applies Custom Assembly configurations from a YAML file without
+opening an interactive editor. Use this for automated workflows, CI/CD pipelines,
+or when you have configuration files managed in version control.
+
+Finally, you can create variants by choosing to save the customized configuration
+as a new repository instead of modifying the existing one.
+
+How it works:
+
+You customize the image by applying a YAML configuration file. Provide the file
+using the --file flag. The command reads the file, validates the configuration,
+and displays a diff comparing it to the current repository configuration (or an
+empty baseline for new repositories).
+
+After reviewing the diff, you confirm the changes. The command then updates the
+repository configuration and starts a custom build automatically.
+
+Customizable sections:
+
+  contents.packages
+    Add additional packages to install in the image (e.g., development tools,
+    utilities). Packages must be available in Chainguard's package repository.
+
+  environment
+    Set environment variables that will be available in the image. Variables
+    with the 'CHAINGUARD_' prefix are reserved and cannot be used.
+
+  annotations
+    Add custom OCI annotations to the image for tracking build information,
+    compliance, or metadata. Keys with the 'dev.chainguard' prefix are reserved
+    and cannot be used.
+
+  accounts
+    Customize image users and groups. You can define custom users with specific
+    UIDs/GIDs, home directories, and group memberships. You can also specify
+    which user the image should run as.
+
+  certificates
+    Provide custom certificates that will be merged with the default certificate
+    bundle in the image. This is useful for adding internal CA certificates.
+    Certificates must be defined in the YAML manifest.
+    NOTE: This is a Beta feature that requires enrollment. Contact your Customer
+    Success Team to enable this feature.
+
 
 ```
 chainctl images repos build apply [flags]
+```
+
+### Examples
+
+```
+
+# Apply configuration from a file
+chainctl images repos build apply --repo=my-custom-python --file=config.yaml
+
+# Apply and save as a new repository
+chainctl images repos build apply --repo=my-custom-python --file=config.yaml --save-as=my-new-python
+
+# Apply with automatic confirmation (for CI/CD)
+chainctl images repos build apply --repo=my-custom-python --file=config.yaml --yes
+
+# Apply to interactively selected repository
+chainctl images repos build apply --file=config.yaml
+
 ```
 
 ### Options
