@@ -15,11 +15,11 @@ weight: 011
 toc: true
 ---
 
-Chainguard's [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) is a tool that allows customers to create customized containers with extra packages and annotations added. This enables customers to reduce their risk exposure by creating container images that are tailored to their internal organization and application requirements while still having few-to-zero CVEs.
+Chainguard's [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) is a tool that allows customers to create customized containers with extra packages and annotations added. This enables customers to reduce their risk exposure by creating container images that are tailored to their internal organization and application requirements while still having few-to-zero CVEs. It can be managed in the [Chainguard Console](/chainguard/chainguard-images/features/ca-docs/custom-assembly-console/), [with chainctl](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/), [with the API](/chainguard/chainguard-images/features/ca-docs/custom-assembly-api-demo/), or via CI/CD.
 
 This guide shows how to manage Chainguard Custom Assembly as code using CI/CD, storing your configuration in Git and using automation to apply changes and trigger builds. The examples in this guide focus on GitHub Actions, as seen in [Chainguard's custom-assembly-as-code demo repository](https://github.com/chainguard-demo/custom-assembly-as-code). 
 
-> **NOTE**: Custom Assembly is managed via API. `chainctl` is an API client that handles common tasks like authentication and applying configuration files. In CI/CD, running `chainctl` non-interactively is a common pattern for implementing GitOps workflows. It is possible to use other clients, but `chainctl` is the most fully-supported and easiest way to get started.
+> **NOTE**: `chainctl` is an API client that handles common tasks like authentication and applying configuration files. You can manage Custom Assembly [interactively using `chainctl`](/chainguard/chainguard-images/features/ca-docs/custom-assembly-api-demo/). Running `chainctl` non-interactively is a common pattern for implementing GitOps workflows. 
 
 ## Prerequisites
 
