@@ -67,7 +67,28 @@ To set this up, follow these steps:
 
 1. Click **Allow**.
 
+Follow the directions in one or more of the following sections to enable notifications in public and private channels.
+
+### Preliminary step to set up notifications in a private channel
+
+If you want to provide Chainguard Notifications in a private Slack channel, then at this point you must add the app to the private channel. In Slack:
+
+1. Enter the private channel with your Slack user.
+
+1. Click on the channel members icon to open the list.
+
+1. Click to open the **Integrations** tab.
+
+1. Click the **Add an App** button to display a list of available apps in your workspace.
+
+1. Find **Chainguard Notifications** in the list and click the **Add** button.
+
+Include the private channel in your actions in the next section.
+
+### Set up notifications in a public or private channel
+
 1. Click into the **Slack Channels** box under the **Slack** subheading on the **Notifications** page in the console. You will be shown the list of channels available for the Chainguard Notifications app to use. Select the channel(s) where you want these notifications to be posted.
+> NOTE: Private channels will not appear here unless you first complete the preliminary step in the previous section.
 
 <center><img src="notifications-integrations.png" alt="Screenshot showing the Integrations section of the Chainguard Console's Settings > Notifications page." style="width:700px;"></center>
 <br />
