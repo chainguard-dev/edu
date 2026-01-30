@@ -21,13 +21,13 @@ toc: true
 
 For organizations looking to deploy their Chainguard container images with Helm, Chainguard provides upstream-produced Helm charts. These charts are available from the Chainguard Registry and are intended for customers who are either looking to get started with Helm or are looking for better, trusted alternatives to the public charts they may already be using.
 
-Chainguard also offers a limited set of Helm charts to go with a set of Chainguard-created containers labeled as iamguarded, designed specifically to support organizations migrating off of Bitnami. The iamguarded charts are forked from upstream Bitnami charts, but now configured out-of-the box for use with Chainguard’s hardened container images. These charts only receive edits necessary to make them work with Chainguard container images and retain the intended functionality of the originals they are based on.
+Chainguard also offers a limited set of Helm charts to go with a set of Chainguard-created containers labeled as iamguarded, designed specifically to support organizations migrating off of Bitnami. The iamguarded charts are forked from upstream Bitnami charts, but now configured out-of-the box for use with Chainguard’s hardened container images. These charts only receive edits necessary to make them work with Chainguard container images and retain the intended functionality of the originals they are based on. Because the iamguarded charts are forks, they may be susceptible to breaking changes introduced by the upstream. In such cases, customers should plan to transition to a community-provided alternative (or an equivalent one from Chainguard) where possible.
 
 These charts have been tested by Chainguard to confirm they produce expected deployment results using the following policies.
 
 - For the community charts:
   - Version streaming: Chainguard commits to supporting chart and image versions that match the latest upstream project chart. Within that latest chart we will support the associated image versions.
-  - Testing policy: We test the latest charts with the supported version streams and functionally validate by deploying the Helm chart, and functionally validating it in its representative environment by exercising the various functionality of the chart(s). We’ll also continue publishing end-of-life (EOL) version streams as long as they continue to pass our functional validation.
+  - Testing policy: We test the latest charts with the supported version streams and functionally validate by deploying the Helm chart in its representative environment and exercising the various functionality of the chart(s). We’ll also continue publishing end-of-life (EOL) version streams as long as they continue to pass our functional validation.
 
 - For the iamguarded charts:
   - We only build the latest/mainline versions of iamguarded images and test them against the latest version of the corresponding iamguarded Helm charts.
