@@ -112,17 +112,7 @@ cosign verify \
 
 Attestations are signed metadata about the artifact, which can include SBOMs, vulnerability scans, or other custom predicates.
 
-The [attestations](https://slsa.dev/attestation-model) for a container image can be obtained and verified using Cosign. These are a few of the existing types:
-
-| Attestation Type  | Description  |
-| ----------------- | ------------ |
-| `https://slsa.dev/provenance/v1`   	| The [SLSA 1.0](https://slsa.dev/spec/v1.0/provenance) provenance attestation contains information about the image build environment. |
-| `https://apko.dev/image-configuration` | Contains the configuration used by that particular image build, including direct dependencies, user accounts, and entry point.   	|
-| `https://spdx.dev/Document`   	| Contains the image SBOM in SPDX format.                                                             	|
-
-To download an attestation, use the `cosign download attestation` command and provide both the `predicate-type` and the build `platform`. By default, this command will fetch the SBOM assigned to the `latest` tag. You can also specify the tag you want to fetch the attestation from.
-
-To download a different attestation, replace the `--predicate-type` parameter value with the desired attestation URL identifier. To illustrate, the following examples will obtain the SBOM for the requested image for the `linux/amd64` platform.
+The [attestations](https://slsa.dev/attestation-model) for a container image can be obtained and verified using Cosign or directly in the Chainguard Console. See [How to retrieve attestations and SBOMs for Chainguard Containers](/chainguard/chainguard-images/how-to-use/retrieve-image-sboms/) for more information.
 
 ### Public Registry
 
