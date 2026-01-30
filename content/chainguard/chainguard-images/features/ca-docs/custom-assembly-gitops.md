@@ -39,7 +39,7 @@ Also note that Chainguard's [demo workflow](/chainguard-demo/custom-assembly-as-
 
 Custom Assembly uses apko overlay YAML files to customize images. You can use them to define changes such as additional packages to install, environment variables, and annotations.
 
-This example overlay file adds curl and jq to a base Python image:
+This example overlay file shows the configuration options available for customizing Chainguard images: 
 
 ```yaml
 contents:
@@ -54,6 +54,27 @@ environment:
 annotations:
   org.opencontainers.image.title: "Python App with Tools"
   org.opencontainers.image.description: "Custom Python image with curl and jq"
+
+accounts:
+   run-as: "appuser"
+   users:
+     - username: "appuser"
+       uid: 65532
+       gid: 65532
+       homedir: "/home/appuser"
+   groups:
+     - groupname: "appgroup"
+       gid: 65532
+       members:
+         - "appuser"
+
+certificates:
+   additional:
+     - name: "certificate name"
+       content: |
+          -----BEGIN CERTIFICATE-----
+         ...
+         -----END CERTIFICATE-----
 ```
 
 ### Repository structure
