@@ -15,9 +15,9 @@ weight: 011
 toc: true
 ---
 
-Chainguard's [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) is a tool that allows customers to create customized containers with extra packages and annotations added. This enables customers to reduce their risk exposure by creating container images that are tailored to their internal organization and application requirements while still having few-to-zero CVEs. It can be managed in the [Chainguard Console](/chainguard/chainguard-images/features/ca-docs/custom-assembly-console/), [with chainctl](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/), [with the API](/chainguard/chainguard-images/features/ca-docs/custom-assembly-api-demo/), or via CI/CD.
+Chainguard's [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) is a tool that allows customers to create customized container images with extra packages and annotations added. This enables customers to reduce their risk exposure by creating container images that are tailored to their internal organization and application requirements while still having few-to-zero CVEs. It can be managed in the [Chainguard Console](/chainguard/chainguard-images/features/ca-docs/custom-assembly-console/), [with chainctl](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/), [with the API](/chainguard/chainguard-images/features/ca-docs/custom-assembly-api-demo/), or via CI/CD.
 
-This guide shows how to manage Chainguard Custom Assembly as code using CI/CD, storing your configuration in Git and using automation to apply changes and trigger builds. The examples in this guide focus on GitHub Actions, as seen in [Chainguard's custom-assembly-as-code demo repository](https://github.com/chainguard-demo/custom-assembly-as-code). 
+This guide shows how to use Chainguard Custom Assembly as code via CI/CD, storing your configuration in Git and using automation to apply changes and trigger builds. The examples in this guide focus on GitHub Actions, as seen in [Chainguard's custom-assembly-as-code demo repository](https://github.com/chainguard-demo/custom-assembly-as-code). 
 
 > **NOTE**: `chainctl` is an API client that handles common tasks like authentication and applying configuration files. You can manage Custom Assembly [interactively using `chainctl`](/chainguard/chainguard-images/features/ca-docs/custom-assembly-api-demo/). Running `chainctl` non-interactively is a common pattern for implementing GitOps workflows. 
 
@@ -58,7 +58,7 @@ annotations:
 
 ### Repository structure
 
-We recommend organizing your configuration YAML files in a dedicated directory:
+We recommend organizing your configuration YAML files in a dedicated directory. For example:
 
 ```
 your-repo/
@@ -111,7 +111,25 @@ You'll need your identity ID for your CI/CD workflow configuration. Save it for 
 chainctl iam identities list -o table
 ```
 
-## GitHub Actions example
+## Trigger builds via chainctl in CI/CD workflows
+
+Regardless of which CI/CD platform you use, Custom Assembly builds are triggered with the same chainctl command:
+```bash
+chainctl images repos build apply --file ca-images-iac/custom-jre.yaml \
+  --parent your-parent-group \
+  --repo your-repo \
+  --yes
+```
+This command follows the example repo structure that appears earlier on this page, where `ca-images-iac` is the directory that contains the apko overlay files.
+
+This command:
+- Reads your apko overlay configuration from the YAML file
+- Applies it to build a custom image
+- Pushes the result to your Chainguard registry
+- Skips the interactive confirmation via the `--yes` flag, making it suitable for automated workflows
+
+
+### GitHub Actions example
 
 This section provides a complete example for automating Custom Assembly builds with GitHub Actions.
 
@@ -233,6 +251,7 @@ Before using the GitHub action in this guide, make sure to update the placeholde
 - `CATALOG_SYNCER="your-org-id/catalog-syncer-id"`: Your catalog syncer identity
 - `APKO_BUILDER="your-org-id/apko-builder-id"`: Your APKO builder identity
 - `--parent your-parent-group --repo your-repo`: Your Chainguard group and repo names
+- `ca-images-iac/custom-jre.yaml`: Your repo's directory that holds the apko overlay files, and the overlay file name
 
 To test your GitHub Action:
 
