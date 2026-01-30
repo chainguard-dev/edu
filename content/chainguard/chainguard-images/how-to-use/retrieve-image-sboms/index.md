@@ -1,6 +1,6 @@
 ---
-title: "How to Retrieve Attestations and SBOMs for Chainguard Containers"
-linktitle: "Retrieve Attestations and SBOMs"
+title: "How to Retrieve SBOMs and attestations for Chainguard Containers"
+linktitle: "Retrieve SBOMs"
 aliases: 
 - /chainguard/chainguard-images/retrieve-image-sboms
 - /chainguard/chainguard-images/images-features/retrieve-image-sboms
@@ -77,16 +77,30 @@ Check out our guide on [using the Chainguard Containers Directory](/chainguard/c
 
 Chainguard publishes several different types of attestations. Not every image will have every predicate type; availability depends on the image and its build process. Available predicate types include:
 
-| Attestation Type         | Description  | Availability  |
-| :----------------------- | ------------ | ------------  |
-| `https://slsa.dev/provenance/v1` (`slsaprovenance1`)  	| The [SLSA 1.0](https://slsa.dev/spec/v1.0/provenance) provenance attestation contains information about the image build environment. | Available on all images. |
-| `https://apko.dev/image-configuration` | Contains the configuration used by that particular image build, including direct dependencies, user accounts, and entry point.   	| Available on all images. |
-| `https://spdx.dev/Document` (`spdx`,`spdxjson`)   	| Contains the image SBOM in SPDX format. | Available on all images.                                                            	|
-| `https://chainguard.dev/end-of-life`   	| End-of-life status. | Only available on EOL images in grace period. |
-| `https://cyclonedx.org/bom` (`cyclonedx`) |   Contains the image SBOM in CycloneDX format. 	| Only available to customers, on new builds or rebuilds after January 29, 2026. |
-| `https://chainguard.dev/helm-values/v1`   	| Contains Helm values for images with vetted upstream Helm charts. | Only images that are tested with Helm and have a corresponding upstream Helm chart have this attestation. |  
-| `https://chainguard.dev/attestation/chart-lock/v1`   	| Contains Helm chart-lock data for relevant images. | Only present for images where Helm chart locking is relevant. |
-| `https://chainguard.dev/attestation/syft/v1` |  Contains Syft-based SBOM attestation. 	| Not available on all images; this predicate is less common. |
+* **SLSA**: `https://slsa.dev/provenance/v1` (`slsaprovenance1`)
+    * The [SLSA 1.0](https://slsa.dev/spec/v1.0/provenance) provenance attestation contains information about the image build environment.
+    * Available on all images.
+* **apko**: `https://apko.dev/image-configuration`
+    * Contains the configuration used by that particular image build, including direct dependencies, user accounts, and entry point.
+    * Available on all images.
+* **SPDX**: `https://spdx.dev/Document` (`spdx`,`spdxjson`)
+    * Contains the image SBOM in SPDX format.
+    * Available on all images.
+* **Chainguard EOL**: `https://chainguard.dev/end-of-life`
+    * End-of-life status.
+    * Only available on EOL images in grace period.
+* **CycloneDX**: `https://cyclonedx.org/bom` (`cyclonedx`)
+    * Contains the image SBOM in CycloneDX format.
+    * Only available to customers, on new builds or rebuilds after January 29, 2026.
+* **Chainguard Helm values**: `https://chainguard.dev/helm-values/v1`
+    * Contains Helm values for images with vetted upstream Helm charts.
+    * Only images that are tested with Helm and have a corresponding upstream Helm chart have this attestation.
+* **Chainguard Helm chart-lock**: `https://chainguard.dev/attestation/chart-lock/v1`
+    * Contains Helm chart-lock data for relevant images.
+    * Only present for images where Helm chart locking is relevant.
+* **Syft**: `https://chainguard.dev/attestation/syft/v1`
+    * Contains Syft-based SBOM attestation.
+    * Not available on all images; this predicate is less common.
 
 ## License Information and Source Code references
 
