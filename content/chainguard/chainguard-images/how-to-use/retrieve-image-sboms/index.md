@@ -57,14 +57,14 @@ You can include the following flags when retrieving attestations:
     * This flag requires Cosign version 2.2.1 or newer.
 * The `--predicate-type` flag, required to specify which type of attestation to retrieve. 
     * Chainguard publishes several different types of attestations. Not every image will have every predicate type; availability depends on the image and its build process. Available predicate types include:
-        * https://apko.dev/image-configuration: Available on all images.
-        * https://slsa.dev/provenance/v1: Available on all images.
-        * https://spdx.dev/Document: Available on all images.
-        * https://chainguard.dev/end-of-life: Only available on EOL images in grace period.
-        * https://cyclonedx.org/bom: Only available to customers, on new builds or rebuilds after January 29, 2026.
-        * https://chainguard.dev/helm-values/v1: Only images that are tested with Helm and have a corresponding upstream Helm chart have this attestation.
-        * https://chainguard.dev/attestation/syft/v1: Not available on all images; this predicate is less common.
-        * https://chainguard.dev/attestation/chart-lock/v1: Only present for images where Helm chart locking is relevant.
+        * `https://apko.dev/image-configuration`: Available on all images.
+        * `https://slsa.dev/provenance/v1`: Available on all images.
+        * `https://spdx.dev/Document`: Available on all images.
+        * `https://chainguard.dev/end-of-life`: Only available on EOL images in grace period.
+        * `https://cyclonedx.org/bom`: Only available to customers, on new builds or rebuilds after January 29, 2026. Use `cyclonedx` as the predicate type flag's value.
+        * `https://chainguard.dev/helm-values/v1`: Only images that are tested with Helm and have a corresponding upstream Helm chart have this attestation.
+        * `https://chainguard.dev/attestation/syft/v1`: Not available on all images; this predicate is less common.
+        * `https://chainguard.dev/attestation/chart-lock/v1`: Only present for images where Helm chart locking is relevant.
 
 ## Image SBOMs in the Chainguard Console
 
