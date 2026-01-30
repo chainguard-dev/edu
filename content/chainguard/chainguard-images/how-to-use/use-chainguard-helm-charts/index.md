@@ -27,12 +27,12 @@ These charts have been tested by Chainguard to confirm they produce expected dep
 
 - For the community charts:
   - Version streaming: Chainguard commits to supporting chart and image versions that match the latest upstream project chart. Within that latest chart we will support the associated image versions.
-  - Testing policy: We test the latest charts with the supported version streams and functionally validate by deploying various versions of Kubernetes clusters, deploying the Helm chart, and functionally validating it in its representative environment by exercising the various functionality of the chart(s). We’ll also continue publishing end-of-life (EOL) version streams as long as they continue to pass our functional validation.
+  - Testing policy: We test the latest charts with the supported version streams and functionally validate by deploying the Helm chart, and functionally validating it in its representative environment by exercising the various functionality of the chart(s). We’ll also continue publishing end-of-life (EOL) version streams as long as they continue to pass our functional validation.
 
 - For the iamguarded charts:
   - We only build the latest/mainline versions of iamguarded images and test them against the latest version of the corresponding iamguarded Helm charts.
 
-For both types, Chainguard makes the provenance of these charts clear. Helm charts are packaged as [OCI artifacts](/open-source/oci/what-are-oci-artifacts/) using the upstream version with an appended revision suffix for updates that include new image digests but no template changes. The OCI artifacts are signed and generate provenance attestations that link to the exact source commit and image digests used to ensure that all artifacts are cryptographically verifiable end-to-end for integrity and origin.
+For both types, Chainguard makes the provenance of these charts clear. Helm charts are packaged as [OCI artifacts](/open-source/oci/what-are-oci-artifacts/) using the upstream version adding an appended revision suffix for updates that include material changes to the chart; otherwise, tags will float based as their dependent images update. The OCI artifacts are signed and generate provenance attestations that link to the exact image digests used to ensure that all artifacts are cryptographically verifiable end-to-end for integrity and origin.
 
 The following is an instructional guide for Chainguard users that are looking for Helm charts to use with their Chainguard container images. There are both similarities and differences for installing the two types of charts. The differences are labeled where they occur.
 
