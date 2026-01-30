@@ -77,8 +77,8 @@ Check out our guide on [using the Chainguard Containers Directory](/chainguard/c
 
 Chainguard publishes several different types of attestations. Not every image will have every predicate type; availability depends on the image and its build process. Available predicate types include:
 
-| Attestation Type  | Description  | Availability  |
-| ----------------- | ------------ | ------------  |
+| Attestation Type         | Description  | Availability  |
+| :----------------------- | ------------ | ------------  |
 | `https://slsa.dev/provenance/v1` (`slsaprovenance1`)  	| The [SLSA 1.0](https://slsa.dev/spec/v1.0/provenance) provenance attestation contains information about the image build environment. | Available on all images. |
 | `https://apko.dev/image-configuration` | Contains the configuration used by that particular image build, including direct dependencies, user accounts, and entry point.   	| Available on all images. |
 | `https://spdx.dev/Document` (`spdx`,`spdxjson`)   	| Contains the image SBOM in SPDX format. | Available on all images.                                                            	|
