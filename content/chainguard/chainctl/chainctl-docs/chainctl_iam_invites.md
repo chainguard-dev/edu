@@ -1,5 +1,5 @@
 ---
-date: 2026-01-28T21:39:13Z
+date: 2026-01-30T16:45:12Z
 title: "chainctl iam invites"
 slug: chainctl_iam_invites
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_invites/
