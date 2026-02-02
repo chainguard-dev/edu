@@ -109,7 +109,7 @@ chainctl iam identities create github-actions-identity \
 This creates an identity that GitHub Actions workflows in `your-org/your-repo` can assume when triggered by push events.
 
 
-### Step 2: Grant permissions
+## Step 2: Grant permissions
 
 The identity needs permission to build Custom Assembly images. You can create a [least-privilege custom role](/chainguard/chainguard-images/features/ca-docs/custom-assembly/#custom-assembly-permissions-requirements/) that contains the `repo.update` and `repo.create` permissions, then grant the necessary permission using `chainctl`:
 
@@ -124,7 +124,7 @@ chainctl iam role-bindings create \
   --group=your-group-id
 ```
 
-### Step 3: Note Your identity ID
+## Step 3: Note Your identity ID
 
 You'll need your identity ID for your CI/CD workflow configuration. Save it for use in the next section:
 
