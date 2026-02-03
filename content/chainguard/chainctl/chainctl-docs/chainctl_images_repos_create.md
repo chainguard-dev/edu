@@ -1,27 +1,29 @@
 ---
 date: 2026-02-02T09:25:35Z
-title: "chainctl iam account-associations unset azure"
-slug: chainctl_iam_account-associations_unset_azure
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_unset_azure/
+title: "chainctl images repos create"
+slug: chainctl_images_repos_create
+url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_create/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam account-associations unset azure
+## chainctl images repos create
 
-Remove AZURE account configuration for a location.
+Create an image repository.
 
 ```
-chainctl iam account-associations unset azure ORGANIZATION_NAME|ORGANIZATION_ID|FOLDER_NAME|FOLDER_ID [--yes] [flags]
+chainctl images repos create {REPO_NAME} --parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID --tier=DEVTOOLS|APPLICATION|BASE|FIPS|AI
 ```
 
 ### Options
 
 ```
-  -h, --help   help for azure
-  -y, --yes    Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
+      --description string   Description for the repo (max 255 characters).
+  -h, --help                 help for create
+      --parent string        The name or id of the parent location to create an image repo.
+      --source string        Repository ID to sync from.
 ```
 
 ### Options inherited from parent commands
@@ -40,5 +42,5 @@ chainctl iam account-associations unset azure ORGANIZATION_NAME|ORGANIZATION_ID|
 
 ### SEE ALSO
 
-* [chainctl iam account-associations unset](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_unset/)	 - Remove cloud provider account associations from a location.
+* [chainctl images repos](/chainguard/chainctl/chainctl-docs/chainctl_images_repos/)	 - Image repo related commands for the Chainguard platform.
 

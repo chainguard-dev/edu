@@ -1,27 +1,28 @@
 ---
 date: 2026-02-02T09:25:35Z
-title: "chainctl iam account-associations unset azure"
-slug: chainctl_iam_account-associations_unset_azure
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_unset_azure/
+title: "chainctl images repos delete"
+slug: chainctl_images_repos_delete
+url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_delete/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam account-associations unset azure
+## chainctl images repos delete
 
-Remove AZURE account configuration for a location.
+Remove an image repository.
 
 ```
-chainctl iam account-associations unset azure ORGANIZATION_NAME|ORGANIZATION_ID|FOLDER_NAME|FOLDER_ID [--yes] [flags]
+chainctl images repos delete {REPO_NAME|REPO_ID} --parent ORGANIZATION_NAME | ORGANIZATION_ID
 ```
 
 ### Options
 
 ```
-  -h, --help   help for azure
-  -y, --yes    Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
+      --allow-missing   Exit with status 0 if the repo does not exist
+  -h, --help            help for delete
+      --parent string   The name or id of the parent location to remove an image repo.
 ```
 
 ### Options inherited from parent commands
@@ -40,5 +41,5 @@ chainctl iam account-associations unset azure ORGANIZATION_NAME|ORGANIZATION_ID|
 
 ### SEE ALSO
 
-* [chainctl iam account-associations unset](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_unset/)	 - Remove cloud provider account associations from a location.
+* [chainctl images repos](/chainguard/chainctl/chainctl-docs/chainctl_images_repos/)	 - Image repo related commands for the Chainguard platform.
 
