@@ -1,5 +1,5 @@
 ---
-date: 2026-01-28T21:39:13Z
+date: 2026-02-02T09:25:35Z
 title: "chainctl images repos build edit"
 slug: chainctl_images_repos_build_edit
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_edit/
@@ -42,6 +42,7 @@ After editing, the command displays a diff of your changes for review. Upon
 confirmation, it updates the repository configuration and starts a custom build
 automatically.
 
+
 Customizable sections:
 
   contents.packages
@@ -71,6 +72,10 @@ Customizable sections:
     NOTE: This is a Beta feature that requires enrollment. Contact your Customer
     Success Team to enable this feature.
 
+Notice: Customer shall not provide Chainguard any personal data (or similarly regulated data)
+as part of the Custom Assembly tool, other than the personal data that Chainguard collects in
+the ordinary course of business, as further detailed in its
+[Privacy Notice](https://www.chainguard.dev/legal/privacy-notice).
 
 ```
 chainctl images repos build edit [flags]
