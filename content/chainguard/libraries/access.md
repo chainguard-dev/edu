@@ -136,7 +136,7 @@ Password: eyJhbGciO..........WF0IjoxN
 
 ### Creating pull tokens with the Chainguard console
 
-Follow these steps to create a pull tokens for Chainguard Libraries in the
+Follow these steps to create a pull token for Chainguard Libraries in the
 Chainguard console:
 
 1. Use your authentication details to access the console at
