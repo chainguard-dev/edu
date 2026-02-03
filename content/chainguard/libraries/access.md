@@ -263,6 +263,21 @@ password CHAINGUARD_PYTHON_TOKEN
 
 Note that the long string for the password value must use only one line.
 
+### Verification
+
+Use the credentials for manual testing in a browser or with a script and curl if
+you know the URL for a specific library artifact. Refer to the following
+sections for more details:
+
+* [Technical details and manual testing for Java
+  libraries](/chainguard/libraries/java/overview/#technical-details)
+* [Technical details and manual testing for JavaScript
+  libraries](/chainguard/libraries/javascript/overview/#technical-details)
+* [Technical details and manual testing for Python
+  libraries](/chainguard/libraries/python/overview/#technical-details)
+* [Use environment variables](#env)
+* [.netrc for authentication](#netrc)
+
 <a id name="python-keyring"></a>
 
 ## Python keyring provider
@@ -325,22 +340,6 @@ To enable it in a project-specific pyproject.toml:
 [tool.uv]
 keyring-provider = "subprocess"
 ```
-
-### Verification
-
-Use the credentials for manual testing in a browser or with a script and curl if
-you know the URL for a specific library artifact. Refer to the following
-sections for more details:
-
-* [Technical details and manual testing for Java
-  libraries](/chainguard/libraries/java/overview/#technical-details)
-* [Technical details and manual testing for JavaScript
-  libraries](/chainguard/libraries/javascript/overview/#technical-details)
-* [Technical details and manual testing for Python
-  libraries](/chainguard/libraries/python/overview/#technical-details)
-* [Use environment variables](#env)
-* [.netrc for authentication](#netrc)
-
 
 <a id="pull-token-management"></a>
 
