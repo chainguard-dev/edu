@@ -12,6 +12,7 @@
     {{ .Scratch.Set "class" .Type -}}
     {{ .Scratch.Add "class" " list" -}}
   {{ end -}}
+  {{ partial "amplitude.html" . }}
   <body class="{{ .Scratch.Get "class" }}">
     {{ partial "googleTagManagerBody.html" . }}
     {{ partial "header/header.html" . }}
