@@ -1,5 +1,5 @@
 ---
-date: 2026-01-28T21:39:13Z
+date: 2026-02-02T09:25:35Z
 title: "chainctl images repos build apply"
 slug: chainctl_images_repos_build_apply
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_apply/
@@ -64,10 +64,16 @@ Customizable sections:
   certificates
     Provide custom certificates that will be merged with the default certificate
     bundle in the image. This is useful for adding internal CA certificates.
-    Certificates must be defined in the YAML manifest.
+    Certificates can be defined in the YAML manifest or loaded from files using
+    the --with-certificates flag (can be specified multiple times). Both methods
+    can be combined and all certificates are merged together.
     NOTE: This is a Beta feature that requires enrollment. Contact your Customer
     Success Team to enable this feature.
 
+Notice: Customer shall not provide Chainguard any personal data (or similarly regulated data)
+as part of the Custom Assembly tool, other than the personal data that Chainguard collects in
+the ordinary course of business, as further detailed in its
+[Privacy Notice](https://www.chainguard.dev/legal/privacy-notice).
 
 ```
 chainctl images repos build apply [flags]
