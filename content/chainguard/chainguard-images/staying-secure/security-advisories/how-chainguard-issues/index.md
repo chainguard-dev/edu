@@ -42,9 +42,9 @@ For automated vulnerability monitoring and integration with CI/CD pipelines, Cha
 
 These machine-readable feeds can be consumed programmatically by vulnerability scanners, security tools, and custom automation scripts. You can find more information regarding these security feeds at our [foundational concepts overview page](https://github.com/chainguard-dev/vulnerability-scanner-support/blob/main/docs/foundational_concepts.md) in our [vulnerability scanner support](https://github.com/chainguard-dev/vulnerability-scanner-support/tree/main) GitHub repository.
 
-If you’re wondering how these security advisories are made, you’re in the right place! In this article, we will walk through the life of a security advisory, starting from a CVE’s disclosure, all the way to its remediation. We’ll also explore what happens after an advisory is released and how its record may be updated over time.
-
 ## Stages of a Security Advisory
+
+If you’re wondering how these security advisories are made, you’re in the right place! In this section, we will walk through the life of a security advisory -- starting from a CVE’s disclosure, all the way to its remediation. We’ll also explore what happens after an advisory is released and how its record may be updated over time.
 
 ### Stage 1: A CVE is Disclosed
 
