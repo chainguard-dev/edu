@@ -5,7 +5,6 @@ command = "npm run build"
 [build.environment]
   HUGO_PARAMS_AMPLITUDEAPIKEY = "riFvUF9GxrejDk1NxL6tLLSPJhJJmMW5"
 
-
 [context.production.environment]
 HUGO_ENV = "production"
 HUGO_VERSION = "0.104.3"
