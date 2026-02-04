@@ -32,7 +32,7 @@ parameter to specify your organization when running commands with `chainctl`.
 
 ### Direct access vs. artifact manager
 
-Chainguard Libraries supports two approaches to access: an artifact manager or
+There are two approaches to access: Using an artifact manager or
 direct access. 
 
 **Artifact manager**
