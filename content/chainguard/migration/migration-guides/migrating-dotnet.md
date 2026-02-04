@@ -403,8 +403,10 @@ The runtime stage automatically runs as non-root, so you don't need to add `USER
 
 When migrating your .NET applications to Chainguard Containers, remember to use the `dotnet-sdk:latest-dev` container image for the build stage, and to choose the appropriate runtime based on the type of application:
 
-- `cgr.dev/chainguard/aspnet-runtime:latest` for ASP.NET applications
-- `cgr.dev/chainguard/dotnet-runtime:latest` for console applications
+- `cgr.dev/chainguard/aspnet-runtime:latest` for ASP.NET applications (these are oftentimes web applications)
+- `cgr.dev/chainguard/dotnet-runtime:latest` for .NET Core applications (these are oftentimes console applications)
+
+Though not recommended, the `aspnet-runtime` image can be used to run .NET Core applications, since it contains the `dotnet-#-runtime` package.
 
 
 ## Learn More
