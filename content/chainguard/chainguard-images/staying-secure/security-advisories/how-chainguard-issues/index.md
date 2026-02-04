@@ -35,7 +35,7 @@ Chainguard publishes its security advisories to a dedicated [Security Advisories
 
 ### Programmatic access
 
-For automated vulnerability monitoring and integration with CI/CD pipelines, Chainguard provides Alpine-style `secdb` security advisory feeds in JSON format:
+For automated vulnerability monitoring and integration with CI/CD pipelines, Chainguard provides [Alpine-style `secdb`](https://deepwiki.com/aquasecurity/trivy-db/4.2.6-alpine-security-database) security advisory feeds in JSON format:
 
 - [Wolfi OS](https://github.com/wolfi-dev/os) feed: [packages.wolfi.dev/os/security.json](https://packages.wolfi.dev/os/security.json)
 - Chainguard Enterprise feed: [packages.cgr.dev/chainguard/security.json](https://packages.cgr.dev/chainguard/security.json)
