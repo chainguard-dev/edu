@@ -6,7 +6,7 @@ bandit==1.9.3
 safety==3.7.0
 
 # Development tools
-black==25.12.0
+black==26.1.0
 pylint==4.0.4
 
 # Runtime dependencies (if needed in future)
