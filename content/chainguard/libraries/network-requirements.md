@@ -31,14 +31,14 @@ the following domains:
 
 ## Access for development tools
 
-Whether using a repository manager or accessing libraries directly, you must have HTTPS access to:
+Whether using a repository manager or accessing libraries directly, you must allow HTTPS access to:
 
 * `libraries.cgr.dev` for library access
 * `issuer.enforce.dev` for authentication
 
-When using a repository manager, configure these domains in your repository manager. Your workstations and build infrastructure typically require no additional network access, as libraries are served through your repository manager.
+When using a repository manager, allowlist these domains in your repository manager. Your workstations and build infrastructure typically require no additional network access, as libraries are served through your repository manager.
 
-If accessing Chainguard Libraries directly for testing with curl or builds, configure these domains on your workstation.
+If accessing Chainguard Libraries directly for testing with curl or builds, allowlist these domains on your workstation.
 
 ### Library storage locations
 
