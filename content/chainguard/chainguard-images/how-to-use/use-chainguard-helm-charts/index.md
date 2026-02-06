@@ -23,7 +23,7 @@ For organizations looking to deploy their Chainguard container images with Helm,
 
 > Chainguard also offers a limited set of Helm charts to go with a set of Chainguard-created containers labeled as iamguarded, designed specifically to support organizations migrating off of Bitnami. Learn more about these in [How to use Chainguard iamguarded Helm Charts](/chainguard-images/how-to-use/use-chainguard-iamguarded-helm-charts/).
 
-These community charts have been tested by Chainguard to confirm they produce expected deployment results using the following policies:
+The community charts have been tested by Chainguard to confirm they produce expected deployment results using the following policies:
 
 - Version streaming: Chainguard commits to supporting chart and image versions that match the latest upstream project chart. Within that latest chart we will support the associated image versions.
 - Testing policy: We test the latest charts with the supported version streams and functionally validate by deploying the Helm chart in its representative environment and exercising the various functionality of the chart(s). We’ll also continue publishing end-of-life (EOL) version streams as long as they continue to pass our functional validation.
@@ -31,49 +31,6 @@ These community charts have been tested by Chainguard to confirm they produce ex
 Chainguard makes the provenance of these charts clear. Helm charts are packaged as [OCI artifacts](/open-source/oci/what-are-oci-artifacts/) using the upstream version adding an appended revision suffix for updates that include material changes to the chart; otherwise, tags will float based as their dependent images update. The OCI artifacts are signed and generate provenance attestations that link to the exact image digests used to ensure that all artifacts are cryptographically verifiable end-to-end for integrity and origin.
 
 The following is an instructional guide for Chainguard users that are looking for Helm charts to use with their Chainguard container images.
-
-
-## Configuration Requirements
-
-If you are pulling container images directly from Chainguard, then you must set a `global.org` value. You don't need this if you are pulling from your own internal registry.
-
-You can set a `global.org` value using a `--set` flag during installation, as shown in this example:
-
-```sh
-helm install grafana oci://cgr.dev/$ORGANIZATION/charts/grafana \
-  --set "global.org=$ORGANIZATION"
-```
-
-Or in this example for iamguarded charts:
-
-```sh
-helm install rabbitmq oci://cgr.dev/$ORGANIZATION/iamguarded-charts/rabbitmq \
-  --set "global.org=$ORGANIZATION"
-```
-
-Alternately, you can set this value in a YAML file:
-
-```yaml
-global:
-  org: $ORGANIZATION
-```
-
-In addition, users who mirror images to custom repositories should use `global.imageRegistry` to override the default `cgr.dev`. If you have a complex mirroring strategy, consult the chart’s `values.yaml` for individual image configuration options including `registry`, `repository`, `tag` and `digest`. Here’s a sample from the RabbitMQ `iamguarded` chart documentation:
-
-```yaml
-image:
-  registry: myregistry.example.com
-  repository: mirrored/rabbitmq-iamguarded
-  digest: sha256:... # Use specific digest instead of tag
-
-# OS Shell image for volume permissions
-volumePermissions:
-  enabled: true
-  image:
-    registry: myregistry.example.com
-    repository: mirrored/os-shell-iamguarded
-    digest: sha256:... # Use specific digest instead of tag
-```
 
 
 ## Authentication
@@ -161,14 +118,6 @@ helm install grafana oci://cgr.dev/$ORGANIZATION/charts/grafana \
   --set "global.imagePullSecrets[0].name=chainguard-pull-secret"
 ```
 
-Or for imguarded charts:
-
-```sh
-helm install rabbitmq oci://cgr.dev/$ORGANIZATION/iamguarded-charts/rabbitmq \
-  --set "global.org=$ORGANIZATION" \
-  --set "global.imagePullSecrets[0].name=chainguard-pull-secret"
-```
-
 
 When the install is successful, it returns a confirmation message, like this:
 
@@ -206,21 +155,10 @@ NOTES:
 
 If you manage access and permissions at cluster-wide and node-specific levels, these are some best practices to consider.
 
-**Pin to tag:** The best practice for community charts (not iamguarded) is to pin to the image tag, like this:
+**Pin to tag:** The best practice for community charts is to pin to the image tag, like this:
 
 ```sh
 helm install grafana oci://cgr.dev/$ORGANIZATION/charts/grafana --version 10.5.13 \
-  --set "global.org=$ORGANIZATION"
-```
-
-For imguarded charts, instead pin to digest.
-
-
-**For iamguarded, pin to digest:** While charts follow the same tagging scheme as Chainguard images, always pin to a specific chart digest to prevent unexpected updates:
-
-```sh
-helm install rabbitmq \ 
-oci://cgr.dev/$ORGANIZATION/iamguarded-charts/rabbitmq@sha256:DIGEST \
   --set "global.org=$ORGANIZATION"
 ```
 
@@ -229,26 +167,9 @@ oci://cgr.dev/$ORGANIZATION/iamguarded-charts/rabbitmq@sha256:DIGEST \
 
 ## Helm chart usage examples
 
-### Install with details passed in a flag
-
-To install a Helm chart using standard Helm commands and passing details as flag values in the command itself, add the flags and values at the end like this example, substituting your organization for `$ORGANIZATION`.
-
-```sh
-helm install grafana oci://cgr.dev/$ORGANIZATION/charts/grafana \
-  --set "global.org=$ORGANIZATION"
-```
-
-Or for imguarded charts:
-
-
-```sh
-helm install rabbitmq oci://cgr.dev/$ORGANIZATION/iamguarded-charts/rabbitmq \
- --set "global.org=$ORGANIZATION"
-```
-
 ### Install with details in a file
 
-Alternatively, you can put values in a file, such as our `values.yaml` sample, and then refer to the file in your install command.
+You can put values in a file, such as our `values.yaml` sample, and then refer to the file in your install command by passing the detail in a flag.
 
 ```sh
 image:
@@ -264,12 +185,6 @@ helm install grafana oci://cgr.dev/$ORGANIZATION/charts/grafana \
   --values ./values.yaml
 ```
 
-Or for imguarded charts:
-
-```sh
-helm install test oci://cgr.dev/$ORGANIZATION/iamguarded-charts/rabbitmq \
---values ./values.yaml
-```
 
 ### Installing on AWS Elastic Kubernetes Service (EKS) Auto Mode
 When installing on EKS Auto Mode, you may need to create a storage class for the Helm chart's pod(s). This can be done by creating a storage class:
@@ -293,19 +208,10 @@ You then pass the storage class's name to the `helm install` command. Here, we u
 
 ```sh
 helm install grafana oci://cgr.dev/$ORGANIZATION/charts/grafana \
-  --set "global.org=$ORGANIZATION" \
   --set "global.imagePullSecrets[0].name=chainguard-pull-secret" \
   --set "persistence.storageClass=gp3-automode"
 ```
 
-Or, like this for iamguarded, using `rabbitmq` as an example:
-
-```sh
-helm install rabbitmq oci://cgr.dev/$ORGANIZATION/iamguarded-charts/rabbitmq \
-  --set "global.org=$ORGANIZATION" \
-  --set "global.imagePullSecrets[0].name=chainguard-pull-secret" \
-  --set "persistence.storageClass=gp3-automode"
-```
 
 ## Troubleshooting 
 
@@ -317,22 +223,10 @@ To see the files, run:
 helm pull --untar oci://cgr.dev/$ORGANIZATION/charts/grafana \
 ```
 
-Or for imguarded charts:
-
-```sh
-helm pull --untar oci://cgr.dev/$ORGANIZATION/iamguarded-charts/rabbitmq
-```
-
 To get the `values.yaml` so you can examine it, run:
 
 ```sh
 helm show values oci://cgr.dev/$ORGANIZATION/charts/grafana \
-```
-
-Or for imguarded charts:
-
-```sh
-helm show values oci://cgr.dev/$ORGANIZATION/iamguarded-charts/rabbitmq
 ```
 
 See the [Helm commands documentation](https://helm.sh/docs/helm/) for more information.
