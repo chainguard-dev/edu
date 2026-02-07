@@ -1,5 +1,5 @@
 ---
-date: 2026-02-03T18:04:26Z
+date: 2026-02-06T15:27:44Z
 title: "chainctl iam identity-providers list"
 slug: chainctl_iam_identity-providers_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers_list/

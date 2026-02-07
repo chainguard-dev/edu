@@ -1,5 +1,5 @@
 ---
-date: 2026-02-03T18:04:26Z
+date: 2026-02-06T15:27:44Z
 title: "chainctl packages versions list"
 slug: chainctl_packages_versions_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_packages_versions_list/
