@@ -12,6 +12,7 @@ ignoreErrors = ["image-not-found"]
 # googleAnalytics = 'G-05CPR1LJPR' # Handled by GTM now
 [params]
   googleTagManager = "GTM-58WV5RN"
+  amplitudeApiKey = "riFvUF9GxrejDk1NxL6tLLSPJhJJmMW5"
 # Multilingual
 defaultContentLanguage = "en"
 disableLanguages = ["de", "nl"]
