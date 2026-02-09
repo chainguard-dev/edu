@@ -15,7 +15,7 @@ weight: 004
 toc: true
 ---
 
-There are currently over [1,000 Chainguard Containers](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) and that number is always growing as we add more to our expanding catalog.
+There are currently over [2,000 Chainguard Containers](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) and that number is always growing as we add more to our expanding catalog.
 
 If you would like a Chainguard Container that is not yet available, or inquire about whether we would build a given container image, Chainguard will endeavor to perform an analysis on the request. Chainguard aims to build new container images that are relevant to our customers and to support broader software security goals. However, it is not always feasible to package and build software. Please note that we have the following general criteria when considering requests.  
 
