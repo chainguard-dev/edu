@@ -366,7 +366,7 @@ Highlight your chosen build report and select it by pressing `ENTER`. This will 
 
 The `chainctl` commands outlined in this guide show how you can interact with Chainguard's Custom Assembly tool from the command line.
 
-You can also interact with Custom Assembly with the [Chainguard API](/chainguard/administration/api/). Our tutorial on [Using the Chainguard API to Manage Custom Assembly Resources](/chainguard/chainguard-images/features/ca-docs/custom-assembly-api-demo/) outlines how to run a demo application that updates the configuration of a Custom Assembly container through the Chainguard API.
+You can also interact with Custom Assembly with the [Chainguard API](/chainguard/api/spec/). Our tutorial on [Using the Chainguard API to Manage Custom Assembly Resources](/chainguard/chainguard-images/features/ca-docs/custom-assembly-api-demo/) outlines how to run a demo application that updates the configuration of a Custom Assembly container through the Chainguard API.
 
 ### Troubleshooting
 
