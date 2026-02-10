@@ -58,6 +58,15 @@ chainctl iam identities create github my-identity-name \
     --role registry.pull
 ```
 
+Regex is also available. For example creating an identity that can be assumed by multiple repositories and multiple branches.
+
+```sh
+chainctl iam identitie create github my-identity-name \
+    --github-repo='my-org/.*' \
+    --github-refs='refs/heads/main|master'
+    --role registry.pull
+```
+
 This will return the identity's
 [UIDP (unique identity path)](/chainguard/administration/cloudevents/events-reference/#uidp-identifiers).
 Note this value down, as you'll need it to set up the GitHub Actions workflow.
