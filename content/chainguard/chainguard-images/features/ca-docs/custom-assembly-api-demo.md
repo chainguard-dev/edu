@@ -161,12 +161,12 @@ These functions come together in the `main()` function, which performs five main
 
 To accomplish all this, the application's functions perform the following API calls:
 
-* [ListBuildReports](/chainguard/administration/api/#/operations/Registry_ListBuildReports)
-* [ListRepos](/chainguard/administration/api/#/operations/Registry_ListRepos)
-* [UpdateRepo](/chainguard/administration/api/#/operations/Registry_UpdateRepo)
-* [Groups_List](/chainguard/administration/api/#/operations/Groups_List)
+* [ListBuildReports](/chainguard/api/spec/#/operations/Registry_ListBuildReports)
+* [ListRepos](/chainguard/api/spec/#/operations/Registry_ListRepos)
+* [UpdateRepo](/chainguard/api/spec/#/operations/Registry_UpdateRepo)
+* [Groups_List](/chainguard/api/spec/#/operations/Groups_List)
 
-For a deeper understanding of what each function does and how the application works overall, we encourage you to closely review the `main.go` file before running it. You may also benefit from reviewing our [OpenAPI Specification reference document](/chainguard/administration/api/). 
+For a deeper understanding of what each function does and how the application works overall, we encourage you to closely review the `main.go` file before running it. You may also benefit from reviewing our [OpenAPI Specification reference document](/chainguard/api/spec/). 
 
 Once you feel you have a grasp on how the demo application works, move on to the next section which outlines how to run it.
 

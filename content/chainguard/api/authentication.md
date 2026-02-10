@@ -1,6 +1,8 @@
 ---
 title: "Authenticating with the Chainguard SDK"
-linktitle: "SDK Authentication"
+linktitle: "Authentication"
+aliases:
+- /chainguard/administration/sdk-authentication/
 type: "article"
 description: "Tutorial with examples showing how you can authenticate with the Chainguard SDK's auth and auth/ggcr packages."
 date: 2025-06-04T08:49:31+00:00
@@ -187,4 +189,4 @@ To learn more, you may be interested in the following resources:
 
 * [Overview of Assumable Identities in Chainguard](/chainguard/administration/assumable-ids/assumable-ids/)
 * [Authenticate to Chainguard's Registry](/chainguard/chainguard-registry/authenticating/)
-* [Chainguard OpenAPI Specification](/chainguard/administration/api/)
+* [Chainguard OpenAPI Specification](/chainguard/api/spec/)
