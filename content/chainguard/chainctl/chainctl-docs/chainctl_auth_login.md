@@ -1,5 +1,5 @@
 ---
-date: 2026-02-03T18:04:26Z
+date: 2026-02-06T15:27:44Z
 title: "chainctl auth login"
 slug: chainctl_auth_login
 url: /chainguard/chainctl/chainctl-docs/chainctl_auth_login/
@@ -14,7 +14,7 @@ toc: true
 Login to the Chainguard platform.
 
 ```
-chainctl auth login [--invite-code=INVITE_CODE] [--identity-token=PATH_TO_TOKEN] [--identity=IDENTITY_ID] [--identity-provider=IDP_ID] [--org-name=ORG_NAME] [--social-login={email|google|github|gitlab}] [--headless] [--prefer-ambient-credentials] [--refresh] [--output=id|json|none|table]
+chainctl auth login [--invite-code=INVITE_CODE] [--identity-token=PATH_TO_TOKEN] [--identity=IDENTITY_ID] [--identity-provider=IDP_ID] [--org-name=ORG_NAME] [--audience=AUDIENCE]... [--social-login={email|google|github|gitlab}] [--headless] [--prefer-ambient-credentials] [--refresh] [--output=id|json|none|table]
 ```
 
 ### Examples
@@ -36,6 +36,7 @@ chainctl auth login [--invite-code=INVITE_CODE] [--identity-token=PATH_TO_TOKEN]
 ### Options
 
 ```
+      --audience stringArray         The Chainguard token audience to request. Can be specified multiple times to create separate tokens.
       --headless                     Skip browser authentication and use device flow.
   -h, --help                         help for login
       --identity string              The unique ID of the identity to assume when logging in.
@@ -53,7 +54,6 @@ chainctl auth login [--invite-code=INVITE_CODE] [--identity-token=PATH_TO_TOKEN]
 
 ```
       --api string         The url of the Chainguard platform API. (default "https://console-api.enforce.dev")
-      --audience string    The Chainguard token audience to request. (default "https://console-api.enforce.dev")
       --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
       --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
       --force-color        Force color output even when stdout is not a TTY.
