@@ -1,5 +1,5 @@
 ---
-date: 2026-02-03T18:04:26Z
+date: 2026-02-06T15:27:44Z
 title: "chainctl images repos update"
 slug: chainctl_images_repos_update
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_update/
@@ -26,7 +26,7 @@ chainctl images repos update {REPO_NAME|REPO_ID} --parent ORGANIZATION_NAME | OR
   -h, --help                 help for update
       --name string          Updated name for the repo.
       --parent string        The name or id of the parent location of the repo to update.
-      --tier string          Catalog tier. One of: [BASE,FIPS,AI,DEVTOOLS,APPLICATION]
+      --tier string          Catalog tier. One of: [FIPS,AI,DEVTOOLS,APPLICATION,BASE]
 ```
 
 ### Options inherited from parent commands
