@@ -40,6 +40,10 @@ jobs:
     - name: npm install
       run: npm install
 
+    - name: Set Amplitude API key
+      run: |
+        sed -i '/^\[params\]$/a\  amplitudeApiKey = "${{ secrets.AMPLITUDE_PUBLIC_API_KEY }}"' config/_default/config.toml
+
     - name: npm run build
       run: npm run build
 
