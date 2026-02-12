@@ -1,37 +1,16 @@
-<script>
-  (function(e,t){var n=e.amplitude||{_q:[],_iq:{}};
-  var r=t.createElement("script");r.type="text/javascript";
-  r.integrity="sha384-RXg9t8S3YkP4zZ8Ytq5qzW8j5Rk1U0Z9k+0nZJ0q9z7GZx7q0Z0pZ1k5Y1Q";
-  r.crossOrigin="anonymous";
-  r.async=true;
-  r.src="https://cdn.amplitude.com/libs/amplitude-8.18.1-min.gz.js";
-  r.onload=function(){if(!e.amplitude.runQueuedFunctions){
-    console.log("[Amplitude] Error: could not load SDK");}};
-  var i=t.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i);
-  function s(e,t){e.prototype[t]=function(){
-    this._q.push([t].concat(Array.prototype.slice.call(arguments,0)));
-    return this;}}
-  var o=function(){this._q=[];return this;};
-  var a=["add","append","clearAll","prepend","set","setOnce","unset"];
-  for(var c=0;c<a.length;c++){s(o,a[c]);}
-  n.Identify=o;
-  var u=function(){this._q=[];return this;};
-  var l=["setProductId","setQuantity","setPrice","setRevenueType","setEventProperties"];
-  for(var p=0;p<l.length;p++){s(u,l[p]);}
-  n.Revenue=u;
-  var d=["init","logEvent","setUserId","setUserProperties","setOptOut","setVersionName","setDomain","setDeviceId","enableTracking","setGlobalUserProperties"];
-  for(var v=0;v<d.length;v++){s(n,d[v]);}
-  e.amplitude=n;
-  })(window,document);
+<script type="text/javascript">
+!function(){"use strict";!function(e,t){var r=e.amplitude||{_q:[],_iq:{}};if(r.invoked)e.console&&console.error&&console.error("Amplitude snippet has been loaded.");else{var n=function(e,t){e.prototype[t]=function(){return this._q.push({name:t,args:Array.prototype.slice.call(arguments,0)}),this}},s=function(e,t,r){return function(n){e._q.push({name:t,args:Array.prototype.slice.call(r,0),resolve:n})}},i=function(e,t,r){e[t]=function(){if(r)return{promise:new Promise(s(e,t,Array.prototype.slice.call(arguments)))};!function(e,t,r){e._q.push({name:t,args:Array.prototype.slice.call(r,0)})}(e,t,Array.prototype.slice.call(arguments))}},o=function(e){for(var t=0;t<m.length;t++)i(e,m[t],!1);for(var r=0;r<y.length;r++)i(e,y[r],!0)};r.invoked=!0;var c=t.createElement("script");c.type="text/javascript",c.integrity="sha384-w6jnsz1UVI8/tE15OISsDGEwBXn+DnL4t6sAQk2CimY5iBtLvv5Ct4i+Hm8mIPmJ",c.crossOrigin="anonymous",c.async=!0,c.src="https://cdn.amplitude.com/libs/analytics-browser-2.34.0-min.js.gz",c.onload=function(){e.amplitude.runQueuedFunctions||console.log("[Amplitude] Error: could not load SDK")};var a=t.getElementsByTagName("script")[0];a.parentNode.insertBefore(c,a);for(var u=function(){return this._q=[],this},p=["add","append","clearAll","prepend","set","setOnce","unset","preInsert","postInsert","remove","getUserProperties"],l=0;l<p.length;l++)n(u,p[l]);r.Identify=u;for(var d=function(){return this._q=[],this},v=["getEventProperties","setProductId","setQuantity","setPrice","setRevenue","setRevenueType","setReceipt","setReceiptSig","setCurrency","setEventProperties"],f=0;f<v.length;f++)n(d,v[f]);r.Revenue=d;var m=["getDeviceId","setDeviceId","getSessionId","setSessionId","getUserId","setUserId","setOptOut","setTransport","reset","extendSession"],y=["init","add","remove","track","logEvent","identify","groupIdentify","setGroup","revenue","flush"];o(r),r.createInstance=function(e){return r._iq[e]={_q:[]},o(r._iq[e]),r._iq[e]},e.amplitude=r}}(window,document)}();
 
   amplitude.init("riFvUF9GxrejDk1NxL6tLLSPJhJJmMW5", {
-    defaultTracking: {
+    autocapture: {
+      attribution: false,
       pageViews: true,
-      sessions: true
+      sessions: true,
+      formInteractions: false,
+      fileDownloads: false,
+      elementInteractions: false,
+      pageUrlEnrichment: false,
+      webVitals: false,
     }
-  });
-    amplitude.logEvent("docs_page_view", {
-    path: window.location.pathname,
-    title: document.title
   });
 </script>
