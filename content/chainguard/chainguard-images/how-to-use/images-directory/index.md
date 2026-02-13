@@ -184,7 +184,7 @@ For organizations looking to deploy their Chainguard container images with Helm,
 
 You can find these charts and information about them in the Chainguard Console. From the sidebar menu, click **Helm Charts**.
 
-Charts with the shield icon are iamguarded charts, created specifically to help people who are switching from Bitnami.
+Charts with the **shield** icon are iamguarded charts, created specifically to help people who are switching from Bitnami.
 
 <center><img src="helm-charts-in-console.png" alt="Screenshot showing Helm charts listed in the Chainguard Console."></center>
 <br />

@@ -188,7 +188,7 @@ helm install grafana oci://cgr.dev/$ORGANIZATION/charts/grafana \
 ```
 
 
-### Installing on AWS Elastic Kubernetes Service (EKS) Auto Mode
+### Install on AWS Elastic Kubernetes Service (EKS) Auto Mode
 When installing on EKS Auto Mode, you may need to create a storage class for the Helm chart's pod(s). This can be done by creating a storage class:
 
 ```sh
