@@ -35,7 +35,7 @@ This model is best suited for organizations that use many different Chainguard i
 
 Organizations that have signed up for Catalog Pricing can add container images through [Chainguard's Self-Serve Catalog Experience](http://chainguard.dev/unchained/introducing-the-self-serve-catalog-experience). This allows customers to independently add Chainguard Containers to their organization's catalog directly within the console, without needing to file support tickets or wait for Chainguard to provision resources manually.
 
-In order for a user to add images to their organization through the Self-Serve Experience, they must be bound to a role with the `repo (create, read list, update)` capabilities. Additionally, it may be helpful for users working with the Self-Serve Experience to have the `registry.entitlement (list)` capability in order to understand their organization's registry access entitlements.
+In order for a user to add images to their organization through the Self-Serve Experience, they must be bound to a role with the `repo (create, list, update)` capabilities. Additionally, it may be helpful for users working with the Self-Serve Experience to have the `registry.entitlement (list)` capability in order to understand their organization's registry access entitlements.
 
 The only built-in role with all of these capabilities is the `owner` role. Users intending to work with the Self-Serve Catalog Experience should be bound to the `owner` role or a custom role with the appropriate capabilities. Refer to our documentation [Roles and Role-bindings](/chainguard/administration/iam-organizations/roles-role-bindings/) for more details.
 
