@@ -40,6 +40,3 @@ When using a repository manager, allowlist these domains in your repository mana
 
 If accessing Chainguard Libraries directly for testing with curl or builds, allowlist these domains on your workstation.
 
-### Library storage locations
-
-Chainguard Libraries are stored and served from Google Artifact Registry (GAR).
