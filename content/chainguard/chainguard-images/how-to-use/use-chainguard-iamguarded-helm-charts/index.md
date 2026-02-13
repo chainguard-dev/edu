@@ -21,7 +21,7 @@ toc: true
 
 Chainguard offers this limited iamguarded set of Helm charts to go with a set of Chainguard-created containers labeled as iamguarded, designed specifically to support organizations migrating off of Bitnami. The iamguarded charts are forked from upstream Bitnami charts, but now configured out-of-the box for use with Chainguard’s hardened container images. These charts only receive edits necessary to make them work with Chainguard container images and retain the intended functionality of the originals they are based on. Because the iamguarded charts are forks, they may be susceptible to breaking changes introduced by the upstream. In such cases, customers should plan to transition to a community-provided alternative (or an equivalent one from Chainguard) where possible.
 
-> For organizations looking to deploy their Chainguard container images with Helm and who don't need or want the iamguarded charts, Chainguard provides upstream-produced Helm charts, learn more about these in [How to use Chainguard Helm Charts](/chainguard/chainguard-images/how-to-use/use-chainguard-helm-charts/).
+> For organizations looking to deploy their Chainguard container images with Helm and who don't need or want the iamguarded charts, Chainguard provides upstream-produced Helm charts. Learn more about these in [How to use Chainguard Helm Charts](/chainguard/chainguard-images/how-to-use/use-chainguard-helm-charts/).
 
 These iamguarded charts have been tested by Chainguard to confirm they produce expected deployment results using the following policies:
 
@@ -248,7 +248,7 @@ Then you refer to the file like this:
 helm install test oci://cgr.dev/chainguard-private/iamguarded-charts/rabbitmq --values ./values.yaml
 ```
 
-### Installing on AWS Elastic Kubernetes Service (EKS) Auto Mode
+### Install on AWS Elastic Kubernetes Service (EKS) Auto Mode
 
 When installing on EKS Auto Mode, you may need to create a storage class for the Helm chart's pod(s). This can be done by creating a storage class:
 

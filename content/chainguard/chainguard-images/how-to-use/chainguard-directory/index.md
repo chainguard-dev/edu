@@ -54,7 +54,7 @@ For organizations looking to deploy their Chainguard container images with Helm,
 
 You can find these charts and information about them in the Chainguard Directory. From the Categories sidebar menu, click **Helm charts**.
 
-All Helm charts have a **Helm** icon, making them easier to see when looking through the full images list without using the Helm-specific category. Charts with the shield icon are iamguarded charts, created specifically to help people who are switching from Bitnami.
+All Helm charts have a **Helm** icon, making them easier to see when looking through the full images list without using the Helm-specific category. Charts with the **shield** icon are iamguarded charts, created specifically to help people who are switching from Bitnami.
 
 <center><img src="helm-charts-in-directory.png" alt="Screenshot showing Helm charts listed in the Chainguard Directory."></center>
 <br />
