@@ -30,6 +30,8 @@ The community charts have been tested by Chainguard to confirm they produce expe
 
 Chainguard makes the provenance of these charts clear. Helm charts are packaged as [OCI artifacts](/open-source/oci/what-are-oci-artifacts/) using the upstream version adding an appended revision suffix for updates that include material changes to the chart; otherwise, tags will float based as their dependent images update. The OCI artifacts are signed and generate provenance attestations that link to the exact image digests used to ensure that all artifacts are cryptographically verifiable end-to-end for integrity and origin.
 
+You can find Helm charts in the [Chainguard Console](/chainguard/chainguard-images/how-to-use/images-directory/#find-helm-charts-in-the-chainguard-console) and in the [Chainguard Directory](/chainguard/chainguard-images/how-to-use/chainguard-directory/#find-helm-charts-in-the-chainguard-directory).
+
 The following is an instructional guide for Chainguard users that are looking for Helm charts to use with their Chainguard container images.
 
 
