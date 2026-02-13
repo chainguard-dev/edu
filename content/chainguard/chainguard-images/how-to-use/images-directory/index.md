@@ -178,6 +178,19 @@ Chainguard Containers viewed in the Console have an additional **Builds** tab. H
 
 Our guide on [Using the Chainguard Console to Manage Custom Assembly Resources](/chainguard/chainguard-images/features/ca-docs/custom-assembly-console/) provides an in-depth overview of the Builds tab, as well as working with Custom Assembly in the Chainguard Console.
 
+### Find Helm Charts in the Chainguard Console
+
+For organizations looking to deploy their Chainguard container images with Helm, Chainguard provides upstream-produced Helm charts as well as a set of Chainguard-created charts labeled as iamguarded, designed specifically to support organizations migrating off of Bitnami.
+
+You can find these charts and information about them in the Chainguard Console. From the sidebar menu, click **Helm Charts**.
+
+Charts with the shield icon are iamguarded charts, created specifically to help people who are switching from Bitnami.
+
+<center><img src="helm-charts-in-console.png" alt="Screenshot showing Helm charts listed in the Chainguard Console."></center>
+<br />
+
+Click any chart name to learn the chart details.
+
 
 ## Learn More
 
