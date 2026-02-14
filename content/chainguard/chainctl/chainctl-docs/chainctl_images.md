@@ -1,5 +1,5 @@
 ---
-date: 2026-02-06T15:27:44Z
+date: 2026-02-13T21:33:41Z
 title: "chainctl images"
 slug: chainctl_images
 url: /chainguard/chainctl/chainctl-docs/chainctl_images/
@@ -13,12 +13,6 @@ toc: true
 
 Images related commands for the Chainguard platform.
 
-### Options
-
-```
-  -h, --help   help for images
-```
-
 ### Options inherited from parent commands
 
 ```
@@ -27,6 +21,7 @@ Images related commands for the Chainguard platform.
       --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
       --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
       --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
       --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
       --log-level string   Set the log level (debug, info) (default "ERROR")
   -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]
@@ -36,9 +31,11 @@ Images related commands for the Chainguard platform.
 ### SEE ALSO
 
 * [chainctl](/chainguard/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
+* [chainctl images advisories](/chainguard/chainctl/chainctl-docs/chainctl_images_advisories/)	 - Security advisory commands for images.
 * [chainctl images changelog](/chainguard/chainctl/chainctl-docs/chainctl_images_changelog/)	 - Show changelog for image history
 * [chainctl images diff](/chainguard/chainctl/chainctl-docs/chainctl_images_diff/)	 - Diff images.
 * [chainctl images entitlements](/chainguard/chainctl/chainctl-docs/chainctl_images_entitlements/)	 - Manage entitlements to registry repositories.
+* [chainctl images helm](/chainguard/chainctl/chainctl-docs/chainctl_images_helm/)	 - Helm chart related commands
 * [chainctl images history](/chainguard/chainctl/chainctl-docs/chainctl_images_history/)	 - Show history for a specific image tag.
 * [chainctl images list](/chainguard/chainctl/chainctl-docs/chainctl_images_list/)	 - List tagged images from Chainguard registries.
 * [chainctl images repos](/chainguard/chainctl/chainctl-docs/chainctl_images_repos/)	 - Image repo related commands for the Chainguard platform.

@@ -1,17 +1,17 @@
 ---
 date: 2026-02-13T21:33:41Z
-title: "chainctl iam identity-providers"
-slug: chainctl_iam_identity-providers
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers/
+title: "chainctl images advisories"
+slug: chainctl_images_advisories
+url: /chainguard/chainctl/chainctl-docs/chainctl_images_advisories/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam identity-providers
+## chainctl images advisories
 
-customer managed identity provider management
+Security advisory commands for images.
 
 ### Options inherited from parent commands
 
@@ -30,9 +30,6 @@ customer managed identity provider management
 
 ### SEE ALSO
 
-* [chainctl iam](/chainguard/chainctl/chainctl-docs/chainctl_iam/)	 - IAM related commands for the Chainguard platform.
-* [chainctl iam identity-providers create](/chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers_create/)	 - Create an identity provider
-* [chainctl iam identity-providers delete](/chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers_delete/)	 - Delete an identity provider.
-* [chainctl iam identity-providers list](/chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers_list/)	 - List identity providers.
-* [chainctl iam identity-providers update](/chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers_update/)	 - Update an identity provider
+* [chainctl images](/chainguard/chainctl/chainctl-docs/chainctl_images/)	 - Images related commands for the Chainguard platform.
+* [chainctl images advisories list](/chainguard/chainctl/chainctl-docs/chainctl_images_advisories_list/)	 - List security advisories for packages in an image.
 
