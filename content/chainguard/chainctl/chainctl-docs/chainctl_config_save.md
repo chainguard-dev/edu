@@ -1,5 +1,5 @@
 ---
-date: 2026-02-06T15:27:44Z
+date: 2026-02-13T21:33:41Z
 title: "chainctl config save"
 slug: chainctl_config_save
 url: /chainguard/chainctl/chainctl-docs/chainctl_config_save/
@@ -20,8 +20,7 @@ chainctl config save [--config FILE] [--yes] [flags]
 ### Options
 
 ```
-  -h, --help   help for save
-  -y, --yes    Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
+  -y, --yes   Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 
 ### Options inherited from parent commands
@@ -32,6 +31,7 @@ chainctl config save [--config FILE] [--yes] [flags]
       --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
       --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
       --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
       --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
       --log-level string   Set the log level (debug, info) (default "ERROR")
   -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]

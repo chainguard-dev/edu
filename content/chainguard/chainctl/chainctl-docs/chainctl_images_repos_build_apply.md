@@ -1,5 +1,5 @@
 ---
-date: 2026-02-06T15:27:44Z
+date: 2026-02-13T21:33:41Z
 title: "chainctl images repos build apply"
 slug: chainctl_images_repos_build_apply
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_apply/
@@ -95,17 +95,23 @@ chainctl images repos build apply --repo=my-custom-python --file=config.yaml --y
 # Apply to interactively selected repository
 chainctl images repos build apply --file=config.yaml
 
+# Add custom certificates
+chainctl images repos build apply --repo=my-custom-python --file=config.yaml --with-certificates=ca1.pem --with-certificates=ca2.pem
+
+# Combine file-based config with certificates (for CI/CD)
+chainctl images repos build apply --file=config.yaml --with-certificates=internal-ca.pem --yes
+
 ```
 
 ### Options
 
 ```
-  -f, --file string      The name of the file containing the build config.
-  -h, --help             help for apply
-      --parent string    The name or id of the parent location to apply build config.
-      --repo string      The name or id of the repo to apply build config.
-      --save-as string   Create a new repo with the edited configuration instead of updating the existing one.
-  -y, --yes              Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
+  -f, --file string                 The name of the file containing the build config.
+      --parent string               The name or id of the parent location to apply build config.
+      --repo string                 The name or id of the repo to apply build config.
+      --save-as string              Create a new repo with the edited configuration instead of updating the existing one.
+      --with-certificates strings   Comma separated list of files to read the custom certificates from.
+  -y, --yes                         Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 
 ### Options inherited from parent commands
@@ -116,6 +122,7 @@ chainctl images repos build apply --file=config.yaml
       --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
       --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
       --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
       --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
       --log-level string   Set the log level (debug, info) (default "ERROR")
   -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]

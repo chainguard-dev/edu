@@ -1,5 +1,5 @@
 ---
-date: 2026-02-06T15:27:44Z
+date: 2026-02-13T21:33:41Z
 title: "chainctl iam identities update"
 slug: chainctl_iam_identities_update
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_update/
@@ -35,7 +35,6 @@ chainctl iam identities update IDENTITY_NAME | IDENTITY_ID [--description=DESC] 
       --claim-pattern stringArray        A comma-separated list of claim:pattern pairs of custom claims to match for this identity.
       --description string               A description of the identity (optional).
       --expiration string                The time when the issuer_keys will expire. Defaults to / Maximum of 30 days after creation time (yyyy-mm-dd).
-  -h, --help                             help for update
       --identity-issuer string           The issuer of the identity.
       --identity-issuer-pattern string   A pattern to match the issuer of the identity.
       --issuer-keys string               JWKS-formatted public keys for the issuer.
@@ -51,6 +50,7 @@ chainctl iam identities update IDENTITY_NAME | IDENTITY_ID [--description=DESC] 
       --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
       --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
       --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
       --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
       --log-level string   Set the log level (debug, info) (default "ERROR")
   -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]

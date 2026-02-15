@@ -1,5 +1,5 @@
 ---
-date: 2026-02-06T15:27:44Z
+date: 2026-02-13T21:33:41Z
 title: "chainctl auth pull-token list"
 slug: chainctl_auth_pull-token_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token_list/
@@ -14,7 +14,7 @@ toc: true
 List all pull-tokens
 
 ```
-chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|python|javascript|java}] [flags]
+chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|java|python|javascript}] [flags]
 ```
 
 ### Examples
@@ -40,9 +40,8 @@ chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--reposi
 
 ```
       --expired             If true return only expired pull tokens.
-  -h, --help                help for list
       --parent string       The IAM organization or folder with which the pull-token identity is associated.
-      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, python, javascript, java
+      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, java, python, javascript
 ```
 
 ### Options inherited from parent commands
@@ -53,6 +52,7 @@ chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--reposi
       --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
       --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
       --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
       --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
       --log-level string   Set the log level (debug, info) (default "ERROR")
   -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]
