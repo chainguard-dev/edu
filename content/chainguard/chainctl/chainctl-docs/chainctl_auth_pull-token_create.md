@@ -1,5 +1,5 @@
 ---
-date: 2026-02-06T15:27:44Z
+date: 2026-02-13T21:33:41Z
 title: "chainctl auth pull-token create"
 slug: chainctl_auth_pull-token_create
 url: /chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token_create/
@@ -14,7 +14,7 @@ toc: true
 Create a pull token.
 
 ```
-chainctl auth pull-token create [--save=true|false] [--name=NAME] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|python|javascript|java}] [flags]
+chainctl auth pull-token create [--save=true|false] [--name=NAME] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|java|python|javascript}] [flags]
 ```
 
 ### Examples
@@ -36,10 +36,9 @@ chainctl auth pull-token create [--save=true|false] [--name=NAME] [--ttl=NUM_HOU
 ### Options
 
 ```
-  -h, --help                help for create
       --name string         Optional name for the pull token. (default "pull-token")
       --parent string       The IAM organization or folder with which the pull token identity is associated.
-      --repository string   The repository type to create a pull token for. Must be one of: oci, apk, python, javascript, java. (default "oci")
+      --repository string   The repository type to create a pull token for. Must be one of: oci, apk, java, python, javascript. (default "oci")
       --save                Save the OCI registry pull token to the Docker configuration.
       --ttl ns              Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maximum value is 8760h or one year. (default 720h0m0s)
 ```
@@ -52,6 +51,7 @@ chainctl auth pull-token create [--save=true|false] [--name=NAME] [--ttl=NUM_HOU
       --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
       --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
       --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
       --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
       --log-level string   Set the log level (debug, info) (default "ERROR")
   -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]

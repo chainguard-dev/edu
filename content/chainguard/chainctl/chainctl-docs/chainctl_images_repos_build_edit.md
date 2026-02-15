@@ -1,5 +1,5 @@
 ---
-date: 2026-02-06T15:27:44Z
+date: 2026-02-13T21:33:41Z
 title: "chainctl images repos build edit"
 slug: chainctl_images_repos_build_edit
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_edit/
@@ -112,7 +112,6 @@ chainctl images repos build edit --file=config.yaml --with-certificates=internal
 
 ```
   -f, --file string                 The name of the file containing the build config.
-  -h, --help                        help for edit
       --parent string               The name or id of the parent location to apply build config.
       --repo string                 The name or id of the repo to apply build config.
       --save-as string              Create a new repo with the edited configuration instead of updating the existing one.
@@ -127,6 +126,7 @@ chainctl images repos build edit --file=config.yaml --with-certificates=internal
       --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
       --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
       --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
       --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
       --log-level string   Set the log level (debug, info) (default "ERROR")
   -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]
