@@ -95,7 +95,7 @@ You can find the Dockerfiles used in this setup in the [`build-comparison` direc
 
 This table shows that musl-gcc has **a lower compilation time** than gcc on Wolfi for these projects **if it can build the project successfully.**
 
-musl-gcc fails to compile binutils-gdb because it conforms to POSIX standards, and binutils-gdb uses certain code features that are not conformant to these standards. The [binutils project](https://github.com/bminor/binutils-gdb) on the main branch fails to configure with native musl-gcc.
+musl-gcc fails to compile binutils-gdb because it conforms to POSIX standards, and binutils-gdb uses certain code features that are not conformant to these standards.
 
 ## Python Builds
 
