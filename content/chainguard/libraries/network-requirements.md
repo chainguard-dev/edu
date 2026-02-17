@@ -41,6 +41,6 @@ to these domains from your workstation:
 * `libraries.cgr.dev` and `9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com` for library access
 * `issuer.enforce.dev` for authentication
 
-> Note that the `9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com` host is used to serve Libraries via `libraries.cgr.dev`. The same host is also used to serve Chainguard Container images.
+> Note that the `9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com` host is used to serve files via `libraries.cgr.dev`. The same host is also used to serve Chainguard Container images.
 
 
