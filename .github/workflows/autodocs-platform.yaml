@@ -54,6 +54,14 @@ jobs:
     - name: npm install
       run: npm install
 
+    - name: Fetch latest package mappings
+      run: |
+        echo "Fetching latest package mappings from dfc repository..."
+        curl -sL https://raw.githubusercontent.com/chainguard-dev/dfc/main/pkg/dfc/builtin-mappings.yaml \
+          -o data/package-mappings.yaml
+        echo "Package mappings updated successfully"
+        ls -lh data/package-mappings.yaml
+
     - name: npm run build
       run: npm run build
 
