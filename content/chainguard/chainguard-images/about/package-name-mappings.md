@@ -4,7 +4,7 @@ linktitle: "Package Name Mappings"
 type: "article"
 description: "Understanding how Chainguard maps upstream package and image names to Chainguard Containers"
 date: 2025-10-23T11:07:52+02:00
-lastmod: 2025-10-23T11:07:52+02:00
+lastmod: 2026-02-17T12:21:00-08:00
 draft: false
 tags: ["Chainguard Containers", "Packages"]
 images: []
