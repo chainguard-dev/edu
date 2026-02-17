@@ -34,6 +34,8 @@ You can find Helm charts in the [Chainguard Console](/chainguard/chainguard-imag
 
 The following is an instructional guide for Chainguard users that are looking for Helm charts to use with their Chainguard container images.
 
+You can use these Helm charts with Chainguard FIPS container images, but you will need to adjust the charts as they use the non-FIPS images by default. We build a single chart per application and validate that both FIPS and non-FIPS Chainguard Images work with it.
+
 
 ## Authentication
 
