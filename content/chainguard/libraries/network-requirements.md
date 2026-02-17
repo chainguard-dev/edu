@@ -23,10 +23,10 @@ downloaded libraries with cosign and other tools, you must allow HTTPS access to
 the following domains:
 
 * `dl.enforce.dev` for download and update of chainctl
-* `issuer.enforce.dev` for authentication in web console and with chainctl
-* `console-api.enforce.dev` for web console and chainctl to administrate and use
+* `issuer.enforce.dev` for authentication with the Chainguard Console and with chainctl
+* `console-api.enforce.dev` for Chainguard Console and chainctl to administrate and use
   your Chainguard accounts.
-* `console.chainguard.dev` for the web console to administrate and use your
+* `console.chainguard.dev` for the Chainguard Console to administrate and use your
   Chainguard accounts.
 
 ## Access for development tools
@@ -38,7 +38,9 @@ served through your repository manager. If accessing Chainguard Libraries direct
 for testing with curl or builds, ensure your network allows outbound HTTPS access 
 to these domains from your workstation:
 
-* `libraries.cgr.dev` for library access
+* `libraries.cgr.dev` and `9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com` for library access
 * `issuer.enforce.dev` for authentication
+
+> Note that the `9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com` host is used to serve files via `libraries.cgr.dev`. The same host is also used to serve Chainguard Container images.
 
 
