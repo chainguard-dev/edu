@@ -6,7 +6,7 @@ require (
 	cloud.google.com/go/bigquery v1.65.0
 	cloud.google.com/go/storage v1.48.0
 	github.com/klauspost/compress v1.18.4
-	github.com/mattn/go-sqlite3 v1.14.33
+	github.com/mattn/go-sqlite3 v1.14.34
 	github.com/spf13/cobra v1.10.2
 	golang.org/x/sync v0.19.0
 	google.golang.org/api v0.214.0
