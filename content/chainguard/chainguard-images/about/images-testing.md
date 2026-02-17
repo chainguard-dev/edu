@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "A conceptual article outlining testing requirements for Chainguard Containers."
 date: 2024-03-21T11:07:52+02:00
-lastmod: 2025-04-07T11:07:52+02:00
+lastmod: 2026-02-17T11:07:52+02:00
 draft: false
 tags: ["Overview", "Chainguard Containers"]
 images: []
@@ -48,7 +48,7 @@ Chainguard performs the following checks on new container images to ensure that 
 
 | **Requirement** 	  |  **Explanation**     |
 | --- | --- |
-|  **Functionality**     | The application is tested to comply with is upstream counterpart's core feature set.   |
+|  **Functionality**     | The application is tested to comply with its upstream counterpart's core feature set.   |
 |  **Builder Containers**     | Chainguard's builder containers can in fact build new, functional container images.     |
 
 
