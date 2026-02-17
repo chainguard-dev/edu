@@ -298,7 +298,7 @@ After running this command, inspect the copied file locally to confirm that your
 
 ### Alternative: Using incert for certificate injection
 
-For scenarios where you need to add certificates to an existing image without using Custom Assembly, you can use [`incert`](../incert-custom-certs.md), an open-source tool from Chainguard. However, we recommend using Custom Assembly over `incert` whenever possible, as this approach provides:
+For scenarios where you need to add certificates to an existing image without using Custom Assembly, you can use [`incert`](/chainguard/chainguard-images/features/incert-custom-certs/), an open-source tool from Chainguard. However, we recommend using Custom Assembly over `incert` whenever possible, as this approach provides:
 
 * Automatic rebuilds when the base image is updated
 * Integration with Chainguard's security patching lifecycle

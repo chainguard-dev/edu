@@ -33,7 +33,7 @@ Before getting started, you should have:
     * If you have not yet set up CI identities, see [Chainguard's tutorials for creating and assuming identities](/chainguard/administration/assumable-ids/identity-examples/).
 * The full IDs for your [catalog_syncer and apko_builder identities](/chainguard/chainguard-images/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/#chainguards-signing-identities/).
 
-Also note that Chainguard's [demo workflow](/chainguard-demo/custom-assembly-as-code/) uses [octo-sts](https://www.chainguard.dev/unchained/the-end-of-github-pats-you-cant-leak-what-you-dont-have), a tool that generates short-lived GitHub tokens instead of using long-lived Personal Access Tokens (PATs). While octo-sts is optional for Custom Assembly builds, it's recommended for workflows that need GitHub API access alongside Chainguard operations.
+Also note that Chainguard's [demo workflow](https://github.com/chainguard-demo/custom-assembly-as-code) uses [octo-sts](https://www.chainguard.dev/unchained/the-end-of-github-pats-you-cant-leak-what-you-dont-have), a tool that generates short-lived GitHub tokens instead of using long-lived Personal Access Tokens (PATs). While octo-sts is optional for Custom Assembly builds, it's recommended for workflows that need GitHub API access alongside Chainguard operations.
 
 ### Understanding apko overlay files
 
