@@ -270,7 +270,7 @@ Well, there are a few important things they must check:
 * That we were in possession of the key when the message was signed. (You could check AWS/GCP KMS access logs)
 * That the entry is indeed included in the transparency log. (RFC 6962)
 
-The next thing that we can verify in the entry is the Signed Entry Timestamp. I'll leave this explanation to our friend [Hayden Blauzvern](https://github.com/haydentherapper).
+The next thing that we can verify in the entry is the Signed Entry Timestamp. I'll leave this explanation to our friend Hayden Blauzvern:
 
 > As a transparency log, Rekor provides cryptographic proofs of inclusion in a log. Fetching an inclusion proof requires querying the log. The log returns a checkpoint (signed tree head) as a commitment to the current state of the log and the inclusion proof.
 
