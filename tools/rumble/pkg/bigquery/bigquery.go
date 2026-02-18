@@ -8,7 +8,6 @@ package cgbigquery
 import (
 	"context"
 	"fmt"
-	"time"
 
 	"cloud.google.com/go/bigquery"
 	"github.com/chainguard-dev/edu/tools/rumble/pkg/grype"
@@ -55,7 +54,7 @@ type ImageScan struct {
 type VulnWithImages struct {
 	Vulnerability string
 	Image         string
-	Time          time.Time
+	Dates         []string
 }
 
 func NewBqClient(project, db string) (BqClient, error) {

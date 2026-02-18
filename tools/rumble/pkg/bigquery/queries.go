@@ -30,11 +30,12 @@ ORDER BY scan.image, scan.time
 SELECT
   vulns.vulnerability,
   scan.image,
-  scan.time
+  ARRAY_AGG(DISTINCT FORMAT_DATE('%Y-%m-%d', DATE(scan.time)) ORDER BY FORMAT_DATE('%Y-%m-%d', DATE(scan.time))) AS dates
 FROM ` + vulnsTable + ` AS vulns
 INNER JOIN ` + summaryTable + ` AS scan
   ON scan.id = vulns.scan_id
-ORDER BY vulns.vulnerability, scan.image, scan.time
+WHERE scan.time >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 31 DAY)
+GROUP BY vulns.vulnerability, scan.image
 `
 
 	LegacyCsvQuery = `
@@ -52,7 +53,9 @@ SELECT
 	low_cve_count + med_cve_count + high_cve_count + crit_cve_count + unknown_cve_count AS tot_cve_cnt,
 	digest
 FROM ` + summaryTable + `
-WHERE tags NOT LIKE '%latest-dev%'`
+WHERE tags NOT LIKE '%latest-dev%'
+AND time >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 31 DAY)
+AND (image NOT LIKE 'cgr.dev%%' OR image LIKE 'cgr.dev/chainguard/%%')`
 
 	ImageComparisonCsvQuery = `
 WITH ruuuumble AS (
@@ -65,8 +68,9 @@ WITH ruuuumble AS (
 		vulns.severity
 	FROM ` + vulnsTable + ` AS vulns
 	INNER JOIN ` + summaryTable + ` AS scan ON scan.id = vulns.scan_id
-	WHERE (scan.image = @theirs AND scan.tags = @their_tag)
-	OR (scan.image = @ours AND scan.tags = @our_tag)
+	WHERE scan.time >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 31 DAY)
+	AND ((scan.image = @theirs AND scan.tags = @their_tag)
+	OR (scan.image = @ours AND scan.tags = @our_tag))
 	)
 	SELECT image, package, vulnerability, version, type, severity FROM ruuuumble
 	GROUP BY vulnerability, image, package, version, type, severity
