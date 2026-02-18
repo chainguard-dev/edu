@@ -178,7 +178,6 @@ func (d *GrypeDB) ExtractCVEs(allVulnRecords []interface{}) ([]Vuln, error) {
 		}
 		vulns = append(vulns, v)
 	}
-
 	// now distro-specific URLs like security.debian.org, people.ubuntu.com
 	for _, r := range altVulnIDs {
 		row = d.DB.QueryRow(altVulnIDquery, r)
@@ -193,6 +192,5 @@ func (d *GrypeDB) ExtractCVEs(allVulnRecords []interface{}) ([]Vuln, error) {
 		}
 		vulns = append(vulns, v)
 	}
-
 	return vulns, nil
 }

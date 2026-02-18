@@ -78,13 +78,12 @@ func (v *vulnsJson) generateJSON() error {
 		log.Fatalf("error performing AllVulnsWithImagesQuery: %v", err)
 	}
 
-	// Group results by vulnerability ID
+	// Group results by vulnerability ID — each record is already one (vuln, image) pair with dates
 	vulnImageMap := make(map[string][]cgbigquery.VulnWithImages)
 	for _, record := range allRecords {
 		vwi := record.(*cgbigquery.VulnWithImages)
 		vulnImageMap[vwi.Vulnerability] = append(vulnImageMap[vwi.Vulnerability], *vwi)
 	}
-
 	// Extract unique CVE IDs for enrichment
 	cveRecords := make([]interface{}, 0, len(vulnImageMap))
 	for vulnID := range vulnImageMap {
@@ -100,19 +99,11 @@ func (v *vulnsJson) generateJSON() error {
 	// Populate image data for each vulnerability
 	for i := range v.vulns {
 		vulnID := v.vulns[i].Id
-		imageRecords := vulnImageMap[vulnID]
-
-		// Group by image to aggregate dates
-		imagesMap := make(map[string]grype.VulnImage)
-		for _, record := range imageRecords {
-			img := imagesMap[record.Image]
-			img.Dates = append(img.Dates, record.Time.Format("2006-01-02"))
-			img.Image = record.Image
-			imagesMap[record.Image] = img
-		}
-
-		// Split into Chainguard vs External
-		for _, img := range imagesMap {
+		for _, record := range vulnImageMap[vulnID] {
+			img := grype.VulnImage{
+				Image: record.Image,
+				Dates: record.Dates,
+			}
 			if strings.Contains(img.Image, "cgr.dev") {
 				v.vulns[i].Chainguard = append(v.vulns[i].Chainguard, img)
 			} else {
@@ -120,7 +111,6 @@ func (v *vulnsJson) generateJSON() error {
 			}
 		}
 	}
-
 	switch v.opts.upload {
 	case true:
 		err = v.storageClient.SaveVulnJSON(v.vulns)
