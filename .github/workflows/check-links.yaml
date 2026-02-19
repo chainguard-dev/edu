@@ -74,7 +74,7 @@ jobs:
 
       - name: Create/Update GitHub Issue
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.PROJECT_PAT }}
         run: |
           existing=$(gh issue list --json number,title |\
             jq -r '.[] | select(.title == "[chainlink] check links on edu.chainguard.dev") | .number')
@@ -83,7 +83,7 @@ jobs:
               --title "[chainlink] check links on edu.chainguard.dev" \
               --assignee SharpRake,s-stumbo \
               --label automated \
-              --project "Docs Team" \
+              --project-id PVT_kwDOBTYtm84BPobE \
               --body-file issue-body.txt
           else
             gh issue edit $existing --body-file issue-body.txt
