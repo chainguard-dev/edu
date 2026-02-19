@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "A conceptual article outlining testing requirements for Chainguard Containers."
 date: 2024-03-21T11:07:52+02:00
-lastmod: 2025-04-07T11:07:52+02:00
+lastmod: 2026-02-17T11:07:52+02:00
 draft: false
 tags: ["Overview", "Chainguard Containers"]
 images: []
@@ -48,21 +48,21 @@ Chainguard performs the following checks on new container images to ensure that 
 
 | **Requirement** 	  |  **Explanation**     |
 | --- | --- |
-|  **Functionality**     | The application is tested to comply with is upstream counterpart's core feature set.   |
+|  **Functionality**     | The application is tested to comply with its upstream counterpart's core feature set.   |
 |  **Builder Containers**     | Chainguard's builder containers can in fact build new, functional container images.     |
 
 
 ## Automated tests
 
-In addition to the container image build requirements outlined previously, Chainguard also performs a number of automatic checks for new container images as part of our CI/CD process. 
+In addition to the container image build requirements outlined previously, Chainguard also performs a number of automatic checks for new container images as part of our CI/CD process.
 
-Depending on the container image, Chainguard peforms various representative tests, such as functional and integration tests. For example, for applications primarily deployed with a Helm chart, the container image is deployed to an ephemeral Kubernetes cluster using the accepted Helm chart, which is validated in various ways.
+Depending on the container image, Chainguard performs various representative tests, such as functional and integration tests. For example, for applications primarily deployed with a Helm chart, the container image is deployed to an ephemeral Kubernetes cluster using the accepted Helm chart, which is validated in various ways.
 
 When applicable, Chainguard will develop functional tests for container images. These tests vary by application, but can generally be thought of as integration tests that run after a container image is built but before it gets tagged.
 
 Our goal for these tests is that they fully evaluate the container image's deployment in a representative environment; for example, container images running Kubernetes applications are tested in a Kubernetes cluster and builder or toolchain applications are tested with a `docker run` command or part of a `docker build` process. This means that our container images work with the existing upstream deployment methods, such as Helm charts or Kustomize manifests, helping us to ensure that a container image is as close to a drop-in replacement as possible.
 
-Additionally, Chainguard performs automated tests on every package included in our container images. These tests run on every new build within an ephemeral container environment before the build is published. This allows us to validate the representative functionality of each package.
+Additionally, Chainguard performs automated tests on every package included in our container images. These tests run on every new package build within an ephemeral container environment before the build is published. This allows us to validate the representative functionality of each package well before packages are assembled into container images.
 
 
 ## Learn more
