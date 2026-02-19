@@ -478,8 +478,6 @@ SHA256(0x01 | 24296fb24b8ad77a7e53fd5d089af142b7909598d214e13ca76001cc575fddaad3
 ```
 
 
-If you have any question you can reach me [@eddiezane](https://twitter.com/eddiezane)!
-
 Stay spooky…
 
 _Special thanks to [Appu Goundan](https://github.com/loosebazooka) and [Hayden Blauzvern](https://github.com/haydentherapper)._
