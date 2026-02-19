@@ -21,10 +21,10 @@
     </div>
     <form class="doks-search position-relative flex-grow-1">
       <input class="search form-control is-search" type="search" placeholder="Search" aria-label="Search" autocomplete="off">
-    </form>
-   <button id="kapa-ai-button" class="btn mt-2" style="width: 100%; background-color: transparent; border: 2px solid currentColor;">
-  ✨ Ask AI
-  </button>
+      <button type="button" id="kapa-trigger" class="btn btn-sm position-absolute" style="right: 5px; top: 50%; transform: translateY(-50%); padding: 2px 8px; font-size: 12px; border: 1px solid #4445E7; background: transparent; color: #4445E7;">
+        ✨ AI
+      </button>
+   </form>
   </div>
   {{ end -}}
   {{ range $index, $section := sort .Site.Sections "Weight" }}
