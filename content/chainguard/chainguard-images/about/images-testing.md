@@ -42,14 +42,25 @@ When building a new container image, Chainguard will take steps to ensure it mee
 |  **Kubernetes accessibility**     | Containers used for Kubernetes-based deployments must be able to run inside of a Kubernetes cluster.     |
 |  **Architecture**     | Chainguard Containers must be built for both the `x86_64` and `aarch64` architectures.      |
 
-### Application testing
-
-Chainguard performs the following checks on new container images to ensure that the applications contained within them meet the needs of most use cases:
+Chainguard also performs the following checks on new container images to ensure that the applications contained within them meet the needs of most use cases:
 
 | **Requirement** 	  |  **Explanation**     |
 | --- | --- |
 |  **Functionality**     | The application is tested to comply with its upstream counterpart's core feature set.   |
 |  **Builder Containers**     | Chainguard's builder containers can in fact build new, functional container images.     |
+
+
+## Comprehensive testing
+
+The container images we build have a wide variety of core functionality and expected installation methods. This means we must vary our testing across container images to be wise and test the right things. It may be helpful to think about the various layers in an application stack and how specific container images fit into the grander scheme and what would be useful to test for each layer. This table provides some examples of layers and tests and what the tests would be applied to.
+
+| **Layer**  | **Test** | **Applies to**  |
+| Deployment |  | All services and controllers |
+| Runtime security | Upstream accepted, documented deployment methods | All |
+| TLS | Non-root, no extra caps, read-only rootfs | Any listener, FIPS |
+| Persistence | Correct file and directory permissions, read/write, restarts cleanly | Stateful, such as databases |
+| UI | Smoke test and auth | UI apps, such as Argo |
+| Metrics and logging | Metrics emitted or exposed if the app exposes them, logs are written to expected locations if they are emitted |  |
 
 
 ## Automated tests
