@@ -83,7 +83,6 @@ jobs:
               --title "[chainlink] check links on edu.chainguard.dev" \
               --assignee SharpRake,s-stumbo \
               --label automated \
-              --project-id PVT_kwDOBTYtm84BPobE \
               --body-file issue-body.txt
           else
             gh issue edit $existing --body-file issue-body.txt
