@@ -52,7 +52,7 @@ Chainguard also performs the following checks on new container images to ensure 
 
 ### Comprehensive testing
 
-The container images we build have a wide variety of core functionality and expected installation methods. This means we must vary our testing across container images to be wise and test the right things. It may be helpful to think about the various layers in a container image build process and what would be useful to test for each layer. This table provides some examples of layers and tests and what the tests would be applied to.
+The container images we build have a wide variety of core functionality and expected installation methods. This means we must vary our testing across container images to be wise and test the right things. It may be helpful to think about the various layers in a container image build process and what would be useful to test for each layer.
 
 | **Layer**  | **Test** | **Applies to**  |
 | --- | --- | --- |
