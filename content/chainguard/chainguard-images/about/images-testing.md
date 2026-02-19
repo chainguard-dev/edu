@@ -55,9 +55,10 @@ Chainguard also performs the following checks on new container images to ensure 
 The container images we build have a wide variety of core functionality and expected installation methods. This means we must vary our testing across container images to be wise and test the right things. It may be helpful to think about the various layers in an application stack and how specific container images fit into the grander scheme and what would be useful to test for each layer. This table provides some examples of layers and tests and what the tests would be applied to.
 
 | **Layer**  | **Test** | **Applies to**  |
-| Deployment |  | All services and controllers |
-| Runtime security | Upstream accepted, documented deployment methods | All |
-| TLS | Non-root, no extra caps, read-only rootfs | Any listener, FIPS |
+| --- | --- | --- |
+| Deployment | Upstream accepted, documented deployment methods | All services and controllers |
+| Runtime security | Non-root, no extra caps, read-only rootfs | All |
+| TLS | Valid chain, hostname, min TLS | Any listener, FIPS |
 | Persistence | Correct file and directory permissions, read/write, restarts cleanly | Stateful, such as databases |
 | UI | Smoke test and auth | UI apps, such as Argo |
 | Metrics and logging | Metrics emitted or exposed if the app exposes them, logs are written to expected locations if they are emitted |  |
