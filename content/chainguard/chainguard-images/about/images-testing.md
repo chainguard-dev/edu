@@ -28,7 +28,7 @@ This article provides a high-level overview of Chainguard's approach to testing 
 Chainguard has a set of requirements in place that new container images must meet in order to be included in our [Containers Directory](https://images.chainguard.dev?utm=docs). These requirements fall into two categories:
 
 * Container image standards
-* Application testing
+* Comprehensive testing
 
 
 ### Container image standards
@@ -50,7 +50,7 @@ Chainguard also performs the following checks on new container images to ensure 
 |  **Builder Containers**     | Chainguard's builder containers can in fact build new, functional container images.     |
 
 
-## Comprehensive testing
+### Comprehensive testing
 
 The container images we build have a wide variety of core functionality and expected installation methods. This means we must vary our testing across container images to be wise and test the right things. It may be helpful to think about the various layers in an application stack and how specific container images fit into the grander scheme and what would be useful to test for each layer. This table provides some examples of layers and tests and what the tests would be applied to.
 
