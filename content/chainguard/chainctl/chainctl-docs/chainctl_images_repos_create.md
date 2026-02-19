@@ -1,5 +1,5 @@
 ---
-date: 2026-02-17T20:03:25Z
+date: 2026-02-18T21:33:21Z
 title: "chainctl images repos create"
 slug: chainctl_images_repos_create
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_create/
@@ -14,7 +14,7 @@ toc: true
 Create an image repository.
 
 ```
-chainctl images repos create {REPO_NAME} --parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID --tier=AI|DEVTOOLS|APPLICATION|BASE|FIPS
+chainctl images repos create {REPO_NAME} --parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID --tier=FIPS|AI|DEVTOOLS|APPLICATION|BASE
 ```
 
 ### Options
