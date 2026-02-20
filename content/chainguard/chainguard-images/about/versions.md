@@ -57,13 +57,13 @@ Chainguard Containers are built on open source software, so understanding how
 Chainguard manages releases starts with understanding how open source projects
 version and release software. Generally, projects follow one of two approaches:
 
-- Maintain multiple releases across different versions: Popular open source
+- **Multiple release track**: Popular open source
 projects often provide maintenance for a number of release tracks concurrently.
 For example, Java, Go, Postgres, and Kubernetes patch multiple release versions,
 each on their own defined maintenance schedule. 
     - For these types of projects, Chainguard will maintain every version track of the
 upstream software that receives updates from the project.
-- Single release track: Many open source projects support only a single stream of releases that are
+- **Single release track**: Many open source projects support only a single stream of releases that are
 continuously incremented; often, this is simply the latest release. In the case
 of a single release track, any security fix that is published will only be
 applied to the most recent release of the project, and the project release tags
