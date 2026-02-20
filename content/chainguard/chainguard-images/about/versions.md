@@ -283,10 +283,10 @@ lifecycle of your Chainguard Containers.
 If you use Chainguard Production Containers, you can opt in to a feature that
 allows you to view tag statuses in the Chainguard Console. In the Console under
 **Images > Organization**, any images with active tags display `Active` in the
-"Status" column. If you are not entitled to an image, its status is `Expired`.
+**Status** column. If you are not entitled to an image, its status is `Expired`.
 
 Click into an image to see which of its tags are active. If a tag is no longer
-being actively maintained, a "pause" icon will appear next to its name.
+being actively maintained, a **pause** icon will appear next to its name.
 
 >**Note**: Use active tags to stay on a supported, continuously patched version,
 >and use unique tags or digests when you need to pin deployments to an exact
@@ -296,7 +296,7 @@ being actively maintained, a "pause" icon will appear next to its name.
 **List active tags with chainctl**
 
 You can also use `chainctl` to retrieve the list of tags that are being actively
-maintained for a Chainguard cointainer image by running:
+maintained for a Chainguard container image by running:
 ```shell
 chainctl image repo list
 ```
