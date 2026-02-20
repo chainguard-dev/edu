@@ -7,13 +7,13 @@
   http-equiv="Content-Security-Policy"
   content="
        default-src 'self';
-       frame-src 'self' edu.chainguard.dev https://www.googletagmanager.com https://player.vimeo.com https://www.youtube.com https://www.youtube-nocookie.com https://platform.twitter.com https://syndication.twitter.com https://visualization-ui.chainguard.app https://terminal.inky.wt https://app.qualified.com/;
-       style-src 'self' 'unsafe-inline' edu.chainguard.dev https://tagmanager.google.com https://www.googletagmanager.com https://googletagmanager.com cdn.jsdelivr.net https://fonts.googleapis.com https://unpkg.com https://use.fontawesome.com;
+       frame-src 'self' edu.chainguard.dev https://www.googletagmanager.com https://player.vimeo.com https://www.youtube.com https://www.youtube-nocookie.com https://platform.twitter.com https://syndication.twitter.com https://visualization-ui.chainguard.app https://terminal.inky.wt https://app.qualified.com/ www.google.com https://hcaptcha.com https://*.hcaptcha.com https://metrics.kapa.ai https://proxy.kapa.ai https://kapa-widget-proxy-la7dkmplpq-uc.a.run.app https://www.google.com/recaptcha/ https://recaptcha.google.com https://www.recaptcha.net;
+       style-src 'self' 'unsafe-inline' edu.chainguard.dev https://tagmanager.google.com https://www.googletagmanager.com https://googletagmanager.com cdn.jsdelivr.net https://fonts.googleapis.com https://unpkg.com https://use.fontawesome.com https://hcaptcha.com https://*.hcaptcha.com;
        form-action 'self';
        font-src 'self' edu.chainguard.dev https://fonts.googleapis.com https://fonts.gstatic.com https://cdn.jsdelivr.net https://use.fontawesome.com;
-       script-src 'self' 'unsafe-inline' 'unsafe-eval' edu.chainguard.dev https://www.google.com https://www.googletagmanager.com https://tagmanager.google.com https://googletagmanager.com *.googleapis.com cdn.jsdelivr.net *.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://snap.licdn.com https://unpkg.com https://csp.withgoogle.com https://play.google.com http://localhost:1313 http://localhost:8080 https://www.redditstatic.com http://js.hs-scripts.com https://tag.clearbitscripts.com https://j.6sc.co https://tracking.g2crowd.com https://tag.unifyintent.com https://static.reo.dev https://googleads.g.doubleclick.net https://js.qualified.com https://js.hscollectedforms.net https://js.hubspot.com https://js.hsadspixel.net https://js.hs-banner.com https://js.hs-analytics.net https://x.clearbitjs.com https://js.zi-scripts.com https://cdn.amplitude.com;
-       connect-src 'self' https://www.google.com https://stats.g.doubleclick.net https://www.googletagmanager.com https://tagmanager.google.com https://googletagmanager.com *.google-analytics.com *.googletagmanager.com https://analytics.google.com https://region1.google-analytics.com https://www.google-analytics.com https://px.ads.linkedin.com https://px4.ads.linkedin.com https://storage.googleapis.com https://packages.wolfi.dev https://script.google.com https://script.googleusercontent.com https://csp.withgoogle.com https://play.google.com *.googleapis.com https://api.unifyintent.com https://api.reo.dev https://pixel-config.reddit.com https://www.redditstatic.com https://conversions-config.reddit.com https://ipv6.6sc.co https://static.hsappstatic.net https://app.qualified.com wss://ws6.qualified.com https://api.hubapi.com https://app.clearbit.com https://forms.hscollectedforms.net https://cta-service-cms2.hubspot.com https://js.zi-scripts.com https://ws.zoominfo.com https://x.clearbitjs.com https://js.hs-banner.com https://api2.amplitude.com https://api.amplitude.com;
-       img-src 'self' 'unsafe-inline' https://ssl.gstatic.com edu.chainguard.dev https://storage.googleapis.com https://www.googletagmanager.com https://googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://px.ads.linkedin.com https://px4.ads.linkedin.com data: https://alb.reddit.com http://b.6sc.co https://forms.hsforms.com https://perf-na1.hsforms.com https://track.hubspot.com;
+       script-src 'self' 'unsafe-inline' 'unsafe-eval' edu.chainguard.dev https://www.google.com https://www.googletagmanager.com https://tagmanager.google.com https://googletagmanager.com *.googleapis.com cdn.jsdelivr.net *.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://snap.licdn.com https://unpkg.com https://csp.withgoogle.com https://play.google.com http://localhost:1313 http://localhost:8080 https://www.redditstatic.com http://js.hs-scripts.com https://tag.clearbitscripts.com https://j.6sc.co https://tracking.g2crowd.com https://tag.unifyintent.com https://static.reo.dev https://googleads.g.doubleclick.net https://js.qualified.com https://js.hscollectedforms.net https://js.hubspot.com https://js.hsadspixel.net https://js.hs-banner.com https://js.hs-analytics.net https://x.clearbitjs.com https://js.zi-scripts.com https://cdn.amplitude.com https://widget.kapa.ai https://hcaptcha.com https://*.hcaptcha.com https://metrics.kapa.ai https://proxy.kapa.ai https://kapa-widget-proxy-la7dkmplpq-uc.a.run.app https://www.gstatic.com https://www.recaptcha.net https://www.google.com/recaptcha/;
+       connect-src 'self' https://www.google.com https://stats.g.doubleclick.net https://www.googletagmanager.com https://tagmanager.google.com https://googletagmanager.com *.google-analytics.com *.googletagmanager.com https://analytics.google.com https://region1.google-analytics.com https://www.google-analytics.com https://px.ads.linkedin.com https://px4.ads.linkedin.com https://storage.googleapis.com https://packages.wolfi.dev https://script.google.com https://script.googleusercontent.com https://csp.withgoogle.com https://play.google.com *.googleapis.com https://api.unifyintent.com https://api.reo.dev https://pixel-config.reddit.com https://www.redditstatic.com https://conversions-config.reddit.com https://ipv6.6sc.co https://static.hsappstatic.net https://app.qualified.com wss://ws6.qualified.com https://api.hubapi.com https://app.clearbit.com https://forms.hscollectedforms.net https://cta-service-cms2.hubspot.com https://js.zi-scripts.com https://ws.zoominfo.com https://x.clearbitjs.com https://js.hs-banner.com https://api2.amplitude.com https://api.amplitude.com https://proxy.kapa.ai https://kapa-widget-proxy-la7dkmplpq-uc.a.run.app https://metrics.kapa.ai https://hcaptcha.com https://*.hcaptcha.com https://widget.kapa.ai https://*.kapa.ai https://api.kapa.ai;
+       img-src 'self' 'unsafe-inline' https://ssl.gstatic.com edu.chainguard.dev https://storage.googleapis.com https://www.googletagmanager.com https://googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://px.ads.linkedin.com https://px4.ads.linkedin.com data: https://alb.reddit.com http://b.6sc.co https://forms.hsforms.com https://perf-na1.hsforms.com https://track.hubspot.com https://metrics.kapa.ai https://raw.githubusercontent.com;
        worker-src 'self' blob:;
        base-uri 'self';
      "
@@ -22,7 +22,28 @@
   name="viewport"
   content="width=device-width, initial-scale=1.0, user-scalable=no"
 />
-
+<script
+  async
+  src="https://widget.kapa.ai/kapa-widget.bundle.js"
+  data-website-id="8f790868-51e3-414c-a546-e613a4ebbd51"
+  data-project-name="Chainguard"
+  data-project-color="#000000"
+  data-project-logo="https://raw.githubusercontent.com/chainguard-dev/edu/29b1e69072fbfcac88e2608462f83d5b17f9f7d5/static/Chainguard_Icon_Blue.svg" 
+  data-modal-override-open-id="ask-ai-input"
+  data-modal-override-open-class="search-input"
+  data-button-position-top="20px"
+  data-button-position-right="20px"
+  data-modal-open-on-command-k="true"
+  data-search-mode-enabled="true"
+  data-search-mode-default="true"
+  data-button-hide="true"
+  data-modal-override-open-selector=".is-search"
+  data-modal-title="Chainguard AI Assistant"
+  data-modal-example-questions-title="Try asking me..."
+  data-modal-disclaimer="This AI assistant helps you with Chainguard products using our [public documentation](https://edu.chainguard.dev/) and [support content](https://support.chainguard.dev/). Answers are generated by AI and may not be fully accurate — always review the linked sources and use your own judgment."
+  data-modal-example-questions="How are SBOMs generated for images?,How do you ensure image provenance?,How do you support FIPS compliance?,What compiler hardening flags are used?"
+  data-button-text-color="#5A7FFF"
+></script>
 {{ if .Site.Params.options.darkMode -}} {{ $darkModeInit := resources.Get
 "js/darkmode-init.js" | js.Build | minify | fingerprint "sha512" -}}
 <script
