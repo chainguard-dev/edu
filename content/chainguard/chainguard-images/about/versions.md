@@ -109,6 +109,27 @@ In some
 cases, Chainguard will fix vulnerabilities in tools without waiting for the external 
 project to release patches. Learn more about this under [Epoch tags](#epoch-tags).
 
+### Maintaining Wolfi packages in Chainguard Containers
+
+Chainguard Containers only contain packages that are either built and maintained
+internally by Chainguard or packages from the [Wolfi
+Project](https://github.com/wolfi-dev). These packages follow the same
+conventions of minimalism and rapid updates as Chainguard Containers.
+
+Starting in March of 2024, Chainguard will maintain one version of each Wolfi
+package at a time. These will track the latest version of the upstream software
+in the package. Chainguard will end patch support for previous versions of
+packages in Wolfi. Existing packages will not be removed from Wolfi and you may
+continue to use them, but be aware that older packages will no longer be updated
+and will accrue vulnerabilities over time. The tools we use to build packages
+and container images remain freely available and open source in Wolfi.
+
+This change ensures that Chainguard can provide the most up-to-date patches to
+all packages for our Containers customers. Note that specific package versions
+can be made available in Production Containers. If you have a request for a
+specific package version, please [contact
+support](https://support.chainguard.dev?utm=docs).
+
 ## Versions available by tier
 
 If you use [Chainguard Free
@@ -129,7 +150,7 @@ more versions. The Chainguard approach is as follows:
 * For **single-release track projects**, you will receive the `:latest` tag as
   well as every versioned tag that is released over time.
 
-### Floating tags and epoch tags
+## Floating tags and epoch tags
 
 Chainguard Containers use *floating tags*. This means that a container image's
 tag always points to the most recent build or version within a version stream,
@@ -199,27 +220,6 @@ You can learn more about our approach by reviewing our [blog on Chainguard's
 container image tagging
 philosophy](https://www.chainguard.dev/unchained/chainguards-image-tagging-philosophy-enabling-high-velocity-updates-pt-1-of-3?utm=docs).
 
-
-## Wolfi Packages in Chainguard Containers
-
-Chainguard Containers only contain packages that are either built and maintained
-internally by Chainguard or packages from the [Wolfi
-Project](https://github.com/wolfi-dev). These packages follow the same
-conventions of minimalism and rapid updates as Chainguard Containers.
-
-Starting in March of 2024, Chainguard will maintain one version of each Wolfi
-package at a time. These will track the latest version of the upstream software
-in the package. Chainguard will end patch support for previous versions of
-packages in Wolfi. Existing packages will not be removed from Wolfi and you may
-continue to use them, but be aware that older packages will no longer be updated
-and will accrue vulnerabilities over time. The tools we use to build packages
-and container images remain freely available and open source in Wolfi.
-
-This change ensures that Chainguard can provide the most up-to-date patches to
-all packages for our Containers customers. Note that specific package versions
-can be made available in Production Containers. If you have a request for a
-specific package version, please [contact
-support](https://support.chainguard.dev?utm=docs).
 
 ## SLAs
 
