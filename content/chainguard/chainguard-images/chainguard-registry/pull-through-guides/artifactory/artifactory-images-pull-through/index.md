@@ -21,18 +21,20 @@ weight: 005
 
 Organizations can route container image pulls through Artifactory to centralize artifact management, enforce policy, and integrate Chainguard Containers into existing CI/CD workflows. You can configure Artifactory as a pull-through cache by setting up a remote repository pointed at [Chainguard's container registry](https://edu.chainguard.dev/chainguard/chainguard-registry/overview/).
 
-This tutorial outlines how to set up remote repositories with [JFrog Artifactory](https://jfrog.com/artifactory/). Specifically, it goes over how to set up one repository you can use as a pull-through cache for Chainguard's public [Free Containers](/chainguard/chainguard-images/about/images-categories/#starter-containers) and another you can use for [Production Containers](/chainguard/chainguard-images/about/images-categories/#production-containers) originating from a private Chainguard repository. It also outlines how you can use one of Artifactory's virtual repositories as a pull-through cache.
+This tutorial outlines how to set up remote repositories with [JFrog Artifactory](https://jfrog.com/artifactory/). Specifically, it goes over how to set up one repository you can use as a pull-through cache for Chainguard's public [Free Containers](/chainguard/chainguard-images/about/images-categories/#starter-containers) and another you can use for [Production Containers](/chainguard/chainguard-images/about/images-categories/#production-containers) originating from a private Chainguard repository. It also outlines how you can use one of Artifactory's [virtual repositories](https://jfrog.com/help/r/jfrog-artifactory-documentation/virtual-repositories) as a pull-through cache to access resources from multiple remote repositories in a single location.
 
 
 ## Prerequisites
 
 To complete this tutorial, you need the following:
 
-* Administrative privileges over an Artifactory instance. If you're interested in testing out this configuration, you can set up a trial instance on the [JFrog Artifactory landing page](https://jfrog.com/artifactory/). 
-* Administrative privileges in Chainguard. 
-* `chainctl`, Chainguard's command line interface tool, installed on your local machine. To set this up, follow our [installation guide for `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/).
+* Administrative privileges over an Artifactory instance. If you're interested in testing out this configuration, you can set up a trial instance on the [JFrog Artifactory landing page](https://jfrog.com/artifactory/).
+* Docker installed on your local machine. Refer to [the official documentation](https://docs.docker.com/engine/install/) to set this up.
 
-Additionally, part of this guide assumes you have access to a private registry provided by Chainguard containing one or more Production container images. If you don't already have access to these, you can [contact our sales team](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement). 
+Part of this guide assumes you have access to a private registry provided by Chainguard with one or more Production container images. If you don't already have access to these, you can [contact our sales team](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement). To complete this portion, you will also need the following:
+
+* Permissions to pull container images from your organization's private Chainguard registry. At minimum, you must be granted the `registry.pull` role, but other built-in roles like `owner`, `editor`, or `viewer` will also work. Refer to our guide on [Built-in Roles and Capabilities Reference](/chainguard/administration/iam-organizations/roles-role-bindings/capabilities-reference/#pull-token-creator-roles) for more details.
+* `chainctl`, Chainguard's command line interface tool, installed on your local machine. To set this up, follow our [installation guide for `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/).
 
 
 ## Setting Up Artifactory as a Pull-through Cache for Free Containers
@@ -44,7 +46,7 @@ To set up a remote repository in Artifactory from which you can pull Chainguard 
 1. Log in to the JFrog platform.
 2. Select the **Administration** tab near the top of the screen.
 3. Select **Repositories** from the left-hand navigation menu. 
-4. On the Repositories page, click the **Create a Repository** button.
+4. On the Repositories page, click **Create a Repository**.
 5. Select the **Remote** option.
 6. In the **Select Package Type** window, select **Docker**.
 
@@ -54,10 +56,9 @@ This takes you to a **Basic** configuration tab where you can enter the followin
 * **URL** — This must be set to `https://cgr.dev/`.
 * **Include Patterns** — Ensure that you use the default value (`**/*`) in this field.
 * **Enable Token Authentication** — Ensure this setting (under **Docker Settings**) is enabled. This is required, as you must authenticate to the remote repository in order to pull Chainguard Containers through it.
+* **Block Mismatching Mime Types** — In the **Advanced** configuration tab, ensure that this option option is checked.
 
-Lastly, in the **Advanced** configuration tab, ensure that the **Block Mismatching Mime Types** option is checked, which is enabled by default.
-
-Following that, click the **Create Remote Repository** button. Next, you can test that you're able to pull a Chainguard Free Container through the remote repository.
+Following that, click **Create Remote Repository**. Next, you can test that you're able to pull a Chainguard Free Container through the remote repository.
 
 ### Testing pull-through of a Chainguard Free Container
 
@@ -107,22 +108,21 @@ After noting your credentials, you can begin setting up an Artifactory repositor
 1. Log in to the JFrog platform.
 2. Select the **Administration** tab near the top of the screen.
 3. Select **Repositories** from the left-hand navigation menu. 
-4. On the Repositories page, click the **Create a Repository** button.
+4. On the Repositories page, click **Create a Repository**.
 5. Select the **Remote** option.
 6. In the **Select Package Type** window, select **Docker**.
 
 Next, enter the following details for your new remote repository in the **Basic** configuration tab:
 
-* **Repository Key** — Again, you can choose whatever name you like here, but this guide's examples use the name `cgr-private`.
+* **Repository Key** — Choose whatever name you like here, but this guide's examples use the name `cgr-private`.
 * **URL** — This must be set to `https://cgr.dev/`.
 * **User Name** — Enter the `<pull_token_ID>` value you noted from the `docker login` command.
 * **Password / Access Token** — Enter the `<password>` value you noted from the `docker login` command.
 * **Include Patterns** — Ensure that you use the default value (`**/*`) in this field.
 * **Enable Token Authentication** — Ensure this setting (under **Docker Settings**) is enabled. This is required, as you must authenticate to the remote repository in order to pull Chainguard Containers through it.
+* **Block Mismatching Mime Types** — In the **Advanced** configuration tab, ensure that this option option is checked.
 
-Lastly, in the **Advanced** configuration tab, ensure that the **Block Mismatching Mime Types** option is checked. Again, this should be the default.
-
-Finally, click the **Create Remote Repository** button. You can then move on to testing that you're able to pull Chainguard Production container images through this remote repository.
+Finally, click **Create Remote Repository**. You can then move on to testing that you're able to pull Chainguard Production container images through this remote repository.
 
 ### Testing pull-through of a Chainguard Production Container 
 
@@ -148,7 +148,7 @@ Artifactory allows you to create what it refers to as [*virtual repositories*](h
 You can also use a virtual repository as a pull-through cache. To set this up, create a new virtual repository:
 
 1. Navigate to the **Repositories** tab.
-2. Click the **Create a Repository** button.
+2. Click **Create a Repository**.
 3. Select the **Virtual** option.
 4. In the **Select Package Type** window, select **Docker**.
 
@@ -156,7 +156,7 @@ When you reach the **New Virtual Repository** page, enter a key of your choosing
 
 Next, you must select existing repositories to include within this virtual repository. To keep things simple, this guide uses the `cgr-public` and `cgr-private` repositories created previously. Select your repositories by clicking their respective checkboxes. Then be sure to click the right-pointing chevron to move them to the **Selected Repositories** column.
 
-Finally, click the **Create Virtual Repository** button. Then, you can retrieve the token and `docker login` command as before.
+Finally, click **Create Virtual Repository**. Then, you can retrieve the token and `docker login` command as before.
 
 ### Testing pull-through with a virtual repository
 
