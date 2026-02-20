@@ -154,9 +154,14 @@ You can also use a virtual repository as a pull-through cache. To set this up, c
 
 When you reach the **New Virtual Repository** page, enter a key of your choosing into the **Repository Key** field. This guide's examples refer to this repository as `cgr-virt`.
 
-Next, you must select existing repositories to include within this virtual repository. To keep things simple, this guide uses the `cgr-public` and `cgr-private` repositories created previously. Select your repositories by clicking their respective checkboxes. Then be sure to click the right-pointing chevron to move them to the **Selected Repositories** column.
+Next, you must select existing repositories to include within this virtual repository. To keep things simple, this guide uses the `cgr-public` and `cgr-private` repositories created previously:
 
-Finally, click **Create Virtual Repository**. Then, you can retrieve the token and `docker login` command as before.
+1. Locate the **Repositories** section in the **Basic** configuration tab.
+2. Select the repositories you want to add from the **Available Repositories** by clicking their respective checkboxes.
+2. Click the right-pointing chevron to move them to **Selected Repositories**.
+3. Click **Create Virtual Repository**.
+
+With that, you can retrieve the token and `docker login`.
 
 ### Testing pull-through with a virtual repository
 
