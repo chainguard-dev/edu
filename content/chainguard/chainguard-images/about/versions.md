@@ -288,10 +288,9 @@ allows you to view tag statuses in the Chainguard Console. In the Console under
 Click into an image to see which of its tags are active. If a tag is no longer
 being actively maintained, a **pause** icon will appear next to its name.
 
->**Note**: Use active tags to stay on a supported, continuously patched version,
->and use unique tags or digests when you need to pin deployments to an exact
->build for stability or compliance. Learn more in [Unique
->tags](/chainguard/chainguard-images/features/unique-tags/).
+>**Note**: If you use [Unique
+>tags](/chainguard/chainguard-images/features/unique-tags/) to pin to a specific
+>build, this feature is not applicable.
 
 **List active tags with chainctl**
 
