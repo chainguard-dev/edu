@@ -424,7 +424,10 @@ Packages from Chainguard are identified by the `publisher`:`environment` set as
 
 ### Sigstore bundle
 
+A Sigstore bundle is a self‑contained JSON file that packages everything needed to verify a signed artifact. It contains cryptographic signatures for both the SBOM and SLSA provenance files, allowing you to verify the authenticity and integrity of the supply chain metadata provided by Chainguard.
+
 A [Sigstore bundle file](https://docs.sigstore.dev/about/bundle/) is available
 as `bundle.json` from the integrity context at
 `https://libraries.cgr.dev/python/integrity/PACKAGE/VERSION/FILE/bundle.json`
 specifically for each package, version, and file. 
+
