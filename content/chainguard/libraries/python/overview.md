@@ -345,7 +345,7 @@ material (SBOM) information. Additional files attest details about build
 infrastructure with  the [Supply-chain Levels for Software Artifacts
 (SLSA)](https://slsa.dev/) provenance information.
 
-### Embedded SBOM
+### Embedded SBOMs
 
 The related files for Chainguard Libraries for Python are located within the
 Python wheel file for each package following the [PEP 770 Improving
