@@ -331,7 +331,7 @@ upstream PyPI to Chainguard Libraries:
 To resolve hash mismatches, re-resolve your dependencies against Chainguard Libraries:
 
 - For `--require-hashes`: install from Chainguard indexes, and then regenerate the requirements file with new hashes so they match Chainguard wheels. 
-- For `uv`, Poetry, or other tools that generate lockfiles: Point them at Chainguard indexes then regenerate the lockfile so stored hashes correspond to Chainguard artifacts.
+- For `uv`, Poetry, or other tools that generate lockfiles: Point them at Chainguard indexes, and then regenerate the lockfile so stored hashes correspond to Chainguard artifacts.
 - For repository managers: You may also need to clear cached PyPI artifacts to ensure future installs pull Chainguard's versions.
 
 >**Note:** While hash mismatches from are expected for some tooling and
