@@ -72,7 +72,11 @@ Array.from(searchForms).forEach(container => {
 
       if (hits.length === 0) {
         const noResultsMessage = document.createElement('div');
-        noResultsMessage.innerHTML = `No results for "<strong>${searchQuery}</strong>"`;
+        noResultsMessage.textContent = 'No results for "';
+        const strong = document.createElement('strong');
+        strong.textContent = searchQuery;
+        noResultsMessage.appendChild(strong);
+        noResultsMessage.appendChild(document.createTextNode('"'));
         noResultsMessage.classList.add("suggestion__no-results");
         suggestions.appendChild(noResultsMessage);
         return;
