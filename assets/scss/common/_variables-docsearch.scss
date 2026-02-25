@@ -1,0 +1,98 @@
+/* DocSearch Variables — Chainguard brand palette
+ *
+ * Key colors used:
+ *   Blurple:      #6226FB  rgb(98, 38, 251)   — primary accent
+ *   Ink:          #0D161C  rgb(13, 22, 28)     — body text / overlay
+ *   White:        #FFFFFF  rgb(255, 255, 255)
+ *   Lavender:     #F1ECFE                      — tinted input bg (light)
+ *   Deep purple:  #14003D                      — modal bg (dark)
+ *   Mid purple:   #3200AF                      — input bg (dark)
+ */
+
+:root {
+  /* Brand accent — used for focused border, highlighted matches, active keys */
+  --docsearch-primary-color: #6226FB;
+  --docsearch-highlight-color: var(--docsearch-primary-color);
+  --docsearch-logo-color: #6226FB;
+
+  /* Typography */
+  --docsearch-text-color: #0D161C;          /* Ink */
+  --docsearch-hit-color: #0D161C;
+  --docsearch-hit-active-color: #FFFFFF;    /* white text on Blurple selected row */
+  --docsearch-muted-color: rgb(98, 38, 251, 0.45); /* Blurple at low opacity for placeholders */
+
+  /* Spacing / strokes */
+  --docsearch-spacing: 12px;
+  --docsearch-icon-stroke-width: 1.4;
+
+  /* Overlay behind the modal */
+  --docsearch-container-background: rgba(13, 22, 28, 0.75); /* Ink at 75% */
+
+  /* Modal */
+  --docsearch-modal-width: 560px;
+  --docsearch-modal-height: 600px;
+  --docsearch-modal-background: #FFFFFF;
+  --docsearch-modal-shadow: inset 1px 1px 0 0 rgba(255, 255, 255, 0.5),
+    0 3px 8px 0 rgba(13, 22, 28, 0.4);
+
+  /* Search input */
+  --docsearch-searchbox-height: 56px;
+  --docsearch-searchbox-background: #F1ECFE;   /* Lavender — on-brand tint */
+  --docsearch-searchbox-focus-background: #FFFFFF;
+  --docsearch-searchbox-shadow: inset 0 0 0 2px #6226FB;
+
+  /* Result rows */
+  --docsearch-hit-height: 56px;
+  --docsearch-hit-background: #FFFFFF;
+  --docsearch-hit-shadow: 0 1px 3px 0 rgba(98, 38, 251, 0.12); /* Blurple-tinted shadow */
+
+  /* Keyboard shortcut badges */
+  --docsearch-key-gradient: linear-gradient(-225deg, #F1ECFE 0%, #FFFFFF 100%);
+  --docsearch-key-shadow: inset 0 -2px 0 0 rgba(98, 38, 251, 0.3),
+    inset 0 0 1px 1px #fff, 0 1px 2px 1px rgba(13, 22, 28, 0.2);
+  --docsearch-key-pressed-shadow: inset 0 -2px 0 0 rgba(98, 38, 251, 0.2),
+    inset 0 0 1px 1px #fff, 0 1px 1px 0 rgba(13, 22, 28, 0.15);
+
+  /* Footer */
+  --docsearch-footer-height: 44px;
+  --docsearch-footer-background: #FFFFFF;
+  --docsearch-footer-shadow: 0 -1px 0 0 #F1ECFE,
+    0 -3px 6px 0 rgba(98, 38, 251, 0.08);
+}
+
+/* Dark mode */
+html[data-bs-theme="dark"] {
+  /* Typography */
+  --docsearch-text-color: #F5FCFF;          /* light Chainguard blue-white */
+  --docsearch-hit-color: rgba(245, 252, 255, 0.85);
+  --docsearch-muted-color: rgba(245, 252, 255, 0.4);
+  --docsearch-logo-color: #FFFFFF;
+
+  /* Overlay */
+  --docsearch-container-background: rgba(13, 22, 28, 0.88);
+
+  /* Modal — deep brand purple, not generic dark grey */
+  --docsearch-modal-background: #14003D;
+  --docsearch-modal-shadow: inset 1px 1px 0 0 rgba(98, 38, 251, 0.2),
+    0 3px 8px 0 rgba(0, 0, 0, 0.6);
+
+  /* Search input */
+  --docsearch-searchbox-background: #3200AF;   /* Mid purple — visible on deep bg */
+  --docsearch-searchbox-focus-background: #14003D;
+
+  /* Result rows */
+  --docsearch-hit-background: rgba(50, 0, 175, 0.3); /* #3200AF at low opacity */
+  --docsearch-hit-shadow: none;
+
+  /* Keyboard shortcut badges */
+  --docsearch-key-gradient: linear-gradient(-26.5deg, #3200AF 0%, #14003D 100%);
+  --docsearch-key-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.4),
+    inset 0 0 1px 1px rgba(98, 38, 251, 0.3), 0 2px 2px 0 rgba(0, 0, 0, 0.4);
+  --docsearch-key-pressed-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.3),
+    inset 0 0 1px 1px rgba(98, 38, 251, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.3);
+
+  /* Footer */
+  --docsearch-footer-background: #14003D;
+  --docsearch-footer-shadow: inset 0 1px 0 0 rgba(98, 38, 251, 0.25),
+    0 -4px 8px 0 rgba(0, 0, 0, 0.3);
+}

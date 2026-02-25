@@ -1,0 +1,3 @@
+{{ if site.Params.add_ons.docSearch -}}
+{{ partial "footer/esbuild" (dict "src" "js/docsearch.js" "load" "async" "transpile" false) -}}
+{{ end -}}
