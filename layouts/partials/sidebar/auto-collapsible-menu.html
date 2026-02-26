@@ -9,7 +9,6 @@
   {{- end }}
   {{- end }}
 
-  {{ if $showFlexSearch -}}
   <div class="search-container">
     <div class="navbar-title-padding">
       <a class="navbar-title" href="https://www.chainguard.dev?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement" target="_blank" rel="noopener" style="text-decoration: none;">
@@ -23,7 +22,7 @@
       <input class="search form-control is-search" type="search" placeholder="Search" aria-label="Search" autocomplete="off">
    </form>
   </div>
-  {{ end -}}
+
   {{ range $index, $section := sort .Site.Sections "Weight" }}
   {{ $active := in $currentPage.RelPermalink .RelPermalink }}
   <p class="sidebar-category text-uppercase">

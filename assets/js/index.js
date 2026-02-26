@@ -60,44 +60,6 @@ Array.from(searchForms).forEach(container => {
       suggestions.innerHTML = "";
       return;
     }
-
-    algoliaIndex.search(searchQuery, { hitsPerPage: maxResult }).then(({ hits }) => {
-      suggestions.innerHTML = "";
-      suggestions.classList.remove('d-none');
-
-      if (hits.length === 0) {
-        const noResultsMessage = document.createElement('div');
-        noResultsMessage.textContent = 'No results for "';
-        const strong = document.createElement('strong');
-        strong.textContent = searchQuery;
-        noResultsMessage.appendChild(strong);
-        noResultsMessage.appendChild(document.createTextNode('"'));
-        noResultsMessage.classList.add("suggestion__no-results");
-        suggestions.appendChild(noResultsMessage);
-        return;
-      }
-
-      for (const hit of hits) {
-        const entry = document.createElement('div');
-        suggestions.appendChild(entry);
-
-        const a = document.createElement('a');
-        a.href = hit.url;
-        entry.appendChild(a);
-
-        const title = document.createElement('div');
-        title.textContent = hit.hierarchy.lvl1 || hit.hierarchy.lvl0 || '';
-        title.classList.add("suggestion__title");
-        a.appendChild(title);
-
-        const description = document.createElement('div');
-        description.textContent = hit.content || '';
-        description.classList.add("suggestion__description");
-        a.appendChild(description);
-
-        suggestions.appendChild(entry);
-      }
-    });
   }
 });
 
