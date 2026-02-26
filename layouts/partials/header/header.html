@@ -36,18 +36,29 @@
     {{- end }}
     {{- end }}
 
-<div class="search-container">
-  <!-- Visible trigger that looks like the old search bar -->
+<div class="search-container order-1 me-auto">
+
+  <!-- Desktop trigger -->
   <button
-    id="searchToggleDesktop"
+    id="siteSearchTrigger"
     type="button"
-    class="search form-control is-search search-box"
+    class="search form-control search-box d-none d-lg-block"
     aria-label="Search"
   >
     Search
   </button>
 
-  <!-- DocSearch mounts here (can be hidden) -->
+  <!-- Mobile trigger -->
+  <button
+    id="siteSearchTriggerMobile"
+    type="button"
+    class="search form-control search-box d-lg-none"
+    aria-label="Search"
+  >
+    Search
+  </button>
+
+  <!-- DocSearch mounts UI here -->
   <div id="docsearch" class="d-none" tabindex="-1" aria-disabled="true"></div>
 </div>
 
