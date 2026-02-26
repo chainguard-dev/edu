@@ -36,9 +36,20 @@
     {{- end }}
     {{- end }}
 
-    <div class="search-container">
-      <div id="docsearch"></div>
-    </div>
+<div class="search-container">
+  <!-- Visible trigger that looks like the old search bar -->
+  <button
+    id="searchToggleDesktop"
+    type="button"
+    class="search form-control is-search search-box"
+    aria-label="Search"
+  >
+    Search
+  </button>
+
+  <!-- DocSearch mounts here (can be hidden) -->
+  <div id="docsearch" class="d-none" tabindex="-1" aria-disabled="true"></div>
+</div>
 
     {{ if $showFlexSearch -}}
     <div class="search-container">
