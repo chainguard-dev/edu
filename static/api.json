@@ -1904,6 +1904,45 @@
         },
         "type": "object"
       },
+      "chainguard.platform.matcher.MatchImageRequest": {
+        "properties": {
+          "arch": {
+            "title": "arch is the architecture (e.g., \"amd64\", \"arm64\")",
+            "type": "string"
+          },
+          "count": {
+            "format": "int32",
+            "title": "top_n is the maximum number of recommendations to return (default: 10)",
+            "type": "integer"
+          },
+          "distName": {
+            "title": "dist_name is the distribution name (e.g., \"debian\", \"ubuntu\", \"alpine\", \"wolfi\")",
+            "type": "string"
+          },
+          "distVersion": {
+            "title": "dist_version is the distribution version (e.g., \"1.2.3\", \"2.0-r2\")",
+            "type": "string"
+          },
+          "parentId": {
+            "title": "parent_id is the group id of the caller making the request",
+            "type": "string"
+          },
+          "sbom": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.matcher.SBOM"
+              }
+            ],
+            "title": "sbom is the SBOM data"
+          },
+          "threshold": {
+            "format": "double",
+            "title": "threshold is the minimum probability score (0-100) to report images (default: 50.0)",
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.matcher.MatchImageResponse": {
         "properties": {
           "images": {
@@ -7614,61 +7653,20 @@
       }
     },
     "/image-recommendation/v1/match": {
-      "get": {
+      "post": {
         "description": "MatchImage takes an sbom and returns a list of chainguard\nimages ranked by sbom similarity",
         "operationId": "ImageMatcher_MatchImage",
-        "parameters": [
-          {
-            "description": "parent_id is the group id of the caller making the request",
-            "in": "query",
-            "name": "parentId",
-            "schema": {
-              "type": "string"
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.matcher.MatchImageRequest"
+              }
             }
           },
-          {
-            "description": "dist_name is the distribution name (e.g., \"debian\", \"ubuntu\", \"alpine\", \"wolfi\")",
-            "in": "query",
-            "name": "distName",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "dist_version is the distribution version (e.g., \"bookworm\", \"jammy\")",
-            "in": "query",
-            "name": "distVersion",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "arch is the architecture (e.g., \"amd64\", \"arm64\")",
-            "in": "query",
-            "name": "arch",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "top_n is the maximum number of recommendations to return (default: 10)",
-            "in": "query",
-            "name": "count",
-            "schema": {
-              "format": "int32",
-              "type": "integer"
-            }
-          },
-          {
-            "description": "threshold is the minimum probability score (0-100) to report images (default: 50.0)",
-            "in": "query",
-            "name": "threshold",
-            "schema": {
-              "format": "double",
-              "type": "number"
-            }
-          }
-        ],
+          "required": true,
+          "x-originalParamName": "body"
+        },
         "responses": {
           "200": {
             "content": {
