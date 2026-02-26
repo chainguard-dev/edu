@@ -1,9 +1,0 @@
-{{ if site.Params.add_ons.docSearch -}}
-{{ $docsearch := resources.Get "js/docsearch.js" | js.Build (dict "minify" false) -}}
-{{ if eq (hugo.Environment) "development" -}}
-<script src="{{ $docsearch.RelPermalink }}" async></script>
-{{ else -}}
-{{ $docsearch = $docsearch | minify | fingerprint "sha512" -}}
-<script src="{{ $docsearch.RelPermalink }}" integrity="{{ $docsearch.Data.Integrity }}" crossorigin="anonymous" async></script>
-{{ end -}}
-{{ end -}}
