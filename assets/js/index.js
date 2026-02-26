@@ -1,8 +1,3 @@
-import { algoliasearch } from 'algoliasearch';
-
-const client = algoliasearch('P6WD6RQSFQ', '9846ce061788834124713a47b1cfd2f7');
-
-
 var searchForms = document.getElementsByClassName("search-container")
 
 Array.from(searchForms).forEach(container => {

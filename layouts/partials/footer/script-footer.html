@@ -15,6 +15,11 @@
 
 {{ $slice := slice $app -}}
 
+{{ if .Site.Params.add_ons.docSearch -}}
+  {{ $docsearch := resources.Get "js/docsearch.js" | js.Build -}}
+  {{ $slice = $slice | append $docsearch -}}
+{{ end -}}
+
 {{ if .Site.Params.options.lazySizes -}}
   {{ $lazySizes := resources.Get "js/lazysizes.js" -}}
   {{ $lazySizes := $lazySizes | js.Build -}}
@@ -33,10 +38,6 @@
   {{ $slice = $slice | append $instantPage -}}
 {{ end -}}
 
-{{ if .Site.Params.options.flexSearch -}}
-  {{ $flexSearch := resources.Get "js/vendor/flexsearch/dist/flexsearch.bundle.js" -}}
-  {{ $slice = $slice | append $flexSearch -}}
-{{ end -}}
 
 {{ if .Site.Params.options.darkMode -}}
   {{ $darkMode := resources.Get "js/darkmode.js" -}}

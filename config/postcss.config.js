@@ -37,6 +37,7 @@ module.exports = {
           './node_modules/katex/dist/katex.css',
           './assets/scss/*.scss',
           './assets/scss/common/*.scss',
+          './node_modules/@docsearch/css/dist/modal.css',
         ]),
       ],
     }),
