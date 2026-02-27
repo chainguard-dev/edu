@@ -155,12 +155,12 @@ chainctl libraries verify example-application.tar.gz
 ```
 
 Note that if your deployment archive is a fat JAR, uber JAR, or shaded JAR,
-verification will return 0% coverage. This is expected behavior; see [Java fat JAR limitations](#java-fat-jar-limitations) for the recommended verification
+verification returns 0% coverage. This is expected behavior; see [Java fat JAR limitations](#java-fat-jar-limitations) for the recommended verification
 approach. 
 
-For other archive types such as tarballs that contain individual
-unmodified JAR files, scanning larger archives that contain numerous libraries can take a
-significant amount of time. Consider detailed output with the `--detailed` flag
+For other archive types such as tarballs that contain individual unmodified JAR
+files, scanning can take a significant amount of time if numerous libraries are
+included. Consider detailed output with the `--detailed` flag
 for more information about the performed verification steps, and potentially
 pipe the output into a file.
 
@@ -215,9 +215,11 @@ dependency resolution and before the packaging phase.
 
 The same limitation applies to other ecosystems where dependencies are bundled
 into a single output artifact, such as JavaScript bundles and Python
-applications packaged with tools that inline dependencies. In these cases,
-verification should also be performed against the original package files before
-bundling rather than against the final output artifact.
+applications packaged with tools that inline dependencies. Dependencies may also
+be minified, partially copied, or otherwise transformed during the build
+process. In all of these cases, verification should also be performed against
+the original package files before bundling rather than against the final output
+artifact.
 
 ## Container analysis
 
