@@ -63,8 +63,9 @@ Click into a row to view a [specific library page](#library-page).
 
 ### View remediated libraries
 
-[CVE
-remediation](/chainguard/libraries/cve-remediation/) is available for a subset of Chainguard Libraries for Python. You can view remediated libraries in the Chainguard Console.
+[CVE remediation](/chainguard/libraries/cve-remediation/) is available for a
+subset of Chainguard Libraries for Python. You can view remediated libraries in
+the Chainguard Console.
 
 In the Python libraries directory, click the **Remediated** tab to view a list
 of remediated libraries. Click into a library to see which versions have
@@ -74,8 +75,8 @@ While viewing the list of remediated versions for a library, click into a
 version to view more details: which CVEs were remediated, the date that the
 version was patched, and links to additional resources. 
 
-Learn about other options for browsing libraries with CVE remedation in the
-[Python Overview](/chainguard/libraries/python/overview/) page.
+Learn more about browsing remediations in [CVE remediation for Chainguard
+Libraries](/chainguard/libraries/cve-remediation/#about-cve-remediation).
 
 ## Library page
 
