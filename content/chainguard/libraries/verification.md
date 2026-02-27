@@ -112,6 +112,8 @@ the following examples as necessary.
 
 ## File analysis
 
+### Analyze a Python wheel file
+
 Analyze a Python wheel file in the current directory:
 
 ```sh
@@ -131,7 +133,9 @@ pip3 install -r requirements.txt
 chainctl libraries verify --detailed ./venv/
 ```
 
-Analyze a local Java `.jar` file:
+### Analyze a Java JAR file
+
+Analyze a Java `.jar` file:
 
 ```sh
 chainctl libraries verify commons-lang3-3.17.0.jar
@@ -141,7 +145,7 @@ Verifying a JAR file is performed by looking up checksums and provenance
 information from the Chainguard repositories. This requires network access and
 can take longer if you analyze multiple files or archives that contain multiple
 libraries. Typically, you find the JAR files in the local Maven repository cache
-in `~/.m2/repository`:
+in `~/.m2/repository`. For best results, verify individual JAR files from this cache before packaging your application. See [Java fat JAR limitations](#java-fat-jar-limitations) for more details.
 
 Analyze a deployment archive for your custom application that contains other
 libraries:
@@ -150,8 +154,13 @@ libraries:
 chainctl libraries verify example-application.tar.gz
 ```
 
-Note that scanning larger archives that contain numerous libraries can take a
-significant amount of time. Consider detailed output with the `--detailed` flag
+Note that if your deployment archive is a fat JAR, uber JAR, or shaded JAR,
+verification returns 0% coverage. This is expected behavior; see [Java fat JAR limitations](#java-fat-jar-limitations) for the recommended verification
+approach. 
+
+For other archive types such as tarballs that contain individual unmodified JAR
+files, scanning can take a significant amount of time if numerous libraries are
+included. Consider detailed output with the `--detailed` flag
 for more information about the performed verification steps, and potentially
 pipe the output into a file.
 
@@ -172,6 +181,45 @@ Analyze a file and create JSON output:
 ```sh
 chainctl libraries verify -o json commons-lang3-3.17.0.jar
 ```
+
+## Java fat JAR limitations
+
+The fat JAR packaging approach merges the class files from all dependency
+JARs into one combined archive, which means the original JAR boundaries are
+lost.
+
+Because `chainctl libraries verify` identifies libraries by checking checksums
+and provenance information against individual JAR files, it cannot trace merged
+class files back to their source JARs. As a result, running `chainctl libraries
+verify` against a fat JAR returns 0% coverage, even if the
+dependencies inside it were sourced from Chainguard Libraries.
+
+### Recommended verification approach for fat JARs
+
+To verify that your Java dependencies come from Chainguard Libraries, run
+`chainctl libraries verify` during your build process against the individual JAR
+files in your local Maven repository cache, **before** fat JAR assembly.
+
+After resolving dependencies with Maven, the individual JAR files are available
+in `~/.m2/repository`. The following example uses `net.logstash.logback:logstash-logback-encoder:8.1`
+as the library, but you can replace the path with the specific JAR you want to verify:
+
+```sh
+chainctl libraries verify ~/.m2/repository/net/logstash/logback/logstash-logback-encoder/8.1/logstash-logback-encoder-8.1.jar
+```
+
+To integrate this into your build pipeline, add the verification step after
+dependency resolution and before the packaging phase. 
+
+### Other bundled artifact formats
+
+The same limitation applies to other ecosystems where dependencies are bundled
+into a single output artifact, such as JavaScript bundles and Python
+applications packaged with tools that inline dependencies. Dependencies may also
+be minified, partially copied, or otherwise transformed during the build
+process. In all of these cases, verification should also be performed against
+the original package files before bundling rather than against the final output
+artifact.
 
 ## Container analysis
 
