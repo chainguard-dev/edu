@@ -24,14 +24,16 @@ characteristics before using them in your application development.
 Log in to the Chainguard Console at
 [https://console.chainguard.dev/](https://console.chainguard.dev/).
 
-In the left-hand navigation under **Libraries**, expand **Ecosystems** to find links for browsing Chainguard's [**Java**](/chainguard/libraries/java/overview/) and [**Python**](/chainguard/libraries/python/overview/) libraries. 
+In the left-hand navigation under **Libraries**, expand **Ecosystems** to find
+links for browsing Chainguard's [**Java**](/chainguard/libraries/java/overview/)
+and [**Python**](/chainguard/libraries/python/overview/) libraries. 
 
 <a id="initial-display"></a>
 
 ### Browse the libraries list
 
-When you open a specific ecosystem, you'll see a search input box
-and a list of libraries. Click any row to open the [library detail page](#library-page).
+When you open a specific ecosystem, you'll see a search input box and a list of
+libraries. Click any row to open the [library detail page](#library-page).
 
 The list includes the following columns:
 
@@ -43,7 +45,8 @@ The list includes the following columns:
   `org.springframework:spring-core` or `org.eclipse.jetty:jetty-http`.
 * **Latest version** - the latest released and available version of the library
   and the total number of available versions.
-* **Updated** - The most recent date when any version of this library was built and published by Chainguard.
+* **Updated** - The most recent date when any version of this library was built
+  and published by Chainguard.
 
 At the bottom of the page, see a total count of available libraries.
 
@@ -58,23 +61,41 @@ Click into a row to view a [specific library page](#library-page).
 
 <a id="library-page"></a>
 
-## Library Page
+### View remediated libraries
 
-To access a library page, click on the row for a specific library in the
-search results or the initial library list.
+[CVE
+remediation](/chainguard/libraries/cve-remediation/) is available for a subset of Chainguard Libraries for Python. You can view remediated libraries in the Chainguard Console.
 
-On a library's page, use the search bar at the top to search for specific versions.
+In the Python libraries directory, click the **Remediated** tab to view a list
+of remediated libraries. Click into a library to see which versions have
+remediated CVEs.
 
-The title of the library page shows the name of the library and includes a text
-input to filter the displayed library versions.
+While viewing the list of remediated versions for a library, click into a
+version to view more details: which CVEs were remediated, the date that the
+version was patched, and links to additional resources. 
 
-The list of library versions uses the following columns:
+Learn about other options for browsing libraries with CVE remedation in the
+[Python Overview](/chainguard/libraries/python/overview/) page.
+
+## Library page
+
+To access a library page, click on the row for a specific library in the search
+results or the [initial library list](#initial-display).
+
+On a library's page, use the search bar at the top to search for specific
+versions.
+
+The list of library versions includes the following columns:
 
 * **Version** - the version of the library. Library versions are strings.
   Depending on the ecosystem and library they can follow naming patterns and
   other restrictions that allow ordering by version.
 * **Size** - the size of the library.
+    * The displayed size reflects the primary file(s) only: `.jar`/`.pom` for
+      Java, and `.whl`/`.tar.gz` for Python. It is not an aggregation of all
+      files under a given version.
 * **Built** - The date when this version was built and published by Chainguard.
 
 Click on the column titles to change the **sort** order of the list.
+
 
