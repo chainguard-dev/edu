@@ -133,9 +133,9 @@ pip3 install -r requirements.txt
 chainctl libraries verify --detailed ./venv/
 ```
 
-### Analyze a local Java JAR file
+### Analyze a Java JAR file
 
-Analyze a local Java `.jar` file:
+Analyze a Java `.jar` file:
 
 ```sh
 chainctl libraries verify commons-lang3-3.17.0.jar
