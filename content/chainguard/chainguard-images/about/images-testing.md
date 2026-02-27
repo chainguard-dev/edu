@@ -57,7 +57,7 @@ Chainguard builds a wide variety of different container images, with differing c
 | **Layer**  | **Test** | **Applies to**  |
 | --- | --- | --- |
 | Deployment | Upstream accepted, documented deployment methods | All services and controllers |
-| Runtime security | Non-root, no extra caps, read-only rootfs | All |
+| Runtime security | Non-root, no extra capacities, read-only rootfs | All |
 | TLS | Valid chain, hostname, min TLS | Any listener, FIPS |
 | Persistence | Correct file and directory permissions, read/write, restarts cleanly | Stateful, such as databases |
 | UI | Smoke test and auth | UI apps, such as Argo |
