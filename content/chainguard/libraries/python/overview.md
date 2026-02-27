@@ -314,6 +314,30 @@ curl -L --user "$CHAINGUARD_PYTHON_IDENTITY_ID:$CHAINGUARD_PYTHON_TOKEN" \
 
 The option `-L` is required to follow redirects for the actual file locations.
 
+## Hash verification when migrating to Chainguard Libraries
+
+Because Chainguard rebuilds from source, there are some circumstances where you
+can expect different checksums for the same package version when migrating from
+upstream PyPI to Chainguard Libraries:
+
+- Tools such as `pip` enforce hashes when using `--require-hashes` or when hashes are pinned in requirements.txt files
+- Tools such as `Poetry` and `uv` generate lock files that include SHA-256 hashes and will fail if checksums don't match
+- Systems such as JFrog Artifactory or Nexus may have cached upstream PyPI wheels and continue serving them until caches are cleared
+
+### Resolving checksum mismatches
+
+>Note: Before regenerating lock files, ensure your tool is configured to use Chainguard as the package index by following the [global configuration](chainguard/libraries/python/global-configuration/) or [direct access](/chainguard/libraries/python/build-configuration/#direct-access) documentation.
+
+To resolve hash mismatches, re-resolve your dependencies against Chainguard Libraries:
+
+- For `--require-hashes`: install from Chainguard indexes, and then regenerate the requirements file with new hashes so they match Chainguard wheels. 
+- For `uv`, Poetry, or other tools that generate lockfiles: Point them at Chainguard indexes, and then regenerate the lockfile so stored hashes correspond to Chainguard artifacts.
+- For repository managers: You may also need to clear cached PyPI artifacts to ensure future installs pull Chainguard's versions.
+
+>**Note:** While hash mismatches from are expected for some tooling and
+configurations, you can verify the authenticity and provenance of Chainguard
+packages using SBOM and SLSA attestation files as described in the next section.
+
 ## SBOM and attestation files
 
 Chainguard Libraries for Python include files that contain software bill of
@@ -321,20 +345,24 @@ material (SBOM) information. Additional files attest details about build
 infrastructure with  the [Supply-chain Levels for Software Artifacts
 (SLSA)](https://slsa.dev/) provenance information.
 
+### Embedded SBOMs
+
 The related files for Chainguard Libraries for Python are located within the
 Python wheel file for each package following the [PEP 770 Improving
 measurability of Python packages with Software Bill-of-Materials
 specification](https://peps.python.org/pep-0770/) for software composition
 analytis (SCA) using the SPDX format.
 
-Specifically a wheel file contains two directories, the main code directory that
-uses the name of the library only, and the version-specific distribution info
-directory `.dist.info`. For example, the wheel archive for Flask version 2.0.0
+A wheel file contains two directories:
+- The main code directory that uses the name of the library only, and 
+- The version-specific distribution info directory `.dist.info`.
+
+For example, the wheel archive for Flask version 2.0.0
 includes a directory `flask-2.0.0.dist.info`. You can also find this directory
 in the `site-packages` directory of a Python project using a virtual environment.
 
-Find the SBOM information in the file `sboms/sbom.spdx.json`. Any package from
-Chainguard includes the reference to Chainguard in the creators section:
+The SBOM information is in the file `*.dist-info/sboms/sbom.spdx.json`. Any package from
+Chainguard includes a reference to Chainguard in the `creators` section:
 
 ```json
 {
@@ -354,6 +382,8 @@ Chainguard includes the reference to Chainguard in the creators section:
   }
 }
 ```
+
+### SLSA provenance
 
 SLSA provenance is available from the Chainguard Python index following the [PEP
 740 – Index support for digital attestations
@@ -392,7 +422,13 @@ Packages from Chainguard are identified by the `publisher`:`environment` set as
 }
 ```
 
+### Sigstore bundle
+
+A Sigstore bundle is a self‑contained JSON file that packages everything needed
+to verify the authenticity and integrity of a signed artifact.
+
 A [Sigstore bundle file](https://docs.sigstore.dev/about/bundle/) is available
 as `bundle.json` from the integrity context at
 `https://libraries.cgr.dev/python/integrity/PACKAGE/VERSION/FILE/bundle.json`
 specifically for each package, version, and file. 
+
