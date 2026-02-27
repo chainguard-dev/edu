@@ -89,23 +89,19 @@ Python wheel files for standard and remediated package version.
 
 ## CVE remediation
 
-Chainguard Libraries for Python includes the [CVE
-Remediation](/chainguard/libraries/cve-remediation/) feature. Remediated
-libraries include an appended local version identifier of `+cgr.N`. Python
-package management tools interpret the `+cgr.N` suffix as a local version that
-takes precedence over versions without the version suffix during dependency
-resolution.
+Chainguard Libraries for Python includes [CVE
+Remediation](/chainguard/libraries/cve-remediation/), which backports security fixes into existing library versions without requiring you to upgrade. Remediated versions are published with a `+cgr.N` suffix — for example, `1.1.2+cgr.1`. Python package managers interpret the suffix as a local version that takes precedence over versions _without_ the suffix during dependency resolution. 
 
 For example, the `flask` library has a fix for CVE-2023-30861 available in the
 upstream codebase. Upon customer request for a specific version, the fix is
-backported to the flask versions `1.1.2` and `2.0.0` and made available in new
-versions `1.1.2+cgr.1` and `2.0.0+cgr.1`. Python package management tools
+backported to the flask versions `1.1.2` and `2.0.0`. These are made available in new
+versions: `1.1.2+cgr.1` and `2.0.0+cgr.1`. Python package management tools
 consider these local versions, such as `1.1.2+cgr.1` and `2.0.0+cgr.1`, as
 newer, compatible replacements automatically.
 
-In some cases, multiple CVEs may be remediated in a specific library version.
-For example, `aiohttp` has fixes for both CVE-2024-23334 and CVE-2024-30251 in
-the version `3.9.1+cgr.2`.
+When multiple CVEs are addressed in a single release, the build number increments accordingly. For example, `aiohttp 3.9.1+cgr.2` includes fixes for both CVE-2024-23334 and CVE-2024-30251.
+
+Learn more about browsing remediations in [CVE remediation for Chainguard Libraries](/chainguard/libraries/cve-remediation/#about-cve-remediation).
 
 ## CUDA-enabled libraries
 
