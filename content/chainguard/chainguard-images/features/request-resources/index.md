@@ -15,7 +15,7 @@ weight: 015
 toc: true
 ---
 
-The Chainguard Console now includes the Requests section where customers can submit and track requests for resources that Chainguard doesn't currently offer. This improves transparency around which technologies Chainguard is working to build and helps minimize duplicate build requests.
+The Chainguard Console includes the Requests section where customers can submit and track requests for resources that Chainguard doesn't currently offer. This improves transparency around which technologies Chainguard is working to build and helps minimize duplicate build requests.
 
 This guide provides an overview of how to submit a request for a new resource to Chainguard, as well as the limitations on what resources can be built.
 
@@ -24,20 +24,21 @@ This guide provides an overview of how to submit a request for a new resource to
 
 ## Prerequisites
 
-In order to submit requests for new resources in the Chainguard Console, you must be part of a [verified organization](/chainguard/administration/iam-organizations/verified-orgs/). Users with access to only Chainguard's free tier of container images will not be able to submit requests.
+In order to submit requests for new resources in the Chainguard Console, you must be part of a [verified organization](/chainguard/administration/iam-organizations/verified-orgs/). Users with access to only Chainguard's Free tier of container images will not be able to submit requests.
 
 
 ## The Requests section
 
 To begin, navigate to the [**Requests** section of the Chainguard Console](https://console.chainguard.dev/org/chainguard/requests/active). This section includes three tabs:
 
-* **My requests**, showing any requests you've initiated or upvoted
+* **My requests**, showing any requests you've upvoted or initiated, as well as any initiated by other members of your organization
 * **Active builds**, which includes any resources the Chainguard team is in the process of building
 * **Community requests**, showing all the resource requests not currently being built
 
 Each of these tabs contains a table with the following columns:
 
-* A column at the far left where you can upvote requests.
+* A column at the far left where you can upvote requests by clicking the upward-pointing arrow.
+    * Click the arrow again to remove an upvote.
 * The **Name** of the resource requested.
 * The request's **Status**. This can be one of the following:
     * **Future**
@@ -47,12 +48,12 @@ Each of these tabs contains a table with the following columns:
     * **Won't build**
 * If the original requester included them, **Project Details** that describe the resource being requested
 
-Additionally, the **Community requests** tab includes a **Demand** column, showing what demand percentile the request falls into. Also, the **Active builds** tab includes an **Estimated delivery** column which shows when Chainguard expects the resource to be available. 
+Additionally, the **Community requests** tab includes a **Demand** column, showing what demand percentile the request falls into. Also, the **Active builds** tab includes an **Estimated delivery** column that shows when Chainguard expects the resource to be available. 
 
 
 ## Requesting new resources
 
-Within each tab in the **Requests** section of the console is a button labeled **New request**. Clicking this button will open a modal window where you can enter the details of your resource request. 
+Within each tab in the **Requests** section of the console is a button labeled **New request**. Click this button to open a modal window where you can enter the details of your resource request.
 
 This window contains several fields. The following are required for you to submit a request:
 
@@ -70,7 +71,7 @@ There are also a few optional fields you can fill in:
 
 Although these fields aren't required, filling them in provides Chainguard with more context for your request and can help speed up the approval process.
 
-After filling out the form, click the **Request image** button to submit your request. Your request will then appear in both the **My requests** and **Community requests** tabs, and other customers will be able to upvote it.
+After filling out the form, click **Request image** to submit your request. Your request will then appear in both the **My requests** and **Community requests** tabs, and other customers will be able to upvote it.
 
 The Chainguard team will then review the request and prioritize it based on demand, as determined by the number of upvotes the request has received from users.
 
@@ -82,6 +83,6 @@ There are a few limitations you should consider before submitting a new request:
 * Chainguard will not build resources based on proprietary code.
     * Note that some projects distributed under open source licenses have strict terms that prevent Chainguard from building artifacts based on them.
 * If a project is no longer receiving updates or releases, Chainguard typically won't build it since there aren't reliable security fixes upstream.
-* There are cases where Chainguard cannot fulfill a FIPS request and be FIPS compliant. In such cases, the standard variant can often still be built but the FIPS variant will get marked as **Won't build**.
+* There are cases where Chainguard cannot fulfill a FIPS request and be FIPS compliant. In such cases the standard variant can often still be built but the FIPS variant will get marked as **Won't build**.
 
 Finally, be aware that requesting that Chainguard build a software artifact does not mean it will automatically be accessible to your organization. Once the resource is built, you can reach out to our sales team to add it to your organization; alternatively, if your organization has [Catalog Pricing](/chainguard/chainguard-images/about/pricing/) enabled, you can add it yourself after it's built.
