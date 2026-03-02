@@ -99,3 +99,51 @@ Alternatively, you can use the token for direct access from a build tool as
 discussed in [Build
 configuration](/chainguard/libraries/javascript/build-configuration/).
 
+## Provenance and attestations
+Chainguard Libraries for JavaScript include SLSA provenance with signed attestations. 
+These attestations cryptographically link each package to the Chainguard 
+Factory build environment, providing verifiable proof of where and how each package 
+was produced. Provenance attestations follow the npm attestation standard. The 
+Chainguard publisher identity is verifiable via the Sigstore signing certificate 
+embedded in the attestation bundle, which links back to https://issuer.enforce.dev,  
+the Chainguard OIDC issuer.
+
+To verify a specific package's provenance attestation using `cosign`, replace `PACKAGE` 
+and `VERSION` with the package name and version (for example, `axios-mock-adapter` 
+and `1.17.0`):
+
+**Download the tarball**
+```
+curl -L -H "Authorization: Bearer $(chainctl auth token --audience=libraries.cgr.dev)" \
+  "https://libraries.cgr.dev/javascript/PACKAGE/-/PACKAGE-VERSION.tgz" \
+  -o PACKAGE-VERSION.tgz
+```
+
+**Extract the SLSA provenance bundle**
+```
+curl -H "Authorization: Bearer $(chainctl auth token --audience=libraries.cgr.dev)" \
+  "https://libraries.cgr.dev/javascript/-/npm/v1/attestations/PACKAGE@VERSION" | \
+  jq -c '.attestations[] | select(.predicateType | contains("slsa")) | .bundle' \
+  > PACKAGE-provenance.sigstore.json
+```
+
+**Verify the attestation was signed by Chainguard**
+```
+cosign verify-blob-attestation \
+  --bundle PACKAGE-provenance.sigstore.json \
+  --new-bundle-format \
+  --certificate-oidc-issuer=https://issuer.enforce.dev \
+  --certificate-identity-regexp="^https://issuer.enforce.dev/" \
+  --check-claims=false \
+  PACKAGE-VERSION.tgz
+```
+
+A successful verification returns:
+```
+Verified OK
+```
+
+The `--certificate-oidc-issuer` and `--certificate-identity-regexp` flags confirm 
+the attestation was signed by Chainguard. 
+
+
