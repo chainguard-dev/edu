@@ -40,7 +40,7 @@ To retrieve an attestation via Cosign, you'll need the following installed on yo
 * **jq**: Follow instructions on the [jq downloads page](https://jqlang.github.io/jq/download/) to set it up.
 
 
-### Retrieve a container image attestation via Cosign
+### Retrieve a container image attestation using Cosign
 
 Cosign includes a `download attestation` command that allows you to retrieve a Chainguard Container's attestation over the command line. Different types of attestations are referenced by their **predicate type**. To authenticate these statements and verify the authenticity of the software producer, you can use [`cosign verify-attestation`](/open-source/sigstore/cosign/how-to-verify-file-signatures-with-cosign/). 
 
@@ -63,13 +63,13 @@ You can include the following flags when retrieving attestations:
 
 ### Retrieve a container image attestation in the Chainguard Console
 
-You can also find container image SBOMs in the [Chainguard Console](https://console.chainguard.dev). After signing in to the Console and clicking either the **Public images** or, if available, **Organization images** you'll be presented with a list of images. Clicking on any of these will take you to the image's landing page. There, you can click on the [**SBOM** tab](/chainguard/chainguard-images/how-to-use/images-directory/#sbom-tab) to find and download the SBOM for the given image. 
+You can also find container image SBOMs in the [Chainguard Console](https://console.chainguard.dev). After signing in to the Console and clicking either the **Public images** or, if available, **Organization images** you'll be presented with a list of images. Click on any of these to navigate that image's landing page. From there, navigate to the [**SBOM** tab](/chainguard/chainguard-images/how-to-use/images-directory/#sbom-tab) to find and download the SBOM for the given image. 
 
-The following example shows the **SBOM** tab for the `postgres` image.
+You can use the drop-down menus above the table to select which version and architecture of the image you want to view. You can also use the search box to find specific packages in the SBOM or use the button to the right of the search box to download the SBOM to your machine.
 
-![Screenshot of the postgres image's "SBOM" tab, showing the first five rows of the latest version's SBOM.](imgs-dir-5.png)
+Clicking **Download** reveals a drop-down menu where you can choose to download the image's SBOM in either the SPDX or CycloneDX SBOM formats. The following example shows the **SBOM** tab for the `nginx` container image, with the **Download** drop-down menu open:
 
-You can use the drop-down menu above the table to select which version and architecture of the image you want to view. You can also use the search box to find specific packages in the SBOM or use the button to the right of the search box to download the SBOM to your machine.
+![Screenshot of the nginx image's "SBOM" tab, showing the Download button and drop-down menu options (SPDX and CyclonedDX) highlighted in a yellow box.](img-dir-5.png)
 
 Check out our guide on [using the Chainguard Containers Directory](/chainguard/chainguard-images/how-to-use/images-directory/) for more details.
 

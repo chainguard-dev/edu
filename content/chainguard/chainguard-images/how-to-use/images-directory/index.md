@@ -122,19 +122,21 @@ It also shows the container image's **Raw configuration**, which includes many o
 
 The **SBOM** tab contains a list of packages in the image. Chainguard Containers are built so that everything contained in the image is a package, meaning that this package list gives a complete view of what's in the container image. You won't find anything hidden in the image that isn't listed in its SBOM tab.
 
-<center><img src="imgs-dir-G.png" alt="Screenshot of the argocd container image's 'SBOM' tab, showing nine rows of the latest version's SBOM." style="width:1100px;"></center>
+<center><img src="imgs-dir-G.png" alt="Screenshot of the argocd container image's 'SBOM' tab, showing four rows of the latest version's SBOM." style="width:1100px;"></center>
 <br />
 
-The table listing an image's packages has four columns.
+The table listing an image's packages has six columns.
 
+* **Type**: the type of package, such as `golang` or `apk`
 * **Package**: the name of each package included in the image's SBOM
 * **Version**: the version of the listed package
 * **Repository**: every package found in Chainguard Containers is either built and managed by the Chainguard team or sourced from [Wolfi](/open-source/wolfi/overview/). For packages falling into the latter category, this column will include a link to the [Wolfi GitHub repository](https://github.com/wolfi-dev/os) showing the package source
+* **Subpath**: if available, a subpath that points to a specific file or directory within the package
 * **License**: the license under which each package is published
 
-Above the table is a search box you can use to find and filter the packages listed. To the left of this search box is a drop-down menu you can use to select which version of the image you want to find the SBOM for as well as what architecture (either x86_64 or arm64). 
+Above the table is a search box you can use to find and filter the packages listed. To the left of this search box are two drop-down menus you can use to select which version of the image you want to find the SBOM for as well as what architecture (either x86_64 or arm64). 
 
-Finally, to the right of the search box is a button labeled **Download SBOM**. If the image is a Free Container or a container image your organization has access to, you can click this button to download the SBOM (in the SPDX format) to your machine.
+Finally, to the right of the search box is a button labeled **Download**. If the image is a Free Container or a container image your organization has access to, you can click this button to download the SBOM (in either the SPDX or CycloneDX formats) to your machine.
 
 Note that Chainguard began generating SBOMs for its images on November 15, 2023. For this reason, any versions of a given container image that were released before that date will not have any SBOM data to show. 
 
