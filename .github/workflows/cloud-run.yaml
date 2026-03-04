@@ -32,7 +32,7 @@ jobs:
 
     - uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
       with:
-        node-version: 16
+        node-version: 20
 
     - name: Update themes
       run: git submodule update --init --recursive
@@ -76,7 +76,7 @@ jobs:
         tags: '${{ secrets.REGISTRY_URL }}/${{ secrets.PROJECT_ID }}/${{ secrets.REPOSITORY }}/${{ secrets.SERVICE }}:${{ github.sha }}'
 
     # Attempt to deploy the terraform configuration
-    - uses: hashicorp/setup-terraform@5e8dbf3c6d9deaf4193ca7a8fb23f2ac83bb6c85 # v2.0.0
+    - uses: hashicorp/setup-terraform@5e8dbf3c6d9deaf4193ca7a8fb23f2ac83bb6c85 # v4.0.0
       with:
         terraform_version: '1.10.x'
     - env:
