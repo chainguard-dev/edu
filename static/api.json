@@ -1825,6 +1825,110 @@
         },
         "type": "object"
       },
+      "chainguard.platform.libraries.NpmPackage": {
+        "description": "NpmPackage contains metadata about an npm package available in\nChainguard Libraries. The package name can be used to retrieve\nversion-level details via ListVersions.",
+        "properties": {
+          "description": {
+            "description": "A short description of the package.",
+            "type": "string"
+          },
+          "latestVersion": {
+            "description": "The most recent version of this package available.",
+            "type": "string"
+          },
+          "license": {
+            "description": "The SPDX license identifier for this package.",
+            "type": "string"
+          },
+          "packageName": {
+            "description": "The npm package name (e.g. \"react\" or \"@types/node\").",
+            "type": "string"
+          },
+          "versionCount": {
+            "description": "The number of versions available for this package.",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.NpmPackageList": {
+        "description": "A collection of NpmPackages as returned by calls to List.\nContains pagination fields to allow callers to request additional\npages of results if the set exceeds the requested page size.",
+        "properties": {
+          "items": {
+            "description": "The list of npm packages matching the request.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.NpmPackage"
+            },
+            "type": "array"
+          },
+          "nextPageToken": {
+            "description": "A token that can be reused on subsequent requests to retrieve\nthe next page of results. Other filter fields must match\nthe call that provided this token.",
+            "type": "string"
+          },
+          "totalCount": {
+            "description": "The total number of packages matching the query.",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.NpmPackageVersion": {
+        "description": "NpmPackageVersion contains metadata about a specific version of an\nnpm package available in Chainguard Libraries.",
+        "properties": {
+          "createdAt": {
+            "description": "When this version was first published.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "fileCount": {
+            "description": "The number of files contained in the package.",
+            "format": "int64",
+            "type": "string"
+          },
+          "fileSize": {
+            "description": "The size of the package in bytes.",
+            "format": "int64",
+            "type": "string"
+          },
+          "license": {
+            "description": "The SPDX license identifier for this version.",
+            "type": "string"
+          },
+          "packageName": {
+            "description": "The npm package name (e.g. \"react\" or \"@scope/lib\").",
+            "type": "string"
+          },
+          "version": {
+            "description": "The version string of this package version.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.NpmPackageVersionList": {
+        "description": "A collection of NpmPackageVersions as returned by calls to ListVersions.\nContains pagination fields to allow callers to request additional\npages of results if the set exceeds the requested page size.",
+        "properties": {
+          "items": {
+            "description": "The list of package versions matching the request.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.NpmPackageVersion"
+            },
+            "type": "array"
+          },
+          "nextPageToken": {
+            "description": "A token that can be reused on subsequent requests to retrieve\nthe next page of results.",
+            "type": "string"
+          },
+          "totalCount": {
+            "description": "The total number of versions available for the package.",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.matcher.ImageMatch": {
         "properties": {
           "coverage": {
@@ -2233,6 +2337,199 @@
           }
         },
         "type": "object"
+      },
+      "chainguard.platform.policygates.v1.Binding": {
+        "description": "Binding associates a Policy with a resource in the hierarchy.\nThe binding is a child of the resource it applies to, and its policy\nis applied to all descendants of that resource.",
+        "properties": {
+          "id": {
+            "description": "The id of the Binding. The policy is bound to its parent,\nand applies to all of the parent's descendants.",
+            "type": "string"
+          },
+          "mode": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.policygates.v1.PolicyMode"
+              }
+            ],
+            "description": "PolicyMode defines how the policy is enforced."
+          },
+          "policy": {
+            "title": "The policy to apply",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.policygates.v1.BindingList": {
+        "properties": {
+          "items": {
+            "description": "The requested bindings.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.policygates.v1.Binding"
+            },
+            "type": "array"
+          },
+          "nextPageToken": {
+            "description": "Token for retrieving the next page of results.\nEmpty if there are no more results.",
+            "type": "string"
+          },
+          "skipped": {
+            "description": "Number of results that were skipped.\nAccumulates across paginated requests.",
+            "format": "int32",
+            "type": "integer"
+          },
+          "totalCount": {
+            "description": "Total number of results matching the filter.\nOptional, provided for UI pagination.",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.policygates.v1.Bindings.UpdateBindingBody": {
+        "description": "Binding associates a Policy with a resource in the hierarchy.\nThe binding is a child of the resource it applies to, and its policy\nis applied to all descendants of that resource.",
+        "properties": {
+          "mode": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.policygates.v1.PolicyMode"
+              }
+            ],
+            "description": "PolicyMode defines how the policy is enforced."
+          },
+          "policy": {
+            "title": "The policy to apply",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.policygates.v1.Policies.UpdatePolicyBody": {
+        "description": "Policy defines a rule that can be evaluated on an image\nin a repository, giving an \"allowed\" or \"disallowed\" decision.",
+        "properties": {
+          "createdAt": {
+            "description": "When the policy was created.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "description": {
+            "description": "Human-readable description of the policy.",
+            "type": "string"
+          },
+          "expression": {
+            "description": "The policy expression.",
+            "type": "string"
+          },
+          "name": {
+            "title": "Human-readable name of the policy.\nName may be up to 128 characters in length, can consist\nof characters [a-zA-Z0-9._-], but may not start with '.' or '-'",
+            "type": "string"
+          },
+          "policyType": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.policygates.v1.PolicyType"
+              }
+            ],
+            "description": "The type of policy (system or custom).\nSystem policies are created automatically by the system and may not be modified.\nCustom policies may be created and modified by users with the relevant IAM permissions.",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "description": "When the policy was last updated.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.policygates.v1.Policy": {
+        "description": "Policy defines a rule that can be evaluated on an image\nin a repository, giving an \"allowed\" or \"disallowed\" decision.",
+        "properties": {
+          "createdAt": {
+            "description": "When the policy was created.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "description": {
+            "description": "Human-readable description of the policy.",
+            "type": "string"
+          },
+          "expression": {
+            "description": "The policy expression.",
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "title": "Human-readable name of the policy.\nName may be up to 128 characters in length, can consist\nof characters [a-zA-Z0-9._-], but may not start with '.' or '-'",
+            "type": "string"
+          },
+          "policyType": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.policygates.v1.PolicyType"
+              }
+            ],
+            "description": "The type of policy (system or custom).\nSystem policies are created automatically by the system and may not be modified.\nCustom policies may be created and modified by users with the relevant IAM permissions.",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "description": "When the policy was last updated.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.policygates.v1.PolicyList": {
+        "properties": {
+          "items": {
+            "description": "The Policy items requested.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.policygates.v1.Policy"
+            },
+            "type": "array"
+          },
+          "nextPageToken": {
+            "description": "Token for retrieving the next page of results.\nEmpty if there are no more results.",
+            "type": "string"
+          },
+          "skipped": {
+            "description": "Number of results that were skipped.\nAccumulates across paginated requests.",
+            "format": "int32",
+            "type": "integer"
+          },
+          "totalCount": {
+            "description": "Total number of results matching the filter.\nOptional, provided for UI pagination.",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.policygates.v1.PolicyMode": {
+        "default": "POLICY_MODE_UNSPECIFIED",
+        "description": "The mode to use when evaluating the policy.\n\n - POLICY_MODE_ENFORCED: Disallow access to the artifact when it doesn't satisfy the applied policy.\n - POLICY_MODE_LOG: Allow access to the artifact when it doesn't satisfy the applied policy, but log the outcome.",
+        "enum": [
+          "POLICY_MODE_UNSPECIFIED",
+          "POLICY_MODE_ENFORCED",
+          "POLICY_MODE_LOG"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.policygates.v1.PolicyType": {
+        "default": "POLICY_TYPE_UNSPECIFIED",
+        "description": "The type of policy.\n\n - POLICY_TYPE_SYSTEM: The policy was created and managed by the system.\n - POLICY_TYPE_CUSTOM: The policy was created and managed by your organization.",
+        "enum": [
+          "POLICY_TYPE_UNSPECIFIED",
+          "POLICY_TYPE_SYSTEM",
+          "POLICY_TYPE_CUSTOM"
+        ],
+        "type": "string"
       },
       "chainguard.platform.registry.Apko.BuildImageBody": {
         "properties": {
@@ -3613,6 +3910,18 @@
         },
         "type": "object"
       },
+      "chainguard.platform.registry.RepoSyncStatus": {
+        "description": "RepoSyncStatus is repo_id correlated with the repo's sync status.",
+        "properties": {
+          "repoId": {
+            "type": "string"
+          },
+          "repoStatus": {
+            "$ref": "#/components/schemas/chainguard.platform.registry.SyncStatus"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.registry.RepoTagReference": {
         "properties": {
           "repo": {
@@ -3741,6 +4050,18 @@
           "FAILED"
         ],
         "type": "string"
+      },
+      "chainguard.platform.registry.SyncStatusList": {
+        "description": "SyncStatusList is the sync status of all repos for a given registry_id.",
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.RepoSyncStatus"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
       },
       "chainguard.platform.registry.Tag": {
         "properties": {
@@ -5305,6 +5626,14 @@
             "schema": {
               "format": "int32",
               "type": "integer"
+            }
+          },
+          {
+            "description": "When set, deduplicate results across architectures: packages available for\nmultiple architectures are returned only once, with the architecture field\ncontaining a comma-separated list of all architectures (e.g. \"aarch64, x86_64\").\nHas no effect when architecture is already set.",
+            "in": "query",
+            "name": "deduplicateArchitectures",
+            "schema": {
+              "type": "boolean"
             }
           }
         ],
@@ -8044,6 +8373,122 @@
         ]
       }
     },
+    "/libraries/v1/npm/packages": {
+      "get": {
+        "operationId": "NpmPackages_List",
+        "parameters": [
+          {
+            "description": "A string to search packages by. If empty, all packages\nwill be returned. When set, results are ranked by relevance.",
+            "in": "query",
+            "name": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "The maximum number of packages to return per request.\nThe service may return fewer than this value.",
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "format": "int64",
+              "type": "string"
+            }
+          },
+          {
+            "description": "The token received from a previous call to List.\nProvide this to retrieve the subsequent page.",
+            "in": "query",
+            "name": "pageToken",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.NpmPackageList"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List",
+        "tags": [
+          "NpmPackages"
+        ]
+      }
+    },
+    "/libraries/v1/npm/packages/versions": {
+      "get": {
+        "operationId": "NpmPackages_ListVersions",
+        "parameters": [
+          {
+            "description": "The npm package name to list versions for (required).",
+            "in": "query",
+            "name": "packageName",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "The maximum number of versions to return per request.\nThe service may return fewer than this value.",
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "format": "int64",
+              "type": "string"
+            }
+          },
+          {
+            "description": "The token received from a previous call to ListVersions.\nProvide this to retrieve the subsequent page.",
+            "in": "query",
+            "name": "pageToken",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.NpmPackageVersionList"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Versions",
+        "tags": [
+          "NpmPackages"
+        ]
+      }
+    },
     "/notifications/v1/notifications": {
       "get": {
         "operationId": "Notifications_List",
@@ -8128,6 +8573,522 @@
         "summary": "Ping",
         "tags": [
           "PingService"
+        ]
+      }
+    },
+    "/policygates/v1/bindings": {
+      "get": {
+        "operationId": "Bindings_ListBindings",
+        "parameters": [
+          {
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "in": "query",
+            "name": "uidp.inRoot",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "ids are a list of exact UIDPs of records.",
+            "in": "query",
+            "name": "uidp.ids",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          {
+            "description": "Maximum number of results to return per page.",
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Page token from a previous List response for pagination.",
+            "in": "query",
+            "name": "pageToken",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Order results by field. Format: \"field [asc|desc]\"\nDefault: \"id asc\"\nNote: Changing order_by between pages invalidates the page token.",
+            "in": "query",
+            "name": "orderBy",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Number of results to skip before returning.\nUsed for random-access pagination (jumping to arbitrary pages).\nCan be combined with page_token to skip from cursor position.\nMust be non-negative.",
+            "in": "query",
+            "name": "skip",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.policygates.v1.BindingList"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Bindings",
+        "tags": [
+          "Bindings"
+        ]
+      }
+    },
+    "/policygates/v1/bindings/{id}": {
+      "delete": {
+        "operationId": "Bindings_DeleteBinding",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Delete Binding",
+        "tags": [
+          "Bindings"
+        ]
+      },
+      "put": {
+        "operationId": "Bindings_UpdateBinding",
+        "parameters": [
+          {
+            "description": "The id of the Binding. The policy is bound to its parent,\nand applies to all of the parent's descendants.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.policygates.v1.Bindings.UpdateBindingBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.policygates.v1.Binding"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Update Binding",
+        "tags": [
+          "Bindings"
+        ]
+      }
+    },
+    "/policygates/v1/bindings/{parentId}": {
+      "post": {
+        "operationId": "Bindings_CreateBinding",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.policygates.v1.Binding"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "binding"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.policygates.v1.Binding"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Create Binding",
+        "tags": [
+          "Bindings"
+        ]
+      }
+    },
+    "/policygates/v1/policies": {
+      "get": {
+        "operationId": "Policies_ListPolicies",
+        "parameters": [
+          {
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "in": "query",
+            "name": "uidp.inRoot",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "ids are a list of exact UIDPs of records.",
+            "in": "query",
+            "name": "uidp.ids",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          {
+            "description": "Maximum number of results to return per page.",
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Page token from a previous List response for pagination.",
+            "in": "query",
+            "name": "pageToken",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Order results by field. Format: \"field [asc|desc]\"\nDefault: \"id asc\"\nNote: Changing order_by between pages invalidates the page token.",
+            "in": "query",
+            "name": "orderBy",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Number of results to skip before returning.\nUsed for random-access pagination (jumping to arbitrary pages).\nCan be combined with page_token to skip from cursor position.\nMust be non-negative.",
+            "in": "query",
+            "name": "skip",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.policygates.v1.PolicyList"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Policies",
+        "tags": [
+          "Policies"
+        ]
+      }
+    },
+    "/policygates/v1/policies/{id}": {
+      "delete": {
+        "operationId": "Policies_DeletePolicy",
+        "parameters": [
+          {
+            "description": "The id of the policy to delete.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Delete Policy",
+        "tags": [
+          "Policies"
+        ]
+      },
+      "put": {
+        "operationId": "Policies_UpdatePolicy",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.policygates.v1.Policies.UpdatePolicyBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.policygates.v1.Policy"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Update Policy",
+        "tags": [
+          "Policies"
+        ]
+      }
+    },
+    "/policygates/v1/policies/{parentId}": {
+      "post": {
+        "operationId": "Policies_CreatePolicy",
+        "parameters": [
+          {
+            "description": "The id of the policy's parent.",
+            "in": "path",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.policygates.v1.Policy"
+              }
+            }
+          },
+          "description": "The policy to create.",
+          "required": true,
+          "x-originalParamName": "policy"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.policygates.v1.Policy"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Create Policy",
+        "tags": [
+          "Policies"
         ]
       }
     },
@@ -9962,6 +10923,47 @@
         ]
       }
     },
+    "/registry/v1/syncstatuses": {
+      "get": {
+        "operationId": "Registry_ListSyncStatuses",
+        "parameters": [
+          {
+            "description": "The UIDP of the registry to list the SyncStatus for.",
+            "in": "query",
+            "name": "registryId",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.registry.SyncStatusList"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Sync Statuses",
+        "tags": [
+          "Registry"
+        ]
+      }
+    },
     "/registry/v1/tags": {
       "get": {
         "operationId": "Registry_ListTags",
@@ -11583,6 +12585,9 @@
       "name": "Entitlements"
     },
     {
+      "name": "NpmPackages"
+    },
+    {
       "name": "ImageMatcher"
     },
     {
@@ -11593,6 +12598,12 @@
     },
     {
       "name": "PingService"
+    },
+    {
+      "name": "Policies"
+    },
+    {
+      "name": "Bindings"
     },
     {
       "name": "Apko"
