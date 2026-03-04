@@ -128,9 +128,9 @@ The **SBOM** tab contains a list of packages in the image. Chainguard Containers
 The table listing an image's packages has six columns.
 
 * **Type**: the type of package, such as `golang` or `apk`
-* **Package**: the name of each package included in the image's SBOM
+* **Namespace**: any packages found in a Chainguard container image are built by Chainguard; this column shows the source repository on which the package is based
+* **Name**: the name of each package included in the image's SBOM
 * **Version**: the version of the listed package
-* **Repository**: every package found in Chainguard Containers is either built and managed by the Chainguard team or sourced from [Wolfi](/open-source/wolfi/overview/). For packages falling into the latter category, this column will include a link to the [Wolfi GitHub repository](https://github.com/wolfi-dev/os) showing the package source
 * **Subpath**: if available, a subpath that points to a specific file or directory within the package
 * **License**: the license under which each package is published
 
