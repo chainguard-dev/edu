@@ -39,7 +39,7 @@ not found on Maven Central, sourced from
 [Google](https://maven.google.com/web/index.html),
 [Oracle](https://www.oracle.com/webfolder/application/maven/index.html),
 [JetBrains](https://www.jetbrains.com/intellij-repository/releases),
-[CERN](https://gitlab.cern.ch/),
+CERN,
 [Confluent](https://packages.confluent.io/maven/), [Gradle](https://plugins.gradle.org/m2/), and other public artifact repositories.
 Note that coverage is not exhaustive for any single repository; the index
 continues to grow, and any request for a missing library or version
