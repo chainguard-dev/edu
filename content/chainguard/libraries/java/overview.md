@@ -28,16 +28,18 @@ Repository](https://central.sonatype.com/). It has been in operation for nearly
 20 years and hosts artifacts of all releases of most open source projects in the
 Java community. It is the default repository in all commonly used build tools
 from the Java community including [Apache Maven](https://maven.apache.org/),
-[Gradle](https://gradle.org/), and others and uses the Maven repository format.
-Chainguard Libraries for Java covers all open source artifacts from Maven
-Central.
+[Gradle](https://gradle.org/), and others, and uses the Maven repository format.
+Chainguard Libraries for Java covers a broad and growing set of artifacts from
+Maven Central.
 
-Chainguard Libraries for Java also builds binaries for many other open source
-projects available in other repositories or on code hosting platforms like
-GitHub. Examples include Google, Oracle, JetBrains, CERN, Apache, and many
-others. Any request for a library or library version missing in Chainguard
-Libraries automatically triggers a process to provision the artifacts from
-relevant sources if available. 
+While Maven Central is the primary upstream and reference repository, Chainguard
+Libraries for Java also builds binaries for open source projects available in
+other repositories and code hosting platforms like GitHub. This covers libraries
+not found on Maven Central, sourced from Google, Oracle, JetBrains, CERN,
+Apache, Confluent, Gradle plugins, and more. Note that coverage is not
+exhaustive for any single repository; the index continues to grow, and any
+request for a missing library or version automatically triggers a process to
+provision the artifacts from relevant sources if available. 
 
 You can use Chainguard Libraries for Java alongside third-party software
 repositories to create a single source of truth with your repository manager
