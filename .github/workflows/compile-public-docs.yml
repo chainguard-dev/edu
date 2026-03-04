@@ -30,6 +30,7 @@ permissions:
   
 jobs:
   compile-and-release:
+    if: github.repository == 'chainguard-dev/edu'
     runs-on: ubuntu-latest
     
     steps:
