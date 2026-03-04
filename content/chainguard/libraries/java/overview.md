@@ -37,11 +37,10 @@ for Java also builds binaries for open source projects available in other
 repositories like the Google or Confluent repositories. This covers libraries
 not found on Maven Central, sourced from
 [Google](https://maven.google.com/web/index.html),
-[Oracle](https://maven.oracle.com),
+[Oracle](https://www.oracle.com/webfolder/application/maven/index.html),
 [JetBrains](https://www.jetbrains.com/intellij-repository/releases),
 [CERN](https://gitlab.cern.ch/),
-[Confluent](https://packages.confluent.io/maven/), [Gradle Plugin
-Portal](https://plugins.gradle.org/m2/), and other public artifact repositories.
+[Confluent](https://packages.confluent.io/maven/), [Gradle](https://plugins.gradle.org/m2/), and other public artifact repositories.
 Note that coverage is not exhaustive for any single repository; the index
 continues to grow, and any request for a missing library or version
 automatically triggers a process to provision the artifacts from relevant
