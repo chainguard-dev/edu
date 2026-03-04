@@ -15,6 +15,7 @@ permissions:
 
 jobs:
   compile-docs:
+    if: github.repository == 'chainguard-dev/edu'
     runs-on: ubuntu-latest
     environment: documentation  # Use environment protection rules
     

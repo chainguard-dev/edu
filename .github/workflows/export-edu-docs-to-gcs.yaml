@@ -20,6 +20,7 @@ permissions:
 
 jobs:
   export-docs:
+    if: github.repository == 'chainguard-dev/edu'
     runs-on: ubuntu-latest
     
     steps:
