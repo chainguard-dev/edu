@@ -100,12 +100,9 @@ Custom Assembly provides the tools and defaults for secure image creation — bu
 
 ## How do tags work for a custom assembly image (base image vs. added packages)?
 
-For a custom assembly image based on a Chainguard image:
+For a Custom Assembly image, the semantic tag (for example, `vX.Y.Z`) always reflects the version of the Chainguard container image on which it is based. Any added packages do not get their own version tags.
 
-* The semantic tag (for example, vX.Y.Z) always reflects the base image version.
-* Any added packages do not get their own version tags.
-* When an added package is updated and available, your custom assembly is rebuilt automatically, and the latest moves to the new digest that includes the updated package.
-* The semantic tag remains tied to the same base image version until the base image itself is updated and a new semantic tag is created.
+When an added package is updated and available, your Custom Assembly image is rebuilt automatically and the new build that includes the updated package becomes the `latest` image. The semantic tag remains tied to the same base image digest until the base image itself is updated and a new semantic tag is created.
 
 
 ## Custom Assembly Troubleshooting
