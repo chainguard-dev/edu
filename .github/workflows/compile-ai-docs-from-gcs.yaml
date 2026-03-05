@@ -25,22 +25,23 @@ permissions:
   
 jobs:
   compile-docs:
+    if: github.repository == 'chainguard-dev/edu'
     runs-on: ubuntu-latest
     environment: documentation
     
     steps:
     - name: Harden Runner
-      uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
+      uses: step-security/harden-runner@a90bcbc6539c36a85cdfeb73f7e2f433735f215b # v2.15.0
       with:
         egress-policy: audit
 
     - name: Checkout edu repository
-      uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       with:
         persist-credentials: false
 
     - name: Authenticate to Google Cloud
-      uses: step-security/google-github-auth@190f7ef9b7a34cc0dfd0c11f0e327365f70071d6 # v2.1.12
+      uses: step-security/google-github-auth@57c51210cb4d85d8a5d39dc4c576c79bd693f914 # v3.0.1
       with:
         workload_identity_provider: "projects/456977358484/locations/global/workloadIdentityPools/chainguard-academy/providers/chainguard-edu"
         service_account: "github-chainguard-academy@chainguard-academy.iam.gserviceaccount.com"
@@ -49,7 +50,7 @@ jobs:
       uses: google-github-actions/setup-gcloud@aa5489c8933f4cc7a4f7d45035b3b1440c9c10db # v3.0.1
 
     - name: Set up Python
-      uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
+      uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
       with:
         python-version: '3.10'
 
@@ -68,6 +69,7 @@ jobs:
         # Create directories for extracted content
         mkdir -p ../images-private
         mkdir -p ../courses
+        mkdir -p ../dfc
         
         # Download and extract edu docs (from GCS, not local)
         if gcloud storage cp gs://academy-all-docs/edu/docs-export.tar.gz /tmp/edu.tar.gz \
@@ -88,7 +90,7 @@ jobs:
         if gcloud storage cp gs://academy-all-docs/images-private/docs-export.tar.gz /tmp/images-private.tar.gz \
            --project=chainguard-academy 2>/dev/null; then
           echo "Extracting images-private documentation..."
-          tar -xzf /tmp/images-private.tar.gz -C ../images-private --strip-components=1
+          tar -xzf /tmp/images-private.tar.gz -C ../images-private
           echo "✓ images-private docs downloaded"
         else
           echo "⚠ images-private docs not found in GCS (will use placeholder)"
@@ -107,7 +109,17 @@ jobs:
           echo "# Courses Documentation" > ../courses/README.md
           echo "Documentation not yet available" >> ../courses/README.md
         fi
-        
+
+        # Download and extract dfc docs (Dockerfile Converter mappings)
+        if gcloud storage cp gs://academy-all-docs/dfc/docs-export.tar.gz /tmp/dfc.tar.gz \
+           --project=chainguard-academy 2>/dev/null; then
+          echo "Extracting dfc documentation..."
+          tar -xzf /tmp/dfc.tar.gz -C ../dfc
+          echo "✓ dfc docs downloaded"
+        else
+          echo "⚠ dfc docs not found in GCS (will skip dfc mappings)"
+        fi
+
         # Download metadata files for logging
         echo ""
         echo "Metadata information:"
@@ -155,7 +167,16 @@ jobs:
       run: |
         # Copy files for container build
         cp static/downloads/chainguard-ai-docs.md scripts/
-        cp static/downloads/checksums.txt scripts/
+
+        # Create container-specific checksums (only for files included in container)
+        cd scripts
+        sha256sum chainguard-ai-docs.md > checksums.txt
+        cd ..
+
+        # Create placeholder signature files if they don't exist
+        # (These will be properly signed in a future phase)
+        touch scripts/chainguard-ai-docs.md.sig
+        touch scripts/chainguard-ai-docs.md.crt
         
         # Build container with GitHub Container Registry
         docker build -f scripts/Dockerfile.ai-docs -t ghcr.io/${{ github.repository_owner }}/ai-docs:latest scripts/
@@ -218,7 +239,7 @@ jobs:
         fi
 
     - name: Delete existing latest release if exists
-      if: (github.event.inputs.create_release == 'true' || github.event_name == 'schedule') && github.ref == 'refs/heads/main'
+      if: github.ref == 'refs/heads/main'
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
@@ -234,7 +255,7 @@ jobs:
         fi
 
     - name: Create GitHub Release
-      if: (github.event.inputs.create_release == 'true' || github.event_name == 'schedule') && github.ref == 'refs/heads/main'
+      if: github.ref == 'refs/heads/main'
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |

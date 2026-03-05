@@ -1,5 +1,5 @@
 ---
-date: 2025-09-29T18:30:00Z
+date: 2026-03-04T15:59:26Z
 title: "chainctl iam folders describe"
 slug: chainctl_iam_folders_describe
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_folders_describe/
@@ -14,14 +14,7 @@ toc: true
 Describe a folder.
 
 ```
-chainctl iam folders describe [FOLDER_NAME | FOLDER_ID] [--active-within=DURATION] [--output=json]
-```
-
-### Options
-
-```
-      --active-within duration   How recently a record must have been active to be listed. Zero will return all records. (default 24h0m0s)
-  -h, --help                     help for describe
+chainctl iam folders describe [FOLDER_NAME | FOLDER_ID] [--output=json]
 ```
 
 ### Options inherited from parent commands
@@ -32,6 +25,7 @@ chainctl iam folders describe [FOLDER_NAME | FOLDER_ID] [--active-within=DURATIO
       --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
       --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
       --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
       --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
       --log-level string   Set the log level (debug, info) (default "ERROR")
   -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]

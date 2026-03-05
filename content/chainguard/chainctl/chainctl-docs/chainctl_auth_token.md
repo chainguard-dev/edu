@@ -1,5 +1,5 @@
 ---
-date: 2025-09-29T18:30:00Z
+date: 2026-03-04T15:59:26Z
 title: "chainctl auth token"
 slug: chainctl_auth_token
 url: /chainguard/chainctl/chainctl-docs/chainctl_auth_token/
@@ -17,12 +17,6 @@ Print the local Chainguard Token.
 chainctl auth token [flags]
 ```
 
-### Options
-
-```
-  -h, --help   help for token
-```
-
 ### Options inherited from parent commands
 
 ```
@@ -31,6 +25,7 @@ chainctl auth token [flags]
       --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
       --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
       --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
       --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
       --log-level string   Set the log level (debug, info) (default "ERROR")
   -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]
@@ -40,4 +35,5 @@ chainctl auth token [flags]
 ### SEE ALSO
 
 * [chainctl auth](/chainguard/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
+* [chainctl auth token capabilities](/chainguard/chainctl/chainctl-docs/chainctl_auth_token_capabilities/)	 - Print the capabiltities of the local Chainguard Token.
 

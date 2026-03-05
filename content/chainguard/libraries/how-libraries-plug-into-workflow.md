@@ -1,6 +1,6 @@
 ---
 title: "How does Chainguard Libraries plug into a developer's workflow?"
-linktitle: "Libraries Developer Workflow"
+linktitle: "Developer workflow"
 type: "article"
 description: "Interview with Dustin Kirkland explaining how Chainguard Libraries integrate seamlessly into existing developer workflows"
 date: 2025-08-02T16:00:00+00:00

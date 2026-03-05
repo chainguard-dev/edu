@@ -40,23 +40,32 @@ After selecting the packages for your customized container image, Chainguard wil
 
 Custom Assembly only allows you to add packages into a given container image; you cannot remove the packages included in the source application image by default. For example, Chainguard's Node.js container image comes with packages like `nodejs-23`, `npm`, and `glibc` by default. These packages can't be removed from a Node.js image using the Custom Assembly tool but you can add other packages into it, and you can remove these added packages in later builds.
 
-The packages you can add to a container image are those that your organization already has access to based on the Chainguard Containers you have already purchased. Additionally, you can only add supported versions of packages to a customized image.
+The packages you can add to a container image are those that your organization already has access to, based on the Chainguard Containers that your organization is entitled to. Additionally, you can only add supported versions of packages to a customized image.
 
 The changes you make to your customized container image may affect its functional behavior when deployed. Chainguard doesn’t test your final customized image and therefore doesn't guarantee its functional behavior. Please test your customized images extensively to ensure they meet your requirements.
 
 
+## Why Use Custom Assembly for Adding Packages
+
+When you add packages to Chainguard Containers using `apk add` commands without pinning to specific package versions and image digests, you expose yourself to version compatibility conflicts that can break their builds. Chainguard continuously updates its APK repository with the latest package versions to ensure customers receive the most recent security patches. This creates problems when a newly-updated package has conflicts with older dependencies installed in an image. These conflicts will be resolved when a new version of the image is released, but until then it's possible there will be a window where builds will break.
+
+Chainguard's Custom Assembly tool solves this problem by building customized images on Chainguard's infrastructure, where the build pipeline automatically ensures all packages (both those included in the base image and those being added) remain on compatible versions. Custom Assembly treats package additions as a declarative configuration that Chainguard builds, maintains, and automatically rebuilds as packages are updated. The alternative approach — manually pinning packages to specific versions when using `apk add` and pinning images to digests — requires ongoing maintenance to update images and pins. 
+
+Custom Assembly is the officially supported method for extending Chainguard Containers with additional packages. It leverages Chainguard's build infrastructure to produce tailored container images without requiring customers to maintain their own build pipelines. Because Chainguard automatically rebuilds Custom Assembly images when constituent packages are updated, customers receive timely security patches without manual intervention while avoiding the version conflicts inherent in ad hoc `apk add` usage.
+
+
 ## Custom Assembly Permissions Requirements
 
-In order to build customized container images, you must have the appropriate permissions in relation to your Chainguard organization. Specifically, a Chainguard user must have a role with the `repo.update` capability. If you find yourself unable to customize container images with Custom Assembly, it may be that you don't have adequate permissions within your organization to do so.
+In order to build customized container images, you must have the appropriate permissions in relation to your Chainguard organization. Specifically, a Chainguard user must have a role with the `repo.update` capability to customize an existing image repository in place, and must have the `repo.create` capability to create a net new image repository with the `--save-as` feature. If you find yourself unable to customize container images with Custom Assembly, it may be that you don't have adequate permissions within your organization to do so.
 
-As of this writing, only one of Chainguard's three main default roles (`viewer`, `editor`, and `owner`) has this capability: the `owner` role. 
+As of this writing, only one of Chainguard's three main default roles (`viewer`, `editor`, and `owner`) has these capabilities: the `owner` role. 
 
-This means that in order to use Custom Assembly, your account must be bound to the `owner` role, or to a custom role that also has the `repo.update` capability.
+This means that in order to use Custom Assembly (including `--save-as`), your account must be bound to the `owner` role, or to a custom role that also has the `repo.update` and `repo.create` capabilities.
 
-To create such a custom role, you can use the `chainctl iam roles create` command. The following example creates a custom role named `ca-role` with all the same capabilities as the `viewer` role, but with the added `repo.update` capability:
+To create such a custom role, you can use the `chainctl iam roles create` command. The following example creates a custom role named `ca-role` with all the same capabilities as the `viewer` role, but with the added `repo.update` and `repo.create` capabilities:
 
 ```shell
-chainctl iam roles create ca-role --parent=$ORGANIZATION --capabilities=repo.update,account_associations.list,apk.list,group_invites.list,groups.list,identity.list,identity_providers.list,libraries.artifacts.list,libraries.entitlements.list,manifest.list,manifest.metadata.list,record_signatures.list,registry.entitlements.list,repo.list,roles.list,sboms.list,subscriptions.list,tag.list,version.list,vuln_report.list,vuln_reports.list
+chainctl iam roles create ca-role --parent=$ORGANIZATION --capabilities=repo.create,repo.update,build_report.list,account_associations.list,apk.list,group_invites.list,groups.list,identity.list,identity_providers.list,libraries.artifacts.list,libraries.entitlements.list,manifest.list,manifest.metadata.list,record_signatures.list,registry.entitlements.list,repo.list,roles.list,sboms.list,subscriptions.list,tag.list,version.list,vuln_report.list,vuln_reports.list
 ```
 
 After creating this custom role, you would need to bind it to any identities in your organization that you want to be able to manage Custom Assembly resources. Check out our [Overview of Roles and Role-bindings in Chainguard](/chainguard/administration/iam-organizations/roles-role-bindings/roles-role-bindings/) to learn more.
@@ -157,7 +166,6 @@ Build failures can occur for a number of reason, including the following:
 
 * It's possible for users to select packages that conflict with each other. For example, if two packages install the same files, Custom Assembly may not be able to resolve the conflict and result in a failed build.
 * Large images taking longer than 1 hour to build will fail with a timeout error.
-* There is a known bug where container images will not be rebuilt if their source image was last built more than 48 hours ago.
 
 In any case, you won't know whether a container image build fails until after it's complete. If you need assistance troubleshooting, please [reach out to our Customer Support team](https://www.chainguard.dev/contact?utm=docs).
 

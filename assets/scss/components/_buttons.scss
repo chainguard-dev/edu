@@ -1,0 +1,108 @@
+// Button styles matching Chainguard brand system
+
+// Primary button - Solid blurple
+.btn-primary,
+.cta-button,
+.footer-contact-btn,
+.button-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    background: var(--primary-1);
+    border: none;
+    border-radius: 6px;
+    color: #ffffff !important;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: $TextFont;
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+    &:hover {
+        background: #7545FB;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(98, 38, 240, 0.25);
+        color: #ffffff !important;
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+
+    // With arrow icon
+    svg {
+        margin-left: 8px;
+        width: 16px;
+        height: 16px;
+    }
+}
+
+// Secondary button - Outline blurple
+.btn-secondary,
+.button-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    background: transparent;
+    border: 2px solid var(--primary-1);
+    border-radius: 6px;
+    color: var(--primary-1) !important;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: $TextFont;
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+    &:hover {
+        background: var(--primary-1);
+        color: #ffffff !important;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(98, 38, 240, 0.15);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+
+    // With arrow icon
+    svg {
+        margin-left: 8px;
+        width: 16px;
+        height: 16px;
+    }
+}
+
+// Small button variant
+.btn-sm {
+    padding: 8px 20px;
+    font-size: 14px;
+}
+
+// Large button variant
+.btn-lg {
+    padding: 14px 32px;
+    font-size: 16px;
+}
+
+// Full width button
+.btn-block {
+    width: 100%;
+}
+
+// Disabled state
+.btn-primary:disabled,
+.btn-secondary:disabled,
+.button-primary:disabled,
+.button-secondary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+
+    &:hover {
+        transform: none;
+        box-shadow: none;
+    }
+}

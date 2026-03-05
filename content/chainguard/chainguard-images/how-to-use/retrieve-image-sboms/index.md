@@ -1,6 +1,6 @@
 ---
-title: "How to Retrieve SBOMs for Chainguard Containers"
-linktitle: "Retrieve SBOM"
+title: "How to Retrieve SBOMs and attestations for Chainguard Containers"
+linktitle: "Retrieve SBOMs"
 aliases: 
 - /chainguard/chainguard-images/retrieve-image-sboms
 - /chainguard/chainguard-images/images-features/retrieve-image-sboms
@@ -16,65 +16,91 @@ images: []
 menu:
   docs:
     parent: "chainguard-images"
-weight: 013
+weight: 080
 toc: true
 ---
 
 
 Chainguard provides a Software Bill of Materials (SBOM) with every container image, enabling complete transparency about package contents and dependencies for security and compliance requirements. These SBOMs are cryptographically signed and attached as attestations, making them retrievable and verifiable. By including only the minimum packages needed, Chainguard Containers reduce attack surface while the SBOM ensures you can verify exactly what's in each image.
 
-Even though they contain the minimum number of packages, there may come a time when you want to know exactly what's running inside of a certain Chainguard Container. For this reason, Chainguard includes a signed SBOM with each image in the form of a [software attestation](https://slsa.dev/attestation-model), allowing you to verify the contents and meet compliance requirements.
+Even though they contain the minimum number of packages, there may come a time when you want to know exactly what's running inside of a certain Chainguard Container. For this reason, Chainguard includes a signed SBOM with each image in the form of a [software attestation](https://slsa.dev/attestation-model), allowing you to verify the contents and meet compliance requirements. Chainguard publishes several different types of attestations; see the options under the [Available attestation types](#available-attestation-types) section on this page.
 
-[Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign/) — a part of the Sigstore project — supports software artifact signing, verification, and storage in an [OCI (Open Container Initiative)](/open-source/oci/what-is-the-oci/) registry, as well as the retrieval of said artifacts. This tutorial outlines how you can use the `cosign` command to retrieve a Chainguard Container's SBOM. 
+## Retrieve a container image's attestation
+
+You can retrieve a container image's attestation in two ways:
+- [Using Cosign](#retrieve-a-container-image-attestation-via-cosign)
+    - [Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign/) — a part of the Sigstore project — supports software artifact signing, verification, and storage in an [OCI (Open Container Initiative)](/open-source/oci/what-is-the-oci/) registry, as well as the retrieval of said artifacts.
+- [In the Chainguard Console](#retrieve-a-container-image-attestation-in-the-chainguard-console)
+
+### Prerequisites
+
+To retrieve an attestation via Cosign, you'll need the following installed on your local machine:
+
+* **Cosign**: Follow [our guide on installing Cosign](/open-source/sigstore/cosign/how-to-install-cosign/) to configure it.
+* **jq**: Follow instructions on the [jq downloads page](https://jqlang.github.io/jq/download/) to set it up.
 
 
-## Prerequisites
+### Retrieve a container image attestation using Cosign
 
-In order to follow this guide, you'll need the following installed on your local machine:
+Cosign includes a `download attestation` command that allows you to retrieve a Chainguard Container's attestation over the command line. Different types of attestations are referenced by their **predicate type**. To authenticate these statements and verify the authenticity of the software producer, you can use [`cosign verify-attestation`](/open-source/sigstore/cosign/how-to-verify-file-signatures-with-cosign/). 
 
-* **Cosign** — to retrieve SBOMs associated with Chainguard Containers, check out [our guide on installing Cosign](/open-source/sigstore/cosign/how-to-install-cosign/) to configure it.
-* **jq** — to process JSON, visit the [jq downloads](https://jqlang.github.io/jq/download/) page to set it up.
-
-
-## Using Cosign to retrieve an container image's SBOM
-
-Cosign includes a `download` command that allows you to retrieve a Chainguard Container's attestation over the command line. To do so, you would use this command with syntax like the following.
-
-```shell
-cosign download attestation cgr.dev/chainguard/php | jq -r .payload | base64 -d | jq .predicate
-```
-
-This example command downloads the attestation of our [php image](https://images.chainguard.dev/directory/image/php/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-retrieve-image-sboms). 
-
-Notice that this example syntax includes `download attestation` rather than `download sbom`. You can generally think of an attestation as an authenticated statement about a software artifact. There are different types of attestations [as defined by the SLSA 1.0 specification](https://slsa.dev/attestation-model), and they are typically referenced by their **predicate type**. One of the available predicate types is SPDX, an open standard for SBOM files. Because attestations must be signed, this is a way to verify the authenticity of the software producer, thereby ensuring the accuracy of the SBOM and the quality of the software.
-
-This attestation data is encoded in base64, making it unreadable without further processing. This is why the output from the first part of the command is piped into `jq` in order to filter out the payload section of the output containing the SBOM. This filtered output is then passed into the `base64` command to be decoded before that output is piped into another `jq` command. The final `jq` command extracts the attestation predicate from the `base64` output and returns it to your terminal.
-
-As an example, to retrieve the `apko` image's attestation you would run a command like this.
+This example command downloads the SPDX attestation for Chainguard's [php image](https://images.chainguard.dev/directory/image/php/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-retrieve-image-sboms):
 
 ```shell
 cosign download attestation \
-  --platform=linux/amd64 \
-  --predicate-type=https://spdx.dev/Document \
-  cgr.dev/chainguard/apko | jq -r .payload | base64 -d | jq .predicate
+  --platform linux/amd64 \
+  --predicate-type https://spdx.dev/Document \
+  cgr.dev/chainguard/php | jq -r '.payload' | base64 -d | jq -r '.predicate'
 ```
 
-This example includes two extra arguments not included in the example syntax outlined previously. First, it includes the `--platform` flag which allows you to download the attestation for a specific platform image. This example specifies the `linux/amd64` platform, but you could also use `linux/arm64`. Be aware, though, that in order to use the `--platform` option you'll need to have Cosign version 2.2.1 or newer installed.
+Cosign returns the attestation in a signed envelope, with the SBOM stored as a base64-encoded payload. The command pipes the output through jq to extract the payload, decodes it with base64, and then uses jq again to print the attestation’s predicate, which contains the SBOM.
 
-The other extra argument is the `--predicate-type` flag, required to specify which type of predicate you want to download from the registry. In order to download Chainguard Containers SBOM attestations, you should use the `https://spdx.dev/Document` predicate type.
+You can include the following flags when retrieving attestations:
+* The `--platform` flag, which selects the target platform for the image, such as `linux/amd64` or `linux/arm64`. 
+    * This flag requires Cosign version 2.2.1 or newer.
+* The `--predicate-type` flag, required to specify which type of attestation to retrieve. You can use the full URI or the shorthand version as the value of the flag. See the [Available attestation types](#available-attestation-types) section for a list of options.
 
 
-## Image SBOMs in the Chainguard Console
+### Retrieve a container image attestation in the Chainguard Console
 
-You can also find container image SBOMs in the [Chainguard Console](https://console.chainguard.dev). After signing in to the Console and clicking either the **Public images** or, if available, **Organization images** you'll be presented with a list of images. Clicking on any of these will take you to the image's landing page. There, you can click on the [**SBOM** tab](/chainguard/chainguard-images/how-to-use/images-directory/#sbom-tab) to find and download the SBOM for the given image. 
+You can also find container image SBOMs in the [Chainguard Console](https://console.chainguard.dev). After signing in to the Console and clicking either the **Public images** or, if available, **Organization images** you'll be presented with a list of images. Click on any of these to navigate that image's landing page. From there, navigate to the [**SBOM** tab](/chainguard/chainguard-images/how-to-use/images-directory/#sbom-tab) to find and download the SBOM for the given image. 
 
-The following example shows the **SBOM** tab for the `postgres` image.
+You can use the drop-down menus above the table to select which version and architecture of the image you want to view. You can also use the search box to find specific packages in the SBOM or use the button to the right of the search box to download the SBOM to your machine.
 
-![Screenshot of the postgres image's "SBOM" tab, showing the first five rows of the latest version's SBOM.](imgs-dir-5.png)
+Clicking **Download** reveals a drop-down menu where you can choose to download the image's SBOM in either the SPDX or CycloneDX SBOM formats. The following example shows the **SBOM** tab for the `nginx` container image, with the **Download** drop-down menu open:
 
-You can use the drop-down menu above the table to select which version and architecture of the image you want to view. You can also use the search box to find specific packages in the SBOM or use the button to the right of the search box to download the SBOM to your machine.
+![Screenshot of the nginx image's "SBOM" tab, showing the Download button and drop-down menu options (SPDX and CyclonedDX) highlighted in a yellow box.](img-dir-5.png)
 
 Check out our guide on [using the Chainguard Containers Directory](/chainguard/chainguard-images/how-to-use/images-directory/) for more details.
+
+## Available attestation types
+
+Chainguard publishes several different types of attestations. Not every image will have every predicate type; availability depends on the image and its build process. Available predicate types include:
+
+* **SLSA**: `https://slsa.dev/provenance/v1` (`slsaprovenance1`)
+    * The [SLSA 1.0](https://slsa.dev/spec/v1.0/provenance) provenance attestation contains information about the image build environment.
+    * Available on all images.
+* **apko**: `https://apko.dev/image-configuration`
+    * Contains the configuration used by that particular image build, including direct dependencies, user accounts, and entry point.
+    * Available on all images.
+* **SPDX**: `https://spdx.dev/Document` (`spdx`,`spdxjson`)
+    * Contains the image SBOM in SPDX format.
+    * Available on all images.
+* **Chainguard EOL**: `https://chainguard.dev/end-of-life`
+    * End-of-life status.
+    * Only available on EOL images in grace period.
+* **CycloneDX**: `https://cyclonedx.org/bom` (`cyclonedx`)
+    * Contains the image SBOM in CycloneDX format.
+    * Only available to customers, on new builds or rebuilds after January 29, 2026.
+* **Chainguard Helm values**: `https://chainguard.dev/helm-values/v1`
+    * Contains Helm values for images with vetted upstream Helm charts.
+    * Only images that are tested with Helm and have a corresponding upstream Helm chart have this attestation.
+* **Chainguard Helm chart-lock**: `https://chainguard.dev/attestation/chart-lock/v1`
+    * Contains Helm chart-lock data for relevant images.
+    * Only present for images where Helm chart locking is relevant.
+* **Syft**: `https://chainguard.dev/attestation/syft/v1`
+    * Contains Syft-based SBOM attestation.
+    * Not available on all images; this predicate is less common.
 
 ## License Information and Source Code references
 

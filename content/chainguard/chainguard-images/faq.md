@@ -24,25 +24,25 @@ Chainguard Containers are based on [Wolfi](/open-source/wolfi/), a Linux _undist
 The [Google distroless](https://github.com/GoogleContainerTools/distroless) images follow a similar philosophy to many of our images: they are minimal images that don't include package managers or shells. The main difference is in the implementation. The Google distroless images are built with [Bazel](https://bazel.build) and based on the Debian distribution, whereas Chainguard Containers are built with [apko](/open-source/apko/) and based on [Wolfi](/open-source/wolfi/). We believe our approach is more maintainable and extensible.
 
 ## Which images are available?
-There are currently over a thousand Chainguard Containers available, which are segmented as **Starter** or **Production**. You can read more about this in the [next question](#what-options-do-i-have-to-use-chainguard-images).
+There are currently over a thousand Chainguard Containers available, which are segmented as **Free** or **Production**. You can read more about this in the [next question](#what-options-do-i-have-to-use-chainguard-images).
 
-Chainguard Containers are primarily available from [Chainguard's registry](/chainguard/chainguard-registry/overview/), but a selection of Starter images is also available on [Docker Hub](https://hub.docker.com/u/chainguard). You can find the complete list of available Chainguard Containers in our public [Containers Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-faq) or within the [Chainguard Console](https://console.chainguard.dev/).
+Chainguard Containers are primarily available from [Chainguard's registry](/chainguard/chainguard-registry/overview/), but a selection of Free images is also available on [Docker Hub](https://hub.docker.com/u/chainguard). You can find the complete list of available Chainguard Containers in our public [Containers Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-faq) or within the [Chainguard Console](https://console.chainguard.dev/).
 
 ## What options do I have to use Chainguard Containers?
 You can get free Chainguard Containers for your organization. You can also upgrade for more versions, SLAs, and dedicated support.
 
-Starter | Production
+Free | Production
 -------|-----------------------
 Free for everyone, anywhere | [Contact us](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) for pricing
 Latest versions | Major and minor versions
 Community support | Enterprise SLAs
 [Developer Docs](/chainguard/chainguard-images/) | Customer support
 
-You can read more about the differences between Starter and Production Containers in our [Containers Overview](/chainguard/chainguard-images/overview/#production-and-starter-images).
+You can read more about the differences between Free and Production Containers in our [Containers Overview](/chainguard/chainguard-images/overview/#production-and-starter-images).
 
 ## Are Chainguard Containers available on Docker Hub?
 
-Yes, Chainguard Starter Container images are available on [Docker Hub](https://hub.docker.com/u/chainguard?utm_source=academy&utm_medium=referral&utm_campaign=FY25-DockerHub-Orgprofile). As a Docker Verified Publisher, Chainguard has met Docker's stringent standards for security, quality, and transparency. This status signifies that our container images are trusted, reliable, and have undergone rigorous verification processes. If you wish to use Production Containers, you will use [Chainguard's registry](/chainguard/chainguard-registry/overview/).
+Yes, Chainguard Free Container images are available on [Docker Hub](https://hub.docker.com/u/chainguard?utm_source=academy&utm_medium=referral&utm_campaign=FY25-DockerHub-Orgprofile). As a Docker Verified Publisher, Chainguard has met Docker's stringent standards for security, quality, and transparency. This status signifies that our container images are trusted, reliable, and have undergone rigorous verification processes. If you wish to use Production Containers, you will use [Chainguard's registry](/chainguard/chainguard-registry/overview/).
 
 ## What is an SBOM and why is it important?
 An SBOM is a Software Bill of Materials, which is a list containing detailed information about all software that is included within a software artifact, whether it's an application, a container image, or a physical appliance.
@@ -66,6 +66,12 @@ Starting in March of 2024, Chainguard will maintain one version of each Wolfi pa
 
 This change ensures that Chainguard can provide the most up-to-date patches to all packages for our customers. Note that specific package versions can be made available in Production containers. If you have a request for a specific package version, please [contact us](https://www.chainguard.dev/contact?utm=docs).
 
+
+## How do I add packages to a Chainguard Container?
+
+{{< blurb/why_ca >}}
+
+
 ## What does Chainguard do when a CVE is published, but a patch is not available from the owner of the OSS code?
 Chainguard investigates the CVE and marks relevant images as affected or not. If Chainguard can identify a patch that's unreleased, Chainguard may apply a patch before it lands upstream. In either case, when the patch lands upstream, Chainguard picks it up and rolls it out.
 
@@ -76,10 +82,14 @@ There are several Chainguard Containers container images--such as Druid and Spar
 Chainguard is not responsible for CVEs in software you add on top of base images.
 
 ## Do I need to authenticate into Chainguard to use Chainguard Containers?
-Logging in is optional if you are only using Starter containers. That being said, there are benefits for all users who authenticate to Chainguard's registry, as Chainguard provides notifications of version updates, breaking changes, or critical security updates.
+Logging in is optional if you are only using Free containers. That being said, there are benefits for all users who authenticate to Chainguard's registry, as Chainguard provides notifications of version updates, breaking changes, or critical security updates.
 
 To learn how to authenticate into Chainguard's registry, you can review our [authentication documentation](/chainguard/chainguard-registry/authenticating/) . You can read more about the thought process behind authentication in our blog post, [Scaling Chainguard Containers with a growing catalog and proactive security updates](https://www.chainguard.dev/unchained/scaling-chainguard-images-with-a-growing-catalog-and-proactive-security-updates).
 
 ## Is Chainguard FedRAMP certified?
 
 You will need to ingest Chainguard Containers into an image repository within your FedRAMP boundary. Your repo requires FedRAMP but Chainguard does not since we're outside the boundary. Please [reach out](https://www.chainguard.dev/contact?utm=docs) if you need more details.
+
+## Will Chainguard Containers run alongside eBPF agents or sensors? Will there be any issues?
+
+Chainguard containers are [OCI](https://opencontainers.org/) containers. eBPF operates at the kernel-level at runtime. This means Chainguard Conainers will not be affected by an eBPF agent or sensor, and vice versa.

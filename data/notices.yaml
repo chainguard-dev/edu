@@ -25,3 +25,9 @@
 #   type: cta
 #   note: |
 #     Want to learn about Chainguard's FIPS images? Join our <a href="https://events.chainguard.dev/07bc7b3b-823b-4cd0-a4ab-063d70f2ac93?utm_source=cg-academy&utm_medium=website&utm_campaign=dev-enablement&utm_content=cg-academy-homepage">Learning Lab on our FIPS Chainguard Images on December 18th</a>!
+
+# Uncomment and edit to add a call to action to the front page of Academy
+- title: "home"
+  type: cta
+  note: |
+    Register for our next <a href="https://go.chainguard.dev/whats-new-webinar">What's New webinar</a> to learn more about Chainguard's latest product updates, what problems they solve, and what's on our roadmap for the future.

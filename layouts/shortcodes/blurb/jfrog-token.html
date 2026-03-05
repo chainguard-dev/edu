@@ -1,0 +1,16 @@
+<ol>
+  <li>On the Repositories page, find your repository.</li>
+  <li>Hover your cursor over the repository's row and click the ellipsis (<strong>⋯</strong>) all the way to the right.</li>
+  <li>Select <strong>Set me up</strong>.</li>
+  <li>Click the <strong>Generate Token &amp; Create Instructions</strong> button.</li>
+</ol>
+
+<p>The resulting window contains two tabs labeled <strong>Configure</strong> and <strong>Pull</strong>, each with certain commands and details you can copy.</p>
+
+<p>In the <strong>Configure</strong> tab, copy the 64-character token, and then run a <code>docker login</code> command like the following on your local machine:</p>
+
+<pre><code class="language-shell">docker login -u &lt;linky@chainguard.dev&gt; &lt;my-project&gt;.jfrog.io</code></pre>
+
+<p>Be sure to replace the example username and Artifactory instance name in this command. The username following the <code>-u</code> flag must be the email or username associated with your JFrog Artifactory account, while you must replace <code>&lt;my-project&gt;</code> with the name of the Artifactory project where you created the remote repository. If you aren't sure of the name of your project, you can find it in the <code>docker login</code> command below the token you just copied.</p>
+
+<p>At the <code>Password:</code> prompt, paste the token you copied previously and press <code>ENTER</code>.</p>

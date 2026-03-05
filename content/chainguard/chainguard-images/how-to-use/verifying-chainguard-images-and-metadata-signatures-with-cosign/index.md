@@ -15,7 +15,7 @@ images: []
 menu:
   docs:
     parent: "chainguard-images"
-weight: 015
+weight: 090
 toc: true
 ---
 
@@ -31,7 +31,7 @@ The following examples require [Cosign](/open-source/sigstore/cosign/how-to-inst
 
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`. This guide works with Chainguard's public and private registries: 
 
-- `cgr.dev/chainguard`: The public registry contains Chainguard's **Starter container images**, which typically comprise the `:latest` versions of an image.
+- `cgr.dev/chainguard`: The public registry contains Chainguard's **Free container images**, which typically comprise the `:latest` versions of an image.
 - `cgr.dev/YOUR-ORGANIZATION`: A private/dedicated registry contains your organization's **Production container images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 The commands listed on this page will default to the `:latest` tag, but you can specify a different tag to fetch attestations for.
@@ -39,7 +39,7 @@ The commands listed on this page will default to the `:latest` tag, but you can 
 
 ## Chainguard's Signing Identities
 
-Chainguard uses an identity associated with its official GitHub account to sign images in the public registry that contains the free tier of Starter images.
+Chainguard uses an identity associated with its official GitHub account to sign images in the public registry that contains the Free tier of images.
 
 For private images, Chainguard signs all images in your private registry with one of two different identities in your organization:
 
@@ -112,17 +112,7 @@ cosign verify \
 
 Attestations are signed metadata about the artifact, which can include SBOMs, vulnerability scans, or other custom predicates.
 
-The [attestations](https://slsa.dev/attestation-model) for a container image can be obtained and verified using Cosign. These are a few of the existing types:
-
-| Attestation Type  | Description  |
-| ----------------- | ------------ |
-| `https://slsa.dev/provenance/v1`   	| The [SLSA 1.0](https://slsa.dev/spec/v1.0/provenance) provenance attestation contains information about the image build environment. |
-| `https://apko.dev/image-configuration` | Contains the configuration used by that particular image build, including direct dependencies, user accounts, and entry point.   	|
-| `https://spdx.dev/Document`   	| Contains the image SBOM in SPDX format.                                                             	|
-
-To download an attestation, use the `cosign download attestation` command and provide both the `predicate-type` and the build `platform`. By default, this command will fetch the SBOM assigned to the `latest` tag. You can also specify the tag you want to fetch the attestation from.
-
-To download a different attestation, replace the `--predicate-type` parameter value with the desired attestation URL identifier. To illustrate, the following examples will obtain the SBOM for the requested image for the `linux/amd64` platform.
+The [attestations](https://slsa.dev/attestation-model) for a container image can be obtained and verified using Cosign or directly in the Chainguard Console. See [How to retrieve attestations and SBOMs for Chainguard Containers](/chainguard/chainguard-images/how-to-use/retrieve-image-sboms/) for more information.
 
 ### Public Registry
 

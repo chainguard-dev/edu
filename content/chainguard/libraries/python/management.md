@@ -1,6 +1,6 @@
 ---
-title: "Management and Maintenance "
-linktitle: "Management "
+title: "Management and maintenance"
+linktitle: "Management"
 description: "Learn how to manage and maintain Chainguard Libraries for Python, including package updates, verification, and monitoring security improvements"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
@@ -20,7 +20,7 @@ Chainguard Libraries for Python operates transparently after completing the [glo
 The following sections detail optional management, maintenance, and auditing
 steps on the repository manager and the build tool.
 
-## Source Verification
+## Source verification
 
 You can verify what artifacts are retrieved from the Chainguard Libraries
 repository on a global level:
@@ -40,7 +40,7 @@ you can verify your libraries use in the following locations:
 * Libraries in your application bundles
 * Installed applications on your hosts or in your container images
 
-## Increase Chainguard Library Use
+## Increase Chainguard Libraries use
 
 The number of available artifacts in Chainguard Libraries for Python increases
 over time. If an artifact was already retrieved from the PyPI

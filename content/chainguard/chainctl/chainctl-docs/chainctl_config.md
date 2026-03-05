@@ -1,5 +1,5 @@
 ---
-date: 2025-09-29T18:30:00Z
+date: 2026-03-04T15:59:26Z
 title: "chainctl config"
 slug: chainctl_config
 url: /chainguard/chainctl/chainctl-docs/chainctl_config/
@@ -13,12 +13,6 @@ toc: true
 
 Local config file commands for chainctl.
 
-### Options
-
-```
-  -h, --help   help for config
-```
-
 ### Options inherited from parent commands
 
 ```
@@ -27,6 +21,7 @@ Local config file commands for chainctl.
       --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
       --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
       --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
       --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
       --log-level string   Set the log level (debug, info) (default "ERROR")
   -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]

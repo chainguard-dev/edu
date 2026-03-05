@@ -3,7 +3,7 @@ title: "Learning Labs"
 description: "Education and training videos on demand"
 type: "article"
 date: 2025-06-18T21:00:00+00:00
-lastmod: 2025-06-18T21:00:00+00:00
+lastmod: 2025-12-17T21:00:00+00:00
 draft: false
 images: []
 tags: ["Learning Labs", "Overview"]
@@ -22,7 +22,12 @@ The lab notes often include demo projects, a slide presentation, sample
 commands, links to specific sections in the video, and pointers to more
 resources:
 
-- [AI with Hardened Container Images - July 2025](/software-security/learning-labs/ll202506/)
+- [Shipping Safer Container Runtimes in 2026 - December 2025](/software-security/learning-labs/ll202512/)
+- [Chainguard OS on Raspberry Pi - November 2025](/software-security/learning-labs/ll202511/)
+- [Chainguard Libraries for JavaScript and CVE Remediation for Python Libraries - October 2025](/software-security/learning-labs/ll202510/)
+- [Static Chainguard Container Images - September 2025](/software-security/learning-labs/ll202509/)
+- [Getting Started with Chainguard's Dockerfile Converter - August 2025](/software-security/learning-labs/ll202508/)
+- [AI with Hardened Container Images - July 2025](/software-security/learning-labs/ll202507/)
 - [Chainguard Libraries for Python - June 2025](/software-security/learning-labs/ll202506/)
 - [Chainguard Libraries for Java - May 2025](/software-security/learning-labs/ll202505/)
 

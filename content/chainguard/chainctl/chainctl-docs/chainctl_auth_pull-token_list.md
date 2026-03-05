@@ -1,5 +1,5 @@
 ---
-date: 2025-09-29T18:30:00Z
+date: 2026-03-04T15:59:26Z
 title: "chainctl auth pull-token list"
 slug: chainctl_auth_pull-token_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token_list/
@@ -14,7 +14,7 @@ toc: true
 List all pull-tokens
 
 ```
-chainctl auth pull-token list [--parent=PARENT] [--library-ecosystem=LANGUAGE] [--expired=true|false] [flags]
+chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|java|python|javascript}] [flags]
 ```
 
 ### Examples
@@ -24,7 +24,7 @@ chainctl auth pull-token list [--parent=PARENT] [--library-ecosystem=LANGUAGE] [
   chainctl auth pull-token list
   
   # List all pull tokens associated with the Java library ecosystem.
-  chainctl auth pull-token list --library-ecosystem=java
+  chainctl auth pull-token list --repository=java
   
   # List expired pull tokens.
   chainctl auth pull-token list --expired
@@ -32,17 +32,16 @@ chainctl auth pull-token list [--parent=PARENT] [--library-ecosystem=LANGUAGE] [
   # List pull tokens associated to a particular organization.
   chainctl auth pull-token list --parent=my-org
   
-  # List all expired pull tokens associated with the Python library ecosystem.
-  chainctl auth pull-token list --library-ecosystem=python --expired
+  # List all expired APK pull tokens.
+  chainctl auth pull-token list --repository=apk --expired
 ```
 
 ### Options
 
 ```
-      --expired                    If true return only expired pull tokens.
-  -h, --help                       help for list
-      --library-ecosystem string   The language ecosystem with which the pull-token identity is associated.
-      --parent string              The IAM organization or folder with which the pull-token identity is associated.
+      --expired             If true return only expired pull tokens.
+      --parent string       The IAM organization or folder with which the pull-token identity is associated.
+      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, java, python, javascript
 ```
 
 ### Options inherited from parent commands
@@ -53,6 +52,7 @@ chainctl auth pull-token list [--parent=PARENT] [--library-ecosystem=LANGUAGE] [
       --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
       --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
       --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
       --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
       --log-level string   Set the log level (debug, info) (default "ERROR")
   -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]

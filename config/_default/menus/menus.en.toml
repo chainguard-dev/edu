@@ -38,6 +38,12 @@
   weight = 30
 
 [[main]]
+  name = "API Reference"
+  url = "/chainguard/api/"
+  parent = "menu-chainguard"
+  weight = 10
+
+[[main]]
   name = "Chainguard Containers"
   identifier = "chainguard-images"
   url = "/chainguard/chainguard-images/"

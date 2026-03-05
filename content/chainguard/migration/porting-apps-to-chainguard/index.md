@@ -23,7 +23,7 @@ toc: true
 * Chainguard's distroless Containers have no shell or package manager by default. This is great for security, but sometimes you need these things, especially in builder images. For those cases we have `-dev` variants (such as `cgr.dev/chainguard/python:latest-dev`) which do include a shell and package manager.
 * Chainguard Containers typically don't run as root, so a `USER root` statement may be required before installing software.
 * The `-dev` variants and `wolfi-base` / `chainguard-base` use BusyBox by default, so any `groupadd` or `useradd` commands will need to be ported to `addgroup` and `adduser`.
-* The free [Starter](/chainguard/chainguard-images/about/images-categories/#starter-containers) tier of Containers provides `:latest` and `:latest-dev` versions. Our paid Production Containers offer tags for major and minor versions.
+* The [Free tier](/chainguard/chainguard-images/about/images-categories/#starter-containers) of Containers provides `:latest` and `:latest-dev` versions. Our paid Production Containers offer tags for major and minor versions.
 * We use apk tooling, so `apt install` commands will become `apk add`.
 * Chainguard Containers are based on `glibc` and our packages cannot be mixed with Alpine packages.
 * In some cases, the entrypoint in Chainguard Containers can be different from equivalent container images based on other distros, which can lead to unexpected behavior. You should always check the image's specific documentation to understand how the entrypoint works.
@@ -522,7 +522,7 @@ docker build --pull --target dev -t identidock:dev .
 
 Otherwise, you will get the standard variant only.
 
-There are several more environment variables defined. These prevent the creation of Python bytecode and buffering of output. For more detail on why this is useful, see the blog [PYTHONDONTWRITEBYTECODE and PYTHONUNBUFFERED Explained](https://blog.mimixtech.com/pythondontwritebytecode-and-pythonunbuffered-explained).
+There are several more environment variables defined. These prevent the creation of Python bytecode and buffering of output.
 
 The installation of pip modules has moved to the `requirements.txt` file. The main thinking here is that we don't need to update the Dockerfile each time a dependency is updated or changed.
 

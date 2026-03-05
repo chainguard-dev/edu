@@ -1,6 +1,6 @@
 ---
-title: "Chainguard Libraries Network Requirements"
-linktitle: "Network Requirements"
+title: "Chainguard Libraries network requirements"
+linktitle: "Network requirements"
 description: "Learn the network requirements for accessing Chainguard Libraries, including domains needed for authentication, package downloads, and verification tools"
 type: "article"
 date: 2025-06-04T09:30:00+00:00
@@ -14,32 +14,33 @@ weight: 003
 toc: true
 ---
 
-Chainguard Libraries require specific network access to ensure secure delivery of hardened Java and Python dependencies to your development environment. This guide details the domains and ports needed for authentication, package downloads, and verification tools.
+[Chainguard Libraries](/chainguard/libraries/overview/) require specific network access to ensure secure delivery of hardened dependencies to your development environment. This guide details the domains and ports needed for authentication, package downloads, and verification tools.
 
-### Access for chainctl and Other Tools
+## Access for chainctl and other tools
 
 For initial configuration with chainctl as well as for verification of
-downloaded libraries with cosign and other tools, you must have HTTPS access to
+downloaded libraries with cosign and other tools, you must allow HTTPS access to
 the following domains:
 
 * `dl.enforce.dev` for download and update of chainctl
-* `issuer.enforce.dev` for authentication in web console and with chainctl
-* `console-api.enforce.dev` for web console and chainctl to administrate and use
+* `issuer.enforce.dev` for authentication with the Chainguard Console and with chainctl
+* `console-api.enforce.dev` for Chainguard Console and chainctl to administrate and use
   your Chainguard accounts.
-* `console.chainguard.dev` for the web console to administrate and use your
+* `console.chainguard.dev` for the Chainguard Console to administrate and use your
   Chainguard accounts.
 
-### Access for Libraries
+## Access for development tools
 
-Chainguard Libraries use is transparent for development efforts and typically
-requires no additional network access for workstations and other infrastructure
-running builds because the libraries are provided by the repository manager as
-configured for [Java](/chainguard/libraries/java/global-configuration/) or
-[Python](/chainguard/libraries/python/global-configuration/).
+When using a repository manager, ensure your network allows outbound HTTPS access 
+to the following domains from your repository manager. Your workstations and build 
+infrastructure typically require no additional network access, as libraries are 
+served through your repository manager. If accessing Chainguard Libraries directly 
+for testing with curl or builds, ensure your network allows outbound HTTPS access 
+to these domains from your workstation:
 
-The repository manager application must have HTTPS access to the domain
-`libraries.cgr.dev` for library access and `issuer.enforce.dev` for
-authentication.
+* `libraries.cgr.dev` and `9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com` for library access
+* `issuer.enforce.dev` for authentication
 
-If you are accessing Chainguard Libraries directly for testing with curl or with
-a build tool, the used workstation must have identical access.
+> Note that the `9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com` host is used to serve files via `libraries.cgr.dev`. The same host is also used to serve Chainguard Container images.
+
+

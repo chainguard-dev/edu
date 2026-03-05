@@ -1,5 +1,5 @@
 ---
-date: 2025-09-29T18:30:00Z
+date: 2026-03-04T15:59:26Z
 title: "chainctl packages versions list"
 slug: chainctl_packages_versions_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_packages_versions_list/
@@ -14,16 +14,16 @@ toc: true
 List package version data from Chainguard repositories.
 
 ```
-chainctl packages versions list PACKAGE_NAME [--show-eol] [--show-active] [--show-fips] [--output=csv|json|table|wide]
+chainctl packages versions list PACKAGE_NAME [--show-eol] [--show-active] [--show-fips] [--include-inactive] [--output=csv|json|table|wide]
 ```
 
 ### Options
 
 ```
-  -h, --help          help for list
-      --show-active   Show only active versions.
-      --show-eol      Show only EOL versions.
-      --show-fips     Show only FIPS versions.
+      --include-inactive   Include only packages within the EOL grace period end date. No end date is considered inclusive.
+      --show-active        Show only active versions.
+      --show-eol           Show only EOL versions.
+      --show-fips          Show only FIPS versions.
 ```
 
 ### Options inherited from parent commands
@@ -34,6 +34,7 @@ chainctl packages versions list PACKAGE_NAME [--show-eol] [--show-active] [--sho
       --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
       --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
       --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
       --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
       --log-level string   Set the log level (debug, info) (default "ERROR")
   -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]

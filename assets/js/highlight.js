@@ -1,6 +1,8 @@
 import hljs from "highlight.js/lib/core";
 
 import bash from "highlight.js/lib/languages/bash";
+import diff from "highlight.js/lib/languages/diff";
+import dockerfile from "highlight.js/lib/languages/dockerfile";
 import go from "highlight.js/lib/languages/go";
 import ini from "highlight.js/lib/languages/ini";
 import javascript from "highlight.js/lib/languages/javascript";
@@ -14,6 +16,8 @@ import yaml from "highlight.js/lib/languages/yaml";
 hljs.registerLanguage("javascript", javascript);
 hljs.registerLanguage("json", json);
 hljs.registerLanguage("bash", bash);
+hljs.registerLanguage("diff", diff);
+hljs.registerLanguage("dockerfile", dockerfile);
 hljs.registerLanguage("ini", ini);
 hljs.registerLanguage("toml", ini);
 hljs.registerLanguage("yaml", yaml);

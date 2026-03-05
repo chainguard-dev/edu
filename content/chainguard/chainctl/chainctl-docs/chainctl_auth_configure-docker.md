@@ -1,5 +1,5 @@
 ---
-date: 2025-09-29T18:30:00Z
+date: 2026-03-04T15:59:26Z
 title: "chainctl auth configure-docker"
 slug: chainctl_auth_configure-docker
 url: /chainguard/chainctl/chainctl-docs/chainctl_auth_configure-docker/
@@ -21,7 +21,6 @@ chainctl auth configure-docker [flags]
 
 ```
       --headless                   Skip browser authentication and use device flow.
-  -h, --help                       help for configure-docker
       --identity string            The unique ID of the identity to assume when logging in.
       --identity-provider string   The unique ID of the customer managed identity provider to authenticate with
       --identity-token string      Use an explicit passed identity token or token path.
@@ -30,6 +29,7 @@ chainctl auth configure-docker [flags]
       --parent string              The IAM organization or folder with which the pull-token identity is associated.
       --pull-token                 Whether to register a pull token that can pull images
       --save                       If true with --pull-token, save the pull token to the Docker config
+      --social-login string        Which of the default identity providers to use for authentication. Must be one of: email, google, github, gitlab
       --ttl ns                     Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maxiumum value is 8760h or one year. (default 720h0m0s)
 ```
 
@@ -41,6 +41,7 @@ chainctl auth configure-docker [flags]
       --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
       --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
       --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
       --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
       --log-level string   Set the log level (debug, info) (default "ERROR")
   -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]

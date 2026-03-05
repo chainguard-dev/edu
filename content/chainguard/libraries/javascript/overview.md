@@ -1,6 +1,6 @@
 ---
-title: "Chainguard Libraries for JavaScript Overview"
-linktitle: "JavaScript Overview"
+title: "Chainguard Libraries for JavaScript overview"
+linktitle: "JavaScript overview"
 description: "JavaScript libraries for your application development"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
@@ -39,15 +39,14 @@ It is the default repository in all commonly used build tools from the
 JavaScript community, including [npm](https://www.npmjs.com/),
 [pnpm](https://pnpm.io/), [Yarn](https://classic.yarnpkg.com/), and [Yarn
 Berry](https://yarnpkg.com/), and uses the npm repository format. Chainguard
-Libraries for JavaScript covers all open source artifacts from the npm Registry.
+Libraries for JavaScript covers many of the open source artifacts found in the 
+npm Registry.
 
 Chainguard Libraries for JavaScript provides access to a growing collection of
 popular Javascript packages rebuilt from source. New releases of common packages
 requested by customer builds are added to the index by an automated system.
 
-You can use Chainguard Libraries for JavaScript alongside third-party software
-repositories to create a single source of truth with your repository manager
-application. 
+You can use your repository manager, such as JFrog Artifactory or Sonatype Nexus, as a single source of truth, pulling packages from Chainguard Libraries for JavaScript and from public software repositories like the npm Registry.
 
 ## Runtime requirements
 
@@ -55,7 +54,7 @@ The runtime requirements for JavaScript packages available from Chainguard
 Libraries for JavaScript are identical to the requirements of the original
 upstream project. For example, if a package retrieved from the npm Registry
 requires Node.JS v22 or higher, the same Node.JS v22 requirement applies to the
-package from Chainguard Libraries for Java. The same applies to JavaScript,
+package from Chainguard Libraries for JavaScript. The same applies to JavaScript,
 Typescript, or React versions, as well as any other requirements of the original
 upstream project.
 
@@ -63,7 +62,7 @@ upstream project.
 
 The [username and password retrieved with
 chainctl](/chainguard/libraries/access/) are required to access the Chainguard
-Libraries for Java repository. The URL for the repository is:
+Libraries for JavaScript repository. The URL for the repository is:
 
 ```
 https://libraries.cgr.dev/javascript/
@@ -99,4 +98,52 @@ approach is strongly recommended.
 Alternatively, you can use the token for direct access from a build tool as
 discussed in [Build
 configuration](/chainguard/libraries/javascript/build-configuration/).
+
+## Provenance and attestations
+Chainguard Libraries for JavaScript include SLSA provenance with signed attestations. 
+These attestations cryptographically link each package to the Chainguard 
+Factory build environment, providing verifiable proof of where and how each package 
+was produced. Provenance attestations follow the npm attestation standard. The 
+Chainguard publisher identity is verifiable via the Sigstore signing certificate 
+embedded in the attestation bundle, which links back to https://issuer.enforce.dev,  
+the Chainguard OIDC issuer.
+
+To verify a specific package's provenance attestation using `cosign`, replace `PACKAGE` 
+and `VERSION` with the package name and version (for example, `axios-mock-adapter` 
+and `1.17.0`):
+
+**Download the tarball**
+```
+curl -L -H "Authorization: Bearer $(chainctl auth token --audience=libraries.cgr.dev)" \
+  "https://libraries.cgr.dev/javascript/PACKAGE/-/PACKAGE-VERSION.tgz" \
+  -o PACKAGE-VERSION.tgz
+```
+
+**Extract the SLSA provenance bundle**
+```
+curl -H "Authorization: Bearer $(chainctl auth token --audience=libraries.cgr.dev)" \
+  "https://libraries.cgr.dev/javascript/-/npm/v1/attestations/PACKAGE@VERSION" | \
+  jq -c '.attestations[] | select(.predicateType | contains("slsa")) | .bundle' \
+  > PACKAGE-provenance.sigstore.json
+```
+
+**Verify the attestation was signed by Chainguard**
+```
+cosign verify-blob-attestation \
+  --bundle PACKAGE-provenance.sigstore.json \
+  --new-bundle-format \
+  --certificate-oidc-issuer=https://issuer.enforce.dev \
+  --certificate-identity-regexp="^https://issuer.enforce.dev/" \
+  --check-claims=false \
+  PACKAGE-VERSION.tgz
+```
+
+A successful verification returns:
+```
+Verified OK
+```
+
+The `--certificate-oidc-issuer` and `--certificate-identity-regexp` flags confirm 
+the attestation was signed by Chainguard. 
+
 

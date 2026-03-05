@@ -27,17 +27,18 @@ permissions:
   
 jobs:
   compile-docs:
+    if: github.repository == 'chainguard-dev/edu'
     runs-on: ubuntu-latest
     environment: documentation  # Use environment protection rules
     
     steps:
     - name: Harden the runner (Audit all outbound calls)
-      uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
+      uses: step-security/harden-runner@a90bcbc6539c36a85cdfeb73f7e2f433735f215b # v2.15.0
       with:
         egress-policy: audit
 
     - name: Checkout edu repository
-      uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       with:
         path: edu
         persist-credentials: false  # Don't persist auth token
@@ -51,12 +52,12 @@ jobs:
         echo "# Placeholder" > images-private/README.md
 
     - name: Set up Python
-      uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
+      uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
       with:
         python-version: '3.10'
 
     - name: Cache Python dependencies
-      uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+      uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
       with:
         path: ~/.cache/pip
         key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
@@ -137,39 +138,46 @@ jobs:
         tar -tzf chainguard-complete-docs.tar.gz > /dev/null
 
     - name: Install cosign
-      uses: sigstore/cosign-installer@d7543c93d881b35a8faa02e8e3605f69b7a1ce62 # v3.10.0
+      uses: sigstore/cosign-installer@faadad0cce49287aee09b3a48701e75088a2c6ad # v4.0.0
 
     - name: Sign documentation with cosign
       run: |
         cd $TEMP_BUILD_DIR
         
-        # Sign the main documentation file
+        # Sign the main documentation file (bundle format for cosign v3)
         cosign sign-blob chainguard-complete-docs.md \
           --yes \
-          --output-signature chainguard-complete-docs.md.sig \
-          --output-certificate chainguard-complete-docs.md.crt
-        
-        # Sign the checksums file
+          --bundle=chainguard-complete-docs.md.bundle
+
+        # Sign the checksums file (bundle format for cosign v3)
         cosign sign-blob checksums.txt \
           --yes \
-          --output-signature checksums.txt.sig
-        
+          --bundle=checksums.txt.bundle
+
+        # Create placeholder .sig/.crt files for backward compatibility
+        # (verification.sh and some tools still expect these)
+        touch chainguard-complete-docs.md.sig chainguard-complete-docs.md.crt
+        touch checksums.txt.sig checksums.txt.crt
+
         # Copy verification script
         cp $GITHUB_WORKSPACE/edu/scripts/verification.sh .
         
         # Create release bundle with all verification files
         tar -czf chainguard-ai-docs.tar.gz \
           chainguard-complete-docs.md \
+          chainguard-complete-docs.md.bundle \
           chainguard-complete-docs.md.sig \
           chainguard-complete-docs.md.crt \
           checksums.txt \
+          checksums.txt.bundle \
           checksums.txt.sig \
+          checksums.txt.crt \
           verification.sh
-        
-        # Sign the bundle
+
+        # Sign the bundle (bundle format for cosign v3)
         cosign sign-blob chainguard-ai-docs.tar.gz \
           --yes \
-          --output-signature chainguard-ai-docs.tar.gz.sig
+          --bundle=chainguard-ai-docs.tar.gz.bundle
 
     - name: Build and push container image
       if: github.ref == 'refs/heads/main'
@@ -226,18 +234,25 @@ jobs:
         tar -xzf gitleaks_8.18.0_linux_x64.tar.gz
         
         # Scan compiled documentation for secrets with custom config
-        ./gitleaks detect --no-git --source $TEMP_BUILD_DIR/ --config .gitleaks.toml --verbose --report-format json --report-path gitleaks-report.json
-        
-        # Check results
-        if [ -f gitleaks-report.json ] && [ -s gitleaks-report.json ]; then
-          echo "Potential secrets detected in compiled documentation!"
-          cat gitleaks-report.json
-          
-          # Double-check if these are real secrets or just documentation examples
-          if grep -q "Example patterns we redact" gitleaks-report.json; then
-            echo "Note: These appear to be documentation examples, not actual secrets"
+        ./gitleaks detect --no-git --source $TEMP_BUILD_DIR/ --config .gitleaks.toml --verbose --report-format json --report-path gitleaks-report.json || true
+
+        # Check results - parse JSON to see if there are actual findings
+        if [ -f gitleaks-report.json ]; then
+          # Check if JSON array is not empty (more than just "[]")
+          findings_count=$(cat gitleaks-report.json | grep -o '"Description":' | wc -l)
+
+          if [ "$findings_count" -gt 0 ]; then
+            echo "Potential secrets detected in compiled documentation!"
+            cat gitleaks-report.json
+
+            # Double-check if these are real secrets or just documentation examples
+            if grep -q "Example patterns we redact" gitleaks-report.json; then
+              echo "Note: These appear to be documentation examples, not actual secrets"
+            else
+              exit 1
+            fi
           else
-            exit 1
+            echo "No secrets detected in compiled documentation"
           fi
         fi
 
@@ -260,7 +275,7 @@ jobs:
 
     - name: Create GitHub Release
       if: (github.event.inputs.create_release == 'true' || github.event_name == 'schedule') && github.ref == 'refs/heads/main'
-      uses: step-security/action-gh-release@76378d4dd5f9fc6c666da0e1d2e84452695e0992 # v2.3.3
+      uses: step-security/action-gh-release@d45511d7589f080cf54961ff056b9705a74fd160 # v2.5.0
       with:
         tag_name: ai-docs-latest
         name: AI Documentation Bundle - Latest
@@ -270,20 +285,19 @@ jobs:
           Cryptographically signed documentation for AI coding assistants.
           
           ### Verification Instructions
-          
+
           ```bash
-          # Download and verify the bundle
           # Download latest release
           curl -LO https://github.com/${{ github.repository }}/releases/latest/download/chainguard-ai-docs.tar.gz
-          curl -LO https://github.com/${{ github.repository }}/releases/latest/download/chainguard-ai-docs.tar.gz.sig
-          
-          # Verify with cosign
+          curl -LO https://github.com/${{ github.repository }}/releases/latest/download/chainguard-ai-docs.tar.gz.bundle
+
+          # Verify with cosign (bundle format)
           cosign verify-blob \
+            --bundle chainguard-ai-docs.tar.gz.bundle \
             --certificate-identity-regexp ".*github.com/${{ github.repository }}.*" \
             --certificate-oidc-issuer https://token.actions.githubusercontent.com \
-            --signature chainguard-ai-docs.tar.gz.sig \
             chainguard-ai-docs.tar.gz
-          
+
           # Extract and verify contents
           tar -xzf chainguard-ai-docs.tar.gz
           ./verification.sh
@@ -302,6 +316,6 @@ jobs:
           - Build date: ${{ github.event.repository.updated_at }}
         files: |
           ${{ env.TEMP_BUILD_DIR }}/chainguard-ai-docs.tar.gz
-          ${{ env.TEMP_BUILD_DIR }}/chainguard-ai-docs.tar.gz.sig
+          ${{ env.TEMP_BUILD_DIR }}/chainguard-ai-docs.tar.gz.bundle
         draft: false
         prerelease: false

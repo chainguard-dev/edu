@@ -37,7 +37,7 @@ Levels for Software Artifacts (SLSA) website](https://slsa.dev/).
 The following examples are issues, attacks, and compromises that affect stages
 of the software supply chain for libraries across different language ecosystems:
 
-### Malicious GlueStack Packages
+### Malicious GlueStack packages
 
 * This May 2025 attack uploaded compromised packages to PyPI and npm that enable remote shell access and uploading files to compromised machines
 * Chainguard Libraries would have protected against this attack. First, the packages have invalid upstream source URLs so there was no source repository. In the case of the lone exception (a package with a valid source repository link), no code was present for Chainguard to build a valid package.
@@ -111,6 +111,18 @@ prevented by use of Chainguard Libraries.
 
 Find pointers to further resources in the [Software supply chain reading
 list](https://github.com/chainguard-dev/ssc-reading-list).
+
+## Why do the Chainguard library checksums differ from those published by upstream repositories?
+
+Chainguard rebuilds libraries from source in a controlled environment to improve supply-chain security. As a result, while functionality remains the same, build metadata and generated content, such as SBOMs, differs from upstream distributions. Whether Chainguard library checksums match upstream depends on the ecosystem and build process. 
+
+During initial migration to Chainguard Libraries, some common causes of checksum errors include:
+* Artifacts were previously cached from upstream repositories
+    * Example: Maven's `.m2` or Gradle's cache.
+* Dependencies are pinned to upstream checksums or hashes
+    * Example: JavaScript's `package-lock.json` or `yarn.lock`.
+* Repository managers or build tools enforce strict verification
+    * Example: Artifactory validating against Maven Central.
 
 ## Does Chainguard Libraries for Java include CVE remediation fixes?
 

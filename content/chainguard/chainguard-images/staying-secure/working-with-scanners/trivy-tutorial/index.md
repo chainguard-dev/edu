@@ -29,7 +29,7 @@ For Homebrew, use:
 ```shell
 brew install trivy
 ```
-Aqua Security [maintains sources and packages for a variety of additional operating systems and distributions](https://aquasecurity.github.io/trivy/latest/getting-started/installation/) on their installation page.
+Aqua Security [maintains sources and packages for a variety of additional operating systems and distributions](https://trivy.dev/docs/latest/getting-started/installation/) on their installation page.
 
 ### Binary Installation
 
@@ -91,7 +91,7 @@ For images on other registries:
 trivy image cgr.dev/chainguard/nginx:latest
 ```
 
-#### Scanning a Filesystem
+### Scanning a Filesystem
 
 Trivy can recursively scan directories on a local machine.. To start a filesystem scan, run:
 
@@ -121,7 +121,7 @@ trivy fs .
 
 You should see a summary and itemized list of CVEs for the outdated Node package.
 
-#### Scanning Clusters
+### Scanning Clusters
 
 To scan a Kubernetes cluster:
 
@@ -317,6 +317,6 @@ Other template-based output formats can be browsed in the [Trivy contrib directo
 
 The following resources may complement your use of Trivy:
 
-- [Trivy Documentation](https://aquasecurity.github.io/trivy/latest) — Documentation on the latest version of Trivy
+- [Trivy Documentation](https://trivy.dev/docs/latest/) — Documentation on the latest version of Trivy
 - [Trivy Operator for Kubernetes](https://github.com/aquasecurity/trivy-operator) — An operator to continuous scan a Kubernetes cluster for issues
 - [Trivy Announcements](https://github.com/aquasecurity/trivy/discussions/categories/announcements) — News on Trivy from Aqua Security

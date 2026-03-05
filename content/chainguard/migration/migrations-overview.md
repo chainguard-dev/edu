@@ -36,7 +36,7 @@ Because of their minimalist design, Chainguard Containers sometimes require user
 
 * Most Chainguard Containers have no shell or package manager by default. This is great for security, but sometimes you need these things, especially in builder images. For those cases we have development container images (also known as `-dev` images, as in `cgr.dev/chainguard/python:latest-dev`) which do include a shell and package manager.
 * The development variants and `wolfi-base` / `chainguard-base` use BusyBox by default, so any `groupadd` or `useradd` commands will need to be ported to `addgroup` and `adduser`.
-* The free Starter tier of Containers provides only the `:latest` and `:latest-dev` versions. Our paid Production Containers offer tags for major and minor versions.
+* The free tier of Containers provides only the `:latest` and `:latest-dev` versions. Our paid Production Containers offer tags for major and minor versions.
 * Chainguard Containers are [based on `glibc`](/chainguard/chainguard-images/about/images-compiled-programs/glibc-vs-musl/) and our packages cannot be mixed with Alpine packages (which are instead based on musl).
 * In some cases, the entrypoint in Chainguard Containers can be different from equivalent images based on other distros, which can lead to unexpected behavior. You should always check the image's specific documentation to understand how the entrypoint works.
 * When needed, Chainguard recommends using a base image like `chainguard-base` or a development variant to install an application's OS-level dependencies.
@@ -99,7 +99,7 @@ Many Chainguard customers use both application and base container images, but it
 
 When migrating to a [Chainguard Application Container](/chainguard/chainguard-images/about/images-categories/#application-containers) you should first check the image’s overview page on the [Containers  Directory](https://images.chainguard.dev) for usage details and any compatibility notes. There may be user, permissions, or volume path differences with the Chainguard Image that you should be aware of. 
 
-It is a best practice to use the same version of the Chainguard Application Image as what is currently running in your environment, if that version is availble from Chainguard. Post-migration you should thoroughly test and monitor your application.
+It is a best practice to use the same version of the Chainguard Application Image as what is currently running in your environment, if that version is available from Chainguard. Post-migration you should thoroughly test and monitor your application.
 
 #### Base Images
 

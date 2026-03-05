@@ -11,7 +11,7 @@ images: []
 menu:
   docs:
     parent: "about"
-weight: 002
+weight: 004
 toc: true
 ---
 
@@ -83,7 +83,7 @@ To maximize the value of a grace period, we recommend the following:
 
 Although the Chainguard Console is a useful interface, many customers would prefer to integrate EOL data with their preferred tools for faster, more convenient monitoring. For this reason, Chainguard has developed an API to serve customers with EOL data sufficient for monitoring the lifecycle of their images.
 
-The API endpoint you can reach for EOL data is [`Registry_ListEolTags`](/chainguard/administration/api/#/operations/Registry_ListEolTags). This section outlines how you can use `curl` to make a call to this API endpoint.
+The API endpoint you can reach for EOL data is [`Registry_ListEolTags`](/chainguard/api/spec/#/operations/Registry_ListEolTags). This section outlines how you can use `curl` to make a call to this API endpoint.
 
 To follow along, you'll need to know the unique ID path (UIDP) of the container image repository you'd like to retrieve end-of-life data for. You can find this with the following `chainctl` command:
 
@@ -107,7 +107,7 @@ This command will return a table showing the UIDPs of every Chainguard Container
 With the image repository ID, you can make a request to the API endpoint with a command like the following. Make sure to replace `$ORGANIZATION_ID/4408EXAMPLE4131a` with the container image repository UIDP you just found:
 
 ```shell
-curl -H "Authorization: Bearer $(chainctl auth token)" https://console-api.enforce.dev/registry/v1/eoltags?uidp.childrenOf=$ORGANIZATION_ID/4408EXAMPLE4131a | jq .
+curl -H "Authorization: Bearer $(chainctl auth token)" 'https://console-api.enforce.dev/registry/v1/eoltags?uidp.childrenOf=$ORGANIZATION_ID/4408EXAMPLE4131a' | jq .
 ```
 
 Note that this example includes the `-H` argument to pass an authorization header to the API. This header is constructed with the `chainctl auth token` command which prints the local Chainguard token, allowing you to authenticate to the API. 
@@ -164,7 +164,7 @@ This example output is derived from an API call made on a `node` image repositor
     * any container images that will never enter a grace period will show `GRACE_NOT_ELIGIBLE`
 * `gracePeriodExpiryDate`: the date on which the image's grace period will end
 
-Of course, you won't use `curl` to interact with the Chainguard API in most scenarios. Instead, you'll likely have some kind of application that can ingest and process this EOL data. For example, your organization could create a Slackbot that fetches data from the Chainguard EOL grace period API and posts messages about EOL tags approaching their grace period expiration to a specified Slack channel. Chainguard's [API documentation](/chainguard/administration/api/) includes request samples for many languages and platforms, including Go, Python, and Java.
+Of course, you won't use `curl` to interact with the Chainguard API in most scenarios. Instead, you'll likely have some kind of application that can ingest and process this EOL data. For example, your organization could create a Slackbot that fetches data from the Chainguard EOL grace period API and posts messages about EOL tags approaching their grace period expiration to a specified Slack channel. Chainguard's [API documentation](/chainguard/api/spec/) includes request samples for many languages and platforms, including Go, Python, and Java.
 
 
 ## Learn More

@@ -1,5 +1,5 @@
 ---
-title: "Management and Maintenance"
+title: "Management and maintenance"
 linktitle: "Management"
 description: "Learn how to manage and maintain Chainguard Libraries for Java, including dependency updates, verification, and monitoring security improvements"
 type: "article"
@@ -23,6 +23,10 @@ steps on the repository manager and the build tool.
 <a id="java-verification">
 
 ## Source verification
+
+Use [chainver](/chainguard/libraries/verification/) to verify that a specific
+library or file originates from Chainguard in an automated fashion or follow the
+steps in this section for manual verification.
 
 You can verify what artifacts are retrieved from the Chainguard Libraries
 repository on a global level:
@@ -70,9 +74,9 @@ therefore conclude that the `example.jar` file originates from Chainguard, was
 built in the Chainguard Factory from source, and is available at
 `https://libraries.cgr.dev/java/junit/junit/4.13.2/junit-4.13.2.jar`. You can
 [manually download the file to
-compare](/chainguard/libraries/java/overview/#java-repo-test), if desired.
+compare](/chainguard/libraries/java/overview/#manual), if desired.
 
-## Increase Chainguard Library use
+## Increase Chainguard Libraries use
 
 The number of available artifacts in Chainguard Libraries for Java increases
 over time. If an artifact was already retrieved from the Maven Central

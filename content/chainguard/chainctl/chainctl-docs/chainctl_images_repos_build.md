@@ -1,5 +1,5 @@
 ---
-date: 2025-09-29T18:30:00Z
+date: 2026-03-04T15:59:26Z
 title: "chainctl images repos build"
 slug: chainctl_images_repos_build
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_build/
@@ -13,12 +13,6 @@ toc: true
 
 Manage custom image builds
 
-### Options
-
-```
-  -h, --help   help for build
-```
-
 ### Options inherited from parent commands
 
 ```
@@ -27,6 +21,7 @@ Manage custom image builds
       --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
       --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
       --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
       --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
       --log-level string   Set the log level (debug, info) (default "ERROR")
   -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]
@@ -36,7 +31,7 @@ Manage custom image builds
 ### SEE ALSO
 
 * [chainctl images repos](/chainguard/chainctl/chainctl-docs/chainctl_images_repos/)	 - Image repo related commands for the Chainguard platform.
-* [chainctl images repos build apply](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_apply/)	 - Apply a build config
+* [chainctl images repos build apply](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_apply/)	 - Apply a build config from a file
 * [chainctl images repos build edit](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_edit/)	 - Edit a build config, optionally creating a new repo with --save-as
 * [chainctl images repos build list](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_list/)	 - List build reports
 * [chainctl images repos build logs](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_logs/)	 - Get build logs

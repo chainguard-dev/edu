@@ -91,7 +91,7 @@ Following that you can use `chainctl`. Be aware that Windows PowerShell does not
 Also, please note that while [`chainctl` commands](/chainguard/chainctl/) will generally work, some are not as thoroughly tested on Windows and may not behave as expected. In particular, the [`chainctl auth configure-docker`](/chainguard/chainctl/chainctl-docs/chainctl_auth_configure-docker/) command is known to cause errors on Windows as of this writing.
 
 
-## Verify installation
+## Verifying installation
 
 You can verify that everything was set up correctly by checking the `chainctl` version.
 
@@ -151,6 +151,30 @@ chainctl auth login
 ```
 
 This will open your browser window and take you through a workflow to login with your OIDC provider.
+
+### Authentication tokens
+
+If you ever need to retrieve your local Chainguard token, you can do so with the following command:
+
+```shell
+chainctl auth token
+```
+
+Following the [XDG standard](https://specifications.freedesktop.org/basedir/latest/), chainctl stores tokens in the local OS's cache directory:
+
+* **On Linux systems**, this is typically `~/.cache/`
+* **On MacOS**, this is `~/Library/Caches/`
+
+The token's path is the local cache directory appended with `/chainguard/<audience>/<oidc-token|refresh-token>`. The `oidc-token` is a short-lived access token used for authentication, while the `refresh-token` is a longer-lived credential that allows chainctl to obtain new access tokens without requiring you to log in again.
+
+For example, on Linux you can find the `oidc-token` for the `https://console-api.enforce.dev` audience in the following location:
+
+```
+/home/$USER/.cache/chainguard/https:--console-api.enforce.dev/
+```
+
+Note that for this audience, chainctl replaces `/` with `-` in order to ensure a valid file path. 
+
 
 ## Configure a Docker credential helper
 

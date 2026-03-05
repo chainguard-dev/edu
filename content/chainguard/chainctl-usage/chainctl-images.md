@@ -32,7 +32,7 @@ This will respond with a list of organizations available to your account. For mo
     Which organization would you like to list images from?                                                       
                                                                                                                         
   > [MyCorp-prod]     This group holds the production Chainguard Containers hosted under    cgr.dev/MyCorp-prod                   
-    [MyCorp-starter]     This group holds the starter Chainguard Containers hosted under    cgr.dev/MyCorp-starter  
+    [MyCorp-starter]     This group holds the Free Chainguard Containers hosted under    cgr.dev/MyCorp-starter  
     [MyCorp-eval]     This group holds the evaluation Chainguard Containers hosted under    cgr.dev/MyCorp-eval  
 ```
 

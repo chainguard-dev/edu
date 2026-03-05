@@ -37,17 +37,17 @@ STIG-hardened FIPS images are pre-configured container images that have been sec
 
 One of the main requirements of PCI DSS is to maintain a vulnerability management program. PCI DSS requires you to scan for vulnerabilities once every three months (Requirement 11.3.1) and triage and address all vulnerabilities (Requirement 11.3.11). Chainguard protects you from malicious attacks by supplying you with images where CVEs have already been dealt with, removing vulnerabilities for you.
 
-PCI DCC requires that you catalog and classify vulnerabilities bespoke and third-party software (Requirements 6.3.1 and 6.3.2). You must fix all critical and high vulnerabilities and have a plan of action for the rest (Requirement 11.4.4). Chainguard does that for you.
+PCI DSS requires that you catalog and classify vulnerabilities bespoke and third-party software (Requirements 6.3.1 and 6.3.2). You must fix all critical and high vulnerabilities and have a plan of action for the rest (Requirement 11.4.4). Chainguard does that for you.
 
 Vulnerability scanners can be noisy and sifting through false positives while cataloging true vulnerabilities can be tedious work. Providing justifications for vulnerabilities that aren't applicable takes time, and that is after investigating them thoroughly.
 
 Chainguard Containers are carefully engineered to contain low-to-no CVEs. Organizations can use them as their source to build their applications on. The benefits of our solution are:
 
-- **You’re secured by default** : Our images contain low-to-no CVEs. Check out our I[mages Directory](https://images.chainguard.dev) yourself. ‍
-- [**Extensive scanner partnerships**](https://www.chainguard.dev/scanners): We partner with the industry-leading scanners such as Snyk, Crowdstrike, and Wiz. ‍
+- **You’re secured by default** : Our images contain low-to-no CVEs. Check out our [Images Directory](https://images.chainguard.dev) yourself. ‍
+- **Extensive scanner partnerships**: We partner with industry-leading scanners such as Snyk, Crowdstrike, Wiz, [and many others](https://www.chainguard.dev/scanners).
 - **SBOM for all Chainguard Containers**: Get full transparency into the packages actually used in our images and ultimately run in your environment. ‍
 - **Less ongoing human overhead**: Every new Chainguard Container version is carefully scanned and any addressable CVEs are fixed. ‍
--  **Trust in our industry leading [CVE SLA]**(https://www.chainguard.dev/cve-sla): We are committed to supplying secure software and commit to fixing CVEs so you don’t have to.
+-  **Trust in our industry-leading CVE SLA**: We are committed to supplying secure software and commit to fixing CVEs [quickly](https://www.chainguard.dev/cve-sla) so you don’t have to.
 
 
 ## Browse all CMMC 2.0 Articles

@@ -16,6 +16,8 @@ weight: 007
 toc: true
 ---
 
+> **Note:** This tutorial is no longer actively maintained and may reference outdated versions of Cosign and related tools. While the underlying cryptographic concepts remain relevant, we recommend consulting the [current Cosign documentation](https://docs.sigstore.dev/cosign/signing/overview/) for up-to-date usage guidance. This content is preserved for educational purposes and may still provide value for those interested in understanding the mechanics of software signing.
+
 When I first used [Cosign](https://github.com/sigstore/cosign), the software artifact signing CLI from the [Sigstore](https://www.sigstore.dev/) project, I was amazed at how painless signing and verifying could be.
 
 For example, in the three commands below we create a public/private key pair, sign the text file, upload it to the [Rekor](https://github.com/sigstore/rekor) transparency log, and verify the signature of the message.
@@ -268,7 +270,7 @@ Well, there are a few important things they must check:
 * That we were in possession of the key when the message was signed. (You could check AWS/GCP KMS access logs)
 * That the entry is indeed included in the transparency log. (RFC 6962)
 
-The next thing that we can verify in the entry is the Signed Entry Timestamp. I'll leave this explanation to our friend [Hayden Blauzvern](https://github.com/haydentherapper).
+The next thing that we can verify in the entry is the Signed Entry Timestamp. I'll leave this explanation to our friend Hayden Blauzvern:
 
 > As a transparency log, Rekor provides cryptographic proofs of inclusion in a log. Fetching an inclusion proof requires querying the log. The log returns a checkpoint (signed tree head) as a commitment to the current state of the log and the inclusion proof.
 
@@ -476,8 +478,6 @@ SHA256(0x01 | 24296fb24b8ad77a7e53fd5d089af142b7909598d214e13ca76001cc575fddaad3
 ```
 
 
-If you have any question you can reach me [@eddiezane](https://twitter.com/eddiezane)!
-
 Stay spooky…
 
-_Special thanks to [Appu Goundan](https://github.com/loosebazooka) and [Hayden Blauzvern](https://github.com/haydentherapper)._
+_Special thanks to [Appu Goundan](https://github.com/loosebazooka) and Hayden Blauzvern._

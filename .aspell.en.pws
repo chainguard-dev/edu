@@ -207,3 +207,16 @@ javascript
 pnpm
 npmrc
 hostname
+CPython
+integrations
+Grype
+Trivy
+checksums
+RPMs
+AARs
+backfill
+distributable
+bundler
+lockfile
+coreutils
+Anchore

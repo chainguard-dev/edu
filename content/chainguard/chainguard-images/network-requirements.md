@@ -24,19 +24,19 @@ Chainguard Containers do not call Chainguard services while running, so no netwo
 
 This table lists the DNS hostnames, associated ports, and protocols that will need to be allowed through firewalls and proxies to use Chainguard Containers:
 
-| Hostname                | Port | Protocol | Notes                                           |
-| ----------------------- | ---- | -------- | ----------------------------------------------- |
-| cgr.dev                 | 443  | HTTPS    | Main container image registry                   |
-| console.chainguard.dev  | 443  | HTTPS    | Chainguard dashboard                            |
-| data.chainguard.dev     | 443  | HTTPS    | Console API endpoint                            |
-| console-api.enforce.dev | 443  | HTTPS    | Registry API endpoint                           |
-| enforce.dev             | 443  | HTTPS    | Registry authentication                         |
-| dl.enforce.dev          | 443  | HTTPS    | `chainctl` downloads                            |
-| issuer.enforce.dev      | 443  | HTTPS    | Registry STS (Security Token Service)           |
-| apk.cgr.dev             | 443  | HTTPS    | Package repository                              |
-| virtualapk.cgr.dev      | 443  | HTTPS    | Package repository                              |
-| packages.cgr.dev        | 443  | HTTPS    | Package repository (Extra packages)             |
-| packages.wolfi.dev      | 443  | HTTPS    | Package repository (Starter containers)         |
+| Hostname                | Port | Protocol | IP      | Notes                                 |
+|-------------------------|------|----------|---------|---------------------------------------|
+| cgr.dev                 | 443  | HTTPS    | v4      | Main container image registry         |
+| console.chainguard.dev  | 443  | HTTPS    | v4      | Chainguard dashboard                  |
+| data.chainguard.dev     | 443  | HTTPS    | v4      | Console API endpoint                  |
+| console-api.enforce.dev | 443  | HTTPS    | v4      | Registry API endpoint                 |
+| enforce.dev             | 443  | HTTPS    | v4      | Registry authentication               |
+| dl.enforce.dev          | 443  | HTTPS    | v4      | `chainctl` downloads                  |
+| issuer.enforce.dev      | 443  | HTTPS    | v4      | Registry STS (Security Token Service) |
+| apk.cgr.dev             | 443  | HTTPS    | v4      | Package repository                    |
+| virtualapk.cgr.dev      | 443  | HTTPS    | v4      | Package repository                    |
+| packages.cgr.dev        | 443  | HTTPS    | v4      | Package repository (Extra packages)   |
+| packages.wolfi.dev      | 443  | HTTPS    | v4 & v6 | Package repository (Free containers)  |
 
 
 
@@ -46,16 +46,16 @@ This table lists the DNS hostnames, associated ports, and protocols that will ne
 
 This table lists the third-party DNS hostnames, associated ports, and protocols that will need to be allowed through firewalls and proxies to use Chainguard Containers:
 
-| Hostname                                                  | Port | Protocol | Notes                        |
-| --------------------------------------------------------- | ---- | -------- | ---------------------------- |
-| 9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com | 443  | HTTPS    | Blob storage for *.cgr.dev   |
-| support.chainguard.dev                                    | 443  | HTTPS    | Support access for customers |
+| Hostname                                                  | Port | Protocol | IP      | Notes                        |
+|-----------------------------------------------------------|------|----------|---------|------------------------------|
+| 9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com | 443  | HTTPS    | v4 & v6 | Blob storage for *.cgr.dev   |
+| support.chainguard.dev                                    | 443  | HTTPS    | v4      | Support access for customers |
 
 > Note that the `9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com` host is used to serve both image data and packages via `*.cgr.dev`.
 
 ## Ingress and Egress
 
-Connections to the hosts listed on this page are generally initiated as new outbound connections. If you are using stateful firewall rules, then you will need to add symmetric rules to ensure that traffic flows correctly.
+Connections to the hosts listed on this page are generally initiated as new outbound connections. If you are using stateless firewall rules, then you will need to add symmetric rules to ensure that traffic flows correctly.
 
 You will need egress rules that allow new traffic to the hosts listed here. You will need corresponding ingress rules that allow related and established traffic.
 
@@ -77,11 +77,18 @@ Containers and endpoints:
   - [RFC 7627](https://datatracker.ietf.org/doc/html/rfc7627) Extended Master Secret Extenstion support
 - Signatures using P-256 with SHA-256
 - Signatures using RSA-PSS with 2048 bits and SHA-256
+- Support for encrypted HTTP/2 is required, including by any proxies in use
 
 The requirements can be approximately tested with the following OpenSSL client command:
 
 ```shell
-openssl s_client -cipher @SECLEVEL=2:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384 -ciphersuites TLS_AES_256_GCM_SHA384 -groups P-256 -connect HOST:PORT
+openssl s_client -cipher @SECLEVEL=2:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384 -ciphersuites TLS_AES_256_GCM_SHA384 -groups P-256 -alpn h2 -connect cgr.dev:443 < /dev/null
 ```
 
 > Note that in the case of TLSv1.2 connectivity you must check the output for `Extended master secret: yes`.
+
+You can replace `cgr.dev:443` with your own deployments.
+
+Many of the endpoints for Chainguard products require support for the encrypted [HTTP/2 protocol](https://http2.github.io/). Some decrypting proxies might not support HTTP/2.
+
+{{< blurb/noproxy >}}

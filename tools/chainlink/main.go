@@ -26,10 +26,12 @@ func init() {
 	flag.StringVar(&contentDir, "contentDir", "./content", "Path to directory with markdown (.md suffixed) files to scan")
 	flag.StringVar(&fileType, "fileType", "md", "Type of files to scan (md or html). md is more accurate")
 	flag.IntVar(&jobs, "jobs", 10, "Number of concurrent HTTP requests to make")
+	flag.IntVar(&timeout, "timeout", 10, "Timeout in seconds for HTTP requests")
 
 	flag.BoolVar(&checkAll, "checkAll", false, "Check all detected URLs, or those belonging to -hostname")
 	flag.BoolVar(&extractMode, "extractOnly", false, "Only extract URLs, don't check them")
 	flag.BoolVar(&followRedirects, "followRedirects", true, "Follow HTTP redirects to check final destination")
+	flag.BoolVar(&verbose, "verbose", false, "Enable verbose logging output")
 
 	// won't match anything like `../` or `./` or non-leading `/` URLs
 	// unmatched urls will go into the unchecked result accumulator

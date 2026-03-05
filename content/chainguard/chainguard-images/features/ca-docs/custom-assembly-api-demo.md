@@ -161,12 +161,12 @@ These functions come together in the `main()` function, which performs five main
 
 To accomplish all this, the application's functions perform the following API calls:
 
-* [ListBuildReports](/chainguard/administration/api/#/operations/Registry_ListBuildReports)
-* [ListRepos](/chainguard/administration/api/#/operations/Registry_ListRepos)
-* [UpdateRepo](/chainguard/administration/api/#/operations/Registry_UpdateRepo)
-* [Groups_List](/chainguard/administration/api/#/operations/Groups_List)
+* [ListBuildReports](/chainguard/api/spec/#/operations/Registry_ListBuildReports)
+* [ListRepos](/chainguard/api/spec/#/operations/Registry_ListRepos)
+* [UpdateRepo](/chainguard/api/spec/#/operations/Registry_UpdateRepo)
+* [Groups_List](/chainguard/api/spec/#/operations/Groups_List)
 
-For a deeper understanding of what each function does and how the application works overall, we encourage you to closely review the `main.go` file before running it. You may also benefit from reviewing our [OpenAPI Specification reference document](/chainguard/administration/api/). 
+For a deeper understanding of what each function does and how the application works overall, we encourage you to closely review the `main.go` file before running it. You may also benefit from reviewing our [OpenAPI Specification reference document](/chainguard/api/spec/). 
 
 Once you feel you have a grasp on how the demo application works, move on to the next section which outlines how to run it.
 
@@ -222,7 +222,7 @@ contents:
 	- go
 ```
 
-Here, replace `wolfi-base` and `go` with whatever packages you'd like to be included in the customized container image. Note that you can only add packages that your organization already has access to, based on the Chainguard Containers you have already purchased. Refer to the [Custom Assembly Overview](/chainguard/chainguard-images/features/ca-docs/custom-assembly/#limitations) for more details on the limitations of what packages you can add to a Custom Assembly image.
+Here, replace `wolfi-base` and `go` with whatever packages you'd like to be included in the customized container image. Note that you can only add packages that your organization already has access to, based on the Chainguard Containers your organization has access to. Refer to the [Custom Assembly Overview](/chainguard/chainguard-images/features/ca-docs/custom-assembly/#limitations) for more details on the limitations of what packages you can add to a Custom Assembly image.
 
 Save and close the `build.yaml` file. Finally, you can run the application to apply the configuration listed in the `build.yaml` file to your organization's Custom Assembly image:
 

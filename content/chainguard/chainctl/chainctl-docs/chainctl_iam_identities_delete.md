@@ -1,5 +1,5 @@
 ---
-date: 2025-09-29T18:30:00Z
+date: 2026-03-04T15:59:26Z
 title: "chainctl iam identities delete"
 slug: chainctl_iam_identities_delete
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_delete/
@@ -31,7 +31,6 @@ chainctl iam identities delete {IDENTITY_NAME | IDENTITY_ID | --expired [--paren
 
 ```
       --expired         Delete all expired identities.
-  -h, --help            help for delete
       --parent string   Name or ID of the parent location to delete expired identities from.
   -y, --yes             Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
@@ -44,6 +43,7 @@ chainctl iam identities delete {IDENTITY_NAME | IDENTITY_ID | --expired [--paren
       --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
       --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
       --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
       --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
       --log-level string   Set the log level (debug, info) (default "ERROR")
   -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]
