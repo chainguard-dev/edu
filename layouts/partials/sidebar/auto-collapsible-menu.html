@@ -20,8 +20,13 @@
     </div>
     <form class="doks-search position-relative flex-grow-1">
       <input class="search form-control is-search" type="search" placeholder="Search" aria-label="Search" autocomplete="off">
-   </form>
+   </form> 
+
+    <button id="ask-ai" class="btn mt-3 w-100" style="background-color: transparent; border: 2px solid #4445E7; color: #4445E7; padding: 8px; border-radius: 4px;">
+    ✨ Ask AI
+    </button>
   </div>
+
 
   {{ range $index, $section := sort .Site.Sections "Weight" }}
   {{ $active := in $currentPage.RelPermalink .RelPermalink }}
