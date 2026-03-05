@@ -84,7 +84,7 @@ lastMod = false
   lazySizes = true
   clipBoard = true
   instantPage = true
-  flexSearch = true
+  flexSearch = false
   darkMode = true
   bootStrapJs = true
   breadCrumb = false
@@ -93,6 +93,9 @@ lastMod = false
   multilingualMode = false
   docsVersioning = false
   fullWidth = false
+
+[add_ons]
+  docSearch = true
 
 [menu]
   [menu.section]

@@ -1,5 +1,4 @@
-{{ $indexTemplate := resources.Get "js/index.js" -}}
-{{ $index := $indexTemplate | resources.ExecuteAsTemplate "index.js" . -}}
+{{ $index := resources.Get "js/index.js" | js.Build -}}
 
 {{ $bs := resources.Get "js/bootstrap.js" -}}
 {{ $bs := $bs | js.Build -}}
@@ -15,6 +14,11 @@
 {{ $app := resources.Get "js/app.js" -}}
 
 {{ $slice := slice $app -}}
+
+{{ if .Site.Params.add_ons.docSearch -}}
+  {{ $docsearch := resources.Get "js/docsearch.js" | js.Build -}}
+  {{ $slice = $slice | append $docsearch -}}
+{{ end -}}
 
 {{ if .Site.Params.options.lazySizes -}}
   {{ $lazySizes := resources.Get "js/lazysizes.js" -}}
@@ -34,10 +38,6 @@
   {{ $slice = $slice | append $instantPage -}}
 {{ end -}}
 
-{{ if .Site.Params.options.flexSearch -}}
-  {{ $flexSearch := resources.Get "js/vendor/flexsearch/dist/flexsearch.bundle.js" -}}
-  {{ $slice = $slice | append $flexSearch -}}
-{{ end -}}
 
 {{ if .Site.Params.options.darkMode -}}
   {{ $darkMode := resources.Get "js/darkmode.js" -}}
@@ -74,9 +74,7 @@
   {{ with .Params.mermaid -}}
     <script src="{{ $mermaid.RelPermalink }}" defer></script>
   {{ end -}}
-  {{ if .Site.Params.options.flexSearch -}}
-    <script src="{{ $index.RelPermalink }}" defer></script>
-  {{ end -}}
+  <script src="{{ $index.RelPermalink }}" defer></script>
 {{ else -}}
   {{ $js := $js | minify | fingerprint "sha512" -}}
   {{ $index := $index | minify | fingerprint "sha512" -}}
@@ -99,9 +97,7 @@
   {{ with .Params.mermaid -}}
     <script src="{{ $mermaid.RelPermalink }}" integrity="{{ $mermaid.Data.Integrity }}" crossorigin="anonymous" defer></script>
   {{ end -}}
-  {{ if .Site.Params.options.flexSearch -}}
-    <script src="{{ $index.Permalink }}" integrity="{{ $index.Data.Integrity }}" crossorigin="anonymous" defer></script>
-  {{ end -}}
+  <script src="{{ $index.Permalink }}" integrity="{{ $index.Data.Integrity }}" crossorigin="anonymous" defer></script>
 {{ end -}}
 
 {{ $cookieBannerOverride := resources.Get "js/cookie-banner-override.js" -}}
@@ -113,3 +109,4 @@
 {{ end -}}
 
 {{ partial "footer/linkedin-insight.html" . }}
+{{ partial "footer/script-footer-custom.html" . }}

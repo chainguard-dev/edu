@@ -36,6 +36,29 @@
     {{- end }}
     {{- end }}
 
+<div class="search-container order-1 me-auto">
+
+  <!-- Desktop trigger -->
+  <button
+    id="siteSearchTrigger"
+    type="button"
+    class="search form-control search-box d-none d-lg-block"
+    aria-label="Search"
+  >
+    Search
+  </button>
+
+  <!-- Mobile trigger -->
+  <button
+    id="siteSearchTriggerMobile"
+    type="button"
+    class="search form-control search-box d-lg-none is-search"
+    aria-label="Search"
+  >
+    Search
+  </button>
+</div>
+
     {{ if $showFlexSearch -}}
     <div class="search-container">
       <form class="doks-search position-relative">
@@ -91,4 +114,6 @@
     </div>
   </nav>
 </header>
+{{- if site.Params.options.flexSearch -}}
 <div class="suggestions shadow bg-white rounded d-none position-absolute search-content"></div>
+{{- end -}}

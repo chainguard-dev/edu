@@ -6,6 +6,8 @@ module.exports = {
   plugins: [
     autoprefixer(),
     purgecss({
+            // Keep aria-selected (used by DocSearch dropdown)
+      dynamicAttributes: ["aria-selected"],
       content: [
         './node_modules/@hyas/doks/layouts/**/*.html',
         './node_modules/@hyas/doks/content/**/*.md',
@@ -35,6 +37,7 @@ module.exports = {
           './node_modules/katex/dist/katex.css',
           './assets/scss/*.scss',
           './assets/scss/common/*.scss',
+          './node_modules/@docsearch/css/dist/modal.css',
         ]),
       ],
     }),
