@@ -69,6 +69,9 @@
     "hugo": "0.104.3"
   },
   "dependencies": {
+    "@docsearch/css": "^4.6.0",
+    "@docsearch/js": "^4.6.0",
+    "algoliasearch": "^5.49.1",
     "bootstrap-icons": "^1.10.5"
   }
 }
