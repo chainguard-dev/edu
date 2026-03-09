@@ -16,7 +16,7 @@ toc: true
 
 Chainguard Libraries provide controlled access to security-enhanced Java and
 Python dependencies through the unified Chainguard platform authentication
-system. This guide explains how to set up access for your organization.
+system. This guide explains how to access (download) Chainguard library artifacts for your organization.
 
 ## Getting started
 
@@ -78,8 +78,7 @@ Valid! Id: 8a4141a........7d9904d98c
 
 ## Creating pull tokens for libraries
 
-Pull tokens are separate identities with an assigned role to access the
-repositories from Chainguard Libraries. You can create the pull tokens:
+Pull tokens authenticate requests to download library artifacts from Chainguard. You can create the pull tokens:
 - With [the chainctl command](#creating-pull-tokens-with-chainctl), or 
 - [Using the Chainguard
   console](#creating-pull-tokens-with-the-chainguard-console).
