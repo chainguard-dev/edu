@@ -120,7 +120,7 @@
       </div>
     </div>
     <div class="row justify-content-center topic-container flex-shrink-1">
-      <div class="col-md-12 col-lg-10 col-xl-8">
+      <div class="docs-content">
         <article>
           <h1 class="text-center">{{ if eq .CurrentSection .FirstSection }}{{ .Section | humanize }}{{ else }}{{ .Title }}{{ end }}</h1>
           <div>{{ .Content }}</div>
@@ -151,10 +151,10 @@
                                 <path d="M1.06199 5.729L0.291992 4.938L4.99999 0.229004L9.70799 4.938L8.93799 5.729L4.99999 1.792L1.06199 5.729Z" fill="currentColor"/>
                             </svg>
                         </div>
-                    </a>
-                    {{ if .Description }}
+                        {{ if .Description }}
                         <div class="button-description">{{ .Description }}</div>
-                    {{ end }}
+                        {{ end }}
+                    </a>
                 {{ end }}
                 {{ template "_internal/pagination.html" . }}
             {{ end }}
