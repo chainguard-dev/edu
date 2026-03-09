@@ -45,6 +45,8 @@
   data-button-bg-color="#6226FB"
   data-button-text-color="#FFFFFF"
   data-button-text="Ask AI"
+  data-modal-header-bg-color="#6226FB"
+  data-modal-title-color="#FFFFFF"
 ></script>
 {{ if .Site.Params.options.darkMode -}} {{ $darkModeInit := resources.Get
 "js/darkmode-init.js" | js.Build | minify | fingerprint "sha512" -}}
