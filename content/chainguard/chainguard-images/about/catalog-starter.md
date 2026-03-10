@@ -2,7 +2,7 @@
 title: "Chainguard Catalog Starter"
 linktitle: "Catalog Starter"
 type: "article"
-description: "Learn about Chainguard's Catalog Starter plan, an offering allowing teams to try out five Chainguard container images for free."
+description: "Learn about Chainguard Catalog Starter, an offering allowing teams to try out five Chainguard container images for free."
 date: 2026-03-09T07:52:00+02:00
 lastmod: 2026-03-09T07:52:00+02:00
 draft: false
