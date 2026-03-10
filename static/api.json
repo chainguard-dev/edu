@@ -483,6 +483,68 @@
         },
         "type": "object"
       },
+      "chainguard.platform.apk.APKPackageSummary": {
+        "description": "APKPackageSummary is a single entry in a ListAPKSummaries response.\nIt describes one package name with its most recently updated version.",
+        "properties": {
+          "architectures": {
+            "description": "architectures is a comma-separated list of all architectures available\nfor the latest version (e.g. \"aarch64, x86_64\").",
+            "type": "string"
+          },
+          "buildTime": {
+            "description": "build_time is the build timestamp of the latest version.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "description": {
+            "description": "description is a short human-readable description of the package.",
+            "type": "string"
+          },
+          "latestVersion": {
+            "description": "latest_version is the version string of the most recently updated version.",
+            "type": "string"
+          },
+          "license": {
+            "description": "license is the SPDX license identifier for the package.",
+            "type": "string"
+          },
+          "origin": {
+            "description": "origin is the origin package name (equals package_name for main packages).",
+            "type": "string"
+          },
+          "packageName": {
+            "description": "package_name is the base package name (e.g. \"bash\").",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.apk.APKPackageSummaryList": {
+        "description": "APKPackageSummaryList is the response message for ListAPKSummaries.",
+        "properties": {
+          "items": {
+            "description": "items is the list of package summaries matching the request.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.apk.APKPackageSummary"
+            },
+            "type": "array"
+          },
+          "nextPageToken": {
+            "description": "next_page_token is the token for retrieving the next page of results.\nEmpty if there are no more results.",
+            "type": "string"
+          },
+          "skipped": {
+            "description": "skipped is the total number of results skipped to reach this page.\nThis accumulates across pages when using the skip parameter.",
+            "format": "int32",
+            "type": "integer"
+          },
+          "totalCount": {
+            "description": "total_count is the total number of packages matching the filter.",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.auth.HeadlessSession": {
         "properties": {
           "ecdhPublicKey": {
@@ -5514,6 +5576,141 @@
         ]
       }
     },
+    "/apk/v1/package-summaries": {
+      "get": {
+        "description": "ListAPKSummaries returns one summary entry per package name (latest version,\nall architectures aggregated). Supports prefix-match search via the query field.",
+        "operationId": "APK_ListAPKSummaries",
+        "parameters": [
+          {
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "in": "query",
+            "name": "uidp.inRoot",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "ids are a list of exact UIDPs of records.",
+            "in": "query",
+            "name": "uidp.ids",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          {
+            "description": "query is a prefix match on package_name (e.g. \"bash\" matches \"bash\",\n\"bash-completion\", etc.). When empty, all packages are returned.",
+            "in": "query",
+            "name": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "architecture optionally restricts results to a specific architecture.",
+            "in": "query",
+            "name": "architecture",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "origin optionally restricts results to packages with the given origin.",
+            "in": "query",
+            "name": "origin",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "page_size is the maximum number of summaries to return per page.\nDefault: 50, Maximum: 200.",
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "page_token is the opaque token returned by a previous ListAPKSummaries\ncall. Provide it to retrieve the next page of results.",
+            "in": "query",
+            "name": "pageToken",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "order_by controls the sort order. Format: \"field [asc|desc]\".\nSupported fields: \"package_name\", \"build_time\".\nDefault: \"package_name asc\".",
+            "in": "query",
+            "name": "orderBy",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Number of results to skip (for random-access pagination).\nApplied after cursor positioning.",
+            "in": "query",
+            "name": "skip",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.apk.APKPackageSummaryList"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List APK Summaries",
+        "tags": [
+          "APK"
+        ]
+      }
+    },
     "/apk/v1/packages": {
       "get": {
         "description": "ListAPKs lists all APKs that match the filter.",
@@ -5626,14 +5823,6 @@
             "schema": {
               "format": "int32",
               "type": "integer"
-            }
-          },
-          {
-            "description": "When set, deduplicate results across architectures: packages available for\nmultiple architectures are returned only once, with the architecture field\ncontaining a comma-separated list of all architectures (e.g. \"aarch64, x86_64\").\nHas no effect when architecture is already set.",
-            "in": "query",
-            "name": "deduplicateArchitectures",
-            "schema": {
-              "type": "boolean"
             }
           }
         ],
@@ -5943,7 +6132,7 @@
         },
         "summary": "List",
         "tags": [
-          "Entitlements"
+          "EcosystemsEntitlements"
         ]
       }
     },
@@ -5986,7 +6175,7 @@
         },
         "summary": "Delete",
         "tags": [
-          "Entitlements"
+          "EcosystemsEntitlements"
         ]
       }
     },
@@ -6041,7 +6230,7 @@
         },
         "summary": "Create",
         "tags": [
-          "Entitlements"
+          "EcosystemsEntitlements"
         ]
       }
     },
@@ -6953,7 +7142,7 @@
         },
         "summary": "List",
         "tags": [
-          "Identities"
+          "IAMIdentities"
         ]
       }
     },
@@ -7002,7 +7191,7 @@
         },
         "summary": "Lookup",
         "tags": [
-          "Identities"
+          "IAMIdentities"
         ]
       }
     },
@@ -7044,7 +7233,7 @@
         },
         "summary": "Update Metadata",
         "tags": [
-          "Identities"
+          "EventIdentities"
         ]
       }
     },
@@ -7087,7 +7276,7 @@
         },
         "summary": "Delete",
         "tags": [
-          "Identities"
+          "IAMIdentities"
         ]
       },
       "put": {
@@ -7139,7 +7328,7 @@
         },
         "summary": "Update",
         "tags": [
-          "Identities"
+          "IAMIdentities"
         ]
       }
     },
@@ -7194,7 +7383,7 @@
         },
         "summary": "Create",
         "tags": [
-          "Identities"
+          "IAMIdentities"
         ]
       }
     },
@@ -8271,7 +8460,7 @@
         },
         "summary": "List",
         "tags": [
-          "Entitlements"
+          "LibrariesEntitlements"
         ]
       }
     },
@@ -8314,7 +8503,7 @@
         },
         "summary": "Delete",
         "tags": [
-          "Entitlements"
+          "LibrariesEntitlements"
         ]
       }
     },
@@ -8369,7 +8558,7 @@
         },
         "summary": "Create",
         "tags": [
-          "Entitlements"
+          "LibrariesEntitlements"
         ]
       }
     },
@@ -9394,7 +9583,7 @@
         },
         "summary": "Delete Entitlement",
         "tags": [
-          "Entitlements"
+          "RegistryEntitlements"
         ]
       }
     },
@@ -9436,7 +9625,7 @@
         },
         "summary": "List Entitlements",
         "tags": [
-          "Entitlements"
+          "RegistryEntitlements"
         ]
       },
       "post": {
@@ -9487,7 +9676,7 @@
         },
         "summary": "Create Entitlement",
         "tags": [
-          "Entitlements"
+          "RegistryEntitlements"
         ]
       }
     },
@@ -9530,7 +9719,7 @@
         },
         "summary": "List Entitlement Catalog Images",
         "tags": [
-          "Entitlements"
+          "RegistryEntitlements"
         ]
       }
     },
@@ -9572,7 +9761,7 @@
         },
         "summary": "List Entitlement Images",
         "tags": [
-          "Entitlements"
+          "RegistryEntitlements"
         ]
       }
     },
@@ -9615,7 +9804,7 @@
         },
         "summary": "Get Features",
         "tags": [
-          "Entitlements"
+          "RegistryEntitlements"
         ]
       }
     },
@@ -9658,7 +9847,7 @@
         },
         "summary": "Summary",
         "tags": [
-          "Entitlements"
+          "RegistryEntitlements"
         ]
       }
     },
@@ -12549,10 +12738,12 @@
       "name": "Auth"
     },
     {
-      "name": "Entitlements"
+      "description": "Ecosystem Entitlements API",
+      "name": "EcosystemsEntitlements"
     },
     {
-      "name": "Identities"
+      "description": "Event Identities API",
+      "name": "EventIdentities"
     },
     {
       "name": "Subscriptions"
@@ -12567,7 +12758,8 @@
       "name": "GroupInvites"
     },
     {
-      "name": "Identities"
+      "description": "IAM Identities API",
+      "name": "IAMIdentities"
     },
     {
       "name": "IdentityProviders"
@@ -12582,7 +12774,8 @@
       "name": "Artifacts"
     },
     {
-      "name": "Entitlements"
+      "description": "Libraries Entitlements API",
+      "name": "LibrariesEntitlements"
     },
     {
       "name": "NpmPackages"
@@ -12612,7 +12805,8 @@
       "name": "Registry"
     },
     {
-      "name": "Entitlements"
+      "description": "Registry Entitlements API",
+      "name": "RegistryEntitlements"
     },
     {
       "name": "Vulnerabilities"

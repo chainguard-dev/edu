@@ -1,43 +1,17 @@
 ---
 date: 2026-03-09T12:15:11Z
-title: "chainctl iam roles list"
-slug: chainctl_iam_roles_list
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_roles_list/
+title: "chainctl agent"
+slug: chainctl_agent
+url: /chainguard/chainctl/chainctl-docs/chainctl_agent/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam roles list
+## chainctl agent
 
-List IAM roles.
-
-```
-chainctl iam roles list [--name=NAME] [--capabilities=CAPABILITY,...] [--parent=PARENT | --managed] [--output=id|json|table]
-```
-
-### Examples
-
-```
-  # List all accessible roles
-  chainctl iam roles list
-  
-  # List all managed (built-in) roles
-  chainctl iam roles list --managed
-  
-  # List all roles that can create groups
-  chainctl iam roles list --capabilities=groups.create
-```
-
-### Options
-
-```
-      --capabilities strings   A comma separated list of capabilities to grant this role.
-      --managed                Only list managed (built-in) roles.
-      --name string            The exact name of roles to list.
-      --parent string          Location to list roles from.
-```
+Agent-powered commands.
 
 ### Options inherited from parent commands
 
@@ -56,5 +30,6 @@ chainctl iam roles list [--name=NAME] [--capabilities=CAPABILITY,...] [--parent=
 
 ### SEE ALSO
 
-* [chainctl iam roles](/chainguard/chainctl/chainctl-docs/chainctl_iam_roles/)	 - IAM role resource interactions.
+* [chainctl](/chainguard/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
+* [chainctl agent dockerfile](/chainguard/chainctl/chainctl-docs/chainctl_agent_dockerfile/)	 - AI-powered Dockerfile migration and optimization.
 
