@@ -41,7 +41,7 @@ chainctl libraries verify [path...] [flags]
   chainctl libraries verify build/libs/*.jar build/libs/*.war
 
   # Analyze a local Python virtual environment
-  chainctl libraries verify ./venv/
+  chainctl libraries verify .venv/
 
   # Analyze with JSON output
   chainctl libraries verify -o json build/libs/*.jar
