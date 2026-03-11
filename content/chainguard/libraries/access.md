@@ -37,7 +37,7 @@ direct access.
 
 **Artifact manager**
 
-If your organization uses an artifact manager such as JFrog Artifactory or Sonatype Nexus, you can set up and configure credentials once per language ecosystem. Then, all projects and developers automatically inherit
+If your organization uses an artifact manager such as Cloudsmith, JFrog Artifactory, or Sonatype Nexus, you can set up and configure credentials once per language ecosystem. Then, all projects and developers automatically inherit
 the configuration. This option is recommended for organizations with multiple
 teams, and provides centralized access controls and consistent uptime. 
 
