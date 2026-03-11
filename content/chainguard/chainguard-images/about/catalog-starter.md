@@ -17,7 +17,7 @@ toc: true
 
 Chainguard Catalog Starter is a free way to try production-grade Chainguard Containers without committing to a full subscription. It lets you choose a set of five container images from the broader Chainguard catalog so you can validate security, performance, and operational fit in your own environment before you buy.
 
-> **Note**: As of this writing, Chainguard Catalog Starter is in beta. The details outlined in this document may change.
+> **Note**: As of this writing, Chainguard Catalog Starter is in beta. Some of the details included in this guide may change over time.
 
 ## What is Catalog Starter?
 
