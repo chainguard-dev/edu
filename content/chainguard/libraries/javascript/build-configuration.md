@@ -155,8 +155,10 @@ npm init -y
 ```
 
 For testing purposes, you can use direct access and environment variables as
-detailed in the [access documentation](/chainguard/libraries/access/#env). Once
-the environment variables are set, the following steps configure registry
+detailed in the [access documentation](/chainguard/libraries/access/#env). For
+production use, set the config URL to either your organization's artifact
+manager alreaady in use, or directly to `libraries.cgr.dev/javascript`. Once the
+URL and environment variables are set, the following steps configure registry
 access with authentication in the `.npmrc` file in the current project
 directory:
 
