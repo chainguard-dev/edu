@@ -112,6 +112,6 @@ You can also delete new container images that you've created with Custom Assembl
 
 ## Learn More
 
-You now have the knowledge to effectively manage Custom Assembly resources through the Chainguard console. This web interface provides a user-friendly way to customize container images by adding or removing packages, monitor build status, and review build logs without needing to use command-line tools.
+You can also use the Chainguard Console to add Chainguard-managed certificates to Custom Assembly images. Refer to our guide on [Adding Custom Certificates with Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly-certs/#changuard-managed-certificate-bundles) for more information. 
 
-Remember that customized images are rebuilt frequently, and build history is retained for 24 hours. For more advanced workflows or automation, consider exploring the [`chainctl` CLI tool](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/) or the [Chainguard API](/chainguard/chainguard-images/features/ca-docs/custom-assembly-api-demo/) for programmatic access to Custom Assembly features.
+For more advanced workflows or automation, consider exploring the [`chainctl` CLI tool](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/) or the [Chainguard API](/chainguard/chainguard-images/features/ca-docs/custom-assembly-api-demo/) for programmatic access to Custom Assembly features.

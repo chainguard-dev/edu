@@ -180,6 +180,5 @@ We encourage you to check out our resources on our other [Chainguard Containers 
 
 * [Unique Tags](/chainguard/chainguard-images/features/unique-tags/)
 * [CVE Visualizations](/chainguard/chainguard-images/features/cve_visualizations/)
-* [Custom Certificates](/chainguard/chainguard-images/features/incert-custom-certs/)
 
 Additionally, for more information on working with Chainguard Containers, refer to our docs on [How to Use Chainguard Containers](/chainguard/chainguard-images/how-to-use/).
