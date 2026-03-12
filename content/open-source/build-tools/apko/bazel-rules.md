@@ -24,19 +24,22 @@ wraps the [apko](https://github.com/chainguard-dev/apko) tool for use under
 Bazel, providing hermetic, reproducible image builds with full Bazel caching
 support.
 
+By the end of this guide you will have a working Bazel project that builds a
+minimal Wolfi-based container image using `rules_apko`.
+
+## How to build a container with Bazel using `rules_apko`
+
 This page covers `rules_apko` version `1.5.37` with Bazel `9.0.1` using
 **Bzlmod**, which is the only supported dependency management method in Bazel 9.
 If you are on an earlier version of Bazel, you should upgrade to Bazel 9 before
 following this guide.
 
-> **Note:** You do not need to install `apko` separately. `rules_apko` manages
+> Note: You do not need to install `apko` separately. `rules_apko` manages
 > its own hermetic `apko` toolchain and automatically downloads `apko v1.1.12`
 > on first build.
 
-By the end of this guide you will have a working Bazel project that builds a
-minimal Wolfi-based container image using `rules_apko`.
 
-## Prerequisites
+### Prerequisites
 
 Before you begin, ensure you have the following:
 
@@ -53,7 +56,8 @@ Before you begin, ensure you have the following:
   No separate download is required — Bazel fetches it automatically when you
   declare it in `MODULE.bazel`.
 
-## Project Structure
+
+### Project Structure
 
 A complete `rules_apko` project requires the following files:
 
@@ -74,9 +78,10 @@ The files marked "generated" should be committed to your repository after
 generation. The files marked "create manually" are written by you as part of
 this guide.
 
+
 ## Setup
 
-### Step 1: Create Your Project Directory
+### Step 1: Create your project directory
 
 Create a new directory for your project and change into it:
 
@@ -84,7 +89,7 @@ Create a new directory for your project and change into it:
 mkdir my-apko-image && cd my-apko-image
 ```
 
-### Step 2: Create the Root .bazelrc File
+### Step 2: Create the root .bazelrc file
 
 Create a root `.bazelrc` file in your project directory. This file does two
 things:
@@ -101,13 +106,13 @@ try-import .apko/.bazelrc
 build --repo_contents_cache=/tmp/bazel-cache
 ```
 
-> NOTE: The try-import directive tells Bazel to load `.apko/.bazelrc` if
+> Note: The try-import directive tells Bazel to load `.apko/.bazelrc` if
 it exists. This file is generated in a later step by running
 `bazel run //:apko_bazelrc`. Until that step is complete the directive is
 safely ignored.
 
 
-### Step 3: Create the Stage 1 MODULE.bazel File
+### Step 3: Create the Stage 1 MODULE.bazel file
 
 Create a `MODULE.bazel` file in your project directory. This file declares your
 project's external dependencies and sets up the `apko` toolchain. At this stage
@@ -131,7 +136,7 @@ register_toolchains("@apko_toolchains//:all")
 ```
 
 
-### Step 4: Create the Stage 1 BUILD.bazel File
+### Step 4: Create the Stage 1 BUILD.bazel file
 
 Create a `BUILD.bazel` file in your project directory. At this stage it contains
 only the `apko_bazelrc` and `apko_lock `rules. The `apko_image` rule is added
@@ -153,13 +158,13 @@ apko_lock(
 )
 ```
 
-> NOTE: The reason `apko_image` is not included at this stage is that the
+> Note: The reason `apko_image` is not included at this stage is that the
 `apko_image` rule checks for `apko.lock.json` at Bazel load time — before any
 targets are run. Since the lock file does not exist yet, including a`pko_image`
 at this stage would cause a load-time error. Once the lock file exists you will
 add `apko_image` in a later step.
 
-### Step 5: Create the apko.yaml Configuration File
+### Step 5: Create the apko.yaml configuration file
 
 Create an `apko.yaml` file in your project directory. This file defines the
 container image — its base packages, repository, signing key, and target
@@ -182,11 +187,11 @@ archs:
   - x86_64
 ```
 
-## Generating Configuration and the Lock File
+## Generating configuration and the lock file
 
 With your project files in place, run the following two commands in order.
 
-### Step 6: Generate the Credential Helper Configuration
+### Step 6: Generate the credential helper configuration
 
 Run the `apko_bazelrc` target to generate `.apko/.bazelrc` and `.apko/range.sh`:
 
@@ -218,13 +223,13 @@ range requests
 Both files should be committed to your repository. They are activated by the
 try-import `.apko/.bazelrc` directive in your root `.bazelrc` file.
 
-> NOTE: By default, `apko_bazelrc` configures credential helpers for
+> Note: By default, `apko_bazelrc` configures credential helpers for
 `dl-cdn.alpinelinux.org` and p`ackages.wolfi.dev`. If you are using additional
 repositories, pass them to the repositories attribute:
 `apko_bazelrc(repositories = ["my.repo.example.com"])`.
 
 
-### Step 7: Generate the Lock File
+### Step 7: Generate the lock file
 
 Run the lock target to generate apko.lock.json:
 
@@ -250,17 +255,17 @@ the exact versions and checksums of all packages required to build your image
 for each target architecture. Commit this file to your repository to ensure
 reproducible builds.
 
-> NOTE: The `DEBUG` message `apko toolchain apko has multiple versions ["v1.1.12", "v1.1.12"], selected v1.1.12` may appear in your output. This is
+> Note: The `DEBUG` message `apko toolchain apko has multiple versions ["v1.1.12", "v1.1.12"], selected v1.1.12` may appear in your output. This is
 normal and expected — it occurs because both the toolchain setup and the lock
 translation in `MODULE.bazel` reference the same `apko` extension. It does not
 indicate a problem.
 
-## Building the Image
+## Building the image
 
 Now that the lock file exists, update your project files to add the image build
 target.
 
-### Step 8: Update MODULE.bazel to Add Lock File Translation
+### Step 8: Update MODULE.bazel to add lock file translation
 
 Add the translate_lock extension call to the end of your `MODULE.bazel` file:
 
@@ -290,7 +295,7 @@ use_repo(apk, "wolfi_base_lock")
 ```
 
 
-### Step 9: Update BUILD.bazel to Add the Image Target
+### Step 9: Update BUILD.bazel to add the image target
 
 Add the `apko_image` rule to your `BUILD.bazel` file:
 
@@ -354,7 +359,7 @@ INFO: Build completed successfully, 128 total actions
 
 The built image is available at `bazel-bin/wolfi_base`.
 
-> NOTE: You may see `INFO` messages about duplicate package IDs in the SBOM
+> Note: You may see `INFO` messages about duplicate package IDs in the SBOM
 during the build, for example:
 `INFO duplicate package ID found in SBOM, deduplicating package...`
 These are normal and expected — `apko` deduplicates packages that appear
