@@ -2,7 +2,7 @@
 # Pin versions for security and reproducibility
 
 # Security scanning tools
-bandit==1.9.3
+bandit==1.9.4
 safety==3.7.0
 
 # Development tools
