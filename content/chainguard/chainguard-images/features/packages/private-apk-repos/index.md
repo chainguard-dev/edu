@@ -270,7 +270,7 @@ You'll get output similar to the following, indicating that the `wget` package w
 
 You can also use your private APK repository with [Bazel](https://bazel.build/) using
 [rules_apko](https://github.com/chainguard-dev/rules_apko), which wraps
-`apko` for use in Bazel builds. As with the `apko` approach, you get the
+`apko` for use in Bazel builds. Like the `apko` approach, you get the
 advantage of building distroless images that include only the APK packages
 you need in the final image, with the additional benefits of Bazel's
 hermetic, reproducible, and cached build system.
@@ -307,7 +307,7 @@ build //:my_image
 You'll get output similar to the following, indicating that the `wget`
 package was installed using the private APK repository:
 
-```shell
+```output
 INFO: Analyzed target //:my_image (123 packages loaded, 656 targets configured).
 INFO: From Action my_image:
 2026/03/12 12:46:27 INFO installing wolfi-baselayout (20230201-r28) arch=x86_64
