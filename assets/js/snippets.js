@@ -168,5 +168,5 @@ const customizeUI = (pre) => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll("pre").forEach((pre) => customizeUI(pre));
+  document.querySelectorAll("pre:not(.scalar-app pre)").forEach((pre) => customizeUI(pre));
 });

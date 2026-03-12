@@ -1,35 +1,85 @@
-<script src="https://unpkg.com/@stoplight/elements/web-components.min.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/@stoplight/elements/styles.min.css">
+<div id="app"></div>
+<script src="https://cdn.jsdelivr.net/npm/@scalar/api-reference"></script>
+<script>
+  const scalarApp = Scalar.createApiReference("#app", {
+    agent: {
+      disabled: true,
+    },
+    mcp: {
+      disabled: true,
+    },
+    hideSearch: true,
+    telemetry: false,
+    showDeveloperTools: "never",
+    hideClientButton: true,
+    hideTestRequestButton: true,
+    hiddenClients: true,
+    hideDarkModeToggle: true,
+    darkMode: localStorage.getItem("theme") === "dark",
+    theme: "none",
+    url: '{{ .Get "spec-url"}}',
+  });
 
-<elements-api
-      apiDescriptionUrl='{{ .Get "spec-url"}}'
-      router="hash"
-      hideTryIt="true"
-    />
-
+</script>
 <style>
-  nav .nav-item svg {
-    display: inherit !important;
+  .scalar-app ul {
+    padding-left: 0;
+    margin-bottom: 0;
+    li {
+      margin-bottom: unset !important;
+      ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
   }
-  .docs-sidebar {
-    display: none !important;
+  .scalar-app .group-hover\:opacity-100:is(:where(.group):hover *) {
+    opacity: 1 !important;
+  }
+  .scalar-app
+    .group-hocus-within\/code-block\:opacity-100:is(
+      :is(
+          :where(.group\/code-block):hover,
+          :where(.group\/code-block):focus-within
+        )
+        *
+    ) {
+    opacity: 1 !important;
+  }
+  .scalar-app .px-3 {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+  .scalar-app .section-header-label {
+    font-weight: inherit;
+    font-size: inherit;
+  }
+  .scalar-app .section-container {
+    margin-top: unset !important;
+    margin-bottom: unset !important;
+  }
+  .scalar-app .hljs {
+    padding: 0 !important;
+  }
+  .scalar-app .pre-container .code {
+    background-color: transparent !important;
+  }
+  .scalar-app .text-nowrap.whitespace-pre {
+    text-wrap: nowrap !important;
+    white-space: pre !important;
+  }
+  .scalar-app code {
+    background: unset !important;
+  }
+  .scalar-app .border {
+    border: var(--scalar-border-color) 1px solid !important;
   }
   main.docs-content {
     width: 100% !important;
     padding: 0 !important;
   }
   main.docs-content.has-toc {
-    max-width: calc(100dvw - 384px); 
+    max-width: calc(100dvw - 384px);
     margin: 0 48px 0 48px;
-  }
-  main h1 {
-    font-size: 2.5rem !important;
-    margin: 2rem 0 1rem;
-  }
-  nav.docs-toc {
-    display: none !important;
-  }
-  elements-api {
-    display: block;
   }
 </style>
