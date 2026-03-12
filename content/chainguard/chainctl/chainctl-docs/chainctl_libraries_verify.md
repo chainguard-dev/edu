@@ -1,5 +1,5 @@
 ---
-date: 2026-03-09T12:15:11Z
+date: 2026-03-11T15:23:12Z
 title: "chainctl libraries verify"
 slug: chainctl_libraries_verify
 url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_verify/
@@ -41,7 +41,7 @@ chainctl libraries verify [path...] [flags]
   chainctl libraries verify build/libs/*.jar build/libs/*.war
 
   # Analyze a local Python virtual environment
-  chainctl libraries verify .venv/
+  chainctl libraries verify ./venv/
 
   # Analyze with JSON output
   chainctl libraries verify -o json build/libs/*.jar
