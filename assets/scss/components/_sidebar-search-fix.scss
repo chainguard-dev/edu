@@ -35,7 +35,6 @@
             
             &::placeholder {
                 color: #8C8C8C; // Use neutral gray for placeholder in light mode
-                opacity: 0.7;
             }
         }
         
@@ -70,6 +69,32 @@
             color: #8C8C8C; // Use same neutral gray as placeholder
             pointer-events: none;
             z-index: 1;
+        }
+    }
+}
+
+#ask-ai {
+    font-size: 14px;
+    border-color: var(--leftnav-border);
+    background: var(--search-background);
+    color: #8C8C8C;
+    border-radius: 6px;
+
+    svg {
+        margin-right: 4px;
+        path {
+            fill: #3443f4;
+        }
+    } 
+
+    :root[data-dark-mode] & {
+        color: var(--placeholder-color);
+        border-color: rgba(255, 255, 255, 0.1);
+
+        svg {
+            path {
+                fill: #fff;
+            }
         }
     }
 }
