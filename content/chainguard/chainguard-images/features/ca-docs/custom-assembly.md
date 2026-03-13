@@ -172,14 +172,13 @@ In any case, you won't know whether a container image build fails until after it
 
 ## Learn More
 
-Custom Assembly allows customers to leverage Chainguard’s build infrastructure to produce container images tailored to their requirements. That means customers no longer have to stand up and maintain their own builds, saving costs in the form of infrastructure, engineering overhead, and complexity.
-
 This article provided a high-level overview of Custom Assembly. As a next step, we encourage you to checkout our guide on [managing Custom Assembly resources through the Chainguard Console](/chainguard/chainguard-images/features/ca-docs/custom-assembly-console/). You can also interact with Custom Assembly using [`chainctl`](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/) as well as [the Chainguard API](/chainguard/chainguard-images/features/ca-docs/custom-assembly-api-demo/).
+
+You can also add custom certificates to Custom Assembly images. Refer to our guide on [Adding Custom Certificates with Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly-certs/) for more information. 
 
 We encourage you to check out our resources on our other [Chainguard Containers features](/chainguard/chainguard-images/features/), including the following:
 
 * [Unique Tags](/chainguard/chainguard-images/features/unique-tags/)
 * [CVE Visualizations](/chainguard/chainguard-images/features/cve_visualizations/)
-* [Custom Certificates](/chainguard/chainguard-images/features/incert-custom-certs/)
 
 Additionally, for more information on working with Chainguard Containers, refer to our docs on [How to Use Chainguard Containers](/chainguard/chainguard-images/how-to-use/).
