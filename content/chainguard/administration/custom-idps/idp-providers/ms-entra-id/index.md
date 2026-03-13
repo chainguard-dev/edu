@@ -128,6 +128,7 @@ chainctl iam identity-provider create \
   --default-role=viewer \
   --name=${NAME}
 ```
+> Customers using Azure Government Cloud should set ISSUER="https://login.microsoftonline.us/${TENANT_ID}/v2.0"
 
 Note the `--default-role` option. This defines the default role granted to users registering with this identity provider. This example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. If you don't include this option, you'll be prompted to specify the role interactively. For more information, refer to the [IAM and Security section](/chainguard/administration/custom-idps/custom-idps/#iam-and-security) of our Introduction to Custom Identity Providers in Chainguard tutorial.
 
