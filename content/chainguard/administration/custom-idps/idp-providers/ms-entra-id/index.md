@@ -116,7 +116,7 @@ export CLIENT_ID=<your application/client id here>
 export CLIENT_SECRET=<your client secret here>
 export ORG=<your organization UIDP here>
 export TENANT_ID=<your directory/tenant id here>
-export ISSUER="https://login.microsoftonline.com/${TENANT_ID}/v2.0" 
+export ISSUER="https://login.microsoftonline.com/${TENANT_ID}/v2.0"
 chainctl iam identity-provider create \
   --configuration-type=OIDC \
   --oidc-client-id=${CLIENT_ID} \
