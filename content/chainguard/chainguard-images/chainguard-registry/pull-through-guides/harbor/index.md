@@ -81,7 +81,7 @@ To configure a cache, perform the following steps in the Harbor UI:
     * **Project quota limits** — leave at `-1` for unlimited or set as required.
     * **Proxy Cache** — Toggle this on.
     * **Endpoint** — Choose the endpoint you created in the previous step.
-    * **Bandwith — leave at `-1` for unlimited or set as required.
+    * **Bandwidth** — leave at `-1` for unlimited or set as required.
 4. Click **OK**
 
 Following that, you can pull images from the Harbor project like so:

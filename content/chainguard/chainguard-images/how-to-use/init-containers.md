@@ -106,7 +106,7 @@ CMD cp /custom/nginx.conf /etc/nginx/nginx.conf && \
 EOF
 ```
 
-This Dockerfile builds an image using the default nginx container image from Docker Hub (`FROM nginx`). This image includes `docker-entrypoint.d` and `docker-entrpoint.sh` by default. It will copy the `nginx.conf` file you created previously into the new image when you build it. Then, when you run the container in a Kubernetes deployment, it will prepare and copy the nginx configuration at startup using the entrypoint script.
+This Dockerfile builds an image using the default nginx container image from Docker Hub (`FROM nginx`). This image includes `docker-entrypoint.d` and `docker-entrypoint.sh` by default. It will copy the `nginx.conf` file you created previously into the new image when you build it. Then, when you run the container in a Kubernetes deployment, it will prepare and copy the nginx configuration at startup using the entrypoint script.
 
 After creating this Dockerfile, build the image. 
 
