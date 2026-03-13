@@ -15,17 +15,17 @@ weight: 060
 toc: true
 ---
 
-Chainguard Catalog Starter is a free way to try production-grade Chainguard Containers without committing to a full subscription. It lets you choose a set of five container images from the broader Chainguard catalog so you can validate security, performance, and operational fit in your own environment before you buy.
+Chainguard Catalog Starter is a way to try production-grade Chainguard Containers for free, without committing to a full subscription. It lets you choose a set of five container images from the broader Chainguard catalog so you can validate security, performance, and operational fit in your own environment before you buy.
 
 > **Note**: As of this writing, Chainguard Catalog Starter is in beta. Some of the details included in this guide may change over time.
 
 ## What is Catalog Starter?
 
-With Chainguard Catalog Starter, users can choose any five non-FIPS images from our catalog of secure-by-default containers. Any Helm charts that depend on those images are included and count toward the five-image limit. Users also get access to one image customized with [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/), allowing them to add extra packages or custom certificates directly into the image. 
+With Chainguard Catalog Starter, users can choose any five non-FIPS images from our catalog of secure-by-default containers. Any Helm charts that depend on those images are included and count toward the five-image limit. 
 
-Catalog Starter is designed as a standalone free plan, separate from paid Catalog Pricing or per-image subscriptions. It's meant for teams who want to try Chainguard Containers in real workloads before committing to a larger rollout, giving them a better understanding of how Chainguard’s hardened images and CVE posture behave in practice.
+Catalog Starter is designed as a standalone free plan, separate from paid Catalog or per-image subscriptions. It's meant for teams who want to try Chainguard Containers in real workloads before committing to a larger rollout, giving them a better understanding of how Chainguard’s hardened images and CVE posture behave in practice. 
 
-> **Note**: Catalog Starter is an offering intended for potential customers to evaluate Chainguard, not for existing Chainguard Containers customers.
+> **Note**: Catalog Starter is best suited for small teams to get you started right away. When you are ready to standardize on Chainguard and deploy organization-wide, we have several paid plans that provide unlimited user access to the Chainguard Containers and additional features like Custom Assembly, FIPS images, EOL/EmeritOSS image versions, a contractual CVE-remediation SLA, and dedicated support.
 
 
 ## How Catalog Starter works
@@ -39,12 +39,11 @@ After you submit [the request form](), our team will quickly review and enable a
 
 ### 2. Choose your five images
 
-Once your organization is enabled, you can browse the Chainguard catalog and select up to five non-FIPS images to be provisioned to your organization. Additionally, you can use Chainguard's Custom Assembly tool to customize one image. 
-
+Once your organization is enabled, you can browse the Chainguard catalog and select up to five non-FIPS images to be provisioned to your organization. 
 
 ### 3. Integrate with your registry and pipelines
 
-After selecting your five container images, you're free to use them however you like. For example, you can pull them into your CI/CD pipelines and runtime environments, or pull them through a third-party registry like [JFrog Artifactory](/chainguard-images/chainguard-registry/pull-through-guides/artifactory/artifactory-images-pull-through/). These container images are also covered by Chainguard’s standard hardening, rebuild, and CVE-remediation processes, although they are not covered by [Chainguard's CVE SLA](https://www.chainguard.dev/legal/cve-policy).
+After selecting your five container images, you're free to use them however you like. For example, you can pull them into your CI/CD pipelines and runtime environments, or pull them through a third-party registry like [JFrog Artifactory](/chainguard-images/chainguard-registry/pull-through-guides/artifactory/artifactory-images-pull-through/). These container images are the same as those provided to Chainguard's paying customers, and are covered by Chainguard’s standard hardening, rebuild, and CVE-remediation processes, although they are not covered by [Chainguard's CVE SLA](https://www.chainguard.dev/legal/cve-policy).
 
 
 ### 4. Upgrade when you’re ready
@@ -69,9 +68,8 @@ Catalog Starter allows users to try out Chainguard Containers, but it comes with
 * Teams using Chainguard Catalog Starter will not have access to the support services available to paying customers: they will not be added to Chainguard's support platform, be able to create support tickets, or have access to root cause analysis (RCA) or phone escalations. 
     * Catalog Starter users will still have access to Chainguard resources like our [documentation](https://edu.chainguard.dev/), [courses](https://courses.chainguard.dev/), the [Community Slack channel](https://www.chainguard.dev/unchained/the-chainguard-slack-community-is-here), and the [public support knowledge base](https://support.chainguard.dev/hc/en-us). 
 * [Chainguard's CVE SLA](https://www.chainguard.dev/legal/cve-policy) does not apply to container images obtained through Catalog Starter.
-* The free plan supports a single user account in the Chainguard Console for your organization. You can still integrate images into CI/CD and production using tokens, but you cannot invite other users to your organization, nor can other users pull your selected containers.
-* Commercial Builds, Chainguard's bespoke paid build services, are not included. The plan includes one Custom Assembly build, but not an ongoing build-as-a-service arrangement.
-* Catalog Starter does not include the ability to upload and host your own custom images in Chainguard’s registry. You consume Chainguard-provided images only.
+* The free plan does not support user management or role-based access control (RBAC). Chainguard can add newer users from the same company to your organization after they sign up for Catalog Starter, but you cannot add them yourself. Any additional users in your organization will have access to the five images selected by the first user and cannot change them after the fact.
+* Neither Custom Assembly nor Commercial Builds, Chainguard's bespoke paid build services, are included in the Catalog Starter plan.
 * Catalog Starter cannot be combined with an existing Chainguard Containers license. Existing customers remain on their current paid plans; this free offering can’t be used to subsidize or partially offset paid image counts.
 
 
@@ -88,6 +86,12 @@ If you anticipate needing different images over time, we recommend talking to ou
 No. FIPS images and Chainguard Commercial Builds are not included in the Catalog Starter plan.
 
 If you require FIPS-validated images or dedicated commercial build work, you’ll need a paid plan that includes those capabilities.
+
+### Can my colleagues and I use the same Catalog Starter images?
+
+Yes. If one user signs up for Catalog Starter and selects the five images, then another user from the same company signs up, Chainguard can add the newer user to the organization started by the first user. Both will have access to the five images selected by the first user, and neither user will be able to change them later on.
+
+Note that Catalog Starter does not include user management or RBAC, meaning users cannot add others to their Chainguard organization themselves.
 
 ### I’m already a Chainguard Containers customer. Can I add Catalog Starter to my account?
 
@@ -112,4 +116,4 @@ Our team will work with you to map your existing Catalog Starter images into the
 
 ## Get started
 
-To sign up for Catalog Starter, fill out [this form]() and our team will review the request and enable access if your organization qualifies. Once enabled, you can begin piloting up to five secure container images from the Chainguard catalog. 
+To sign up for Catalog Starter, fill out [this form]() and our team will review the request and enable access if your organization qualifies. Once enabled, you can begin piloting up to five secure container images from the Chainguard catalog.
