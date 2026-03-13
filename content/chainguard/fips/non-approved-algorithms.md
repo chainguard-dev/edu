@@ -136,7 +136,7 @@ If this usage is needed in any of the imported libraries, you can use [mock](htt
 
 Alternatively, submit upstream fixes to correct the code. Here are some examples contributed by Chainguard engineers:
 * [Google Cloud Platform storage pull request](https://github.com/googleapis/python-storage/pull/1522)
-* [PyPDF project pull requst](https://github.com/py-pdf/pypdf/pull/3438)
+* [PyPDF project pull request](https://github.com/py-pdf/pypdf/pull/3438)
 
 If there are Python projects that need MD5 access in FIPS mode and currently do not use `usedforsecurity=False` please [open a support request](https://support.chainguard.dev/) for Chainguard engineering to look into adding support.
 

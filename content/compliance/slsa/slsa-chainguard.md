@@ -25,7 +25,7 @@ Chainguard Containers and Guarded VMs are SLSA Level 3 compliant to provide conf
 This page describes what we have done and are doing to bring Chainguard products into full SLSA Level 3 compliance.
 
 
-## Isolated and Tamper-Resistent Builds
+## Isolated and Tamper-Resistant Builds
 
 Every Chainguard build now runs in a dedicated, ephemeral environment that starts from a clean slate. This build isolation ensures that no build can influence another, eliminating insider meddling or cross-contamination between builds. By provisioning short-lived build environments on demand, we greatly reduce the risk of any malware persistence or [cache poisoning](https://en.wikipedia.org/wiki/Cache_poisoning) across builds.
 

@@ -13,7 +13,7 @@ toc: true
 weight: 031
 ---
 
-This document provides an overview of FIPS TLS connectivy requirements for using Chainguard FIPS products. These FIPS products have **higher** minimum TLS requirements, which complicates connecting them to insecure EOL non-FIPS systems, as well as FIPS systems with lapsed (historical) certification.
+This document provides an overview of FIPS TLS connectivity requirements for using Chainguard FIPS products. These FIPS products have **higher** minimum TLS requirements, which complicates connecting them to insecure EOL non-FIPS systems, as well as FIPS systems with lapsed (historical) certification.
 
 Chainguard strives to ensure the broadest connectivity possible for its FIPS products. However, many obsolete systems are still widely used and may not be able to connect with Chainguard FIPS products.
 
@@ -25,7 +25,7 @@ Chainguard strives to ensure the broadest connectivity possible for its FIPS pro
 
 While the majority of FIPS modules do have support for TLSv1.3, there are many FIPS 140-2 certified products and operating systems that do not have TLSv1.3 support. As of November 2025 there are [768 Active FIPS 140-2](https://csrc.nist.gov/projects/cryptographic-module-validation-program/validated-modules/search?SearchMode=Advanced&Standard=140-2&CertificateStatus=Active&ValidationYear=0) validated modules, many of which do not have TLSv1.3 capability.
 
-As a rule of thumb, products launched prior to 2019 do not have TLSv1.3 support, and still require TLSv1.2. If at all possible, upgrade clients and servers to gain TLSv1.3 capability, as newer FIPS modules have started to drop support for validated TLSv1.2. This is primarily driven by adding Post-Quantum Cryptograpy (PQC) which is only supported with TLSv1.3.
+As a rule of thumb, products launched prior to 2019 do not have TLSv1.3 support, and still require TLSv1.2. If at all possible, upgrade clients and servers to gain TLSv1.3 capability, as newer FIPS modules have started to drop support for validated TLSv1.2. This is primarily driven by adding Post-Quantum Cryptography (PQC) which is only supported with TLSv1.3.
 
 ### TLSv1.2 RFC 7627
 
@@ -41,7 +41,7 @@ In practice, products that support TLS 1.2 with RFC 7627 almost always also supp
 
 ## Known compatible clients and servers
 
-The following Operating Systems, and newer versions of thereof, are known to support TLSv1.2 RFC 7627 and/or TLSv1.3 and should be able to establish TLS connectivy with Chainguard FIPS products:
+The following Operating Systems, and newer versions of thereof, are known to support TLSv1.2 RFC 7627 and/or TLSv1.3 and should be able to establish TLS connectivity with Chainguard FIPS products:
 
 * Windows 10
 * Windows Server 2016
@@ -58,7 +58,7 @@ The following Operating Systems, and newer versions of thereof, are known to sup
 * AWS RDS Postgres 16.11-R1
 * AWS MQ Apache ActiveMQ
 
-This list is not exhaustive. To find FIPS products that suppot TLSv1.2 RFC 7627 or TLS v1.3 one can use [CAVP search](https://csrc.nist.gov/Projects/cryptographic-algorithm-validation-program/validation-search), select **Implementation**, and in the list of algorithms select "**TLS v1.2 RFC7627**" or "**TLS v1.3 KDF**".
+This list is not exhaustive. To find FIPS products that support TLSv1.2 RFC 7627 or TLS v1.3 one can use [CAVP search](https://csrc.nist.gov/Projects/cryptographic-algorithm-validation-program/validation-search), select **Implementation**, and in the list of algorithms select "**TLS v1.2 RFC7627**" or "**TLS v1.3 KDF**".
 
 ### AWS RDS Postgres
 
@@ -87,7 +87,7 @@ To guarantee connectivity, clients and servers communicating with Chainguard FIP
 - TLSv1.3 with the TLS_AES_256_GCM_SHA384 cipher suite
 - TLSv1.2 with
   - ECDHE-ECDSA-AES256-GCM-SHA384 cipher string
-  - [RFC 7627](https://datatracker.ietf.org/doc/html/rfc7627) Extended Master Secret Extenstion support
+  - [RFC 7627](https://datatracker.ietf.org/doc/html/rfc7627) Extended Master Secret Extension support
 - Signatures using P-256 with SHA-256
 - Signatures using RSA with 2048 bits and SHA-256
 

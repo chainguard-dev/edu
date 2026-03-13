@@ -11,7 +11,7 @@ toc: true
 ---
 ## chainctl auth token capabilities
 
-Print the capabiltities of the local Chainguard Token.
+Print the capabilities of the local Chainguard Token.
 
 ```
 chainctl auth token capabilities [flags]

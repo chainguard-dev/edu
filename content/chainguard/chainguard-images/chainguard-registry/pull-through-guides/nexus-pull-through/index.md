@@ -100,7 +100,7 @@ docker login -u<user> <Nexus URL>
 
 After running this command, you'll be prompted to enter a password.
 
-After running the `docker login` command, you will be able to pull a Production containers through Nexus. If your organization has access to it, the following example will pull the `chainguard-base` cotnainer image:
+After running the `docker login` command, you will be able to pull a Production containers through Nexus. If your organization has access to it, the following example will pull the `chainguard-base` container image:
 
 ```sh
 docker pull <Nexus URL>/<company domain>/chainguard-base

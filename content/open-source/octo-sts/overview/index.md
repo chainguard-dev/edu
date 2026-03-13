@@ -59,7 +59,7 @@ This sequence diagram outlines the token exchange process in Octo STS:
 
 ## Learn More
 
-Refer to our [Octo STS FAQ](/open-source/octo-sts/faq/) for answeres to frequently asked questions and troubleshooting recommendations.
+Refer to our [Octo STS FAQ](/open-source/octo-sts/faq/) for answers to frequently asked questions and troubleshooting recommendations.
 
 You may also find these resources to be useful:
 
