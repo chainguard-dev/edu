@@ -30,7 +30,7 @@ chainctl auth configure-docker [flags]
       --pull-token                 Whether to register a pull token that can pull images
       --save                       If true with --pull-token, save the pull token to the Docker config
       --social-login string        Which of the default identity providers to use for authentication. Must be one of: email, google, github, gitlab
-      --ttl ns                     Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maxiumum value is 8760h or one year. (default 720h0m0s)
+      --ttl ns                     Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maximum value is 8760h or one year. (default 720h0m0s)
 ```
 
 ### Options inherited from parent commands
