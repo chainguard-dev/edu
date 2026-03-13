@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (match) {
       h2.innerHTML = `<div class="step-container">${h2.innerHTML.replace(
         match[0],
-        `<span class="step">${match[1]}</span>`
+        `Step <span class="step">${stepNumber}</span> ${dash}`
       )}</div>`;
     }
   });
