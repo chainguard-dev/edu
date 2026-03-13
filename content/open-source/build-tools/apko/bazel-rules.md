@@ -519,4 +519,4 @@ contents:
 Replace `$ORGANIZATION` with your Chainguard organization name.
 For full details on setting up and using private APK repositories with
 Chainguard, including how to configure your organization and authenticate, see
-[Chainguard's Private APK Repositories](/content/chainguard/chainguard-images/features/packages/private-apk-repos/).
+[Chainguard's Private APK Repositories](/chainguard/chainguard-images/features/packages/private-apk-repos/).
