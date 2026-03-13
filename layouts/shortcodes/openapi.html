@@ -1,5 +1,9 @@
 <div id="app"></div>
-<script src="https://cdn.jsdelivr.net/npm/@scalar/api-reference"></script>
+<script
+  src="https://unpkg.com/@scalar/api-reference@1.48.7/dist/browser/standalone.js"
+  integrity="sha256-nxQi3+zE0a7YpvrjEpdHacaBuLtNjqFRZl/KbWrfGzA="
+  crossorigin="anonymous"
+></script>
 <script>
   const scalarApp = Scalar.createApiReference("#app", {
     agent: {
@@ -17,9 +21,9 @@
     hideDarkModeToggle: true,
     darkMode: localStorage.getItem("theme") === "dark",
     theme: "none",
+    withDefaultFonts: false,
     url: '{{ .Get "spec-url"}}',
   });
-
 </script>
 <style>
   .scalar-app ul {
@@ -73,6 +77,11 @@
   }
   .scalar-app .border {
     border: var(--scalar-border-color) 1px solid !important;
+  }
+  .scalar-app,
+  .scalar-app .bg-sidebar-b-1,
+  .references-rendered {
+    background: transparent !important;
   }
   main.docs-content {
     width: 100% !important;
