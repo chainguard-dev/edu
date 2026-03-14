@@ -1,5 +1,5 @@
 ---
-date: 2026-03-12T13:13:18Z
+date: 2026-03-13T13:52:34Z
 title: "chainctl auth token"
 slug: chainctl_auth_token
 url: /chainguard/chainctl/chainctl-docs/chainctl_auth_token/
@@ -35,5 +35,5 @@ chainctl auth token [flags]
 ### SEE ALSO
 
 * [chainctl auth](/chainguard/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
-* [chainctl auth token capabilities](/chainguard/chainctl/chainctl-docs/chainctl_auth_token_capabilities/)	 - Print the capabilities of the local Chainguard Token.
+* [chainctl auth token capabilities](/chainguard/chainctl/chainctl-docs/chainctl_auth_token_capabilities/)	 - Print the capabiltities of the local Chainguard Token.
 
