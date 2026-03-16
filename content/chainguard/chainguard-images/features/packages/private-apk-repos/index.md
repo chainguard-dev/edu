@@ -6,7 +6,7 @@ aliases:
 type: "article"
 description: "An overview of how to work with Chainguard's Private APK Repositories."
 date: 2025-02-21T11:07:52+02:00
-lastmod: 2026-03-10T08:07:52+02:00
+lastmod: 2026-03-16T08:07:42+02:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -23,9 +23,16 @@ This guide provides a brief overview of Chainguard's private APK repositories an
 
 Chainguard's private APK repos allow customers to pull secure apk packages from Chainguard. The list of packages available in an organization's private repository is based on the apk repositories that the organization already has access to.
 
-For example, say your organization has access to the [Chainguard MySQL container image](https://images.chainguard.dev/directory/image/mysql/versions). Along with `mysql`, this image comes with other apk packages, including `bash`, `openssl`, and `pwgen`. This means that you'll have access to these apk packages through your organization's private APK repository, along with any others that appear in Chainguard container images that your organization has access to. 
+For example, say your organization has access to the [Chainguard MySQL container image](https://images.chainguard.dev/directory/image/mysql/versions). Along with `mysql`, this image comes with other apk packages, including `bash`, `openssl`, and `pwgen`. This means that you'll have access to these apk packages through your organization's private APK repository, along with any others that appear in Chainguard container images that your organization has access to.
 
 Chainguard's private APK repositories are available to all Chainguard Containers customers.
+
+
+### Chainguard OS Packages
+
+Chainguard OS Packages is a beta offering for larger customers who already build their own images from packages using tools like Bazel, Dockerfiles, and rules\_apko, and want to use a wider set of packages from Chainguard. This includes over 400,000 packages that will be made available in a private APK repository. You are responsible for the image builds, the build tooling, validation, and compatibility while Chainguard builds the packages in the Chainguard Factory with complete SBOMs and our standard enterprise-grade, zero-CVE process.
+
+This beta offering is limited to those who want to use Chainguard-sourced packages in their existing, mature image building processes. Chainguard OS Packages are not currently available for use with [Chainguard Custom Assembly](/content/chainguard/chainguard-images/features/ca-docs/custom-assembly/).
 
 
 ## Your repository address
