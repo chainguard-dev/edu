@@ -6,7 +6,6 @@ lead: "A guide to build horizons and enforcing artifact freshness"
 type: "article"
 date: 2026-03-16T00:00:00+00:00
 lastmod: 2026-03-16T00:00:00+00:00
-contributors: ["Chainguard"]
 draft: false
 tags: ["Conceptual"]
 images: []
