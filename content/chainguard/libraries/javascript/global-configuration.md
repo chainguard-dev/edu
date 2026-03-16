@@ -201,16 +201,27 @@ virtual repository.
 
 ### Advanced settings for redirect handling
 
-Chainguard Libraries uses Cloudflare R2 storage, meaning tarball downloads from `libraries.cgr.dev` return a 302 redirect to a different host. Without additional configuration, Artifactory may cache the redirect response instead of the actual tarball, causing npm integrity checksum failures at install time.
+Chainguard Libraries uses Cloudflare R2 storage, meaning tarball downloads from
+`libraries.cgr.dev` return a 302 redirect to a different host. Without
+additional configuration, Artifactory may cache the redirect response instead of
+the actual tarball, causing npm integrity checksum failures at install time.
 
 To prevent this:
 
-1. Apply the following settings to your Artifactory `javascript-chainguard` remote repository, within in the **Advanced** tab:
-    - **Enable Bypass HEAD Requests** — prevents Artifactory from sending HEAD requests that may not be handled correctly by redirect-based registries.
-    - **Enable Lenient Host Authentication** — allows Artifactory to follow redirects across hosts (required since downloads redirect from `libraries.cgr.dev` to `*.r2.cloudflarestorage.com`).
-    - **Enable Cookie Management** - this setting is optional, but recommended by JFrog for remote repositories that involve redirects.
-2. Clear the corrupted cached tarballs: in Artifactory, right-click the `javascript-chainguard` repository and click **Zap Caches**, then re-run your install.
-    - Alternatively, you could also delete specific corrupted `.tgz` artifacts from the remote cache before re-running the install.
+1. Apply the following settings to your Artifactory `javascript-chainguard`
+   remote repository, within in the **Advanced** tab:
+    - **Enable Bypass HEAD Requests** — prevents Artifactory from sending HEAD
+      requests that may not be handled correctly by redirect-based registries.
+    - **Enable Lenient Host Authentication** — allows Artifactory to follow
+      redirects across hosts (required since downloads redirect from
+      `libraries.cgr.dev` to `*.r2.cloudflarestorage.com`).
+    - **Enable Cookie Management** - this setting is optional, but recommended
+      by JFrog for remote repositories that involve redirects.
+2. Clear the corrupted cached tarballs: in Artifactory, right-click the
+   `javascript-chainguard` repository and click **Zap Caches**, then re-run your
+   install.
+    - Alternatively, you could delete specific corrupted `.tgz` artifacts from
+      the remote cache, rather than deleting all, before re-running the install.
 
 ### Build tool access
 
