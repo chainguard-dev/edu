@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "How to use Chainguard's Custom Assembly tool"
 date: 2025-02-19T11:07:52+02:00
-lastmod: 2025-07-15T11:07:52+02:00
+lastmod: 2026-03-16T08:07:42+02:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly"]
 images: []
@@ -97,6 +97,8 @@ Pulling container images by digest can [improve reproducibility](/chainguard/cha
 ### Installing packages from a Chainguard private APK repository
 
 Chainguard offers [Private APK Repositories](/chainguard/chainguard-images/features/private-apk-repos/) which you can use to access the apk packages available to your organization. You can use your organization's private APK repository to further customize your Custom Assembly containers.
+
+> Note: The [Chainguard OS Packages](https://edu.chainguard.dev/chainguard/chainguard-images/features/packages/private-apk-repos/#chainguard-os-packages) offering for larger customers who already build their own images from packages using tools like Bazel, Dockerfiles, and rules_apko is not currently available for use with Chainguard Custom Assembly.
 
 As an example, run a container with a Custom Assembly container image that has a shell and package manager, such as a `-dev` variant of a customized container image:
 

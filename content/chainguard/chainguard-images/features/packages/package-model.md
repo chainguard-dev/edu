@@ -5,7 +5,7 @@ lead: "Overview of Chainguard's package repositories, highlighting the different
 description: "Overview of Chainguard's package repositories, highlighting the different repositories and how to access them."
 type: "article"
 date: 2025-10-09T00:00:00Z
-lastmod: 2025-10-09T00:00:00Z
+lastmod: 2026-03-16T08:07:42+02:00
 draft: false
 tags: ["Chainguard Containers", "Overview", "Product"]
 images: []
@@ -38,7 +38,9 @@ The following table presents a high-level overview of these package repositories
 |-----------------|:----------------:|:----------------------:|:-----------------------:|:------------------------:|
 | Wolfi | Public | Wolfi ecosystem | No | Free images |
 | Extra | Public | Supplemental utilities | No | Additional dependencies, non-open source software  |
-| Private | Private/Organization-specific | Packages in org-entitled container images | Yes | Customizing Chainguard Containers with [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) |
+| Private | Private/Organization-specific | Packages in org-entitled container images¹ | Yes | Customizing Chainguard Containers with [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) |
+
+¹Customers using Chainguard OS Packages have access to far more packages than this to build their own images, but the additional packages are not available to use with Custom Assembly. Read the details in [Private APK Repositories](#private-apk-repositories).
 
 
 ## Public Repositories
@@ -145,11 +147,24 @@ https://apk.cgr.dev/$ORGANIZATION_ID
 
 Because Chainguard's private APK repos are only accessible to members of a specific organization, you must authenticate in order to access them. Refer to our overview of [Chainguard's Private APK Repositories](/chainguard/chainguard-images/features/private-apk-repos/) for more information. Additionally, note that if you customize a Chainguard Container using the [Custom Assembly tool](/chainguard/chainguard-images/features/ca-docs/custom-assembly/), the list of packages available for you to add to your container image is taken from your organization's private APK repository.
 
+There is one exception: Chainguard OS Packages is an offering for larger customers who already build their own images from packages using tools like Bazel, Dockerfiles, and rules\_apko and want to use a wider set of packages from Chainguard. This includes over 400,000 packages that will be made available in a private APK repository. You are responsible for the image builds, the build tooling, validation, and compatibility while Chainguard builds the packages in the Chainguard Factory with complete SBOMs and our standard enterprise-grade, zero-CVE process. This offering is limited to those who want to use Chainguard-sourced packages in their existing, mature image building processes.
+
+Chainguard OS Packages are not currently available for use with Chainguard Custom Assembly. However, they are made available to you in the same private APK repository location as is described in this page. The only difference is the number of packages that are available. So, any existing build automation you are using will continue to work.
+
+
 ### Package retention in private repositories
 
 Private APK repositories for Chainguard customers follow a **12-month** retention period for non-latest package versions. They follow the same retention rules and removal schedule as the public Wolfi repository.
 
 Customers that require older package versions should mirror or store copies internally.
+
+
+## Package Support
+
+Chainguard commits to build packages in the Chainguard Factory with complete SBOMs and our standard enterprise-grade, zero-CVE process. Packages that are used in Chainguard Container images are also covered by our [CVE remediation SLA](https://www.chainguard.dev/legal/cve-policy?utm_source=docs). That commitment continues to apply to these packages when they are included in private APK repositories, but not to images you build yourself using those packages. We cannot extend our SLA to the images because we do not have control of your build.
+
+Similar to the [Chainguard Shared Responsibility Model](https://edu.chainguard.dev/chainguard/chainguard-images/about/shared-responsibility-model/) for container images, you are responsible for your authored image builds, the build tooling, validation, and compatibility, but now you can do all this using packages that are scanned daily for CVEs. We recommend you always update your builds to new package versions as we release them so are still benefiting from the SLA even if your custom-built images are not covered by it.
+
 
 ## Learn More
 

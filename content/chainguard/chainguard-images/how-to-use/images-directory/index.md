@@ -5,7 +5,7 @@ aliases:
 type: "article"
 description: "A walkthrough of the Chainguard Console."
 date: 2024-02-23T11:07:52+02:00
-lastmod: 2025-10-23T11:07:52+02:00
+lastmod: 2026-03-16T08:07:42+02:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -192,6 +192,16 @@ Charts with the **shield** icon are iamguarded charts, created specifically to h
 <br />
 
 Click any chart name to learn the chart details.
+
+
+### Find Packages in the Chainguard Console
+
+You can find a list of packages available to your organization in the console. Click **Packages** in the sidebar menu to open the Packages page to view and search across the list of APK packages that are available to you via the Chainguard-provided private APK repository for your organization.
+
+<center><img src="packages-in-console.png" alt="Screenshot showing Helm charts listed in the Chainguard Console."></center>
+<br />
+
+Click a package name to reveal more details about the package. Use the **Architecture** dropdown to select which option to display.
 
 
 ## Learn More
