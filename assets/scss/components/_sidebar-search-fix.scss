@@ -190,3 +190,12 @@
         box-sizing: border-box;
     }
 }
+
+.DocSearch-Modal {
+    mark {
+        padding: 0;
+    }
+    svg {
+        vertical-align: unset;
+    }
+}
