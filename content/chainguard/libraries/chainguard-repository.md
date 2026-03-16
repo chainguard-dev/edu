@@ -4,7 +4,7 @@ linktitle: "Chainguard Repository"
 description: "Learn how to use Chainguard Repository to configure how Chainguard-built and upstream packages are consumed"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-03-16T00:09:59+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
