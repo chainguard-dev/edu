@@ -45,7 +45,7 @@ The packages you can add to a container image are those that your organization a
 The changes you make to your customized container image may affect its functional behavior when deployed. Chainguard doesn’t test your final customized image and therefore doesn't guarantee its functional behavior. Please test your customized images extensively to ensure they meet your requirements.
 
 
-## Why Use Custom Assembly for Adding Packages
+## Why Use Custom Assembly for adding packages
 
 When you add packages to Chainguard Containers using `apk add` commands without pinning to specific package versions and image digests, you expose yourself to version compatibility conflicts that can break their builds. Chainguard continuously updates its APK repository with the latest package versions to ensure customers receive the most recent security patches. This creates problems when a newly-updated package has conflicts with older dependencies installed in an image. These conflicts will be resolved when a new version of the image is released, but until then it's possible there will be a window where builds will break.
 
@@ -54,7 +54,7 @@ Chainguard's Custom Assembly tool solves this problem by building customized ima
 Custom Assembly is the officially supported method for extending Chainguard Containers with additional packages. It leverages Chainguard's build infrastructure to produce tailored container images without requiring customers to maintain their own build pipelines. Because Chainguard automatically rebuilds Custom Assembly images when constituent packages are updated, customers receive timely security patches without manual intervention while avoiding the version conflicts inherent in ad hoc `apk add` usage.
 
 
-## Custom Assembly Permissions Requirements
+## Custom Assembly permissions requirements
 
 In order to build customized container images, you must have the appropriate permissions in relation to your Chainguard organization. Specifically, a Chainguard user must have a role with the `repo.update` capability to customize an existing image repository in place, and must have the `repo.create` capability to create a net new image repository with the `--save-as` feature. If you find yourself unable to customize container images with Custom Assembly, it may be that you don't have adequate permissions within your organization to do so.
 
@@ -71,7 +71,7 @@ chainctl iam roles create ca-role --parent=$ORGANIZATION --capabilities=repo.cre
 After creating this custom role, you would need to bind it to any identities in your organization that you want to be able to manage Custom Assembly resources. Check out our [Overview of Roles and Role-bindings in Chainguard](/chainguard/administration/iam-organizations/roles-role-bindings/roles-role-bindings/) to learn more.
 
 
-## Using Customized Containers
+## Using customized containers
 
 You can use Docker to download the customized container image for testing or use, like this:
 
@@ -98,7 +98,7 @@ Pulling container images by digest can [improve reproducibility](/chainguard/cha
 
 Chainguard offers [Private APK Repositories](/chainguard/chainguard-images/features/private-apk-repos/) which you can use to access the apk packages available to your organization. You can use your organization's private APK repository to further customize your Custom Assembly containers.
 
-> Note: The [Chainguard OS Packages](https://edu.chainguard.dev/chainguard/chainguard-images/features/packages/private-apk-repos/#chainguard-os-packages) offering for larger customers who already build their own images from packages using tools like Bazel, Dockerfiles, and rules_apko is not currently available for use with Chainguard Custom Assembly.
+> Note: [Chainguard OS Packages](https://edu.chainguard.dev/chainguard/chainguard-images/features/packages/private-apk-repos/#chainguard-os-packages)&mdash;available to larger customers who already build their own images from packages using tools like Bazel, Dockerfiles, and `rules_apko`&mdash;is not currently available for use with Chainguard Custom Assembly.
 
 As an example, run a container with a Custom Assembly container image that has a shell and package manager, such as a `-dev` variant of a customized container image:
 
@@ -172,7 +172,7 @@ Build failures can occur for a number of reason, including the following:
 In any case, you won't know whether a container image build fails until after it's complete. If you need assistance troubleshooting, please [reach out to our Customer Support team](https://www.chainguard.dev/contact?utm=docs).
 
 
-## Learn More
+## Learn more
 
 This article provided a high-level overview of Custom Assembly. As a next step, we encourage you to checkout our guide on [managing Custom Assembly resources through the Chainguard Console](/chainguard/chainguard-images/features/ca-docs/custom-assembly-console/). You can also interact with Custom Assembly using [`chainctl`](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/) as well as [the Chainguard API](/chainguard/chainguard-images/features/ca-docs/custom-assembly-api-demo/).
 

@@ -19,7 +19,7 @@ Chainguard offers curated package repositories to support containerized workload
 This article provides an overview of Chainguard's package model, highlighting the different Chainguard package repositories available to customers.
 
 
-## Repository Types
+## Repository types
 
 All users have access to two distinct package repositories maintained by Chainguard:
 
@@ -43,7 +43,7 @@ The following table presents a high-level overview of these package repositories
 ¹ Customers using Chainguard OS Packages have access to far more packages than this to build their own images, but the additional packages are not available to use with Custom Assembly. Read the details in [Private APK Repositories](#private-apk-repositories).
 
 
-## Public Repositories
+## Public repositories
 
 Chainguard has two public package repositories: the Wolfi and Extra Packages repositories. These repos typically include the latest stable versions and explicitly exclude FIPS-validated packages or version streams. 
 
@@ -68,7 +68,7 @@ https://virtualapk.cgr.dev/$ORGANIZATION_ID/chainguard
 
 If you need packages outside Wolfi's open-source scope, or under less permissive licenses, Chainguard offers a supplemental Packages repository
 
-### Extra Packages
+### Extra packages
 
 Chainguard's Extra Packages repository is a public-facing APK repository that includes utilities and compatibility packages that aren't fully open-source, but can still be redistributed by Chainguard. The repository’s primary role is to provide supplemental packages needed to support containerized applications, especially when those utilities fall outside the scope of the official base images or are under less permissive licenses than those in the Wolfi repository.
 
@@ -159,14 +159,14 @@ Private APK repositories for Chainguard customers follow a **12-month** retentio
 Customers that require older package versions should mirror or store copies internally.
 
 
-## Package Support
+## Package support
 
 Chainguard commits to build packages in the Chainguard Factory with complete SBOMs and our standard enterprise-grade, zero-CVE process. Packages that are used in Chainguard Container images are also covered by our [CVE remediation SLA](https://www.chainguard.dev/legal/cve-policy?utm_source=docs). That commitment continues to apply to these packages when they are included in private APK repositories, but not to images you build yourself using those packages. We cannot extend our SLA to the images because we do not have control of your build.
 
 Similar to the [Chainguard Shared Responsibility Model](https://edu.chainguard.dev/chainguard/chainguard-images/about/shared-responsibility-model/) for container images, you are responsible for your authored image builds, the build tooling, validation, and compatibility, but now you can do all this using packages that are scanned daily for CVEs. We recommend you always update your builds to new package versions as we release them so are still benefiting from the SLA even if your custom-built images are not covered by it.
 
 
-## Learn More
+## Learn more
 
 Chainguard’s package repositories provide trusted apk packages to support both standard and advanced containerized workloads. With the public Wolfi and Extra repositories alongside organization-specific private repositories, customers can reliably source the dependencies they need for production environments.
 

@@ -194,9 +194,9 @@ Charts with the **shield** icon are iamguarded charts, created specifically to h
 Click any chart name to learn the chart details.
 
 
-### Find Packages in the Chainguard Console
+### Find packages in the Chainguard Console
 
-You can find a list of packages available to your organization in the console. Click **Packages** in the sidebar menu to open the Packages page to view and search across the list of APK packages that are available to you via the Chainguard-provided private APK repository for your organization.
+You can find a list of packages available to your organization in the Chainguard Console. Click **Packages** in the sidebar menu to open the Packages page to view and search across the list of APK packages that are available to you via the Chainguard-provided private APK repository for your organization.
 
 <center><img src="packages-in-console.png" alt="Screenshot showing Helm charts listed in the Chainguard Console."></center>
 <br />
@@ -204,6 +204,6 @@ You can find a list of packages available to your organization in the console. C
 Click a package name to reveal more details about the package. Use the **Architecture** dropdown to select which option to display.
 
 
-## Learn More
+## Learn more
 
 The Chainguard Console is a useful tool for understanding what Chainguard container images are available and learn details about each. To better understand how to work with individual container images, you can see if we have a [getting started guide](/chainguard/chainguard-images/getting-started/) available. We also provide a guide on [how to view security advisories](/chainguard/chainguard-images/security-advisories/) through our [self-service public Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory).
