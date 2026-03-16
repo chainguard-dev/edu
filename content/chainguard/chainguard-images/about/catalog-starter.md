@@ -34,19 +34,13 @@ Catalog Starter is designed as a standalone free plan, separate from paid Catalo
 
 Catalog Starter is designed for business use. Sign-ups are limited to corporate email domains (for example, `@company.com`) rather than personal email addresses.
 
-After you submit [the request form](), our team will quickly review and enable access for qualified organizations.
+Within the signup form, you can enter up to five non-FIPS images to be provisioned to your organization. After you submit [the request form](https://get.chainguard.dev/signup), our team will quickly review and enable access for qualified organizations.
 
+### 2. Integrate with your registry and pipelines
 
-### 2. Choose your five images
+After your organization is enabled, you're free to use the five images you selected however you like. For example, you can pull them into your CI/CD pipelines and runtime environments, or pull them through a third-party registry like [JFrog Artifactory](/chainguard-images/chainguard-registry/pull-through-guides/artifactory/artifactory-images-pull-through/). These container images are the same as those provided to Chainguard's paying customers, and are covered by Chainguard’s standard hardening, rebuild, and CVE-remediation processes, although they are not covered by [Chainguard's CVE SLA](https://www.chainguard.dev/legal/cve-policy).
 
-Once your organization is enabled, you can browse the Chainguard catalog and select up to five non-FIPS images to be provisioned to your organization. 
-
-### 3. Integrate with your registry and pipelines
-
-After selecting your five container images, you're free to use them however you like. For example, you can pull them into your CI/CD pipelines and runtime environments, or pull them through a third-party registry like [JFrog Artifactory](/chainguard-images/chainguard-registry/pull-through-guides/artifactory/artifactory-images-pull-through/). These container images are the same as those provided to Chainguard's paying customers, and are covered by Chainguard’s standard hardening, rebuild, and CVE-remediation processes, although they are not covered by [Chainguard's CVE SLA](https://www.chainguard.dev/legal/cve-policy).
-
-
-### 4. Upgrade when you’re ready
+### 3. Upgrade when you’re ready
 
 After trying out Chainguard Containers with Catalog Starter, you can reach out to our sales team to upgrade to one of Chainguard's paid plans:
 
@@ -116,4 +110,4 @@ Our team will work with you to map your existing Catalog Starter images into the
 
 ## Get started
 
-To sign up for Catalog Starter, fill out [this form]() and our team will review the request and enable access if your organization qualifies. Once enabled, you can begin piloting up to five secure container images from the Chainguard catalog.
+To sign up for Catalog Starter, fill out [this form](https://get.chainguard.dev/signup) and our team will review the request and enable access if your organization qualifies. Once enabled, you can begin piloting up to five secure container images from the Chainguard catalog.
