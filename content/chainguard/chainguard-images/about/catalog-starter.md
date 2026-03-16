@@ -21,11 +21,11 @@ Chainguard Catalog Starter is a way to try production-grade Chainguard Container
 
 ## What is Catalog Starter?
 
-With Chainguard Catalog Starter, users can choose any five non-FIPS images from our catalog of secure-by-default containers. Any Helm charts that depend on those images are included and count toward the five-image limit. 
+With Chainguard Catalog Starter, users can choose any five non-FIPS images from our catalog of secure-by-default containers. Any Helm charts that depend on those images are included and count toward the five-image limit.
 
-Catalog Starter is designed as a standalone free plan, separate from paid Catalog or per-image subscriptions. It's meant for teams who want to try Chainguard Containers in real workloads before committing to a larger rollout, giving them a better understanding of how Chainguard’s hardened images and CVE posture behave in practice. 
+Catalog Starter is designed as a standalone free plan, separate from paid Catalog or per-image subscriptions. It's meant for teams who want to try Chainguard Containers in real workloads before committing to a larger rollout, giving them a better understanding of how Chainguard’s hardened images and CVE posture behave in practice.
 
-> **Note**: Catalog Starter is best suited for small teams to get you started right away. When you are ready to standardize on Chainguard and deploy organization-wide, we have several paid plans that provide unlimited user access to the Chainguard Containers and additional features like Custom Assembly, FIPS images, EOL/EmeritOSS image versions, a contractual CVE-remediation SLA, and dedicated support.
+> **Note**: Catalog Starter is best suited for small teams to get them started right away. When you are ready to standardize on Chainguard and deploy organization-wide, we have several paid plans that provide unlimited user access to the Chainguard Containers and additional features like Custom Assembly, FIPS images, EOL/EmeritOSS image versions, a contractual CVE-remediation SLA, and dedicated support.
 
 
 ## How Catalog Starter works
@@ -34,7 +34,7 @@ Catalog Starter is designed as a standalone free plan, separate from paid Catalo
 
 Catalog Starter is designed for business use. Sign-ups are limited to corporate email domains (for example, `@company.com`) rather than personal email addresses.
 
-Within the signup form, you can enter up to five non-FIPS images to be provisioned to your organization. After you submit [the request form](https://get.chainguard.dev/signup), our team will quickly review and enable access for qualified organizations.
+In the signup form, you can enter up to five non-FIPS images to be provisioned to your organization. After you submit [the request form](https://get.chainguard.dev/signup), our team will quickly review and enable access for qualified organizations.
 
 ### 2. Integrate with your registry and pipelines
 
@@ -47,7 +47,7 @@ After trying out Chainguard Containers with Catalog Starter, you can reach out t
 * [Catalog Pricing](/chainguard/chainguard-images/about/pricing/) — a subscription that grants broad access to the full Chainguard Containers catalog with self-service provisioning through the Console.
 * Per-image pricing — a scoped set of images licensed individually, often used for tightly defined image deployments.
 
-Moving to a paid plan means moving off of Catalog Starter; the free five-image entitlement is not stacked on top of a paid subscription.
+Moving to a paid plan means moving off Catalog Starter; the free five-image entitlement is not stacked on top of a paid subscription.
 
 
 ## Plan limitations and terms
@@ -59,8 +59,8 @@ Catalog Starter allows users to try out Chainguard Containers, but it comes with
     * [FIPS-validated images](/chainguard/fips/fips-images/)
     * Images that fall under the [EOL Grace Period](/chainguard/chainguard-images/features/eol-gp-overview/#understanding-chainguards-eol-grace-period)
     * Images whose software is part of [Chainguard EmeritOSS](https://github.com/chainguard-forks/)
-* Teams using Chainguard Catalog Starter will not have access to the support services available to paying customers: they will not be added to Chainguard's support platform, be able to create support tickets, or have access to root cause analysis (RCA) or phone escalations. 
-    * Catalog Starter users will still have access to Chainguard resources like our [documentation](https://edu.chainguard.dev/), [courses](https://courses.chainguard.dev/), the [Community Slack channel](https://www.chainguard.dev/unchained/the-chainguard-slack-community-is-here), and the [public support knowledge base](https://support.chainguard.dev/hc/en-us). 
+* Teams using Chainguard Catalog Starter will not have access to the support services available to paying customers: they will not be added to Chainguard's support platform, be able to create support tickets, or have access to root cause analysis (RCA) or phone escalations.
+    * Catalog Starter users will still have access to Chainguard resources like our [documentation](https://edu.chainguard.dev/), [courses](https://courses.chainguard.dev/), the [Community Slack channel](https://www.chainguard.dev/unchained/the-chainguard-slack-community-is-here), and the [public support knowledge base](https://support.chainguard.dev/hc/en-us).
 * [Chainguard's CVE SLA](https://www.chainguard.dev/legal/cve-policy) does not apply to container images obtained through Catalog Starter.
 * The free plan does not support user management or role-based access control (RBAC). Chainguard can add newer users from the same company to your organization after they sign up for Catalog Starter, but you cannot add them yourself. Any additional users in your organization will have access to the five images selected by the first user and cannot change them after the fact.
 * Neither Custom Assembly nor Commercial Builds, Chainguard's bespoke paid build services, are included in the Catalog Starter plan.
@@ -91,7 +91,7 @@ Note that Catalog Starter does not include user management or RBAC, meaning user
 
 No. Catalog Starter is a distinct, standalone free plan meant for new organizations. It can’t be combined with existing licenses or used to "carve out" a subset of images from a current subscription.
 
-### Can I use Catalog Starter to pay for only some of the images I need?
+### Can I use Catalog Starter to cover some of the images I need?
 
 No. Catalog Starter is not a discount instrument for larger deployments. You can’t, for example, license 10 images but expect to pay for only five by applying this plan to the rest.
 
