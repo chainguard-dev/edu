@@ -38,9 +38,9 @@ The following table presents a high-level overview of these package repositories
 |-----------------|:----------------:|:----------------------:|:-----------------------:|:------------------------:|
 | Wolfi | Public | Wolfi ecosystem | No | Free images |
 | Extra | Public | Supplemental utilities | No | Additional dependencies, non-open source software  |
-| Private | Private/Organization-specific | Packages in org-entitled container images¹ | Yes | Customizing Chainguard Containers with [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) |
+| Private | Private/Organization-specific | Packages in org-entitled container images ¹ | Yes | Customizing Chainguard Containers with [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) |
 
-¹Customers using Chainguard OS Packages have access to far more packages than this to build their own images, but the additional packages are not available to use with Custom Assembly. Read the details in [Private APK Repositories](#private-apk-repositories).
+¹ Customers using Chainguard OS Packages have access to far more packages than this to build their own images, but the additional packages are not available to use with Custom Assembly. Read the details in [Private APK Repositories](#private-apk-repositories).
 
 
 ## Public Repositories
