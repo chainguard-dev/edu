@@ -103,7 +103,7 @@ But alternatively, you can get the SBOM data direct from the image itself.
 And let's take a look at an example of that.
 
 <a href="https://youtu.be/K60-jhVf2I4?t=144" target="_blank">2:24</a>
-So what I've done here is run ls on the /var/lib/db/sbom directory inside the container and that's listed a bunch of Jason files, one for each package in the image.
+So what I've done here is run ls on the /var/lib/db/sbom directory inside the container and that's listed a bunch of JSON files, one for each package in the image.
 
 <a href="https://youtu.be/K60-jhVf2I4?t=159" target="_blank">2:39</a>
 Now these JSON files are actually SPDX documents, but the file names themselves contain the version info that we're interested in.

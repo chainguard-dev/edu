@@ -24,7 +24,7 @@ When selecting the right base image for your application, there are a variety of
 In this guide, we will explore a variety of Chainguard Containers which are suitable for different compiled applications. We will take a look at their availability and use-case differences so you can move closer to settling on the best base image for your specific needs.
 
 
-## Available Container Containers
+## Available Containers
 
 ### wolfi-base
 
