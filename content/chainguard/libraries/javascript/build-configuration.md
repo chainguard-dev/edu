@@ -60,7 +60,30 @@ to determine URL and authentication details.
 Build configuration to retrieve artifacts **directly** from the Chainguard
 Libraries for JavaScript repository at `https://libraries.cgr.dev/javascript/`
 requires authentication with username and password from a pull token as detailed
-in [access documentation](/chainguard/libraries/access/#pull-token).
+in the [access documentation](/chainguard/libraries/access/#pull-token).
+
+For npm, pnpm, and Yarn, registry credentials must be supplied via their own
+configuration systems (for example, `.npmrc` or .`yarnrc.yml`). The `.netrc`
+credential format is not natively supported by these tools for registry
+authentication. See the [Minimal example project
+sections](#minimal-example-project) on this page for per-tool authentication
+setup.
+
+The fastest way to get credentials and configure your project in one step is
+with chainctl:
+```bash
+eval $(chainctl auth pull-token --output env --repository=javascript --parent=<your-org>)
+export token=$(echo -n "${CHAINGUARD_JAVASCRIPT_IDENTITY_ID}:${CHAINGUARD_JAVASCRIPT_TOKEN}" | base64 -w 0)
+npm config set registry https://libraries.cgr.dev/javascript/ --location=project
+npm config set //libraries.cgr.dev/javascript/:_auth "${token}" --location=project
+```
+
+Replace <your-org> with your Chainguard organization name. 
+
+Once set, run
+`npm install` to verify the configuration is working.
+For pnpm and Yarn, see the [pnpm](#pnpm) and [Yarn](#yarn)
+minimal example sections below for equivalent authentication setup.
 
 <a id="npm"></a>
 

@@ -239,6 +239,10 @@ Chainguard Libraries for
 Java](/chainguard/libraries/java/build-configuration/#bazel) or for manual
 testing with curl.
 
+> Note: `.netrc` authentication is not supported by npm, pnpm, or Yarn. For
+direct access to Chainguard Libraries for JavaScript, use the .npmrc-based
+authentication described in the [JavaScript build configuration](/chainguard/libraries/javascript/build-configuration/#direct-access) instead. 
+
 The following example shows a suitable setup for a repo manager available at
 `repo.example.com`:
 
@@ -248,15 +252,15 @@ login YOUR_USERNAME_FOR_REPOSITORY_MANAGER
 password YOUR_PASSWORD
 ```
 
-For a direct connection to Chainguard Libraries, for example for testing with
+For a direct connection to Chainguard Libraries for Java or Python, for example for testing with
 curl, use the following example with the username
 `CHAINGUARD_PYTHON_IDENTITY_ID` and password `CHAINGUARD_PYTHON_TOKEN` value for
 the pull token for the desired language ecosystem:
 
 ```
 machine libraries.cgr.dev
-login CHAINGUARD_PYTHON_IDENTITY_ID
-password CHAINGUARD_PYTHON_TOKEN
+login CHAINGUARD_JAVA_IDENTITY_ID
+password CHAINGUARD_JAVA_TOKEN
 ```
 
 Note that the long string for the password value must use only one line.

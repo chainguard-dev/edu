@@ -23,27 +23,53 @@ Pointing your existing build tools or repository manager tools at the Chainguard
 ## Using the Chainguard Repository endpoint for JavaScript
 The Chainguard Repository for Javascript uses the same endpoint and authentication as Chainguard Libraries for JavaScript: `https://libraries.cgr.dev/javascript/`.
 
-See [Technical Details](/chainguard/libraries/javascript/overview/#technical-details) for instructions for retrieving credentials with `chainctl`. No additional token setup is required.
+You can use your existing `chainctl` token. See [Chainguard Libraries
+Access](/chainguard/libraries/access/) for instructions for retrieving
+credentials with `chainctl`. 
 
 Learn about [fallback configuration](#configuring-upstream-fallback) and [cooldown periods](#cooldown-period) later on this page.
 
 ### Use Chainguard Repository with build tools
-If you don’t use an artifact manager, you can point your build tools directly at the Chainguard Libraries for JavaScript endpoint:
+If you don’t use an artifact manager, you can point your build tools directly at
+the Chainguard Libraries for JavaScript endpoint. The Chainguard Repository
+handles fallback, so no additional registry configuration is needed alongside
+it.
+
+#### Step 1: Generate credentials and set them in your project
+
+Authentication is required. The recommended way to set up credentials for direct
+npm access is using `chainctl`:
 
 ```bash
-# npm
-npm config set registry https://libraries.cgr.dev/javascript/
+# Generate credentials and set them in your project .npmrc in one step
+eval $(chainctl auth pull-token --output env --repository=javascript --parent=<your-org>)
+export token=$(echo -n "${CHAINGUARD_JAVASCRIPT_IDENTITY_ID}:${CHAINGUARD_JAVASCRIPT_TOKEN}" | base64 -w 0)
+npm config set registry https://libraries.cgr.dev/javascript/ --location=project
+npm config set //libraries.cgr.dev/javascript/:_auth "${token}" --location=project
+```
 
+Note that npm requires credentials as a base64-encoded token in `.npmrc` — the
+`.netrc` credential format used for other Chainguard Libraries ecosystems does
+not work with npm.
+
+#### Step 2: Configure your tool to use the Chainguard endpoint
+
+Next, configure your tool of choice to use the Chainguard endpoint as its registry:
+
+```bash
 # pnpm
 pnpm config set registry https://libraries.cgr.dev/javascript/
 
 # Yarn
 yarn config set npmRegistryServer https://libraries.cgr.dev/javascript/
 ```
+
+
+
 For full setup instructions including authentication, see [Build Configuration: Direct Access](/chainguard/libraries/javascript/build-configuration/#direct-access/).
 
 ### Use Chainguard Repository with a repository manager
-If you use JFrog Artifactory, Sonatype Nexus, or a similar repository manager, you can point it to the Chainguard Repository endpoint directly. This replaces the previous pattern of configuring Chainguard Libraries and npm as separate upstreams with a priority ordering.
+If you use JFrog Artifactory, Sonatype Nexus, or a similar repository manager, you can point it to the Chainguard Repository endpoint as your single upstream npm source. This replaces the previous pattern of configuring Chainguard Libraries and npm as separate upstreams with a priority ordering.
 
 Point your repository manager's virtual or group repository at `libraries.cgr.dev/javascript` as the single upstream. The Chainguard Repository handles fallback and policy; your repo manager handles local caching and access control for your organization.
 
