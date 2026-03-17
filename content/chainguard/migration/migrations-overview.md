@@ -55,7 +55,7 @@ Refer to our guide on [Chainguard's Container variants](/chainguard/chainguard-i
 
 Before you begin actively migrating to Chainguard Containers, review the images that your organization has access to and determine which teams and applications will be using each image. Notify the teams involved in the migration process so they can begin preparing. For teams that are new to Chainguard Containers, we recommend taking the online self-paced course, [Linky’s Guide to Chainguard Containers](https://courses.chainguard.dev/path/linkys-guide-to-chainguard-images).
 
-Next, determine which users and/or systems are going to need access to your Chainguard registry in order to begin preparing access. Most customers will need to copy images from their Chainguard registry into their organization's registry. An easy way to do this is by configuring the organization's registry as a pull-through mirror of the Chainguard registry. TWe have a guide on [how to configure Artifactory](/chainguard/chainguard-registry/pull-through-guides/artifactory/artifactory-images-pull-through/) for this use case.
+Next, determine which users and/or systems are going to need access to your Chainguard registry in order to begin preparing access. Most customers will need to copy images from their Chainguard registry into their organization's registry. An easy way to do this is by configuring the organization's registry as a pull-through mirror of the Chainguard registry. We have a guide on [how to configure Artifactory](/chainguard/chainguard-registry/pull-through-guides/artifactory/artifactory-images-pull-through/) for this use case.
 
 
 ## Recommended Rollout Approach
