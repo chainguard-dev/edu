@@ -32,6 +32,8 @@ There are a number of built-in roles in Chainguard's IAM model that customers ca
 
 `viewer` is a role that generally only has read-only access. That is, a viewer can list images, policies, organizations (and organization invites), records, roles and role-bindings, subscriptions, and account associations.
 
+`console_viewer` is a role designed for teams that need visibility into the Chainguard Console without any image pull access. A console viewer can browse the Console — viewing organizations, roles, and group information — but has no `registry.pull` or `apk.pull` permissions. This makes it a safe option for inviting developers, auditors, or stakeholders who need awareness of your organization's setup without the ability to pull images or APK packages.
+
 The remaining roles are for more specialized functions. For example, `registry.pull`, `registry.push`, and `registry.pull_token_creator` relate to administering a registry of Chainguard products.
 
 The `owner`, `editor`, and `viewer` roles are useful for user profiles that require broad, but clearly defined capabilities. The registry, container, and library roles have limited permissions, allowing them to manage only one specific Chainguard resource. These specialized, resource-specific roles grant minimal required access.
@@ -45,7 +47,13 @@ When assigning a role, do so based on the principle of least privilege; assign o
 You can run `chainctl iam roles list` to retrieve a list of all the roles available to your organization and review each of their specific capabilities. This command will list all the built-in roles as well as any custom roles created for your organization. The next section outlines how to create and manage such custom roles. 
 
 
-## Managing Custom Roles
+## Managing custom roles
+
+There are two options for managing custom roles:
+- with [`chainctl`](#manage-custom-roles-with-chainctl), or
+- directly [in the Chainguard Console](#manage-custom-roles-in-the-chainguard-console). 
+
+### Manage custom roles with chainctl
 
 You can use `chainctl` to create custom roles for teams or individuals in your organization, like in the following example.
 
@@ -91,8 +99,35 @@ chainctl iam roles delete new-role
 
 Note that you cannot delete any of the built-in roles. Attempting to do so will result in an error.
 
+### Manage custom roles in the Chainguard Console
 
-## Managing Role-bindings
+In addition to using `chainctl` to manage roles, you can also create, view, and edit custom roles directly in the [Chainguard Console](https://console.chainguard.dev). 
+
+#### Create  a custom role
+
+1. In the Chainguard Console, navigate to **Settings** > **Roles**.
+1. Click **Create Role**.
+1. Enter a name and optional description for the new role.
+1. Select the capabilities you want the role to include.
+1. Click **Create**.
+
+After creating a role, you can attach it to a user. Learn more under [Managing role-bindings](#managing-role-bindings).
+
+#### Edit an existing custom role
+
+1. Navigate to **Settings** > **Roles**.
+2. Find the role you want to modify and click **Edit**.
+3. Add or remove capabilities as needed.
+4. Click **Save Changes**.
+
+> **Note:** Changes to a custom role take effect immediately for all identities currently bound to that role. Built-in roles cannot be edited.
+
+Both the Console and `chainctl` operate on the same underlying roles and role-bindings; changes made in either place are immediately reflected everywhere.
+
+
+## Managing role-bindings
+
+### Manage role bindings with chainctl
 
 You can assign a role — and all of its capabilities — to a given user by creating a role-binding and tying it to that user's identity. 
 
@@ -114,6 +149,12 @@ This example creates a role-binding for the identity `example-id` with the built
 
 Note that in order to use the `--identity` option like this, you will need to know the given identity's UIDP. You can find a list of all your identities' UIDPs by running `chainctl iam identities ls`. The identities' UIDPs will appear in the resulting `ID` column.
 
+### Manage role bindings in the Chainguard Console
+
+1. In the Chainguard Console, navigate to **Settings** > **Users**.
+1. Click **Create role binding**.
+1. Select a user and the role you want to attach to the user.
+1. Click **Create**.
 
 ## Learn more
 
