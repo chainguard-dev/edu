@@ -80,7 +80,7 @@ This takes you to a **Basic** configuration tab where you can enter the followin
 * **Repository Key** — This is a name used to identify your remote repository, for example `cg-private`.
 * **URL** — This must be set to `https://apk.cgr.dev/${CHAINGUARD_ORG}`, but with your organization's actual name in place of `${CHAINGUARD_ORG}`. For example, if your organization is named `example` use `https://apk.cgr.dev/example`.
 * **User Name** — This is used by Artifactory to authenticate to Chainguard and access your private APK repository. Use the pull token `Username` value you generated with `chainctl` in the previous step.
-* **Password / Access Token** — This is used along with the user name to authenticate to Chainguard. Here, enter the `Password` value generated returned by the `chainctl auth pull-token` command in the previous section. 
+* **Password / Access Token** — This is used along with the user name to authenticate to Chainguard. Here, enter the `Password` value returned by the `chainctl auth pull-token` command in the previous section. 
 
 Then, navigate to the **Advanced** configuration tab and enter the following details:
 
@@ -246,7 +246,7 @@ If you run into issues when trying to pull from Chainguard's package repositorie
     * If necessary, ensure that you've set the correct UID for your organization in the URL field.
 * It may help to [clear the Artifactory cache](https://jfrog.com/help/r/artifactory-cleanup-best-practices/clearing-an-oversized-cache).
 * It could be that your Artifactory repository was misconfigured. In this case, create and configure a new Remote Artifactory repository to test with.
-* If your output returns `package mentioned in index not found`, it usually means Artifactory or a CDN is normalizing or rewriting APK URLs (often by stripping query strings, collapsing path segments, or altering tokens). To prevnt this, ensure that Artifactory's **Disable URL Normalization** option is checked in order to preserve exact filenames and tokens. 
+* If your output returns `package mentioned in index not found`, it usually means Artifactory or a CDN is normalizing or rewriting APK URLs (often by stripping query strings, collapsing path segments, or altering tokens). To prevent this, ensure that Artifactory's **Disable URL Normalization** option is checked in order to preserve exact filenames and tokens. 
 
 
 ## Learn More

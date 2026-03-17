@@ -38,7 +38,7 @@ cd edu-images-demos/php/wordpress
 Here you will find three folders, each with a different demo that we'll cover in this guide.
 
 ## Example 1: Testing the Container Image with a Fresh WordPress Install
-You can use the `latest-dev` variant of the Chainguard WordPress Container to create a project from scratch and go through the installation wizard. This method is useful for testing th container image and getting familiar with its features, however, changes made to the WordPress installation will not persist unless you set up a volume with proper permissions to share container contents with the host machine. We'll see how to do that in the next example.
+You can use the `latest-dev` variant of the Chainguard WordPress Container to create a project from scratch and go through the installation wizard. This method is useful for testing the container image and getting familiar with its features, however, changes made to the WordPress installation will not persist unless you set up a volume with proper permissions to share container contents with the host machine. We'll see how to do that in the next example.
 
 The files for this demo are located in the `01-preview` directory. You can access this directory and open the `docker-compose.yaml` file in your editor of choice to follow along.
 

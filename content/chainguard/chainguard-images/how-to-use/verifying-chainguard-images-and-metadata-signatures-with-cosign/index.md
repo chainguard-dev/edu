@@ -149,7 +149,7 @@ cosign verify-attestation \
   cgr.dev/chainguard/${IMAGE} | jq
 ```
 
-This will pull in the signature for the attestation specified by the `--type` parameter, which in this case is the SPDX attestation for SBOMs. You will receive get output that verifies the SBOM attestation signature in Cosign's transparency log:
+This will pull in the signature for the attestation specified by the `--type` parameter, which in this case is the SPDX attestation for SBOMs. You will receive output that verifies the SBOM attestation signature in Cosign's transparency log:
 
 ```shell
 Verification for cgr.dev/chainguard/go --

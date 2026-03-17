@@ -130,7 +130,7 @@ You should get output like the following:
 
 ## Using the start and end parameters
 
-In some cases it may be helpful to specify digests created in a given time period rather than querying the entire history of a tag. For this, you can use the `start` and `end` parameters. These optional parameters can be added to requests to the Tag History API and should be specified in the `IS0 8601` format.
+In some cases it may be helpful to specify digests created in a given time period rather than querying the entire history of a tag. For this, you can use the `start` and `end` parameters. These optional parameters can be added to requests to the Tag History API and should be specified in the `ISO 8601` format.
 
 To illustrate how to query digests of a container image created in the last week, first create a local shell variable named `timestamp`. On Ubuntu, you would create the `timestamp` variable as follows:
 

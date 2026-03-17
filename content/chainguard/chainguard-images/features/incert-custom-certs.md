@@ -18,7 +18,7 @@ weight: 030
 toc: true
 ---
 
-> NOTE: If you are looking for a way to add certificates to existing Chainguard images, check out our doc on [adding custom certificates with Custom Assembly](content/chainguard/chainguard-images/features/ca-docs/custom-assembly-certs.md). 
+> NOTE: If you are looking for a way to add certificates to existing Chainguard images, check out our doc on [adding custom certificates with Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly-certs/). 
 
 In many enterprise settings, an organization will have its own certificate authority which it uses to issue certificates for its internal services. This is often for security or control reasons but could also be related to regulatory requirements. 
 

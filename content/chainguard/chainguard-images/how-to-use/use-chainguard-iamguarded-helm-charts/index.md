@@ -219,8 +219,6 @@ oci://cgr.dev/$ORGANIZATION/iamguarded-charts/rabbitmq@sha256:DIGEST \
 
 **Use Image Pinning:** All `iamguarded` charts pin images to specific digests that have been tested for compatibility, ensuring reliable deployments.
 
-**Review Default Values:** The chart provides security-minded defaults that are sensible but may not suit all use cases. Review the chart's `values.yaml` for the full range of configuration options and adjust as needed.
-
 
 ## Helm chart usage examples
 

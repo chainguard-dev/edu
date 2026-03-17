@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Grype"
 aliases:
 - /chainguard/chainguard-images/working-with-images/scanners/grype-tutorial
-- /chainguard/chainguard-images/staying-secure/working-with-scaners/grype-tutorial/
+- /chainguard/chainguard-images/staying-secure/working-with-scanners/grype-tutorial/
 description: "Learn to use Grype to detect CVEs in images"
 date: 2024-06-06T20:00:00+02:00
 lastmod: 2024-06-06T20:00:00+00:00
@@ -197,7 +197,7 @@ Overview output includes the number of packages, files, and executables found in
 
 Finally, this portion gives a count of the number of CVEs detected by severity and fixed status. Severity categorization sorts CVEs into four categories based on the Common Vulnerability Scoring System (CVSS).
 
-{{< details "What is CVSS??" >}}
+{{< details "What is CVSS?" >}}
 {{< blurb/cvss >}}
 {{< /details >}}
 

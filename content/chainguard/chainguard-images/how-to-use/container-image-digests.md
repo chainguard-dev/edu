@@ -112,7 +112,7 @@ ENTRYPOINT [ "/bin/server" ]
 
 <a href="https://youtu.be/xYlLfjgG64E?t=144" target="_blank">2:24</a> So we got the digest for the node image as a single line in output.
 
-<a href="https://youtu.be/xYlLfjgG64E?t=149" target="_blank">2:29</a> And you can also pass a `--platform`` argument which will return the digest for specific platform.
+<a href="https://youtu.be/xYlLfjgG64E?t=149" target="_blank">2:29</a> And you can also pass a `--platform` argument which will return the digest for a specific platform.
 
 <a href="https://youtu.be/xYlLfjgG64E?t=158" target="_blank">2:38</a> So I could ask for the arm64 platform and get this digest back.
 

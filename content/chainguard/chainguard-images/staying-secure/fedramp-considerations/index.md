@@ -92,9 +92,9 @@ Chainguard's solution has the FIPS module and the SP 800-90B entropy source co-l
 
 This means that the entropy source is now independent of the hardware or cloud environment. Essentially, you can have FIPS on any host OS, kernel, and hardware. You can even have FIPS on managed cloud kubernetes platforms like GKE, EKS, and AKS. Note that this solution has been tested by two NIST labs and [certified with its own CMVP](https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations/certificate/191).
 
-For more information, please refer to the CVMP entries for Chainguard's FIPS Modules and entropy source:
+For more information, please refer to the CMVP entries for Chainguard's FIPS Modules and entropy source:
 
-* OpenSSL FIPS 3.0 Provider Module (CVMP #4856)
+* OpenSSL FIPS 3.0 Provider Module (CMVP #4856)
 * Bouncy Castle FIPS Java API (CMVP #4743 [historical: CMVP #4616])
 * Chainguard CPU Time Jitter RNG Entropy Source ([ESV Entropy Certificate #E191](https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations/certificate/191))
 

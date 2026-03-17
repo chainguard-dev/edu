@@ -1,5 +1,5 @@
 ---
-title: "Strategies and Tooling for Updating Container Containers"
+title: "Strategies and Tooling for Updating Containers"
 linktitle: "Update Strategies and Tools"
 aliases: 
 - /chainguard/chainguard-images/recommended-practices/strategies-tools-updating-images

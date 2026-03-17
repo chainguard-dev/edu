@@ -132,7 +132,7 @@ The following Dockerfile will:
 2. Set the work dir to `/app` inside the container;
 3. Copy application files from the current directory to the `/app` location in the container;
 4. Run `npm install` to install production-only dependencies;
-7. Set up additional arguments to the default entrypoint (`node`), specifying which script to run.
+5. Set up additional arguments to the default entrypoint (`node`), specifying which script to run.
 
 Copy this content to your own `Dockerfile`:
 

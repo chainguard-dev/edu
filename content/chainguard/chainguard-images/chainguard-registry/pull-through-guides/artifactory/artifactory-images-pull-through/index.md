@@ -56,7 +56,7 @@ This takes you to a **Basic** configuration tab where you can enter the followin
 * **URL** — This must be set to `https://cgr.dev/`.
 * **Include Patterns** — Ensure that you use the default value (`**/*`) in this field.
 * **Enable Token Authentication** — Ensure this setting (under **Docker Settings**) is enabled. This is required, as you must authenticate to the remote repository in order to pull Chainguard Containers through it.
-* **Block Mismatching Mime Types** — In the **Advanced** configuration tab, ensure that this option option is checked.
+* **Block Mismatching Mime Types** — In the **Advanced** configuration tab, ensure that this option is checked.
 
 Following that, click **Create Remote Repository**. Next, you can test that you're able to pull a Chainguard Free Container through the remote repository.
 
@@ -120,7 +120,7 @@ Next, enter the following details for your new remote repository in the **Basic*
 * **Password / Access Token** — Enter the `<password>` value you noted from the `docker login` command.
 * **Include Patterns** — Ensure that you use the default value (`**/*`) in this field.
 * **Enable Token Authentication** — Ensure this setting (under **Docker Settings**) is enabled. This is required, as you must authenticate to the remote repository in order to pull Chainguard Containers through it.
-* **Block Mismatching Mime Types** — In the **Advanced** configuration tab, ensure that this option option is checked.
+* **Block Mismatching Mime Types** — In the **Advanced** configuration tab, ensure that this option is checked.
 
 Finally, click **Create Remote Repository**. You can then move on to testing that you're able to pull Chainguard Production container images through this remote repository.
 

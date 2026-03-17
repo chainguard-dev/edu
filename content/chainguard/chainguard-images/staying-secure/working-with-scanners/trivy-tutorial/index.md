@@ -93,7 +93,7 @@ trivy image cgr.dev/chainguard/nginx:latest
 
 ### Scanning a Filesystem
 
-Trivy can recursively scan directories on a local machine.. To start a filesystem scan, run:
+Trivy can recursively scan directories on a local machine. To start a filesystem scan, run:
 
 ```shell
 trivy fs <path>

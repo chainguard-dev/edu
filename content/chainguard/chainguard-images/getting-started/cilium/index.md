@@ -130,7 +130,7 @@ Now that your cluster has a CNI plugin installed, the Pods will start to transit
 watch kubectl get pods --all-namespaces
 ```
 
-When all the Pods have have a status of `Running` or `Completed`, press `Ctrl+C` to exit the watch.
+When all the Pods have a status of `Running` or `Completed`, press `Ctrl+C` to exit the watch.
 
 
 ## Verify that the Cilium installation is successful

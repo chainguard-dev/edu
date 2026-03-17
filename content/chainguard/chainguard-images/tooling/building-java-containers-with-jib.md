@@ -3,8 +3,8 @@ title: "Build Java Containers with Jib"
 linktitle: "Jib"
 type: "article"
 description: "In this tutorial, you'll learn how to build minimal Java containers using Jib and Chainguard base images"
-date: 2025-09-23:49:31+00:00
-lastmod: 2025-09-23:49:31+00:00
+date: 2025-09-23T00:49:31+00:00
+lastmod: 2025-09-23T00:49:31+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -176,7 +176,7 @@ To run the build, run the following command:
 mvn clean install 
 ```
 
-Observe the  output indicating that the build was successful:
+Observe the output indicating that the build was successful:
 
 ```
 ...
