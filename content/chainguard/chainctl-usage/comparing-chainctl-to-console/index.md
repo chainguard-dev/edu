@@ -3,7 +3,7 @@ title: "Compare chainctl usage with the Chainguard Console"
 linktitle: "chainctl vs Console"
 type: "article"
 description: "Learn when to use chainctl CLI versus Chainguard Console for managing container security, with practical examples and use case recommendations"
-date: 2025-06--2T11:07:52+02:00
+date: 2025-06-02T11:07:52+02:00
 lastmod: 2025-07-23T15:09:59+00:00
 draft: false
 tags: ["chainctl", "Chainguard Console"]

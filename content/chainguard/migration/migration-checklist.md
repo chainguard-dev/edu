@@ -18,7 +18,7 @@ Chainguard container images are designed to be minimal and to include special fe
 
 ## Important to Know
 
- - Most Chainguard Container Containers don’t have a package manager or a shell by default. These are **distroless** images intended to be used as slim runtimes for production environments.
+ - Most Chainguard Containers don’t have a package manager or a shell by default. These are **distroless** images intended to be used as slim runtimes for production environments.
  - For every version of an image, a complimentary **standard** image is provided with a shell and the apk package manager. These are identified by the `-dev` suffix and can be customized.
  - When possible, we recommend using multistage builds that combine a build stage based on a `-dev` variant and a runtime stage based on a distroless image.
  - Chainguard Containers typically don’t run as root, so a `USER root` statement may be required before installing software.

@@ -101,7 +101,7 @@ Let's say you want to compare two versions of an image for the same package. You
 Use this, where we show the repo used by our Chainguard Developer Education team and where both instances of `<image_name>` are the same:
 
 ```shell
-chainctl images diff cgr.dev/chainguard.edu/$IMAGENAME>:latest cgr.dev/chainguard.edu/$IMAGENAME:latest-dev
+chainctl images diff cgr.dev/chainguard.edu/$IMAGENAME:latest cgr.dev/chainguard.edu/$IMAGENAME:latest-dev
 ```
 
 If a requested image or release being requested is not available in the repo you are using, this will return a `Forbidden` error, just like if you tried to pull an image you did not have access to or from a repository your account is not authorized to use.

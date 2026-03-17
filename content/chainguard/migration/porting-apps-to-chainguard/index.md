@@ -591,7 +591,7 @@ services:
     image: cgr.dev/chainguard/redis
 ```
 
-If you now run `docker compose up -–build`, you should have a working application that can be reached on port 9090:
+If you now run `docker compose up --build`, you should have a working application that can be reached on port 9090:
 
 ![Screenshot of running application](app.png "Screenshot of running application")
 

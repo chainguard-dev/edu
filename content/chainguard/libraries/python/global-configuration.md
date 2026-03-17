@@ -192,8 +192,8 @@ information on accessing credentials and setting up build tools.
 [Sonatype Nexus
 Repository](https://www.sonatype.com/products/sonatype-nexus-repository) allows
 for merging multiple remote repositories as a repository group. The below
-instructions for  are based on the [Nexus documentation for
-PyPI](https://help.sonatype.com/en/pypi-repositories.html) 
+instructions are based on the [Nexus documentation for
+PyPI](https://help.sonatype.com/en/pypi-repositories.html)
 
 ### Initial configuration
 

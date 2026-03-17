@@ -39,7 +39,7 @@ For Chainguard Containers built from November 7, 2024 onward, the minimum requir
 * `libcrypto3>=3.4.0-r2`
 * `openssl-config-fipshardened>=3.4.0-r3`
 
-This enables the use of a user-space entropy source with the ESV (Entropy Source Validation) certificate as listed on our (FIPS commitment)[https://www.chainguard.dev/legal/fips-commitment] page.
+This enables the use of a user-space entropy source with the ESV (Entropy Source Validation) certificate as listed on our [FIPS commitment](https://www.chainguard.dev/legal/fips-commitment) page.
 
 Note there is no change to the CMVP (Cryptographic Module Validation Program) certificate, as the entropy source is outside of the FIPS boundary. The ESV certificate satisfies the entropy requirements caveat of the CMVP certificate.
 

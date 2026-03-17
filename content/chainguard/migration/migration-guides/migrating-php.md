@@ -40,7 +40,6 @@ Wolfi offers several PHP extensions as optional packages you can install with `a
 - `php-curl`
 - `php-openssl`
 - `php-iconv`
-- `php-mbstring`
 - `php-mysqlnd`
 - `php-pdo`
 - `php-pdo_sqlite`

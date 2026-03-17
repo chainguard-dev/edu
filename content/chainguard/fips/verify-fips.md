@@ -14,7 +14,7 @@ weight: 045
 toc: true
 ---
 
-Chainguard offers hundreds of FIPS container image variants covering language runtimes (Go, Java, Python, Node.js, .NET, PHP, C/C++), databases, web servers, and Kubernetes components. These images use NIST-validated cryptographic modules including the OpenSSL FIPS provider, Bouncy Castle FIPS, and BoringCrypto. Refer to Chaingaurd's [FIPS Commitment](https://www.chainguard.dev/legal/fips-commitment) for a full list of the modules used in Chaingaurd FIPS Images, as well as their respective CMVP certificates and SBOM indicators.
+Chainguard offers hundreds of FIPS container image variants covering language runtimes (Go, Java, Python, Node.js, .NET, PHP, C/C++), databases, web servers, and Kubernetes components. These images use NIST-validated cryptographic modules including the OpenSSL FIPS provider, Bouncy Castle FIPS, and BoringCrypto. Refer to Chainguard's [FIPS Commitment](https://www.chainguard.dev/legal/fips-commitment) for a full list of the modules used in Chainguard FIPS Images, as well as their respective CMVP certificates and SBOM indicators.
 
 This guide outlines how to verify that Chainguard's FIPS images are properly configured to use these FIPS modules.
 
@@ -142,7 +142,7 @@ Native Support: AES/CBC AES/CFB AES/CTR AES/ECB AES/GCM DRBG NRBG SHA2
 Module SHA-256 HMAC: …
 ```
 
-Note that this example worked because the `jre-fips` image's entrypoint is `/usr/bin/java`, so it executes `java org.bouncycastle.entropy.util.DumpInfo` within the container. 
+Note that this example worked because the `jre-fips` image's entrypoint is `/usr/bin/java`, so it executes `java org.bouncycastle.util.DumpInfo` within the container. 
 
 > **Note:** You can find a Chainguard container image's entrypoint in its [**Specifications** tab](https://images.chainguard.dev/directory/image/jre-fips/specifications) within the Containers Directory.
 
