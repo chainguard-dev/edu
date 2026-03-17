@@ -213,7 +213,7 @@ your settings or pom files. Note that the order of the repositories in these
 files is significant and you must configure the chainguard repository to be
 located on the top of the list.
 
-If you organization does not use a repository manager you can configure the
+If your organization does not use a repository manager you can configure the
 Chainguard Libraries for Java repository. Ensure that the Chainguard
 repository is located above the necessary override for the built-in `central`
 repository and any other repositories.
@@ -332,7 +332,7 @@ well](#remove-maven-caches).
 Before running a new build you must configure access to the Chainguard Libraries
 for Java. If the administrator for your organization’s repository manager
 created a new repository or virtual repository or group repository, you must
-update your Gradle configuration. Artifact download is Gradle can be configured
+update your Gradle configuration. Artifact download in Gradle can be configured
 in an [`init`
 script](https://docs.gradle.org/current/userguide/init_scripts.html#sec:using_an_init_script)
 using the repositories definition. Each project can also [declare

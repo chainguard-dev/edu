@@ -17,7 +17,7 @@ toc: true
 The configuration for the use of Chainguard Libraries depends on how you've set up your build tools and CI/CD workflows. At a high level, adopting the use of Chainguard Libraries in your development, build, and deployment workflows involves the following steps:
 
 - If you or an administrator have not done so already, [set up your organization's repository manager to use Chainguard Libraries for Python](/chainguard/libraries/python/global-configuration/).
-- Log into your organization's repository manager and retrieve credentials for the build tool you are configuration.
+- Log into your organization's repository manager and retrieve credentials for the build tool you are configuring.
 - Configure your development or build tool with this information.
 - Remove local caches on workstations and CI/CD pipelines. This step ensures that dependencies are preferentially sourced from Chainguard Libraries.
 - Finally, confirm that your development tools and CI/CD workflows are correctly ingesting dependencies from Chainguard Libraries.
@@ -68,7 +68,7 @@ accessing your organization's JFrog Artifactory repository manager.
 1. Select **Administration** in the top navigation bar.
 1. Select **Repositories** in the left hand navigation.
 1. Select the **Virtual** tab in the repositories view.
-1. Locate the *python-all** repository row and press the three dots
+1. Locate the **python-all** repository row and press the three dots
    (**...**) in the last column on the right.
 1. Select **Set Me Up** in the dialog.
 1. Select **Generate Token & Create Instructions**
