@@ -43,9 +43,6 @@ For language dependencies, policies apply to both Chainguard-built packages and 
 
 * **Upstream fallback** — Control whether packages not yet built by Chainguard can be sourced from the upstream public registry.  
 * **Cooldown** — Block newly published upstream packages for a defined period before they can be pulled, giving the security community time to detect threats. A 7-day cooldown blocks 47% of malicious packages.  
-* **CVE blocking** — Prevent packages with known critical vulnerabilities from being pulled.  
-* **License enforcement** — Restrict dependencies to approved licenses.  
-* **End-of-life prevention** — Block packages that have reached end-of-life status.
 
 All packages — whether Chainguard-built or sourced from upstream — are also scanned for malware before being served. Any package with a detected malware identifier is blocked.
 
