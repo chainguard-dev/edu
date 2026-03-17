@@ -43,7 +43,7 @@ yarn config set npmRegistryServer https://libraries.cgr.dev/javascript/
 For full setup instructions including authentication, see [Build Configuration: Direct Access](/chainguard/libraries/javascript/build-configuration/#direct-access/).
 
 ### Use Chainguard Repository with a repository manager
-If you use JFrog Artifactory, Sonatype Nexus, or a similar repository manager, you can point it to the Chainguard Repository endpoint directly. This replaces the previous pattern of configuring Chainguard Libraries and npm as separate upstreams with a priority ordering.
+If you use Cloudsmith, JFrog Artifactory, Sonatype Nexus, or a similar repository manager, you can point it to the Chainguard Repository endpoint directly. This replaces the previous pattern of configuring Chainguard Libraries and npm as separate upstreams with a priority ordering.
 
 Point your repository manager's virtual or group repository at `libraries.cgr.dev/javascript` as the single upstream. The Chainguard Repository handles fallback and policy; your repo manager handles local caching and access control for your organization.
 
