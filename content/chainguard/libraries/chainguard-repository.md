@@ -13,21 +13,33 @@ menu:
 weight: 005
 toc: true
 ---
-Chainguard Repository is a unified Chainguard-managed experience for pulling secure-by-default open source artifacts. Chainguard Libraries for JavaScript is the first artifact type available through it, with configurable policies that control how both Chainguard-built packages and upstream npm packages are consumed. Upstream packages are subject to additional security controls, including malware scanning and an optional cooldown period.
+Chainguard Repository is a unified Chainguard-managed experience for pulling
+secure-by-default open source artifacts. Chainguard Libraries for JavaScript is
+the first artifact type available through it, with configurable policies that
+control how both Chainguard-built packages and upstream npm packages are
+consumed. Upstream packages are subject to additional security controls,
+including malware scanning and an optional cooldown period.
 
-Pointing your existing build tools or repository manager tools at the Chainguard Repository gives you:
-* Access to both Chainguard-built packages and upstream npm packages (when fallback is enabled), so you don't need to maintain a parallel npm fallback configuration.
-* Malware scanning and a cooldown period applied to all packages the repository serves, including those proxied from npm.
+Pointing your existing build tools or repository manager tools at the Chainguard
+Repository gives you:
+* Access to both Chainguard-built packages and upstream npm packages (when
+  fallback is enabled), so you don't need to maintain a parallel npm fallback
+  configuration.
+* Malware scanning and a cooldown period applied to all packages the repository
+  serves, including those proxied from npm.
 * One endpoint to configure, whether or not you use an artifact manager.
 
 ## Using the Chainguard Repository endpoint for JavaScript
-The Chainguard Repository for Javascript uses the same endpoint and authentication as Chainguard Libraries for JavaScript: `https://libraries.cgr.dev/javascript/`.
+The Chainguard Repository for Javascript uses the same endpoint and
+authentication as Chainguard Libraries for JavaScript:
+`https://libraries.cgr.dev/javascript/`.
 
 You can use your existing `chainctl` token. See [Chainguard Libraries
 Access](/chainguard/libraries/access/) for instructions for retrieving
 credentials with `chainctl`. 
 
-Learn about [fallback configuration](#configuring-upstream-fallback) and [cooldown periods](#cooldown-period) later on this page.
+Learn about [fallback configuration](#configuring-upstream-fallback) and
+[cooldown periods](#cooldown-period) later on this page.
 
 ### Use Chainguard Repository with build tools
 If you don’t use an artifact manager, you can point your build tools directly at
@@ -54,7 +66,8 @@ not work with npm.
 
 #### Step 2: Configure your tool to use the Chainguard endpoint
 
-Next, configure your tool of choice to use the Chainguard endpoint as its registry:
+Next, configure your tool of choice to use the Chainguard endpoint as its
+registry:
 
 ```bash
 # pnpm
@@ -64,14 +77,24 @@ pnpm config set registry https://libraries.cgr.dev/javascript/
 yarn config set npmRegistryServer https://libraries.cgr.dev/javascript/
 ```
 
-For full setup instructions including authentication, see [Build Configuration: Direct Access](/chainguard/libraries/javascript/build-configuration/#direct-access/).
+For full setup instructions including authentication, see [Build Configuration:
+Direct
+Access](/chainguard/libraries/javascript/build-configuration/#direct-access/).
 
 ### Use Chainguard Repository with a repository manager
-If you use JFrog Artifactory, Sonatype Nexus, or a similar repository manager, you can point it to the Chainguard Repository endpoint as your single upstream npm source. This replaces the previous pattern of configuring Chainguard Libraries and npm as separate upstreams with a priority ordering.
+If you use JFrog Artifactory, Sonatype Nexus, or a similar repository manager,
+you can point it to the Chainguard Repository endpoint as your single upstream
+npm source. This replaces the previous pattern of configuring Chainguard
+Libraries and npm as separate upstreams with a priority ordering.
 
-Point your repository manager's virtual or group repository at `libraries.cgr.dev/javascript` as the single upstream. The Chainguard Repository handles fallback and policy; your repo manager handles local caching and access control for your organization.
+Point your repository manager's virtual or group repository at
+`libraries.cgr.dev/javascript` as the single upstream. The Chainguard Repository
+handles fallback and policy; your repo manager handles local caching and access
+control for your organization.
 
-See [Global configuration](/chainguard/libraries/javascript/global-configuration/) for setup guides per repository manager.
+See [Global
+configuration](/chainguard/libraries/javascript/global-configuration/) for setup
+guides per repository manager.
 
 ### Configuring upstream fallback
 By default, the Chainguard Repository serves only Chainguard-built packages. You can contact your Chainguard account team or customer support to enable the built-in fallback to the upstream npm registry, which allows the repository to serve packages not yet built by Chainguard. All upstream packages are subject to additional [security controls](#security-controls) before they are served.
