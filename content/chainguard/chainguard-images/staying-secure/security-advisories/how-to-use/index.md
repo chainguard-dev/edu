@@ -66,7 +66,7 @@ This output shows that this particular image has many critical and high vulnerab
 
 > Note: All of these vulnerabilities have been addressed in newer versions of the Go Chainguard Container.
 
-Within this output,, we find that the package `nghttp2` is referenced. 
+Within this output, we find that the package `nghttp2` is referenced. 
 
 ```sh
 grype cgr.dev/example.com/go:1.21.2| grep nghttp2
@@ -141,7 +141,7 @@ This example will return a lot of output, as there are significant differences f
 	. . .
 ```
 
-As this output indicates, `CVE0223-44487` is no longer present in later versions of the Go Chainguard Container. If you were using version `1.21.2`, you should seriously consider upgrading to a later version.
+As this output indicates, `CVE-2023-44487` is no longer present in later versions of the Go Chainguard Container. If you were using version `1.21.2`, you should seriously consider upgrading to a later version.
 
 ## Learn More
 

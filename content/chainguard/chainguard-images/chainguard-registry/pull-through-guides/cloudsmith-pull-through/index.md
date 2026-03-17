@@ -35,7 +35,7 @@ In order to complete this tutorial, you will need the following:
 
 Chainguard's [Free container images](/chainguard/chainguard-images/about/images-categories/#starter-containers) are free to use, publicly available, and always represent versions tagged as `:latest`.
 
-To set up a remote repository in Cloudsmith through which you can pull Free container images, log in to the [Cloudsmith App](https://cloudsmith.io/user/login/). Once there, navigate to the **Repositories** tab and and click **+ Create Repository**. 
+To set up a remote repository in Cloudsmith through which you can pull Free container images, log in to the [Cloudsmith App](https://cloudsmith.io/user/login/). Once there, navigate to the **Repositories** tab and click **+ Create Repository**. 
 
 A window will appear where you can enter the following details for your new remote repository:
 

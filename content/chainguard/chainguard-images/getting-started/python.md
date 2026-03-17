@@ -43,7 +43,7 @@ In this example, we'll build and run a distroless Python Chainguard Container in
 
 We'll start by creating a basic command-line Python application to serve as a demo. This app will generate random octopus facts based on a list in a text file. This app will use the `random` module from the Python standard library.
 
-First, create a directory for your app. You can use any meaningful name and path for you, our example will use `octo-facts/`.
+First, create a directory for your app. You can use any meaningful name and path; our example will use `octo-facts/`.
 
 ```shell
 mkdir ~/octo-facts/ && cd $_

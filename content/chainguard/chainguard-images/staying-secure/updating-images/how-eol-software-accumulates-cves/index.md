@@ -124,5 +124,5 @@ End-of-life software represents a significant security risk. This issue becomes 
 
 The only option when that occurs is to update. However, the vast majority of vulnerabilities that appear in an EOL image will come from its additional components, meaning that updating just the application software may not significantly reduce the overall number of vulnerabilities. Thus the best option is to have a plan to keep your software updated to the latest versions promptly. 
 
-To learn more about keeping container images up to date, we encourage you to check out our article on [Considerations for Keeping Containers Up to Date](/chainguard/chainguard-images/recommended-practices/considerations-for-image-updates/) as well as our overview of [Strategies and Tooling for Updating Container Containers](/chainguard/chainguard-images/recommended-practices/strategies-tools-updating-images/).
+To learn more about keeping container images up to date, we encourage you to check out our article on [Considerations for Keeping Containers Up to Date](/chainguard/chainguard-images/recommended-practices/considerations-for-image-updates/) as well as our overview of [Strategies and Tooling for Updating Containers](/chainguard/chainguard-images/recommended-practices/strategies-tools-updating-images/).
 

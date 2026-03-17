@@ -114,7 +114,7 @@ So I can't actually access the container file system in this case.
 
 And there's actually a second problem as well.
 
-If I was to run this pod again and we're going to call it pod 2 and this time we've got security context that says you can't run continuous as root.
+If I was to run this pod again and we're going to call it pod 2 and this time we've got security context that says you can't run containers as root.
 
 Now you can probably guess what the problem is going to be here.
 

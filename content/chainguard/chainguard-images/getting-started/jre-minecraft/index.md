@@ -44,7 +44,7 @@ We’ll start with a basic setup that we’ll improve in the next steps. Our fir
 
 1. Install system dependencies as needed (`curl`, `libudev`)
 2. Add a regular system user named `minecraft`
-3. Set up the `WORKDIR` to `/usr/share/minecrat`
+3. Set up the `WORKDIR` to `/usr/share/minecraft`
 4. Download the Minecraft Java server file
 5. Unpack the `server.jar` file
 6. Set up the `eula.txt` file using `sed`
@@ -299,7 +299,7 @@ If you join the server now, you should spawn close to a nice village.
 ![Minecraft Java client - spawning near a village](spawn-point.png)
 
 ## 3 – Setting Up Automatic Updates
-Your server is now fully customizable through environment variables, but we're still something important: updates. The Minecraft server download is statically defined in the Dockerfile, so it will go stale pretty quickly. We need a programmatic way to fetch the latest version of the server so that we don’t need to update the Dockerfile each time a new version of the server is out.
+Your server is now fully customizable through environment variables, but we're still missing something important: updates. The Minecraft server download is statically defined in the Dockerfile, so it will go stale pretty quickly. We need a programmatic way to fetch the latest version of the server so that we don’t need to update the Dockerfile each time a new version of the server is out.
 
 Mojang (the company that makes Minecraft) has [a few API endpoints](https://gaming.stackexchange.com/a/123443/386461) that can be used to fetch available versions and their respective download artifacts. In the GuardCraft demo, we have implemented [a bash script](https://github.com/chainguard-dev/guardcraft-server/blob/main/server-install.sh) that fetches the latest version of the server .jar file, verifies its SHA-1 signature, and only then unpacks the file. We’ll implement the same script here.
 
