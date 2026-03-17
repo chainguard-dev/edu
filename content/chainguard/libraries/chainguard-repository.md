@@ -64,8 +64,6 @@ pnpm config set registry https://libraries.cgr.dev/javascript/
 yarn config set npmRegistryServer https://libraries.cgr.dev/javascript/
 ```
 
-
-
 For full setup instructions including authentication, see [Build Configuration: Direct Access](/chainguard/libraries/javascript/build-configuration/#direct-access/).
 
 ### Use Chainguard Repository with a repository manager
