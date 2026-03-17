@@ -24,7 +24,7 @@ This guide includes several examples of how you can manage roles and role-bindin
 
 ## Roles
 
-There are a number of built-in roles in Chainguard's IAM model that customers can assign to identities within their organization. Most users within your organization will likely have one of three roles with broadly-defined privileges: `owner`, `editor`, or `viewer`.
+There are a number of built-in roles in Chainguard's IAM model that customers can assign to identities within their organization. Most users within your organization will likely have one of the following roles with broadly-defined privileges: `owner`, `editor`, `viewer`, or `console_viewer`.
 
 `owner` is the role with the most privileges. An owner can create, delete, view (list), and modify (update) organizations, account associations, role-bindings, organization invitations, custom roles, role-bindings, and subscriptions. 
 
