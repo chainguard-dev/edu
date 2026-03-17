@@ -6,7 +6,7 @@ type: "article"
 date: 2026-03-16T08:48:23+00:00
 lastmod: 2026-03-17T00:48:23+00:00
 draft: false
-weight: 010
+weight: 032
 ---
 
 The Chainguard Repository is a single, policy-aware endpoint for all artifacts that Chainguard builds and distributes. It gives your organization one place to pull open source artifacts, configure security policies that govern how they are consumed, and monitor coverage and policy enforcement across your environment.
@@ -15,14 +15,12 @@ All artifacts served through the Chainguard Repository are either rebuilt by Cha
 
 ## Artifact types
 
-The Chainguard Repository contains the following artifact types:
+As of this writing, the Chainguard Repository contains the following artifact types:
 
 | Artifact type | Description |
 | ----- | ----- |
 | [Chainguard JavaScript Libraries](/chainguard/libraries/chainguard-repository/) | Open source language dependencies rebuilt from source for JavaScript (npm). |
 | [Chainguard OS Packages](/chainguard/chainguard-images/features/packages/private-apk-repos/#chainguard-os-packages) | The full set of packages built by Chainguard and used to create Chainguard containers. |
-
-More to come soon!
 
 
 ## Endpoints
