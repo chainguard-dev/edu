@@ -31,8 +31,8 @@ policies.
 Command characteristics:
 
 - Uses a signature-based binary identification and a checksum fallback.
-- Supports different binary formats, including JAR, WAR, EAR, ZIP, TAR, WHL, and
-  APK files as well as container images.
+- Supports different binary formats, including JAR, WAR, EAR, ZIP, TAR, WHL,
+  APK, and npm tarballs (.tgz), as well as container images.
 - Allows analysis of directories and nested archive files.
 - Creates output in text, json, yaml, and CSV formats.
 
@@ -182,7 +182,7 @@ Analyze a file and create JSON output:
 chainctl libraries verify -o json commons-lang3-3.17.0.jar
 ```
 
-## Java fat JAR limitations
+#### Java fat JAR limitations
 
 The fat JAR packaging approach merges the class files from all dependency
 JARs into one combined archive, which means the original JAR boundaries are
@@ -194,7 +194,7 @@ class files back to their source JARs. As a result, running `chainctl libraries
 verify` against a fat JAR returns 0% coverage, even if the
 dependencies inside it were sourced from Chainguard Libraries.
 
-### Recommended verification approach for fat JARs
+#### Recommended verification approach for fat JARs
 
 To verify that your Java dependencies come from Chainguard Libraries, run
 `chainctl libraries verify` during your build process against the individual JAR
@@ -210,6 +210,21 @@ chainctl libraries verify ~/.m2/repository/net/logstash/logback/logstash-logback
 
 To integrate this into your build pipeline, add the verification step after
 dependency resolution and before the packaging phase. 
+
+### Analyze an npm tarball
+
+Verify an npm package tarball to confirm it was built by Chainguard:
+
+```sh
+chainctl libraries verify PACKAGE-VERSION.tgz
+```
+Replace `PACKAGE` 
+and `VERSION` with the package name and version (for example, `@eslint-js` 
+and `9.0.0`)
+
+Verification uses SLSA provenance attestations. `chainctl` computes a SHA-512 digest of the tarball locally, fetches the signed attestation bundle, and uses `cosign` to confirm that the signature is valid, the certificate chains to the Sigstore root, the signer identity matches the Chainguard JavaScript builder, and the digest matches what was attested at build time.
+
+Verification currently operates on individual npm tarballs. 
 
 ### Other bundled artifact formats
 
