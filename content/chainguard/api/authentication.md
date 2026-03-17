@@ -147,9 +147,9 @@ func main() {
 This example is similar to the previous one, but has the following differences:
 
 * It creates a constant named `sub`. In this example, the `sub` constant's value is set to the UIDP of a Chainguard identity named `all-users` which can be assumed by any Chainguard user.
-* It takes the token retrieved with the `chainctl` binary and exchanges it for the assumable identity to make a call to the Chainguard registry in order retrieve some information about the supplied image. The example uses the `cgr.dev/chainguard/static` Free image.
+* It takes the token retrieved with the `chainctl` binary and exchanges it for the assumable identity to make a call to the Chainguard registry in order to retrieve some information about the supplied image. The example uses the `cgr.dev/chainguard/static` Free image.
 
-To run this example, First, delete the previous example's `main.go` file if you haven't already. Then save the `exchange` example's `main.go` file to your local machine. Then run the following `go mod init` and `go mod tidy` commands:
+To run this example, first, delete the previous example's `main.go` file if you haven't already. Then save the `exchange` example's `main.go` file to your local machine. Then run the following `go mod init` and `go mod tidy` commands:
 
 ```shell
 go mod init github.com/chainguard-dev/sdk && go mod tidy

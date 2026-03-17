@@ -226,13 +226,13 @@ repository:
 
 1. Navigate to Artifact Registry and select **Repositories** in the left hand
    navigation under the **Artifact Registry** label.
-1. Click on the *java-all* repository name in the list of repositories.
+1. Click on the **java-all** repository name in the list of repositories.
 1. Press the **Setup instructions** button and follow the documentation. Note
    that you must add the extension
    `com.google.cloud.artifactregistry:artifactregistry-maven-wagon` to each
    project.
 
-In a working setup, the *chainguard* remote repository contains all artifacts
+In a working setup, the **chainguard** remote repository contains all artifacts
 retrieved from Chainguard.
 
 <a name="artifactory"></a>
@@ -302,13 +302,13 @@ for accessing the repository:
 1. Press **Administration** in the top navigation bar.
 1. Select **Repositories** in the left hand navigation.
 1. Select the **Virtual** tab in the repositories view.
-1. Locate the *chainguard-maven** repository.
+1. Locate the **chainguard-maven** repository.
 1. Hover over the row and click the **...** in the last column on the right.
 1. Select **Set Me Up** in the dialog.
 1. Press **Generate Token & Create Instructions**
 1. Copy the generated token value to use as the password for authentication.
 1. Press **Generate Settings**.
-1. Copy the value from a *url* field. The are all identical. For example,
+1. Copy the value from a *url* field. They are all identical. For example,
    `https://exampleorg.jfrog.io/artifactory/java-all/` with `exampleorg`
    replaced with the name of your organization.
 
@@ -385,7 +385,7 @@ for accessing the repository:
    navigation bar.
 1. Locate the **URL** column for the *java-all* repository group and press
    **copy**. For example, `https://repo.example.com/repository/java-all/` with
-   `repo.example.com` replaced with the hostname of you repository manager.
+   `repo.example.com` replaced with the hostname of your repository manager.
 1. Copy the URL in the dialog.
 1. Use your configured username and password unless **Security** - **Anonymous
    Access** - **Access** - **Allow anonymous users to access the server** is

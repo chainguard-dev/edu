@@ -138,8 +138,8 @@ specific packaging tool documentation.
 Use the following steps to retrieve the necessary API key as an authentication
 token for the registry access:
 
-1. Click on your user name at the top, right corner. 
-1. Select *Personal API keys**.
+1. Click on your user name at the top right corner.
+1. Select **Personal API keys**.
 1. Authenticate again in the **Confirm access** dialog.
 1. Create a new token or refresh the existing one in case you lost the token
    value.
@@ -213,7 +213,7 @@ for accessing the repository:
 1. Press **Generate Token & Create Instructions**.
 1. Copy the generated token value to use as the password for authentication.
 1. Press **Generate Settings**.
-1. Copy the value from a **url** field. The are all identical. For example,
+1. Copy the value from a **url** field. They are all identical. For example,
    `https://exampleorg.jfrog.io/artifactory/javascript-all/` with `exampleorg`
    replaced with the name of your organization.
 
@@ -286,7 +286,7 @@ for accessing the repository:
    navigation bar.
 1. Locate the **URL** column for the *javascript-all* repository group and press
    **copy**. For example, `https://repo.example.com/repository/javascript-all/`
-   with `repo.example.com` replaced with the hostname of you repository manager.
+   with `repo.example.com` replaced with the hostname of your repository manager.
 1. Copy the URL in the dialog.
 1. Use your configured username and password unless **Security** - **Anonymous
    Access** - **Access** - **Allow anonymous users to access the server** is
