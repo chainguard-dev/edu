@@ -58,9 +58,20 @@ To illustrate, toggle this button on and then click on any paid Production conta
 
 Here there are a number of container image versions with tags similar to `:openjdk-17-202412120223`. This means that this particular version of the container image was last updated on December 12, 2024, at 2:23 AM. You can use this version's **Pull URL** (`cgr.dev/$ORGANIZATION/jdk-fips:openjdk-17-202412120223`) to download this container image, and you can be confident that this Pull URL will always refer to the same container image.
 
-## Unique vs Immutable Tags
+## Unique vs Immutable Tags aka are unique tags right for me?
 
-By design, container image tags are mutable and can change over time. Although Unique Tags are meant to serve as a solution for teams whose internal workflows desire unique tags, for true image immutability we recommend that users reference container images by their digests: `cgr.dev/example.com/image@sha256:...`.
+By design, container image tags are mutable and can change over time. Although Unique Tags are meant to serve as a solution for teams whose internal workflows require unique tags, for true image immutability we recommend pinning images by digest (`{repo}:{tag}@{digest}`) to ensure immutability and reproducibility whenever possible, rather than Unique Tags.
+
+Some things to be aware of before opting into Unique Tags:
+
+- It applies across the entire organization, to every image. While Unique Tags may be appropriate for one use case, it may not be appropriate for all the use cases in your organization.
+- It will append a timestamp to all tags, like `1.2.3-20260218175623`
+- You will no longer receive updates for non-unique tags, like `1.2.3`. It's an either/or situation.
+- It arguably makes the tags harder to browse in the Chainguard UI and the UI of other registry solutions.
+- It can cause performance issues in certain scenarios, as the response when listing tags is much larger.
+- We don't enforce immutability at the registry level. So while we won't update unique tags, there is nothing on a technical level that prevents them from being pushed to. Once tags are mirrored to an internal registry, unless that registry supports tag immutability, the tags can be overwritten.
+
+For all of these reasons, digests are a stronger mechanism for ensuring immutability than unique tags for almost everyone.
 
 Check out the ["Pulling by Digest" section](/chainguard/chainguard-images/how-to-use-chainguard-images/#pulling-by-digest) of our guide on How to Use Chainguard Containers for more information.
 You may also find our video on [How to Use Container Image Digests to Improve Reproducibility](/chainguard/chainguard-images/videos/container-image-digests/) to be useful.
