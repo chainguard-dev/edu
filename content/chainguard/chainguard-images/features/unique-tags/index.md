@@ -60,16 +60,16 @@ Here there are a number of container image versions with tags similar to `:openj
 
 ## Unique vs Immutable Tags aka are unique tags right for me?
 
-By design, container image tags are mutable and can change over time. Although Unique Tags are meant to serve as a solution for teams whose internal workflows desire unique tags, for true image immutability we recommend pinning images by digest (`{repo}:{tag}@{digest}`) to ensure immutability and reproducibility whenever possible, rather than Unique Tags.
+By design, container image tags are mutable and can change over time. Although Unique Tags are meant to serve as a solution for teams whose internal workflows require unique tags, for true image immutability we recommend pinning images by digest (`{repo}:{tag}@{digest}`) to ensure immutability and reproducibility whenever possible, rather than Unique Tags.
 
 Some things to be aware of before opting into Unique Tags:
 
-1. It applies across the entire organization, to every image. While Unique Tags may be appropriate for one use case, it may not be appropriate for all the use cases in your organization.
-2. It will append a timestamp to all tags, like `1.2.3-20260218175623`
-3. You will no longer receive updates for non-unique tags, like `1.2.3`. It's an either/or situation.
-4. It arguably makes the tags harder to browse in the Chainguard UI and the UI of other registry solutions.
-5. It can cause performance issues in certain scenarios, as the response when listing tags is much larger.
-6. We don't enforce immutability at the registry level. So while we won't update unique tags, there is nothing on a technical level that prevents them from being pushed to. Once tags are mirrored to an internal registry, unless that registry supports tag immutability, the tags can be overwritten.
+- It applies across the entire organization, to every image. While Unique Tags may be appropriate for one use case, it may not be appropriate for all the use cases in your organization.
+- It will append a timestamp to all tags, like `1.2.3-20260218175623`
+- You will no longer receive updates for non-unique tags, like `1.2.3`. It's an either/or situation.
+- It arguably makes the tags harder to browse in the Chainguard UI and the UI of other registry solutions.
+- It can cause performance issues in certain scenarios, as the response when listing tags is much larger.
+- We don't enforce immutability at the registry level. So while we won't update unique tags, there is nothing on a technical level that prevents them from being pushed to. Once tags are mirrored to an internal registry, unless that registry supports tag immutability, the tags can be overwritten.
 
 For all of these reasons, digests are a stronger mechanism for ensuring immutability than unique tags for almost everyone.
 
