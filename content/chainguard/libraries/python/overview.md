@@ -412,8 +412,8 @@ Repository managers such as JFrog Artifactory or Sonatype Nexus may continue ser
 
 Before regenerating lock files, ensure your tool is configured to use Chainguard as the package index by following the [global configuration](link) or [direct access](link) documentation.
 
->**Note:** While hash mismatches from are expected for some tooling and
-configurations, you can verify the authenticity and provenance of Chainguard
+>**Note:** While hash mismatches are expected for some tooling and
+configurations while migrating to Chainguard, you can verify the authenticity and provenance of Chainguard
 packages using SBOM and SLSA attestation files as described in the next section.
 
 ## SBOM and attestation files
