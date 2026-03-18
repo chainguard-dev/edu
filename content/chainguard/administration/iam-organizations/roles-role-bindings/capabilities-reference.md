@@ -138,4 +138,4 @@ The reason for this is that Chainguard doesn't distinguish pull token identities
 ## Learn More
 
 - [Overview of Roles and Role-bindings in Chainguard](/chainguard/administration/iam-organizations/roles-role-bindings/roles-role-bindings/) - Conceptual overview and basic management
-- [Overview of Chainguard IAM Model](/chainguard/administration/iam-organizations/overview-of-enforce-iam-model/) - Complete IAM architecture
+- [Overview of Chainguard IAM Model](/chainguard/administration/iam-organizations/overview-of-enforce-iam-model/) - Complete IAM architecture 
