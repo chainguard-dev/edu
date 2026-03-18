@@ -38,7 +38,7 @@ With Custom Assembly, you can add the following to your container images:
 * [Custom certificates](/chainguard/chainguard-images/features/ca-docs/custom-assembly-certs/) — Embed PEM-encoded x509v3 certificates (such as internal CA certificates) directly into the image's truststore. These are merged with the default certificate bundle at /etc/ssl/certs/ca-certificates.crt. 
 * [Chainguard-managed certificate bundles](/chainguard/chainguard-images/features/ca-docs/custom-assembly-certs/#chainguard-managed-certificate-bundles) — Pre-packaged certificate bundles for regulated environments, such as commercial AWS or AWS GovCloud.
 * [Environment variables and annotations](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/#adding-custom-annotations-and-environment-variables) — Set custom runtime environment variables and custom metadata annotations.
-* [Custom user accounts and groups](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_apply/) — Use `chainctl images repos build apply` to define custom users with specific UIDs/GIDs, home directories, group memberships, and specify which user the image runs as. 
+* [Custom user accounts and groups](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_apply/) — Use `chainctl images repos build apply` or `chainctl images repos build edit` to define custom users with specific UIDs/GIDs, home directories, group memberships, and specify which user the image runs as. 
 
 Note: You cannot remove base packages that come with the source image — you can only add to them.
 
