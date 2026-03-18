@@ -34,8 +34,8 @@ This guide outlines the following built-in roles provided by Chainguard:
 * **Administrative Roles:**
     * `owner` - Full administrative access with all capabilities
     * `editor` - Limited administrative access with mostly read permissions and event management
-    * `viewer` - Read-only access across all resources
-    * `console_viewer` - Read-only access across all resources, without blob access or the ability to manage event subscriptions
+    * `viewer` - Read-only access across all resources and **can** pull images
+    * `console_viewer` - Read-only access across all resources and **cannot** pull images, without blob access or the ability to manage event subscriptions
 * **Registry and Container Roles:**
     * `registry.pull` - Container image access
     * `registry.pull_token_creator` - Chainguard registry token management with additional repository capabilities
