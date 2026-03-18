@@ -1,5 +1,5 @@
 ---
-date: 2026-03-04T15:59:26Z
+date: 2026-03-13T13:52:34Z
 title: "chainctl libraries verify"
 slug: chainctl_libraries_verify
 url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_verify/
@@ -27,6 +27,9 @@ For container images, you can use:
   - Docker archive format (docker-archive:/path/to/image.tar)
   - Local images with prefixes (localhost/myapp:latest)
 
+For npm cache verification, pass the npm cache directory path. The cache is
+auto-detected by its _cacache/index-v5/ structure.
+
 ```
 chainctl libraries verify [path...] [flags]
 ```
@@ -51,6 +54,9 @@ chainctl libraries verify [path...] [flags]
 
   # Analyze remote artifact
   chainctl libraries verify remote:example.com/maven2/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar
+
+  # Verify npm cache (auto-detected by _cacache/index-v5/ structure)
+  chainctl libraries verify "$(npm config get cache)"
 ```
 
 ### Options

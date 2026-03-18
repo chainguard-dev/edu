@@ -79,7 +79,7 @@ SHA1 is available as approved in Chainguard FIPS Provider for OpenSSL versions 3
 
 Chainguard FIPS images are configured to load the Chainguard FIPS Provider for OpenSSL in approved-only mode, and the libcrypto public API has default property query string set to `fips=yes`. This means that the CMVP validated cryptographic module is operating in approved-only mode and all unqualified requests for algorithms and services are always returned as FIPS approved and allowed.
 
-Separatey, in the Base provider, outside of the CMVP cryptographic module boundary, MD5 and SHA1 are available as a non-approved disallowed service (as in, it is viewed as a non-cryptographic plaintext one-way compression algorithm). You can request access to them on an opt-in basis using a `?fips=yes` property query string (which means to prefer FIPS implementation if there is one, and fallback to a non-FIPS implementation if not available), or `-fips` property query strings (meaning, disregard the request for a FIPS implementation, and return any available implementation) using the C API or command line options to calculate message digests. 
+Separately, in the Base provider, outside of the CMVP cryptographic module boundary, MD5 and SHA1 are available as a non-approved disallowed service (as in, it is viewed as a non-cryptographic plaintext one-way compression algorithm). You can request access to them on an opt-in basis using a `?fips=yes` property query string (which means to prefer FIPS implementation if there is one, and fallback to a non-FIPS implementation if not available), or `-fips` property query strings (meaning, disregard the request for a FIPS implementation, and return any available implementation) using the C API or command line options to calculate message digests. 
 
 Using these digests in higher-level algorithms and services is blocked in the Chainguard FIPS Provider for OpenSSL. We recommend `?fips=yes` because it is more portable across other OpenSSL FIPS implementations from other vendors with different implementations and semantics. For example, majority of FIPS modules still provide SHA1 as an approved service.
 
@@ -136,7 +136,7 @@ If this usage is needed in any of the imported libraries, you can use [mock](htt
 
 Alternatively, submit upstream fixes to correct the code. Here are some examples contributed by Chainguard engineers:
 * [Google Cloud Platform storage pull request](https://github.com/googleapis/python-storage/pull/1522)
-* [PyPDF project pull requst](https://github.com/py-pdf/pypdf/pull/3438)
+* [PyPDF project pull request](https://github.com/py-pdf/pypdf/pull/3438)
 
 If there are Python projects that need MD5 access in FIPS mode and currently do not use `usedforsecurity=False` please [open a support request](https://support.chainguard.dev/) for Chainguard engineering to look into adding support.
 

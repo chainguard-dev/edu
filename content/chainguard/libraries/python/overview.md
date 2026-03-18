@@ -3,7 +3,7 @@ title: "Chainguard Libraries for Python overview"
 linktitle: "Python overview"
 description: "Learn about Chainguard Libraries for Python, providing enhanced security for PyPI packages through automated vulnerability patching and supply chain protection"
 type: "article"
-date: 2025-04-09:04:00+00:00
+date: 2025-04-09T04:00:00+00:00
 lastmod: 2025-07-23T15:09:59+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python", "Overview"]
@@ -237,8 +237,8 @@ deployment, detailed in [Technical Details](#technical-details) and [Global
 Configuration](/chainguard/libraries/python/global-configuration/), involves a
 repository manager that uses PyPI as a fall back for such packages. With this
 configuration, any build on Windows or MacOS continues to work and pulls the
-package from PyPI, since it is not available from Chainguard. Any build on Linux,,
-however, uses suitable a package from Chainguard Libraries. When using CVE remediation,
+package from PyPI, since it is not available from Chainguard. Any build on Linux,
+however, uses a suitable package from Chainguard Libraries. When using CVE remediation,
 this also means that remediated packages with native binaries are only used on
 Linux.
 

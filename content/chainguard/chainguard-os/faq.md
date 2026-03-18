@@ -26,7 +26,7 @@ Wolfi refers to the OS of Chainguard’s [free tier container images](/chainguar
 
 Chainguard OS refers to the production-grade distribution that powers all other Chainguard products.
 
-Please note that mixing-and-matching content across Wolfi and Chainguard OS is not supported. 
+Please note that mixing and matching content across Wolfi and Chainguard OS is not supported. 
 
 ## What are the core principles behind Chainguard OS?
 Chainguard OS is built around four core principles:

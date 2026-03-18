@@ -1,5 +1,5 @@
 ---
-date: 2026-03-04T15:59:26Z
+date: 2026-03-13T13:52:34Z
 title: "chainctl iam identities update"
 slug: chainctl_iam_identities_update
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_update/

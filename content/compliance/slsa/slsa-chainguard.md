@@ -20,12 +20,12 @@ toc: true
 
 SLSA (pronounced "salsa"), or Supply chain Levels for Software Artifacts, is a security framework consisting of standards and controls that prevent tampering, improve integrity, and secure packages and infrastructure. It is described in depth in [What is SLSA?](/compliance/slsa/what-is-slsa/).
 
-Chainguard Containers and Guarded VMs are SLSA Level 3 compliant to provide confidence in the security of these products. Other Chainguard products, such as Chainguard Libraries, are SLSA Level 2 compliant and work is being done to bring them to level 3.
+All Chainguard products — including Chainguard Containers, Guarded VMs, and Chainguard Libraries — are SLSA Level 3 compliant to provide confidence in the security of these products.
 
-This page describes what we have done and are doing to bring Chainguard products into full SLSA Level 3 compliance.
+This page describes what we have done to bring Chainguard products into full SLSA Level 3 compliance.
 
 
-## Isolated and Tamper-Resistent Builds
+## Isolated and Tamper-Resistant Builds
 
 Every Chainguard build now runs in a dedicated, ephemeral environment that starts from a clean slate. This build isolation ensures that no build can influence another, eliminating insider meddling or cross-contamination between builds. By provisioning short-lived build environments on demand, we greatly reduce the risk of any malware persistence or [cache poisoning](https://en.wikipedia.org/wiki/Cache_poisoning) across builds.
 

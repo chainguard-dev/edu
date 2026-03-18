@@ -2,11 +2,11 @@
 # Pin versions for security and reproducibility
 
 # Security scanning tools
-bandit==1.9.3
+bandit==1.9.4
 safety==3.7.0
 
 # Development tools
-black==26.1.0
+black==26.3.0
 pylint==4.0.5
 
 # Runtime dependencies (if needed in future)

@@ -5,7 +5,7 @@ aliases:
 type: "article"
 description: "A walkthrough of the Chainguard Console."
 date: 2024-02-23T11:07:52+02:00
-lastmod: 2025-10-23T11:07:52+02:00
+lastmod: 2026-03-16T08:07:42+02:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -172,7 +172,7 @@ Please be aware that, as with SBOM data, Chainguard began generating vulnerabili
 
 The **Advisories** tab lists any CVEs that have affected the image in the past and what action Chainguard took to remediate the CVE. This tab shows a timeline of each security advisory released for a given container image, starting with the most recent. Each entry specifies the date and time the advisory was released, the CVE in question, the affected package, and the [current status](/chainguard/chainguard-images/staying-secure/security-advisories/how-chainguard-issues/#summary-of-advisory-statuses). 
 
-To learn more about Chainguard security advisories, we encourage you to read our article on [How Chainguard Issues Security Advisories](/chainguard/chainguard-images/staying-secure/security-advisories/how-chainguard-issues/) as well as our guide on [How to Use Chainguard Security Advisories](/chainguard/chainguard-images/staying-secure/security-advisories/how-to-use/). You an also find every security advisory published for Chainguard Containers by exploring our self-service [Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory).
+To learn more about Chainguard security advisories, we encourage you to read our article on [How Chainguard Issues Security Advisories](/chainguard/chainguard-images/staying-secure/security-advisories/how-chainguard-issues/) as well as our guide on [How to Use Chainguard Security Advisories](/chainguard/chainguard-images/staying-secure/security-advisories/how-to-use/). You can also find every security advisory published for Chainguard Containers by exploring our self-service [Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory).
 
 ### Builds
 
@@ -194,6 +194,16 @@ Charts with the **shield** icon are iamguarded charts, created specifically to h
 Click any chart name to learn the chart details.
 
 
-## Learn More
+### Find packages in the Chainguard Console
+
+You can find a list of packages available to your organization in the Chainguard Console. Click **Packages** in the sidebar menu to open the Packages page to view and search across the list of APK packages that are available to you via the Chainguard-provided private APK repository for your organization.
+
+<center><img src="packages-in-console.png" alt="Screenshot showing Helm charts listed in the Chainguard Console."></center>
+<br />
+
+Click a package name to reveal more details about the package. Use the **Architecture** dropdown to select which option to display.
+
+
+## Learn more
 
 The Chainguard Console is a useful tool for understanding what Chainguard container images are available and learn details about each. To better understand how to work with individual container images, you can see if we have a [getting started guide](/chainguard/chainguard-images/getting-started/) available. We also provide a guide on [how to view security advisories](/chainguard/chainguard-images/security-advisories/) through our [self-service public Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory).

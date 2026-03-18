@@ -6,7 +6,7 @@ aliases:
 type: "article"
 description: "An overview of how to work with Chainguard's Private APK Repositories."
 date: 2025-02-21T11:07:52+02:00
-lastmod: 2025-02-21T11:07:52+02:00
+lastmod: 2026-03-16T08:07:42+02:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -23,12 +23,19 @@ This guide provides a brief overview of Chainguard's private APK repositories an
 
 Chainguard's private APK repos allow customers to pull secure apk packages from Chainguard. The list of packages available in an organization's private repository is based on the apk repositories that the organization already has access to.
 
-For example, say your organization has access to the [Chainguard MySQL container image](https://images.chainguard.dev/directory/image/mysql/versions). Along with `mysql`, this image comes with other apk packages, including `bash`, `openssl`, and `pwgen`. This means that you'll have access to these apk packages through your organization's private APK repository, along with any others that appear in Chainguard container images that your organization has access to. 
+For example, say your organization has access to the [Chainguard MySQL container image](https://images.chainguard.dev/directory/image/mysql/versions). Along with `mysql`, this image comes with other apk packages, including `bash`, `openssl`, and `pwgen`. This means that you'll have access to these apk packages through your organization's private APK repository, along with any others that appear in Chainguard container images that your organization has access to.
 
 Chainguard's private APK repositories are available to all Chainguard Containers customers.
 
 
-## Your Repository Address
+### Chainguard OS Packages
+
+Chainguard OS Packages is a beta offering for larger customers who already build their own images from packages using tools like Bazel, Dockerfiles, and rules\_apko, and want to use a wider set of packages from Chainguard. This includes over 400,000 packages that will be made available in a private APK repository. You are responsible for the image builds, the build tooling, validation, and compatibility while Chainguard builds the packages in the Chainguard Factory with complete SBOMs and our standard enterprise-grade, zero-CVE process.
+
+This beta offering is limited to those who want to use Chainguard-sourced packages in their existing, mature image building processes. Chainguard OS Packages are not currently available for use with [Chainguard Custom Assembly](/content/chainguard/chainguard-images/features/ca-docs/custom-assembly/).
+
+
+## Your repository address
 
 Your private APK repository will be available at a URL like the following:
 
@@ -105,7 +112,7 @@ apk update
 Following that, you can proceed to search and install packages from your private APK repository.
 
 
-## Searching for and Installing Packages
+## Searching for and installing packages
 
 As an example of how you can search for and install packages from these private repositories, this section will install `wget`. However, you could also try this out with any apk package that is included in any of the Chainguard container images your organization has access to.
 
@@ -214,7 +221,7 @@ wget policy:
 As this output shows, the `wget` apk package is installed in the container.
 
 
-## Using Private APK Repositories with Apko Builds
+## Using Private APK Repositories with apko builds
 
 You can also use your private APK repository with [apko](/open-source/build-tools/apko/overview/) builds. One of the advantages of this method is that you can build distroless images that include only the apk packages you need in the final image. 
 
@@ -265,9 +272,65 @@ You'll get output similar to the following, indicating that the `wget` package w
 . . .
 ```
 
+
+## Using Private APK Repositories with Bazel rules for apko
+
+You can also use your private APK repository with [Bazel](https://bazel.build/) using
+[rules_apko](https://github.com/chainguard-dev/rules_apko), which wraps
+`apko` for use in Bazel builds. Like the `apko` approach, you get the
+advantage of building distroless images that include only the APK packages
+you need in the final image, with the additional benefits of Bazel's
+hermetic, reproducible, and cached build system.
+
+As with the previous examples, you'll need to provide the `HTTP_AUTH`
+environment variable containing your Chainguard token to the `apko` runtime
+building the image:
+
+```shell
+export HTTP_AUTH="basic:apk.cgr.dev:user:$(chainctl auth token --audience apk.cgr.dev)"
+```
+
+In your `apko.yaml`, reference your private Chainguard APK repository:
+```shell
+cat > apko.yaml <<EOF
+contents:
+  repositories:
+  - https://apk.cgr.dev/$ORGANIZATION
+  packages:
+  - wget
+
+archs:
+- x86_64
+- aarch64
+EOF
+```
+
+With `HTTP_AUTH` set and your `apko.yaml` in place, run your Bazel build:
+
+```shell
+build //:my_image
+```
+
+You'll get output similar to the following, indicating that the `wget`
+package was installed using the private APK repository:
+
+```output
+INFO: Analyzed target //:my_image (123 packages loaded, 656 targets configured).
+INFO: From Action my_image:
+2026/03/12 12:46:27 INFO installing wolfi-baselayout (20230201-r28) arch=x86_64
+2026/03/12 12:46:27 INFO installing ca-certificates-bundle (20251003-r4) arch=x86_64
+2026/03/12 12:46:27 INFO installing ld-linux (2.43-r2) arch=x86_64
+2026/03/12 12:46:27 INFO installing glibc (2.43-r2) arch=x86_64
+2026/03/12 12:46:27 INFO installing wget (1.25.0-r0) arch=x86_64
+INFO: Found 1 target...
+Target //:my_image up-to-date:
+  bazel-bin/my_image
+INFO: Build completed successfully, 128 total actions
+```
+
 <a id="pull-token-automation"></a>
 
-## Pull Token for Authentication in Automated Workflows
+## Pull token for authentication in automated workflows
 
 Use a pull token with a custom time to live (TTL) to authenticate to your
 private APK repository. The following example creates a pull token with a TTL of

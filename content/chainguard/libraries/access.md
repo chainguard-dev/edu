@@ -16,7 +16,7 @@ toc: true
 
 Chainguard Libraries provide controlled access to security-enhanced Java and
 Python dependencies through the unified Chainguard platform authentication
-system. This guide explains how to set up access for your organization.
+system. This guide explains how to access (download) Chainguard library artifacts for your organization.
 
 ## Getting started
 
@@ -37,7 +37,7 @@ direct access.
 
 **Artifact manager**
 
-If your organization uses an artifact manager such as JFrog Artifactory or Sonatype Nexus, you can set up and configure credentials once per language ecosystem. Then, all projects and developers automatically inherit
+If your organization uses an artifact manager such as Cloudsmith, JFrog Artifactory, or Sonatype Nexus, you can set up and configure credentials once per language ecosystem. Then, all projects and developers automatically inherit
 the configuration. This option is recommended for organizations with multiple
 teams, and provides centralized access controls and consistent uptime. 
 
@@ -74,12 +74,11 @@ Successfully exchanged token.
 Valid! Id: 8a4141a........7d9904d98c
 ```
 
-<a id name="pull-token"></a>
+<a id="pull-token"></a>
 
 ## Creating pull tokens for libraries
 
-Pull tokens are separate identities with an assigned role to access the
-repositories from Chainguard Libraries. You can create the pull tokens:
+Pull tokens authenticate requests to download library artifacts from Chainguard. You can create the pull tokens:
 - With [the chainctl command](#creating-pull-tokens-with-chainctl), or 
 - [Using the Chainguard
   console](#creating-pull-tokens-with-the-chainguard-console).
@@ -277,7 +276,7 @@ sections for more details:
 * [Use environment variables](#env)
 * [.netrc for authentication](#netrc)
 
-<a id name="python-keyring"></a>
+<a id="python-keyring"></a>
 
 ## Python keyring provider
 

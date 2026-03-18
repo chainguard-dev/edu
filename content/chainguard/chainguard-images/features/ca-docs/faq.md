@@ -3,7 +3,7 @@ title: "Custom Assembly FAQs"
 linktitle: "FAQs"
 identifier: "Custom Assembly FAQs"
 type: "article"
-description: "Answers to you Questions about Chainguard's Custom Assembly tool"
+description: "Answers to your questions about Chainguard's Custom Assembly tool"
 date: 2025-02-19T11:07:52+02:00
 lastmod: 2025-03-21T11:07:52+02:00
 draft: false

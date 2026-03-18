@@ -245,4 +245,4 @@ In some cases you may have Docker builds that copy in binaries to run agents or 
 
 ## Learn More
 
-For more resources on migrating ot Chainguard Containers, please refer to our [Containers MIgration documentation](/chainguard/migration/). In particular, our [Migration Overview](/chainguard/migration/migrations-overview/) may be of interest. Chainguard Academy also hosts a number of [Compatibility Resources](/chainguard/migration/compatibility/) and [Migration Guides](/chainguard/migration/migration-guides/) for specific platforms and tools.
+For more resources on migrating to Chainguard Containers, please refer to our [Containers Migration documentation](/chainguard/migration/). In particular, our [Migration Overview](/chainguard/migration/migrations-overview/) may be of interest. Chainguard Academy also hosts a number of [Compatibility Resources](/chainguard/migration/compatibility/) and [Migration Guides](/chainguard/migration/migration-guides/) for specific platforms and tools.
