@@ -316,23 +316,65 @@ The option `-L` is required to follow redirects for the actual file locations.
 
 ## Hash verification when migrating to Chainguard Libraries
 
-Because Chainguard rebuilds from source, there are some circumstances where you
-can expect different checksums for the same package version when migrating from
-upstream PyPI to Chainguard Libraries:
+Because Chainguard rebuilds Python packages from source rather than mirroring upstream PyPI artifacts, it is expected that checksums for Chainguard-built packages differ from their PyPI counterparts, even for identical package versions. This affects any tool that pins or verifies hashes:
 
-- Tools such as `pip` enforce hashes when using `--require-hashes` or when hashes are pinned in requirements.txt files
-- Tools such as `Poetry` and `uv` generate lock files that include SHA-256 hashes and will fail if checksums don't match
-- Systems such as JFrog Artifactory or Nexus may have cached upstream PyPI wheels and continue serving them until caches are cleared
+- Tools such as `pip` verify that downloaded files match the hashes specified in requirements.txt when using `--require-hashes` or when hashes are pinned
+- Tools such as `pip`, `Poetry`, and `uv` generate lock files that include SHA-256 hashes
+- Repository managers such as JFrog Artifactory or Sonatype Nexus may have cached upstream PyPI wheels and continue serving them instead of Chainguard versions, even after you have reconfigured to use Chainguard Libraries
 
 ### Resolving checksum mismatches
 
->Note: Before regenerating lock files, ensure your tool is configured to use Chainguard as the package index by following the [global configuration](chainguard/libraries/python/global-configuration/) or [direct access](/chainguard/libraries/python/build-configuration/#direct-access) documentation.
+Before regenerating lock files, ensure your tool is configured to use Chainguard as the package index by following the [global configuration](chainguard/libraries/python/global-configuration/) or [direct access](/chainguard/libraries/python/build-configuration/#direct-access) documentation.
 
-To resolve hash mismatches, re-resolve your dependencies against Chainguard Libraries:
+To update your lock files and requirements with Chainguard's checksums:
 
-- For `--require-hashes`: install from Chainguard indexes, and then regenerate the requirements file with new hashes so they match Chainguard wheels. 
-- For `uv`, Poetry, or other tools that generate lockfiles: Point them at Chainguard indexes, and then regenerate the lockfile so stored hashes correspond to Chainguard artifacts.
-- For repository managers: You may also need to clear cached PyPI artifacts to ensure future installs pull Chainguard's versions.
+**pip with `--require-hashes`:** 
+
+If your `requirements.txt` was generated using PyPI hashes, installation will
+fail with a hash mismatch after switching to Chainguard. Once pip is configured
+to use Chainguard as the index, regenerate your requirements file to update the
+hashes:
+```bash
+  pip-compile --generate-hashes requirements.in -o requirements.txt
+```
+
+Note that `pip-compile` embeds your Chainguard index URL, including credentials, as an `--index-url` line in the generated file. Avoid committing this file to source control, or strip the `--index-url` line before doing so.
+
+**uv:**
+
+When the configured index changes, `uv sync` automatically re-resolves dependencies and updates `uv.lock` with hashes from the new index. No explicit `uv lock` step is required; running `uv sync` after configuring Chainguard as your index is sufficient. However, running `uv lock` explicitly after switching indexes is recommended to ensure your lock file accurately reflects what is being installed before you run `uv sync`.
+
+Note that `uv sync --frozen` bypasses index configuration entirely and downloads packages using the URLs embedded directly in `uv.lock`. If your lock file was generated against PyPI, `uv sync --frozen` will continue to download from PyPI regardless of your configured index. Run `uv lock` first to update the lock file before using `--frozen`.
+
+The credentials from your Chainguard pull token must be embedded in the index URL with the `/` in the username percent-encoded as `%2F`. For example, in `uv.toml`:
+
+```
+[[index]]
+url = "https://<PULLTOKEN_USERNAME_PART1>%2F<PULLTOKEN_USERNAME_PART2>:<PULLTOKEN_PASSWORD>@libraries.cgr.dev/python/simple/"
+authenticate = "always"
+```
+  
+**Poetry:**
+
+When the configured source changes, Poetry detects that `pyproject.toml` has changed significantly and refuses to install until the lock file is regenerated. Regenerate your lock file to update the hashes:
+
+Poetry 1.x:
+
+```bash
+  poetry lock --no-update
+```
+
+Poetry 2.x: 
+
+```bash
+  poetry lock
+```
+
+**Repository managers:** 
+
+Repository managers such as JFrog Artifactory or Sonatype Nexus may continue serving cached PyPI artifacts even after the upstream index is changed. Clear the cache or invalidate the artifact to ensure the Chainguard-built package is fetched. 
+
+Before regenerating lock files, ensure your tool is configured to use Chainguard as the package index by following the [global configuration](link) or [direct access](link) documentation.
 
 >**Note:** While hash mismatches from are expected for some tooling and
 configurations, you can verify the authenticity and provenance of Chainguard
