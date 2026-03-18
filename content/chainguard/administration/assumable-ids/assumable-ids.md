@@ -130,6 +130,21 @@ chainctl iam identities create <identity-name> \
 
 As with Terraform, you must provide `chainctl` with certain information about the identity you want to create, including the issuer and subject of the identity, the role-bindings associated with the identity (if any), and the organization under which the identity should be created.
 
+Be aware that you can use regular expressions to create an identity that matches claims using a pattern. The following example passes pattern expressions to the `--identity-issuer-pattern` and `--subject-pattern` flags:
+
+```shell
+chainctl iam identities create <identity-name> \
+    --identity-issuer-pattern="https://*.mycompany\.com" \ 
+    --subject-pattern="^\d{4}$"
+```
+
+You can use the following `chainctl` flags to match claims to patterns:
+
+* `--audience-pattern`: A pattern to match the audience of the identity.
+* `--claim-pattern`: A comma-separated list of `claim:pattern` pairs of custom claims to match the identity.
+* `--identity-issuer-pattern`: A pattern to match the issuer of the identity.
+* `--subject-pattern`: A pattern to match the subject of the identity.
+
 You can change an existing identity with the `update` command. The following example would update the identity's issuer.
 
 ```sh
