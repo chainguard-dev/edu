@@ -466,10 +466,10 @@ Packages from Chainguard are identified by the `publisher`:`environment` set as
 
 ### Sigstore bundle
 
-A Sigstore bundle is a self‑contained JSON file that packages everything needed
+A [Sigstore bundle](https://docs.sigstore.dev/about/bundle/) is a self‑contained JSON file that packages everything needed
 to verify the authenticity and integrity of a signed artifact.
 
-A [Sigstore bundle file](https://docs.sigstore.dev/about/bundle/) is available
+A Sigstore bundle file is available
 as `bundle.json` from the integrity context at
 `https://libraries.cgr.dev/python/integrity/PACKAGE/VERSION/FILE/bundle.json`
 specifically for each package, version, and file. 
