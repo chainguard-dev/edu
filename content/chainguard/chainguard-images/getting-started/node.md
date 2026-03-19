@@ -181,4 +181,6 @@ curl http://localhost:8000/test
 
 ## Advanced Usage
 
+Chainguard offers [slim variants](/chainguard/chainguard-images/about/differences-development-production/#slim-container-variants) of its Node.js container image. These have a smaller footprint than our standard Node.js images and are useful for building images with a minimal attack surface in multi-stage builds. Check out our [Node migration guide](/chainguard/migration/migration-guides/migrating-node/#using-slim-images) to learn more.
+
 {{< blurb/images-advanced image="Node" >}}

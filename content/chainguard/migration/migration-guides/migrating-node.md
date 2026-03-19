@@ -93,9 +93,9 @@ For more searching tips, check the [Searching for
 Packages](/chainguard/migration/migrating-to-chainguard-images/#searching-for-packages)
 section of our base migration guide.
 
-## Differences to Docker Official Image
+## Differences from the official Docker image
 
-If you are migrating from the [Docker Official Image](https://hub.docker.com/_/node) there are a
+If you are migrating from the [official Docker image](https://hub.docker.com/_/node) there are a
 few differences that are important to be aware of.
 
  - Our images run as the `node` user with UID 65532 by default. If you need elevated privileges
@@ -116,7 +116,7 @@ few differences that are important to be aware of.
    your application has an unexpected dependency which needs to be added into the Chainguard Container.
 
 
-## Migration Example
+## Migration example
 
 This section has a short example of migrating a Node.js application with a Dockerfile building on
 `node:latest` to use the Chainguard Node.js Containers. The code for [this example can be found on
@@ -207,8 +207,41 @@ The advantages of this build are:
  - we do not have all the build tooling in the final image, resulting in a smaller and more secure
    production image
 
-Note that in a production app you may want to use a `Package.lock` file and the `npm ci` command
+Note that in a production app you may want to use a `package-lock.json` file and the `npm ci` command
 instead of `npm install` to ensure the correct version of all dependencies is used.
+
+### Using slim images
+
+If Chainguard's Node.js image has been added to your organization's Chainguard Registry, you will have access to more tags than just `latest`, including *slim tags*. These represent Chainguard's [slim variants](/chainguard/chainguard-images/about/differences-development-production/#slim-container-variants), which have an even smaller attack surface than our standard container images. In the case of Node.js, the slim variants omit some packages that are included in the standard image for compatibility purposes, including `npm` and `busybox`. 
+
+Because they lack these compatibility packages, the slim Node.js images are often used in multi-stage builds. The following example updates the `Dockerfile-multi` file shown previously to point to one of Chainguard's slim Node.js images:
+
+```Docker
+FROM cgr.dev/chainguard/node:latest-dev AS builder
+
+ENV NODE_ENV production
+
+WORKDIR /usr/src/app
+
+COPY package.json .
+RUN npm install
+USER node
+COPY . .
+
+FROM cgr.dev/$ORGANIZATION/node:25-slim
+
+COPY --from=builder --chown=node:node /usr/src/app /app
+EXPOSE 3000
+ENV NODE_ENV=production
+ENV PATH=/app/node_modules/.bin:$PATH
+WORKDIR /app
+ENTRYPOINT ["/usr/bin/dumb-init", "--"]
+CMD ["node", "app.js"]
+```
+
+This example specifies the `:25-slim` tag, but be aware that Chainguard includes slim variants for every version of Node.js it offers.
+
+To build an image with a Dockerfile like this, your organization would need to have Chainguard's Node.js image included in its registry. You would also need to update `$ORGANIZATION` to reflect the name of your organization's registry.
 
 ## Additional Resources
 
