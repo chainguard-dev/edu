@@ -78,7 +78,7 @@ with a specific prefix to a different registry:
 ```
 # .npmrc
 registry=https://libraries.cgr.dev/javascript/
-//libraries.cgr.dev/javascript/:_auth=<base64-encoded-token>
+//libraries.cgr.dev/javascript/:_auth={$token}
 
 @your-org:registry=https://registry.npmjs.org/
 ```
@@ -109,10 +109,17 @@ A complete `.npmrc` configuration for this setup looks like:
 
 ```
 registry=https://libraries.cgr.dev/javascript/
-//libraries.cgr.dev/javascript/:_auth=<base64-encoded-token>
+//libraries.cgr.dev/javascript/:_auth=${token}
 
 @your-org:registry=https://registry.npmjs.org/
 replace-registry-host=never
+```
+
+To generate the `token` environment variable for this configuration:
+
+```bash
+eval $(chainctl auth pull-token --output env --repository=javascript --parent=<your-org>)
+export token=$(echo -n "${CHAINGUARD_JAVASCRIPT_IDENTITY_ID}:${CHAINGUARD_JAVASCRIPT_TOKEN}" | base64 -w 0)
 ```
 
 <a id="npm"></a>
