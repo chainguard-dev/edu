@@ -275,7 +275,7 @@ In our example, [we requested a list of groups the account belongs to](https://e
 }
 ```
 
-While using assumable identities with the API and API tokens, it is useful to use environment variables. Here's a high-level example of what you might do. Refer to your identity provider's documentation and [Assumable Identities](/chainguard/administration/assumable-ids/assumable-ids/) to learn more.
+Using environment variables is helpful when working with assumable identities through the API and API tokens. Here's a high-level example of what you might do. Refer to your identity provider's documentation and [Assumable Identities](/chainguard/administration/assumable-ids/assumable-ids/) to learn more.
 
 Here are some sample environment variables:
 
