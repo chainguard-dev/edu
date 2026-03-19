@@ -1,7 +1,7 @@
 ---
 title: "Infamous Software Vulnerabilities"
-description: "An overview a few of the most critical, widespread, and impactful known software vulnerabilities"
-lead: "An overview a few of the most critical, widespread, and impactful known software vulnerabilities"
+description: "An overview of a few of the most critical, widespread, and impactful known software vulnerabilities"
+lead: "An overview of a few of the most critical, widespread, and impactful known software vulnerabilities"
 type: "article"
 date: 2023-07-21T19:16:39+00:00
 lastmod: 2023-07-26T14:05:27+00:00

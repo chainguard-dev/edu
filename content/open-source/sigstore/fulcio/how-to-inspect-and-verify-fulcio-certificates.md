@@ -92,8 +92,7 @@ We will then verify the certificate against the Fulcio certificate authority roo
 step certificate verify fulcio.crt --roots ~/.sigstore/root/targets/fulcio_intermediate_v1.crt.pem
 ```
 
-The final command checks the signature in the `fulcio.sig` file, tracing the certificate up to the Fulcio root certificate. You'll need to use the identity flags `--certificate-ide
-ntity` which corresponds to the email address of the signer, and `--certificate-oidc-issuer` which corresponds to the OIDC provider that the signer used. For example, a Gmail account using Google as the OIDC issuer, will be able to be verified with the following command:
+The final command checks the signature in the `fulcio.sig` file, tracing the certificate up to the Fulcio root certificate. You'll need to use the identity flags `--certificate-identity` which corresponds to the email address of the signer, and `--certificate-oidc-issuer` which corresponds to the OIDC provider that the signer used. For example, a Gmail account using Google as the OIDC issuer, will be able to be verified with the following command:
 
 ```sh
 cosign verify-blob test-file.txt \

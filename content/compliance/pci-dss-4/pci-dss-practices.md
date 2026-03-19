@@ -24,7 +24,7 @@ PCI DSS 4.0, or Payment Card Industry Data Security Standard is intended for all
 |------------------------|
 | Primary account number |
 | Cardholder name |
-| Expiration data |
+| Expiration date |
 
 | Authentication Data |
 |-------------------------------------------------------|
@@ -44,7 +44,7 @@ Below is a table overview with a high-level description of the goals and require
 | **Build and maintain a secure network and systems** | Install and maintain network security controls and apply secure configurations to all system components |
 | **Protect account data** | Protect stored account data as well as during transmission over open, public networks |
 | **Maintain a vulnerability management program** | Protect all systems and networks from malicious software, develop and maintain secure systems and software |
-| **Implement strong access control measures** | Restrict access to system components and cardholder data y business need to know, identify users and authenticate access to system components, restrict physical access to cardholder data |
+| **Implement strong access control measures** | Restrict access to system components and cardholder data by business need to know, identify users and authenticate access to system components, restrict physical access to cardholder data |
 | **Regularly monitor and test networks** | Log and monitor all access to system components and cardholder data, test security of all systems regularly |
 | **Maintain an information security policy** | Support information security with organizational policies and programs |
 
