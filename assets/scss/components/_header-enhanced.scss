@@ -39,7 +39,7 @@
             color: var(--body-color);
             font-weight: 500;
             padding: 0.5rem 1rem;
-            border-radius: 6px;
+            border-radius: 4px;
             transition: all 0.2s ease;
             position: relative;
             
@@ -61,7 +61,7 @@
     .form-control {
         background: var(--search-background);
         border: 1px solid transparent;
-        border-radius: 8px;
+        border-radius: 4px;
         padding: 0.5rem 1rem;
         transition: all 0.2s ease;
         
@@ -104,7 +104,7 @@
         .nav-link {
             padding: 0.75rem 1rem;
             margin-bottom: 0.25rem;
-            border-radius: 8px;
+            border-radius: 4px;
             transition: all 0.2s ease;
             
             &:hover {
@@ -126,7 +126,7 @@
     select {
         background: var(--search-background);
         border: 1px solid rgba(20, 0, 61, 0.08);
-        border-radius: 6px;
+        border-radius: 4px;
         padding: 0.4rem 2rem 0.4rem 0.8rem;
         font-size: 0.9rem;
         transition: all 0.2s ease;

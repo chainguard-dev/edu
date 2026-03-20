@@ -192,12 +192,9 @@ blockquote {
 // Code typography
 code {
     font-family: $monoFont;
-    font-size: 0.875em;
-    font-weight: $font-normal;
-    padding: 0.125rem 0.375rem;
-    border-radius: 4px;
+    font-size: 0.85em;
+    padding: 0.2em 0.4em;
     background-color: var(--code-color);
-    color: var(--body-color);
 }
 
 pre {

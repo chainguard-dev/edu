@@ -24,7 +24,7 @@
             font-size: 14px;
             background: var(--search-background);
             border: 1px solid var(--leftnav-border);
-            border-radius: 6px;
+            border-radius: 4px;
             color: var(--body-color); // Use body text color for better contrast
             
             &:focus {
@@ -78,7 +78,7 @@
     border-color: var(--leftnav-border);
     background: var(--search-background);
     color: #8C8C8C;
-    border-radius: 6px;
+    border-radius: 4px;
 
     svg {
         margin-right: 4px;
