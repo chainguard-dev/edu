@@ -207,7 +207,9 @@ WARNING: There are "resources" sections in the chart not set. Using "resourcesPr
 
 If you manage access and permissions at cluster-wide and node-specific levels, these are some best practices to consider.
 
-**Pin to Digest:** While charts follow the same tagging scheme as Chainguard images, always pin to a specific chart digest to prevent unexpected updates:
+**Use Image Pinning:** All `iamguarded` charts pin images to specific **digests** that have been tested for compatibility, ensuring reliable deployments.
+
+**Pin to Digest:** While charts follow the same tagging scheme as Chainguard images, always pin to a specific chart **digest** to prevent unexpected updates:
 
 ```sh
 helm install rabbitmq \ 
@@ -216,8 +218,6 @@ oci://cgr.dev/$ORGANIZATION/iamguarded-charts/rabbitmq@sha256:DIGEST \
 ```
 
 **Review Default Values:** The chart provides security-minded defaults that are sensible but may not suit all use cases. Review the chart's `values.yaml` for the full range of configuration options and adjust as needed.
-
-**Use Image Pinning:** All `iamguarded` charts pin images to specific digests that have been tested for compatibility, ensuring reliable deployments.
 
 
 ## Helm chart usage examples

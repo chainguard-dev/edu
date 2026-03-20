@@ -159,14 +159,26 @@ NOTES:
 
 If you manage access and permissions at cluster-wide and node-specific levels, these are some best practices to consider.
 
-**Pin to tag:** The best practice for community charts is to pin to the image tag, like this:
+#### Use Image Pinning
+
+**Pin to tag:** All community charts pin images to specific **tags**, which works when you control both the image and the chart production release timing and can make sure they match when you release. Use tags like this:
 
 ```sh
 helm install grafana oci://cgr.dev/$ORGANIZATION/charts/grafana --version 10.5.13 \
   --set "global.org=$ORGANIZATION"
 ```
 
-**Review Default Values:** The chart provides security-minded defaults that are sensible but may not suit all use cases. Review the chart's `values.yaml` for the full range of configuration options and adjust as needed.
+**Pin to Digest:** While the Helm charts available from Chainguard follow the same tagging scheme as the related Chainguard images, we recommend that you always pin to a specific chart **digest** to prevent unexpected updates:
+
+```sh
+helm install rabbitmq \ 
+oci://cgr.dev/$ORGANIZATION/iamguarded-charts/rabbitmq@sha256:DIGEST \
+     --set "global.org=$ORGANIZATION"
+```
+
+#### Review Default Values:
+
+The chart provides security-minded defaults that are sensible but may not suit all use cases. Review the chart's `values.yaml` for the full range of configuration options and adjust as needed.
 
 
 ## Helm chart usage examples
