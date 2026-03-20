@@ -1,5 +1,5 @@
 ---
-date: 2026-03-13T13:52:34Z
+date: 2026-03-19T15:08:10Z
 title: "chainctl auth token capabilities"
 slug: chainctl_auth_token_capabilities
 url: /chainguard/chainctl/chainctl-docs/chainctl_auth_token_capabilities/
@@ -11,7 +11,7 @@ toc: true
 ---
 ## chainctl auth token capabilities
 
-Print the capabiltities of the local Chainguard Token.
+Print the capabilities of the local Chainguard Token.
 
 ```
 chainctl auth token capabilities [flags]

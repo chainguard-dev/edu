@@ -1847,6 +1847,14 @@
           "id": {
             "description": "id is the uidp of the entitlement, a child of a group.",
             "type": "string"
+          },
+          "policy": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.Policy"
+              }
+            ],
+            "description": "policy is the libraries policy for this entitlement."
           }
         },
         "type": "object"
@@ -1962,6 +1970,14 @@
             "description": "The npm package name (e.g. \"react\" or \"@scope/lib\").",
             "type": "string"
           },
+          "sourceType": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.NpmSourceType"
+              }
+            ],
+            "description": "The origin of this package version."
+          },
           "version": {
             "description": "The version string of this package version.",
             "type": "string"
@@ -1990,6 +2006,27 @@
           }
         },
         "type": "object"
+      },
+      "chainguard.platform.libraries.NpmSourceType": {
+        "default": "NPM_SOURCE_TYPE_UNKNOWN",
+        "description": "NpmSourceType indicates the origin of a package version.",
+        "enum": [
+          "NPM_SOURCE_TYPE_UNKNOWN",
+          "NPM_SOURCE_TYPE_INTERNAL",
+          "NPM_SOURCE_TYPE_INTERNAL_REMEDIATED",
+          "NPM_SOURCE_TYPE_UPSTREAM_REGISTRY"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.libraries.Policy": {
+        "default": "POLICY_UNKNOWN",
+        "description": "Policy controls which package sources are available for an entitlement.\n\n - POLICY_UNKNOWN: defaults to CHAINGUARD behavior\n - POLICY_CHAINGUARD: internal packages only\n - POLICY_CHAINGUARD_AND_UPSTREAM: internal + upstream (with cooldown)",
+        "enum": [
+          "POLICY_UNKNOWN",
+          "POLICY_CHAINGUARD",
+          "POLICY_CHAINGUARD_AND_UPSTREAM"
+        ],
+        "type": "string"
       },
       "chainguard.platform.matcher.ImageMatch": {
         "properties": {
@@ -2392,6 +2429,45 @@
         },
         "type": "object"
       },
+      "chainguard.platform.packages.PackageEntitlement": {
+        "description": "PackageEntitlement maps an org to a package tier they are entitled to.",
+        "properties": {
+          "id": {
+            "description": "id is the uidp of the entitlement, a child of a group.",
+            "type": "string"
+          },
+          "tier": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.packages.PackageTier"
+              }
+            ],
+            "description": "tier is the package tier this entitlement grants access to."
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.packages.PackageEntitlementList": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.packages.PackageEntitlement"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.packages.PackageTier": {
+        "default": "PACKAGE_TIER_UNSPECIFIED",
+        "description": "PackageTier represents the package tier an org can be entitled to.",
+        "enum": [
+          "PACKAGE_TIER_UNSPECIFIED",
+          "PACKAGE_TIER_BASE",
+          "PACKAGE_TIER_FIPS"
+        ],
+        "type": "string"
+      },
       "chainguard.platform.ping.Response": {
         "properties": {
           "response": {
@@ -2754,6 +2830,12 @@
               "$ref": "#/components/schemas/chainguard.platform.registry.ApkoConfig.Certificates.AdditionalEntry"
             },
             "type": "array"
+          },
+          "providers": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
           }
         },
         "type": "object"
@@ -3014,7 +3096,8 @@
           "BASE",
           "FIPS",
           "AI",
-          "DEVTOOLS"
+          "DEVTOOLS",
+          "COMMERCIAL"
         ],
         "type": "string"
       },
@@ -3144,6 +3227,12 @@
               "$ref": "#/components/schemas/chainguard.platform.registry.CustomOverlay.Certificates.AdditionalEntry"
             },
             "type": "array"
+          },
+          "providers": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
           }
         },
         "type": "object"
@@ -3223,7 +3312,8 @@
           "UNKNOWN",
           "TRIAL",
           "PRODUCTION",
-          "EXTRA"
+          "EXTRA",
+          "STARTER"
         ],
         "type": "string"
       },
@@ -8520,6 +8610,20 @@
               "pattern": ".+",
               "type": "string"
             }
+          },
+          {
+            "description": "policy is the libraries policy for this entitlement.\n\n - POLICY_UNKNOWN: defaults to CHAINGUARD behavior\n - POLICY_CHAINGUARD: internal packages only\n - POLICY_CHAINGUARD_AND_UPSTREAM: internal + upstream (with cooldown)",
+            "in": "query",
+            "name": "policy",
+            "schema": {
+              "default": "POLICY_UNKNOWN",
+              "enum": [
+                "POLICY_UNKNOWN",
+                "POLICY_CHAINGUARD",
+                "POLICY_CHAINGUARD_AND_UPSTREAM"
+              ],
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -8731,6 +8835,47 @@
         "summary": "List",
         "tags": [
           "Notifications"
+        ]
+      }
+    },
+    "/packages/v1/entitlements": {
+      "get": {
+        "operationId": "Entitlements_List",
+        "parameters": [
+          {
+            "description": "parent_id is the group to list entitlements for. Required.",
+            "in": "query",
+            "name": "parentId",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.packages.PackageEntitlementList"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List",
+        "tags": [
+          "PackagesEntitlements"
         ]
       }
     },
@@ -12788,6 +12933,10 @@
     },
     {
       "name": "SecurityTokenService"
+    },
+    {
+      "description": "Packages Entitlements API",
+      "name": "PackagesEntitlements"
     },
     {
       "name": "PingService"
