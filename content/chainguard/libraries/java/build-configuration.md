@@ -133,8 +133,12 @@ activated profile.
         <repository>
           <id>central</id>
           <url>http://central</url>
-          <releases><enabled>true</enabled></releases>
-          <snapshots><enabled>true</enabled></snapshots>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
         </repository>
       </repositories>
       <pluginRepositories>
@@ -195,28 +199,44 @@ variables](/chainguard/libraries/access/#env) for the pull token detailed in
         <repository>
           <id>chainguard</id>
           <url>https://libraries.cgr.dev/java/</url>
-          <releases><enabled>true</enabled></releases>
-          <snapshots><enabled>false</enabled></snapshots>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
         </repository>
         <repository>
           <id>central</id>
           <url>https://repo1.maven.org/maven2/</url>
-          <releases><enabled>true</enabled></releases>
-          <snapshots><enabled>false</enabled></snapshots>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
         </repository>
       </repositories>
       <pluginRepositories>
         <pluginRepository>
           <id>chainguard</id>
           <url>https://libraries.cgr.dev/java/</url>
-          <releases><enabled>true</enabled></releases>
-          <snapshots><enabled>false</enabled></snapshots>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
         </pluginRepository>
         <pluginRepository>
           <id>central</id>
           <url>https://repo1.maven.org/maven2/</url>
-          <releases><enabled>true</enabled></releases>
-          <snapshots><enabled>false</enabled></snapshots>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
         </pluginRepository>
       </pluginRepositories>
     </profile>
@@ -224,8 +244,12 @@ variables](/chainguard/libraries/access/#env) for the pull token detailed in
   <servers>
     <server>
       <id>chainguard</id>
+      <!-- Use environment variables (recommended for CI/CD and shared configs) -->
       <username>${env.CHAINGUARD_JAVA_IDENTITY_ID}</username>
       <password>${env.CHAINGUARD_JAVA_TOKEN}</password>
+      <!-- Or use literal values for local development -->
+      <!-- <username>YOUR_IDENTITY_ID</username> -->
+      <!-- <password>YOUR_TOKEN</password> -->
     </server>
   </servers>
 </settings>
@@ -252,27 +276,70 @@ cd maven-example
 ```
 
 For testing purposes, you can use direct access and environment variables as
-detailed in the [access documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials). Once
-the environment variables are set, configure the repository in `pom.xml` and authentication in `~/.m2/settings.xml`:
+detailed in the [access documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials). 
+
+
+Once the environment variables are set, configure credentials in `~/.m2/settings.xml`:
 
 ```bash
-# Add the Chainguard repository to pom.xml
-cat >> pom.xml << 'EOF'
-  <repositories>
-    <repository>
-      <id>chainguard-java</id>
-      <url>https://libraries.cgr.dev/java/</url>
-    </repository>
-  </repositories>
-EOF
-
-# Configure credentials in ~/.m2/settings.xml
 mkdir -p ~/.m2
 cat > ~/.m2/settings.xml << EOF
 <settings>
+  <activeProfiles>
+    <activeProfile>no-repo-manager</activeProfile>
+  </activeProfiles>
+  <profiles>
+    <profile>
+      <id>no-repo-manager</id>
+      <repositories>
+        <repository>
+          <id>chainguard</id>
+          <url>https://libraries.cgr.dev/java/</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </repository>
+        <repository>
+          <id>central</id>
+          <url>https://repo1.maven.org/maven2/</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>chainguard</id>
+          <url>https://libraries.cgr.dev/java/</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+          <id>central</id>
+          <url>https://repo1.maven.org/maven2/</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
   <servers>
     <server>
-      <id>chainguard-java</id>
+      <id>chainguard</id>
       <username>${CHAINGUARD_JAVA_IDENTITY_ID}</username>
       <password>${CHAINGUARD_JAVA_TOKEN}</password>
     </server>
@@ -281,12 +348,10 @@ cat > ~/.m2/settings.xml << EOF
 EOF
 ```
 
-Add dependencies for your project into `pom.xml` to test retrieval from Chainguard Libraries, build the project, and list the dependencies:
+Then build the project:
 
 ```bash
-mvn dependency:get -Dartifact=com.google.guava:guava:33.4.0-jre
 mvn compile
-mvn dependency:list
 ```
 
 Following this, find the downloaded package in `~/.m2/repository/com/google/guava/guava/`.
