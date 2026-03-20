@@ -128,10 +128,11 @@ A full description of all events and their types is [available on Chainguard Aca
 
 ## Validating Events
 
-Before processing an event from Chainguard, you should ensure that it is valid. Every Chainguard event has a JSON Web Token (JWT) formatted OIDC ID token in its Authorization header. For authorization purposes, there are two important fields to validate:
+Before processing an event from Chainguard, you should ensure that it is valid. Every Chainguard event has a JSON Web Token (JWT) formatted OIDC ID token in its Authorization header. For authorization purposes, validate the first two fields; then, verify the third:
 
 * Use the `iss` field to ensure that the issuer is Chainguard, specifically `https://issuer.enforce.dev`.
 * Use the `sub` field to check that the event matches your configured Chainguard identity. For example, assuming a UIDP ID of `0475f6baca584a8964a6bce6b74dbe78dd8805b6`, the `sub` field's value will resemble the following: `webhook:0475f6baca584a8964a6bce6b74dbe78dd8805b6`. If the subscription is in a sub-group, then the value will have the corresponding group SUID appended to the path.
+* Verify the JWT digest against the content of the event.
 
 Validating these fields before processing the JWT token using a verification library can save resources, as well as alert you about suspicious traffic or misconfigured Chainguard organization settings.
 
