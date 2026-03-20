@@ -54,7 +54,7 @@ spec:
 EOF
 ```
 
-Note that  you may not be able to control where images provided by the platform are hosted in certain managed Kubernetes solutions.
+Note that you may not be able to control where images provided by the platform are hosted in certain managed Kubernetes solutions.
 
 To test that this constraint is working correctly, try to create a non-compliant pod:
 

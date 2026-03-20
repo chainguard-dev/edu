@@ -19,13 +19,28 @@ weight: 001
 toc: true
 ---
 
-Chainguard has created Custom Assembly, a tool that allows users to create customized container images with extra packages added. This enables customers to reduce their risk exposure by creating container images that are tailored to their internal organization and application requirements while still having few-to-zero CVEs.
+Chainguard Custom Assembly enables organizations to build container images
+tailored to their internal requirements and application dependencies, without
+sacrificing security. By extending Chainguard's hardened base images with
+additional packages, environment variables, user accounts, and certificates,
+teams can reduce CVE exposure while maintaining the flexibility their workflows
+demand.
 
 This overview of Custom Assembly outlines how it works, its limitations, and how you can use container images customized with Custom Assembly. For a more hands-on tutorial on using Custom Assembly, Chainguard Academy currently has documentation for the following methods of managing the tool:
 
 * [Using the Chainguard console](/chainguard/chainguard-images/features/ca-docs/custom-assembly-console/)
 * [Using `chainctl`, Chainguard's command-line interface tool](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/)
 * [Using Chainguard's API](/chainguard/chainguard-images/features/ca-docs/custom-assembly-api-demo/)
+
+With Custom Assembly, you can add the following to your container images:
+
+* [Packages](#installing-packages-from-a-chainguard-private-apk-repository) — Add extra APK packages from Chainguard's repository (limited to packages your organization is entitled to).
+* [Custom certificates](/chainguard/chainguard-images/features/ca-docs/custom-assembly-certs/) — Embed PEM-encoded x509v3 certificates (such as internal CA certificates) directly into the image's truststore. These are merged with the default certificate bundle at /etc/ssl/certs/ca-certificates.crt. 
+* [Chainguard-managed certificate bundles](/chainguard/chainguard-images/features/ca-docs/custom-assembly-certs/#chainguard-managed-certificate-bundles) — Pre-packaged certificate bundles for regulated environments, such as commercial AWS or AWS GovCloud.
+* [Environment variables and annotations](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/#adding-custom-annotations-and-environment-variables) — Set custom runtime environment variables and custom metadata annotations.
+* [Custom user accounts and groups](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_apply/) — Use `chainctl images repos build apply` or `chainctl images repos build edit` to define custom users with specific UIDs/GIDs, home directories, group memberships, and specify which user the image runs as. 
+
+Note: You cannot remove base packages that come with the source image — you can only add to them.
 
 
 ## About Custom Assembly
@@ -45,7 +60,7 @@ The packages you can add to a container image are those that your organization a
 The changes you make to your customized container image may affect its functional behavior when deployed. Chainguard doesn’t test your final customized image and therefore doesn't guarantee its functional behavior. Please test your customized images extensively to ensure they meet your requirements.
 
 
-## Why Use Custom Assembly for adding packages
+## Why use Custom Assembly for adding packages
 
 When you add packages to Chainguard Containers using `apk add` commands without pinning to specific package versions and image digests, you expose yourself to version compatibility conflicts that can break their builds. Chainguard continuously updates its APK repository with the latest package versions to ensure customers receive the most recent security patches. This creates problems when a newly-updated package has conflicts with older dependencies installed in an image. These conflicts will be resolved when a new version of the image is released, but until then it's possible there will be a window where builds will break.
 
@@ -121,7 +136,7 @@ https://apk.cgr.dev/45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595
 
 The repository address in this file (which includes a long unpronounceable string) will differ from the one shown in the Console (which reflects the organization name). The string shown in the `repositories` file is the ID number of the organization. You can confirm this by running the `chainctl iam organizations ls -o table` command.
 
-To search for and install packages from the private APK repository, first the package index:
+To search for and install packages from the private APK repository, first update the package index:
 
 ```container
 apk update

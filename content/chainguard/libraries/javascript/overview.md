@@ -108,7 +108,17 @@ Chainguard publisher identity is verifiable via the Sigstore signing certificate
 embedded in the attestation bundle, which links back to https://issuer.enforce.dev,  
 the Chainguard OIDC issuer.
 
-To verify a specific package's provenance attestation using `cosign`, replace `PACKAGE` 
+You can verify a package tarball in a single command using `chainctl`:
+
+```bash
+chainctl libraries verify PACKAGE-VERSION.tgz
+```
+
+See [Verification](/chainguard/libraries/verification/) for setup and usage details.
+
+### Verify attestation manually
+
+Alternatively, you can verify a specific package's provenance attestation manually using `cosign`, which is useful for debugging or integrating individual steps into custom workflows. In the following commands, replace `PACKAGE` 
 and `VERSION` with the package name and version (for example, `axios-mock-adapter` 
 and `1.17.0`):
 

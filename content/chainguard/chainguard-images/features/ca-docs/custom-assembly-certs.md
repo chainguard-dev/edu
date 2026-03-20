@@ -47,7 +47,7 @@ With Custom Assembly, you can add custom certificates to your Chainguard Contain
 You can add certificates interactively by running a command like the following:
 
 ```shell
-chainctl image repos build edit --parent $ORGANIZATION --repo $CONTAINER
+chainctl images repos build edit --parent $ORGANIZATION --repo $CONTAINER
 ```
 
 This will open your default text editor with the current configuration. This example includes the `--parent` flag, which points to the name of your organization, and the `--repo` argument, which points to the name of the image you want to customize. If you omit these arguments, `chainctl` will prompt you to select your organization and container image interactively.
@@ -159,7 +159,7 @@ crane export cgr.dev/my-org/my-custom-image:latest - | tar -xOf - etc/ssl/certs/
 After running this command, inspect the copied file locally to confirm that your certificate is present.
 
 
-## Changuard-managed certificate bundles
+## Chainguard-managed certificate bundles
 
 Customers have the ability to add Chainguard-managed certificate bundles for certain regulated environments to their Custom Assembly images. These certificates are bundled into discrete packages that you can apply to customized images in bulk. You can add them to a customized image the same way you would add any other package with Custom Assembly, including with [`chainctl`](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/) or in the [Chainguard Console](/chainguard/chainguard-images/features/ca-docs/custom-assembly-console/). 
 

@@ -110,7 +110,7 @@ Contact your Chainguard account team or Chainguard support to configure an upstr
 ## Security controls
 
 ### Malware scanning
-All packages served from the upstream fallback are scanned for malware before being made available.Any package version with a detected malware identifier (MAL ID) from the public OSV feed is blocked and will not be served.
+All packages served from the upstream fallback are scanned for malware before being made available. Any package version with a detected malware identifier (MAL ID) from the public OSV feed is blocked and will not be served.
 
 ### Cooldown period
 When fallback is enabled, upstream npm packages are subject to a default 7-day cooldown from their publication date before the Chainguard Repository will serve them. The cooldown is an additional layer of security on top of malware scanning. It provides a window for the security community to identify and report malicious packages before your builds can pull them.
@@ -127,5 +127,5 @@ When you request a JavaScript package from the Chainguard Repository, the follow
     * Malware scanning checks all packages against the Open Source Vulnerabilities (OSV) database, which includes the OpenSSF Malicious Packages feed among other sources. Any package version flagged with a known MAL ID is blocked before it can be served. This covers reported malicious packages across the npm ecosystem; packages with unreported or novel malware may not be detected by scanning alone, which is why building from verified source remains the primary defense.
 
 ## View repository configuration in the Chainguard Console
-The Chainguard Console provides visibility into your repository configuration and the packages being served. When the upstream fallback is configured for your organization, you will see all packages including those built-by Chainguard and those that are mirrored from upstream npm.
+The Chainguard Console provides visibility into your repository configuration and the packages being served. When the upstream fallback is configured for your organization, you will see all packages including those built by Chainguard and those that are mirrored from upstream npm.
 

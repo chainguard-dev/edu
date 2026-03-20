@@ -54,7 +54,7 @@ Take note of these values, as you'll need them shortly.
 Next, open up the Harbor UI and perform the following steps:
 
 1. Navigate to **Administration > Registries**
-2. Click the **+ NEW ENDPOINT** button..
+2. Click the **+ NEW ENDPOINT** button.
 3. Configure the endpoint with these details:
     * **Provider** — There is no specific integration with the Chainguard registry, so here you must select the generic `Docker Registry` provider type.
     * **Name** — This is used to refer to your repository. You can choose whatever name you like here, but this guide's examples use the name `cgr.dev`.
@@ -76,7 +76,7 @@ To configure a cache, perform the following steps in the Harbor UI:
 1. Navigate to **Projects**.
 2. Click the **+ NEW PROJECT** button.
 3. Create the project with these details:
-    * **Project Name** — This can be whatever you like. This guide uses the name `cgr—proxy`.
+    * **Project Name** — This can be whatever you like. This guide uses the name `cgr-proxy`.
     * **Access Level** — Set this as required for your organization. Checking the **Public** box means `docker login` is not required.
     * **Project quota limits** — leave at `-1` for unlimited or set as required.
     * **Proxy Cache** — Toggle this on.
@@ -102,7 +102,7 @@ First, create a project:
 1. Navigate to **Projects**.
 2. Click the **+ NEW PROJECT** button.
 3. Create the project with these details:
-    * **Project Name** — This can be whatever you like. This guide uses the name `cgr—mirror`.
+    * **Project Name** — This can be whatever you like. This guide uses the name `cgr-mirror`.
     * **Access Level** — Set this as required for your organization. Checking the **Public** box means `docker login` is not required.
     * **Project quota limits** — leave at `-1` for unlimited or set as required.
     * **Proxy Cache** — Leave this toggled off.

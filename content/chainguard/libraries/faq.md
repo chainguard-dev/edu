@@ -68,8 +68,7 @@ of the software supply chain for libraries across different language ecosystems:
 * All Java build tools using Maven repositories, including Maven, Gradle, and
   Ant, could be affected.
 * MavenGate relied on the use of multiple repositories and any attack with the
-  proposed mechanism would not publish source code. Chainguard Libraries use
-  replaces other repositories and the use of Chainguard Libraries, based on
+  proposed mechanism would not publish source code. Chainguard Libraries replace other repositories and the use of Chainguard Libraries, based on
   building from the original source, would have prevented an attack using this approach
 * See also [_The Hacker News_ article](https://thehackernews.com/2024/01/hackers-hijack-popular-java-and-android.html),
   [_Oversecured_ blog post](https://blog.oversecured.com/Introducing-MavenGate-a-supply-chain-attack-method-for-Java-and-Android-applications/),

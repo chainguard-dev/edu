@@ -74,7 +74,7 @@ Successfully exchanged token.
 Valid! Id: 8a4141a........7d9904d98c
 ```
 
-<a id name="pull-token"></a>
+<a id="pull-token"></a>
 
 ## Creating pull tokens for libraries
 
@@ -280,7 +280,7 @@ sections for more details:
 * [Use environment variables](#env)
 * [.netrc for authentication](#netrc)
 
-<a id name="python-keyring"></a>
+<a id="python-keyring"></a>
 
 ## Python keyring provider
 

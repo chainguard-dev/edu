@@ -49,7 +49,7 @@ All packages — whether Chainguard-built or sourced from upstream — are also 
 
 ## Use case for OS Packages
 
-This is for large customers who already build your own container images from packages using tools like Bazel, Dockerfiles, and `ruies_apko` and want to use a wider set of packages from Chainguard. Chainguard OS Packages makes over 400,000 built packages into your private APK repository.
+This is for large customers who already build their own container images from packages using tools like Bazel, Dockerfiles, and `rules_apko` and want to use a wider set of packages from Chainguard. Chainguard OS Packages makes over 400,000 built packages into your private APK repository.
 
 
 ## **Console**

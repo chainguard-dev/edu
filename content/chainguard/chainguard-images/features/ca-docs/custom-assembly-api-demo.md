@@ -80,7 +80,7 @@ From here, you can run the application and use it to update the packages built i
 
 ## Understanding the Demo Application
 
-Before outlining how to run the demo application to update Custom Assembly container image, it's important that you have a general understanding of how the application works. 
+Before outlining how to run the demo application to update a Custom Assembly container image, it's important that you have a general understanding of how the application works. 
 
 This section will only provide a general overview of the application. We encourage you to read through the complete application, as it includes comments that explain what each portion of the code does. 
 

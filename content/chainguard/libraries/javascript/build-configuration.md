@@ -376,7 +376,7 @@ dependencies. The following block shows a minimal example with `react` and
 }
 ```
 By default, Yarn retrieves the packages from the registry at
-`https://registry.yarnpkg.com` and stored locally folder `.yarn` in the users
+`https://registry.yarnpkg.com` and stores them locally in the `.yarn` folder in the user's
 home directory after running `yarn`. Specific packages are linked into the
 project. This operation also creates the `yarn.lock` file.
 
@@ -412,7 +412,7 @@ Example URLs:
 * Sonatype Nexus: https://repo.example.com:8443/repository/javascript-all
 * Direct access: https://libraries.cgr.dev/javascript
 
-To change the packages, run the `yarn` command again. This forces an updated of
+To change the packages, run the `yarn` command again. This forces an update of
 all packages from the new registry and regeneration of the lock file.
 
 Now you can proceed with your development and testing. 
@@ -466,7 +466,7 @@ commands also result in the creation of the lock file `yarn.lock`, which
 contains the source URL for each package in the `archiveUrl` parameter of the
 `resolution` field.
 
-Adjust the registry configuration to use your repository manager and any add
+Adjust the registry configuration to use your repository manager and add any
 other desired packages for further testing.
 
 <a id="yarn-classic"></a>
