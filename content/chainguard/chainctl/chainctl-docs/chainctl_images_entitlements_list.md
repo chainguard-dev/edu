@@ -1,5 +1,5 @@
 ---
-date: 2026-03-13T13:52:34Z
+date: 2026-03-19T15:08:10Z
 title: "chainctl images entitlements list"
 slug: chainctl_images_entitlements_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_entitlements_list/
@@ -14,12 +14,13 @@ toc: true
 List registry entitlements of an organization.
 
 ```
-chainctl images entitlements list --parent=PARENT [--output=json|table] [flags]
+chainctl images entitlements list --parent=PARENT [--all] [--output=json|table|wide] [flags]
 ```
 
 ### Options
 
 ```
+  -a, --all             Include expired entitlements in the output.
       --parent string   The name or id of the org to list registry entitlements for.
 ```
 
