@@ -5,7 +5,6 @@
 
 footer {
     background: var(--footer-background); // Light gray background
-    color: var(--primary-3);
     border-top: none;
     padding: 4rem 0 2rem;
     
@@ -74,7 +73,7 @@ footer {
         padding: 12px 28px;
         background: var(--primary-1);
         border: none;
-        border-radius: 6px;
+        border-radius: 4px;
         color: #ffffff !important;
         text-decoration: none;
         font-size: 15px;
@@ -99,12 +98,11 @@ footer {
             justify-content: center;
             width: 40px;
             height: 40px;
-            border-radius: 8px;
+            border-radius: 4px;
             background: transparent;
             transition: all 0.2s ease;
 
             &:hover {
-                background: rgba(98, 38, 240, 0.08);
                 transform: translateY(-2px);
             }
 
@@ -248,8 +246,6 @@ footer {
 :root[data-dark-mode] {
     footer {
         background: var(--footer-background); // Still light gray
-        color: var(--primary-3);
-
         .footer-brand-section {
             .footer-contact-btn {
                 background: var(--primary-1);
@@ -262,10 +258,6 @@ footer {
             .footer-brand-socials a {
                 svg {
                     fill: var(--primary-3);
-                }
-
-                &:hover {
-                    background: rgba(98, 38, 240, 0.08);
                 }
             }
         }

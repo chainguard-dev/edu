@@ -57,22 +57,12 @@ body {
   pre {
     font-size: var(--docs-small-font);
     line-height: 1.5;
-    border-radius: 8px;
+    border-radius: 4px;
     
     code {
       font-size: inherit;
       font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
     }
-  }
-  
-  // Inline code
-  code:not(pre code) {
-    font-size: 0.9em;
-    padding: 0.2em 0.4em;
-    border-radius: 4px;
-    font-weight: 500;
-    background: var(--gray-200);
-    color: var(--text-danger);
   }
 }
 
@@ -213,16 +203,6 @@ a {
   &.nav-link,
   &.btn {
     text-decoration: none;
-  }
-}
-
-// Improve contrast for muted text
-.text-muted,
-.muted {
-  opacity: 0.85;
-  
-  @media (prefers-color-scheme: dark) {
-    opacity: 0.75;
   }
 }
 

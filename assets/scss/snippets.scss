@@ -5,7 +5,7 @@
 .pre-container {
   background-color: var(--pre-container-background);
   border: 1px solid var(--pre-container-border);
-  border-radius: 8px;
+  border-radius: 4px;
   overflow: visible; // for tooltips
 
   // Mobile overflow
@@ -37,7 +37,7 @@
 }
 
 .pre-container .code {
-  border-radius: 8px;
+  border-radius: 4px;
   background-color: var(--pre-container-background) !important;
   font-style: normal;
   font-weight: 400;
@@ -78,7 +78,7 @@
   height: 76px;
   display: flex;
   align-items: center;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 .expand-btn-icon-collapsed {
