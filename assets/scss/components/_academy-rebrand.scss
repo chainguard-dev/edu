@@ -147,7 +147,7 @@
   font-size: 15px;
   font-weight: 500;
   padding: 8px 16px;
-  border-radius: 6px;
+  border-radius: 4px;
   transition: all 0.2s ease;
 
   &:hover {
@@ -179,7 +179,7 @@
   font-size: 15px;
   font-weight: 600;
   padding: 10px 24px;
-  border-radius: 6px;
+  border-radius: 4px;
   transition: all 0.2s ease;
   box-shadow: 0 2px 8px rgba(98, 38, 240, 0.2);
 
@@ -562,7 +562,7 @@
   color: #6226FB !important;
   font-size: 18px;
   font-weight: 600;
-  border-radius: 8px;
+  border-radius: 4px;
   text-decoration: none;
   transition: all 0.3s ease;
   align-self: flex-start;
@@ -700,7 +700,7 @@
   font-family: $titleFont;
   font-size: 18px;
   font-weight: 600;
-  border-radius: 8px;
+  border-radius: 4px;
   text-decoration: none;
   align-self: flex-start;
   transition: all 0.3s ease;
@@ -954,7 +954,7 @@
   justify-content: center;
   color: var(--body-color);
   transition: all 0.2s ease;
-  border-radius: 8px;
+  border-radius: 4px;
 
   svg {
     width: 20px;
@@ -962,22 +962,15 @@
   }
 
   &:hover {
-    background: rgba(98, 38, 240, 0.08);
     color: var(--primary-1);
     transform: translateY(-2px);
   }
 
   @media (prefers-color-scheme: dark) {
     &:hover {
-      background: rgba(255, 255, 255, 0.1);
       color: var(--primary-2);
     }
   }
-}
-
-:root[data-dark-mode] .footer-social-icon:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--primary-2);
 }
 
 // Dark mode footer background
@@ -1013,7 +1006,7 @@
   font-family: $titleFont;
   font-size: 16px;
   font-weight: 600;
-  border-radius: 8px;
+  border-radius: 4px;
   text-decoration: none;
   width: 100%;
   transition: all 0.3s ease;

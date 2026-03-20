@@ -384,7 +384,7 @@ h2[id^="chainctl"] {
     background-color: var(--secondary-3); // Light blurple
     color: var(--primary-1) !important; // Blurple text
     padding: 6px 16px;
-    border-radius: 6px;
+    border-radius: 4px;
     font-family: $TextFont;
     font-style: normal;
     font-weight: 600;
@@ -1308,17 +1308,6 @@ header .search-container {
     display: flex;
     flex-direction: column;
     row-gap: 12px;
-}
-
-code {
-    display: inline-block;
-    padding-top: 0;
-    padding-bottom: 0;
-    background: var(--code-color) !important;
-    padding: 0 8px;
-    font-family: $monoFont;
-    line-height: 22px;
-    letter-spacing: 0.0025em;
 }
 
 [data-dark-mode] body a code:not(.hljs) {
