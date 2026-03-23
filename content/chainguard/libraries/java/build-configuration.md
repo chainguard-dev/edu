@@ -383,7 +383,7 @@ EOF
 Then build the project:
 
 ```bash
-mvn compile
+mvn install
 ```
 
 Following this, find the downloaded package in `~/.m2/repository/com/google/guava/guava/`.
