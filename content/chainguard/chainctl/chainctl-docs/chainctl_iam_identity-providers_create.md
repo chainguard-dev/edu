@@ -1,5 +1,5 @@
 ---
-date: 2026-03-19T15:08:10Z
+date: 2026-03-20T17:56:07Z
 title: "chainctl iam identity-providers create"
 slug: chainctl_iam_identity-providers_create
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers_create/
@@ -14,7 +14,7 @@ toc: true
 Create an identity provider
 
 ```
-chainctl iam identity-providers create --parent ORGANIZATION_NAME | ORGANIZATION_ID [--name=NAME] [--description=DESCRIPTION] --oidc-issuer=ISSUER --oidc-client-id=CLIENTID --oidc-client-secret=CLIENTSECRET [--oidc-additional-scopes=SCOPE,...] --default-role=ROLE [--output=id|json|table]
+chainctl iam identity-providers create --parent ORGANIZATION_NAME | ORGANIZATION_ID [--name=NAME] [--description=DESCRIPTION] --oidc-issuer=ISSUER --oidc-client-id=CLIENT_ID --oidc-client-secret=CLIENT_SECRET [--oidc-additional-scopes=SCOPE,...] --default-role=ROLE [--output=id|json|table]
 ```
 
 ### Examples
