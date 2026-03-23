@@ -71,7 +71,7 @@ In the next step, you'll build your first apko image.
 
 To test that you're able to build images, you can use one of the example `yaml` definition files that are included in the [official apko code repository](https://github.com/chainguard-dev/apko/tree/main/examples). Here we'll use the `wolfi-base.yaml` for demonstration.
 
-Create a new folder to save your image files, them move to that directory:
+Create a new folder to save your image files, then move to that directory:
 
 ```shell
 mkdir ~/apko

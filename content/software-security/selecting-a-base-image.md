@@ -51,9 +51,9 @@ Some research suggests that over half of the container images found on Docker Hu
 
 ## Choose an image with a minimal number of packages
 
-Choosing base images with a minimal number of packages is also a sensible principle. This reduces the “attack surface” and also reduces complexity. Fewer packages, all things equal, means fewer vulnerabilities (both known and unknown). Additionally, for teams that must use a pinned imaged and thus can’t take advantage of frequent rebuilds, fewer packages also means a slower vulnerability accumulation rate.
+Choosing base images with a minimal number of packages is also a sensible principle. This reduces the "attack surface" and also reduces complexity. Fewer packages, all things equal, means fewer vulnerabilities (both known and unknown). Additionally, for teams that must use a pinned image and thus can’t take advantage of frequent rebuilds, fewer packages also means a slower vulnerability accumulation rate.
 
-Additionally, choosing [“distroless”](/software-security/videos/distroless/) images, which strips out package managers, package manager dependencies, and other build-time dependencies, is another way to ensure that your team is choosing a secure-by-default base image.
+Additionally, choosing ["distroless"](/software-security/videos/distroless/) images, which strips out package managers, package manager dependencies, and other build-time dependencies, is another way to ensure that your team is choosing a secure-by-default base image.
 
 ## Choose an image based on a software distribution that prioritizes package update frequency and security hygiene
 

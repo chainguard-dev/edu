@@ -160,7 +160,7 @@ apko_lock(
 
 > Note: The reason `apko_image` is not included at this stage is that the
 `apko_image` rule checks for `apko.lock.json` at Bazel load time — before any
-targets are run. Since the lock file does not exist yet, including a`pko_image`
+targets are run. Since the lock file does not exist yet, including a `apko_image`
 at this stage would cause a load-time error. Once the lock file exists you will
 add `apko_image` in a later step.
 
@@ -224,7 +224,7 @@ Both files should be committed to your repository. They are activated by the
 try-import `.apko/.bazelrc` directive in your root `.bazelrc` file.
 
 > Note: By default, `apko_bazelrc` configures credential helpers for
-`dl-cdn.alpinelinux.org` and p`ackages.wolfi.dev`. If you are using additional
+`dl-cdn.alpinelinux.org` and `packages.wolfi.dev`. If you are using additional
 repositories, pass them to the repositories attribute:
 `apko_bazelrc(repositories = ["my.repo.example.com"])`.
 
@@ -250,7 +250,7 @@ INFO: Running command line: bazel-bin/_lock_run.sh
 2026/03/12 13:07:06 INFO Discovered 0 auto-discovered keys
 ```
 
-This generates `apko.lock.jso`n in your project directory. The lock file pins
+This generates `apko.lock.json` in your project directory. The lock file pins
 the exact versions and checksums of all packages required to build your image
 for each target architecture. Commit this file to your repository to ensure
 reproducible builds.

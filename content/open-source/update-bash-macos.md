@@ -20,7 +20,7 @@ The bash release included with macOS (v3.2) needs to be updated for Chainguard s
 
 We’ll want to check the version of bash, and also ensure that the Homebrew package manager is installed. If you know your bash version is below 4 and that you have Homebrew installed, you can skip this section.
 
-First, make sure your version is version 3.2 and that it hasn’t been updated.
+First, make sure your bash version is 3.2 and that it hasn’t been updated.
 
 ```sh
 bash --version

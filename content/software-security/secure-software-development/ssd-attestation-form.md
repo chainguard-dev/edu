@@ -23,7 +23,7 @@ framework (SSDF), in developing the software identified in Section I:
     1. Regularly logging, monitoring, and auditing trust relationships used for authorization and access:
         1. to any software development and build environments; and
         1. among components within each environment;
-    1. Enforcing multi-factor authentication and conditional access across the environments relevant to developing and building software in a manner that minimized security risk;
+    1. Enforcing multi-factor authentication and conditional access across the environments relevant to developing and building software in a manner that minimizes security risk;
     1. Taking consistent and reasonable steps to document as well as minimize use or inclusion of software products that create undue risk within the environments used to develop and build software;
     1. Encrypting sensitive data, such as credentials, to the extent practicable and based on risk;
     1. Implementing defensive cyber security practices, including continuous monitoring of operations and alerts and, as necessary, responding to suspected and confirmed cyber incidents;
