@@ -30,6 +30,10 @@ The container image with which you choose to run your compiled program depends o
 {{< blurb/wolfi >}}
 {{< /details >}}
 
+{{< details "What are multi-stage builds?" >}}
+{{< blurb/multistage >}}
+{{< /details >}}
+
 {{< details "Chainguard Containers" >}}
 {{< blurb/images >}}
 {{< /details >}}

@@ -26,6 +26,10 @@ Chainguard's Node.js containers offer a streamlined migration path for applicati
 {{< blurb/wolfi >}}
 {{< /details >}}
 
+{{< details "What are multi-stage builds?" >}}
+{{< blurb/multistage >}}
+{{< /details >}}
+
 This article is intended as a guide to porting existing Dockerfiles for Node.js applications to a
 Chainguard Containers base.
 

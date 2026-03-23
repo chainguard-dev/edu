@@ -21,6 +21,22 @@ In this guide, we'll set up a demo and demonstrate how you can use Chainguard Co
 
 This tutorial requires Docker to be installed on your local machine. If you don't have Docker installed, you can download and install it from the [official Docker website](https://docs.docker.com/get-docker/).
 
+{{< details "What is distroless?" >}}
+{{< blurb/distroless >}}
+{{< /details >}}
+
+{{< details "What is Wolfi?" >}}
+{{< blurb/wolfi >}}
+{{< /details >}}
+
+{{< details "What are multi-stage builds?" >}}
+{{< blurb/multistage >}}
+{{< /details >}}
+
+{{< details "Chainguard Containers" >}}
+{{< blurb/images >}}
+{{< /details >}}
+
 ## 1. Setting Up a Demo Application
 
 We'll start by getting the demo application ready. The demo is called **OctoFacts**, and it shows a random fact about Octopuses alongside a random Octopus image each time the page is reloaded. Quotes are loaded from a `.txt` file into the database through a database migration.

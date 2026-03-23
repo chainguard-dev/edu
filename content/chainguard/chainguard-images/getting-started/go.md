@@ -23,15 +23,19 @@ In this guide, we'll demonstrate how to build and execute Go applications using 
 
 The examples in this guide recommend executing Go binaries from one of our runtime Chainguard Containers, such as the [`glibc-dynamic`](https://images.chainguard.dev/directory/image/glibc-dynamic/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-go) or [`static`](https://images.chainguard.dev/directory/image/static/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-go) Chainguard Containers. That is possible because Go applications are compiled and the toolchain is not typically required in a runtime container image.
 
-{{< details "What is distroless" >}}
+{{< details "What is distroless?" >}}
 {{< blurb/distroless >}}
 {{< /details >}}
 
-{{< details "What is Wolfi" >}}
+{{< details "What is Wolfi?" >}}
 {{< blurb/wolfi >}}
 {{< /details >}}
 
-{{< details "Chainguard Images" >}}
+{{< details "What are multi-stage builds?" >}}
+{{< blurb/multistage >}}
+{{< /details >}}
+
+{{< details "Chainguard Containers" >}}
 {{< blurb/images >}}
 {{< /details >}}
 
