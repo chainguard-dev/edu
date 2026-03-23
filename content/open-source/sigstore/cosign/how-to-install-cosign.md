@@ -48,7 +48,7 @@ To install Cosign on Arch Linux, use the `pacman` package manager:
 pacman -S cosign
 ```
 
-### Alipne Linux
+### Alpine Linux
 
 If you are using Alpine Linux or an Alpine Linux image, you can add Cosign with `apk`:
 

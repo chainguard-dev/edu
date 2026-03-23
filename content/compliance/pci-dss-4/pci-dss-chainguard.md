@@ -26,7 +26,7 @@ All Chainguard Containers save time and costs required to triage, patch, and rem
 
 On top of this, you must authenticate into Chainguard to use Chainguard Containers, giving you reassurance of the provenance of your images. They include digitally signed [build-time SBOMs](/chainguard/chainguard-images/working-with-images/retrieve-image-sboms/) (software bill of materials) documenting and attesting to the full provenance.
 
-Our FIPS-compliant [Federal Information Processing Standard](/chainguard/chainguard-images/working-with-images/fips-images/) images, combined with  STIG-hardened (Security Technical Implementation Guide) configurations, provide an even stronger foundation for meeting the requirements of PCI DSS even because they are hardened further to meet the more stringent FedRAMP requirements.
+Our FIPS-compliant [Federal Information Processing Standard](/chainguard/chainguard-images/working-with-images/fips-images/) images, combined with  STIG-hardened (Security Technical Implementation Guide) configurations, provide an even stronger foundation for meeting the requirements of PCI DSS because they are hardened further to meet the more stringent FedRAMP requirements.
 
 
 ## What are STIG-Hardened FIPS Images?
@@ -37,7 +37,7 @@ STIG-hardened FIPS images are pre-configured container images that have been sec
 
 One of the main requirements of PCI DSS is to maintain a vulnerability management program. PCI DSS requires you to scan for vulnerabilities once every three months (Requirement 11.3.1) and triage and address all vulnerabilities (Requirement 11.3.11). Chainguard protects you from malicious attacks by supplying you with images where CVEs have already been dealt with, removing vulnerabilities for you.
 
-PCI DSS requires that you catalog and classify vulnerabilities bespoke and third-party software (Requirements 6.3.1 and 6.3.2). You must fix all critical and high vulnerabilities and have a plan of action for the rest (Requirement 11.4.4). Chainguard does that for you.
+PCI DSS requires that you catalog and classify vulnerabilities in bespoke and third-party software (Requirements 6.3.1 and 6.3.2). You must fix all critical and high vulnerabilities and have a plan of action for the rest (Requirement 11.4.4). Chainguard does that for you.
 
 Vulnerability scanners can be noisy and sifting through false positives while cataloging true vulnerabilities can be tedious work. Providing justifications for vulnerabilities that aren't applicable takes time, and that is after investigating them thoroughly.
 
@@ -54,7 +54,7 @@ Chainguard Containers are carefully engineered to contain low-to-no CVEs. Organi
 
 - [Introduction to PCI DSS 4.0](/compliance/pci-dss-4/intro-pci-dss-4/)
 - [Overview of PCI DSS 4.0 Practices/Requirements](/compliance/pci-dss-4/pci-dss-practices/)
-- (Current article) How Chainguard Can Help With CMMC 2.0
+- (Current article) How Chainguard Can Help With PCI DSS 4.0
 
 
 **[Get started with FIPS Chainguard Containers today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**

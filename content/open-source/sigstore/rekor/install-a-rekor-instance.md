@@ -36,7 +36,7 @@ If you are on macOS, you can install it with Homebrew. If you don’t already ha
 brew install mariadb
 ```
 
-If you’re using another operating system, review the [official MariaDB installation documentation](https://cloud.google.com/blog/products/open-source/supporting-the-python-ecosystem).
+If you’re using another operating system, review the [official MariaDB installation documentation](https://mariadb.com/docs/server/mariadb-quickstart-guides/installing-mariadb-server-guide).
 
 With MariaDB installed, start the database.
 

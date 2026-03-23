@@ -32,7 +32,7 @@ Cosign offers support for signing blobs with the `cosign sign-blob` and `cosign 
 cosign sign-blob --key cosign.key --bundle artifact.sigstore.json artifact
 ```
 
-Note that this command includes the `--bundle` flag, which writes everything required to verify the blog to a file named `artifact.sigstore.json`.
+Note that this command includes the `--bundle` flag, which writes everything required to verify the blob to a file named `artifact.sigstore.json`.
 
 You’ll get output similar to the following, including prompts asking you to confirm that you'd like to sign the artifact and to enter your password for your signing key:
 
@@ -64,7 +64,7 @@ Note that the full signature must be passed to this command. You’ll get feedba
 Verified OK
 ```
 
-You can also publish the artifact to a container registry such as Docker Hub and sign the artifact’s generated image with Cosign. Running this command will create a new repository in your Docker Hub account . We will call this `artifact` but you can use an alternate meaningful name for you:
+You can also publish the artifact to a container registry such as Docker Hub and sign the artifact’s generated image with Cosign. Running this command will create a new repository in your Docker Hub account . We will call this `artifact` but you can use any name you choose:
 
 ```sh
 cosign upload blob -f artifact docker-username/artifact

@@ -244,7 +244,7 @@ This attestation with `.att` extension will now live in the container registry a
 
 ## Chronology and VEX Documents
 
-Assessing the impact of CVEs on a software product is process that takes time and the status will change over time. VEX is designed to communicate with users as the status changes, and there may therefore be multiple VEX documents associated with a product.
+Assessing the impact of CVEs on a software product is a process that takes time and the status will change over time. VEX is designed to communicate with users as the status changes, and there may therefore be multiple VEX documents associated with a product.
 
 To understand how this may work in practice, below is an example timeline for the VEX documents associated with a given product and CVE.
 

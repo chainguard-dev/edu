@@ -32,9 +32,8 @@ In this way, SBOMs represent a significant step forward in security management b
 
 Though the SBOM's improvement of visibility can greatly improve an organization's security posture, it can also be accompanied by an overproduction of false positives. In this context, [false positives](/chainguard/chainguard-images/recommended-practices/false-results/) are vulnerabilities that are associated with an organization's codebase but have been determined to not be exploitable in specific circumstances. 
 
-This increase in false positives can hinder an SBOM's security utility as organizations are tasked with investigating the broadened list of vulnerabilities to see which ones pose genuine threats to their codebase. In cases like this, organizations may once again struggle to efficiently identify and respond to vulnerabilities before it is too late.  
+This increase in false positives can hinder an SBOM's security utility as organizations are tasked with investigating the broadened list of vulnerabilities to see which ones pose genuine threats to their codebase. In cases like this, organizations may once again struggle to efficiently identify and respond to vulnerabilities before it is too late.
 
-Though the SBOM's improvement of visibility can greatly improve an organization's security posture, it can also be accompanied by an overproduction of false positives. In this context, [false positives](/chainguard/chainguard-images/recommended-practices/false-results/) are vulnerabilities that are associated with an organization's codebase but have been determined to not be exploitable in specific circumstances. 
 When publishing a VEX document for a known software vulnerability, the author assigns the product a status drawn from the following list: 
 
 * NOT AFFECTED — No remediation is required regarding this vulnerability. 

@@ -29,11 +29,11 @@ This guide will provide a comprehensive overview of PCI DSS 4.0, detailing its p
 
 The PCI Security Standards Council (PCI SSC) is a global forum for the industry to come together to develop, enhance, disseminate, and assist with the understanding of security standards for payment account security.
 
-The standards developed are agreed upon by all members and provide a measure of mutual trust across the industry. The standards are not directly developed or required by governmental entities the PCI DSS is not a law, but compliance is enforced by the PCI SCC using an yearly assessment.
+The standards developed are agreed upon by all members and provide a measure of mutual trust across the industry. The standards are not directly developed or required by governmental entities. The PCI DSS is not a law, but compliance is enforced by the PCI SSC using a yearly assessment.
 
 Participation and membership in the PCI SSC is open globally to those affiliated with the payments industry. Compliance is expected of all members and validated using the PCI DSS 4.0 and is assessed using a set of defined testing procedures to verify requirements are met.
 
-Membership in the PCI SCC includes:
+Membership in the PCI SSC includes:
 
 - **Merchants**
 - **Banks**
@@ -78,7 +78,7 @@ Further, any entity that handles covered data and does not comply with PCI DSS r
 
 These consequences may further result in cancelled contracts, additional revenue losses, and even closures.
 
-Achieving compliance with PCI DSS 4.0 is not just an industry self-regulatory requirement but a critical step in safeguarding payment information. To prepare your organization for PCI DSS 4.0, continue on to the next section of our guide, [PCI DSS 4.0 Maturity Levels](/compliance/cmmc-2/cmmc-2-levels/), or read about [how Chainguard Containers can help simplify fulfilling PCI DSS 4.0 requirements](/compliance/cmmc-2/cmmc-chainguard/).
+Achieving compliance with PCI DSS 4.0 is not just an industry self-regulatory requirement but a critical step in safeguarding payment information. To prepare your organization for PCI DSS 4.0, read about [how Chainguard Containers can help simplify fulfilling PCI DSS 4.0 requirements](/compliance/pci-dss-4/pci-dss-chainguard).
 
 ## Browse all PCI DSS 4.0 Articles
 

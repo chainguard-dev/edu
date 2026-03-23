@@ -26,7 +26,7 @@ Octo STS is a GitHub App developed by Chainguard that acts as a Security Token S
 
 ### Why should I use Octo STS instead of Personal Access Tokens?
 
-Personal Access Tokens pose security risks as they allow provide persistent access to resources and are not tied to a given workload. Attackers regularly abuse leaked PATs to gain access to systems and resources.
+Personal Access Tokens pose security risks as they provide persistent access to resources and are not tied to a given workload. Attackers regularly abuse leaked PATs to gain access to systems and resources.
 
 By comparison, Octo STS tokens are short-lived (1 hour) and typically tightly scoped to the workload in question. This vastly reduces the scope for abuse.
 

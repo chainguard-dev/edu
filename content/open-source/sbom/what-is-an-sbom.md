@@ -53,7 +53,7 @@ When selecting an SBOM generation tool, it’s important to make sure it support
 
 ### Quality measurement tools
 
-An SBOM’s utility is dependent on the quality and comprehensiveness of the information it contains. As noted above, many SBOMs available today fail to meet the NITA’s minimum requirements. The following tools are helpful for assessing the quality of SBOMs you use or create:  
+An SBOM’s utility is dependent on the quality and comprehensiveness of the information it contains. As noted above, many SBOMs available today fail to meet the NTIA’s minimum requirements. The following tools are helpful for assessing the quality of SBOMs you use or create:  
 * The open source [SBOM Scorecard](https://github.com/eBay/sbom-scorecard), created by eBay, analyzes SPDX and CycloneDX formats according to evolving key fields such as spec compliance, licensing information, and package data. 
 * The open source [NTIA Conformance Checker](https://github.com/spdx/ntia-conformance-checker) analyzes whether an SPDX SBOM meets the NTIA’s minimum elements, such as supplier’s name, dependency relationship, and timestamp.  
 

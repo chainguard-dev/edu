@@ -4,7 +4,6 @@ type: "article"
 draft: false
 date: 2023-11-06T08:49:31+00:00
 lastmod: 2023-11-06T08:49:31+00:00
-draft: false
 tags: ["Chainguard Containers", "Wolfi", "apk", "melange"]
 images: []
 menu:

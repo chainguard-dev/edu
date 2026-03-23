@@ -45,7 +45,7 @@ Level two consists of implementing a subset of the security requirements specifi
 
 ### Documentation Requirements
 
-At Level 2, the documentation requirements are moderate, reflecting the need for intermediate cyber hygiene and addressing a subset of the NIST SP 800-171 requirements. Organizations must maintain a System Security Plan (SSP) that outlines security strategies and vulnerability assessment and remediation plans. They must also create a Plan of Action and Milestones (POA&M) addressing any aspects of the organization which are note yet implemented.
+At Level 2, the documentation requirements are moderate, reflecting the need for intermediate cyber hygiene and addressing a subset of the NIST SP 800-171 requirements. Organizations must maintain a System Security Plan (SSP) that outlines security strategies and vulnerability assessment and remediation plans. They must also create a Plan of Action and Milestones (POA&M) addressing any aspects of the organization which are not yet implemented.
 
 Other Level 2 documentation requirements may include audit logs, incident response reports, inventory of the organization’s systems, location of [Controlled Unclassified Information](https://www.ftc.gov/policy-notices/controlled-unclassified-information) (CUI) in the organization’s environment, and other documents related to the implementation and management of cybersecurity practices.
 

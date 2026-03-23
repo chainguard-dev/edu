@@ -58,7 +58,7 @@ This will upload the SBOM to the registry as an OCI artifact with a `.sbom` exte
 
 Be aware that there is also the `cosign sign` command. After running `cosign attach` to attach an SBOM and upload it to a registry, you can then run `cosign sign` to sign the SBOM, and upload the signature to the registry as a separate OCI artifact, this time with the `.sig` extension.
 
-If you'd like to learn more about working with SBOMs and Cosign, we encourage you to checkout our tutorial on [How to Sign an SBOM with Cosign](/open-source/sigstore/cosign/how-to-sign-an-sbom-with-cosign/).
+If you'd like to learn more about working with SBOMs and Cosign, we encourage you to check out our tutorial on [How to Sign an SBOM with Cosign](/open-source/sigstore/cosign/how-to-sign-an-sbom-with-cosign/).
 
 
 ## A note on generating SBOMs
