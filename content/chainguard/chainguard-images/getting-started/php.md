@@ -31,7 +31,11 @@ This tutorial requires Docker to be installed on your local machine. If you don'
 {{< blurb/wolfi >}}
 {{< /details >}}
 
-{{< details "Chainguard Images" >}}
+{{< details "What are multi-stage builds?" >}}
+{{< blurb/multistage >}}
+{{< /details >}}
+
+{{< details "Chainguard Containers" >}}
 {{< blurb/images >}}
 {{< /details >}}
 

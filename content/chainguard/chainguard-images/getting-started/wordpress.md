@@ -19,6 +19,22 @@ Chainguard's [WordPress container image](https://images.chainguard.dev/directory
 
 In this guide, we'll demonstrate 3 different ways in which you can use the WordPress Chainguard Container to build and run WordPress projects.
 
+{{< details "What is distroless?" >}}
+{{< blurb/distroless >}}
+{{< /details >}}
+
+{{< details "What is Wolfi?" >}}
+{{< blurb/wolfi >}}
+{{< /details >}}
+
+{{< details "What are multi-stage builds?" >}}
+{{< blurb/multistage >}}
+{{< /details >}}
+
+{{< details "Chainguard Containers" >}}
+{{< blurb/images >}}
+{{< /details >}}
+
 ## Preparation
 This tutorial requires Docker to be installed on your local machine. If you don't have Docker installed, you can download and install it from the [official Docker website](https://docs.docker.com/get-docker/).
 

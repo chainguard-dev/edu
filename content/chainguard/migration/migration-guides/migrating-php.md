@@ -28,6 +28,10 @@ Each variant comes in two flavors: a minimal runtime image (distroless) and a de
 
 In a nutshell, distroless images don't include a package manager or a shell, being used exclusively as runtimes to keep the environment to a minimum. Development variants, on the other hand, include packages such as `apk` and `composer` for building PHP applications. Development variants can be used _as-is_ to provide a more straightforward migration path. Whenever possible, though, we encourage users to combine both images in a multi-stage environment to build a final distroless image that will function strictly as an application runtime.
 
+{{< details "What are multi-stage builds?" >}}
+{{< blurb/multistage >}}
+{{< /details >}}
+
 For a deeper exploration of distroless images and their differences from standard base images, refer to the guide on [Getting Started with Distroless images](/chainguard/chainguard-images/getting-started-distroless/).
 
 ## Migrating from non-apk systems

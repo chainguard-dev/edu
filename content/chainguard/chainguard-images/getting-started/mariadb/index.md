@@ -23,15 +23,15 @@ Through daily rebuilds with the latest patches and minimal dependencies, Chaingu
 
 In order to illustrate how the MariaDB Chainguard Container might be used in practice, this tutorial involves setting up an example PHP application that uses a MariaDB database. This guide assumes you have Docker installed to run the demo; specifically, the procedure outlined in this guide uses [Docker Compose](https://docs.docker.com/compose/install/) to manage the environment on your local machine.
 
-{{< details "What is distroless" >}}
+{{< details "What is distroless?" >}}
 {{< blurb/distroless >}}
 {{< /details >}}
 
-{{< details "What is Wolfi" >}}
+{{< details "What is Wolfi?" >}}
 {{< blurb/wolfi >}}
 {{< /details >}}
 
-{{< details "Chainguard Images" >}}
+{{< details "Chainguard Containers" >}}
 {{< blurb/images >}}
 {{< /details >}}
 

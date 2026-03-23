@@ -25,15 +25,15 @@ If you'd like, you can watch our [Getting Started with the nginx Chainguard Cont
 
 {{< youtube KirTeDMzzxk >}}
 
-{{< details "What is distroless" >}}
+{{< details "What is distroless?" >}}
 {{< blurb/distroless >}}
 {{< /details >}}
 
-{{< details "What is Wolfi" >}}
+{{< details "What is Wolfi?" >}}
 {{< blurb/wolfi >}}
 {{< /details >}}
 
-{{< details "Chainguard Images" >}}
+{{< details "Chainguard Containers" >}}
 {{< blurb/images >}}
 {{< /details >}}
 

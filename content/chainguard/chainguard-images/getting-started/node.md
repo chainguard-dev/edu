@@ -23,15 +23,19 @@ In this guide, we'll set up a demo application and create a Dockerfile to build 
 
 This tutorial requires Docker, Node, and Npm to be installed on your local machine.
 
-{{< details "What is distroless" >}}
+{{< details "What is distroless?" >}}
 {{< blurb/distroless >}}
 {{< /details >}}
 
-{{< details "What is Wolfi" >}}
+{{< details "What is Wolfi?" >}}
 {{< blurb/wolfi >}}
 {{< /details >}}
 
-{{< details "Chainguard Images" >}}
+{{< details "What are multi-stage builds?" >}}
+{{< blurb/multistage >}}
+{{< /details >}}
+
+{{< details "Chainguard Containers" >}}
 {{< blurb/images >}}
 {{< /details >}}
 

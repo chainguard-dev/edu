@@ -28,6 +28,10 @@ Chainguard Containers are built on [Wolfi](/open-source/wolfi/), a [distroless](
 {{< blurb/wolfi >}}
 {{< /details >}}
 
+{{< details "What are multi-stage builds?" >}}
+{{< blurb/multistage >}}
+{{< /details >}}
+
 Because Chainguard Containers aim to be minimal, adapting your containerized application requires that you consider some additional factors that will be discussed below.
 
 ## Chainguard Containers for Python Overview
