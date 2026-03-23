@@ -100,29 +100,28 @@ repository combines release and snapshot artifacts you must override the
 built-in `central` repository and its configuration in an automatically
 activated profile.
 
-
 ```xml
 <settings>
+
   <mirrors>
     <mirror>
+      <!-- Set the identifier for the server credentials for repository manager access -->
       <id>repo-example</id>
+      <!-- Send all requests to the repository manager -->
       <mirrorOf>*</mirrorOf>
+      <url>https://repo.example.com/repository/group</url>
+      <!-- Cloudsmith example -->
+      <!-- <url>https://dl.cloudsmith.io/basic/exampleorg/java-all/maven/</url> -->
       <!-- JFrog Artifactory example -->
       <!-- <url>https://example.jfrog.io/artifactory/java-all/</url> -->
       <!-- Sonatype Nexus example -->
       <!-- <url>https://repo.example.com:8443/repository/java-all/</url> -->
-      <url>https://repo.example.com/repository/group</url>
+      <!-- Direct access example -->
+      <!-- <url>https://libraries.cgr.dev/java/</url> -->
     </mirror>
   </mirrors>
 
-  <servers>
-    <server>
-      <id>repo-example</id>
-      <username>${env.CHAINGUARD_JAVA_IDENTITY_ID}</username>
-      <password>${env.CHAINGUARD_JAVA_TOKEN}</password>
-    </server>
-  </servers>
-
+  <!-- Activate repo manager and override central repo from Maven itself with invalid URLs -->
   <activeProfiles>
     <activeProfile>repo-manager</activeProfile>
   </activeProfiles>
@@ -145,14 +144,21 @@ activated profile.
         <pluginRepository>
           <id>central</id>
           <url>http://central</url>
-          <releases><enabled>true</enabled></releases>
-          <snapshots><enabled>true</enabled></snapshots>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
         </pluginRepository>
       </pluginRepositories>
     </profile>
   </profiles>
+
 </settings>
 ```
+
+#### Setting credentials for the server
 
 If your repository manager requires authentication, you must specify credentials
 for the server. The `id` value in the server element must match the `id` value
@@ -161,11 +167,37 @@ and password values vary depending on the repository manager and the configured
 authentication; contact the administrator and refer to the [global configuration
 documentation](/chainguard/libraries/java/global-configuration/).
 
+```xml
+<settings>
+...
+  <servers>
+    <server>
+      <id>repo-example</id>
+      <username>YOUR_USERNAME_FOR_REPOSITORY_MANAGER</username>
+      <password>YOUR_PASSWORD</password>
+    </server>
+  </servers>
+</settings>
+```
+
 Note that you can use a secret manager application to populate the credentials
 for each user on their workstation as well as for service applications in your
 CI/CD pipelines into environment variables, for example `CHAINGUARD_JAVA_IDENTITY_ID`
 and `CHAINGUARD_JAVA_TOKEN`. You can then use an identical server configuration, and
-therefore settings file, for all users.
+therefore settings file, for all users:
+
+```xml
+<settings>
+...
+  <servers>
+    <server>
+      <id>repo-example</id>
+      <username>${env.CHAINGUARD_JAVA_IDENTITY_ID}</username>
+      <password>${env.CHAINGUARD_JAVA_TOKEN}</password>
+    </server>
+  </servers>
+</settings>
+```
 
 Refer to the [official documentation for the Maven settings
 file](https://maven.apache.org/settings.html) for more details.
