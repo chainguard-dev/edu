@@ -20,6 +20,10 @@ toc: true
 
 {{< youtube IuEOyACeJE8 >}}
 
+{{< details "What are multi-stage builds?" >}}
+{{< blurb/multistage >}}
+{{< /details >}}
+
 ## Tools used in this video
 
 * [Docker](https://docker.com)

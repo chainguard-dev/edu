@@ -30,6 +30,10 @@ toc: true
 * Tutorial on [Porting a Sample Application](/chainguard/migration/porting-apps-to-chainguard/)
 * [Example Application Git repository](https://github.com/chainguard-dev/identidock-cg/) with code used in demo
 
+{{< details "What are multi-stage builds?" >}}
+{{< blurb/multistage >}}
+{{< /details >}}
+
 ## Transcript
 
 Today, we're going to look at how easy it is to port a Dockerfile for a Node.js application to use

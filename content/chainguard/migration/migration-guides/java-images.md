@@ -29,6 +29,10 @@ toc: true
 * Blog on [bootstrapping Java in Wolfi](https://www.chainguard.dev/unchained/fully-bootstrapping-java-from-source-in-wolfi)
 * [Learning Labs Git repository](https://github.com/chainguard-dev/learning-labs-java) with code used in demo
 
+{{< details "What are multi-stage builds?" >}}
+{{< blurb/multistage >}}
+{{< /details >}}
+
 ## Transcript
 
 Okay, I want to give a quick overview of how to use the Chainguard Java images.

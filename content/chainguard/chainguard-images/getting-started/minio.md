@@ -23,15 +23,19 @@ To help the community maintain secure and up-to-date MinIO deployments without a
 
 In this guide, we'll demonstrate how to deploy and use MinIO with Chainguard Containers through two practical examples. These examples show you how to replace existing MinIO deployments with Chainguard's more secure alternative while maintaining compatibility with your existing S3 workflows. The first example covers basic deployment for testing and development environments. The second example demonstrates how to build applications that interact with MinIO programmatically, which is relevant for CI/CD pipelines, automated backup systems, data processing workflows, and any application that requires object storage capabilities.
 
-{{< details "What is distroless" >}}
+{{< details "What is distroless?" >}}
 {{< blurb/distroless >}}
 {{< /details >}}
 
-{{< details "What is Wolfi" >}}
+{{< details "What is Wolfi?" >}}
 {{< blurb/wolfi >}}
 {{< /details >}}
 
-{{< details "Chainguard Images" >}}
+{{< details "What are multi-stage builds?" >}}
+{{< blurb/multistage >}}
+{{< /details >}}
+
+{{< details "Chainguard Containers" >}}
 {{< blurb/images >}}
 {{< /details >}}
 

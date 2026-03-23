@@ -28,7 +28,7 @@ We will demonstrate how to get started with the Chainguard Cilium container imag
 
 {{< blurb/free-tier-message >}}
 
-{{< details "What is Wolfi" >}}
+{{< details "What is Wolfi?" >}}
 {{< blurb/wolfi >}}
 {{< /details >}}
 
