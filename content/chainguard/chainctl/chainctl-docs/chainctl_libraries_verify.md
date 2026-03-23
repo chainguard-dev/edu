@@ -1,5 +1,5 @@
 ---
-date: 2026-03-19T15:08:10Z
+date: 2026-03-20T17:56:07Z
 title: "chainctl libraries verify"
 slug: chainctl_libraries_verify
 url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_verify/
@@ -27,15 +27,8 @@ For container images, you can use:
   - Docker archive format (docker-archive:/path/to/image.tar)
   - Local images with prefixes (localhost/myapp:latest)
 
-For npm cache verification, pass the npm cache directory path. The cache is
-auto-detected by its _cacache/index-v5/ structure.
-
-For pnpm store verification, pass the pnpm store directory path. The store is
-auto-detected by its v10/index/ or v11/index/ structure. Requires pnpm 10+.
-
-For Yarn Classic (v1.x) cache verification, use the yarn: prefix followed by the
-cache path. If no path is provided after the prefix, the default cache location
-is used. Note: Yarn Classic verification trusts cached metadata (.yarn-metadata.json).
+JavaScript package manager caches (npm, pnpm, Yarn Classic) are auto-detected
+in container images and local directories by their structure.
 
 ```
 chainctl libraries verify [path...] [flags]
