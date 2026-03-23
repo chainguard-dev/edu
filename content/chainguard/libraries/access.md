@@ -415,7 +415,7 @@ chainctl auth pull-token list --repository=java
 List all expired pull tokens for Chainguard Libraries for Python:
 
 ```shell
-chainctl auth pull-token list --repository=java --expired=true
+chainctl auth pull-token list --repository=python --expired=true
 ```
 
 Use the [delete command for IAM
