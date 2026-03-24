@@ -1,5 +1,6 @@
 ---
-title : "Chainguard Repository"
+title : "Overview of Chainguard Repository"
+linktitle: "Overview"
 lead: "The Chainguard Repository is a single, policy-aware endpoint for all artifacts that Chainguard builds and distributes — libraries, containers, VMs, and OS."
 description: "Chainguard Repository Overview"
 type: "article"
