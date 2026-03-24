@@ -30,9 +30,9 @@
 
   {{ range $index, $section := sort .Site.Sections "Weight" }}
   {{ $active := in $currentPage.RelPermalink .RelPermalink }}
-  <p class="sidebar-category text-uppercase">
+  <div class="sidebar-category text-uppercase">
     {{ .LinkTitle }}
-  </p>
+  </div>
   <div class="show" id="section-{{ md5 .LinkTitle }}">
     <ul class="btn-toggle-nav list-unstyled fw-normal small">
       {{ range where (where .Pages ".Params.unlisted" "!=" "true") ".Params.preview" "!=" true }}
@@ -43,7 +43,7 @@
       {{ if ne .Title "Videos" }}
       <li class="my-0 sidebar-item-list-item {{if $selected }} sidebar-item-list-item-selected {{ end }}">
         <div class="sidebar-item-top d-flex gap-1 justify-content-between align-items-center sidebar-item {{if $active }} sidebar-item-active {{ end }}">
-          <button class="{{if $active }} sidebar-item-active {{ end }} mx-0 border-0 bg-transparent d-flex align-items-center justify-content-between rounded sidebar-subcategory w-100 {{ if not $active }} collapsed {{ end }}" style="text-align:left" data-bs-toggle="collapse" data-bs-target="#section-{{ md5 .LinkTitle }}" aria-expanded="{{ if $active }}true{{ else }}false{{ end }}">
+          <button class="{{if $active }} sidebar-item-active {{ end }} mx-0 border-0 bg-transparent d-flex align-items-center justify-content-between rounded sidebar-subcategory w-100 {{ if not $active }} collapsed {{ end }}" data-bs-toggle="collapse" data-bs-target="#section-{{ md5 .LinkTitle }}" aria-expanded="{{ if $active }}true{{ else }}false{{ end }}">
             <a href="{{if $selected }}#{{ else }}{{ .Permalink }}{{ end }}" class="sidebar-item-top sidebar-item mx-0 p-0">
               <span>{{ .LinkTitle }}</span>
             </a>
