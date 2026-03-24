@@ -72,6 +72,7 @@ packages to be fetched directly from npm rather than going through the
 [Chainguard Repository](/chainguard/libraries/chainguard-repository/); for
 example, to bypass the cooldown period for packages you own and trust.
 
+### npm
 npm supports per-scope registry configuration, which lets you route packages
 with a specific prefix to a different registry:
 
@@ -115,10 +116,9 @@ registry=https://libraries.cgr.dev/javascript/
 replace-registry-host=never
 ```
 
-To generate the `token` environment variable for this configuration:
+To generate the `token` environment variable for the example configuration, use the following command with the [environment variables you configured for your pull token]((/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials)):
 
 ```bash
-eval $(chainctl auth pull-token --output env --repository=javascript --parent=<your-org>)
 export token=$(echo -n "${CHAINGUARD_JAVASCRIPT_IDENTITY_ID}:${CHAINGUARD_JAVASCRIPT_TOKEN}" | base64 -w 0)
 ```
 
