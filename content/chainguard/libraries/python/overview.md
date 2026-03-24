@@ -314,6 +314,108 @@ curl -L --user "$CHAINGUARD_PYTHON_IDENTITY_ID:$CHAINGUARD_PYTHON_TOKEN" \
 
 The option `-L` is required to follow redirects for the actual file locations.
 
+## Hash verification when migrating to Chainguard Libraries
+
+Because Chainguard rebuilds Python packages from source rather than mirroring upstream PyPI artifacts, it is expected that checksums for Chainguard-built packages differ from their PyPI counterparts, even for identical package versions. This affects any tool that pins or verifies hashes:
+
+- Tools such as `pip` verify that downloaded files match the hashes specified in requirements.txt when using `--require-hashes` or when hashes are pinned
+- Tools such as `pip`, `Poetry`, and `uv` generate lock files that include SHA-256 hashes
+- Repository managers such as JFrog Artifactory or Sonatype Nexus may have cached upstream PyPI wheels and continue serving them instead of Chainguard versions, even after you have reconfigured to use Chainguard Libraries
+
+Resolving these issues requires two steps: [clearing cached artifacts](#clearing-caches-before-migration) at every layer of your build pipeline, and [regenerating lock files or requirements files](#resolving-checksum-mismatches) so they reflect Chainguard's checksums.
+
+### Clearing caches before migration
+
+Most build systems treat language libraries as immutable artifacts. If a dependency already exists in a cache, the build will reuse the cached copy instead of fetching it again, even after you have reconfigured to use Chainguard. Before migrating, it is critical to start with a clean dependency cache at every layer of your build pipeline. Failing to do so can result in builds silently continuing to use PyPI-sourced artifacts after migration.
+
+Cached packages can exist at multiple layers:
+
+**Local developer machines**
+
+Common cache locations for Python tools include `~/.cache/pip/`, `~/.cache/uv/`, and `~/.cache/pypoetry/`. 
+
+Clear the cache for your tool:
+
+```bash
+pip cache purge
+uv cache clean
+poetry cache clear --all pypi
+```
+
+**CI/CD pipeline caches**
+
+Build pipelines frequently cache downloaded packages between runs. These caches must be invalidated after switching to Chainguard. Common locations to check:
+
+* GitHub Actions: Packages cached under `/home/runner/.cache/pip` or restored via `actions/cache`. Update the cache key in your `actions/cache` step to force a cache miss after switching to Chainguard.
+* GitLab CI: Check for .`cache/pip` defined in the job's cache section and update the cache key or clear the directory.
+* Jenkins: Agents may reuse workspaces or home directories such as `/var/lib/jenkins/.cache/pip`. Ensure cache directories are cleared as part of your build setup step.
+
+**Containerized builds**
+
+Cached Docker image layers may reuse upstream dependencies even after reconfiguration. If a Dockerfile contains a layer such as `RUN pip install -r requirements.txt`, Docker will reuse the cached layer unless the base image, the requirements file, or the command itself has changed. To force a fresh install from Chainguard, rebuild without the layer cache:
+
+```bash
+docker build --no-cache
+```
+
+### Resolving checksum mismatches
+
+Before regenerating lock files, ensure your tool is configured to use Chainguard as the package index by following the [global configuration](chainguard/libraries/python/global-configuration/) or [direct access](/chainguard/libraries/python/build-configuration/#direct-access) documentation.
+
+To update your lock files and requirements with Chainguard's checksums:
+
+**pip with `--require-hashes`:** 
+
+If your `requirements.txt` was generated using PyPI hashes, installation will
+fail with a hash mismatch after switching to Chainguard. Once pip is configured
+to use Chainguard as the index, regenerate your requirements file to update the
+hashes:
+```bash
+  pip-compile --generate-hashes requirements.in -o requirements.txt
+```
+
+Note that `pip-compile` embeds your Chainguard index URL, including credentials, as an `--index-url` line in the generated file. Avoid committing this file to source control, or strip the `--index-url` line before doing so.
+
+**uv:**
+
+When the configured index changes, `uv sync` automatically re-resolves dependencies and updates `uv.lock` with hashes from the new index. No explicit `uv lock` step is required; running `uv sync` after configuring Chainguard as your index is sufficient. However, running `uv lock` explicitly after switching indexes is recommended to ensure your lock file accurately reflects what is being installed before you run `uv sync`.
+
+Note that `uv sync --frozen` bypasses index configuration entirely and downloads packages using the URLs embedded directly in `uv.lock`. If your lock file was generated against PyPI, `uv sync --frozen` will continue to download from PyPI regardless of your configured index. Run `uv lock` first to update the lock file before using `--frozen`.
+
+The credentials from your Chainguard pull token must be embedded in the index URL with the `/` in the username percent-encoded as `%2F`. For example, in `uv.toml`:
+
+```
+[[index]]
+url = "https://<PULLTOKEN_USERNAME_PART1>%2F<PULLTOKEN_USERNAME_PART2>:<PULLTOKEN_PASSWORD>@libraries.cgr.dev/python/simple/"
+authenticate = "always"
+```
+  
+**Poetry:**
+
+When the configured source changes, Poetry detects that `pyproject.toml` has changed significantly and refuses to install until the lock file is regenerated. Regenerate your lock file to update the hashes:
+
+Poetry 1.x:
+
+```bash
+  poetry lock --no-update
+```
+
+Poetry 2.x: 
+
+```bash
+  poetry lock
+```
+
+**Repository managers:** 
+
+Repository managers such as JFrog Artifactory or Sonatype Nexus may continue serving cached PyPI artifacts even after the upstream index is changed. Clear the cache or invalidate the artifact to ensure the Chainguard-built package is fetched. 
+
+Before regenerating lock files, ensure your tool is configured to use Chainguard as the package index by following the [global configuration](link) or [direct access](link) documentation.
+
+>**Note:** While hash mismatches are expected for some tooling and
+configurations while migrating to Chainguard, you can verify the authenticity and provenance of Chainguard
+packages using SBOM and SLSA attestation files as described in the next section.
+
 ## SBOM and attestation files
 
 Chainguard Libraries for Python include files that contain software bill of
@@ -321,20 +423,24 @@ material (SBOM) information. Additional files attest details about build
 infrastructure with  the [Supply-chain Levels for Software Artifacts
 (SLSA)](https://slsa.dev/) provenance information.
 
+### Embedded SBOMs
+
 The related files for Chainguard Libraries for Python are located within the
 Python wheel file for each package following the [PEP 770 Improving
 measurability of Python packages with Software Bill-of-Materials
 specification](https://peps.python.org/pep-0770/) for software composition
 analytis (SCA) using the SPDX format.
 
-Specifically a wheel file contains two directories, the main code directory that
-uses the name of the library only, and the version-specific distribution info
-directory `.dist.info`. For example, the wheel archive for Flask version 2.0.0
+A wheel file contains two directories:
+- The main code directory that uses the name of the library only, and 
+- The version-specific distribution info directory `.dist.info`.
+
+For example, the wheel archive for Flask version 2.0.0
 includes a directory `flask-2.0.0.dist.info`. You can also find this directory
 in the `site-packages` directory of a Python project using a virtual environment.
 
-Find the SBOM information in the file `sboms/sbom.spdx.json`. Any package from
-Chainguard includes the reference to Chainguard in the creators section:
+The SBOM information is in the file `*.dist-info/sboms/sbom.spdx.json`. Any package from
+Chainguard includes a reference to Chainguard in the `creators` section:
 
 ```json
 {
@@ -354,6 +460,8 @@ Chainguard includes the reference to Chainguard in the creators section:
   }
 }
 ```
+
+### SLSA provenance
 
 SLSA provenance is available from the Chainguard Python index following the [PEP
 740 – Index support for digital attestations
@@ -392,7 +500,14 @@ Packages from Chainguard are identified by the `publisher`:`environment` set as
 }
 ```
 
-A [Sigstore bundle file](https://docs.sigstore.dev/about/bundle/) is available
+### Sigstore bundle
+
+A [Sigstore bundle](https://docs.sigstore.dev/about/bundle/) is a self‑contained JSON file that packages everything needed
+to verify the authenticity and integrity of a signed artifact.
+
+A Sigstore bundle file is available
 as `bundle.json` from the integrity context at
 `https://libraries.cgr.dev/python/integrity/PACKAGE/VERSION/FILE/bundle.json`
 specifically for each package, version, and file. 
+
+
