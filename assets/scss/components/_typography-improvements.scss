@@ -117,27 +117,6 @@ h4 {
   }
 }
 
-// Navigation and sidebar text - keeping original spacing
-.docs-sidebar,
-.leftnav,
-#sidebar-default {
-  // Remove font size override to keep original
-  
-  .nav-link,
-  a {
-    // Keep original padding and line-height
-    font-weight: 450;
-    
-    &:hover {
-      font-weight: 500;
-    }
-    
-    &.active {
-      font-weight: 600;
-    }
-  }
-}
-
 // Table improvements
 table {
   font-size: var(--docs-small-font);
