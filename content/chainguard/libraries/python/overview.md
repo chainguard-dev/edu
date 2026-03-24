@@ -436,16 +436,9 @@ A wheel file contains two directories:
 - The version-specific distribution info directory `.dist.info`.
 
 For example, the wheel archive for Flask version 2.0.0
-A wheel file contains two directories:
-- The main code directory that uses the name of the library only, and 
-- The version-specific distribution info directory `.dist.info`.
-
-For example, the wheel archive for Flask version 2.0.0
 includes a directory `flask-2.0.0.dist.info`. You can also find this directory
 in the `site-packages` directory of a Python project using a virtual environment.
 
-The SBOM information is in the file `*.dist-info/sboms/sbom.spdx.json`. Any package from
-Chainguard includes a reference to Chainguard in the `creators` section:
 The SBOM information is in the file `*.dist-info/sboms/sbom.spdx.json`. Any package from
 Chainguard includes a reference to Chainguard in the `creators` section:
 
