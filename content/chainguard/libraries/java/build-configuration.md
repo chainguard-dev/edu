@@ -297,8 +297,6 @@ details must remain within the settings file.
 Use the following steps to create a minimal example project for Maven with Chainguard Libraries for Java.
 
 ```bash
-mkdir maven-example
-cd maven-example
 mvn archetype:generate \
   -DgroupId=com.example \
   -DartifactId=maven-example \
@@ -372,8 +370,8 @@ cat > ~/.m2/settings.xml << EOF
   <servers>
     <server>
       <id>chainguard</id>
-      <username>${CHAINGUARD_JAVA_IDENTITY_ID}</username>
-      <password>${CHAINGUARD_JAVA_TOKEN}</password>
+      <username>${env.CHAINGUARD_JAVA_IDENTITY_ID}</username>
+      <password>${env.CHAINGUARD_JAVA_TOKEN}</password>
     </server>
   </servers>
 </settings>
@@ -386,11 +384,36 @@ Then build the project:
 mvn install
 ```
 
-Following this, find the downloaded package in `~/.m2/repository/com/google/guava/guava/`.
+During the build, Maven logs each artifact download with the source repository.
+Lines beginning with `Downloaded from chainguard:` confirm the artifact was
+served by Chainguard Libraries. Lines beginning with `Downloaded from central:`
+indicate a transitive dependency not present in the Chainguard library that fell
+back to Maven Central; this is expected behavior.
 
-Adjust the repository URL to use your repository manager and add any other desired packages for further testing.
+#### Verify the project works as expected
 
->Note: During resolution you may see some transitive dependencies falling back to Maven Central after first attempting Chainguard. This is expected, as Maven tries each repository in order, and any packages not present in the Chainguard library are resolved from the next available repository. The packages declared in your `pom.xml` will always be pulled from Chainguard.
+The `maven-archetype-quickstart` template declares `junit:junit:3.8.1` as a
+dependency. Following the build, find the downloaded jar at:
+
+```
+~/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar
+```
+
+To verify the artifact was built by Chainguard, use `chainctl`: 
+
+```bash
+chainctl libraries verify ~/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar
+```
+
+A successfully verified artifact produces output similar to the following:
+
+```bash
+Artifact: /Users/example/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar
+Verification Coverage: 100.00%
+```
+
+Adjust the repository URL to use your repository manager and add any other
+desired packages for further testing.
 
 ## Gradle
 
