@@ -118,7 +118,6 @@ Reference the secret in your Helm installation:
 
 ```sh
 helm install grafana oci://cgr.dev/$ORGANIZATION/charts/grafana \
-  --set "global.org=$ORGANIZATION" \
   --set "global.imagePullSecrets[0].name=chainguard-pull-secret"
 ```
 
@@ -161,19 +160,41 @@ If you manage access and permissions at cluster-wide and node-specific levels, t
 
 #### Use Image Pinning
 
-**Pin to tag:** All community charts pin images to specific **tags**, which works when you control both the image and the chart production release timing and can make sure they match when you release. Use tags like this:
+It is strongly recommended that you deploy Chainguard-provided charts by pinning to digest.
+
+Pinning to tags can be problematic because tags are mutable and the images described by the chart will change regularly when the images themselves are updated.
+
+Pinning the chart by digest ensures you are running a consistent set of images and removes the possibility of unexpected breaking changes.
+
+**Pin to Digest:** While the Helm charts available from Chainguard follow the same tagging scheme as the related Chainguard images, we recommend that you always pin to a specific chart **digest** to prevent unexpected updates.
+
+Pin to digests like this:
+
+1. Get the digest.
+
+  ```sh
+  crane digest cgr.dev/$ORGANIZATION/charts/grafana:10.5.13
+  ```
+
+  Which returns a digest like this:
+
+  ```response
+  sha256:38850bacab587e4cf1177d0fe5b8bd62bad27d3f04f5a1c65ddcd86ea9748a73
+  ```
+
+1. Use the digest to pull your image, replacing `sha256:DIGEST` with the response you just received.
+
+  ```sh
+  helm install grafana \ 
+  oci://cgr.dev/$ORGANIZATION/charts/grafana@sha256:DIGEST
+  ```
+
+**Pin to tag:**
+
+If you must, use tags like this:
 
 ```sh
-helm install grafana oci://cgr.dev/$ORGANIZATION/charts/grafana --version 10.5.13 \
-  --set "global.org=$ORGANIZATION"
-```
-
-**Pin to Digest:** While the Helm charts available from Chainguard follow the same tagging scheme as the related Chainguard images, we recommend that you always pin to a specific chart **digest** to prevent unexpected updates:
-
-```sh
-helm install rabbitmq \ 
-oci://cgr.dev/$ORGANIZATION/iamguarded-charts/rabbitmq@sha256:DIGEST \
-     --set "global.org=$ORGANIZATION"
+helm install grafana oci://cgr.dev/$ORGANIZATION/charts/grafana --version 10.5.13
 ```
 
 #### Review Default Values:
@@ -236,13 +257,13 @@ To check the Helm configuration, you can run `helm install` with `--dry-run` fla
 To see the files, run:
 
 ```sh
-helm pull --untar oci://cgr.dev/$ORGANIZATION/charts/grafana \
+helm pull --untar oci://cgr.dev/$ORGANIZATION/charts/grafana
 ```
 
 To get the `values.yaml` so you can examine it, run:
 
 ```sh
-helm show values oci://cgr.dev/$ORGANIZATION/charts/grafana \
+helm show values oci://cgr.dev/$ORGANIZATION/charts/grafana
 ```
 
 See the [Helm commands documentation](https://helm.sh/docs/helm/) for more information.
