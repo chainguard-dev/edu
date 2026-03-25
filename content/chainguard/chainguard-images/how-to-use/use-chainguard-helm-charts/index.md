@@ -162,7 +162,7 @@ If you manage access and permissions at cluster-wide and node-specific levels, t
 
 It is strongly recommended that you deploy Chainguard-provided charts by pinning to digest.
 
-Pinning to tags can be problematic because tags are mutable and the images described by the chart will change regularly when the images themselves are updated.
+Using tags can be problematic because tags are mutable and the images described by the chart will change regularly when the images themselves are updated.
 
 Pinning the chart by digest ensures you are running a consistent set of images and removes the possibility of unexpected breaking changes.
 
@@ -182,7 +182,7 @@ Pin to digests like this:
   sha256:38850bacab587e4cf1177d0fe5b8bd62bad27d3f04f5a1c65ddcd86ea9748a73
   ```
 
-2. Use the digest to pull your image, replacing `sha256:DIGEST` with the response you just received.
+2. Use the digest to install your chart, replacing `sha256:DIGEST` with the response you just received.
 
   ```sh
   helm install grafana \ 
@@ -203,7 +203,22 @@ The chart provides security-minded defaults that are sensible but may not suit a
 
 **Override the version of an image being deployed with the chart**
 
-There may be times when you need to override the version of an image that is set to be deployed with a chart. When you do, be aware that because Chainguard specifies digests in our chart values, you need to override that digest along with the tag.
+There may be times when you need to override the version of an image that is set to be deployed with a chart. The override values are going to vary chart by chart.
+
+Refer to the documentation for charts in the Chainguard Console in the **Helm charts** page, accessible from the sidebar. Find your chart in the list and select it, then click through the tabs across the top of the page to learn more, such as in this screenshot for the Grafana Helm chart default values which you can see here:
+
+```http
+https://console.chainguard.dev/org/$ORGANIZATION$/helm/organization/community-chart/grafana/defaultValues
+```
+
+![Screenshot of the Default values tab for the Grafana Helm chart in the Chainguard Console.](helm-values.png)
+
+
+**Example of overriding tag and digest**
+
+When you override values, you need to stay aware of how the original value was being used and think through the implications of your change.
+
+For example, because Chainguard specifies digests in our chart values, you need to override that digest along with the tag.
 
 Use:
 
@@ -278,28 +293,10 @@ helm install grafana oci://cgr.dev/$ORGANIZATION/charts/grafana \
 
 Many customers choose to handle container images by overriding the Chainguard repository and registry and using their own internal mirror. How you set this up depends on your chosen solution, but it does affect these Helm charts. You will need to override values in the Helm chart with the appropriate new values for your mirror.
 
-One way you can do this is with the `chainctl image helm values` command, which generates minimal Helm value overrides that modify image references in a Chainguard Helm chart to refer to a different registry and/or organization that you specify. Refer to [[chainctl images helm values](/chainguard/chainctl/chainctl-docs/chainctl_images_helm_values/)] for specifics, but here are some basic examples.
+One way you can do this is with the `chainctl image helm values` command, which generates minimal Helm value overrides that modify image references in a Chainguard Helm chart to refer to a different registry and/or organization that you specify. Refer to [[chainctl images helm values](/chainguard/chainctl/chainctl-docs/chainctl_images_helm_values/)] for specifics along with:
 
-**Point images at a registry mirror:**
-```
-chainctl images helm values cgr.dev/$ORGANIZATION/charts/nginx:latest --registry myregistry.example.com
-```
-
-**Both registry and organization:**
-```
-chainctl images helm values cgr.dev/$ORGANIZATION/charts/nginx:latest \
-  --registry myregistry.example.com --org other-org
-```
-
-**Install with relocated images (piping output directly to `helm install`):**
-```
-helm install my-release oci://cgr.dev/$ORGANIZATION/charts/nginx \
-  -f <(chainctl images helm values cgr.dev/$ORGANIZATION/charts/nginx:latest --registry myregistry.example.com)
-```
-
-**Output as JSON:**
-```
-chainctl images helm values cgr.dev/$ORGANIZATION/charts/nginx:latest --registry myregistry.example.com -o json
+```sh
+chainctl images helm values --help
 ```
 
 This command is a subcommand of [[chainctl images helm](/chainguard/chainctl/chainctl-docs/chainctl_images_helm/)], which groups Helm chart related commands.
