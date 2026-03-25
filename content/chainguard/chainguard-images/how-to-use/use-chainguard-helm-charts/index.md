@@ -182,7 +182,7 @@ Pin to digests like this:
   sha256:38850bacab587e4cf1177d0fe5b8bd62bad27d3f04f5a1c65ddcd86ea9748a73
   ```
 
-1. Use the digest to pull your image, replacing `sha256:DIGEST` with the response you just received.
+2. Use the digest to pull your image, replacing `sha256:DIGEST` with the response you just received.
 
   ```sh
   helm install grafana \ 
