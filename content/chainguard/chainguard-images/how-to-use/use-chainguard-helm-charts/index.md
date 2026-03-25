@@ -166,7 +166,7 @@ Pinning to tags can be problematic because tags are mutable and the images descr
 
 Pinning the chart by digest ensures you are running a consistent set of images and removes the possibility of unexpected breaking changes.
 
-**Pin to digest:** While the Helm charts available from Chainguard follow the same tagging scheme as the related Chainguard images, we recommend that you always pin to a specific chart **digest** to prevent unexpected updates.
+**Pin to digest:**
 
 Pin to digests like this:
 
@@ -208,19 +208,19 @@ There may be times when you need to override the version of an image that is set
 Use:
 
 ```sh
-helm install <chart> --set image.digest=<old-digest>
+helm install <chart> --set image.digest=<desired-digest>
 ```
 
 or
 
 ```sh
-helm install <chart> --set image.tag=<old-tag> --set image.digest=""
+helm install <chart> --set image.tag=<desired-tag> --set image.digest=""
 ```
 
 Do NOT use:
 
 ```sh
-helm install <chart> --set image.tag=<old-tag>
+helm install <chart> --set image.tag=<desired-tag>
 ```
 
 Getting this wrong could cause you to unknowingly run the version specified by the digest instead of the version you intend.
@@ -278,33 +278,28 @@ helm install grafana oci://cgr.dev/$ORGANIZATION/charts/grafana \
 
 Many customers choose to handle container images by overriding the Chainguard repository and registry and using their own internal mirror. How you set this up depends on your chosen solution, but it does affect these Helm charts. You will need to override values in the Helm chart with the appropriate new values for your mirror.
 
-One way you can do this is with `chainctl image helm values` command which generates minimal Helm value overrides to relocate a Chainguard Helm chart's images to a different registry and/or organization. Refer to [[chainctl images helm values](/chainguard/chainctl/chainctl-docs/chainctl_images_helm_values/)] for specifics, but here are some basic examples.
+One way you can do this is with the `chainctl image helm values` command, which generates minimal Helm value overrides that modify image references in a Chainguard Helm chart to refer to a different registry and/or organization that you specify. Refer to [[chainctl images helm values](/chainguard/chainctl/chainctl-docs/chainctl_images_helm_values/)] for specifics, but here are some basic examples.
 
 **Point images at a registry mirror:**
 ```
-chainctl images helm values cgr.dev/my-org/charts/nginx:latest --registry myregistry.example.com
-```
-
-**Change the organization prefix (`my-org` → `other-org`):**
-```
-chainctl images helm values cgr.dev/my-org/charts/nginx:latest --org other-org
+chainctl images helm values cgr.dev/$ORGANIZATION/charts/nginx:latest --registry myregistry.example.com
 ```
 
 **Both registry and organization:**
 ```
-chainctl images helm values cgr.dev/my-org/charts/nginx:latest \
+chainctl images helm values cgr.dev/$ORGANIZATION/charts/nginx:latest \
   --registry myregistry.example.com --org other-org
 ```
 
 **Install with relocated images (piping output directly to `helm install`):**
 ```
-helm install my-release oci://cgr.dev/my-org/charts/nginx \
-  -f <(chainctl images helm values cgr.dev/my-org/charts/nginx:latest --registry myregistry.example.com)
+helm install my-release oci://cgr.dev/$ORGANIZATION/charts/nginx \
+  -f <(chainctl images helm values cgr.dev/$ORGANIZATION/charts/nginx:latest --registry myregistry.example.com)
 ```
 
 **Output as JSON:**
 ```
-chainctl images helm values cgr.dev/my-org/charts/nginx:latest --registry myregistry.example.com -o json
+chainctl images helm values cgr.dev/$ORGANIZATION/charts/nginx:latest --registry myregistry.example.com -o json
 ```
 
 This command is a subcommand of [[chainctl images helm](/chainguard/chainctl/chainctl-docs/chainctl_images_helm/)], which groups Helm chart related commands.
