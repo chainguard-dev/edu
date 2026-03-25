@@ -158,7 +158,7 @@ NOTES:
 
 If you manage access and permissions at cluster-wide and node-specific levels, these are some best practices to consider.
 
-#### Use Image Pinning
+#### Use image pinning
 
 It is strongly recommended that you deploy Chainguard-provided charts by pinning to digest.
 
@@ -166,7 +166,7 @@ Pinning to tags can be problematic because tags are mutable and the images descr
 
 Pinning the chart by digest ensures you are running a consistent set of images and removes the possibility of unexpected breaking changes.
 
-**Pin to Digest:** While the Helm charts available from Chainguard follow the same tagging scheme as the related Chainguard images, we recommend that you always pin to a specific chart **digest** to prevent unexpected updates.
+**Pin to digest:** While the Helm charts available from Chainguard follow the same tagging scheme as the related Chainguard images, we recommend that you always pin to a specific chart **digest** to prevent unexpected updates.
 
 Pin to digests like this:
 
@@ -197,7 +197,7 @@ If you must, use tags like this:
 helm install grafana oci://cgr.dev/$ORGANIZATION/charts/grafana --version 10.5.13
 ```
 
-#### Review Default Values:
+#### Review default values:
 
 The chart provides security-minded defaults that are sensible but may not suit all use cases. Review the chart's `values.yaml` for the full range of configuration options and adjust as needed.
 
