@@ -118,7 +118,6 @@ Reference the secret in your Helm installation:
 
 ```sh
 helm install grafana oci://cgr.dev/$ORGANIZATION/charts/grafana \
-  --set "global.org=$ORGANIZATION" \
   --set "global.imagePullSecrets[0].name=chainguard-pull-secret"
 ```
 
@@ -159,26 +158,83 @@ NOTES:
 
 If you manage access and permissions at cluster-wide and node-specific levels, these are some best practices to consider.
 
-#### Use Image Pinning
+#### Use image pinning
 
-**Pin to tag:** All community charts pin images to specific **tags**, which works when you control both the image and the chart production release timing and can make sure they match when you release. Use tags like this:
+It is strongly recommended that you deploy Chainguard-provided charts by pinning to digest.
+
+Using tags can be problematic because tags are mutable and the images described by the chart will change regularly when the images themselves are updated.
+
+Pinning the chart by digest ensures you are running a consistent set of images and removes the possibility of unexpected breaking changes.
+
+**Pin to digest:**
+
+Pin to digests like this:
+
+1. Get the digest.
+
+  ```sh
+  crane digest cgr.dev/$ORGANIZATION/charts/grafana:10.5.13
+  ```
+
+  Which returns a digest like this:
+
+  ```response
+  sha256:38850bacab587e4cf1177d0fe5b8bd62bad27d3f04f5a1c65ddcd86ea9748a73
+  ```
+
+2. Use the digest to install your chart, replacing `sha256:DIGEST` with the response you just received.
+
+  ```sh
+  helm install grafana \ 
+  oci://cgr.dev/$ORGANIZATION/charts/grafana@sha256:$DIGEST
+  ```
+
+**Pin to tag:**
+
+If you must, use tags like this:
 
 ```sh
-helm install grafana oci://cgr.dev/$ORGANIZATION/charts/grafana --version 10.5.13 \
-  --set "global.org=$ORGANIZATION"
+helm install grafana oci://cgr.dev/$ORGANIZATION/charts/grafana --version 10.5.13
 ```
 
-**Pin to Digest:** While the Helm charts available from Chainguard follow the same tagging scheme as the related Chainguard images, we recommend that you always pin to a specific chart **digest** to prevent unexpected updates:
-
-```sh
-helm install rabbitmq \ 
-oci://cgr.dev/$ORGANIZATION/iamguarded-charts/rabbitmq@sha256:DIGEST \
-     --set "global.org=$ORGANIZATION"
-```
-
-#### Review Default Values:
+#### Review default values:
 
 The chart provides security-minded defaults that are sensible but may not suit all use cases. Review the chart's `values.yaml` for the full range of configuration options and adjust as needed.
+
+**Override the version of an image being deployed with the chart**
+
+There may be times when you need to override the version of an image that is set to be deployed with a chart. The override values vary between charts.
+
+Refer to the documentation for charts in the Chainguard Console in the **Helm charts** page, accessible from the sidebar. Find your chart in the list and select it, then click through the tabs across the top of the page to learn more about the chart. For example, you can find the default values for the Grafana Helm chart in [its Default Values tab](https://console.chainguard.dev/org/$ORGANIZATION$/helm/organization/community-chart/grafana/defaultValues).
+
+![Screenshot of the Default values tab for the Grafana Helm chart in the Chainguard Console.](helm-values.png)
+
+
+**Example of overriding tag and digest**
+
+When you override values, you need to stay aware of how the original value was being used and think through the implications of your change.
+
+For example, because Chainguard specifies digests in our chart values, you need to override that digest along with the tag.
+
+Use:
+
+```sh
+helm install <chart> --set image.digest=<desired-digest>
+```
+
+or
+
+```sh
+helm install <chart> --set image.tag=<desired-tag> --set image.digest=""
+```
+
+**Do not** use:
+
+```sh
+helm install <chart> --set image.tag=<desired-tag>
+```
+
+Getting this wrong could cause you to unknowingly run the version specified by the digest instead of the version you intend.
 
 
 ## Helm chart usage examples
@@ -229,6 +285,19 @@ helm install grafana oci://cgr.dev/$ORGANIZATION/charts/grafana \
 ```
 
 
+### Install using a mirror
+
+Many customers choose to handle container images by overriding the Chainguard repository and registry and using their own internal mirror. How you set this up depends on your chosen solution, but it does affect these Helm charts. You will need to override values in the Helm chart with the appropriate new values for your mirror.
+
+One way you can do this is with the `chainctl image helm values` command, which generates minimal Helm value overrides that modify image references in a Chainguard Helm chart to refer to a different registry and/or organization that you specify. Refer to [[chainctl images helm values](/chainguard/chainctl/chainctl-docs/chainctl_images_helm_values/)] for specifics along with:
+
+```sh
+chainctl images helm values --help
+```
+
+This command is a subcommand of [chainctl images helm](/chainguard/chainctl/chainctl-docs/chainctl_images_helm/), which groups Helm chart related commands.
+
+
 ## Troubleshooting 
 
 To check the Helm configuration, you can run `helm install` with `--dry-run` flag. This will output the generated Kubernetes YAML. Double check the values for the image and `imagePullSecrets` to ensure they point to the correct registry and authentication is in place.
@@ -236,13 +305,13 @@ To check the Helm configuration, you can run `helm install` with `--dry-run` fla
 To see the files, run:
 
 ```sh
-helm pull --untar oci://cgr.dev/$ORGANIZATION/charts/grafana \
+helm pull --untar oci://cgr.dev/$ORGANIZATION/charts/grafana
 ```
 
 To get the `values.yaml` so you can examine it, run:
 
 ```sh
-helm show values oci://cgr.dev/$ORGANIZATION/charts/grafana \
+helm show values oci://cgr.dev/$ORGANIZATION/charts/grafana
 ```
 
 See the [Helm commands documentation](https://helm.sh/docs/helm/) for more information.
