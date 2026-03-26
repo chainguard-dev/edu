@@ -186,7 +186,7 @@ Pin to digests like this:
 
   ```sh
   helm install grafana \ 
-  oci://cgr.dev/$ORGANIZATION/charts/grafana@sha256:DIGEST
+  oci://cgr.dev/$ORGANIZATION/charts/grafana@sha256:$DIGEST
   ```
 
 **Pin to tag:**
@@ -203,13 +203,9 @@ The chart provides security-minded defaults that are sensible but may not suit a
 
 **Override the version of an image being deployed with the chart**
 
-There may be times when you need to override the version of an image that is set to be deployed with a chart. The override values are going to vary chart by chart.
+There may be times when you need to override the version of an image that is set to be deployed with a chart. The override values vary between charts.
 
-Refer to the documentation for charts in the Chainguard Console in the **Helm charts** page, accessible from the sidebar. Find your chart in the list and select it, then click through the tabs across the top of the page to learn more, such as in this screenshot for the Grafana Helm chart default values which you can see here:
-
-```http
-https://console.chainguard.dev/org/$ORGANIZATION$/helm/organization/community-chart/grafana/defaultValues
-```
+Refer to the documentation for charts in the Chainguard Console in the **Helm charts** page, accessible from the sidebar. Find your chart in the list and select it, then click through the tabs across the top of the page to learn more about the chart. For example, you can find the default values for the Grafana Helm chart in [its Default Values tab](https://console.chainguard.dev/org/$ORGANIZATION$/helm/organization/community-chart/grafana/defaultValues).
 
 ![Screenshot of the Default values tab for the Grafana Helm chart in the Chainguard Console.](helm-values.png)
 
@@ -232,7 +228,7 @@ or
 helm install <chart> --set image.tag=<desired-tag> --set image.digest=""
 ```
 
-Do NOT use:
+**Do not** use:
 
 ```sh
 helm install <chart> --set image.tag=<desired-tag>
@@ -289,7 +285,7 @@ helm install grafana oci://cgr.dev/$ORGANIZATION/charts/grafana \
 ```
 
 
-### Install using your mirror
+### Install using a mirror
 
 Many customers choose to handle container images by overriding the Chainguard repository and registry and using their own internal mirror. How you set this up depends on your chosen solution, but it does affect these Helm charts. You will need to override values in the Helm chart with the appropriate new values for your mirror.
 
@@ -299,7 +295,7 @@ One way you can do this is with the `chainctl image helm values` command, which 
 chainctl images helm values --help
 ```
 
-This command is a subcommand of [[chainctl images helm](/chainguard/chainctl/chainctl-docs/chainctl_images_helm/)], which groups Helm chart related commands.
+This command is a subcommand of [chainctl images helm](/chainguard/chainctl/chainctl-docs/chainctl_images_helm/), which groups Helm chart related commands.
 
 
 ## Troubleshooting 
