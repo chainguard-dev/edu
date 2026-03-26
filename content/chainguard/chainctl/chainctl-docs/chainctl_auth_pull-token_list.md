@@ -1,5 +1,5 @@
 ---
-date: 2026-03-20T17:56:07Z
+date: 2026-03-25T17:00:29Z
 title: "chainctl auth pull-token list"
 slug: chainctl_auth_pull-token_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token_list/
@@ -14,7 +14,7 @@ toc: true
 List all pull-tokens
 
 ```
-chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|python|javascript|java}] [flags]
+chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|java|python|javascript}] [flags]
 ```
 
 ### Examples
@@ -41,7 +41,7 @@ chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--reposi
 ```
       --expired             If true return only expired pull tokens.
       --parent string       The IAM organization or folder with which the pull-token identity is associated.
-      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, python, javascript, java
+      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, java, python, javascript
 ```
 
 ### Options inherited from parent commands

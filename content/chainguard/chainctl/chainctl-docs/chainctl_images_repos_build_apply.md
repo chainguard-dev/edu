@@ -1,5 +1,5 @@
 ---
-date: 2026-03-20T17:56:07Z
+date: 2026-03-25T17:00:29Z
 title: "chainctl images repos build apply"
 slug: chainctl_images_repos_build_apply
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_apply/
@@ -11,12 +11,12 @@ toc: true
 ---
 ## chainctl images repos build apply
 
-Apply a build config from a file
+Apply a build config
 
 ### Synopsis
 
 
-Apply a pre-written YAML configuration file to customize a Chainguard image.
+Apply a pre-written YAML configuration file and/or custom certificates to customize a Chainguard image.
 
 You can use Custom Assembly to customize any image you are entitled to by
 adding packages from Chainguard's repository, setting environment variables,
@@ -24,22 +24,28 @@ adding OCI annotations, customizing user accounts and groups, or including
 custom certificates. The customized image is built automatically without
 requiring you to fork images or maintain custom build pipelines.
 
-This command applies Custom Assembly configurations from a YAML file without
-opening an interactive editor. Use this for automated workflows, CI/CD pipelines,
-or when you have configuration files managed in version control.
+This command applies Custom Assembly configurations without opening an interactive
+editor. Use this for automated workflows, CI/CD pipelines, or when you have
+configuration files managed in version control.
 
 Finally, you can create variants by choosing to save the customized configuration
 as a new repository instead of modifying the existing one.
 
 How it works:
 
-You customize the image by applying a YAML configuration file. Provide the file
-using the --file flag. The command reads the file, validates the configuration,
-and displays a diff comparing it to the current repository configuration (or an
-empty baseline for new repositories).
+You can customize the image by providing configuration through a YAML file,
+certificates, or both.
 
-After reviewing the diff, you confirm the changes. The command then updates the
-repository configuration and starts a custom build automatically.
+At least one of --file or --with-certificates must be provided. When --file is
+used alone, the YAML configuration from the file is applied as-is. When
+--with-certificates is used alone, only the certificates will be applied to
+the image. When both flags are provided, the certificates are merged with the
+configuration from the file.
+
+The command validates the resulting configuration and displays a diff comparing
+it to the current repository configuration (or an empty baseline for new
+repositories). After reviewing the diff, you confirm the changes. The command
+then updates the repository configuration and starts a custom build automatically.
 
 Customizable sections:
 
@@ -95,7 +101,10 @@ chainctl images repos build apply --repo=my-custom-python --file=config.yaml --y
 # Apply to interactively selected repository
 chainctl images repos build apply --file=config.yaml
 
-# Add custom certificates
+# Add only custom certificates (no config file needed)
+chainctl images repos build apply --repo=my-custom-python --with-certificates=ca1.pem --with-certificates=ca2.pem
+
+# Add custom certificates alongside a config file
 chainctl images repos build apply --repo=my-custom-python --file=config.yaml --with-certificates=ca1.pem --with-certificates=ca2.pem
 
 # Combine file-based config with certificates (for CI/CD)

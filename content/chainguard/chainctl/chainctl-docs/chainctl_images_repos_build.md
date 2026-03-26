@@ -1,5 +1,5 @@
 ---
-date: 2026-03-20T17:56:07Z
+date: 2026-03-25T17:00:29Z
 title: "chainctl images repos build"
 slug: chainctl_images_repos_build
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_build/
@@ -31,7 +31,7 @@ Manage custom image builds
 ### SEE ALSO
 
 * [chainctl images repos](/chainguard/chainctl/chainctl-docs/chainctl_images_repos/)	 - Image repo related commands for the Chainguard platform.
-* [chainctl images repos build apply](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_apply/)	 - Apply a build config from a file
+* [chainctl images repos build apply](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_apply/)	 - Apply a build config
 * [chainctl images repos build edit](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_edit/)	 - Edit a build config, optionally creating a new repo with --save-as
 * [chainctl images repos build list](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_list/)	 - List build reports
 * [chainctl images repos build logs](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_logs/)	 - Get build logs
