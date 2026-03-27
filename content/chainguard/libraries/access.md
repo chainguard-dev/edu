@@ -250,13 +250,13 @@ password YOUR_PASSWORD
 
 For a direct connection to Chainguard Libraries, for example for testing with
 curl, use the following example with the username
-`CHAINGUARD_JAVA_IDENTITY_ID` and password `CHAINGUARD_JAVA_TOKEN` value for
+`CHAINGUARD_PYTHON_IDENTITY_ID` and password `CHAINGUARD_PYTHON_TOKEN` value for
 the pull token for the desired language ecosystem:
 
 ```
 machine libraries.cgr.dev
-login CHAINGUARD_JAVA_IDENTITY_ID
-password CHAINGUARD_JAVA_TOKEN
+login CHAINGUARD_PYTHON_IDENTITY_ID
+password CHAINGUARD_PYTHON_TOKEN
 ```
 
 Note that the long string for the password value must use only one line.
