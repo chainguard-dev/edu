@@ -209,13 +209,14 @@ Java.
 ### Configure direct access
 
 If you are not using a repository manager at your organization, you can
-configure access to the Chainguard Libraries for Java repository directly. 
-Ensure that the Chainguard
-repository is located above the necessary override for the built-in `central`
-repository and any other repositories.
+configure access to the Chainguard Libraries for Java repository directly.
+Ensure that the Chainguard repository is located above the necessary override
+for the built-in `central` repository and any other repositories.
 
-The following `~/.m2/settings.xml` configures direct access with Chainguard as the primary repository and Maven Central as a fallback for transitive dependencies not available in the Chainguard library. It uses placeholder values `CG_PULLTOKEN_USERNAME` and
-`CG_PULLTOKEN_PASSWORD` or [environment
+The following `~/.m2/settings.xml` configures direct access with Chainguard as
+the primary repository and Maven Central as a fallback for transitive
+dependencies not available in the Chainguard library. It uses placeholder values
+`CG_PULLTOKEN_USERNAME` and `CG_PULLTOKEN_PASSWORD` or [environment
 variables](/chainguard/libraries/access/#env) for the pull token detailed in
 [Chainguard Libraries access](/chainguard/libraries/access/):
 
@@ -301,8 +302,21 @@ mvn archetype:generate \
   -DgroupId=com.example \
   -DartifactId=maven-example \
   -DarchetypeArtifactId=maven-archetype-quickstart \
+  -DarchetypeVersion=1.5 \
   -DinteractiveMode=false
 cd maven-example
+```
+
+Add a dependency on `com.google.guava:guava` to the `<dependencies>` section of
+`pom.xml`. Open the file and insert the following before the closing
+`</dependencies>` tag::
+
+```xml
+<dependency>
+  <groupId>com.google.guava</groupId>
+  <artifactId>guava</artifactId>
+  <version>33.4.0-jre</version>
+</dependency>
 ```
 
 For testing purposes, you can use direct access and environment variables as
@@ -396,19 +410,20 @@ The `maven-archetype-quickstart` template declares `junit:junit:3.8.1` as a
 dependency. Following the build, find the downloaded jar at:
 
 ```
-~/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar
+~/.m2/repository/com/google/guava/guava/33.4.0-jre/guava-33.4.0-jre.jar
 ```
 
 To verify the artifact was built by Chainguard, use `chainctl`: 
 
 ```bash
-chainctl libraries verify ~/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar
+chainctl libraries verify \
+  ~/.m2/repository/com/google/guava/guava/33.4.0-jre/guava-33.4.0-jre.jar
 ```
 
 A successfully verified artifact produces output similar to the following:
 
 ```bash
-Artifact: /Users/example/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar
+Artifact: /Users/example/.m2/repository/com/google/guava/guava/33.4.0-jre/guava-33.4.0-jre.jar
 Verification Coverage: 100.00%
 ```
 
