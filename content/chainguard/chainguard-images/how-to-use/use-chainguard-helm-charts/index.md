@@ -42,6 +42,7 @@ You can use these Helm charts with Chainguard FIPS container images, but you wil
 You will need to authenticate to pull charts. These instructions explain how to use charts and images with the `cgr.dev` repository. If you have mirrored or copied the charts and images to an organization-specific registry, you will need to adapt these instructions to authenticate to your registry, as appropriate.
 
 This section presents multiple authentication methods:
+
 - Use Helm values with `global.imagePullSecrets`
 - Deploy a Chainguard Helm chart using a Kubernetes pull secret
 - Use cluster node-scoped registry permissions
@@ -96,7 +97,7 @@ HELMUSER=45a0c61ea6fd977f050c5fb9ac06a69eed764595/095b0c7ea9d68679
 HELMPASS=eyJhbGciOiJSUzI1NiJ9.eyJhdWQ... # Token truncated
 ```
 
-Create your Kubernetes secret using the variables you just created.	
+Create your Kubernetes secret using the variables you just created.
 
 ```sh
 kubectl create secret docker-registry chainguard-pull-secret \
@@ -154,19 +155,17 @@ NOTES:
 ```
 
 
-### Use cluster node-scoped registry permissions
+## Best practices with cluster node-scoped registry permissions
 
 If you manage access and permissions at cluster-wide and node-specific levels, these are some best practices to consider.
 
-#### Use image pinning
+### Pin to digest
 
 It is strongly recommended that you deploy Chainguard-provided charts by pinning to digest.
 
 Using tags can be problematic because tags are mutable and the images described by the chart will change regularly when the images themselves are updated.
 
 Pinning the chart by digest ensures you are running a consistent set of images and removes the possibility of unexpected breaking changes.
-
-**Pin to digest:**
 
 Pin to digests like this:
 
@@ -189,19 +188,17 @@ Pin to digests like this:
   oci://cgr.dev/$ORGANIZATION/charts/grafana@sha256:$DIGEST
   ```
 
-**Pin to tag:**
-
 If you must, use tags like this:
 
 ```sh
 helm install grafana oci://cgr.dev/$ORGANIZATION/charts/grafana --version 10.5.13
 ```
 
-#### Review default values:
+### Review Helm chart default values
 
 The chart provides security-minded defaults that are sensible but may not suit all use cases. Review the chart's `values.yaml` for the full range of configuration options and adjust as needed.
 
-**Override the version of an image being deployed with the chart**
+#### Override the version of an image being deployed with the chart
 
 There may be times when you need to override the version of an image that is set to be deployed with a chart. The override values vary between charts.
 
@@ -210,7 +207,7 @@ Refer to the documentation for charts in the Chainguard Console in the **Helm ch
 ![Screenshot of the Default values tab for the Grafana Helm chart in the Chainguard Console.](helm-values.png)
 
 
-**Example of overriding tag and digest**
+#### Example of overriding tag and digest
 
 When you override values, you need to stay aware of how the original value was being used and think through the implications of your change.
 
