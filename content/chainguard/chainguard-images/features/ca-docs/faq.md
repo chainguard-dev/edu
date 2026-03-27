@@ -108,7 +108,7 @@ When an added package is updated and available, your Custom Assembly image is re
 ## Custom Assembly Troubleshooting
 Build failures can occur for a number of reasons, including the following:
 
-* It’s possible for you to select packages that conflict with each other. For example, if two packages install the same files, Custom Assembly may not be able to resolve the conflict and result in a failed build.
+* It’s possible for you to select packages that conflict with each other. For example, if two packages install the same files, Custom Assembly may not be able to resolve the conflict and result in a failed build. One example is trying to add newer packages to older bases causing a mismatch because the newer package turned out to be built using a newer version of `glibc`.
 * Large images taking longer than 1 hour to build will fail with a timeout error.
 * When using Custom Assembly through `chainctl`, you choose to add a package which you don't have access to.
 
