@@ -163,14 +163,16 @@ cd npm-example
 npm init -y
 ```
 
-For testing purposes, you can use direct access and environment variables as
-detailed in the [access documentation](/chainguard/libraries/access/#env). Once
-the environment variables are set, the following steps configure registry
+For testing purposes, you can use direct access and environment variables for
+the pull token credentials; see the [access
+documentation](/chainguard/libraries/access/#env) for instructions on setting
+variables. 
+
+Once the environment variables are set, the following steps configure registry
 access with authentication in the `.npmrc` file in the current project
 directory:
 
 ```bash
-eval $(chainctl auth pull-token --output env --repository=javascript --parent=<your-org>)
 export token=$(echo -n "${CHAINGUARD_JAVASCRIPT_IDENTITY_ID}:${CHAINGUARD_JAVASCRIPT_TOKEN}" | base64 -w 0)
 
 npm config set registry https://libraries.cgr.dev/javascript/ --location=project
