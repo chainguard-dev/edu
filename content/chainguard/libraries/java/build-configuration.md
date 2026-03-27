@@ -405,9 +405,10 @@ indicate a transitive dependency not present in the Chainguard library that fell
 back to Maven Central; this is expected behavior.
 
 #### Verify the project works as expected
-
-The `maven-archetype-quickstart` template declares `junit:junit:3.8.1` as a
-dependency. Following the build, find the downloaded jar at:
+`
+Following the build, the dependencies declared in `pom.xml` are downloaded to
+the local Maven repository at ~/.m2/repository. For example, the `guava`
+dependency added in the example project can be found at:
 
 ```
 ~/.m2/repository/com/google/guava/guava/33.4.0-jre/guava-33.4.0-jre.jar
