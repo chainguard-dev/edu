@@ -360,7 +360,7 @@ docker build --no-cache
 
 ### Resolving checksum mismatches
 
-Before regenerating lock files, ensure your tool is configured to use Chainguard as the package index by following the [global configuration](chainguard/libraries/python/global-configuration/) or [direct access](/chainguard/libraries/python/build-configuration/#direct-access) documentation.
+Before regenerating lock files, ensure your tool is configured to use Chainguard as the package index by following the [global configuration](/chainguard/libraries/python/global-configuration/) or [direct access](/chainguard/libraries/python/build-configuration/#direct-access) documentation.
 
 To update your lock files and requirements with Chainguard's checksums:
 
@@ -410,7 +410,7 @@ Poetry 2.x:
 
 Repository managers such as JFrog Artifactory or Sonatype Nexus may continue serving cached PyPI artifacts even after the upstream index is changed. Clear the cache or invalidate the artifact to ensure the Chainguard-built package is fetched. 
 
-Before regenerating lock files, ensure your tool is configured to use Chainguard as the package index by following the [global configuration](link) or [direct access](link) documentation.
+Before regenerating lock files, ensure your tool is configured to use Chainguard as the package index by following the [global configuration](/chainguard/libraries/python/global-configuration/) or [direct access](/chainguard/libraries/python/build-configuration/#direct-access) documentation.
 
 >**Note:** While hash mismatches are expected for some tooling and
 configurations while migrating to Chainguard, you can verify the authenticity and provenance of Chainguard
