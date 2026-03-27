@@ -38,7 +38,7 @@ In the signup form, you can enter up to five non-FIPS images to be provisioned t
 
 ### 2. Integrate with your registry and pipelines
 
-After your organization is enabled, you're free to use the five images you selected however you like. For example, you can pull them into your CI/CD pipelines and runtime environments, or pull them through a third-party registry like [JFrog Artifactory](/chainguard-images/chainguard-registry/pull-through-guides/artifactory/artifactory-images-pull-through/). These container images are the same as those provided to Chainguard's paying customers, and are covered by Chainguard’s standard hardening, rebuild, and CVE-remediation processes, although they are not covered by [Chainguard's CVE SLA](https://www.chainguard.dev/legal/cve-policy).
+After your organization is enabled, you're free to use the five images you selected however you like. For example, you can pull them into your CI/CD pipelines and runtime environments, or pull them through a third-party registry like [JFrog Artifactory](/chainguard/chainguard-images/chainguard-registry/pull-through-guides/artifactory/artifactory-images-pull-through/). These container images are the same as those provided to Chainguard's paying customers, and are covered by Chainguard’s standard hardening, rebuild, and CVE-remediation processes, although they are not covered by [Chainguard's CVE SLA](https://www.chainguard.dev/legal/cve-policy).
 
 ### 3. Upgrade when you’re ready
 
