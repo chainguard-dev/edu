@@ -182,6 +182,15 @@ As of this writing, Chainguard offers the following certificate bundle packages 
 * `ca-certificates-dod-wcf` — US DoD Web Content Filtering (WCF) PKI certificates
 
 
+## Custom Assembly and Java trust stores
+
+In addition to the system truststore, Custom Assembly’s custom certificates update Java truststores automatically.
+
+As outlined previously, when you define `certificates.additional` in a Custom Assembly config, the certificates are appended to the system bundle at `/etc/ssl/certs/ca-certificates.crt`. The same certificates are also added to the Java trust store at `/etc/ssl/certs/java/cacerts`, if that file exists in the image (for example, because the image includes Chainguard’s Java truststore package or a JDK/JRE that exposes it there).
+
+There is no extra configuration flag for Java: the build looks for a Java truststore in that location and, if found, appends the custom certificates to it in the same way it does for the OS store. This works even if you add Java to a non-Java base image with Custom Assembly; once the Java truststore file is present, it gets updated.
+
+
 ## Troubleshooting
 
 ### Certificate validation errors
