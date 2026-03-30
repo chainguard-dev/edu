@@ -91,9 +91,9 @@ rm -rf ~/.m2/repository
 ### Configure access via a repository manager
 
 Before running a new build you must configure access to Chainguard Libraries
-for Java. If your organization uses a repository manager (such as JFrog Artifactory or Sonatype Nexus), configure a global mirror in `~/.m2/settings.xml` that routes all artifact requests through it. 
+for Java. If your organization uses a repository manager, configure a global mirror in `~/.m2/settings.xml` that routes all artifact requests through it. 
 
-A typical setup defines a global mirror (id `repo-example` in the example below) for all artifacts and
+A typical setup defines a global mirror (id `repo-example` in the following example) for all artifacts and
 configures the URL of the repository group or virtual repository from your
 repository manager `https://repo.example.com/group/`. Since the group or virtual
 repository combines release and snapshot artifacts you must override the
@@ -215,7 +215,7 @@ for the built-in `central` repository and any other repositories.
 
 The following `~/.m2/settings.xml` configures direct access with Chainguard as
 the primary repository and Maven Central as a fallback for transitive
-dependencies not available in the Chainguard library. It uses placeholder values
+dependencies not available from Chainguard. It uses placeholder values
 `CG_PULLTOKEN_USERNAME` and `CG_PULLTOKEN_PASSWORD` or [environment
 variables](/chainguard/libraries/access/#env) for the pull token detailed in
 [Chainguard Libraries access](/chainguard/libraries/access/):
@@ -277,10 +277,9 @@ variables](/chainguard/libraries/access/#env) for the pull token detailed in
   <servers>
     <server>
       <id>chainguard</id>
-      <!-- Use environment variables (recommended for CI/CD and shared configs) -->
+      <!-- Use environment variables -->
       <username>${env.CHAINGUARD_JAVA_IDENTITY_ID}</username>
       <password>${env.CHAINGUARD_JAVA_TOKEN}</password>
-      <!-- Or use literal values for local development -->
       <!-- <username>YOUR_IDENTITY_ID</username> -->
       <!-- <password>YOUR_TOKEN</password> -->
     </server>
@@ -401,7 +400,7 @@ mvn install
 During the build, Maven logs each artifact download with the source repository.
 Lines beginning with `Downloaded from chainguard:` confirm the artifact was
 served by Chainguard Libraries. Lines beginning with `Downloaded from central:`
-indicate a transitive dependency not present in the Chainguard library that fell
+indicate that a dependency is not present in Chainguard and the download fell
 back to Maven Central; this is expected behavior.
 
 #### Verify the project works as expected
