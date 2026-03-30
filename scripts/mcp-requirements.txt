@@ -1,2 +1,3 @@
 # MCP Server dependencies for Chainguard AI Docs
 mcp>=0.9.0
+httpx>=0.27.0

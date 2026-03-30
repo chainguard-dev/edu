@@ -144,6 +144,14 @@ jobs:
         echo "Documentation compiled successfully"
         ls -lh static/downloads/chainguard-complete-docs.md
 
+    - name: Generate image catalog
+      run: |
+        python3 scripts/generate_image_catalog.py \
+          --mappings data/package-mappings.yaml \
+          --docs static/downloads/chainguard-complete-docs.md \
+          --output scripts/image-catalog.json \
+          --commit "${{ github.sha }}"
+
     - name: Create AI-specific bundle
       run: |
         cd static/downloads
@@ -151,13 +159,16 @@ jobs:
         # Rename for clarity
         cp chainguard-complete-docs.md chainguard-ai-docs.md
         
-        # Create compressed versions
-        tar -czf chainguard-ai-docs.tar.gz chainguard-ai-docs.md
+        # Copy image catalog into downloads
+        cp ../../scripts/image-catalog.json .
+
+        # Create compressed versions (include catalog in bundles)
+        tar -czf chainguard-ai-docs.tar.gz chainguard-ai-docs.md image-catalog.json
         gzip -k chainguard-ai-docs.md
-        zip chainguard-ai-docs.zip chainguard-ai-docs.md
-        
+        zip chainguard-ai-docs.zip chainguard-ai-docs.md image-catalog.json
+
         # Generate checksums
-        sha256sum chainguard-ai-docs.* > checksums.txt
+        sha256sum chainguard-ai-docs.md image-catalog.json > checksums.txt
         
         echo "AI documentation bundle created:"
         ls -lh chainguard-ai-docs.*
@@ -168,9 +179,11 @@ jobs:
         # Copy files for container build
         cp static/downloads/chainguard-ai-docs.md scripts/
 
+        # image-catalog.json is already in scripts/ from the generate step
+
         # Create container-specific checksums (only for files included in container)
         cd scripts
-        sha256sum chainguard-ai-docs.md > checksums.txt
+        sha256sum chainguard-ai-docs.md image-catalog.json > checksums.txt
         cd ..
 
         # Create placeholder signature files if they don't exist
@@ -264,6 +277,7 @@ jobs:
           static/downloads/chainguard-ai-docs.tar.gz \
           static/downloads/chainguard-ai-docs.md \
           static/downloads/chainguard-ai-docs.zip \
+          static/downloads/image-catalog.json \
           static/downloads/checksums.txt \
           --title "AI Documentation Bundle - Latest" \
           --notes "Chainguard AI documentation bundle for use with AI coding assistants.
