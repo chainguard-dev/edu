@@ -21,6 +21,7 @@ mkdir -p "$OUTPUT_DIR"
 
 # Copy files
 cp /docs/chainguard-ai-docs.md "$OUTPUT_DIR/"
+cp /docs/image-catalog.json "$OUTPUT_DIR/"
 cp /docs/checksums.txt "$OUTPUT_DIR/"
 cp /docs/verification.sh "$OUTPUT_DIR/"
 
@@ -28,5 +29,6 @@ echo "[PASS] Documentation extracted successfully"
 echo
 echo "Files extracted to: $OUTPUT_DIR"
 echo "  - chainguard-ai-docs.md (main documentation)"
+echo "  - image-catalog.json (image and package mapping catalog)"
 echo "  - checksums.txt (file checksums)"
 echo "  - verification.sh (verification script)"
