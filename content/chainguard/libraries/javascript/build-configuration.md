@@ -177,7 +177,7 @@ coreutils versions included in most operating systems.
 Before installing packages, you can verify that authentication is configured correctly by running:
 
 ```bash
-chainguard-with-upstream npm ping --userconfig .npmrc
+npm ping --userconfig .npmrc
 ```
 
 A successful respoonse looks like:
