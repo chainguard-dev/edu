@@ -74,13 +74,13 @@ with username and password from a pull token as detailed in
 ## Apache Maven
 
 [Apache Maven](https://maven.apache.org/) is the most widely used build tool in
-the Java ecosystem. 
+the Java ecosystem. Dependencies are declared in a `pom.xml` file and resolved from remote repositories.
 
 ### Remove Maven caches
 
-Apache Maven uses a local cache of libraries. When adopting Chainguard Libraries
-for Java you must delete that local cache so that libraries are downloaded
-again. By default the cache, also known as the local repository, is located in a
+Maven caches downloaded artifacts in a local repository. When adopting Chainguard Libraries
+for Java you must delete that local cache so that libraries are re-downloaded
+from Chainguard. By default the cache is located in a
 hidden `.m2/repository` directory in your user's home directory. Use the
 following command to delete it:
 
@@ -88,20 +88,17 @@ following command to delete it:
 rm -rf ~/.m2/repository
 ```
 
-### Change Maven configuration
+### Configure access via a repository manager
 
 Before running a new build you must configure access to Chainguard Libraries
-for Java. If the administrator for your organization’s repository manager
-created a new repository or virtual repository or group repository, you must
-update your settings defined in `~/.m2/settings.xml`.
+for Java. If your organization uses a repository manager, configure a global mirror in `~/.m2/settings.xml` that routes all artifact requests through it. 
 
-A typical setup defines a global mirror (id `repo-example`) for all artifacts and
+A typical setup defines a global mirror (id `repo-example` in the following example) for all artifacts and
 configures the URL of the repository group or virtual repository from your
 repository manager `https://repo.example.com/group/`. Since the group or virtual
 repository combines release and snapshot artifacts you must override the
 built-in `central` repository and its configuration in an automatically
 activated profile.
-
 
 ```xml
 <settings>
@@ -110,7 +107,7 @@ activated profile.
     <mirror>
       <!-- Set the identifier for the server credentials for repository manager access -->
       <id>repo-example</id>
-      <!--Send all requests to the repository manager -->
+      <!-- Send all requests to the repository manager -->
       <mirrorOf>*</mirrorOf>
       <url>https://repo.example.com/repository/group</url>
       <!-- Cloudsmith example -->
@@ -161,11 +158,13 @@ activated profile.
 </settings>
 ```
 
+#### Setting credentials for the server
+
 If your repository manager requires authentication, you must specify credentials
 for the server. The `id` value in the server element must match the `id` value
 in the mirror configuration - `repo-example` in the example. The username
 and password values vary depending on the repository manager and the configured
-authentication, contact the administrator and refer to the [global configuration
+authentication; contact the administrator and refer to the [global configuration
 documentation](/chainguard/libraries/java/global-configuration/).
 
 ```xml
@@ -207,26 +206,23 @@ If the administrator only re-configured the existing repository group or virtual
 repository, you can trigger a build to initiate use of Chainguard Libraries for
 Java.
 
+### Configure direct access
+
 If you are not using a repository manager at your organization, you can
-configure access to the Chainguard Libraries for Java repository directly in
-your settings or pom files. Note that the order of the repositories in these
-files is significant and you must configure the chainguard repository to be
-located on the top of the list.
+configure access to the Chainguard Libraries for Java repository directly.
+Ensure that the Chainguard repository is located above the necessary override
+for the built-in `central` repository and any other repositories.
 
-If your organization does not use a repository manager you can configure the
-Chainguard Libraries for Java repository. Ensure that the Chainguard
-repository is located above the necessary override for the built-in `central`
-repository and any other repositories.
-
-The following listing shows a complete `~/.m2/settings.xml` file with the
-desired configuration and placeholder values `CG_PULLTOKEN_USERNAME` and
-`CG_PULLTOKEN_PASSWORD` or [environment
+The following `~/.m2/settings.xml` configures direct access with Chainguard as
+the primary repository and Maven Central as a fallback for transitive
+dependencies not available from Chainguard. It uses placeholder values
+`CG_PULLTOKEN_USERNAME` and `CG_PULLTOKEN_PASSWORD` or [environment
 variables](/chainguard/libraries/access/#env) for the pull token detailed in
-[Chainguard Libraries access](/chainguard/libraries/access/)
+[Chainguard Libraries access](/chainguard/libraries/access/):
 
 ```xml
 <settings>
- <activeProfiles>
+  <activeProfiles>
     <activeProfile>no-repo-manager</activeProfile>
   </activeProfiles>
   <profiles>
@@ -281,12 +277,11 @@ variables](/chainguard/libraries/access/#env) for the pull token detailed in
   <servers>
     <server>
       <id>chainguard</id>
-      <!-- pick up values from environment variables -->
+      <!-- Use environment variables -->
       <username>${env.CHAINGUARD_JAVA_IDENTITY_ID}</username>
       <password>${env.CHAINGUARD_JAVA_TOKEN}</password>
-      <!-- or use literal values -->
-      <!-- <username>CG_PULLTOKEN_USERNAME</username> -->
-      <!-- <password>CG_PULLTOKEN_PASSWORD</password> -->
+      <!-- <username>YOUR_IDENTITY_ID</username> -->
+      <!-- <password>YOUR_TOKEN</password> -->
     </server>
   </servers>
 </settings>
@@ -296,6 +291,144 @@ The preceding settings affects all projects built on the machine where the file
 is configured. Alternatively you can add the `repositories` and
 `pluginRepositories` to individual project `pom.xml` files. Authentication
 details must remain within the settings file.
+
+### Minimal example project
+
+Use the following steps to create a minimal example project for Maven with Chainguard Libraries for Java.
+
+```bash
+mvn archetype:generate \
+  -DgroupId=com.example \
+  -DartifactId=maven-example \
+  -DarchetypeArtifactId=maven-archetype-quickstart \
+  -DarchetypeVersion=1.5 \
+  -DinteractiveMode=false
+cd maven-example
+```
+
+Add a dependency on `com.google.guava:guava` to the `<dependencies>` section of
+`pom.xml`. Open the file and insert the following before the closing
+`</dependencies>` tag::
+
+```xml
+<dependency>
+  <groupId>com.google.guava</groupId>
+  <artifactId>guava</artifactId>
+  <version>33.4.0-jre</version>
+</dependency>
+```
+
+For testing purposes, you can use direct access and environment variables as
+detailed in the [access documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials). 
+
+
+Once the environment variables are set, configure credentials in `~/.m2/settings.xml`:
+
+```bash
+mkdir -p ~/.m2
+cat > ~/.m2/settings.xml << EOF
+<settings>
+  <activeProfiles>
+    <activeProfile>no-repo-manager</activeProfile>
+  </activeProfiles>
+  <profiles>
+    <profile>
+      <id>no-repo-manager</id>
+      <repositories>
+        <repository>
+          <id>chainguard</id>
+          <url>https://libraries.cgr.dev/java/</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </repository>
+        <repository>
+          <id>central</id>
+          <url>https://repo1.maven.org/maven2/</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>chainguard</id>
+          <url>https://libraries.cgr.dev/java/</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+          <id>central</id>
+          <url>https://repo1.maven.org/maven2/</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+  <servers>
+    <server>
+      <id>chainguard</id>
+      <username>${env.CHAINGUARD_JAVA_IDENTITY_ID}</username>
+      <password>${env.CHAINGUARD_JAVA_TOKEN}</password>
+    </server>
+  </servers>
+</settings>
+EOF
+```
+
+Then build the project:
+
+```bash
+mvn install
+```
+
+During the build, Maven logs each artifact download with the source repository.
+Lines beginning with `Downloaded from chainguard:` confirm the artifact was
+served by Chainguard Libraries. Lines beginning with `Downloaded from central:`
+indicate that a dependency is not present in Chainguard and the download fell
+back to Maven Central; this is expected behavior.
+
+#### Verify the project works as expected
+`
+Following the build, the dependencies declared in `pom.xml` are downloaded to
+the local Maven repository at ~/.m2/repository. For example, the `guava`
+dependency added in the example project can be found at:
+
+```
+~/.m2/repository/com/google/guava/guava/33.4.0-jre/guava-33.4.0-jre.jar
+```
+
+To verify the artifact was built by Chainguard, use `chainctl`: 
+
+```bash
+chainctl libraries verify \
+  ~/.m2/repository/com/google/guava/guava/33.4.0-jre/guava-33.4.0-jre.jar
+```
+
+A successfully verified artifact produces output similar to the following:
+
+```bash
+Artifact: /Users/example/.m2/repository/com/google/guava/guava/33.4.0-jre/guava-33.4.0-jre.jar
+Verification Coverage: 100.00%
+```
+
+Adjust the repository URL to use your repository manager and add any other
+desired packages for further testing.
 
 ## Gradle
 
