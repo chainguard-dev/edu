@@ -95,14 +95,15 @@ Also, please note that while [`chainctl` commands](/chainguard/chainctl/) will g
 
 Before running `chainctl` for the first time, you should verify the integrity of the downloaded binary using Cosign. This ensures the binary has not been tampered with. Ensure that you have the latest version of Cosign installed by following our [How to Install Cosign guide](/open-source/sigstore/cosign/how-to-install-cosign/).
 
-Verify the binary you just downloaded using the `latest` release signatures:
+Retrieve the release version from the metadata file, then verify the binary you just downloaded:
 
 ```sh
 PLATFORM="$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/aarch64/arm64/')"
+VERSION=$(curl -sS "https://dl.enforce.dev/chainctl/latest/metadata.json" | jq -r .version)
 cosign verify-blob \
    --signature "https://dl.enforce.dev/chainctl/latest/chainctl_${PLATFORM}.sig" \
    --certificate "https://dl.enforce.dev/chainctl/latest/chainctl_${PLATFORM}.cert.pem" \
-   --certificate-identity-regexp "https://github.com/chainguard-dev/mono/.github/workflows/.release-drop.yaml@refs/tags/v[0-9]+\.[0-9]+\.[0-9]+" \
+   --certificate-identity "https://github.com/chainguard-dev/mono/.github/workflows/.release-drop.yaml@refs/tags/v${VERSION}" \
    --certificate-oidc-issuer https://token.actions.githubusercontent.com \
    $(which chainctl)
 ```
