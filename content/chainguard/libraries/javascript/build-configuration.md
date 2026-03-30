@@ -172,6 +172,24 @@ Note that the trailing slash in the registry URL is required, and that setting
 npm. The `-w 0` option for `base64` is required and supported by the GNU
 coreutils versions included in most operating systems.
 
+#### Verify authentication with npm ping
+
+Before installing packages, you can verify that authentication is configured correctly by running:
+
+```bash
+chainguard-with-upstream npm ping --userconfig .npmrc
+```
+
+A successful respoonse looks like:
+```bash
+npm notice PING https://libraries.cgr.dev/javascript/
+npm notice PONG 1065ms
+```
+
+The PONG response confirms that your credentials are valid and the registry is reachable. If the command fails, check that the .npmrc file exists in the current directory and that your token has not expired.
+
+#### Add dependencies for the project
+
 Add dependencies for your project into the `package.json` file to test retrieval
 from Chainguard Libraries, build the project, and list the dependencies:
 
