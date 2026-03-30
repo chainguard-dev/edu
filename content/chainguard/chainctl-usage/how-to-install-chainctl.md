@@ -91,9 +91,33 @@ Following that you can use `chainctl`. Be aware that Windows PowerShell does not
 Also, please note that while [`chainctl` commands](/chainguard/chainctl/) will generally work, some are not as thoroughly tested on Windows and may not behave as expected. In particular, the [`chainctl auth configure-docker`](/chainguard/chainctl/chainctl-docs/chainctl_auth_configure-docker/) command is known to cause errors on Windows as of this writing.
 
 
+## Verifying the `chainctl` binary with Cosign
+
+Before running `chainctl` for the first time, you should verify the integrity of the downloaded binary using Cosign. This ensures the binary has not been tampered with. Ensure that you have the latest version of Cosign installed by following our [How to Install Cosign guide](/open-source/sigstore/cosign/how-to-install-cosign/).
+
+Verify the binary you just downloaded using the `latest` release signatures:
+
+```sh
+PLATFORM="$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/aarch64/arm64/')"
+cosign verify-blob \
+   --signature "https://dl.enforce.dev/chainctl/latest/chainctl_${PLATFORM}.sig" \
+   --certificate "https://dl.enforce.dev/chainctl/latest/chainctl_${PLATFORM}.cert.pem" \
+   --certificate-identity-regexp "https://github.com/chainguard-dev/mono/.github/workflows/.release-drop.yaml@refs/tags/v[0-9]+\.[0-9]+\.[0-9]+" \
+   --certificate-oidc-issuer https://token.actions.githubusercontent.com \
+   $(which chainctl)
+```
+
+You should receive the following output:
+
+```output
+Verified OK
+```
+
+If you do not see the line `Verified OK` then there is a problem with your `chainctl` binary and you should reinstall it using the instructions at the beginning of this page.
+
 ## Verifying installation
 
-You can verify that everything was set up correctly by checking the `chainctl` version.
+Once verified, you can confirm that everything was set up correctly by checking the `chainctl` version.
 
 ```sh
 chainctl version
@@ -119,28 +143,6 @@ Platform:  	<your platform>
 ```
 
 If you received output that you did not expect, check your bash profile to make sure that your system is using the expected PATH.
-
-## Verifying the `chainctl` binary with Cosign
-
-You can verify the integrity of your `chainctl` binary using Cosign. Ensure that you have the latest version of Cosign installed by following our [How to Install Cosign guide](/open-source/sigstore/cosign/how-to-install-cosign/). Verify your `chainctl` binary with the following command:
-
-```sh
-VERSION=$(chainctl version 2>&1 | awk '/GitVersion/ {print $2}' | sed 's/^v//')
-cosign verify-blob \
-   --signature "https://dl.enforce.dev/chainctl/${VERSION}/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m).sig" \
-   --certificate "https://dl.enforce.dev/chainctl/${VERSION}/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m).cert.pem" \
-   --certificate-identity "https://github.com/chainguard-dev/mono/.github/workflows/.release-drop.yaml@refs/tags/v${VERSION}" \
-   --certificate-oidc-issuer https://token.actions.githubusercontent.com \
-   $(which chainctl)
-```
-
-You should receive the following output:
-
-```output
-Verified OK
-```
-
-If you do not see the line `Verified OK` then there is a problem with your `chainctl` binary and you should reinstall it using the instructions at the beginning of this page.
 
 ## Authenticating
 
@@ -195,5 +197,7 @@ When your version of `chainctl` is a few weeks old or older, you may consider up
 ```sh
 sudo chainctl update
 ```
+
+The update command automatically verifies the cosign signature of the downloaded binary before replacing your existing installation. If signature verification fails (for example, due to a network issue), the update will not proceed and the unverified binary will be removed.
 
 Keeping `chainctl` up to date will ensure that you are using the most up to date version.
