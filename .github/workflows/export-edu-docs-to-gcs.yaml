@@ -7,6 +7,7 @@ on:
       - 'content/**'
       - 'data/**'
       - '**.md'
+      - 'scripts/generate_image_catalog.py'
       - '.github/workflows/export-edu-docs-to-gcs.yaml'
   
   schedule:
