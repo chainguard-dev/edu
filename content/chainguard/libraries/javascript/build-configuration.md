@@ -179,6 +179,7 @@ After adding this line, verify your lockfile reflects the
 correct resolved URLs: scoped packages should resolve to `registry.npmjs.org`
 and all other packages should resolve to `libraries.cgr.dev/javascript`.
 
+pnpm, Yarn, and Yarn Classic do not require this workaround.
 
 <a id="npm-minimal"></a>
 
