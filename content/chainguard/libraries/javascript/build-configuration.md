@@ -140,6 +140,45 @@ To change the packages, remove the `node_modules` directory and the
 
 Now you can proceed with your development and testing. 
 
+### Using private npm packages alongside Chainguard Repository
+
+If your organization publishes its own packages to the public npm Registry under
+a scoped prefix (for example, `@your-org/package-name`), you may want those
+packages to be fetched directly from npm rather than going through the
+[Chainguard Repository](/chainguard/libraries/chainguard-repository/); for
+example, to bypass the cooldown period for packages you own and trust.
+
+npm supports per-scope registry configuration, which lets you route packages
+with a specific prefix to a different registry:
+
+```
+# .npmrc
+registry=https://libraries.cgr.dev/javascript/
+//libraries.cgr.dev/javascript/:_auth={$token}
+
+@your-org:registry=https://registry.npmjs.org/
+```
+
+However, npm has a behavior where, when it fetches package metadata from a
+scoped registry, it may rewrite the resolved tarball URL in the lockfile to use
+the primary registry host (in this case, Chainguard Repository) instead of the
+scoped registry. This causes subsequent `npm install` runs to attempt to fetch
+your scoped packages from Chainguard Repository, resulting in a 404 or
+authentication error.
+
+To prevent this, add the following line to your `.npmrc`:
+
+```
+replace-registry-host=never
+```
+
+This tells npm never to rewrite the registry host in resolved URLs, so scoped
+packages remain associated with their correct upstream registry in the lockfile.
+
+After adding this line, verify your lockfile reflects the
+correct resolved URLs: scoped packages should resolve to `registry.npmjs.org`
+and all other packages should resolve to `libraries.cgr.dev/javascript`.
+
 
 <a id="npm-minimal"></a>
 
