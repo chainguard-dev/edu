@@ -175,11 +175,10 @@ Check a Chainguard image's availability and list its current tags via a live reg
 
 ## Image Catalog
 
-The MCP server includes a pre-built image catalog generated from Chainguard's [package mappings data](https://github.com/chainguard-dev/edu/blob/main/data/package-mappings.yaml). This catalog powers the `list_images`, `find_package_equivalent`, and `check_image_freshness` tools with:
+The MCP server includes a pre-built image catalog that powers the `list_images`, `find_package_equivalent`, and `check_image_freshness` tools. The catalog contains:
 
-- **373+ Chainguard container images** with registry references
+- **All Chainguard container images** with registry references, sourced from image documentation
 - **Package mappings** across Debian, Fedora, and Alpine to Wolfi equivalents
-- **Upstream image mappings** showing which third-party images correspond to Chainguard alternatives
 
 The catalog is regenerated automatically as part of the weekly documentation build.
 
@@ -220,9 +219,44 @@ The Chainguard Python image (cgr.dev/chainguard/python) is available with these 
 latest, latest-dev, 3.13, 3.13-dev, ...
 ```
 
+## Standalone Installation (without Docker)
+
+The MCP server is also available as a standalone Python script from the [GitHub release](https://github.com/chainguard-dev/edu/releases/tag/ai-docs-latest):
+
+```bash
+# Download the MCP server, requirements, docs, and catalog
+curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-latest/mcp-server.py
+curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-latest/mcp-requirements.txt
+curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-latest/chainguard-ai-docs.md
+curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-latest/image-catalog.json
+
+# Install dependencies
+pip install -r mcp-requirements.txt
+
+# Run the server
+DOCS_PATH=chainguard-ai-docs.md CATALOG_PATH=image-catalog.json python3 mcp-server.py
+```
+
+To use this with Claude Desktop, update your configuration to point to the local script:
+
+```json
+{
+  "mcpServers": {
+    "chainguard-docs": {
+      "command": "python3",
+      "args": ["/path/to/mcp-server.py"],
+      "env": {
+        "DOCS_PATH": "/path/to/chainguard-ai-docs.md",
+        "CATALOG_PATH": "/path/to/image-catalog.json"
+      }
+    }
+  }
+}
+```
+
 ## Alternative: Static Documentation
 
-If you don't need MCP server functionality, you can extract the documentation as a single markdown file:
+If you don't need MCP server functionality, you can download the documentation as a single markdown file from the [GitHub release](https://github.com/chainguard-dev/edu/releases/tag/ai-docs-latest), or extract it from the container:
 
 ```bash
 docker run --rm -v $(pwd):/output \

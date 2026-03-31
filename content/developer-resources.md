@@ -119,6 +119,7 @@ Add to your `claude_desktop_config.json`:
 - Searchable and queryable documentation
 - Perfect for automated workflows
 - Works with Claude Desktop, Cursor, and other MCP-compatible tools
+- Also available as a [standalone Python script](https://github.com/chainguard-dev/edu/releases/tag/ai-docs-latest) (no Docker required)
 
 [**Full MCP Server Documentation →**](/mcp-server-ai-docs/)
 
