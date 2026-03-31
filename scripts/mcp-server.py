@@ -207,7 +207,6 @@ class ImagesCatalog:
             return {
                 "metadata": {},
                 "images": {},
-                "upstream_to_chainguard": {},
                 "packages": {},
             }
 
@@ -217,28 +216,19 @@ class ImagesCatalog:
         return bool(self.catalog.get("images"))
 
     def list_images(
-        self, filter_term: Optional[str] = None, include_upstream: bool = False
+        self, filter_term: Optional[str] = None
     ) -> List[Dict[str, Any]]:
-        """List images, optionally filtered and with upstream mappings."""
+        """List images, optionally filtered by name."""
         results = []
         for name, entry in self.catalog.get("images", {}).items():
             if filter_term and filter_term.lower() not in name.lower():
-                # Also check upstream mappings for filter match
-                upstream_match = any(
-                    filter_term.lower() in u.lower()
-                    for u in entry.get("upstream_mappings", [])
-                )
-                if not upstream_match:
-                    continue
+                continue
 
             item = {
                 "name": name,
                 "registry_ref": entry.get("registry_ref", ""),
                 "has_documentation": entry.get("has_documentation", False),
             }
-            if include_upstream:
-                item["upstream_mappings"] = entry.get("upstream_mappings", [])
-                item["variants"] = entry.get("variants", [])
             results.append(item)
 
         return sorted(results, key=lambda x: x["name"])
@@ -246,7 +236,7 @@ class ImagesCatalog:
     def find_package_equivalent(
         self, package: str, distro: Optional[str] = None
     ) -> List[Dict[str, Any]]:
-        """Find Wolfi package equivalents for an upstream OS package."""
+        """Find Wolfi package equivalents for a Debian, Fedora, or Alpine package."""
         results = []
         packages = self.catalog.get("packages", {})
 
@@ -296,7 +286,6 @@ class ImagesCatalog:
         catalog_entry = self.catalog.get("images", {}).get(name)
         if catalog_entry:
             result["has_documentation"] = catalog_entry.get("has_documentation", False)
-            result["upstream_mappings"] = catalog_entry.get("upstream_mappings", [])
 
         try:
             import httpx
@@ -383,18 +372,13 @@ async def list_tools() -> List[Tool]:
         ),
         Tool(
             name="list_images",
-            description="List available Chainguard container images with optional filtering and upstream mapping info",
+            description="List available Chainguard container images with optional filtering",
             inputSchema={
                 "type": "object",
                 "properties": {
                     "filter": {
                         "type": "string",
-                        "description": "Filter images by name or upstream mapping (e.g., 'python', 'nginx', 'apache')"
-                    },
-                    "include_upstream": {
-                        "type": "boolean",
-                        "description": "Include upstream image mappings in results (default: false)",
-                        "default": False
+                        "description": "Filter images by name (e.g., 'python', 'nginx', 'go')"
                     }
                 }
             }
@@ -423,13 +407,13 @@ async def list_tools() -> List[Tool]:
         ),
         Tool(
             name="find_package_equivalent",
-            description="Find Wolfi package equivalents for upstream OS packages (e.g., Debian 'build-essential' -> Wolfi 'build-base')",
+            description="Find Wolfi package equivalents for Debian, Fedora, or Alpine packages (e.g., Debian 'build-essential' -> Wolfi 'build-base')",
             inputSchema={
                 "type": "object",
                 "properties": {
                     "package": {
                         "type": "string",
-                        "description": "Upstream OS package name (e.g., 'build-essential', 'libssl-dev', 'python3-pip')"
+                        "description": "OS package name (e.g., 'build-essential', 'libssl-dev', 'python3-pip')"
                     },
                     "distro": {
                         "type": "string",
@@ -505,11 +489,10 @@ async def call_tool(name: str, arguments: Any) -> List[TextContent]:
 
         elif name == "list_images":
             filter_term = arguments.get("filter")
-            include_upstream = arguments.get("include_upstream", False)
 
             # Use catalog if available for richer results
             if catalog.available:
-                results = catalog.list_images(filter_term, include_upstream)
+                results = catalog.list_images(filter_term)
                 if not results:
                     return [TextContent(
                         type="text",
@@ -521,9 +504,6 @@ async def call_tool(name: str, arguments: Any) -> List[TextContent]:
                     line = f"- **{img['name']}** (`{img['registry_ref']}`)"
                     if img.get("has_documentation"):
                         line += " [docs]"
-                    if include_upstream and img.get("upstream_mappings"):
-                        upstreams = ", ".join(img["upstream_mappings"])
-                        line += f"\n  Replaces: {upstreams}"
                     response += line + "\n"
 
                 return [TextContent(type="text", text=response)]
@@ -598,8 +578,6 @@ async def call_tool(name: str, arguments: Any) -> List[TextContent]:
                 response += f"- **Tags** ({len(result['tags'])}): {', '.join(result['tags'][:10])}\n"
             if result.get("has_documentation") is not None:
                 response += f"- **Has documentation**: {'Yes' if result['has_documentation'] else 'No'}\n"
-            if result.get("upstream_mappings"):
-                response += f"- **Replaces**: {', '.join(result['upstream_mappings'])}\n"
             return [TextContent(type="text", text=response)]
 
         else:

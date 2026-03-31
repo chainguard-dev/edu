@@ -32,10 +32,10 @@ echo
 echo "MCP Tools Available:"
 echo "  - search_docs: Search across all documentation"
 echo "  - get_image_docs: Get specific image documentation"
-echo "  - list_images: List/filter container images with upstream mappings"
+echo "  - list_images: List and filter available container images"
 echo "  - get_security_docs: Get security and CVE information"
 echo "  - get_tool_docs: Get wolfi/apko/melange/chainctl docs"
-echo "  - find_package_equivalent: Find Wolfi packages for upstream OS packages"
+echo "  - find_package_equivalent: Find Wolfi equivalents for Debian/Fedora/Alpine packages"
 echo "  - check_image_freshness: Live registry check for image tags"
 echo
 echo "Security:"

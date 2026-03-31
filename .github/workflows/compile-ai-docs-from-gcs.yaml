@@ -147,8 +147,8 @@ jobs:
     - name: Generate image catalog
       run: |
         python3 scripts/generate_image_catalog.py \
-          --mappings data/package-mappings.yaml \
           --docs static/downloads/chainguard-complete-docs.md \
+          --mappings data/package-mappings.yaml \
           --output scripts/image-catalog.json \
           --commit "${{ github.sha }}"
 
@@ -279,28 +279,42 @@ jobs:
           static/downloads/chainguard-ai-docs.zip \
           static/downloads/image-catalog.json \
           static/downloads/checksums.txt \
+          scripts/mcp-server.py \
+          scripts/mcp-requirements.txt \
           --title "AI Documentation Bundle - Latest" \
           --notes "Chainguard AI documentation bundle for use with AI coding assistants.
-        
+
         ## Download
-        
+
         \`\`\`bash
         # Download the markdown file directly
         curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-latest/chainguard-ai-docs.md
-        
+
         # Or download the compressed bundle
         curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-latest/chainguard-ai-docs.tar.gz
         tar -xzf chainguard-ai-docs.tar.gz
         \`\`\`
-        
+
+        ## MCP Server (standalone)
+
+        \`\`\`bash
+        # Download the MCP server and requirements
+        curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-latest/mcp-server.py
+        curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-latest/mcp-requirements.txt
+        pip install -r mcp-requirements.txt
+
+        # Run with docs and catalog in the current directory
+        DOCS_PATH=chainguard-ai-docs.md CATALOG_PATH=image-catalog.json python3 mcp-server.py
+        \`\`\`
+
         ## Container Distribution
-        
+
         \`\`\`bash
         # Pull the container image
         docker pull ghcr.io/chainguard-dev/ai-docs:latest
-        
+
         # Extract documentation to current directory
         docker run --rm -v \$(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract /output
         \`\`\`
-        
+
         Generated: $(date -u '+%Y-%m-%d %H:%M UTC')"
