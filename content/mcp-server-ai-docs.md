@@ -5,7 +5,7 @@ lead: "Model Context Protocol server for Chainguard documentation"
 description: "Access Chainguard documentation through MCP for AI assistants and automation"
 type: "article"
 date: 2026-01-02T21:00:00+00:00
-lastmod: 2026-01-02T21:00:00+00:00
+lastmod: 2026-03-30T00:00:00+00:00
 draft: false
 images: []
 weight: 600
@@ -87,7 +87,7 @@ After adding this configuration, restart Claude Desktop. The Chainguard document
 
 ## Available Tools
 
-The MCP server provides these tools for querying Chainguard documentation:
+The MCP server provides seven tools for querying Chainguard documentation, looking up package compatibility, and checking image availability:
 
 ### `search_docs`
 
@@ -116,12 +116,16 @@ Get documentation for a specific Chainguard container image.
 
 ### `list_images`
 
-List all available Chainguard container images.
+List available Chainguard container images with optional filtering and equivalent mapping info. When the image catalog is available, results include metadata such as documentation status and alternative mappings.
+
+**Parameters:**
+- `filter` (string, optional): Filter images by name or alternate mapping (for example, "python", "nginx", "apache")
+- `include_upstream` (Boolean, optional): Include alternate image mappings and variants in results (default: false)
 
 **Example prompts:**
 - "List all Chainguard images"
-- "What images are available?"
-- "Show me the image catalog"
+- "Show me images related to Python"
+- "List images with equivalent mappings included"
 
 ### `get_security_docs`
 
@@ -144,6 +148,41 @@ Get documentation for Chainguard tools and ecosystem components.
 - "How do I use apko?"
 - "Explain melange"
 
+### `find_package_equivalent`
+
+Find Chainguard OS or Wolfi package equivalents for other OS packages. This is useful when migrating Dockerfiles from Debian, Fedora, or Alpine to Chainguard images and you need to translate package names for `apk add` commands.
+
+**Parameters:**
+- `package` (string, required): Upstream OS package name (e.g., "build-essential", "libssl-dev", "python3-pip")
+- `distro` (string, optional): Source distribution to search: `debian`, `fedora`, or `alpine`. Searches all distributions if omitted.
+
+**Example prompts:**
+- "What's the Wolfi equivalent of Debian's build-essential?"
+- "Find the Chainguard package for libssl-dev"
+- "I need to replace python3-pip in my Alpine Dockerfile"
+
+### `check_image_freshness`
+
+Check a Chainguard image's availability and list its current tags via a live registry query to `cgr.dev`. Falls back to catalog data if no network access is available.
+
+**Parameters:**
+- `image_name` (string, required): Chainguard image name (such as "python", "node", "nginx")
+
+**Example prompts:**
+- "What tags are available for the Python image?"
+- "Show me the available tags for the nginx image"
+- "Is the golang image available on cgr.dev?"
+
+## Image Catalog
+
+The MCP server includes a pre-built image catalog generated from Chainguard's [package mappings data](https://github.com/chainguard-dev/edu/blob/main/data/package-mappings.yaml). This catalog powers the `list_images`, `find_package_equivalent`, and `check_image_freshness` tools with:
+
+- **373+ Chainguard container images** with registry references
+- **Package mappings** across Debian, Fedora, and Alpine to Wolfi equivalents
+- **Upstream image mappings** showing which third-party images correspond to Chainguard alternatives
+
+The catalog is regenerated automatically as part of the weekly documentation build.
+
 ## Example Usage
 
 Once configured with Claude Desktop:
@@ -162,6 +201,23 @@ You: Show me the nginx image documentation
 Claude: [Uses get_image_docs tool]
 Here's the complete documentation for the Chainguard nginx image:
 ...
+```
+
+```
+You: What's the Wolfi equivalent of Debian's build-essential?
+
+Claude: [Uses find_package_equivalent tool]
+The Wolfi equivalent of Debian's build-essential is build-base. You can install it with:
+apk add build-base
+...
+```
+
+```
+You: What tags are available for the python image?
+
+Claude: [Uses check_image_freshness tool]
+The Chainguard Python image (cgr.dev/chainguard/python) is available with these tags:
+latest, latest-dev, 3.13, 3.13-dev, ...
 ```
 
 ## Alternative: Static Documentation

@@ -4,7 +4,7 @@ lead: "AI-ready documentation bundle for development"
 description: "Compiled Chainguard documentation optimized for use with AI coding assistants"
 type: "article"
 date: 2025-07-29T10:00:00+00:00
-lastmod: 2026-01-02T21:00:00+00:00
+lastmod: 2026-03-30T00:00:00+00:00
 draft: false
 images: []
 weight: 50
@@ -93,9 +93,11 @@ docker run --rm -i ghcr.io/chainguard-dev/ai-docs:latest serve-mcp
 **MCP Tools Available:**
 - `search_docs` - Search across all documentation
 - `get_image_docs` - Get specific container image docs
-- `list_images` - List available images
+- `list_images` - List and filter available images with upstream mappings
 - `get_security_docs` - Get CVE and security information
 - `get_tool_docs` - Get wolfi/apko/melange/chainctl docs
+- `find_package_equivalent` - Find Wolfi packages for upstream OS packages (Debian, Fedora, Alpine)
+- `check_image_freshness` - Live registry check for image tags and availability
 
 **Claude Desktop Configuration:**
 
