@@ -1,11 +1,18 @@
-<!--
-Copyright 2026 Chainguard, Inc.
-SPDX-License-Identifier: Apache-2.0
--->
+---
+title: "Chainguard API v2"
+linktitle: "API v2 Beta Preview"
+type: "article"
+description: "Tutorial with examples showing how you can use the Chainguard API v2."
+date: 2026-03-30T08:49:31+00:00
+lastmod: 2026-04-02T00:00:01+01:00
+draft: false
+tags: ["Chainguard Console", "Procedural"]
+images: []
+toc: true
+weight: 030
+---
 
-# Chainguard API v2 Beta Preview
-
-The Chainguard API v2 introduces cursor-based pagination, server-side ordering, consistent resource patterns, and structured error responses across all endpoints.
+The Chainguard API v2 is currently in a limited beta release for testing. It introduces cursor-based pagination, server-side ordering, consistent resource patterns, and structured error responses across all endpoints.
 
 This guide walks through the v2 API using real `curl` commands.
 
@@ -39,14 +46,24 @@ All endpoints live under `/iam/v2beta1/`, `/registry/v2beta1/`, or `/vulnerabili
 
 ## Prerequisites
 
-Get an API token:
+Get an API token and set your organization ID:
 
-```bash
+```shell
 export TOKEN=$(chainctl auth token)
 export API=https://console-api.enforce.dev
+# ORG_ID is the UID of your root organization group
+export ORG_ID=YOUR_ORG_ID
 ```
 
-All examples below use `$TOKEN` and `$API` for brevity.
+All examples below use `$TOKEN`, `$API`, and `$ORG_ID` for brevity.
+
+## Beta notes
+
+Keep the following in mind as you work through this guide.
+
+- **Page tokens expire after 3 days** ([AIP-158](https://google.aip.dev/158)). If a token expires, the query restarts from the beginning — no error is returned.
+- **Rate limits** are not enforced during beta. They will be introduced at GA.
+- **gRPC** — all endpoints are also available via gRPC at the same host. Proto definitions are at `chainguard.dev/sdk/proto/chainguard/platform/`.
 
 ---
 
@@ -54,7 +71,7 @@ All examples below use `$TOKEN` and `$API` for brevity.
 
 List the first 3 groups in your organization:
 
-```bash
+```shell
 curl -s -H "Authorization: Bearer $TOKEN" \
   "$API/iam/v2beta1/groups?uidp.descendants_of=$ORG_ID&page_size=3&order_by=name" | jq .
 ```
@@ -107,7 +124,7 @@ Every v2 response follows the same shape:
 
 New in v2: fetch a resource directly by UID. In v1, this required a List call with an ID filter.
 
-```bash
+```shell
 curl -s -H "Authorization: Bearer $TOKEN" \
   "$API/iam/v2beta1/groups/$GROUP_UID" | jq '{uid, name, description}'
 ```
@@ -120,11 +137,13 @@ curl -s -H "Authorization: Bearer $TOKEN" \
 }
 ```
 
+Use direct UID lookups when you already know the resource identifier — they are faster than a List call with an ID filter.
+
 ### Filter by name
 
 Find a specific group without knowing its UID:
 
-```bash
+```shell
 curl -s -H "Authorization: Bearer $TOKEN" \
   "$API/iam/v2beta1/groups?uidp.descendants_of=$ORG_ID&name=platform" \
   | jq '[.groups[] | {uid, name, description}]'
@@ -150,7 +169,7 @@ A real workflow: create an org folder, add an identity, and bind a role.
 
 ### Create a group
 
-```bash
+```shell
 curl -s -X POST -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   "$API/iam/v2beta1/groups/$ORG_ID" \
@@ -169,12 +188,13 @@ curl -s -X POST -H "Authorization: Bearer $TOKEN" \
 }
 ```
 
-Note: the parent group goes in the URL path. The request body contains only the resource fields.
+> **Note:** The parent group goes in the URL path. The request body contains only the resource fields.
 
 ### Create an identity
 
-```bash
-GROUP_UID="<uid from previous step>"
+```shell
+# GROUP_UID is the uid value returned in the Create a group response above
+export GROUP_UID=YOUR_GROUP_UID
 
 curl -s -X POST -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
@@ -204,13 +224,15 @@ curl -s -X POST -H "Authorization: Bearer $TOKEN" \
 }
 ```
 
+Note the identity `uid` in the response — you will use it in the next step when binding a role.
+
 ### Bind a role
 
 First, find the viewer role:
 
-```bash
+```shell
 curl -s -H "Authorization: Bearer $TOKEN" \
-  "$API/iam/v2beta1/roles?name=viewer" | jq '.roles[0] | {uid, name, description}'
+  "$API/iam/v2beta1/roles" | jq '.roles[] | select(.name == "viewer") | {uid, name, description}'
 ```
 
 ```json
@@ -223,9 +245,11 @@ curl -s -H "Authorization: Bearer $TOKEN" \
 
 Then bind it:
 
-```bash
+```shell
+# ROLE_UID is the uid of the viewer role, retrieved above
 ROLE_UID="63921b2c44617e3f2603851537be0123af4a57d7"
-IDENTITY_UID="<uid from identity creation>"
+# IDENTITY_UID is the uid value returned in the Create an identity response above
+export IDENTITY_UID=YOUR_IDENTITY_UID
 
 curl -s -X POST -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
@@ -267,7 +291,7 @@ Every List endpoint supports cursor-based pagination with consistent parameters.
 
 ### Basic pagination
 
-```bash
+```shell
 curl -s -H "Authorization: Bearer $TOKEN" \
   "$API/iam/v2beta1/groups?uidp.descendants_of=$ORG_ID&page_size=5" \
   | jq '{totalCount, groups: [.groups[].name], nextPageToken: .nextPageToken[:20]}'
@@ -283,7 +307,7 @@ curl -s -H "Authorization: Bearer $TOKEN" \
 
 Follow the cursor for the next page:
 
-```bash
+```shell
 curl -s -H "Authorization: Bearer $TOKEN" \
   "$API/iam/v2beta1/groups?uidp.descendants_of=$ORG_ID&page_size=5&page_token=CqQBV3lK..." \
   | jq '{groups: [.groups[].name]}'
@@ -295,11 +319,13 @@ curl -s -H "Authorization: Bearer $TOKEN" \
 }
 ```
 
+When `nextPageToken` is absent from the response, you have reached the last page.
+
 ### Server-side ordering
 
 Sort by name:
 
-```bash
+```shell
 curl -s -H "Authorization: Bearer $TOKEN" \
   "$API/iam/v2beta1/groups?uidp.descendants_of=$ORG_ID&page_size=5&order_by=name" \
   | jq '[.groups[].name]'
@@ -311,7 +337,7 @@ curl -s -H "Authorization: Bearer $TOKEN" \
 
 Reverse the order:
 
-```bash
+```shell
 curl -s -H "Authorization: Bearer $TOKEN" \
   "$API/iam/v2beta1/groups?uidp.descendants_of=$ORG_ID&page_size=5&order_by=name%20desc" \
   | jq '[.groups[].name]'
@@ -323,7 +349,7 @@ curl -s -H "Authorization: Bearer $TOKEN" \
 
 Sort by creation time (newest first):
 
-```bash
+```shell
 curl -s -H "Authorization: Bearer $TOKEN" \
   "$API/iam/v2beta1/groups?uidp.descendants_of=$ORG_ID&page_size=5&order_by=created_at%20desc" \
   | jq '[.groups[] | {name, createTime}]'
@@ -345,7 +371,7 @@ Pagination and ordering combine: pages maintain sort order across cursors.
 
 Jump directly to page 3 (skip the first 10 results):
 
-```bash
+```shell
 curl -s -H "Authorization: Bearer $TOKEN" \
   "$API/iam/v2beta1/groups?uidp.descendants_of=$ORG_ID&page_size=5&order_by=name&skip=10" \
   | jq '{skipped: .skipped, groups: [.groups[].name]}'
@@ -375,7 +401,7 @@ The `skipped` field in the response confirms how many results were skipped, usef
 
 List repos scoped to your organization:
 
-```bash
+```shell
 curl -s -H "Authorization: Bearer $TOKEN" \
   "$API/registry/v2beta1/repos?uidp.descendants_of=$ORG_ID&page_size=3" \
   | jq '[.repos[] | {uid, name, createTime}]'
@@ -395,11 +421,11 @@ Same pagination and ordering parameters work on all List endpoints.
 
 ## 5. Structured errors
 
-v2 returns structured error responses with machine-parseable codes and details.
+API v2 returns structured error responses with machine-parseable codes and details.
 
 ### Validation error
 
-```bash
+```shell
 curl -s -X POST -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   "$API/iam/v2beta1/groups/$ORG_ID" \
@@ -429,7 +455,11 @@ curl -s -X POST -H "Authorization: Bearer $TOKEN" \
 }
 ```
 
+The `fieldViolations` array identifies exactly which fields failed validation and why.
+
 ### Precondition failure
+
+Attempting to delete a group that still contains child resources returns a precondition failure:
 
 ```json
 {
@@ -462,7 +492,7 @@ Error responses follow [Google AIP-193](https://google.aip.dev/193) with typed d
 
 Update specific fields without sending the full resource. Only the fields listed in `updateMask` are changed:
 
-```bash
+```shell
 curl -s -X PATCH -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   "$API/iam/v2beta1/groups/$GROUP_UID" \
@@ -483,7 +513,7 @@ The `name` field was not in the request body, so it's unchanged. In v1, updates 
 
 To be explicit about which fields to update, pass `updateMask`:
 
-```bash
+```shell
 curl -s -X PATCH -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   "$API/iam/v2beta1/groups/$GROUP_UID?updateMask=description" \
@@ -505,14 +535,6 @@ The `name` in the body is ignored because `updateMask` only includes `descriptio
 
 ---
 
-## Good to know
-
-- **Page tokens expire after 3 days** ([AIP-158](https://google.aip.dev/158)). If a token expires, the query restarts from the beginning — no error is returned.
-- **Rate limits** are not enforced during beta. They will be introduced at GA.
-- **gRPC** — all endpoints are also available via gRPC at the same host. Proto definitions are at `chainguard.dev/sdk/proto/chainguard/platform/`.
-
----
-
 ## Migration from v1
 
 v2 is additive — v1 endpoints remain available. You can migrate at your own pace:
@@ -528,9 +550,12 @@ v2 is additive — v1 endpoints remain available. You can migrate at your own pa
 
 Delete resources you created during this walkthrough:
 
-```bash
+```shell
 # Delete in reverse order: role binding, identity, group
+# BINDING_UID is the uid value returned in the Bind a role response above
 curl -s -X DELETE -H "Authorization: Bearer $TOKEN" "$API/iam/v2beta1/roleBindings/$BINDING_UID"
 curl -s -X DELETE -H "Authorization: Bearer $TOKEN" "$API/iam/v2beta1/identities/$IDENTITY_UID"
 curl -s -X DELETE -H "Authorization: Bearer $TOKEN" "$API/iam/v2beta1/groups/$GROUP_UID"
 ```
+
+Each DELETE returns an empty response body on success.
