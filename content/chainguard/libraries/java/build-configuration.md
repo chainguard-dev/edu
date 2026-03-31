@@ -308,7 +308,7 @@ cd maven-example
 
 Add a dependency on `com.google.guava:guava` to the `<dependencies>` section of
 `pom.xml`. Open the file and insert the following before the closing
-`</dependencies>` tag::
+`dependencies` tag:
 
 ```xml
 <dependency>
