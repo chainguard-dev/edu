@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
 """
-Generate image catalog JSON from package-mappings.yaml.
+Generate image catalog JSON for the MCP server.
 
-Produces a structured catalog of Chainguard container images and package
-mappings for use by the MCP server. Optionally cross-references compiled
-docs to set has_documentation flags, and can scrape the registry for tag
-metadata.
+Builds the image list from compiled documentation (sourced from images-private
+via GCS) and the package mappings from package-mappings.yaml (Debian, Fedora,
+Alpine to Wolfi equivalents).
 
 Usage:
     python3 scripts/generate_image_catalog.py \
-        --mappings data/package-mappings.yaml \
         --docs static/downloads/chainguard-complete-docs.md \
+        --mappings data/package-mappings.yaml \
         --output scripts/image-catalog.json \
         --commit abc123
 """
@@ -30,85 +29,58 @@ except ImportError:
     sys.exit(1)
 
 
-def load_mappings(mappings_path: str) -> Dict[str, Any]:
+def extract_images_from_docs(docs_path: str) -> Dict[str, Dict[str, Any]]:
+    """Extract image names and documentation from compiled docs.
+
+    The compiled docs contain image documentation sourced from images-private,
+    organized under '## Container Images' with each image as a '### name' section.
+    """
+    images = {}
+    if not docs_path or not os.path.exists(docs_path):
+        return images
+
+    with open(docs_path, "r") as f:
+        content = f.read()
+
+    # Find the Container Images section
+    container_section = re.search(r"^## Container Images\n", content, re.MULTILINE)
+    if not container_section:
+        return images
+
+    section_content = content[container_section.end():]
+
+    # Stop at the next ## heading (or end of file)
+    next_section = re.search(r"\n## ", section_content)
+    if next_section:
+        section_content = section_content[: next_section.start()]
+
+    # Extract each image name from ### headings
+    for match in re.finditer(r"\n### ([a-z0-9][\-a-z0-9]*)\n", section_content):
+        name = match.group(1)
+        images[name] = {
+            "name": name,
+            "registry_ref": f"cgr.dev/chainguard/{name}",
+            "has_documentation": True,
+        }
+
+    return images
+
+
+def load_package_mappings(mappings_path: str) -> Dict[str, Any]:
     """Load and parse the package-mappings.yaml file."""
     with open(mappings_path, "r") as f:
         return yaml.safe_load(f)
 
 
-def extract_documented_images(docs_path: str) -> Set[str]:
-    """Extract image names that have documentation from the compiled docs."""
-    documented = set()
-    if not docs_path or not os.path.exists(docs_path):
-        return documented
-
-    with open(docs_path, "r") as f:
-        content = f.read()
-
-    # Look for image sections under "## Container Images"
-    container_section = re.search(r"^## Container Images\n", content, re.MULTILINE)
-    if container_section:
-        section_content = content[container_section.end() :]
-        for match in re.finditer(r"\n### ([a-z0-9\-]+)\n", section_content):
-            documented.add(match.group(1))
-
-    return documented
-
-
-def parse_chainguard_ref(value: str) -> Dict[str, str]:
-    """Parse a Chainguard image value into name, tag, and registry ref."""
-    # Value may be like "chainguard-base:latest" or just "nginx"
-    if ":" in value:
-        name, tag = value.rsplit(":", 1)
-    else:
-        name = value
-        tag = "latest"
-
-    return {
-        "name": name,
-        "tag": tag,
-        "registry_ref": f"cgr.dev/chainguard/{name}:{tag}",
-    }
-
-
 def build_catalog(
+    images: Dict[str, Dict[str, Any]],
     mappings: Dict[str, Any],
-    documented_images: Set[str],
     commit: Optional[str] = None,
 ) -> Dict[str, Any]:
-    """Build the image catalog from parsed mappings data."""
-    images_map = mappings.get("images", {})
+    """Build the catalog from images (from docs) and package mappings."""
     packages_map = mappings.get("packages", {})
 
-    # Build images index: collect all unique Chainguard image names
-    images = {}
-    upstream_to_chainguard = {}
-
-    for upstream, chainguard_value in images_map.items():
-        parsed = parse_chainguard_ref(chainguard_value)
-        cg_name = parsed["name"]
-
-        # Track upstream-to-chainguard mapping
-        upstream_to_chainguard[upstream] = parsed["registry_ref"]
-
-        # Build or update the image entry
-        if cg_name not in images:
-            images[cg_name] = {
-                "name": cg_name,
-                "registry_ref": f"cgr.dev/chainguard/{cg_name}",
-                "upstream_mappings": [],
-                "has_documentation": cg_name in documented_images,
-                "variants": [],
-            }
-
-        images[cg_name]["upstream_mappings"].append(upstream)
-
-        # Track variants (tags other than "latest")
-        tag = parsed["tag"]
-        if tag != "latest" and tag not in images[cg_name]["variants"]:
-            images[cg_name]["variants"].append(tag)
-
-    # Build packages index
+    # Build packages index (Debian/Fedora/Alpine -> Wolfi)
     packages = {}
     for distro, pkg_map in packages_map.items():
         packages[distro] = {}
@@ -117,11 +89,8 @@ def build_catalog(
                 if isinstance(wolfi_pkgs, list):
                     packages[distro][os_pkg] = wolfi_pkgs
                 else:
-                    # Handle empty or null mappings
                     packages[distro][os_pkg] = []
 
-    # Calculate totals
-    total_upstream = len(upstream_to_chainguard)
     total_packages = sum(
         len(pkg_map) for pkg_map in packages.values() if pkg_map
     )
@@ -133,11 +102,9 @@ def build_catalog(
             ),
             "source_commit": commit or "unknown",
             "total_images": len(images),
-            "total_upstream_mappings": total_upstream,
             "total_packages_mapped": total_packages,
         },
         "images": images,
-        "upstream_to_chainguard": upstream_to_chainguard,
         "packages": packages,
     }
 
@@ -164,10 +131,9 @@ def scrape_registry_tags(catalog: Dict[str, Any]) -> Dict[str, Any]:
             with urllib.request.urlopen(req, timeout=10) as resp:
                 data = json.loads(resp.read().decode())
                 tags = data.get("tags", [])
-                entry["registry_tags"] = tags[:20]  # Limit to 20 tags
+                entry["registry_tags"] = tags[:20]
                 updated += 1
-        except (urllib.error.URLError, urllib.error.HTTPError, Exception) as e:
-            # Graceful degradation: just skip images we can't reach
+        except (urllib.error.URLError, urllib.error.HTTPError, Exception):
             entry["registry_tags"] = []
 
     print(f"  Scraped tags for {updated}/{len(catalog['images'])} images", file=sys.stderr)
@@ -176,17 +142,17 @@ def scrape_registry_tags(catalog: Dict[str, Any]) -> Dict[str, Any]:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Generate image catalog JSON from package-mappings.yaml"
+        description="Generate image catalog JSON from compiled docs and package mappings"
+    )
+    parser.add_argument(
+        "--docs",
+        required=True,
+        help="Path to compiled docs markdown (source of image list)",
     )
     parser.add_argument(
         "--mappings",
         required=True,
-        help="Path to data/package-mappings.yaml",
-    )
-    parser.add_argument(
-        "--docs",
-        default=None,
-        help="Path to compiled docs markdown (for has_documentation flag)",
+        help="Path to data/package-mappings.yaml (source of package equivalents)",
     )
     parser.add_argument(
         "--output",
@@ -206,22 +172,22 @@ def main():
 
     args = parser.parse_args()
 
-    # Load mappings
-    print(f"Loading mappings from {args.mappings}...", file=sys.stderr)
-    mappings = load_mappings(args.mappings)
+    # Extract images from compiled docs (sourced from images-private)
+    print(f"Extracting images from {args.docs}...", file=sys.stderr)
+    images = extract_images_from_docs(args.docs)
+    if not images:
+        print("Warning: No images found in compiled docs", file=sys.stderr)
+    else:
+        print(f"  Found {len(images)} images", file=sys.stderr)
 
-    # Extract documented images
-    documented = set()
-    if args.docs:
-        print(f"Cross-referencing docs from {args.docs}...", file=sys.stderr)
-        documented = extract_documented_images(args.docs)
-        print(f"  Found {len(documented)} documented images", file=sys.stderr)
+    # Load package mappings
+    print(f"Loading package mappings from {args.mappings}...", file=sys.stderr)
+    mappings = load_package_mappings(args.mappings)
 
     # Build catalog
-    catalog = build_catalog(mappings, documented, args.commit)
+    catalog = build_catalog(images, mappings, args.commit)
     print(
         f"Catalog built: {catalog['metadata']['total_images']} images, "
-        f"{catalog['metadata']['total_upstream_mappings']} upstream mappings, "
         f"{catalog['metadata']['total_packages_mapped']} package mappings",
         file=sys.stderr,
     )
