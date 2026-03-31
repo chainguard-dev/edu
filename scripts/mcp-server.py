@@ -243,28 +243,6 @@ class ImagesCatalog:
 
         return sorted(results, key=lambda x: x["name"])
 
-    def find_image_equivalent(self, upstream: str) -> Optional[Dict[str, str]]:
-        """Find the Chainguard equivalent for an upstream image reference."""
-        mapping = self.catalog.get("upstream_to_chainguard", {})
-
-        # Exact match
-        if upstream in mapping:
-            return {"upstream": upstream, "chainguard_ref": mapping[upstream]}
-
-        # Case-insensitive and partial match
-        upstream_lower = upstream.lower()
-        for key, value in mapping.items():
-            if key.lower() == upstream_lower:
-                return {"upstream": key, "chainguard_ref": value}
-
-        # Partial match on image name (last segment)
-        for key, value in mapping.items():
-            key_name = key.split("/")[-1] if "/" in key else key
-            if upstream_lower == key_name.lower():
-                return {"upstream": key, "chainguard_ref": value}
-
-        return None
-
     def find_package_equivalent(
         self, package: str, distro: Optional[str] = None
     ) -> List[Dict[str, Any]]:
@@ -295,21 +273,6 @@ class ImagesCatalog:
 
         return results
 
-    def get_image_info(self, name: str) -> Optional[Dict[str, Any]]:
-        """Get full catalog entry for an image."""
-        images = self.catalog.get("images", {})
-
-        # Exact match
-        if name in images:
-            return images[name]
-
-        # Case-insensitive match
-        for key, value in images.items():
-            if key.lower() == name.lower():
-                return value
-
-        return None
-
     @staticmethod
     def _is_valid_image_name(name: str) -> bool:
         """Validate image name to prevent path traversal or injection."""
@@ -330,7 +293,7 @@ class ImagesCatalog:
             return result
 
         # Add catalog info if available
-        catalog_entry = self.get_image_info(name)
+        catalog_entry = self.catalog.get("images", {}).get(name)
         if catalog_entry:
             result["has_documentation"] = catalog_entry.get("has_documentation", False)
             result["upstream_mappings"] = catalog_entry.get("upstream_mappings", [])
@@ -459,20 +422,6 @@ async def list_tools() -> List[Tool]:
             }
         ),
         Tool(
-            name="find_image_equivalent",
-            description="Find the Chainguard equivalent for an upstream container image (e.g., 'alpine' -> cgr.dev/chainguard/chainguard-base:latest, 'nginx' -> cgr.dev/chainguard/nginx:latest)",
-            inputSchema={
-                "type": "object",
-                "properties": {
-                    "upstream_image": {
-                        "type": "string",
-                        "description": "Upstream image reference (e.g., 'alpine', 'nginx', 'bitnami/pgpool', 'eclipse-temurin')"
-                    }
-                },
-                "required": ["upstream_image"]
-            }
-        ),
-        Tool(
             name="find_package_equivalent",
             description="Find Wolfi package equivalents for upstream OS packages (e.g., Debian 'build-essential' -> Wolfi 'build-base')",
             inputSchema={
@@ -489,20 +438,6 @@ async def list_tools() -> List[Tool]:
                     }
                 },
                 "required": ["package"]
-            }
-        ),
-        Tool(
-            name="get_image_catalog_info",
-            description="Get full catalog entry for a Chainguard image including upstream mappings, variants, and documentation status",
-            inputSchema={
-                "type": "object",
-                "properties": {
-                    "image_name": {
-                        "type": "string",
-                        "description": "Chainguard image name (e.g., 'chainguard-base', 'python', 'node')"
-                    }
-                },
-                "required": ["image_name"]
             }
         ),
         Tool(
@@ -622,31 +557,6 @@ async def call_tool(name: str, arguments: Any) -> List[TextContent]:
                     text=f"No documentation found for tool: {tool_name}"
                 )]
 
-        elif name == "find_image_equivalent":
-            upstream = arguments.get("upstream_image", "")
-            if not catalog.available:
-                return [TextContent(
-                    type="text",
-                    text="Image catalog not available. Cannot look up image equivalents."
-                )]
-
-            result = catalog.find_image_equivalent(upstream)
-            if result:
-                return [TextContent(
-                    type="text",
-                    text=(
-                        f"# Chainguard Equivalent for `{upstream}`\n\n"
-                        f"- **Upstream**: `{result['upstream']}`\n"
-                        f"- **Chainguard**: `{result['chainguard_ref']}`\n\n"
-                        f"Pull with:\n```\ndocker pull {result['chainguard_ref']}\n```"
-                    )
-                )]
-            else:
-                return [TextContent(
-                    type="text",
-                    text=f"No Chainguard equivalent found for upstream image: {upstream}"
-                )]
-
         elif name == "find_package_equivalent":
             package = arguments.get("package", "")
             distro = arguments.get("distro")
@@ -673,32 +583,6 @@ async def call_tool(name: str, arguments: Any) -> List[TextContent]:
                 return [TextContent(
                     type="text",
                     text=f"No Wolfi package equivalent found for `{package}`{search_note}. The package may use the same name in Wolfi, or check https://packages.wolfi.dev"
-                )]
-
-        elif name == "get_image_catalog_info":
-            image_name = arguments.get("image_name", "")
-            if not catalog.available:
-                return [TextContent(
-                    type="text",
-                    text="Image catalog not available."
-                )]
-
-            info = catalog.get_image_info(image_name)
-            if info:
-                response = f"# Image Catalog: {info['name']}\n\n"
-                response += f"- **Registry**: `{info['registry_ref']}`\n"
-                response += f"- **Documentation**: {'Yes' if info.get('has_documentation') else 'No'}\n"
-                if info.get("upstream_mappings"):
-                    response += f"- **Replaces upstream images**: {', '.join(info['upstream_mappings'])}\n"
-                if info.get("variants"):
-                    response += f"- **Variants/Tags**: {', '.join(info['variants'])}\n"
-                if info.get("registry_tags"):
-                    response += f"- **Known tags**: {', '.join(info['registry_tags'][:10])}\n"
-                return [TextContent(type="text", text=response)]
-            else:
-                return [TextContent(
-                    type="text",
-                    text=f"No catalog entry found for image: {image_name}"
                 )]
 
         elif name == "check_image_freshness":
