@@ -88,7 +88,7 @@ Following that you can use `chainctl`. Be aware that Windows PowerShell does not
 .\chainctl auth login
 ```
 
-Also, please note that while [`chainctl` commands](/chainguard/chainctl/) will generally work, some are not as thoroughly tested on Windows and may not behave as expected. In particular, the [`chainctl auth configure-docker`](/chainguard/chainctl/chainctl-docs/chainctl_auth_configure-docker/) command is known to cause errors on Windows as of this writing.
+Also, please note that while [`chainctl` commands](/chainguard/chainctl/) will generally work, some are not as thoroughly tested on Windows and may not behave as expected.
 
 
 ## Verifying the `chainctl` binary with Cosign
@@ -190,6 +190,33 @@ chainctl auth configure-docker
 This will update your Docker config file to call chainctl when an auth token is needed. A browser window will open when the token needs to be refreshed.
 
 For guidance on pull tokens, please review [authenticating with a pull token](/chainguard/chainguard-registry/authenticating/#authenticating-with-a-pull-token).
+
+### Docker credential helper on Windows
+
+On Windows, `chainctl auth configure-docker` updates your Docker config, but Docker also expects a `docker-credential-cgr.exe` helper to be available on your `PATH`. To make Docker pulls work, perform the following steps:
+
+#### 1. Add `chainctl.exe` to the `PATH` (replace `C:\Tools` with the actual directory you used):
+
+```PowerShell
+$env:Path += ";C:\Tools"
+```
+
+For a persistent setup, add that directory to your user or system `PATH` via the Windows Environment Variables settings.
+
+#### 2. Authenticate and configure Docker credentials:
+```PowerShell
+chainctl auth login
+chainctl auth configure-docker
+```
+
+#### 3. Create the Docker credential helper symlink in the same directory as `chainctl.exe`:
+```PowerShell
+New-Item -ItemType SymbolicLink -Path "docker-credential-cgr.exe" -Target "chainctl.exe"
+```
+If this command fails with a permissions error, try running PowerShell as Administrator or ensure that Windows Developer Mode is enabled so you can create symbolic links.
+
+Following this, you can verify Docker pulls from Chainguard by pulling a private image.
+
 
 ## Updating `chainctl`
 
