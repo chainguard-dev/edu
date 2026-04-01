@@ -70,34 +70,18 @@ https://libraries.cgr.dev/javascript/
 
 The URL does not expose a browsable directory structure.
 
-This Chainguard Libraries for JavaScript repository uses the npm repository
-format and only includes release artifacts for libraries built by Chainguard
-from source. It also does not include all packages from the npm registry.
+The Chainguard Libraries for JavaScript repository is exposed through the Chainguard Repository endpoint for JavaScript libraries. It uses the npm repository protocol and serves both libraries that Chainguard has rebuilt from verifiable source and, when configured, packages proxied from the public npm registry under configurable policy controls. All packages served through this endpoint are subject to Chainguard security controls such as malware scanning and optional cooldown periods for newly published upstream versions.
 
-Specifically, the following components are not included:
+Even with upstream fallback enabled, the repository does not include every package from npm. Packages may be unavailable when:
 
-* Packages without any source code available, including malicious packages and
-  proprietary packages.
-* Packages that use post-install scripts.
-* Packages that are flagged as malware during our build process.
+* No verifiable source code is available. For example, malicious or proprietary packages where Chainguard cannot validate the source.
+* The package is blocked by Chainguard or your organization’s policies. For example, packages flagged as malware or packages currently within a configured cooldown period.
 
-As a result, you must configure the repository as the first point of contact for
-all package retrievals. This setup directs requests to Chainguard, ensuring that
-all available libraries are used. If a request fails, Chainguard flags it and
-runs backfill processes where possible.
+We recommend configuring this repository (or a repository manager that proxies it) as the primary registry for all JavaScript dependency resolution. This ensures your builds always prefer Chainguard‑built libraries first and automatically fall back to policy‑protected upstream packages when a Chainguard build is not yet available.
 
-At the same time, you might need to continue to use other repositories that
-fills the needs for libraries that are not available from the Chainguard
-Libraries repository, including your own private or scoped packages from the npm
-Registry or another private registry.
+You can continue to use additional registries alongside Chainguard for needs outside this scope, such as your own private or scoped packages from npm or another internal registry.
 
-Typically the access is [configured globally on a repository manager for your
-organization](/chainguard/libraries/javascript/global-configuration/). This
-approach is strongly recommended. 
-
-Alternatively, you can use the token for direct access from a build tool as
-discussed in [Build
-configuration](/chainguard/libraries/javascript/build-configuration/).
+Configure this endpoint [globally through a repository manager](/chainguard/libraries/javascript/global-configuration/) for centralized access control across your organization, or use it for [direct access](/chainguard/libraries/javascript/build-configuration/) from individual build tools. If you prefer to manage your own npm fallback rather than using the built-in upstream fallback, see the [global configuration documentation](/chainguard/libraries/javascript/global-configuration/) for setup guides per repository manager.
 
 ## Provenance and attestations
 Chainguard Libraries for JavaScript include SLSA provenance with signed attestations. 
