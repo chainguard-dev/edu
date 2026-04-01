@@ -2,7 +2,7 @@
 title: "The Guardener"
 linktitle: "The Guardener"
 type: "article"
-description: "How to use The Guardener Dockerfile Agent to migrate your Dockerfiles to Chainguard Images using AI-driven iterative conversion"
+description: "How to use The Guardener to migrate your Dockerfiles to Chainguard Images using AI-driven iterative conversion"
 date: 2026-03-30T00:00:00+00:00
 lastmod: 2026-03-30T00:00:00+00:00
 draft: false
@@ -19,7 +19,7 @@ The Guardener migrates your Dockerfiles to use Chainguard Containers. It uses AI
 
 You interact with it through `chainctl agent dockerfile` commands. The AI runs server-side, but all Docker builds and file access happen on your machine. Your source code never leaves your local environment.
 
-> **Note:** The Guardener Dockerfile Agent is currently in beta. Features and behavior may change before general availability.
+> **Note:** The Guardener is currently in beta. Features and behavior may change before general availability.
 
 
 ## Prerequisites
