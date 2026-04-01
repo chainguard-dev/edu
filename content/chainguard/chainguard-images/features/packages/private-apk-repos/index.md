@@ -28,11 +28,11 @@ For example, say your organization has access to the [Chainguard MySQL container
 Chainguard's private APK repositories are available to all Chainguard Containers customers.
 
 
-### Chainguard OS Packages
+## Contents of Private APK Repositories
 
-Chainguard OS Packages is a beta offering for larger customers who already build their own images from packages using tools like Bazel, Dockerfiles, and rules\_apko, and want to use a wider set of packages from Chainguard. This includes over 400,000 packages that will be made available in a private APK repository. You are responsible for the image builds, the build tooling, validation, and compatibility while Chainguard builds the packages in the Chainguard Factory with complete SBOMs and our standard enterprise-grade, zero-CVE process.
+Your private APK repository contains all of the packages that are in the container images your organization is entitled to, plus some extra utilities, like `curl`.
 
-This beta offering is limited to those who want to use Chainguard-sourced packages in their existing, mature image building processes. Chainguard OS Packages are not currently available for use with [Chainguard Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/).
+Chainguard offers [Chainguard OS Packages](/chainguard/chainguard-os/chaingguard-os-packages/) to extend the set of available packages in your private APK repository to include the full 30,000 packages Chainguard has built so far. If you are a catalog customer, you get the full set of packages available in Chainguard OS. If you're a per-image customer, you get most packages, but won't have access to the "main" packages for images you aren't entitled to, preventing you from recreating our images. If you're interested and are a current customer, reach out to your account team to be added to the Beta.
 
 
 ## Your repository address
