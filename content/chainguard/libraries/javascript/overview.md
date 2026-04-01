@@ -1,6 +1,8 @@
 ---
 title: "Chainguard Libraries for JavaScript overview"
 linktitle: "JavaScript overview"
+aliases:
+- /chainguard/libraries/chainguard-repository/
 description: "JavaScript libraries for your application development"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
