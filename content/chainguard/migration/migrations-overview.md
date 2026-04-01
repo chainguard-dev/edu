@@ -165,6 +165,8 @@ Chainguard Academy hosts a number of resources that can be useful when migrating
 
 As mentioned previously, most new users of Chainguard Containers would benefit from following our guide on [How to Port a Sample Application to Chainguard Containers](/chainguard/migration/porting-apps-to-chainguard/#tldr-porting-key-points). You may also find our [Migration Best Practices and Checklist](/chainguard/migration/migration-checklist/) guide to be helpful.
 
+To automate Dockerfile migration, [The Guardener](/chainguard/migration/guardener-dockerfile-agent/) is an AI-powered agent that iteratively converts, builds, and validates your Dockerfiles for use with Chainguard Containers.
+
 In addition to these, Chainguard Academy includes several types of resources that can be useful when migrating to Chainguard Containers:
 
 * **Compatibility Guides** — These guides highlight the differences between Chainguard Containers and Alpine third-party images.
