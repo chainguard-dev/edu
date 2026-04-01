@@ -1,6 +1,6 @@
 ---
 title: "The Guardener"
-linktitle: "The Guardener Dockerfile Agent"
+linktitle: "The Guardener"
 type: "article"
 description: "How to use The Guardener Dockerfile Agent to migrate your Dockerfiles to Chainguard Images using AI-driven iterative conversion"
 date: 2026-03-30T00:00:00+00:00
