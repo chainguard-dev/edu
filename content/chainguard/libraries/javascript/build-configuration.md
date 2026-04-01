@@ -62,6 +62,12 @@ Libraries for JavaScript repository at `https://libraries.cgr.dev/javascript/`
 requires authentication with username and password from a pull token as detailed
 in [access documentation](/chainguard/libraries/access/#pull-token).
 
+> Note: Direct access requires per-project and per-workstation configuration.
+For organizations with multiple teams, proxying through an artifact manager is
+recommended. See the [global
+configuration](/chainguard/libraries/javascript/global-configuration/) for setup
+guides.
+
 <a id="npm"></a>
 
 ## npm

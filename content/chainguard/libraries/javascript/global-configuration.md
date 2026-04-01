@@ -22,35 +22,33 @@ Repository](https://www.sonatype.com/products/sonatype-nexus-repository), and
 others. The repository manager acts as a single point of access for developers
 and development tools to retrieve the required libraries.
 
-At a high level, adopting the use of Chainguard Libraries consists of the
-following steps:
+If your organization uses the [upstream fallback](/chainguard/libraries/javascript/overview/#upstream-fallback-policy-and-controls)
+feature of Chainguard Repository, you can configure your repository manager
+with a single upstream pointed at `https://libraries.cgr.dev/javascript/`. The
+Chainguard Repository handles fallback and policy; your repository manager
+handles local caching and access control.
 
-* Add the Chainguard Libraries for JavaScript registry as a remote repository
-  for library retrieval.
-* Configure the repository as the first choice for any library access. This
-  ensures that any future requests of new libraries access the version supplied
-  by Chainguard. Typically this is accomplished by creating a group repository
-  or virtual repository that combines the repository with other external and
-  internal repositories.
+At a high level, adopting the use of Chainguard Libraries consists of the following steps:
 
-Additional steps depend on the desired insights and can include the following
-optional measures:
-
-* Remove all cached libraries in the proxy repository of the npm Registry. This
+* Add `https://libraries.cgr.dev/javascript/` as a remote repository in your repository manager.
+* Configure it as the single upstream source for JavaScript package retrieval.
+* Additional steps depend on the desired insights and can include the following optional measures:
+    * Remove all cached libraries in the proxy repository of the npm Registry. This
   step allows you to validate which libraries are not available from Chainguard
   Libraries and proceed with potential next steps with Chainguard and your own
   development efforts. 
-* Remove any repositories that are no longer desired or necessary. Depending on
+    * Remove any repositories that are no longer desired or necessary. Depending on
   your library requirements this step can result in removal of some proxy
   repositories or even removal of all proxy repositories. 
 
-Adopting the use of a repository manager is the recommended approach, however if
-your organization does not use a repository manager, you can still use
-Chainguard Libraries. All access to the Chainguard Libraries repository is then
-distributed across all your build platforms and therefore more complex to
-configure and control. Refer to the [direct access documentation for build
-tools](/chainguard/libraries/javascript/build-configuration/#direct-access) for more
-information.
+Adopting the use of a repository manager is the recommended approach to minimize complexity. If your organization does not use a repository manager, refer to the [direct access documentation](/chainguard/libraries/javascript/build-configuration/) for build tools.
+
+### Manually managing fallback
+If upstream fallback is not enabled, or you prefer to manage your own fallback
+ordering, configure `https://libraries.cgr.dev/javascript/` as a remote repository
+alongside your npm upstream, and combine them in a virtual or group repository
+with Chainguard as the first priority. The per-tool instructions on this page follow
+this pattern.
 
 <a name="cloudsmith"></a>
 
@@ -112,30 +110,6 @@ repository:
 Use this setup for initial testing with Chainguard Libraries for JavaScript. For
 production usage, add the `javascript-chainguard` upstream proxy to your production
 repository.
-
-### Advanced settings for redirect handling
-
-Chainguard Libraries uses Cloudflare R2 storage, meaning tarball downloads from
-`libraries.cgr.dev` return a 302 redirect to a different host. Without
-additional configuration, Artifactory may cache the redirect response instead of
-the actual tarball, causing npm integrity checksum failures at install time.
-
-To prevent this:
-
-1. Apply the following settings to your Artifactory `javascript-chainguard`
-   remote repository, within in the **Advanced** tab:
-    - **Enable Bypass HEAD Requests** — prevents Artifactory from sending HEAD
-      requests that may not be handled correctly by redirect-based registries.
-    - **Enable Lenient Host Authentication** — allows Artifactory to follow
-      redirects across hosts (required since downloads redirect from
-      `libraries.cgr.dev` to `*.r2.cloudflarestorage.com`).
-    - **Enable Cookie Management** - this setting is optional, but recommended
-      by JFrog for remote repositories that involve redirects.
-2. Clear the corrupted cached tarballs: in Artifactory, right-click the
-   `javascript-chainguard` repository and click **Zap Caches**, then re-run your
-   install.
-    - Alternatively, you could delete specific corrupted `.tgz` artifacts from
-      the remote cache, rather than deleting all, before re-running the install.
 
 ### Build tool access
 
@@ -222,6 +196,30 @@ Combine the two repositories in a new virtual repository:
 Use this setup for initial testing with Chainguard Libraries for JavaScript. For
 production usage add the `javascript-chainguard` repository to your production
 virtual repository.
+
+### Advanced settings for redirect handling
+
+Chainguard Libraries uses Cloudflare R2 storage, meaning tarball downloads from
+`libraries.cgr.dev` return a 302 redirect to a different host. Without
+additional configuration, Artifactory may cache the redirect response instead of
+the actual tarball, causing npm integrity checksum failures at install time.
+
+To prevent this:
+
+1. Apply the following settings to your Artifactory `javascript-chainguard`
+   remote repository, within in the **Advanced** tab:
+    - **Enable Bypass HEAD Requests** — prevents Artifactory from sending HEAD
+      requests that may not be handled correctly by redirect-based registries.
+    - **Enable Lenient Host Authentication** — allows Artifactory to follow
+      redirects across hosts (required since downloads redirect from
+      `libraries.cgr.dev` to `*.r2.cloudflarestorage.com`).
+    - **Enable Cookie Management** - this setting is optional, but recommended
+      by JFrog for remote repositories that involve redirects.
+2. Clear the corrupted cached tarballs: in Artifactory, right-click the
+   `javascript-chainguard` repository and click **Zap Caches**, then re-run your
+   install.
+    - Alternatively, you could delete specific corrupted `.tgz` artifacts from
+      the remote cache, rather than deleting all, before re-running the install.
 
 ### Build tool access
 
