@@ -184,6 +184,8 @@ helm install ratify \
 
 The [verifier](https://ratify.dev/docs/reference/custom%20resources/verifiers) will set up the cosign verification. This example uses the public Chainguard images.
 
+> **Note**: If you want to use a private registry, you can follow the steps [here](/chainguard/chainguard-images/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/#privatededicated-registry)
+
 ```yaml
 apiVersion: config.ratify.deislabs.io/v1beta1
 kind: Verifier
