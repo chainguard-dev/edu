@@ -221,7 +221,7 @@ CATALOG_SYNCER=$(chainctl iam account-associations describe $PARENT -o json | jq
 APKO_BUILDER=$(chainctl iam account-associations describe $PARENT -o json | jq -r '.[].chainguard.service_bindings.APKO_BUILDER')
 ```
 
-Then your verifier would use those variables for your `certificateOIDCIssuer` and `certificateIdentityRegexp`.
+Then your verifier would use those variables for your `certificateOIDCIssuer` and `certificateIdentityRegexp`. Substitute `${PARENT}`, `${CATALOG_SYNCER}` and `${APKO_BUILDER}` with the literal values.
 
 ```yaml
 apiVersion: config.ratify.deislabs.io/v1beta1
