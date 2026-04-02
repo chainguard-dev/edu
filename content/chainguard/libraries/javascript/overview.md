@@ -26,7 +26,15 @@ around [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript),
 [Next.js](https://nextjs.org/), [Express](https://expressjs.com/), and many
 others.
 
-## Background
+Chainguard Libraries for JavaScript provides access to a growing collection of
+popular Javascript packages rebuilt from source. New releases of common packages
+requested by customer builds are added to the index by an automated system.
+These libraries are distributed through the [Chainguard
+Repository](/chainguard/libraries/chainguard-repository/), which provides a
+single endpoint for package retrieval and supports configurable security
+policies for both Chainguard-built and upstream packages.
+
+### Background
 
 The main public repository for JavaScript packages is the [npm
 Registry](https://npmjs.com/). Launched in 2010, the npm Registry has grown to
@@ -44,11 +52,11 @@ Berry](https://yarnpkg.com/), and uses the npm repository format. Chainguard
 Libraries for JavaScript covers many of the open source artifacts found in the 
 npm Registry.
 
-Chainguard Libraries for JavaScript provides access to a growing collection of
-popular Javascript packages rebuilt from source. New releases of common packages
-requested by customer builds are added to the index by an automated system.
-
-You can use your repository manager, such as JFrog Artifactory or Sonatype Nexus, as a single source of truth, pulling packages from Chainguard Libraries for JavaScript and from public software repositories like the npm Registry.
+You can [use your repository
+manager](/chainguard/libraries/javascript/global-configuration/), such as JFrog
+Artifactory or Sonatype Nexus, as a single source of truth, pulling packages
+from Chainguard Libraries for JavaScript and from public software repositories
+like the npm Registry.
 
 ## Runtime requirements
 
