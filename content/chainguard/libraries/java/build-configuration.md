@@ -480,29 +480,20 @@ repository group or virtual repository from your repository manager
 ```groovy
 repositories {
     maven {
-        name = 'repoManager'
-        credentials(PasswordCredentials)
         url = uri("https://repo.example.com/group/")
+        credentials {
+            username = "YOUR_USERNAME_FOR_REPOSITORY_MANAGER"
+            password = "YOUR_PASSWORD"
+        }
     }
 }
 ```
-
-Store credentials outside of version control in `~/.gradle/gradle.properties`, using the repository `name` as the prefix::
-
-```
-repoManagerUsername=YOUR_USERNAME_FOR_REPOSITORY_MANAGER
-repoManagerPassword=YOUR_PASSWORD
-```
->Note: Gradle derives the credential property names automatically from the
-repository name. For a repository named `repoManager`, it looks for
-`repoManagerUsername` and `repoManagerPassword` in Gradle properties.
 
 Example URLs for repository managers:
 
 * Cloudsmith: `https://dl.cloudsmith.io/basic/exampleorg/java-all/maven/`
 * JFrog Artifactory: `https://example.jfrog.io/artifactory/java-all/`
 * Sonatype Nexus: `https://repo.example.com:8443/repository/java-all/`
-
 
 If your organization does not use a repository manager you can configure the
 Chainguard Libraries for Java repository with the credentials from [Chainguard
@@ -514,24 +505,17 @@ other repositories:
 ```groovy
 repositories {
     maven {
-        url = 'https://libraries.cgr.dev/java/'
+        url = uri("https://libraries.cgr.dev/java/")
         credentials {
-            username = providers.gradleProperty('CHAINGUARD_JAVA_IDENTITY_ID').get()
-            password = providers.gradleProperty('CHAINGUARD_JAVA_TOKEN').get()
+            username = "CHAINGUARD_JAVA_IDENTITY_ID"
+            password = "CHAINGUARD_JAVA_TOKEN"
         }
     }
     mavenCentral()
 }
 ```
 
-Store credentials in `~/.gradle/gradle.properties`:
-
-```
-chainguardJavaUsername=YOUR_JAVA_IDENTITY_ID
-chainguardJavaPassword=YOUR_JAVA_TOKEN
-```
-
-Alternatively, you can configure [environment
+Alternatively configure [environment
 variables](/chainguard/libraries/access/#env) and access the values:
 
 ```groovy
