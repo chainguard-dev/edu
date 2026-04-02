@@ -162,6 +162,232 @@ kubectl get k8simagedigests container-image-must-have-digest -o json | jq -r '.s
 Once all the violations have been addressed, you can remove `enforcementAction: warn` and Gatekeeper will start to block the creation of resources that violate the constraint.
 
 
+## Ensure Images Are Signed By Chainguard
+
+This will require having [Gatekeeper](https://open-policy-agent.github.io/gatekeeper/website/) external data enabled.
+
+### Install Ratify
+
+```shell
+helm repo add ratify https://notaryproject.github.io/ratify
+# download the notary verification certificate
+curl -sSLO https://raw.githubusercontent.com/deislabs/ratify/main/test/testdata/notation.crt
+helm install ratify \
+    ratify/ratify \
+    --namespace gatekeeper-system \
+    --set-file notationCerts={./notation.crt} \
+    --set featureFlags.RATIFY_CERT_ROTATION=true \
+    --set policy.useRego=true
+```
+
+### Create a Verifier
+
+The [verifier](https://ratify.dev/docs/reference/custom%20resources/verifiers) will set up the cosign verification. This example uses the public Chainguard images.
+
+```yaml
+apiVersion: config.ratify.deislabs.io/v1beta1
+kind: Verifier
+metadata:
+  name: verifier-cosign-chainguard
+spec:
+  name: cosign
+  artifactTypes: application/vnd.dev.cosign.artifact.sig.v1+json
+  parameters:
+    trustPolicies:
+      - name: chainguard-public
+        scopes:
+          - "cgr.dev/chainguard/*"
+        tLogVerify: true
+        keyless:
+          ctLogVerify: true
+          certificateOIDCIssuer: "https://token.actions.githubusercontent.com"
+          certificateIdentity: "https://github.com/chainguard-images/images/.github/workflows/release.yaml@refs/heads/main"
+```
+
+### Create the Policy
+
+Create the Ratify [policy](https://ratify.dev/docs/reference/custom%20resources/policies/#policy). This defines a policy evaluating the verification results for a subject.
+
+```yaml
+apiVersion: config.ratify.deislabs.io/v1beta1
+kind: Policy
+metadata:
+  name: ratify-policy
+spec:
+  type: config-policy
+  parameters:
+    artifactVerificationPolicies:
+      "application/vnd.dev.cosign.artifact.sig.v1+json": "any"
+      default: "any"
+```
+
+### Create the Constraint Template
+
+By default, a Gatekeeper [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/constrainttemplates) uses Rego v0 syntax. This enables v1 syntax. If you want to use v0 syntax the policy will need to be updated. This example also adds an exempt images array to allow specific non-signed images.
+
+```yaml
+apiVersion: templates.gatekeeper.sh/v1
+kind: ConstraintTemplate
+metadata:
+  name: k8srequiredimagesignatures
+spec:
+  crd:
+    spec:
+      names:
+        kind: K8sRequiredImageSignatures
+      validation:
+        openAPIV3Schema:
+          type: object
+          properties:
+            exemptImages:
+              type: array
+              items:
+                type: string
+  targets:
+    - target: admission.k8s.gatekeeper.sh
+      code:
+        - engine: Rego
+          source:
+            version: "v1"
+            rego: |
+              package k8srequiredimagesignatures
+
+              default exemptions := []
+
+              exemptions := input.parameters.exemptImages
+
+              all_images contains val.image if {
+                  containers := object.get(input.review.object.spec.template.spec, "containers", [])
+                  initContainers := object.get(input.review.object.spec.template.spec, "initContainers", [])
+                  ephContainers := object.get(input.review.object.spec.template.spec, "ephemeralContainers", [])
+
+                  vals := array.concat(containers, array.concat(initContainers, ephContainers))
+                  some val in vals
+              }
+
+              ratify_response(image) = resp if {
+                      resp := external_data({
+                        "provider": "ratify-provider",
+                        "keys": [image],
+                      })
+              }
+
+              responses contains {"image": resp[0], "data": resp[1]} if {
+                some image in all_images
+                not image in exemptions
+
+                rat_resp := ratify_response(image)
+                resp := rat_resp.responses[_]
+              }
+
+              violation contains {"msg": msg} if {
+                some resp in responses
+              	resp.data.system_error != ""
+              	msg := sprintf("image %q verification system error: %v", [resp.image, resp.data.system_error])
+              }
+
+              violation contains {"msg": msg} if {
+                some resp in responses
+              	count(resp.data.responses) == 0
+              	msg := sprintf("image %q returned no verification response", [resp.image])
+              }
+
+              violation contains {"msg": msg} if {
+                some resp in responses
+                not resp.data.isSuccess
+              	reason := object.get(resp.data, "message", "verification failed")
+              	msg := sprintf("image %q is not signed by Chainguard: %v", [resp.image, reason])
+              }
+
+              violation contains {"msg": msg} if {
+                some resp in responses
+              	err := resp.data.errors[_]
+                err[0] == resp.image
+              	msg := sprintf("image %q verification error: %v", [resp.image, err[1]])
+              }
+```
+
+### Create the Constraint
+
+The constraint ties the constraint template to the Kubernetes kinds you define.
+
+```yaml
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sRequiredImageSignatures
+metadata:
+  name: require-signed-images
+spec:
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Pod"]
+      - apiGroups: ["apps"]
+        kinds: ["Deployment", "StatefulSet", "DaemonSet", "ReplicaSet"]
+  parameters:
+    exemptImages:
+      - "registry.k8s.io/pause:3.9"
+
+```
+
+### Try Deploying a Chainguard Image
+
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-chainguard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-chainguard
+  template:
+    metadata:
+      labels:
+        app: nginx-chainguard
+    spec:
+      containers:
+        - name: nginx
+          image: cgr.dev/chainguard/nginx:latest
+          ports:
+            - containerPort: 8080
+```
+
+This should successfully create a deployment.
+
+### Try Deploying a non-Chainguard Image
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-unsigned
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-unsigned
+  template:
+    metadata:
+      labels:
+        app: nginx-unsigned
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
+          ports:
+            - containerPort: 80
+
+```
+
+You will get an error like this explaining that the deployment was blocked because the image was not signed by Chainguard.
+
+```output
+Error from server (Forbidden): error when creating "bad-deployment.yaml": admission webhook "validation.gatekeeper.sh" denied the request: [require-signed-images] image "docker.io/library/nginx@sha256:7150b3a39203cb
+5bee612ff4a9d18774f8c7caf6399d6e8985e97e28eb751c18" is not signed by Chainguard: verification failed
+```
+
 ## Learn More
 
 By combining OPA Gatekeeper with Chainguard container images, you gain a powerful way to enforce security and compliance across your Kubernetes clusters. Gatekeeper ensures that only container images meeting your defined policies are deployed, while Chainguard Containers provide a minimal, hardened foundation to reduce risk from the start. Together, they help teams ship software more securely and confidently, without slowing down development.
