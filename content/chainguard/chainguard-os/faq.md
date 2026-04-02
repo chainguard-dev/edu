@@ -12,7 +12,7 @@ images: []
 menu:
   docs:
     parent: "chainguard-os"
-weight: 020
+weight: 030
 toc: true
 ---
 
