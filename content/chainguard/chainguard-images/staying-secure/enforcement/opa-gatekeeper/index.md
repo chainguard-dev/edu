@@ -206,6 +206,44 @@ spec:
           certificateIdentity: "https://github.com/chainguard-images/images/.github/workflows/release.yaml@refs/heads/main"
 ```
 
+To use a private registry, you need a couple more steps.
+
+First set a variable for your org
+
+```shell
+PARENT=your-organization
+```
+
+Next, create two more variables to hold the UIDPs of your organization’s `catalog_syncer` and `apko_builder` identities, respectively:
+
+```shell
+CATALOG_SYNCER=$(chainctl iam account-associations describe $PARENT -o json | jq -r '.[].chainguard.service_bindings.CATALOG_SYNCER')
+APKO_BUILDER=$(chainctl iam account-associations describe $PARENT -o json | jq -r '.[].chainguard.service_bindings.APKO_BUILDER')
+```
+
+Then your verifier would use those variables for your `certificateOIDCIssuer` and `certificateIdentityRegexp`.
+
+```yaml
+apiVersion: config.ratify.deislabs.io/v1beta1
+kind: Verifier
+metadata:
+  name: verifier-cosign-chainguard
+spec:
+  name: cosign
+  artifactTypes: application/vnd.dev.cosign.artifact.sig.v1+json
+  parameters:
+    trustPolicies:
+      - name: chainguard-private
+        scopes:
+          - "cgr.dev/${PARENT}/*"
+        tLogVerify: true
+        keyless:
+          ctLogVerify: true
+          certificateOIDCIssuer: "https://issuer.enforce.dev"
+          certificateIdentityRegExp: "https://issuer.enforce.dev/(${CATALOG_SYNCER}|${APKO_BUILDER})"
+```
+
+
 ### Create the Policy
 
 Create the Ratify [policy](https://ratify.dev/docs/reference/custom%20resources/policies/#policy). This defines a policy evaluating the verification results for a subject.
