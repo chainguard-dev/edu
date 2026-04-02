@@ -30,9 +30,9 @@ Chainguard's private APK repositories are available to all Chainguard Containers
 
 ## Contents of Private APK Repositories
 
-Your private APK repository contains all of the packages that are in the container images your organization is entitled to, plus some extra utilities, like `curl`.
+Your private APK repository contains all packages available in the container images your organization is entitled to, plus some extra utilities, like `curl`.
 
-Chainguard offers [Chainguard OS Packages](/chainguard/chainguard-os/chaingguard-os-packages/) to extend the set of available packages in your private APK repository to include the full 30,000 packages Chainguard has built so far. If you are a catalog customer, you get the full set of packages available in Chainguard OS. If you're a per-image customer, you get most packages, but won't have access to the "main" packages for images you aren't entitled to, preventing you from recreating our images. If you're interested and are a current customer, reach out to your account team to be added to the Beta.
+Chainguard offers an opt-in Beta feature that extends the set of available packages in your private APK repository to include the latest versions of all 30,000 packages Chainguard maintains as part of Chainguard OS and Wolfi. If you are a catalog customer, your private APK repository will contain the full set of packages built for Chainguard OS and Wolfi. If you're a per-image customer, your private APK repository will contain most of these packages, but won't contain any "main" packages for images you aren't entitled to, preventing you from recreating our images. If you're interested in expanding the set of available packages in your private APK repository and are a current customer, reach out to your account team to be added to the Beta.
 
 
 ## Your repository address
