@@ -20,7 +20,7 @@ As of this writing, the Chainguard Repository contains the following artifact ty
 
 | Artifact type | Description |
 | ----- | ----- |
-| [Chainguard JavaScript Libraries](/chainguard/libraries/chainguard-repository/) | Open source language dependencies rebuilt from source for JavaScript (npm). |
+| [Chainguard JavaScript Libraries](/chainguard/libraries/javascript/overview/) | Open source language dependencies rebuilt from source for JavaScript (npm). |
 | [Chainguard OS Packages](/chainguard/chainguard-images/features/packages/private-apk-repos/#chainguard-os-packages) | The full set of packages built by Chainguard and used to create Chainguard containers. |
 
 
@@ -30,7 +30,7 @@ Each artifact type is accessible via its own endpoint:
 
 | Artifact type | Endpoint |
 | ----- | ----- |
-| Libraries for JavaScript | `libraries.cgr.dev/javascript` |
+| Libraries for JavaScript | `libraries.cgr.dev/javascript/` |
 | OS Packages | `apk.cgr.dev/<organization-name>` |
 
 See each artifact type's documentation for authentication and configuration details.
@@ -62,5 +62,5 @@ Access the Console at [console.chainguard.dev](https://console.chainguard.dev).
 
 ## **Learn more**
 
-* [Chainguard Repository for JavaScript Libraries](/chainguard/libraries/chainguard-repository/)  
+* [Chainguard Repository for JavaScript Libraries](/chainguard/libraries/javascript/overview/)  
 * [Chainguard OS Packages](/chainguard/chainguard-images/features/packages/private-apk-repos/#chainguard-os-packages/)
