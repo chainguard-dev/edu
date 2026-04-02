@@ -21,8 +21,6 @@ As of this writing, the Chainguard Repository contains the following artifact ty
 | Artifact type | Description |
 | ----- | ----- |
 | [Chainguard JavaScript Libraries](/chainguard/libraries/javascript/overview/) | Open source language dependencies rebuilt from source for JavaScript (npm). |
-| [Chainguard OS Packages](/chainguard/chainguard-images/features/packages/private-apk-repos/#chainguard-os-packages) | The full set of packages built by Chainguard and used to create Chainguard containers. |
-
 
 ## Endpoints
 
@@ -30,8 +28,7 @@ Each artifact type is accessible via its own endpoint:
 
 | Artifact type | Endpoint |
 | ----- | ----- |
-| Libraries for JavaScript | `libraries.cgr.dev/javascript/` |
-| OS Packages | `apk.cgr.dev/<organization-name>` |
+| Libraries for JavaScript | `libraries.cgr.dev/javascript` |
 
 See each artifact type's documentation for authentication and configuration details.
 
@@ -48,11 +45,6 @@ For language dependencies, policies apply to both Chainguard-built packages and 
 All packages — whether Chainguard-built or sourced from upstream — are also scanned for malware before being served. Any package with a detected malware identifier is blocked.
 
 
-## Use case for OS Packages
-
-This is for large customers who already build their own container images from packages using tools like Bazel, Dockerfiles, and `rules_apko` and want to use a wider set of packages from Chainguard. Chainguard OS Packages makes over 400,000 built packages into your private APK repository.
-
-
 ## **Console**
 
 The Chainguard Console is the central interface for configuring policies and monitoring artifact activity across your organization. Learn more in [Using the Chainguard Console](/chainguard/chainguard-images/how-to-use/images-directory/).
@@ -62,5 +54,5 @@ Access the Console at [console.chainguard.dev](https://console.chainguard.dev).
 
 ## **Learn more**
 
-* [Chainguard Repository for JavaScript Libraries](/chainguard/libraries/javascript/overview/)  
-* [Chainguard OS Packages](/chainguard/chainguard-images/features/packages/private-apk-repos/#chainguard-os-packages/)
+* [Chainguard Repository for JavaScript Libraries](/chainguard/libraries/chainguard-repository/)  
+
