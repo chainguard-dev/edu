@@ -14,12 +14,12 @@ weight: 028
 toc: true
 ---
 
-With Chainguard's Private APK Repositories, you can access packages that are included within your organization's container image entitlements. This allows you to build custom images based on components that are already part of your organization catalog.
+With Chainguard's private APK repositories, you can access packages that are included within your organization's container image entitlements. This allows you to build custom images based on components that are already part of your organization catalog.
 
 This guide provides a brief overview of Chainguard's private APK repositories and outlines different ways you can incorporate them into your organization's workflows.
 
 
-## About Private APK Repositories
+## About private APK repositories
 
 Chainguard's private APK repos allow customers to pull secure apk packages from Chainguard. The list of packages available in an organization's private repository is based on the apk repositories that the organization already has access to.
 
@@ -28,11 +28,11 @@ For example, say your organization has access to the [Chainguard MySQL container
 Chainguard's private APK repositories are available to all Chainguard Containers customers.
 
 
-## Contents of Private APK Repositories
+## Contents of private APK repositories
 
 Your private APK repository contains all packages available in the container images your organization is entitled to, plus some extra utilities, like `curl`.
 
-Chainguard offers an opt-in Beta feature that extends the set of available packages in your private APK repository to include the latest versions of all 30,000 packages Chainguard maintains as part of Chainguard OS and Wolfi. If you are a catalog customer, your private APK repository will contain the full set of packages built for Chainguard OS and Wolfi. If you're a per-image customer, your private APK repository will contain most of these packages, but won't contain any "main" packages for images you aren't entitled to, preventing you from recreating our images. If you're interested in expanding the set of available packages in your private APK repository and are a current customer, reach out to your account team to be added to the Beta.
+Chainguard offers an opt-in beta feature that extends the set of available packages in your private APK repository to include the latest versions of all 30,000 packages Chainguard maintains as part of Chainguard OS and Wolfi. If you are a catalog customer, your private APK repository will contain the full set of packages built for Chainguard OS and Wolfi. If you're a per-image customer, your private APK repository will contain most of these packages, but won't contain any "main" packages for images you aren't entitled to, preventing you from recreating our images. If you're interested in expanding the set of available packages in your private APK repository and are a current customer, reach out to your account team to be added to the Beta.
 
 
 ## Your repository address
@@ -41,12 +41,12 @@ Your private APK repository will be available at a URL like the following:
 
 `https://apk.cgr.dev/$ORGANIZATION`
 
-You will need to replace `$ORGANIZATION` with the name of your organization as it appears in the Chainguard Console. 
+You will need to replace `$ORGANIZATION` with the name of your organization as it appears in the Chainguard Console.
 
 You can always find your private APK repository's address by logging into the [Chainguard Console](https://console.chainguard.dev/) and navigating to the **Settings** tab in the left-hand navigation menu. This will take you the **General** section where you can copy the repository address:
 
 <center><img src="ppr-1.png" alt="Screenshot of an organization's 'Settings' tab, with the Private APK Repository address highlighted in a yellow box." style="width:1050px;"></center>
-<br /> 
+<br />
 
 In order to use your private repository, you must add this URL to the list of apk repositories found in an `/etc/apk/repositories` file, and you'll also need to provide credentials to have access to this repo. To set this up, you must follow these general steps:
 
@@ -58,7 +58,7 @@ In order to use your private repository, you must add this URL to the list of ap
 In the following sections, this guide will outline how to implement this process in a live container and also when building container images from a Dockerfile or using apko.
 
 
-## Authenticating to your Private APK Repository
+## Authenticating to your private APK repository
 
 To access the apk packages in your private repository, you'll first need to authenticate. You can do so by setting up an `HTTP_AUTH` environment variable with an authentication string that uses `chainctl` to obtain an ephemeral token to access the registry.
 
@@ -174,7 +174,7 @@ wget policy:
 This output shows that the `wget` package is now installed.
 
 
-## Using Private APK Repositories with Dockerfiles
+## Using private APK repositories with Dockerfiles
 
 So far, this guide has outlined how to manually fetch apk packages from a private repository. We'll now go over how to use a private APK repo within a Dockerfile workflow. We'll be using the same organization, container image, and private package used in the previous examples.
 
@@ -221,7 +221,7 @@ wget policy:
 As this output shows, the `wget` apk package is installed in the container.
 
 
-## Using Private APK Repositories with apko builds
+## Using private APK repositories with apko builds
 
 You can also use your private APK repository with [apko](/open-source/build-tools/apko/overview/) builds. One of the advantages of this method is that you can build distroless images that include only the apk packages you need in the final image. 
 
@@ -273,7 +273,7 @@ You'll get output similar to the following, indicating that the `wget` package w
 ```
 
 
-## Using Private APK Repositories with Bazel rules for apko
+## Using private APK repositories with Bazel rules for apko
 
 You can also use your private APK repository with [Bazel](https://bazel.build/) using
 [rules_apko](https://github.com/chainguard-dev/rules_apko), which wraps
