@@ -17,14 +17,14 @@ toc: true
 
 The Guardener migrates your Dockerfiles to use Chainguard Containers. It uses AI to iteratively convert instructions, build images, compare results, and fix issues until the Dockerfile works as expected.
 
-You interact with it through `chainctl agent dockerfile` commands. The AI runs server-side, but all Docker builds and file access happen on your machine. Your source code never leaves your local environment.
+You interact with it through `chainctl agent dockerfile` commands. The AI runs server-side and scans your workspace to perform its analysis. Docker builds and file access remain local to your machine, and only the data necessary for analysis is processed.
 
 > **Note:** The Guardener is currently in beta. Features and behavior may change before general availability.
 
 
 ## Prerequisites
 
-While The Guardener is in beta, your organization will need to sign up to use it. You can sign up for the beta from [The Guardener landing page](https://www.chainguard.dev/guardener).
+While The Guardener is in beta, your organization will need to join the waitlist. We’ll notify you once registration becomes available. You can sign up for the waitlist on the [The Guardener landing page](https://www.chainguard.dev/guardener).
 
 Additionally, you will need the following in order to use The Guardener:
 
