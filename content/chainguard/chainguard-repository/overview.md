@@ -20,8 +20,7 @@ As of this writing, the Chainguard Repository contains the following artifact ty
 
 | Artifact type | Description |
 | ----- | ----- |
-| [Chainguard JavaScript Libraries](/chainguard/libraries/chainguard-repository/) | Open source language dependencies rebuilt from source for JavaScript (npm). |
-
+| [Chainguard JavaScript Libraries](/chainguard/libraries/javascript/overview/) | Open source language dependencies rebuilt from source for JavaScript (npm). |
 
 ## Endpoints
 
