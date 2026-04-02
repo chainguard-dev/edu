@@ -124,7 +124,6 @@ GPU‑accelerated libraries, built for specific CUDA versions:
 https://libraries.cgr.dev/cu126/simple/
 https://libraries.cgr.dev/cu128/simple/
 https://libraries.cgr.dev/cu129/simple/
-https://libraries.cgr.dev/cu130/simple/
 ```
 
 Many Python package managers and repository managers support configuring 
