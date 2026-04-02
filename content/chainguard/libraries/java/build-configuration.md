@@ -480,20 +480,29 @@ repository group or virtual repository from your repository manager
 ```groovy
 repositories {
     maven {
+        name = 'repoManager'
+        credentials(PasswordCredentials)
         url = uri("https://repo.example.com/group/")
-        credentials {
-            username = "YOUR_USERNAME_FOR_REPOSITORY_MANAGER"
-            password = "YOUR_PASSWORD"
-        }
     }
 }
 ```
+
+Store credentials outside of version control in `~/.gradle/gradle.properties`, using the repository `name` as the prefix::
+
+```
+repoManagerUsername=YOUR_USERNAME_FOR_REPOSITORY_MANAGER
+repoManagerPassword=YOUR_PASSWORD
+```
+>Note: Gradle derives the credential property names automatically from the
+repository name. For a repository named `repoManager`, it looks for
+`repoManagerUsername` and `repoManagerPassword` in Gradle properties.
 
 Example URLs for repository managers:
 
 * Cloudsmith: `https://dl.cloudsmith.io/basic/exampleorg/java-all/maven/`
 * JFrog Artifactory: `https://example.jfrog.io/artifactory/java-all/`
 * Sonatype Nexus: `https://repo.example.com:8443/repository/java-all/`
+
 
 If your organization does not use a repository manager you can configure the
 Chainguard Libraries for Java repository with the credentials from [Chainguard
@@ -505,17 +514,24 @@ other repositories:
 ```groovy
 repositories {
     maven {
-        url = uri("https://libraries.cgr.dev/java/")
+        url = 'https://libraries.cgr.dev/java/'
         credentials {
-            username = "CHAINGUARD_JAVA_IDENTITY_ID"
-            password = "CHAINGUARD_JAVA_TOKEN"
+            username = providers.gradleProperty('CHAINGUARD_JAVA_IDENTITY_ID').get()
+            password = providers.gradleProperty('CHAINGUARD_JAVA_TOKEN').get()
         }
     }
     mavenCentral()
 }
 ```
 
-Alternatively configure [environment
+Store credentials in `~/.gradle/gradle.properties`:
+
+```
+chainguardJavaUsername=YOUR_JAVA_IDENTITY_ID
+chainguardJavaPassword=YOUR_JAVA_TOKEN
+```
+
+Alternatively, you can configure [environment
 variables](/chainguard/libraries/access/#env) and access the values:
 
 ```groovy
@@ -523,8 +539,8 @@ repositories {
     maven {
         url = uri("https://libraries.cgr.dev/java/")
         credentials {
-            username = "$System.env.CHAINGUARD_JAVA_IDENTITY_ID"
-            password = "$System.env.CHAINGUARD_JAVA_TOKEN"
+            username = providers.environmentVariable("CHAINGUARD_JAVA_IDENTITY_ID").orNull
+            password = providers.environmentVariable("CHAINGUARD_JAVA_TOKEN").orNull
         }
     }
     mavenCentral()
@@ -558,6 +574,61 @@ allprojects {
   }
 }
 ```
+
+### Minimal example project
+
+Use the following steps to create a minimal example project for Gradle with Chainguard Libraries for Java.
+
+```bash
+mkdir gradle-example
+cd gradle-example
+gradle init --type java-application --dsl groovy \
+  --project-name gradle-example \
+  --package com.example \
+  --no-incubating \
+  --no-split-project
+```
+
+For testing purposes, you can use direct access and environment variables as
+detailed in the [access documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials). 
+
+
+Once the environment variables are set, configure credentials in `~/.gradle/gradle.properties`:
+
+```bash
+cat >> ~/.gradle/gradle.properties << EOF
+chainguardJavaUsername=${CHAINGUARD_JAVA_IDENTITY_ID}
+chainguardJavaPassword=${CHAINGUARD_JAVA_TOKEN}
+EOF
+```
+
+Edit the `repositories` block in `app/build.gradle` to point to Chainguard
+Libraries:
+
+```groovy
+repositories {
+    maven {
+        url = 'https://libraries.cgr.dev/java/'
+        credentials {
+            username = providers.gradleProperty('chainguardJavaUsername').get()
+            password = providers.gradleProperty('chainguardJavaPassword').get()
+        }
+    }
+    mavenCentral()
+}
+```
+
+Build the project and verify the downloaded packages. The project generated in this example includes `com.google.guava:guava` as a dependency via the
+version catalog in `gradle/libs.versions.toml`, so guava is downloaded from
+Chainguard Libraries as part of the build:
+
+```bash
+./gradlew app:assemble
+find ~/.gradle/caches/modules-2/files-2.1/com.google.guava -name "*.jar" | sort
+```
+
+Adjust the repository URL to use your repository manager and add any other
+desired packages for further testing.
 
 <a id="bazel"></a>
 
