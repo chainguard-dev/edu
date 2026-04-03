@@ -41,6 +41,7 @@ jobs:
         egress-policy: block
         allowed-endpoints: >
           api.github.com:443
+          *.r2.cloudflarestorage.com:443
           cgr.dev:443
           files.pythonhosted.org:443
           fulcio.sigstore.dev:443
