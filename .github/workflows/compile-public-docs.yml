@@ -154,8 +154,9 @@ jobs:
         # Use a fixed tag for the latest release
         TAG="ai-docs-latest"
         
-        # Delete existing release if it exists
-        gh release delete "$TAG" --yes || true
+        # Delete existing release and tag if they exist
+        gh release delete "$TAG" --yes 2>/dev/null || true
+        gh api --method DELETE /repos/${{ github.repository }}/git/refs/tags/$TAG 2>/dev/null || true
         
         # Create release notes
         cat > release-notes.md << 'EOF'
