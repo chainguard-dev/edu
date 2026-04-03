@@ -41,12 +41,15 @@ jobs:
           *.r2.cloudflarestorage.com:443
           apk.cgr.dev:443
           cgr.dev:443
+          files.pythonhosted.org:443
           fulcio.sigstore.dev:443
           ghcr.io:443
           github.com:443
           iamcredentials.googleapis.com:443
           oauth2.googleapis.com:443
           objects.githubusercontent.com:443
+          pypi.org:443
+          raw.githubusercontent.com:443
           rekor.sigstore.dev:443
           sts.googleapis.com:443
           storage.googleapis.com:443
