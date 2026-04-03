@@ -58,6 +58,12 @@ for accessing your organization's Cloudsmith repository manager.
 Note that for use with build tools you must include the `simple/` context so that
 the package index is used successfully.
 
+<a name="gar"></a>
+
+### Google Artifact Registry
+
+Use the [Google Cloud Artifact Registry documentation](https://docs.cloud.google.com/artifact-registry/docs/python/authentication) to authenticate to your Python Artifact Registry.
+
 <a id="artifactory"></a>
 
 ### JFrog Artifactory
