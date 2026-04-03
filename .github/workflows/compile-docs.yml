@@ -136,6 +136,15 @@ jobs:
           fi
         fi
 
+    - name: Generate image catalog
+      run: |
+        cd edu
+        python3 scripts/generate_image_catalog.py \
+          --docs $TEMP_BUILD_DIR/chainguard-complete-docs.md \
+          --mappings data/package-mappings.yaml \
+          --output scripts/image-catalog.json \
+          --commit "${{ github.sha }}"
+
     - name: Create compressed versions
       run: |
         cd $TEMP_BUILD_DIR
@@ -221,6 +230,8 @@ jobs:
         # Sign container image with cosign
         cosign sign --yes ghcr.io/${{ github.repository_owner }}/ai-docs:latest
         cosign sign --yes ghcr.io/${{ github.repository_owner }}/ai-docs:${{ github.sha }}
+
+        docker logout ghcr.io
 
     - name: Scan for sensitive data
       run: |
