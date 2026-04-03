@@ -113,6 +113,14 @@ jobs:
         echo "Documentation compiled successfully"
         ls -lh static/downloads/chainguard-complete-docs.md
 
+    - name: Generate image catalog
+      run: |
+        python3 scripts/generate_image_catalog.py \
+          --docs static/downloads/chainguard-complete-docs.md \
+          --mappings data/package-mappings.yaml \
+          --output scripts/image-catalog.json \
+          --commit "${{ github.sha }}"
+
     - name: Create compressed bundle
       run: |
         cd static/downloads
@@ -287,6 +295,8 @@ jobs:
         # Sign container image with cosign
         cosign sign --yes ghcr.io/${{ github.repository_owner }}/ai-docs:latest
         cosign sign --yes ghcr.io/${{ github.repository_owner }}/ai-docs:${{ github.sha }}
+
+        docker logout ghcr.io
 
     - name: Upload artifacts
       uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
