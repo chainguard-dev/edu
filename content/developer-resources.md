@@ -44,7 +44,7 @@ Choose your preferred distribution method:
 
 | Format | Description | Verification |
 |--------|-------------|-------------|
-| [Latest Release](https://github.com/chainguard-dev/edu/releases/tag/ai-docs-latest) | Cryptographically signed documentation bundle (~1.7MB) | Includes Cosign signatures and certificates |
+| [Latest Release](https://github.com/chainguard-dev/edu/releases/tag/ai-docs) | Cryptographically signed documentation bundle (~1.7MB) | Includes Cosign signatures and certificates |
 
 ### Container Distribution
 
@@ -119,7 +119,7 @@ Add to your `claude_desktop_config.json`:
 - Searchable and queryable documentation
 - Perfect for automated workflows
 - Works with Claude Desktop, Cursor, and other MCP-compatible tools
-- Also available as a [standalone Python script](https://github.com/chainguard-dev/edu/releases/tag/ai-docs-latest) (no Docker required)
+- Also available as a [standalone Python script](https://github.com/chainguard-dev/edu/releases/tag/ai-docs) (no Docker required)
 
 [**Full MCP Server Documentation →**](/mcp-server-ai-docs/)
 
@@ -127,7 +127,7 @@ Add to your `claude_desktop_config.json`:
 
 ```bash
 # Download the documentation bundle from GitHub releases
-curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-latest/chainguard-ai-docs.tar.gz
+curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs/chainguard-ai-docs.tar.gz
 
 # Extract the markdown file
 tar -xzf chainguard-ai-docs.tar.gz

@@ -221,14 +221,14 @@ latest, latest-dev, 3.13, 3.13-dev, ...
 
 ## Standalone Installation (without Docker)
 
-The MCP server is also available as a standalone Python script from the [GitHub release](https://github.com/chainguard-dev/edu/releases/tag/ai-docs-latest):
+The MCP server is also available as a standalone Python script from the [GitHub release](https://github.com/chainguard-dev/edu/releases/tag/ai-docs):
 
 ```bash
 # Download the MCP server, requirements, docs, and catalog
-curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-latest/mcp-server.py
-curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-latest/mcp-requirements.txt
-curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-latest/chainguard-ai-docs.md
-curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-latest/image-catalog.json
+curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs/mcp-server.py
+curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs/mcp-requirements.txt
+curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs/chainguard-ai-docs.md
+curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs/image-catalog.json
 
 # Install dependencies
 pip install -r mcp-requirements.txt
@@ -256,7 +256,7 @@ To use this with Claude Desktop, update your configuration to point to the local
 
 ## Alternative: Static Documentation
 
-If you don't need MCP server functionality, you can download the documentation as a single markdown file from the [GitHub release](https://github.com/chainguard-dev/edu/releases/tag/ai-docs-latest), or extract it from the container:
+If you don't need MCP server functionality, you can download the documentation as a single markdown file from the [GitHub release](https://github.com/chainguard-dev/edu/releases/tag/ai-docs), or extract it from the container:
 
 ```bash
 docker run --rm -v $(pwd):/output \
