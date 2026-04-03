@@ -1381,6 +1381,13 @@
       },
       "chainguard.platform.iam.Identity.StaticKeys": {
         "properties": {
+          "audiences": {
+            "description": "audiences are the accepted OIDC token audiences for this identity.\nWhen set, the token's audience must match at least one value in this list.\nMutually exclusive with the global AllowedAudiences — when set, only\nthese values are checked and the global list is bypassed entirely.\nWhen empty, falls back to the global AllowedAudiences.\n\nNOTE: Currently only a single audience is supported. The field is\nrepeated for forward compatibility — callers must specify exactly one\nvalue. This restriction may be relaxed in a future release.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
           "expiration": {
             "description": "expiration is the time when the issuer_keys will expire.\nDefaults to / Maximum of 30 days after creation time.",
             "format": "date-time",
