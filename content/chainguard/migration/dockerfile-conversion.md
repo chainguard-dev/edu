@@ -21,7 +21,7 @@ Chainguard's [Dockerfile Converter (dfc)](https://github.com/chainguard-dev/dfc)
 * Debian / Ubuntu (`apt`, `apt-get`)
 * Fedora / RedHat / UBI (`yum`, `dnf`, `microdnf`)
 
-> **Note:** If you prefer a fully automated approach, [The Guardener](/chainguard/migration/guardener-dockerfile-agent/) is an AI-powered agent that can migrate, optimize, and validate your Dockerfiles with minimal manual intervention.
+> **Note:** If you prefer a fully automated approach, [The Guardener](/chainguard/migration/the-guardener/) is an AI-powered agent that can migrate, optimize, and validate your Dockerfiles with minimal manual intervention.
 
 ## Installation
 
