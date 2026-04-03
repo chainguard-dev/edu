@@ -42,6 +42,7 @@ jobs:
         allowed-endpoints: >
           api.github.com:443
           *.r2.cloudflarestorage.com:443
+          apk.cgr.dev:443
           cgr.dev:443
           files.pythonhosted.org:443
           fulcio.sigstore.dev:443
