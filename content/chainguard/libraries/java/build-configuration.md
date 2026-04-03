@@ -523,8 +523,8 @@ repositories {
     maven {
         url = uri("https://libraries.cgr.dev/java/")
         credentials {
-            username = providers.environmentVariable("CHAINGUARD_JAVA_IDENTITY_ID").orNull
-            password = providers.environmentVariable("CHAINGUARD_JAVA_TOKEN").orNull
+            username = "$System.env.CHAINGUARD_JAVA_IDENTITY_ID"
+            password = "$System.env.CHAINGUARD_JAVA_TOKEN"
         }
     }
     mavenCentral()
@@ -602,13 +602,37 @@ repositories {
 }
 ```
 
-Build the project and verify the downloaded packages. The project generated in this example includes `com.google.guava:guava` as a dependency via the
-version catalog in `gradle/libs.versions.toml`, so guava is downloaded from
-Chainguard Libraries as part of the build:
+Build the project:
 
 ```bash
 ./gradlew app:assemble
-find ~/.gradle/caches/modules-2/files-2.1/com.google.guava -name "*.jar" | sort
+```
+
+The project generated in this example includes `com.google.guava:guava` as a dependency via the
+version catalog in `gradle/libs.versions.toml`, so guava is downloaded from
+Chainguard Libraries as part of the build. 
+
+Following the build, find the guava jar declared in the version catalog at:
+
+```bash
+~/.gradle/caches/modules-2/files-2.1/com.google.guava
+```
+
+#### Verify the project works as expected
+
+To verify the artifact was built by Chainguard, use `chainctl`. In this example,
+we use `find` to locate the jar and then pipe it to `chainctl`:
+
+```bash
+find ~/.gradle/caches/modules-2/files-2.1/com.google.guava/guava \
+  -name "*.jar" | head -1 | xargs chainctl libraries verify --parent your-org
+```
+
+A successfully verified artifact produces output similar to the following:
+
+```bash
+Artifact: ~/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/33.5.0-jre/.../guava-33.5.0-jre.jar
+Verification Coverage: 100.00%
 ```
 
 Adjust the repository URL to use your repository manager and add any other
