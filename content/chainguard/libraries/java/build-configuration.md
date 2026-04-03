@@ -472,10 +472,12 @@ using the repositories definition. Each project can also [declare
 repositories](https://docs.gradle.org/current/userguide/declaring_repositories_basics.html)
 separately.
 
+#### Using a repository manager 
+
 A typical setup removes the direct reference to Maven Central `mavenCentral()`
 and any other repositories, and adds a replacement definition with the URL of the
 repository group or virtual repository from your repository manager
-`https://repo.example.com/group/` and any applicable authentication details.
+`https://repo.example.com/group/` and any applicable authentication details:
 
 ```groovy
 repositories {
@@ -488,12 +490,16 @@ repositories {
     }
 }
 ```
+>Note: Do not store credentials directly in build files; use environment variables or local Gradle properties instead.
 
 Example URLs for repository managers:
 
 * Cloudsmith: `https://dl.cloudsmith.io/basic/exampleorg/java-all/maven/`
 * JFrog Artifactory: `https://example.jfrog.io/artifactory/java-all/`
 * Sonatype Nexus: `https://repo.example.com:8443/repository/java-all/`
+
+
+#### Direct access to Chainguard Libraries
 
 If your organization does not use a repository manager you can configure the
 Chainguard Libraries for Java repository with the credentials from [Chainguard
@@ -514,6 +520,7 @@ repositories {
     mavenCentral()
 }
 ```
+>This example uses placeholders. It is not recommended to hardcode credentials.
 
 Alternatively configure [environment
 variables](/chainguard/libraries/access/#env) and access the values:
@@ -523,15 +530,17 @@ repositories {
     maven {
         url = uri("https://libraries.cgr.dev/java/")
         credentials {
-            username = "$System.env.CHAINGUARD_JAVA_IDENTITY_ID"
-            password = "$System.env.CHAINGUARD_JAVA_TOKEN"
+            username = providers.environmentVariable("CHAINGUARD_JAVA_IDENTITY_ID").orNull
+            password = providers.environmentVariable("CHAINGUARD_JAVA_TOKEN").orNull
         }
     }
     mavenCentral()
 }
 ```
 
-The following listing shows a valid `init.gradle` file. It wraps the
+#### Using an init script
+
+The following listing shows a valid `init.gradle` file that applies the repository configuration globally using `~/.gradle/init.gradle`. It wraps the
 `repositories` element with `allprojects` so that the scope of the file affects
 all projects built locally with Gradle. It also allows for downloads for plugins
 and build scripts from the remote URL using `buildscript`. Lastly the example
@@ -558,6 +567,7 @@ allprojects {
   }
 }
 ```
+>Use HTTP repositories only in trusted environments. HTTPS is recommended.
 
 ### Minimal example project
 
@@ -577,25 +587,15 @@ For testing purposes, you can use direct access and environment variables as
 detailed in the [access documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials). 
 
 
-Once the environment variables are set, configure credentials in `~/.gradle/gradle.properties`:
-
-```bash
-cat >> ~/.gradle/gradle.properties << EOF
-chainguardJavaUsername=${CHAINGUARD_JAVA_IDENTITY_ID}
-chainguardJavaPassword=${CHAINGUARD_JAVA_TOKEN}
-EOF
-```
-
-Edit the `repositories` block in `app/build.gradle` to point to Chainguard
-Libraries:
+Once the environment variables are set, edit the `repositories` block in `app/build.gradle` to point to Chainguard and use your environment variables:
 
 ```groovy
 repositories {
     maven {
         url = 'https://libraries.cgr.dev/java/'
         credentials {
-            username = providers.gradleProperty('chainguardJavaUsername').get()
-            password = providers.gradleProperty('chainguardJavaPassword').get()
+            username = providers.environmentVariable("CHAINGUARD_JAVA_IDENTITY_ID").orNull
+            password = providers.environmentVariable("CHAINGUARD_JAVA_TOKEN").orNull
         }
     }
     mavenCentral()
