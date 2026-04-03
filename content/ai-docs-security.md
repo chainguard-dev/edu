@@ -90,9 +90,9 @@ Example patterns we redact:
 
 ```bash
 # 1. Download files
-curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-latest/chainguard-ai-docs.tar.gz
-curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-latest/chainguard-ai-docs.tar.gz.sig
-curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-latest/chainguard-ai-docs.tar.gz.crt
+curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs/chainguard-ai-docs.tar.gz
+curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs/chainguard-ai-docs.tar.gz.sig
+curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs/chainguard-ai-docs.tar.gz.crt
 
 # 2. Verify signature
 cosign verify-blob \
