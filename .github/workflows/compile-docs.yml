@@ -18,12 +18,12 @@ on:
         required: false
         default: 'false'
 
-# Restrict permissions to minimum required
 permissions:
-  contents: write  # For pushing compiled docs and creating releases
+  contents: write  # For creating/updating releases
   actions: read
   id-token: write  # For cosign keyless signing
-  packages: write  # For container registry
+  packages: write  # For GHCR
+  # TODO: Split into separate compile (read-only) and publish (write) jobs
   
 jobs:
   compile-docs:
@@ -32,10 +32,22 @@ jobs:
     environment: documentation  # Use environment protection rules
     
     steps:
-    - name: Harden the runner (Audit all outbound calls)
+    - name: Harden the runner
       uses: step-security/harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594 # v2.16.0
       with:
-        egress-policy: audit
+        egress-policy: block
+        allowed-endpoints: >
+          api.github.com:443
+          cgr.dev:443
+          files.pythonhosted.org:443
+          fulcio.sigstore.dev:443
+          ghcr.io:443
+          github.com:443
+          objects.githubusercontent.com:443
+          pypi.org:443
+          rekor.sigstore.dev:443
+          tuf-repo-cdn.sigstore.dev:443
+          uploads.github.com:443
 
     - name: Checkout edu repository
       uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
@@ -191,13 +203,13 @@ jobs:
         cp $TEMP_BUILD_DIR/checksums.txt scripts/checksums.txt
         # verification.sh is already in scripts/ directory
         
+        # Login to GitHub Container Registry
+        echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
         # Build container with GitHub Container Registry
         docker build -f scripts/Dockerfile.ai-docs -t ghcr.io/${{ github.repository_owner }}/ai-docs:latest scripts/
         docker tag ghcr.io/${{ github.repository_owner }}/ai-docs:latest ghcr.io/${{ github.repository_owner }}/ai-docs:${{ github.sha }}
-        
-        # Login to GitHub Container Registry
-        echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-        
+
         # Push images
         docker push ghcr.io/${{ github.repository_owner }}/ai-docs:latest
         docker push ghcr.io/${{ github.repository_owner }}/ai-docs:${{ github.sha }}
@@ -229,8 +241,9 @@ jobs:
         ]
         EOF
         
-        # Install gitleaks
+        # Install gitleaks (with checksum verification)
         wget -q https://github.com/gitleaks/gitleaks/releases/download/v8.18.0/gitleaks_8.18.0_linux_x64.tar.gz
+        echo "6e19050a3ee0688265ed3be4c46a0362487d20456ecd547e8c7328eaed3980cb  gitleaks_8.18.0_linux_x64.tar.gz" | sha256sum -c -
         tar -xzf gitleaks_8.18.0_linux_x64.tar.gz
         
         # Scan compiled documentation for secrets with custom config
@@ -257,27 +270,11 @@ jobs:
         fi
 
 
-    - name: Delete existing latest release if exists
-      if: (github.event.inputs.create_release == 'true' || github.event_name == 'schedule') && github.ref == 'refs/heads/main'
-      env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        # Delete existing ai-docs-latest release if it exists
-        if gh release view ai-docs-latest > /dev/null 2>&1; then
-          echo "Deleting existing ai-docs-latest release"
-          gh release delete ai-docs-latest -y
-        fi
-        
-        # Also delete the tag
-        if git rev-parse ai-docs-latest > /dev/null 2>&1; then
-          git push --delete origin ai-docs-latest || true
-        fi
-
-    - name: Create GitHub Release
+    - name: Create or update GitHub Release
       if: (github.event.inputs.create_release == 'true' || github.event_name == 'schedule') && github.ref == 'refs/heads/main'
       uses: step-security/action-gh-release@d45511d7589f080cf54961ff056b9705a74fd160 # v2.5.0
       with:
-        tag_name: ai-docs-latest
+        tag_name: ai-docs
         name: AI Documentation Bundle - Latest
         body: |
           ## Chainguard AI Documentation Bundle
