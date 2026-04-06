@@ -59,8 +59,6 @@ jobs:
 
     - name: Checkout edu repository
       uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      with:
-        persist-credentials: false
 
     - name: Authenticate to Google Cloud
       uses: step-security/google-github-auth@57c51210cb4d85d8a5d39dc4c576c79bd693f914 # v3.0.1
@@ -180,12 +178,14 @@ jobs:
         ls -lh static/downloads/chainguard-complete-docs.md
 
     - name: Generate image catalog
+      env:
+        COMMIT_SHA: ${{ github.sha }}
       run: |
         python3 scripts/generate_image_catalog.py \
           --docs static/downloads/chainguard-complete-docs.md \
           --mappings data/package-mappings.yaml \
           --output scripts/image-catalog.json \
-          --commit "${{ github.sha }}"
+          --commit "$COMMIT_SHA"
 
     - name: Create AI-specific bundle
       run: |
@@ -208,8 +208,19 @@ jobs:
         echo "AI documentation bundle created:"
         ls -lh chainguard-ai-docs.*
 
+    - name: Login to GHCR
+      if: github.ref == 'refs/heads/main'
+      uses: docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9 # v3.7.0
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Build and push container image
       if: github.ref == 'refs/heads/main'
+      env:
+        REPO_OWNER: ${{ github.repository_owner }}
+        COMMIT_SHA: ${{ github.sha }}
       run: |
         # Copy files for container build
         cp static/downloads/chainguard-ai-docs.md scripts/
@@ -225,21 +236,19 @@ jobs:
         # (These will be properly signed in a future phase)
         touch scripts/chainguard-ai-docs.md.sig
         touch scripts/chainguard-ai-docs.md.crt
-        
-        # Login to GitHub Container Registry
-        echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
         # Build container with GitHub Container Registry
-        docker build -f scripts/Dockerfile.ai-docs -t ghcr.io/${{ github.repository_owner }}/ai-docs:latest scripts/
-        docker tag ghcr.io/${{ github.repository_owner }}/ai-docs:latest ghcr.io/${{ github.repository_owner }}/ai-docs:${{ github.sha }}
+        docker build -f scripts/Dockerfile.ai-docs -t "ghcr.io/$REPO_OWNER/ai-docs:latest" scripts/
+        docker tag "ghcr.io/$REPO_OWNER/ai-docs:latest" "ghcr.io/$REPO_OWNER/ai-docs:$COMMIT_SHA"
 
         # Push images
-        docker push ghcr.io/${{ github.repository_owner }}/ai-docs:latest
-        docker push ghcr.io/${{ github.repository_owner }}/ai-docs:${{ github.sha }}
-
-        docker logout ghcr.io
+        docker push "ghcr.io/$REPO_OWNER/ai-docs:latest"
+        docker push "ghcr.io/$REPO_OWNER/ai-docs:$COMMIT_SHA"
 
     - name: Upload bundle back to GCS for distribution
+      env:
+        COMMIT_SHA: ${{ github.sha }}
+        EVENT_NAME: ${{ github.event_name }}
       run: |
         echo "Uploading compiled bundle to GCS..."
         
@@ -254,14 +263,17 @@ jobs:
           --project=chainguard-academy
         
         # Create and upload compilation metadata
-        cat > /tmp/compilation-metadata.json << EOF
-        {
-          "compiled_at": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
-          "commit": "${{ github.sha }}",
-          "triggered_by": "${{ github.event_name }}",
-          "file_size": "$(ls -l static/downloads/chainguard-ai-docs.md | awk '{print $5}')"
+        python3 -c "
+        import json, datetime, os
+        meta = {
+            'compiled_at': datetime.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ'),
+            'commit': os.environ['COMMIT_SHA'],
+            'triggered_by': os.environ['EVENT_NAME'],
+            'file_size': str(os.path.getsize('static/downloads/chainguard-ai-docs.md'))
         }
-        EOF
+        with open('/tmp/compilation-metadata.json', 'w') as f:
+            json.dump(meta, f, indent=2)
+        "
         
         gcloud storage cp /tmp/compilation-metadata.json \
           gs://academy-all-docs/compiled/metadata.json \
@@ -270,10 +282,12 @@ jobs:
         echo "✓ Bundle uploaded to GCS"
 
     - name: Commit and push changes
+      env:
+        EVENT_NAME: ${{ github.event_name }}
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        
+
         # Check if there are changes
         if git diff --quiet; then
           echo "No changes to commit"
@@ -283,7 +297,7 @@ jobs:
           git commit -m "Update AI documentation bundle [skip ci]
 
         Sources downloaded from GCS bucket: academy-all-docs
-        Triggered by: ${{ github.event_name }}
+        Triggered by: $EVENT_NAME
         " || echo "No changes to commit"
           git push
         fi

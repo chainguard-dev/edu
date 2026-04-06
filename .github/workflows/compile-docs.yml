@@ -138,13 +138,15 @@ jobs:
         fi
 
     - name: Generate image catalog
+      env:
+        COMMIT_SHA: ${{ github.sha }}
       run: |
         cd edu
         python3 scripts/generate_image_catalog.py \
-          --docs $TEMP_BUILD_DIR/chainguard-complete-docs.md \
+          --docs "$TEMP_BUILD_DIR/chainguard-complete-docs.md" \
           --mappings data/package-mappings.yaml \
           --output scripts/image-catalog.json \
-          --commit "${{ github.sha }}"
+          --commit "$COMMIT_SHA"
 
     - name: Create compressed versions
       run: |
@@ -205,34 +207,40 @@ jobs:
           --yes \
           --bundle=chainguard-ai-docs.tar.gz.bundle
 
+    - name: Login to GHCR
+      if: github.ref == 'refs/heads/main'
+      uses: docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9 # v3.7.0
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Build and push container image
       if: github.ref == 'refs/heads/main'
+      env:
+        REPO_OWNER: ${{ github.repository_owner }}
+        COMMIT_SHA: ${{ github.sha }}
       run: |
         cd edu
-        
+
         # Copy necessary files for container build (rename to match Dockerfile expectations)
-        cp $TEMP_BUILD_DIR/chainguard-complete-docs.md scripts/chainguard-ai-docs.md
-        cp $TEMP_BUILD_DIR/chainguard-complete-docs.md.sig scripts/chainguard-ai-docs.md.sig
-        cp $TEMP_BUILD_DIR/chainguard-complete-docs.md.crt scripts/chainguard-ai-docs.md.crt
-        cp $TEMP_BUILD_DIR/checksums.txt scripts/checksums.txt
+        cp "$TEMP_BUILD_DIR/chainguard-complete-docs.md" scripts/chainguard-ai-docs.md
+        cp "$TEMP_BUILD_DIR/chainguard-complete-docs.md.sig" scripts/chainguard-ai-docs.md.sig
+        cp "$TEMP_BUILD_DIR/chainguard-complete-docs.md.crt" scripts/chainguard-ai-docs.md.crt
+        cp "$TEMP_BUILD_DIR/checksums.txt" scripts/checksums.txt
         # verification.sh is already in scripts/ directory
-        
-        # Login to GitHub Container Registry
-        echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
         # Build container with GitHub Container Registry
-        docker build -f scripts/Dockerfile.ai-docs -t ghcr.io/${{ github.repository_owner }}/ai-docs:latest scripts/
-        docker tag ghcr.io/${{ github.repository_owner }}/ai-docs:latest ghcr.io/${{ github.repository_owner }}/ai-docs:${{ github.sha }}
+        docker build -f scripts/Dockerfile.ai-docs -t "ghcr.io/$REPO_OWNER/ai-docs:latest" scripts/
+        docker tag "ghcr.io/$REPO_OWNER/ai-docs:latest" "ghcr.io/$REPO_OWNER/ai-docs:$COMMIT_SHA"
 
         # Push images
-        docker push ghcr.io/${{ github.repository_owner }}/ai-docs:latest
-        docker push ghcr.io/${{ github.repository_owner }}/ai-docs:${{ github.sha }}
-        
-        # Sign container image with cosign
-        cosign sign --yes ghcr.io/${{ github.repository_owner }}/ai-docs:latest
-        cosign sign --yes ghcr.io/${{ github.repository_owner }}/ai-docs:${{ github.sha }}
+        docker push "ghcr.io/$REPO_OWNER/ai-docs:latest"
+        docker push "ghcr.io/$REPO_OWNER/ai-docs:$COMMIT_SHA"
 
-        docker logout ghcr.io
+        # Sign container image with cosign
+        cosign sign --yes "ghcr.io/$REPO_OWNER/ai-docs:latest"
+        cosign sign --yes "ghcr.io/$REPO_OWNER/ai-docs:$COMMIT_SHA"
 
     - name: Scan for sensitive data
       run: |
@@ -286,49 +294,33 @@ jobs:
         fi
 
 
-    - name: Create or update GitHub Release
+    - name: Update GitHub Release
       if: (github.event.inputs.create_release == 'true' || github.event_name == 'schedule') && github.ref == 'refs/heads/main'
-      uses: step-security/action-gh-release@d45511d7589f080cf54961ff056b9705a74fd160 # v2.5.0
-      with:
-        tag_name: ai-docs
-        name: AI Documentation Bundle - Latest
-        body: |
-          ## Chainguard AI Documentation Bundle
-          
-          Cryptographically signed documentation for AI coding assistants.
-          
-          ### Verification Instructions
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        # Org ruleset prevents tag deletion, so we update the existing release
+        # by replacing its assets rather than deleting and recreating it.
 
-          ```bash
-          # Download latest release
-          curl -LO https://github.com/${{ github.repository }}/releases/latest/download/chainguard-ai-docs.tar.gz
-          curl -LO https://github.com/${{ github.repository }}/releases/latest/download/chainguard-ai-docs.tar.gz.bundle
+        if gh release view ai-docs > /dev/null 2>&1; then
+          echo "Updating existing ai-docs release..."
 
-          # Verify with cosign (bundle format)
-          cosign verify-blob \
-            --bundle chainguard-ai-docs.tar.gz.bundle \
-            --certificate-identity-regexp ".*github.com/${{ github.repository }}.*" \
-            --certificate-oidc-issuer https://token.actions.githubusercontent.com \
-            chainguard-ai-docs.tar.gz
+          # Delete old assets so we can upload fresh ones
+          for asset in chainguard-ai-docs.tar.gz chainguard-ai-docs.tar.gz.bundle; do
+            gh release delete-asset ai-docs "$asset" -y 2>/dev/null || true
+          done
 
-          # Extract and verify contents
-          tar -xzf chainguard-ai-docs.tar.gz
-          ./verification.sh
-          ```
-          
-          ### Container Distribution
-          
-          ```bash
-          # Pull and verify container (when available)
-          cosign verify cgr.dev/chainguard/ai-docs:latest
-          docker run --rm -v $(pwd):/output cgr.dev/chainguard/ai-docs:latest extract /output
-          ```
-          
-          ### What's New
-          - Compiled from commit: ${{ github.sha }}
-          - Build date: ${{ github.event.repository.updated_at }}
-        files: |
-          ${{ env.TEMP_BUILD_DIR }}/chainguard-ai-docs.tar.gz
-          ${{ env.TEMP_BUILD_DIR }}/chainguard-ai-docs.tar.gz.bundle
-        draft: false
-        prerelease: false
+          # Upload new assets
+          gh release upload ai-docs \
+            "$TEMP_BUILD_DIR/chainguard-ai-docs.tar.gz" \
+            "$TEMP_BUILD_DIR/chainguard-ai-docs.tar.gz.bundle"
+
+          echo "Release assets updated"
+        else
+          echo "Creating new ai-docs release..."
+          gh release create ai-docs \
+            "$TEMP_BUILD_DIR/chainguard-ai-docs.tar.gz" \
+            "$TEMP_BUILD_DIR/chainguard-ai-docs.tar.gz.bundle" \
+            --title "AI Documentation Bundle - Latest" \
+            --notes "Chainguard AI documentation bundle for use with AI coding assistants."
+        fi
