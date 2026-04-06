@@ -1,5 +1,5 @@
 ---
-title : "Chainguard OpenAPI Specification"
+title : "Chainguard API v2"
 aliases:
 - /chainguard/chainguard-enforce/chainguard-enforce-kubernetes/api/
 - /chainguard/chainguard-enforce/reference/api/
@@ -14,4 +14,4 @@ toc: false
 weight: 010
 ---
 
-{{< openapi spec-url="/api.json" >}}
+{{< openapi spec-url="/api-v2alpha1.json" >}}
