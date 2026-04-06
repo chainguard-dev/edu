@@ -435,14 +435,26 @@ desired packages for further testing.
 [Gradle](https://gradle.org/) is a commonly used build tool in the Java
 ecosystem.
 
-### Remove Gradle caches
+### Refresh or remove Gradle caches
 
 Gradle uses a local cache of libraries. When adopting Chainguard Libraries for
-Java you must delete that local cache so that libraries are downloaded again. By
-default the cache is located in a hidden `.gradle/.cache` directory in your
-users home directory. Use the following command to delete it:
+Java you must refresh dependencies or delete that local cache so that libraries
+are downloaded again. By default the cache is located in a hidden
+`~/.gradle/caches` directory in your users home directory. 
 
-```shell
+If you are updating an existing Gradle project to use Chainguard Libraries for
+Java, refresh the dependencies so Gradle re-resolves artifacts from the updates
+repositories:
+
+```bash
+./gradlew --refresh-dependencies build
+```
+
+This forces Gradle to ignore cached dependencies and retrieve them again from the configured repositories.
+
+If issues persist, remove the local cache:
+
+```bash
 rm -rf ~/.gradle/caches/
 ```
 
@@ -457,7 +469,7 @@ repositories {
 }
 ```
 
-If this configuration is used, ensure to [delete the local Maven repository as
+If this configuration is used, ensure you [delete the local Maven repository as
 well](#remove-maven-caches). 
 
 ### Change Gradle configuration
@@ -477,7 +489,10 @@ separately.
 A typical setup removes the direct reference to Maven Central `mavenCentral()`
 and any other repositories, and adds a replacement definition with the URL of the
 repository group or virtual repository from your repository manager
-`https://repo.example.com/group/` and any applicable authentication details:
+`https://repo.example.com/group/` and any applicable authentication details.
+
+Open `app/build.gradle` and update the `repositories` block to include the following repository. Ensure it is located above the `mavenCentral` repository and any
+other repositories:
 
 ```groovy
 repositories {
@@ -490,7 +505,8 @@ repositories {
     }
 }
 ```
->Note: Do not store credentials directly in build files; use environment variables or local Gradle properties instead.
+>Note: Do not store credentials directly in build files; use environment
+>variables or local Gradle properties instead.
 
 Example URLs for repository managers:
 
@@ -503,27 +519,14 @@ Example URLs for repository managers:
 
 If your organization does not use a repository manager you can configure the
 Chainguard Libraries for Java repository with the credentials from [Chainguard
-Libraries access](/chainguard/libraries/access/) replacing the placeholders
-`CHAINGUARD_JAVA_IDENTITY_ID` and `CHAINGUARD_JAVA_TOKEN`. Ensure that the
-Chainguard repository is located above the `mavenCentral` repository and any
-other repositories:
+Libraries access](/chainguard/libraries/access/). The following `repositories` block demonstrates
+the recommended method of using [environment
+variables](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials)
+for your pull token credentials. 
 
-```groovy
-repositories {
-    maven {
-        url = uri("https://libraries.cgr.dev/java/")
-        credentials {
-            username = "CHAINGUARD_JAVA_IDENTITY_ID"
-            password = "CHAINGUARD_JAVA_TOKEN"
-        }
-    }
-    mavenCentral()
-}
-```
->This example uses placeholders. It is not recommended to hardcode credentials.
-
-Alternatively configure [environment
-variables](/chainguard/libraries/access/#env) and access the values:
+Open `app/build.gradle` and update the `repositories` block to include the
+Chainguard repository. Ensure it is located above the `mavenCentral` repository
+and any other repositories:
 
 ```groovy
 repositories {
@@ -567,7 +570,6 @@ allprojects {
   }
 }
 ```
->Use HTTP repositories only in trusted environments. HTTPS is recommended.
 
 ### Minimal example project
 
@@ -621,11 +623,16 @@ Following the build, find the guava jar declared in the version catalog at:
 #### Verify the project works as expected
 
 To verify the artifact was built by Chainguard, use `chainctl`. In this example,
-we use `find` to locate the jar and then pipe it to `chainctl`:
+we first use `find` to locate the jar:
 
 ```bash
-find ~/.gradle/caches/modules-2/files-2.1/com.google.guava/guava \
-  -name "*.jar" | head -1 | xargs chainctl libraries verify --parent your-org
+find ~/.gradle/caches/modules-2/files-2.1/com.google.guava/guava -name "*.jar" | sort
+```
+
+Then copy the exact path to the jar and verify it with `chainctl`: 
+
+```bash
+chainctl libraries verify --parent your-org /full/path/to/guava-<version>.jar
 ```
 
 A successfully verified artifact produces output similar to the following:
