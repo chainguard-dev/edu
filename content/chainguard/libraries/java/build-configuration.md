@@ -435,24 +435,14 @@ desired packages for further testing.
 [Gradle](https://gradle.org/) is a commonly used build tool in the Java
 ecosystem.
 
-### Refresh or remove Gradle caches
+### Step 1: Remove Gradle caches
 
 Gradle uses a local cache of libraries. When adopting Chainguard Libraries for
-Java you must refresh dependencies or delete that local cache so that libraries
+Java you must delete that local cache so that libraries
 are downloaded again. By default the cache is located in a hidden
 `~/.gradle/caches` directory in your users home directory. 
 
-If you are updating an existing Gradle project to use Chainguard Libraries for
-Java, refresh the dependencies so Gradle re-resolves artifacts from the updates
-repositories:
-
-```bash
-./gradlew --refresh-dependencies build
-```
-
-This forces Gradle to ignore cached dependencies and retrieve them again from the configured repositories.
-
-If issues persist, remove the local cache:
+Use the following command to delete it:
 
 ```bash
 rm -rf ~/.gradle/caches/
@@ -472,7 +462,7 @@ repositories {
 If this configuration is used, ensure you [delete the local Maven repository as
 well](#remove-maven-caches). 
 
-### Change Gradle configuration
+### Step 2: Change Gradle configuration
 
 Before running a new build you must configure access to the Chainguard Libraries
 for Java. If the administrator for your organization’s repository manager
