@@ -563,7 +563,16 @@ allprojects {
 
 ### Minimal example project
 
-Use the following steps to create a minimal example project for Gradle with Chainguard Libraries for Java.
+Use the following steps to create a minimal example project for Gradle with Chainguard Libraries for Java. For testing purposes, you can use direct access and environment variables as
+detailed in the [access documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials). 
+
+**Step 1: Clear the cache**
+
+Clear the Gradle cache as described in the [Remove Gradle caches](#step-1-remove-gradle-caches) section.
+
+**Step 2: Create the example project**
+
+Run the following command:
 
 ```bash
 mkdir gradle-example
@@ -575,11 +584,9 @@ gradle init --type java-application --dsl groovy \
   --no-split-project
 ```
 
-For testing purposes, you can use direct access and environment variables as
-detailed in the [access documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials). 
+**Step 3: Edit app/build.gradle**
 
-
-Once the environment variables are set, edit the `repositories` block in `app/build.gradle` to point to Chainguard and use your environment variables:
+Edit the `repositories` block in `app/build.gradle` to point to Chainguard and use the environment variables for your pull token credentials:
 
 ```groovy
 repositories {
@@ -594,7 +601,9 @@ repositories {
 }
 ```
 
-Build the project:
+**Step 4: Build the project**
+
+Run the following command:
 
 ```bash
 ./gradlew app:assemble
