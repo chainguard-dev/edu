@@ -12262,6 +12262,66 @@
   ],
   "tags": [
     {
+      "name": "AccountAssociationsService"
+    },
+    {
+      "name": "GroupInvitesService"
+    },
+    {
+      "name": "GroupsService"
+    },
+    {
+      "name": "IdentitiesService"
+    },
+    {
+      "name": "IdentityProvidersService"
+    },
+    {
+      "name": "RoleBindingsService"
+    },
+    {
+      "name": "RolesService"
+    },
+    {
+      "name": "AccountAssociationsService"
+    },
+    {
+      "name": "GroupInvitesService"
+    },
+    {
+      "name": "GroupsService"
+    },
+    {
+      "name": "IdentitiesService"
+    },
+    {
+      "name": "IdentityProvidersService"
+    },
+    {
+      "name": "RoleBindingsService"
+    },
+    {
+      "name": "RolesService"
+    },
+    {
+      "name": "ReposService"
+    },
+    {
+      "name": "TagsService"
+    },
+    {
+      "name": "ReposService"
+    },
+    {
+      "name": "TagsService"
+    },
+    {
+      "name": "AdvisoriesService"
+    },
+    {
+      "name": "AdvisoriesService"
+    },
+    {
       "name": "SecurityAdvisory"
     },
     {
@@ -12269,6 +12329,10 @@
     },
     {
       "name": "Auth"
+    },
+    {
+      "description": "Ecosystem Entitlements API",
+      "name": "EcosystemsEntitlements"
     },
     {
       "description": "Event Identities API",
@@ -12314,6 +12378,9 @@
     },
     {
       "name": "Notifications"
+    },
+    {
+      "name": "SecurityTokenService"
     },
     {
       "description": "Packages Entitlements API",

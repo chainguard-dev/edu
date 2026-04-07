@@ -5183,6 +5183,33 @@
       "name": "RolesService"
     },
     {
+      "name": "AccountAssociationsService"
+    },
+    {
+      "name": "GroupInvitesService"
+    },
+    {
+      "name": "GroupsService"
+    },
+    {
+      "name": "IdentitiesService"
+    },
+    {
+      "name": "IdentityProvidersService"
+    },
+    {
+      "name": "RoleBindingsService"
+    },
+    {
+      "name": "RolesService"
+    },
+    {
+      "name": "ReposService"
+    },
+    {
+      "name": "TagsService"
+    },
+    {
       "name": "ReposService"
     },
     {
@@ -5190,6 +5217,99 @@
     },
     {
       "name": "AdvisoriesService"
+    },
+    {
+      "name": "AdvisoriesService"
+    },
+    {
+      "name": "SecurityAdvisory"
+    },
+    {
+      "name": "APK"
+    },
+    {
+      "name": "Auth"
+    },
+    {
+      "description": "Ecosystem Entitlements API",
+      "name": "EcosystemsEntitlements"
+    },
+    {
+      "description": "Event Identities API",
+      "name": "EventIdentities"
+    },
+    {
+      "name": "Subscriptions"
+    },
+    {
+      "name": "GroupAccountAssociations"
+    },
+    {
+      "name": "Groups"
+    },
+    {
+      "name": "GroupInvites"
+    },
+    {
+      "description": "IAM Identities API",
+      "name": "IAMIdentities"
+    },
+    {
+      "name": "IdentityProviders"
+    },
+    {
+      "name": "Roles"
+    },
+    {
+      "name": "RoleBindings"
+    },
+    {
+      "name": "Artifacts"
+    },
+    {
+      "description": "Libraries Entitlements API",
+      "name": "LibrariesEntitlements"
+    },
+    {
+      "name": "NpmPackages"
+    },
+    {
+      "name": "ImageMatcher"
+    },
+    {
+      "name": "Notifications"
+    },
+    {
+      "name": "SecurityTokenService"
+    },
+    {
+      "description": "Packages Entitlements API",
+      "name": "PackagesEntitlements"
+    },
+    {
+      "name": "PingService"
+    },
+    {
+      "name": "Policies"
+    },
+    {
+      "name": "Bindings"
+    },
+    {
+      "name": "Apko"
+    },
+    {
+      "name": "Registry"
+    },
+    {
+      "description": "Registry Entitlements API",
+      "name": "RegistryEntitlements"
+    },
+    {
+      "name": "Vulnerabilities"
+    },
+    {
+      "name": "Advisories"
     }
   ]
 }
