@@ -299,7 +299,16 @@ details must remain within the settings file.
 Use the following steps to create a minimal example project for Maven with Chainguard Libraries for Java. For testing purposes, you can use direct access and environment variables as
 detailed in the [access documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials). 
 
-**1. Create a new Maven project**
+**1. Remove the Maven cache**
+
+Remove the Maven cache as described in the [Remove Maven
+caches](#step-1-remove-maven-caches) section.
+
+**2. Create a new Maven project**
+
+This command generates a new Maven project from the `archetype` template, sets
+the group ID and artifact ID, creates a full project structure, and then moves
+into the generated project directory:
 
 ```bash
 mvn archetype:generate \
@@ -311,9 +320,7 @@ mvn archetype:generate \
 cd maven-example
 ```
 
-This command generates a new Maven project from the `archetype` template, sets the group ID and artifact ID, creates a full project structure, and then moves into the generated project directory.
-
-**2. Add a dependency to pom.xml**
+**3. Add a dependency to pom.xml**
 
 Add a dependency on `com.google.guava:guava` to the `<dependencies>` section of
 `pom.xml`. Open the file and insert the following before the closing
@@ -327,7 +334,7 @@ Add a dependency on `com.google.guava:guava` to the `<dependencies>` section of
 </dependency>
 ```
 
-**3. Configure credentials**
+**4. Configure credentials**
 
 Once the environment variables are set, configure credentials in `~/.m2/settings.xml`:
 
@@ -398,7 +405,7 @@ cat > ~/.m2/settings.xml << EOF
 EOF
 ```
 
-**4. Build the project**
+**5. Build the project**
 
 Then build the project:
 
