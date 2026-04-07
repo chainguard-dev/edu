@@ -565,7 +565,11 @@ chainctl libraries verify --detailed .venv/
 
 A successfully verified project produces output similar to the following:
 ```bash
-Artifact: .venv/
-Verification Coverage: 71.43%
 Verified packages: 5 of 7
+Details: Python packages: 5 of 6 packages verified via per-package SBOMs (83.3%)
+...
+  - flask
+    Status: Verified as built from source
+    Details: Version: 2.0.0 (verified via per-package SBOM - built from source by Chainguard)
+    Python package: flask==2.0.0
 ```
